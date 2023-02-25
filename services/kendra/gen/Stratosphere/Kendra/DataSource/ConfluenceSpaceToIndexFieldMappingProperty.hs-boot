@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.ConfluenceSpaceToIndexFieldMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConfluenceSpaceToIndexFieldMappingProperty :: Prelude.Type
+instance ToResourceProperties ConfluenceSpaceToIndexFieldMappingProperty
+instance JSON.ToJSON ConfluenceSpaceToIndexFieldMappingProperty

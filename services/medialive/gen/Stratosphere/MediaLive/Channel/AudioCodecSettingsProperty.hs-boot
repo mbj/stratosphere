@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AudioCodecSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioCodecSettingsProperty :: Prelude.Type
+instance ToResourceProperties AudioCodecSettingsProperty
+instance JSON.ToJSON AudioCodecSettingsProperty

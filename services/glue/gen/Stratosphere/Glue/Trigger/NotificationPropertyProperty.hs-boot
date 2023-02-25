@@ -1,0 +1,7 @@
+module Stratosphere.Glue.Trigger.NotificationPropertyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NotificationPropertyProperty :: Prelude.Type
+instance ToResourceProperties NotificationPropertyProperty
+instance JSON.ToJSON NotificationPropertyProperty

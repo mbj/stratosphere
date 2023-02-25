@@ -1,0 +1,39 @@
+module Stratosphere.LakeFormation.DataCellsFilter.RowFilterProperty (
+        RowFilterProperty(..), mkRowFilterProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data RowFilterProperty
+  = RowFilterProperty {allRowsWildcard :: (Prelude.Maybe JSON.Object),
+                       filterExpression :: (Prelude.Maybe (Value Prelude.Text))}
+mkRowFilterProperty :: RowFilterProperty
+mkRowFilterProperty
+  = RowFilterProperty
+      {allRowsWildcard = Prelude.Nothing,
+       filterExpression = Prelude.Nothing}
+instance ToResourceProperties RowFilterProperty where
+  toResourceProperties RowFilterProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::LakeFormation::DataCellsFilter.RowFilter",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "AllRowsWildcard" Prelude.<$> allRowsWildcard,
+                            (JSON..=) "FilterExpression" Prelude.<$> filterExpression])}
+instance JSON.ToJSON RowFilterProperty where
+  toJSON RowFilterProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "AllRowsWildcard" Prelude.<$> allRowsWildcard,
+               (JSON..=) "FilterExpression" Prelude.<$> filterExpression]))
+instance Property "AllRowsWildcard" RowFilterProperty where
+  type PropertyType "AllRowsWildcard" RowFilterProperty = JSON.Object
+  set newValue RowFilterProperty {..}
+    = RowFilterProperty {allRowsWildcard = Prelude.pure newValue, ..}
+instance Property "FilterExpression" RowFilterProperty where
+  type PropertyType "FilterExpression" RowFilterProperty = Value Prelude.Text
+  set newValue RowFilterProperty {..}
+    = RowFilterProperty {filterExpression = Prelude.pure newValue, ..}

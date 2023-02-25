@@ -1,0 +1,7 @@
+module Stratosphere.LookoutMetrics.AnomalyDetector.FileFormatDescriptorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FileFormatDescriptorProperty :: Prelude.Type
+instance ToResourceProperties FileFormatDescriptorProperty
+instance JSON.ToJSON FileFormatDescriptorProperty

@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.Project.ServiceCatalogProvisionedProductDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceCatalogProvisionedProductDetailsProperty :: Prelude.Type
+instance ToResourceProperties ServiceCatalogProvisionedProductDetailsProperty
+instance JSON.ToJSON ServiceCatalogProvisionedProductDetailsProperty

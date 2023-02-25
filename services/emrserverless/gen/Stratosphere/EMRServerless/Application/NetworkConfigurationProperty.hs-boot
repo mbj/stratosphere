@@ -1,0 +1,7 @@
+module Stratosphere.EMRServerless.Application.NetworkConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkConfigurationProperty :: Prelude.Type
+instance ToResourceProperties NetworkConfigurationProperty
+instance JSON.ToJSON NetworkConfigurationProperty

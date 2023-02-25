@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.AdvancedRecognitionSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdvancedRecognitionSettingProperty :: Prelude.Type
+instance ToResourceProperties AdvancedRecognitionSettingProperty
+instance JSON.ToJSON AdvancedRecognitionSettingProperty

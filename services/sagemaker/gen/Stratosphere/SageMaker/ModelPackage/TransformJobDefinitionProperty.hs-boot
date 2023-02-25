@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelPackage.TransformJobDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TransformJobDefinitionProperty :: Prelude.Type
+instance ToResourceProperties TransformJobDefinitionProperty
+instance JSON.ToJSON TransformJobDefinitionProperty

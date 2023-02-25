@@ -1,0 +1,7 @@
+module Stratosphere.AppSync.DataSource.RdsHttpEndpointConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RdsHttpEndpointConfigProperty :: Prelude.Type
+instance ToResourceProperties RdsHttpEndpointConfigProperty
+instance JSON.ToJSON RdsHttpEndpointConfigProperty

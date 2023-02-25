@@ -1,0 +1,7 @@
+module Stratosphere.MediaPackage.PackagingConfiguration.StreamSelectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StreamSelectionProperty :: Prelude.Type
+instance ToResourceProperties StreamSelectionProperty
+instance JSON.ToJSON StreamSelectionProperty

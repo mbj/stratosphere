@@ -1,0 +1,7 @@
+module Stratosphere.Glue.Database.PrincipalPrivilegesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PrincipalPrivilegesProperty :: Prelude.Type
+instance ToResourceProperties PrincipalPrivilegesProperty
+instance JSON.ToJSON PrincipalPrivilegesProperty

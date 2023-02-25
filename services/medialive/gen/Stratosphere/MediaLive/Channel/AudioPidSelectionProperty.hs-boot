@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AudioPidSelectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioPidSelectionProperty :: Prelude.Type
+instance ToResourceProperties AudioPidSelectionProperty
+instance JSON.ToJSON AudioPidSelectionProperty

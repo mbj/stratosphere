@@ -1,0 +1,7 @@
+module Stratosphere.ImageBuilder.DistributionConfiguration.DistributionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DistributionProperty :: Prelude.Type
+instance ToResourceProperties DistributionProperty
+instance JSON.ToJSON DistributionProperty

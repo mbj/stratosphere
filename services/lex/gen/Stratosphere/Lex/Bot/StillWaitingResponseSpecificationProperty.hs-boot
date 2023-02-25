@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.StillWaitingResponseSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StillWaitingResponseSpecificationProperty :: Prelude.Type
+instance ToResourceProperties StillWaitingResponseSpecificationProperty
+instance JSON.ToJSON StillWaitingResponseSpecificationProperty

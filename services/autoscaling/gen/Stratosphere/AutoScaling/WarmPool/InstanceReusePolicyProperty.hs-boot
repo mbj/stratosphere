@@ -1,0 +1,7 @@
+module Stratosphere.AutoScaling.WarmPool.InstanceReusePolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceReusePolicyProperty :: Prelude.Type
+instance ToResourceProperties InstanceReusePolicyProperty
+instance JSON.ToJSON InstanceReusePolicyProperty

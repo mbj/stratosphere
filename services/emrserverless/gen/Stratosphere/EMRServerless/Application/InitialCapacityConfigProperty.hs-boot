@@ -1,0 +1,7 @@
+module Stratosphere.EMRServerless.Application.InitialCapacityConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InitialCapacityConfigProperty :: Prelude.Type
+instance ToResourceProperties InitialCapacityConfigProperty
+instance JSON.ToJSON InitialCapacityConfigProperty

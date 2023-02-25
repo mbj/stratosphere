@@ -1,0 +1,7 @@
+module Stratosphere.EMRServerless.Application.AutoStartConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoStartConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AutoStartConfigurationProperty
+instance JSON.ToJSON AutoStartConfigurationProperty

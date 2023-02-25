@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.DynatraceConnectorProfileCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DynatraceConnectorProfileCredentialsProperty :: Prelude.Type
+instance ToResourceProperties DynatraceConnectorProfileCredentialsProperty
+instance JSON.ToJSON DynatraceConnectorProfileCredentialsProperty

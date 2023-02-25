@@ -1,0 +1,7 @@
+module Stratosphere.ECS.TaskDefinition.RepositoryCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RepositoryCredentialsProperty :: Prelude.Type
+instance ToResourceProperties RepositoryCredentialsProperty
+instance JSON.ToJSON RepositoryCredentialsProperty

@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalytics.Application.InputParallelismProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputParallelismProperty :: Prelude.Type
+instance ToResourceProperties InputParallelismProperty
+instance JSON.ToJSON InputParallelismProperty

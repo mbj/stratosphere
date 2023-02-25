@@ -1,0 +1,7 @@
+module Stratosphere.Backup.Framework.ControlInputParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ControlInputParameterProperty :: Prelude.Type
+instance ToResourceProperties ControlInputParameterProperty
+instance JSON.ToJSON ControlInputParameterProperty

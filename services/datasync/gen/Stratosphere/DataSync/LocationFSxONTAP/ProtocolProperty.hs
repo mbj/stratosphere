@@ -1,0 +1,38 @@
+module Stratosphere.DataSync.LocationFSxONTAP.ProtocolProperty (
+        module Exports, ProtocolProperty(..), mkProtocolProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxONTAP.NFSProperty as Exports
+import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxONTAP.SMBProperty as Exports
+import Stratosphere.ResourceProperties
+data ProtocolProperty
+  = ProtocolProperty {nFS :: (Prelude.Maybe NFSProperty),
+                      sMB :: (Prelude.Maybe SMBProperty)}
+mkProtocolProperty :: ProtocolProperty
+mkProtocolProperty
+  = ProtocolProperty {nFS = Prelude.Nothing, sMB = Prelude.Nothing}
+instance ToResourceProperties ProtocolProperty where
+  toResourceProperties ProtocolProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::DataSync::LocationFSxONTAP.Protocol",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "NFS" Prelude.<$> nFS,
+                            (JSON..=) "SMB" Prelude.<$> sMB])}
+instance JSON.ToJSON ProtocolProperty where
+  toJSON ProtocolProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "NFS" Prelude.<$> nFS,
+               (JSON..=) "SMB" Prelude.<$> sMB]))
+instance Property "NFS" ProtocolProperty where
+  type PropertyType "NFS" ProtocolProperty = NFSProperty
+  set newValue ProtocolProperty {..}
+    = ProtocolProperty {nFS = Prelude.pure newValue, ..}
+instance Property "SMB" ProtocolProperty where
+  type PropertyType "SMB" ProtocolProperty = SMBProperty
+  set newValue ProtocolProperty {..}
+    = ProtocolProperty {sMB = Prelude.pure newValue, ..}

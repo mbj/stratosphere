@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.DefaultConditionalBranchProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultConditionalBranchProperty :: Prelude.Type
+instance ToResourceProperties DefaultConditionalBranchProperty
+instance JSON.ToJSON DefaultConditionalBranchProperty

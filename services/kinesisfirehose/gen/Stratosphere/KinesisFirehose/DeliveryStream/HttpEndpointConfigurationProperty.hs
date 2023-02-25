@@ -1,0 +1,51 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointConfigurationProperty (
+        HttpEndpointConfigurationProperty(..),
+        mkHttpEndpointConfigurationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data HttpEndpointConfigurationProperty
+  = HttpEndpointConfigurationProperty {accessKey :: (Prelude.Maybe (Value Prelude.Text)),
+                                       name :: (Prelude.Maybe (Value Prelude.Text)),
+                                       url :: (Value Prelude.Text)}
+mkHttpEndpointConfigurationProperty ::
+  Value Prelude.Text -> HttpEndpointConfigurationProperty
+mkHttpEndpointConfigurationProperty url
+  = HttpEndpointConfigurationProperty
+      {url = url, accessKey = Prelude.Nothing, name = Prelude.Nothing}
+instance ToResourceProperties HttpEndpointConfigurationProperty where
+  toResourceProperties HttpEndpointConfigurationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::KinesisFirehose::DeliveryStream.HttpEndpointConfiguration",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Url" JSON..= url]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AccessKey" Prelude.<$> accessKey,
+                               (JSON..=) "Name" Prelude.<$> name]))}
+instance JSON.ToJSON HttpEndpointConfigurationProperty where
+  toJSON HttpEndpointConfigurationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Url" JSON..= url]
+              (Prelude.catMaybes
+                 [(JSON..=) "AccessKey" Prelude.<$> accessKey,
+                  (JSON..=) "Name" Prelude.<$> name])))
+instance Property "AccessKey" HttpEndpointConfigurationProperty where
+  type PropertyType "AccessKey" HttpEndpointConfigurationProperty = Value Prelude.Text
+  set newValue HttpEndpointConfigurationProperty {..}
+    = HttpEndpointConfigurationProperty
+        {accessKey = Prelude.pure newValue, ..}
+instance Property "Name" HttpEndpointConfigurationProperty where
+  type PropertyType "Name" HttpEndpointConfigurationProperty = Value Prelude.Text
+  set newValue HttpEndpointConfigurationProperty {..}
+    = HttpEndpointConfigurationProperty
+        {name = Prelude.pure newValue, ..}
+instance Property "Url" HttpEndpointConfigurationProperty where
+  type PropertyType "Url" HttpEndpointConfigurationProperty = Value Prelude.Text
+  set newValue HttpEndpointConfigurationProperty {..}
+    = HttpEndpointConfigurationProperty {url = newValue, ..}

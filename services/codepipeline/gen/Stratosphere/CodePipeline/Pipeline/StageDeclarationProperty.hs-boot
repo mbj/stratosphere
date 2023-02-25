@@ -1,0 +1,7 @@
+module Stratosphere.CodePipeline.Pipeline.StageDeclarationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StageDeclarationProperty :: Prelude.Type
+instance ToResourceProperties StageDeclarationProperty
+instance JSON.ToJSON StageDeclarationProperty

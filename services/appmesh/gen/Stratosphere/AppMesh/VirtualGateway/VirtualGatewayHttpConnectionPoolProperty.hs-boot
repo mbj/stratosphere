@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualGateway.VirtualGatewayHttpConnectionPoolProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VirtualGatewayHttpConnectionPoolProperty :: Prelude.Type
+instance ToResourceProperties VirtualGatewayHttpConnectionPoolProperty
+instance JSON.ToJSON VirtualGatewayHttpConnectionPoolProperty

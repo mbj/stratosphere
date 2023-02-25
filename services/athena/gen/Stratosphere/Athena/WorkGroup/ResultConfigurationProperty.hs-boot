@@ -1,0 +1,7 @@
+module Stratosphere.Athena.WorkGroup.ResultConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResultConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ResultConfigurationProperty
+instance JSON.ToJSON ResultConfigurationProperty

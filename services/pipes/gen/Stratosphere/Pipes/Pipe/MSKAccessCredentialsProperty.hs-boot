@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.MSKAccessCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MSKAccessCredentialsProperty :: Prelude.Type
+instance ToResourceProperties MSKAccessCredentialsProperty
+instance JSON.ToJSON MSKAccessCredentialsProperty

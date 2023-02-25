@@ -1,0 +1,7 @@
+module Stratosphere.FMS.Policy.NetworkFirewallPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkFirewallPolicyProperty :: Prelude.Type
+instance ToResourceProperties NetworkFirewallPolicyProperty
+instance JSON.ToJSON NetworkFirewallPolicyProperty

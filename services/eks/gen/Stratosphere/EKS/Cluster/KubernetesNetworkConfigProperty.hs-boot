@@ -1,0 +1,7 @@
+module Stratosphere.EKS.Cluster.KubernetesNetworkConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KubernetesNetworkConfigProperty :: Prelude.Type
+instance ToResourceProperties KubernetesNetworkConfigProperty
+instance JSON.ToJSON KubernetesNetworkConfigProperty

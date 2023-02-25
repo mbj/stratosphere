@@ -1,0 +1,7 @@
+module Stratosphere.ECR.ReplicationConfiguration.RepositoryFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RepositoryFilterProperty :: Prelude.Type
+instance ToResourceProperties RepositoryFilterProperty
+instance JSON.ToJSON RepositoryFilterProperty

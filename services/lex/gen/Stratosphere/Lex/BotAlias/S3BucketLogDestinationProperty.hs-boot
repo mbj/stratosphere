@@ -1,0 +1,7 @@
+module Stratosphere.Lex.BotAlias.S3BucketLogDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3BucketLogDestinationProperty :: Prelude.Type
+instance ToResourceProperties S3BucketLogDestinationProperty
+instance JSON.ToJSON S3BucketLogDestinationProperty

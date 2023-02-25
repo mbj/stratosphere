@@ -1,0 +1,7 @@
+module Stratosphere.DynamoDB.GlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplicaGlobalSecondaryIndexSpecificationProperty :: Prelude.Type
+instance ToResourceProperties ReplicaGlobalSecondaryIndexSpecificationProperty
+instance JSON.ToJSON ReplicaGlobalSecondaryIndexSpecificationProperty

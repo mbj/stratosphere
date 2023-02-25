@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalyticsV2.Application.CheckpointConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CheckpointConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CheckpointConfigurationProperty
+instance JSON.ToJSON CheckpointConfigurationProperty

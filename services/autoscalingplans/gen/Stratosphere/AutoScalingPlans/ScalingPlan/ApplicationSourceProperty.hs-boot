@@ -1,0 +1,7 @@
+module Stratosphere.AutoScalingPlans.ScalingPlan.ApplicationSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ApplicationSourceProperty :: Prelude.Type
+instance ToResourceProperties ApplicationSourceProperty
+instance JSON.ToJSON ApplicationSourceProperty

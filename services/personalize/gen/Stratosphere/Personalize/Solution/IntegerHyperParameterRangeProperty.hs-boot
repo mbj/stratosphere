@@ -1,0 +1,7 @@
+module Stratosphere.Personalize.Solution.IntegerHyperParameterRangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IntegerHyperParameterRangeProperty :: Prelude.Type
+instance ToResourceProperties IntegerHyperParameterRangeProperty
+instance JSON.ToJSON IntegerHyperParameterRangeProperty

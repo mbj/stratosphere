@@ -1,0 +1,7 @@
+module Stratosphere.DLM.LifecyclePolicy.CrossRegionCopyActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CrossRegionCopyActionProperty :: Prelude.Type
+instance ToResourceProperties CrossRegionCopyActionProperty
+instance JSON.ToJSON CrossRegionCopyActionProperty

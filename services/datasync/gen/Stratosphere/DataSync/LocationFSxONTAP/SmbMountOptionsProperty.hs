@@ -1,0 +1,28 @@
+module Stratosphere.DataSync.LocationFSxONTAP.SmbMountOptionsProperty (
+        SmbMountOptionsProperty(..), mkSmbMountOptionsProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data SmbMountOptionsProperty
+  = SmbMountOptionsProperty {version :: (Prelude.Maybe (Value Prelude.Text))}
+mkSmbMountOptionsProperty :: SmbMountOptionsProperty
+mkSmbMountOptionsProperty
+  = SmbMountOptionsProperty {version = Prelude.Nothing}
+instance ToResourceProperties SmbMountOptionsProperty where
+  toResourceProperties SmbMountOptionsProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::DataSync::LocationFSxONTAP.SmbMountOptions",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes [(JSON..=) "Version" Prelude.<$> version])}
+instance JSON.ToJSON SmbMountOptionsProperty where
+  toJSON SmbMountOptionsProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes [(JSON..=) "Version" Prelude.<$> version]))
+instance Property "Version" SmbMountOptionsProperty where
+  type PropertyType "Version" SmbMountOptionsProperty = Value Prelude.Text
+  set newValue SmbMountOptionsProperty {}
+    = SmbMountOptionsProperty {version = Prelude.pure newValue, ..}

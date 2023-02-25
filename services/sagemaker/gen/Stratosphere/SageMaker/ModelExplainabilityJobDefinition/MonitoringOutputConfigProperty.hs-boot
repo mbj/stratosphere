@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelExplainabilityJobDefinition.MonitoringOutputConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MonitoringOutputConfigProperty :: Prelude.Type
+instance ToResourceProperties MonitoringOutputConfigProperty
+instance JSON.ToJSON MonitoringOutputConfigProperty

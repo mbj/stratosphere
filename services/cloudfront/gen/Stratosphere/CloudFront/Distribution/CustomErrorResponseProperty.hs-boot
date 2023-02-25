@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.Distribution.CustomErrorResponseProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomErrorResponseProperty :: Prelude.Type
+instance ToResourceProperties CustomErrorResponseProperty
+instance JSON.ToJSON CustomErrorResponseProperty

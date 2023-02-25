@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.EndpointConfig.ProductionVariantProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProductionVariantProperty :: Prelude.Type
+instance ToResourceProperties ProductionVariantProperty
+instance JSON.ToJSON ProductionVariantProperty

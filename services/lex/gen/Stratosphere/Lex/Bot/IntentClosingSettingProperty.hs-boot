@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.IntentClosingSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IntentClosingSettingProperty :: Prelude.Type
+instance ToResourceProperties IntentClosingSettingProperty
+instance JSON.ToJSON IntentClosingSettingProperty

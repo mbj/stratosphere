@@ -1,0 +1,7 @@
+module Stratosphere.Lex.BotAlias.ConversationLogSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConversationLogSettingsProperty :: Prelude.Type
+instance ToResourceProperties ConversationLogSettingsProperty
+instance JSON.ToJSON ConversationLogSettingsProperty

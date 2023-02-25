@@ -1,0 +1,7 @@
+module Stratosphere.ElastiCache.ReplicationGroup.CloudWatchLogsDestinationDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudWatchLogsDestinationDetailsProperty :: Prelude.Type
+instance ToResourceProperties CloudWatchLogsDestinationDetailsProperty
+instance JSON.ToJSON CloudWatchLogsDestinationDetailsProperty

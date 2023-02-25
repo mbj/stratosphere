@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.HlsAkamaiSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HlsAkamaiSettingsProperty :: Prelude.Type
+instance ToResourceProperties HlsAkamaiSettingsProperty
+instance JSON.ToJSON HlsAkamaiSettingsProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Omics.AnnotationStore.TsvStoreOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TsvStoreOptionsProperty :: Prelude.Type
+instance ToResourceProperties TsvStoreOptionsProperty
+instance JSON.ToJSON TsvStoreOptionsProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AncillarySourceSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AncillarySourceSettingsProperty :: Prelude.Type
+instance ToResourceProperties AncillarySourceSettingsProperty
+instance JSON.ToJSON AncillarySourceSettingsProperty

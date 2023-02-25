@@ -1,0 +1,7 @@
+module Stratosphere.Grafana.Workspace.AssertionAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AssertionAttributesProperty :: Prelude.Type
+instance ToResourceProperties AssertionAttributesProperty
+instance JSON.ToJSON AssertionAttributesProperty

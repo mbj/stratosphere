@@ -1,0 +1,7 @@
+module Stratosphere.FSx.Volume.ClientConfigurationsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClientConfigurationsProperty :: Prelude.Type
+instance ToResourceProperties ClientConfigurationsProperty
+instance JSON.ToJSON ClientConfigurationsProperty

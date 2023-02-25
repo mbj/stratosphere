@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Theme.ThemeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ThemeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ThemeConfigurationProperty
+instance JSON.ToJSON ThemeConfigurationProperty

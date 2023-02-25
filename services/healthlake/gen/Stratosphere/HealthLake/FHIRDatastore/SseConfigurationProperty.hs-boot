@@ -1,0 +1,7 @@
+module Stratosphere.HealthLake.FHIRDatastore.SseConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SseConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SseConfigurationProperty
+instance JSON.ToJSON SseConfigurationProperty

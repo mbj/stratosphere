@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancing.LoadBalancer.AccessLoggingPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessLoggingPolicyProperty :: Prelude.Type
+instance ToResourceProperties AccessLoggingPolicyProperty
+instance JSON.ToJSON AccessLoggingPolicyProperty

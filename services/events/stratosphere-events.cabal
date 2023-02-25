@@ -1,0 +1,113 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-events
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Events.ApiDestination
+      Stratosphere.Events.Archive
+      Stratosphere.Events.Connection
+      Stratosphere.Events.Connection.ApiKeyAuthParametersProperty
+      Stratosphere.Events.Connection.AuthParametersProperty
+      Stratosphere.Events.Connection.BasicAuthParametersProperty
+      Stratosphere.Events.Connection.ClientParametersProperty
+      Stratosphere.Events.Connection.ConnectionHttpParametersProperty
+      Stratosphere.Events.Connection.OAuthParametersProperty
+      Stratosphere.Events.Connection.ParameterProperty
+      Stratosphere.Events.Endpoint
+      Stratosphere.Events.Endpoint.EndpointEventBusProperty
+      Stratosphere.Events.Endpoint.FailoverConfigProperty
+      Stratosphere.Events.Endpoint.PrimaryProperty
+      Stratosphere.Events.Endpoint.ReplicationConfigProperty
+      Stratosphere.Events.Endpoint.RoutingConfigProperty
+      Stratosphere.Events.Endpoint.SecondaryProperty
+      Stratosphere.Events.EventBus
+      Stratosphere.Events.EventBus.TagEntryProperty
+      Stratosphere.Events.EventBusPolicy
+      Stratosphere.Events.EventBusPolicy.ConditionProperty
+      Stratosphere.Events.Rule
+      Stratosphere.Events.Rule.AwsVpcConfigurationProperty
+      Stratosphere.Events.Rule.BatchArrayPropertiesProperty
+      Stratosphere.Events.Rule.BatchParametersProperty
+      Stratosphere.Events.Rule.BatchRetryStrategyProperty
+      Stratosphere.Events.Rule.CapacityProviderStrategyItemProperty
+      Stratosphere.Events.Rule.DeadLetterConfigProperty
+      Stratosphere.Events.Rule.EcsParametersProperty
+      Stratosphere.Events.Rule.HttpParametersProperty
+      Stratosphere.Events.Rule.InputTransformerProperty
+      Stratosphere.Events.Rule.KinesisParametersProperty
+      Stratosphere.Events.Rule.NetworkConfigurationProperty
+      Stratosphere.Events.Rule.PlacementConstraintProperty
+      Stratosphere.Events.Rule.PlacementStrategyProperty
+      Stratosphere.Events.Rule.RedshiftDataParametersProperty
+      Stratosphere.Events.Rule.RetryPolicyProperty
+      Stratosphere.Events.Rule.RunCommandParametersProperty
+      Stratosphere.Events.Rule.RunCommandTargetProperty
+      Stratosphere.Events.Rule.SageMakerPipelineParameterProperty
+      Stratosphere.Events.Rule.SageMakerPipelineParametersProperty
+      Stratosphere.Events.Rule.SqsParametersProperty
+      Stratosphere.Events.Rule.TagProperty
+      Stratosphere.Events.Rule.TargetProperty
+  other-modules:
+      Paths_stratosphere_events
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

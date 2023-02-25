@@ -1,0 +1,7 @@
+module Stratosphere.DevOpsGuru.ResourceCollection.CloudFormationCollectionFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudFormationCollectionFilterProperty :: Prelude.Type
+instance ToResourceProperties CloudFormationCollectionFilterProperty
+instance JSON.ToJSON CloudFormationCollectionFilterProperty

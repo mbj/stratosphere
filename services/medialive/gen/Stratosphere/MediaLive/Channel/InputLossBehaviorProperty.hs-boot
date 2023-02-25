@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.InputLossBehaviorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputLossBehaviorProperty :: Prelude.Type
+instance ToResourceProperties InputLossBehaviorProperty
+instance JSON.ToJSON InputLossBehaviorProperty

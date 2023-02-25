@@ -1,0 +1,7 @@
+module Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateLogConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExperimentTemplateLogConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ExperimentTemplateLogConfigurationProperty
+instance JSON.ToJSON ExperimentTemplateLogConfigurationProperty

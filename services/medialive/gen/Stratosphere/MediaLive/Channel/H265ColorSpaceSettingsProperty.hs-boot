@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.H265ColorSpaceSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data H265ColorSpaceSettingsProperty :: Prelude.Type
+instance ToResourceProperties H265ColorSpaceSettingsProperty
+instance JSON.ToJSON H265ColorSpaceSettingsProperty

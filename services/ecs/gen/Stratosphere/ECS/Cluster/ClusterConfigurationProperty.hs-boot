@@ -1,0 +1,7 @@
+module Stratosphere.ECS.Cluster.ClusterConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClusterConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ClusterConfigurationProperty
+instance JSON.ToJSON ClusterConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Config.RemediationConfiguration.ResourceValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResourceValueProperty :: Prelude.Type
+instance ToResourceProperties ResourceValueProperty
+instance JSON.ToJSON ResourceValueProperty

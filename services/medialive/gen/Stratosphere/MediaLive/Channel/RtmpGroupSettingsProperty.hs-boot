@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.RtmpGroupSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RtmpGroupSettingsProperty :: Prelude.Type
+instance ToResourceProperties RtmpGroupSettingsProperty
+instance JSON.ToJSON RtmpGroupSettingsProperty

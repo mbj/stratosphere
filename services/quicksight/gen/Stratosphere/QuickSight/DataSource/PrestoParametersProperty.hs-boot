@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSource.PrestoParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PrestoParametersProperty :: Prelude.Type
+instance ToResourceProperties PrestoParametersProperty
+instance JSON.ToJSON PrestoParametersProperty

@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.TagColumnOperationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TagColumnOperationProperty :: Prelude.Type
+instance ToResourceProperties TagColumnOperationProperty
+instance JSON.ToJSON TagColumnOperationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.MonitoringSchedule.BaselineConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BaselineConfigProperty :: Prelude.Type
+instance ToResourceProperties BaselineConfigProperty
+instance JSON.ToJSON BaselineConfigProperty

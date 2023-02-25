@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.SlotValueOverrideMapProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SlotValueOverrideMapProperty :: Prelude.Type
+instance ToResourceProperties SlotValueOverrideMapProperty
+instance JSON.ToJSON SlotValueOverrideMapProperty

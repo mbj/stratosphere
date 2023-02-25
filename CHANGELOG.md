@@ -2,8 +2,35 @@
 
 ## 1.0 [unreleased]
 
+Overall this release is meant to serve the future, not the past. So this release has many
+"bunched up" breaking changes which should reduce the need for breakng changes in the
+future.
+
+* Drop support for GHC < 9.2. This simplifies the generator significantly. If you need older
+  GHCs use the old versions of stratospehre. Dependency of dropping field prefixes.
+
+* Fully re-written generator, which works directly on the raw, un-preprocessed AWS specification.
+  This should increase maintainabiltiy and release frequency dramatically.
+
+* Re-aligned generated module structure, removing all manual overwrites for dismabiguation.
+
+* Drop of the lens dependency, results in slightly more verbose call sides, but significantly
+  reduced dependency and API lock in.
+
+* Drop generated field prefixes, making usage of the library way more natural and
+  offsets the drop of lens with room to spare.
+
+* Split to one package per AWS service. This induces a small overhead on the user to
+  select the packages the user needs, but reduces compilation time significantly.
+  Also this works aroudn limitations on OSX linker issues on many modules.
+
+* Change `Val` to `Value`, its recommended to include stratosphere qualified to
+  disambuguiate with potentially conflicting `aeson` imports.
+
 * Remove support for custom enum types stratosphere used to tag
   on to the raw spec. See: [#202](https://github.com/mbj/stratosphere/pull/202)
+
+* Update resource specification document to version 112.0.0
 
 ## 0.60.0
 

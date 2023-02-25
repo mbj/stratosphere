@@ -1,0 +1,7 @@
+module Stratosphere.DataSync.LocationFSxONTAP.NfsMountOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NfsMountOptionsProperty :: Prelude.Type
+instance ToResourceProperties NfsMountOptionsProperty
+instance JSON.ToJSON NfsMountOptionsProperty

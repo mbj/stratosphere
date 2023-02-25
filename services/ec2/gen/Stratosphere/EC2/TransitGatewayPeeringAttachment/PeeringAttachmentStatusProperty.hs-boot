@@ -1,0 +1,7 @@
+module Stratosphere.EC2.TransitGatewayPeeringAttachment.PeeringAttachmentStatusProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PeeringAttachmentStatusProperty :: Prelude.Type
+instance ToResourceProperties PeeringAttachmentStatusProperty
+instance JSON.ToJSON PeeringAttachmentStatusProperty

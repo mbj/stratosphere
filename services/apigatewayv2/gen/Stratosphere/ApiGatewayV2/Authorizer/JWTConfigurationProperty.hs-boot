@@ -1,0 +1,7 @@
+module Stratosphere.ApiGatewayV2.Authorizer.JWTConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data JWTConfigurationProperty :: Prelude.Type
+instance ToResourceProperties JWTConfigurationProperty
+instance JSON.ToJSON JWTConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.NielsenConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NielsenConfigurationProperty :: Prelude.Type
+instance ToResourceProperties NielsenConfigurationProperty
+instance JSON.ToJSON NielsenConfigurationProperty

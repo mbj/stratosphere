@@ -1,0 +1,7 @@
+module Stratosphere.RDS.DBCluster.ScalingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScalingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ScalingConfigurationProperty
+instance JSON.ToJSON ScalingConfigurationProperty

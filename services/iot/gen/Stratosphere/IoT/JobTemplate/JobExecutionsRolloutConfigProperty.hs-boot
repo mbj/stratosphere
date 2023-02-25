@@ -1,0 +1,7 @@
+module Stratosphere.IoT.JobTemplate.JobExecutionsRolloutConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data JobExecutionsRolloutConfigProperty :: Prelude.Type
+instance ToResourceProperties JobExecutionsRolloutConfigProperty
+instance JSON.ToJSON JobExecutionsRolloutConfigProperty

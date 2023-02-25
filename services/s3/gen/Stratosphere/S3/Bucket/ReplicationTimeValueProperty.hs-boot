@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.ReplicationTimeValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplicationTimeValueProperty :: Prelude.Type
+instance ToResourceProperties ReplicationTimeValueProperty
+instance JSON.ToJSON ReplicationTimeValueProperty

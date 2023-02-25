@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.UserPoolResourceServer.ResourceServerScopeTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResourceServerScopeTypeProperty :: Prelude.Type
+instance ToResourceProperties ResourceServerScopeTypeProperty
+instance JSON.ToJSON ResourceServerScopeTypeProperty

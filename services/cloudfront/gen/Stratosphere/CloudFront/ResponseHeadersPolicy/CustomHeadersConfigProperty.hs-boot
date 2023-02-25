@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.ResponseHeadersPolicy.CustomHeadersConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomHeadersConfigProperty :: Prelude.Type
+instance ToResourceProperties CustomHeadersConfigProperty
+instance JSON.ToJSON CustomHeadersConfigProperty

@@ -1,0 +1,164 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-iot
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.IoT.AccountAuditConfiguration
+      Stratosphere.IoT.AccountAuditConfiguration.AuditCheckConfigurationProperty
+      Stratosphere.IoT.AccountAuditConfiguration.AuditCheckConfigurationsProperty
+      Stratosphere.IoT.AccountAuditConfiguration.AuditNotificationTargetConfigurationsProperty
+      Stratosphere.IoT.AccountAuditConfiguration.AuditNotificationTargetProperty
+      Stratosphere.IoT.Authorizer
+      Stratosphere.IoT.CACertificate
+      Stratosphere.IoT.CACertificate.RegistrationConfigProperty
+      Stratosphere.IoT.Certificate
+      Stratosphere.IoT.CustomMetric
+      Stratosphere.IoT.Dimension
+      Stratosphere.IoT.DomainConfiguration
+      Stratosphere.IoT.DomainConfiguration.AuthorizerConfigProperty
+      Stratosphere.IoT.DomainConfiguration.ServerCertificateSummaryProperty
+      Stratosphere.IoT.FleetMetric
+      Stratosphere.IoT.FleetMetric.AggregationTypeProperty
+      Stratosphere.IoT.JobTemplate
+      Stratosphere.IoT.JobTemplate.AbortConfigProperty
+      Stratosphere.IoT.JobTemplate.AbortCriteriaProperty
+      Stratosphere.IoT.JobTemplate.ExponentialRolloutRateProperty
+      Stratosphere.IoT.JobTemplate.JobExecutionsRetryConfigProperty
+      Stratosphere.IoT.JobTemplate.JobExecutionsRolloutConfigProperty
+      Stratosphere.IoT.JobTemplate.PresignedUrlConfigProperty
+      Stratosphere.IoT.JobTemplate.RateIncreaseCriteriaProperty
+      Stratosphere.IoT.JobTemplate.RetryCriteriaProperty
+      Stratosphere.IoT.JobTemplate.TimeoutConfigProperty
+      Stratosphere.IoT.Logging
+      Stratosphere.IoT.MitigationAction
+      Stratosphere.IoT.MitigationAction.ActionParamsProperty
+      Stratosphere.IoT.MitigationAction.AddThingsToThingGroupParamsProperty
+      Stratosphere.IoT.MitigationAction.EnableIoTLoggingParamsProperty
+      Stratosphere.IoT.MitigationAction.PublishFindingToSnsParamsProperty
+      Stratosphere.IoT.MitigationAction.ReplaceDefaultPolicyVersionParamsProperty
+      Stratosphere.IoT.MitigationAction.UpdateCACertificateParamsProperty
+      Stratosphere.IoT.MitigationAction.UpdateDeviceCertificateParamsProperty
+      Stratosphere.IoT.Policy
+      Stratosphere.IoT.PolicyPrincipalAttachment
+      Stratosphere.IoT.ProvisioningTemplate
+      Stratosphere.IoT.ProvisioningTemplate.ProvisioningHookProperty
+      Stratosphere.IoT.ResourceSpecificLogging
+      Stratosphere.IoT.RoleAlias
+      Stratosphere.IoT.ScheduledAudit
+      Stratosphere.IoT.SecurityProfile
+      Stratosphere.IoT.SecurityProfile.AlertTargetProperty
+      Stratosphere.IoT.SecurityProfile.BehaviorCriteriaProperty
+      Stratosphere.IoT.SecurityProfile.BehaviorProperty
+      Stratosphere.IoT.SecurityProfile.MachineLearningDetectionConfigProperty
+      Stratosphere.IoT.SecurityProfile.MetricDimensionProperty
+      Stratosphere.IoT.SecurityProfile.MetricToRetainProperty
+      Stratosphere.IoT.SecurityProfile.MetricValueProperty
+      Stratosphere.IoT.SecurityProfile.StatisticalThresholdProperty
+      Stratosphere.IoT.Thing
+      Stratosphere.IoT.Thing.AttributePayloadProperty
+      Stratosphere.IoT.ThingPrincipalAttachment
+      Stratosphere.IoT.TopicRule
+      Stratosphere.IoT.TopicRule.ActionProperty
+      Stratosphere.IoT.TopicRule.AssetPropertyTimestampProperty
+      Stratosphere.IoT.TopicRule.AssetPropertyValueProperty
+      Stratosphere.IoT.TopicRule.AssetPropertyVariantProperty
+      Stratosphere.IoT.TopicRule.CloudwatchAlarmActionProperty
+      Stratosphere.IoT.TopicRule.CloudwatchLogsActionProperty
+      Stratosphere.IoT.TopicRule.CloudwatchMetricActionProperty
+      Stratosphere.IoT.TopicRule.DynamoDBActionProperty
+      Stratosphere.IoT.TopicRule.DynamoDBv2ActionProperty
+      Stratosphere.IoT.TopicRule.ElasticsearchActionProperty
+      Stratosphere.IoT.TopicRule.FirehoseActionProperty
+      Stratosphere.IoT.TopicRule.HttpActionHeaderProperty
+      Stratosphere.IoT.TopicRule.HttpActionProperty
+      Stratosphere.IoT.TopicRule.HttpAuthorizationProperty
+      Stratosphere.IoT.TopicRule.IotAnalyticsActionProperty
+      Stratosphere.IoT.TopicRule.IotEventsActionProperty
+      Stratosphere.IoT.TopicRule.IotSiteWiseActionProperty
+      Stratosphere.IoT.TopicRule.KafkaActionProperty
+      Stratosphere.IoT.TopicRule.KinesisActionProperty
+      Stratosphere.IoT.TopicRule.LambdaActionProperty
+      Stratosphere.IoT.TopicRule.LocationActionProperty
+      Stratosphere.IoT.TopicRule.OpenSearchActionProperty
+      Stratosphere.IoT.TopicRule.PutAssetPropertyValueEntryProperty
+      Stratosphere.IoT.TopicRule.PutItemInputProperty
+      Stratosphere.IoT.TopicRule.RepublishActionHeadersProperty
+      Stratosphere.IoT.TopicRule.RepublishActionProperty
+      Stratosphere.IoT.TopicRule.S3ActionProperty
+      Stratosphere.IoT.TopicRule.SigV4AuthorizationProperty
+      Stratosphere.IoT.TopicRule.SnsActionProperty
+      Stratosphere.IoT.TopicRule.SqsActionProperty
+      Stratosphere.IoT.TopicRule.StepFunctionsActionProperty
+      Stratosphere.IoT.TopicRule.TimestampProperty
+      Stratosphere.IoT.TopicRule.TimestreamActionProperty
+      Stratosphere.IoT.TopicRule.TimestreamDimensionProperty
+      Stratosphere.IoT.TopicRule.TimestreamTimestampProperty
+      Stratosphere.IoT.TopicRule.TopicRulePayloadProperty
+      Stratosphere.IoT.TopicRule.UserPropertyProperty
+      Stratosphere.IoT.TopicRuleDestination
+      Stratosphere.IoT.TopicRuleDestination.HttpUrlDestinationSummaryProperty
+      Stratosphere.IoT.TopicRuleDestination.VpcDestinationPropertiesProperty
+  other-modules:
+      Paths_stratosphere_iot
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

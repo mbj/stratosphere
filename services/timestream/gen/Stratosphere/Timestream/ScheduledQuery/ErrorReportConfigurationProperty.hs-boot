@@ -1,0 +1,7 @@
+module Stratosphere.Timestream.ScheduledQuery.ErrorReportConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ErrorReportConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ErrorReportConfigurationProperty
+instance JSON.ToJSON ErrorReportConfigurationProperty

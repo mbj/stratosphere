@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Pipeline.RemoveAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RemoveAttributesProperty :: Prelude.Type
+instance ToResourceProperties RemoveAttributesProperty
+instance JSON.ToJSON RemoveAttributesProperty

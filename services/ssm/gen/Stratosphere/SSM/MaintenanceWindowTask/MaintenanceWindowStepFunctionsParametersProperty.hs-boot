@@ -1,0 +1,7 @@
+module Stratosphere.SSM.MaintenanceWindowTask.MaintenanceWindowStepFunctionsParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MaintenanceWindowStepFunctionsParametersProperty :: Prelude.Type
+instance ToResourceProperties MaintenanceWindowStepFunctionsParametersProperty
+instance JSON.ToJSON MaintenanceWindowStepFunctionsParametersProperty

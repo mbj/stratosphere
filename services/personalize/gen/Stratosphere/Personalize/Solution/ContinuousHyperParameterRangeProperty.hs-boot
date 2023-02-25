@@ -1,0 +1,7 @@
+module Stratosphere.Personalize.Solution.ContinuousHyperParameterRangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContinuousHyperParameterRangeProperty :: Prelude.Type
+instance ToResourceProperties ContinuousHyperParameterRangeProperty
+instance JSON.ToJSON ContinuousHyperParameterRangeProperty

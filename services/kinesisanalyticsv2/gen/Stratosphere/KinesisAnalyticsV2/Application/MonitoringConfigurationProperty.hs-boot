@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalyticsV2.Application.MonitoringConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MonitoringConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MonitoringConfigurationProperty
+instance JSON.ToJSON MonitoringConfigurationProperty

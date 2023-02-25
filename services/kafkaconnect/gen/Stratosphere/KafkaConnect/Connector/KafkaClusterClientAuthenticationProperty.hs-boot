@@ -1,0 +1,7 @@
+module Stratosphere.KafkaConnect.Connector.KafkaClusterClientAuthenticationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KafkaClusterClientAuthenticationProperty :: Prelude.Type
+instance ToResourceProperties KafkaClusterClientAuthenticationProperty
+instance JSON.ToJSON KafkaClusterClientAuthenticationProperty

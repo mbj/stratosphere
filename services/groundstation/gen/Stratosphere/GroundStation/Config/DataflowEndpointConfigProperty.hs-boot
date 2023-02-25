@@ -1,0 +1,7 @@
+module Stratosphere.GroundStation.Config.DataflowEndpointConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataflowEndpointConfigProperty :: Prelude.Type
+instance ToResourceProperties DataflowEndpointConfigProperty
+instance JSON.ToJSON DataflowEndpointConfigProperty

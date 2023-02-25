@@ -1,0 +1,7 @@
+module Stratosphere.WorkSpaces.ConnectionAlias.ConnectionAliasAssociationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectionAliasAssociationProperty :: Prelude.Type
+instance ToResourceProperties ConnectionAliasAssociationProperty
+instance JSON.ToJSON ConnectionAliasAssociationProperty

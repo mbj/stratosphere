@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.Endpoint.AutoRollbackConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoRollbackConfigProperty :: Prelude.Type
+instance ToResourceProperties AutoRollbackConfigProperty
+instance JSON.ToJSON AutoRollbackConfigProperty

@@ -1,0 +1,7 @@
+module Stratosphere.OpenSearchService.Domain.NodeToNodeEncryptionOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NodeToNodeEncryptionOptionsProperty :: Prelude.Type
+instance ToResourceProperties NodeToNodeEncryptionOptionsProperty
+instance JSON.ToJSON NodeToNodeEncryptionOptionsProperty

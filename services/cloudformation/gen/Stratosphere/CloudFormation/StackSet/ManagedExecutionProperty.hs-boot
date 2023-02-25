@@ -1,0 +1,7 @@
+module Stratosphere.CloudFormation.StackSet.ManagedExecutionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedExecutionProperty :: Prelude.Type
+instance ToResourceProperties ManagedExecutionProperty
+instance JSON.ToJSON ManagedExecutionProperty

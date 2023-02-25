@@ -1,0 +1,7 @@
+module Stratosphere.BillingConductor.CustomLineItem.CustomLineItemChargeDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomLineItemChargeDetailsProperty :: Prelude.Type
+instance ToResourceProperties CustomLineItemChargeDetailsProperty
+instance JSON.ToJSON CustomLineItemChargeDetailsProperty

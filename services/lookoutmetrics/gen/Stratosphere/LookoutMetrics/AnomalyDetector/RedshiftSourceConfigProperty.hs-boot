@@ -1,0 +1,7 @@
+module Stratosphere.LookoutMetrics.AnomalyDetector.RedshiftSourceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedshiftSourceConfigProperty :: Prelude.Type
+instance ToResourceProperties RedshiftSourceConfigProperty
+instance JSON.ToJSON RedshiftSourceConfigProperty

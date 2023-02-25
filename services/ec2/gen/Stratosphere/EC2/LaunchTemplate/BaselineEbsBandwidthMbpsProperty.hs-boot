@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.BaselineEbsBandwidthMbpsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BaselineEbsBandwidthMbpsProperty :: Prelude.Type
+instance ToResourceProperties BaselineEbsBandwidthMbpsProperty
+instance JSON.ToJSON BaselineEbsBandwidthMbpsProperty

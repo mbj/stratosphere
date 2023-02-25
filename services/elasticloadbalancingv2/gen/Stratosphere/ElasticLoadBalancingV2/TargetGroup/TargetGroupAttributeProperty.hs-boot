@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancingV2.TargetGroup.TargetGroupAttributeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetGroupAttributeProperty :: Prelude.Type
+instance ToResourceProperties TargetGroupAttributeProperty
+instance JSON.ToJSON TargetGroupAttributeProperty

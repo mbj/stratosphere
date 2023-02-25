@@ -1,0 +1,7 @@
+module Stratosphere.AmazonMQ.ConfigurationAssociation.ConfigurationIdProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConfigurationIdProperty :: Prelude.Type
+instance ToResourceProperties ConfigurationIdProperty
+instance JSON.ToJSON ConfigurationIdProperty

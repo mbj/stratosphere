@@ -1,0 +1,7 @@
+module Stratosphere.DataPipeline.Pipeline.ParameterAttributeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ParameterAttributeProperty :: Prelude.Type
+instance ToResourceProperties ParameterAttributeProperty
+instance JSON.ToJSON ParameterAttributeProperty

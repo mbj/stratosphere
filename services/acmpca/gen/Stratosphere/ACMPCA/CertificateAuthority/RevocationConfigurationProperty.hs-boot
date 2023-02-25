@@ -1,0 +1,7 @@
+module Stratosphere.ACMPCA.CertificateAuthority.RevocationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RevocationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RevocationConfigurationProperty
+instance JSON.ToJSON RevocationConfigurationProperty

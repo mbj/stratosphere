@@ -1,0 +1,7 @@
+module Stratosphere.EMR.Cluster.SimpleScalingPolicyConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SimpleScalingPolicyConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SimpleScalingPolicyConfigurationProperty
+instance JSON.ToJSON SimpleScalingPolicyConfigurationProperty

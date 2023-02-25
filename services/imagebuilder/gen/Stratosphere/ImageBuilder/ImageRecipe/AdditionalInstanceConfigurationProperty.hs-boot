@@ -1,0 +1,7 @@
+module Stratosphere.ImageBuilder.ImageRecipe.AdditionalInstanceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdditionalInstanceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AdditionalInstanceConfigurationProperty
+instance JSON.ToJSON AdditionalInstanceConfigurationProperty

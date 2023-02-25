@@ -1,0 +1,7 @@
+module Stratosphere.Redshift.ScheduledAction.PauseClusterMessageProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PauseClusterMessageProperty :: Prelude.Type
+instance ToResourceProperties PauseClusterMessageProperty
+instance JSON.ToJSON PauseClusterMessageProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Glue.DataCatalogEncryptionSettings.DataCatalogEncryptionSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataCatalogEncryptionSettingsProperty :: Prelude.Type
+instance ToResourceProperties DataCatalogEncryptionSettingsProperty
+instance JSON.ToJSON DataCatalogEncryptionSettingsProperty

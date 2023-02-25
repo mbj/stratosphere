@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.FecOutputSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FecOutputSettingsProperty :: Prelude.Type
+instance ToResourceProperties FecOutputSettingsProperty
+instance JSON.ToJSON FecOutputSettingsProperty

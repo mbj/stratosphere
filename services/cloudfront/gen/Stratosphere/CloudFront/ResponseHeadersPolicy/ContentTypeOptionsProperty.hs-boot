@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.ResponseHeadersPolicy.ContentTypeOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContentTypeOptionsProperty :: Prelude.Type
+instance ToResourceProperties ContentTypeOptionsProperty
+instance JSON.ToJSON ContentTypeOptionsProperty

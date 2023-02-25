@@ -1,0 +1,168 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-lex
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Lex.Bot
+      Stratosphere.Lex.Bot.AdvancedRecognitionSettingProperty
+      Stratosphere.Lex.Bot.AllowedInputTypesProperty
+      Stratosphere.Lex.Bot.AudioAndDTMFInputSpecificationProperty
+      Stratosphere.Lex.Bot.AudioLogDestinationProperty
+      Stratosphere.Lex.Bot.AudioLogSettingProperty
+      Stratosphere.Lex.Bot.AudioSpecificationProperty
+      Stratosphere.Lex.Bot.BotAliasLocaleSettingsItemProperty
+      Stratosphere.Lex.Bot.BotAliasLocaleSettingsProperty
+      Stratosphere.Lex.Bot.BotLocaleProperty
+      Stratosphere.Lex.Bot.ButtonProperty
+      Stratosphere.Lex.Bot.CloudWatchLogGroupLogDestinationProperty
+      Stratosphere.Lex.Bot.CodeHookSpecificationProperty
+      Stratosphere.Lex.Bot.ConditionalBranchProperty
+      Stratosphere.Lex.Bot.ConditionalSpecificationProperty
+      Stratosphere.Lex.Bot.ConditionProperty
+      Stratosphere.Lex.Bot.ConversationLogSettingsProperty
+      Stratosphere.Lex.Bot.CustomPayloadProperty
+      Stratosphere.Lex.Bot.CustomVocabularyItemProperty
+      Stratosphere.Lex.Bot.CustomVocabularyProperty
+      Stratosphere.Lex.Bot.DataPrivacyProperty
+      Stratosphere.Lex.Bot.DefaultConditionalBranchProperty
+      Stratosphere.Lex.Bot.DialogActionProperty
+      Stratosphere.Lex.Bot.DialogCodeHookInvocationSettingProperty
+      Stratosphere.Lex.Bot.DialogCodeHookSettingProperty
+      Stratosphere.Lex.Bot.DialogStateProperty
+      Stratosphere.Lex.Bot.DTMFSpecificationProperty
+      Stratosphere.Lex.Bot.ElicitationCodeHookInvocationSettingProperty
+      Stratosphere.Lex.Bot.ExternalSourceSettingProperty
+      Stratosphere.Lex.Bot.FulfillmentCodeHookSettingProperty
+      Stratosphere.Lex.Bot.FulfillmentStartResponseSpecificationProperty
+      Stratosphere.Lex.Bot.FulfillmentUpdateResponseSpecificationProperty
+      Stratosphere.Lex.Bot.FulfillmentUpdatesSpecificationProperty
+      Stratosphere.Lex.Bot.GrammarSlotTypeSettingProperty
+      Stratosphere.Lex.Bot.GrammarSlotTypeSourceProperty
+      Stratosphere.Lex.Bot.ImageResponseCardProperty
+      Stratosphere.Lex.Bot.InitialResponseSettingProperty
+      Stratosphere.Lex.Bot.InputContextProperty
+      Stratosphere.Lex.Bot.IntentClosingSettingProperty
+      Stratosphere.Lex.Bot.IntentConfirmationSettingProperty
+      Stratosphere.Lex.Bot.IntentOverrideProperty
+      Stratosphere.Lex.Bot.IntentProperty
+      Stratosphere.Lex.Bot.KendraConfigurationProperty
+      Stratosphere.Lex.Bot.LambdaCodeHookProperty
+      Stratosphere.Lex.Bot.MessageGroupProperty
+      Stratosphere.Lex.Bot.MessageProperty
+      Stratosphere.Lex.Bot.MultipleValuesSettingProperty
+      Stratosphere.Lex.Bot.ObfuscationSettingProperty
+      Stratosphere.Lex.Bot.OutputContextProperty
+      Stratosphere.Lex.Bot.PlainTextMessageProperty
+      Stratosphere.Lex.Bot.PostDialogCodeHookInvocationSpecificationProperty
+      Stratosphere.Lex.Bot.PostFulfillmentStatusSpecificationProperty
+      Stratosphere.Lex.Bot.PromptAttemptSpecificationProperty
+      Stratosphere.Lex.Bot.PromptSpecificationProperty
+      Stratosphere.Lex.Bot.ResponseSpecificationProperty
+      Stratosphere.Lex.Bot.S3BucketLogDestinationProperty
+      Stratosphere.Lex.Bot.S3LocationProperty
+      Stratosphere.Lex.Bot.SampleUtteranceProperty
+      Stratosphere.Lex.Bot.SampleValueProperty
+      Stratosphere.Lex.Bot.SentimentAnalysisSettingsProperty
+      Stratosphere.Lex.Bot.SessionAttributeProperty
+      Stratosphere.Lex.Bot.SlotCaptureSettingProperty
+      Stratosphere.Lex.Bot.SlotDefaultValueProperty
+      Stratosphere.Lex.Bot.SlotDefaultValueSpecificationProperty
+      Stratosphere.Lex.Bot.SlotPriorityProperty
+      Stratosphere.Lex.Bot.SlotProperty
+      Stratosphere.Lex.Bot.SlotTypeProperty
+      Stratosphere.Lex.Bot.SlotTypeValueProperty
+      Stratosphere.Lex.Bot.SlotValueElicitationSettingProperty
+      Stratosphere.Lex.Bot.SlotValueOverrideMapProperty
+      Stratosphere.Lex.Bot.SlotValueOverrideProperty
+      Stratosphere.Lex.Bot.SlotValueProperty
+      Stratosphere.Lex.Bot.SlotValueRegexFilterProperty
+      Stratosphere.Lex.Bot.SlotValueSelectionSettingProperty
+      Stratosphere.Lex.Bot.SSMLMessageProperty
+      Stratosphere.Lex.Bot.StillWaitingResponseSpecificationProperty
+      Stratosphere.Lex.Bot.TestBotAliasSettingsProperty
+      Stratosphere.Lex.Bot.TextInputSpecificationProperty
+      Stratosphere.Lex.Bot.TextLogDestinationProperty
+      Stratosphere.Lex.Bot.TextLogSettingProperty
+      Stratosphere.Lex.Bot.VoiceSettingsProperty
+      Stratosphere.Lex.Bot.WaitAndContinueSpecificationProperty
+      Stratosphere.Lex.BotAlias
+      Stratosphere.Lex.BotAlias.AudioLogDestinationProperty
+      Stratosphere.Lex.BotAlias.AudioLogSettingProperty
+      Stratosphere.Lex.BotAlias.BotAliasLocaleSettingsItemProperty
+      Stratosphere.Lex.BotAlias.BotAliasLocaleSettingsProperty
+      Stratosphere.Lex.BotAlias.CloudWatchLogGroupLogDestinationProperty
+      Stratosphere.Lex.BotAlias.CodeHookSpecificationProperty
+      Stratosphere.Lex.BotAlias.ConversationLogSettingsProperty
+      Stratosphere.Lex.BotAlias.LambdaCodeHookProperty
+      Stratosphere.Lex.BotAlias.S3BucketLogDestinationProperty
+      Stratosphere.Lex.BotAlias.SentimentAnalysisSettingsProperty
+      Stratosphere.Lex.BotAlias.TextLogDestinationProperty
+      Stratosphere.Lex.BotAlias.TextLogSettingProperty
+      Stratosphere.Lex.BotVersion
+      Stratosphere.Lex.BotVersion.BotVersionLocaleDetailsProperty
+      Stratosphere.Lex.BotVersion.BotVersionLocaleSpecificationProperty
+      Stratosphere.Lex.ResourcePolicy
+  other-modules:
+      Paths_stratosphere_lex
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

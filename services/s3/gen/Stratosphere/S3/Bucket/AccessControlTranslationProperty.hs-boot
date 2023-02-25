@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.AccessControlTranslationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessControlTranslationProperty :: Prelude.Type
+instance ToResourceProperties AccessControlTranslationProperty
+instance JSON.ToJSON AccessControlTranslationProperty

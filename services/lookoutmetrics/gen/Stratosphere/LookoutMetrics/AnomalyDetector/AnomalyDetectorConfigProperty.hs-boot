@@ -1,0 +1,7 @@
+module Stratosphere.LookoutMetrics.AnomalyDetector.AnomalyDetectorConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AnomalyDetectorConfigProperty :: Prelude.Type
+instance ToResourceProperties AnomalyDetectorConfigProperty
+instance JSON.ToJSON AnomalyDetectorConfigProperty

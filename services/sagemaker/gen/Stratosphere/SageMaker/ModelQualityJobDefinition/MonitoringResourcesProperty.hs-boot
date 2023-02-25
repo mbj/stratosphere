@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelQualityJobDefinition.MonitoringResourcesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MonitoringResourcesProperty :: Prelude.Type
+instance ToResourceProperties MonitoringResourcesProperty
+instance JSON.ToJSON MonitoringResourcesProperty

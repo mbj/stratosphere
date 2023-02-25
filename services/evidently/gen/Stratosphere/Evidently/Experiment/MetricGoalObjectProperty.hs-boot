@@ -1,0 +1,7 @@
+module Stratosphere.Evidently.Experiment.MetricGoalObjectProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetricGoalObjectProperty :: Prelude.Type
+instance ToResourceProperties MetricGoalObjectProperty
+instance JSON.ToJSON MetricGoalObjectProperty

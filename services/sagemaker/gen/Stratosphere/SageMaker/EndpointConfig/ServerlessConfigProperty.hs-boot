@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.EndpointConfig.ServerlessConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServerlessConfigProperty :: Prelude.Type
+instance ToResourceProperties ServerlessConfigProperty
+instance JSON.ToJSON ServerlessConfigProperty

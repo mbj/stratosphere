@@ -1,0 +1,7 @@
+module Stratosphere.CodeBuild.Project.BuildStatusConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BuildStatusConfigProperty :: Prelude.Type
+instance ToResourceProperties BuildStatusConfigProperty
+instance JSON.ToJSON BuildStatusConfigProperty

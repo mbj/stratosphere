@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualService.VirtualServiceSpecProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VirtualServiceSpecProperty :: Prelude.Type
+instance ToResourceProperties VirtualServiceSpecProperty
+instance JSON.ToJSON VirtualServiceSpecProperty

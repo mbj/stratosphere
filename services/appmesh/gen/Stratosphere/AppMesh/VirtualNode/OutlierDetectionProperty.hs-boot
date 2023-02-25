@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualNode.OutlierDetectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OutlierDetectionProperty :: Prelude.Type
+instance ToResourceProperties OutlierDetectionProperty
+instance JSON.ToJSON OutlierDetectionProperty

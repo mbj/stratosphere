@@ -1,0 +1,7 @@
+module Stratosphere.AmplifyUIBuilder.Component.MutationActionSetStateParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MutationActionSetStateParameterProperty :: Prelude.Type
+instance ToResourceProperties MutationActionSetStateParameterProperty
+instance JSON.ToJSON MutationActionSetStateParameterProperty

@@ -1,0 +1,7 @@
+module Stratosphere.CodeDeploy.DeploymentGroup.EC2TagSetListObjectProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EC2TagSetListObjectProperty :: Prelude.Type
+instance ToResourceProperties EC2TagSetListObjectProperty
+instance JSON.ToJSON EC2TagSetListObjectProperty

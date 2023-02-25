@@ -1,0 +1,7 @@
+module Stratosphere.Greengrass.FunctionDefinition.ExecutionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExecutionProperty :: Prelude.Type
+instance ToResourceProperties ExecutionProperty
+instance JSON.ToJSON ExecutionProperty

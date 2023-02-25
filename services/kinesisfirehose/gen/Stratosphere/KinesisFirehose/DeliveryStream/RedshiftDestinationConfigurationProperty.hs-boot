@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.RedshiftDestinationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedshiftDestinationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RedshiftDestinationConfigurationProperty
+instance JSON.ToJSON RedshiftDestinationConfigurationProperty

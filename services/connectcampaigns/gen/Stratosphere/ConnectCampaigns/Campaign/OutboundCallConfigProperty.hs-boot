@@ -1,0 +1,7 @@
+module Stratosphere.ConnectCampaigns.Campaign.OutboundCallConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OutboundCallConfigProperty :: Prelude.Type
+instance ToResourceProperties OutboundCallConfigProperty
+instance JSON.ToJSON OutboundCallConfigProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Logs.MetricFilter.MetricTransformationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetricTransformationProperty :: Prelude.Type
+instance ToResourceProperties MetricTransformationProperty
+instance JSON.ToJSON MetricTransformationProperty

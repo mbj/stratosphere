@@ -1,0 +1,7 @@
+module Stratosphere.S3.StorageLens.SelectionCriteriaProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SelectionCriteriaProperty :: Prelude.Type
+instance ToResourceProperties SelectionCriteriaProperty
+instance JSON.ToJSON SelectionCriteriaProperty

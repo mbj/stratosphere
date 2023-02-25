@@ -1,0 +1,7 @@
+module Stratosphere.CodeBuild.Project.CloudWatchLogsConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudWatchLogsConfigProperty :: Prelude.Type
+instance ToResourceProperties CloudWatchLogsConfigProperty
+instance JSON.ToJSON CloudWatchLogsConfigProperty

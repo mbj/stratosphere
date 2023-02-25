@@ -1,0 +1,7 @@
+module Stratosphere.Personalize.Solution.AlgorithmHyperParameterRangesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AlgorithmHyperParameterRangesProperty :: Prelude.Type
+instance ToResourceProperties AlgorithmHyperParameterRangesProperty
+instance JSON.ToJSON AlgorithmHyperParameterRangesProperty

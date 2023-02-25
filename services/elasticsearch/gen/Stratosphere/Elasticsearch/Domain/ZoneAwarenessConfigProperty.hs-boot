@@ -1,0 +1,7 @@
+module Stratosphere.Elasticsearch.Domain.ZoneAwarenessConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ZoneAwarenessConfigProperty :: Prelude.Type
+instance ToResourceProperties ZoneAwarenessConfigProperty
+instance JSON.ToJSON ZoneAwarenessConfigProperty

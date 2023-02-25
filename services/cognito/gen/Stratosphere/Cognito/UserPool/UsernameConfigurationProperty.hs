@@ -1,0 +1,31 @@
+module Stratosphere.Cognito.UserPool.UsernameConfigurationProperty (
+        UsernameConfigurationProperty(..), mkUsernameConfigurationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data UsernameConfigurationProperty
+  = UsernameConfigurationProperty {caseSensitive :: (Prelude.Maybe (Value Prelude.Bool))}
+mkUsernameConfigurationProperty :: UsernameConfigurationProperty
+mkUsernameConfigurationProperty
+  = UsernameConfigurationProperty {caseSensitive = Prelude.Nothing}
+instance ToResourceProperties UsernameConfigurationProperty where
+  toResourceProperties UsernameConfigurationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Cognito::UserPool.UsernameConfiguration",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "CaseSensitive" Prelude.<$> caseSensitive])}
+instance JSON.ToJSON UsernameConfigurationProperty where
+  toJSON UsernameConfigurationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "CaseSensitive" Prelude.<$> caseSensitive]))
+instance Property "CaseSensitive" UsernameConfigurationProperty where
+  type PropertyType "CaseSensitive" UsernameConfigurationProperty = Value Prelude.Bool
+  set newValue UsernameConfigurationProperty {}
+    = UsernameConfigurationProperty
+        {caseSensitive = Prelude.pure newValue, ..}

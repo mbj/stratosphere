@@ -1,0 +1,7 @@
+module Stratosphere.RDS.DBInstance.CertificateDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CertificateDetailsProperty :: Prelude.Type
+instance ToResourceProperties CertificateDetailsProperty
+instance JSON.ToJSON CertificateDetailsProperty

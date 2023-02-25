@@ -1,0 +1,7 @@
+module Stratosphere.CodeBuild.Project.GitSubmodulesConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GitSubmodulesConfigProperty :: Prelude.Type
+instance ToResourceProperties GitSubmodulesConfigProperty
+instance JSON.ToJSON GitSubmodulesConfigProperty

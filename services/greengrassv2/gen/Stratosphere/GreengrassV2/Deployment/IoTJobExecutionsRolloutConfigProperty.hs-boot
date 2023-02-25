@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.Deployment.IoTJobExecutionsRolloutConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IoTJobExecutionsRolloutConfigProperty :: Prelude.Type
+instance ToResourceProperties IoTJobExecutionsRolloutConfigProperty
+instance JSON.ToJSON IoTJobExecutionsRolloutConfigProperty

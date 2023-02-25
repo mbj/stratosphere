@@ -1,0 +1,7 @@
+module Stratosphere.Config.OrganizationConfigRule.OrganizationCustomRuleMetadataProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OrganizationCustomRuleMetadataProperty :: Prelude.Type
+instance ToResourceProperties OrganizationCustomRuleMetadataProperty
+instance JSON.ToJSON OrganizationCustomRuleMetadataProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.Index.DocumentMetadataConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DocumentMetadataConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DocumentMetadataConfigurationProperty
+instance JSON.ToJSON DocumentMetadataConfigurationProperty

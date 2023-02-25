@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.LogicalTableSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LogicalTableSourceProperty :: Prelude.Type
+instance ToResourceProperties LogicalTableSourceProperty
+instance JSON.ToJSON LogicalTableSourceProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.AcceleratorTotalMemoryMiBProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AcceleratorTotalMemoryMiBProperty :: Prelude.Type
+instance ToResourceProperties AcceleratorTotalMemoryMiBProperty
+instance JSON.ToJSON AcceleratorTotalMemoryMiBProperty

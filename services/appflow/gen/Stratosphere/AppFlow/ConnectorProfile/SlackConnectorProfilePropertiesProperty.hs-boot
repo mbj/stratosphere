@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.SlackConnectorProfilePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SlackConnectorProfilePropertiesProperty :: Prelude.Type
+instance ToResourceProperties SlackConnectorProfilePropertiesProperty
+instance JSON.ToJSON SlackConnectorProfilePropertiesProperty

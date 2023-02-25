@@ -1,0 +1,7 @@
+module Stratosphere.CustomerProfiles.Integration.TaskPropertiesMapProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TaskPropertiesMapProperty :: Prelude.Type
+instance ToResourceProperties TaskPropertiesMapProperty
+instance JSON.ToJSON TaskPropertiesMapProperty

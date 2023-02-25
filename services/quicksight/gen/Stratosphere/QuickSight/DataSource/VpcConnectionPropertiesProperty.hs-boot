@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSource.VpcConnectionPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VpcConnectionPropertiesProperty :: Prelude.Type
+instance ToResourceProperties VpcConnectionPropertiesProperty
+instance JSON.ToJSON VpcConnectionPropertiesProperty

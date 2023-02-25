@@ -1,0 +1,33 @@
+module Stratosphere.WAF.XssMatchSet (
+        module Exports, XssMatchSet(..), mkXssMatchSet
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.WAF.XssMatchSet.XssMatchTupleProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data XssMatchSet
+  = XssMatchSet {name :: (Value Prelude.Text),
+                 xssMatchTuples :: [XssMatchTupleProperty]}
+mkXssMatchSet ::
+  Value Prelude.Text -> [XssMatchTupleProperty] -> XssMatchSet
+mkXssMatchSet name xssMatchTuples
+  = XssMatchSet {name = name, xssMatchTuples = xssMatchTuples}
+instance ToResourceProperties XssMatchSet where
+  toResourceProperties XssMatchSet {..}
+    = ResourceProperties
+        {awsType = "AWS::WAF::XssMatchSet",
+         properties = ["Name" JSON..= name,
+                       "XssMatchTuples" JSON..= xssMatchTuples]}
+instance JSON.ToJSON XssMatchSet where
+  toJSON XssMatchSet {..}
+    = JSON.object
+        ["Name" JSON..= name, "XssMatchTuples" JSON..= xssMatchTuples]
+instance Property "Name" XssMatchSet where
+  type PropertyType "Name" XssMatchSet = Value Prelude.Text
+  set newValue XssMatchSet {..} = XssMatchSet {name = newValue, ..}
+instance Property "XssMatchTuples" XssMatchSet where
+  type PropertyType "XssMatchTuples" XssMatchSet = [XssMatchTupleProperty]
+  set newValue XssMatchSet {..}
+    = XssMatchSet {xssMatchTuples = newValue, ..}

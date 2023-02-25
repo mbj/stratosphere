@@ -1,0 +1,38 @@
+module Stratosphere.QuickSight.DataSet.FieldFolderProperty (
+        FieldFolderProperty(..), mkFieldFolderProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data FieldFolderProperty
+  = FieldFolderProperty {columns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         description :: (Prelude.Maybe (Value Prelude.Text))}
+mkFieldFolderProperty :: FieldFolderProperty
+mkFieldFolderProperty
+  = FieldFolderProperty
+      {columns = Prelude.Nothing, description = Prelude.Nothing}
+instance ToResourceProperties FieldFolderProperty where
+  toResourceProperties FieldFolderProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::DataSet.FieldFolder",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "Columns" Prelude.<$> columns,
+                            (JSON..=) "Description" Prelude.<$> description])}
+instance JSON.ToJSON FieldFolderProperty where
+  toJSON FieldFolderProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "Columns" Prelude.<$> columns,
+               (JSON..=) "Description" Prelude.<$> description]))
+instance Property "Columns" FieldFolderProperty where
+  type PropertyType "Columns" FieldFolderProperty = ValueList (Value Prelude.Text)
+  set newValue FieldFolderProperty {..}
+    = FieldFolderProperty {columns = Prelude.pure newValue, ..}
+instance Property "Description" FieldFolderProperty where
+  type PropertyType "Description" FieldFolderProperty = Value Prelude.Text
+  set newValue FieldFolderProperty {..}
+    = FieldFolderProperty {description = Prelude.pure newValue, ..}

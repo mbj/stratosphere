@@ -1,0 +1,7 @@
+module Stratosphere.AppRunner.Service.EgressConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EgressConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EgressConfigurationProperty
+instance JSON.ToJSON EgressConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EC2.Instance.LicenseSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LicenseSpecificationProperty :: Prelude.Type
+instance ToResourceProperties LicenseSpecificationProperty
+instance JSON.ToJSON LicenseSpecificationProperty

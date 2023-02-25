@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.FrameCaptureSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FrameCaptureSettingsProperty :: Prelude.Type
+instance ToResourceProperties FrameCaptureSettingsProperty
+instance JSON.ToJSON FrameCaptureSettingsProperty

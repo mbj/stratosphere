@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.WebCrawlerSeedUrlConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WebCrawlerSeedUrlConfigurationProperty :: Prelude.Type
+instance ToResourceProperties WebCrawlerSeedUrlConfigurationProperty
+instance JSON.ToJSON WebCrawlerSeedUrlConfigurationProperty

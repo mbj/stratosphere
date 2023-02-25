@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualService.VirtualRouterServiceProviderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VirtualRouterServiceProviderProperty :: Prelude.Type
+instance ToResourceProperties VirtualRouterServiceProviderProperty
+instance JSON.ToJSON VirtualRouterServiceProviderProperty

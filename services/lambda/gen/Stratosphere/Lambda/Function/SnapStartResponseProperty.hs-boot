@@ -1,0 +1,7 @@
+module Stratosphere.Lambda.Function.SnapStartResponseProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnapStartResponseProperty :: Prelude.Type
+instance ToResourceProperties SnapStartResponseProperty
+instance JSON.ToJSON SnapStartResponseProperty

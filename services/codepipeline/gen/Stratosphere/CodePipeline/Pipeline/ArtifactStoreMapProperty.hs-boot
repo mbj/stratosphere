@@ -1,0 +1,7 @@
+module Stratosphere.CodePipeline.Pipeline.ArtifactStoreMapProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ArtifactStoreMapProperty :: Prelude.Type
+instance ToResourceProperties ArtifactStoreMapProperty
+instance JSON.ToJSON ArtifactStoreMapProperty

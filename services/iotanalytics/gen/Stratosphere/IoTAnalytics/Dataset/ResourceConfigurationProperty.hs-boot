@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Dataset.ResourceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResourceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ResourceConfigurationProperty
+instance JSON.ToJSON ResourceConfigurationProperty

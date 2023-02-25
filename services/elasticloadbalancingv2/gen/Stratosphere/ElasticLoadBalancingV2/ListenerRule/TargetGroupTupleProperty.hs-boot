@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancingV2.ListenerRule.TargetGroupTupleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetGroupTupleProperty :: Prelude.Type
+instance ToResourceProperties TargetGroupTupleProperty
+instance JSON.ToJSON TargetGroupTupleProperty

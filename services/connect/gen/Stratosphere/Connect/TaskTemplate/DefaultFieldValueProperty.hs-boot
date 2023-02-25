@@ -1,0 +1,7 @@
+module Stratosphere.Connect.TaskTemplate.DefaultFieldValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultFieldValueProperty :: Prelude.Type
+instance ToResourceProperties DefaultFieldValueProperty
+instance JSON.ToJSON DefaultFieldValueProperty

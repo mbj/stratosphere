@@ -1,0 +1,7 @@
+module Stratosphere.IoTWireless.TaskDefinition.LoRaWANUpdateGatewayTaskEntryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LoRaWANUpdateGatewayTaskEntryProperty :: Prelude.Type
+instance ToResourceProperties LoRaWANUpdateGatewayTaskEntryProperty
+instance JSON.ToJSON LoRaWANUpdateGatewayTaskEntryProperty

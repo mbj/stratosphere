@@ -1,0 +1,7 @@
+module Stratosphere.NimbleStudio.StudioComponent.StudioComponentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StudioComponentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties StudioComponentConfigurationProperty
+instance JSON.ToJSON StudioComponentConfigurationProperty

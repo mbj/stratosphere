@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualGateway.VirtualGatewayFileAccessLogProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VirtualGatewayFileAccessLogProperty :: Prelude.Type
+instance ToResourceProperties VirtualGatewayFileAccessLogProperty
+instance JSON.ToJSON VirtualGatewayFileAccessLogProperty

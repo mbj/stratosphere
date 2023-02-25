@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.ResourcePermissionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResourcePermissionProperty :: Prelude.Type
+instance ToResourceProperties ResourcePermissionProperty
+instance JSON.ToJSON ResourcePermissionProperty

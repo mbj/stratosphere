@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.CalculatedColumnProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CalculatedColumnProperty :: Prelude.Type
+instance ToResourceProperties CalculatedColumnProperty
+instance JSON.ToJSON CalculatedColumnProperty

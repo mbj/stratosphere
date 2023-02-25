@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.Distribution.CustomOriginConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomOriginConfigProperty :: Prelude.Type
+instance ToResourceProperties CustomOriginConfigProperty
+instance JSON.ToJSON CustomOriginConfigProperty

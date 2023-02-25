@@ -1,0 +1,86 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-budgets
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Budgets.Budget
+      Stratosphere.Budgets.Budget.AutoAdjustDataProperty
+      Stratosphere.Budgets.Budget.BudgetDataProperty
+      Stratosphere.Budgets.Budget.CostTypesProperty
+      Stratosphere.Budgets.Budget.HistoricalOptionsProperty
+      Stratosphere.Budgets.Budget.NotificationProperty
+      Stratosphere.Budgets.Budget.NotificationWithSubscribersProperty
+      Stratosphere.Budgets.Budget.SpendProperty
+      Stratosphere.Budgets.Budget.SubscriberProperty
+      Stratosphere.Budgets.Budget.TimePeriodProperty
+      Stratosphere.Budgets.BudgetsAction
+      Stratosphere.Budgets.BudgetsAction.ActionThresholdProperty
+      Stratosphere.Budgets.BudgetsAction.DefinitionProperty
+      Stratosphere.Budgets.BudgetsAction.IamActionDefinitionProperty
+      Stratosphere.Budgets.BudgetsAction.ScpActionDefinitionProperty
+      Stratosphere.Budgets.BudgetsAction.SsmActionDefinitionProperty
+      Stratosphere.Budgets.BudgetsAction.SubscriberProperty
+  other-modules:
+      Paths_stratosphere_budgets
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

@@ -1,0 +1,7 @@
+module Stratosphere.HealthLake.FHIRDatastore.KmsEncryptionConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KmsEncryptionConfigProperty :: Prelude.Type
+instance ToResourceProperties KmsEncryptionConfigProperty
+instance JSON.ToJSON KmsEncryptionConfigProperty

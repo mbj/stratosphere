@@ -1,0 +1,7 @@
+module Stratosphere.S3.StorageLens.BucketsAndRegionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BucketsAndRegionsProperty :: Prelude.Type
+instance ToResourceProperties BucketsAndRegionsProperty
+instance JSON.ToJSON BucketsAndRegionsProperty

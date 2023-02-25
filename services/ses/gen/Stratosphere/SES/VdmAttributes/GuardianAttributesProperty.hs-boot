@@ -1,0 +1,7 @@
+module Stratosphere.SES.VdmAttributes.GuardianAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GuardianAttributesProperty :: Prelude.Type
+instance ToResourceProperties GuardianAttributesProperty
+instance JSON.ToJSON GuardianAttributesProperty

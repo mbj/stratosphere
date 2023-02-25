@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.UserPoolRiskConfigurationAttachment.AccountTakeoverActionTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccountTakeoverActionTypeProperty :: Prelude.Type
+instance ToResourceProperties AccountTakeoverActionTypeProperty
+instance JSON.ToJSON AccountTakeoverActionTypeProperty

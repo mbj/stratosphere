@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.FulfillmentCodeHookSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FulfillmentCodeHookSettingProperty :: Prelude.Type
+instance ToResourceProperties FulfillmentCodeHookSettingProperty
+instance JSON.ToJSON FulfillmentCodeHookSettingProperty

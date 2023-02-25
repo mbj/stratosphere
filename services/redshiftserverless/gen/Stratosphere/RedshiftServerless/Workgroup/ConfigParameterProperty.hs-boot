@@ -1,0 +1,7 @@
+module Stratosphere.RedshiftServerless.Workgroup.ConfigParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConfigParameterProperty :: Prelude.Type
+instance ToResourceProperties ConfigParameterProperty
+instance JSON.ToJSON ConfigParameterProperty

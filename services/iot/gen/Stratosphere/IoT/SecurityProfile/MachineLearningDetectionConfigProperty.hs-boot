@@ -1,0 +1,7 @@
+module Stratosphere.IoT.SecurityProfile.MachineLearningDetectionConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MachineLearningDetectionConfigProperty :: Prelude.Type
+instance ToResourceProperties MachineLearningDetectionConfigProperty
+instance JSON.ToJSON MachineLearningDetectionConfigProperty

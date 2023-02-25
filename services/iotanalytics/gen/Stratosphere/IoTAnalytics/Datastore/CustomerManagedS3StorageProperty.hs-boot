@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Datastore.CustomerManagedS3StorageProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomerManagedS3StorageProperty :: Prelude.Type
+instance ToResourceProperties CustomerManagedS3StorageProperty
+instance JSON.ToJSON CustomerManagedS3StorageProperty

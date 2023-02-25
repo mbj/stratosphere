@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRuleDestination.HttpUrlDestinationSummaryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HttpUrlDestinationSummaryProperty :: Prelude.Type
+instance ToResourceProperties HttpUrlDestinationSummaryProperty
+instance JSON.ToJSON HttpUrlDestinationSummaryProperty

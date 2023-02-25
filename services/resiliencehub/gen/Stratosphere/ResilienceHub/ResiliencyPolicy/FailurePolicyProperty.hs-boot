@@ -1,0 +1,7 @@
+module Stratosphere.ResilienceHub.ResiliencyPolicy.FailurePolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FailurePolicyProperty :: Prelude.Type
+instance ToResourceProperties FailurePolicyProperty
+instance JSON.ToJSON FailurePolicyProperty

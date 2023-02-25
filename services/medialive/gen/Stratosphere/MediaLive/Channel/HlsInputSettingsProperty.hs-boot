@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.HlsInputSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HlsInputSettingsProperty :: Prelude.Type
+instance ToResourceProperties HlsInputSettingsProperty
+instance JSON.ToJSON HlsInputSettingsProperty

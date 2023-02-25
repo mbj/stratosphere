@@ -1,0 +1,137 @@
+module Stratosphere.ImageBuilder.ImagePipeline (
+        module Exports, ImagePipeline(..), mkImagePipeline
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ImageBuilder.ImagePipeline.ImageScanningConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ImageBuilder.ImagePipeline.ImageTestsConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ImageBuilder.ImagePipeline.ScheduleProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data ImagePipeline
+  = ImagePipeline {containerRecipeArn :: (Prelude.Maybe (Value Prelude.Text)),
+                   description :: (Prelude.Maybe (Value Prelude.Text)),
+                   distributionConfigurationArn :: (Prelude.Maybe (Value Prelude.Text)),
+                   enhancedImageMetadataEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                   imageRecipeArn :: (Prelude.Maybe (Value Prelude.Text)),
+                   imageScanningConfiguration :: (Prelude.Maybe ImageScanningConfigurationProperty),
+                   imageTestsConfiguration :: (Prelude.Maybe ImageTestsConfigurationProperty),
+                   infrastructureConfigurationArn :: (Value Prelude.Text),
+                   name :: (Value Prelude.Text),
+                   schedule :: (Prelude.Maybe ScheduleProperty),
+                   status :: (Prelude.Maybe (Value Prelude.Text)),
+                   tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+mkImagePipeline ::
+  Value Prelude.Text -> Value Prelude.Text -> ImagePipeline
+mkImagePipeline infrastructureConfigurationArn name
+  = ImagePipeline
+      {infrastructureConfigurationArn = infrastructureConfigurationArn,
+       name = name, containerRecipeArn = Prelude.Nothing,
+       description = Prelude.Nothing,
+       distributionConfigurationArn = Prelude.Nothing,
+       enhancedImageMetadataEnabled = Prelude.Nothing,
+       imageRecipeArn = Prelude.Nothing,
+       imageScanningConfiguration = Prelude.Nothing,
+       imageTestsConfiguration = Prelude.Nothing,
+       schedule = Prelude.Nothing, status = Prelude.Nothing,
+       tags = Prelude.Nothing}
+instance ToResourceProperties ImagePipeline where
+  toResourceProperties ImagePipeline {..}
+    = ResourceProperties
+        {awsType = "AWS::ImageBuilder::ImagePipeline",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["InfrastructureConfigurationArn"
+                              JSON..= infrastructureConfigurationArn,
+                            "Name" JSON..= name]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ContainerRecipeArn" Prelude.<$> containerRecipeArn,
+                               (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "DistributionConfigurationArn"
+                                 Prelude.<$> distributionConfigurationArn,
+                               (JSON..=) "EnhancedImageMetadataEnabled"
+                                 Prelude.<$> enhancedImageMetadataEnabled,
+                               (JSON..=) "ImageRecipeArn" Prelude.<$> imageRecipeArn,
+                               (JSON..=) "ImageScanningConfiguration"
+                                 Prelude.<$> imageScanningConfiguration,
+                               (JSON..=) "ImageTestsConfiguration"
+                                 Prelude.<$> imageTestsConfiguration,
+                               (JSON..=) "Schedule" Prelude.<$> schedule,
+                               (JSON..=) "Status" Prelude.<$> status,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
+instance JSON.ToJSON ImagePipeline where
+  toJSON ImagePipeline {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["InfrastructureConfigurationArn"
+                 JSON..= infrastructureConfigurationArn,
+               "Name" JSON..= name]
+              (Prelude.catMaybes
+                 [(JSON..=) "ContainerRecipeArn" Prelude.<$> containerRecipeArn,
+                  (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "DistributionConfigurationArn"
+                    Prelude.<$> distributionConfigurationArn,
+                  (JSON..=) "EnhancedImageMetadataEnabled"
+                    Prelude.<$> enhancedImageMetadataEnabled,
+                  (JSON..=) "ImageRecipeArn" Prelude.<$> imageRecipeArn,
+                  (JSON..=) "ImageScanningConfiguration"
+                    Prelude.<$> imageScanningConfiguration,
+                  (JSON..=) "ImageTestsConfiguration"
+                    Prelude.<$> imageTestsConfiguration,
+                  (JSON..=) "Schedule" Prelude.<$> schedule,
+                  (JSON..=) "Status" Prelude.<$> status,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "ContainerRecipeArn" ImagePipeline where
+  type PropertyType "ContainerRecipeArn" ImagePipeline = Value Prelude.Text
+  set newValue ImagePipeline {..}
+    = ImagePipeline {containerRecipeArn = Prelude.pure newValue, ..}
+instance Property "Description" ImagePipeline where
+  type PropertyType "Description" ImagePipeline = Value Prelude.Text
+  set newValue ImagePipeline {..}
+    = ImagePipeline {description = Prelude.pure newValue, ..}
+instance Property "DistributionConfigurationArn" ImagePipeline where
+  type PropertyType "DistributionConfigurationArn" ImagePipeline = Value Prelude.Text
+  set newValue ImagePipeline {..}
+    = ImagePipeline
+        {distributionConfigurationArn = Prelude.pure newValue, ..}
+instance Property "EnhancedImageMetadataEnabled" ImagePipeline where
+  type PropertyType "EnhancedImageMetadataEnabled" ImagePipeline = Value Prelude.Bool
+  set newValue ImagePipeline {..}
+    = ImagePipeline
+        {enhancedImageMetadataEnabled = Prelude.pure newValue, ..}
+instance Property "ImageRecipeArn" ImagePipeline where
+  type PropertyType "ImageRecipeArn" ImagePipeline = Value Prelude.Text
+  set newValue ImagePipeline {..}
+    = ImagePipeline {imageRecipeArn = Prelude.pure newValue, ..}
+instance Property "ImageScanningConfiguration" ImagePipeline where
+  type PropertyType "ImageScanningConfiguration" ImagePipeline = ImageScanningConfigurationProperty
+  set newValue ImagePipeline {..}
+    = ImagePipeline
+        {imageScanningConfiguration = Prelude.pure newValue, ..}
+instance Property "ImageTestsConfiguration" ImagePipeline where
+  type PropertyType "ImageTestsConfiguration" ImagePipeline = ImageTestsConfigurationProperty
+  set newValue ImagePipeline {..}
+    = ImagePipeline
+        {imageTestsConfiguration = Prelude.pure newValue, ..}
+instance Property "InfrastructureConfigurationArn" ImagePipeline where
+  type PropertyType "InfrastructureConfigurationArn" ImagePipeline = Value Prelude.Text
+  set newValue ImagePipeline {..}
+    = ImagePipeline {infrastructureConfigurationArn = newValue, ..}
+instance Property "Name" ImagePipeline where
+  type PropertyType "Name" ImagePipeline = Value Prelude.Text
+  set newValue ImagePipeline {..}
+    = ImagePipeline {name = newValue, ..}
+instance Property "Schedule" ImagePipeline where
+  type PropertyType "Schedule" ImagePipeline = ScheduleProperty
+  set newValue ImagePipeline {..}
+    = ImagePipeline {schedule = Prelude.pure newValue, ..}
+instance Property "Status" ImagePipeline where
+  type PropertyType "Status" ImagePipeline = Value Prelude.Text
+  set newValue ImagePipeline {..}
+    = ImagePipeline {status = Prelude.pure newValue, ..}
+instance Property "Tags" ImagePipeline where
+  type PropertyType "Tags" ImagePipeline = Prelude.Map Prelude.Text (Value Prelude.Text)
+  set newValue ImagePipeline {..}
+    = ImagePipeline {tags = Prelude.pure newValue, ..}

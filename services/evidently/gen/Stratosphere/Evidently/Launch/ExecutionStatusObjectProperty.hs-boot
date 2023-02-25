@@ -1,0 +1,7 @@
+module Stratosphere.Evidently.Launch.ExecutionStatusObjectProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExecutionStatusObjectProperty :: Prelude.Type
+instance ToResourceProperties ExecutionStatusObjectProperty
+instance JSON.ToJSON ExecutionStatusObjectProperty

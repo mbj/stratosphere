@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.AcceleratorCountProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AcceleratorCountProperty :: Prelude.Type
+instance ToResourceProperties AcceleratorCountProperty
+instance JSON.ToJSON AcceleratorCountProperty

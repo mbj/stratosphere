@@ -1,0 +1,7 @@
+module Stratosphere.Pinpoint.PushTemplate.DefaultPushNotificationTemplateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultPushNotificationTemplateProperty :: Prelude.Type
+instance ToResourceProperties DefaultPushNotificationTemplateProperty
+instance JSON.ToJSON DefaultPushNotificationTemplateProperty

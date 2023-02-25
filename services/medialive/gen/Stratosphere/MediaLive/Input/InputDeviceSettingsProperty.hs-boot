@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Input.InputDeviceSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputDeviceSettingsProperty :: Prelude.Type
+instance ToResourceProperties InputDeviceSettingsProperty
+instance JSON.ToJSON InputDeviceSettingsProperty

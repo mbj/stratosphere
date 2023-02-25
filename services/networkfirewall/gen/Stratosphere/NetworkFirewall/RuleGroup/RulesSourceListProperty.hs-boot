@@ -1,0 +1,7 @@
+module Stratosphere.NetworkFirewall.RuleGroup.RulesSourceListProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RulesSourceListProperty :: Prelude.Type
+instance ToResourceProperties RulesSourceListProperty
+instance JSON.ToJSON RulesSourceListProperty

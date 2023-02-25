@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AmazonopensearchserviceDestinationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AmazonopensearchserviceDestinationConfigurationProperty
+instance JSON.ToJSON AmazonopensearchserviceDestinationConfigurationProperty

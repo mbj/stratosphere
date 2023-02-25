@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.CapacityReservationSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapacityReservationSpecificationProperty :: Prelude.Type
+instance ToResourceProperties CapacityReservationSpecificationProperty
+instance JSON.ToJSON CapacityReservationSpecificationProperty

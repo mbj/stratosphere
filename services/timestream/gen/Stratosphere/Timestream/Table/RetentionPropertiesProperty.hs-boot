@@ -1,0 +1,7 @@
+module Stratosphere.Timestream.Table.RetentionPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RetentionPropertiesProperty :: Prelude.Type
+instance ToResourceProperties RetentionPropertiesProperty
+instance JSON.ToJSON RetentionPropertiesProperty

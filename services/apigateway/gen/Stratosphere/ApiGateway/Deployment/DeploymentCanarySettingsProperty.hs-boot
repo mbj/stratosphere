@@ -1,0 +1,7 @@
+module Stratosphere.ApiGateway.Deployment.DeploymentCanarySettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeploymentCanarySettingsProperty :: Prelude.Type
+instance ToResourceProperties DeploymentCanarySettingsProperty
+instance JSON.ToJSON DeploymentCanarySettingsProperty

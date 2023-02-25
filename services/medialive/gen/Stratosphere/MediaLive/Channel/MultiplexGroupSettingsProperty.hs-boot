@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.MultiplexGroupSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MultiplexGroupSettingsProperty :: Prelude.Type
+instance ToResourceProperties MultiplexGroupSettingsProperty
+instance JSON.ToJSON MultiplexGroupSettingsProperty

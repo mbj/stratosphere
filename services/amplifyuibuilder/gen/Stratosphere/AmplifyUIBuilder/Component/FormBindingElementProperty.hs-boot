@@ -1,0 +1,7 @@
+module Stratosphere.AmplifyUIBuilder.Component.FormBindingElementProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FormBindingElementProperty :: Prelude.Type
+instance ToResourceProperties FormBindingElementProperty
+instance JSON.ToJSON FormBindingElementProperty

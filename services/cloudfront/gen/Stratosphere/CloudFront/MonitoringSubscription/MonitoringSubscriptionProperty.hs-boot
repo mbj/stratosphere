@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.MonitoringSubscription.MonitoringSubscriptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MonitoringSubscriptionProperty :: Prelude.Type
+instance ToResourceProperties MonitoringSubscriptionProperty
+instance JSON.ToJSON MonitoringSubscriptionProperty

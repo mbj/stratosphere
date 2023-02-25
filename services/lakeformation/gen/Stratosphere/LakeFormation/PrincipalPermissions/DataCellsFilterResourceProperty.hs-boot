@@ -1,0 +1,7 @@
+module Stratosphere.LakeFormation.PrincipalPermissions.DataCellsFilterResourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataCellsFilterResourceProperty :: Prelude.Type
+instance ToResourceProperties DataCellsFilterResourceProperty
+instance JSON.ToJSON DataCellsFilterResourceProperty

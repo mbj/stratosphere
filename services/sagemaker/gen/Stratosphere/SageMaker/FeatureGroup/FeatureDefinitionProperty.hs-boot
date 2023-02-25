@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.FeatureGroup.FeatureDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FeatureDefinitionProperty :: Prelude.Type
+instance ToResourceProperties FeatureDefinitionProperty
+instance JSON.ToJSON FeatureDefinitionProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.PipeTargetBatchJobParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PipeTargetBatchJobParametersProperty :: Prelude.Type
+instance ToResourceProperties PipeTargetBatchJobParametersProperty
+instance JSON.ToJSON PipeTargetBatchJobParametersProperty

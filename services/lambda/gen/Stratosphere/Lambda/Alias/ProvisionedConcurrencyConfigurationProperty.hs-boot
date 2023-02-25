@@ -1,0 +1,7 @@
+module Stratosphere.Lambda.Alias.ProvisionedConcurrencyConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProvisionedConcurrencyConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ProvisionedConcurrencyConfigurationProperty
+instance JSON.ToJSON ProvisionedConcurrencyConfigurationProperty

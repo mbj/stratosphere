@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.PipeTargetCloudWatchLogsParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PipeTargetCloudWatchLogsParametersProperty :: Prelude.Type
+instance ToResourceProperties PipeTargetCloudWatchLogsParametersProperty
+instance JSON.ToJSON PipeTargetCloudWatchLogsParametersProperty

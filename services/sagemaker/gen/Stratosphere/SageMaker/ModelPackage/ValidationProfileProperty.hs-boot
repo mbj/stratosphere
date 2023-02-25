@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelPackage.ValidationProfileProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ValidationProfileProperty :: Prelude.Type
+instance ToResourceProperties ValidationProfileProperty
+instance JSON.ToJSON ValidationProfileProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Batch.ComputeEnvironment.ComputeResourcesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComputeResourcesProperty :: Prelude.Type
+instance ToResourceProperties ComputeResourcesProperty
+instance JSON.ToJSON ComputeResourcesProperty

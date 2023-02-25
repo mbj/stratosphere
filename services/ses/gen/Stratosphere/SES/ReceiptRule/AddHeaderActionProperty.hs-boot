@@ -1,0 +1,7 @@
+module Stratosphere.SES.ReceiptRule.AddHeaderActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AddHeaderActionProperty :: Prelude.Type
+instance ToResourceProperties AddHeaderActionProperty
+instance JSON.ToJSON AddHeaderActionProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EC2.SpotFleet.InstanceNetworkInterfaceSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceNetworkInterfaceSpecificationProperty :: Prelude.Type
+instance ToResourceProperties InstanceNetworkInterfaceSpecificationProperty
+instance JSON.ToJSON InstanceNetworkInterfaceSpecificationProperty

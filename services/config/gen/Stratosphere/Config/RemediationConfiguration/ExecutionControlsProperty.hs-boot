@@ -1,0 +1,7 @@
+module Stratosphere.Config.RemediationConfiguration.ExecutionControlsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExecutionControlsProperty :: Prelude.Type
+instance ToResourceProperties ExecutionControlsProperty
+instance JSON.ToJSON ExecutionControlsProperty

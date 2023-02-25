@@ -1,0 +1,7 @@
+module Stratosphere.ImageBuilder.ContainerRecipe.InstanceBlockDeviceMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceBlockDeviceMappingProperty :: Prelude.Type
+instance ToResourceProperties InstanceBlockDeviceMappingProperty
+instance JSON.ToJSON InstanceBlockDeviceMappingProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.BatchArrayPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BatchArrayPropertiesProperty :: Prelude.Type
+instance ToResourceProperties BatchArrayPropertiesProperty
+instance JSON.ToJSON BatchArrayPropertiesProperty

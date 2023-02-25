@@ -1,0 +1,7 @@
+module Stratosphere.RefactorSpaces.Route.UriPathRouteInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UriPathRouteInputProperty :: Prelude.Type
+instance ToResourceProperties UriPathRouteInputProperty
+instance JSON.ToJSON UriPathRouteInputProperty

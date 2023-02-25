@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.ComponentVersion.LambdaFunctionRecipeSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaFunctionRecipeSourceProperty :: Prelude.Type
+instance ToResourceProperties LambdaFunctionRecipeSourceProperty
+instance JSON.ToJSON LambdaFunctionRecipeSourceProperty

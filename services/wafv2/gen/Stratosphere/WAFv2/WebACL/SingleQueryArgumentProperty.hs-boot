@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.WebACL.SingleQueryArgumentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SingleQueryArgumentProperty :: Prelude.Type
+instance ToResourceProperties SingleQueryArgumentProperty
+instance JSON.ToJSON SingleQueryArgumentProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaTailor.PlaybackConfiguration.HlsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HlsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties HlsConfigurationProperty
+instance JSON.ToJSON HlsConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.RoboMaker.SimulationApplication.RenderingEngineProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RenderingEngineProperty :: Prelude.Type
+instance ToResourceProperties RenderingEngineProperty
+instance JSON.ToJSON RenderingEngineProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EC2.SpotFleet.TargetGroupsConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetGroupsConfigProperty :: Prelude.Type
+instance ToResourceProperties TargetGroupsConfigProperty
+instance JSON.ToJSON TargetGroupsConfigProperty

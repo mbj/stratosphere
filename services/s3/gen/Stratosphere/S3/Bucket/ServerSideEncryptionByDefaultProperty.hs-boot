@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.ServerSideEncryptionByDefaultProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServerSideEncryptionByDefaultProperty :: Prelude.Type
+instance ToResourceProperties ServerSideEncryptionByDefaultProperty
+instance JSON.ToJSON ServerSideEncryptionByDefaultProperty

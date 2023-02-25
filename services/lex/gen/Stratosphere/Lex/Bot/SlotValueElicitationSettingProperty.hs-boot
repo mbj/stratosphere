@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.SlotValueElicitationSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SlotValueElicitationSettingProperty :: Prelude.Type
+instance ToResourceProperties SlotValueElicitationSettingProperty
+instance JSON.ToJSON SlotValueElicitationSettingProperty

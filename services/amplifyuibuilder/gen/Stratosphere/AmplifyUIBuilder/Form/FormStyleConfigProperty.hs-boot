@@ -1,0 +1,7 @@
+module Stratosphere.AmplifyUIBuilder.Form.FormStyleConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FormStyleConfigProperty :: Prelude.Type
+instance ToResourceProperties FormStyleConfigProperty
+instance JSON.ToJSON FormStyleConfigProperty

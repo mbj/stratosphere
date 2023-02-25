@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchRetryOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ElasticsearchRetryOptionsProperty :: Prelude.Type
+instance ToResourceProperties ElasticsearchRetryOptionsProperty
+instance JSON.ToJSON ElasticsearchRetryOptionsProperty

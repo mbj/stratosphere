@@ -1,0 +1,7 @@
+module Stratosphere.GroundStation.DataflowEndpointGroup.SocketAddressProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SocketAddressProperty :: Prelude.Type
+instance ToResourceProperties SocketAddressProperty
+instance JSON.ToJSON SocketAddressProperty

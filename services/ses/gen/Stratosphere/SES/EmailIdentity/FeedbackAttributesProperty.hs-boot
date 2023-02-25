@@ -1,0 +1,7 @@
+module Stratosphere.SES.EmailIdentity.FeedbackAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FeedbackAttributesProperty :: Prelude.Type
+instance ToResourceProperties FeedbackAttributesProperty
+instance JSON.ToJSON FeedbackAttributesProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Batch.JobDefinition.EfsVolumeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EfsVolumeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EfsVolumeConfigurationProperty
+instance JSON.ToJSON EfsVolumeConfigurationProperty

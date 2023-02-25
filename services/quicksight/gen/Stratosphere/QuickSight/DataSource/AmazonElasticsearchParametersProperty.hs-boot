@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSource.AmazonElasticsearchParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AmazonElasticsearchParametersProperty :: Prelude.Type
+instance ToResourceProperties AmazonElasticsearchParametersProperty
+instance JSON.ToJSON AmazonElasticsearchParametersProperty

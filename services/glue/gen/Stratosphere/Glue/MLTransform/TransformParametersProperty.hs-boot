@@ -1,0 +1,7 @@
+module Stratosphere.Glue.MLTransform.TransformParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TransformParametersProperty :: Prelude.Type
+instance ToResourceProperties TransformParametersProperty
+instance JSON.ToJSON TransformParametersProperty

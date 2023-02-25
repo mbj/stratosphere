@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.UserPool.UserAttributeUpdateSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UserAttributeUpdateSettingsProperty :: Prelude.Type
+instance ToResourceProperties UserAttributeUpdateSettingsProperty
+instance JSON.ToJSON UserAttributeUpdateSettingsProperty

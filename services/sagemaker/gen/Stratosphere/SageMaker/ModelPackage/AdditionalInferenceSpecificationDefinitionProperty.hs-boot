@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelPackage.AdditionalInferenceSpecificationDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdditionalInferenceSpecificationDefinitionProperty :: Prelude.Type
+instance ToResourceProperties AdditionalInferenceSpecificationDefinitionProperty
+instance JSON.ToJSON AdditionalInferenceSpecificationDefinitionProperty

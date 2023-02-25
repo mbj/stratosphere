@@ -1,0 +1,35 @@
+module Stratosphere.SageMaker.EndpointConfig.ExplainerConfigProperty (
+        module Exports, ExplainerConfigProperty(..),
+        mkExplainerConfigProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.ClarifyExplainerConfigProperty as Exports
+import Stratosphere.ResourceProperties
+data ExplainerConfigProperty
+  = ExplainerConfigProperty {clarifyExplainerConfig :: (Prelude.Maybe ClarifyExplainerConfigProperty)}
+mkExplainerConfigProperty :: ExplainerConfigProperty
+mkExplainerConfigProperty
+  = ExplainerConfigProperty
+      {clarifyExplainerConfig = Prelude.Nothing}
+instance ToResourceProperties ExplainerConfigProperty where
+  toResourceProperties ExplainerConfigProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::SageMaker::EndpointConfig.ExplainerConfig",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "ClarifyExplainerConfig"
+                              Prelude.<$> clarifyExplainerConfig])}
+instance JSON.ToJSON ExplainerConfigProperty where
+  toJSON ExplainerConfigProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "ClarifyExplainerConfig"
+                 Prelude.<$> clarifyExplainerConfig]))
+instance Property "ClarifyExplainerConfig" ExplainerConfigProperty where
+  type PropertyType "ClarifyExplainerConfig" ExplainerConfigProperty = ClarifyExplainerConfigProperty
+  set newValue ExplainerConfigProperty {}
+    = ExplainerConfigProperty
+        {clarifyExplainerConfig = Prelude.pure newValue, ..}

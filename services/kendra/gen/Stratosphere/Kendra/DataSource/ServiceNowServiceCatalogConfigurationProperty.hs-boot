@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.ServiceNowServiceCatalogConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceNowServiceCatalogConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ServiceNowServiceCatalogConfigurationProperty
+instance JSON.ToJSON ServiceNowServiceCatalogConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.CodeDeploy.DeploymentGroup.DeploymentStyleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeploymentStyleProperty :: Prelude.Type
+instance ToResourceProperties DeploymentStyleProperty
+instance JSON.ToJSON DeploymentStyleProperty

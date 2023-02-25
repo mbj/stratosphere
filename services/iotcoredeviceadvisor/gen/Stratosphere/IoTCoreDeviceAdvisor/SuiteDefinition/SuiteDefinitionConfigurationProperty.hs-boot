@@ -1,0 +1,7 @@
+module Stratosphere.IoTCoreDeviceAdvisor.SuiteDefinition.SuiteDefinitionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SuiteDefinitionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SuiteDefinitionConfigurationProperty
+instance JSON.ToJSON SuiteDefinitionConfigurationProperty

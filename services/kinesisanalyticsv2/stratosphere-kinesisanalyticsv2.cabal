@@ -1,0 +1,124 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-kinesisanalyticsv2
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.KinesisAnalyticsV2.Application
+      Stratosphere.KinesisAnalyticsV2.Application.ApplicationCodeConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.ApplicationConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.ApplicationMaintenanceConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.ApplicationRestoreConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.ApplicationSnapshotConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.CatalogConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.CheckpointConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.CodeContentProperty
+      Stratosphere.KinesisAnalyticsV2.Application.CSVMappingParametersProperty
+      Stratosphere.KinesisAnalyticsV2.Application.CustomArtifactConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.DeployAsApplicationConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.EnvironmentPropertiesProperty
+      Stratosphere.KinesisAnalyticsV2.Application.FlinkApplicationConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.FlinkRunConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.GlueDataCatalogConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.InputLambdaProcessorProperty
+      Stratosphere.KinesisAnalyticsV2.Application.InputParallelismProperty
+      Stratosphere.KinesisAnalyticsV2.Application.InputProcessingConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.InputProperty
+      Stratosphere.KinesisAnalyticsV2.Application.InputSchemaProperty
+      Stratosphere.KinesisAnalyticsV2.Application.JSONMappingParametersProperty
+      Stratosphere.KinesisAnalyticsV2.Application.KinesisFirehoseInputProperty
+      Stratosphere.KinesisAnalyticsV2.Application.KinesisStreamsInputProperty
+      Stratosphere.KinesisAnalyticsV2.Application.MappingParametersProperty
+      Stratosphere.KinesisAnalyticsV2.Application.MavenReferenceProperty
+      Stratosphere.KinesisAnalyticsV2.Application.MonitoringConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.ParallelismConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.PropertyGroupProperty
+      Stratosphere.KinesisAnalyticsV2.Application.RecordColumnProperty
+      Stratosphere.KinesisAnalyticsV2.Application.RecordFormatProperty
+      Stratosphere.KinesisAnalyticsV2.Application.RunConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.S3ContentBaseLocationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.S3ContentLocationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.SqlApplicationConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.VpcConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.ZeppelinApplicationConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.Application.ZeppelinMonitoringConfigurationProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationCloudWatchLoggingOption
+      Stratosphere.KinesisAnalyticsV2.ApplicationCloudWatchLoggingOption.CloudWatchLoggingOptionProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationOutput
+      Stratosphere.KinesisAnalyticsV2.ApplicationOutput.DestinationSchemaProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationOutput.KinesisFirehoseOutputProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationOutput.KinesisStreamsOutputProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationOutput.LambdaOutputProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationOutput.OutputProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource
+      Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource.CSVMappingParametersProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource.JSONMappingParametersProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource.MappingParametersProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource.RecordColumnProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource.RecordFormatProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource.ReferenceDataSourceProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource.ReferenceSchemaProperty
+      Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource.S3ReferenceDataSourceProperty
+  other-modules:
+      Paths_stratosphere_kinesisanalyticsv2
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

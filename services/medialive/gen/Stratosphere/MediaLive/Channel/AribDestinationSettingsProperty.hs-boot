@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AribDestinationSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AribDestinationSettingsProperty :: Prelude.Type
+instance ToResourceProperties AribDestinationSettingsProperty
+instance JSON.ToJSON AribDestinationSettingsProperty

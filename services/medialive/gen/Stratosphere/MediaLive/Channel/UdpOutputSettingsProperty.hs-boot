@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.UdpOutputSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UdpOutputSettingsProperty :: Prelude.Type
+instance ToResourceProperties UdpOutputSettingsProperty
+instance JSON.ToJSON UdpOutputSettingsProperty

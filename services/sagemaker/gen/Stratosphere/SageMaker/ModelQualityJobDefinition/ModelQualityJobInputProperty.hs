@@ -1,0 +1,56 @@
+module Stratosphere.SageMaker.ModelQualityJobDefinition.ModelQualityJobInputProperty (
+        module Exports, ModelQualityJobInputProperty(..),
+        mkModelQualityJobInputProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.BatchTransformInputProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.EndpointInputProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.MonitoringGroundTruthS3InputProperty as Exports
+import Stratosphere.ResourceProperties
+data ModelQualityJobInputProperty
+  = ModelQualityJobInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
+                                  endpointInput :: (Prelude.Maybe EndpointInputProperty),
+                                  groundTruthS3Input :: MonitoringGroundTruthS3InputProperty}
+mkModelQualityJobInputProperty ::
+  MonitoringGroundTruthS3InputProperty
+  -> ModelQualityJobInputProperty
+mkModelQualityJobInputProperty groundTruthS3Input
+  = ModelQualityJobInputProperty
+      {groundTruthS3Input = groundTruthS3Input,
+       batchTransformInput = Prelude.Nothing,
+       endpointInput = Prelude.Nothing}
+instance ToResourceProperties ModelQualityJobInputProperty where
+  toResourceProperties ModelQualityJobInputProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::SageMaker::ModelQualityJobDefinition.ModelQualityJobInput",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["GroundTruthS3Input" JSON..= groundTruthS3Input]
+                           (Prelude.catMaybes
+                              [(JSON..=) "BatchTransformInput" Prelude.<$> batchTransformInput,
+                               (JSON..=) "EndpointInput" Prelude.<$> endpointInput]))}
+instance JSON.ToJSON ModelQualityJobInputProperty where
+  toJSON ModelQualityJobInputProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["GroundTruthS3Input" JSON..= groundTruthS3Input]
+              (Prelude.catMaybes
+                 [(JSON..=) "BatchTransformInput" Prelude.<$> batchTransformInput,
+                  (JSON..=) "EndpointInput" Prelude.<$> endpointInput])))
+instance Property "BatchTransformInput" ModelQualityJobInputProperty where
+  type PropertyType "BatchTransformInput" ModelQualityJobInputProperty = BatchTransformInputProperty
+  set newValue ModelQualityJobInputProperty {..}
+    = ModelQualityJobInputProperty
+        {batchTransformInput = Prelude.pure newValue, ..}
+instance Property "EndpointInput" ModelQualityJobInputProperty where
+  type PropertyType "EndpointInput" ModelQualityJobInputProperty = EndpointInputProperty
+  set newValue ModelQualityJobInputProperty {..}
+    = ModelQualityJobInputProperty
+        {endpointInput = Prelude.pure newValue, ..}
+instance Property "GroundTruthS3Input" ModelQualityJobInputProperty where
+  type PropertyType "GroundTruthS3Input" ModelQualityJobInputProperty = MonitoringGroundTruthS3InputProperty
+  set newValue ModelQualityJobInputProperty {..}
+    = ModelQualityJobInputProperty {groundTruthS3Input = newValue, ..}

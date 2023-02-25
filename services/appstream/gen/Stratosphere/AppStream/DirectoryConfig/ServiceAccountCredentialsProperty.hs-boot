@@ -1,0 +1,7 @@
+module Stratosphere.AppStream.DirectoryConfig.ServiceAccountCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceAccountCredentialsProperty :: Prelude.Type
+instance ToResourceProperties ServiceAccountCredentialsProperty
+instance JSON.ToJSON ServiceAccountCredentialsProperty

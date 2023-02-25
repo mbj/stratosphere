@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Pipeline.SelectAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SelectAttributesProperty :: Prelude.Type
+instance ToResourceProperties SelectAttributesProperty
+instance JSON.ToJSON SelectAttributesProperty

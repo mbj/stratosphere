@@ -1,0 +1,105 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-elasticloadbalancingv2
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.ElasticLoadBalancingV2.Listener
+      Stratosphere.ElasticLoadBalancingV2.Listener.ActionProperty
+      Stratosphere.ElasticLoadBalancingV2.Listener.AuthenticateCognitoConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.Listener.AuthenticateOidcConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.Listener.CertificateProperty
+      Stratosphere.ElasticLoadBalancingV2.Listener.FixedResponseConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.Listener.ForwardConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.Listener.RedirectConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.Listener.TargetGroupStickinessConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.Listener.TargetGroupTupleProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerCertificate
+      Stratosphere.ElasticLoadBalancingV2.ListenerCertificate.CertificateProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.ActionProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.AuthenticateCognitoConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.AuthenticateOidcConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.FixedResponseConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.ForwardConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.HostHeaderConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.HttpHeaderConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.HttpRequestMethodConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.PathPatternConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.QueryStringConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.QueryStringKeyValueProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.RedirectConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.RuleConditionProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.SourceIpConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.TargetGroupStickinessConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.ListenerRule.TargetGroupTupleProperty
+      Stratosphere.ElasticLoadBalancingV2.LoadBalancer
+      Stratosphere.ElasticLoadBalancingV2.LoadBalancer.LoadBalancerAttributeProperty
+      Stratosphere.ElasticLoadBalancingV2.LoadBalancer.SubnetMappingProperty
+      Stratosphere.ElasticLoadBalancingV2.TargetGroup
+      Stratosphere.ElasticLoadBalancingV2.TargetGroup.MatcherProperty
+      Stratosphere.ElasticLoadBalancingV2.TargetGroup.TargetDescriptionProperty
+      Stratosphere.ElasticLoadBalancingV2.TargetGroup.TargetGroupAttributeProperty
+  other-modules:
+      Paths_stratosphere_elasticloadbalancingv2
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

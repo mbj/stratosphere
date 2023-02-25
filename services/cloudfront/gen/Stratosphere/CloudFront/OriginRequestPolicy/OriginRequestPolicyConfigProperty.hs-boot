@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.OriginRequestPolicy.OriginRequestPolicyConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OriginRequestPolicyConfigProperty :: Prelude.Type
+instance ToResourceProperties OriginRequestPolicyConfigProperty
+instance JSON.ToJSON OriginRequestPolicyConfigProperty

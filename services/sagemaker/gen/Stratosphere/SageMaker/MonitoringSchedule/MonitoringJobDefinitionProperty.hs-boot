@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.MonitoringSchedule.MonitoringJobDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MonitoringJobDefinitionProperty :: Prelude.Type
+instance ToResourceProperties MonitoringJobDefinitionProperty
+instance JSON.ToJSON MonitoringJobDefinitionProperty

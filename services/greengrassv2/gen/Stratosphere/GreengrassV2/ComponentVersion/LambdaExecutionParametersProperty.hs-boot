@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.ComponentVersion.LambdaExecutionParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaExecutionParametersProperty :: Prelude.Type
+instance ToResourceProperties LambdaExecutionParametersProperty
+instance JSON.ToJSON LambdaExecutionParametersProperty

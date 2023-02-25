@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.ContinuousDeploymentPolicy.SessionStickinessConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SessionStickinessConfigProperty :: Prelude.Type
+instance ToResourceProperties SessionStickinessConfigProperty
+instance JSON.ToJSON SessionStickinessConfigProperty

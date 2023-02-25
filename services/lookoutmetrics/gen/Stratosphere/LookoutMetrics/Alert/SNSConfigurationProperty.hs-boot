@@ -1,0 +1,7 @@
+module Stratosphere.LookoutMetrics.Alert.SNSConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SNSConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SNSConfigurationProperty
+instance JSON.ToJSON SNSConfigurationProperty

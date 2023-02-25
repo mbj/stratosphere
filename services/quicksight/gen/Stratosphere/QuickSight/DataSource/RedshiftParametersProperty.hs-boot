@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSource.RedshiftParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedshiftParametersProperty :: Prelude.Type
+instance ToResourceProperties RedshiftParametersProperty
+instance JSON.ToJSON RedshiftParametersProperty

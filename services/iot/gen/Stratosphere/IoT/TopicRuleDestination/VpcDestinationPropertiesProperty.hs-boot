@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRuleDestination.VpcDestinationPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VpcDestinationPropertiesProperty :: Prelude.Type
+instance ToResourceProperties VpcDestinationPropertiesProperty
+instance JSON.ToJSON VpcDestinationPropertiesProperty

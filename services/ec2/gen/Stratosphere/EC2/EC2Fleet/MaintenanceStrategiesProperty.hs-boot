@@ -1,0 +1,7 @@
+module Stratosphere.EC2.EC2Fleet.MaintenanceStrategiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MaintenanceStrategiesProperty :: Prelude.Type
+instance ToResourceProperties MaintenanceStrategiesProperty
+instance JSON.ToJSON MaintenanceStrategiesProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Config.ConfigurationAggregator.AccountAggregationSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccountAggregationSourceProperty :: Prelude.Type
+instance ToResourceProperties AccountAggregationSourceProperty
+instance JSON.ToJSON AccountAggregationSourceProperty

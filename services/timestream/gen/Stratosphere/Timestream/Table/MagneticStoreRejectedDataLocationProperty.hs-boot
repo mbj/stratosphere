@@ -1,0 +1,7 @@
+module Stratosphere.Timestream.Table.MagneticStoreRejectedDataLocationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MagneticStoreRejectedDataLocationProperty :: Prelude.Type
+instance ToResourceProperties MagneticStoreRejectedDataLocationProperty
+instance JSON.ToJSON MagneticStoreRejectedDataLocationProperty

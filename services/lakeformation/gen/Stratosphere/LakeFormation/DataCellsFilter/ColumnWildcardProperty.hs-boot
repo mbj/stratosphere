@@ -1,0 +1,7 @@
+module Stratosphere.LakeFormation.DataCellsFilter.ColumnWildcardProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ColumnWildcardProperty :: Prelude.Type
+instance ToResourceProperties ColumnWildcardProperty
+instance JSON.ToJSON ColumnWildcardProperty

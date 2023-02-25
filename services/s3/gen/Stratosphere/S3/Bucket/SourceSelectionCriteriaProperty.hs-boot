@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.SourceSelectionCriteriaProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SourceSelectionCriteriaProperty :: Prelude.Type
+instance ToResourceProperties SourceSelectionCriteriaProperty
+instance JSON.ToJSON SourceSelectionCriteriaProperty

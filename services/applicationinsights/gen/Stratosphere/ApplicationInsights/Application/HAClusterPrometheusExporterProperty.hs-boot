@@ -1,0 +1,7 @@
+module Stratosphere.ApplicationInsights.Application.HAClusterPrometheusExporterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HAClusterPrometheusExporterProperty :: Prelude.Type
+instance ToResourceProperties HAClusterPrometheusExporterProperty
+instance JSON.ToJSON HAClusterPrometheusExporterProperty

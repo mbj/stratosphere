@@ -1,0 +1,7 @@
+module Stratosphere.MSK.Cluster.EncryptionInTransitProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EncryptionInTransitProperty :: Prelude.Type
+instance ToResourceProperties EncryptionInTransitProperty
+instance JSON.ToJSON EncryptionInTransitProperty

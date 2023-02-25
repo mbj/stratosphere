@@ -1,0 +1,7 @@
+module Stratosphere.IoTWireless.NetworkAnalyzerConfiguration.TraceContentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TraceContentProperty :: Prelude.Type
+instance ToResourceProperties TraceContentProperty
+instance JSON.ToJSON TraceContentProperty

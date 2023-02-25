@@ -1,0 +1,23 @@
+module Stratosphere.EC2.SpotFleet.TargetGroupProperty (
+        TargetGroupProperty(..), mkTargetGroupProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data TargetGroupProperty
+  = TargetGroupProperty {arn :: (Value Prelude.Text)}
+mkTargetGroupProperty :: Value Prelude.Text -> TargetGroupProperty
+mkTargetGroupProperty arn = TargetGroupProperty {arn = arn}
+instance ToResourceProperties TargetGroupProperty where
+  toResourceProperties TargetGroupProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::EC2::SpotFleet.TargetGroup",
+         properties = ["Arn" JSON..= arn]}
+instance JSON.ToJSON TargetGroupProperty where
+  toJSON TargetGroupProperty {..} = JSON.object ["Arn" JSON..= arn]
+instance Property "Arn" TargetGroupProperty where
+  type PropertyType "Arn" TargetGroupProperty = Value Prelude.Text
+  set newValue TargetGroupProperty {}
+    = TargetGroupProperty {arn = newValue, ..}

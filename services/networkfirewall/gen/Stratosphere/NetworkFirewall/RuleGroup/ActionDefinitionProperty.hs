@@ -1,0 +1,32 @@
+module Stratosphere.NetworkFirewall.RuleGroup.ActionDefinitionProperty (
+        module Exports, ActionDefinitionProperty(..),
+        mkActionDefinitionProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.PublishMetricActionProperty as Exports
+import Stratosphere.ResourceProperties
+data ActionDefinitionProperty
+  = ActionDefinitionProperty {publishMetricAction :: (Prelude.Maybe PublishMetricActionProperty)}
+mkActionDefinitionProperty :: ActionDefinitionProperty
+mkActionDefinitionProperty
+  = ActionDefinitionProperty {publishMetricAction = Prelude.Nothing}
+instance ToResourceProperties ActionDefinitionProperty where
+  toResourceProperties ActionDefinitionProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::NetworkFirewall::RuleGroup.ActionDefinition",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "PublishMetricAction" Prelude.<$> publishMetricAction])}
+instance JSON.ToJSON ActionDefinitionProperty where
+  toJSON ActionDefinitionProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "PublishMetricAction" Prelude.<$> publishMetricAction]))
+instance Property "PublishMetricAction" ActionDefinitionProperty where
+  type PropertyType "PublishMetricAction" ActionDefinitionProperty = PublishMetricActionProperty
+  set newValue ActionDefinitionProperty {}
+    = ActionDefinitionProperty
+        {publishMetricAction = Prelude.pure newValue, ..}

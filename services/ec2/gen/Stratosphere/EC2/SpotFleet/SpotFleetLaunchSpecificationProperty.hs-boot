@@ -1,0 +1,7 @@
+module Stratosphere.EC2.SpotFleet.SpotFleetLaunchSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpotFleetLaunchSpecificationProperty :: Prelude.Type
+instance ToResourceProperties SpotFleetLaunchSpecificationProperty
+instance JSON.ToJSON SpotFleetLaunchSpecificationProperty

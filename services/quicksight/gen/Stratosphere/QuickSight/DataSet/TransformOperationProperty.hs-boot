@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.TransformOperationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TransformOperationProperty :: Prelude.Type
+instance ToResourceProperties TransformOperationProperty
+instance JSON.ToJSON TransformOperationProperty

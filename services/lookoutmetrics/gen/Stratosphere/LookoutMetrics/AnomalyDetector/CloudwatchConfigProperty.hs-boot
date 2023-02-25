@@ -1,0 +1,7 @@
+module Stratosphere.LookoutMetrics.AnomalyDetector.CloudwatchConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudwatchConfigProperty :: Prelude.Type
+instance ToResourceProperties CloudwatchConfigProperty
+instance JSON.ToJSON CloudwatchConfigProperty

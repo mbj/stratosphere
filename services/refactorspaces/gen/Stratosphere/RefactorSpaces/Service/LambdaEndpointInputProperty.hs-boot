@@ -1,0 +1,7 @@
+module Stratosphere.RefactorSpaces.Service.LambdaEndpointInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaEndpointInputProperty :: Prelude.Type
+instance ToResourceProperties LambdaEndpointInputProperty
+instance JSON.ToJSON LambdaEndpointInputProperty

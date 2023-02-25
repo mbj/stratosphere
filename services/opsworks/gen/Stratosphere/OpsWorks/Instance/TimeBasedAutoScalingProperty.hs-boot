@@ -1,0 +1,7 @@
+module Stratosphere.OpsWorks.Instance.TimeBasedAutoScalingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TimeBasedAutoScalingProperty :: Prelude.Type
+instance ToResourceProperties TimeBasedAutoScalingProperty
+instance JSON.ToJSON TimeBasedAutoScalingProperty

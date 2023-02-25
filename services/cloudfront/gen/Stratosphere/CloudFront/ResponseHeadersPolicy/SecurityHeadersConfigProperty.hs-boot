@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.ResponseHeadersPolicy.SecurityHeadersConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SecurityHeadersConfigProperty :: Prelude.Type
+instance ToResourceProperties SecurityHeadersConfigProperty
+instance JSON.ToJSON SecurityHeadersConfigProperty

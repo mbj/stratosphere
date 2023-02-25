@@ -1,0 +1,7 @@
+module Stratosphere.S3Outposts.Bucket.FilterAndOperatorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FilterAndOperatorProperty :: Prelude.Type
+instance ToResourceProperties FilterAndOperatorProperty
+instance JSON.ToJSON FilterAndOperatorProperty

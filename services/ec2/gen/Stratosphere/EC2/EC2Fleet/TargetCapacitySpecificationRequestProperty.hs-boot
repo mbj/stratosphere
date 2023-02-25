@@ -1,0 +1,7 @@
+module Stratosphere.EC2.EC2Fleet.TargetCapacitySpecificationRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetCapacitySpecificationRequestProperty :: Prelude.Type
+instance ToResourceProperties TargetCapacitySpecificationRequestProperty
+instance JSON.ToJSON TargetCapacitySpecificationRequestProperty

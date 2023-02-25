@@ -1,0 +1,7 @@
+module Stratosphere.LookoutEquipment.InferenceScheduler.DataOutputConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataOutputConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DataOutputConfigurationProperty
+instance JSON.ToJSON DataOutputConfigurationProperty

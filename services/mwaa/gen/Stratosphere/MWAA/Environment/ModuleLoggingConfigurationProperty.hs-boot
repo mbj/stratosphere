@@ -1,0 +1,7 @@
+module Stratosphere.MWAA.Environment.ModuleLoggingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ModuleLoggingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ModuleLoggingConfigurationProperty
+instance JSON.ToJSON ModuleLoggingConfigurationProperty

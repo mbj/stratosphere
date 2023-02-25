@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.WebACL.IPSetForwardedIPConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IPSetForwardedIPConfigurationProperty :: Prelude.Type
+instance ToResourceProperties IPSetForwardedIPConfigurationProperty
+instance JSON.ToJSON IPSetForwardedIPConfigurationProperty

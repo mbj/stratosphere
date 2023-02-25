@@ -1,0 +1,7 @@
+module Stratosphere.KafkaConnect.Connector.FirehoseLogDeliveryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FirehoseLogDeliveryProperty :: Prelude.Type
+instance ToResourceProperties FirehoseLogDeliveryProperty
+instance JSON.ToJSON FirehoseLogDeliveryProperty

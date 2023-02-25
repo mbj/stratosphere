@@ -1,0 +1,7 @@
+module Stratosphere.RDS.DBProxyTargetGroup.ConnectionPoolConfigurationInfoFormatProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectionPoolConfigurationInfoFormatProperty :: Prelude.Type
+instance ToResourceProperties ConnectionPoolConfigurationInfoFormatProperty
+instance JSON.ToJSON ConnectionPoolConfigurationInfoFormatProperty

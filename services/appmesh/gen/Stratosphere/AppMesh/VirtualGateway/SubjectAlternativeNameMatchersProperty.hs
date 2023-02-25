@@ -1,0 +1,31 @@
+module Stratosphere.AppMesh.VirtualGateway.SubjectAlternativeNameMatchersProperty (
+        SubjectAlternativeNameMatchersProperty(..),
+        mkSubjectAlternativeNameMatchersProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data SubjectAlternativeNameMatchersProperty
+  = SubjectAlternativeNameMatchersProperty {exact :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+mkSubjectAlternativeNameMatchersProperty ::
+  SubjectAlternativeNameMatchersProperty
+mkSubjectAlternativeNameMatchersProperty
+  = SubjectAlternativeNameMatchersProperty {exact = Prelude.Nothing}
+instance ToResourceProperties SubjectAlternativeNameMatchersProperty where
+  toResourceProperties SubjectAlternativeNameMatchersProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::AppMesh::VirtualGateway.SubjectAlternativeNameMatchers",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes [(JSON..=) "Exact" Prelude.<$> exact])}
+instance JSON.ToJSON SubjectAlternativeNameMatchersProperty where
+  toJSON SubjectAlternativeNameMatchersProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes [(JSON..=) "Exact" Prelude.<$> exact]))
+instance Property "Exact" SubjectAlternativeNameMatchersProperty where
+  type PropertyType "Exact" SubjectAlternativeNameMatchersProperty = ValueList (Value Prelude.Text)
+  set newValue SubjectAlternativeNameMatchersProperty {}
+    = SubjectAlternativeNameMatchersProperty
+        {exact = Prelude.pure newValue, ..}

@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceBufferingHintsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AmazonopensearchserviceBufferingHintsProperty :: Prelude.Type
+instance ToResourceProperties AmazonopensearchserviceBufferingHintsProperty
+instance JSON.ToJSON AmazonopensearchserviceBufferingHintsProperty

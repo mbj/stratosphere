@@ -1,0 +1,99 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-datasync
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.DataSync.Agent
+      Stratosphere.DataSync.LocationEFS
+      Stratosphere.DataSync.LocationEFS.Ec2ConfigProperty
+      Stratosphere.DataSync.LocationFSxLustre
+      Stratosphere.DataSync.LocationFSxONTAP
+      Stratosphere.DataSync.LocationFSxONTAP.NfsMountOptionsProperty
+      Stratosphere.DataSync.LocationFSxONTAP.NFSProperty
+      Stratosphere.DataSync.LocationFSxONTAP.ProtocolProperty
+      Stratosphere.DataSync.LocationFSxONTAP.SmbMountOptionsProperty
+      Stratosphere.DataSync.LocationFSxONTAP.SMBProperty
+      Stratosphere.DataSync.LocationFSxOpenZFS
+      Stratosphere.DataSync.LocationFSxOpenZFS.MountOptionsProperty
+      Stratosphere.DataSync.LocationFSxOpenZFS.NFSProperty
+      Stratosphere.DataSync.LocationFSxOpenZFS.ProtocolProperty
+      Stratosphere.DataSync.LocationFSxWindows
+      Stratosphere.DataSync.LocationHDFS
+      Stratosphere.DataSync.LocationHDFS.NameNodeProperty
+      Stratosphere.DataSync.LocationHDFS.QopConfigurationProperty
+      Stratosphere.DataSync.LocationNFS
+      Stratosphere.DataSync.LocationNFS.MountOptionsProperty
+      Stratosphere.DataSync.LocationNFS.OnPremConfigProperty
+      Stratosphere.DataSync.LocationObjectStorage
+      Stratosphere.DataSync.LocationS3
+      Stratosphere.DataSync.LocationS3.S3ConfigProperty
+      Stratosphere.DataSync.LocationSMB
+      Stratosphere.DataSync.LocationSMB.MountOptionsProperty
+      Stratosphere.DataSync.Task
+      Stratosphere.DataSync.Task.FilterRuleProperty
+      Stratosphere.DataSync.Task.OptionsProperty
+      Stratosphere.DataSync.Task.TaskScheduleProperty
+  other-modules:
+      Paths_stratosphere_datasync
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

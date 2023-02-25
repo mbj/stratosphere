@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRule.IotSiteWiseActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IotSiteWiseActionProperty :: Prelude.Type
+instance ToResourceProperties IotSiteWiseActionProperty
+instance JSON.ToJSON IotSiteWiseActionProperty

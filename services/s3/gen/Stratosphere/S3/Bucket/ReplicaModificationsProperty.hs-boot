@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.ReplicaModificationsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplicaModificationsProperty :: Prelude.Type
+instance ToResourceProperties ReplicaModificationsProperty
+instance JSON.ToJSON ReplicaModificationsProperty

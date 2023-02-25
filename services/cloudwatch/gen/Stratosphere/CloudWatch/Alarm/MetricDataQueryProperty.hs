@@ -1,0 +1,81 @@
+module Stratosphere.CloudWatch.Alarm.MetricDataQueryProperty (
+        module Exports, MetricDataQueryProperty(..),
+        mkMetricDataQueryProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.CloudWatch.Alarm.MetricStatProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data MetricDataQueryProperty
+  = MetricDataQueryProperty {accountId :: (Prelude.Maybe (Value Prelude.Text)),
+                             expression :: (Prelude.Maybe (Value Prelude.Text)),
+                             id :: (Value Prelude.Text),
+                             label :: (Prelude.Maybe (Value Prelude.Text)),
+                             metricStat :: (Prelude.Maybe MetricStatProperty),
+                             period :: (Prelude.Maybe (Value Prelude.Integer)),
+                             returnData :: (Prelude.Maybe (Value Prelude.Bool))}
+mkMetricDataQueryProperty ::
+  Value Prelude.Text -> MetricDataQueryProperty
+mkMetricDataQueryProperty id
+  = MetricDataQueryProperty
+      {id = id, accountId = Prelude.Nothing,
+       expression = Prelude.Nothing, label = Prelude.Nothing,
+       metricStat = Prelude.Nothing, period = Prelude.Nothing,
+       returnData = Prelude.Nothing}
+instance ToResourceProperties MetricDataQueryProperty where
+  toResourceProperties MetricDataQueryProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::CloudWatch::Alarm.MetricDataQuery",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Id" JSON..= id]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AccountId" Prelude.<$> accountId,
+                               (JSON..=) "Expression" Prelude.<$> expression,
+                               (JSON..=) "Label" Prelude.<$> label,
+                               (JSON..=) "MetricStat" Prelude.<$> metricStat,
+                               (JSON..=) "Period" Prelude.<$> period,
+                               (JSON..=) "ReturnData" Prelude.<$> returnData]))}
+instance JSON.ToJSON MetricDataQueryProperty where
+  toJSON MetricDataQueryProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Id" JSON..= id]
+              (Prelude.catMaybes
+                 [(JSON..=) "AccountId" Prelude.<$> accountId,
+                  (JSON..=) "Expression" Prelude.<$> expression,
+                  (JSON..=) "Label" Prelude.<$> label,
+                  (JSON..=) "MetricStat" Prelude.<$> metricStat,
+                  (JSON..=) "Period" Prelude.<$> period,
+                  (JSON..=) "ReturnData" Prelude.<$> returnData])))
+instance Property "AccountId" MetricDataQueryProperty where
+  type PropertyType "AccountId" MetricDataQueryProperty = Value Prelude.Text
+  set newValue MetricDataQueryProperty {..}
+    = MetricDataQueryProperty {accountId = Prelude.pure newValue, ..}
+instance Property "Expression" MetricDataQueryProperty where
+  type PropertyType "Expression" MetricDataQueryProperty = Value Prelude.Text
+  set newValue MetricDataQueryProperty {..}
+    = MetricDataQueryProperty {expression = Prelude.pure newValue, ..}
+instance Property "Id" MetricDataQueryProperty where
+  type PropertyType "Id" MetricDataQueryProperty = Value Prelude.Text
+  set newValue MetricDataQueryProperty {..}
+    = MetricDataQueryProperty {id = newValue, ..}
+instance Property "Label" MetricDataQueryProperty where
+  type PropertyType "Label" MetricDataQueryProperty = Value Prelude.Text
+  set newValue MetricDataQueryProperty {..}
+    = MetricDataQueryProperty {label = Prelude.pure newValue, ..}
+instance Property "MetricStat" MetricDataQueryProperty where
+  type PropertyType "MetricStat" MetricDataQueryProperty = MetricStatProperty
+  set newValue MetricDataQueryProperty {..}
+    = MetricDataQueryProperty {metricStat = Prelude.pure newValue, ..}
+instance Property "Period" MetricDataQueryProperty where
+  type PropertyType "Period" MetricDataQueryProperty = Value Prelude.Integer
+  set newValue MetricDataQueryProperty {..}
+    = MetricDataQueryProperty {period = Prelude.pure newValue, ..}
+instance Property "ReturnData" MetricDataQueryProperty where
+  type PropertyType "ReturnData" MetricDataQueryProperty = Value Prelude.Bool
+  set newValue MetricDataQueryProperty {..}
+    = MetricDataQueryProperty {returnData = Prelude.pure newValue, ..}

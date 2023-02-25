@@ -1,0 +1,7 @@
+module Stratosphere.EC2.IPAMResourceDiscovery.IpamOperatingRegionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IpamOperatingRegionProperty :: Prelude.Type
+instance ToResourceProperties IpamOperatingRegionProperty
+instance JSON.ToJSON IpamOperatingRegionProperty

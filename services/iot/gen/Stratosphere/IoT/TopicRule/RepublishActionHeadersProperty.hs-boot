@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRule.RepublishActionHeadersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RepublishActionHeadersProperty :: Prelude.Type
+instance ToResourceProperties RepublishActionHeadersProperty
+instance JSON.ToJSON RepublishActionHeadersProperty

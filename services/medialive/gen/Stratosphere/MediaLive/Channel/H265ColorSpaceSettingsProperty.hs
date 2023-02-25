@@ -1,0 +1,64 @@
+module Stratosphere.MediaLive.Channel.H265ColorSpaceSettingsProperty (
+        module Exports, H265ColorSpaceSettingsProperty(..),
+        mkH265ColorSpaceSettingsProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ColorSpacePassthroughSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Hdr10SettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Rec601SettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Rec709SettingsProperty as Exports
+import Stratosphere.ResourceProperties
+data H265ColorSpaceSettingsProperty
+  = H265ColorSpaceSettingsProperty {colorSpacePassthroughSettings :: (Prelude.Maybe ColorSpacePassthroughSettingsProperty),
+                                    hdr10Settings :: (Prelude.Maybe Hdr10SettingsProperty),
+                                    rec601Settings :: (Prelude.Maybe Rec601SettingsProperty),
+                                    rec709Settings :: (Prelude.Maybe Rec709SettingsProperty)}
+mkH265ColorSpaceSettingsProperty :: H265ColorSpaceSettingsProperty
+mkH265ColorSpaceSettingsProperty
+  = H265ColorSpaceSettingsProperty
+      {colorSpacePassthroughSettings = Prelude.Nothing,
+       hdr10Settings = Prelude.Nothing, rec601Settings = Prelude.Nothing,
+       rec709Settings = Prelude.Nothing}
+instance ToResourceProperties H265ColorSpaceSettingsProperty where
+  toResourceProperties H265ColorSpaceSettingsProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::MediaLive::Channel.H265ColorSpaceSettings",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "ColorSpacePassthroughSettings"
+                              Prelude.<$> colorSpacePassthroughSettings,
+                            (JSON..=) "Hdr10Settings" Prelude.<$> hdr10Settings,
+                            (JSON..=) "Rec601Settings" Prelude.<$> rec601Settings,
+                            (JSON..=) "Rec709Settings" Prelude.<$> rec709Settings])}
+instance JSON.ToJSON H265ColorSpaceSettingsProperty where
+  toJSON H265ColorSpaceSettingsProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "ColorSpacePassthroughSettings"
+                 Prelude.<$> colorSpacePassthroughSettings,
+               (JSON..=) "Hdr10Settings" Prelude.<$> hdr10Settings,
+               (JSON..=) "Rec601Settings" Prelude.<$> rec601Settings,
+               (JSON..=) "Rec709Settings" Prelude.<$> rec709Settings]))
+instance Property "ColorSpacePassthroughSettings" H265ColorSpaceSettingsProperty where
+  type PropertyType "ColorSpacePassthroughSettings" H265ColorSpaceSettingsProperty = ColorSpacePassthroughSettingsProperty
+  set newValue H265ColorSpaceSettingsProperty {..}
+    = H265ColorSpaceSettingsProperty
+        {colorSpacePassthroughSettings = Prelude.pure newValue, ..}
+instance Property "Hdr10Settings" H265ColorSpaceSettingsProperty where
+  type PropertyType "Hdr10Settings" H265ColorSpaceSettingsProperty = Hdr10SettingsProperty
+  set newValue H265ColorSpaceSettingsProperty {..}
+    = H265ColorSpaceSettingsProperty
+        {hdr10Settings = Prelude.pure newValue, ..}
+instance Property "Rec601Settings" H265ColorSpaceSettingsProperty where
+  type PropertyType "Rec601Settings" H265ColorSpaceSettingsProperty = Rec601SettingsProperty
+  set newValue H265ColorSpaceSettingsProperty {..}
+    = H265ColorSpaceSettingsProperty
+        {rec601Settings = Prelude.pure newValue, ..}
+instance Property "Rec709Settings" H265ColorSpaceSettingsProperty where
+  type PropertyType "Rec709Settings" H265ColorSpaceSettingsProperty = Rec709SettingsProperty
+  set newValue H265ColorSpaceSettingsProperty {..}
+    = H265ColorSpaceSettingsProperty
+        {rec709Settings = Prelude.pure newValue, ..}

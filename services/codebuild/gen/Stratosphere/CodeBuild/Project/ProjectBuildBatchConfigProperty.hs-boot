@@ -1,0 +1,7 @@
+module Stratosphere.CodeBuild.Project.ProjectBuildBatchConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProjectBuildBatchConfigProperty :: Prelude.Type
+instance ToResourceProperties ProjectBuildBatchConfigProperty
+instance JSON.ToJSON ProjectBuildBatchConfigProperty

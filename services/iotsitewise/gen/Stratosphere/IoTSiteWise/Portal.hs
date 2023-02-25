@@ -1,0 +1,88 @@
+module Stratosphere.IoTSiteWise.Portal (
+        module Exports, Portal(..), mkPortal
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.IoTSiteWise.Portal.AlarmsProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Tag
+import Stratosphere.Value
+data Portal
+  = Portal {alarms :: (Prelude.Maybe AlarmsProperty),
+            notificationSenderEmail :: (Prelude.Maybe (Value Prelude.Text)),
+            portalAuthMode :: (Prelude.Maybe (Value Prelude.Text)),
+            portalContactEmail :: (Value Prelude.Text),
+            portalDescription :: (Prelude.Maybe (Value Prelude.Text)),
+            portalName :: (Value Prelude.Text),
+            roleArn :: (Value Prelude.Text),
+            tags :: (Prelude.Maybe [Tag])}
+mkPortal ::
+  Value Prelude.Text
+  -> Value Prelude.Text -> Value Prelude.Text -> Portal
+mkPortal portalContactEmail portalName roleArn
+  = Portal
+      {portalContactEmail = portalContactEmail, portalName = portalName,
+       roleArn = roleArn, alarms = Prelude.Nothing,
+       notificationSenderEmail = Prelude.Nothing,
+       portalAuthMode = Prelude.Nothing,
+       portalDescription = Prelude.Nothing, tags = Prelude.Nothing}
+instance ToResourceProperties Portal where
+  toResourceProperties Portal {..}
+    = ResourceProperties
+        {awsType = "AWS::IoTSiteWise::Portal",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["PortalContactEmail" JSON..= portalContactEmail,
+                            "PortalName" JSON..= portalName, "RoleArn" JSON..= roleArn]
+                           (Prelude.catMaybes
+                              [(JSON..=) "Alarms" Prelude.<$> alarms,
+                               (JSON..=) "NotificationSenderEmail"
+                                 Prelude.<$> notificationSenderEmail,
+                               (JSON..=) "PortalAuthMode" Prelude.<$> portalAuthMode,
+                               (JSON..=) "PortalDescription" Prelude.<$> portalDescription,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
+instance JSON.ToJSON Portal where
+  toJSON Portal {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["PortalContactEmail" JSON..= portalContactEmail,
+               "PortalName" JSON..= portalName, "RoleArn" JSON..= roleArn]
+              (Prelude.catMaybes
+                 [(JSON..=) "Alarms" Prelude.<$> alarms,
+                  (JSON..=) "NotificationSenderEmail"
+                    Prelude.<$> notificationSenderEmail,
+                  (JSON..=) "PortalAuthMode" Prelude.<$> portalAuthMode,
+                  (JSON..=) "PortalDescription" Prelude.<$> portalDescription,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "Alarms" Portal where
+  type PropertyType "Alarms" Portal = AlarmsProperty
+  set newValue Portal {..}
+    = Portal {alarms = Prelude.pure newValue, ..}
+instance Property "NotificationSenderEmail" Portal where
+  type PropertyType "NotificationSenderEmail" Portal = Value Prelude.Text
+  set newValue Portal {..}
+    = Portal {notificationSenderEmail = Prelude.pure newValue, ..}
+instance Property "PortalAuthMode" Portal where
+  type PropertyType "PortalAuthMode" Portal = Value Prelude.Text
+  set newValue Portal {..}
+    = Portal {portalAuthMode = Prelude.pure newValue, ..}
+instance Property "PortalContactEmail" Portal where
+  type PropertyType "PortalContactEmail" Portal = Value Prelude.Text
+  set newValue Portal {..}
+    = Portal {portalContactEmail = newValue, ..}
+instance Property "PortalDescription" Portal where
+  type PropertyType "PortalDescription" Portal = Value Prelude.Text
+  set newValue Portal {..}
+    = Portal {portalDescription = Prelude.pure newValue, ..}
+instance Property "PortalName" Portal where
+  type PropertyType "PortalName" Portal = Value Prelude.Text
+  set newValue Portal {..} = Portal {portalName = newValue, ..}
+instance Property "RoleArn" Portal where
+  type PropertyType "RoleArn" Portal = Value Prelude.Text
+  set newValue Portal {..} = Portal {roleArn = newValue, ..}
+instance Property "Tags" Portal where
+  type PropertyType "Tags" Portal = [Tag]
+  set newValue Portal {..}
+    = Portal {tags = Prelude.pure newValue, ..}

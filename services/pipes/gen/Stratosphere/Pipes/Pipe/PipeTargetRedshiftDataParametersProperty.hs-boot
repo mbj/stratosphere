@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.PipeTargetRedshiftDataParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PipeTargetRedshiftDataParametersProperty :: Prelude.Type
+instance ToResourceProperties PipeTargetRedshiftDataParametersProperty
+instance JSON.ToJSON PipeTargetRedshiftDataParametersProperty

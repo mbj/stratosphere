@@ -1,0 +1,7 @@
+module Stratosphere.ApplicationInsights.Application.ComponentMonitoringSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComponentMonitoringSettingProperty :: Prelude.Type
+instance ToResourceProperties ComponentMonitoringSettingProperty
+instance JSON.ToJSON ComponentMonitoringSettingProperty

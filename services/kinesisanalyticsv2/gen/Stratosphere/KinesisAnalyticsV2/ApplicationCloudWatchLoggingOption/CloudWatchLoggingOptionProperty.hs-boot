@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalyticsV2.ApplicationCloudWatchLoggingOption.CloudWatchLoggingOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudWatchLoggingOptionProperty :: Prelude.Type
+instance ToResourceProperties CloudWatchLoggingOptionProperty
+instance JSON.ToJSON CloudWatchLoggingOptionProperty

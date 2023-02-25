@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AvailConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AvailConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AvailConfigurationProperty
+instance JSON.ToJSON AvailConfigurationProperty

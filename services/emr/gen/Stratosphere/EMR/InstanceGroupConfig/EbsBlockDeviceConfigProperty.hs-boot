@@ -1,0 +1,7 @@
+module Stratosphere.EMR.InstanceGroupConfig.EbsBlockDeviceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EbsBlockDeviceConfigProperty :: Prelude.Type
+instance ToResourceProperties EbsBlockDeviceConfigProperty
+instance JSON.ToJSON EbsBlockDeviceConfigProperty

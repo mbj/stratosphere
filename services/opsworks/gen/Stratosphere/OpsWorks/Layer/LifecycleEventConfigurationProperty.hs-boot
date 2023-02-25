@@ -1,0 +1,7 @@
+module Stratosphere.OpsWorks.Layer.LifecycleEventConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LifecycleEventConfigurationProperty :: Prelude.Type
+instance ToResourceProperties LifecycleEventConfigurationProperty
+instance JSON.ToJSON LifecycleEventConfigurationProperty

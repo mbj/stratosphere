@@ -1,0 +1,7 @@
+module Stratosphere.ImageBuilder.InfrastructureConfiguration.InstanceMetadataOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceMetadataOptionsProperty :: Prelude.Type
+instance ToResourceProperties InstanceMetadataOptionsProperty
+instance JSON.ToJSON InstanceMetadataOptionsProperty

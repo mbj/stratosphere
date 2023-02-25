@@ -1,0 +1,7 @@
+module Stratosphere.EMR.InstanceFleetConfig.InstanceTypeConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceTypeConfigProperty :: Prelude.Type
+instance ToResourceProperties InstanceTypeConfigProperty
+instance JSON.ToJSON InstanceTypeConfigProperty

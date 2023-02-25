@@ -1,0 +1,7 @@
+module Stratosphere.DynamoDB.Table.StreamSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StreamSpecificationProperty :: Prelude.Type
+instance ToResourceProperties StreamSpecificationProperty
+instance JSON.ToJSON StreamSpecificationProperty

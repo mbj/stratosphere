@@ -1,0 +1,7 @@
+module Stratosphere.ApplicationInsights.Application.SubComponentConfigurationDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SubComponentConfigurationDetailsProperty :: Prelude.Type
+instance ToResourceProperties SubComponentConfigurationDetailsProperty
+instance JSON.ToJSON SubComponentConfigurationDetailsProperty

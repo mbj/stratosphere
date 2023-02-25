@@ -1,0 +1,7 @@
+module Stratosphere.CodeDeploy.DeploymentGroup.AlarmConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AlarmConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AlarmConfigurationProperty
+instance JSON.ToJSON AlarmConfigurationProperty

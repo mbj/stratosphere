@@ -1,0 +1,7 @@
+module Stratosphere.Greengrass.ResourceDefinition.LocalVolumeResourceDataProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LocalVolumeResourceDataProperty :: Prelude.Type
+instance ToResourceProperties LocalVolumeResourceDataProperty
+instance JSON.ToJSON LocalVolumeResourceDataProperty

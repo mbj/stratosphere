@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.UdpContainerSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UdpContainerSettingsProperty :: Prelude.Type
+instance ToResourceProperties UdpContainerSettingsProperty
+instance JSON.ToJSON UdpContainerSettingsProperty

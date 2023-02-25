@@ -1,0 +1,7 @@
+module Stratosphere.ElasticBeanstalk.ApplicationVersion.SourceBundleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SourceBundleProperty :: Prelude.Type
+instance ToResourceProperties SourceBundleProperty
+instance JSON.ToJSON SourceBundleProperty

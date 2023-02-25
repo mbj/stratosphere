@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.Scte35TimeSignalAposProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Scte35TimeSignalAposProperty :: Prelude.Type
+instance ToResourceProperties Scte35TimeSignalAposProperty
+instance JSON.ToJSON Scte35TimeSignalAposProperty

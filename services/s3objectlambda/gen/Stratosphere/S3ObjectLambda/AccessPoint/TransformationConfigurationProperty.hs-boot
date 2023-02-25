@@ -1,0 +1,7 @@
+module Stratosphere.S3ObjectLambda.AccessPoint.TransformationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TransformationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TransformationConfigurationProperty
+instance JSON.ToJSON TransformationConfigurationProperty

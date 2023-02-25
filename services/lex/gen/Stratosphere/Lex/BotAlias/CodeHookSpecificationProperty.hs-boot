@@ -1,0 +1,7 @@
+module Stratosphere.Lex.BotAlias.CodeHookSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CodeHookSpecificationProperty :: Prelude.Type
+instance ToResourceProperties CodeHookSpecificationProperty
+instance JSON.ToJSON CodeHookSpecificationProperty

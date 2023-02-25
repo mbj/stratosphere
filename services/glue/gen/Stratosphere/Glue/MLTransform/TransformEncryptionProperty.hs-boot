@@ -1,0 +1,7 @@
+module Stratosphere.Glue.MLTransform.TransformEncryptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TransformEncryptionProperty :: Prelude.Type
+instance ToResourceProperties TransformEncryptionProperty
+instance JSON.ToJSON TransformEncryptionProperty

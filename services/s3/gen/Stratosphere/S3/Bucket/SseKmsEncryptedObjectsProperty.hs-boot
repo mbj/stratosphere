@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.SseKmsEncryptedObjectsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SseKmsEncryptedObjectsProperty :: Prelude.Type
+instance ToResourceProperties SseKmsEncryptedObjectsProperty
+instance JSON.ToJSON SseKmsEncryptedObjectsProperty

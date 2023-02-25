@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.CaptionSelectorSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CaptionSelectorSettingsProperty :: Prelude.Type
+instance ToResourceProperties CaptionSelectorSettingsProperty
+instance JSON.ToJSON CaptionSelectorSettingsProperty

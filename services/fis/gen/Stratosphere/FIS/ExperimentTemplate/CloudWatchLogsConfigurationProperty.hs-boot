@@ -1,0 +1,7 @@
+module Stratosphere.FIS.ExperimentTemplate.CloudWatchLogsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudWatchLogsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CloudWatchLogsConfigurationProperty
+instance JSON.ToJSON CloudWatchLogsConfigurationProperty

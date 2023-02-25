@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AudioHlsRenditionSelectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioHlsRenditionSelectionProperty :: Prelude.Type
+instance ToResourceProperties AudioHlsRenditionSelectionProperty
+instance JSON.ToJSON AudioHlsRenditionSelectionProperty

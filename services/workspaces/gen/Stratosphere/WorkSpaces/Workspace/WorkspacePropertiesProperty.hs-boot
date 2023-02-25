@@ -1,0 +1,7 @@
+module Stratosphere.WorkSpaces.Workspace.WorkspacePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WorkspacePropertiesProperty :: Prelude.Type
+instance ToResourceProperties WorkspacePropertiesProperty
+instance JSON.ToJSON WorkspacePropertiesProperty

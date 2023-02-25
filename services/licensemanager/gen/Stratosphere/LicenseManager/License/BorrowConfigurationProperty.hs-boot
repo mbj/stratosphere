@@ -1,0 +1,7 @@
+module Stratosphere.LicenseManager.License.BorrowConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BorrowConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BorrowConfigurationProperty
+instance JSON.ToJSON BorrowConfigurationProperty

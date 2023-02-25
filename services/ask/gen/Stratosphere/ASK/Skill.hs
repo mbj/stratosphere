@@ -1,0 +1,43 @@
+module Stratosphere.ASK.Skill (
+        module Exports, Skill(..), mkSkill
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ASK.Skill.AuthenticationConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ASK.Skill.SkillPackageProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data Skill
+  = Skill {authenticationConfiguration :: AuthenticationConfigurationProperty,
+           skillPackage :: SkillPackageProperty,
+           vendorId :: (Value Prelude.Text)}
+mkSkill ::
+  AuthenticationConfigurationProperty
+  -> SkillPackageProperty -> Value Prelude.Text -> Skill
+mkSkill authenticationConfiguration skillPackage vendorId
+  = Skill
+      {authenticationConfiguration = authenticationConfiguration,
+       skillPackage = skillPackage, vendorId = vendorId}
+instance ToResourceProperties Skill where
+  toResourceProperties Skill {..}
+    = ResourceProperties
+        {awsType = "Alexa::ASK::Skill",
+         properties = ["AuthenticationConfiguration"
+                         JSON..= authenticationConfiguration,
+                       "SkillPackage" JSON..= skillPackage, "VendorId" JSON..= vendorId]}
+instance JSON.ToJSON Skill where
+  toJSON Skill {..}
+    = JSON.object
+        ["AuthenticationConfiguration" JSON..= authenticationConfiguration,
+         "SkillPackage" JSON..= skillPackage, "VendorId" JSON..= vendorId]
+instance Property "AuthenticationConfiguration" Skill where
+  type PropertyType "AuthenticationConfiguration" Skill = AuthenticationConfigurationProperty
+  set newValue Skill {..}
+    = Skill {authenticationConfiguration = newValue, ..}
+instance Property "SkillPackage" Skill where
+  type PropertyType "SkillPackage" Skill = SkillPackageProperty
+  set newValue Skill {..} = Skill {skillPackage = newValue, ..}
+instance Property "VendorId" Skill where
+  type PropertyType "VendorId" Skill = Value Prelude.Text
+  set newValue Skill {..} = Skill {vendorId = newValue, ..}

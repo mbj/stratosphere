@@ -1,0 +1,7 @@
+module Stratosphere.ImageBuilder.ImageRecipe.SystemsManagerAgentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SystemsManagerAgentProperty :: Prelude.Type
+instance ToResourceProperties SystemsManagerAgentProperty
+instance JSON.ToJSON SystemsManagerAgentProperty

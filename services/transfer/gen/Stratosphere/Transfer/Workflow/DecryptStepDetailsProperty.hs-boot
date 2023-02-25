@@ -1,0 +1,7 @@
+module Stratosphere.Transfer.Workflow.DecryptStepDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DecryptStepDetailsProperty :: Prelude.Type
+instance ToResourceProperties DecryptStepDetailsProperty
+instance JSON.ToJSON DecryptStepDetailsProperty

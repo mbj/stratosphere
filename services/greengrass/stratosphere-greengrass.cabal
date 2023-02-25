@@ -1,0 +1,135 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-greengrass
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Greengrass.ConnectorDefinition
+      Stratosphere.Greengrass.ConnectorDefinition.ConnectorDefinitionVersionProperty
+      Stratosphere.Greengrass.ConnectorDefinition.ConnectorProperty
+      Stratosphere.Greengrass.ConnectorDefinitionVersion
+      Stratosphere.Greengrass.ConnectorDefinitionVersion.ConnectorProperty
+      Stratosphere.Greengrass.CoreDefinition
+      Stratosphere.Greengrass.CoreDefinition.CoreDefinitionVersionProperty
+      Stratosphere.Greengrass.CoreDefinition.CoreProperty
+      Stratosphere.Greengrass.CoreDefinitionVersion
+      Stratosphere.Greengrass.CoreDefinitionVersion.CoreProperty
+      Stratosphere.Greengrass.DeviceDefinition
+      Stratosphere.Greengrass.DeviceDefinition.DeviceDefinitionVersionProperty
+      Stratosphere.Greengrass.DeviceDefinition.DeviceProperty
+      Stratosphere.Greengrass.DeviceDefinitionVersion
+      Stratosphere.Greengrass.DeviceDefinitionVersion.DeviceProperty
+      Stratosphere.Greengrass.FunctionDefinition
+      Stratosphere.Greengrass.FunctionDefinition.DefaultConfigProperty
+      Stratosphere.Greengrass.FunctionDefinition.EnvironmentProperty
+      Stratosphere.Greengrass.FunctionDefinition.ExecutionProperty
+      Stratosphere.Greengrass.FunctionDefinition.FunctionConfigurationProperty
+      Stratosphere.Greengrass.FunctionDefinition.FunctionDefinitionVersionProperty
+      Stratosphere.Greengrass.FunctionDefinition.FunctionProperty
+      Stratosphere.Greengrass.FunctionDefinition.ResourceAccessPolicyProperty
+      Stratosphere.Greengrass.FunctionDefinition.RunAsProperty
+      Stratosphere.Greengrass.FunctionDefinitionVersion
+      Stratosphere.Greengrass.FunctionDefinitionVersion.DefaultConfigProperty
+      Stratosphere.Greengrass.FunctionDefinitionVersion.EnvironmentProperty
+      Stratosphere.Greengrass.FunctionDefinitionVersion.ExecutionProperty
+      Stratosphere.Greengrass.FunctionDefinitionVersion.FunctionConfigurationProperty
+      Stratosphere.Greengrass.FunctionDefinitionVersion.FunctionProperty
+      Stratosphere.Greengrass.FunctionDefinitionVersion.ResourceAccessPolicyProperty
+      Stratosphere.Greengrass.FunctionDefinitionVersion.RunAsProperty
+      Stratosphere.Greengrass.Group
+      Stratosphere.Greengrass.Group.GroupVersionProperty
+      Stratosphere.Greengrass.GroupVersion
+      Stratosphere.Greengrass.LoggerDefinition
+      Stratosphere.Greengrass.LoggerDefinition.LoggerDefinitionVersionProperty
+      Stratosphere.Greengrass.LoggerDefinition.LoggerProperty
+      Stratosphere.Greengrass.LoggerDefinitionVersion
+      Stratosphere.Greengrass.LoggerDefinitionVersion.LoggerProperty
+      Stratosphere.Greengrass.ResourceDefinition
+      Stratosphere.Greengrass.ResourceDefinition.GroupOwnerSettingProperty
+      Stratosphere.Greengrass.ResourceDefinition.LocalDeviceResourceDataProperty
+      Stratosphere.Greengrass.ResourceDefinition.LocalVolumeResourceDataProperty
+      Stratosphere.Greengrass.ResourceDefinition.ResourceDataContainerProperty
+      Stratosphere.Greengrass.ResourceDefinition.ResourceDefinitionVersionProperty
+      Stratosphere.Greengrass.ResourceDefinition.ResourceDownloadOwnerSettingProperty
+      Stratosphere.Greengrass.ResourceDefinition.ResourceInstanceProperty
+      Stratosphere.Greengrass.ResourceDefinition.S3MachineLearningModelResourceDataProperty
+      Stratosphere.Greengrass.ResourceDefinition.SageMakerMachineLearningModelResourceDataProperty
+      Stratosphere.Greengrass.ResourceDefinition.SecretsManagerSecretResourceDataProperty
+      Stratosphere.Greengrass.ResourceDefinitionVersion
+      Stratosphere.Greengrass.ResourceDefinitionVersion.GroupOwnerSettingProperty
+      Stratosphere.Greengrass.ResourceDefinitionVersion.LocalDeviceResourceDataProperty
+      Stratosphere.Greengrass.ResourceDefinitionVersion.LocalVolumeResourceDataProperty
+      Stratosphere.Greengrass.ResourceDefinitionVersion.ResourceDataContainerProperty
+      Stratosphere.Greengrass.ResourceDefinitionVersion.ResourceDownloadOwnerSettingProperty
+      Stratosphere.Greengrass.ResourceDefinitionVersion.ResourceInstanceProperty
+      Stratosphere.Greengrass.ResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty
+      Stratosphere.Greengrass.ResourceDefinitionVersion.SageMakerMachineLearningModelResourceDataProperty
+      Stratosphere.Greengrass.ResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty
+      Stratosphere.Greengrass.SubscriptionDefinition
+      Stratosphere.Greengrass.SubscriptionDefinition.SubscriptionDefinitionVersionProperty
+      Stratosphere.Greengrass.SubscriptionDefinition.SubscriptionProperty
+      Stratosphere.Greengrass.SubscriptionDefinitionVersion
+      Stratosphere.Greengrass.SubscriptionDefinitionVersion.SubscriptionProperty
+  other-modules:
+      Paths_stratosphere_greengrass
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

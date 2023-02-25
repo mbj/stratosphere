@@ -1,0 +1,7 @@
+module Stratosphere.Budgets.Budget.NotificationWithSubscribersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NotificationWithSubscribersProperty :: Prelude.Type
+instance ToResourceProperties NotificationWithSubscribersProperty
+instance JSON.ToJSON NotificationWithSubscribersProperty

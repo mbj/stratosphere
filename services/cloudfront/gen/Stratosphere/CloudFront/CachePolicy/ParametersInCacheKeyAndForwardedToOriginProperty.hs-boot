@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.CachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ParametersInCacheKeyAndForwardedToOriginProperty :: Prelude.Type
+instance ToResourceProperties ParametersInCacheKeyAndForwardedToOriginProperty
+instance JSON.ToJSON ParametersInCacheKeyAndForwardedToOriginProperty

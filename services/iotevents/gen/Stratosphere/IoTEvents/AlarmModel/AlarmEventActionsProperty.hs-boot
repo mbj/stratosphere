@@ -1,0 +1,7 @@
+module Stratosphere.IoTEvents.AlarmModel.AlarmEventActionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AlarmEventActionsProperty :: Prelude.Type
+instance ToResourceProperties AlarmEventActionsProperty
+instance JSON.ToJSON AlarmEventActionsProperty

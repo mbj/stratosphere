@@ -1,0 +1,7 @@
+module Stratosphere.OpsWorks.Instance.BlockDeviceMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BlockDeviceMappingProperty :: Prelude.Type
+instance ToResourceProperties BlockDeviceMappingProperty
+instance JSON.ToJSON BlockDeviceMappingProperty

@@ -1,0 +1,28 @@
+module Stratosphere.IoTSiteWise.AssetModel.MetricWindowProperty (
+        module Exports, MetricWindowProperty(..), mkMetricWindowProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.TumblingWindowProperty as Exports
+import Stratosphere.ResourceProperties
+data MetricWindowProperty
+  = MetricWindowProperty {tumbling :: (Prelude.Maybe TumblingWindowProperty)}
+mkMetricWindowProperty :: MetricWindowProperty
+mkMetricWindowProperty
+  = MetricWindowProperty {tumbling = Prelude.Nothing}
+instance ToResourceProperties MetricWindowProperty where
+  toResourceProperties MetricWindowProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::IoTSiteWise::AssetModel.MetricWindow",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes [(JSON..=) "Tumbling" Prelude.<$> tumbling])}
+instance JSON.ToJSON MetricWindowProperty where
+  toJSON MetricWindowProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes [(JSON..=) "Tumbling" Prelude.<$> tumbling]))
+instance Property "Tumbling" MetricWindowProperty where
+  type PropertyType "Tumbling" MetricWindowProperty = TumblingWindowProperty
+  set newValue MetricWindowProperty {}
+    = MetricWindowProperty {tumbling = Prelude.pure newValue, ..}

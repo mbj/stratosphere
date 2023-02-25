@@ -1,0 +1,122 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-iotanalytics
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.IoTAnalytics.Channel
+      Stratosphere.IoTAnalytics.Channel.ChannelStorageProperty
+      Stratosphere.IoTAnalytics.Channel.CustomerManagedS3Property
+      Stratosphere.IoTAnalytics.Channel.RetentionPeriodProperty
+      Stratosphere.IoTAnalytics.Dataset
+      Stratosphere.IoTAnalytics.Dataset.ActionProperty
+      Stratosphere.IoTAnalytics.Dataset.ContainerActionProperty
+      Stratosphere.IoTAnalytics.Dataset.DatasetContentDeliveryRuleDestinationProperty
+      Stratosphere.IoTAnalytics.Dataset.DatasetContentDeliveryRuleProperty
+      Stratosphere.IoTAnalytics.Dataset.DatasetContentVersionValueProperty
+      Stratosphere.IoTAnalytics.Dataset.DeltaTimeProperty
+      Stratosphere.IoTAnalytics.Dataset.DeltaTimeSessionWindowConfigurationProperty
+      Stratosphere.IoTAnalytics.Dataset.FilterProperty
+      Stratosphere.IoTAnalytics.Dataset.GlueConfigurationProperty
+      Stratosphere.IoTAnalytics.Dataset.IotEventsDestinationConfigurationProperty
+      Stratosphere.IoTAnalytics.Dataset.LateDataRuleConfigurationProperty
+      Stratosphere.IoTAnalytics.Dataset.LateDataRuleProperty
+      Stratosphere.IoTAnalytics.Dataset.OutputFileUriValueProperty
+      Stratosphere.IoTAnalytics.Dataset.QueryActionProperty
+      Stratosphere.IoTAnalytics.Dataset.ResourceConfigurationProperty
+      Stratosphere.IoTAnalytics.Dataset.RetentionPeriodProperty
+      Stratosphere.IoTAnalytics.Dataset.S3DestinationConfigurationProperty
+      Stratosphere.IoTAnalytics.Dataset.ScheduleProperty
+      Stratosphere.IoTAnalytics.Dataset.TriggeringDatasetProperty
+      Stratosphere.IoTAnalytics.Dataset.TriggerProperty
+      Stratosphere.IoTAnalytics.Dataset.VariableProperty
+      Stratosphere.IoTAnalytics.Dataset.VersioningConfigurationProperty
+      Stratosphere.IoTAnalytics.Datastore
+      Stratosphere.IoTAnalytics.Datastore.ColumnProperty
+      Stratosphere.IoTAnalytics.Datastore.CustomerManagedS3Property
+      Stratosphere.IoTAnalytics.Datastore.CustomerManagedS3StorageProperty
+      Stratosphere.IoTAnalytics.Datastore.DatastorePartitionProperty
+      Stratosphere.IoTAnalytics.Datastore.DatastorePartitionsProperty
+      Stratosphere.IoTAnalytics.Datastore.DatastoreStorageProperty
+      Stratosphere.IoTAnalytics.Datastore.FileFormatConfigurationProperty
+      Stratosphere.IoTAnalytics.Datastore.IotSiteWiseMultiLayerStorageProperty
+      Stratosphere.IoTAnalytics.Datastore.ParquetConfigurationProperty
+      Stratosphere.IoTAnalytics.Datastore.PartitionProperty
+      Stratosphere.IoTAnalytics.Datastore.RetentionPeriodProperty
+      Stratosphere.IoTAnalytics.Datastore.SchemaDefinitionProperty
+      Stratosphere.IoTAnalytics.Datastore.TimestampPartitionProperty
+      Stratosphere.IoTAnalytics.Pipeline
+      Stratosphere.IoTAnalytics.Pipeline.ActivityProperty
+      Stratosphere.IoTAnalytics.Pipeline.AddAttributesProperty
+      Stratosphere.IoTAnalytics.Pipeline.ChannelProperty
+      Stratosphere.IoTAnalytics.Pipeline.DatastoreProperty
+      Stratosphere.IoTAnalytics.Pipeline.DeviceRegistryEnrichProperty
+      Stratosphere.IoTAnalytics.Pipeline.DeviceShadowEnrichProperty
+      Stratosphere.IoTAnalytics.Pipeline.FilterProperty
+      Stratosphere.IoTAnalytics.Pipeline.LambdaProperty
+      Stratosphere.IoTAnalytics.Pipeline.MathProperty
+      Stratosphere.IoTAnalytics.Pipeline.RemoveAttributesProperty
+      Stratosphere.IoTAnalytics.Pipeline.SelectAttributesProperty
+  other-modules:
+      Paths_stratosphere_iotanalytics
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

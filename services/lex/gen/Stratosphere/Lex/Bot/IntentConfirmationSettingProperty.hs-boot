@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.IntentConfirmationSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IntentConfirmationSettingProperty :: Prelude.Type
+instance ToResourceProperties IntentConfirmationSettingProperty
+instance JSON.ToJSON IntentConfirmationSettingProperty

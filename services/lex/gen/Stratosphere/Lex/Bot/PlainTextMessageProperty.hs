@@ -1,0 +1,26 @@
+module Stratosphere.Lex.Bot.PlainTextMessageProperty (
+        PlainTextMessageProperty(..), mkPlainTextMessageProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data PlainTextMessageProperty
+  = PlainTextMessageProperty {value :: (Value Prelude.Text)}
+mkPlainTextMessageProperty ::
+  Value Prelude.Text -> PlainTextMessageProperty
+mkPlainTextMessageProperty value
+  = PlainTextMessageProperty {value = value}
+instance ToResourceProperties PlainTextMessageProperty where
+  toResourceProperties PlainTextMessageProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Lex::Bot.PlainTextMessage",
+         properties = ["Value" JSON..= value]}
+instance JSON.ToJSON PlainTextMessageProperty where
+  toJSON PlainTextMessageProperty {..}
+    = JSON.object ["Value" JSON..= value]
+instance Property "Value" PlainTextMessageProperty where
+  type PropertyType "Value" PlainTextMessageProperty = Value Prelude.Text
+  set newValue PlainTextMessageProperty {}
+    = PlainTextMessageProperty {value = newValue, ..}

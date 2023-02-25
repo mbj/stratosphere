@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.NetworkBandwidthGbpsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkBandwidthGbpsProperty :: Prelude.Type
+instance ToResourceProperties NetworkBandwidthGbpsProperty
+instance JSON.ToJSON NetworkBandwidthGbpsProperty

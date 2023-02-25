@@ -1,0 +1,7 @@
+module Stratosphere.Glue.MLTransform.FindMatchesParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FindMatchesParametersProperty :: Prelude.Type
+instance ToResourceProperties FindMatchesParametersProperty
+instance JSON.ToJSON FindMatchesParametersProperty

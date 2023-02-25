@@ -1,0 +1,7 @@
+module Stratosphere.EMRServerless.Application.WorkerTypeSpecificationInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WorkerTypeSpecificationInputProperty :: Prelude.Type
+instance ToResourceProperties WorkerTypeSpecificationInputProperty
+instance JSON.ToJSON WorkerTypeSpecificationInputProperty

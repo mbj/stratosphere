@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.AccessControlListConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessControlListConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AccessControlListConfigurationProperty
+instance JSON.ToJSON AccessControlListConfigurationProperty

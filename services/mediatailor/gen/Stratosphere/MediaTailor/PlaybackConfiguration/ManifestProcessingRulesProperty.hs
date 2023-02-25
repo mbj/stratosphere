@@ -1,0 +1,34 @@
+module Stratosphere.MediaTailor.PlaybackConfiguration.ManifestProcessingRulesProperty (
+        module Exports, ManifestProcessingRulesProperty(..),
+        mkManifestProcessingRulesProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.MediaTailor.PlaybackConfiguration.AdMarkerPassthroughProperty as Exports
+import Stratosphere.ResourceProperties
+data ManifestProcessingRulesProperty
+  = ManifestProcessingRulesProperty {adMarkerPassthrough :: (Prelude.Maybe AdMarkerPassthroughProperty)}
+mkManifestProcessingRulesProperty ::
+  ManifestProcessingRulesProperty
+mkManifestProcessingRulesProperty
+  = ManifestProcessingRulesProperty
+      {adMarkerPassthrough = Prelude.Nothing}
+instance ToResourceProperties ManifestProcessingRulesProperty where
+  toResourceProperties ManifestProcessingRulesProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::MediaTailor::PlaybackConfiguration.ManifestProcessingRules",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "AdMarkerPassthrough" Prelude.<$> adMarkerPassthrough])}
+instance JSON.ToJSON ManifestProcessingRulesProperty where
+  toJSON ManifestProcessingRulesProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "AdMarkerPassthrough" Prelude.<$> adMarkerPassthrough]))
+instance Property "AdMarkerPassthrough" ManifestProcessingRulesProperty where
+  type PropertyType "AdMarkerPassthrough" ManifestProcessingRulesProperty = AdMarkerPassthroughProperty
+  set newValue ManifestProcessingRulesProperty {}
+    = ManifestProcessingRulesProperty
+        {adMarkerPassthrough = Prelude.pure newValue, ..}

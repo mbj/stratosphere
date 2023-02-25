@@ -1,0 +1,7 @@
+module Stratosphere.Personalize.Solution.HpoResourceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HpoResourceConfigProperty :: Prelude.Type
+instance ToResourceProperties HpoResourceConfigProperty
+instance JSON.ToJSON HpoResourceConfigProperty

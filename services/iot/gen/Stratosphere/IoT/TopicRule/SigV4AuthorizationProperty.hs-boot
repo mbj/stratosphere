@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRule.SigV4AuthorizationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SigV4AuthorizationProperty :: Prelude.Type
+instance ToResourceProperties SigV4AuthorizationProperty
+instance JSON.ToJSON SigV4AuthorizationProperty

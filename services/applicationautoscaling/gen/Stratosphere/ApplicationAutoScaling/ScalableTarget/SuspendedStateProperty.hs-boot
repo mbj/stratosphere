@@ -1,0 +1,7 @@
+module Stratosphere.ApplicationAutoScaling.ScalableTarget.SuspendedStateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SuspendedStateProperty :: Prelude.Type
+instance ToResourceProperties SuspendedStateProperty
+instance JSON.ToJSON SuspendedStateProperty

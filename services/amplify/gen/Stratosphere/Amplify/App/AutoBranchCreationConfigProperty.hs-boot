@@ -1,0 +1,7 @@
+module Stratosphere.Amplify.App.AutoBranchCreationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoBranchCreationConfigProperty :: Prelude.Type
+instance ToResourceProperties AutoBranchCreationConfigProperty
+instance JSON.ToJSON AutoBranchCreationConfigProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Input.InputDestinationRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputDestinationRequestProperty :: Prelude.Type
+instance ToResourceProperties InputDestinationRequestProperty
+instance JSON.ToJSON InputDestinationRequestProperty

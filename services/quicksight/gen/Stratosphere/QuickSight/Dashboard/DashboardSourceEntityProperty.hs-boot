@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.DashboardSourceEntityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashboardSourceEntityProperty :: Prelude.Type
+instance ToResourceProperties DashboardSourceEntityProperty
+instance JSON.ToJSON DashboardSourceEntityProperty

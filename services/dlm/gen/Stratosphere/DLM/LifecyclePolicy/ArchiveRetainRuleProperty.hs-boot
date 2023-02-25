@@ -1,0 +1,7 @@
+module Stratosphere.DLM.LifecyclePolicy.ArchiveRetainRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ArchiveRetainRuleProperty :: Prelude.Type
+instance ToResourceProperties ArchiveRetainRuleProperty
+instance JSON.ToJSON ArchiveRetainRuleProperty

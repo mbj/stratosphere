@@ -1,0 +1,7 @@
+module Stratosphere.IoTSiteWise.AccessPolicy.AccessPolicyIdentityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessPolicyIdentityProperty :: Prelude.Type
+instance ToResourceProperties AccessPolicyIdentityProperty
+instance JSON.ToJSON AccessPolicyIdentityProperty

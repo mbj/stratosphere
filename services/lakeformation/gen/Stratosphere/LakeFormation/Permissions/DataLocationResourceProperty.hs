@@ -1,0 +1,40 @@
+module Stratosphere.LakeFormation.Permissions.DataLocationResourceProperty (
+        DataLocationResourceProperty(..), mkDataLocationResourceProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data DataLocationResourceProperty
+  = DataLocationResourceProperty {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  s3Resource :: (Prelude.Maybe (Value Prelude.Text))}
+mkDataLocationResourceProperty :: DataLocationResourceProperty
+mkDataLocationResourceProperty
+  = DataLocationResourceProperty
+      {catalogId = Prelude.Nothing, s3Resource = Prelude.Nothing}
+instance ToResourceProperties DataLocationResourceProperty where
+  toResourceProperties DataLocationResourceProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::LakeFormation::Permissions.DataLocationResource",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "CatalogId" Prelude.<$> catalogId,
+                            (JSON..=) "S3Resource" Prelude.<$> s3Resource])}
+instance JSON.ToJSON DataLocationResourceProperty where
+  toJSON DataLocationResourceProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "CatalogId" Prelude.<$> catalogId,
+               (JSON..=) "S3Resource" Prelude.<$> s3Resource]))
+instance Property "CatalogId" DataLocationResourceProperty where
+  type PropertyType "CatalogId" DataLocationResourceProperty = Value Prelude.Text
+  set newValue DataLocationResourceProperty {..}
+    = DataLocationResourceProperty
+        {catalogId = Prelude.pure newValue, ..}
+instance Property "S3Resource" DataLocationResourceProperty where
+  type PropertyType "S3Resource" DataLocationResourceProperty = Value Prelude.Text
+  set newValue DataLocationResourceProperty {..}
+    = DataLocationResourceProperty
+        {s3Resource = Prelude.pure newValue, ..}

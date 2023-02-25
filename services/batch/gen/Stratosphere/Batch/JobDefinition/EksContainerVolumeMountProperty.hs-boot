@@ -1,0 +1,7 @@
+module Stratosphere.Batch.JobDefinition.EksContainerVolumeMountProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EksContainerVolumeMountProperty :: Prelude.Type
+instance ToResourceProperties EksContainerVolumeMountProperty
+instance JSON.ToJSON EksContainerVolumeMountProperty

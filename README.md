@@ -80,7 +80,7 @@ instanceTemplate =
 }
 ```
 
-Please see the [examples](examples/) directory for more in-depth examples.
+Please see the [examples](examples/Stratosphere/Examples) directory for more in-depth examples.
 
 ## Value Types
 

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.ArchiveContainerSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ArchiveContainerSettingsProperty :: Prelude.Type
+instance ToResourceProperties ArchiveContainerSettingsProperty
+instance JSON.ToJSON ArchiveContainerSettingsProperty

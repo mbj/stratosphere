@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.DynamicPartitioningConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DynamicPartitioningConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DynamicPartitioningConfigurationProperty
+instance JSON.ToJSON DynamicPartitioningConfigurationProperty

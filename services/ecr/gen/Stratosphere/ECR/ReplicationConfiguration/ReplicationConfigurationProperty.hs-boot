@@ -1,0 +1,7 @@
+module Stratosphere.ECR.ReplicationConfiguration.ReplicationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplicationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ReplicationConfigurationProperty
+instance JSON.ToJSON ReplicationConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Pinpoint.InAppTemplate.DefaultButtonConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultButtonConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DefaultButtonConfigurationProperty
+instance JSON.ToJSON DefaultButtonConfigurationProperty

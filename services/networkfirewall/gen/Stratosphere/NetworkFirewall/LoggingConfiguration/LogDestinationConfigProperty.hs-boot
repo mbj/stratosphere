@@ -1,0 +1,7 @@
+module Stratosphere.NetworkFirewall.LoggingConfiguration.LogDestinationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LogDestinationConfigProperty :: Prelude.Type
+instance ToResourceProperties LogDestinationConfigProperty
+instance JSON.ToJSON LogDestinationConfigProperty

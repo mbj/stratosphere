@@ -1,0 +1,7 @@
+module Stratosphere.DataBrew.Ruleset.SubstitutionValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SubstitutionValueProperty :: Prelude.Type
+instance ToResourceProperties SubstitutionValueProperty
+instance JSON.ToJSON SubstitutionValueProperty

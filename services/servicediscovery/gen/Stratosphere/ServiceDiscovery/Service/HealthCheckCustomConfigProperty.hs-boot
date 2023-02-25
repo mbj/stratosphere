@@ -1,0 +1,7 @@
+module Stratosphere.ServiceDiscovery.Service.HealthCheckCustomConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HealthCheckCustomConfigProperty :: Prelude.Type
+instance ToResourceProperties HealthCheckCustomConfigProperty
+instance JSON.ToJSON HealthCheckCustomConfigProperty

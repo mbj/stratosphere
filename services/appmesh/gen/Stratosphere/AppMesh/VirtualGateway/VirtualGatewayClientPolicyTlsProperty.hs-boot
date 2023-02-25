@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualGateway.VirtualGatewayClientPolicyTlsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VirtualGatewayClientPolicyTlsProperty :: Prelude.Type
+instance ToResourceProperties VirtualGatewayClientPolicyTlsProperty
+instance JSON.ToJSON VirtualGatewayClientPolicyTlsProperty

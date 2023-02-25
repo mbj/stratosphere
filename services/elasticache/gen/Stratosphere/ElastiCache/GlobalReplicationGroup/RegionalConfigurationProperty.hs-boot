@@ -1,0 +1,7 @@
+module Stratosphere.ElastiCache.GlobalReplicationGroup.RegionalConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RegionalConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RegionalConfigurationProperty
+instance JSON.ToJSON RegionalConfigurationProperty

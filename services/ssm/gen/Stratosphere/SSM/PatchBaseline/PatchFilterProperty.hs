@@ -1,0 +1,38 @@
+module Stratosphere.SSM.PatchBaseline.PatchFilterProperty (
+        PatchFilterProperty(..), mkPatchFilterProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data PatchFilterProperty
+  = PatchFilterProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
+                         values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+mkPatchFilterProperty :: PatchFilterProperty
+mkPatchFilterProperty
+  = PatchFilterProperty
+      {key = Prelude.Nothing, values = Prelude.Nothing}
+instance ToResourceProperties PatchFilterProperty where
+  toResourceProperties PatchFilterProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::SSM::PatchBaseline.PatchFilter",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "Key" Prelude.<$> key,
+                            (JSON..=) "Values" Prelude.<$> values])}
+instance JSON.ToJSON PatchFilterProperty where
+  toJSON PatchFilterProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "Key" Prelude.<$> key,
+               (JSON..=) "Values" Prelude.<$> values]))
+instance Property "Key" PatchFilterProperty where
+  type PropertyType "Key" PatchFilterProperty = Value Prelude.Text
+  set newValue PatchFilterProperty {..}
+    = PatchFilterProperty {key = Prelude.pure newValue, ..}
+instance Property "Values" PatchFilterProperty where
+  type PropertyType "Values" PatchFilterProperty = ValueList (Value Prelude.Text)
+  set newValue PatchFilterProperty {..}
+    = PatchFilterProperty {values = Prelude.pure newValue, ..}

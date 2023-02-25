@@ -1,0 +1,184 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-quicksight
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.QuickSight.Analysis
+      Stratosphere.QuickSight.Analysis.AnalysisErrorProperty
+      Stratosphere.QuickSight.Analysis.AnalysisSourceEntityProperty
+      Stratosphere.QuickSight.Analysis.AnalysisSourceTemplateProperty
+      Stratosphere.QuickSight.Analysis.DataSetReferenceProperty
+      Stratosphere.QuickSight.Analysis.DateTimeParameterProperty
+      Stratosphere.QuickSight.Analysis.DecimalParameterProperty
+      Stratosphere.QuickSight.Analysis.IntegerParameterProperty
+      Stratosphere.QuickSight.Analysis.ParametersProperty
+      Stratosphere.QuickSight.Analysis.ResourcePermissionProperty
+      Stratosphere.QuickSight.Analysis.SheetProperty
+      Stratosphere.QuickSight.Analysis.StringParameterProperty
+      Stratosphere.QuickSight.Dashboard
+      Stratosphere.QuickSight.Dashboard.AdHocFilteringOptionProperty
+      Stratosphere.QuickSight.Dashboard.DashboardErrorProperty
+      Stratosphere.QuickSight.Dashboard.DashboardPublishOptionsProperty
+      Stratosphere.QuickSight.Dashboard.DashboardSourceEntityProperty
+      Stratosphere.QuickSight.Dashboard.DashboardSourceTemplateProperty
+      Stratosphere.QuickSight.Dashboard.DashboardVersionProperty
+      Stratosphere.QuickSight.Dashboard.DataSetReferenceProperty
+      Stratosphere.QuickSight.Dashboard.DateTimeParameterProperty
+      Stratosphere.QuickSight.Dashboard.DecimalParameterProperty
+      Stratosphere.QuickSight.Dashboard.ExportToCSVOptionProperty
+      Stratosphere.QuickSight.Dashboard.IntegerParameterProperty
+      Stratosphere.QuickSight.Dashboard.ParametersProperty
+      Stratosphere.QuickSight.Dashboard.ResourcePermissionProperty
+      Stratosphere.QuickSight.Dashboard.SheetControlsOptionProperty
+      Stratosphere.QuickSight.Dashboard.SheetProperty
+      Stratosphere.QuickSight.Dashboard.StringParameterProperty
+      Stratosphere.QuickSight.DataSet
+      Stratosphere.QuickSight.DataSet.CalculatedColumnProperty
+      Stratosphere.QuickSight.DataSet.CastColumnTypeOperationProperty
+      Stratosphere.QuickSight.DataSet.ColumnDescriptionProperty
+      Stratosphere.QuickSight.DataSet.ColumnGroupProperty
+      Stratosphere.QuickSight.DataSet.ColumnLevelPermissionRuleProperty
+      Stratosphere.QuickSight.DataSet.ColumnTagProperty
+      Stratosphere.QuickSight.DataSet.CreateColumnsOperationProperty
+      Stratosphere.QuickSight.DataSet.CustomSqlProperty
+      Stratosphere.QuickSight.DataSet.DataSetUsageConfigurationProperty
+      Stratosphere.QuickSight.DataSet.FieldFolderProperty
+      Stratosphere.QuickSight.DataSet.FilterOperationProperty
+      Stratosphere.QuickSight.DataSet.GeoSpatialColumnGroupProperty
+      Stratosphere.QuickSight.DataSet.IngestionWaitPolicyProperty
+      Stratosphere.QuickSight.DataSet.InputColumnProperty
+      Stratosphere.QuickSight.DataSet.JoinInstructionProperty
+      Stratosphere.QuickSight.DataSet.JoinKeyPropertiesProperty
+      Stratosphere.QuickSight.DataSet.LogicalTableProperty
+      Stratosphere.QuickSight.DataSet.LogicalTableSourceProperty
+      Stratosphere.QuickSight.DataSet.OutputColumnProperty
+      Stratosphere.QuickSight.DataSet.PhysicalTableProperty
+      Stratosphere.QuickSight.DataSet.ProjectOperationProperty
+      Stratosphere.QuickSight.DataSet.RelationalTableProperty
+      Stratosphere.QuickSight.DataSet.RenameColumnOperationProperty
+      Stratosphere.QuickSight.DataSet.ResourcePermissionProperty
+      Stratosphere.QuickSight.DataSet.RowLevelPermissionDataSetProperty
+      Stratosphere.QuickSight.DataSet.S3SourceProperty
+      Stratosphere.QuickSight.DataSet.TagColumnOperationProperty
+      Stratosphere.QuickSight.DataSet.TransformOperationProperty
+      Stratosphere.QuickSight.DataSet.UploadSettingsProperty
+      Stratosphere.QuickSight.DataSource
+      Stratosphere.QuickSight.DataSource.AmazonElasticsearchParametersProperty
+      Stratosphere.QuickSight.DataSource.AmazonOpenSearchParametersProperty
+      Stratosphere.QuickSight.DataSource.AthenaParametersProperty
+      Stratosphere.QuickSight.DataSource.AuroraParametersProperty
+      Stratosphere.QuickSight.DataSource.AuroraPostgreSqlParametersProperty
+      Stratosphere.QuickSight.DataSource.CredentialPairProperty
+      Stratosphere.QuickSight.DataSource.DatabricksParametersProperty
+      Stratosphere.QuickSight.DataSource.DataSourceCredentialsProperty
+      Stratosphere.QuickSight.DataSource.DataSourceErrorInfoProperty
+      Stratosphere.QuickSight.DataSource.DataSourceParametersProperty
+      Stratosphere.QuickSight.DataSource.ManifestFileLocationProperty
+      Stratosphere.QuickSight.DataSource.MariaDbParametersProperty
+      Stratosphere.QuickSight.DataSource.MySqlParametersProperty
+      Stratosphere.QuickSight.DataSource.OracleParametersProperty
+      Stratosphere.QuickSight.DataSource.PostgreSqlParametersProperty
+      Stratosphere.QuickSight.DataSource.PrestoParametersProperty
+      Stratosphere.QuickSight.DataSource.RdsParametersProperty
+      Stratosphere.QuickSight.DataSource.RedshiftParametersProperty
+      Stratosphere.QuickSight.DataSource.ResourcePermissionProperty
+      Stratosphere.QuickSight.DataSource.S3ParametersProperty
+      Stratosphere.QuickSight.DataSource.SnowflakeParametersProperty
+      Stratosphere.QuickSight.DataSource.SparkParametersProperty
+      Stratosphere.QuickSight.DataSource.SqlServerParametersProperty
+      Stratosphere.QuickSight.DataSource.SslPropertiesProperty
+      Stratosphere.QuickSight.DataSource.TeradataParametersProperty
+      Stratosphere.QuickSight.DataSource.VpcConnectionPropertiesProperty
+      Stratosphere.QuickSight.Template
+      Stratosphere.QuickSight.Template.ColumnGroupColumnSchemaProperty
+      Stratosphere.QuickSight.Template.ColumnGroupSchemaProperty
+      Stratosphere.QuickSight.Template.ColumnSchemaProperty
+      Stratosphere.QuickSight.Template.DataSetConfigurationProperty
+      Stratosphere.QuickSight.Template.DataSetReferenceProperty
+      Stratosphere.QuickSight.Template.DataSetSchemaProperty
+      Stratosphere.QuickSight.Template.ResourcePermissionProperty
+      Stratosphere.QuickSight.Template.SheetProperty
+      Stratosphere.QuickSight.Template.TemplateErrorProperty
+      Stratosphere.QuickSight.Template.TemplateSourceAnalysisProperty
+      Stratosphere.QuickSight.Template.TemplateSourceEntityProperty
+      Stratosphere.QuickSight.Template.TemplateSourceTemplateProperty
+      Stratosphere.QuickSight.Template.TemplateVersionProperty
+      Stratosphere.QuickSight.Theme
+      Stratosphere.QuickSight.Theme.BorderStyleProperty
+      Stratosphere.QuickSight.Theme.DataColorPaletteProperty
+      Stratosphere.QuickSight.Theme.FontProperty
+      Stratosphere.QuickSight.Theme.GutterStyleProperty
+      Stratosphere.QuickSight.Theme.MarginStyleProperty
+      Stratosphere.QuickSight.Theme.ResourcePermissionProperty
+      Stratosphere.QuickSight.Theme.SheetStyleProperty
+      Stratosphere.QuickSight.Theme.ThemeConfigurationProperty
+      Stratosphere.QuickSight.Theme.ThemeErrorProperty
+      Stratosphere.QuickSight.Theme.ThemeVersionProperty
+      Stratosphere.QuickSight.Theme.TileLayoutStyleProperty
+      Stratosphere.QuickSight.Theme.TileStyleProperty
+      Stratosphere.QuickSight.Theme.TypographyProperty
+      Stratosphere.QuickSight.Theme.UIColorPaletteProperty
+  other-modules:
+      Paths_stratosphere_quicksight
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

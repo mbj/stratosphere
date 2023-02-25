@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.TopicConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TopicConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TopicConfigurationProperty
+instance JSON.ToJSON TopicConfigurationProperty

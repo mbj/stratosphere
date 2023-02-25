@@ -1,0 +1,7 @@
+module Stratosphere.Connect.TaskTemplate.ReadOnlyFieldInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReadOnlyFieldInfoProperty :: Prelude.Type
+instance ToResourceProperties ReadOnlyFieldInfoProperty
+instance JSON.ToJSON ReadOnlyFieldInfoProperty

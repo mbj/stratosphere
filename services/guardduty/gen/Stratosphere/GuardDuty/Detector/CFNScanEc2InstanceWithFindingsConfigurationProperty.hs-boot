@@ -1,0 +1,7 @@
+module Stratosphere.GuardDuty.Detector.CFNScanEc2InstanceWithFindingsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CFNScanEc2InstanceWithFindingsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CFNScanEc2InstanceWithFindingsConfigurationProperty
+instance JSON.ToJSON CFNScanEc2InstanceWithFindingsConfigurationProperty

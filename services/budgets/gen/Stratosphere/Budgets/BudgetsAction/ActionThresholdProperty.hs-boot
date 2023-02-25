@@ -1,0 +1,7 @@
+module Stratosphere.Budgets.BudgetsAction.ActionThresholdProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ActionThresholdProperty :: Prelude.Type
+instance ToResourceProperties ActionThresholdProperty
+instance JSON.ToJSON ActionThresholdProperty

@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.EndpointConfig.ClarifyShapConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClarifyShapConfigProperty :: Prelude.Type
+instance ToResourceProperties ClarifyShapConfigProperty
+instance JSON.ToJSON ClarifyShapConfigProperty

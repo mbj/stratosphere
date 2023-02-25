@@ -1,0 +1,7 @@
+module Stratosphere.MediaPackage.PackagingConfiguration.SpekeKeyProviderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpekeKeyProviderProperty :: Prelude.Type
+instance ToResourceProperties SpekeKeyProviderProperty
+instance JSON.ToJSON SpekeKeyProviderProperty

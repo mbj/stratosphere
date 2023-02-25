@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AudioDescriptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioDescriptionProperty :: Prelude.Type
+instance ToResourceProperties AudioDescriptionProperty
+instance JSON.ToJSON AudioDescriptionProperty

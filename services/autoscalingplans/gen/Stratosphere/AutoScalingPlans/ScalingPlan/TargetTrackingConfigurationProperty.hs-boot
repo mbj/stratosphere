@@ -1,0 +1,7 @@
+module Stratosphere.AutoScalingPlans.ScalingPlan.TargetTrackingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetTrackingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TargetTrackingConfigurationProperty
+instance JSON.ToJSON TargetTrackingConfigurationProperty

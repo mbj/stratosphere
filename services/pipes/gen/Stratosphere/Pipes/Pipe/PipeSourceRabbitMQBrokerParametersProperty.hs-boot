@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.PipeSourceRabbitMQBrokerParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PipeSourceRabbitMQBrokerParametersProperty :: Prelude.Type
+instance ToResourceProperties PipeSourceRabbitMQBrokerParametersProperty
+instance JSON.ToJSON PipeSourceRabbitMQBrokerParametersProperty

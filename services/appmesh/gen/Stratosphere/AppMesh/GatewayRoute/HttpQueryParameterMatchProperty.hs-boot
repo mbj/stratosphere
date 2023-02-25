@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.GatewayRoute.HttpQueryParameterMatchProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HttpQueryParameterMatchProperty :: Prelude.Type
+instance ToResourceProperties HttpQueryParameterMatchProperty
+instance JSON.ToJSON HttpQueryParameterMatchProperty

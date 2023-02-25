@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.NoncurrentVersionExpirationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NoncurrentVersionExpirationProperty :: Prelude.Type
+instance ToResourceProperties NoncurrentVersionExpirationProperty
+instance JSON.ToJSON NoncurrentVersionExpirationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancingV2.LoadBalancer.LoadBalancerAttributeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LoadBalancerAttributeProperty :: Prelude.Type
+instance ToResourceProperties LoadBalancerAttributeProperty
+instance JSON.ToJSON LoadBalancerAttributeProperty

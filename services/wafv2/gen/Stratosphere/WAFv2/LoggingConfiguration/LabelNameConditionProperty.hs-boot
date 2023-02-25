@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.LoggingConfiguration.LabelNameConditionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LabelNameConditionProperty :: Prelude.Type
+instance ToResourceProperties LabelNameConditionProperty
+instance JSON.ToJSON LabelNameConditionProperty

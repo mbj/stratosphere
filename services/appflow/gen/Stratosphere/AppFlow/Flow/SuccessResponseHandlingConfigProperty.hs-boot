@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.Flow.SuccessResponseHandlingConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SuccessResponseHandlingConfigProperty :: Prelude.Type
+instance ToResourceProperties SuccessResponseHandlingConfigProperty
+instance JSON.ToJSON SuccessResponseHandlingConfigProperty

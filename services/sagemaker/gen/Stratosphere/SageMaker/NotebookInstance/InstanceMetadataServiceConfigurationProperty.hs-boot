@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.NotebookInstance.InstanceMetadataServiceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceMetadataServiceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InstanceMetadataServiceConfigurationProperty
+instance JSON.ToJSON InstanceMetadataServiceConfigurationProperty

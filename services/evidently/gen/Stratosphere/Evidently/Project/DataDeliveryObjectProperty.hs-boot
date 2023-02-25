@@ -1,0 +1,7 @@
+module Stratosphere.Evidently.Project.DataDeliveryObjectProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataDeliveryObjectProperty :: Prelude.Type
+instance ToResourceProperties DataDeliveryObjectProperty
+instance JSON.ToJSON DataDeliveryObjectProperty

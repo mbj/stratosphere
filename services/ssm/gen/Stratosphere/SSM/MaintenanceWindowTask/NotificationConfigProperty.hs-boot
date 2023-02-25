@@ -1,0 +1,7 @@
+module Stratosphere.SSM.MaintenanceWindowTask.NotificationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NotificationConfigProperty :: Prelude.Type
+instance ToResourceProperties NotificationConfigProperty
+instance JSON.ToJSON NotificationConfigProperty

@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.ResponseHeadersPolicy.AccessControlAllowOriginsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessControlAllowOriginsProperty :: Prelude.Type
+instance ToResourceProperties AccessControlAllowOriginsProperty
+instance JSON.ToJSON AccessControlAllowOriginsProperty

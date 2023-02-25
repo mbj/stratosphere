@@ -1,0 +1,63 @@
+module Stratosphere.AppMesh.VirtualRouter (
+        module Exports, VirtualRouter(..), mkVirtualRouter
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AppMesh.VirtualRouter.VirtualRouterSpecProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Tag
+import Stratosphere.Value
+data VirtualRouter
+  = VirtualRouter {meshName :: (Value Prelude.Text),
+                   meshOwner :: (Prelude.Maybe (Value Prelude.Text)),
+                   spec :: VirtualRouterSpecProperty,
+                   tags :: (Prelude.Maybe [Tag]),
+                   virtualRouterName :: (Prelude.Maybe (Value Prelude.Text))}
+mkVirtualRouter ::
+  Value Prelude.Text -> VirtualRouterSpecProperty -> VirtualRouter
+mkVirtualRouter meshName spec
+  = VirtualRouter
+      {meshName = meshName, spec = spec, meshOwner = Prelude.Nothing,
+       tags = Prelude.Nothing, virtualRouterName = Prelude.Nothing}
+instance ToResourceProperties VirtualRouter where
+  toResourceProperties VirtualRouter {..}
+    = ResourceProperties
+        {awsType = "AWS::AppMesh::VirtualRouter",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["MeshName" JSON..= meshName, "Spec" JSON..= spec]
+                           (Prelude.catMaybes
+                              [(JSON..=) "MeshOwner" Prelude.<$> meshOwner,
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "VirtualRouterName" Prelude.<$> virtualRouterName]))}
+instance JSON.ToJSON VirtualRouter where
+  toJSON VirtualRouter {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["MeshName" JSON..= meshName, "Spec" JSON..= spec]
+              (Prelude.catMaybes
+                 [(JSON..=) "MeshOwner" Prelude.<$> meshOwner,
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "VirtualRouterName" Prelude.<$> virtualRouterName])))
+instance Property "MeshName" VirtualRouter where
+  type PropertyType "MeshName" VirtualRouter = Value Prelude.Text
+  set newValue VirtualRouter {..}
+    = VirtualRouter {meshName = newValue, ..}
+instance Property "MeshOwner" VirtualRouter where
+  type PropertyType "MeshOwner" VirtualRouter = Value Prelude.Text
+  set newValue VirtualRouter {..}
+    = VirtualRouter {meshOwner = Prelude.pure newValue, ..}
+instance Property "Spec" VirtualRouter where
+  type PropertyType "Spec" VirtualRouter = VirtualRouterSpecProperty
+  set newValue VirtualRouter {..}
+    = VirtualRouter {spec = newValue, ..}
+instance Property "Tags" VirtualRouter where
+  type PropertyType "Tags" VirtualRouter = [Tag]
+  set newValue VirtualRouter {..}
+    = VirtualRouter {tags = Prelude.pure newValue, ..}
+instance Property "VirtualRouterName" VirtualRouter where
+  type PropertyType "VirtualRouterName" VirtualRouter = Value Prelude.Text
+  set newValue VirtualRouter {..}
+    = VirtualRouter {virtualRouterName = Prelude.pure newValue, ..}

@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.Flow.S3OutputFormatConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3OutputFormatConfigProperty :: Prelude.Type
+instance ToResourceProperties S3OutputFormatConfigProperty
+instance JSON.ToJSON S3OutputFormatConfigProperty

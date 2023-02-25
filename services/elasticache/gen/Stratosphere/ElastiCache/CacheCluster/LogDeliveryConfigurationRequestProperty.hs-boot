@@ -1,0 +1,7 @@
+module Stratosphere.ElastiCache.CacheCluster.LogDeliveryConfigurationRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LogDeliveryConfigurationRequestProperty :: Prelude.Type
+instance ToResourceProperties LogDeliveryConfigurationRequestProperty
+instance JSON.ToJSON LogDeliveryConfigurationRequestProperty

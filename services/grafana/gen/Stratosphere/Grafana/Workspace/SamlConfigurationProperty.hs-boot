@@ -1,0 +1,7 @@
+module Stratosphere.Grafana.Workspace.SamlConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SamlConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SamlConfigurationProperty
+instance JSON.ToJSON SamlConfigurationProperty

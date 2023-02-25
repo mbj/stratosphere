@@ -1,0 +1,7 @@
+module Stratosphere.ECS.CapacityProvider.AutoScalingGroupProviderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoScalingGroupProviderProperty :: Prelude.Type
+instance ToResourceProperties AutoScalingGroupProviderProperty
+instance JSON.ToJSON AutoScalingGroupProviderProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.UserPool.EmailConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EmailConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EmailConfigurationProperty
+instance JSON.ToJSON EmailConfigurationProperty

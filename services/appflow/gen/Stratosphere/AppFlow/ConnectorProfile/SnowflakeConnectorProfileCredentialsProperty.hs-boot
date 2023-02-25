@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.SnowflakeConnectorProfileCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnowflakeConnectorProfileCredentialsProperty :: Prelude.Type
+instance ToResourceProperties SnowflakeConnectorProfileCredentialsProperty
+instance JSON.ToJSON SnowflakeConnectorProfileCredentialsProperty

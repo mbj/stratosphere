@@ -1,0 +1,39 @@
+module Stratosphere.EKS.FargateProfile.SelectorProperty (
+        module Exports, SelectorProperty(..), mkSelectorProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EKS.FargateProfile.LabelProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data SelectorProperty
+  = SelectorProperty {labels :: (Prelude.Maybe [LabelProperty]),
+                      namespace :: (Value Prelude.Text)}
+mkSelectorProperty :: Value Prelude.Text -> SelectorProperty
+mkSelectorProperty namespace
+  = SelectorProperty
+      {namespace = namespace, labels = Prelude.Nothing}
+instance ToResourceProperties SelectorProperty where
+  toResourceProperties SelectorProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::EKS::FargateProfile.Selector",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Namespace" JSON..= namespace]
+                           (Prelude.catMaybes [(JSON..=) "Labels" Prelude.<$> labels]))}
+instance JSON.ToJSON SelectorProperty where
+  toJSON SelectorProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Namespace" JSON..= namespace]
+              (Prelude.catMaybes [(JSON..=) "Labels" Prelude.<$> labels])))
+instance Property "Labels" SelectorProperty where
+  type PropertyType "Labels" SelectorProperty = [LabelProperty]
+  set newValue SelectorProperty {..}
+    = SelectorProperty {labels = Prelude.pure newValue, ..}
+instance Property "Namespace" SelectorProperty where
+  type PropertyType "Namespace" SelectorProperty = Value Prelude.Text
+  set newValue SelectorProperty {..}
+    = SelectorProperty {namespace = newValue, ..}

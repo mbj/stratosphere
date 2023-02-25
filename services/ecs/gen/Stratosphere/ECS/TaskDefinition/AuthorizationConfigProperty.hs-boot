@@ -1,0 +1,7 @@
+module Stratosphere.ECS.TaskDefinition.AuthorizationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AuthorizationConfigProperty :: Prelude.Type
+instance ToResourceProperties AuthorizationConfigProperty
+instance JSON.ToJSON AuthorizationConfigProperty

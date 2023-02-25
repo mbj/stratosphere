@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.ResponseHeadersPolicy.StrictTransportSecurityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StrictTransportSecurityProperty :: Prelude.Type
+instance ToResourceProperties StrictTransportSecurityProperty
+instance JSON.ToJSON StrictTransportSecurityProperty

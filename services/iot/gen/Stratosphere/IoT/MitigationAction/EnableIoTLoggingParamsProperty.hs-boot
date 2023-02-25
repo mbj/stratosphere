@@ -1,0 +1,7 @@
+module Stratosphere.IoT.MitigationAction.EnableIoTLoggingParamsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EnableIoTLoggingParamsProperty :: Prelude.Type
+instance ToResourceProperties EnableIoTLoggingParamsProperty
+instance JSON.ToJSON EnableIoTLoggingParamsProperty

@@ -1,0 +1,7 @@
+module Stratosphere.LicenseManager.License.ValidityDateFormatProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ValidityDateFormatProperty :: Prelude.Type
+instance ToResourceProperties ValidityDateFormatProperty
+instance JSON.ToJSON ValidityDateFormatProperty

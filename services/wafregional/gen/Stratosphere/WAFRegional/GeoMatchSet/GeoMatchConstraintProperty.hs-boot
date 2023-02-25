@@ -1,0 +1,7 @@
+module Stratosphere.WAFRegional.GeoMatchSet.GeoMatchConstraintProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeoMatchConstraintProperty :: Prelude.Type
+instance ToResourceProperties GeoMatchConstraintProperty
+instance JSON.ToJSON GeoMatchConstraintProperty

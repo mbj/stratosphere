@@ -1,0 +1,7 @@
+module Stratosphere.RoboMaker.SimulationApplication.RobotSoftwareSuiteProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RobotSoftwareSuiteProperty :: Prelude.Type
+instance ToResourceProperties RobotSoftwareSuiteProperty
+instance JSON.ToJSON RobotSoftwareSuiteProperty

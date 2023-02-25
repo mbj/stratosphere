@@ -1,0 +1,7 @@
+module Stratosphere.Route53RecoveryReadiness.ResourceSet.R53ResourceRecordProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data R53ResourceRecordProperty :: Prelude.Type
+instance ToResourceProperties R53ResourceRecordProperty
+instance JSON.ToJSON R53ResourceRecordProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.NetworkInterfaceCountProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkInterfaceCountProperty :: Prelude.Type
+instance ToResourceProperties NetworkInterfaceCountProperty
+instance JSON.ToJSON NetworkInterfaceCountProperty

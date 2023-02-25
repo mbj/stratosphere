@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelQualityJobDefinition.ClusterConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClusterConfigProperty :: Prelude.Type
+instance ToResourceProperties ClusterConfigProperty
+instance JSON.ToJSON ClusterConfigProperty

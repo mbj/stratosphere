@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.Flow.MarketoDestinationPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MarketoDestinationPropertiesProperty :: Prelude.Type
+instance ToResourceProperties MarketoDestinationPropertiesProperty
+instance JSON.ToJSON MarketoDestinationPropertiesProperty

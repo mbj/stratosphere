@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalytics.ApplicationOutput.KinesisStreamsOutputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KinesisStreamsOutputProperty :: Prelude.Type
+instance ToResourceProperties KinesisStreamsOutputProperty
+instance JSON.ToJSON KinesisStreamsOutputProperty

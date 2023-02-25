@@ -1,0 +1,7 @@
+module Stratosphere.Batch.SchedulingPolicy.ShareAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ShareAttributesProperty :: Prelude.Type
+instance ToResourceProperties ShareAttributesProperty
+instance JSON.ToJSON ShareAttributesProperty

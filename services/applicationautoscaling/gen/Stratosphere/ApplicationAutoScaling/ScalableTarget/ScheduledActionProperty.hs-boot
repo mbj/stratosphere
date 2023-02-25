@@ -1,0 +1,7 @@
+module Stratosphere.ApplicationAutoScaling.ScalableTarget.ScheduledActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScheduledActionProperty :: Prelude.Type
+instance ToResourceProperties ScheduledActionProperty
+instance JSON.ToJSON ScheduledActionProperty

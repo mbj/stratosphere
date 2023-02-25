@@ -1,0 +1,7 @@
+module Stratosphere.EC2.EC2Fleet.TotalLocalStorageGBRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TotalLocalStorageGBRequestProperty :: Prelude.Type
+instance ToResourceProperties TotalLocalStorageGBRequestProperty
+instance JSON.ToJSON TotalLocalStorageGBRequestProperty

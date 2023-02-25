@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.Model.RepositoryAuthConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RepositoryAuthConfigProperty :: Prelude.Type
+instance ToResourceProperties RepositoryAuthConfigProperty
+instance JSON.ToJSON RepositoryAuthConfigProperty

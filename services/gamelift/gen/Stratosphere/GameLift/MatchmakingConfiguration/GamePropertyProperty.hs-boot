@@ -1,0 +1,7 @@
+module Stratosphere.GameLift.MatchmakingConfiguration.GamePropertyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GamePropertyProperty :: Prelude.Type
+instance ToResourceProperties GamePropertyProperty
+instance JSON.ToJSON GamePropertyProperty

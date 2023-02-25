@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.VideoSelectorColorSpaceSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VideoSelectorColorSpaceSettingsProperty :: Prelude.Type
+instance ToResourceProperties VideoSelectorColorSpaceSettingsProperty
+instance JSON.ToJSON VideoSelectorColorSpaceSettingsProperty

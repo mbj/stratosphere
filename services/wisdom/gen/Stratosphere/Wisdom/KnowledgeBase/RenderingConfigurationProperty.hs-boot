@@ -1,0 +1,7 @@
+module Stratosphere.Wisdom.KnowledgeBase.RenderingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RenderingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RenderingConfigurationProperty
+instance JSON.ToJSON RenderingConfigurationProperty

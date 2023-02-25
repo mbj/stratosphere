@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.VpcOutputSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VpcOutputSettingsProperty :: Prelude.Type
+instance ToResourceProperties VpcOutputSettingsProperty
+instance JSON.ToJSON VpcOutputSettingsProperty

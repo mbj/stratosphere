@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.RedshiftConnectorProfileCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedshiftConnectorProfileCredentialsProperty :: Prelude.Type
+instance ToResourceProperties RedshiftConnectorProfileCredentialsProperty
+instance JSON.ToJSON RedshiftConnectorProfileCredentialsProperty

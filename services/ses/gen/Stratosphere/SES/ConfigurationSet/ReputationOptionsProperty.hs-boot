@@ -1,0 +1,7 @@
+module Stratosphere.SES.ConfigurationSet.ReputationOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReputationOptionsProperty :: Prelude.Type
+instance ToResourceProperties ReputationOptionsProperty
+instance JSON.ToJSON ReputationOptionsProperty

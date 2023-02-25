@@ -1,0 +1,7 @@
+module Stratosphere.AppSync.DataSource.EventBridgeConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EventBridgeConfigProperty :: Prelude.Type
+instance ToResourceProperties EventBridgeConfigProperty
+instance JSON.ToJSON EventBridgeConfigProperty

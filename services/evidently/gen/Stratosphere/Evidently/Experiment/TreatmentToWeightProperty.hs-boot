@@ -1,0 +1,7 @@
+module Stratosphere.Evidently.Experiment.TreatmentToWeightProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TreatmentToWeightProperty :: Prelude.Type
+instance ToResourceProperties TreatmentToWeightProperty
+instance JSON.ToJSON TreatmentToWeightProperty

@@ -1,0 +1,7 @@
+module Stratosphere.AppSync.GraphQLApi.LambdaAuthorizerConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaAuthorizerConfigProperty :: Prelude.Type
+instance ToResourceProperties LambdaAuthorizerConfigProperty
+instance JSON.ToJSON LambdaAuthorizerConfigProperty

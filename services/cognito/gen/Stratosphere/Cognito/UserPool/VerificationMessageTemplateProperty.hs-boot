@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.UserPool.VerificationMessageTemplateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VerificationMessageTemplateProperty :: Prelude.Type
+instance ToResourceProperties VerificationMessageTemplateProperty
+instance JSON.ToJSON VerificationMessageTemplateProperty

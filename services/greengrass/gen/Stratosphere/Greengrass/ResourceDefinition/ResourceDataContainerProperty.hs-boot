@@ -1,0 +1,7 @@
+module Stratosphere.Greengrass.ResourceDefinition.ResourceDataContainerProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResourceDataContainerProperty :: Prelude.Type
+instance ToResourceProperties ResourceDataContainerProperty
+instance JSON.ToJSON ResourceDataContainerProperty

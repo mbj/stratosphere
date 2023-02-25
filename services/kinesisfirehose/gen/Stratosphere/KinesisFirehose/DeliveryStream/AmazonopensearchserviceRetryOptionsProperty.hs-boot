@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceRetryOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AmazonopensearchserviceRetryOptionsProperty :: Prelude.Type
+instance ToResourceProperties AmazonopensearchserviceRetryOptionsProperty
+instance JSON.ToJSON AmazonopensearchserviceRetryOptionsProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Events.Rule.SageMakerPipelineParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SageMakerPipelineParametersProperty :: Prelude.Type
+instance ToResourceProperties SageMakerPipelineParametersProperty
+instance JSON.ToJSON SageMakerPipelineParametersProperty

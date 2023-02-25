@@ -1,0 +1,7 @@
+module Stratosphere.Backup.ReportPlan.ReportDeliveryChannelProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReportDeliveryChannelProperty :: Prelude.Type
+instance ToResourceProperties ReportDeliveryChannelProperty
+instance JSON.ToJSON ReportDeliveryChannelProperty

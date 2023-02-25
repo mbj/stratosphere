@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.Deployment.SystemResourceLimitsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SystemResourceLimitsProperty :: Prelude.Type
+instance ToResourceProperties SystemResourceLimitsProperty
+instance JSON.ToJSON SystemResourceLimitsProperty

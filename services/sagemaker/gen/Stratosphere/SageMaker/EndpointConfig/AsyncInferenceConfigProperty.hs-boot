@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.EndpointConfig.AsyncInferenceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AsyncInferenceConfigProperty :: Prelude.Type
+instance ToResourceProperties AsyncInferenceConfigProperty
+instance JSON.ToJSON AsyncInferenceConfigProperty

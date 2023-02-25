@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Datastore.DatastorePartitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatastorePartitionProperty :: Prelude.Type
+instance ToResourceProperties DatastorePartitionProperty
+instance JSON.ToJSON DatastorePartitionProperty

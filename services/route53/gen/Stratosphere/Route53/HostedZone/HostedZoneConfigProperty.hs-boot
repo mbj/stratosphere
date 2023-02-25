@@ -1,0 +1,7 @@
+module Stratosphere.Route53.HostedZone.HostedZoneConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HostedZoneConfigProperty :: Prelude.Type
+instance ToResourceProperties HostedZoneConfigProperty
+instance JSON.ToJSON HostedZoneConfigProperty

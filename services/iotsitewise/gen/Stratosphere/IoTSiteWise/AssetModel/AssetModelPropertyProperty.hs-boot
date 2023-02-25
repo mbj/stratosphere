@@ -1,0 +1,7 @@
+module Stratosphere.IoTSiteWise.AssetModel.AssetModelPropertyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AssetModelPropertyProperty :: Prelude.Type
+instance ToResourceProperties AssetModelPropertyProperty
+instance JSON.ToJSON AssetModelPropertyProperty

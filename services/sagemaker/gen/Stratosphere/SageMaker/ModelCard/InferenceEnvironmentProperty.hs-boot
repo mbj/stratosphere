@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelCard.InferenceEnvironmentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InferenceEnvironmentProperty :: Prelude.Type
+instance ToResourceProperties InferenceEnvironmentProperty
+instance JSON.ToJSON InferenceEnvironmentProperty

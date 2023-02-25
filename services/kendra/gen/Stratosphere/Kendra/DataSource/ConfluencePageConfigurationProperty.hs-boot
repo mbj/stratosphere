@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.ConfluencePageConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConfluencePageConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ConfluencePageConfigurationProperty
+instance JSON.ToJSON ConfluencePageConfigurationProperty

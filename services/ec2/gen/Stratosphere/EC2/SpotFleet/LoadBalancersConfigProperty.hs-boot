@@ -1,0 +1,7 @@
+module Stratosphere.EC2.SpotFleet.LoadBalancersConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LoadBalancersConfigProperty :: Prelude.Type
+instance ToResourceProperties LoadBalancersConfigProperty
+instance JSON.ToJSON LoadBalancersConfigProperty

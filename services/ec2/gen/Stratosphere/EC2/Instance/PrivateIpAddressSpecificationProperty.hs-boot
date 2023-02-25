@@ -1,0 +1,7 @@
+module Stratosphere.EC2.Instance.PrivateIpAddressSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PrivateIpAddressSpecificationProperty :: Prelude.Type
+instance ToResourceProperties PrivateIpAddressSpecificationProperty
+instance JSON.ToJSON PrivateIpAddressSpecificationProperty

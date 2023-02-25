@@ -1,0 +1,7 @@
+module Stratosphere.Pinpoint.Campaign.WriteTreatmentResourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WriteTreatmentResourceProperty :: Prelude.Type
+instance ToResourceProperties WriteTreatmentResourceProperty
+instance JSON.ToJSON WriteTreatmentResourceProperty

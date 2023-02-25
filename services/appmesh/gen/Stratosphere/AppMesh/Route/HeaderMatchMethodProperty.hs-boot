@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.Route.HeaderMatchMethodProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HeaderMatchMethodProperty :: Prelude.Type
+instance ToResourceProperties HeaderMatchMethodProperty
+instance JSON.ToJSON HeaderMatchMethodProperty

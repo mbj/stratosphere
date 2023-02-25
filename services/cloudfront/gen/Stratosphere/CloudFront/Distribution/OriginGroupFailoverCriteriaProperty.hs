@@ -1,0 +1,26 @@
+module Stratosphere.CloudFront.Distribution.OriginGroupFailoverCriteriaProperty (
+        module Exports, OriginGroupFailoverCriteriaProperty(..),
+        mkOriginGroupFailoverCriteriaProperty
+    ) where
+import qualified Data.Aeson as JSON
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.StatusCodesProperty as Exports
+import Stratosphere.ResourceProperties
+data OriginGroupFailoverCriteriaProperty
+  = OriginGroupFailoverCriteriaProperty {statusCodes :: StatusCodesProperty}
+mkOriginGroupFailoverCriteriaProperty ::
+  StatusCodesProperty -> OriginGroupFailoverCriteriaProperty
+mkOriginGroupFailoverCriteriaProperty statusCodes
+  = OriginGroupFailoverCriteriaProperty {statusCodes = statusCodes}
+instance ToResourceProperties OriginGroupFailoverCriteriaProperty where
+  toResourceProperties OriginGroupFailoverCriteriaProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::CloudFront::Distribution.OriginGroupFailoverCriteria",
+         properties = ["StatusCodes" JSON..= statusCodes]}
+instance JSON.ToJSON OriginGroupFailoverCriteriaProperty where
+  toJSON OriginGroupFailoverCriteriaProperty {..}
+    = JSON.object ["StatusCodes" JSON..= statusCodes]
+instance Property "StatusCodes" OriginGroupFailoverCriteriaProperty where
+  type PropertyType "StatusCodes" OriginGroupFailoverCriteriaProperty = StatusCodesProperty
+  set newValue OriginGroupFailoverCriteriaProperty {}
+    = OriginGroupFailoverCriteriaProperty {statusCodes = newValue, ..}

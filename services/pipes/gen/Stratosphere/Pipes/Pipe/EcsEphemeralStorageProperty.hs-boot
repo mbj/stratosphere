@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.EcsEphemeralStorageProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EcsEphemeralStorageProperty :: Prelude.Type
+instance ToResourceProperties EcsEphemeralStorageProperty
+instance JSON.ToJSON EcsEphemeralStorageProperty

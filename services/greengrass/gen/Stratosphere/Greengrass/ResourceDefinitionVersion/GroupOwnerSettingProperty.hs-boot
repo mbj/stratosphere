@@ -1,0 +1,7 @@
+module Stratosphere.Greengrass.ResourceDefinitionVersion.GroupOwnerSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GroupOwnerSettingProperty :: Prelude.Type
+instance ToResourceProperties GroupOwnerSettingProperty
+instance JSON.ToJSON GroupOwnerSettingProperty

@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.Distribution.FunctionAssociationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FunctionAssociationProperty :: Prelude.Type
+instance ToResourceProperties FunctionAssociationProperty
+instance JSON.ToJSON FunctionAssociationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Connect.InstanceStorageConfig.KinesisFirehoseConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KinesisFirehoseConfigProperty :: Prelude.Type
+instance ToResourceProperties KinesisFirehoseConfigProperty
+instance JSON.ToJSON KinesisFirehoseConfigProperty

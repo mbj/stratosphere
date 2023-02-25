@@ -1,0 +1,7 @@
+module Stratosphere.IoTFleetWise.DecoderManifest.SignalDecodersItemsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SignalDecodersItemsProperty :: Prelude.Type
+instance ToResourceProperties SignalDecodersItemsProperty
+instance JSON.ToJSON SignalDecodersItemsProperty

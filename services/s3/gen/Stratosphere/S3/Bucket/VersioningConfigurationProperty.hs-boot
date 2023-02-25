@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.VersioningConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VersioningConfigurationProperty :: Prelude.Type
+instance ToResourceProperties VersioningConfigurationProperty
+instance JSON.ToJSON VersioningConfigurationProperty

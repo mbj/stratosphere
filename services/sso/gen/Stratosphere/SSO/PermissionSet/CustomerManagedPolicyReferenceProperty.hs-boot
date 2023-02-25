@@ -1,0 +1,7 @@
+module Stratosphere.SSO.PermissionSet.CustomerManagedPolicyReferenceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomerManagedPolicyReferenceProperty :: Prelude.Type
+instance ToResourceProperties CustomerManagedPolicyReferenceProperty
+instance JSON.ToJSON CustomerManagedPolicyReferenceProperty

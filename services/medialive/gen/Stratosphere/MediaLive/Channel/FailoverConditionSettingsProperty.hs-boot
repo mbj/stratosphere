@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.FailoverConditionSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FailoverConditionSettingsProperty :: Prelude.Type
+instance ToResourceProperties FailoverConditionSettingsProperty
+instance JSON.ToJSON FailoverConditionSettingsProperty

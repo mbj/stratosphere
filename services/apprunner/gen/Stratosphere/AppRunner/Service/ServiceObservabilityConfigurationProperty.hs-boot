@@ -1,0 +1,7 @@
+module Stratosphere.AppRunner.Service.ServiceObservabilityConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceObservabilityConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ServiceObservabilityConfigurationProperty
+instance JSON.ToJSON ServiceObservabilityConfigurationProperty

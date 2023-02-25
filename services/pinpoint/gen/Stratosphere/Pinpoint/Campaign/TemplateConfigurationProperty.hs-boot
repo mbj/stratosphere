@@ -1,0 +1,7 @@
+module Stratosphere.Pinpoint.Campaign.TemplateConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TemplateConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TemplateConfigurationProperty
+instance JSON.ToJSON TemplateConfigurationProperty

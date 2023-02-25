@@ -1,0 +1,7 @@
+module Stratosphere.AmplifyUIBuilder.Form.FieldValidationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FieldValidationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FieldValidationConfigurationProperty
+instance JSON.ToJSON FieldValidationConfigurationProperty

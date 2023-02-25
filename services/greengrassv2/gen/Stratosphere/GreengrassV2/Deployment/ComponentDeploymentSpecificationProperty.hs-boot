@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.Deployment.ComponentDeploymentSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComponentDeploymentSpecificationProperty :: Prelude.Type
+instance ToResourceProperties ComponentDeploymentSpecificationProperty
+instance JSON.ToJSON ComponentDeploymentSpecificationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.SES.ConfigurationSet.DashboardOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashboardOptionsProperty :: Prelude.Type
+instance ToResourceProperties DashboardOptionsProperty
+instance JSON.ToJSON DashboardOptionsProperty

@@ -1,0 +1,137 @@
+module Stratosphere.FSx.FileSystem.WindowsConfigurationProperty (
+        module Exports, WindowsConfigurationProperty(..),
+        mkWindowsConfigurationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.FSx.FileSystem.AuditLogConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.FSx.FileSystem.SelfManagedActiveDirectoryConfigurationProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data WindowsConfigurationProperty
+  = WindowsConfigurationProperty {activeDirectoryId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  aliases :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                  auditLogConfiguration :: (Prelude.Maybe AuditLogConfigurationProperty),
+                                  automaticBackupRetentionDays :: (Prelude.Maybe (Value Prelude.Integer)),
+                                  copyTagsToBackups :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  dailyAutomaticBackupStartTime :: (Prelude.Maybe (Value Prelude.Text)),
+                                  deploymentType :: (Prelude.Maybe (Value Prelude.Text)),
+                                  preferredSubnetId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  selfManagedActiveDirectoryConfiguration :: (Prelude.Maybe SelfManagedActiveDirectoryConfigurationProperty),
+                                  throughputCapacity :: (Value Prelude.Integer),
+                                  weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
+mkWindowsConfigurationProperty ::
+  Value Prelude.Integer -> WindowsConfigurationProperty
+mkWindowsConfigurationProperty throughputCapacity
+  = WindowsConfigurationProperty
+      {throughputCapacity = throughputCapacity,
+       activeDirectoryId = Prelude.Nothing, aliases = Prelude.Nothing,
+       auditLogConfiguration = Prelude.Nothing,
+       automaticBackupRetentionDays = Prelude.Nothing,
+       copyTagsToBackups = Prelude.Nothing,
+       dailyAutomaticBackupStartTime = Prelude.Nothing,
+       deploymentType = Prelude.Nothing,
+       preferredSubnetId = Prelude.Nothing,
+       selfManagedActiveDirectoryConfiguration = Prelude.Nothing,
+       weeklyMaintenanceStartTime = Prelude.Nothing}
+instance ToResourceProperties WindowsConfigurationProperty where
+  toResourceProperties WindowsConfigurationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::FSx::FileSystem.WindowsConfiguration",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["ThroughputCapacity" JSON..= throughputCapacity]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ActiveDirectoryId" Prelude.<$> activeDirectoryId,
+                               (JSON..=) "Aliases" Prelude.<$> aliases,
+                               (JSON..=) "AuditLogConfiguration"
+                                 Prelude.<$> auditLogConfiguration,
+                               (JSON..=) "AutomaticBackupRetentionDays"
+                                 Prelude.<$> automaticBackupRetentionDays,
+                               (JSON..=) "CopyTagsToBackups" Prelude.<$> copyTagsToBackups,
+                               (JSON..=) "DailyAutomaticBackupStartTime"
+                                 Prelude.<$> dailyAutomaticBackupStartTime,
+                               (JSON..=) "DeploymentType" Prelude.<$> deploymentType,
+                               (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
+                               (JSON..=) "SelfManagedActiveDirectoryConfiguration"
+                                 Prelude.<$> selfManagedActiveDirectoryConfiguration,
+                               (JSON..=) "WeeklyMaintenanceStartTime"
+                                 Prelude.<$> weeklyMaintenanceStartTime]))}
+instance JSON.ToJSON WindowsConfigurationProperty where
+  toJSON WindowsConfigurationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["ThroughputCapacity" JSON..= throughputCapacity]
+              (Prelude.catMaybes
+                 [(JSON..=) "ActiveDirectoryId" Prelude.<$> activeDirectoryId,
+                  (JSON..=) "Aliases" Prelude.<$> aliases,
+                  (JSON..=) "AuditLogConfiguration"
+                    Prelude.<$> auditLogConfiguration,
+                  (JSON..=) "AutomaticBackupRetentionDays"
+                    Prelude.<$> automaticBackupRetentionDays,
+                  (JSON..=) "CopyTagsToBackups" Prelude.<$> copyTagsToBackups,
+                  (JSON..=) "DailyAutomaticBackupStartTime"
+                    Prelude.<$> dailyAutomaticBackupStartTime,
+                  (JSON..=) "DeploymentType" Prelude.<$> deploymentType,
+                  (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
+                  (JSON..=) "SelfManagedActiveDirectoryConfiguration"
+                    Prelude.<$> selfManagedActiveDirectoryConfiguration,
+                  (JSON..=) "WeeklyMaintenanceStartTime"
+                    Prelude.<$> weeklyMaintenanceStartTime])))
+instance Property "ActiveDirectoryId" WindowsConfigurationProperty where
+  type PropertyType "ActiveDirectoryId" WindowsConfigurationProperty = Value Prelude.Text
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {activeDirectoryId = Prelude.pure newValue, ..}
+instance Property "Aliases" WindowsConfigurationProperty where
+  type PropertyType "Aliases" WindowsConfigurationProperty = ValueList (Value Prelude.Text)
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {aliases = Prelude.pure newValue, ..}
+instance Property "AuditLogConfiguration" WindowsConfigurationProperty where
+  type PropertyType "AuditLogConfiguration" WindowsConfigurationProperty = AuditLogConfigurationProperty
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {auditLogConfiguration = Prelude.pure newValue, ..}
+instance Property "AutomaticBackupRetentionDays" WindowsConfigurationProperty where
+  type PropertyType "AutomaticBackupRetentionDays" WindowsConfigurationProperty = Value Prelude.Integer
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {automaticBackupRetentionDays = Prelude.pure newValue, ..}
+instance Property "CopyTagsToBackups" WindowsConfigurationProperty where
+  type PropertyType "CopyTagsToBackups" WindowsConfigurationProperty = Value Prelude.Bool
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {copyTagsToBackups = Prelude.pure newValue, ..}
+instance Property "DailyAutomaticBackupStartTime" WindowsConfigurationProperty where
+  type PropertyType "DailyAutomaticBackupStartTime" WindowsConfigurationProperty = Value Prelude.Text
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {dailyAutomaticBackupStartTime = Prelude.pure newValue, ..}
+instance Property "DeploymentType" WindowsConfigurationProperty where
+  type PropertyType "DeploymentType" WindowsConfigurationProperty = Value Prelude.Text
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {deploymentType = Prelude.pure newValue, ..}
+instance Property "PreferredSubnetId" WindowsConfigurationProperty where
+  type PropertyType "PreferredSubnetId" WindowsConfigurationProperty = Value Prelude.Text
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {preferredSubnetId = Prelude.pure newValue, ..}
+instance Property "SelfManagedActiveDirectoryConfiguration" WindowsConfigurationProperty where
+  type PropertyType "SelfManagedActiveDirectoryConfiguration" WindowsConfigurationProperty = SelfManagedActiveDirectoryConfigurationProperty
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {selfManagedActiveDirectoryConfiguration = Prelude.pure newValue,
+         ..}
+instance Property "ThroughputCapacity" WindowsConfigurationProperty where
+  type PropertyType "ThroughputCapacity" WindowsConfigurationProperty = Value Prelude.Integer
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty {throughputCapacity = newValue, ..}
+instance Property "WeeklyMaintenanceStartTime" WindowsConfigurationProperty where
+  type PropertyType "WeeklyMaintenanceStartTime" WindowsConfigurationProperty = Value Prelude.Text
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {weeklyMaintenanceStartTime = Prelude.pure newValue, ..}

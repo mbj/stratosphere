@@ -1,0 +1,7 @@
+module Stratosphere.AutoScaling.AutoScalingGroup.InstancesDistributionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstancesDistributionProperty :: Prelude.Type
+instance ToResourceProperties InstancesDistributionProperty
+instance JSON.ToJSON InstancesDistributionProperty

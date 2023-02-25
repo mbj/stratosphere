@@ -1,0 +1,7 @@
+module Stratosphere.EC2.ClientVpnEndpoint.ConnectionLogOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectionLogOptionsProperty :: Prelude.Type
+instance ToResourceProperties ConnectionLogOptionsProperty
+instance JSON.ToJSON ConnectionLogOptionsProperty

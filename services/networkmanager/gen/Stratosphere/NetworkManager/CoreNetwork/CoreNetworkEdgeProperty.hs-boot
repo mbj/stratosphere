@@ -1,0 +1,7 @@
+module Stratosphere.NetworkManager.CoreNetwork.CoreNetworkEdgeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CoreNetworkEdgeProperty :: Prelude.Type
+instance ToResourceProperties CoreNetworkEdgeProperty
+instance JSON.ToJSON CoreNetworkEdgeProperty

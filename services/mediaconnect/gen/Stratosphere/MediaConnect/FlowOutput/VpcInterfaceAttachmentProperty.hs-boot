@@ -1,0 +1,7 @@
+module Stratosphere.MediaConnect.FlowOutput.VpcInterfaceAttachmentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VpcInterfaceAttachmentProperty :: Prelude.Type
+instance ToResourceProperties VpcInterfaceAttachmentProperty
+instance JSON.ToJSON VpcInterfaceAttachmentProperty

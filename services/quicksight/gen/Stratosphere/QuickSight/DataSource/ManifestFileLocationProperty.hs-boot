@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSource.ManifestFileLocationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManifestFileLocationProperty :: Prelude.Type
+instance ToResourceProperties ManifestFileLocationProperty
+instance JSON.ToJSON ManifestFileLocationProperty

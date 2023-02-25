@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.IngestionWaitPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IngestionWaitPolicyProperty :: Prelude.Type
+instance ToResourceProperties IngestionWaitPolicyProperty
+instance JSON.ToJSON IngestionWaitPolicyProperty

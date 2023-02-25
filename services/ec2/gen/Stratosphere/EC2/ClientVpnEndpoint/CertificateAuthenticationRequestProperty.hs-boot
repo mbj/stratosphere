@@ -1,0 +1,7 @@
+module Stratosphere.EC2.ClientVpnEndpoint.CertificateAuthenticationRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CertificateAuthenticationRequestProperty :: Prelude.Type
+instance ToResourceProperties CertificateAuthenticationRequestProperty
+instance JSON.ToJSON CertificateAuthenticationRequestProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.IdentityPool.CognitoIdentityProviderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CognitoIdentityProviderProperty :: Prelude.Type
+instance ToResourceProperties CognitoIdentityProviderProperty
+instance JSON.ToJSON CognitoIdentityProviderProperty

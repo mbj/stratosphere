@@ -1,0 +1,7 @@
+module Stratosphere.DevOpsGuru.NotificationChannel.NotificationFilterConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NotificationFilterConfigProperty :: Prelude.Type
+instance ToResourceProperties NotificationFilterConfigProperty
+instance JSON.ToJSON NotificationFilterConfigProperty

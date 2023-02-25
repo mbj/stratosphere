@@ -1,0 +1,7 @@
+module Stratosphere.EC2.NetworkInsightsAnalysis.AnalysisSecurityGroupRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AnalysisSecurityGroupRuleProperty :: Prelude.Type
+instance ToResourceProperties AnalysisSecurityGroupRuleProperty
+instance JSON.ToJSON AnalysisSecurityGroupRuleProperty

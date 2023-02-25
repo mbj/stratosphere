@@ -1,0 +1,31 @@
+module Stratosphere.ApiGatewayV2.Integration.TlsConfigProperty (
+        TlsConfigProperty(..), mkTlsConfigProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data TlsConfigProperty
+  = TlsConfigProperty {serverNameToVerify :: (Prelude.Maybe (Value Prelude.Text))}
+mkTlsConfigProperty :: TlsConfigProperty
+mkTlsConfigProperty
+  = TlsConfigProperty {serverNameToVerify = Prelude.Nothing}
+instance ToResourceProperties TlsConfigProperty where
+  toResourceProperties TlsConfigProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::ApiGatewayV2::Integration.TlsConfig",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "ServerNameToVerify" Prelude.<$> serverNameToVerify])}
+instance JSON.ToJSON TlsConfigProperty where
+  toJSON TlsConfigProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "ServerNameToVerify" Prelude.<$> serverNameToVerify]))
+instance Property "ServerNameToVerify" TlsConfigProperty where
+  type PropertyType "ServerNameToVerify" TlsConfigProperty = Value Prelude.Text
+  set newValue TlsConfigProperty {}
+    = TlsConfigProperty
+        {serverNameToVerify = Prelude.pure newValue, ..}

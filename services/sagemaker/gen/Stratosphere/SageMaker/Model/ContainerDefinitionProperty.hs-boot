@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.Model.ContainerDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContainerDefinitionProperty :: Prelude.Type
+instance ToResourceProperties ContainerDefinitionProperty
+instance JSON.ToJSON ContainerDefinitionProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EMR.Cluster.JobFlowInstancesConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data JobFlowInstancesConfigProperty :: Prelude.Type
+instance ToResourceProperties JobFlowInstancesConfigProperty
+instance JSON.ToJSON JobFlowInstancesConfigProperty

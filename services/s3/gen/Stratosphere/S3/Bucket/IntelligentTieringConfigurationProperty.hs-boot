@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.IntelligentTieringConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IntelligentTieringConfigurationProperty :: Prelude.Type
+instance ToResourceProperties IntelligentTieringConfigurationProperty
+instance JSON.ToJSON IntelligentTieringConfigurationProperty

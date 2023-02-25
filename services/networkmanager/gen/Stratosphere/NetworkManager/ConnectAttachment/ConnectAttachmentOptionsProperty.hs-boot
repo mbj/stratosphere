@@ -1,0 +1,7 @@
+module Stratosphere.NetworkManager.ConnectAttachment.ConnectAttachmentOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectAttachmentOptionsProperty :: Prelude.Type
+instance ToResourceProperties ConnectAttachmentOptionsProperty
+instance JSON.ToJSON ConnectAttachmentOptionsProperty

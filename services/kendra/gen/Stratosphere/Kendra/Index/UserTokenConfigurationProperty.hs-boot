@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.Index.UserTokenConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UserTokenConfigurationProperty :: Prelude.Type
+instance ToResourceProperties UserTokenConfigurationProperty
+instance JSON.ToJSON UserTokenConfigurationProperty

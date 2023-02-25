@@ -1,0 +1,45 @@
+module Stratosphere.Budgets.Budget.AutoAdjustDataProperty (
+        module Exports, AutoAdjustDataProperty(..),
+        mkAutoAdjustDataProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Budgets.Budget.HistoricalOptionsProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data AutoAdjustDataProperty
+  = AutoAdjustDataProperty {autoAdjustType :: (Value Prelude.Text),
+                            historicalOptions :: (Prelude.Maybe HistoricalOptionsProperty)}
+mkAutoAdjustDataProperty ::
+  Value Prelude.Text -> AutoAdjustDataProperty
+mkAutoAdjustDataProperty autoAdjustType
+  = AutoAdjustDataProperty
+      {autoAdjustType = autoAdjustType,
+       historicalOptions = Prelude.Nothing}
+instance ToResourceProperties AutoAdjustDataProperty where
+  toResourceProperties AutoAdjustDataProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Budgets::Budget.AutoAdjustData",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["AutoAdjustType" JSON..= autoAdjustType]
+                           (Prelude.catMaybes
+                              [(JSON..=) "HistoricalOptions" Prelude.<$> historicalOptions]))}
+instance JSON.ToJSON AutoAdjustDataProperty where
+  toJSON AutoAdjustDataProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["AutoAdjustType" JSON..= autoAdjustType]
+              (Prelude.catMaybes
+                 [(JSON..=) "HistoricalOptions" Prelude.<$> historicalOptions])))
+instance Property "AutoAdjustType" AutoAdjustDataProperty where
+  type PropertyType "AutoAdjustType" AutoAdjustDataProperty = Value Prelude.Text
+  set newValue AutoAdjustDataProperty {..}
+    = AutoAdjustDataProperty {autoAdjustType = newValue, ..}
+instance Property "HistoricalOptions" AutoAdjustDataProperty where
+  type PropertyType "HistoricalOptions" AutoAdjustDataProperty = HistoricalOptionsProperty
+  set newValue AutoAdjustDataProperty {..}
+    = AutoAdjustDataProperty
+        {historicalOptions = Prelude.pure newValue, ..}

@@ -1,0 +1,7 @@
+module Stratosphere.EMR.Cluster.CloudWatchAlarmDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudWatchAlarmDefinitionProperty :: Prelude.Type
+instance ToResourceProperties CloudWatchAlarmDefinitionProperty
+instance JSON.ToJSON CloudWatchAlarmDefinitionProperty

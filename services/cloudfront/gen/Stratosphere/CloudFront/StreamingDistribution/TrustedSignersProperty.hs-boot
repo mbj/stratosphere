@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.StreamingDistribution.TrustedSignersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TrustedSignersProperty :: Prelude.Type
+instance ToResourceProperties TrustedSignersProperty
+instance JSON.ToJSON TrustedSignersProperty

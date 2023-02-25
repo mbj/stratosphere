@@ -1,0 +1,32 @@
+_common/package: !include "../common/package.yaml"
+
+name:         stratosphere-examples
+synopsis:     EDSL for AWS CloudFormation - Examples
+description:  EDSL for AWS CloudFormation - Examples
+category:     AWS, Cloud
+maintainer:   Markus Schirp
+stability:    experimental
+license:      MIT
+github:       mbj/stratosphere
+
+<<: *defaults
+
+dependencies:
+- aeson
+- base
+- bytestring
+- stratosphere
+- stratosphere-autoscaling
+- stratosphere-iam
+- stratosphere-lambda
+- stratosphere-rds
+- stratosphere-s3
+- text
+
+source-dirs:
+- .
+
+executables:
+  stratosphere-examples:
+    main: Stratosphere/Examples/Main.hs
+    ghc-options: -main-is Stratosphere.Examples.Main

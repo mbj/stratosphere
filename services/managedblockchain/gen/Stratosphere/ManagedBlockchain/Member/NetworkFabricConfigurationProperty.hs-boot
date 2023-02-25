@@ -1,0 +1,7 @@
+module Stratosphere.ManagedBlockchain.Member.NetworkFabricConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkFabricConfigurationProperty :: Prelude.Type
+instance ToResourceProperties NetworkFabricConfigurationProperty
+instance JSON.ToJSON NetworkFabricConfigurationProperty

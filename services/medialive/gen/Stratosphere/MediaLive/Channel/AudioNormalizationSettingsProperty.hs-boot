@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AudioNormalizationSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioNormalizationSettingsProperty :: Prelude.Type
+instance ToResourceProperties AudioNormalizationSettingsProperty
+instance JSON.ToJSON AudioNormalizationSettingsProperty

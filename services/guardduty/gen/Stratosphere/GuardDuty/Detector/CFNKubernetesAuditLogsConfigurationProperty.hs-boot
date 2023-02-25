@@ -1,0 +1,7 @@
+module Stratosphere.GuardDuty.Detector.CFNKubernetesAuditLogsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CFNKubernetesAuditLogsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CFNKubernetesAuditLogsConfigurationProperty
+instance JSON.ToJSON CFNKubernetesAuditLogsConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EMR.Cluster.VolumeSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VolumeSpecificationProperty :: Prelude.Type
+instance ToResourceProperties VolumeSpecificationProperty
+instance JSON.ToJSON VolumeSpecificationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.PinpointEmail.ConfigurationSetEventDestination.DimensionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DimensionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DimensionConfigurationProperty
+instance JSON.ToJSON DimensionConfigurationProperty

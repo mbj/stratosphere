@@ -1,0 +1,7 @@
+module Stratosphere.Greengrass.FunctionDefinition.FunctionDefinitionVersionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FunctionDefinitionVersionProperty :: Prelude.Type
+instance ToResourceProperties FunctionDefinitionVersionProperty
+instance JSON.ToJSON FunctionDefinitionVersionProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AudioLanguageSelectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioLanguageSelectionProperty :: Prelude.Type
+instance ToResourceProperties AudioLanguageSelectionProperty
+instance JSON.ToJSON AudioLanguageSelectionProperty

@@ -1,0 +1,7 @@
+module Stratosphere.AppRunner.ObservabilityConfiguration.TraceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TraceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TraceConfigurationProperty
+instance JSON.ToJSON TraceConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EC2.NetworkInsightsAccessScope.PacketHeaderStatementRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PacketHeaderStatementRequestProperty :: Prelude.Type
+instance ToResourceProperties PacketHeaderStatementRequestProperty
+instance JSON.ToJSON PacketHeaderStatementRequestProperty

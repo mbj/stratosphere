@@ -1,0 +1,7 @@
+module Stratosphere.IoTWireless.DeviceProfile.LoRaWANDeviceProfileProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LoRaWANDeviceProfileProperty :: Prelude.Type
+instance ToResourceProperties LoRaWANDeviceProfileProperty
+instance JSON.ToJSON LoRaWANDeviceProfileProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.MultiplexProgramChannelDestinationSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MultiplexProgramChannelDestinationSettingsProperty :: Prelude.Type
+instance ToResourceProperties MultiplexProgramChannelDestinationSettingsProperty
+instance JSON.ToJSON MultiplexProgramChannelDestinationSettingsProperty

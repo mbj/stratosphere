@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.ComponentVersion.LambdaDeviceMountProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaDeviceMountProperty :: Prelude.Type
+instance ToResourceProperties LambdaDeviceMountProperty
+instance JSON.ToJSON LambdaDeviceMountProperty

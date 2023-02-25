@@ -1,0 +1,114 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-autoscaling
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.AutoScaling.AutoScalingGroup
+      Stratosphere.AutoScaling.AutoScalingGroup.AcceleratorCountRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.AcceleratorTotalMemoryMiBRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.BaselineEbsBandwidthMbpsRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.InstanceRequirementsProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.InstancesDistributionProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.LaunchTemplateOverridesProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.LaunchTemplateProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.LaunchTemplateSpecificationProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.LifecycleHookSpecificationProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.MemoryGiBPerVCpuRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.MemoryMiBRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.MetricsCollectionProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.MixedInstancesPolicyProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.NetworkBandwidthGbpsRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.NetworkInterfaceCountRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.NotificationConfigurationProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.TagPropertyProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.TotalLocalStorageGBRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.VCpuCountRequestProperty
+      Stratosphere.AutoScaling.LaunchConfiguration
+      Stratosphere.AutoScaling.LaunchConfiguration.BlockDeviceMappingProperty
+      Stratosphere.AutoScaling.LaunchConfiguration.BlockDeviceProperty
+      Stratosphere.AutoScaling.LaunchConfiguration.MetadataOptionsProperty
+      Stratosphere.AutoScaling.LifecycleHook
+      Stratosphere.AutoScaling.ScalingPolicy
+      Stratosphere.AutoScaling.ScalingPolicy.CustomizedMetricSpecificationProperty
+      Stratosphere.AutoScaling.ScalingPolicy.MetricDataQueryProperty
+      Stratosphere.AutoScaling.ScalingPolicy.MetricDimensionProperty
+      Stratosphere.AutoScaling.ScalingPolicy.MetricProperty
+      Stratosphere.AutoScaling.ScalingPolicy.MetricStatProperty
+      Stratosphere.AutoScaling.ScalingPolicy.PredefinedMetricSpecificationProperty
+      Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingConfigurationProperty
+      Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingCustomizedCapacityMetricProperty
+      Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingCustomizedLoadMetricProperty
+      Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingCustomizedScalingMetricProperty
+      Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingMetricSpecificationProperty
+      Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingPredefinedLoadMetricProperty
+      Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingPredefinedMetricPairProperty
+      Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingPredefinedScalingMetricProperty
+      Stratosphere.AutoScaling.ScalingPolicy.StepAdjustmentProperty
+      Stratosphere.AutoScaling.ScalingPolicy.TargetTrackingConfigurationProperty
+      Stratosphere.AutoScaling.ScheduledAction
+      Stratosphere.AutoScaling.WarmPool
+      Stratosphere.AutoScaling.WarmPool.InstanceReusePolicyProperty
+  other-modules:
+      Paths_stratosphere_autoscaling
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.IdentityPoolRoleAttachment.RulesConfigurationTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RulesConfigurationTypeProperty :: Prelude.Type
+instance ToResourceProperties RulesConfigurationTypeProperty
+instance JSON.ToJSON RulesConfigurationTypeProperty

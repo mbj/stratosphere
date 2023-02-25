@@ -1,0 +1,7 @@
+module Stratosphere.FSx.FileSystem.WindowsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WindowsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties WindowsConfigurationProperty
+instance JSON.ToJSON WindowsConfigurationProperty

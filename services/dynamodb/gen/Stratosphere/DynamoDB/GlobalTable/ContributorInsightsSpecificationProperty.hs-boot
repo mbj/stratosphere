@@ -1,0 +1,7 @@
+module Stratosphere.DynamoDB.GlobalTable.ContributorInsightsSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContributorInsightsSpecificationProperty :: Prelude.Type
+instance ToResourceProperties ContributorInsightsSpecificationProperty
+instance JSON.ToJSON ContributorInsightsSpecificationProperty
