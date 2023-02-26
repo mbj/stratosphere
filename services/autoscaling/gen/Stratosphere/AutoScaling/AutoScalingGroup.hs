@@ -14,7 +14,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoScalingGroup
   = AutoScalingGroup {autoScalingGroupName :: (Prelude.Maybe (Value Prelude.Text)),
-                      availabilityZones :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
                       capacityRebalance :: (Prelude.Maybe (Value Prelude.Bool)),
                       context :: (Prelude.Maybe (Value Prelude.Text)),
                       cooldown :: (Prelude.Maybe (Value Prelude.Text)),
@@ -27,7 +27,7 @@ data AutoScalingGroup
                       launchConfigurationName :: (Prelude.Maybe (Value Prelude.Text)),
                       launchTemplate :: (Prelude.Maybe LaunchTemplateSpecificationProperty),
                       lifecycleHookSpecificationList :: (Prelude.Maybe [LifecycleHookSpecificationProperty]),
-                      loadBalancerNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      loadBalancerNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                       maxInstanceLifetime :: (Prelude.Maybe (Value Prelude.Integer)),
                       maxSize :: (Value Prelude.Text),
                       metricsCollection :: (Prelude.Maybe [MetricsCollectionProperty]),
@@ -38,9 +38,9 @@ data AutoScalingGroup
                       placementGroup :: (Prelude.Maybe (Value Prelude.Text)),
                       serviceLinkedRoleARN :: (Prelude.Maybe (Value Prelude.Text)),
                       tags :: (Prelude.Maybe [TagPropertyProperty]),
-                      targetGroupARNs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                      terminationPolicies :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                      vPCZoneIdentifier :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                      targetGroupARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      terminationPolicies :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      vPCZoneIdentifier :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAutoScalingGroup ::
   Value Prelude.Text -> Value Prelude.Text -> AutoScalingGroup
 mkAutoScalingGroup maxSize minSize
@@ -154,7 +154,7 @@ instance Property "AutoScalingGroupName" AutoScalingGroup where
     = AutoScalingGroup
         {autoScalingGroupName = Prelude.pure newValue, ..}
 instance Property "AvailabilityZones" AutoScalingGroup where
-  type PropertyType "AvailabilityZones" AutoScalingGroup = ValueList (Value Prelude.Text)
+  type PropertyType "AvailabilityZones" AutoScalingGroup = ValueList Prelude.Text
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup {availabilityZones = Prelude.pure newValue, ..}
 instance Property "CapacityRebalance" AutoScalingGroup where
@@ -211,7 +211,7 @@ instance Property "LifecycleHookSpecificationList" AutoScalingGroup where
     = AutoScalingGroup
         {lifecycleHookSpecificationList = Prelude.pure newValue, ..}
 instance Property "LoadBalancerNames" AutoScalingGroup where
-  type PropertyType "LoadBalancerNames" AutoScalingGroup = ValueList (Value Prelude.Text)
+  type PropertyType "LoadBalancerNames" AutoScalingGroup = ValueList Prelude.Text
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup {loadBalancerNames = Prelude.pure newValue, ..}
 instance Property "MaxInstanceLifetime" AutoScalingGroup where
@@ -260,15 +260,15 @@ instance Property "Tags" AutoScalingGroup where
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup {tags = Prelude.pure newValue, ..}
 instance Property "TargetGroupARNs" AutoScalingGroup where
-  type PropertyType "TargetGroupARNs" AutoScalingGroup = ValueList (Value Prelude.Text)
+  type PropertyType "TargetGroupARNs" AutoScalingGroup = ValueList Prelude.Text
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup {targetGroupARNs = Prelude.pure newValue, ..}
 instance Property "TerminationPolicies" AutoScalingGroup where
-  type PropertyType "TerminationPolicies" AutoScalingGroup = ValueList (Value Prelude.Text)
+  type PropertyType "TerminationPolicies" AutoScalingGroup = ValueList Prelude.Text
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup
         {terminationPolicies = Prelude.pure newValue, ..}
 instance Property "VPCZoneIdentifier" AutoScalingGroup where
-  type PropertyType "VPCZoneIdentifier" AutoScalingGroup = ValueList (Value Prelude.Text)
+  type PropertyType "VPCZoneIdentifier" AutoScalingGroup = ValueList Prelude.Text
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup {vPCZoneIdentifier = Prelude.pure newValue, ..}

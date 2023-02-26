@@ -15,7 +15,7 @@ data DistributionProperty
                           containerDistributionConfiguration :: (Prelude.Maybe ContainerDistributionConfigurationProperty),
                           fastLaunchConfigurations :: (Prelude.Maybe [FastLaunchConfigurationProperty]),
                           launchTemplateConfigurations :: (Prelude.Maybe [LaunchTemplateConfigurationProperty]),
-                          licenseConfigurationArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                          licenseConfigurationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                           region :: (Value Prelude.Text)}
 mkDistributionProperty ::
   Value Prelude.Text -> DistributionProperty
@@ -82,7 +82,7 @@ instance Property "LaunchTemplateConfigurations" DistributionProperty where
     = DistributionProperty
         {launchTemplateConfigurations = Prelude.pure newValue, ..}
 instance Property "LicenseConfigurationArns" DistributionProperty where
-  type PropertyType "LicenseConfigurationArns" DistributionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "LicenseConfigurationArns" DistributionProperty = ValueList Prelude.Text
   set newValue DistributionProperty {..}
     = DistributionProperty
         {licenseConfigurationArns = Prelude.pure newValue, ..}

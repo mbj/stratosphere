@@ -11,7 +11,7 @@ data RuleProperty
   = RuleProperty {actions :: (Prelude.Maybe [ActionProperty]),
                   enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                   name :: (Prelude.Maybe (Value Prelude.Text)),
-                  recipients :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  recipients :: (Prelude.Maybe (ValueList Prelude.Text)),
                   scanEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                   tlsPolicy :: (Prelude.Maybe (Value Prelude.Text))}
 mkRuleProperty :: RuleProperty
@@ -56,7 +56,7 @@ instance Property "Name" RuleProperty where
   set newValue RuleProperty {..}
     = RuleProperty {name = Prelude.pure newValue, ..}
 instance Property "Recipients" RuleProperty where
-  type PropertyType "Recipients" RuleProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Recipients" RuleProperty = ValueList Prelude.Text
   set newValue RuleProperty {..}
     = RuleProperty {recipients = Prelude.pure newValue, ..}
 instance Property "ScanEnabled" RuleProperty where

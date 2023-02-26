@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomDataIdentifier
   = CustomDataIdentifier {description :: (Prelude.Maybe (Value Prelude.Text)),
-                          ignoreWords :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                          keywords :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                          ignoreWords :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          keywords :: (Prelude.Maybe (ValueList Prelude.Text)),
                           maximumMatchDistance :: (Prelude.Maybe (Value Prelude.Integer)),
                           name :: (Value Prelude.Text),
                           regex :: (Value Prelude.Text)}
@@ -50,11 +50,11 @@ instance Property "Description" CustomDataIdentifier where
   set newValue CustomDataIdentifier {..}
     = CustomDataIdentifier {description = Prelude.pure newValue, ..}
 instance Property "IgnoreWords" CustomDataIdentifier where
-  type PropertyType "IgnoreWords" CustomDataIdentifier = ValueList (Value Prelude.Text)
+  type PropertyType "IgnoreWords" CustomDataIdentifier = ValueList Prelude.Text
   set newValue CustomDataIdentifier {..}
     = CustomDataIdentifier {ignoreWords = Prelude.pure newValue, ..}
 instance Property "Keywords" CustomDataIdentifier where
-  type PropertyType "Keywords" CustomDataIdentifier = ValueList (Value Prelude.Text)
+  type PropertyType "Keywords" CustomDataIdentifier = ValueList Prelude.Text
   set newValue CustomDataIdentifier {..}
     = CustomDataIdentifier {keywords = Prelude.pure newValue, ..}
 instance Property "MaximumMatchDistance" CustomDataIdentifier where

@@ -13,7 +13,7 @@ import Stratosphere.Value
 data TrainingJobDetailsProperty
   = TrainingJobDetailsProperty {hyperParameters :: (Prelude.Maybe [TrainingHyperParameterProperty]),
                                 trainingArn :: (Prelude.Maybe (Value Prelude.Text)),
-                                trainingDatasets :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                trainingDatasets :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 trainingEnvironment :: (Prelude.Maybe TrainingEnvironmentProperty),
                                 trainingMetrics :: (Prelude.Maybe [TrainingMetricProperty]),
                                 userProvidedHyperParameters :: (Prelude.Maybe [TrainingHyperParameterProperty]),
@@ -67,7 +67,7 @@ instance Property "TrainingArn" TrainingJobDetailsProperty where
     = TrainingJobDetailsProperty
         {trainingArn = Prelude.pure newValue, ..}
 instance Property "TrainingDatasets" TrainingJobDetailsProperty where
-  type PropertyType "TrainingDatasets" TrainingJobDetailsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TrainingDatasets" TrainingJobDetailsProperty = ValueList Prelude.Text
   set newValue TrainingJobDetailsProperty {..}
     = TrainingJobDetailsProperty
         {trainingDatasets = Prelude.pure newValue, ..}

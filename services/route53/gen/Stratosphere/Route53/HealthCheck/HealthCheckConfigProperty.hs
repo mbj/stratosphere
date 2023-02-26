@@ -10,7 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HealthCheckConfigProperty
   = HealthCheckConfigProperty {alarmIdentifier :: (Prelude.Maybe AlarmIdentifierProperty),
-                               childHealthChecks :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                               childHealthChecks :: (Prelude.Maybe (ValueList Prelude.Text)),
                                enableSNI :: (Prelude.Maybe (Value Prelude.Bool)),
                                failureThreshold :: (Prelude.Maybe (Value Prelude.Integer)),
                                fullyQualifiedDomainName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -20,7 +20,7 @@ data HealthCheckConfigProperty
                                inverted :: (Prelude.Maybe (Value Prelude.Bool)),
                                measureLatency :: (Prelude.Maybe (Value Prelude.Bool)),
                                port :: (Prelude.Maybe (Value Prelude.Integer)),
-                               regions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                               regions :: (Prelude.Maybe (ValueList Prelude.Text)),
                                requestInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                                resourcePath :: (Prelude.Maybe (Value Prelude.Text)),
                                routingControlArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -98,7 +98,7 @@ instance Property "AlarmIdentifier" HealthCheckConfigProperty where
     = HealthCheckConfigProperty
         {alarmIdentifier = Prelude.pure newValue, ..}
 instance Property "ChildHealthChecks" HealthCheckConfigProperty where
-  type PropertyType "ChildHealthChecks" HealthCheckConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ChildHealthChecks" HealthCheckConfigProperty = ValueList Prelude.Text
   set newValue HealthCheckConfigProperty {..}
     = HealthCheckConfigProperty
         {childHealthChecks = Prelude.pure newValue, ..}
@@ -144,7 +144,7 @@ instance Property "Port" HealthCheckConfigProperty where
   set newValue HealthCheckConfigProperty {..}
     = HealthCheckConfigProperty {port = Prelude.pure newValue, ..}
 instance Property "Regions" HealthCheckConfigProperty where
-  type PropertyType "Regions" HealthCheckConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Regions" HealthCheckConfigProperty = ValueList Prelude.Text
   set newValue HealthCheckConfigProperty {..}
     = HealthCheckConfigProperty {regions = Prelude.pure newValue, ..}
 instance Property "RequestInterval" HealthCheckConfigProperty where

@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SkewedInfoProperty
-  = SkewedInfoProperty {skewedColumnNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = SkewedInfoProperty {skewedColumnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                         skewedColumnValueLocationMaps :: (Prelude.Maybe JSON.Object),
-                        skewedColumnValues :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                        skewedColumnValues :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkSkewedInfoProperty :: SkewedInfoProperty
 mkSkewedInfoProperty
   = SkewedInfoProperty
@@ -36,7 +36,7 @@ instance JSON.ToJSON SkewedInfoProperty where
                  Prelude.<$> skewedColumnValueLocationMaps,
                (JSON..=) "SkewedColumnValues" Prelude.<$> skewedColumnValues]))
 instance Property "SkewedColumnNames" SkewedInfoProperty where
-  type PropertyType "SkewedColumnNames" SkewedInfoProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SkewedColumnNames" SkewedInfoProperty = ValueList Prelude.Text
   set newValue SkewedInfoProperty {..}
     = SkewedInfoProperty
         {skewedColumnNames = Prelude.pure newValue, ..}
@@ -46,7 +46,7 @@ instance Property "SkewedColumnValueLocationMaps" SkewedInfoProperty where
     = SkewedInfoProperty
         {skewedColumnValueLocationMaps = Prelude.pure newValue, ..}
 instance Property "SkewedColumnValues" SkewedInfoProperty where
-  type PropertyType "SkewedColumnValues" SkewedInfoProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SkewedColumnValues" SkewedInfoProperty = ValueList Prelude.Text
   set newValue SkewedInfoProperty {..}
     = SkewedInfoProperty
         {skewedColumnValues = Prelude.pure newValue, ..}

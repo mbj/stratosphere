@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JdbcTargetProperty
   = JdbcTargetProperty {connectionName :: (Prelude.Maybe (Value Prelude.Text)),
-                        exclusions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                        exclusions :: (Prelude.Maybe (ValueList Prelude.Text)),
                         path :: (Prelude.Maybe (Value Prelude.Text))}
 mkJdbcTargetProperty :: JdbcTargetProperty
 mkJdbcTargetProperty
@@ -37,7 +37,7 @@ instance Property "ConnectionName" JdbcTargetProperty where
   set newValue JdbcTargetProperty {..}
     = JdbcTargetProperty {connectionName = Prelude.pure newValue, ..}
 instance Property "Exclusions" JdbcTargetProperty where
-  type PropertyType "Exclusions" JdbcTargetProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Exclusions" JdbcTargetProperty = ValueList Prelude.Text
   set newValue JdbcTargetProperty {..}
     = JdbcTargetProperty {exclusions = Prelude.pure newValue, ..}
 instance Property "Path" JdbcTargetProperty where

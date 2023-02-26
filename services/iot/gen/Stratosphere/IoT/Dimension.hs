@@ -9,11 +9,11 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Dimension
   = Dimension {name :: (Prelude.Maybe (Value Prelude.Text)),
-               stringValues :: (ValueList (Value Prelude.Text)),
+               stringValues :: (ValueList Prelude.Text),
                tags :: (Prelude.Maybe [Tag]),
                type' :: (Value Prelude.Text)}
 mkDimension ::
-  ValueList (Value Prelude.Text) -> Value Prelude.Text -> Dimension
+  ValueList Prelude.Text -> Value Prelude.Text -> Dimension
 mkDimension stringValues type'
   = Dimension
       {stringValues = stringValues, type' = type',
@@ -42,7 +42,7 @@ instance Property "Name" Dimension where
   set newValue Dimension {..}
     = Dimension {name = Prelude.pure newValue, ..}
 instance Property "StringValues" Dimension where
-  type PropertyType "StringValues" Dimension = ValueList (Value Prelude.Text)
+  type PropertyType "StringValues" Dimension = ValueList Prelude.Text
   set newValue Dimension {..}
     = Dimension {stringValues = newValue, ..}
 instance Property "Tags" Dimension where

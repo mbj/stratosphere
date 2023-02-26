@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeEnrichmentHttpParametersProperty
   = PipeEnrichmentHttpParametersProperty {headerParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
-                                          pathParameterValues :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                          pathParameterValues :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           queryStringParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
 mkPipeEnrichmentHttpParametersProperty ::
   PipeEnrichmentHttpParametersProperty
@@ -43,7 +43,7 @@ instance Property "HeaderParameters" PipeEnrichmentHttpParametersProperty where
     = PipeEnrichmentHttpParametersProperty
         {headerParameters = Prelude.pure newValue, ..}
 instance Property "PathParameterValues" PipeEnrichmentHttpParametersProperty where
-  type PropertyType "PathParameterValues" PipeEnrichmentHttpParametersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PathParameterValues" PipeEnrichmentHttpParametersProperty = ValueList Prelude.Text
   set newValue PipeEnrichmentHttpParametersProperty {..}
     = PipeEnrichmentHttpParametersProperty
         {pathParameterValues = Prelude.pure newValue, ..}

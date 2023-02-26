@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PathPatternConfigProperty
-  = PathPatternConfigProperty {values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = PathPatternConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkPathPatternConfigProperty :: PathPatternConfigProperty
 mkPathPatternConfigProperty
   = PathPatternConfigProperty {values = Prelude.Nothing}
@@ -23,6 +23,6 @@ instance JSON.ToJSON PathPatternConfigProperty where
         (Prelude.fromList
            (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values]))
 instance Property "Values" PathPatternConfigProperty where
-  type PropertyType "Values" PathPatternConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" PathPatternConfigProperty = ValueList Prelude.Text
   set newValue PathPatternConfigProperty {}
     = PathPatternConfigProperty {values = Prelude.pure newValue, ..}

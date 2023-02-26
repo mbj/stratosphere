@@ -8,8 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MonitoringAppSpecificationProperty
-  = MonitoringAppSpecificationProperty {containerArguments :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                        containerEntrypoint :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = MonitoringAppSpecificationProperty {containerArguments :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                        containerEntrypoint :: (Prelude.Maybe (ValueList Prelude.Text)),
                                         imageUri :: (Value Prelude.Text),
                                         postAnalyticsProcessorSourceUri :: (Prelude.Maybe (Value Prelude.Text)),
                                         recordPreprocessorSourceUri :: (Prelude.Maybe (Value Prelude.Text))}
@@ -49,12 +49,12 @@ instance JSON.ToJSON MonitoringAppSpecificationProperty where
                   (JSON..=) "RecordPreprocessorSourceUri"
                     Prelude.<$> recordPreprocessorSourceUri])))
 instance Property "ContainerArguments" MonitoringAppSpecificationProperty where
-  type PropertyType "ContainerArguments" MonitoringAppSpecificationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ContainerArguments" MonitoringAppSpecificationProperty = ValueList Prelude.Text
   set newValue MonitoringAppSpecificationProperty {..}
     = MonitoringAppSpecificationProperty
         {containerArguments = Prelude.pure newValue, ..}
 instance Property "ContainerEntrypoint" MonitoringAppSpecificationProperty where
-  type PropertyType "ContainerEntrypoint" MonitoringAppSpecificationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ContainerEntrypoint" MonitoringAppSpecificationProperty = ValueList Prelude.Text
   set newValue MonitoringAppSpecificationProperty {..}
     = MonitoringAppSpecificationProperty
         {containerEntrypoint = Prelude.pure newValue, ..}

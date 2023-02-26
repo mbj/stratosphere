@@ -7,11 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SelectAttributesProperty
-  = SelectAttributesProperty {attributes :: (ValueList (Value Prelude.Text)),
+  = SelectAttributesProperty {attributes :: (ValueList Prelude.Text),
                               name :: (Value Prelude.Text),
                               next :: (Prelude.Maybe (Value Prelude.Text))}
 mkSelectAttributesProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> SelectAttributesProperty
 mkSelectAttributesProperty attributes name
   = SelectAttributesProperty
@@ -32,7 +32,7 @@ instance JSON.ToJSON SelectAttributesProperty where
               ["Attributes" JSON..= attributes, "Name" JSON..= name]
               (Prelude.catMaybes [(JSON..=) "Next" Prelude.<$> next])))
 instance Property "Attributes" SelectAttributesProperty where
-  type PropertyType "Attributes" SelectAttributesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Attributes" SelectAttributesProperty = ValueList Prelude.Text
   set newValue SelectAttributesProperty {..}
     = SelectAttributesProperty {attributes = newValue, ..}
 instance Property "Name" SelectAttributesProperty where

@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Group
   = Group {groupName :: (Prelude.Maybe (Value Prelude.Text)),
-           managedPolicyArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           managedPolicyArns :: (Prelude.Maybe (ValueList Prelude.Text)),
            path :: (Prelude.Maybe (Value Prelude.Text)),
            policies :: (Prelude.Maybe [PolicyProperty])}
 mkGroup :: Group
@@ -41,7 +41,7 @@ instance Property "GroupName" Group where
   set newValue Group {..}
     = Group {groupName = Prelude.pure newValue, ..}
 instance Property "ManagedPolicyArns" Group where
-  type PropertyType "ManagedPolicyArns" Group = ValueList (Value Prelude.Text)
+  type PropertyType "ManagedPolicyArns" Group = ValueList Prelude.Text
   set newValue Group {..}
     = Group {managedPolicyArns = Prelude.pure newValue, ..}
 instance Property "Path" Group where

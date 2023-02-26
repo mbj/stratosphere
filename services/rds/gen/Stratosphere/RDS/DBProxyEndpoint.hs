@@ -11,12 +11,11 @@ data DBProxyEndpoint
   = DBProxyEndpoint {dBProxyEndpointName :: (Value Prelude.Text),
                      dBProxyName :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [TagFormatProperty]),
-                     vpcSecurityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                     vpcSubnetIds :: (ValueList (Value Prelude.Text))}
+                     vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     vpcSubnetIds :: (ValueList Prelude.Text)}
 mkDBProxyEndpoint ::
   Value Prelude.Text
-  -> Value Prelude.Text
-     -> ValueList (Value Prelude.Text) -> DBProxyEndpoint
+  -> Value Prelude.Text -> ValueList Prelude.Text -> DBProxyEndpoint
 mkDBProxyEndpoint dBProxyEndpointName dBProxyName vpcSubnetIds
   = DBProxyEndpoint
       {dBProxyEndpointName = dBProxyEndpointName,
@@ -58,10 +57,10 @@ instance Property "Tags" DBProxyEndpoint where
   set newValue DBProxyEndpoint {..}
     = DBProxyEndpoint {tags = Prelude.pure newValue, ..}
 instance Property "VpcSecurityGroupIds" DBProxyEndpoint where
-  type PropertyType "VpcSecurityGroupIds" DBProxyEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSecurityGroupIds" DBProxyEndpoint = ValueList Prelude.Text
   set newValue DBProxyEndpoint {..}
     = DBProxyEndpoint {vpcSecurityGroupIds = Prelude.pure newValue, ..}
 instance Property "VpcSubnetIds" DBProxyEndpoint where
-  type PropertyType "VpcSubnetIds" DBProxyEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSubnetIds" DBProxyEndpoint = ValueList Prelude.Text
   set newValue DBProxyEndpoint {..}
     = DBProxyEndpoint {vpcSubnetIds = newValue, ..}

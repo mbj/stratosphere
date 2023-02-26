@@ -13,10 +13,10 @@ data AdditionalInferenceSpecificationDefinitionProperty
   = AdditionalInferenceSpecificationDefinitionProperty {containers :: [ModelPackageContainerDefinitionProperty],
                                                         description :: (Prelude.Maybe (Value Prelude.Text)),
                                                         name :: (Value Prelude.Text),
-                                                        supportedContentTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                                        supportedRealtimeInferenceInstanceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                                        supportedResponseMIMETypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                                        supportedTransformInstanceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                                        supportedContentTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                        supportedRealtimeInferenceInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                        supportedResponseMIMETypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                        supportedTransformInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAdditionalInferenceSpecificationDefinitionProperty ::
   [ModelPackageContainerDefinitionProperty]
   -> Value Prelude.Text
@@ -87,14 +87,14 @@ instance Property "Name" AdditionalInferenceSpecificationDefinitionProperty wher
     = AdditionalInferenceSpecificationDefinitionProperty
         {name = newValue, ..}
 instance Property "SupportedContentTypes" AdditionalInferenceSpecificationDefinitionProperty where
-  type PropertyType "SupportedContentTypes" AdditionalInferenceSpecificationDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SupportedContentTypes" AdditionalInferenceSpecificationDefinitionProperty = ValueList Prelude.Text
   set
     newValue
     AdditionalInferenceSpecificationDefinitionProperty {..}
     = AdditionalInferenceSpecificationDefinitionProperty
         {supportedContentTypes = Prelude.pure newValue, ..}
 instance Property "SupportedRealtimeInferenceInstanceTypes" AdditionalInferenceSpecificationDefinitionProperty where
-  type PropertyType "SupportedRealtimeInferenceInstanceTypes" AdditionalInferenceSpecificationDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SupportedRealtimeInferenceInstanceTypes" AdditionalInferenceSpecificationDefinitionProperty = ValueList Prelude.Text
   set
     newValue
     AdditionalInferenceSpecificationDefinitionProperty {..}
@@ -102,14 +102,14 @@ instance Property "SupportedRealtimeInferenceInstanceTypes" AdditionalInferenceS
         {supportedRealtimeInferenceInstanceTypes = Prelude.pure newValue,
          ..}
 instance Property "SupportedResponseMIMETypes" AdditionalInferenceSpecificationDefinitionProperty where
-  type PropertyType "SupportedResponseMIMETypes" AdditionalInferenceSpecificationDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SupportedResponseMIMETypes" AdditionalInferenceSpecificationDefinitionProperty = ValueList Prelude.Text
   set
     newValue
     AdditionalInferenceSpecificationDefinitionProperty {..}
     = AdditionalInferenceSpecificationDefinitionProperty
         {supportedResponseMIMETypes = Prelude.pure newValue, ..}
 instance Property "SupportedTransformInstanceTypes" AdditionalInferenceSpecificationDefinitionProperty where
-  type PropertyType "SupportedTransformInstanceTypes" AdditionalInferenceSpecificationDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SupportedTransformInstanceTypes" AdditionalInferenceSpecificationDefinitionProperty = ValueList Prelude.Text
   set
     newValue
     AdditionalInferenceSpecificationDefinitionProperty {..}

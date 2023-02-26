@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcEndpoint
   = VpcEndpoint {name :: (Value Prelude.Text),
-                 securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                 subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                  vpcId :: (Value Prelude.Text)}
 mkVpcEndpoint ::
   Value Prelude.Text -> Value Prelude.Text -> VpcEndpoint
@@ -40,11 +40,11 @@ instance Property "Name" VpcEndpoint where
   type PropertyType "Name" VpcEndpoint = Value Prelude.Text
   set newValue VpcEndpoint {..} = VpcEndpoint {name = newValue, ..}
 instance Property "SecurityGroupIds" VpcEndpoint where
-  type PropertyType "SecurityGroupIds" VpcEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" VpcEndpoint = ValueList Prelude.Text
   set newValue VpcEndpoint {..}
     = VpcEndpoint {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetIds" VpcEndpoint where
-  type PropertyType "SubnetIds" VpcEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" VpcEndpoint = ValueList Prelude.Text
   set newValue VpcEndpoint {..}
     = VpcEndpoint {subnetIds = Prelude.pure newValue, ..}
 instance Property "VpcId" VpcEndpoint where

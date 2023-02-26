@@ -8,8 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldValidationConfigurationProperty
-  = FieldValidationConfigurationProperty {numValues :: (Prelude.Maybe (ValueList (Value Prelude.Double))),
-                                          strValues :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = FieldValidationConfigurationProperty {numValues :: (Prelude.Maybe (ValueList Prelude.Double)),
+                                          strValues :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           type' :: (Value Prelude.Text),
                                           validationMessage :: (Prelude.Maybe (Value Prelude.Text))}
 mkFieldValidationConfigurationProperty ::
@@ -40,12 +40,12 @@ instance JSON.ToJSON FieldValidationConfigurationProperty where
                   (JSON..=) "StrValues" Prelude.<$> strValues,
                   (JSON..=) "ValidationMessage" Prelude.<$> validationMessage])))
 instance Property "NumValues" FieldValidationConfigurationProperty where
-  type PropertyType "NumValues" FieldValidationConfigurationProperty = ValueList (Value Prelude.Double)
+  type PropertyType "NumValues" FieldValidationConfigurationProperty = ValueList Prelude.Double
   set newValue FieldValidationConfigurationProperty {..}
     = FieldValidationConfigurationProperty
         {numValues = Prelude.pure newValue, ..}
 instance Property "StrValues" FieldValidationConfigurationProperty where
-  type PropertyType "StrValues" FieldValidationConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StrValues" FieldValidationConfigurationProperty = ValueList Prelude.Text
   set newValue FieldValidationConfigurationProperty {..}
     = FieldValidationConfigurationProperty
         {strValues = Prelude.pure newValue, ..}

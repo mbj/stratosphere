@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolUser
   = UserPoolUser {clientMetadata :: (Prelude.Maybe JSON.Object),
-                  desiredDeliveryMediums :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  desiredDeliveryMediums :: (Prelude.Maybe (ValueList Prelude.Text)),
                   forceAliasCreation :: (Prelude.Maybe (Value Prelude.Bool)),
                   messageAction :: (Prelude.Maybe (Value Prelude.Text)),
                   userAttributes :: (Prelude.Maybe [AttributeTypeProperty]),
@@ -60,7 +60,7 @@ instance Property "ClientMetadata" UserPoolUser where
   set newValue UserPoolUser {..}
     = UserPoolUser {clientMetadata = Prelude.pure newValue, ..}
 instance Property "DesiredDeliveryMediums" UserPoolUser where
-  type PropertyType "DesiredDeliveryMediums" UserPoolUser = ValueList (Value Prelude.Text)
+  type PropertyType "DesiredDeliveryMediums" UserPoolUser = ValueList Prelude.Text
   set newValue UserPoolUser {..}
     = UserPoolUser {desiredDeliveryMediums = Prelude.pure newValue, ..}
 instance Property "ForceAliasCreation" UserPoolUser where

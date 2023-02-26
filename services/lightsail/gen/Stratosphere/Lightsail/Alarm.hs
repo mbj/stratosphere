@@ -9,13 +9,13 @@ import Stratosphere.Value
 data Alarm
   = Alarm {alarmName :: (Value Prelude.Text),
            comparisonOperator :: (Value Prelude.Text),
-           contactProtocols :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           contactProtocols :: (Prelude.Maybe (ValueList Prelude.Text)),
            datapointsToAlarm :: (Prelude.Maybe (Value Prelude.Integer)),
            evaluationPeriods :: (Value Prelude.Integer),
            metricName :: (Value Prelude.Text),
            monitoredResourceName :: (Value Prelude.Text),
            notificationEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
-           notificationTriggers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           notificationTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
            threshold :: (Value Prelude.Double),
            treatMissingData :: (Prelude.Maybe (Value Prelude.Text))}
 mkAlarm ::
@@ -82,7 +82,7 @@ instance Property "ComparisonOperator" Alarm where
   type PropertyType "ComparisonOperator" Alarm = Value Prelude.Text
   set newValue Alarm {..} = Alarm {comparisonOperator = newValue, ..}
 instance Property "ContactProtocols" Alarm where
-  type PropertyType "ContactProtocols" Alarm = ValueList (Value Prelude.Text)
+  type PropertyType "ContactProtocols" Alarm = ValueList Prelude.Text
   set newValue Alarm {..}
     = Alarm {contactProtocols = Prelude.pure newValue, ..}
 instance Property "DatapointsToAlarm" Alarm where
@@ -104,7 +104,7 @@ instance Property "NotificationEnabled" Alarm where
   set newValue Alarm {..}
     = Alarm {notificationEnabled = Prelude.pure newValue, ..}
 instance Property "NotificationTriggers" Alarm where
-  type PropertyType "NotificationTriggers" Alarm = ValueList (Value Prelude.Text)
+  type PropertyType "NotificationTriggers" Alarm = ValueList Prelude.Text
   set newValue Alarm {..}
     = Alarm {notificationTriggers = Prelude.pure newValue, ..}
 instance Property "Threshold" Alarm where

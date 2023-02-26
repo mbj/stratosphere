@@ -10,7 +10,7 @@ import Stratosphere.Value
 data ACL
   = ACL {aCLName :: (Value Prelude.Text),
          tags :: (Prelude.Maybe [Tag]),
-         userNames :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+         userNames :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkACL :: Value Prelude.Text -> ACL
 mkACL aCLName
   = ACL
@@ -42,5 +42,5 @@ instance Property "Tags" ACL where
   type PropertyType "Tags" ACL = [Tag]
   set newValue ACL {..} = ACL {tags = Prelude.pure newValue, ..}
 instance Property "UserNames" ACL where
-  type PropertyType "UserNames" ACL = ValueList (Value Prelude.Text)
+  type PropertyType "UserNames" ACL = ValueList Prelude.Text
   set newValue ACL {..} = ACL {userNames = Prelude.pure newValue, ..}

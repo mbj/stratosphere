@@ -18,7 +18,7 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.VolumesProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerPropertiesProperty
-  = ContainerPropertiesProperty {command :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ContainerPropertiesProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  environment :: (Prelude.Maybe [EnvironmentProperty]),
                                  executionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                  fargatePlatformConfiguration :: (Prelude.Maybe FargatePlatformConfigurationProperty),
@@ -113,7 +113,7 @@ instance JSON.ToJSON ContainerPropertiesProperty where
                   (JSON..=) "Vcpus" Prelude.<$> vcpus,
                   (JSON..=) "Volumes" Prelude.<$> volumes])))
 instance Property "Command" ContainerPropertiesProperty where
-  type PropertyType "Command" ContainerPropertiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Command" ContainerPropertiesProperty = ValueList Prelude.Text
   set newValue ContainerPropertiesProperty {..}
     = ContainerPropertiesProperty {command = Prelude.pure newValue, ..}
 instance Property "Environment" ContainerPropertiesProperty where

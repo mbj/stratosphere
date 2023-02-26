@@ -10,11 +10,11 @@ data PortProperty
   = PortProperty {accessDirection :: (Prelude.Maybe (Value Prelude.Text)),
                   accessFrom :: (Prelude.Maybe (Value Prelude.Text)),
                   accessType :: (Prelude.Maybe (Value Prelude.Text)),
-                  cidrListAliases :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                  cidrs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  cidrListAliases :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  cidrs :: (Prelude.Maybe (ValueList Prelude.Text)),
                   commonName :: (Prelude.Maybe (Value Prelude.Text)),
                   fromPort :: (Prelude.Maybe (Value Prelude.Integer)),
-                  ipv6Cidrs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  ipv6Cidrs :: (Prelude.Maybe (ValueList Prelude.Text)),
                   protocol :: (Prelude.Maybe (Value Prelude.Text)),
                   toPort :: (Prelude.Maybe (Value Prelude.Integer))}
 mkPortProperty :: PortProperty
@@ -69,11 +69,11 @@ instance Property "AccessType" PortProperty where
   set newValue PortProperty {..}
     = PortProperty {accessType = Prelude.pure newValue, ..}
 instance Property "CidrListAliases" PortProperty where
-  type PropertyType "CidrListAliases" PortProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CidrListAliases" PortProperty = ValueList Prelude.Text
   set newValue PortProperty {..}
     = PortProperty {cidrListAliases = Prelude.pure newValue, ..}
 instance Property "Cidrs" PortProperty where
-  type PropertyType "Cidrs" PortProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Cidrs" PortProperty = ValueList Prelude.Text
   set newValue PortProperty {..}
     = PortProperty {cidrs = Prelude.pure newValue, ..}
 instance Property "CommonName" PortProperty where
@@ -85,7 +85,7 @@ instance Property "FromPort" PortProperty where
   set newValue PortProperty {..}
     = PortProperty {fromPort = Prelude.pure newValue, ..}
 instance Property "Ipv6Cidrs" PortProperty where
-  type PropertyType "Ipv6Cidrs" PortProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Ipv6Cidrs" PortProperty = ValueList Prelude.Text
   set newValue PortProperty {..}
     = PortProperty {ipv6Cidrs = Prelude.pure newValue, ..}
 instance Property "Protocol" PortProperty where

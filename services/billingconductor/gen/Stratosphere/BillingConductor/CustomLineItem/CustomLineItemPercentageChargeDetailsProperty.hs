@@ -8,7 +8,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomLineItemPercentageChargeDetailsProperty
-  = CustomLineItemPercentageChargeDetailsProperty {childAssociatedResources :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = CustomLineItemPercentageChargeDetailsProperty {childAssociatedResources :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                    percentageValue :: (Value Prelude.Double)}
 mkCustomLineItemPercentageChargeDetailsProperty ::
   Value Prelude.Double
@@ -38,7 +38,7 @@ instance JSON.ToJSON CustomLineItemPercentageChargeDetailsProperty where
                  [(JSON..=) "ChildAssociatedResources"
                     Prelude.<$> childAssociatedResources])))
 instance Property "ChildAssociatedResources" CustomLineItemPercentageChargeDetailsProperty where
-  type PropertyType "ChildAssociatedResources" CustomLineItemPercentageChargeDetailsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ChildAssociatedResources" CustomLineItemPercentageChargeDetailsProperty = ValueList Prelude.Text
   set newValue CustomLineItemPercentageChargeDetailsProperty {..}
     = CustomLineItemPercentageChargeDetailsProperty
         {childAssociatedResources = Prelude.pure newValue, ..}

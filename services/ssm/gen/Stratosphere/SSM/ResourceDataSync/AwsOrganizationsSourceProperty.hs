@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsOrganizationsSourceProperty
   = AwsOrganizationsSourceProperty {organizationSourceType :: (Value Prelude.Text),
-                                    organizationalUnits :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                    organizationalUnits :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAwsOrganizationsSourceProperty ::
   Value Prelude.Text -> AwsOrganizationsSourceProperty
 mkAwsOrganizationsSourceProperty organizationSourceType
@@ -41,7 +41,7 @@ instance Property "OrganizationSourceType" AwsOrganizationsSourceProperty where
     = AwsOrganizationsSourceProperty
         {organizationSourceType = newValue, ..}
 instance Property "OrganizationalUnits" AwsOrganizationsSourceProperty where
-  type PropertyType "OrganizationalUnits" AwsOrganizationsSourceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OrganizationalUnits" AwsOrganizationsSourceProperty = ValueList Prelude.Text
   set newValue AwsOrganizationsSourceProperty {..}
     = AwsOrganizationsSourceProperty
         {organizationalUnits = Prelude.pure newValue, ..}

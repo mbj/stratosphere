@@ -9,12 +9,12 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GoogleDriveConfigurationProperty
-  = GoogleDriveConfigurationProperty {excludeMimeTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                      excludeSharedDrives :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                      excludeUserAccounts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                      exclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = GoogleDriveConfigurationProperty {excludeMimeTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      excludeSharedDrives :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      excludeUserAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      exclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
-                                      inclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                      inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       secretArn :: (Value Prelude.Text)}
 mkGoogleDriveConfigurationProperty ::
   Value Prelude.Text -> GoogleDriveConfigurationProperty
@@ -54,22 +54,22 @@ instance JSON.ToJSON GoogleDriveConfigurationProperty where
                   (JSON..=) "FieldMappings" Prelude.<$> fieldMappings,
                   (JSON..=) "InclusionPatterns" Prelude.<$> inclusionPatterns])))
 instance Property "ExcludeMimeTypes" GoogleDriveConfigurationProperty where
-  type PropertyType "ExcludeMimeTypes" GoogleDriveConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludeMimeTypes" GoogleDriveConfigurationProperty = ValueList Prelude.Text
   set newValue GoogleDriveConfigurationProperty {..}
     = GoogleDriveConfigurationProperty
         {excludeMimeTypes = Prelude.pure newValue, ..}
 instance Property "ExcludeSharedDrives" GoogleDriveConfigurationProperty where
-  type PropertyType "ExcludeSharedDrives" GoogleDriveConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludeSharedDrives" GoogleDriveConfigurationProperty = ValueList Prelude.Text
   set newValue GoogleDriveConfigurationProperty {..}
     = GoogleDriveConfigurationProperty
         {excludeSharedDrives = Prelude.pure newValue, ..}
 instance Property "ExcludeUserAccounts" GoogleDriveConfigurationProperty where
-  type PropertyType "ExcludeUserAccounts" GoogleDriveConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludeUserAccounts" GoogleDriveConfigurationProperty = ValueList Prelude.Text
   set newValue GoogleDriveConfigurationProperty {..}
     = GoogleDriveConfigurationProperty
         {excludeUserAccounts = Prelude.pure newValue, ..}
 instance Property "ExclusionPatterns" GoogleDriveConfigurationProperty where
-  type PropertyType "ExclusionPatterns" GoogleDriveConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExclusionPatterns" GoogleDriveConfigurationProperty = ValueList Prelude.Text
   set newValue GoogleDriveConfigurationProperty {..}
     = GoogleDriveConfigurationProperty
         {exclusionPatterns = Prelude.pure newValue, ..}
@@ -79,7 +79,7 @@ instance Property "FieldMappings" GoogleDriveConfigurationProperty where
     = GoogleDriveConfigurationProperty
         {fieldMappings = Prelude.pure newValue, ..}
 instance Property "InclusionPatterns" GoogleDriveConfigurationProperty where
-  type PropertyType "InclusionPatterns" GoogleDriveConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InclusionPatterns" GoogleDriveConfigurationProperty = ValueList Prelude.Text
   set newValue GoogleDriveConfigurationProperty {..}
     = GoogleDriveConfigurationProperty
         {inclusionPatterns = Prelude.pure newValue, ..}

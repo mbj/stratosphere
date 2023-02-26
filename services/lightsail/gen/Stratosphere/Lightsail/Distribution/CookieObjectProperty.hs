@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CookieObjectProperty
-  = CookieObjectProperty {cookiesAllowList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = CookieObjectProperty {cookiesAllowList :: (Prelude.Maybe (ValueList Prelude.Text)),
                           option :: (Prelude.Maybe (Value Prelude.Text))}
 mkCookieObjectProperty :: CookieObjectProperty
 mkCookieObjectProperty
@@ -29,7 +29,7 @@ instance JSON.ToJSON CookieObjectProperty where
               [(JSON..=) "CookiesAllowList" Prelude.<$> cookiesAllowList,
                (JSON..=) "Option" Prelude.<$> option]))
 instance Property "CookiesAllowList" CookieObjectProperty where
-  type PropertyType "CookiesAllowList" CookieObjectProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CookiesAllowList" CookieObjectProperty = ValueList Prelude.Text
   set newValue CookieObjectProperty {..}
     = CookieObjectProperty
         {cookiesAllowList = Prelude.pure newValue, ..}

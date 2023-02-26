@@ -8,8 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationFilterConfigProperty
-  = NotificationFilterConfigProperty {messageTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                      severities :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = NotificationFilterConfigProperty {messageTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      severities :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkNotificationFilterConfigProperty ::
   NotificationFilterConfigProperty
 mkNotificationFilterConfigProperty
@@ -31,12 +31,12 @@ instance JSON.ToJSON NotificationFilterConfigProperty where
               [(JSON..=) "MessageTypes" Prelude.<$> messageTypes,
                (JSON..=) "Severities" Prelude.<$> severities]))
 instance Property "MessageTypes" NotificationFilterConfigProperty where
-  type PropertyType "MessageTypes" NotificationFilterConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "MessageTypes" NotificationFilterConfigProperty = ValueList Prelude.Text
   set newValue NotificationFilterConfigProperty {..}
     = NotificationFilterConfigProperty
         {messageTypes = Prelude.pure newValue, ..}
 instance Property "Severities" NotificationFilterConfigProperty where
-  type PropertyType "Severities" NotificationFilterConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Severities" NotificationFilterConfigProperty = ValueList Prelude.Text
   set newValue NotificationFilterConfigProperty {..}
     = NotificationFilterConfigProperty
         {severities = Prelude.pure newValue, ..}

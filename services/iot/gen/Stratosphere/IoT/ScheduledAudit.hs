@@ -13,10 +13,9 @@ data ScheduledAudit
                     frequency :: (Value Prelude.Text),
                     scheduledAuditName :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag]),
-                    targetCheckNames :: (ValueList (Value Prelude.Text))}
+                    targetCheckNames :: (ValueList Prelude.Text)}
 mkScheduledAudit ::
-  Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> ScheduledAudit
+  Value Prelude.Text -> ValueList Prelude.Text -> ScheduledAudit
 mkScheduledAudit frequency targetCheckNames
   = ScheduledAudit
       {frequency = frequency, targetCheckNames = targetCheckNames,
@@ -68,6 +67,6 @@ instance Property "Tags" ScheduledAudit where
   set newValue ScheduledAudit {..}
     = ScheduledAudit {tags = Prelude.pure newValue, ..}
 instance Property "TargetCheckNames" ScheduledAudit where
-  type PropertyType "TargetCheckNames" ScheduledAudit = ValueList (Value Prelude.Text)
+  type PropertyType "TargetCheckNames" ScheduledAudit = ValueList Prelude.Text
   set newValue ScheduledAudit {..}
     = ScheduledAudit {targetCheckNames = newValue, ..}

@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RouteOverridesProperty
-  = RouteOverridesProperty {authorizationScopes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = RouteOverridesProperty {authorizationScopes :: (Prelude.Maybe (ValueList Prelude.Text)),
                             authorizationType :: (Prelude.Maybe (Value Prelude.Text)),
                             authorizerId :: (Prelude.Maybe (Value Prelude.Text)),
                             operationName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -41,7 +41,7 @@ instance JSON.ToJSON RouteOverridesProperty where
                (JSON..=) "OperationName" Prelude.<$> operationName,
                (JSON..=) "Target" Prelude.<$> target]))
 instance Property "AuthorizationScopes" RouteOverridesProperty where
-  type PropertyType "AuthorizationScopes" RouteOverridesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AuthorizationScopes" RouteOverridesProperty = ValueList Prelude.Text
   set newValue RouteOverridesProperty {..}
     = RouteOverridesProperty
         {authorizationScopes = Prelude.pure newValue, ..}

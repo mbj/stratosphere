@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HostHeaderConfigProperty
-  = HostHeaderConfigProperty {values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = HostHeaderConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkHostHeaderConfigProperty :: HostHeaderConfigProperty
 mkHostHeaderConfigProperty
   = HostHeaderConfigProperty {values = Prelude.Nothing}
@@ -23,6 +23,6 @@ instance JSON.ToJSON HostHeaderConfigProperty where
         (Prelude.fromList
            (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values]))
 instance Property "Values" HostHeaderConfigProperty where
-  type PropertyType "Values" HostHeaderConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" HostHeaderConfigProperty = ValueList Prelude.Text
   set newValue HostHeaderConfigProperty {}
     = HostHeaderConfigProperty {values = Prelude.pure newValue, ..}

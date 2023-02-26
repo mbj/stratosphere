@@ -12,7 +12,7 @@ data OrganizationConformancePack
   = OrganizationConformancePack {conformancePackInputParameters :: (Prelude.Maybe [ConformancePackInputParameterProperty]),
                                  deliveryS3Bucket :: (Prelude.Maybe (Value Prelude.Text)),
                                  deliveryS3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
-                                 excludedAccounts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                 excludedAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  organizationConformancePackName :: (Value Prelude.Text),
                                  templateBody :: (Prelude.Maybe (Value Prelude.Text)),
                                  templateS3Uri :: (Prelude.Maybe (Value Prelude.Text))}
@@ -73,7 +73,7 @@ instance Property "DeliveryS3KeyPrefix" OrganizationConformancePack where
     = OrganizationConformancePack
         {deliveryS3KeyPrefix = Prelude.pure newValue, ..}
 instance Property "ExcludedAccounts" OrganizationConformancePack where
-  type PropertyType "ExcludedAccounts" OrganizationConformancePack = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludedAccounts" OrganizationConformancePack = ValueList Prelude.Text
   set newValue OrganizationConformancePack {..}
     = OrganizationConformancePack
         {excludedAccounts = Prelude.pure newValue, ..}

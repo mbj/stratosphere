@@ -8,12 +8,12 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlackChannelConfiguration
   = SlackChannelConfiguration {configurationName :: (Value Prelude.Text),
-                               guardrailPolicies :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                               guardrailPolicies :: (Prelude.Maybe (ValueList Prelude.Text)),
                                iamRoleArn :: (Value Prelude.Text),
                                loggingLevel :: (Prelude.Maybe (Value Prelude.Text)),
                                slackChannelId :: (Value Prelude.Text),
                                slackWorkspaceId :: (Value Prelude.Text),
-                               snsTopicArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                               snsTopicArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                userRoleRequired :: (Prelude.Maybe (Value Prelude.Bool))}
 mkSlackChannelConfiguration ::
   Value Prelude.Text
@@ -66,7 +66,7 @@ instance Property "ConfigurationName" SlackChannelConfiguration where
   set newValue SlackChannelConfiguration {..}
     = SlackChannelConfiguration {configurationName = newValue, ..}
 instance Property "GuardrailPolicies" SlackChannelConfiguration where
-  type PropertyType "GuardrailPolicies" SlackChannelConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "GuardrailPolicies" SlackChannelConfiguration = ValueList Prelude.Text
   set newValue SlackChannelConfiguration {..}
     = SlackChannelConfiguration
         {guardrailPolicies = Prelude.pure newValue, ..}
@@ -88,7 +88,7 @@ instance Property "SlackWorkspaceId" SlackChannelConfiguration where
   set newValue SlackChannelConfiguration {..}
     = SlackChannelConfiguration {slackWorkspaceId = newValue, ..}
 instance Property "SnsTopicArns" SlackChannelConfiguration where
-  type PropertyType "SnsTopicArns" SlackChannelConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "SnsTopicArns" SlackChannelConfiguration = ValueList Prelude.Text
   set newValue SlackChannelConfiguration {..}
     = SlackChannelConfiguration
         {snsTopicArns = Prelude.pure newValue, ..}

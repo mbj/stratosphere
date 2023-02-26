@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.LakeFormation.DataCellsFilter.RowFilterProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataCellsFilter
-  = DataCellsFilter {columnNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = DataCellsFilter {columnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                      columnWildcard :: (Prelude.Maybe ColumnWildcardProperty),
                      databaseName :: (Value Prelude.Text),
                      name :: (Value Prelude.Text),
@@ -52,7 +52,7 @@ instance JSON.ToJSON DataCellsFilter where
                   (JSON..=) "ColumnWildcard" Prelude.<$> columnWildcard,
                   (JSON..=) "RowFilter" Prelude.<$> rowFilter])))
 instance Property "ColumnNames" DataCellsFilter where
-  type PropertyType "ColumnNames" DataCellsFilter = ValueList (Value Prelude.Text)
+  type PropertyType "ColumnNames" DataCellsFilter = ValueList Prelude.Text
   set newValue DataCellsFilter {..}
     = DataCellsFilter {columnNames = Prelude.pure newValue, ..}
 instance Property "ColumnWildcard" DataCellsFilter where

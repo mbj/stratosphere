@@ -10,7 +10,7 @@ data ListenersProperty
   = ListenersProperty {instancePort :: (Value Prelude.Text),
                        instanceProtocol :: (Prelude.Maybe (Value Prelude.Text)),
                        loadBalancerPort :: (Value Prelude.Text),
-                       policyNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                       policyNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                        protocol :: (Value Prelude.Text),
                        sSLCertificateId :: (Prelude.Maybe (Value Prelude.Text))}
 mkListenersProperty ::
@@ -59,7 +59,7 @@ instance Property "LoadBalancerPort" ListenersProperty where
   set newValue ListenersProperty {..}
     = ListenersProperty {loadBalancerPort = newValue, ..}
 instance Property "PolicyNames" ListenersProperty where
-  type PropertyType "PolicyNames" ListenersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PolicyNames" ListenersProperty = ValueList Prelude.Text
   set newValue ListenersProperty {..}
     = ListenersProperty {policyNames = Prelude.pure newValue, ..}
 instance Property "Protocol" ListenersProperty where

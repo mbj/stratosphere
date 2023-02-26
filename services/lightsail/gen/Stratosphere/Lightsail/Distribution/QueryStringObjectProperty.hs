@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryStringObjectProperty
   = QueryStringObjectProperty {option :: (Prelude.Maybe (Value Prelude.Bool)),
-                               queryStringsAllowList :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                               queryStringsAllowList :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkQueryStringObjectProperty :: QueryStringObjectProperty
 mkQueryStringObjectProperty
   = QueryStringObjectProperty
@@ -35,7 +35,7 @@ instance Property "Option" QueryStringObjectProperty where
   set newValue QueryStringObjectProperty {..}
     = QueryStringObjectProperty {option = Prelude.pure newValue, ..}
 instance Property "QueryStringsAllowList" QueryStringObjectProperty where
-  type PropertyType "QueryStringsAllowList" QueryStringObjectProperty = ValueList (Value Prelude.Text)
+  type PropertyType "QueryStringsAllowList" QueryStringObjectProperty = ValueList Prelude.Text
   set newValue QueryStringObjectProperty {..}
     = QueryStringObjectProperty
         {queryStringsAllowList = Prelude.pure newValue, ..}

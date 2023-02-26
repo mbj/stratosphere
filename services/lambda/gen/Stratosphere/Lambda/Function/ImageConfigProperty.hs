@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImageConfigProperty
-  = ImageConfigProperty {command :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                         entryPoint :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ImageConfigProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         entryPoint :: (Prelude.Maybe (ValueList Prelude.Text)),
                          workingDirectory :: (Prelude.Maybe (Value Prelude.Text))}
 mkImageConfigProperty :: ImageConfigProperty
 mkImageConfigProperty
@@ -33,11 +33,11 @@ instance JSON.ToJSON ImageConfigProperty where
                (JSON..=) "EntryPoint" Prelude.<$> entryPoint,
                (JSON..=) "WorkingDirectory" Prelude.<$> workingDirectory]))
 instance Property "Command" ImageConfigProperty where
-  type PropertyType "Command" ImageConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Command" ImageConfigProperty = ValueList Prelude.Text
   set newValue ImageConfigProperty {..}
     = ImageConfigProperty {command = Prelude.pure newValue, ..}
 instance Property "EntryPoint" ImageConfigProperty where
-  type PropertyType "EntryPoint" ImageConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "EntryPoint" ImageConfigProperty = ValueList Prelude.Text
   set newValue ImageConfigProperty {..}
     = ImageConfigProperty {entryPoint = Prelude.pure newValue, ..}
 instance Property "WorkingDirectory" ImageConfigProperty where

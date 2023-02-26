@@ -11,12 +11,12 @@ data PipeTargetRedshiftDataParametersProperty
   = PipeTargetRedshiftDataParametersProperty {database :: (Value Prelude.Text),
                                               dbUser :: (Prelude.Maybe (Value Prelude.Text)),
                                               secretManagerArn :: (Prelude.Maybe (Value Prelude.Text)),
-                                              sqls :: (ValueList (Value Prelude.Text)),
+                                              sqls :: (ValueList Prelude.Text),
                                               statementName :: (Prelude.Maybe (Value Prelude.Text)),
                                               withEvent :: (Prelude.Maybe (Value Prelude.Bool))}
 mkPipeTargetRedshiftDataParametersProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
+  -> ValueList Prelude.Text
      -> PipeTargetRedshiftDataParametersProperty
 mkPipeTargetRedshiftDataParametersProperty database sqls
   = PipeTargetRedshiftDataParametersProperty
@@ -62,7 +62,7 @@ instance Property "SecretManagerArn" PipeTargetRedshiftDataParametersProperty wh
     = PipeTargetRedshiftDataParametersProperty
         {secretManagerArn = Prelude.pure newValue, ..}
 instance Property "Sqls" PipeTargetRedshiftDataParametersProperty where
-  type PropertyType "Sqls" PipeTargetRedshiftDataParametersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Sqls" PipeTargetRedshiftDataParametersProperty = ValueList Prelude.Text
   set newValue PipeTargetRedshiftDataParametersProperty {..}
     = PipeTargetRedshiftDataParametersProperty {sqls = newValue, ..}
 instance Property "StatementName" PipeTargetRedshiftDataParametersProperty where

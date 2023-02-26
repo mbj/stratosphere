@@ -10,7 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Method
   = Method {apiKeyRequired :: (Prelude.Maybe (Value Prelude.Bool)),
-            authorizationScopes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            authorizationScopes :: (Prelude.Maybe (ValueList Prelude.Text)),
             authorizationType :: (Prelude.Maybe (Value Prelude.Text)),
             authorizerId :: (Prelude.Maybe (Value Prelude.Text)),
             httpMethod :: (Value Prelude.Text),
@@ -78,7 +78,7 @@ instance Property "ApiKeyRequired" Method where
   set newValue Method {..}
     = Method {apiKeyRequired = Prelude.pure newValue, ..}
 instance Property "AuthorizationScopes" Method where
-  type PropertyType "AuthorizationScopes" Method = ValueList (Value Prelude.Text)
+  type PropertyType "AuthorizationScopes" Method = ValueList Prelude.Text
   set newValue Method {..}
     = Method {authorizationScopes = Prelude.pure newValue, ..}
 instance Property "AuthorizationType" Method where

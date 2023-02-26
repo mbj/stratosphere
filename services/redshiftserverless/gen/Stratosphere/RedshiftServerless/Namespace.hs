@@ -14,9 +14,9 @@ data Namespace
                defaultIamRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                finalSnapshotName :: (Prelude.Maybe (Value Prelude.Text)),
                finalSnapshotRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
-               iamRoles :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               iamRoles :: (Prelude.Maybe (ValueList Prelude.Text)),
                kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
-               logExports :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               logExports :: (Prelude.Maybe (ValueList Prelude.Text)),
                namespaceName :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag])}
 mkNamespace :: Value Prelude.Text -> Namespace
@@ -93,7 +93,7 @@ instance Property "FinalSnapshotRetentionPeriod" Namespace where
     = Namespace
         {finalSnapshotRetentionPeriod = Prelude.pure newValue, ..}
 instance Property "IamRoles" Namespace where
-  type PropertyType "IamRoles" Namespace = ValueList (Value Prelude.Text)
+  type PropertyType "IamRoles" Namespace = ValueList Prelude.Text
   set newValue Namespace {..}
     = Namespace {iamRoles = Prelude.pure newValue, ..}
 instance Property "KmsKeyId" Namespace where
@@ -101,7 +101,7 @@ instance Property "KmsKeyId" Namespace where
   set newValue Namespace {..}
     = Namespace {kmsKeyId = Prelude.pure newValue, ..}
 instance Property "LogExports" Namespace where
-  type PropertyType "LogExports" Namespace = ValueList (Value Prelude.Text)
+  type PropertyType "LogExports" Namespace = ValueList Prelude.Text
   set newValue Namespace {..}
     = Namespace {logExports = Prelude.pure newValue, ..}
 instance Property "NamespaceName" Namespace where

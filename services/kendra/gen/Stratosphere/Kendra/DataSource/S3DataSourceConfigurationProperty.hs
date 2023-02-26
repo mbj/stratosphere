@@ -13,9 +13,9 @@ data S3DataSourceConfigurationProperty
   = S3DataSourceConfigurationProperty {accessControlListConfiguration :: (Prelude.Maybe AccessControlListConfigurationProperty),
                                        bucketName :: (Value Prelude.Text),
                                        documentsMetadataConfiguration :: (Prelude.Maybe DocumentsMetadataConfigurationProperty),
-                                       exclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                       inclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                       inclusionPrefixes :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                       exclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                       inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                       inclusionPrefixes :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkS3DataSourceConfigurationProperty ::
   Value Prelude.Text -> S3DataSourceConfigurationProperty
 mkS3DataSourceConfigurationProperty bucketName
@@ -70,17 +70,17 @@ instance Property "DocumentsMetadataConfiguration" S3DataSourceConfigurationProp
     = S3DataSourceConfigurationProperty
         {documentsMetadataConfiguration = Prelude.pure newValue, ..}
 instance Property "ExclusionPatterns" S3DataSourceConfigurationProperty where
-  type PropertyType "ExclusionPatterns" S3DataSourceConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExclusionPatterns" S3DataSourceConfigurationProperty = ValueList Prelude.Text
   set newValue S3DataSourceConfigurationProperty {..}
     = S3DataSourceConfigurationProperty
         {exclusionPatterns = Prelude.pure newValue, ..}
 instance Property "InclusionPatterns" S3DataSourceConfigurationProperty where
-  type PropertyType "InclusionPatterns" S3DataSourceConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InclusionPatterns" S3DataSourceConfigurationProperty = ValueList Prelude.Text
   set newValue S3DataSourceConfigurationProperty {..}
     = S3DataSourceConfigurationProperty
         {inclusionPatterns = Prelude.pure newValue, ..}
 instance Property "InclusionPrefixes" S3DataSourceConfigurationProperty where
-  type PropertyType "InclusionPrefixes" S3DataSourceConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InclusionPrefixes" S3DataSourceConfigurationProperty = ValueList Prelude.Text
   set newValue S3DataSourceConfigurationProperty {..}
     = S3DataSourceConfigurationProperty
         {inclusionPrefixes = Prelude.pure newValue, ..}

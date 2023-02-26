@@ -15,11 +15,11 @@ import Stratosphere.Value
 data Stack
   = Stack {accessEndpoints :: (Prelude.Maybe [AccessEndpointProperty]),
            applicationSettings :: (Prelude.Maybe ApplicationSettingsProperty),
-           attributesToDelete :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           attributesToDelete :: (Prelude.Maybe (ValueList Prelude.Text)),
            deleteStorageConnectors :: (Prelude.Maybe (Value Prelude.Bool)),
            description :: (Prelude.Maybe (Value Prelude.Text)),
            displayName :: (Prelude.Maybe (Value Prelude.Text)),
-           embedHostDomains :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           embedHostDomains :: (Prelude.Maybe (ValueList Prelude.Text)),
            feedbackURL :: (Prelude.Maybe (Value Prelude.Text)),
            name :: (Prelude.Maybe (Value Prelude.Text)),
            redirectURL :: (Prelude.Maybe (Value Prelude.Text)),
@@ -92,7 +92,7 @@ instance Property "ApplicationSettings" Stack where
   set newValue Stack {..}
     = Stack {applicationSettings = Prelude.pure newValue, ..}
 instance Property "AttributesToDelete" Stack where
-  type PropertyType "AttributesToDelete" Stack = ValueList (Value Prelude.Text)
+  type PropertyType "AttributesToDelete" Stack = ValueList Prelude.Text
   set newValue Stack {..}
     = Stack {attributesToDelete = Prelude.pure newValue, ..}
 instance Property "DeleteStorageConnectors" Stack where
@@ -108,7 +108,7 @@ instance Property "DisplayName" Stack where
   set newValue Stack {..}
     = Stack {displayName = Prelude.pure newValue, ..}
 instance Property "EmbedHostDomains" Stack where
-  type PropertyType "EmbedHostDomains" Stack = ValueList (Value Prelude.Text)
+  type PropertyType "EmbedHostDomains" Stack = ValueList Prelude.Text
   set newValue Stack {..}
     = Stack {embedHostDomains = Prelude.pure newValue, ..}
 instance Property "FeedbackURL" Stack where

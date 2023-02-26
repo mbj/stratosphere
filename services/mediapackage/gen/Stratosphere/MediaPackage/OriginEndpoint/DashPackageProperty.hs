@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.OriginEndpoint.StreamSelectionPr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DashPackageProperty
-  = DashPackageProperty {adTriggers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = DashPackageProperty {adTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
                          adsOnDeliveryRestrictions :: (Prelude.Maybe (Value Prelude.Text)),
                          encryption :: (Prelude.Maybe DashEncryptionProperty),
                          includeIframeOnlyStream :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -17,7 +17,7 @@ data DashPackageProperty
                          manifestWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          minBufferTimeSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          minUpdatePeriodSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
-                         periodTriggers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         periodTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
                          profile :: (Prelude.Maybe (Value Prelude.Text)),
                          segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          segmentTemplateFormat :: (Prelude.Maybe (Value Prelude.Text)),
@@ -100,7 +100,7 @@ instance JSON.ToJSON DashPackageProperty where
                (JSON..=) "UtcTiming" Prelude.<$> utcTiming,
                (JSON..=) "UtcTimingUri" Prelude.<$> utcTimingUri]))
 instance Property "AdTriggers" DashPackageProperty where
-  type PropertyType "AdTriggers" DashPackageProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AdTriggers" DashPackageProperty = ValueList Prelude.Text
   set newValue DashPackageProperty {..}
     = DashPackageProperty {adTriggers = Prelude.pure newValue, ..}
 instance Property "AdsOnDeliveryRestrictions" DashPackageProperty where
@@ -137,7 +137,7 @@ instance Property "MinUpdatePeriodSeconds" DashPackageProperty where
     = DashPackageProperty
         {minUpdatePeriodSeconds = Prelude.pure newValue, ..}
 instance Property "PeriodTriggers" DashPackageProperty where
-  type PropertyType "PeriodTriggers" DashPackageProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PeriodTriggers" DashPackageProperty = ValueList Prelude.Text
   set newValue DashPackageProperty {..}
     = DashPackageProperty {periodTriggers = Prelude.pure newValue, ..}
 instance Property "Profile" DashPackageProperty where

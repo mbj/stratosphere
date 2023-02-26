@@ -16,7 +16,7 @@ data OntapConfigurationProperty
                                 endpointIpAddressRange :: (Prelude.Maybe (Value Prelude.Text)),
                                 fsxAdminPassword :: (Prelude.Maybe (Value Prelude.Text)),
                                 preferredSubnetId :: (Prelude.Maybe (Value Prelude.Text)),
-                                routeTableIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                routeTableIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 throughputCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                 weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
 mkOntapConfigurationProperty ::
@@ -111,7 +111,7 @@ instance Property "PreferredSubnetId" OntapConfigurationProperty where
     = OntapConfigurationProperty
         {preferredSubnetId = Prelude.pure newValue, ..}
 instance Property "RouteTableIds" OntapConfigurationProperty where
-  type PropertyType "RouteTableIds" OntapConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "RouteTableIds" OntapConfigurationProperty = ValueList Prelude.Text
   set newValue OntapConfigurationProperty {..}
     = OntapConfigurationProperty
         {routeTableIds = Prelude.pure newValue, ..}

@@ -9,10 +9,10 @@ import Stratosphere.Value
 data VPCEndpoint
   = VPCEndpoint {policyDocument :: (Prelude.Maybe JSON.Object),
                  privateDnsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
-                 routeTableIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                 securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 routeTableIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                  serviceName :: (Value Prelude.Text),
-                 subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                  vpcEndpointType :: (Prelude.Maybe (Value Prelude.Text)),
                  vpcId :: (Value Prelude.Text)}
 mkVPCEndpoint ::
@@ -61,11 +61,11 @@ instance Property "PrivateDnsEnabled" VPCEndpoint where
   set newValue VPCEndpoint {..}
     = VPCEndpoint {privateDnsEnabled = Prelude.pure newValue, ..}
 instance Property "RouteTableIds" VPCEndpoint where
-  type PropertyType "RouteTableIds" VPCEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "RouteTableIds" VPCEndpoint = ValueList Prelude.Text
   set newValue VPCEndpoint {..}
     = VPCEndpoint {routeTableIds = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" VPCEndpoint where
-  type PropertyType "SecurityGroupIds" VPCEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" VPCEndpoint = ValueList Prelude.Text
   set newValue VPCEndpoint {..}
     = VPCEndpoint {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "ServiceName" VPCEndpoint where
@@ -73,7 +73,7 @@ instance Property "ServiceName" VPCEndpoint where
   set newValue VPCEndpoint {..}
     = VPCEndpoint {serviceName = newValue, ..}
 instance Property "SubnetIds" VPCEndpoint where
-  type PropertyType "SubnetIds" VPCEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" VPCEndpoint = ValueList Prelude.Text
   set newValue VPCEndpoint {..}
     = VPCEndpoint {subnetIds = Prelude.pure newValue, ..}
 instance Property "VpcEndpointType" VPCEndpoint where

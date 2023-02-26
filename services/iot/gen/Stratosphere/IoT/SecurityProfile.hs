@@ -17,7 +17,7 @@ data SecurityProfile
                      securityProfileDescription :: (Prelude.Maybe (Value Prelude.Text)),
                      securityProfileName :: (Prelude.Maybe (Value Prelude.Text)),
                      tags :: (Prelude.Maybe [Tag]),
-                     targetArns :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                     targetArns :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkSecurityProfile :: SecurityProfile
 mkSecurityProfile
   = SecurityProfile
@@ -82,6 +82,6 @@ instance Property "Tags" SecurityProfile where
   set newValue SecurityProfile {..}
     = SecurityProfile {tags = Prelude.pure newValue, ..}
 instance Property "TargetArns" SecurityProfile where
-  type PropertyType "TargetArns" SecurityProfile = ValueList (Value Prelude.Text)
+  type PropertyType "TargetArns" SecurityProfile = ValueList Prelude.Text
   set newValue SecurityProfile {..}
     = SecurityProfile {targetArns = Prelude.pure newValue, ..}

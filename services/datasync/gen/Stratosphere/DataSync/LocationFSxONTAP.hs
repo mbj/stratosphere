@@ -10,13 +10,12 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data LocationFSxONTAP
   = LocationFSxONTAP {protocol :: (Prelude.Maybe ProtocolProperty),
-                      securityGroupArns :: (ValueList (Value Prelude.Text)),
+                      securityGroupArns :: (ValueList Prelude.Text),
                       storageVirtualMachineArn :: (Value Prelude.Text),
                       subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                       tags :: (Prelude.Maybe [Tag])}
 mkLocationFSxONTAP ::
-  ValueList (Value Prelude.Text)
-  -> Value Prelude.Text -> LocationFSxONTAP
+  ValueList Prelude.Text -> Value Prelude.Text -> LocationFSxONTAP
 mkLocationFSxONTAP securityGroupArns storageVirtualMachineArn
   = LocationFSxONTAP
       {securityGroupArns = securityGroupArns,
@@ -51,7 +50,7 @@ instance Property "Protocol" LocationFSxONTAP where
   set newValue LocationFSxONTAP {..}
     = LocationFSxONTAP {protocol = Prelude.pure newValue, ..}
 instance Property "SecurityGroupArns" LocationFSxONTAP where
-  type PropertyType "SecurityGroupArns" LocationFSxONTAP = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupArns" LocationFSxONTAP = ValueList Prelude.Text
   set newValue LocationFSxONTAP {..}
     = LocationFSxONTAP {securityGroupArns = newValue, ..}
 instance Property "StorageVirtualMachineArn" LocationFSxONTAP where

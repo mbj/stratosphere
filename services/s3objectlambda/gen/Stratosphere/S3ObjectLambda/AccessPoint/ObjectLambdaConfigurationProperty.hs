@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.S3ObjectLambda.AccessPoint.TransformationConf
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ObjectLambdaConfigurationProperty
-  = ObjectLambdaConfigurationProperty {allowedFeatures :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ObjectLambdaConfigurationProperty {allowedFeatures :: (Prelude.Maybe (ValueList Prelude.Text)),
                                        cloudWatchMetricsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                        supportingAccessPoint :: (Value Prelude.Text),
                                        transformationConfigurations :: [TransformationConfigurationProperty]}
@@ -51,7 +51,7 @@ instance JSON.ToJSON ObjectLambdaConfigurationProperty where
                   (JSON..=) "CloudWatchMetricsEnabled"
                     Prelude.<$> cloudWatchMetricsEnabled])))
 instance Property "AllowedFeatures" ObjectLambdaConfigurationProperty where
-  type PropertyType "AllowedFeatures" ObjectLambdaConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedFeatures" ObjectLambdaConfigurationProperty = ValueList Prelude.Text
   set newValue ObjectLambdaConfigurationProperty {..}
     = ObjectLambdaConfigurationProperty
         {allowedFeatures = Prelude.pure newValue, ..}

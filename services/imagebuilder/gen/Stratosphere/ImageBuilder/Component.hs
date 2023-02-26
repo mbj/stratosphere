@@ -13,7 +13,7 @@ data Component
                kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                name :: (Value Prelude.Text),
                platform :: (Value Prelude.Text),
-               supportedOsVersions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               supportedOsVersions :: (Prelude.Maybe (ValueList Prelude.Text)),
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                uri :: (Prelude.Maybe (Value Prelude.Text)),
                version :: (Value Prelude.Text)}
@@ -81,7 +81,7 @@ instance Property "Platform" Component where
   type PropertyType "Platform" Component = Value Prelude.Text
   set newValue Component {..} = Component {platform = newValue, ..}
 instance Property "SupportedOsVersions" Component where
-  type PropertyType "SupportedOsVersions" Component = ValueList (Value Prelude.Text)
+  type PropertyType "SupportedOsVersions" Component = ValueList Prelude.Text
   set newValue Component {..}
     = Component {supportedOsVersions = Prelude.pure newValue, ..}
 instance Property "Tags" Component where

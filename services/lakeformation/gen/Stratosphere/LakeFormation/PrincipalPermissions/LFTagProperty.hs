@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LFTagProperty
   = LFTagProperty {tagKey :: (Prelude.Maybe (Value Prelude.Text)),
-                   tagValues :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                   tagValues :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkLFTagProperty :: LFTagProperty
 mkLFTagProperty
   = LFTagProperty
@@ -33,6 +33,6 @@ instance Property "TagKey" LFTagProperty where
   set newValue LFTagProperty {..}
     = LFTagProperty {tagKey = Prelude.pure newValue, ..}
 instance Property "TagValues" LFTagProperty where
-  type PropertyType "TagValues" LFTagProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TagValues" LFTagProperty = ValueList Prelude.Text
   set newValue LFTagProperty {..}
     = LFTagProperty {tagValues = Prelude.pure newValue, ..}

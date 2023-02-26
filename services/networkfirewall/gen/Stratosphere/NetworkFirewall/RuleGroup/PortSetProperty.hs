@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortSetProperty
-  = PortSetProperty {definition :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = PortSetProperty {definition :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkPortSetProperty :: PortSetProperty
 mkPortSetProperty = PortSetProperty {definition = Prelude.Nothing}
 instance ToResourceProperties PortSetProperty where
@@ -24,6 +24,6 @@ instance JSON.ToJSON PortSetProperty where
            (Prelude.catMaybes
               [(JSON..=) "Definition" Prelude.<$> definition]))
 instance Property "Definition" PortSetProperty where
-  type PropertyType "Definition" PortSetProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Definition" PortSetProperty = ValueList Prelude.Text
   set newValue PortSetProperty {}
     = PortSetProperty {definition = Prelude.pure newValue, ..}

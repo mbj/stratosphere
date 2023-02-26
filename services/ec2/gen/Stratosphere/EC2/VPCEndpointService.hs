@@ -9,8 +9,8 @@ import Stratosphere.Value
 data VPCEndpointService
   = VPCEndpointService {acceptanceRequired :: (Prelude.Maybe (Value Prelude.Bool)),
                         contributorInsightsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
-                        gatewayLoadBalancerArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                        networkLoadBalancerArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                        gatewayLoadBalancerArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        networkLoadBalancerArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                         payerResponsibility :: (Prelude.Maybe (Value Prelude.Text))}
 mkVPCEndpointService :: VPCEndpointService
 mkVPCEndpointService
@@ -58,12 +58,12 @@ instance Property "ContributorInsightsEnabled" VPCEndpointService where
     = VPCEndpointService
         {contributorInsightsEnabled = Prelude.pure newValue, ..}
 instance Property "GatewayLoadBalancerArns" VPCEndpointService where
-  type PropertyType "GatewayLoadBalancerArns" VPCEndpointService = ValueList (Value Prelude.Text)
+  type PropertyType "GatewayLoadBalancerArns" VPCEndpointService = ValueList Prelude.Text
   set newValue VPCEndpointService {..}
     = VPCEndpointService
         {gatewayLoadBalancerArns = Prelude.pure newValue, ..}
 instance Property "NetworkLoadBalancerArns" VPCEndpointService where
-  type PropertyType "NetworkLoadBalancerArns" VPCEndpointService = ValueList (Value Prelude.Text)
+  type PropertyType "NetworkLoadBalancerArns" VPCEndpointService = ValueList Prelude.Text
   set newValue VPCEndpointService {..}
     = VPCEndpointService
         {networkLoadBalancerArns = Prelude.pure newValue, ..}

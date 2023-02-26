@@ -8,12 +8,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPCEndpointConnectionNotification
-  = VPCEndpointConnectionNotification {connectionEvents :: (ValueList (Value Prelude.Text)),
+  = VPCEndpointConnectionNotification {connectionEvents :: (ValueList Prelude.Text),
                                        connectionNotificationArn :: (Value Prelude.Text),
                                        serviceId :: (Prelude.Maybe (Value Prelude.Text)),
                                        vPCEndpointId :: (Prelude.Maybe (Value Prelude.Text))}
 mkVPCEndpointConnectionNotification ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> VPCEndpointConnectionNotification
 mkVPCEndpointConnectionNotification
   connectionEvents
@@ -44,7 +44,7 @@ instance JSON.ToJSON VPCEndpointConnectionNotification where
                  [(JSON..=) "ServiceId" Prelude.<$> serviceId,
                   (JSON..=) "VPCEndpointId" Prelude.<$> vPCEndpointId])))
 instance Property "ConnectionEvents" VPCEndpointConnectionNotification where
-  type PropertyType "ConnectionEvents" VPCEndpointConnectionNotification = ValueList (Value Prelude.Text)
+  type PropertyType "ConnectionEvents" VPCEndpointConnectionNotification = ValueList Prelude.Text
   set newValue VPCEndpointConnectionNotification {..}
     = VPCEndpointConnectionNotification
         {connectionEvents = newValue, ..}

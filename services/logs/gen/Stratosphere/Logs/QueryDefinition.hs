@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryDefinition
-  = QueryDefinition {logGroupNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = QueryDefinition {logGroupNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                      name :: (Value Prelude.Text),
                      queryString :: (Value Prelude.Text)}
 mkQueryDefinition ::
@@ -34,7 +34,7 @@ instance JSON.ToJSON QueryDefinition where
               (Prelude.catMaybes
                  [(JSON..=) "LogGroupNames" Prelude.<$> logGroupNames])))
 instance Property "LogGroupNames" QueryDefinition where
-  type PropertyType "LogGroupNames" QueryDefinition = ValueList (Value Prelude.Text)
+  type PropertyType "LogGroupNames" QueryDefinition = ValueList Prelude.Text
   set newValue QueryDefinition {..}
     = QueryDefinition {logGroupNames = Prelude.pure newValue, ..}
 instance Property "Name" QueryDefinition where

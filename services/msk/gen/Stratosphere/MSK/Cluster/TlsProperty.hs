@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TlsProperty
-  = TlsProperty {certificateAuthorityArnList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = TlsProperty {certificateAuthorityArnList :: (Prelude.Maybe (ValueList Prelude.Text)),
                  enabled :: (Prelude.Maybe (Value Prelude.Bool))}
 mkTlsProperty :: TlsProperty
 mkTlsProperty
@@ -32,7 +32,7 @@ instance JSON.ToJSON TlsProperty where
                  Prelude.<$> certificateAuthorityArnList,
                (JSON..=) "Enabled" Prelude.<$> enabled]))
 instance Property "CertificateAuthorityArnList" TlsProperty where
-  type PropertyType "CertificateAuthorityArnList" TlsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CertificateAuthorityArnList" TlsProperty = ValueList Prelude.Text
   set newValue TlsProperty {..}
     = TlsProperty
         {certificateAuthorityArnList = Prelude.pure newValue, ..}

@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OAuthPropertiesProperty
   = OAuthPropertiesProperty {authCodeUrl :: (Prelude.Maybe (Value Prelude.Text)),
-                             oAuthScopes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                             oAuthScopes :: (Prelude.Maybe (ValueList Prelude.Text)),
                              tokenUrl :: (Prelude.Maybe (Value Prelude.Text))}
 mkOAuthPropertiesProperty :: OAuthPropertiesProperty
 mkOAuthPropertiesProperty
@@ -37,7 +37,7 @@ instance Property "AuthCodeUrl" OAuthPropertiesProperty where
   set newValue OAuthPropertiesProperty {..}
     = OAuthPropertiesProperty {authCodeUrl = Prelude.pure newValue, ..}
 instance Property "OAuthScopes" OAuthPropertiesProperty where
-  type PropertyType "OAuthScopes" OAuthPropertiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OAuthScopes" OAuthPropertiesProperty = ValueList Prelude.Text
   set newValue OAuthPropertiesProperty {..}
     = OAuthPropertiesProperty {oAuthScopes = Prelude.pure newValue, ..}
 instance Property "TokenUrl" OAuthPropertiesProperty where

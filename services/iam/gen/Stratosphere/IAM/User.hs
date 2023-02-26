@@ -10,9 +10,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data User
-  = User {groups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = User {groups :: (Prelude.Maybe (ValueList Prelude.Text)),
           loginProfile :: (Prelude.Maybe LoginProfileProperty),
-          managedPolicyArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+          managedPolicyArns :: (Prelude.Maybe (ValueList Prelude.Text)),
           path :: (Prelude.Maybe (Value Prelude.Text)),
           permissionsBoundary :: (Prelude.Maybe (Value Prelude.Text)),
           policies :: (Prelude.Maybe [PolicyProperty]),
@@ -53,14 +53,14 @@ instance JSON.ToJSON User where
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "UserName" Prelude.<$> userName]))
 instance Property "Groups" User where
-  type PropertyType "Groups" User = ValueList (Value Prelude.Text)
+  type PropertyType "Groups" User = ValueList Prelude.Text
   set newValue User {..} = User {groups = Prelude.pure newValue, ..}
 instance Property "LoginProfile" User where
   type PropertyType "LoginProfile" User = LoginProfileProperty
   set newValue User {..}
     = User {loginProfile = Prelude.pure newValue, ..}
 instance Property "ManagedPolicyArns" User where
-  type PropertyType "ManagedPolicyArns" User = ValueList (Value Prelude.Text)
+  type PropertyType "ManagedPolicyArns" User = ValueList Prelude.Text
   set newValue User {..}
     = User {managedPolicyArns = Prelude.pure newValue, ..}
 instance Property "Path" User where

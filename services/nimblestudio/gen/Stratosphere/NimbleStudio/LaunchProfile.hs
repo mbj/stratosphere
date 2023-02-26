@@ -9,20 +9,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LaunchProfile
   = LaunchProfile {description :: (Prelude.Maybe (Value Prelude.Text)),
-                   ec2SubnetIds :: (ValueList (Value Prelude.Text)),
-                   launchProfileProtocolVersions :: (ValueList (Value Prelude.Text)),
+                   ec2SubnetIds :: (ValueList Prelude.Text),
+                   launchProfileProtocolVersions :: (ValueList Prelude.Text),
                    name :: (Value Prelude.Text),
                    streamConfiguration :: StreamConfigurationProperty,
-                   studioComponentIds :: (ValueList (Value Prelude.Text)),
+                   studioComponentIds :: (ValueList Prelude.Text),
                    studioId :: (Value Prelude.Text),
                    tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
 mkLaunchProfile ::
-  ValueList (Value Prelude.Text)
-  -> ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
+  -> ValueList Prelude.Text
      -> Value Prelude.Text
         -> StreamConfigurationProperty
-           -> ValueList (Value Prelude.Text)
-              -> Value Prelude.Text -> LaunchProfile
+           -> ValueList Prelude.Text -> Value Prelude.Text -> LaunchProfile
 mkLaunchProfile
   ec2SubnetIds
   launchProfileProtocolVersions
@@ -72,11 +71,11 @@ instance Property "Description" LaunchProfile where
   set newValue LaunchProfile {..}
     = LaunchProfile {description = Prelude.pure newValue, ..}
 instance Property "Ec2SubnetIds" LaunchProfile where
-  type PropertyType "Ec2SubnetIds" LaunchProfile = ValueList (Value Prelude.Text)
+  type PropertyType "Ec2SubnetIds" LaunchProfile = ValueList Prelude.Text
   set newValue LaunchProfile {..}
     = LaunchProfile {ec2SubnetIds = newValue, ..}
 instance Property "LaunchProfileProtocolVersions" LaunchProfile where
-  type PropertyType "LaunchProfileProtocolVersions" LaunchProfile = ValueList (Value Prelude.Text)
+  type PropertyType "LaunchProfileProtocolVersions" LaunchProfile = ValueList Prelude.Text
   set newValue LaunchProfile {..}
     = LaunchProfile {launchProfileProtocolVersions = newValue, ..}
 instance Property "Name" LaunchProfile where
@@ -88,7 +87,7 @@ instance Property "StreamConfiguration" LaunchProfile where
   set newValue LaunchProfile {..}
     = LaunchProfile {streamConfiguration = newValue, ..}
 instance Property "StudioComponentIds" LaunchProfile where
-  type PropertyType "StudioComponentIds" LaunchProfile = ValueList (Value Prelude.Text)
+  type PropertyType "StudioComponentIds" LaunchProfile = ValueList Prelude.Text
   set newValue LaunchProfile {..}
     = LaunchProfile {studioComponentIds = newValue, ..}
 instance Property "StudioId" LaunchProfile where

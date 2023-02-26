@@ -8,12 +8,12 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManagedPolicy
   = ManagedPolicy {description :: (Prelude.Maybe (Value Prelude.Text)),
-                   groups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   groups :: (Prelude.Maybe (ValueList Prelude.Text)),
                    managedPolicyName :: (Prelude.Maybe (Value Prelude.Text)),
                    path :: (Prelude.Maybe (Value Prelude.Text)),
                    policyDocument :: JSON.Object,
-                   roles :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                   users :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                   roles :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   users :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkManagedPolicy :: JSON.Object -> ManagedPolicy
 mkManagedPolicy policyDocument
   = ManagedPolicy
@@ -53,7 +53,7 @@ instance Property "Description" ManagedPolicy where
   set newValue ManagedPolicy {..}
     = ManagedPolicy {description = Prelude.pure newValue, ..}
 instance Property "Groups" ManagedPolicy where
-  type PropertyType "Groups" ManagedPolicy = ValueList (Value Prelude.Text)
+  type PropertyType "Groups" ManagedPolicy = ValueList Prelude.Text
   set newValue ManagedPolicy {..}
     = ManagedPolicy {groups = Prelude.pure newValue, ..}
 instance Property "ManagedPolicyName" ManagedPolicy where
@@ -69,10 +69,10 @@ instance Property "PolicyDocument" ManagedPolicy where
   set newValue ManagedPolicy {..}
     = ManagedPolicy {policyDocument = newValue, ..}
 instance Property "Roles" ManagedPolicy where
-  type PropertyType "Roles" ManagedPolicy = ValueList (Value Prelude.Text)
+  type PropertyType "Roles" ManagedPolicy = ValueList Prelude.Text
   set newValue ManagedPolicy {..}
     = ManagedPolicy {roles = Prelude.pure newValue, ..}
 instance Property "Users" ManagedPolicy where
-  type PropertyType "Users" ManagedPolicy = ValueList (Value Prelude.Text)
+  type PropertyType "Users" ManagedPolicy = ValueList Prelude.Text
   set newValue ManagedPolicy {..}
     = ManagedPolicy {users = Prelude.pure newValue, ..}

@@ -13,18 +13,18 @@ import Stratosphere.Value
 data StreamConfigurationProperty
   = StreamConfigurationProperty {automaticTerminationMode :: (Prelude.Maybe (Value Prelude.Text)),
                                  clipboardMode :: (Value Prelude.Text),
-                                 ec2InstanceTypes :: (ValueList (Value Prelude.Text)),
+                                 ec2InstanceTypes :: (ValueList Prelude.Text),
                                  maxSessionLengthInMinutes :: (Prelude.Maybe (Value Prelude.Double)),
                                  maxStoppedSessionLengthInMinutes :: (Prelude.Maybe (Value Prelude.Double)),
                                  sessionBackup :: (Prelude.Maybe StreamConfigurationSessionBackupProperty),
                                  sessionPersistenceMode :: (Prelude.Maybe (Value Prelude.Text)),
                                  sessionStorage :: (Prelude.Maybe StreamConfigurationSessionStorageProperty),
-                                 streamingImageIds :: (ValueList (Value Prelude.Text)),
+                                 streamingImageIds :: (ValueList Prelude.Text),
                                  volumeConfiguration :: (Prelude.Maybe VolumeConfigurationProperty)}
 mkStreamConfigurationProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
-     -> ValueList (Value Prelude.Text) -> StreamConfigurationProperty
+  -> ValueList Prelude.Text
+     -> ValueList Prelude.Text -> StreamConfigurationProperty
 mkStreamConfigurationProperty
   clipboardMode
   ec2InstanceTypes
@@ -91,7 +91,7 @@ instance Property "ClipboardMode" StreamConfigurationProperty where
   set newValue StreamConfigurationProperty {..}
     = StreamConfigurationProperty {clipboardMode = newValue, ..}
 instance Property "Ec2InstanceTypes" StreamConfigurationProperty where
-  type PropertyType "Ec2InstanceTypes" StreamConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Ec2InstanceTypes" StreamConfigurationProperty = ValueList Prelude.Text
   set newValue StreamConfigurationProperty {..}
     = StreamConfigurationProperty {ec2InstanceTypes = newValue, ..}
 instance Property "MaxSessionLengthInMinutes" StreamConfigurationProperty where
@@ -120,7 +120,7 @@ instance Property "SessionStorage" StreamConfigurationProperty where
     = StreamConfigurationProperty
         {sessionStorage = Prelude.pure newValue, ..}
 instance Property "StreamingImageIds" StreamConfigurationProperty where
-  type PropertyType "StreamingImageIds" StreamConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StreamingImageIds" StreamConfigurationProperty = ValueList Prelude.Text
   set newValue StreamConfigurationProperty {..}
     = StreamConfigurationProperty {streamingImageIds = newValue, ..}
 instance Property "VolumeConfiguration" StreamConfigurationProperty where

@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CsvProperty
   = CsvProperty {delimiter :: (Prelude.Maybe (Value Prelude.Text)),
-                 headerList :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                 headerList :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCsvProperty :: CsvProperty
 mkCsvProperty
   = CsvProperty
@@ -33,6 +33,6 @@ instance Property "Delimiter" CsvProperty where
   set newValue CsvProperty {..}
     = CsvProperty {delimiter = Prelude.pure newValue, ..}
 instance Property "HeaderList" CsvProperty where
-  type PropertyType "HeaderList" CsvProperty = ValueList (Value Prelude.Text)
+  type PropertyType "HeaderList" CsvProperty = ValueList Prelude.Text
   set newValue CsvProperty {..}
     = CsvProperty {headerList = Prelude.pure newValue, ..}

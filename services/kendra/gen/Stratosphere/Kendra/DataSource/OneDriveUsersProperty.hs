@@ -8,7 +8,7 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.S3PathProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OneDriveUsersProperty
-  = OneDriveUsersProperty {oneDriveUserList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = OneDriveUsersProperty {oneDriveUserList :: (Prelude.Maybe (ValueList Prelude.Text)),
                            oneDriveUserS3Path :: (Prelude.Maybe S3PathProperty)}
 mkOneDriveUsersProperty :: OneDriveUsersProperty
 mkOneDriveUsersProperty
@@ -31,7 +31,7 @@ instance JSON.ToJSON OneDriveUsersProperty where
               [(JSON..=) "OneDriveUserList" Prelude.<$> oneDriveUserList,
                (JSON..=) "OneDriveUserS3Path" Prelude.<$> oneDriveUserS3Path]))
 instance Property "OneDriveUserList" OneDriveUsersProperty where
-  type PropertyType "OneDriveUserList" OneDriveUsersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OneDriveUserList" OneDriveUsersProperty = ValueList Prelude.Text
   set newValue OneDriveUsersProperty {..}
     = OneDriveUsersProperty
         {oneDriveUserList = Prelude.pure newValue, ..}

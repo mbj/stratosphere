@@ -9,11 +9,11 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.DurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GrpcRetryPolicyProperty
-  = GrpcRetryPolicyProperty {grpcRetryEvents :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                             httpRetryEvents :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = GrpcRetryPolicyProperty {grpcRetryEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             httpRetryEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
                              maxRetries :: (Value Prelude.Integer),
                              perRetryTimeout :: DurationProperty,
-                             tcpRetryEvents :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                             tcpRetryEvents :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkGrpcRetryPolicyProperty ::
   Value Prelude.Integer
   -> DurationProperty -> GrpcRetryPolicyProperty
@@ -47,12 +47,12 @@ instance JSON.ToJSON GrpcRetryPolicyProperty where
                   (JSON..=) "HttpRetryEvents" Prelude.<$> httpRetryEvents,
                   (JSON..=) "TcpRetryEvents" Prelude.<$> tcpRetryEvents])))
 instance Property "GrpcRetryEvents" GrpcRetryPolicyProperty where
-  type PropertyType "GrpcRetryEvents" GrpcRetryPolicyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "GrpcRetryEvents" GrpcRetryPolicyProperty = ValueList Prelude.Text
   set newValue GrpcRetryPolicyProperty {..}
     = GrpcRetryPolicyProperty
         {grpcRetryEvents = Prelude.pure newValue, ..}
 instance Property "HttpRetryEvents" GrpcRetryPolicyProperty where
-  type PropertyType "HttpRetryEvents" GrpcRetryPolicyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "HttpRetryEvents" GrpcRetryPolicyProperty = ValueList Prelude.Text
   set newValue GrpcRetryPolicyProperty {..}
     = GrpcRetryPolicyProperty
         {httpRetryEvents = Prelude.pure newValue, ..}
@@ -65,7 +65,7 @@ instance Property "PerRetryTimeout" GrpcRetryPolicyProperty where
   set newValue GrpcRetryPolicyProperty {..}
     = GrpcRetryPolicyProperty {perRetryTimeout = newValue, ..}
 instance Property "TcpRetryEvents" GrpcRetryPolicyProperty where
-  type PropertyType "TcpRetryEvents" GrpcRetryPolicyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TcpRetryEvents" GrpcRetryPolicyProperty = ValueList Prelude.Text
   set newValue GrpcRetryPolicyProperty {..}
     = GrpcRetryPolicyProperty
         {tcpRetryEvents = Prelude.pure newValue, ..}

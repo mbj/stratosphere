@@ -14,7 +14,7 @@ data Group
            description :: (Prelude.Maybe (Value Prelude.Text)),
            name :: (Value Prelude.Text),
            resourceQuery :: (Prelude.Maybe ResourceQueryProperty),
-           resources :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           resources :: (Prelude.Maybe (ValueList Prelude.Text)),
            tags :: (Prelude.Maybe [Tag])}
 mkGroup :: Value Prelude.Text -> Group
 mkGroup name
@@ -63,7 +63,7 @@ instance Property "ResourceQuery" Group where
   set newValue Group {..}
     = Group {resourceQuery = Prelude.pure newValue, ..}
 instance Property "Resources" Group where
-  type PropertyType "Resources" Group = ValueList (Value Prelude.Text)
+  type PropertyType "Resources" Group = ValueList Prelude.Text
   set newValue Group {..}
     = Group {resources = Prelude.pure newValue, ..}
 instance Property "Tags" Group where

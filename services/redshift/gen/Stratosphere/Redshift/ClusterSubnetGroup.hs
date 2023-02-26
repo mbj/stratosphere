@@ -9,11 +9,10 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data ClusterSubnetGroup
   = ClusterSubnetGroup {description :: (Value Prelude.Text),
-                        subnetIds :: (ValueList (Value Prelude.Text)),
+                        subnetIds :: (ValueList Prelude.Text),
                         tags :: (Prelude.Maybe [Tag])}
 mkClusterSubnetGroup ::
-  Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> ClusterSubnetGroup
+  Value Prelude.Text -> ValueList Prelude.Text -> ClusterSubnetGroup
 mkClusterSubnetGroup description subnetIds
   = ClusterSubnetGroup
       {description = description, subnetIds = subnetIds,
@@ -38,7 +37,7 @@ instance Property "Description" ClusterSubnetGroup where
   set newValue ClusterSubnetGroup {..}
     = ClusterSubnetGroup {description = newValue, ..}
 instance Property "SubnetIds" ClusterSubnetGroup where
-  type PropertyType "SubnetIds" ClusterSubnetGroup = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" ClusterSubnetGroup = ValueList Prelude.Text
   set newValue ClusterSubnetGroup {..}
     = ClusterSubnetGroup {subnetIds = newValue, ..}
 instance Property "Tags" ClusterSubnetGroup where

@@ -8,12 +8,12 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConfigurationProperty
   = VpcConfigurationProperty {roleARN :: (Value Prelude.Text),
-                              securityGroupIds :: (ValueList (Value Prelude.Text)),
-                              subnetIds :: (ValueList (Value Prelude.Text))}
+                              securityGroupIds :: (ValueList Prelude.Text),
+                              subnetIds :: (ValueList Prelude.Text)}
 mkVpcConfigurationProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
-     -> ValueList (Value Prelude.Text) -> VpcConfigurationProperty
+  -> ValueList Prelude.Text
+     -> ValueList Prelude.Text -> VpcConfigurationProperty
 mkVpcConfigurationProperty roleARN securityGroupIds subnetIds
   = VpcConfigurationProperty
       {roleARN = roleARN, securityGroupIds = securityGroupIds,
@@ -36,10 +36,10 @@ instance Property "RoleARN" VpcConfigurationProperty where
   set newValue VpcConfigurationProperty {..}
     = VpcConfigurationProperty {roleARN = newValue, ..}
 instance Property "SecurityGroupIds" VpcConfigurationProperty where
-  type PropertyType "SecurityGroupIds" VpcConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" VpcConfigurationProperty = ValueList Prelude.Text
   set newValue VpcConfigurationProperty {..}
     = VpcConfigurationProperty {securityGroupIds = newValue, ..}
 instance Property "SubnetIds" VpcConfigurationProperty where
-  type PropertyType "SubnetIds" VpcConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" VpcConfigurationProperty = ValueList Prelude.Text
   set newValue VpcConfigurationProperty {..}
     = VpcConfigurationProperty {subnetIds = newValue, ..}

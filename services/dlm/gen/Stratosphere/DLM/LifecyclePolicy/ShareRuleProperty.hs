@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ShareRuleProperty
-  = ShareRuleProperty {targetAccounts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ShareRuleProperty {targetAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
                        unshareInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                        unshareIntervalUnit :: (Prelude.Maybe (Value Prelude.Text))}
 mkShareRuleProperty :: ShareRuleProperty
@@ -34,7 +34,7 @@ instance JSON.ToJSON ShareRuleProperty where
                (JSON..=) "UnshareInterval" Prelude.<$> unshareInterval,
                (JSON..=) "UnshareIntervalUnit" Prelude.<$> unshareIntervalUnit]))
 instance Property "TargetAccounts" ShareRuleProperty where
-  type PropertyType "TargetAccounts" ShareRuleProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TargetAccounts" ShareRuleProperty = ValueList Prelude.Text
   set newValue ShareRuleProperty {..}
     = ShareRuleProperty {targetAccounts = Prelude.pure newValue, ..}
 instance Property "UnshareInterval" ShareRuleProperty where

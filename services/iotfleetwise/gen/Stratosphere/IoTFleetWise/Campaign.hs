@@ -13,7 +13,7 @@ data Campaign
   = Campaign {action :: (Value Prelude.Text),
               collectionScheme :: CollectionSchemeProperty,
               compression :: (Prelude.Maybe (Value Prelude.Text)),
-              dataExtraDimensions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+              dataExtraDimensions :: (Prelude.Maybe (ValueList Prelude.Text)),
               description :: (Prelude.Maybe (Value Prelude.Text)),
               diagnosticsMode :: (Prelude.Maybe (Value Prelude.Text)),
               expiryTime :: (Prelude.Maybe (Value Prelude.Text)),
@@ -100,7 +100,7 @@ instance Property "Compression" Campaign where
   set newValue Campaign {..}
     = Campaign {compression = Prelude.pure newValue, ..}
 instance Property "DataExtraDimensions" Campaign where
-  type PropertyType "DataExtraDimensions" Campaign = ValueList (Value Prelude.Text)
+  type PropertyType "DataExtraDimensions" Campaign = ValueList Prelude.Text
   set newValue Campaign {..}
     = Campaign {dataExtraDimensions = Prelude.pure newValue, ..}
 instance Property "Description" Campaign where

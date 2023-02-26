@@ -24,8 +24,8 @@ data Cluster
              numShards :: (Prelude.Maybe (Value Prelude.Integer)),
              parameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
              port :: (Prelude.Maybe (Value Prelude.Integer)),
-             securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-             snapshotArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+             snapshotArns :: (Prelude.Maybe (ValueList Prelude.Text)),
              snapshotName :: (Prelude.Maybe (Value Prelude.Text)),
              snapshotRetentionLimit :: (Prelude.Maybe (Value Prelude.Integer)),
              snapshotWindow :: (Prelude.Maybe (Value Prelude.Text)),
@@ -177,11 +177,11 @@ instance Property "Port" Cluster where
   set newValue Cluster {..}
     = Cluster {port = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" Cluster where
-  type PropertyType "SecurityGroupIds" Cluster = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}
     = Cluster {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SnapshotArns" Cluster where
-  type PropertyType "SnapshotArns" Cluster = ValueList (Value Prelude.Text)
+  type PropertyType "SnapshotArns" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}
     = Cluster {snapshotArns = Prelude.pure newValue, ..}
 instance Property "SnapshotName" Cluster where

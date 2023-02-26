@@ -8,9 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlAllowHeadersProperty
-  = AccessControlAllowHeadersProperty {items :: (ValueList (Value Prelude.Text))}
+  = AccessControlAllowHeadersProperty {items :: (ValueList Prelude.Text)}
 mkAccessControlAllowHeadersProperty ::
-  ValueList (Value Prelude.Text) -> AccessControlAllowHeadersProperty
+  ValueList Prelude.Text -> AccessControlAllowHeadersProperty
 mkAccessControlAllowHeadersProperty items
   = AccessControlAllowHeadersProperty {items = items}
 instance ToResourceProperties AccessControlAllowHeadersProperty where
@@ -22,6 +22,6 @@ instance JSON.ToJSON AccessControlAllowHeadersProperty where
   toJSON AccessControlAllowHeadersProperty {..}
     = JSON.object ["Items" JSON..= items]
 instance Property "Items" AccessControlAllowHeadersProperty where
-  type PropertyType "Items" AccessControlAllowHeadersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Items" AccessControlAllowHeadersProperty = ValueList Prelude.Text
   set newValue AccessControlAllowHeadersProperty {}
     = AccessControlAllowHeadersProperty {items = newValue, ..}

@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationConfigProperty
   = NotificationConfigProperty {notificationArn :: (Value Prelude.Text),
-                                notificationEvents :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                notificationEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 notificationType :: (Prelude.Maybe (Value Prelude.Text))}
 mkNotificationConfigProperty ::
   Value Prelude.Text -> NotificationConfigProperty
@@ -41,7 +41,7 @@ instance Property "NotificationArn" NotificationConfigProperty where
   set newValue NotificationConfigProperty {..}
     = NotificationConfigProperty {notificationArn = newValue, ..}
 instance Property "NotificationEvents" NotificationConfigProperty where
-  type PropertyType "NotificationEvents" NotificationConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "NotificationEvents" NotificationConfigProperty = ValueList Prelude.Text
   set newValue NotificationConfigProperty {..}
     = NotificationConfigProperty
         {notificationEvents = Prelude.pure newValue, ..}

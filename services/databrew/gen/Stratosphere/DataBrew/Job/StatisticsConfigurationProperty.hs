@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.StatisticOverrideProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatisticsConfigurationProperty
-  = StatisticsConfigurationProperty {includedStatistics :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = StatisticsConfigurationProperty {includedStatistics :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      overrides :: (Prelude.Maybe [StatisticOverrideProperty])}
 mkStatisticsConfigurationProperty ::
   StatisticsConfigurationProperty
@@ -32,7 +32,7 @@ instance JSON.ToJSON StatisticsConfigurationProperty where
               [(JSON..=) "IncludedStatistics" Prelude.<$> includedStatistics,
                (JSON..=) "Overrides" Prelude.<$> overrides]))
 instance Property "IncludedStatistics" StatisticsConfigurationProperty where
-  type PropertyType "IncludedStatistics" StatisticsConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludedStatistics" StatisticsConfigurationProperty = ValueList Prelude.Text
   set newValue StatisticsConfigurationProperty {..}
     = StatisticsConfigurationProperty
         {includedStatistics = Prelude.pure newValue, ..}

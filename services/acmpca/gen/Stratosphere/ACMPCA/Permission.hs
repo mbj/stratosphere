@@ -7,12 +7,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Permission
-  = Permission {actions :: (ValueList (Value Prelude.Text)),
+  = Permission {actions :: (ValueList Prelude.Text),
                 certificateAuthorityArn :: (Value Prelude.Text),
                 principal :: (Value Prelude.Text),
                 sourceAccount :: (Prelude.Maybe (Value Prelude.Text))}
 mkPermission ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Permission
 mkPermission actions certificateAuthorityArn principal
   = Permission
@@ -41,7 +41,7 @@ instance JSON.ToJSON Permission where
               (Prelude.catMaybes
                  [(JSON..=) "SourceAccount" Prelude.<$> sourceAccount])))
 instance Property "Actions" Permission where
-  type PropertyType "Actions" Permission = ValueList (Value Prelude.Text)
+  type PropertyType "Actions" Permission = ValueList Prelude.Text
   set newValue Permission {..} = Permission {actions = newValue, ..}
 instance Property "CertificateAuthorityArn" Permission where
   type PropertyType "CertificateAuthorityArn" Permission = Value Prelude.Text

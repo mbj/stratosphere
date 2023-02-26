@@ -10,7 +10,7 @@ import Stratosphere.Value
 data FieldProperty
   = FieldProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
                    id :: FieldIdentifierProperty,
-                   singleSelectOptions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   singleSelectOptions :: (Prelude.Maybe (ValueList Prelude.Text)),
                    type' :: (Value Prelude.Text)}
 mkFieldProperty ::
   FieldIdentifierProperty -> Value Prelude.Text -> FieldProperty
@@ -45,7 +45,7 @@ instance Property "Id" FieldProperty where
   type PropertyType "Id" FieldProperty = FieldIdentifierProperty
   set newValue FieldProperty {..} = FieldProperty {id = newValue, ..}
 instance Property "SingleSelectOptions" FieldProperty where
-  type PropertyType "SingleSelectOptions" FieldProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SingleSelectOptions" FieldProperty = ValueList Prelude.Text
   set newValue FieldProperty {..}
     = FieldProperty {singleSelectOptions = Prelude.pure newValue, ..}
 instance Property "Type" FieldProperty where

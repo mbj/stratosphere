@@ -12,7 +12,7 @@ data ConnectionPoolConfigurationInfoFormatProperty
                                                    initQuery :: (Prelude.Maybe (Value Prelude.Text)),
                                                    maxConnectionsPercent :: (Prelude.Maybe (Value Prelude.Integer)),
                                                    maxIdleConnectionsPercent :: (Prelude.Maybe (Value Prelude.Integer)),
-                                                   sessionPinningFilters :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                                   sessionPinningFilters :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkConnectionPoolConfigurationInfoFormatProperty ::
   ConnectionPoolConfigurationInfoFormatProperty
 mkConnectionPoolConfigurationInfoFormatProperty
@@ -73,7 +73,7 @@ instance Property "MaxIdleConnectionsPercent" ConnectionPoolConfigurationInfoFor
     = ConnectionPoolConfigurationInfoFormatProperty
         {maxIdleConnectionsPercent = Prelude.pure newValue, ..}
 instance Property "SessionPinningFilters" ConnectionPoolConfigurationInfoFormatProperty where
-  type PropertyType "SessionPinningFilters" ConnectionPoolConfigurationInfoFormatProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SessionPinningFilters" ConnectionPoolConfigurationInfoFormatProperty = ValueList Prelude.Text
   set newValue ConnectionPoolConfigurationInfoFormatProperty {..}
     = ConnectionPoolConfigurationInfoFormatProperty
         {sessionPinningFilters = Prelude.pure newValue, ..}

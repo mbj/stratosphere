@@ -12,7 +12,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Cluster
-  = Cluster {capacityProviders :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Cluster {capacityProviders :: (Prelude.Maybe (ValueList Prelude.Text)),
              clusterName :: (Prelude.Maybe (Value Prelude.Text)),
              clusterSettings :: (Prelude.Maybe [ClusterSettingsProperty]),
              configuration :: (Prelude.Maybe ClusterConfigurationProperty),
@@ -57,7 +57,7 @@ instance JSON.ToJSON Cluster where
                  Prelude.<$> serviceConnectDefaults,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "CapacityProviders" Cluster where
-  type PropertyType "CapacityProviders" Cluster = ValueList (Value Prelude.Text)
+  type PropertyType "CapacityProviders" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}
     = Cluster {capacityProviders = Prelude.pure newValue, ..}
 instance Property "ClusterName" Cluster where

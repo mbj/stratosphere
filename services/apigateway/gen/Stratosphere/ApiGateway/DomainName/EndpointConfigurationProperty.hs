@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointConfigurationProperty
-  = EndpointConfigurationProperty {types :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = EndpointConfigurationProperty {types :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkEndpointConfigurationProperty :: EndpointConfigurationProperty
 mkEndpointConfigurationProperty
   = EndpointConfigurationProperty {types = Prelude.Nothing}
@@ -23,6 +23,6 @@ instance JSON.ToJSON EndpointConfigurationProperty where
         (Prelude.fromList
            (Prelude.catMaybes [(JSON..=) "Types" Prelude.<$> types]))
 instance Property "Types" EndpointConfigurationProperty where
-  type PropertyType "Types" EndpointConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Types" EndpointConfigurationProperty = ValueList Prelude.Text
   set newValue EndpointConfigurationProperty {}
     = EndpointConfigurationProperty {types = Prelude.pure newValue, ..}

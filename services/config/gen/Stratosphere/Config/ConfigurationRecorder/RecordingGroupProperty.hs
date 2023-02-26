@@ -9,7 +9,7 @@ import Stratosphere.Value
 data RecordingGroupProperty
   = RecordingGroupProperty {allSupported :: (Prelude.Maybe (Value Prelude.Bool)),
                             includeGlobalResourceTypes :: (Prelude.Maybe (Value Prelude.Bool)),
-                            resourceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                            resourceTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkRecordingGroupProperty :: RecordingGroupProperty
 mkRecordingGroupProperty
   = RecordingGroupProperty
@@ -45,7 +45,7 @@ instance Property "IncludeGlobalResourceTypes" RecordingGroupProperty where
     = RecordingGroupProperty
         {includeGlobalResourceTypes = Prelude.pure newValue, ..}
 instance Property "ResourceTypes" RecordingGroupProperty where
-  type PropertyType "ResourceTypes" RecordingGroupProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceTypes" RecordingGroupProperty = ValueList Prelude.Text
   set newValue RecordingGroupProperty {..}
     = RecordingGroupProperty
         {resourceTypes = Prelude.pure newValue, ..}

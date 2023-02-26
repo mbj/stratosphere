@@ -8,8 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SelfManagedKafkaAccessConfigurationVpcProperty
-  = SelfManagedKafkaAccessConfigurationVpcProperty {securityGroup :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                                    subnets :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = SelfManagedKafkaAccessConfigurationVpcProperty {securityGroup :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                    subnets :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkSelfManagedKafkaAccessConfigurationVpcProperty ::
   SelfManagedKafkaAccessConfigurationVpcProperty
 mkSelfManagedKafkaAccessConfigurationVpcProperty
@@ -32,12 +32,12 @@ instance JSON.ToJSON SelfManagedKafkaAccessConfigurationVpcProperty where
               [(JSON..=) "SecurityGroup" Prelude.<$> securityGroup,
                (JSON..=) "Subnets" Prelude.<$> subnets]))
 instance Property "SecurityGroup" SelfManagedKafkaAccessConfigurationVpcProperty where
-  type PropertyType "SecurityGroup" SelfManagedKafkaAccessConfigurationVpcProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroup" SelfManagedKafkaAccessConfigurationVpcProperty = ValueList Prelude.Text
   set newValue SelfManagedKafkaAccessConfigurationVpcProperty {..}
     = SelfManagedKafkaAccessConfigurationVpcProperty
         {securityGroup = Prelude.pure newValue, ..}
 instance Property "Subnets" SelfManagedKafkaAccessConfigurationVpcProperty where
-  type PropertyType "Subnets" SelfManagedKafkaAccessConfigurationVpcProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Subnets" SelfManagedKafkaAccessConfigurationVpcProperty = ValueList Prelude.Text
   set newValue SelfManagedKafkaAccessConfigurationVpcProperty {..}
     = SelfManagedKafkaAccessConfigurationVpcProperty
         {subnets = Prelude.pure newValue, ..}

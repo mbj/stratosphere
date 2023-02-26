@@ -19,14 +19,14 @@ data Domain
             domainName :: (Value Prelude.Text),
             domainSettings :: (Prelude.Maybe DomainSettingsProperty),
             kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
-            subnetIds :: (ValueList (Value Prelude.Text)),
+            subnetIds :: (ValueList Prelude.Text),
             tags :: (Prelude.Maybe [Tag]),
             vpcId :: (Value Prelude.Text)}
 mkDomain ::
   Value Prelude.Text
   -> UserSettingsProperty
      -> Value Prelude.Text
-        -> ValueList (Value Prelude.Text) -> Value Prelude.Text -> Domain
+        -> ValueList Prelude.Text -> Value Prelude.Text -> Domain
 mkDomain authMode defaultUserSettings domainName subnetIds vpcId
   = Domain
       {authMode = authMode, defaultUserSettings = defaultUserSettings,
@@ -102,7 +102,7 @@ instance Property "KmsKeyId" Domain where
   set newValue Domain {..}
     = Domain {kmsKeyId = Prelude.pure newValue, ..}
 instance Property "SubnetIds" Domain where
-  type PropertyType "SubnetIds" Domain = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" Domain = ValueList Prelude.Text
   set newValue Domain {..} = Domain {subnetIds = newValue, ..}
 instance Property "Tags" Domain where
   type PropertyType "Tags" Domain = [Tag]

@@ -8,11 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Link
   = Link {labelTemplate :: (Prelude.Maybe (Value Prelude.Text)),
-          resourceTypes :: (ValueList (Value Prelude.Text)),
+          resourceTypes :: (ValueList Prelude.Text),
           sinkIdentifier :: (Value Prelude.Text),
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
-mkLink ::
-  ValueList (Value Prelude.Text) -> Value Prelude.Text -> Link
+mkLink :: ValueList Prelude.Text -> Value Prelude.Text -> Link
 mkLink resourceTypes sinkIdentifier
   = Link
       {resourceTypes = resourceTypes, sinkIdentifier = sinkIdentifier,
@@ -43,7 +42,7 @@ instance Property "LabelTemplate" Link where
   set newValue Link {..}
     = Link {labelTemplate = Prelude.pure newValue, ..}
 instance Property "ResourceTypes" Link where
-  type PropertyType "ResourceTypes" Link = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceTypes" Link = ValueList Prelude.Text
   set newValue Link {..} = Link {resourceTypes = newValue, ..}
 instance Property "SinkIdentifier" Link where
   type PropertyType "SinkIdentifier" Link = Value Prelude.Text

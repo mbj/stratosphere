@@ -16,11 +16,11 @@ data Instance
               availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
               blockDeviceMappings :: (Prelude.Maybe [BlockDeviceMappingProperty]),
               ebsOptimized :: (Prelude.Maybe (Value Prelude.Bool)),
-              elasticIps :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+              elasticIps :: (Prelude.Maybe (ValueList Prelude.Text)),
               hostname :: (Prelude.Maybe (Value Prelude.Text)),
               installUpdatesOnBoot :: (Prelude.Maybe (Value Prelude.Bool)),
               instanceType :: (Value Prelude.Text),
-              layerIds :: (ValueList (Value Prelude.Text)),
+              layerIds :: (ValueList Prelude.Text),
               os :: (Prelude.Maybe (Value Prelude.Text)),
               rootDeviceType :: (Prelude.Maybe (Value Prelude.Text)),
               sshKeyName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -29,10 +29,10 @@ data Instance
               tenancy :: (Prelude.Maybe (Value Prelude.Text)),
               timeBasedAutoScaling :: (Prelude.Maybe TimeBasedAutoScalingProperty),
               virtualizationType :: (Prelude.Maybe (Value Prelude.Text)),
-              volumes :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+              volumes :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkInstance ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> Value Prelude.Text -> Instance
+  -> ValueList Prelude.Text -> Value Prelude.Text -> Instance
 mkInstance instanceType layerIds stackId
   = Instance
       {instanceType = instanceType, layerIds = layerIds,
@@ -129,7 +129,7 @@ instance Property "EbsOptimized" Instance where
   set newValue Instance {..}
     = Instance {ebsOptimized = Prelude.pure newValue, ..}
 instance Property "ElasticIps" Instance where
-  type PropertyType "ElasticIps" Instance = ValueList (Value Prelude.Text)
+  type PropertyType "ElasticIps" Instance = ValueList Prelude.Text
   set newValue Instance {..}
     = Instance {elasticIps = Prelude.pure newValue, ..}
 instance Property "Hostname" Instance where
@@ -144,7 +144,7 @@ instance Property "InstanceType" Instance where
   type PropertyType "InstanceType" Instance = Value Prelude.Text
   set newValue Instance {..} = Instance {instanceType = newValue, ..}
 instance Property "LayerIds" Instance where
-  type PropertyType "LayerIds" Instance = ValueList (Value Prelude.Text)
+  type PropertyType "LayerIds" Instance = ValueList Prelude.Text
   set newValue Instance {..} = Instance {layerIds = newValue, ..}
 instance Property "Os" Instance where
   type PropertyType "Os" Instance = Value Prelude.Text
@@ -178,6 +178,6 @@ instance Property "VirtualizationType" Instance where
   set newValue Instance {..}
     = Instance {virtualizationType = Prelude.pure newValue, ..}
 instance Property "Volumes" Instance where
-  type PropertyType "Volumes" Instance = ValueList (Value Prelude.Text)
+  type PropertyType "Volumes" Instance = ValueList Prelude.Text
   set newValue Instance {..}
     = Instance {volumes = Prelude.pure newValue, ..}

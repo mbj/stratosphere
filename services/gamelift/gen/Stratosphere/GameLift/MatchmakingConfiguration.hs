@@ -19,7 +19,7 @@ data MatchmakingConfiguration
                               flexMatchMode :: (Prelude.Maybe (Value Prelude.Text)),
                               gameProperties :: (Prelude.Maybe [GamePropertyProperty]),
                               gameSessionData :: (Prelude.Maybe (Value Prelude.Text)),
-                              gameSessionQueueArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                              gameSessionQueueArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                               name :: (Value Prelude.Text),
                               notificationTarget :: (Prelude.Maybe (Value Prelude.Text)),
                               requestTimeoutSeconds :: (Value Prelude.Integer),
@@ -139,7 +139,7 @@ instance Property "GameSessionData" MatchmakingConfiguration where
     = MatchmakingConfiguration
         {gameSessionData = Prelude.pure newValue, ..}
 instance Property "GameSessionQueueArns" MatchmakingConfiguration where
-  type PropertyType "GameSessionQueueArns" MatchmakingConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "GameSessionQueueArns" MatchmakingConfiguration = ValueList Prelude.Text
   set newValue MatchmakingConfiguration {..}
     = MatchmakingConfiguration
         {gameSessionQueueArns = Prelude.pure newValue, ..}

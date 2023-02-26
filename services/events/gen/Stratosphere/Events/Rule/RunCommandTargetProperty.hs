@@ -8,10 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RunCommandTargetProperty
   = RunCommandTargetProperty {key :: (Value Prelude.Text),
-                              values :: (ValueList (Value Prelude.Text))}
+                              values :: (ValueList Prelude.Text)}
 mkRunCommandTargetProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> RunCommandTargetProperty
+  -> ValueList Prelude.Text -> RunCommandTargetProperty
 mkRunCommandTargetProperty key values
   = RunCommandTargetProperty {key = key, values = values}
 instance ToResourceProperties RunCommandTargetProperty where
@@ -27,6 +27,6 @@ instance Property "Key" RunCommandTargetProperty where
   set newValue RunCommandTargetProperty {..}
     = RunCommandTargetProperty {key = newValue, ..}
 instance Property "Values" RunCommandTargetProperty where
-  type PropertyType "Values" RunCommandTargetProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" RunCommandTargetProperty = ValueList Prelude.Text
   set newValue RunCommandTargetProperty {..}
     = RunCommandTargetProperty {values = newValue, ..}

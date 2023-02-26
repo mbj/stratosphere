@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PhysicalConnectionRequirementsProperty
   = PhysicalConnectionRequirementsProperty {availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
-                                            securityGroupIdList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                            securityGroupIdList :: (Prelude.Maybe (ValueList Prelude.Text)),
                                             subnetId :: (Prelude.Maybe (Value Prelude.Text))}
 mkPhysicalConnectionRequirementsProperty ::
   PhysicalConnectionRequirementsProperty
@@ -40,7 +40,7 @@ instance Property "AvailabilityZone" PhysicalConnectionRequirementsProperty wher
     = PhysicalConnectionRequirementsProperty
         {availabilityZone = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIdList" PhysicalConnectionRequirementsProperty where
-  type PropertyType "SecurityGroupIdList" PhysicalConnectionRequirementsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIdList" PhysicalConnectionRequirementsProperty = ValueList Prelude.Text
   set newValue PhysicalConnectionRequirementsProperty {..}
     = PhysicalConnectionRequirementsProperty
         {securityGroupIdList = Prelude.pure newValue, ..}

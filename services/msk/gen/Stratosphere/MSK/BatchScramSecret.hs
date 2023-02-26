@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchScramSecret
   = BatchScramSecret {clusterArn :: (Value Prelude.Text),
-                      secretArnList :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                      secretArnList :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkBatchScramSecret :: Value Prelude.Text -> BatchScramSecret
 mkBatchScramSecret clusterArn
   = BatchScramSecret
@@ -35,6 +35,6 @@ instance Property "ClusterArn" BatchScramSecret where
   set newValue BatchScramSecret {..}
     = BatchScramSecret {clusterArn = newValue, ..}
 instance Property "SecretArnList" BatchScramSecret where
-  type PropertyType "SecretArnList" BatchScramSecret = ValueList (Value Prelude.Text)
+  type PropertyType "SecretArnList" BatchScramSecret = ValueList Prelude.Text
   set newValue BatchScramSecret {..}
     = BatchScramSecret {secretArnList = Prelude.pure newValue, ..}

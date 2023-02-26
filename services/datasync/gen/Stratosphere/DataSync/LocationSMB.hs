@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LocationSMB
-  = LocationSMB {agentArns :: (ValueList (Value Prelude.Text)),
+  = LocationSMB {agentArns :: (ValueList Prelude.Text),
                  domain :: (Prelude.Maybe (Value Prelude.Text)),
                  mountOptions :: (Prelude.Maybe MountOptionsProperty),
                  password :: (Prelude.Maybe (Value Prelude.Text)),
@@ -18,7 +18,7 @@ data LocationSMB
                  tags :: (Prelude.Maybe [Tag]),
                  user :: (Value Prelude.Text)}
 mkLocationSMB ::
-  ValueList (Value Prelude.Text) -> Value Prelude.Text -> LocationSMB
+  ValueList Prelude.Text -> Value Prelude.Text -> LocationSMB
 mkLocationSMB agentArns user
   = LocationSMB
       {agentArns = agentArns, user = user, domain = Prelude.Nothing,
@@ -53,7 +53,7 @@ instance JSON.ToJSON LocationSMB where
                   (JSON..=) "Subdirectory" Prelude.<$> subdirectory,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AgentArns" LocationSMB where
-  type PropertyType "AgentArns" LocationSMB = ValueList (Value Prelude.Text)
+  type PropertyType "AgentArns" LocationSMB = ValueList Prelude.Text
   set newValue LocationSMB {..}
     = LocationSMB {agentArns = newValue, ..}
 instance Property "Domain" LocationSMB where

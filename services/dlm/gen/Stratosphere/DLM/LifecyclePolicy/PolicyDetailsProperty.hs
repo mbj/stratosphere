@@ -16,8 +16,8 @@ data PolicyDetailsProperty
                            eventSource :: (Prelude.Maybe EventSourceProperty),
                            parameters :: (Prelude.Maybe ParametersProperty),
                            policyType :: (Prelude.Maybe (Value Prelude.Text)),
-                           resourceLocations :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                           resourceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                           resourceLocations :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           resourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                            schedules :: (Prelude.Maybe [ScheduleProperty]),
                            targetTags :: (Prelude.Maybe [Tag])}
 mkPolicyDetailsProperty :: PolicyDetailsProperty
@@ -72,12 +72,12 @@ instance Property "PolicyType" PolicyDetailsProperty where
   set newValue PolicyDetailsProperty {..}
     = PolicyDetailsProperty {policyType = Prelude.pure newValue, ..}
 instance Property "ResourceLocations" PolicyDetailsProperty where
-  type PropertyType "ResourceLocations" PolicyDetailsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceLocations" PolicyDetailsProperty = ValueList Prelude.Text
   set newValue PolicyDetailsProperty {..}
     = PolicyDetailsProperty
         {resourceLocations = Prelude.pure newValue, ..}
 instance Property "ResourceTypes" PolicyDetailsProperty where
-  type PropertyType "ResourceTypes" PolicyDetailsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceTypes" PolicyDetailsProperty = ValueList Prelude.Text
   set newValue PolicyDetailsProperty {..}
     = PolicyDetailsProperty {resourceTypes = Prelude.pure newValue, ..}
 instance Property "Schedules" PolicyDetailsProperty where

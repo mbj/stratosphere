@@ -11,7 +11,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data RestApi
   = RestApi {apiKeySourceType :: (Prelude.Maybe (Value Prelude.Text)),
-             binaryMediaTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+             binaryMediaTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
              body :: (Prelude.Maybe JSON.Object),
              bodyS3Location :: (Prelude.Maybe S3LocationProperty),
              cloneFrom :: (Prelude.Maybe (Value Prelude.Text)),
@@ -90,7 +90,7 @@ instance Property "ApiKeySourceType" RestApi where
   set newValue RestApi {..}
     = RestApi {apiKeySourceType = Prelude.pure newValue, ..}
 instance Property "BinaryMediaTypes" RestApi where
-  type PropertyType "BinaryMediaTypes" RestApi = ValueList (Value Prelude.Text)
+  type PropertyType "BinaryMediaTypes" RestApi = ValueList Prelude.Text
   set newValue RestApi {..}
     = RestApi {binaryMediaTypes = Prelude.pure newValue, ..}
 instance Property "Body" RestApi where

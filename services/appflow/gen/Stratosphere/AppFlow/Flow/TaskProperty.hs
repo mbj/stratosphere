@@ -11,12 +11,11 @@ import Stratosphere.Value
 data TaskProperty
   = TaskProperty {connectorOperator :: (Prelude.Maybe ConnectorOperatorProperty),
                   destinationField :: (Prelude.Maybe (Value Prelude.Text)),
-                  sourceFields :: (ValueList (Value Prelude.Text)),
+                  sourceFields :: (ValueList Prelude.Text),
                   taskProperties :: (Prelude.Maybe [TaskPropertiesObjectProperty]),
                   taskType :: (Value Prelude.Text)}
 mkTaskProperty ::
-  ValueList (Value Prelude.Text)
-  -> Value Prelude.Text -> TaskProperty
+  ValueList Prelude.Text -> Value Prelude.Text -> TaskProperty
 mkTaskProperty sourceFields taskType
   = TaskProperty
       {sourceFields = sourceFields, taskType = taskType,
@@ -53,7 +52,7 @@ instance Property "DestinationField" TaskProperty where
   set newValue TaskProperty {..}
     = TaskProperty {destinationField = Prelude.pure newValue, ..}
 instance Property "SourceFields" TaskProperty where
-  type PropertyType "SourceFields" TaskProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SourceFields" TaskProperty = ValueList Prelude.Text
   set newValue TaskProperty {..}
     = TaskProperty {sourceFields = newValue, ..}
 instance Property "TaskProperties" TaskProperty where

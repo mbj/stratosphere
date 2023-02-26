@@ -8,10 +8,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetProperty
   = TargetProperty {key :: (Value Prelude.Text),
-                    values :: (ValueList (Value Prelude.Text))}
+                    values :: (ValueList Prelude.Text)}
 mkTargetProperty ::
-  Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> TargetProperty
+  Value Prelude.Text -> ValueList Prelude.Text -> TargetProperty
 mkTargetProperty key values
   = TargetProperty {key = key, values = values}
 instance ToResourceProperties TargetProperty where
@@ -27,6 +26,6 @@ instance Property "Key" TargetProperty where
   set newValue TargetProperty {..}
     = TargetProperty {key = newValue, ..}
 instance Property "Values" TargetProperty where
-  type PropertyType "Values" TargetProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" TargetProperty = ValueList Prelude.Text
   set newValue TargetProperty {..}
     = TargetProperty {values = newValue, ..}

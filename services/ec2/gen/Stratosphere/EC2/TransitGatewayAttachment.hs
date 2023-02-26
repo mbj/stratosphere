@@ -11,12 +11,12 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data TransitGatewayAttachment
   = TransitGatewayAttachment {options :: (Prelude.Maybe OptionsProperty),
-                              subnetIds :: (ValueList (Value Prelude.Text)),
+                              subnetIds :: (ValueList Prelude.Text),
                               tags :: (Prelude.Maybe [Tag]),
                               transitGatewayId :: (Value Prelude.Text),
                               vpcId :: (Value Prelude.Text)}
 mkTransitGatewayAttachment ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text -> TransitGatewayAttachment
 mkTransitGatewayAttachment subnetIds transitGatewayId vpcId
@@ -49,7 +49,7 @@ instance Property "Options" TransitGatewayAttachment where
   set newValue TransitGatewayAttachment {..}
     = TransitGatewayAttachment {options = Prelude.pure newValue, ..}
 instance Property "SubnetIds" TransitGatewayAttachment where
-  type PropertyType "SubnetIds" TransitGatewayAttachment = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" TransitGatewayAttachment = ValueList Prelude.Text
   set newValue TransitGatewayAttachment {..}
     = TransitGatewayAttachment {subnetIds = newValue, ..}
 instance Property "Tags" TransitGatewayAttachment where

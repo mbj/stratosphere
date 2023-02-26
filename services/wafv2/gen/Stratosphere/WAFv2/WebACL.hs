@@ -23,7 +23,7 @@ data WebACL
             rules :: (Prelude.Maybe [RuleProperty]),
             scope :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag]),
-            tokenDomains :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            tokenDomains :: (Prelude.Maybe (ValueList Prelude.Text)),
             visibilityConfig :: VisibilityConfigProperty}
 mkWebACL ::
   DefaultActionProperty
@@ -105,7 +105,7 @@ instance Property "Tags" WebACL where
   set newValue WebACL {..}
     = WebACL {tags = Prelude.pure newValue, ..}
 instance Property "TokenDomains" WebACL where
-  type PropertyType "TokenDomains" WebACL = ValueList (Value Prelude.Text)
+  type PropertyType "TokenDomains" WebACL = ValueList Prelude.Text
   set newValue WebACL {..}
     = WebACL {tokenDomains = Prelude.pure newValue, ..}
 instance Property "VisibilityConfig" WebACL where

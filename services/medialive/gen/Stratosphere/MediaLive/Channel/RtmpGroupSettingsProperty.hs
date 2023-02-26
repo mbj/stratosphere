@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RtmpGroupSettingsProperty
-  = RtmpGroupSettingsProperty {adMarkers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = RtmpGroupSettingsProperty {adMarkers :: (Prelude.Maybe (ValueList Prelude.Text)),
                                authenticationScheme :: (Prelude.Maybe (Value Prelude.Text)),
                                cacheFullBehavior :: (Prelude.Maybe (Value Prelude.Text)),
                                cacheLength :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -48,7 +48,7 @@ instance JSON.ToJSON RtmpGroupSettingsProperty where
                (JSON..=) "InputLossAction" Prelude.<$> inputLossAction,
                (JSON..=) "RestartDelay" Prelude.<$> restartDelay]))
 instance Property "AdMarkers" RtmpGroupSettingsProperty where
-  type PropertyType "AdMarkers" RtmpGroupSettingsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AdMarkers" RtmpGroupSettingsProperty = ValueList Prelude.Text
   set newValue RtmpGroupSettingsProperty {..}
     = RtmpGroupSettingsProperty {adMarkers = Prelude.pure newValue, ..}
 instance Property "AuthenticationScheme" RtmpGroupSettingsProperty where

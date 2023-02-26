@@ -14,20 +14,19 @@ data SharePointConfigurationProperty
   = SharePointConfigurationProperty {crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
                                      disableLocalGroups :: (Prelude.Maybe (Value Prelude.Bool)),
                                      documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
-                                     exclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                     exclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
-                                     inclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                     inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      secretArn :: (Value Prelude.Text),
                                      sharePointVersion :: (Value Prelude.Text),
                                      sslCertificateS3Path :: (Prelude.Maybe S3PathProperty),
-                                     urls :: (ValueList (Value Prelude.Text)),
+                                     urls :: (ValueList Prelude.Text),
                                      useChangeLog :: (Prelude.Maybe (Value Prelude.Bool)),
                                      vpcConfiguration :: (Prelude.Maybe DataSourceVpcConfigurationProperty)}
 mkSharePointConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text
-     -> ValueList (Value Prelude.Text)
-        -> SharePointConfigurationProperty
+     -> ValueList Prelude.Text -> SharePointConfigurationProperty
 mkSharePointConfigurationProperty secretArn sharePointVersion urls
   = SharePointConfigurationProperty
       {secretArn = secretArn, sharePointVersion = sharePointVersion,
@@ -92,7 +91,7 @@ instance Property "DocumentTitleFieldName" SharePointConfigurationProperty where
     = SharePointConfigurationProperty
         {documentTitleFieldName = Prelude.pure newValue, ..}
 instance Property "ExclusionPatterns" SharePointConfigurationProperty where
-  type PropertyType "ExclusionPatterns" SharePointConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExclusionPatterns" SharePointConfigurationProperty = ValueList Prelude.Text
   set newValue SharePointConfigurationProperty {..}
     = SharePointConfigurationProperty
         {exclusionPatterns = Prelude.pure newValue, ..}
@@ -102,7 +101,7 @@ instance Property "FieldMappings" SharePointConfigurationProperty where
     = SharePointConfigurationProperty
         {fieldMappings = Prelude.pure newValue, ..}
 instance Property "InclusionPatterns" SharePointConfigurationProperty where
-  type PropertyType "InclusionPatterns" SharePointConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InclusionPatterns" SharePointConfigurationProperty = ValueList Prelude.Text
   set newValue SharePointConfigurationProperty {..}
     = SharePointConfigurationProperty
         {inclusionPatterns = Prelude.pure newValue, ..}
@@ -121,7 +120,7 @@ instance Property "SslCertificateS3Path" SharePointConfigurationProperty where
     = SharePointConfigurationProperty
         {sslCertificateS3Path = Prelude.pure newValue, ..}
 instance Property "Urls" SharePointConfigurationProperty where
-  type PropertyType "Urls" SharePointConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Urls" SharePointConfigurationProperty = ValueList Prelude.Text
   set newValue SharePointConfigurationProperty {..}
     = SharePointConfigurationProperty {urls = newValue, ..}
 instance Property "UseChangeLog" SharePointConfigurationProperty where

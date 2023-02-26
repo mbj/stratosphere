@@ -16,9 +16,9 @@ data Cluster
              preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
              shardCapacity :: (Value Prelude.Integer),
              shardCount :: (Value Prelude.Integer),
-             subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+             subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              tags :: (Prelude.Maybe [Tag]),
-             vpcSecurityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+             vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCluster ::
   Value Prelude.Text
   -> Value Prelude.Text
@@ -101,7 +101,7 @@ instance Property "ShardCount" Cluster where
   type PropertyType "ShardCount" Cluster = Value Prelude.Integer
   set newValue Cluster {..} = Cluster {shardCount = newValue, ..}
 instance Property "SubnetIds" Cluster where
-  type PropertyType "SubnetIds" Cluster = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}
     = Cluster {subnetIds = Prelude.pure newValue, ..}
 instance Property "Tags" Cluster where
@@ -109,6 +109,6 @@ instance Property "Tags" Cluster where
   set newValue Cluster {..}
     = Cluster {tags = Prelude.pure newValue, ..}
 instance Property "VpcSecurityGroupIds" Cluster where
-  type PropertyType "VpcSecurityGroupIds" Cluster = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSecurityGroupIds" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}
     = Cluster {vpcSecurityGroupIds = Prelude.pure newValue, ..}

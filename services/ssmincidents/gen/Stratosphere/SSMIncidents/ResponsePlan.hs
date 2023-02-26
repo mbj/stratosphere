@@ -15,7 +15,7 @@ data ResponsePlan
   = ResponsePlan {actions :: (Prelude.Maybe [ActionProperty]),
                   chatChannel :: (Prelude.Maybe ChatChannelProperty),
                   displayName :: (Prelude.Maybe (Value Prelude.Text)),
-                  engagements :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  engagements :: (Prelude.Maybe (ValueList Prelude.Text)),
                   incidentTemplate :: IncidentTemplateProperty,
                   integrations :: (Prelude.Maybe [IntegrationProperty]),
                   name :: (Value Prelude.Text),
@@ -68,7 +68,7 @@ instance Property "DisplayName" ResponsePlan where
   set newValue ResponsePlan {..}
     = ResponsePlan {displayName = Prelude.pure newValue, ..}
 instance Property "Engagements" ResponsePlan where
-  type PropertyType "Engagements" ResponsePlan = ValueList (Value Prelude.Text)
+  type PropertyType "Engagements" ResponsePlan = ValueList Prelude.Text
   set newValue ResponsePlan {..}
     = ResponsePlan {engagements = Prelude.pure newValue, ..}
 instance Property "IncidentTemplate" ResponsePlan where

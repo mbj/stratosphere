@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PropertyGroupProperty
   = PropertyGroupProperty {groupType :: (Prelude.Maybe (Value Prelude.Text)),
-                           propertyNames :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                           propertyNames :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkPropertyGroupProperty :: PropertyGroupProperty
 mkPropertyGroupProperty
   = PropertyGroupProperty
@@ -33,6 +33,6 @@ instance Property "GroupType" PropertyGroupProperty where
   set newValue PropertyGroupProperty {..}
     = PropertyGroupProperty {groupType = Prelude.pure newValue, ..}
 instance Property "PropertyNames" PropertyGroupProperty where
-  type PropertyType "PropertyNames" PropertyGroupProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PropertyNames" PropertyGroupProperty = ValueList Prelude.Text
   set newValue PropertyGroupProperty {..}
     = PropertyGroupProperty {propertyNames = Prelude.pure newValue, ..}

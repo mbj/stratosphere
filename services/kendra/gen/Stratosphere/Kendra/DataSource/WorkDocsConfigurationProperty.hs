@@ -10,9 +10,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WorkDocsConfigurationProperty
   = WorkDocsConfigurationProperty {crawlComments :: (Prelude.Maybe (Value Prelude.Bool)),
-                                   exclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                   exclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
-                                   inclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                   inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    organizationId :: (Value Prelude.Text),
                                    useChangeLog :: (Prelude.Maybe (Value Prelude.Bool))}
 mkWorkDocsConfigurationProperty ::
@@ -55,7 +55,7 @@ instance Property "CrawlComments" WorkDocsConfigurationProperty where
     = WorkDocsConfigurationProperty
         {crawlComments = Prelude.pure newValue, ..}
 instance Property "ExclusionPatterns" WorkDocsConfigurationProperty where
-  type PropertyType "ExclusionPatterns" WorkDocsConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExclusionPatterns" WorkDocsConfigurationProperty = ValueList Prelude.Text
   set newValue WorkDocsConfigurationProperty {..}
     = WorkDocsConfigurationProperty
         {exclusionPatterns = Prelude.pure newValue, ..}
@@ -65,7 +65,7 @@ instance Property "FieldMappings" WorkDocsConfigurationProperty where
     = WorkDocsConfigurationProperty
         {fieldMappings = Prelude.pure newValue, ..}
 instance Property "InclusionPatterns" WorkDocsConfigurationProperty where
-  type PropertyType "InclusionPatterns" WorkDocsConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InclusionPatterns" WorkDocsConfigurationProperty = ValueList Prelude.Text
   set newValue WorkDocsConfigurationProperty {..}
     = WorkDocsConfigurationProperty
         {inclusionPatterns = Prelude.pure newValue, ..}

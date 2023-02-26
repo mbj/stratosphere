@@ -10,7 +10,7 @@ import Stratosphere.Value
 data NodeGroupConfigurationProperty
   = NodeGroupConfigurationProperty {nodeGroupId :: (Prelude.Maybe (Value Prelude.Text)),
                                     primaryAvailabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
-                                    replicaAvailabilityZones :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                    replicaAvailabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
                                     replicaCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                     slots :: (Prelude.Maybe (Value Prelude.Text))}
 mkNodeGroupConfigurationProperty :: NodeGroupConfigurationProperty
@@ -56,7 +56,7 @@ instance Property "PrimaryAvailabilityZone" NodeGroupConfigurationProperty where
     = NodeGroupConfigurationProperty
         {primaryAvailabilityZone = Prelude.pure newValue, ..}
 instance Property "ReplicaAvailabilityZones" NodeGroupConfigurationProperty where
-  type PropertyType "ReplicaAvailabilityZones" NodeGroupConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ReplicaAvailabilityZones" NodeGroupConfigurationProperty = ValueList Prelude.Text
   set newValue NodeGroupConfigurationProperty {..}
     = NodeGroupConfigurationProperty
         {replicaAvailabilityZones = Prelude.pure newValue, ..}

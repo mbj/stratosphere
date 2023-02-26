@@ -8,7 +8,7 @@ import {-# SOURCE #-} Stratosphere.DAX.Cluster.SSESpecificationProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Cluster
-  = Cluster {availabilityZones :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Cluster {availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
              clusterEndpointEncryptionType :: (Prelude.Maybe (Value Prelude.Text)),
              clusterName :: (Prelude.Maybe (Value Prelude.Text)),
              description :: (Prelude.Maybe (Value Prelude.Text)),
@@ -19,7 +19,7 @@ data Cluster
              preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
              replicationFactor :: (Value Prelude.Integer),
              sSESpecification :: (Prelude.Maybe SSESpecificationProperty),
-             securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              subnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe JSON.Object)}
 mkCluster ::
@@ -82,7 +82,7 @@ instance JSON.ToJSON Cluster where
                   (JSON..=) "SubnetGroupName" Prelude.<$> subnetGroupName,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AvailabilityZones" Cluster where
-  type PropertyType "AvailabilityZones" Cluster = ValueList (Value Prelude.Text)
+  type PropertyType "AvailabilityZones" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}
     = Cluster {availabilityZones = Prelude.pure newValue, ..}
 instance Property "ClusterEndpointEncryptionType" Cluster where
@@ -125,7 +125,7 @@ instance Property "SSESpecification" Cluster where
   set newValue Cluster {..}
     = Cluster {sSESpecification = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" Cluster where
-  type PropertyType "SecurityGroupIds" Cluster = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}
     = Cluster {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetGroupName" Cluster where

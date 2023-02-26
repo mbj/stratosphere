@@ -7,11 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RemoveAttributesProperty
-  = RemoveAttributesProperty {attributes :: (ValueList (Value Prelude.Text)),
+  = RemoveAttributesProperty {attributes :: (ValueList Prelude.Text),
                               name :: (Value Prelude.Text),
                               next :: (Prelude.Maybe (Value Prelude.Text))}
 mkRemoveAttributesProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> RemoveAttributesProperty
 mkRemoveAttributesProperty attributes name
   = RemoveAttributesProperty
@@ -32,7 +32,7 @@ instance JSON.ToJSON RemoveAttributesProperty where
               ["Attributes" JSON..= attributes, "Name" JSON..= name]
               (Prelude.catMaybes [(JSON..=) "Next" Prelude.<$> next])))
 instance Property "Attributes" RemoveAttributesProperty where
-  type PropertyType "Attributes" RemoveAttributesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Attributes" RemoveAttributesProperty = ValueList Prelude.Text
   set newValue RemoveAttributesProperty {..}
     = RemoveAttributesProperty {attributes = newValue, ..}
 instance Property "Name" RemoveAttributesProperty where

@@ -10,7 +10,7 @@ import Stratosphere.Value
 data Certificate
   = Certificate {certificateName :: (Value Prelude.Text),
                  domainName :: (Value Prelude.Text),
-                 subjectAlternativeNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 subjectAlternativeNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
 mkCertificate ::
   Value Prelude.Text -> Value Prelude.Text -> Certificate
@@ -50,7 +50,7 @@ instance Property "DomainName" Certificate where
   set newValue Certificate {..}
     = Certificate {domainName = newValue, ..}
 instance Property "SubjectAlternativeNames" Certificate where
-  type PropertyType "SubjectAlternativeNames" Certificate = ValueList (Value Prelude.Text)
+  type PropertyType "SubjectAlternativeNames" Certificate = ValueList Prelude.Text
   set newValue Certificate {..}
     = Certificate {subjectAlternativeNames = Prelude.pure newValue, ..}
 instance Property "Tags" Certificate where

@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JWTConfigurationProperty
-  = JWTConfigurationProperty {audience :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = JWTConfigurationProperty {audience :: (Prelude.Maybe (ValueList Prelude.Text)),
                               issuer :: (Prelude.Maybe (Value Prelude.Text))}
 mkJWTConfigurationProperty :: JWTConfigurationProperty
 mkJWTConfigurationProperty
@@ -29,7 +29,7 @@ instance JSON.ToJSON JWTConfigurationProperty where
               [(JSON..=) "Audience" Prelude.<$> audience,
                (JSON..=) "Issuer" Prelude.<$> issuer]))
 instance Property "Audience" JWTConfigurationProperty where
-  type PropertyType "Audience" JWTConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Audience" JWTConfigurationProperty = ValueList Prelude.Text
   set newValue JWTConfigurationProperty {..}
     = JWTConfigurationProperty {audience = Prelude.pure newValue, ..}
 instance Property "Issuer" JWTConfigurationProperty where

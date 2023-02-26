@@ -20,7 +20,7 @@ data OracleSettingsProperty
                             directPathNoLog :: (Prelude.Maybe (Value Prelude.Bool)),
                             directPathParallelLoad :: (Prelude.Maybe (Value Prelude.Bool)),
                             enableHomogenousTablespace :: (Prelude.Maybe (Value Prelude.Bool)),
-                            extraArchivedLogDestIds :: (Prelude.Maybe (ValueList (Value Prelude.Integer))),
+                            extraArchivedLogDestIds :: (Prelude.Maybe (ValueList Prelude.Integer)),
                             failTasksOnLobTruncation :: (Prelude.Maybe (Value Prelude.Bool)),
                             numberDatatypeScale :: (Prelude.Maybe (Value Prelude.Integer)),
                             oraclePathPrefix :: (Prelude.Maybe (Value Prelude.Text)),
@@ -256,7 +256,7 @@ instance Property "EnableHomogenousTablespace" OracleSettingsProperty where
     = OracleSettingsProperty
         {enableHomogenousTablespace = Prelude.pure newValue, ..}
 instance Property "ExtraArchivedLogDestIds" OracleSettingsProperty where
-  type PropertyType "ExtraArchivedLogDestIds" OracleSettingsProperty = ValueList (Value Prelude.Integer)
+  type PropertyType "ExtraArchivedLogDestIds" OracleSettingsProperty = ValueList Prelude.Integer
   set newValue OracleSettingsProperty {..}
     = OracleSettingsProperty
         {extraArchivedLogDestIds = Prelude.pure newValue, ..}

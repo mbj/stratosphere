@@ -12,7 +12,7 @@ data OrganizationManagedRuleMetadataProperty
                                              inputParameters :: (Prelude.Maybe (Value Prelude.Text)),
                                              maximumExecutionFrequency :: (Prelude.Maybe (Value Prelude.Text)),
                                              resourceIdScope :: (Prelude.Maybe (Value Prelude.Text)),
-                                             resourceTypesScope :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                             resourceTypesScope :: (Prelude.Maybe (ValueList Prelude.Text)),
                                              ruleIdentifier :: (Value Prelude.Text),
                                              tagKeyScope :: (Prelude.Maybe (Value Prelude.Text)),
                                              tagValueScope :: (Prelude.Maybe (Value Prelude.Text))}
@@ -78,7 +78,7 @@ instance Property "ResourceIdScope" OrganizationManagedRuleMetadataProperty wher
     = OrganizationManagedRuleMetadataProperty
         {resourceIdScope = Prelude.pure newValue, ..}
 instance Property "ResourceTypesScope" OrganizationManagedRuleMetadataProperty where
-  type PropertyType "ResourceTypesScope" OrganizationManagedRuleMetadataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceTypesScope" OrganizationManagedRuleMetadataProperty = ValueList Prelude.Text
   set newValue OrganizationManagedRuleMetadataProperty {..}
     = OrganizationManagedRuleMetadataProperty
         {resourceTypesScope = Prelude.pure newValue, ..}

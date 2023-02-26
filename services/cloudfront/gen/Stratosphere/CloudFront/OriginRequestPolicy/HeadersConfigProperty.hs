@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HeadersConfigProperty
   = HeadersConfigProperty {headerBehavior :: (Value Prelude.Text),
-                           headers :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                           headers :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkHeadersConfigProperty ::
   Value Prelude.Text -> HeadersConfigProperty
 mkHeadersConfigProperty headerBehavior
@@ -34,6 +34,6 @@ instance Property "HeaderBehavior" HeadersConfigProperty where
   set newValue HeadersConfigProperty {..}
     = HeadersConfigProperty {headerBehavior = newValue, ..}
 instance Property "Headers" HeadersConfigProperty where
-  type PropertyType "Headers" HeadersConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Headers" HeadersConfigProperty = ValueList Prelude.Text
   set newValue HeadersConfigProperty {..}
     = HeadersConfigProperty {headers = Prelude.pure newValue, ..}

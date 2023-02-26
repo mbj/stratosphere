@@ -16,7 +16,7 @@ data ReplicationGroup
                       automaticFailoverEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                       cacheNodeType :: (Prelude.Maybe (Value Prelude.Text)),
                       cacheParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
-                      cacheSecurityGroupNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      cacheSecurityGroupNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                       cacheSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                       dataTieringEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                       engine :: (Prelude.Maybe (Value Prelude.Text)),
@@ -32,14 +32,14 @@ data ReplicationGroup
                       numCacheClusters :: (Prelude.Maybe (Value Prelude.Integer)),
                       numNodeGroups :: (Prelude.Maybe (Value Prelude.Integer)),
                       port :: (Prelude.Maybe (Value Prelude.Integer)),
-                      preferredCacheClusterAZs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      preferredCacheClusterAZs :: (Prelude.Maybe (ValueList Prelude.Text)),
                       preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
                       primaryClusterId :: (Prelude.Maybe (Value Prelude.Text)),
                       replicasPerNodeGroup :: (Prelude.Maybe (Value Prelude.Integer)),
                       replicationGroupDescription :: (Value Prelude.Text),
                       replicationGroupId :: (Prelude.Maybe (Value Prelude.Text)),
-                      securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                      snapshotArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      snapshotArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                       snapshotName :: (Prelude.Maybe (Value Prelude.Text)),
                       snapshotRetentionLimit :: (Prelude.Maybe (Value Prelude.Integer)),
                       snapshotWindow :: (Prelude.Maybe (Value Prelude.Text)),
@@ -47,7 +47,7 @@ data ReplicationGroup
                       tags :: (Prelude.Maybe [Tag]),
                       transitEncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                       transitEncryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
-                      userGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                      userGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkReplicationGroup :: Value Prelude.Text -> ReplicationGroup
 mkReplicationGroup replicationGroupDescription
   = ReplicationGroup
@@ -229,7 +229,7 @@ instance Property "CacheParameterGroupName" ReplicationGroup where
     = ReplicationGroup
         {cacheParameterGroupName = Prelude.pure newValue, ..}
 instance Property "CacheSecurityGroupNames" ReplicationGroup where
-  type PropertyType "CacheSecurityGroupNames" ReplicationGroup = ValueList (Value Prelude.Text)
+  type PropertyType "CacheSecurityGroupNames" ReplicationGroup = ValueList Prelude.Text
   set newValue ReplicationGroup {..}
     = ReplicationGroup
         {cacheSecurityGroupNames = Prelude.pure newValue, ..}
@@ -299,7 +299,7 @@ instance Property "Port" ReplicationGroup where
   set newValue ReplicationGroup {..}
     = ReplicationGroup {port = Prelude.pure newValue, ..}
 instance Property "PreferredCacheClusterAZs" ReplicationGroup where
-  type PropertyType "PreferredCacheClusterAZs" ReplicationGroup = ValueList (Value Prelude.Text)
+  type PropertyType "PreferredCacheClusterAZs" ReplicationGroup = ValueList Prelude.Text
   set newValue ReplicationGroup {..}
     = ReplicationGroup
         {preferredCacheClusterAZs = Prelude.pure newValue, ..}
@@ -326,11 +326,11 @@ instance Property "ReplicationGroupId" ReplicationGroup where
   set newValue ReplicationGroup {..}
     = ReplicationGroup {replicationGroupId = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" ReplicationGroup where
-  type PropertyType "SecurityGroupIds" ReplicationGroup = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" ReplicationGroup = ValueList Prelude.Text
   set newValue ReplicationGroup {..}
     = ReplicationGroup {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SnapshotArns" ReplicationGroup where
-  type PropertyType "SnapshotArns" ReplicationGroup = ValueList (Value Prelude.Text)
+  type PropertyType "SnapshotArns" ReplicationGroup = ValueList Prelude.Text
   set newValue ReplicationGroup {..}
     = ReplicationGroup {snapshotArns = Prelude.pure newValue, ..}
 instance Property "SnapshotName" ReplicationGroup where
@@ -366,6 +366,6 @@ instance Property "TransitEncryptionMode" ReplicationGroup where
     = ReplicationGroup
         {transitEncryptionMode = Prelude.pure newValue, ..}
 instance Property "UserGroupIds" ReplicationGroup where
-  type PropertyType "UserGroupIds" ReplicationGroup = ValueList (Value Prelude.Text)
+  type PropertyType "UserGroupIds" ReplicationGroup = ValueList Prelude.Text
   set newValue ReplicationGroup {..}
     = ReplicationGroup {userGroupIds = Prelude.pure newValue, ..}

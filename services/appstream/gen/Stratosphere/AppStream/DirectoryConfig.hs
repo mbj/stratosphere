@@ -11,11 +11,11 @@ import Stratosphere.Value
 data DirectoryConfig
   = DirectoryConfig {certificateBasedAuthProperties :: (Prelude.Maybe CertificateBasedAuthPropertiesProperty),
                      directoryName :: (Value Prelude.Text),
-                     organizationalUnitDistinguishedNames :: (ValueList (Value Prelude.Text)),
+                     organizationalUnitDistinguishedNames :: (ValueList Prelude.Text),
                      serviceAccountCredentials :: ServiceAccountCredentialsProperty}
 mkDirectoryConfig ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
+  -> ValueList Prelude.Text
      -> ServiceAccountCredentialsProperty -> DirectoryConfig
 mkDirectoryConfig
   directoryName
@@ -61,7 +61,7 @@ instance Property "DirectoryName" DirectoryConfig where
   set newValue DirectoryConfig {..}
     = DirectoryConfig {directoryName = newValue, ..}
 instance Property "OrganizationalUnitDistinguishedNames" DirectoryConfig where
-  type PropertyType "OrganizationalUnitDistinguishedNames" DirectoryConfig = ValueList (Value Prelude.Text)
+  type PropertyType "OrganizationalUnitDistinguishedNames" DirectoryConfig = ValueList Prelude.Text
   set newValue DirectoryConfig {..}
     = DirectoryConfig
         {organizationalUnitDistinguishedNames = newValue, ..}

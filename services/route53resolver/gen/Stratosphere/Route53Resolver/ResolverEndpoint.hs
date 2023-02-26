@@ -15,12 +15,12 @@ data ResolverEndpoint
                       outpostArn :: (Prelude.Maybe (Value Prelude.Text)),
                       preferredInstanceType :: (Prelude.Maybe (Value Prelude.Text)),
                       resolverEndpointType :: (Prelude.Maybe (Value Prelude.Text)),
-                      securityGroupIds :: (ValueList (Value Prelude.Text)),
+                      securityGroupIds :: (ValueList Prelude.Text),
                       tags :: (Prelude.Maybe [Tag])}
 mkResolverEndpoint ::
   Value Prelude.Text
   -> [IpAddressRequestProperty]
-     -> ValueList (Value Prelude.Text) -> ResolverEndpoint
+     -> ValueList Prelude.Text -> ResolverEndpoint
 mkResolverEndpoint direction ipAddresses securityGroupIds
   = ResolverEndpoint
       {direction = direction, ipAddresses = ipAddresses,
@@ -84,7 +84,7 @@ instance Property "ResolverEndpointType" ResolverEndpoint where
     = ResolverEndpoint
         {resolverEndpointType = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" ResolverEndpoint where
-  type PropertyType "SecurityGroupIds" ResolverEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" ResolverEndpoint = ValueList Prelude.Text
   set newValue ResolverEndpoint {..}
     = ResolverEndpoint {securityGroupIds = newValue, ..}
 instance Property "Tags" ResolverEndpoint where

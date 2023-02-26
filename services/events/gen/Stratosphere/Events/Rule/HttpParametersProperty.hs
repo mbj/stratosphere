@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpParametersProperty
   = HttpParametersProperty {headerParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
-                            pathParameterValues :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                            pathParameterValues :: (Prelude.Maybe (ValueList Prelude.Text)),
                             queryStringParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
 mkHttpParametersProperty :: HttpParametersProperty
 mkHttpParametersProperty
@@ -41,7 +41,7 @@ instance Property "HeaderParameters" HttpParametersProperty where
     = HttpParametersProperty
         {headerParameters = Prelude.pure newValue, ..}
 instance Property "PathParameterValues" HttpParametersProperty where
-  type PropertyType "PathParameterValues" HttpParametersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PathParameterValues" HttpParametersProperty = ValueList Prelude.Text
   set newValue HttpParametersProperty {..}
     = HttpParametersProperty
         {pathParameterValues = Prelude.pure newValue, ..}

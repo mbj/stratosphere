@@ -16,7 +16,7 @@ data Stack
   = Stack {agentVersion :: (Prelude.Maybe (Value Prelude.Text)),
            attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
            chefConfiguration :: (Prelude.Maybe ChefConfigurationProperty),
-           cloneAppIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           cloneAppIds :: (Prelude.Maybe (ValueList Prelude.Text)),
            clonePermissions :: (Prelude.Maybe (Value Prelude.Bool)),
            configurationManager :: (Prelude.Maybe StackConfigurationManagerProperty),
            customCookbooksSource :: (Prelude.Maybe SourceProperty),
@@ -143,7 +143,7 @@ instance Property "ChefConfiguration" Stack where
   set newValue Stack {..}
     = Stack {chefConfiguration = Prelude.pure newValue, ..}
 instance Property "CloneAppIds" Stack where
-  type PropertyType "CloneAppIds" Stack = ValueList (Value Prelude.Text)
+  type PropertyType "CloneAppIds" Stack = ValueList Prelude.Text
   set newValue Stack {..}
     = Stack {cloneAppIds = Prelude.pure newValue, ..}
 instance Property "ClonePermissions" Stack where

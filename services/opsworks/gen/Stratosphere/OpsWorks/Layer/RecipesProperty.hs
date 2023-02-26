@@ -7,11 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecipesProperty
-  = RecipesProperty {configure :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                     deploy :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                     setup :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                     shutdown :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                     undeploy :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = RecipesProperty {configure :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     deploy :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     setup :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     shutdown :: (Prelude.Maybe (ValueList Prelude.Text)),
+                     undeploy :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkRecipesProperty :: RecipesProperty
 mkRecipesProperty
   = RecipesProperty
@@ -40,22 +40,22 @@ instance JSON.ToJSON RecipesProperty where
                (JSON..=) "Shutdown" Prelude.<$> shutdown,
                (JSON..=) "Undeploy" Prelude.<$> undeploy]))
 instance Property "Configure" RecipesProperty where
-  type PropertyType "Configure" RecipesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Configure" RecipesProperty = ValueList Prelude.Text
   set newValue RecipesProperty {..}
     = RecipesProperty {configure = Prelude.pure newValue, ..}
 instance Property "Deploy" RecipesProperty where
-  type PropertyType "Deploy" RecipesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Deploy" RecipesProperty = ValueList Prelude.Text
   set newValue RecipesProperty {..}
     = RecipesProperty {deploy = Prelude.pure newValue, ..}
 instance Property "Setup" RecipesProperty where
-  type PropertyType "Setup" RecipesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Setup" RecipesProperty = ValueList Prelude.Text
   set newValue RecipesProperty {..}
     = RecipesProperty {setup = Prelude.pure newValue, ..}
 instance Property "Shutdown" RecipesProperty where
-  type PropertyType "Shutdown" RecipesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Shutdown" RecipesProperty = ValueList Prelude.Text
   set newValue RecipesProperty {..}
     = RecipesProperty {shutdown = Prelude.pure newValue, ..}
 instance Property "Undeploy" RecipesProperty where
-  type PropertyType "Undeploy" RecipesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Undeploy" RecipesProperty = ValueList Prelude.Text
   set newValue RecipesProperty {..}
     = RecipesProperty {undeploy = Prelude.pure newValue, ..}

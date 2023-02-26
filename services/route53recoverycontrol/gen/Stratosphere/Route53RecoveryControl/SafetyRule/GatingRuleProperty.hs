@@ -7,12 +7,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatingRuleProperty
-  = GatingRuleProperty {gatingControls :: (ValueList (Value Prelude.Text)),
-                        targetControls :: (ValueList (Value Prelude.Text)),
+  = GatingRuleProperty {gatingControls :: (ValueList Prelude.Text),
+                        targetControls :: (ValueList Prelude.Text),
                         waitPeriodMs :: (Value Prelude.Integer)}
 mkGatingRuleProperty ::
-  ValueList (Value Prelude.Text)
-  -> ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
+  -> ValueList Prelude.Text
      -> Value Prelude.Integer -> GatingRuleProperty
 mkGatingRuleProperty gatingControls targetControls waitPeriodMs
   = GatingRuleProperty
@@ -32,11 +32,11 @@ instance JSON.ToJSON GatingRuleProperty where
          "TargetControls" JSON..= targetControls,
          "WaitPeriodMs" JSON..= waitPeriodMs]
 instance Property "GatingControls" GatingRuleProperty where
-  type PropertyType "GatingControls" GatingRuleProperty = ValueList (Value Prelude.Text)
+  type PropertyType "GatingControls" GatingRuleProperty = ValueList Prelude.Text
   set newValue GatingRuleProperty {..}
     = GatingRuleProperty {gatingControls = newValue, ..}
 instance Property "TargetControls" GatingRuleProperty where
-  type PropertyType "TargetControls" GatingRuleProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TargetControls" GatingRuleProperty = ValueList Prelude.Text
   set newValue GatingRuleProperty {..}
     = GatingRuleProperty {targetControls = newValue, ..}
 instance Property "WaitPeriodMs" GatingRuleProperty where

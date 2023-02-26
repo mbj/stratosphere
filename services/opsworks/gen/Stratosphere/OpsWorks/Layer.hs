@@ -18,13 +18,13 @@ data Layer
            customInstanceProfileArn :: (Prelude.Maybe (Value Prelude.Text)),
            customJson :: (Prelude.Maybe JSON.Object),
            customRecipes :: (Prelude.Maybe RecipesProperty),
-           customSecurityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           customSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
            enableAutoHealing :: (Value Prelude.Bool),
            installUpdatesOnBoot :: (Prelude.Maybe (Value Prelude.Bool)),
            lifecycleEventConfiguration :: (Prelude.Maybe LifecycleEventConfigurationProperty),
            loadBasedAutoScaling :: (Prelude.Maybe LoadBasedAutoScalingProperty),
            name :: (Value Prelude.Text),
-           packages :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           packages :: (Prelude.Maybe (ValueList Prelude.Text)),
            shortname :: (Value Prelude.Text),
            stackId :: (Value Prelude.Text),
            tags :: (Prelude.Maybe [Tag]),
@@ -142,7 +142,7 @@ instance Property "CustomRecipes" Layer where
   set newValue Layer {..}
     = Layer {customRecipes = Prelude.pure newValue, ..}
 instance Property "CustomSecurityGroupIds" Layer where
-  type PropertyType "CustomSecurityGroupIds" Layer = ValueList (Value Prelude.Text)
+  type PropertyType "CustomSecurityGroupIds" Layer = ValueList Prelude.Text
   set newValue Layer {..}
     = Layer {customSecurityGroupIds = Prelude.pure newValue, ..}
 instance Property "EnableAutoHealing" Layer where
@@ -164,7 +164,7 @@ instance Property "Name" Layer where
   type PropertyType "Name" Layer = Value Prelude.Text
   set newValue Layer {..} = Layer {name = newValue, ..}
 instance Property "Packages" Layer where
-  type PropertyType "Packages" Layer = ValueList (Value Prelude.Text)
+  type PropertyType "Packages" Layer = ValueList Prelude.Text
   set newValue Layer {..}
     = Layer {packages = Prelude.pure newValue, ..}
 instance Property "Shortname" Layer where

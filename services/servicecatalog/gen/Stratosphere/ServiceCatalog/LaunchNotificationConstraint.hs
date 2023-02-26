@@ -9,11 +9,11 @@ import Stratosphere.Value
 data LaunchNotificationConstraint
   = LaunchNotificationConstraint {acceptLanguage :: (Prelude.Maybe (Value Prelude.Text)),
                                   description :: (Prelude.Maybe (Value Prelude.Text)),
-                                  notificationArns :: (ValueList (Value Prelude.Text)),
+                                  notificationArns :: (ValueList Prelude.Text),
                                   portfolioId :: (Value Prelude.Text),
                                   productId :: (Value Prelude.Text)}
 mkLaunchNotificationConstraint ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text -> LaunchNotificationConstraint
 mkLaunchNotificationConstraint
@@ -56,7 +56,7 @@ instance Property "Description" LaunchNotificationConstraint where
     = LaunchNotificationConstraint
         {description = Prelude.pure newValue, ..}
 instance Property "NotificationArns" LaunchNotificationConstraint where
-  type PropertyType "NotificationArns" LaunchNotificationConstraint = ValueList (Value Prelude.Text)
+  type PropertyType "NotificationArns" LaunchNotificationConstraint = ValueList Prelude.Text
   set newValue LaunchNotificationConstraint {..}
     = LaunchNotificationConstraint {notificationArns = newValue, ..}
 instance Property "PortfolioId" LaunchNotificationConstraint where

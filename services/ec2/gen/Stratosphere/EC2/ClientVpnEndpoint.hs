@@ -18,8 +18,8 @@ data ClientVpnEndpoint
                        clientLoginBannerOptions :: (Prelude.Maybe ClientLoginBannerOptionsProperty),
                        connectionLogOptions :: ConnectionLogOptionsProperty,
                        description :: (Prelude.Maybe (Value Prelude.Text)),
-                       dnsServers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                       securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                       dnsServers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                        selfServicePortal :: (Prelude.Maybe (Value Prelude.Text)),
                        serverCertificateArn :: (Value Prelude.Text),
                        sessionTimeoutHours :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -126,11 +126,11 @@ instance Property "Description" ClientVpnEndpoint where
   set newValue ClientVpnEndpoint {..}
     = ClientVpnEndpoint {description = Prelude.pure newValue, ..}
 instance Property "DnsServers" ClientVpnEndpoint where
-  type PropertyType "DnsServers" ClientVpnEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "DnsServers" ClientVpnEndpoint = ValueList Prelude.Text
   set newValue ClientVpnEndpoint {..}
     = ClientVpnEndpoint {dnsServers = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" ClientVpnEndpoint where
-  type PropertyType "SecurityGroupIds" ClientVpnEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" ClientVpnEndpoint = ValueList Prelude.Text
   set newValue ClientVpnEndpoint {..}
     = ClientVpnEndpoint {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SelfServicePortal" ClientVpnEndpoint where

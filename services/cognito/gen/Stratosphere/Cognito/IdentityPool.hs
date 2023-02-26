@@ -17,9 +17,9 @@ data IdentityPool
                   cognitoStreams :: (Prelude.Maybe CognitoStreamsProperty),
                   developerProviderName :: (Prelude.Maybe (Value Prelude.Text)),
                   identityPoolName :: (Prelude.Maybe (Value Prelude.Text)),
-                  openIdConnectProviderARNs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  openIdConnectProviderARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
                   pushSync :: (Prelude.Maybe PushSyncProperty),
-                  samlProviderARNs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  samlProviderARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
                   supportedLoginProviders :: (Prelude.Maybe JSON.Object)}
 mkIdentityPool :: Value Prelude.Bool -> IdentityPool
 mkIdentityPool allowUnauthenticatedIdentities
@@ -109,7 +109,7 @@ instance Property "IdentityPoolName" IdentityPool where
   set newValue IdentityPool {..}
     = IdentityPool {identityPoolName = Prelude.pure newValue, ..}
 instance Property "OpenIdConnectProviderARNs" IdentityPool where
-  type PropertyType "OpenIdConnectProviderARNs" IdentityPool = ValueList (Value Prelude.Text)
+  type PropertyType "OpenIdConnectProviderARNs" IdentityPool = ValueList Prelude.Text
   set newValue IdentityPool {..}
     = IdentityPool
         {openIdConnectProviderARNs = Prelude.pure newValue, ..}
@@ -118,7 +118,7 @@ instance Property "PushSync" IdentityPool where
   set newValue IdentityPool {..}
     = IdentityPool {pushSync = Prelude.pure newValue, ..}
 instance Property "SamlProviderARNs" IdentityPool where
-  type PropertyType "SamlProviderARNs" IdentityPool = ValueList (Value Prelude.Text)
+  type PropertyType "SamlProviderARNs" IdentityPool = ValueList Prelude.Text
   set newValue IdentityPool {..}
     = IdentityPool {samlProviderARNs = Prelude.pure newValue, ..}
 instance Property "SupportedLoginProviders" IdentityPool where

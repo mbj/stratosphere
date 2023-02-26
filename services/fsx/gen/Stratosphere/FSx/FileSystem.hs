@@ -19,14 +19,14 @@ data FileSystem
                 lustreConfiguration :: (Prelude.Maybe LustreConfigurationProperty),
                 ontapConfiguration :: (Prelude.Maybe OntapConfigurationProperty),
                 openZFSConfiguration :: (Prelude.Maybe OpenZFSConfigurationProperty),
-                securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                 storageCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                 storageType :: (Prelude.Maybe (Value Prelude.Text)),
-                subnetIds :: (ValueList (Value Prelude.Text)),
+                subnetIds :: (ValueList Prelude.Text),
                 tags :: (Prelude.Maybe [Tag]),
                 windowsConfiguration :: (Prelude.Maybe WindowsConfigurationProperty)}
 mkFileSystem ::
-  Value Prelude.Text -> ValueList (Value Prelude.Text) -> FileSystem
+  Value Prelude.Text -> ValueList Prelude.Text -> FileSystem
 mkFileSystem fileSystemType subnetIds
   = FileSystem
       {fileSystemType = fileSystemType, subnetIds = subnetIds,
@@ -110,7 +110,7 @@ instance Property "OpenZFSConfiguration" FileSystem where
   set newValue FileSystem {..}
     = FileSystem {openZFSConfiguration = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" FileSystem where
-  type PropertyType "SecurityGroupIds" FileSystem = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" FileSystem = ValueList Prelude.Text
   set newValue FileSystem {..}
     = FileSystem {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "StorageCapacity" FileSystem where
@@ -122,7 +122,7 @@ instance Property "StorageType" FileSystem where
   set newValue FileSystem {..}
     = FileSystem {storageType = Prelude.pure newValue, ..}
 instance Property "SubnetIds" FileSystem where
-  type PropertyType "SubnetIds" FileSystem = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" FileSystem = ValueList Prelude.Text
   set newValue FileSystem {..}
     = FileSystem {subnetIds = newValue, ..}
 instance Property "Tags" FileSystem where

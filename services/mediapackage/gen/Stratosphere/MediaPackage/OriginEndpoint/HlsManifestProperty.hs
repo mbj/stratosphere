@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsManifestProperty
   = HlsManifestProperty {adMarkers :: (Prelude.Maybe (Value Prelude.Text)),
-                         adTriggers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         adTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
                          adsOnDeliveryRestrictions :: (Prelude.Maybe (Value Prelude.Text)),
                          id :: (Value Prelude.Text),
                          includeIframeOnlyStream :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -74,7 +74,7 @@ instance Property "AdMarkers" HlsManifestProperty where
   set newValue HlsManifestProperty {..}
     = HlsManifestProperty {adMarkers = Prelude.pure newValue, ..}
 instance Property "AdTriggers" HlsManifestProperty where
-  type PropertyType "AdTriggers" HlsManifestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AdTriggers" HlsManifestProperty = ValueList Prelude.Text
   set newValue HlsManifestProperty {..}
     = HlsManifestProperty {adTriggers = Prelude.pure newValue, ..}
 instance Property "AdsOnDeliveryRestrictions" HlsManifestProperty where

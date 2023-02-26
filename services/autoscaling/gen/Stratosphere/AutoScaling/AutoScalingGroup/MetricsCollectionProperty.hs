@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricsCollectionProperty
   = MetricsCollectionProperty {granularity :: (Value Prelude.Text),
-                               metrics :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                               metrics :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkMetricsCollectionProperty ::
   Value Prelude.Text -> MetricsCollectionProperty
 mkMetricsCollectionProperty granularity
@@ -34,6 +34,6 @@ instance Property "Granularity" MetricsCollectionProperty where
   set newValue MetricsCollectionProperty {..}
     = MetricsCollectionProperty {granularity = newValue, ..}
 instance Property "Metrics" MetricsCollectionProperty where
-  type PropertyType "Metrics" MetricsCollectionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Metrics" MetricsCollectionProperty = ValueList Prelude.Text
   set newValue MetricsCollectionProperty {..}
     = MetricsCollectionProperty {metrics = Prelude.pure newValue, ..}

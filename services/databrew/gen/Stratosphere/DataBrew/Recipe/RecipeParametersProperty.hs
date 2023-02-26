@@ -79,8 +79,8 @@ data RecipeParametersProperty
                               sampleType :: (Prelude.Maybe (Value Prelude.Text)),
                               secondInput :: (Prelude.Maybe (Value Prelude.Text)),
                               secondaryInputs :: (Prelude.Maybe [SecondaryInputProperty]),
-                              sheetIndexes :: (Prelude.Maybe (ValueList (Value Prelude.Integer))),
-                              sheetNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                              sheetIndexes :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                              sheetNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                               sourceColumn :: (Prelude.Maybe (Value Prelude.Text)),
                               sourceColumn1 :: (Prelude.Maybe (Value Prelude.Text)),
                               sourceColumn2 :: (Prelude.Maybe (Value Prelude.Text)),
@@ -722,12 +722,12 @@ instance Property "SecondaryInputs" RecipeParametersProperty where
     = RecipeParametersProperty
         {secondaryInputs = Prelude.pure newValue, ..}
 instance Property "SheetIndexes" RecipeParametersProperty where
-  type PropertyType "SheetIndexes" RecipeParametersProperty = ValueList (Value Prelude.Integer)
+  type PropertyType "SheetIndexes" RecipeParametersProperty = ValueList Prelude.Integer
   set newValue RecipeParametersProperty {..}
     = RecipeParametersProperty
         {sheetIndexes = Prelude.pure newValue, ..}
 instance Property "SheetNames" RecipeParametersProperty where
-  type PropertyType "SheetNames" RecipeParametersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SheetNames" RecipeParametersProperty = ValueList Prelude.Text
   set newValue RecipeParametersProperty {..}
     = RecipeParametersProperty {sheetNames = Prelude.pure newValue, ..}
 instance Property "SourceColumn" RecipeParametersProperty where

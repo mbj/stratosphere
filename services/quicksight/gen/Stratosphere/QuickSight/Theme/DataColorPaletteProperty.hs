@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataColorPaletteProperty
-  = DataColorPaletteProperty {colors :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = DataColorPaletteProperty {colors :: (Prelude.Maybe (ValueList Prelude.Text)),
                               emptyFillColor :: (Prelude.Maybe (Value Prelude.Text)),
-                              minMaxGradient :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                              minMaxGradient :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkDataColorPaletteProperty :: DataColorPaletteProperty
 mkDataColorPaletteProperty
   = DataColorPaletteProperty
@@ -33,7 +33,7 @@ instance JSON.ToJSON DataColorPaletteProperty where
                (JSON..=) "EmptyFillColor" Prelude.<$> emptyFillColor,
                (JSON..=) "MinMaxGradient" Prelude.<$> minMaxGradient]))
 instance Property "Colors" DataColorPaletteProperty where
-  type PropertyType "Colors" DataColorPaletteProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Colors" DataColorPaletteProperty = ValueList Prelude.Text
   set newValue DataColorPaletteProperty {..}
     = DataColorPaletteProperty {colors = Prelude.pure newValue, ..}
 instance Property "EmptyFillColor" DataColorPaletteProperty where
@@ -42,7 +42,7 @@ instance Property "EmptyFillColor" DataColorPaletteProperty where
     = DataColorPaletteProperty
         {emptyFillColor = Prelude.pure newValue, ..}
 instance Property "MinMaxGradient" DataColorPaletteProperty where
-  type PropertyType "MinMaxGradient" DataColorPaletteProperty = ValueList (Value Prelude.Text)
+  type PropertyType "MinMaxGradient" DataColorPaletteProperty = ValueList Prelude.Text
   set newValue DataColorPaletteProperty {..}
     = DataColorPaletteProperty
         {minMaxGradient = Prelude.pure newValue, ..}

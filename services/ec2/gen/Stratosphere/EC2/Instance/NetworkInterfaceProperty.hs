@@ -15,7 +15,7 @@ data NetworkInterfaceProperty
                               deleteOnTermination :: (Prelude.Maybe (Value Prelude.Bool)),
                               description :: (Prelude.Maybe (Value Prelude.Text)),
                               deviceIndex :: (Value Prelude.Text),
-                              groupSet :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                              groupSet :: (Prelude.Maybe (ValueList Prelude.Text)),
                               ipv6AddressCount :: (Prelude.Maybe (Value Prelude.Integer)),
                               ipv6Addresses :: (Prelude.Maybe [InstanceIpv6AddressProperty]),
                               networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -109,7 +109,7 @@ instance Property "DeviceIndex" NetworkInterfaceProperty where
   set newValue NetworkInterfaceProperty {..}
     = NetworkInterfaceProperty {deviceIndex = newValue, ..}
 instance Property "GroupSet" NetworkInterfaceProperty where
-  type PropertyType "GroupSet" NetworkInterfaceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "GroupSet" NetworkInterfaceProperty = ValueList Prelude.Text
   set newValue NetworkInterfaceProperty {..}
     = NetworkInterfaceProperty {groupSet = Prelude.pure newValue, ..}
 instance Property "Ipv6AddressCount" NetworkInterfaceProperty where

@@ -8,10 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KeyGroupConfigProperty
   = KeyGroupConfigProperty {comment :: (Prelude.Maybe (Value Prelude.Text)),
-                            items :: (ValueList (Value Prelude.Text)),
+                            items :: (ValueList Prelude.Text),
                             name :: (Value Prelude.Text)}
 mkKeyGroupConfigProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> KeyGroupConfigProperty
 mkKeyGroupConfigProperty items name
   = KeyGroupConfigProperty
@@ -36,7 +36,7 @@ instance Property "Comment" KeyGroupConfigProperty where
   set newValue KeyGroupConfigProperty {..}
     = KeyGroupConfigProperty {comment = Prelude.pure newValue, ..}
 instance Property "Items" KeyGroupConfigProperty where
-  type PropertyType "Items" KeyGroupConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Items" KeyGroupConfigProperty = ValueList Prelude.Text
   set newValue KeyGroupConfigProperty {..}
     = KeyGroupConfigProperty {items = newValue, ..}
 instance Property "Name" KeyGroupConfigProperty where

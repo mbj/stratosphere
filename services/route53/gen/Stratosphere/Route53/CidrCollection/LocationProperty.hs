@@ -7,11 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocationProperty
-  = LocationProperty {cidrList :: (ValueList (Value Prelude.Text)),
+  = LocationProperty {cidrList :: (ValueList Prelude.Text),
                       locationName :: (Value Prelude.Text)}
 mkLocationProperty ::
-  ValueList (Value Prelude.Text)
-  -> Value Prelude.Text -> LocationProperty
+  ValueList Prelude.Text -> Value Prelude.Text -> LocationProperty
 mkLocationProperty cidrList locationName
   = LocationProperty
       {cidrList = cidrList, locationName = locationName}
@@ -26,7 +25,7 @@ instance JSON.ToJSON LocationProperty where
     = JSON.object
         ["CidrList" JSON..= cidrList, "LocationName" JSON..= locationName]
 instance Property "CidrList" LocationProperty where
-  type PropertyType "CidrList" LocationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CidrList" LocationProperty = ValueList Prelude.Text
   set newValue LocationProperty {..}
     = LocationProperty {cidrList = newValue, ..}
 instance Property "LocationName" LocationProperty where

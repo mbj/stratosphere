@@ -13,10 +13,10 @@ data ServiceNowKnowledgeArticleConfigurationProperty
   = ServiceNowKnowledgeArticleConfigurationProperty {crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
                                                      documentDataFieldName :: (Value Prelude.Text),
                                                      documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
-                                                     excludeAttachmentFilePatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                                     excludeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                      fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
                                                      filterQuery :: (Prelude.Maybe (Value Prelude.Text)),
-                                                     includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                                     includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkServiceNowKnowledgeArticleConfigurationProperty ::
   Value Prelude.Text
   -> ServiceNowKnowledgeArticleConfigurationProperty
@@ -79,7 +79,7 @@ instance Property "DocumentTitleFieldName" ServiceNowKnowledgeArticleConfigurati
     = ServiceNowKnowledgeArticleConfigurationProperty
         {documentTitleFieldName = Prelude.pure newValue, ..}
 instance Property "ExcludeAttachmentFilePatterns" ServiceNowKnowledgeArticleConfigurationProperty where
-  type PropertyType "ExcludeAttachmentFilePatterns" ServiceNowKnowledgeArticleConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludeAttachmentFilePatterns" ServiceNowKnowledgeArticleConfigurationProperty = ValueList Prelude.Text
   set newValue ServiceNowKnowledgeArticleConfigurationProperty {..}
     = ServiceNowKnowledgeArticleConfigurationProperty
         {excludeAttachmentFilePatterns = Prelude.pure newValue, ..}
@@ -94,7 +94,7 @@ instance Property "FilterQuery" ServiceNowKnowledgeArticleConfigurationProperty 
     = ServiceNowKnowledgeArticleConfigurationProperty
         {filterQuery = Prelude.pure newValue, ..}
 instance Property "IncludeAttachmentFilePatterns" ServiceNowKnowledgeArticleConfigurationProperty where
-  type PropertyType "IncludeAttachmentFilePatterns" ServiceNowKnowledgeArticleConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludeAttachmentFilePatterns" ServiceNowKnowledgeArticleConfigurationProperty = ValueList Prelude.Text
   set newValue ServiceNowKnowledgeArticleConfigurationProperty {..}
     = ServiceNowKnowledgeArticleConfigurationProperty
         {includeAttachmentFilePatterns = Prelude.pure newValue, ..}

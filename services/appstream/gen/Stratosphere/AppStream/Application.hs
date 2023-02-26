@@ -10,24 +10,23 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Application
   = Application {appBlockArn :: (Value Prelude.Text),
-                 attributesToDelete :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 attributesToDelete :: (Prelude.Maybe (ValueList Prelude.Text)),
                  description :: (Prelude.Maybe (Value Prelude.Text)),
                  displayName :: (Prelude.Maybe (Value Prelude.Text)),
                  iconS3Location :: S3LocationProperty,
-                 instanceFamilies :: (ValueList (Value Prelude.Text)),
+                 instanceFamilies :: (ValueList Prelude.Text),
                  launchParameters :: (Prelude.Maybe (Value Prelude.Text)),
                  launchPath :: (Value Prelude.Text),
                  name :: (Value Prelude.Text),
-                 platforms :: (ValueList (Value Prelude.Text)),
+                 platforms :: (ValueList Prelude.Text),
                  tags :: (Prelude.Maybe [Tag]),
                  workingDirectory :: (Prelude.Maybe (Value Prelude.Text))}
 mkApplication ::
   Value Prelude.Text
   -> S3LocationProperty
-     -> ValueList (Value Prelude.Text)
+     -> ValueList Prelude.Text
         -> Value Prelude.Text
-           -> Value Prelude.Text
-              -> ValueList (Value Prelude.Text) -> Application
+           -> Value Prelude.Text -> ValueList Prelude.Text -> Application
 mkApplication
   appBlockArn
   iconS3Location
@@ -83,7 +82,7 @@ instance Property "AppBlockArn" Application where
   set newValue Application {..}
     = Application {appBlockArn = newValue, ..}
 instance Property "AttributesToDelete" Application where
-  type PropertyType "AttributesToDelete" Application = ValueList (Value Prelude.Text)
+  type PropertyType "AttributesToDelete" Application = ValueList Prelude.Text
   set newValue Application {..}
     = Application {attributesToDelete = Prelude.pure newValue, ..}
 instance Property "Description" Application where
@@ -99,7 +98,7 @@ instance Property "IconS3Location" Application where
   set newValue Application {..}
     = Application {iconS3Location = newValue, ..}
 instance Property "InstanceFamilies" Application where
-  type PropertyType "InstanceFamilies" Application = ValueList (Value Prelude.Text)
+  type PropertyType "InstanceFamilies" Application = ValueList Prelude.Text
   set newValue Application {..}
     = Application {instanceFamilies = newValue, ..}
 instance Property "LaunchParameters" Application where
@@ -114,7 +113,7 @@ instance Property "Name" Application where
   type PropertyType "Name" Application = Value Prelude.Text
   set newValue Application {..} = Application {name = newValue, ..}
 instance Property "Platforms" Application where
-  type PropertyType "Platforms" Application = ValueList (Value Prelude.Text)
+  type PropertyType "Platforms" Application = ValueList Prelude.Text
   set newValue Application {..}
     = Application {platforms = newValue, ..}
 instance Property "Tags" Application where

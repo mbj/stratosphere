@@ -10,11 +10,10 @@ import Stratosphere.Value
 data SyncSourceProperty
   = SyncSourceProperty {awsOrganizationsSource :: (Prelude.Maybe AwsOrganizationsSourceProperty),
                         includeFutureRegions :: (Prelude.Maybe (Value Prelude.Bool)),
-                        sourceRegions :: (ValueList (Value Prelude.Text)),
+                        sourceRegions :: (ValueList Prelude.Text),
                         sourceType :: (Value Prelude.Text)}
 mkSyncSourceProperty ::
-  ValueList (Value Prelude.Text)
-  -> Value Prelude.Text -> SyncSourceProperty
+  ValueList Prelude.Text -> Value Prelude.Text -> SyncSourceProperty
 mkSyncSourceProperty sourceRegions sourceType
   = SyncSourceProperty
       {sourceRegions = sourceRegions, sourceType = sourceType,
@@ -56,7 +55,7 @@ instance Property "IncludeFutureRegions" SyncSourceProperty where
     = SyncSourceProperty
         {includeFutureRegions = Prelude.pure newValue, ..}
 instance Property "SourceRegions" SyncSourceProperty where
-  type PropertyType "SourceRegions" SyncSourceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SourceRegions" SyncSourceProperty = ValueList Prelude.Text
   set newValue SyncSourceProperty {..}
     = SyncSourceProperty {sourceRegions = newValue, ..}
 instance Property "SourceType" SyncSourceProperty where

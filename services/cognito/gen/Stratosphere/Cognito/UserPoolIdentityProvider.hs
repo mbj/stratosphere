@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolIdentityProvider
   = UserPoolIdentityProvider {attributeMapping :: (Prelude.Maybe JSON.Object),
-                              idpIdentifiers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                              idpIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
                               providerDetails :: (Prelude.Maybe JSON.Object),
                               providerName :: (Value Prelude.Text),
                               providerType :: (Value Prelude.Text),
@@ -54,7 +54,7 @@ instance Property "AttributeMapping" UserPoolIdentityProvider where
     = UserPoolIdentityProvider
         {attributeMapping = Prelude.pure newValue, ..}
 instance Property "IdpIdentifiers" UserPoolIdentityProvider where
-  type PropertyType "IdpIdentifiers" UserPoolIdentityProvider = ValueList (Value Prelude.Text)
+  type PropertyType "IdpIdentifiers" UserPoolIdentityProvider = ValueList Prelude.Text
   set newValue UserPoolIdentityProvider {..}
     = UserPoolIdentityProvider
         {idpIdentifiers = Prelude.pure newValue, ..}

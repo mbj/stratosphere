@@ -13,7 +13,7 @@ import {-# SOURCE #-} Stratosphere.Glue.Partition.SkewedInfoProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageDescriptorProperty
-  = StorageDescriptorProperty {bucketColumns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = StorageDescriptorProperty {bucketColumns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                columns :: (Prelude.Maybe [ColumnProperty]),
                                compressed :: (Prelude.Maybe (Value Prelude.Bool)),
                                inputFormat :: (Prelude.Maybe (Value Prelude.Text)),
@@ -76,7 +76,7 @@ instance JSON.ToJSON StorageDescriptorProperty where
                (JSON..=) "StoredAsSubDirectories"
                  Prelude.<$> storedAsSubDirectories]))
 instance Property "BucketColumns" StorageDescriptorProperty where
-  type PropertyType "BucketColumns" StorageDescriptorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "BucketColumns" StorageDescriptorProperty = ValueList Prelude.Text
   set newValue StorageDescriptorProperty {..}
     = StorageDescriptorProperty
         {bucketColumns = Prelude.pure newValue, ..}

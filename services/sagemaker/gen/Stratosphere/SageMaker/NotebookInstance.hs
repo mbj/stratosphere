@@ -9,8 +9,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data NotebookInstance
-  = NotebookInstance {acceleratorTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                      additionalCodeRepositories :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = NotebookInstance {acceleratorTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      additionalCodeRepositories :: (Prelude.Maybe (ValueList Prelude.Text)),
                       defaultCodeRepository :: (Prelude.Maybe (Value Prelude.Text)),
                       directInternetAccess :: (Prelude.Maybe (Value Prelude.Text)),
                       instanceMetadataServiceConfiguration :: (Prelude.Maybe InstanceMetadataServiceConfigurationProperty),
@@ -21,7 +21,7 @@ data NotebookInstance
                       platformIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                       roleArn :: (Value Prelude.Text),
                       rootAccess :: (Prelude.Maybe (Value Prelude.Text)),
-                      securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                       subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                       tags :: (Prelude.Maybe [Tag]),
                       volumeSizeInGB :: (Prelude.Maybe (Value Prelude.Integer))}
@@ -90,11 +90,11 @@ instance JSON.ToJSON NotebookInstance where
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "VolumeSizeInGB" Prelude.<$> volumeSizeInGB])))
 instance Property "AcceleratorTypes" NotebookInstance where
-  type PropertyType "AcceleratorTypes" NotebookInstance = ValueList (Value Prelude.Text)
+  type PropertyType "AcceleratorTypes" NotebookInstance = ValueList Prelude.Text
   set newValue NotebookInstance {..}
     = NotebookInstance {acceleratorTypes = Prelude.pure newValue, ..}
 instance Property "AdditionalCodeRepositories" NotebookInstance where
-  type PropertyType "AdditionalCodeRepositories" NotebookInstance = ValueList (Value Prelude.Text)
+  type PropertyType "AdditionalCodeRepositories" NotebookInstance = ValueList Prelude.Text
   set newValue NotebookInstance {..}
     = NotebookInstance
         {additionalCodeRepositories = Prelude.pure newValue, ..}
@@ -144,7 +144,7 @@ instance Property "RootAccess" NotebookInstance where
   set newValue NotebookInstance {..}
     = NotebookInstance {rootAccess = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" NotebookInstance where
-  type PropertyType "SecurityGroupIds" NotebookInstance = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" NotebookInstance = ValueList Prelude.Text
   set newValue NotebookInstance {..}
     = NotebookInstance {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetId" NotebookInstance where

@@ -9,11 +9,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AppIntegrationsConfigurationProperty
   = AppIntegrationsConfigurationProperty {appIntegrationArn :: (Value Prelude.Text),
-                                          objectFields :: (ValueList (Value Prelude.Text))}
+                                          objectFields :: (ValueList Prelude.Text)}
 mkAppIntegrationsConfigurationProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
-     -> AppIntegrationsConfigurationProperty
+  -> ValueList Prelude.Text -> AppIntegrationsConfigurationProperty
 mkAppIntegrationsConfigurationProperty
   appIntegrationArn
   objectFields
@@ -37,7 +36,7 @@ instance Property "AppIntegrationArn" AppIntegrationsConfigurationProperty where
     = AppIntegrationsConfigurationProperty
         {appIntegrationArn = newValue, ..}
 instance Property "ObjectFields" AppIntegrationsConfigurationProperty where
-  type PropertyType "ObjectFields" AppIntegrationsConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ObjectFields" AppIntegrationsConfigurationProperty = ValueList Prelude.Text
   set newValue AppIntegrationsConfigurationProperty {..}
     = AppIntegrationsConfigurationProperty
         {objectFields = newValue, ..}

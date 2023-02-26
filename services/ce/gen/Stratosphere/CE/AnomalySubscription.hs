@@ -10,7 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnomalySubscription
   = AnomalySubscription {frequency :: (Value Prelude.Text),
-                         monitorArnList :: (ValueList (Value Prelude.Text)),
+                         monitorArnList :: (ValueList Prelude.Text),
                          resourceTags :: (Prelude.Maybe [ResourceTagProperty]),
                          subscribers :: [SubscriberProperty],
                          subscriptionName :: (Value Prelude.Text),
@@ -18,7 +18,7 @@ data AnomalySubscription
                          thresholdExpression :: (Prelude.Maybe (Value Prelude.Text))}
 mkAnomalySubscription ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
+  -> ValueList Prelude.Text
      -> [SubscriberProperty]
         -> Value Prelude.Text -> AnomalySubscription
 mkAnomalySubscription
@@ -63,7 +63,7 @@ instance Property "Frequency" AnomalySubscription where
   set newValue AnomalySubscription {..}
     = AnomalySubscription {frequency = newValue, ..}
 instance Property "MonitorArnList" AnomalySubscription where
-  type PropertyType "MonitorArnList" AnomalySubscription = ValueList (Value Prelude.Text)
+  type PropertyType "MonitorArnList" AnomalySubscription = ValueList Prelude.Text
   set newValue AnomalySubscription {..}
     = AnomalySubscription {monitorArnList = newValue, ..}
 instance Property "ResourceTags" AnomalySubscription where

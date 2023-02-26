@@ -8,10 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlAttributeValueProperty
-  = AccessControlAttributeValueProperty {source :: (ValueList (Value Prelude.Text))}
+  = AccessControlAttributeValueProperty {source :: (ValueList Prelude.Text)}
 mkAccessControlAttributeValueProperty ::
-  ValueList (Value Prelude.Text)
-  -> AccessControlAttributeValueProperty
+  ValueList Prelude.Text -> AccessControlAttributeValueProperty
 mkAccessControlAttributeValueProperty source
   = AccessControlAttributeValueProperty {source = source}
 instance ToResourceProperties AccessControlAttributeValueProperty where
@@ -23,6 +22,6 @@ instance JSON.ToJSON AccessControlAttributeValueProperty where
   toJSON AccessControlAttributeValueProperty {..}
     = JSON.object ["Source" JSON..= source]
 instance Property "Source" AccessControlAttributeValueProperty where
-  type PropertyType "Source" AccessControlAttributeValueProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Source" AccessControlAttributeValueProperty = ValueList Prelude.Text
   set newValue AccessControlAttributeValueProperty {}
     = AccessControlAttributeValueProperty {source = newValue, ..}

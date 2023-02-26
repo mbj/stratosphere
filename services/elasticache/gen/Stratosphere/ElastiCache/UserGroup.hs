@@ -9,7 +9,7 @@ import Stratosphere.Value
 data UserGroup
   = UserGroup {engine :: (Value Prelude.Text),
                userGroupId :: (Value Prelude.Text),
-               userIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+               userIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkUserGroup ::
   Value Prelude.Text -> Value Prelude.Text -> UserGroup
 mkUserGroup engine userGroupId
@@ -39,6 +39,6 @@ instance Property "UserGroupId" UserGroup where
   set newValue UserGroup {..}
     = UserGroup {userGroupId = newValue, ..}
 instance Property "UserIds" UserGroup where
-  type PropertyType "UserIds" UserGroup = ValueList (Value Prelude.Text)
+  type PropertyType "UserIds" UserGroup = ValueList Prelude.Text
   set newValue UserGroup {..}
     = UserGroup {userIds = Prelude.pure newValue, ..}

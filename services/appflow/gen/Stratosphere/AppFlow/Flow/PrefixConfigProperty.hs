@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrefixConfigProperty
-  = PrefixConfigProperty {pathPrefixHierarchy :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = PrefixConfigProperty {pathPrefixHierarchy :: (Prelude.Maybe (ValueList Prelude.Text)),
                           prefixFormat :: (Prelude.Maybe (Value Prelude.Text)),
                           prefixType :: (Prelude.Maybe (Value Prelude.Text))}
 mkPrefixConfigProperty :: PrefixConfigProperty
@@ -33,7 +33,7 @@ instance JSON.ToJSON PrefixConfigProperty where
                (JSON..=) "PrefixFormat" Prelude.<$> prefixFormat,
                (JSON..=) "PrefixType" Prelude.<$> prefixType]))
 instance Property "PathPrefixHierarchy" PrefixConfigProperty where
-  type PropertyType "PathPrefixHierarchy" PrefixConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PathPrefixHierarchy" PrefixConfigProperty = ValueList Prelude.Text
   set newValue PrefixConfigProperty {..}
     = PrefixConfigProperty
         {pathPrefixHierarchy = Prelude.pure newValue, ..}

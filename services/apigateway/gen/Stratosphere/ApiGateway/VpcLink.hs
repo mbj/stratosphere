@@ -11,9 +11,9 @@ data VpcLink
   = VpcLink {description :: (Prelude.Maybe (Value Prelude.Text)),
              name :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag]),
-             targetArns :: (ValueList (Value Prelude.Text))}
+             targetArns :: (ValueList Prelude.Text)}
 mkVpcLink ::
-  Value Prelude.Text -> ValueList (Value Prelude.Text) -> VpcLink
+  Value Prelude.Text -> ValueList Prelude.Text -> VpcLink
 mkVpcLink name targetArns
   = VpcLink
       {name = name, targetArns = targetArns,
@@ -49,5 +49,5 @@ instance Property "Tags" VpcLink where
   set newValue VpcLink {..}
     = VpcLink {tags = Prelude.pure newValue, ..}
 instance Property "TargetArns" VpcLink where
-  type PropertyType "TargetArns" VpcLink = ValueList (Value Prelude.Text)
+  type PropertyType "TargetArns" VpcLink = ValueList Prelude.Text
   set newValue VpcLink {..} = VpcLink {targetArns = newValue, ..}

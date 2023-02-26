@@ -8,9 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlAllowOriginsProperty
-  = AccessControlAllowOriginsProperty {items :: (ValueList (Value Prelude.Text))}
+  = AccessControlAllowOriginsProperty {items :: (ValueList Prelude.Text)}
 mkAccessControlAllowOriginsProperty ::
-  ValueList (Value Prelude.Text) -> AccessControlAllowOriginsProperty
+  ValueList Prelude.Text -> AccessControlAllowOriginsProperty
 mkAccessControlAllowOriginsProperty items
   = AccessControlAllowOriginsProperty {items = items}
 instance ToResourceProperties AccessControlAllowOriginsProperty where
@@ -22,6 +22,6 @@ instance JSON.ToJSON AccessControlAllowOriginsProperty where
   toJSON AccessControlAllowOriginsProperty {..}
     = JSON.object ["Items" JSON..= items]
 instance Property "Items" AccessControlAllowOriginsProperty where
-  type PropertyType "Items" AccessControlAllowOriginsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Items" AccessControlAllowOriginsProperty = ValueList Prelude.Text
   set newValue AccessControlAllowOriginsProperty {}
     = AccessControlAllowOriginsProperty {items = newValue, ..}

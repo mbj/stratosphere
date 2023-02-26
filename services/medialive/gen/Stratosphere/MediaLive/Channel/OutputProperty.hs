@@ -8,8 +8,8 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputSettingsProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputProperty
-  = OutputProperty {audioDescriptionNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                    captionDescriptionNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = OutputProperty {audioDescriptionNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                    captionDescriptionNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                     outputName :: (Prelude.Maybe (Value Prelude.Text)),
                     outputSettings :: (Prelude.Maybe OutputSettingsProperty),
                     videoDescriptionName :: (Prelude.Maybe (Value Prelude.Text))}
@@ -48,12 +48,12 @@ instance JSON.ToJSON OutputProperty where
                (JSON..=) "VideoDescriptionName"
                  Prelude.<$> videoDescriptionName]))
 instance Property "AudioDescriptionNames" OutputProperty where
-  type PropertyType "AudioDescriptionNames" OutputProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AudioDescriptionNames" OutputProperty = ValueList Prelude.Text
   set newValue OutputProperty {..}
     = OutputProperty
         {audioDescriptionNames = Prelude.pure newValue, ..}
 instance Property "CaptionDescriptionNames" OutputProperty where
-  type PropertyType "CaptionDescriptionNames" OutputProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CaptionDescriptionNames" OutputProperty = ValueList Prelude.Text
   set newValue OutputProperty {..}
     = OutputProperty
         {captionDescriptionNames = Prelude.pure newValue, ..}

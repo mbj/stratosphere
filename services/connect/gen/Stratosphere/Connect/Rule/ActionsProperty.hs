@@ -8,9 +8,8 @@ import {-# SOURCE #-} Stratosphere.Connect.Rule.EventBridgeActionProperty as Exp
 import {-# SOURCE #-} Stratosphere.Connect.Rule.SendNotificationActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.Rule.TaskActionProperty as Exports
 import Stratosphere.ResourceProperties
-import Stratosphere.Value
 data ActionsProperty
-  = ActionsProperty {assignContactCategoryActions :: (Prelude.Maybe (ValueList JSON.Object)),
+  = ActionsProperty {assignContactCategoryActions :: (Prelude.Maybe JSON.Object),
                      eventBridgeActions :: (Prelude.Maybe [EventBridgeActionProperty]),
                      sendNotificationActions :: (Prelude.Maybe [SendNotificationActionProperty]),
                      taskActions :: (Prelude.Maybe [TaskActionProperty])}
@@ -45,7 +44,7 @@ instance JSON.ToJSON ActionsProperty where
                  Prelude.<$> sendNotificationActions,
                (JSON..=) "TaskActions" Prelude.<$> taskActions]))
 instance Property "AssignContactCategoryActions" ActionsProperty where
-  type PropertyType "AssignContactCategoryActions" ActionsProperty = ValueList JSON.Object
+  type PropertyType "AssignContactCategoryActions" ActionsProperty = JSON.Object
   set newValue ActionsProperty {..}
     = ActionsProperty
         {assignContactCategoryActions = Prelude.pure newValue, ..}

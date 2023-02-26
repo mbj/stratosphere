@@ -8,7 +8,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudFormationCollectionFilterProperty
-  = CloudFormationCollectionFilterProperty {stackNames :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = CloudFormationCollectionFilterProperty {stackNames :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCloudFormationCollectionFilterProperty ::
   CloudFormationCollectionFilterProperty
 mkCloudFormationCollectionFilterProperty
@@ -28,7 +28,7 @@ instance JSON.ToJSON CloudFormationCollectionFilterProperty where
            (Prelude.catMaybes
               [(JSON..=) "StackNames" Prelude.<$> stackNames]))
 instance Property "StackNames" CloudFormationCollectionFilterProperty where
-  type PropertyType "StackNames" CloudFormationCollectionFilterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StackNames" CloudFormationCollectionFilterProperty = ValueList Prelude.Text
   set newValue CloudFormationCollectionFilterProperty {}
     = CloudFormationCollectionFilterProperty
         {stackNames = Prelude.pure newValue, ..}

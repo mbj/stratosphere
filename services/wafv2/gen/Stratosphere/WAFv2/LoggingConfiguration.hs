@@ -9,12 +9,12 @@ import {-# SOURCE #-} Stratosphere.WAFv2.LoggingConfiguration.LoggingFilterPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingConfiguration
-  = LoggingConfiguration {logDestinationConfigs :: (ValueList (Value Prelude.Text)),
+  = LoggingConfiguration {logDestinationConfigs :: (ValueList Prelude.Text),
                           loggingFilter :: (Prelude.Maybe LoggingFilterProperty),
                           redactedFields :: (Prelude.Maybe [FieldToMatchProperty]),
                           resourceArn :: (Value Prelude.Text)}
 mkLoggingConfiguration ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> LoggingConfiguration
 mkLoggingConfiguration logDestinationConfigs resourceArn
   = LoggingConfiguration
@@ -43,7 +43,7 @@ instance JSON.ToJSON LoggingConfiguration where
                  [(JSON..=) "LoggingFilter" Prelude.<$> loggingFilter,
                   (JSON..=) "RedactedFields" Prelude.<$> redactedFields])))
 instance Property "LogDestinationConfigs" LoggingConfiguration where
-  type PropertyType "LogDestinationConfigs" LoggingConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "LogDestinationConfigs" LoggingConfiguration = ValueList Prelude.Text
   set newValue LoggingConfiguration {..}
     = LoggingConfiguration {logDestinationConfigs = newValue, ..}
 instance Property "LoggingFilter" LoggingConfiguration where

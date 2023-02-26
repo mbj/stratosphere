@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeProperty
-  = AttributeProperty {allowedValues :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = AttributeProperty {allowedValues :: (Prelude.Maybe (ValueList Prelude.Text)),
                        assignedValue :: (Prelude.Maybe (Value Prelude.Text)),
                        dataType :: (Value Prelude.Text),
                        defaultValue :: (Prelude.Maybe (Value Prelude.Text)),
@@ -55,7 +55,7 @@ instance JSON.ToJSON AttributeProperty where
                   (JSON..=) "Max" Prelude.<$> max, (JSON..=) "Min" Prelude.<$> min,
                   (JSON..=) "Unit" Prelude.<$> unit])))
 instance Property "AllowedValues" AttributeProperty where
-  type PropertyType "AllowedValues" AttributeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedValues" AttributeProperty = ValueList Prelude.Text
   set newValue AttributeProperty {..}
     = AttributeProperty {allowedValues = Prelude.pure newValue, ..}
 instance Property "AssignedValue" AttributeProperty where

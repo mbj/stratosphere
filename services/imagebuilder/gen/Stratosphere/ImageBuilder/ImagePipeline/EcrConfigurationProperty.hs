@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EcrConfigurationProperty
-  = EcrConfigurationProperty {containerTags :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = EcrConfigurationProperty {containerTags :: (Prelude.Maybe (ValueList Prelude.Text)),
                               repositoryName :: (Prelude.Maybe (Value Prelude.Text))}
 mkEcrConfigurationProperty :: EcrConfigurationProperty
 mkEcrConfigurationProperty
@@ -29,7 +29,7 @@ instance JSON.ToJSON EcrConfigurationProperty where
               [(JSON..=) "ContainerTags" Prelude.<$> containerTags,
                (JSON..=) "RepositoryName" Prelude.<$> repositoryName]))
 instance Property "ContainerTags" EcrConfigurationProperty where
-  type PropertyType "ContainerTags" EcrConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ContainerTags" EcrConfigurationProperty = ValueList Prelude.Text
   set newValue EcrConfigurationProperty {..}
     = EcrConfigurationProperty
         {containerTags = Prelude.pure newValue, ..}

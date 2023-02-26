@@ -10,7 +10,7 @@ import Stratosphere.Value
 data PricingPlan
   = PricingPlan {description :: (Prelude.Maybe (Value Prelude.Text)),
                  name :: (Value Prelude.Text),
-                 pricingRuleArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 pricingRuleArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
 mkPricingPlan :: Value Prelude.Text -> PricingPlan
 mkPricingPlan name
@@ -46,7 +46,7 @@ instance Property "Name" PricingPlan where
   type PropertyType "Name" PricingPlan = Value Prelude.Text
   set newValue PricingPlan {..} = PricingPlan {name = newValue, ..}
 instance Property "PricingRuleArns" PricingPlan where
-  type PropertyType "PricingRuleArns" PricingPlan = ValueList (Value Prelude.Text)
+  type PropertyType "PricingRuleArns" PricingPlan = ValueList Prelude.Text
   set newValue PricingPlan {..}
     = PricingPlan {pricingRuleArns = Prelude.pure newValue, ..}
 instance Property "Tags" PricingPlan where

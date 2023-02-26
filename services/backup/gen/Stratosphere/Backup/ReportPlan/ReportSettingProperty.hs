@@ -7,10 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReportSettingProperty
-  = ReportSettingProperty {accounts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                           frameworkArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                           organizationUnits :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                           regions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ReportSettingProperty {accounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           frameworkArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           organizationUnits :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           regions :: (Prelude.Maybe (ValueList Prelude.Text)),
                            reportTemplate :: (Value Prelude.Text)}
 mkReportSettingProperty ::
   Value Prelude.Text -> ReportSettingProperty
@@ -43,20 +43,20 @@ instance JSON.ToJSON ReportSettingProperty where
                   (JSON..=) "OrganizationUnits" Prelude.<$> organizationUnits,
                   (JSON..=) "Regions" Prelude.<$> regions])))
 instance Property "Accounts" ReportSettingProperty where
-  type PropertyType "Accounts" ReportSettingProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Accounts" ReportSettingProperty = ValueList Prelude.Text
   set newValue ReportSettingProperty {..}
     = ReportSettingProperty {accounts = Prelude.pure newValue, ..}
 instance Property "FrameworkArns" ReportSettingProperty where
-  type PropertyType "FrameworkArns" ReportSettingProperty = ValueList (Value Prelude.Text)
+  type PropertyType "FrameworkArns" ReportSettingProperty = ValueList Prelude.Text
   set newValue ReportSettingProperty {..}
     = ReportSettingProperty {frameworkArns = Prelude.pure newValue, ..}
 instance Property "OrganizationUnits" ReportSettingProperty where
-  type PropertyType "OrganizationUnits" ReportSettingProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OrganizationUnits" ReportSettingProperty = ValueList Prelude.Text
   set newValue ReportSettingProperty {..}
     = ReportSettingProperty
         {organizationUnits = Prelude.pure newValue, ..}
 instance Property "Regions" ReportSettingProperty where
-  type PropertyType "Regions" ReportSettingProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Regions" ReportSettingProperty = ValueList Prelude.Text
   set newValue ReportSettingProperty {..}
     = ReportSettingProperty {regions = Prelude.pure newValue, ..}
 instance Property "ReportTemplate" ReportSettingProperty where

@@ -11,13 +11,12 @@ data LocationFSxWindows
   = LocationFSxWindows {domain :: (Prelude.Maybe (Value Prelude.Text)),
                         fsxFilesystemArn :: (Prelude.Maybe (Value Prelude.Text)),
                         password :: (Prelude.Maybe (Value Prelude.Text)),
-                        securityGroupArns :: (ValueList (Value Prelude.Text)),
+                        securityGroupArns :: (ValueList Prelude.Text),
                         subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                         tags :: (Prelude.Maybe [Tag]),
                         user :: (Value Prelude.Text)}
 mkLocationFSxWindows ::
-  ValueList (Value Prelude.Text)
-  -> Value Prelude.Text -> LocationFSxWindows
+  ValueList Prelude.Text -> Value Prelude.Text -> LocationFSxWindows
 mkLocationFSxWindows securityGroupArns user
   = LocationFSxWindows
       {securityGroupArns = securityGroupArns, user = user,
@@ -64,7 +63,7 @@ instance Property "Password" LocationFSxWindows where
   set newValue LocationFSxWindows {..}
     = LocationFSxWindows {password = Prelude.pure newValue, ..}
 instance Property "SecurityGroupArns" LocationFSxWindows where
-  type PropertyType "SecurityGroupArns" LocationFSxWindows = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupArns" LocationFSxWindows = ValueList Prelude.Text
   set newValue LocationFSxWindows {..}
     = LocationFSxWindows {securityGroupArns = newValue, ..}
 instance Property "Subdirectory" LocationFSxWindows where

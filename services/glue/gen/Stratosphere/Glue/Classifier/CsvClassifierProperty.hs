@@ -11,7 +11,7 @@ data CsvClassifierProperty
                            containsHeader :: (Prelude.Maybe (Value Prelude.Text)),
                            delimiter :: (Prelude.Maybe (Value Prelude.Text)),
                            disableValueTrimming :: (Prelude.Maybe (Value Prelude.Bool)),
-                           header :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                           header :: (Prelude.Maybe (ValueList Prelude.Text)),
                            name :: (Prelude.Maybe (Value Prelude.Text)),
                            quoteSymbol :: (Prelude.Maybe (Value Prelude.Text))}
 mkCsvClassifierProperty :: CsvClassifierProperty
@@ -66,7 +66,7 @@ instance Property "DisableValueTrimming" CsvClassifierProperty where
     = CsvClassifierProperty
         {disableValueTrimming = Prelude.pure newValue, ..}
 instance Property "Header" CsvClassifierProperty where
-  type PropertyType "Header" CsvClassifierProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Header" CsvClassifierProperty = ValueList Prelude.Text
   set newValue CsvClassifierProperty {..}
     = CsvClassifierProperty {header = Prelude.pure newValue, ..}
 instance Property "Name" CsvClassifierProperty where

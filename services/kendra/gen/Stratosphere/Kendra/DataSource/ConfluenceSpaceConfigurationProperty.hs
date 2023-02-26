@@ -11,8 +11,8 @@ import Stratosphere.Value
 data ConfluenceSpaceConfigurationProperty
   = ConfluenceSpaceConfigurationProperty {crawlArchivedSpaces :: (Prelude.Maybe (Value Prelude.Bool)),
                                           crawlPersonalSpaces :: (Prelude.Maybe (Value Prelude.Bool)),
-                                          excludeSpaces :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                          includeSpaces :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                          excludeSpaces :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          includeSpaces :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           spaceFieldMappings :: (Prelude.Maybe [ConfluenceSpaceToIndexFieldMappingProperty])}
 mkConfluenceSpaceConfigurationProperty ::
   ConfluenceSpaceConfigurationProperty
@@ -54,12 +54,12 @@ instance Property "CrawlPersonalSpaces" ConfluenceSpaceConfigurationProperty whe
     = ConfluenceSpaceConfigurationProperty
         {crawlPersonalSpaces = Prelude.pure newValue, ..}
 instance Property "ExcludeSpaces" ConfluenceSpaceConfigurationProperty where
-  type PropertyType "ExcludeSpaces" ConfluenceSpaceConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludeSpaces" ConfluenceSpaceConfigurationProperty = ValueList Prelude.Text
   set newValue ConfluenceSpaceConfigurationProperty {..}
     = ConfluenceSpaceConfigurationProperty
         {excludeSpaces = Prelude.pure newValue, ..}
 instance Property "IncludeSpaces" ConfluenceSpaceConfigurationProperty where
-  type PropertyType "IncludeSpaces" ConfluenceSpaceConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludeSpaces" ConfluenceSpaceConfigurationProperty = ValueList Prelude.Text
   set newValue ConfluenceSpaceConfigurationProperty {..}
     = ConfluenceSpaceConfigurationProperty
         {includeSpaces = Prelude.pure newValue, ..}

@@ -12,13 +12,12 @@ data ConnectPeer
   = ConnectPeer {bgpOptions :: (Prelude.Maybe BgpOptionsProperty),
                  connectAttachmentId :: (Value Prelude.Text),
                  coreNetworkAddress :: (Prelude.Maybe (Value Prelude.Text)),
-                 insideCidrBlocks :: (ValueList (Value Prelude.Text)),
+                 insideCidrBlocks :: (ValueList Prelude.Text),
                  peerAddress :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
 mkConnectPeer ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
-     -> Value Prelude.Text -> ConnectPeer
+  -> ValueList Prelude.Text -> Value Prelude.Text -> ConnectPeer
 mkConnectPeer connectAttachmentId insideCidrBlocks peerAddress
   = ConnectPeer
       {connectAttachmentId = connectAttachmentId,
@@ -63,7 +62,7 @@ instance Property "CoreNetworkAddress" ConnectPeer where
   set newValue ConnectPeer {..}
     = ConnectPeer {coreNetworkAddress = Prelude.pure newValue, ..}
 instance Property "InsideCidrBlocks" ConnectPeer where
-  type PropertyType "InsideCidrBlocks" ConnectPeer = ValueList (Value Prelude.Text)
+  type PropertyType "InsideCidrBlocks" ConnectPeer = ValueList Prelude.Text
   set newValue ConnectPeer {..}
     = ConnectPeer {insideCidrBlocks = newValue, ..}
 instance Property "PeerAddress" ConnectPeer where

@@ -10,7 +10,7 @@ data EndpointAuthorization
   = EndpointAuthorization {account :: (Value Prelude.Text),
                            clusterIdentifier :: (Value Prelude.Text),
                            force :: (Prelude.Maybe (Value Prelude.Bool)),
-                           vpcIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                           vpcIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkEndpointAuthorization ::
   Value Prelude.Text -> Value Prelude.Text -> EndpointAuthorization
 mkEndpointAuthorization account clusterIdentifier
@@ -51,6 +51,6 @@ instance Property "Force" EndpointAuthorization where
   set newValue EndpointAuthorization {..}
     = EndpointAuthorization {force = Prelude.pure newValue, ..}
 instance Property "VpcIds" EndpointAuthorization where
-  type PropertyType "VpcIds" EndpointAuthorization = ValueList (Value Prelude.Text)
+  type PropertyType "VpcIds" EndpointAuthorization = ValueList Prelude.Text
   set newValue EndpointAuthorization {..}
     = EndpointAuthorization {vpcIds = Prelude.pure newValue, ..}

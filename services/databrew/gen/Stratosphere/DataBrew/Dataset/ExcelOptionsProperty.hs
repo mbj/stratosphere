@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExcelOptionsProperty
   = ExcelOptionsProperty {headerRow :: (Prelude.Maybe (Value Prelude.Bool)),
-                          sheetIndexes :: (Prelude.Maybe (ValueList (Value Prelude.Integer))),
-                          sheetNames :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                          sheetIndexes :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                          sheetNames :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkExcelOptionsProperty :: ExcelOptionsProperty
 mkExcelOptionsProperty
   = ExcelOptionsProperty
@@ -37,10 +37,10 @@ instance Property "HeaderRow" ExcelOptionsProperty where
   set newValue ExcelOptionsProperty {..}
     = ExcelOptionsProperty {headerRow = Prelude.pure newValue, ..}
 instance Property "SheetIndexes" ExcelOptionsProperty where
-  type PropertyType "SheetIndexes" ExcelOptionsProperty = ValueList (Value Prelude.Integer)
+  type PropertyType "SheetIndexes" ExcelOptionsProperty = ValueList Prelude.Integer
   set newValue ExcelOptionsProperty {..}
     = ExcelOptionsProperty {sheetIndexes = Prelude.pure newValue, ..}
 instance Property "SheetNames" ExcelOptionsProperty where
-  type PropertyType "SheetNames" ExcelOptionsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SheetNames" ExcelOptionsProperty = ValueList Prelude.Text
   set newValue ExcelOptionsProperty {..}
     = ExcelOptionsProperty {sheetNames = Prelude.pure newValue, ..}

@@ -9,7 +9,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data FirewallDomainList
   = FirewallDomainList {domainFileUrl :: (Prelude.Maybe (Value Prelude.Text)),
-                        domains :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                        domains :: (Prelude.Maybe (ValueList Prelude.Text)),
                         name :: (Prelude.Maybe (Value Prelude.Text)),
                         tags :: (Prelude.Maybe [Tag])}
 mkFirewallDomainList :: FirewallDomainList
@@ -41,7 +41,7 @@ instance Property "DomainFileUrl" FirewallDomainList where
   set newValue FirewallDomainList {..}
     = FirewallDomainList {domainFileUrl = Prelude.pure newValue, ..}
 instance Property "Domains" FirewallDomainList where
-  type PropertyType "Domains" FirewallDomainList = ValueList (Value Prelude.Text)
+  type PropertyType "Domains" FirewallDomainList = ValueList Prelude.Text
   set newValue FirewallDomainList {..}
     = FirewallDomainList {domains = Prelude.pure newValue, ..}
 instance Property "Name" FirewallDomainList where

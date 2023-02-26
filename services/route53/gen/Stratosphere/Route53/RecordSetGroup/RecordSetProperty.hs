@@ -20,7 +20,7 @@ data RecordSetProperty
                        multiValueAnswer :: (Prelude.Maybe (Value Prelude.Bool)),
                        name :: (Value Prelude.Text),
                        region :: (Prelude.Maybe (Value Prelude.Text)),
-                       resourceRecords :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                       resourceRecords :: (Prelude.Maybe (ValueList Prelude.Text)),
                        setIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                        tTL :: (Prelude.Maybe (Value Prelude.Text)),
                        type' :: (Value Prelude.Text),
@@ -118,7 +118,7 @@ instance Property "Region" RecordSetProperty where
   set newValue RecordSetProperty {..}
     = RecordSetProperty {region = Prelude.pure newValue, ..}
 instance Property "ResourceRecords" RecordSetProperty where
-  type PropertyType "ResourceRecords" RecordSetProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceRecords" RecordSetProperty = ValueList Prelude.Text
   set newValue RecordSetProperty {..}
     = RecordSetProperty {resourceRecords = Prelude.pure newValue, ..}
 instance Property "SetIdentifier" RecordSetProperty where

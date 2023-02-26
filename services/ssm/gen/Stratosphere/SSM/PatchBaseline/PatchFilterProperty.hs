@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PatchFilterProperty
   = PatchFilterProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
-                         values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                         values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkPatchFilterProperty :: PatchFilterProperty
 mkPatchFilterProperty
   = PatchFilterProperty
@@ -33,6 +33,6 @@ instance Property "Key" PatchFilterProperty where
   set newValue PatchFilterProperty {..}
     = PatchFilterProperty {key = Prelude.pure newValue, ..}
 instance Property "Values" PatchFilterProperty where
-  type PropertyType "Values" PatchFilterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" PatchFilterProperty = ValueList Prelude.Text
   set newValue PatchFilterProperty {..}
     = PatchFilterProperty {values = Prelude.pure newValue, ..}

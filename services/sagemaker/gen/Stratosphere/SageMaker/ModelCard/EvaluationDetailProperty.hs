@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.MetricGroupProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationDetailProperty
-  = EvaluationDetailProperty {datasets :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = EvaluationDetailProperty {datasets :: (Prelude.Maybe (ValueList Prelude.Text)),
                               evaluationJobArn :: (Prelude.Maybe (Value Prelude.Text)),
                               evaluationObservation :: (Prelude.Maybe (Value Prelude.Text)),
                               metadata :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
@@ -51,7 +51,7 @@ instance JSON.ToJSON EvaluationDetailProperty where
                   (JSON..=) "Metadata" Prelude.<$> metadata,
                   (JSON..=) "MetricGroups" Prelude.<$> metricGroups])))
 instance Property "Datasets" EvaluationDetailProperty where
-  type PropertyType "Datasets" EvaluationDetailProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Datasets" EvaluationDetailProperty = ValueList Prelude.Text
   set newValue EvaluationDetailProperty {..}
     = EvaluationDetailProperty {datasets = Prelude.pure newValue, ..}
 instance Property "EvaluationJobArn" EvaluationDetailProperty where

@@ -10,9 +10,9 @@ import Stratosphere.Value
 data ResourceShare
   = ResourceShare {allowExternalPrincipals :: (Prelude.Maybe (Value Prelude.Bool)),
                    name :: (Value Prelude.Text),
-                   permissionArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                   principals :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                   resourceArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   permissionArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   principals :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   resourceArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                    tags :: (Prelude.Maybe [Tag])}
 mkResourceShare :: Value Prelude.Text -> ResourceShare
 mkResourceShare name
@@ -57,15 +57,15 @@ instance Property "Name" ResourceShare where
   set newValue ResourceShare {..}
     = ResourceShare {name = newValue, ..}
 instance Property "PermissionArns" ResourceShare where
-  type PropertyType "PermissionArns" ResourceShare = ValueList (Value Prelude.Text)
+  type PropertyType "PermissionArns" ResourceShare = ValueList Prelude.Text
   set newValue ResourceShare {..}
     = ResourceShare {permissionArns = Prelude.pure newValue, ..}
 instance Property "Principals" ResourceShare where
-  type PropertyType "Principals" ResourceShare = ValueList (Value Prelude.Text)
+  type PropertyType "Principals" ResourceShare = ValueList Prelude.Text
   set newValue ResourceShare {..}
     = ResourceShare {principals = Prelude.pure newValue, ..}
 instance Property "ResourceArns" ResourceShare where
-  type PropertyType "ResourceArns" ResourceShare = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceArns" ResourceShare = ValueList Prelude.Text
   set newValue ResourceShare {..}
     = ResourceShare {resourceArns = Prelude.pure newValue, ..}
 instance Property "Tags" ResourceShare where

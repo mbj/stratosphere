@@ -8,12 +8,12 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RulesSourceListProperty
   = RulesSourceListProperty {generatedRulesType :: (Value Prelude.Text),
-                             targetTypes :: (ValueList (Value Prelude.Text)),
-                             targets :: (ValueList (Value Prelude.Text))}
+                             targetTypes :: (ValueList Prelude.Text),
+                             targets :: (ValueList Prelude.Text)}
 mkRulesSourceListProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
-     -> ValueList (Value Prelude.Text) -> RulesSourceListProperty
+  -> ValueList Prelude.Text
+     -> ValueList Prelude.Text -> RulesSourceListProperty
 mkRulesSourceListProperty generatedRulesType targetTypes targets
   = RulesSourceListProperty
       {generatedRulesType = generatedRulesType,
@@ -34,10 +34,10 @@ instance Property "GeneratedRulesType" RulesSourceListProperty where
   set newValue RulesSourceListProperty {..}
     = RulesSourceListProperty {generatedRulesType = newValue, ..}
 instance Property "TargetTypes" RulesSourceListProperty where
-  type PropertyType "TargetTypes" RulesSourceListProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TargetTypes" RulesSourceListProperty = ValueList Prelude.Text
   set newValue RulesSourceListProperty {..}
     = RulesSourceListProperty {targetTypes = newValue, ..}
 instance Property "Targets" RulesSourceListProperty where
-  type PropertyType "Targets" RulesSourceListProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Targets" RulesSourceListProperty = ValueList Prelude.Text
   set newValue RulesSourceListProperty {..}
     = RulesSourceListProperty {targets = newValue, ..}

@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointDetailsProperty
-  = EndpointDetailsProperty {addressAllocationIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                             securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                             subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = EndpointDetailsProperty {addressAllocationIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                              vpcEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
                              vpcId :: (Prelude.Maybe (Value Prelude.Text))}
 mkEndpointDetailsProperty :: EndpointDetailsProperty
@@ -40,17 +40,17 @@ instance JSON.ToJSON EndpointDetailsProperty where
                (JSON..=) "VpcEndpointId" Prelude.<$> vpcEndpointId,
                (JSON..=) "VpcId" Prelude.<$> vpcId]))
 instance Property "AddressAllocationIds" EndpointDetailsProperty where
-  type PropertyType "AddressAllocationIds" EndpointDetailsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AddressAllocationIds" EndpointDetailsProperty = ValueList Prelude.Text
   set newValue EndpointDetailsProperty {..}
     = EndpointDetailsProperty
         {addressAllocationIds = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" EndpointDetailsProperty where
-  type PropertyType "SecurityGroupIds" EndpointDetailsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" EndpointDetailsProperty = ValueList Prelude.Text
   set newValue EndpointDetailsProperty {..}
     = EndpointDetailsProperty
         {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetIds" EndpointDetailsProperty where
-  type PropertyType "SubnetIds" EndpointDetailsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" EndpointDetailsProperty = ValueList Prelude.Text
   set newValue EndpointDetailsProperty {..}
     = EndpointDetailsProperty {subnetIds = Prelude.pure newValue, ..}
 instance Property "VpcEndpointId" EndpointDetailsProperty where

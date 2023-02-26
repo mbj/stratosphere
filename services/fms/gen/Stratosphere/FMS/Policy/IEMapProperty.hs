@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IEMapProperty
-  = IEMapProperty {aCCOUNT :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                   oRGUNIT :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = IEMapProperty {aCCOUNT :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   oRGUNIT :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkIEMapProperty :: IEMapProperty
 mkIEMapProperty
   = IEMapProperty
@@ -29,10 +29,10 @@ instance JSON.ToJSON IEMapProperty where
               [(JSON..=) "ACCOUNT" Prelude.<$> aCCOUNT,
                (JSON..=) "ORGUNIT" Prelude.<$> oRGUNIT]))
 instance Property "ACCOUNT" IEMapProperty where
-  type PropertyType "ACCOUNT" IEMapProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ACCOUNT" IEMapProperty = ValueList Prelude.Text
   set newValue IEMapProperty {..}
     = IEMapProperty {aCCOUNT = Prelude.pure newValue, ..}
 instance Property "ORGUNIT" IEMapProperty where
-  type PropertyType "ORGUNIT" IEMapProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ORGUNIT" IEMapProperty = ValueList Prelude.Text
   set newValue IEMapProperty {..}
     = IEMapProperty {oRGUNIT = Prelude.pure newValue, ..}

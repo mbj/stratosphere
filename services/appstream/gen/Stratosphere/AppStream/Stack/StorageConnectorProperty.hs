@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StorageConnectorProperty
   = StorageConnectorProperty {connectorType :: (Value Prelude.Text),
-                              domains :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                              domains :: (Prelude.Maybe (ValueList Prelude.Text)),
                               resourceIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
 mkStorageConnectorProperty ::
   Value Prelude.Text -> StorageConnectorProperty
@@ -40,7 +40,7 @@ instance Property "ConnectorType" StorageConnectorProperty where
   set newValue StorageConnectorProperty {..}
     = StorageConnectorProperty {connectorType = newValue, ..}
 instance Property "Domains" StorageConnectorProperty where
-  type PropertyType "Domains" StorageConnectorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Domains" StorageConnectorProperty = ValueList Prelude.Text
   set newValue StorageConnectorProperty {..}
     = StorageConnectorProperty {domains = Prelude.pure newValue, ..}
 instance Property "ResourceIdentifier" StorageConnectorProperty where

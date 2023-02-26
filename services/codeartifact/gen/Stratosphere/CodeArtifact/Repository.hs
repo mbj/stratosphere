@@ -11,11 +11,11 @@ data Repository
   = Repository {description :: (Prelude.Maybe (Value Prelude.Text)),
                 domainName :: (Value Prelude.Text),
                 domainOwner :: (Prelude.Maybe (Value Prelude.Text)),
-                externalConnections :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                externalConnections :: (Prelude.Maybe (ValueList Prelude.Text)),
                 permissionsPolicyDocument :: (Prelude.Maybe JSON.Object),
                 repositoryName :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag]),
-                upstreams :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                upstreams :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkRepository ::
   Value Prelude.Text -> Value Prelude.Text -> Repository
 mkRepository domainName repositoryName
@@ -69,7 +69,7 @@ instance Property "DomainOwner" Repository where
   set newValue Repository {..}
     = Repository {domainOwner = Prelude.pure newValue, ..}
 instance Property "ExternalConnections" Repository where
-  type PropertyType "ExternalConnections" Repository = ValueList (Value Prelude.Text)
+  type PropertyType "ExternalConnections" Repository = ValueList Prelude.Text
   set newValue Repository {..}
     = Repository {externalConnections = Prelude.pure newValue, ..}
 instance Property "PermissionsPolicyDocument" Repository where
@@ -86,6 +86,6 @@ instance Property "Tags" Repository where
   set newValue Repository {..}
     = Repository {tags = Prelude.pure newValue, ..}
 instance Property "Upstreams" Repository where
-  type PropertyType "Upstreams" Repository = ValueList (Value Prelude.Text)
+  type PropertyType "Upstreams" Repository = ValueList Prelude.Text
   set newValue Repository {..}
     = Repository {upstreams = Prelude.pure newValue, ..}

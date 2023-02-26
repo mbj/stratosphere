@@ -26,7 +26,7 @@ data OriginEndpoint
                     startoverWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                     tags :: (Prelude.Maybe [Tag]),
                     timeDelaySeconds :: (Prelude.Maybe (Value Prelude.Integer)),
-                    whitelist :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                    whitelist :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkOriginEndpoint ::
   Value Prelude.Text -> Value Prelude.Text -> OriginEndpoint
 mkOriginEndpoint channelId id
@@ -133,6 +133,6 @@ instance Property "TimeDelaySeconds" OriginEndpoint where
   set newValue OriginEndpoint {..}
     = OriginEndpoint {timeDelaySeconds = Prelude.pure newValue, ..}
 instance Property "Whitelist" OriginEndpoint where
-  type PropertyType "Whitelist" OriginEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "Whitelist" OriginEndpoint = ValueList Prelude.Text
   set newValue OriginEndpoint {..}
     = OriginEndpoint {whitelist = Prelude.pure newValue, ..}

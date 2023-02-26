@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AwsVpcConfigurationProperty
   = AwsVpcConfigurationProperty {assignPublicIp :: (Prelude.Maybe (Value Prelude.Text)),
-                                 securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                 subnets :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                 securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 subnets :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAwsVpcConfigurationProperty :: AwsVpcConfigurationProperty
 mkAwsVpcConfigurationProperty
   = AwsVpcConfigurationProperty
@@ -38,11 +38,11 @@ instance Property "AssignPublicIp" AwsVpcConfigurationProperty where
     = AwsVpcConfigurationProperty
         {assignPublicIp = Prelude.pure newValue, ..}
 instance Property "SecurityGroups" AwsVpcConfigurationProperty where
-  type PropertyType "SecurityGroups" AwsVpcConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" AwsVpcConfigurationProperty = ValueList Prelude.Text
   set newValue AwsVpcConfigurationProperty {..}
     = AwsVpcConfigurationProperty
         {securityGroups = Prelude.pure newValue, ..}
 instance Property "Subnets" AwsVpcConfigurationProperty where
-  type PropertyType "Subnets" AwsVpcConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Subnets" AwsVpcConfigurationProperty = ValueList Prelude.Text
   set newValue AwsVpcConfigurationProperty {..}
     = AwsVpcConfigurationProperty {subnets = Prelude.pure newValue, ..}

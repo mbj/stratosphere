@@ -8,11 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebCrawlerSeedUrlConfigurationProperty
-  = WebCrawlerSeedUrlConfigurationProperty {seedUrls :: (ValueList (Value Prelude.Text)),
+  = WebCrawlerSeedUrlConfigurationProperty {seedUrls :: (ValueList Prelude.Text),
                                             webCrawlerMode :: (Prelude.Maybe (Value Prelude.Text))}
 mkWebCrawlerSeedUrlConfigurationProperty ::
-  ValueList (Value Prelude.Text)
-  -> WebCrawlerSeedUrlConfigurationProperty
+  ValueList Prelude.Text -> WebCrawlerSeedUrlConfigurationProperty
 mkWebCrawlerSeedUrlConfigurationProperty seedUrls
   = WebCrawlerSeedUrlConfigurationProperty
       {seedUrls = seedUrls, webCrawlerMode = Prelude.Nothing}
@@ -34,7 +33,7 @@ instance JSON.ToJSON WebCrawlerSeedUrlConfigurationProperty where
               (Prelude.catMaybes
                  [(JSON..=) "WebCrawlerMode" Prelude.<$> webCrawlerMode])))
 instance Property "SeedUrls" WebCrawlerSeedUrlConfigurationProperty where
-  type PropertyType "SeedUrls" WebCrawlerSeedUrlConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SeedUrls" WebCrawlerSeedUrlConfigurationProperty = ValueList Prelude.Text
   set newValue WebCrawlerSeedUrlConfigurationProperty {..}
     = WebCrawlerSeedUrlConfigurationProperty {seedUrls = newValue, ..}
 instance Property "WebCrawlerMode" WebCrawlerSeedUrlConfigurationProperty where

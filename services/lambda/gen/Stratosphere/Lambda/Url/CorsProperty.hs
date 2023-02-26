@@ -8,10 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CorsProperty
   = CorsProperty {allowCredentials :: (Prelude.Maybe (Value Prelude.Bool)),
-                  allowHeaders :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                  allowMethods :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                  allowOrigins :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                  exposeHeaders :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  allowHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  allowMethods :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  allowOrigins :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  exposeHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
                   maxAge :: (Prelude.Maybe (Value Prelude.Integer))}
 mkCorsProperty :: CorsProperty
 mkCorsProperty
@@ -48,19 +48,19 @@ instance Property "AllowCredentials" CorsProperty where
   set newValue CorsProperty {..}
     = CorsProperty {allowCredentials = Prelude.pure newValue, ..}
 instance Property "AllowHeaders" CorsProperty where
-  type PropertyType "AllowHeaders" CorsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AllowHeaders" CorsProperty = ValueList Prelude.Text
   set newValue CorsProperty {..}
     = CorsProperty {allowHeaders = Prelude.pure newValue, ..}
 instance Property "AllowMethods" CorsProperty where
-  type PropertyType "AllowMethods" CorsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AllowMethods" CorsProperty = ValueList Prelude.Text
   set newValue CorsProperty {..}
     = CorsProperty {allowMethods = Prelude.pure newValue, ..}
 instance Property "AllowOrigins" CorsProperty where
-  type PropertyType "AllowOrigins" CorsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AllowOrigins" CorsProperty = ValueList Prelude.Text
   set newValue CorsProperty {..}
     = CorsProperty {allowOrigins = Prelude.pure newValue, ..}
 instance Property "ExposeHeaders" CorsProperty where
-  type PropertyType "ExposeHeaders" CorsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExposeHeaders" CorsProperty = ValueList Prelude.Text
   set newValue CorsProperty {..}
     = CorsProperty {exposeHeaders = Prelude.pure newValue, ..}
 instance Property "MaxAge" CorsProperty where

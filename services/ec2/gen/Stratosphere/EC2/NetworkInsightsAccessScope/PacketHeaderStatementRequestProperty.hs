@@ -8,13 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PacketHeaderStatementRequestProperty
-  = PacketHeaderStatementRequestProperty {destinationAddresses :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                          destinationPorts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                          destinationPrefixLists :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                          protocols :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                          sourceAddresses :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                          sourcePorts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                          sourcePrefixLists :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = PacketHeaderStatementRequestProperty {destinationAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          destinationPorts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          destinationPrefixLists :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          protocols :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          sourceAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          sourcePorts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          sourcePrefixLists :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkPacketHeaderStatementRequestProperty ::
   PacketHeaderStatementRequestProperty
 mkPacketHeaderStatementRequestProperty
@@ -52,37 +52,37 @@ instance JSON.ToJSON PacketHeaderStatementRequestProperty where
                (JSON..=) "SourcePorts" Prelude.<$> sourcePorts,
                (JSON..=) "SourcePrefixLists" Prelude.<$> sourcePrefixLists]))
 instance Property "DestinationAddresses" PacketHeaderStatementRequestProperty where
-  type PropertyType "DestinationAddresses" PacketHeaderStatementRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DestinationAddresses" PacketHeaderStatementRequestProperty = ValueList Prelude.Text
   set newValue PacketHeaderStatementRequestProperty {..}
     = PacketHeaderStatementRequestProperty
         {destinationAddresses = Prelude.pure newValue, ..}
 instance Property "DestinationPorts" PacketHeaderStatementRequestProperty where
-  type PropertyType "DestinationPorts" PacketHeaderStatementRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DestinationPorts" PacketHeaderStatementRequestProperty = ValueList Prelude.Text
   set newValue PacketHeaderStatementRequestProperty {..}
     = PacketHeaderStatementRequestProperty
         {destinationPorts = Prelude.pure newValue, ..}
 instance Property "DestinationPrefixLists" PacketHeaderStatementRequestProperty where
-  type PropertyType "DestinationPrefixLists" PacketHeaderStatementRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DestinationPrefixLists" PacketHeaderStatementRequestProperty = ValueList Prelude.Text
   set newValue PacketHeaderStatementRequestProperty {..}
     = PacketHeaderStatementRequestProperty
         {destinationPrefixLists = Prelude.pure newValue, ..}
 instance Property "Protocols" PacketHeaderStatementRequestProperty where
-  type PropertyType "Protocols" PacketHeaderStatementRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Protocols" PacketHeaderStatementRequestProperty = ValueList Prelude.Text
   set newValue PacketHeaderStatementRequestProperty {..}
     = PacketHeaderStatementRequestProperty
         {protocols = Prelude.pure newValue, ..}
 instance Property "SourceAddresses" PacketHeaderStatementRequestProperty where
-  type PropertyType "SourceAddresses" PacketHeaderStatementRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SourceAddresses" PacketHeaderStatementRequestProperty = ValueList Prelude.Text
   set newValue PacketHeaderStatementRequestProperty {..}
     = PacketHeaderStatementRequestProperty
         {sourceAddresses = Prelude.pure newValue, ..}
 instance Property "SourcePorts" PacketHeaderStatementRequestProperty where
-  type PropertyType "SourcePorts" PacketHeaderStatementRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SourcePorts" PacketHeaderStatementRequestProperty = ValueList Prelude.Text
   set newValue PacketHeaderStatementRequestProperty {..}
     = PacketHeaderStatementRequestProperty
         {sourcePorts = Prelude.pure newValue, ..}
 instance Property "SourcePrefixLists" PacketHeaderStatementRequestProperty where
-  type PropertyType "SourcePrefixLists" PacketHeaderStatementRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SourcePrefixLists" PacketHeaderStatementRequestProperty = ValueList Prelude.Text
   set newValue PacketHeaderStatementRequestProperty {..}
     = PacketHeaderStatementRequestProperty
         {sourcePrefixLists = Prelude.pure newValue, ..}

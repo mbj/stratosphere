@@ -11,7 +11,7 @@ data ExperimentTemplateActionProperty
   = ExperimentTemplateActionProperty {actionId :: (Value Prelude.Text),
                                       description :: (Prelude.Maybe (Value Prelude.Text)),
                                       parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
-                                      startAfter :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                      startAfter :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       targets :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
 mkExperimentTemplateActionProperty ::
   Value Prelude.Text -> ExperimentTemplateActionProperty
@@ -58,7 +58,7 @@ instance Property "Parameters" ExperimentTemplateActionProperty where
     = ExperimentTemplateActionProperty
         {parameters = Prelude.pure newValue, ..}
 instance Property "StartAfter" ExperimentTemplateActionProperty where
-  type PropertyType "StartAfter" ExperimentTemplateActionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StartAfter" ExperimentTemplateActionProperty = ValueList Prelude.Text
   set newValue ExperimentTemplateActionProperty {..}
     = ExperimentTemplateActionProperty
         {startAfter = Prelude.pure newValue, ..}

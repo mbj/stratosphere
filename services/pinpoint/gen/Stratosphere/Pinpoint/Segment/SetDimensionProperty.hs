@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SetDimensionProperty
   = SetDimensionProperty {dimensionType :: (Prelude.Maybe (Value Prelude.Text)),
-                          values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                          values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkSetDimensionProperty :: SetDimensionProperty
 mkSetDimensionProperty
   = SetDimensionProperty
@@ -33,6 +33,6 @@ instance Property "DimensionType" SetDimensionProperty where
   set newValue SetDimensionProperty {..}
     = SetDimensionProperty {dimensionType = Prelude.pure newValue, ..}
 instance Property "Values" SetDimensionProperty where
-  type PropertyType "Values" SetDimensionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" SetDimensionProperty = ValueList Prelude.Text
   set newValue SetDimensionProperty {..}
     = SetDimensionProperty {values = Prelude.pure newValue, ..}

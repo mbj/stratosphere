@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationParameterProperty
   = ConfigurationParameterProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
-                                    values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                    values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkConfigurationParameterProperty :: ConfigurationParameterProperty
 mkConfigurationParameterProperty
   = ConfigurationParameterProperty
@@ -34,7 +34,7 @@ instance Property "Name" ConfigurationParameterProperty where
   set newValue ConfigurationParameterProperty {..}
     = ConfigurationParameterProperty {name = Prelude.pure newValue, ..}
 instance Property "Values" ConfigurationParameterProperty where
-  type PropertyType "Values" ConfigurationParameterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" ConfigurationParameterProperty = ValueList Prelude.Text
   set newValue ConfigurationParameterProperty {..}
     = ConfigurationParameterProperty
         {values = Prelude.pure newValue, ..}

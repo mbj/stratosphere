@@ -18,19 +18,19 @@ import Stratosphere.Value
 data LoadBalancer
   = LoadBalancer {accessLoggingPolicy :: (Prelude.Maybe AccessLoggingPolicyProperty),
                   appCookieStickinessPolicy :: (Prelude.Maybe [AppCookieStickinessPolicyProperty]),
-                  availabilityZones :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
                   connectionDrainingPolicy :: (Prelude.Maybe ConnectionDrainingPolicyProperty),
                   connectionSettings :: (Prelude.Maybe ConnectionSettingsProperty),
                   crossZone :: (Prelude.Maybe (Value Prelude.Bool)),
                   healthCheck :: (Prelude.Maybe HealthCheckProperty),
-                  instances :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  instances :: (Prelude.Maybe (ValueList Prelude.Text)),
                   lBCookieStickinessPolicy :: (Prelude.Maybe [LBCookieStickinessPolicyProperty]),
                   listeners :: [ListenersProperty],
                   loadBalancerName :: (Prelude.Maybe (Value Prelude.Text)),
                   policies :: (Prelude.Maybe [PoliciesProperty]),
                   scheme :: (Prelude.Maybe (Value Prelude.Text)),
-                  securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                  subnets :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  subnets :: (Prelude.Maybe (ValueList Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag])}
 mkLoadBalancer :: [ListenersProperty] -> LoadBalancer
 mkLoadBalancer listeners
@@ -106,7 +106,7 @@ instance Property "AppCookieStickinessPolicy" LoadBalancer where
     = LoadBalancer
         {appCookieStickinessPolicy = Prelude.pure newValue, ..}
 instance Property "AvailabilityZones" LoadBalancer where
-  type PropertyType "AvailabilityZones" LoadBalancer = ValueList (Value Prelude.Text)
+  type PropertyType "AvailabilityZones" LoadBalancer = ValueList Prelude.Text
   set newValue LoadBalancer {..}
     = LoadBalancer {availabilityZones = Prelude.pure newValue, ..}
 instance Property "ConnectionDrainingPolicy" LoadBalancer where
@@ -127,7 +127,7 @@ instance Property "HealthCheck" LoadBalancer where
   set newValue LoadBalancer {..}
     = LoadBalancer {healthCheck = Prelude.pure newValue, ..}
 instance Property "Instances" LoadBalancer where
-  type PropertyType "Instances" LoadBalancer = ValueList (Value Prelude.Text)
+  type PropertyType "Instances" LoadBalancer = ValueList Prelude.Text
   set newValue LoadBalancer {..}
     = LoadBalancer {instances = Prelude.pure newValue, ..}
 instance Property "LBCookieStickinessPolicy" LoadBalancer where
@@ -152,11 +152,11 @@ instance Property "Scheme" LoadBalancer where
   set newValue LoadBalancer {..}
     = LoadBalancer {scheme = Prelude.pure newValue, ..}
 instance Property "SecurityGroups" LoadBalancer where
-  type PropertyType "SecurityGroups" LoadBalancer = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" LoadBalancer = ValueList Prelude.Text
   set newValue LoadBalancer {..}
     = LoadBalancer {securityGroups = Prelude.pure newValue, ..}
 instance Property "Subnets" LoadBalancer where
-  type PropertyType "Subnets" LoadBalancer = ValueList (Value Prelude.Text)
+  type PropertyType "Subnets" LoadBalancer = ValueList Prelude.Text
   set newValue LoadBalancer {..}
     = LoadBalancer {subnets = Prelude.pure newValue, ..}
 instance Property "Tags" LoadBalancer where

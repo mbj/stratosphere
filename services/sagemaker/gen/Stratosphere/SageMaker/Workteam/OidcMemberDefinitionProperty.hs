@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OidcMemberDefinitionProperty
-  = OidcMemberDefinitionProperty {oidcGroups :: (ValueList (Value Prelude.Text))}
+  = OidcMemberDefinitionProperty {oidcGroups :: (ValueList Prelude.Text)}
 mkOidcMemberDefinitionProperty ::
-  ValueList (Value Prelude.Text) -> OidcMemberDefinitionProperty
+  ValueList Prelude.Text -> OidcMemberDefinitionProperty
 mkOidcMemberDefinitionProperty oidcGroups
   = OidcMemberDefinitionProperty {oidcGroups = oidcGroups}
 instance ToResourceProperties OidcMemberDefinitionProperty where
@@ -21,6 +21,6 @@ instance JSON.ToJSON OidcMemberDefinitionProperty where
   toJSON OidcMemberDefinitionProperty {..}
     = JSON.object ["OidcGroups" JSON..= oidcGroups]
 instance Property "OidcGroups" OidcMemberDefinitionProperty where
-  type PropertyType "OidcGroups" OidcMemberDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OidcGroups" OidcMemberDefinitionProperty = ValueList Prelude.Text
   set newValue OidcMemberDefinitionProperty {}
     = OidcMemberDefinitionProperty {oidcGroups = newValue, ..}

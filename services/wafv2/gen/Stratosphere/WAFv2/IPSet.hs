@@ -8,14 +8,14 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data IPSet
-  = IPSet {addresses :: (ValueList (Value Prelude.Text)),
+  = IPSet {addresses :: (ValueList Prelude.Text),
            description :: (Prelude.Maybe (Value Prelude.Text)),
            iPAddressVersion :: (Value Prelude.Text),
            name :: (Prelude.Maybe (Value Prelude.Text)),
            scope :: (Value Prelude.Text),
            tags :: (Prelude.Maybe [Tag])}
 mkIPSet ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> IPSet
 mkIPSet addresses iPAddressVersion scope
   = IPSet
@@ -46,7 +46,7 @@ instance JSON.ToJSON IPSet where
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Addresses" IPSet where
-  type PropertyType "Addresses" IPSet = ValueList (Value Prelude.Text)
+  type PropertyType "Addresses" IPSet = ValueList Prelude.Text
   set newValue IPSet {..} = IPSet {addresses = newValue, ..}
 instance Property "Description" IPSet where
   type PropertyType "Description" IPSet = Value Prelude.Text

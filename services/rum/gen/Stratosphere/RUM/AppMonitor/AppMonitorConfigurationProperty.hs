@@ -11,14 +11,14 @@ import Stratosphere.Value
 data AppMonitorConfigurationProperty
   = AppMonitorConfigurationProperty {allowCookies :: (Prelude.Maybe (Value Prelude.Bool)),
                                      enableXRay :: (Prelude.Maybe (Value Prelude.Bool)),
-                                     excludedPages :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                     favoritePages :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                     excludedPages :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     favoritePages :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      guestRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                      identityPoolId :: (Prelude.Maybe (Value Prelude.Text)),
-                                     includedPages :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                     includedPages :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      metricDestinations :: (Prelude.Maybe [MetricDestinationProperty]),
                                      sessionSampleRate :: (Prelude.Maybe (Value Prelude.Double)),
-                                     telemetries :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                     telemetries :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAppMonitorConfigurationProperty ::
   AppMonitorConfigurationProperty
 mkAppMonitorConfigurationProperty
@@ -71,12 +71,12 @@ instance Property "EnableXRay" AppMonitorConfigurationProperty where
     = AppMonitorConfigurationProperty
         {enableXRay = Prelude.pure newValue, ..}
 instance Property "ExcludedPages" AppMonitorConfigurationProperty where
-  type PropertyType "ExcludedPages" AppMonitorConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludedPages" AppMonitorConfigurationProperty = ValueList Prelude.Text
   set newValue AppMonitorConfigurationProperty {..}
     = AppMonitorConfigurationProperty
         {excludedPages = Prelude.pure newValue, ..}
 instance Property "FavoritePages" AppMonitorConfigurationProperty where
-  type PropertyType "FavoritePages" AppMonitorConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "FavoritePages" AppMonitorConfigurationProperty = ValueList Prelude.Text
   set newValue AppMonitorConfigurationProperty {..}
     = AppMonitorConfigurationProperty
         {favoritePages = Prelude.pure newValue, ..}
@@ -91,7 +91,7 @@ instance Property "IdentityPoolId" AppMonitorConfigurationProperty where
     = AppMonitorConfigurationProperty
         {identityPoolId = Prelude.pure newValue, ..}
 instance Property "IncludedPages" AppMonitorConfigurationProperty where
-  type PropertyType "IncludedPages" AppMonitorConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludedPages" AppMonitorConfigurationProperty = ValueList Prelude.Text
   set newValue AppMonitorConfigurationProperty {..}
     = AppMonitorConfigurationProperty
         {includedPages = Prelude.pure newValue, ..}
@@ -106,7 +106,7 @@ instance Property "SessionSampleRate" AppMonitorConfigurationProperty where
     = AppMonitorConfigurationProperty
         {sessionSampleRate = Prelude.pure newValue, ..}
 instance Property "Telemetries" AppMonitorConfigurationProperty where
-  type PropertyType "Telemetries" AppMonitorConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Telemetries" AppMonitorConfigurationProperty = ValueList Prelude.Text
   set newValue AppMonitorConfigurationProperty {..}
     = AppMonitorConfigurationProperty
         {telemetries = Prelude.pure newValue, ..}

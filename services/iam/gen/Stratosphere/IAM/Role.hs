@@ -11,7 +11,7 @@ import Stratosphere.Value
 data Role
   = Role {assumeRolePolicyDocument :: JSON.Object,
           description :: (Prelude.Maybe (Value Prelude.Text)),
-          managedPolicyArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+          managedPolicyArns :: (Prelude.Maybe (ValueList Prelude.Text)),
           maxSessionDuration :: (Prelude.Maybe (Value Prelude.Integer)),
           path :: (Prelude.Maybe (Value Prelude.Text)),
           permissionsBoundary :: (Prelude.Maybe (Value Prelude.Text)),
@@ -66,7 +66,7 @@ instance Property "Description" Role where
   set newValue Role {..}
     = Role {description = Prelude.pure newValue, ..}
 instance Property "ManagedPolicyArns" Role where
-  type PropertyType "ManagedPolicyArns" Role = ValueList (Value Prelude.Text)
+  type PropertyType "ManagedPolicyArns" Role = ValueList Prelude.Text
   set newValue Role {..}
     = Role {managedPolicyArns = Prelude.pure newValue, ..}
 instance Property "MaxSessionDuration" Role where

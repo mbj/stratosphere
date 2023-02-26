@@ -9,7 +9,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Profile
   = Profile {as2Id :: (Value Prelude.Text),
-             certificateIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+             certificateIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              profileType :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag])}
 mkProfile :: Value Prelude.Text -> Value Prelude.Text -> Profile
@@ -40,7 +40,7 @@ instance Property "As2Id" Profile where
   type PropertyType "As2Id" Profile = Value Prelude.Text
   set newValue Profile {..} = Profile {as2Id = newValue, ..}
 instance Property "CertificateIds" Profile where
-  type PropertyType "CertificateIds" Profile = ValueList (Value Prelude.Text)
+  type PropertyType "CertificateIds" Profile = ValueList Prelude.Text
   set newValue Profile {..}
     = Profile {certificateIds = Prelude.pure newValue, ..}
 instance Property "ProfileType" Profile where

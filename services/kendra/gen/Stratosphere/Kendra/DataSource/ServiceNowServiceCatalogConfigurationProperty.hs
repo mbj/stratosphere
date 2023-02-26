@@ -12,9 +12,9 @@ data ServiceNowServiceCatalogConfigurationProperty
   = ServiceNowServiceCatalogConfigurationProperty {crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
                                                    documentDataFieldName :: (Value Prelude.Text),
                                                    documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
-                                                   excludeAttachmentFilePatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                                   excludeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                    fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
-                                                   includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                                   includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkServiceNowServiceCatalogConfigurationProperty ::
   Value Prelude.Text -> ServiceNowServiceCatalogConfigurationProperty
 mkServiceNowServiceCatalogConfigurationProperty
@@ -74,7 +74,7 @@ instance Property "DocumentTitleFieldName" ServiceNowServiceCatalogConfiguration
     = ServiceNowServiceCatalogConfigurationProperty
         {documentTitleFieldName = Prelude.pure newValue, ..}
 instance Property "ExcludeAttachmentFilePatterns" ServiceNowServiceCatalogConfigurationProperty where
-  type PropertyType "ExcludeAttachmentFilePatterns" ServiceNowServiceCatalogConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludeAttachmentFilePatterns" ServiceNowServiceCatalogConfigurationProperty = ValueList Prelude.Text
   set newValue ServiceNowServiceCatalogConfigurationProperty {..}
     = ServiceNowServiceCatalogConfigurationProperty
         {excludeAttachmentFilePatterns = Prelude.pure newValue, ..}
@@ -84,7 +84,7 @@ instance Property "FieldMappings" ServiceNowServiceCatalogConfigurationProperty 
     = ServiceNowServiceCatalogConfigurationProperty
         {fieldMappings = Prelude.pure newValue, ..}
 instance Property "IncludeAttachmentFilePatterns" ServiceNowServiceCatalogConfigurationProperty where
-  type PropertyType "IncludeAttachmentFilePatterns" ServiceNowServiceCatalogConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludeAttachmentFilePatterns" ServiceNowServiceCatalogConfigurationProperty = ValueList Prelude.Text
   set newValue ServiceNowServiceCatalogConfigurationProperty {..}
     = ServiceNowServiceCatalogConfigurationProperty
         {includeAttachmentFilePatterns = Prelude.pure newValue, ..}

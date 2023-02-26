@@ -12,7 +12,7 @@ data CustomConnectorDestinationPropertiesProperty
   = CustomConnectorDestinationPropertiesProperty {customProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                                   entityName :: (Value Prelude.Text),
                                                   errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
-                                                  idFieldNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                                  idFieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                   writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
 mkCustomConnectorDestinationPropertiesProperty ::
   Value Prelude.Text -> CustomConnectorDestinationPropertiesProperty
@@ -62,7 +62,7 @@ instance Property "ErrorHandlingConfig" CustomConnectorDestinationPropertiesProp
     = CustomConnectorDestinationPropertiesProperty
         {errorHandlingConfig = Prelude.pure newValue, ..}
 instance Property "IdFieldNames" CustomConnectorDestinationPropertiesProperty where
-  type PropertyType "IdFieldNames" CustomConnectorDestinationPropertiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IdFieldNames" CustomConnectorDestinationPropertiesProperty = ValueList Prelude.Text
   set newValue CustomConnectorDestinationPropertiesProperty {..}
     = CustomConnectorDestinationPropertiesProperty
         {idFieldNames = Prelude.pure newValue, ..}

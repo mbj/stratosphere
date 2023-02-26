@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentConfigurationUpdateProperty
   = ComponentConfigurationUpdateProperty {merge :: (Prelude.Maybe (Value Prelude.Text)),
-                                          reset :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                          reset :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkComponentConfigurationUpdateProperty ::
   ComponentConfigurationUpdateProperty
 mkComponentConfigurationUpdateProperty
@@ -36,7 +36,7 @@ instance Property "Merge" ComponentConfigurationUpdateProperty where
     = ComponentConfigurationUpdateProperty
         {merge = Prelude.pure newValue, ..}
 instance Property "Reset" ComponentConfigurationUpdateProperty where
-  type PropertyType "Reset" ComponentConfigurationUpdateProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Reset" ComponentConfigurationUpdateProperty = ValueList Prelude.Text
   set newValue ComponentConfigurationUpdateProperty {..}
     = ComponentConfigurationUpdateProperty
         {reset = Prelude.pure newValue, ..}

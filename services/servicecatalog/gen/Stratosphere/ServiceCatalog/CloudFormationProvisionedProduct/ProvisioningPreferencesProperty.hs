@@ -8,13 +8,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisioningPreferencesProperty
-  = ProvisioningPreferencesProperty {stackSetAccounts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ProvisioningPreferencesProperty {stackSetAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      stackSetFailureToleranceCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                      stackSetFailureTolerancePercentage :: (Prelude.Maybe (Value Prelude.Integer)),
                                      stackSetMaxConcurrencyCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                      stackSetMaxConcurrencyPercentage :: (Prelude.Maybe (Value Prelude.Integer)),
                                      stackSetOperationType :: (Prelude.Maybe (Value Prelude.Text)),
-                                     stackSetRegions :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                     stackSetRegions :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkProvisioningPreferencesProperty ::
   ProvisioningPreferencesProperty
 mkProvisioningPreferencesProperty
@@ -62,7 +62,7 @@ instance JSON.ToJSON ProvisioningPreferencesProperty where
                  Prelude.<$> stackSetOperationType,
                (JSON..=) "StackSetRegions" Prelude.<$> stackSetRegions]))
 instance Property "StackSetAccounts" ProvisioningPreferencesProperty where
-  type PropertyType "StackSetAccounts" ProvisioningPreferencesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StackSetAccounts" ProvisioningPreferencesProperty = ValueList Prelude.Text
   set newValue ProvisioningPreferencesProperty {..}
     = ProvisioningPreferencesProperty
         {stackSetAccounts = Prelude.pure newValue, ..}
@@ -92,7 +92,7 @@ instance Property "StackSetOperationType" ProvisioningPreferencesProperty where
     = ProvisioningPreferencesProperty
         {stackSetOperationType = Prelude.pure newValue, ..}
 instance Property "StackSetRegions" ProvisioningPreferencesProperty where
-  type PropertyType "StackSetRegions" ProvisioningPreferencesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StackSetRegions" ProvisioningPreferencesProperty = ValueList Prelude.Text
   set newValue ProvisioningPreferencesProperty {..}
     = ProvisioningPreferencesProperty
         {stackSetRegions = Prelude.pure newValue, ..}

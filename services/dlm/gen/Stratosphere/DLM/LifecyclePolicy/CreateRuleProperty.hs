@@ -11,7 +11,7 @@ data CreateRuleProperty
                         interval :: (Prelude.Maybe (Value Prelude.Integer)),
                         intervalUnit :: (Prelude.Maybe (Value Prelude.Text)),
                         location :: (Prelude.Maybe (Value Prelude.Text)),
-                        times :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                        times :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCreateRuleProperty :: CreateRuleProperty
 mkCreateRuleProperty
   = CreateRuleProperty
@@ -56,6 +56,6 @@ instance Property "Location" CreateRuleProperty where
   set newValue CreateRuleProperty {..}
     = CreateRuleProperty {location = Prelude.pure newValue, ..}
 instance Property "Times" CreateRuleProperty where
-  type PropertyType "Times" CreateRuleProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Times" CreateRuleProperty = ValueList Prelude.Text
   set newValue CreateRuleProperty {..}
     = CreateRuleProperty {times = Prelude.pure newValue, ..}

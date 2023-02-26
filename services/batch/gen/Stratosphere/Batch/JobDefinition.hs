@@ -17,7 +17,7 @@ data JobDefinition
                    jobDefinitionName :: (Prelude.Maybe (Value Prelude.Text)),
                    nodeProperties :: (Prelude.Maybe NodePropertiesProperty),
                    parameters :: (Prelude.Maybe JSON.Object),
-                   platformCapabilities :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   platformCapabilities :: (Prelude.Maybe (ValueList Prelude.Text)),
                    propagateTags :: (Prelude.Maybe (Value Prelude.Bool)),
                    retryStrategy :: (Prelude.Maybe RetryStrategyProperty),
                    schedulingPriority :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -93,7 +93,7 @@ instance Property "Parameters" JobDefinition where
   set newValue JobDefinition {..}
     = JobDefinition {parameters = Prelude.pure newValue, ..}
 instance Property "PlatformCapabilities" JobDefinition where
-  type PropertyType "PlatformCapabilities" JobDefinition = ValueList (Value Prelude.Text)
+  type PropertyType "PlatformCapabilities" JobDefinition = ValueList Prelude.Text
   set newValue JobDefinition {..}
     = JobDefinition {platformCapabilities = Prelude.pure newValue, ..}
 instance Property "PropagateTags" JobDefinition where

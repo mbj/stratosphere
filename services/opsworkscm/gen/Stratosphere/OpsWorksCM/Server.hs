@@ -25,9 +25,9 @@ data Server
             keyPair :: (Prelude.Maybe (Value Prelude.Text)),
             preferredBackupWindow :: (Prelude.Maybe (Value Prelude.Text)),
             preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
-            securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
             serviceRoleArn :: (Value Prelude.Text),
-            subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
             tags :: (Prelude.Maybe [Tag])}
 mkServer ::
   Value Prelude.Text
@@ -172,14 +172,14 @@ instance Property "PreferredMaintenanceWindow" Server where
   set newValue Server {..}
     = Server {preferredMaintenanceWindow = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" Server where
-  type PropertyType "SecurityGroupIds" Server = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" Server = ValueList Prelude.Text
   set newValue Server {..}
     = Server {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "ServiceRoleArn" Server where
   type PropertyType "ServiceRoleArn" Server = Value Prelude.Text
   set newValue Server {..} = Server {serviceRoleArn = newValue, ..}
 instance Property "SubnetIds" Server where
-  type PropertyType "SubnetIds" Server = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" Server = ValueList Prelude.Text
   set newValue Server {..}
     = Server {subnetIds = Prelude.pure newValue, ..}
 instance Property "Tags" Server where

@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrcSerDeProperty
   = OrcSerDeProperty {blockSizeBytes :: (Prelude.Maybe (Value Prelude.Integer)),
-                      bloomFilterColumns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      bloomFilterColumns :: (Prelude.Maybe (ValueList Prelude.Text)),
                       bloomFilterFalsePositiveProbability :: (Prelude.Maybe (Value Prelude.Double)),
                       compression :: (Prelude.Maybe (Value Prelude.Text)),
                       dictionaryKeyThreshold :: (Prelude.Maybe (Value Prelude.Double)),
@@ -69,7 +69,7 @@ instance Property "BlockSizeBytes" OrcSerDeProperty where
   set newValue OrcSerDeProperty {..}
     = OrcSerDeProperty {blockSizeBytes = Prelude.pure newValue, ..}
 instance Property "BloomFilterColumns" OrcSerDeProperty where
-  type PropertyType "BloomFilterColumns" OrcSerDeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "BloomFilterColumns" OrcSerDeProperty = ValueList Prelude.Text
   set newValue OrcSerDeProperty {..}
     = OrcSerDeProperty {bloomFilterColumns = Prelude.pure newValue, ..}
 instance Property "BloomFilterFalsePositiveProbability" OrcSerDeProperty where

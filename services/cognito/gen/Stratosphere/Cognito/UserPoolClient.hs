@@ -10,27 +10,27 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolClient
   = UserPoolClient {accessTokenValidity :: (Prelude.Maybe (Value Prelude.Integer)),
-                    allowedOAuthFlows :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    allowedOAuthFlows :: (Prelude.Maybe (ValueList Prelude.Text)),
                     allowedOAuthFlowsUserPoolClient :: (Prelude.Maybe (Value Prelude.Bool)),
-                    allowedOAuthScopes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    allowedOAuthScopes :: (Prelude.Maybe (ValueList Prelude.Text)),
                     analyticsConfiguration :: (Prelude.Maybe AnalyticsConfigurationProperty),
                     authSessionValidity :: (Prelude.Maybe (Value Prelude.Integer)),
-                    callbackURLs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    callbackURLs :: (Prelude.Maybe (ValueList Prelude.Text)),
                     clientName :: (Prelude.Maybe (Value Prelude.Text)),
                     defaultRedirectURI :: (Prelude.Maybe (Value Prelude.Text)),
                     enablePropagateAdditionalUserContextData :: (Prelude.Maybe (Value Prelude.Bool)),
                     enableTokenRevocation :: (Prelude.Maybe (Value Prelude.Bool)),
-                    explicitAuthFlows :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    explicitAuthFlows :: (Prelude.Maybe (ValueList Prelude.Text)),
                     generateSecret :: (Prelude.Maybe (Value Prelude.Bool)),
                     idTokenValidity :: (Prelude.Maybe (Value Prelude.Integer)),
-                    logoutURLs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    logoutURLs :: (Prelude.Maybe (ValueList Prelude.Text)),
                     preventUserExistenceErrors :: (Prelude.Maybe (Value Prelude.Text)),
-                    readAttributes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    readAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
                     refreshTokenValidity :: (Prelude.Maybe (Value Prelude.Integer)),
-                    supportedIdentityProviders :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    supportedIdentityProviders :: (Prelude.Maybe (ValueList Prelude.Text)),
                     tokenValidityUnits :: (Prelude.Maybe TokenValidityUnitsProperty),
                     userPoolId :: (Value Prelude.Text),
-                    writeAttributes :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                    writeAttributes :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkUserPoolClient :: Value Prelude.Text -> UserPoolClient
 mkUserPoolClient userPoolId
   = UserPoolClient
@@ -127,7 +127,7 @@ instance Property "AccessTokenValidity" UserPoolClient where
   set newValue UserPoolClient {..}
     = UserPoolClient {accessTokenValidity = Prelude.pure newValue, ..}
 instance Property "AllowedOAuthFlows" UserPoolClient where
-  type PropertyType "AllowedOAuthFlows" UserPoolClient = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedOAuthFlows" UserPoolClient = ValueList Prelude.Text
   set newValue UserPoolClient {..}
     = UserPoolClient {allowedOAuthFlows = Prelude.pure newValue, ..}
 instance Property "AllowedOAuthFlowsUserPoolClient" UserPoolClient where
@@ -136,7 +136,7 @@ instance Property "AllowedOAuthFlowsUserPoolClient" UserPoolClient where
     = UserPoolClient
         {allowedOAuthFlowsUserPoolClient = Prelude.pure newValue, ..}
 instance Property "AllowedOAuthScopes" UserPoolClient where
-  type PropertyType "AllowedOAuthScopes" UserPoolClient = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedOAuthScopes" UserPoolClient = ValueList Prelude.Text
   set newValue UserPoolClient {..}
     = UserPoolClient {allowedOAuthScopes = Prelude.pure newValue, ..}
 instance Property "AnalyticsConfiguration" UserPoolClient where
@@ -149,7 +149,7 @@ instance Property "AuthSessionValidity" UserPoolClient where
   set newValue UserPoolClient {..}
     = UserPoolClient {authSessionValidity = Prelude.pure newValue, ..}
 instance Property "CallbackURLs" UserPoolClient where
-  type PropertyType "CallbackURLs" UserPoolClient = ValueList (Value Prelude.Text)
+  type PropertyType "CallbackURLs" UserPoolClient = ValueList Prelude.Text
   set newValue UserPoolClient {..}
     = UserPoolClient {callbackURLs = Prelude.pure newValue, ..}
 instance Property "ClientName" UserPoolClient where
@@ -172,7 +172,7 @@ instance Property "EnableTokenRevocation" UserPoolClient where
     = UserPoolClient
         {enableTokenRevocation = Prelude.pure newValue, ..}
 instance Property "ExplicitAuthFlows" UserPoolClient where
-  type PropertyType "ExplicitAuthFlows" UserPoolClient = ValueList (Value Prelude.Text)
+  type PropertyType "ExplicitAuthFlows" UserPoolClient = ValueList Prelude.Text
   set newValue UserPoolClient {..}
     = UserPoolClient {explicitAuthFlows = Prelude.pure newValue, ..}
 instance Property "GenerateSecret" UserPoolClient where
@@ -184,7 +184,7 @@ instance Property "IdTokenValidity" UserPoolClient where
   set newValue UserPoolClient {..}
     = UserPoolClient {idTokenValidity = Prelude.pure newValue, ..}
 instance Property "LogoutURLs" UserPoolClient where
-  type PropertyType "LogoutURLs" UserPoolClient = ValueList (Value Prelude.Text)
+  type PropertyType "LogoutURLs" UserPoolClient = ValueList Prelude.Text
   set newValue UserPoolClient {..}
     = UserPoolClient {logoutURLs = Prelude.pure newValue, ..}
 instance Property "PreventUserExistenceErrors" UserPoolClient where
@@ -193,7 +193,7 @@ instance Property "PreventUserExistenceErrors" UserPoolClient where
     = UserPoolClient
         {preventUserExistenceErrors = Prelude.pure newValue, ..}
 instance Property "ReadAttributes" UserPoolClient where
-  type PropertyType "ReadAttributes" UserPoolClient = ValueList (Value Prelude.Text)
+  type PropertyType "ReadAttributes" UserPoolClient = ValueList Prelude.Text
   set newValue UserPoolClient {..}
     = UserPoolClient {readAttributes = Prelude.pure newValue, ..}
 instance Property "RefreshTokenValidity" UserPoolClient where
@@ -201,7 +201,7 @@ instance Property "RefreshTokenValidity" UserPoolClient where
   set newValue UserPoolClient {..}
     = UserPoolClient {refreshTokenValidity = Prelude.pure newValue, ..}
 instance Property "SupportedIdentityProviders" UserPoolClient where
-  type PropertyType "SupportedIdentityProviders" UserPoolClient = ValueList (Value Prelude.Text)
+  type PropertyType "SupportedIdentityProviders" UserPoolClient = ValueList Prelude.Text
   set newValue UserPoolClient {..}
     = UserPoolClient
         {supportedIdentityProviders = Prelude.pure newValue, ..}
@@ -214,6 +214,6 @@ instance Property "UserPoolId" UserPoolClient where
   set newValue UserPoolClient {..}
     = UserPoolClient {userPoolId = newValue, ..}
 instance Property "WriteAttributes" UserPoolClient where
-  type PropertyType "WriteAttributes" UserPoolClient = ValueList (Value Prelude.Text)
+  type PropertyType "WriteAttributes" UserPoolClient = ValueList Prelude.Text
   set newValue UserPoolClient {..}
     = UserPoolClient {writeAttributes = Prelude.pure newValue, ..}

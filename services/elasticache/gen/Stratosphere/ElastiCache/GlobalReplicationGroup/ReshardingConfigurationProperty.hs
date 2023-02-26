@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReshardingConfigurationProperty
   = ReshardingConfigurationProperty {nodeGroupId :: (Prelude.Maybe (Value Prelude.Text)),
-                                     preferredAvailabilityZones :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                     preferredAvailabilityZones :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkReshardingConfigurationProperty ::
   ReshardingConfigurationProperty
 mkReshardingConfigurationProperty
@@ -39,7 +39,7 @@ instance Property "NodeGroupId" ReshardingConfigurationProperty where
     = ReshardingConfigurationProperty
         {nodeGroupId = Prelude.pure newValue, ..}
 instance Property "PreferredAvailabilityZones" ReshardingConfigurationProperty where
-  type PropertyType "PreferredAvailabilityZones" ReshardingConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PreferredAvailabilityZones" ReshardingConfigurationProperty = ValueList Prelude.Text
   set newValue ReshardingConfigurationProperty {..}
     = ReshardingConfigurationProperty
         {preferredAvailabilityZones = Prelude.pure newValue, ..}

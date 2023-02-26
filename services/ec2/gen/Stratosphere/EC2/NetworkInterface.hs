@@ -11,7 +11,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data NetworkInterface
   = NetworkInterface {description :: (Prelude.Maybe (Value Prelude.Text)),
-                      groupSet :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      groupSet :: (Prelude.Maybe (ValueList Prelude.Text)),
                       interfaceType :: (Prelude.Maybe (Value Prelude.Text)),
                       ipv6AddressCount :: (Prelude.Maybe (Value Prelude.Integer)),
                       ipv6Addresses :: (Prelude.Maybe [InstanceIpv6AddressProperty]),
@@ -74,7 +74,7 @@ instance Property "Description" NetworkInterface where
   set newValue NetworkInterface {..}
     = NetworkInterface {description = Prelude.pure newValue, ..}
 instance Property "GroupSet" NetworkInterface where
-  type PropertyType "GroupSet" NetworkInterface = ValueList (Value Prelude.Text)
+  type PropertyType "GroupSet" NetworkInterface = ValueList Prelude.Text
   set newValue NetworkInterface {..}
     = NetworkInterface {groupSet = Prelude.pure newValue, ..}
 instance Property "InterfaceType" NetworkInterface where

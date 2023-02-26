@@ -10,7 +10,7 @@ import Stratosphere.Value
 data PipeTargetEventBridgeEventBusParametersProperty
   = PipeTargetEventBridgeEventBusParametersProperty {detailType :: (Prelude.Maybe (Value Prelude.Text)),
                                                      endpointId :: (Prelude.Maybe (Value Prelude.Text)),
-                                                     resources :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                                     resources :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                      source :: (Prelude.Maybe (Value Prelude.Text)),
                                                      time :: (Prelude.Maybe (Value Prelude.Text))}
 mkPipeTargetEventBridgeEventBusParametersProperty ::
@@ -53,7 +53,7 @@ instance Property "EndpointId" PipeTargetEventBridgeEventBusParametersProperty w
     = PipeTargetEventBridgeEventBusParametersProperty
         {endpointId = Prelude.pure newValue, ..}
 instance Property "Resources" PipeTargetEventBridgeEventBusParametersProperty where
-  type PropertyType "Resources" PipeTargetEventBridgeEventBusParametersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Resources" PipeTargetEventBridgeEventBusParametersProperty = ValueList Prelude.Text
   set newValue PipeTargetEventBridgeEventBusParametersProperty {..}
     = PipeTargetEventBridgeEventBusParametersProperty
         {resources = Prelude.pure newValue, ..}

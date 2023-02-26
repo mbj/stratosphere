@@ -10,7 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TableWithColumnsResourceProperty
   = TableWithColumnsResourceProperty {catalogId :: (Value Prelude.Text),
-                                      columnNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                      columnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       columnWildcard :: (Prelude.Maybe ColumnWildcardProperty),
                                       databaseName :: (Value Prelude.Text),
                                       name :: (Value Prelude.Text)}
@@ -48,7 +48,7 @@ instance Property "CatalogId" TableWithColumnsResourceProperty where
   set newValue TableWithColumnsResourceProperty {..}
     = TableWithColumnsResourceProperty {catalogId = newValue, ..}
 instance Property "ColumnNames" TableWithColumnsResourceProperty where
-  type PropertyType "ColumnNames" TableWithColumnsResourceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ColumnNames" TableWithColumnsResourceProperty = ValueList Prelude.Text
   set newValue TableWithColumnsResourceProperty {..}
     = TableWithColumnsResourceProperty
         {columnNames = Prelude.pure newValue, ..}

@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Project
-  = Project {assetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Project {assetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              portalId :: (Value Prelude.Text),
              projectDescription :: (Prelude.Maybe (Value Prelude.Text)),
              projectName :: (Value Prelude.Text),
@@ -41,7 +41,7 @@ instance JSON.ToJSON Project where
                   (JSON..=) "ProjectDescription" Prelude.<$> projectDescription,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AssetIds" Project where
-  type PropertyType "AssetIds" Project = ValueList (Value Prelude.Text)
+  type PropertyType "AssetIds" Project = ValueList Prelude.Text
   set newValue Project {..}
     = Project {assetIds = Prelude.pure newValue, ..}
 instance Property "PortalId" Project where

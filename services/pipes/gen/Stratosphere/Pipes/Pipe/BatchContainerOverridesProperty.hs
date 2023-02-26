@@ -10,7 +10,7 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.BatchResourceRequirementProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchContainerOverridesProperty
-  = BatchContainerOverridesProperty {command :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = BatchContainerOverridesProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      environment :: (Prelude.Maybe [BatchEnvironmentVariableProperty]),
                                      instanceType :: (Prelude.Maybe (Value Prelude.Text)),
                                      resourceRequirements :: (Prelude.Maybe [BatchResourceRequirementProperty])}
@@ -43,7 +43,7 @@ instance JSON.ToJSON BatchContainerOverridesProperty where
                (JSON..=) "ResourceRequirements"
                  Prelude.<$> resourceRequirements]))
 instance Property "Command" BatchContainerOverridesProperty where
-  type PropertyType "Command" BatchContainerOverridesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Command" BatchContainerOverridesProperty = ValueList Prelude.Text
   set newValue BatchContainerOverridesProperty {..}
     = BatchContainerOverridesProperty
         {command = Prelude.pure newValue, ..}

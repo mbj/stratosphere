@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrafficRouteProperty
-  = TrafficRouteProperty {listenerArns :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = TrafficRouteProperty {listenerArns :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkTrafficRouteProperty :: TrafficRouteProperty
 mkTrafficRouteProperty
   = TrafficRouteProperty {listenerArns = Prelude.Nothing}
@@ -25,6 +25,6 @@ instance JSON.ToJSON TrafficRouteProperty where
            (Prelude.catMaybes
               [(JSON..=) "ListenerArns" Prelude.<$> listenerArns]))
 instance Property "ListenerArns" TrafficRouteProperty where
-  type PropertyType "ListenerArns" TrafficRouteProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ListenerArns" TrafficRouteProperty = ValueList Prelude.Text
   set newValue TrafficRouteProperty {}
     = TrafficRouteProperty {listenerArns = Prelude.pure newValue, ..}

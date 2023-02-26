@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectCacheProperty
   = ProjectCacheProperty {location :: (Prelude.Maybe (Value Prelude.Text)),
-                          modes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                          modes :: (Prelude.Maybe (ValueList Prelude.Text)),
                           type' :: (Value Prelude.Text)}
 mkProjectCacheProperty ::
   Value Prelude.Text -> ProjectCacheProperty
@@ -40,7 +40,7 @@ instance Property "Location" ProjectCacheProperty where
   set newValue ProjectCacheProperty {..}
     = ProjectCacheProperty {location = Prelude.pure newValue, ..}
 instance Property "Modes" ProjectCacheProperty where
-  type PropertyType "Modes" ProjectCacheProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Modes" ProjectCacheProperty = ValueList Prelude.Text
   set newValue ProjectCacheProperty {..}
     = ProjectCacheProperty {modes = Prelude.pure newValue, ..}
 instance Property "Type" ProjectCacheProperty where

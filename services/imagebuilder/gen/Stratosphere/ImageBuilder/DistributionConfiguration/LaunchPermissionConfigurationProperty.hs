@@ -8,10 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LaunchPermissionConfigurationProperty
-  = LaunchPermissionConfigurationProperty {organizationArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                           organizationalUnitArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                           userGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                           userIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = LaunchPermissionConfigurationProperty {organizationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                           organizationalUnitArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                           userGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                           userIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkLaunchPermissionConfigurationProperty ::
   LaunchPermissionConfigurationProperty
 mkLaunchPermissionConfigurationProperty
@@ -41,22 +41,22 @@ instance JSON.ToJSON LaunchPermissionConfigurationProperty where
                (JSON..=) "UserGroups" Prelude.<$> userGroups,
                (JSON..=) "UserIds" Prelude.<$> userIds]))
 instance Property "OrganizationArns" LaunchPermissionConfigurationProperty where
-  type PropertyType "OrganizationArns" LaunchPermissionConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OrganizationArns" LaunchPermissionConfigurationProperty = ValueList Prelude.Text
   set newValue LaunchPermissionConfigurationProperty {..}
     = LaunchPermissionConfigurationProperty
         {organizationArns = Prelude.pure newValue, ..}
 instance Property "OrganizationalUnitArns" LaunchPermissionConfigurationProperty where
-  type PropertyType "OrganizationalUnitArns" LaunchPermissionConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OrganizationalUnitArns" LaunchPermissionConfigurationProperty = ValueList Prelude.Text
   set newValue LaunchPermissionConfigurationProperty {..}
     = LaunchPermissionConfigurationProperty
         {organizationalUnitArns = Prelude.pure newValue, ..}
 instance Property "UserGroups" LaunchPermissionConfigurationProperty where
-  type PropertyType "UserGroups" LaunchPermissionConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "UserGroups" LaunchPermissionConfigurationProperty = ValueList Prelude.Text
   set newValue LaunchPermissionConfigurationProperty {..}
     = LaunchPermissionConfigurationProperty
         {userGroups = Prelude.pure newValue, ..}
 instance Property "UserIds" LaunchPermissionConfigurationProperty where
-  type PropertyType "UserIds" LaunchPermissionConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "UserIds" LaunchPermissionConfigurationProperty = ValueList Prelude.Text
   set newValue LaunchPermissionConfigurationProperty {..}
     = LaunchPermissionConfigurationProperty
         {userIds = Prelude.pure newValue, ..}

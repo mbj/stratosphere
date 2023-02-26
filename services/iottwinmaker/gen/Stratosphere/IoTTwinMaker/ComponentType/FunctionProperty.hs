@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionProperty
   = FunctionProperty {implementedBy :: (Prelude.Maybe DataConnectorProperty),
-                      requiredProperties :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      requiredProperties :: (Prelude.Maybe (ValueList Prelude.Text)),
                       scope :: (Prelude.Maybe (Value Prelude.Text))}
 mkFunctionProperty :: FunctionProperty
 mkFunctionProperty
@@ -38,7 +38,7 @@ instance Property "ImplementedBy" FunctionProperty where
   set newValue FunctionProperty {..}
     = FunctionProperty {implementedBy = Prelude.pure newValue, ..}
 instance Property "RequiredProperties" FunctionProperty where
-  type PropertyType "RequiredProperties" FunctionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "RequiredProperties" FunctionProperty = ValueList Prelude.Text
   set newValue FunctionProperty {..}
     = FunctionProperty {requiredProperties = Prelude.pure newValue, ..}
 instance Property "Scope" FunctionProperty where

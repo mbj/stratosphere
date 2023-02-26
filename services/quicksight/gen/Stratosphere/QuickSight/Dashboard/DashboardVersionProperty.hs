@@ -12,7 +12,7 @@ import Stratosphere.Value
 data DashboardVersionProperty
   = DashboardVersionProperty {arn :: (Prelude.Maybe (Value Prelude.Text)),
                               createdTime :: (Prelude.Maybe (Value Prelude.Text)),
-                              dataSetArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                              dataSetArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                               description :: (Prelude.Maybe (Value Prelude.Text)),
                               errors :: (Prelude.Maybe [DashboardErrorProperty]),
                               sheets :: (Prelude.Maybe [SheetProperty]),
@@ -69,7 +69,7 @@ instance Property "CreatedTime" DashboardVersionProperty where
     = DashboardVersionProperty
         {createdTime = Prelude.pure newValue, ..}
 instance Property "DataSetArns" DashboardVersionProperty where
-  type PropertyType "DataSetArns" DashboardVersionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DataSetArns" DashboardVersionProperty = ValueList Prelude.Text
   set newValue DashboardVersionProperty {..}
     = DashboardVersionProperty
         {dataSetArns = Prelude.pure newValue, ..}

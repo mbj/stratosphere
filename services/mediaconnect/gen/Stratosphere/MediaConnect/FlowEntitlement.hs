@@ -14,12 +14,11 @@ data FlowEntitlement
                      entitlementStatus :: (Prelude.Maybe (Value Prelude.Text)),
                      flowArn :: (Value Prelude.Text),
                      name :: (Value Prelude.Text),
-                     subscribers :: (ValueList (Value Prelude.Text))}
+                     subscribers :: (ValueList Prelude.Text)}
 mkFlowEntitlement ::
   Value Prelude.Text
   -> Value Prelude.Text
-     -> Value Prelude.Text
-        -> ValueList (Value Prelude.Text) -> FlowEntitlement
+     -> Value Prelude.Text -> ValueList Prelude.Text -> FlowEntitlement
 mkFlowEntitlement description flowArn name subscribers
   = FlowEntitlement
       {description = description, flowArn = flowArn, name = name,
@@ -77,6 +76,6 @@ instance Property "Name" FlowEntitlement where
   set newValue FlowEntitlement {..}
     = FlowEntitlement {name = newValue, ..}
 instance Property "Subscribers" FlowEntitlement where
-  type PropertyType "Subscribers" FlowEntitlement = ValueList (Value Prelude.Text)
+  type PropertyType "Subscribers" FlowEntitlement = ValueList Prelude.Text
   set newValue FlowEntitlement {..}
     = FlowEntitlement {subscribers = newValue, ..}

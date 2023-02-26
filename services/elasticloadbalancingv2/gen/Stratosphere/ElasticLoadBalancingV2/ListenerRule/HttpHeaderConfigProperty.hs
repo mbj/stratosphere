@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpHeaderConfigProperty
   = HttpHeaderConfigProperty {httpHeaderName :: (Prelude.Maybe (Value Prelude.Text)),
-                              values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                              values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkHttpHeaderConfigProperty :: HttpHeaderConfigProperty
 mkHttpHeaderConfigProperty
   = HttpHeaderConfigProperty
@@ -34,6 +34,6 @@ instance Property "HttpHeaderName" HttpHeaderConfigProperty where
     = HttpHeaderConfigProperty
         {httpHeaderName = Prelude.pure newValue, ..}
 instance Property "Values" HttpHeaderConfigProperty where
-  type PropertyType "Values" HttpHeaderConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" HttpHeaderConfigProperty = ValueList Prelude.Text
   set newValue HttpHeaderConfigProperty {..}
     = HttpHeaderConfigProperty {values = Prelude.pure newValue, ..}

@@ -22,7 +22,7 @@ data GameServerGroup
                      minSize :: (Prelude.Maybe (Value Prelude.Double)),
                      roleArn :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag]),
-                     vpcSubnets :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                     vpcSubnets :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkGameServerGroup ::
   Value Prelude.Text
   -> [InstanceDefinitionProperty]
@@ -125,6 +125,6 @@ instance Property "Tags" GameServerGroup where
   set newValue GameServerGroup {..}
     = GameServerGroup {tags = Prelude.pure newValue, ..}
 instance Property "VpcSubnets" GameServerGroup where
-  type PropertyType "VpcSubnets" GameServerGroup = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSubnets" GameServerGroup = ValueList Prelude.Text
   set newValue GameServerGroup {..}
     = GameServerGroup {vpcSubnets = Prelude.pure newValue, ..}

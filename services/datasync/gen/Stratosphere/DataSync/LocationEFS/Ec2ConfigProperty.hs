@@ -7,11 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Ec2ConfigProperty
-  = Ec2ConfigProperty {securityGroupArns :: (ValueList (Value Prelude.Text)),
+  = Ec2ConfigProperty {securityGroupArns :: (ValueList Prelude.Text),
                        subnetArn :: (Value Prelude.Text)}
 mkEc2ConfigProperty ::
-  ValueList (Value Prelude.Text)
-  -> Value Prelude.Text -> Ec2ConfigProperty
+  ValueList Prelude.Text -> Value Prelude.Text -> Ec2ConfigProperty
 mkEc2ConfigProperty securityGroupArns subnetArn
   = Ec2ConfigProperty
       {securityGroupArns = securityGroupArns, subnetArn = subnetArn}
@@ -27,7 +26,7 @@ instance JSON.ToJSON Ec2ConfigProperty where
         ["SecurityGroupArns" JSON..= securityGroupArns,
          "SubnetArn" JSON..= subnetArn]
 instance Property "SecurityGroupArns" Ec2ConfigProperty where
-  type PropertyType "SecurityGroupArns" Ec2ConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupArns" Ec2ConfigProperty = ValueList Prelude.Text
   set newValue Ec2ConfigProperty {..}
     = Ec2ConfigProperty {securityGroupArns = newValue, ..}
 instance Property "SubnetArn" Ec2ConfigProperty where

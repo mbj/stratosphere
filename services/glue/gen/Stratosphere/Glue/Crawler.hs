@@ -11,7 +11,7 @@ import {-# SOURCE #-} Stratosphere.Glue.Crawler.TargetsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Crawler
-  = Crawler {classifiers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Crawler {classifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
              configuration :: (Prelude.Maybe (Value Prelude.Text)),
              crawlerSecurityConfiguration :: (Prelude.Maybe (Value Prelude.Text)),
              databaseName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -74,7 +74,7 @@ instance JSON.ToJSON Crawler where
                   (JSON..=) "TablePrefix" Prelude.<$> tablePrefix,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Classifiers" Crawler where
-  type PropertyType "Classifiers" Crawler = ValueList (Value Prelude.Text)
+  type PropertyType "Classifiers" Crawler = ValueList Prelude.Text
   set newValue Crawler {..}
     = Crawler {classifiers = Prelude.pure newValue, ..}
 instance Property "Configuration" Crawler where

@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Stack
-  = Stack {notificationARNs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Stack {notificationARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
            parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
            tags :: (Prelude.Maybe [Tag]),
            templateURL :: (Value Prelude.Text),
@@ -43,7 +43,7 @@ instance JSON.ToJSON Stack where
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TimeoutInMinutes" Prelude.<$> timeoutInMinutes])))
 instance Property "NotificationARNs" Stack where
-  type PropertyType "NotificationARNs" Stack = ValueList (Value Prelude.Text)
+  type PropertyType "NotificationARNs" Stack = ValueList Prelude.Text
   set newValue Stack {..}
     = Stack {notificationARNs = Prelude.pure newValue, ..}
 instance Property "Parameters" Stack where

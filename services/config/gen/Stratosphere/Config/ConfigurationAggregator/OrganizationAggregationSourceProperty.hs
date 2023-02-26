@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrganizationAggregationSourceProperty
   = OrganizationAggregationSourceProperty {allAwsRegions :: (Prelude.Maybe (Value Prelude.Bool)),
-                                           awsRegions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                           awsRegions :: (Prelude.Maybe (ValueList Prelude.Text)),
                                            roleArn :: (Value Prelude.Text)}
 mkOrganizationAggregationSourceProperty ::
   Value Prelude.Text -> OrganizationAggregationSourceProperty
@@ -42,7 +42,7 @@ instance Property "AllAwsRegions" OrganizationAggregationSourceProperty where
     = OrganizationAggregationSourceProperty
         {allAwsRegions = Prelude.pure newValue, ..}
 instance Property "AwsRegions" OrganizationAggregationSourceProperty where
-  type PropertyType "AwsRegions" OrganizationAggregationSourceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AwsRegions" OrganizationAggregationSourceProperty = ValueList Prelude.Text
   set newValue OrganizationAggregationSourceProperty {..}
     = OrganizationAggregationSourceProperty
         {awsRegions = Prelude.pure newValue, ..}

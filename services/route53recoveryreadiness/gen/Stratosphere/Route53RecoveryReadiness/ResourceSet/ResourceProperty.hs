@@ -10,7 +10,7 @@ import Stratosphere.Value
 data ResourceProperty
   = ResourceProperty {componentId :: (Prelude.Maybe (Value Prelude.Text)),
                       dnsTargetResource :: (Prelude.Maybe DNSTargetResourceProperty),
-                      readinessScopes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      readinessScopes :: (Prelude.Maybe (ValueList Prelude.Text)),
                       resourceArn :: (Prelude.Maybe (Value Prelude.Text))}
 mkResourceProperty :: ResourceProperty
 mkResourceProperty
@@ -46,7 +46,7 @@ instance Property "DnsTargetResource" ResourceProperty where
   set newValue ResourceProperty {..}
     = ResourceProperty {dnsTargetResource = Prelude.pure newValue, ..}
 instance Property "ReadinessScopes" ResourceProperty where
-  type PropertyType "ReadinessScopes" ResourceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ReadinessScopes" ResourceProperty = ValueList Prelude.Text
   set newValue ResourceProperty {..}
     = ResourceProperty {readinessScopes = Prelude.pure newValue, ..}
 instance Property "ResourceArn" ResourceProperty where

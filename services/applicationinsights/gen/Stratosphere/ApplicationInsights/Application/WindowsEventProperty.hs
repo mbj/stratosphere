@@ -7,12 +7,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WindowsEventProperty
-  = WindowsEventProperty {eventLevels :: (ValueList (Value Prelude.Text)),
+  = WindowsEventProperty {eventLevels :: (ValueList Prelude.Text),
                           eventName :: (Value Prelude.Text),
                           logGroupName :: (Value Prelude.Text),
                           patternSet :: (Prelude.Maybe (Value Prelude.Text))}
 mkWindowsEventProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> WindowsEventProperty
 mkWindowsEventProperty eventLevels eventName logGroupName
   = WindowsEventProperty
@@ -38,7 +38,7 @@ instance JSON.ToJSON WindowsEventProperty where
               (Prelude.catMaybes
                  [(JSON..=) "PatternSet" Prelude.<$> patternSet])))
 instance Property "EventLevels" WindowsEventProperty where
-  type PropertyType "EventLevels" WindowsEventProperty = ValueList (Value Prelude.Text)
+  type PropertyType "EventLevels" WindowsEventProperty = ValueList Prelude.Text
   set newValue WindowsEventProperty {..}
     = WindowsEventProperty {eventLevels = newValue, ..}
 instance Property "EventName" WindowsEventProperty where

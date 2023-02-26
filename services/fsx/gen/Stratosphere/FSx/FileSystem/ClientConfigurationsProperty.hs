@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClientConfigurationsProperty
   = ClientConfigurationsProperty {clients :: (Prelude.Maybe (Value Prelude.Text)),
-                                  options :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                  options :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkClientConfigurationsProperty :: ClientConfigurationsProperty
 mkClientConfigurationsProperty
   = ClientConfigurationsProperty
@@ -34,7 +34,7 @@ instance Property "Clients" ClientConfigurationsProperty where
     = ClientConfigurationsProperty
         {clients = Prelude.pure newValue, ..}
 instance Property "Options" ClientConfigurationsProperty where
-  type PropertyType "Options" ClientConfigurationsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Options" ClientConfigurationsProperty = ValueList Prelude.Text
   set newValue ClientConfigurationsProperty {..}
     = ClientConfigurationsProperty
         {options = Prelude.pure newValue, ..}

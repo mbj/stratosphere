@@ -10,7 +10,7 @@ import Stratosphere.Value
 data DocumentAttributeValueProperty
   = DocumentAttributeValueProperty {dateValue :: (Prelude.Maybe (Value Prelude.Text)),
                                     longValue :: (Prelude.Maybe (Value Prelude.Integer)),
-                                    stringListValue :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                    stringListValue :: (Prelude.Maybe (ValueList Prelude.Text)),
                                     stringValue :: (Prelude.Maybe (Value Prelude.Text))}
 mkDocumentAttributeValueProperty :: DocumentAttributeValueProperty
 mkDocumentAttributeValueProperty
@@ -47,7 +47,7 @@ instance Property "LongValue" DocumentAttributeValueProperty where
     = DocumentAttributeValueProperty
         {longValue = Prelude.pure newValue, ..}
 instance Property "StringListValue" DocumentAttributeValueProperty where
-  type PropertyType "StringListValue" DocumentAttributeValueProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StringListValue" DocumentAttributeValueProperty = ValueList Prelude.Text
   set newValue DocumentAttributeValueProperty {..}
     = DocumentAttributeValueProperty
         {stringListValue = Prelude.pure newValue, ..}

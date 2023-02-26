@@ -12,7 +12,7 @@ data ConnectionInputProperty
   = ConnectionInputProperty {connectionProperties :: (Prelude.Maybe JSON.Object),
                              connectionType :: (Value Prelude.Text),
                              description :: (Prelude.Maybe (Value Prelude.Text)),
-                             matchCriteria :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                             matchCriteria :: (Prelude.Maybe (ValueList Prelude.Text)),
                              name :: (Prelude.Maybe (Value Prelude.Text)),
                              physicalConnectionRequirements :: (Prelude.Maybe PhysicalConnectionRequirementsProperty)}
 mkConnectionInputProperty ::
@@ -65,7 +65,7 @@ instance Property "Description" ConnectionInputProperty where
   set newValue ConnectionInputProperty {..}
     = ConnectionInputProperty {description = Prelude.pure newValue, ..}
 instance Property "MatchCriteria" ConnectionInputProperty where
-  type PropertyType "MatchCriteria" ConnectionInputProperty = ValueList (Value Prelude.Text)
+  type PropertyType "MatchCriteria" ConnectionInputProperty = ValueList Prelude.Text
   set newValue ConnectionInputProperty {..}
     = ConnectionInputProperty
         {matchCriteria = Prelude.pure newValue, ..}

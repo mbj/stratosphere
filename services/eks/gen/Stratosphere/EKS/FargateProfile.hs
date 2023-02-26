@@ -13,7 +13,7 @@ data FargateProfile
                     fargateProfileName :: (Prelude.Maybe (Value Prelude.Text)),
                     podExecutionRoleArn :: (Value Prelude.Text),
                     selectors :: [SelectorProperty],
-                    subnets :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    subnets :: (Prelude.Maybe (ValueList Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag])}
 mkFargateProfile ::
   Value Prelude.Text
@@ -66,7 +66,7 @@ instance Property "Selectors" FargateProfile where
   set newValue FargateProfile {..}
     = FargateProfile {selectors = newValue, ..}
 instance Property "Subnets" FargateProfile where
-  type PropertyType "Subnets" FargateProfile = ValueList (Value Prelude.Text)
+  type PropertyType "Subnets" FargateProfile = ValueList Prelude.Text
   set newValue FargateProfile {..}
     = FargateProfile {subnets = Prelude.pure newValue, ..}
 instance Property "Tags" FargateProfile where

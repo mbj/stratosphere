@@ -14,7 +14,7 @@ data PermissionSet
                    description :: (Prelude.Maybe (Value Prelude.Text)),
                    inlinePolicy :: (Prelude.Maybe JSON.Object),
                    instanceArn :: (Value Prelude.Text),
-                   managedPolicies :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   managedPolicies :: (Prelude.Maybe (ValueList Prelude.Text)),
                    name :: (Value Prelude.Text),
                    permissionsBoundary :: (Prelude.Maybe PermissionsBoundaryProperty),
                    relayStateType :: (Prelude.Maybe (Value Prelude.Text)),
@@ -82,7 +82,7 @@ instance Property "InstanceArn" PermissionSet where
   set newValue PermissionSet {..}
     = PermissionSet {instanceArn = newValue, ..}
 instance Property "ManagedPolicies" PermissionSet where
-  type PropertyType "ManagedPolicies" PermissionSet = ValueList (Value Prelude.Text)
+  type PropertyType "ManagedPolicies" PermissionSet = ValueList Prelude.Text
   set newValue PermissionSet {..}
     = PermissionSet {managedPolicies = Prelude.pure newValue, ..}
 instance Property "Name" PermissionSet where

@@ -15,11 +15,11 @@ data EventDestinationProperty
   = EventDestinationProperty {cloudWatchDestination :: (Prelude.Maybe CloudWatchDestinationProperty),
                               enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                               kinesisFirehoseDestination :: (Prelude.Maybe KinesisFirehoseDestinationProperty),
-                              matchingEventTypes :: (ValueList (Value Prelude.Text)),
+                              matchingEventTypes :: (ValueList Prelude.Text),
                               pinpointDestination :: (Prelude.Maybe PinpointDestinationProperty),
                               snsDestination :: (Prelude.Maybe SnsDestinationProperty)}
 mkEventDestinationProperty ::
-  ValueList (Value Prelude.Text) -> EventDestinationProperty
+  ValueList Prelude.Text -> EventDestinationProperty
 mkEventDestinationProperty matchingEventTypes
   = EventDestinationProperty
       {matchingEventTypes = matchingEventTypes,
@@ -71,7 +71,7 @@ instance Property "KinesisFirehoseDestination" EventDestinationProperty where
     = EventDestinationProperty
         {kinesisFirehoseDestination = Prelude.pure newValue, ..}
 instance Property "MatchingEventTypes" EventDestinationProperty where
-  type PropertyType "MatchingEventTypes" EventDestinationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "MatchingEventTypes" EventDestinationProperty = ValueList Prelude.Text
   set newValue EventDestinationProperty {..}
     = EventDestinationProperty {matchingEventTypes = newValue, ..}
 instance Property "PinpointDestination" EventDestinationProperty where

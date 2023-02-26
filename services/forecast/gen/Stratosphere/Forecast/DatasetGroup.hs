@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DatasetGroup
-  = DatasetGroup {datasetArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = DatasetGroup {datasetArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                   datasetGroupName :: (Value Prelude.Text),
                   domain :: (Value Prelude.Text),
                   tags :: (Prelude.Maybe [Tag])}
@@ -40,7 +40,7 @@ instance JSON.ToJSON DatasetGroup where
                  [(JSON..=) "DatasetArns" Prelude.<$> datasetArns,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "DatasetArns" DatasetGroup where
-  type PropertyType "DatasetArns" DatasetGroup = ValueList (Value Prelude.Text)
+  type PropertyType "DatasetArns" DatasetGroup = ValueList Prelude.Text
   set newValue DatasetGroup {..}
     = DatasetGroup {datasetArns = Prelude.pure newValue, ..}
 instance Property "DatasetGroupName" DatasetGroup where

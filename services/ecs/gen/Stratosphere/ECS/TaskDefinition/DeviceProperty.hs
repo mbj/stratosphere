@@ -9,7 +9,7 @@ import Stratosphere.Value
 data DeviceProperty
   = DeviceProperty {containerPath :: (Prelude.Maybe (Value Prelude.Text)),
                     hostPath :: (Prelude.Maybe (Value Prelude.Text)),
-                    permissions :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                    permissions :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkDeviceProperty :: DeviceProperty
 mkDeviceProperty
   = DeviceProperty
@@ -41,6 +41,6 @@ instance Property "HostPath" DeviceProperty where
   set newValue DeviceProperty {..}
     = DeviceProperty {hostPath = Prelude.pure newValue, ..}
 instance Property "Permissions" DeviceProperty where
-  type PropertyType "Permissions" DeviceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Permissions" DeviceProperty = ValueList Prelude.Text
   set newValue DeviceProperty {..}
     = DeviceProperty {permissions = Prelude.pure newValue, ..}

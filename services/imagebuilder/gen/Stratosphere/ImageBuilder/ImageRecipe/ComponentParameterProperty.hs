@@ -8,10 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentParameterProperty
   = ComponentParameterProperty {name :: (Value Prelude.Text),
-                                value :: (ValueList (Value Prelude.Text))}
+                                value :: (ValueList Prelude.Text)}
 mkComponentParameterProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> ComponentParameterProperty
+  -> ValueList Prelude.Text -> ComponentParameterProperty
 mkComponentParameterProperty name value
   = ComponentParameterProperty {name = name, value = value}
 instance ToResourceProperties ComponentParameterProperty where
@@ -27,6 +27,6 @@ instance Property "Name" ComponentParameterProperty where
   set newValue ComponentParameterProperty {..}
     = ComponentParameterProperty {name = newValue, ..}
 instance Property "Value" ComponentParameterProperty where
-  type PropertyType "Value" ComponentParameterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Value" ComponentParameterProperty = ValueList Prelude.Text
   set newValue ComponentParameterProperty {..}
     = ComponentParameterProperty {value = newValue, ..}

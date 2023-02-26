@@ -9,11 +9,11 @@ import {-# SOURCE #-} Stratosphere.ECS.ClusterCapacityProviderAssociations.Capac
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClusterCapacityProviderAssociations
-  = ClusterCapacityProviderAssociations {capacityProviders :: (ValueList (Value Prelude.Text)),
+  = ClusterCapacityProviderAssociations {capacityProviders :: (ValueList Prelude.Text),
                                          cluster :: (Value Prelude.Text),
                                          defaultCapacityProviderStrategy :: [CapacityProviderStrategyProperty]}
 mkClusterCapacityProviderAssociations ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text
      -> [CapacityProviderStrategyProperty]
         -> ClusterCapacityProviderAssociations
@@ -40,7 +40,7 @@ instance JSON.ToJSON ClusterCapacityProviderAssociations where
          "DefaultCapacityProviderStrategy"
            JSON..= defaultCapacityProviderStrategy]
 instance Property "CapacityProviders" ClusterCapacityProviderAssociations where
-  type PropertyType "CapacityProviders" ClusterCapacityProviderAssociations = ValueList (Value Prelude.Text)
+  type PropertyType "CapacityProviders" ClusterCapacityProviderAssociations = ValueList Prelude.Text
   set newValue ClusterCapacityProviderAssociations {..}
     = ClusterCapacityProviderAssociations
         {capacityProviders = newValue, ..}

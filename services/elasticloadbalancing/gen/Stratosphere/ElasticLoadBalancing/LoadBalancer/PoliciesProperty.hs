@@ -7,13 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PoliciesProperty
-  = PoliciesProperty {attributes :: (ValueList JSON.Object),
-                      instancePorts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                      loadBalancerPorts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = PoliciesProperty {attributes :: JSON.Object,
+                      instancePorts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      loadBalancerPorts :: (Prelude.Maybe (ValueList Prelude.Text)),
                       policyName :: (Value Prelude.Text),
                       policyType :: (Value Prelude.Text)}
 mkPoliciesProperty ::
-  ValueList JSON.Object
+  JSON.Object
   -> Value Prelude.Text -> Value Prelude.Text -> PoliciesProperty
 mkPoliciesProperty attributes policyName policyType
   = PoliciesProperty
@@ -42,15 +42,15 @@ instance JSON.ToJSON PoliciesProperty where
                  [(JSON..=) "InstancePorts" Prelude.<$> instancePorts,
                   (JSON..=) "LoadBalancerPorts" Prelude.<$> loadBalancerPorts])))
 instance Property "Attributes" PoliciesProperty where
-  type PropertyType "Attributes" PoliciesProperty = ValueList JSON.Object
+  type PropertyType "Attributes" PoliciesProperty = JSON.Object
   set newValue PoliciesProperty {..}
     = PoliciesProperty {attributes = newValue, ..}
 instance Property "InstancePorts" PoliciesProperty where
-  type PropertyType "InstancePorts" PoliciesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InstancePorts" PoliciesProperty = ValueList Prelude.Text
   set newValue PoliciesProperty {..}
     = PoliciesProperty {instancePorts = Prelude.pure newValue, ..}
 instance Property "LoadBalancerPorts" PoliciesProperty where
-  type PropertyType "LoadBalancerPorts" PoliciesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "LoadBalancerPorts" PoliciesProperty = ValueList Prelude.Text
   set newValue PoliciesProperty {..}
     = PoliciesProperty {loadBalancerPorts = Prelude.pure newValue, ..}
 instance Property "PolicyName" PoliciesProperty where

@@ -8,8 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnLevelPermissionRuleProperty
-  = ColumnLevelPermissionRuleProperty {columnNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                       principals :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = ColumnLevelPermissionRuleProperty {columnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                       principals :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkColumnLevelPermissionRuleProperty ::
   ColumnLevelPermissionRuleProperty
 mkColumnLevelPermissionRuleProperty
@@ -31,12 +31,12 @@ instance JSON.ToJSON ColumnLevelPermissionRuleProperty where
               [(JSON..=) "ColumnNames" Prelude.<$> columnNames,
                (JSON..=) "Principals" Prelude.<$> principals]))
 instance Property "ColumnNames" ColumnLevelPermissionRuleProperty where
-  type PropertyType "ColumnNames" ColumnLevelPermissionRuleProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ColumnNames" ColumnLevelPermissionRuleProperty = ValueList Prelude.Text
   set newValue ColumnLevelPermissionRuleProperty {..}
     = ColumnLevelPermissionRuleProperty
         {columnNames = Prelude.pure newValue, ..}
 instance Property "Principals" ColumnLevelPermissionRuleProperty where
-  type PropertyType "Principals" ColumnLevelPermissionRuleProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Principals" ColumnLevelPermissionRuleProperty = ValueList Prelude.Text
   set newValue ColumnLevelPermissionRuleProperty {..}
     = ColumnLevelPermissionRuleProperty
         {principals = Prelude.pure newValue, ..}

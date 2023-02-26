@@ -12,10 +12,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceKnowledgeArticleConfigurationProperty
   = SalesforceKnowledgeArticleConfigurationProperty {customKnowledgeArticleTypeConfigurations :: (Prelude.Maybe [SalesforceCustomKnowledgeArticleTypeConfigurationProperty]),
-                                                     includedStates :: (ValueList (Value Prelude.Text)),
+                                                     includedStates :: (ValueList Prelude.Text),
                                                      standardKnowledgeArticleTypeConfiguration :: (Prelude.Maybe SalesforceStandardKnowledgeArticleTypeConfigurationProperty)}
 mkSalesforceKnowledgeArticleConfigurationProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> SalesforceKnowledgeArticleConfigurationProperty
 mkSalesforceKnowledgeArticleConfigurationProperty includedStates
   = SalesforceKnowledgeArticleConfigurationProperty
@@ -53,7 +53,7 @@ instance Property "CustomKnowledgeArticleTypeConfigurations" SalesforceKnowledge
         {customKnowledgeArticleTypeConfigurations = Prelude.pure newValue,
          ..}
 instance Property "IncludedStates" SalesforceKnowledgeArticleConfigurationProperty where
-  type PropertyType "IncludedStates" SalesforceKnowledgeArticleConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludedStates" SalesforceKnowledgeArticleConfigurationProperty = ValueList Prelude.Text
   set newValue SalesforceKnowledgeArticleConfigurationProperty {..}
     = SalesforceKnowledgeArticleConfigurationProperty
         {includedStates = newValue, ..}

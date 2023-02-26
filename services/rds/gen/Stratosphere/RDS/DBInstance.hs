@@ -31,14 +31,14 @@ data DBInstance
                 dBInstanceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 dBName :: (Prelude.Maybe (Value Prelude.Text)),
                 dBParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
-                dBSecurityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                dBSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                 dBSnapshotIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 dBSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                 deleteAutomatedBackups :: (Prelude.Maybe (Value Prelude.Bool)),
                 deletionProtection :: (Prelude.Maybe (Value Prelude.Bool)),
                 domain :: (Prelude.Maybe (Value Prelude.Text)),
                 domainIAMRoleName :: (Prelude.Maybe (Value Prelude.Text)),
-                enableCloudwatchLogsExports :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                enableCloudwatchLogsExports :: (Prelude.Maybe (ValueList Prelude.Text)),
                 enableIAMDatabaseAuthentication :: (Prelude.Maybe (Value Prelude.Bool)),
                 enablePerformanceInsights :: (Prelude.Maybe (Value Prelude.Bool)),
                 endpoint :: (Prelude.Maybe EndpointProperty),
@@ -79,7 +79,7 @@ data DBInstance
                 timezone :: (Prelude.Maybe (Value Prelude.Text)),
                 useDefaultProcessorFeatures :: (Prelude.Maybe (Value Prelude.Bool)),
                 useLatestRestorableTime :: (Prelude.Maybe (Value Prelude.Bool)),
-                vPCSecurityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                vPCSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkDBInstance :: DBInstance
 mkDBInstance
   = DBInstance
@@ -400,7 +400,7 @@ instance Property "DBParameterGroupName" DBInstance where
   set newValue DBInstance {..}
     = DBInstance {dBParameterGroupName = Prelude.pure newValue, ..}
 instance Property "DBSecurityGroups" DBInstance where
-  type PropertyType "DBSecurityGroups" DBInstance = ValueList (Value Prelude.Text)
+  type PropertyType "DBSecurityGroups" DBInstance = ValueList Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {dBSecurityGroups = Prelude.pure newValue, ..}
 instance Property "DBSnapshotIdentifier" DBInstance where
@@ -428,7 +428,7 @@ instance Property "DomainIAMRoleName" DBInstance where
   set newValue DBInstance {..}
     = DBInstance {domainIAMRoleName = Prelude.pure newValue, ..}
 instance Property "EnableCloudwatchLogsExports" DBInstance where
-  type PropertyType "EnableCloudwatchLogsExports" DBInstance = ValueList (Value Prelude.Text)
+  type PropertyType "EnableCloudwatchLogsExports" DBInstance = ValueList Prelude.Text
   set newValue DBInstance {..}
     = DBInstance
         {enableCloudwatchLogsExports = Prelude.pure newValue, ..}
@@ -601,6 +601,6 @@ instance Property "UseLatestRestorableTime" DBInstance where
   set newValue DBInstance {..}
     = DBInstance {useLatestRestorableTime = Prelude.pure newValue, ..}
 instance Property "VPCSecurityGroups" DBInstance where
-  type PropertyType "VPCSecurityGroups" DBInstance = ValueList (Value Prelude.Text)
+  type PropertyType "VPCSecurityGroups" DBInstance = ValueList Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {vPCSecurityGroups = Prelude.pure newValue, ..}

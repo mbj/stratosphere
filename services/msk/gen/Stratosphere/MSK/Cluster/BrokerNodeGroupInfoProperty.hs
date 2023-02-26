@@ -11,13 +11,13 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BrokerNodeGroupInfoProperty
   = BrokerNodeGroupInfoProperty {brokerAZDistribution :: (Prelude.Maybe (Value Prelude.Text)),
-                                 clientSubnets :: (ValueList (Value Prelude.Text)),
+                                 clientSubnets :: (ValueList Prelude.Text),
                                  connectivityInfo :: (Prelude.Maybe ConnectivityInfoProperty),
                                  instanceType :: (Value Prelude.Text),
-                                 securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                 securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  storageInfo :: (Prelude.Maybe StorageInfoProperty)}
 mkBrokerNodeGroupInfoProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> BrokerNodeGroupInfoProperty
 mkBrokerNodeGroupInfoProperty clientSubnets instanceType
   = BrokerNodeGroupInfoProperty
@@ -56,7 +56,7 @@ instance Property "BrokerAZDistribution" BrokerNodeGroupInfoProperty where
     = BrokerNodeGroupInfoProperty
         {brokerAZDistribution = Prelude.pure newValue, ..}
 instance Property "ClientSubnets" BrokerNodeGroupInfoProperty where
-  type PropertyType "ClientSubnets" BrokerNodeGroupInfoProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ClientSubnets" BrokerNodeGroupInfoProperty = ValueList Prelude.Text
   set newValue BrokerNodeGroupInfoProperty {..}
     = BrokerNodeGroupInfoProperty {clientSubnets = newValue, ..}
 instance Property "ConnectivityInfo" BrokerNodeGroupInfoProperty where
@@ -69,7 +69,7 @@ instance Property "InstanceType" BrokerNodeGroupInfoProperty where
   set newValue BrokerNodeGroupInfoProperty {..}
     = BrokerNodeGroupInfoProperty {instanceType = newValue, ..}
 instance Property "SecurityGroups" BrokerNodeGroupInfoProperty where
-  type PropertyType "SecurityGroups" BrokerNodeGroupInfoProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" BrokerNodeGroupInfoProperty = ValueList Prelude.Text
   set newValue BrokerNodeGroupInfoProperty {..}
     = BrokerNodeGroupInfoProperty
         {securityGroups = Prelude.pure newValue, ..}

@@ -10,7 +10,7 @@ import {-# SOURCE #-} Stratosphere.Amplify.App.EnvironmentVariableProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoBranchCreationConfigProperty
-  = AutoBranchCreationConfigProperty {autoBranchCreationPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = AutoBranchCreationConfigProperty {autoBranchCreationPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       basicAuthConfig :: (Prelude.Maybe BasicAuthConfigProperty),
                                       buildSpec :: (Prelude.Maybe (Value Prelude.Text)),
                                       enableAutoBranchCreation :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -79,7 +79,7 @@ instance JSON.ToJSON AutoBranchCreationConfigProperty where
                  Prelude.<$> pullRequestEnvironmentName,
                (JSON..=) "Stage" Prelude.<$> stage]))
 instance Property "AutoBranchCreationPatterns" AutoBranchCreationConfigProperty where
-  type PropertyType "AutoBranchCreationPatterns" AutoBranchCreationConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AutoBranchCreationPatterns" AutoBranchCreationConfigProperty = ValueList Prelude.Text
   set newValue AutoBranchCreationConfigProperty {..}
     = AutoBranchCreationConfigProperty
         {autoBranchCreationPatterns = Prelude.pure newValue, ..}

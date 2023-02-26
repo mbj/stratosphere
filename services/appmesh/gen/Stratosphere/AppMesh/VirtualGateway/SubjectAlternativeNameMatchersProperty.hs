@@ -8,7 +8,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubjectAlternativeNameMatchersProperty
-  = SubjectAlternativeNameMatchersProperty {exact :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = SubjectAlternativeNameMatchersProperty {exact :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkSubjectAlternativeNameMatchersProperty ::
   SubjectAlternativeNameMatchersProperty
 mkSubjectAlternativeNameMatchersProperty
@@ -25,7 +25,7 @@ instance JSON.ToJSON SubjectAlternativeNameMatchersProperty where
         (Prelude.fromList
            (Prelude.catMaybes [(JSON..=) "Exact" Prelude.<$> exact]))
 instance Property "Exact" SubjectAlternativeNameMatchersProperty where
-  type PropertyType "Exact" SubjectAlternativeNameMatchersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Exact" SubjectAlternativeNameMatchersProperty = ValueList Prelude.Text
   set newValue SubjectAlternativeNameMatchersProperty {}
     = SubjectAlternativeNameMatchersProperty
         {exact = Prelude.pure newValue, ..}

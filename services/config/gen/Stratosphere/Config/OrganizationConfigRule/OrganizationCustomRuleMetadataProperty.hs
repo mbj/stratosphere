@@ -12,15 +12,14 @@ data OrganizationCustomRuleMetadataProperty
                                             inputParameters :: (Prelude.Maybe (Value Prelude.Text)),
                                             lambdaFunctionArn :: (Value Prelude.Text),
                                             maximumExecutionFrequency :: (Prelude.Maybe (Value Prelude.Text)),
-                                            organizationConfigRuleTriggerTypes :: (ValueList (Value Prelude.Text)),
+                                            organizationConfigRuleTriggerTypes :: (ValueList Prelude.Text),
                                             resourceIdScope :: (Prelude.Maybe (Value Prelude.Text)),
-                                            resourceTypesScope :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                            resourceTypesScope :: (Prelude.Maybe (ValueList Prelude.Text)),
                                             tagKeyScope :: (Prelude.Maybe (Value Prelude.Text)),
                                             tagValueScope :: (Prelude.Maybe (Value Prelude.Text))}
 mkOrganizationCustomRuleMetadataProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
-     -> OrganizationCustomRuleMetadataProperty
+  -> ValueList Prelude.Text -> OrganizationCustomRuleMetadataProperty
 mkOrganizationCustomRuleMetadataProperty
   lambdaFunctionArn
   organizationConfigRuleTriggerTypes
@@ -88,7 +87,7 @@ instance Property "MaximumExecutionFrequency" OrganizationCustomRuleMetadataProp
     = OrganizationCustomRuleMetadataProperty
         {maximumExecutionFrequency = Prelude.pure newValue, ..}
 instance Property "OrganizationConfigRuleTriggerTypes" OrganizationCustomRuleMetadataProperty where
-  type PropertyType "OrganizationConfigRuleTriggerTypes" OrganizationCustomRuleMetadataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OrganizationConfigRuleTriggerTypes" OrganizationCustomRuleMetadataProperty = ValueList Prelude.Text
   set newValue OrganizationCustomRuleMetadataProperty {..}
     = OrganizationCustomRuleMetadataProperty
         {organizationConfigRuleTriggerTypes = newValue, ..}
@@ -98,7 +97,7 @@ instance Property "ResourceIdScope" OrganizationCustomRuleMetadataProperty where
     = OrganizationCustomRuleMetadataProperty
         {resourceIdScope = Prelude.pure newValue, ..}
 instance Property "ResourceTypesScope" OrganizationCustomRuleMetadataProperty where
-  type PropertyType "ResourceTypesScope" OrganizationCustomRuleMetadataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceTypesScope" OrganizationCustomRuleMetadataProperty = ValueList Prelude.Text
   set newValue OrganizationCustomRuleMetadataProperty {..}
     = OrganizationCustomRuleMetadataProperty
         {resourceTypesScope = Prelude.pure newValue, ..}

@@ -13,7 +13,7 @@ data InventoryConfigurationProperty
                                     enabled :: (Value Prelude.Bool),
                                     id :: (Value Prelude.Text),
                                     includedObjectVersions :: (Value Prelude.Text),
-                                    optionalFields :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                    optionalFields :: (Prelude.Maybe (ValueList Prelude.Text)),
                                     prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                     scheduleFrequency :: (Value Prelude.Text)}
 mkInventoryConfigurationProperty ::
@@ -76,7 +76,7 @@ instance Property "IncludedObjectVersions" InventoryConfigurationProperty where
     = InventoryConfigurationProperty
         {includedObjectVersions = newValue, ..}
 instance Property "OptionalFields" InventoryConfigurationProperty where
-  type PropertyType "OptionalFields" InventoryConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OptionalFields" InventoryConfigurationProperty = ValueList Prelude.Text
   set newValue InventoryConfigurationProperty {..}
     = InventoryConfigurationProperty
         {optionalFields = Prelude.pure newValue, ..}

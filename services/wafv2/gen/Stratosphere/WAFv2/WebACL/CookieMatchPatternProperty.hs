@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CookieMatchPatternProperty
   = CookieMatchPatternProperty {all :: (Prelude.Maybe JSON.Object),
-                                excludedCookies :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                includedCookies :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                excludedCookies :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                includedCookies :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCookieMatchPatternProperty :: CookieMatchPatternProperty
 mkCookieMatchPatternProperty
   = CookieMatchPatternProperty
@@ -37,12 +37,12 @@ instance Property "All" CookieMatchPatternProperty where
   set newValue CookieMatchPatternProperty {..}
     = CookieMatchPatternProperty {all = Prelude.pure newValue, ..}
 instance Property "ExcludedCookies" CookieMatchPatternProperty where
-  type PropertyType "ExcludedCookies" CookieMatchPatternProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludedCookies" CookieMatchPatternProperty = ValueList Prelude.Text
   set newValue CookieMatchPatternProperty {..}
     = CookieMatchPatternProperty
         {excludedCookies = Prelude.pure newValue, ..}
 instance Property "IncludedCookies" CookieMatchPatternProperty where
-  type PropertyType "IncludedCookies" CookieMatchPatternProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludedCookies" CookieMatchPatternProperty = ValueList Prelude.Text
   set newValue CookieMatchPatternProperty {..}
     = CookieMatchPatternProperty
         {includedCookies = Prelude.pure newValue, ..}

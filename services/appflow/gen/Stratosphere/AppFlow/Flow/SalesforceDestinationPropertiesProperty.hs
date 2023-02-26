@@ -11,7 +11,7 @@ import Stratosphere.Value
 data SalesforceDestinationPropertiesProperty
   = SalesforceDestinationPropertiesProperty {dataTransferApi :: (Prelude.Maybe (Value Prelude.Text)),
                                              errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
-                                             idFieldNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                             idFieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                              object :: (Value Prelude.Text),
                                              writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
 mkSalesforceDestinationPropertiesProperty ::
@@ -56,7 +56,7 @@ instance Property "ErrorHandlingConfig" SalesforceDestinationPropertiesProperty 
     = SalesforceDestinationPropertiesProperty
         {errorHandlingConfig = Prelude.pure newValue, ..}
 instance Property "IdFieldNames" SalesforceDestinationPropertiesProperty where
-  type PropertyType "IdFieldNames" SalesforceDestinationPropertiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IdFieldNames" SalesforceDestinationPropertiesProperty = ValueList Prelude.Text
   set newValue SalesforceDestinationPropertiesProperty {..}
     = SalesforceDestinationPropertiesProperty
         {idFieldNames = Prelude.pure newValue, ..}

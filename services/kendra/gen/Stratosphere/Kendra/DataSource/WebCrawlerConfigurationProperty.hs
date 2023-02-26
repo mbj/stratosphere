@@ -17,8 +17,8 @@ data WebCrawlerConfigurationProperty
                                      maxLinksPerPage :: (Prelude.Maybe (Value Prelude.Integer)),
                                      maxUrlsPerMinuteCrawlRate :: (Prelude.Maybe (Value Prelude.Integer)),
                                      proxyConfiguration :: (Prelude.Maybe ProxyConfigurationProperty),
-                                     urlExclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                     urlInclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                     urlExclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     urlInclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      urls :: WebCrawlerUrlsProperty}
 mkWebCrawlerConfigurationProperty ::
   WebCrawlerUrlsProperty -> WebCrawlerConfigurationProperty
@@ -102,12 +102,12 @@ instance Property "ProxyConfiguration" WebCrawlerConfigurationProperty where
     = WebCrawlerConfigurationProperty
         {proxyConfiguration = Prelude.pure newValue, ..}
 instance Property "UrlExclusionPatterns" WebCrawlerConfigurationProperty where
-  type PropertyType "UrlExclusionPatterns" WebCrawlerConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "UrlExclusionPatterns" WebCrawlerConfigurationProperty = ValueList Prelude.Text
   set newValue WebCrawlerConfigurationProperty {..}
     = WebCrawlerConfigurationProperty
         {urlExclusionPatterns = Prelude.pure newValue, ..}
 instance Property "UrlInclusionPatterns" WebCrawlerConfigurationProperty where
-  type PropertyType "UrlInclusionPatterns" WebCrawlerConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "UrlInclusionPatterns" WebCrawlerConfigurationProperty = ValueList Prelude.Text
   set newValue WebCrawlerConfigurationProperty {..}
     = WebCrawlerConfigurationProperty
         {urlInclusionPatterns = Prelude.pure newValue, ..}

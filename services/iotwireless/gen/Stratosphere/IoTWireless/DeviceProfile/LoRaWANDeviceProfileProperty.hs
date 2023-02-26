@@ -9,7 +9,7 @@ import Stratosphere.Value
 data LoRaWANDeviceProfileProperty
   = LoRaWANDeviceProfileProperty {classBTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                   classCTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
-                                  factoryPresetFreqsList :: (Prelude.Maybe (ValueList (Value Prelude.Integer))),
+                                  factoryPresetFreqsList :: (Prelude.Maybe (ValueList Prelude.Integer)),
                                   macVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                   maxDutyCycle :: (Prelude.Maybe (Value Prelude.Integer)),
                                   maxEirp :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -102,7 +102,7 @@ instance Property "ClassCTimeout" LoRaWANDeviceProfileProperty where
     = LoRaWANDeviceProfileProperty
         {classCTimeout = Prelude.pure newValue, ..}
 instance Property "FactoryPresetFreqsList" LoRaWANDeviceProfileProperty where
-  type PropertyType "FactoryPresetFreqsList" LoRaWANDeviceProfileProperty = ValueList (Value Prelude.Integer)
+  type PropertyType "FactoryPresetFreqsList" LoRaWANDeviceProfileProperty = ValueList Prelude.Integer
   set newValue LoRaWANDeviceProfileProperty {..}
     = LoRaWANDeviceProfileProperty
         {factoryPresetFreqsList = Prelude.pure newValue, ..}

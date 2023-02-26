@@ -12,10 +12,10 @@ import Stratosphere.Value
 data StackInstancesProperty
   = StackInstancesProperty {deploymentTargets :: DeploymentTargetsProperty,
                             parameterOverrides :: (Prelude.Maybe [ParameterProperty]),
-                            regions :: (ValueList (Value Prelude.Text))}
+                            regions :: (ValueList Prelude.Text)}
 mkStackInstancesProperty ::
   DeploymentTargetsProperty
-  -> ValueList (Value Prelude.Text) -> StackInstancesProperty
+  -> ValueList Prelude.Text -> StackInstancesProperty
 mkStackInstancesProperty deploymentTargets regions
   = StackInstancesProperty
       {deploymentTargets = deploymentTargets, regions = regions,
@@ -49,6 +49,6 @@ instance Property "ParameterOverrides" StackInstancesProperty where
     = StackInstancesProperty
         {parameterOverrides = Prelude.pure newValue, ..}
 instance Property "Regions" StackInstancesProperty where
-  type PropertyType "Regions" StackInstancesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Regions" StackInstancesProperty = ValueList Prelude.Text
   set newValue StackInstancesProperty {..}
     = StackInstancesProperty {regions = newValue, ..}

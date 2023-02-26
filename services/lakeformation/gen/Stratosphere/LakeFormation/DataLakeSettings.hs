@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataLakeSettings
   = DataLakeSettings {admins :: (Prelude.Maybe AdminsProperty),
-                      trustedResourceOwners :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                      trustedResourceOwners :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkDataLakeSettings :: DataLakeSettings
 mkDataLakeSettings
   = DataLakeSettings
@@ -36,7 +36,7 @@ instance Property "Admins" DataLakeSettings where
   set newValue DataLakeSettings {..}
     = DataLakeSettings {admins = Prelude.pure newValue, ..}
 instance Property "TrustedResourceOwners" DataLakeSettings where
-  type PropertyType "TrustedResourceOwners" DataLakeSettings = ValueList (Value Prelude.Text)
+  type PropertyType "TrustedResourceOwners" DataLakeSettings = ValueList Prelude.Text
   set newValue DataLakeSettings {..}
     = DataLakeSettings
         {trustedResourceOwners = Prelude.pure newValue, ..}

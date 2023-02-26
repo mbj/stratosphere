@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataResourceProperty
   = DataResourceProperty {type' :: (Value Prelude.Text),
-                          values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                          values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkDataResourceProperty ::
   Value Prelude.Text -> DataResourceProperty
 mkDataResourceProperty type'
@@ -33,6 +33,6 @@ instance Property "Type" DataResourceProperty where
   set newValue DataResourceProperty {..}
     = DataResourceProperty {type' = newValue, ..}
 instance Property "Values" DataResourceProperty where
-  type PropertyType "Values" DataResourceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" DataResourceProperty = ValueList Prelude.Text
   set newValue DataResourceProperty {..}
     = DataResourceProperty {values = Prelude.pure newValue, ..}

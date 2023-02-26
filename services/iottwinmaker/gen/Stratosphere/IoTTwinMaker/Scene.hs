@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Scene
-  = Scene {capabilities :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Scene {capabilities :: (Prelude.Maybe (ValueList Prelude.Text)),
            contentLocation :: (Value Prelude.Text),
            description :: (Prelude.Maybe (Value Prelude.Text)),
            sceneId :: (Value Prelude.Text),
@@ -45,7 +45,7 @@ instance JSON.ToJSON Scene where
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Capabilities" Scene where
-  type PropertyType "Capabilities" Scene = ValueList (Value Prelude.Text)
+  type PropertyType "Capabilities" Scene = ValueList Prelude.Text
   set newValue Scene {..}
     = Scene {capabilities = Prelude.pure newValue, ..}
 instance Property "ContentLocation" Scene where

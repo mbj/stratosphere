@@ -9,12 +9,11 @@ import Stratosphere.Value
 data MountTarget
   = MountTarget {fileSystemId :: (Value Prelude.Text),
                  ipAddress :: (Prelude.Maybe (Value Prelude.Text)),
-                 securityGroups :: (ValueList (Value Prelude.Text)),
+                 securityGroups :: (ValueList Prelude.Text),
                  subnetId :: (Value Prelude.Text)}
 mkMountTarget ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
-     -> Value Prelude.Text -> MountTarget
+  -> ValueList Prelude.Text -> Value Prelude.Text -> MountTarget
 mkMountTarget fileSystemId securityGroups subnetId
   = MountTarget
       {fileSystemId = fileSystemId, securityGroups = securityGroups,
@@ -47,7 +46,7 @@ instance Property "IpAddress" MountTarget where
   set newValue MountTarget {..}
     = MountTarget {ipAddress = Prelude.pure newValue, ..}
 instance Property "SecurityGroups" MountTarget where
-  type PropertyType "SecurityGroups" MountTarget = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" MountTarget = ValueList Prelude.Text
   set newValue MountTarget {..}
     = MountTarget {securityGroups = newValue, ..}
 instance Property "SubnetId" MountTarget where

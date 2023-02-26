@@ -12,7 +12,7 @@ data SalesforceChatterFeedConfigurationProperty
   = SalesforceChatterFeedConfigurationProperty {documentDataFieldName :: (Value Prelude.Text),
                                                 documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
                                                 fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
-                                                includeFilterTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                                includeFilterTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkSalesforceChatterFeedConfigurationProperty ::
   Value Prelude.Text -> SalesforceChatterFeedConfigurationProperty
 mkSalesforceChatterFeedConfigurationProperty documentDataFieldName
@@ -61,7 +61,7 @@ instance Property "FieldMappings" SalesforceChatterFeedConfigurationProperty whe
     = SalesforceChatterFeedConfigurationProperty
         {fieldMappings = Prelude.pure newValue, ..}
 instance Property "IncludeFilterTypes" SalesforceChatterFeedConfigurationProperty where
-  type PropertyType "IncludeFilterTypes" SalesforceChatterFeedConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludeFilterTypes" SalesforceChatterFeedConfigurationProperty = ValueList Prelude.Text
   set newValue SalesforceChatterFeedConfigurationProperty {..}
     = SalesforceChatterFeedConfigurationProperty
         {includeFilterTypes = Prelude.pure newValue, ..}

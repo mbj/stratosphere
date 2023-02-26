@@ -7,11 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Grant
-  = Grant {allowedOperations :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Grant {allowedOperations :: (Prelude.Maybe (ValueList Prelude.Text)),
            grantName :: (Prelude.Maybe (Value Prelude.Text)),
            homeRegion :: (Prelude.Maybe (Value Prelude.Text)),
            licenseArn :: (Prelude.Maybe (Value Prelude.Text)),
-           principals :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           principals :: (Prelude.Maybe (ValueList Prelude.Text)),
            status :: (Prelude.Maybe (Value Prelude.Text))}
 mkGrant :: Grant
 mkGrant
@@ -43,7 +43,7 @@ instance JSON.ToJSON Grant where
                (JSON..=) "Principals" Prelude.<$> principals,
                (JSON..=) "Status" Prelude.<$> status]))
 instance Property "AllowedOperations" Grant where
-  type PropertyType "AllowedOperations" Grant = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedOperations" Grant = ValueList Prelude.Text
   set newValue Grant {..}
     = Grant {allowedOperations = Prelude.pure newValue, ..}
 instance Property "GrantName" Grant where
@@ -59,7 +59,7 @@ instance Property "LicenseArn" Grant where
   set newValue Grant {..}
     = Grant {licenseArn = Prelude.pure newValue, ..}
 instance Property "Principals" Grant where
-  type PropertyType "Principals" Grant = ValueList (Value Prelude.Text)
+  type PropertyType "Principals" Grant = ValueList Prelude.Text
   set newValue Grant {..}
     = Grant {principals = Prelude.pure newValue, ..}
 instance Property "Status" Grant where

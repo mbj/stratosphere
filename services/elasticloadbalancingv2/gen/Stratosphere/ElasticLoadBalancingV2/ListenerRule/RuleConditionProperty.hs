@@ -20,7 +20,7 @@ data RuleConditionProperty
                            pathPatternConfig :: (Prelude.Maybe PathPatternConfigProperty),
                            queryStringConfig :: (Prelude.Maybe QueryStringConfigProperty),
                            sourceIpConfig :: (Prelude.Maybe SourceIpConfigProperty),
-                           values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                           values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkRuleConditionProperty :: RuleConditionProperty
 mkRuleConditionProperty
   = RuleConditionProperty
@@ -94,6 +94,6 @@ instance Property "SourceIpConfig" RuleConditionProperty where
     = RuleConditionProperty
         {sourceIpConfig = Prelude.pure newValue, ..}
 instance Property "Values" RuleConditionProperty where
-  type PropertyType "Values" RuleConditionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" RuleConditionProperty = ValueList Prelude.Text
   set newValue RuleConditionProperty {..}
     = RuleConditionProperty {values = Prelude.pure newValue, ..}

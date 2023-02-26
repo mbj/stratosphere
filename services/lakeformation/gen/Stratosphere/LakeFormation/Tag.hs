@@ -9,9 +9,8 @@ import Stratosphere.Value
 data Tag
   = Tag {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
          tagKey :: (Value Prelude.Text),
-         tagValues :: (ValueList (Value Prelude.Text))}
-mkTag ::
-  Value Prelude.Text -> ValueList (Value Prelude.Text) -> Tag
+         tagValues :: (ValueList Prelude.Text)}
+mkTag :: Value Prelude.Text -> ValueList Prelude.Text -> Tag
 mkTag tagKey tagValues
   = Tag
       {tagKey = tagKey, tagValues = tagValues,
@@ -38,5 +37,5 @@ instance Property "TagKey" Tag where
   type PropertyType "TagKey" Tag = Value Prelude.Text
   set newValue Tag {..} = Tag {tagKey = newValue, ..}
 instance Property "TagValues" Tag where
-  type PropertyType "TagValues" Tag = ValueList (Value Prelude.Text)
+  type PropertyType "TagValues" Tag = ValueList Prelude.Text
   set newValue Tag {..} = Tag {tagValues = newValue, ..}

@@ -12,7 +12,7 @@ data Policy
             description :: (Prelude.Maybe (Value Prelude.Text)),
             name :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag]),
-            targetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            targetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
             type' :: (Value Prelude.Text)}
 mkPolicy ::
   Value Prelude.Text
@@ -60,7 +60,7 @@ instance Property "Tags" Policy where
   set newValue Policy {..}
     = Policy {tags = Prelude.pure newValue, ..}
 instance Property "TargetIds" Policy where
-  type PropertyType "TargetIds" Policy = ValueList (Value Prelude.Text)
+  type PropertyType "TargetIds" Policy = ValueList Prelude.Text
   set newValue Policy {..}
     = Policy {targetIds = Prelude.pure newValue, ..}
 instance Property "Type" Policy where

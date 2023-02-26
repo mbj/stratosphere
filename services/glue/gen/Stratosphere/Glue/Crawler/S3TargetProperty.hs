@@ -10,7 +10,7 @@ data S3TargetProperty
   = S3TargetProperty {connectionName :: (Prelude.Maybe (Value Prelude.Text)),
                       dlqEventQueueArn :: (Prelude.Maybe (Value Prelude.Text)),
                       eventQueueArn :: (Prelude.Maybe (Value Prelude.Text)),
-                      exclusions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                      exclusions :: (Prelude.Maybe (ValueList Prelude.Text)),
                       path :: (Prelude.Maybe (Value Prelude.Text)),
                       sampleSize :: (Prelude.Maybe (Value Prelude.Integer))}
 mkS3TargetProperty :: S3TargetProperty
@@ -56,7 +56,7 @@ instance Property "EventQueueArn" S3TargetProperty where
   set newValue S3TargetProperty {..}
     = S3TargetProperty {eventQueueArn = Prelude.pure newValue, ..}
 instance Property "Exclusions" S3TargetProperty where
-  type PropertyType "Exclusions" S3TargetProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Exclusions" S3TargetProperty = ValueList Prelude.Text
   set newValue S3TargetProperty {..}
     = S3TargetProperty {exclusions = Prelude.pure newValue, ..}
 instance Property "Path" S3TargetProperty where

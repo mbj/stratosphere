@@ -12,7 +12,7 @@ data User
           authenticationMode :: (Prelude.Maybe AuthenticationModeProperty),
           engine :: (Value Prelude.Text),
           noPasswordRequired :: (Prelude.Maybe (Value Prelude.Bool)),
-          passwords :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+          passwords :: (Prelude.Maybe (ValueList Prelude.Text)),
           userId :: (Value Prelude.Text),
           userName :: (Value Prelude.Text)}
 mkUser ::
@@ -65,7 +65,7 @@ instance Property "NoPasswordRequired" User where
   set newValue User {..}
     = User {noPasswordRequired = Prelude.pure newValue, ..}
 instance Property "Passwords" User where
-  type PropertyType "Passwords" User = ValueList (Value Prelude.Text)
+  type PropertyType "Passwords" User = ValueList Prelude.Text
   set newValue User {..}
     = User {passwords = Prelude.pure newValue, ..}
 instance Property "UserId" User where

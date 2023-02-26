@@ -11,12 +11,12 @@ data CompositeAlarm
                     actionsSuppressor :: (Prelude.Maybe (Value Prelude.Text)),
                     actionsSuppressorExtensionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
                     actionsSuppressorWaitPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
-                    alarmActions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    alarmActions :: (Prelude.Maybe (ValueList Prelude.Text)),
                     alarmDescription :: (Prelude.Maybe (Value Prelude.Text)),
                     alarmName :: (Prelude.Maybe (Value Prelude.Text)),
                     alarmRule :: (Value Prelude.Text),
-                    insufficientDataActions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                    oKActions :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                    insufficientDataActions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                    oKActions :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCompositeAlarm :: Value Prelude.Text -> CompositeAlarm
 mkCompositeAlarm alarmRule
   = CompositeAlarm
@@ -86,7 +86,7 @@ instance Property "ActionsSuppressorWaitPeriod" CompositeAlarm where
     = CompositeAlarm
         {actionsSuppressorWaitPeriod = Prelude.pure newValue, ..}
 instance Property "AlarmActions" CompositeAlarm where
-  type PropertyType "AlarmActions" CompositeAlarm = ValueList (Value Prelude.Text)
+  type PropertyType "AlarmActions" CompositeAlarm = ValueList Prelude.Text
   set newValue CompositeAlarm {..}
     = CompositeAlarm {alarmActions = Prelude.pure newValue, ..}
 instance Property "AlarmDescription" CompositeAlarm where
@@ -102,11 +102,11 @@ instance Property "AlarmRule" CompositeAlarm where
   set newValue CompositeAlarm {..}
     = CompositeAlarm {alarmRule = newValue, ..}
 instance Property "InsufficientDataActions" CompositeAlarm where
-  type PropertyType "InsufficientDataActions" CompositeAlarm = ValueList (Value Prelude.Text)
+  type PropertyType "InsufficientDataActions" CompositeAlarm = ValueList Prelude.Text
   set newValue CompositeAlarm {..}
     = CompositeAlarm
         {insufficientDataActions = Prelude.pure newValue, ..}
 instance Property "OKActions" CompositeAlarm where
-  type PropertyType "OKActions" CompositeAlarm = ValueList (Value Prelude.Text)
+  type PropertyType "OKActions" CompositeAlarm = ValueList Prelude.Text
   set newValue CompositeAlarm {..}
     = CompositeAlarm {oKActions = Prelude.pure newValue, ..}

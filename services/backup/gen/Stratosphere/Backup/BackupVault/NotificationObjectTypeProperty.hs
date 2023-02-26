@@ -8,10 +8,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationObjectTypeProperty
-  = NotificationObjectTypeProperty {backupVaultEvents :: (ValueList (Value Prelude.Text)),
+  = NotificationObjectTypeProperty {backupVaultEvents :: (ValueList Prelude.Text),
                                     sNSTopicArn :: (Value Prelude.Text)}
 mkNotificationObjectTypeProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> NotificationObjectTypeProperty
 mkNotificationObjectTypeProperty backupVaultEvents sNSTopicArn
   = NotificationObjectTypeProperty
@@ -28,7 +28,7 @@ instance JSON.ToJSON NotificationObjectTypeProperty where
         ["BackupVaultEvents" JSON..= backupVaultEvents,
          "SNSTopicArn" JSON..= sNSTopicArn]
 instance Property "BackupVaultEvents" NotificationObjectTypeProperty where
-  type PropertyType "BackupVaultEvents" NotificationObjectTypeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "BackupVaultEvents" NotificationObjectTypeProperty = ValueList Prelude.Text
   set newValue NotificationObjectTypeProperty {..}
     = NotificationObjectTypeProperty {backupVaultEvents = newValue, ..}
 instance Property "SNSTopicArn" NotificationObjectTypeProperty where

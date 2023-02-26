@@ -11,7 +11,7 @@ data NotificationRule
   = NotificationRule {createdBy :: (Prelude.Maybe (Value Prelude.Text)),
                       detailType :: (Value Prelude.Text),
                       eventTypeId :: (Prelude.Maybe (Value Prelude.Text)),
-                      eventTypeIds :: (ValueList (Value Prelude.Text)),
+                      eventTypeIds :: (ValueList Prelude.Text),
                       name :: (Value Prelude.Text),
                       resource :: (Value Prelude.Text),
                       status :: (Prelude.Maybe (Value Prelude.Text)),
@@ -20,7 +20,7 @@ data NotificationRule
                       targets :: [TargetProperty]}
 mkNotificationRule ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
+  -> ValueList Prelude.Text
      -> Value Prelude.Text
         -> Value Prelude.Text -> [TargetProperty] -> NotificationRule
 mkNotificationRule detailType eventTypeIds name resource targets
@@ -72,7 +72,7 @@ instance Property "EventTypeId" NotificationRule where
   set newValue NotificationRule {..}
     = NotificationRule {eventTypeId = Prelude.pure newValue, ..}
 instance Property "EventTypeIds" NotificationRule where
-  type PropertyType "EventTypeIds" NotificationRule = ValueList (Value Prelude.Text)
+  type PropertyType "EventTypeIds" NotificationRule = ValueList Prelude.Text
   set newValue NotificationRule {..}
     = NotificationRule {eventTypeIds = newValue, ..}
 instance Property "Name" NotificationRule where

@@ -8,9 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlAllowMethodsProperty
-  = AccessControlAllowMethodsProperty {items :: (ValueList (Value Prelude.Text))}
+  = AccessControlAllowMethodsProperty {items :: (ValueList Prelude.Text)}
 mkAccessControlAllowMethodsProperty ::
-  ValueList (Value Prelude.Text) -> AccessControlAllowMethodsProperty
+  ValueList Prelude.Text -> AccessControlAllowMethodsProperty
 mkAccessControlAllowMethodsProperty items
   = AccessControlAllowMethodsProperty {items = items}
 instance ToResourceProperties AccessControlAllowMethodsProperty where
@@ -22,6 +22,6 @@ instance JSON.ToJSON AccessControlAllowMethodsProperty where
   toJSON AccessControlAllowMethodsProperty {..}
     = JSON.object ["Items" JSON..= items]
 instance Property "Items" AccessControlAllowMethodsProperty where
-  type PropertyType "Items" AccessControlAllowMethodsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Items" AccessControlAllowMethodsProperty = ValueList Prelude.Text
   set newValue AccessControlAllowMethodsProperty {}
     = AccessControlAllowMethodsProperty {items = newValue, ..}

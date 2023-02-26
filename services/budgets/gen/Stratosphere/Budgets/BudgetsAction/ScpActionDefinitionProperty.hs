@@ -8,10 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScpActionDefinitionProperty
   = ScpActionDefinitionProperty {policyId :: (Value Prelude.Text),
-                                 targetIds :: (ValueList (Value Prelude.Text))}
+                                 targetIds :: (ValueList Prelude.Text)}
 mkScpActionDefinitionProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> ScpActionDefinitionProperty
+  -> ValueList Prelude.Text -> ScpActionDefinitionProperty
 mkScpActionDefinitionProperty policyId targetIds
   = ScpActionDefinitionProperty
       {policyId = policyId, targetIds = targetIds}
@@ -30,6 +30,6 @@ instance Property "PolicyId" ScpActionDefinitionProperty where
   set newValue ScpActionDefinitionProperty {..}
     = ScpActionDefinitionProperty {policyId = newValue, ..}
 instance Property "TargetIds" ScpActionDefinitionProperty where
-  type PropertyType "TargetIds" ScpActionDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TargetIds" ScpActionDefinitionProperty = ValueList Prelude.Text
   set newValue ScpActionDefinitionProperty {..}
     = ScpActionDefinitionProperty {targetIds = newValue, ..}

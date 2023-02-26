@@ -31,7 +31,7 @@ data Fleet
            sessionScriptS3Location :: (Prelude.Maybe S3LocationProperty),
            streamView :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe [Tag]),
-           usbDeviceFilterStrings :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           usbDeviceFilterStrings :: (Prelude.Maybe (ValueList Prelude.Text)),
            vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
 mkFleet :: Value Prelude.Text -> Value Prelude.Text -> Fleet
 mkFleet instanceType name
@@ -193,7 +193,7 @@ instance Property "Tags" Fleet where
   type PropertyType "Tags" Fleet = [Tag]
   set newValue Fleet {..} = Fleet {tags = Prelude.pure newValue, ..}
 instance Property "UsbDeviceFilterStrings" Fleet where
-  type PropertyType "UsbDeviceFilterStrings" Fleet = ValueList (Value Prelude.Text)
+  type PropertyType "UsbDeviceFilterStrings" Fleet = ValueList Prelude.Text
   set newValue Fleet {..}
     = Fleet {usbDeviceFilterStrings = Prelude.pure newValue, ..}
 instance Property "VpcConfig" Fleet where

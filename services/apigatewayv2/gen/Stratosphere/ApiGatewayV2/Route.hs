@@ -9,7 +9,7 @@ import Stratosphere.Value
 data Route
   = Route {apiId :: (Value Prelude.Text),
            apiKeyRequired :: (Prelude.Maybe (Value Prelude.Bool)),
-           authorizationScopes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           authorizationScopes :: (Prelude.Maybe (ValueList Prelude.Text)),
            authorizationType :: (Prelude.Maybe (Value Prelude.Text)),
            authorizerId :: (Prelude.Maybe (Value Prelude.Text)),
            modelSelectionExpression :: (Prelude.Maybe (Value Prelude.Text)),
@@ -79,7 +79,7 @@ instance Property "ApiKeyRequired" Route where
   set newValue Route {..}
     = Route {apiKeyRequired = Prelude.pure newValue, ..}
 instance Property "AuthorizationScopes" Route where
-  type PropertyType "AuthorizationScopes" Route = ValueList (Value Prelude.Text)
+  type PropertyType "AuthorizationScopes" Route = ValueList Prelude.Text
   set newValue Route {..}
     = Route {authorizationScopes = Prelude.pure newValue, ..}
 instance Property "AuthorizationType" Route where

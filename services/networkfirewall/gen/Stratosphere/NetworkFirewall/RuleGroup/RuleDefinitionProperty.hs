@@ -9,10 +9,10 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.MatchAttributesProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleDefinitionProperty
-  = RuleDefinitionProperty {actions :: (ValueList (Value Prelude.Text)),
+  = RuleDefinitionProperty {actions :: (ValueList Prelude.Text),
                             matchAttributes :: MatchAttributesProperty}
 mkRuleDefinitionProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> MatchAttributesProperty -> RuleDefinitionProperty
 mkRuleDefinitionProperty actions matchAttributes
   = RuleDefinitionProperty
@@ -29,7 +29,7 @@ instance JSON.ToJSON RuleDefinitionProperty where
         ["Actions" JSON..= actions,
          "MatchAttributes" JSON..= matchAttributes]
 instance Property "Actions" RuleDefinitionProperty where
-  type PropertyType "Actions" RuleDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Actions" RuleDefinitionProperty = ValueList Prelude.Text
   set newValue RuleDefinitionProperty {..}
     = RuleDefinitionProperty {actions = newValue, ..}
 instance Property "MatchAttributes" RuleDefinitionProperty where

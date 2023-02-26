@@ -9,10 +9,10 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data EventSubscription
   = EventSubscription {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
-                       eventCategories :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                       eventCategories :: (Prelude.Maybe (ValueList Prelude.Text)),
                        severity :: (Prelude.Maybe (Value Prelude.Text)),
                        snsTopicArn :: (Prelude.Maybe (Value Prelude.Text)),
-                       sourceIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                       sourceIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                        sourceType :: (Prelude.Maybe (Value Prelude.Text)),
                        subscriptionName :: (Value Prelude.Text),
                        tags :: (Prelude.Maybe [Tag])}
@@ -57,7 +57,7 @@ instance Property "Enabled" EventSubscription where
   set newValue EventSubscription {..}
     = EventSubscription {enabled = Prelude.pure newValue, ..}
 instance Property "EventCategories" EventSubscription where
-  type PropertyType "EventCategories" EventSubscription = ValueList (Value Prelude.Text)
+  type PropertyType "EventCategories" EventSubscription = ValueList Prelude.Text
   set newValue EventSubscription {..}
     = EventSubscription {eventCategories = Prelude.pure newValue, ..}
 instance Property "Severity" EventSubscription where
@@ -69,7 +69,7 @@ instance Property "SnsTopicArn" EventSubscription where
   set newValue EventSubscription {..}
     = EventSubscription {snsTopicArn = Prelude.pure newValue, ..}
 instance Property "SourceIds" EventSubscription where
-  type PropertyType "SourceIds" EventSubscription = ValueList (Value Prelude.Text)
+  type PropertyType "SourceIds" EventSubscription = ValueList Prelude.Text
   set newValue EventSubscription {..}
     = EventSubscription {sourceIds = Prelude.pure newValue, ..}
 instance Property "SourceType" EventSubscription where

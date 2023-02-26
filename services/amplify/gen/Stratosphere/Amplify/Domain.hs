@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Domain
   = Domain {appId :: (Value Prelude.Text),
-            autoSubDomainCreationPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            autoSubDomainCreationPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
             autoSubDomainIAMRole :: (Prelude.Maybe (Value Prelude.Text)),
             domainName :: (Value Prelude.Text),
             enableAutoSubDomain :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -53,7 +53,7 @@ instance Property "AppId" Domain where
   type PropertyType "AppId" Domain = Value Prelude.Text
   set newValue Domain {..} = Domain {appId = newValue, ..}
 instance Property "AutoSubDomainCreationPatterns" Domain where
-  type PropertyType "AutoSubDomainCreationPatterns" Domain = ValueList (Value Prelude.Text)
+  type PropertyType "AutoSubDomainCreationPatterns" Domain = ValueList Prelude.Text
   set newValue Domain {..}
     = Domain
         {autoSubDomainCreationPatterns = Prelude.pure newValue, ..}

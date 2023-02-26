@@ -10,12 +10,11 @@ import Stratosphere.Value
 data RegexPatternSet
   = RegexPatternSet {description :: (Prelude.Maybe (Value Prelude.Text)),
                      name :: (Prelude.Maybe (Value Prelude.Text)),
-                     regularExpressionList :: (ValueList (Value Prelude.Text)),
+                     regularExpressionList :: (ValueList Prelude.Text),
                      scope :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag])}
 mkRegexPatternSet ::
-  ValueList (Value Prelude.Text)
-  -> Value Prelude.Text -> RegexPatternSet
+  ValueList Prelude.Text -> Value Prelude.Text -> RegexPatternSet
 mkRegexPatternSet regularExpressionList scope
   = RegexPatternSet
       {regularExpressionList = regularExpressionList, scope = scope,
@@ -53,7 +52,7 @@ instance Property "Name" RegexPatternSet where
   set newValue RegexPatternSet {..}
     = RegexPatternSet {name = Prelude.pure newValue, ..}
 instance Property "RegularExpressionList" RegexPatternSet where
-  type PropertyType "RegularExpressionList" RegexPatternSet = ValueList (Value Prelude.Text)
+  type PropertyType "RegularExpressionList" RegexPatternSet = ValueList Prelude.Text
   set newValue RegexPatternSet {..}
     = RegexPatternSet {regularExpressionList = newValue, ..}
 instance Property "Scope" RegexPatternSet where

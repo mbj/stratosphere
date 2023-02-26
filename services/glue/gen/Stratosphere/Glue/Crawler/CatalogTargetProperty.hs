@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CatalogTargetProperty
   = CatalogTargetProperty {databaseName :: (Prelude.Maybe (Value Prelude.Text)),
-                           tables :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                           tables :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCatalogTargetProperty :: CatalogTargetProperty
 mkCatalogTargetProperty
   = CatalogTargetProperty
@@ -33,6 +33,6 @@ instance Property "DatabaseName" CatalogTargetProperty where
   set newValue CatalogTargetProperty {..}
     = CatalogTargetProperty {databaseName = Prelude.pure newValue, ..}
 instance Property "Tables" CatalogTargetProperty where
-  type PropertyType "Tables" CatalogTargetProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Tables" CatalogTargetProperty = ValueList Prelude.Text
   set newValue CatalogTargetProperty {..}
     = CatalogTargetProperty {tables = Prelude.pure newValue, ..}

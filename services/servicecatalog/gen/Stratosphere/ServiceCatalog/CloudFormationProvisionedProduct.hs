@@ -12,7 +12,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data CloudFormationProvisionedProduct
   = CloudFormationProvisionedProduct {acceptLanguage :: (Prelude.Maybe (Value Prelude.Text)),
-                                      notificationArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                      notificationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       pathId :: (Prelude.Maybe (Value Prelude.Text)),
                                       pathName :: (Prelude.Maybe (Value Prelude.Text)),
                                       productId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -87,7 +87,7 @@ instance Property "AcceptLanguage" CloudFormationProvisionedProduct where
     = CloudFormationProvisionedProduct
         {acceptLanguage = Prelude.pure newValue, ..}
 instance Property "NotificationArns" CloudFormationProvisionedProduct where
-  type PropertyType "NotificationArns" CloudFormationProvisionedProduct = ValueList (Value Prelude.Text)
+  type PropertyType "NotificationArns" CloudFormationProvisionedProduct = ValueList Prelude.Text
   set newValue CloudFormationProvisionedProduct {..}
     = CloudFormationProvisionedProduct
         {notificationArns = Prelude.pure newValue, ..}

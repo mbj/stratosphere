@@ -7,13 +7,13 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedFieldSelectorProperty
-  = AdvancedFieldSelectorProperty {endsWith :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                   equals :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = AdvancedFieldSelectorProperty {endsWith :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   equals :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    field :: (Value Prelude.Text),
-                                   notEndsWith :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                   notEquals :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                   notStartsWith :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                   startsWith :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                   notEndsWith :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   notEquals :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   notStartsWith :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   startsWith :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAdvancedFieldSelectorProperty ::
   Value Prelude.Text -> AdvancedFieldSelectorProperty
 mkAdvancedFieldSelectorProperty field
@@ -50,12 +50,12 @@ instance JSON.ToJSON AdvancedFieldSelectorProperty where
                   (JSON..=) "NotStartsWith" Prelude.<$> notStartsWith,
                   (JSON..=) "StartsWith" Prelude.<$> startsWith])))
 instance Property "EndsWith" AdvancedFieldSelectorProperty where
-  type PropertyType "EndsWith" AdvancedFieldSelectorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "EndsWith" AdvancedFieldSelectorProperty = ValueList Prelude.Text
   set newValue AdvancedFieldSelectorProperty {..}
     = AdvancedFieldSelectorProperty
         {endsWith = Prelude.pure newValue, ..}
 instance Property "Equals" AdvancedFieldSelectorProperty where
-  type PropertyType "Equals" AdvancedFieldSelectorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Equals" AdvancedFieldSelectorProperty = ValueList Prelude.Text
   set newValue AdvancedFieldSelectorProperty {..}
     = AdvancedFieldSelectorProperty
         {equals = Prelude.pure newValue, ..}
@@ -64,22 +64,22 @@ instance Property "Field" AdvancedFieldSelectorProperty where
   set newValue AdvancedFieldSelectorProperty {..}
     = AdvancedFieldSelectorProperty {field = newValue, ..}
 instance Property "NotEndsWith" AdvancedFieldSelectorProperty where
-  type PropertyType "NotEndsWith" AdvancedFieldSelectorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "NotEndsWith" AdvancedFieldSelectorProperty = ValueList Prelude.Text
   set newValue AdvancedFieldSelectorProperty {..}
     = AdvancedFieldSelectorProperty
         {notEndsWith = Prelude.pure newValue, ..}
 instance Property "NotEquals" AdvancedFieldSelectorProperty where
-  type PropertyType "NotEquals" AdvancedFieldSelectorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "NotEquals" AdvancedFieldSelectorProperty = ValueList Prelude.Text
   set newValue AdvancedFieldSelectorProperty {..}
     = AdvancedFieldSelectorProperty
         {notEquals = Prelude.pure newValue, ..}
 instance Property "NotStartsWith" AdvancedFieldSelectorProperty where
-  type PropertyType "NotStartsWith" AdvancedFieldSelectorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "NotStartsWith" AdvancedFieldSelectorProperty = ValueList Prelude.Text
   set newValue AdvancedFieldSelectorProperty {..}
     = AdvancedFieldSelectorProperty
         {notStartsWith = Prelude.pure newValue, ..}
 instance Property "StartsWith" AdvancedFieldSelectorProperty where
-  type PropertyType "StartsWith" AdvancedFieldSelectorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StartsWith" AdvancedFieldSelectorProperty = ValueList Prelude.Text
   set newValue AdvancedFieldSelectorProperty {..}
     = AdvancedFieldSelectorProperty
         {startsWith = Prelude.pure newValue, ..}

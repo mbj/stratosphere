@@ -18,7 +18,7 @@ data TransitGateway
                     multicastSupport :: (Prelude.Maybe (Value Prelude.Text)),
                     propagationDefaultRouteTableId :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag]),
-                    transitGatewayCidrBlocks :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    transitGatewayCidrBlocks :: (Prelude.Maybe (ValueList Prelude.Text)),
                     vpnEcmpSupport :: (Prelude.Maybe (Value Prelude.Text))}
 mkTransitGateway :: TransitGateway
 mkTransitGateway
@@ -126,7 +126,7 @@ instance Property "Tags" TransitGateway where
   set newValue TransitGateway {..}
     = TransitGateway {tags = Prelude.pure newValue, ..}
 instance Property "TransitGatewayCidrBlocks" TransitGateway where
-  type PropertyType "TransitGatewayCidrBlocks" TransitGateway = ValueList (Value Prelude.Text)
+  type PropertyType "TransitGatewayCidrBlocks" TransitGateway = ValueList Prelude.Text
   set newValue TransitGateway {..}
     = TransitGateway
         {transitGatewayCidrBlocks = Prelude.pure newValue, ..}

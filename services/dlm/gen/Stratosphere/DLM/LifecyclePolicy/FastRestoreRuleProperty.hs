@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FastRestoreRuleProperty
-  = FastRestoreRuleProperty {availabilityZones :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = FastRestoreRuleProperty {availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
                              count :: (Prelude.Maybe (Value Prelude.Integer)),
                              interval :: (Prelude.Maybe (Value Prelude.Integer)),
                              intervalUnit :: (Prelude.Maybe (Value Prelude.Text))}
@@ -36,7 +36,7 @@ instance JSON.ToJSON FastRestoreRuleProperty where
                (JSON..=) "Interval" Prelude.<$> interval,
                (JSON..=) "IntervalUnit" Prelude.<$> intervalUnit]))
 instance Property "AvailabilityZones" FastRestoreRuleProperty where
-  type PropertyType "AvailabilityZones" FastRestoreRuleProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AvailabilityZones" FastRestoreRuleProperty = ValueList Prelude.Text
   set newValue FastRestoreRuleProperty {..}
     = FastRestoreRuleProperty
         {availabilityZones = Prelude.pure newValue, ..}

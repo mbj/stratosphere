@@ -15,8 +15,8 @@ import Stratosphere.Value
 data ConfluenceConfigurationProperty
   = ConfluenceConfigurationProperty {attachmentConfiguration :: (Prelude.Maybe ConfluenceAttachmentConfigurationProperty),
                                      blogConfiguration :: (Prelude.Maybe ConfluenceBlogConfigurationProperty),
-                                     exclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                     inclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                     exclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      pageConfiguration :: (Prelude.Maybe ConfluencePageConfigurationProperty),
                                      secretArn :: (Value Prelude.Text),
                                      serverUrl :: (Value Prelude.Text),
@@ -81,12 +81,12 @@ instance Property "BlogConfiguration" ConfluenceConfigurationProperty where
     = ConfluenceConfigurationProperty
         {blogConfiguration = Prelude.pure newValue, ..}
 instance Property "ExclusionPatterns" ConfluenceConfigurationProperty where
-  type PropertyType "ExclusionPatterns" ConfluenceConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExclusionPatterns" ConfluenceConfigurationProperty = ValueList Prelude.Text
   set newValue ConfluenceConfigurationProperty {..}
     = ConfluenceConfigurationProperty
         {exclusionPatterns = Prelude.pure newValue, ..}
 instance Property "InclusionPatterns" ConfluenceConfigurationProperty where
-  type PropertyType "InclusionPatterns" ConfluenceConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InclusionPatterns" ConfluenceConfigurationProperty = ValueList Prelude.Text
   set newValue ConfluenceConfigurationProperty {..}
     = ConfluenceConfigurationProperty
         {inclusionPatterns = Prelude.pure newValue, ..}

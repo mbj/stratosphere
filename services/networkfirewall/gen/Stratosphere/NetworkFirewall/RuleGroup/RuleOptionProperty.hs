@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleOptionProperty
   = RuleOptionProperty {keyword :: (Value Prelude.Text),
-                        settings :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                        settings :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkRuleOptionProperty :: Value Prelude.Text -> RuleOptionProperty
 mkRuleOptionProperty keyword
   = RuleOptionProperty
@@ -33,6 +33,6 @@ instance Property "Keyword" RuleOptionProperty where
   set newValue RuleOptionProperty {..}
     = RuleOptionProperty {keyword = newValue, ..}
 instance Property "Settings" RuleOptionProperty where
-  type PropertyType "Settings" RuleOptionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Settings" RuleOptionProperty = ValueList Prelude.Text
   set newValue RuleOptionProperty {..}
     = RuleOptionProperty {settings = Prelude.pure newValue, ..}

@@ -7,10 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterProperty
-  = FilterProperty {contains :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                    eq :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = FilterProperty {contains :: (Prelude.Maybe (ValueList Prelude.Text)),
+                    eq :: (Prelude.Maybe (ValueList Prelude.Text)),
                     exists :: (Prelude.Maybe (Value Prelude.Bool)),
-                    neq :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    neq :: (Prelude.Maybe (ValueList Prelude.Text)),
                     property :: (Value Prelude.Text)}
 mkFilterProperty :: Value Prelude.Text -> FilterProperty
 mkFilterProperty property
@@ -42,11 +42,11 @@ instance JSON.ToJSON FilterProperty where
                   (JSON..=) "Exists" Prelude.<$> exists,
                   (JSON..=) "Neq" Prelude.<$> neq])))
 instance Property "Contains" FilterProperty where
-  type PropertyType "Contains" FilterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Contains" FilterProperty = ValueList Prelude.Text
   set newValue FilterProperty {..}
     = FilterProperty {contains = Prelude.pure newValue, ..}
 instance Property "Eq" FilterProperty where
-  type PropertyType "Eq" FilterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Eq" FilterProperty = ValueList Prelude.Text
   set newValue FilterProperty {..}
     = FilterProperty {eq = Prelude.pure newValue, ..}
 instance Property "Exists" FilterProperty where
@@ -54,7 +54,7 @@ instance Property "Exists" FilterProperty where
   set newValue FilterProperty {..}
     = FilterProperty {exists = Prelude.pure newValue, ..}
 instance Property "Neq" FilterProperty where
-  type PropertyType "Neq" FilterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Neq" FilterProperty = ValueList Prelude.Text
   set newValue FilterProperty {..}
     = FilterProperty {neq = Prelude.pure newValue, ..}
 instance Property "Property" FilterProperty where

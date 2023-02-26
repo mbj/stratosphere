@@ -10,7 +10,7 @@ import Stratosphere.Value
 data ModelOverviewProperty
   = ModelOverviewProperty {algorithmType :: (Prelude.Maybe (Value Prelude.Text)),
                            inferenceEnvironment :: (Prelude.Maybe InferenceEnvironmentProperty),
-                           modelArtifact :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                           modelArtifact :: (Prelude.Maybe (ValueList Prelude.Text)),
                            modelCreator :: (Prelude.Maybe (Value Prelude.Text)),
                            modelDescription :: (Prelude.Maybe (Value Prelude.Text)),
                            modelId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -68,7 +68,7 @@ instance Property "InferenceEnvironment" ModelOverviewProperty where
     = ModelOverviewProperty
         {inferenceEnvironment = Prelude.pure newValue, ..}
 instance Property "ModelArtifact" ModelOverviewProperty where
-  type PropertyType "ModelArtifact" ModelOverviewProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ModelArtifact" ModelOverviewProperty = ValueList Prelude.Text
   set newValue ModelOverviewProperty {..}
     = ModelOverviewProperty {modelArtifact = Prelude.pure newValue, ..}
 instance Property "ModelCreator" ModelOverviewProperty where

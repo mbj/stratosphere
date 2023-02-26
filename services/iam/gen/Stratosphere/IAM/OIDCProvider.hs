@@ -8,11 +8,11 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data OIDCProvider
-  = OIDCProvider {clientIdList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = OIDCProvider {clientIdList :: (Prelude.Maybe (ValueList Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag]),
-                  thumbprintList :: (ValueList (Value Prelude.Text)),
+                  thumbprintList :: (ValueList Prelude.Text),
                   url :: (Prelude.Maybe (Value Prelude.Text))}
-mkOIDCProvider :: ValueList (Value Prelude.Text) -> OIDCProvider
+mkOIDCProvider :: ValueList Prelude.Text -> OIDCProvider
 mkOIDCProvider thumbprintList
   = OIDCProvider
       {thumbprintList = thumbprintList, clientIdList = Prelude.Nothing,
@@ -39,7 +39,7 @@ instance JSON.ToJSON OIDCProvider where
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "Url" Prelude.<$> url])))
 instance Property "ClientIdList" OIDCProvider where
-  type PropertyType "ClientIdList" OIDCProvider = ValueList (Value Prelude.Text)
+  type PropertyType "ClientIdList" OIDCProvider = ValueList Prelude.Text
   set newValue OIDCProvider {..}
     = OIDCProvider {clientIdList = Prelude.pure newValue, ..}
 instance Property "Tags" OIDCProvider where
@@ -47,7 +47,7 @@ instance Property "Tags" OIDCProvider where
   set newValue OIDCProvider {..}
     = OIDCProvider {tags = Prelude.pure newValue, ..}
 instance Property "ThumbprintList" OIDCProvider where
-  type PropertyType "ThumbprintList" OIDCProvider = ValueList (Value Prelude.Text)
+  type PropertyType "ThumbprintList" OIDCProvider = ValueList Prelude.Text
   set newValue OIDCProvider {..}
     = OIDCProvider {thumbprintList = newValue, ..}
 instance Property "Url" OIDCProvider where

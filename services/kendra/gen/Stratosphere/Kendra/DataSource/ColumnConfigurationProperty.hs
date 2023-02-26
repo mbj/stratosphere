@@ -9,13 +9,13 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.DataSourceToIndexFieldMappi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnConfigurationProperty
-  = ColumnConfigurationProperty {changeDetectingColumns :: (ValueList (Value Prelude.Text)),
+  = ColumnConfigurationProperty {changeDetectingColumns :: (ValueList Prelude.Text),
                                  documentDataColumnName :: (Value Prelude.Text),
                                  documentIdColumnName :: (Value Prelude.Text),
                                  documentTitleColumnName :: (Prelude.Maybe (Value Prelude.Text)),
                                  fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty])}
 mkColumnConfigurationProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text -> ColumnConfigurationProperty
 mkColumnConfigurationProperty
@@ -54,7 +54,7 @@ instance JSON.ToJSON ColumnConfigurationProperty where
                     Prelude.<$> documentTitleColumnName,
                   (JSON..=) "FieldMappings" Prelude.<$> fieldMappings])))
 instance Property "ChangeDetectingColumns" ColumnConfigurationProperty where
-  type PropertyType "ChangeDetectingColumns" ColumnConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ChangeDetectingColumns" ColumnConfigurationProperty = ValueList Prelude.Text
   set newValue ColumnConfigurationProperty {..}
     = ColumnConfigurationProperty
         {changeDetectingColumns = newValue, ..}

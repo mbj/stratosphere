@@ -8,10 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserAttributeUpdateSettingsProperty
-  = UserAttributeUpdateSettingsProperty {attributesRequireVerificationBeforeUpdate :: (ValueList (Value Prelude.Text))}
+  = UserAttributeUpdateSettingsProperty {attributesRequireVerificationBeforeUpdate :: (ValueList Prelude.Text)}
 mkUserAttributeUpdateSettingsProperty ::
-  ValueList (Value Prelude.Text)
-  -> UserAttributeUpdateSettingsProperty
+  ValueList Prelude.Text -> UserAttributeUpdateSettingsProperty
 mkUserAttributeUpdateSettingsProperty
   attributesRequireVerificationBeforeUpdate
   = UserAttributeUpdateSettingsProperty
@@ -28,7 +27,7 @@ instance JSON.ToJSON UserAttributeUpdateSettingsProperty where
         ["AttributesRequireVerificationBeforeUpdate"
            JSON..= attributesRequireVerificationBeforeUpdate]
 instance Property "AttributesRequireVerificationBeforeUpdate" UserAttributeUpdateSettingsProperty where
-  type PropertyType "AttributesRequireVerificationBeforeUpdate" UserAttributeUpdateSettingsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AttributesRequireVerificationBeforeUpdate" UserAttributeUpdateSettingsProperty = ValueList Prelude.Text
   set newValue UserAttributeUpdateSettingsProperty {}
     = UserAttributeUpdateSettingsProperty
         {attributesRequireVerificationBeforeUpdate = newValue, ..}

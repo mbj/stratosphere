@@ -16,9 +16,9 @@ data WorkgroupProperty
                        enhancedVpcRouting :: (Prelude.Maybe (Value Prelude.Bool)),
                        namespaceName :: (Prelude.Maybe (Value Prelude.Text)),
                        publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
-                       securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                       securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                        status :: (Prelude.Maybe (Value Prelude.Text)),
-                       subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                       subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                        workgroupArn :: (Prelude.Maybe (Value Prelude.Text)),
                        workgroupId :: (Prelude.Maybe (Value Prelude.Text)),
                        workgroupName :: (Prelude.Maybe (Value Prelude.Text))}
@@ -101,7 +101,7 @@ instance Property "PubliclyAccessible" WorkgroupProperty where
     = WorkgroupProperty
         {publiclyAccessible = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" WorkgroupProperty where
-  type PropertyType "SecurityGroupIds" WorkgroupProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" WorkgroupProperty = ValueList Prelude.Text
   set newValue WorkgroupProperty {..}
     = WorkgroupProperty {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "Status" WorkgroupProperty where
@@ -109,7 +109,7 @@ instance Property "Status" WorkgroupProperty where
   set newValue WorkgroupProperty {..}
     = WorkgroupProperty {status = Prelude.pure newValue, ..}
 instance Property "SubnetIds" WorkgroupProperty where
-  type PropertyType "SubnetIds" WorkgroupProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" WorkgroupProperty = ValueList Prelude.Text
   set newValue WorkgroupProperty {..}
     = WorkgroupProperty {subnetIds = Prelude.pure newValue, ..}
 instance Property "WorkgroupArn" WorkgroupProperty where

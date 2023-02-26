@@ -27,7 +27,7 @@ data TaskDefinition
                     pidMode :: (Prelude.Maybe (Value Prelude.Text)),
                     placementConstraints :: (Prelude.Maybe [TaskDefinitionPlacementConstraintProperty]),
                     proxyConfiguration :: (Prelude.Maybe ProxyConfigurationProperty),
-                    requiresCompatibilities :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                    requiresCompatibilities :: (Prelude.Maybe (ValueList Prelude.Text)),
                     runtimePlatform :: (Prelude.Maybe RuntimePlatformProperty),
                     tags :: (Prelude.Maybe [Tag]),
                     taskRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -144,7 +144,7 @@ instance Property "ProxyConfiguration" TaskDefinition where
   set newValue TaskDefinition {..}
     = TaskDefinition {proxyConfiguration = Prelude.pure newValue, ..}
 instance Property "RequiresCompatibilities" TaskDefinition where
-  type PropertyType "RequiresCompatibilities" TaskDefinition = ValueList (Value Prelude.Text)
+  type PropertyType "RequiresCompatibilities" TaskDefinition = ValueList Prelude.Text
   set newValue TaskDefinition {..}
     = TaskDefinition
         {requiresCompatibilities = Prelude.pure newValue, ..}

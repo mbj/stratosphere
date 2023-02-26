@@ -10,7 +10,7 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Component.SortPropertyProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentDataConfigurationProperty
-  = ComponentDataConfigurationProperty {identifiers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ComponentDataConfigurationProperty {identifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
                                         model :: (Value Prelude.Text),
                                         predicate :: (Prelude.Maybe PredicateProperty),
                                         sort :: (Prelude.Maybe [SortPropertyProperty])}
@@ -42,7 +42,7 @@ instance JSON.ToJSON ComponentDataConfigurationProperty where
                   (JSON..=) "Predicate" Prelude.<$> predicate,
                   (JSON..=) "Sort" Prelude.<$> sort])))
 instance Property "Identifiers" ComponentDataConfigurationProperty where
-  type PropertyType "Identifiers" ComponentDataConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Identifiers" ComponentDataConfigurationProperty = ValueList Prelude.Text
   set newValue ComponentDataConfigurationProperty {..}
     = ComponentDataConfigurationProperty
         {identifiers = Prelude.pure newValue, ..}

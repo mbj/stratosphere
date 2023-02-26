@@ -13,8 +13,8 @@ data BackupSelectionResourceTypeProperty
   = BackupSelectionResourceTypeProperty {conditions :: (Prelude.Maybe ConditionsProperty),
                                          iamRoleArn :: (Value Prelude.Text),
                                          listOfTags :: (Prelude.Maybe [ConditionResourceTypeProperty]),
-                                         notResources :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                         resources :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                         notResources :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                         resources :: (Prelude.Maybe (ValueList Prelude.Text)),
                                          selectionName :: (Value Prelude.Text)}
 mkBackupSelectionResourceTypeProperty ::
   Value Prelude.Text
@@ -64,12 +64,12 @@ instance Property "ListOfTags" BackupSelectionResourceTypeProperty where
     = BackupSelectionResourceTypeProperty
         {listOfTags = Prelude.pure newValue, ..}
 instance Property "NotResources" BackupSelectionResourceTypeProperty where
-  type PropertyType "NotResources" BackupSelectionResourceTypeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "NotResources" BackupSelectionResourceTypeProperty = ValueList Prelude.Text
   set newValue BackupSelectionResourceTypeProperty {..}
     = BackupSelectionResourceTypeProperty
         {notResources = Prelude.pure newValue, ..}
 instance Property "Resources" BackupSelectionResourceTypeProperty where
-  type PropertyType "Resources" BackupSelectionResourceTypeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Resources" BackupSelectionResourceTypeProperty = ValueList Prelude.Text
   set newValue BackupSelectionResourceTypeProperty {..}
     = BackupSelectionResourceTypeProperty
         {resources = Prelude.pure newValue, ..}

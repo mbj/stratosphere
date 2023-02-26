@@ -11,9 +11,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OneDriveConfigurationProperty
   = OneDriveConfigurationProperty {disableLocalGroups :: (Prelude.Maybe (Value Prelude.Bool)),
-                                   exclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                   exclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
-                                   inclusionPatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                   inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    oneDriveUsers :: OneDriveUsersProperty,
                                    secretArn :: (Value Prelude.Text),
                                    tenantDomain :: (Value Prelude.Text)}
@@ -62,7 +62,7 @@ instance Property "DisableLocalGroups" OneDriveConfigurationProperty where
     = OneDriveConfigurationProperty
         {disableLocalGroups = Prelude.pure newValue, ..}
 instance Property "ExclusionPatterns" OneDriveConfigurationProperty where
-  type PropertyType "ExclusionPatterns" OneDriveConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExclusionPatterns" OneDriveConfigurationProperty = ValueList Prelude.Text
   set newValue OneDriveConfigurationProperty {..}
     = OneDriveConfigurationProperty
         {exclusionPatterns = Prelude.pure newValue, ..}
@@ -72,7 +72,7 @@ instance Property "FieldMappings" OneDriveConfigurationProperty where
     = OneDriveConfigurationProperty
         {fieldMappings = Prelude.pure newValue, ..}
 instance Property "InclusionPatterns" OneDriveConfigurationProperty where
-  type PropertyType "InclusionPatterns" OneDriveConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InclusionPatterns" OneDriveConfigurationProperty = ValueList Prelude.Text
   set newValue OneDriveConfigurationProperty {..}
     = OneDriveConfigurationProperty
         {inclusionPatterns = Prelude.pure newValue, ..}

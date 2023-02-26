@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrustedSignersProperty
-  = TrustedSignersProperty {awsAccountNumbers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = TrustedSignersProperty {awsAccountNumbers :: (Prelude.Maybe (ValueList Prelude.Text)),
                             enabled :: (Value Prelude.Bool)}
 mkTrustedSignersProperty ::
   Value Prelude.Bool -> TrustedSignersProperty
@@ -32,7 +32,7 @@ instance JSON.ToJSON TrustedSignersProperty where
               (Prelude.catMaybes
                  [(JSON..=) "AwsAccountNumbers" Prelude.<$> awsAccountNumbers])))
 instance Property "AwsAccountNumbers" TrustedSignersProperty where
-  type PropertyType "AwsAccountNumbers" TrustedSignersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AwsAccountNumbers" TrustedSignersProperty = ValueList Prelude.Text
   set newValue TrustedSignersProperty {..}
     = TrustedSignersProperty
         {awsAccountNumbers = Prelude.pure newValue, ..}

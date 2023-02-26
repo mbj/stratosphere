@@ -7,11 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Policy
-  = Policy {groups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Policy {groups :: (Prelude.Maybe (ValueList Prelude.Text)),
             policyDocument :: JSON.Object,
             policyName :: (Value Prelude.Text),
-            roles :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-            users :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+            roles :: (Prelude.Maybe (ValueList Prelude.Text)),
+            users :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkPolicy :: JSON.Object -> Value Prelude.Text -> Policy
 mkPolicy policyDocument policyName
   = Policy
@@ -42,7 +42,7 @@ instance JSON.ToJSON Policy where
                   (JSON..=) "Roles" Prelude.<$> roles,
                   (JSON..=) "Users" Prelude.<$> users])))
 instance Property "Groups" Policy where
-  type PropertyType "Groups" Policy = ValueList (Value Prelude.Text)
+  type PropertyType "Groups" Policy = ValueList Prelude.Text
   set newValue Policy {..}
     = Policy {groups = Prelude.pure newValue, ..}
 instance Property "PolicyDocument" Policy where
@@ -52,10 +52,10 @@ instance Property "PolicyName" Policy where
   type PropertyType "PolicyName" Policy = Value Prelude.Text
   set newValue Policy {..} = Policy {policyName = newValue, ..}
 instance Property "Roles" Policy where
-  type PropertyType "Roles" Policy = ValueList (Value Prelude.Text)
+  type PropertyType "Roles" Policy = ValueList Prelude.Text
   set newValue Policy {..}
     = Policy {roles = Prelude.pure newValue, ..}
 instance Property "Users" Policy where
-  type PropertyType "Users" Policy = ValueList (Value Prelude.Text)
+  type PropertyType "Users" Policy = ValueList Prelude.Text
   set newValue Policy {..}
     = Policy {users = Prelude.pure newValue, ..}

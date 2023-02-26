@@ -9,7 +9,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Cell
   = Cell {cellName :: (Prelude.Maybe (Value Prelude.Text)),
-          cells :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+          cells :: (Prelude.Maybe (ValueList Prelude.Text)),
           tags :: (Prelude.Maybe [Tag])}
 mkCell :: Cell
 mkCell
@@ -38,7 +38,7 @@ instance Property "CellName" Cell where
   set newValue Cell {..}
     = Cell {cellName = Prelude.pure newValue, ..}
 instance Property "Cells" Cell where
-  type PropertyType "Cells" Cell = ValueList (Value Prelude.Text)
+  type PropertyType "Cells" Cell = ValueList Prelude.Text
   set newValue Cell {..} = Cell {cells = Prelude.pure newValue, ..}
 instance Property "Tags" Cell where
   type PropertyType "Tags" Cell = [Tag]

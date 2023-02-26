@@ -13,7 +13,7 @@ data Certificate
                  certificateTransparencyLoggingPreference :: (Prelude.Maybe (Value Prelude.Text)),
                  domainName :: (Value Prelude.Text),
                  domainValidationOptions :: (Prelude.Maybe [DomainValidationOptionProperty]),
-                 subjectAlternativeNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 subjectAlternativeNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag]),
                  validationMethod :: (Prelude.Maybe (Value Prelude.Text))}
 mkCertificate :: Value Prelude.Text -> Certificate
@@ -79,7 +79,7 @@ instance Property "DomainValidationOptions" Certificate where
   set newValue Certificate {..}
     = Certificate {domainValidationOptions = Prelude.pure newValue, ..}
 instance Property "SubjectAlternativeNames" Certificate where
-  type PropertyType "SubjectAlternativeNames" Certificate = ValueList (Value Prelude.Text)
+  type PropertyType "SubjectAlternativeNames" Certificate = ValueList Prelude.Text
   set newValue Certificate {..}
     = Certificate {subjectAlternativeNames = Prelude.pure newValue, ..}
 instance Property "Tags" Certificate where

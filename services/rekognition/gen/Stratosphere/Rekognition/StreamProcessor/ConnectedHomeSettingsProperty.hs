@@ -7,10 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectedHomeSettingsProperty
-  = ConnectedHomeSettingsProperty {labels :: (ValueList (Value Prelude.Text)),
+  = ConnectedHomeSettingsProperty {labels :: (ValueList Prelude.Text),
                                    minConfidence :: (Prelude.Maybe (Value Prelude.Double))}
 mkConnectedHomeSettingsProperty ::
-  ValueList (Value Prelude.Text) -> ConnectedHomeSettingsProperty
+  ValueList Prelude.Text -> ConnectedHomeSettingsProperty
 mkConnectedHomeSettingsProperty labels
   = ConnectedHomeSettingsProperty
       {labels = labels, minConfidence = Prelude.Nothing}
@@ -32,7 +32,7 @@ instance JSON.ToJSON ConnectedHomeSettingsProperty where
               (Prelude.catMaybes
                  [(JSON..=) "MinConfidence" Prelude.<$> minConfidence])))
 instance Property "Labels" ConnectedHomeSettingsProperty where
-  type PropertyType "Labels" ConnectedHomeSettingsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Labels" ConnectedHomeSettingsProperty = ValueList Prelude.Text
   set newValue ConnectedHomeSettingsProperty {..}
     = ConnectedHomeSettingsProperty {labels = newValue, ..}
 instance Property "MinConfidence" ConnectedHomeSettingsProperty where

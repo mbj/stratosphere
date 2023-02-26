@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationProperty
   = ApplicationProperty {additionalInfo :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
-                         args :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         args :: (Prelude.Maybe (ValueList Prelude.Text)),
                          name :: (Prelude.Maybe (Value Prelude.Text)),
                          version :: (Prelude.Maybe (Value Prelude.Text))}
 mkApplicationProperty :: ApplicationProperty
@@ -40,7 +40,7 @@ instance Property "AdditionalInfo" ApplicationProperty where
   set newValue ApplicationProperty {..}
     = ApplicationProperty {additionalInfo = Prelude.pure newValue, ..}
 instance Property "Args" ApplicationProperty where
-  type PropertyType "Args" ApplicationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Args" ApplicationProperty = ValueList Prelude.Text
   set newValue ApplicationProperty {..}
     = ApplicationProperty {args = Prelude.pure newValue, ..}
 instance Property "Name" ApplicationProperty where

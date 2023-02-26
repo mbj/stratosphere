@@ -8,10 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TlsValidationContextAcmTrustProperty
-  = TlsValidationContextAcmTrustProperty {certificateAuthorityArns :: (ValueList (Value Prelude.Text))}
+  = TlsValidationContextAcmTrustProperty {certificateAuthorityArns :: (ValueList Prelude.Text)}
 mkTlsValidationContextAcmTrustProperty ::
-  ValueList (Value Prelude.Text)
-  -> TlsValidationContextAcmTrustProperty
+  ValueList Prelude.Text -> TlsValidationContextAcmTrustProperty
 mkTlsValidationContextAcmTrustProperty certificateAuthorityArns
   = TlsValidationContextAcmTrustProperty
       {certificateAuthorityArns = certificateAuthorityArns}
@@ -26,7 +25,7 @@ instance JSON.ToJSON TlsValidationContextAcmTrustProperty where
     = JSON.object
         ["CertificateAuthorityArns" JSON..= certificateAuthorityArns]
 instance Property "CertificateAuthorityArns" TlsValidationContextAcmTrustProperty where
-  type PropertyType "CertificateAuthorityArns" TlsValidationContextAcmTrustProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CertificateAuthorityArns" TlsValidationContextAcmTrustProperty = ValueList Prelude.Text
   set newValue TlsValidationContextAcmTrustProperty {}
     = TlsValidationContextAcmTrustProperty
         {certificateAuthorityArns = newValue, ..}

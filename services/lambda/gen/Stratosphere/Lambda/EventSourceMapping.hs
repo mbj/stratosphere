@@ -22,19 +22,19 @@ data EventSourceMapping
                         eventSourceArn :: (Prelude.Maybe (Value Prelude.Text)),
                         filterCriteria :: (Prelude.Maybe FilterCriteriaProperty),
                         functionName :: (Value Prelude.Text),
-                        functionResponseTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                        functionResponseTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                         maximumBatchingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                         maximumRecordAgeInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                         maximumRetryAttempts :: (Prelude.Maybe (Value Prelude.Integer)),
                         parallelizationFactor :: (Prelude.Maybe (Value Prelude.Integer)),
-                        queues :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                        queues :: (Prelude.Maybe (ValueList Prelude.Text)),
                         scalingConfig :: (Prelude.Maybe ScalingConfigProperty),
                         selfManagedEventSource :: (Prelude.Maybe SelfManagedEventSourceProperty),
                         selfManagedKafkaEventSourceConfig :: (Prelude.Maybe SelfManagedKafkaEventSourceConfigProperty),
                         sourceAccessConfigurations :: (Prelude.Maybe [SourceAccessConfigurationProperty]),
                         startingPosition :: (Prelude.Maybe (Value Prelude.Text)),
                         startingPositionTimestamp :: (Prelude.Maybe (Value Prelude.Double)),
-                        topics :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                        topics :: (Prelude.Maybe (ValueList Prelude.Text)),
                         tumblingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
 mkEventSourceMapping :: Value Prelude.Text -> EventSourceMapping
 mkEventSourceMapping functionName
@@ -173,7 +173,7 @@ instance Property "FunctionName" EventSourceMapping where
   set newValue EventSourceMapping {..}
     = EventSourceMapping {functionName = newValue, ..}
 instance Property "FunctionResponseTypes" EventSourceMapping where
-  type PropertyType "FunctionResponseTypes" EventSourceMapping = ValueList (Value Prelude.Text)
+  type PropertyType "FunctionResponseTypes" EventSourceMapping = ValueList Prelude.Text
   set newValue EventSourceMapping {..}
     = EventSourceMapping
         {functionResponseTypes = Prelude.pure newValue, ..}
@@ -198,7 +198,7 @@ instance Property "ParallelizationFactor" EventSourceMapping where
     = EventSourceMapping
         {parallelizationFactor = Prelude.pure newValue, ..}
 instance Property "Queues" EventSourceMapping where
-  type PropertyType "Queues" EventSourceMapping = ValueList (Value Prelude.Text)
+  type PropertyType "Queues" EventSourceMapping = ValueList Prelude.Text
   set newValue EventSourceMapping {..}
     = EventSourceMapping {queues = Prelude.pure newValue, ..}
 instance Property "ScalingConfig" EventSourceMapping where
@@ -230,7 +230,7 @@ instance Property "StartingPositionTimestamp" EventSourceMapping where
     = EventSourceMapping
         {startingPositionTimestamp = Prelude.pure newValue, ..}
 instance Property "Topics" EventSourceMapping where
-  type PropertyType "Topics" EventSourceMapping = ValueList (Value Prelude.Text)
+  type PropertyType "Topics" EventSourceMapping = ValueList Prelude.Text
   set newValue EventSourceMapping {..}
     = EventSourceMapping {topics = Prelude.pure newValue, ..}
 instance Property "TumblingWindowInSeconds" EventSourceMapping where

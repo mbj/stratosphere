@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaConnect.FlowOutput.VpcInterfaceAttachmen
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowOutput
-  = FlowOutput {cidrAllowList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = FlowOutput {cidrAllowList :: (Prelude.Maybe (ValueList Prelude.Text)),
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 destination :: (Prelude.Maybe (Value Prelude.Text)),
                 encryption :: (Prelude.Maybe EncryptionProperty),
@@ -77,7 +77,7 @@ instance JSON.ToJSON FlowOutput where
                   (JSON..=) "VpcInterfaceAttachment"
                     Prelude.<$> vpcInterfaceAttachment])))
 instance Property "CidrAllowList" FlowOutput where
-  type PropertyType "CidrAllowList" FlowOutput = ValueList (Value Prelude.Text)
+  type PropertyType "CidrAllowList" FlowOutput = ValueList Prelude.Text
   set newValue FlowOutput {..}
     = FlowOutput {cidrAllowList = Prelude.pure newValue, ..}
 instance Property "Description" FlowOutput where

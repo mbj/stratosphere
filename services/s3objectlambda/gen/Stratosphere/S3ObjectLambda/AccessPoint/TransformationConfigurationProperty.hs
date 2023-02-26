@@ -9,10 +9,10 @@ import {-# SOURCE #-} Stratosphere.S3ObjectLambda.AccessPoint.ContentTransformat
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransformationConfigurationProperty
-  = TransformationConfigurationProperty {actions :: (ValueList (Value Prelude.Text)),
+  = TransformationConfigurationProperty {actions :: (ValueList Prelude.Text),
                                          contentTransformation :: ContentTransformationProperty}
 mkTransformationConfigurationProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> ContentTransformationProperty
      -> TransformationConfigurationProperty
 mkTransformationConfigurationProperty actions contentTransformation
@@ -30,7 +30,7 @@ instance JSON.ToJSON TransformationConfigurationProperty where
         ["Actions" JSON..= actions,
          "ContentTransformation" JSON..= contentTransformation]
 instance Property "Actions" TransformationConfigurationProperty where
-  type PropertyType "Actions" TransformationConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Actions" TransformationConfigurationProperty = ValueList Prelude.Text
   set newValue TransformationConfigurationProperty {..}
     = TransformationConfigurationProperty {actions = newValue, ..}
 instance Property "ContentTransformation" TransformationConfigurationProperty where

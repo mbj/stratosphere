@@ -11,7 +11,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.StreamingDistribution.TrustedSigne
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StreamingDistributionConfigProperty
-  = StreamingDistributionConfigProperty {aliases :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = StreamingDistributionConfigProperty {aliases :: (Prelude.Maybe (ValueList Prelude.Text)),
                                          comment :: (Value Prelude.Text),
                                          enabled :: (Value Prelude.Bool),
                                          logging :: (Prelude.Maybe LoggingProperty),
@@ -58,7 +58,7 @@ instance JSON.ToJSON StreamingDistributionConfigProperty where
                   (JSON..=) "Logging" Prelude.<$> logging,
                   (JSON..=) "PriceClass" Prelude.<$> priceClass])))
 instance Property "Aliases" StreamingDistributionConfigProperty where
-  type PropertyType "Aliases" StreamingDistributionConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Aliases" StreamingDistributionConfigProperty = ValueList Prelude.Text
   set newValue StreamingDistributionConfigProperty {..}
     = StreamingDistributionConfigProperty
         {aliases = Prelude.pure newValue, ..}

@@ -12,7 +12,7 @@ data Application
   = Application {applicationId :: (Value Prelude.Text),
                  applicationType :: (Value Prelude.Text),
                  credentials :: (Prelude.Maybe [CredentialProperty]),
-                 instances :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 instances :: (Prelude.Maybe (ValueList Prelude.Text)),
                  sapInstanceNumber :: (Prelude.Maybe (Value Prelude.Text)),
                  sid :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
@@ -64,7 +64,7 @@ instance Property "Credentials" Application where
   set newValue Application {..}
     = Application {credentials = Prelude.pure newValue, ..}
 instance Property "Instances" Application where
-  type PropertyType "Instances" Application = ValueList (Value Prelude.Text)
+  type PropertyType "Instances" Application = ValueList Prelude.Text
   set newValue Application {..}
     = Application {instances = Prelude.pure newValue, ..}
 instance Property "SapInstanceNumber" Application where

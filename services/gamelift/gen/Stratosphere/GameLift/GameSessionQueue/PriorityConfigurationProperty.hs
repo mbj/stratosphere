@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PriorityConfigurationProperty
-  = PriorityConfigurationProperty {locationOrder :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                   priorityOrder :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = PriorityConfigurationProperty {locationOrder :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   priorityOrder :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkPriorityConfigurationProperty :: PriorityConfigurationProperty
 mkPriorityConfigurationProperty
   = PriorityConfigurationProperty
@@ -29,12 +29,12 @@ instance JSON.ToJSON PriorityConfigurationProperty where
               [(JSON..=) "LocationOrder" Prelude.<$> locationOrder,
                (JSON..=) "PriorityOrder" Prelude.<$> priorityOrder]))
 instance Property "LocationOrder" PriorityConfigurationProperty where
-  type PropertyType "LocationOrder" PriorityConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "LocationOrder" PriorityConfigurationProperty = ValueList Prelude.Text
   set newValue PriorityConfigurationProperty {..}
     = PriorityConfigurationProperty
         {locationOrder = Prelude.pure newValue, ..}
 instance Property "PriorityOrder" PriorityConfigurationProperty where
-  type PropertyType "PriorityOrder" PriorityConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PriorityOrder" PriorityConfigurationProperty = ValueList Prelude.Text
   set newValue PriorityConfigurationProperty {..}
     = PriorityConfigurationProperty
         {priorityOrder = Prelude.pure newValue, ..}
