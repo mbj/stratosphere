@@ -44,6 +44,10 @@ data Resource = Resource
   }
   deriving (Show, Eq)
 
+instance Property "Condition" Resource where
+  type PropertyType "Condition" Resource = Text
+  set newValue Resource{..} = Resource{condition = pure newValue, ..}
+
 instance Property "CreationPolicy" Resource where
   type PropertyType "CreationPolicy" Resource = ResourceAttributes.CreationPolicy
   set newValue Resource{..} = Resource{creationPolicy = pure newValue, ..}
