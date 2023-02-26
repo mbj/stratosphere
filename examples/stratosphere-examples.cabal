@@ -31,6 +31,7 @@ executable stratosphere-examples
       Stratosphere.Examples.AutoScalingGroup
       Stratosphere.Examples.RDSMasterReplica
       Stratosphere.Examples.S3Copy
+      Stratosphere.Examples.SimpleEC2
       Stratosphere.Examples.SimpleLambda
       Paths_stratosphere_examples
   hs-source-dirs:
@@ -70,6 +71,7 @@ executable stratosphere-examples
     , bytestring
     , stratosphere
     , stratosphere-autoscaling
+    , stratosphere-ec2
     , stratosphere-iam
     , stratosphere-lambda
     , stratosphere-rds

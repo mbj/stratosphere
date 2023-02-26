@@ -9,6 +9,7 @@ import qualified Data.List                              as List
 import qualified Stratosphere.Examples.AutoScalingGroup as AutoScalingGroup
 import qualified Stratosphere.Examples.RDSMasterReplica as RDSMasterReplica
 import qualified Stratosphere.Examples.S3Copy           as S3Copy
+import qualified Stratosphere.Examples.SimpleEC2        as SimpleEC2
 import qualified Stratosphere.Examples.SimpleLambda     as SimpleLambda
 import qualified System.Environment                     as System
 import qualified System.Exit                            as System
@@ -43,4 +44,5 @@ templates =
   , ( "rds-master-replica", RDSMasterReplica.template)
   , ( "s3-copy",            S3Copy.template)
   , ( "simple-lambda",      SimpleLambda.template)
+  , ( "simple-ec2",         SimpleEC2.template)
   ]

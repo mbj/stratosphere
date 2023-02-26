@@ -1,63 +1,69 @@
 # Stratosphere: AWS CloudFormation in Haskell
 
 [![CI](https://github.com/mbj/stratosphere/actions/workflows/ci.yaml/badge.svg)](https://github.com/mbj/stratosphere/actions/workflows/ci.yaml)
+[![sponsors](https://img.shields.io/github/sponsors/mbj)](https://github.com/sponsors/mbj)
+[![hackage](https://img.shields.io/hackage/v/stratosphere)](https://hackage.haskell.org/package/stratosphere)
 
 AWS CloudFormation is a system that provisions and updates Amazon Web Services
 (AWS) resources based on declarative templates. Common criticisms of
 CloudFormation include the use of JSON as the template language and limited
 error-checking, often only available in the form of run-time errors and stack
-rollbacks. By wrapping templates in Haskell, we are able to easily construct
+rollbacks. By wrapping templates in Haskell, it is possible to easily construct
 them and help ensure correctness.
 
 The goals of stratosphere are to:
+
 * Build a Haskell EDSL to specify CloudFormation templates. Since it is
   embedded in Haskell, it is type-checked and generally much easier to work
-  with than raw JSON.
+  with than raw JSON/YAML.
 * Have a simple checking/linting system outside of the types that can find
   common errors in templates.
-* Be able to also read valid CloudFormation JSON templates so they can be
-  type-checked. This also gives us free integration tests by using the huge
-  amount of example templates available in the AWS docs.
+
+## Funding / Sponsoring
+
+This library is maintained by [mbj](https://github.com/sponsors/mbj) and any pledge is greatly apprechiated.
 
 ## Example
+
+**THIS SHOWS UNRELEASED API, to use it use a source while 1.0 is under development** [old readme](https://github.com/mbj/stratosphere/tree/v0.60.0#readme).
 
 Here is an example of a `Template` that creates an EC2 instance, along with the
 JSON output:
 
 ```haskell
-{-# LANGUAGE OverloadedLists #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Main where
 
-import qualified Data.ByteString.Lazy.Char8 as B
 import Stratosphere
 
-main :: IO ()
-main = B.putStrLn $ encodeTemplate instanceTemplate
+import qualified Data.ByteString.Lazy.Char8 as B
 
-instanceTemplate :: Template
-instanceTemplate =
-  template
-  [ resource "EC2Instance" (
-    EC2InstanceProperties $
-    ec2Instance
-    & eciImageId ?~ "ami-22111148"
-    & eciKeyName ?~ (Ref "KeyName")
-    )
-    & resourceDeletionPolicy ?~ Retain
-  ]
-  & templateDescription ?~ "Sample template"
-  & templateParameters ?~
-  [ parameter "KeyName" "AWS::EC2::KeyPair::KeyName"
-    & parameterDescription ?~ "Name of an existing EC2 KeyPair to enable SSH access to the instance"
-    & parameterConstraintDescription ?~ "Must be the name of an existing EC2 KeyPair."
-  ]
+main :: IO ()
+main = B.putStrLn $ encodeTemplate template
+
+template :: Template
+template
+  = mkTemplate [ec2Instance]
+  & set @"Description" "EC2 Example template"
+  & set @"Parameters"  [keyName]
+
+keyName :: Parameter
+keyName
+  = mkParameter "KeyName" "AWS::EC2::KeyPair::KeyName"
+  & set @"Description"           "Name of an existing EC2 KeyPair to enable SSH access to the instance"
+  & set @"ConstraintDescription" "Must be the name of an existing EC2 KeyPair."
+
+ec2Instance :: Resource
+ec2Instance
+  = set @"DeletionPolicy" Retain
+  . resource "EC2Instance"
+  $ EC2.mkInstance
+  & set @"ImageId" "ami-22111148"
+  & set @"KeyName" (toRef keyName)
 ```
 
 ```json
 {
-  "Description": "Sample template",
+  "Description": "EC2 Example template",
   "Parameters": {
     "KeyName": {
       "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
@@ -68,80 +74,73 @@ instanceTemplate =
   "Resources": {
     "EC2Instance": {
       "DeletionPolicy": "Retain",
-      "Type": "AWS::EC2::Instance",
       "Properties": {
+        "ImageId": "ami-22111148",
         "KeyName": {
           "Ref": "KeyName"
-        },
-        "ImageId": "ami-22111148"
-      }
+        }
+      },
+      "Type": "AWS::EC2::Instance"
     }
   }
 }
 ```
 
-Please see the [examples](examples/Stratosphere/Examples) directory for more in-depth examples.
+Please see the [examples](examples/Stratosphere/Examples) directory for more in-depth
+examples (including this one). The `stratosphere-example` package produces a same named
+binary with a minimal CLI for exploration.
+
+Its encouraged to use it as a playground while exploring this library.
+
+```
+STACK_YAML=stack-9.2.yaml stack build --copy-bins --test stratosphere-examples
+```
 
 ## Value Types
 
 CloudFormation resource parameters can be literals (strings, integers, etc),
 references to another resource or a Parameter, or the result of some function
-call. We encapsulate all of these possibilities in the `Val a` type.
+call. We encapsulate all of these possibilities in the `Value a` type.
 
-We recommend using the `OverloadedStrings` extension to reduce the number of
-`Literal`s you have to use.
+It is recommend using the `OverloadedStrings` and `OverloadedLists` extensions to reduce
+the number of `Literal`s that have to be written.
 
-## Lenses
+## Optional and required properties
 
 Almost every CloudFormation resource has a handful of required arguments, and
 many more optional arguments. Each resource is represented as a record type
 with optional arguments wrapped in `Maybe`. Each resource also comes with a
-constructor that accepts required resource parameters as arguments. This allows
-the user to succinctly specify the resource parameters they actually use
+builder that accepts required resource properties as arguments. This allows
+the user to succinctly specify the resource properties they actually use
 without adding too much noise to their code.
 
-To specify optional arguments, we recommend using the lens operators `&` and
-`?~`. In the example above, the optional EC2 key name is specified using the
-`&` and `?~` lens operators.
-
-This approach is very similar to the approach taken by the `amazonka` library.
-See this
-[blog post](http://brendanhay.nz/amazonka-comprehensive-haskell-aws-client#smart-constructors)
-for an explanation.
+To specify optional arguments, stratosphere exposes the `set` function that takes
+the type level symbol of the property to set and the value as argument. Its recommended to use the
+`&` function to chain these updates. See examples.
 
 ## Auto-generation
 
 All of the resources and resource properties are auto-generated from
 a
 [JSON schema file](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html) and
-are placed in `library-gen/`. The `gen/` directory contains the auto-generator
-code and the JSON model file. We include the `library-gen/` directory in git so
-the build process is simplified. To build `library-gen` from scratch and then
-build all of `stratosphere`, just run the very short `build.sh` script. You can
-pass stack args to the script too, so run `./build.sh --fast` to build the
-library without optimization. This is useful for development.
-
-In the future, it would be great to not have to include the auto-generated code
-in git.
+are placed in `services/`. The `generator/` directory contains the auto-generator package `stratosphere-generator`
+code and the JSON model file. The `services/` directory is included in git so
+the build process is simplified. To build `stratosphere-generator` from scratch and
+then build all of `stratosphere`, build the `stratosphere-generator` package via `stack` and execute the `stratosphere-generator` binary from the project root.
 
 ## Contributing
 
-Feel free to raise any issues, or even just make suggestions, by filing a
-Github issue.
+Feel free to raise any issues, or even just make suggestions, by filing a Github issue.
 
 ## Future Work
 
 * Implement basic checker for things like undefined Refs and duplicate field
   names. This stuff would be too unwieldy to do in types, and performing a
   checking pass over a template should be pretty straightforward.
-* Use a custom JSON encoder so the templates look a little more idiomatic. We
-  also create a lot of empty whitespace and newlines using aeson-pretty. There
-  are limits on the size of CloudFormation templates, and we want readable
-  output without hitting the limits. Also, we have some newtypes that just
-  exist to override aeson instances, and we could get rid of those.
 
 ## Development Build
 
 ```
-STACK_YAML=stack-9.0.yaml stack build --test
+# warning takes a while ;)
+STACK_YAML=stack-9.2.yaml stack build --copy-bins --test stratosphere-generator
 ```
