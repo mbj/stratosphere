@@ -3,6 +3,7 @@ resolver: nightly-2023-02-23
 packages:
 # - generator, no ghc-source-gen release for 9.4 ATM
 - .
+- examples
 - services/accessanalyzer
 - services/acmpca
 - services/amazonmq
