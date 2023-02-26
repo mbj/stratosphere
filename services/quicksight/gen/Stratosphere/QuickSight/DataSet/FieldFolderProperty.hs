@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldFolderProperty
-  = FieldFolderProperty {columns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = FieldFolderProperty {columns :: (Prelude.Maybe (ValueList Prelude.Text)),
                          description :: (Prelude.Maybe (Value Prelude.Text))}
 mkFieldFolderProperty :: FieldFolderProperty
 mkFieldFolderProperty
@@ -29,7 +29,7 @@ instance JSON.ToJSON FieldFolderProperty where
               [(JSON..=) "Columns" Prelude.<$> columns,
                (JSON..=) "Description" Prelude.<$> description]))
 instance Property "Columns" FieldFolderProperty where
-  type PropertyType "Columns" FieldFolderProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Columns" FieldFolderProperty = ValueList Prelude.Text
   set newValue FieldFolderProperty {..}
     = FieldFolderProperty {columns = Prelude.pure newValue, ..}
 instance Property "Description" FieldFolderProperty where

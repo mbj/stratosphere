@@ -8,8 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceStatementRequestProperty
-  = ResourceStatementRequestProperty {resourceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                      resources :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = ResourceStatementRequestProperty {resourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      resources :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkResourceStatementRequestProperty ::
   ResourceStatementRequestProperty
 mkResourceStatementRequestProperty
@@ -31,12 +31,12 @@ instance JSON.ToJSON ResourceStatementRequestProperty where
               [(JSON..=) "ResourceTypes" Prelude.<$> resourceTypes,
                (JSON..=) "Resources" Prelude.<$> resources]))
 instance Property "ResourceTypes" ResourceStatementRequestProperty where
-  type PropertyType "ResourceTypes" ResourceStatementRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceTypes" ResourceStatementRequestProperty = ValueList Prelude.Text
   set newValue ResourceStatementRequestProperty {..}
     = ResourceStatementRequestProperty
         {resourceTypes = Prelude.pure newValue, ..}
 instance Property "Resources" ResourceStatementRequestProperty where
-  type PropertyType "Resources" ResourceStatementRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Resources" ResourceStatementRequestProperty = ValueList Prelude.Text
   set newValue ResourceStatementRequestProperty {..}
     = ResourceStatementRequestProperty
         {resources = Prelude.pure newValue, ..}

@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data RecoveryGroup
-  = RecoveryGroup {cells :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = RecoveryGroup {cells :: (Prelude.Maybe (ValueList Prelude.Text)),
                    recoveryGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                    tags :: (Prelude.Maybe [Tag])}
 mkRecoveryGroup :: RecoveryGroup
@@ -34,7 +34,7 @@ instance JSON.ToJSON RecoveryGroup where
                (JSON..=) "RecoveryGroupName" Prelude.<$> recoveryGroupName,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "Cells" RecoveryGroup where
-  type PropertyType "Cells" RecoveryGroup = ValueList (Value Prelude.Text)
+  type PropertyType "Cells" RecoveryGroup = ValueList Prelude.Text
   set newValue RecoveryGroup {..}
     = RecoveryGroup {cells = Prelude.pure newValue, ..}
 instance Property "RecoveryGroupName" RecoveryGroup where

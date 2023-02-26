@@ -11,9 +11,9 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.LambdaFunctionAssocia
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultCacheBehaviorProperty
-  = DefaultCacheBehaviorProperty {allowedMethods :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = DefaultCacheBehaviorProperty {allowedMethods :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   cachePolicyId :: (Prelude.Maybe (Value Prelude.Text)),
-                                  cachedMethods :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                  cachedMethods :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   compress :: (Prelude.Maybe (Value Prelude.Bool)),
                                   defaultTTL :: (Prelude.Maybe (Value Prelude.Double)),
                                   fieldLevelEncryptionId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -27,8 +27,8 @@ data DefaultCacheBehaviorProperty
                                   responseHeadersPolicyId :: (Prelude.Maybe (Value Prelude.Text)),
                                   smoothStreaming :: (Prelude.Maybe (Value Prelude.Bool)),
                                   targetOriginId :: (Value Prelude.Text),
-                                  trustedKeyGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                  trustedSigners :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                  trustedKeyGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  trustedSigners :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   viewerProtocolPolicy :: (Value Prelude.Text)}
 mkDefaultCacheBehaviorProperty ::
   Value Prelude.Text
@@ -111,7 +111,7 @@ instance JSON.ToJSON DefaultCacheBehaviorProperty where
                   (JSON..=) "TrustedKeyGroups" Prelude.<$> trustedKeyGroups,
                   (JSON..=) "TrustedSigners" Prelude.<$> trustedSigners])))
 instance Property "AllowedMethods" DefaultCacheBehaviorProperty where
-  type PropertyType "AllowedMethods" DefaultCacheBehaviorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedMethods" DefaultCacheBehaviorProperty = ValueList Prelude.Text
   set newValue DefaultCacheBehaviorProperty {..}
     = DefaultCacheBehaviorProperty
         {allowedMethods = Prelude.pure newValue, ..}
@@ -121,7 +121,7 @@ instance Property "CachePolicyId" DefaultCacheBehaviorProperty where
     = DefaultCacheBehaviorProperty
         {cachePolicyId = Prelude.pure newValue, ..}
 instance Property "CachedMethods" DefaultCacheBehaviorProperty where
-  type PropertyType "CachedMethods" DefaultCacheBehaviorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CachedMethods" DefaultCacheBehaviorProperty = ValueList Prelude.Text
   set newValue DefaultCacheBehaviorProperty {..}
     = DefaultCacheBehaviorProperty
         {cachedMethods = Prelude.pure newValue, ..}
@@ -188,12 +188,12 @@ instance Property "TargetOriginId" DefaultCacheBehaviorProperty where
   set newValue DefaultCacheBehaviorProperty {..}
     = DefaultCacheBehaviorProperty {targetOriginId = newValue, ..}
 instance Property "TrustedKeyGroups" DefaultCacheBehaviorProperty where
-  type PropertyType "TrustedKeyGroups" DefaultCacheBehaviorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TrustedKeyGroups" DefaultCacheBehaviorProperty = ValueList Prelude.Text
   set newValue DefaultCacheBehaviorProperty {..}
     = DefaultCacheBehaviorProperty
         {trustedKeyGroups = Prelude.pure newValue, ..}
 instance Property "TrustedSigners" DefaultCacheBehaviorProperty where
-  type PropertyType "TrustedSigners" DefaultCacheBehaviorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TrustedSigners" DefaultCacheBehaviorProperty = ValueList Prelude.Text
   set newValue DefaultCacheBehaviorProperty {..}
     = DefaultCacheBehaviorProperty
         {trustedSigners = Prelude.pure newValue, ..}

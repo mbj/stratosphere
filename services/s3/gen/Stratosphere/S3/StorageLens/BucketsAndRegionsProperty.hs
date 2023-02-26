@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BucketsAndRegionsProperty
-  = BucketsAndRegionsProperty {buckets :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                               regions :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = BucketsAndRegionsProperty {buckets :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               regions :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkBucketsAndRegionsProperty :: BucketsAndRegionsProperty
 mkBucketsAndRegionsProperty
   = BucketsAndRegionsProperty
@@ -29,10 +29,10 @@ instance JSON.ToJSON BucketsAndRegionsProperty where
               [(JSON..=) "Buckets" Prelude.<$> buckets,
                (JSON..=) "Regions" Prelude.<$> regions]))
 instance Property "Buckets" BucketsAndRegionsProperty where
-  type PropertyType "Buckets" BucketsAndRegionsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Buckets" BucketsAndRegionsProperty = ValueList Prelude.Text
   set newValue BucketsAndRegionsProperty {..}
     = BucketsAndRegionsProperty {buckets = Prelude.pure newValue, ..}
 instance Property "Regions" BucketsAndRegionsProperty where
-  type PropertyType "Regions" BucketsAndRegionsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Regions" BucketsAndRegionsProperty = ValueList Prelude.Text
   set newValue BucketsAndRegionsProperty {..}
     = BucketsAndRegionsProperty {regions = Prelude.pure newValue, ..}

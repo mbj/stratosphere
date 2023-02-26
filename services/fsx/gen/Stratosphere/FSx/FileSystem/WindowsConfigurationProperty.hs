@@ -11,7 +11,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WindowsConfigurationProperty
   = WindowsConfigurationProperty {activeDirectoryId :: (Prelude.Maybe (Value Prelude.Text)),
-                                  aliases :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                  aliases :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   auditLogConfiguration :: (Prelude.Maybe AuditLogConfigurationProperty),
                                   automaticBackupRetentionDays :: (Prelude.Maybe (Value Prelude.Integer)),
                                   copyTagsToBackups :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -86,7 +86,7 @@ instance Property "ActiveDirectoryId" WindowsConfigurationProperty where
     = WindowsConfigurationProperty
         {activeDirectoryId = Prelude.pure newValue, ..}
 instance Property "Aliases" WindowsConfigurationProperty where
-  type PropertyType "Aliases" WindowsConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Aliases" WindowsConfigurationProperty = ValueList Prelude.Text
   set newValue WindowsConfigurationProperty {..}
     = WindowsConfigurationProperty
         {aliases = Prelude.pure newValue, ..}

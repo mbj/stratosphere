@@ -8,7 +8,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpRequestMethodConfigProperty
-  = HttpRequestMethodConfigProperty {values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = HttpRequestMethodConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkHttpRequestMethodConfigProperty ::
   HttpRequestMethodConfigProperty
 mkHttpRequestMethodConfigProperty
@@ -25,7 +25,7 @@ instance JSON.ToJSON HttpRequestMethodConfigProperty where
         (Prelude.fromList
            (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values]))
 instance Property "Values" HttpRequestMethodConfigProperty where
-  type PropertyType "Values" HttpRequestMethodConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" HttpRequestMethodConfigProperty = ValueList Prelude.Text
   set newValue HttpRequestMethodConfigProperty {}
     = HttpRequestMethodConfigProperty
         {values = Prelude.pure newValue, ..}

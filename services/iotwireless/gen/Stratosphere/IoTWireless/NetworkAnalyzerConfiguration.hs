@@ -14,8 +14,8 @@ data NetworkAnalyzerConfiguration
                                   name :: (Value Prelude.Text),
                                   tags :: (Prelude.Maybe [Tag]),
                                   traceContent :: (Prelude.Maybe TraceContentProperty),
-                                  wirelessDevices :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                  wirelessGateways :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                  wirelessDevices :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  wirelessGateways :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkNetworkAnalyzerConfiguration ::
   Value Prelude.Text -> NetworkAnalyzerConfiguration
 mkNetworkAnalyzerConfiguration name
@@ -68,12 +68,12 @@ instance Property "TraceContent" NetworkAnalyzerConfiguration where
     = NetworkAnalyzerConfiguration
         {traceContent = Prelude.pure newValue, ..}
 instance Property "WirelessDevices" NetworkAnalyzerConfiguration where
-  type PropertyType "WirelessDevices" NetworkAnalyzerConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "WirelessDevices" NetworkAnalyzerConfiguration = ValueList Prelude.Text
   set newValue NetworkAnalyzerConfiguration {..}
     = NetworkAnalyzerConfiguration
         {wirelessDevices = Prelude.pure newValue, ..}
 instance Property "WirelessGateways" NetworkAnalyzerConfiguration where
-  type PropertyType "WirelessGateways" NetworkAnalyzerConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "WirelessGateways" NetworkAnalyzerConfiguration = ValueList Prelude.Text
   set newValue NetworkAnalyzerConfiguration {..}
     = NetworkAnalyzerConfiguration
         {wirelessGateways = Prelude.pure newValue, ..}

@@ -10,7 +10,7 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.SelfManagedKafkaAccessConfiguratio
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeSourceSelfManagedKafkaParametersProperty
-  = PipeSourceSelfManagedKafkaParametersProperty {additionalBootstrapServers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = PipeSourceSelfManagedKafkaParametersProperty {additionalBootstrapServers :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                   batchSize :: (Prelude.Maybe (Value Prelude.Integer)),
                                                   consumerGroupID :: (Prelude.Maybe (Value Prelude.Text)),
                                                   credentials :: (Prelude.Maybe SelfManagedKafkaAccessConfigurationCredentialsProperty),
@@ -69,7 +69,7 @@ instance JSON.ToJSON PipeSourceSelfManagedKafkaParametersProperty where
                   (JSON..=) "StartingPosition" Prelude.<$> startingPosition,
                   (JSON..=) "Vpc" Prelude.<$> vpc])))
 instance Property "AdditionalBootstrapServers" PipeSourceSelfManagedKafkaParametersProperty where
-  type PropertyType "AdditionalBootstrapServers" PipeSourceSelfManagedKafkaParametersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AdditionalBootstrapServers" PipeSourceSelfManagedKafkaParametersProperty = ValueList Prelude.Text
   set newValue PipeSourceSelfManagedKafkaParametersProperty {..}
     = PipeSourceSelfManagedKafkaParametersProperty
         {additionalBootstrapServers = Prelude.pure newValue, ..}

@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkConfigurationProperty
-  = NetworkConfigurationProperty {securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                  subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = NetworkConfigurationProperty {securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  subnetIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty
 mkNetworkConfigurationProperty
   = NetworkConfigurationProperty
@@ -29,12 +29,12 @@ instance JSON.ToJSON NetworkConfigurationProperty where
               [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
                (JSON..=) "SubnetIds" Prelude.<$> subnetIds]))
 instance Property "SecurityGroupIds" NetworkConfigurationProperty where
-  type PropertyType "SecurityGroupIds" NetworkConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" NetworkConfigurationProperty = ValueList Prelude.Text
   set newValue NetworkConfigurationProperty {..}
     = NetworkConfigurationProperty
         {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetIds" NetworkConfigurationProperty where
-  type PropertyType "SubnetIds" NetworkConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" NetworkConfigurationProperty = ValueList Prelude.Text
   set newValue NetworkConfigurationProperty {..}
     = NetworkConfigurationProperty
         {subnetIds = Prelude.pure newValue, ..}

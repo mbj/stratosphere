@@ -9,11 +9,11 @@ import Stratosphere.Value
 data ResourcesVpcConfigProperty
   = ResourcesVpcConfigProperty {endpointPrivateAccess :: (Prelude.Maybe (Value Prelude.Bool)),
                                 endpointPublicAccess :: (Prelude.Maybe (Value Prelude.Bool)),
-                                publicAccessCidrs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                subnetIds :: (ValueList (Value Prelude.Text))}
+                                publicAccessCidrs :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                subnetIds :: (ValueList Prelude.Text)}
 mkResourcesVpcConfigProperty ::
-  ValueList (Value Prelude.Text) -> ResourcesVpcConfigProperty
+  ValueList Prelude.Text -> ResourcesVpcConfigProperty
 mkResourcesVpcConfigProperty subnetIds
   = ResourcesVpcConfigProperty
       {subnetIds = subnetIds, endpointPrivateAccess = Prelude.Nothing,
@@ -56,16 +56,16 @@ instance Property "EndpointPublicAccess" ResourcesVpcConfigProperty where
     = ResourcesVpcConfigProperty
         {endpointPublicAccess = Prelude.pure newValue, ..}
 instance Property "PublicAccessCidrs" ResourcesVpcConfigProperty where
-  type PropertyType "PublicAccessCidrs" ResourcesVpcConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PublicAccessCidrs" ResourcesVpcConfigProperty = ValueList Prelude.Text
   set newValue ResourcesVpcConfigProperty {..}
     = ResourcesVpcConfigProperty
         {publicAccessCidrs = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" ResourcesVpcConfigProperty where
-  type PropertyType "SecurityGroupIds" ResourcesVpcConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" ResourcesVpcConfigProperty = ValueList Prelude.Text
   set newValue ResourcesVpcConfigProperty {..}
     = ResourcesVpcConfigProperty
         {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetIds" ResourcesVpcConfigProperty where
-  type PropertyType "SubnetIds" ResourcesVpcConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" ResourcesVpcConfigProperty = ValueList Prelude.Text
   set newValue ResourcesVpcConfigProperty {..}
     = ResourcesVpcConfigProperty {subnetIds = newValue, ..}

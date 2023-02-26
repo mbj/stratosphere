@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HiveJsonSerDeProperty
-  = HiveJsonSerDeProperty {timestampFormats :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = HiveJsonSerDeProperty {timestampFormats :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkHiveJsonSerDeProperty :: HiveJsonSerDeProperty
 mkHiveJsonSerDeProperty
   = HiveJsonSerDeProperty {timestampFormats = Prelude.Nothing}
@@ -25,7 +25,7 @@ instance JSON.ToJSON HiveJsonSerDeProperty where
            (Prelude.catMaybes
               [(JSON..=) "TimestampFormats" Prelude.<$> timestampFormats]))
 instance Property "TimestampFormats" HiveJsonSerDeProperty where
-  type PropertyType "TimestampFormats" HiveJsonSerDeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TimestampFormats" HiveJsonSerDeProperty = ValueList Prelude.Text
   set newValue HiveJsonSerDeProperty {}
     = HiveJsonSerDeProperty
         {timestampFormats = Prelude.pure newValue, ..}

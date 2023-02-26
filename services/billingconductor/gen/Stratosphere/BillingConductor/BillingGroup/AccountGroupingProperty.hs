@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountGroupingProperty
-  = AccountGroupingProperty {linkedAccountIds :: (ValueList (Value Prelude.Text))}
+  = AccountGroupingProperty {linkedAccountIds :: (ValueList Prelude.Text)}
 mkAccountGroupingProperty ::
-  ValueList (Value Prelude.Text) -> AccountGroupingProperty
+  ValueList Prelude.Text -> AccountGroupingProperty
 mkAccountGroupingProperty linkedAccountIds
   = AccountGroupingProperty {linkedAccountIds = linkedAccountIds}
 instance ToResourceProperties AccountGroupingProperty where
@@ -21,6 +21,6 @@ instance JSON.ToJSON AccountGroupingProperty where
   toJSON AccountGroupingProperty {..}
     = JSON.object ["LinkedAccountIds" JSON..= linkedAccountIds]
 instance Property "LinkedAccountIds" AccountGroupingProperty where
-  type PropertyType "LinkedAccountIds" AccountGroupingProperty = ValueList (Value Prelude.Text)
+  type PropertyType "LinkedAccountIds" AccountGroupingProperty = ValueList Prelude.Text
   set newValue AccountGroupingProperty {}
     = AccountGroupingProperty {linkedAccountIds = newValue, ..}

@@ -11,11 +11,11 @@ data LegacyCustomOriginProperty
                                 hTTPPort :: (Prelude.Maybe (Value Prelude.Integer)),
                                 hTTPSPort :: (Prelude.Maybe (Value Prelude.Integer)),
                                 originProtocolPolicy :: (Value Prelude.Text),
-                                originSSLProtocols :: (ValueList (Value Prelude.Text))}
+                                originSSLProtocols :: (ValueList Prelude.Text)}
 mkLegacyCustomOriginProperty ::
   Value Prelude.Text
   -> Value Prelude.Text
-     -> ValueList (Value Prelude.Text) -> LegacyCustomOriginProperty
+     -> ValueList Prelude.Text -> LegacyCustomOriginProperty
 mkLegacyCustomOriginProperty
   dNSName
   originProtocolPolicy
@@ -65,6 +65,6 @@ instance Property "OriginProtocolPolicy" LegacyCustomOriginProperty where
   set newValue LegacyCustomOriginProperty {..}
     = LegacyCustomOriginProperty {originProtocolPolicy = newValue, ..}
 instance Property "OriginSSLProtocols" LegacyCustomOriginProperty where
-  type PropertyType "OriginSSLProtocols" LegacyCustomOriginProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OriginSSLProtocols" LegacyCustomOriginProperty = ValueList Prelude.Text
   set newValue LegacyCustomOriginProperty {..}
     = LegacyCustomOriginProperty {originSSLProtocols = newValue, ..}

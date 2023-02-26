@@ -10,10 +10,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EntityDetectorConfigurationProperty
   = EntityDetectorConfigurationProperty {allowedStatistics :: (Prelude.Maybe AllowedStatisticsProperty),
-                                         entityTypes :: (ValueList (Value Prelude.Text))}
+                                         entityTypes :: (ValueList Prelude.Text)}
 mkEntityDetectorConfigurationProperty ::
-  ValueList (Value Prelude.Text)
-  -> EntityDetectorConfigurationProperty
+  ValueList Prelude.Text -> EntityDetectorConfigurationProperty
 mkEntityDetectorConfigurationProperty entityTypes
   = EntityDetectorConfigurationProperty
       {entityTypes = entityTypes, allowedStatistics = Prelude.Nothing}
@@ -40,6 +39,6 @@ instance Property "AllowedStatistics" EntityDetectorConfigurationProperty where
     = EntityDetectorConfigurationProperty
         {allowedStatistics = Prelude.pure newValue, ..}
 instance Property "EntityTypes" EntityDetectorConfigurationProperty where
-  type PropertyType "EntityTypes" EntityDetectorConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "EntityTypes" EntityDetectorConfigurationProperty = ValueList Prelude.Text
   set newValue EntityDetectorConfigurationProperty {..}
     = EntityDetectorConfigurationProperty {entityTypes = newValue, ..}

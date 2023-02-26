@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnWildcardProperty
-  = ColumnWildcardProperty {excludedColumnNames :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = ColumnWildcardProperty {excludedColumnNames :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkColumnWildcardProperty :: ColumnWildcardProperty
 mkColumnWildcardProperty
   = ColumnWildcardProperty {excludedColumnNames = Prelude.Nothing}
@@ -25,7 +25,7 @@ instance JSON.ToJSON ColumnWildcardProperty where
            (Prelude.catMaybes
               [(JSON..=) "ExcludedColumnNames" Prelude.<$> excludedColumnNames]))
 instance Property "ExcludedColumnNames" ColumnWildcardProperty where
-  type PropertyType "ExcludedColumnNames" ColumnWildcardProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludedColumnNames" ColumnWildcardProperty = ValueList Prelude.Text
   set newValue ColumnWildcardProperty {}
     = ColumnWildcardProperty
         {excludedColumnNames = Prelude.pure newValue, ..}

@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentPermissionsProperty
-  = AgentPermissionsProperty {principals :: (ValueList (Value Prelude.Text))}
+  = AgentPermissionsProperty {principals :: (ValueList Prelude.Text)}
 mkAgentPermissionsProperty ::
-  ValueList (Value Prelude.Text) -> AgentPermissionsProperty
+  ValueList Prelude.Text -> AgentPermissionsProperty
 mkAgentPermissionsProperty principals
   = AgentPermissionsProperty {principals = principals}
 instance ToResourceProperties AgentPermissionsProperty where
@@ -21,6 +21,6 @@ instance JSON.ToJSON AgentPermissionsProperty where
   toJSON AgentPermissionsProperty {..}
     = JSON.object ["Principals" JSON..= principals]
 instance Property "Principals" AgentPermissionsProperty where
-  type PropertyType "Principals" AgentPermissionsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Principals" AgentPermissionsProperty = ValueList Prelude.Text
   set newValue AgentPermissionsProperty {}
     = AgentPermissionsProperty {principals = newValue, ..}

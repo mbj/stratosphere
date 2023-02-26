@@ -11,13 +11,12 @@ import Stratosphere.Value
 data VpcAttachment
   = VpcAttachment {coreNetworkId :: (Value Prelude.Text),
                    options :: (Prelude.Maybe VpcOptionsProperty),
-                   subnetArns :: (ValueList (Value Prelude.Text)),
+                   subnetArns :: (ValueList Prelude.Text),
                    tags :: (Prelude.Maybe [Tag]),
                    vpcArn :: (Value Prelude.Text)}
 mkVpcAttachment ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
-     -> Value Prelude.Text -> VpcAttachment
+  -> ValueList Prelude.Text -> Value Prelude.Text -> VpcAttachment
 mkVpcAttachment coreNetworkId subnetArns vpcArn
   = VpcAttachment
       {coreNetworkId = coreNetworkId, subnetArns = subnetArns,
@@ -52,7 +51,7 @@ instance Property "Options" VpcAttachment where
   set newValue VpcAttachment {..}
     = VpcAttachment {options = Prelude.pure newValue, ..}
 instance Property "SubnetArns" VpcAttachment where
-  type PropertyType "SubnetArns" VpcAttachment = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetArns" VpcAttachment = ValueList Prelude.Text
   set newValue VpcAttachment {..}
     = VpcAttachment {subnetArns = newValue, ..}
 instance Property "Tags" VpcAttachment where

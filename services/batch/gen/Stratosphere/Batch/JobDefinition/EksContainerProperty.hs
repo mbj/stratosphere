@@ -11,8 +11,8 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.SecurityContextProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksContainerProperty
-  = EksContainerProperty {args :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                          command :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = EksContainerProperty {args :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          command :: (Prelude.Maybe (ValueList Prelude.Text)),
                           env :: (Prelude.Maybe [EksContainerEnvironmentVariableProperty]),
                           image :: (Value Prelude.Text),
                           imagePullPolicy :: (Prelude.Maybe (Value Prelude.Text)),
@@ -60,11 +60,11 @@ instance JSON.ToJSON EksContainerProperty where
                   (JSON..=) "SecurityContext" Prelude.<$> securityContext,
                   (JSON..=) "VolumeMounts" Prelude.<$> volumeMounts])))
 instance Property "Args" EksContainerProperty where
-  type PropertyType "Args" EksContainerProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Args" EksContainerProperty = ValueList Prelude.Text
   set newValue EksContainerProperty {..}
     = EksContainerProperty {args = Prelude.pure newValue, ..}
 instance Property "Command" EksContainerProperty where
-  type PropertyType "Command" EksContainerProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Command" EksContainerProperty = ValueList Prelude.Text
   set newValue EksContainerProperty {..}
     = EksContainerProperty {command = Prelude.pure newValue, ..}
 instance Property "Env" EksContainerProperty where

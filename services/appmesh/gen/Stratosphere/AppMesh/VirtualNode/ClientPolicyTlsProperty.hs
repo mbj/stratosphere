@@ -12,7 +12,7 @@ import Stratosphere.Value
 data ClientPolicyTlsProperty
   = ClientPolicyTlsProperty {certificate :: (Prelude.Maybe ClientTlsCertificateProperty),
                              enforce :: (Prelude.Maybe (Value Prelude.Bool)),
-                             ports :: (Prelude.Maybe (ValueList (Value Prelude.Integer))),
+                             ports :: (Prelude.Maybe (ValueList Prelude.Integer)),
                              validation :: TlsValidationContextProperty}
 mkClientPolicyTlsProperty ::
   TlsValidationContextProperty -> ClientPolicyTlsProperty
@@ -50,7 +50,7 @@ instance Property "Enforce" ClientPolicyTlsProperty where
   set newValue ClientPolicyTlsProperty {..}
     = ClientPolicyTlsProperty {enforce = Prelude.pure newValue, ..}
 instance Property "Ports" ClientPolicyTlsProperty where
-  type PropertyType "Ports" ClientPolicyTlsProperty = ValueList (Value Prelude.Integer)
+  type PropertyType "Ports" ClientPolicyTlsProperty = ValueList Prelude.Integer
   set newValue ClientPolicyTlsProperty {..}
     = ClientPolicyTlsProperty {ports = Prelude.pure newValue, ..}
 instance Property "Validation" ClientPolicyTlsProperty where

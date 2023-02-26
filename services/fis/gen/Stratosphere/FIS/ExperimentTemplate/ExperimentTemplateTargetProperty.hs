@@ -11,7 +11,7 @@ import Stratosphere.Value
 data ExperimentTemplateTargetProperty
   = ExperimentTemplateTargetProperty {filters :: (Prelude.Maybe [ExperimentTemplateTargetFilterProperty]),
                                       parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
-                                      resourceArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                      resourceArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       resourceTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                       resourceType :: (Value Prelude.Text),
                                       selectionMode :: (Value Prelude.Text)}
@@ -59,7 +59,7 @@ instance Property "Parameters" ExperimentTemplateTargetProperty where
     = ExperimentTemplateTargetProperty
         {parameters = Prelude.pure newValue, ..}
 instance Property "ResourceArns" ExperimentTemplateTargetProperty where
-  type PropertyType "ResourceArns" ExperimentTemplateTargetProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceArns" ExperimentTemplateTargetProperty = ValueList Prelude.Text
   set newValue ExperimentTemplateTargetProperty {..}
     = ExperimentTemplateTargetProperty
         {resourceArns = Prelude.pure newValue, ..}

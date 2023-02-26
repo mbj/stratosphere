@@ -10,10 +10,10 @@ import Stratosphere.Value
 data OutpostConfigProperty
   = OutpostConfigProperty {controlPlaneInstanceType :: (Value Prelude.Text),
                            controlPlanePlacement :: (Prelude.Maybe ControlPlanePlacementProperty),
-                           outpostArns :: (ValueList (Value Prelude.Text))}
+                           outpostArns :: (ValueList Prelude.Text)}
 mkOutpostConfigProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> OutpostConfigProperty
+  -> ValueList Prelude.Text -> OutpostConfigProperty
 mkOutpostConfigProperty controlPlaneInstanceType outpostArns
   = OutpostConfigProperty
       {controlPlaneInstanceType = controlPlaneInstanceType,
@@ -49,6 +49,6 @@ instance Property "ControlPlanePlacement" OutpostConfigProperty where
     = OutpostConfigProperty
         {controlPlanePlacement = Prelude.pure newValue, ..}
 instance Property "OutpostArns" OutpostConfigProperty where
-  type PropertyType "OutpostArns" OutpostConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OutpostArns" OutpostConfigProperty = ValueList Prelude.Text
   set newValue OutpostConfigProperty {..}
     = OutpostConfigProperty {outpostArns = newValue, ..}

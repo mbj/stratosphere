@@ -10,7 +10,7 @@ import Stratosphere.Value
 data ModelManifest
   = ModelManifest {description :: (Prelude.Maybe (Value Prelude.Text)),
                    name :: (Value Prelude.Text),
-                   nodes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   nodes :: (Prelude.Maybe (ValueList Prelude.Text)),
                    signalCatalogArn :: (Value Prelude.Text),
                    status :: (Prelude.Maybe (Value Prelude.Text)),
                    tags :: (Prelude.Maybe [Tag])}
@@ -53,7 +53,7 @@ instance Property "Name" ModelManifest where
   set newValue ModelManifest {..}
     = ModelManifest {name = newValue, ..}
 instance Property "Nodes" ModelManifest where
-  type PropertyType "Nodes" ModelManifest = ValueList (Value Prelude.Text)
+  type PropertyType "Nodes" ModelManifest = ValueList Prelude.Text
   set newValue ModelManifest {..}
     = ModelManifest {nodes = Prelude.pure newValue, ..}
 instance Property "SignalCatalogArn" ModelManifest where

@@ -10,8 +10,8 @@ import Stratosphere.Value
 data Agent
   = Agent {activationKey :: (Prelude.Maybe (Value Prelude.Text)),
            agentName :: (Prelude.Maybe (Value Prelude.Text)),
-           securityGroupArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-           subnetArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           securityGroupArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+           subnetArns :: (Prelude.Maybe (ValueList Prelude.Text)),
            tags :: (Prelude.Maybe [Tag]),
            vpcEndpointId :: (Prelude.Maybe (Value Prelude.Text))}
 mkAgent :: Agent
@@ -52,11 +52,11 @@ instance Property "AgentName" Agent where
   set newValue Agent {..}
     = Agent {agentName = Prelude.pure newValue, ..}
 instance Property "SecurityGroupArns" Agent where
-  type PropertyType "SecurityGroupArns" Agent = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupArns" Agent = ValueList Prelude.Text
   set newValue Agent {..}
     = Agent {securityGroupArns = Prelude.pure newValue, ..}
 instance Property "SubnetArns" Agent where
-  type PropertyType "SubnetArns" Agent = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetArns" Agent = ValueList Prelude.Text
   set newValue Agent {..}
     = Agent {subnetArns = Prelude.pure newValue, ..}
 instance Property "Tags" Agent where

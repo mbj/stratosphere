@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RoleValuesProperty
-  = RoleValuesProperty {admin :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                        editor :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = RoleValuesProperty {admin :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        editor :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkRoleValuesProperty :: RoleValuesProperty
 mkRoleValuesProperty
   = RoleValuesProperty
@@ -29,10 +29,10 @@ instance JSON.ToJSON RoleValuesProperty where
               [(JSON..=) "Admin" Prelude.<$> admin,
                (JSON..=) "Editor" Prelude.<$> editor]))
 instance Property "Admin" RoleValuesProperty where
-  type PropertyType "Admin" RoleValuesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Admin" RoleValuesProperty = ValueList Prelude.Text
   set newValue RoleValuesProperty {..}
     = RoleValuesProperty {admin = Prelude.pure newValue, ..}
 instance Property "Editor" RoleValuesProperty where
-  type PropertyType "Editor" RoleValuesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Editor" RoleValuesProperty = ValueList Prelude.Text
   set newValue RoleValuesProperty {..}
     = RoleValuesProperty {editor = Prelude.pure newValue, ..}

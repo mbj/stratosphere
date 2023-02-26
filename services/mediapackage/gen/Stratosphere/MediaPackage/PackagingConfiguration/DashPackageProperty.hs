@@ -13,7 +13,7 @@ data DashPackageProperty
                          encryption :: (Prelude.Maybe DashEncryptionProperty),
                          includeEncoderConfigurationInSegments :: (Prelude.Maybe (Value Prelude.Bool)),
                          includeIframeOnlyStream :: (Prelude.Maybe (Value Prelude.Bool)),
-                         periodTriggers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         periodTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
                          segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          segmentTemplateFormat :: (Prelude.Maybe (Value Prelude.Text))}
 mkDashPackageProperty ::
@@ -80,7 +80,7 @@ instance Property "IncludeIframeOnlyStream" DashPackageProperty where
     = DashPackageProperty
         {includeIframeOnlyStream = Prelude.pure newValue, ..}
 instance Property "PeriodTriggers" DashPackageProperty where
-  type PropertyType "PeriodTriggers" DashPackageProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PeriodTriggers" DashPackageProperty = ValueList Prelude.Text
   set newValue DashPackageProperty {..}
     = DashPackageProperty {periodTriggers = Prelude.pure newValue, ..}
 instance Property "SegmentDurationSeconds" DashPackageProperty where

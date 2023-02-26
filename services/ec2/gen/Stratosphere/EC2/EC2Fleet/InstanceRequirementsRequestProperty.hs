@@ -18,19 +18,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceRequirementsRequestProperty
   = InstanceRequirementsRequestProperty {acceleratorCount :: (Prelude.Maybe AcceleratorCountRequestProperty),
-                                         acceleratorManufacturers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                         acceleratorNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                         acceleratorManufacturers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                         acceleratorNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                          acceleratorTotalMemoryMiB :: (Prelude.Maybe AcceleratorTotalMemoryMiBRequestProperty),
-                                         acceleratorTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                         allowedInstanceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                         acceleratorTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                         allowedInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                          bareMetal :: (Prelude.Maybe (Value Prelude.Text)),
                                          baselineEbsBandwidthMbps :: (Prelude.Maybe BaselineEbsBandwidthMbpsRequestProperty),
                                          burstablePerformance :: (Prelude.Maybe (Value Prelude.Text)),
-                                         cpuManufacturers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                         excludedInstanceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                         instanceGenerations :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                         cpuManufacturers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                         excludedInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                         instanceGenerations :: (Prelude.Maybe (ValueList Prelude.Text)),
                                          localStorage :: (Prelude.Maybe (Value Prelude.Text)),
-                                         localStorageTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                         localStorageTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                          memoryGiBPerVCpu :: (Prelude.Maybe MemoryGiBPerVCpuRequestProperty),
                                          memoryMiB :: (Prelude.Maybe MemoryMiBRequestProperty),
                                          networkBandwidthGbps :: (Prelude.Maybe NetworkBandwidthGbpsRequestProperty),
@@ -144,12 +144,12 @@ instance Property "AcceleratorCount" InstanceRequirementsRequestProperty where
     = InstanceRequirementsRequestProperty
         {acceleratorCount = Prelude.pure newValue, ..}
 instance Property "AcceleratorManufacturers" InstanceRequirementsRequestProperty where
-  type PropertyType "AcceleratorManufacturers" InstanceRequirementsRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AcceleratorManufacturers" InstanceRequirementsRequestProperty = ValueList Prelude.Text
   set newValue InstanceRequirementsRequestProperty {..}
     = InstanceRequirementsRequestProperty
         {acceleratorManufacturers = Prelude.pure newValue, ..}
 instance Property "AcceleratorNames" InstanceRequirementsRequestProperty where
-  type PropertyType "AcceleratorNames" InstanceRequirementsRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AcceleratorNames" InstanceRequirementsRequestProperty = ValueList Prelude.Text
   set newValue InstanceRequirementsRequestProperty {..}
     = InstanceRequirementsRequestProperty
         {acceleratorNames = Prelude.pure newValue, ..}
@@ -159,12 +159,12 @@ instance Property "AcceleratorTotalMemoryMiB" InstanceRequirementsRequestPropert
     = InstanceRequirementsRequestProperty
         {acceleratorTotalMemoryMiB = Prelude.pure newValue, ..}
 instance Property "AcceleratorTypes" InstanceRequirementsRequestProperty where
-  type PropertyType "AcceleratorTypes" InstanceRequirementsRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AcceleratorTypes" InstanceRequirementsRequestProperty = ValueList Prelude.Text
   set newValue InstanceRequirementsRequestProperty {..}
     = InstanceRequirementsRequestProperty
         {acceleratorTypes = Prelude.pure newValue, ..}
 instance Property "AllowedInstanceTypes" InstanceRequirementsRequestProperty where
-  type PropertyType "AllowedInstanceTypes" InstanceRequirementsRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedInstanceTypes" InstanceRequirementsRequestProperty = ValueList Prelude.Text
   set newValue InstanceRequirementsRequestProperty {..}
     = InstanceRequirementsRequestProperty
         {allowedInstanceTypes = Prelude.pure newValue, ..}
@@ -184,17 +184,17 @@ instance Property "BurstablePerformance" InstanceRequirementsRequestProperty whe
     = InstanceRequirementsRequestProperty
         {burstablePerformance = Prelude.pure newValue, ..}
 instance Property "CpuManufacturers" InstanceRequirementsRequestProperty where
-  type PropertyType "CpuManufacturers" InstanceRequirementsRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CpuManufacturers" InstanceRequirementsRequestProperty = ValueList Prelude.Text
   set newValue InstanceRequirementsRequestProperty {..}
     = InstanceRequirementsRequestProperty
         {cpuManufacturers = Prelude.pure newValue, ..}
 instance Property "ExcludedInstanceTypes" InstanceRequirementsRequestProperty where
-  type PropertyType "ExcludedInstanceTypes" InstanceRequirementsRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludedInstanceTypes" InstanceRequirementsRequestProperty = ValueList Prelude.Text
   set newValue InstanceRequirementsRequestProperty {..}
     = InstanceRequirementsRequestProperty
         {excludedInstanceTypes = Prelude.pure newValue, ..}
 instance Property "InstanceGenerations" InstanceRequirementsRequestProperty where
-  type PropertyType "InstanceGenerations" InstanceRequirementsRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InstanceGenerations" InstanceRequirementsRequestProperty = ValueList Prelude.Text
   set newValue InstanceRequirementsRequestProperty {..}
     = InstanceRequirementsRequestProperty
         {instanceGenerations = Prelude.pure newValue, ..}
@@ -204,7 +204,7 @@ instance Property "LocalStorage" InstanceRequirementsRequestProperty where
     = InstanceRequirementsRequestProperty
         {localStorage = Prelude.pure newValue, ..}
 instance Property "LocalStorageTypes" InstanceRequirementsRequestProperty where
-  type PropertyType "LocalStorageTypes" InstanceRequirementsRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "LocalStorageTypes" InstanceRequirementsRequestProperty = ValueList Prelude.Text
   set newValue InstanceRequirementsRequestProperty {..}
     = InstanceRequirementsRequestProperty
         {localStorageTypes = Prelude.pure newValue, ..}

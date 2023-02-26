@@ -10,11 +10,11 @@ import Stratosphere.Value
 data ResourceSet
   = ResourceSet {description :: (Prelude.Maybe (Value Prelude.Text)),
                  name :: (Value Prelude.Text),
-                 resourceTypeList :: (ValueList (Value Prelude.Text)),
-                 resources :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 resourceTypeList :: (ValueList Prelude.Text),
+                 resources :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
 mkResourceSet ::
-  Value Prelude.Text -> ValueList (Value Prelude.Text) -> ResourceSet
+  Value Prelude.Text -> ValueList Prelude.Text -> ResourceSet
 mkResourceSet name resourceTypeList
   = ResourceSet
       {name = name, resourceTypeList = resourceTypeList,
@@ -49,11 +49,11 @@ instance Property "Name" ResourceSet where
   type PropertyType "Name" ResourceSet = Value Prelude.Text
   set newValue ResourceSet {..} = ResourceSet {name = newValue, ..}
 instance Property "ResourceTypeList" ResourceSet where
-  type PropertyType "ResourceTypeList" ResourceSet = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceTypeList" ResourceSet = ValueList Prelude.Text
   set newValue ResourceSet {..}
     = ResourceSet {resourceTypeList = newValue, ..}
 instance Property "Resources" ResourceSet where
-  type PropertyType "Resources" ResourceSet = ValueList (Value Prelude.Text)
+  type PropertyType "Resources" ResourceSet = ValueList Prelude.Text
   set newValue ResourceSet {..}
     = ResourceSet {resources = Prelude.pure newValue, ..}
 instance Property "Tags" ResourceSet where

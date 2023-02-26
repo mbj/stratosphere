@@ -9,11 +9,11 @@ import Stratosphere.Value
 data LFTagPairProperty
   = LFTagPairProperty {catalogId :: (Value Prelude.Text),
                        tagKey :: (Value Prelude.Text),
-                       tagValues :: (ValueList (Value Prelude.Text))}
+                       tagValues :: (ValueList Prelude.Text)}
 mkLFTagPairProperty ::
   Value Prelude.Text
   -> Value Prelude.Text
-     -> ValueList (Value Prelude.Text) -> LFTagPairProperty
+     -> ValueList Prelude.Text -> LFTagPairProperty
 mkLFTagPairProperty catalogId tagKey tagValues
   = LFTagPairProperty
       {catalogId = catalogId, tagKey = tagKey, tagValues = tagValues}
@@ -37,6 +37,6 @@ instance Property "TagKey" LFTagPairProperty where
   set newValue LFTagPairProperty {..}
     = LFTagPairProperty {tagKey = newValue, ..}
 instance Property "TagValues" LFTagPairProperty where
-  type PropertyType "TagValues" LFTagPairProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TagValues" LFTagPairProperty = ValueList Prelude.Text
   set newValue LFTagPairProperty {..}
     = LFTagPairProperty {tagValues = newValue, ..}

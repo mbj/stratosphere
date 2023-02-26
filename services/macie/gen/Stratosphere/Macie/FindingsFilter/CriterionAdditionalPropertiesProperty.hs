@@ -8,12 +8,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CriterionAdditionalPropertiesProperty
-  = CriterionAdditionalPropertiesProperty {eq :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = CriterionAdditionalPropertiesProperty {eq :: (Prelude.Maybe (ValueList Prelude.Text)),
                                            gt :: (Prelude.Maybe (Value Prelude.Integer)),
                                            gte :: (Prelude.Maybe (Value Prelude.Integer)),
                                            lt :: (Prelude.Maybe (Value Prelude.Integer)),
                                            lte :: (Prelude.Maybe (Value Prelude.Integer)),
-                                           neq :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                           neq :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCriterionAdditionalPropertiesProperty ::
   CriterionAdditionalPropertiesProperty
 mkCriterionAdditionalPropertiesProperty
@@ -38,7 +38,7 @@ instance JSON.ToJSON CriterionAdditionalPropertiesProperty where
                (JSON..=) "gte" Prelude.<$> gte, (JSON..=) "lt" Prelude.<$> lt,
                (JSON..=) "lte" Prelude.<$> lte, (JSON..=) "neq" Prelude.<$> neq]))
 instance Property "eq" CriterionAdditionalPropertiesProperty where
-  type PropertyType "eq" CriterionAdditionalPropertiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "eq" CriterionAdditionalPropertiesProperty = ValueList Prelude.Text
   set newValue CriterionAdditionalPropertiesProperty {..}
     = CriterionAdditionalPropertiesProperty
         {eq = Prelude.pure newValue, ..}
@@ -63,7 +63,7 @@ instance Property "lte" CriterionAdditionalPropertiesProperty where
     = CriterionAdditionalPropertiesProperty
         {lte = Prelude.pure newValue, ..}
 instance Property "neq" CriterionAdditionalPropertiesProperty where
-  type PropertyType "neq" CriterionAdditionalPropertiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "neq" CriterionAdditionalPropertiesProperty = ValueList Prelude.Text
   set newValue CriterionAdditionalPropertiesProperty {..}
     = CriterionAdditionalPropertiesProperty
         {neq = Prelude.pure newValue, ..}

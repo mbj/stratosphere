@@ -8,11 +8,11 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcLink
   = VpcLink {name :: (Value Prelude.Text),
-             securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-             subnetIds :: (ValueList (Value Prelude.Text)),
+             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+             subnetIds :: (ValueList Prelude.Text),
              tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
 mkVpcLink ::
-  Value Prelude.Text -> ValueList (Value Prelude.Text) -> VpcLink
+  Value Prelude.Text -> ValueList Prelude.Text -> VpcLink
 mkVpcLink name subnetIds
   = VpcLink
       {name = name, subnetIds = subnetIds,
@@ -40,11 +40,11 @@ instance Property "Name" VpcLink where
   type PropertyType "Name" VpcLink = Value Prelude.Text
   set newValue VpcLink {..} = VpcLink {name = newValue, ..}
 instance Property "SecurityGroupIds" VpcLink where
-  type PropertyType "SecurityGroupIds" VpcLink = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" VpcLink = ValueList Prelude.Text
   set newValue VpcLink {..}
     = VpcLink {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetIds" VpcLink where
-  type PropertyType "SubnetIds" VpcLink = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" VpcLink = ValueList Prelude.Text
   set newValue VpcLink {..} = VpcLink {subnetIds = newValue, ..}
 instance Property "Tags" VpcLink where
   type PropertyType "Tags" VpcLink = Prelude.Map Prelude.Text (Value Prelude.Text)

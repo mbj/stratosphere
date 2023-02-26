@@ -9,12 +9,12 @@ import {-# SOURCE #-} Stratosphere.RDS.OptionGroup.OptionSettingProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OptionConfigurationProperty
-  = OptionConfigurationProperty {dBSecurityGroupMemberships :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = OptionConfigurationProperty {dBSecurityGroupMemberships :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  optionName :: (Value Prelude.Text),
                                  optionSettings :: (Prelude.Maybe [OptionSettingProperty]),
                                  optionVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                  port :: (Prelude.Maybe (Value Prelude.Integer)),
-                                 vpcSecurityGroupMemberships :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                 vpcSecurityGroupMemberships :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkOptionConfigurationProperty ::
   Value Prelude.Text -> OptionConfigurationProperty
 mkOptionConfigurationProperty optionName
@@ -54,7 +54,7 @@ instance JSON.ToJSON OptionConfigurationProperty where
                   (JSON..=) "VpcSecurityGroupMemberships"
                     Prelude.<$> vpcSecurityGroupMemberships])))
 instance Property "DBSecurityGroupMemberships" OptionConfigurationProperty where
-  type PropertyType "DBSecurityGroupMemberships" OptionConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DBSecurityGroupMemberships" OptionConfigurationProperty = ValueList Prelude.Text
   set newValue OptionConfigurationProperty {..}
     = OptionConfigurationProperty
         {dBSecurityGroupMemberships = Prelude.pure newValue, ..}
@@ -77,7 +77,7 @@ instance Property "Port" OptionConfigurationProperty where
   set newValue OptionConfigurationProperty {..}
     = OptionConfigurationProperty {port = Prelude.pure newValue, ..}
 instance Property "VpcSecurityGroupMemberships" OptionConfigurationProperty where
-  type PropertyType "VpcSecurityGroupMemberships" OptionConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSecurityGroupMemberships" OptionConfigurationProperty = ValueList Prelude.Text
   set newValue OptionConfigurationProperty {..}
     = OptionConfigurationProperty
         {vpcSecurityGroupMemberships = Prelude.pure newValue, ..}

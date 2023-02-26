@@ -10,13 +10,13 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data DBCluster
   = DBCluster {associatedRoles :: (Prelude.Maybe [DBClusterRoleProperty]),
-               availabilityZones :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
                backupRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
                dBClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                dBClusterParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                dBSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                deletionProtection :: (Prelude.Maybe (Value Prelude.Bool)),
-               enableCloudwatchLogsExports :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               enableCloudwatchLogsExports :: (Prelude.Maybe (ValueList Prelude.Text)),
                engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
                iamAuthEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -30,7 +30,7 @@ data DBCluster
                storageEncrypted :: (Prelude.Maybe (Value Prelude.Bool)),
                tags :: (Prelude.Maybe [Tag]),
                useLatestRestorableTime :: (Prelude.Maybe (Value Prelude.Bool)),
-               vpcSecurityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+               vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkDBCluster :: DBCluster
 mkDBCluster
   = DBCluster
@@ -126,7 +126,7 @@ instance Property "AssociatedRoles" DBCluster where
   set newValue DBCluster {..}
     = DBCluster {associatedRoles = Prelude.pure newValue, ..}
 instance Property "AvailabilityZones" DBCluster where
-  type PropertyType "AvailabilityZones" DBCluster = ValueList (Value Prelude.Text)
+  type PropertyType "AvailabilityZones" DBCluster = ValueList Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {availabilityZones = Prelude.pure newValue, ..}
 instance Property "BackupRetentionPeriod" DBCluster where
@@ -151,7 +151,7 @@ instance Property "DeletionProtection" DBCluster where
   set newValue DBCluster {..}
     = DBCluster {deletionProtection = Prelude.pure newValue, ..}
 instance Property "EnableCloudwatchLogsExports" DBCluster where
-  type PropertyType "EnableCloudwatchLogsExports" DBCluster = ValueList (Value Prelude.Text)
+  type PropertyType "EnableCloudwatchLogsExports" DBCluster = ValueList Prelude.Text
   set newValue DBCluster {..}
     = DBCluster
         {enableCloudwatchLogsExports = Prelude.pure newValue, ..}
@@ -209,6 +209,6 @@ instance Property "UseLatestRestorableTime" DBCluster where
   set newValue DBCluster {..}
     = DBCluster {useLatestRestorableTime = Prelude.pure newValue, ..}
 instance Property "VpcSecurityGroupIds" DBCluster where
-  type PropertyType "VpcSecurityGroupIds" DBCluster = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSecurityGroupIds" DBCluster = ValueList Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {vpcSecurityGroupIds = Prelude.pure newValue, ..}

@@ -11,7 +11,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CompromisedCredentialsRiskConfigurationTypeProperty
   = CompromisedCredentialsRiskConfigurationTypeProperty {actions :: CompromisedCredentialsActionsTypeProperty,
-                                                         eventFilter :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                                         eventFilter :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCompromisedCredentialsRiskConfigurationTypeProperty ::
   CompromisedCredentialsActionsTypeProperty
   -> CompromisedCredentialsRiskConfigurationTypeProperty
@@ -44,7 +44,7 @@ instance Property "Actions" CompromisedCredentialsRiskConfigurationTypeProperty 
     = CompromisedCredentialsRiskConfigurationTypeProperty
         {actions = newValue, ..}
 instance Property "EventFilter" CompromisedCredentialsRiskConfigurationTypeProperty where
-  type PropertyType "EventFilter" CompromisedCredentialsRiskConfigurationTypeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "EventFilter" CompromisedCredentialsRiskConfigurationTypeProperty = ValueList Prelude.Text
   set
     newValue
     CompromisedCredentialsRiskConfigurationTypeProperty {..}

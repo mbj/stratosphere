@@ -14,7 +14,7 @@ import Stratosphere.Value
 data Input
   = Input {destinations :: (Prelude.Maybe [InputDestinationRequestProperty]),
            inputDevices :: (Prelude.Maybe [InputDeviceSettingsProperty]),
-           inputSecurityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           inputSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
            mediaConnectFlows :: (Prelude.Maybe [MediaConnectFlowRequestProperty]),
            name :: (Prelude.Maybe (Value Prelude.Text)),
            roleArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -71,7 +71,7 @@ instance Property "InputDevices" Input where
   set newValue Input {..}
     = Input {inputDevices = Prelude.pure newValue, ..}
 instance Property "InputSecurityGroups" Input where
-  type PropertyType "InputSecurityGroups" Input = ValueList (Value Prelude.Text)
+  type PropertyType "InputSecurityGroups" Input = ValueList Prelude.Text
   set newValue Input {..}
     = Input {inputSecurityGroups = Prelude.pure newValue, ..}
 instance Property "MediaConnectFlows" Input where

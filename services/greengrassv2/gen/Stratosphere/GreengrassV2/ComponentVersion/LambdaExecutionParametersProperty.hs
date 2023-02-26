@@ -12,7 +12,7 @@ import Stratosphere.Value
 data LambdaExecutionParametersProperty
   = LambdaExecutionParametersProperty {environmentVariables :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                        eventSources :: (Prelude.Maybe [LambdaEventSourceProperty]),
-                                       execArgs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                       execArgs :: (Prelude.Maybe (ValueList Prelude.Text)),
                                        inputPayloadEncodingType :: (Prelude.Maybe (Value Prelude.Text)),
                                        linuxProcessParams :: (Prelude.Maybe LambdaLinuxProcessParamsProperty),
                                        maxIdleTimeInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -82,7 +82,7 @@ instance Property "EventSources" LambdaExecutionParametersProperty where
     = LambdaExecutionParametersProperty
         {eventSources = Prelude.pure newValue, ..}
 instance Property "ExecArgs" LambdaExecutionParametersProperty where
-  type PropertyType "ExecArgs" LambdaExecutionParametersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExecArgs" LambdaExecutionParametersProperty = ValueList Prelude.Text
   set newValue LambdaExecutionParametersProperty {..}
     = LambdaExecutionParametersProperty
         {execArgs = Prelude.pure newValue, ..}

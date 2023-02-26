@@ -14,7 +14,7 @@ data Authorizer
                 identitySource :: (Prelude.Maybe (Value Prelude.Text)),
                 identityValidationExpression :: (Prelude.Maybe (Value Prelude.Text)),
                 name :: (Value Prelude.Text),
-                providerARNs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                providerARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
                 restApiId :: (Value Prelude.Text),
                 type' :: (Value Prelude.Text)}
 mkAuthorizer ::
@@ -96,7 +96,7 @@ instance Property "Name" Authorizer where
   type PropertyType "Name" Authorizer = Value Prelude.Text
   set newValue Authorizer {..} = Authorizer {name = newValue, ..}
 instance Property "ProviderARNs" Authorizer where
-  type PropertyType "ProviderARNs" Authorizer = ValueList (Value Prelude.Text)
+  type PropertyType "ProviderARNs" Authorizer = ValueList Prelude.Text
   set newValue Authorizer {..}
     = Authorizer {providerARNs = Prelude.pure newValue, ..}
 instance Property "RestApiId" Authorizer where

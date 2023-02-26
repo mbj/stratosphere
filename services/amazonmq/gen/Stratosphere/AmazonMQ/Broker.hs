@@ -27,9 +27,9 @@ data Broker
             logs :: (Prelude.Maybe LogListProperty),
             maintenanceWindowStartTime :: (Prelude.Maybe MaintenanceWindowProperty),
             publiclyAccessible :: (Value Prelude.Bool),
-            securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
             storageType :: (Prelude.Maybe (Value Prelude.Text)),
-            subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
             tags :: (Prelude.Maybe [TagsEntryProperty]),
             users :: [UserProperty]}
 mkBroker ::
@@ -163,7 +163,7 @@ instance Property "PubliclyAccessible" Broker where
   set newValue Broker {..}
     = Broker {publiclyAccessible = newValue, ..}
 instance Property "SecurityGroups" Broker where
-  type PropertyType "SecurityGroups" Broker = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" Broker = ValueList Prelude.Text
   set newValue Broker {..}
     = Broker {securityGroups = Prelude.pure newValue, ..}
 instance Property "StorageType" Broker where
@@ -171,7 +171,7 @@ instance Property "StorageType" Broker where
   set newValue Broker {..}
     = Broker {storageType = Prelude.pure newValue, ..}
 instance Property "SubnetIds" Broker where
-  type PropertyType "SubnetIds" Broker = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" Broker = ValueList Prelude.Text
   set newValue Broker {..}
     = Broker {subnetIds = Prelude.pure newValue, ..}
 instance Property "Tags" Broker where

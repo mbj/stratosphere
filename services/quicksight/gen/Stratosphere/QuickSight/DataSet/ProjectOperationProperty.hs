@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectOperationProperty
-  = ProjectOperationProperty {projectedColumns :: (ValueList (Value Prelude.Text))}
+  = ProjectOperationProperty {projectedColumns :: (ValueList Prelude.Text)}
 mkProjectOperationProperty ::
-  ValueList (Value Prelude.Text) -> ProjectOperationProperty
+  ValueList Prelude.Text -> ProjectOperationProperty
 mkProjectOperationProperty projectedColumns
   = ProjectOperationProperty {projectedColumns = projectedColumns}
 instance ToResourceProperties ProjectOperationProperty where
@@ -21,6 +21,6 @@ instance JSON.ToJSON ProjectOperationProperty where
   toJSON ProjectOperationProperty {..}
     = JSON.object ["ProjectedColumns" JSON..= projectedColumns]
 instance Property "ProjectedColumns" ProjectOperationProperty where
-  type PropertyType "ProjectedColumns" ProjectOperationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ProjectedColumns" ProjectOperationProperty = ValueList Prelude.Text
   set newValue ProjectOperationProperty {}
     = ProjectOperationProperty {projectedColumns = newValue, ..}

@@ -10,7 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsPackageProperty
   = HlsPackageProperty {adMarkers :: (Prelude.Maybe (Value Prelude.Text)),
-                        adTriggers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                        adTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
                         adsOnDeliveryRestrictions :: (Prelude.Maybe (Value Prelude.Text)),
                         encryption :: (Prelude.Maybe HlsEncryptionProperty),
                         includeDvbSubtitles :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -87,7 +87,7 @@ instance Property "AdMarkers" HlsPackageProperty where
   set newValue HlsPackageProperty {..}
     = HlsPackageProperty {adMarkers = Prelude.pure newValue, ..}
 instance Property "AdTriggers" HlsPackageProperty where
-  type PropertyType "AdTriggers" HlsPackageProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AdTriggers" HlsPackageProperty = ValueList Prelude.Text
   set newValue HlsPackageProperty {..}
     = HlsPackageProperty {adTriggers = Prelude.pure newValue, ..}
 instance Property "AdsOnDeliveryRestrictions" HlsPackageProperty where

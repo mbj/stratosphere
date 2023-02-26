@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.EMR.Step.KeyValueProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HadoopJarStepConfigProperty
-  = HadoopJarStepConfigProperty {args :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = HadoopJarStepConfigProperty {args :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  jar :: (Value Prelude.Text),
                                  mainClass :: (Prelude.Maybe (Value Prelude.Text)),
                                  stepProperties :: (Prelude.Maybe [KeyValueProperty])}
@@ -41,7 +41,7 @@ instance JSON.ToJSON HadoopJarStepConfigProperty where
                   (JSON..=) "MainClass" Prelude.<$> mainClass,
                   (JSON..=) "StepProperties" Prelude.<$> stepProperties])))
 instance Property "Args" HadoopJarStepConfigProperty where
-  type PropertyType "Args" HadoopJarStepConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Args" HadoopJarStepConfigProperty = ValueList Prelude.Text
   set newValue HadoopJarStepConfigProperty {..}
     = HadoopJarStepConfigProperty {args = Prelude.pure newValue, ..}
 instance Property "Jar" HadoopJarStepConfigProperty where

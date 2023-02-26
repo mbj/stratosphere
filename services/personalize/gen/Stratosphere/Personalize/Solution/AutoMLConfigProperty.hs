@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoMLConfigProperty
   = AutoMLConfigProperty {metricName :: (Prelude.Maybe (Value Prelude.Text)),
-                          recipeList :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                          recipeList :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAutoMLConfigProperty :: AutoMLConfigProperty
 mkAutoMLConfigProperty
   = AutoMLConfigProperty
@@ -33,6 +33,6 @@ instance Property "MetricName" AutoMLConfigProperty where
   set newValue AutoMLConfigProperty {..}
     = AutoMLConfigProperty {metricName = Prelude.pure newValue, ..}
 instance Property "RecipeList" AutoMLConfigProperty where
-  type PropertyType "RecipeList" AutoMLConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "RecipeList" AutoMLConfigProperty = ValueList Prelude.Text
   set newValue AutoMLConfigProperty {..}
     = AutoMLConfigProperty {recipeList = Prelude.pure newValue, ..}

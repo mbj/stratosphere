@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ChatChannelProperty
-  = ChatChannelProperty {chatbotSns :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = ChatChannelProperty {chatbotSns :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkChatChannelProperty :: ChatChannelProperty
 mkChatChannelProperty
   = ChatChannelProperty {chatbotSns = Prelude.Nothing}
@@ -25,6 +25,6 @@ instance JSON.ToJSON ChatChannelProperty where
            (Prelude.catMaybes
               [(JSON..=) "ChatbotSns" Prelude.<$> chatbotSns]))
 instance Property "ChatbotSns" ChatChannelProperty where
-  type PropertyType "ChatbotSns" ChatChannelProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ChatbotSns" ChatChannelProperty = ValueList Prelude.Text
   set newValue ChatChannelProperty {}
     = ChatChannelProperty {chatbotSns = Prelude.pure newValue, ..}

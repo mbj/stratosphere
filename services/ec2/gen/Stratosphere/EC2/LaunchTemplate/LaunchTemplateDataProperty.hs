@@ -54,8 +54,8 @@ data LaunchTemplateDataProperty
                                 placement :: (Prelude.Maybe PlacementProperty),
                                 privateDnsNameOptions :: (Prelude.Maybe PrivateDnsNameOptionsProperty),
                                 ramDiskId :: (Prelude.Maybe (Value Prelude.Text)),
-                                securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 tagSpecifications :: (Prelude.Maybe [TagSpecificationProperty]),
                                 userData :: (Prelude.Maybe (Value Prelude.Text))}
 mkLaunchTemplateDataProperty :: LaunchTemplateDataProperty
@@ -307,12 +307,12 @@ instance Property "RamDiskId" LaunchTemplateDataProperty where
     = LaunchTemplateDataProperty
         {ramDiskId = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" LaunchTemplateDataProperty where
-  type PropertyType "SecurityGroupIds" LaunchTemplateDataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" LaunchTemplateDataProperty = ValueList Prelude.Text
   set newValue LaunchTemplateDataProperty {..}
     = LaunchTemplateDataProperty
         {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SecurityGroups" LaunchTemplateDataProperty where
-  type PropertyType "SecurityGroups" LaunchTemplateDataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" LaunchTemplateDataProperty = ValueList Prelude.Text
   set newValue LaunchTemplateDataProperty {..}
     = LaunchTemplateDataProperty
         {securityGroups = Prelude.pure newValue, ..}

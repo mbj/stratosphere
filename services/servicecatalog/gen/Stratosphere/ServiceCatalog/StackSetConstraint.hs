@@ -8,22 +8,22 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StackSetConstraint
   = StackSetConstraint {acceptLanguage :: (Prelude.Maybe (Value Prelude.Text)),
-                        accountList :: (ValueList (Value Prelude.Text)),
+                        accountList :: (ValueList Prelude.Text),
                         adminRole :: (Value Prelude.Text),
                         description :: (Value Prelude.Text),
                         executionRole :: (Value Prelude.Text),
                         portfolioId :: (Value Prelude.Text),
                         productId :: (Value Prelude.Text),
-                        regionList :: (ValueList (Value Prelude.Text)),
+                        regionList :: (ValueList Prelude.Text),
                         stackInstanceControl :: (Value Prelude.Text)}
 mkStackSetConstraint ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text
         -> Value Prelude.Text
            -> Value Prelude.Text
               -> Value Prelude.Text
-                 -> ValueList (Value Prelude.Text)
+                 -> ValueList Prelude.Text
                     -> Value Prelude.Text -> StackSetConstraint
 mkStackSetConstraint
   accountList
@@ -73,7 +73,7 @@ instance Property "AcceptLanguage" StackSetConstraint where
   set newValue StackSetConstraint {..}
     = StackSetConstraint {acceptLanguage = Prelude.pure newValue, ..}
 instance Property "AccountList" StackSetConstraint where
-  type PropertyType "AccountList" StackSetConstraint = ValueList (Value Prelude.Text)
+  type PropertyType "AccountList" StackSetConstraint = ValueList Prelude.Text
   set newValue StackSetConstraint {..}
     = StackSetConstraint {accountList = newValue, ..}
 instance Property "AdminRole" StackSetConstraint where
@@ -97,7 +97,7 @@ instance Property "ProductId" StackSetConstraint where
   set newValue StackSetConstraint {..}
     = StackSetConstraint {productId = newValue, ..}
 instance Property "RegionList" StackSetConstraint where
-  type PropertyType "RegionList" StackSetConstraint = ValueList (Value Prelude.Text)
+  type PropertyType "RegionList" StackSetConstraint = ValueList Prelude.Text
   set newValue StackSetConstraint {..}
     = StackSetConstraint {regionList = newValue, ..}
 instance Property "StackInstanceControl" StackSetConstraint where

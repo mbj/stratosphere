@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TriggerConfigProperty
-  = TriggerConfigProperty {triggerEvents :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = TriggerConfigProperty {triggerEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
                            triggerName :: (Prelude.Maybe (Value Prelude.Text)),
                            triggerTargetArn :: (Prelude.Maybe (Value Prelude.Text))}
 mkTriggerConfigProperty :: TriggerConfigProperty
@@ -33,7 +33,7 @@ instance JSON.ToJSON TriggerConfigProperty where
                (JSON..=) "TriggerName" Prelude.<$> triggerName,
                (JSON..=) "TriggerTargetArn" Prelude.<$> triggerTargetArn]))
 instance Property "TriggerEvents" TriggerConfigProperty where
-  type PropertyType "TriggerEvents" TriggerConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TriggerEvents" TriggerConfigProperty = ValueList Prelude.Text
   set newValue TriggerConfigProperty {..}
     = TriggerConfigProperty {triggerEvents = Prelude.pure newValue, ..}
 instance Property "TriggerName" TriggerConfigProperty where

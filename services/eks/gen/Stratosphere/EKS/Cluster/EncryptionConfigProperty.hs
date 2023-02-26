@@ -10,7 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionConfigProperty
   = EncryptionConfigProperty {provider :: (Prelude.Maybe ProviderProperty),
-                              resources :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                              resources :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkEncryptionConfigProperty :: EncryptionConfigProperty
 mkEncryptionConfigProperty
   = EncryptionConfigProperty
@@ -35,6 +35,6 @@ instance Property "Provider" EncryptionConfigProperty where
   set newValue EncryptionConfigProperty {..}
     = EncryptionConfigProperty {provider = Prelude.pure newValue, ..}
 instance Property "Resources" EncryptionConfigProperty where
-  type PropertyType "Resources" EncryptionConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Resources" EncryptionConfigProperty = ValueList Prelude.Text
   set newValue EncryptionConfigProperty {..}
     = EncryptionConfigProperty {resources = Prelude.pure newValue, ..}

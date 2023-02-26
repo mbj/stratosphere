@@ -15,7 +15,7 @@ data OutputProperty
                     location :: S3LocationProperty,
                     maxOutputFiles :: (Prelude.Maybe (Value Prelude.Integer)),
                     overwrite :: (Prelude.Maybe (Value Prelude.Bool)),
-                    partitionColumns :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                    partitionColumns :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkOutputProperty :: S3LocationProperty -> OutputProperty
 mkOutputProperty location
   = OutputProperty
@@ -75,6 +75,6 @@ instance Property "Overwrite" OutputProperty where
   set newValue OutputProperty {..}
     = OutputProperty {overwrite = Prelude.pure newValue, ..}
 instance Property "PartitionColumns" OutputProperty where
-  type PropertyType "PartitionColumns" OutputProperty = ValueList (Value Prelude.Text)
+  type PropertyType "PartitionColumns" OutputProperty = ValueList Prelude.Text
   set newValue OutputProperty {..}
     = OutputProperty {partitionColumns = Prelude.pure newValue, ..}

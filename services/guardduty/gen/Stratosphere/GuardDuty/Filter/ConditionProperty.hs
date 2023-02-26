@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConditionProperty
-  = ConditionProperty {eq :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                       equals :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ConditionProperty {eq :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       equals :: (Prelude.Maybe (ValueList Prelude.Text)),
                        greaterThan :: (Prelude.Maybe (Value Prelude.Integer)),
                        greaterThanOrEqual :: (Prelude.Maybe (Value Prelude.Integer)),
                        gt :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -17,8 +17,8 @@ data ConditionProperty
                        lessThanOrEqual :: (Prelude.Maybe (Value Prelude.Integer)),
                        lt :: (Prelude.Maybe (Value Prelude.Integer)),
                        lte :: (Prelude.Maybe (Value Prelude.Integer)),
-                       neq :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                       notEquals :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                       neq :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       notEquals :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkConditionProperty :: ConditionProperty
 mkConditionProperty
   = ConditionProperty
@@ -61,11 +61,11 @@ instance JSON.ToJSON ConditionProperty where
                (JSON..=) "Neq" Prelude.<$> neq,
                (JSON..=) "NotEquals" Prelude.<$> notEquals]))
 instance Property "Eq" ConditionProperty where
-  type PropertyType "Eq" ConditionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Eq" ConditionProperty = ValueList Prelude.Text
   set newValue ConditionProperty {..}
     = ConditionProperty {eq = Prelude.pure newValue, ..}
 instance Property "Equals" ConditionProperty where
-  type PropertyType "Equals" ConditionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Equals" ConditionProperty = ValueList Prelude.Text
   set newValue ConditionProperty {..}
     = ConditionProperty {equals = Prelude.pure newValue, ..}
 instance Property "GreaterThan" ConditionProperty where
@@ -102,10 +102,10 @@ instance Property "Lte" ConditionProperty where
   set newValue ConditionProperty {..}
     = ConditionProperty {lte = Prelude.pure newValue, ..}
 instance Property "Neq" ConditionProperty where
-  type PropertyType "Neq" ConditionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Neq" ConditionProperty = ValueList Prelude.Text
   set newValue ConditionProperty {..}
     = ConditionProperty {neq = Prelude.pure newValue, ..}
 instance Property "NotEquals" ConditionProperty where
-  type PropertyType "NotEquals" ConditionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "NotEquals" ConditionProperty = ValueList Prelude.Text
   set newValue ConditionProperty {..}
     = ConditionProperty {notEquals = Prelude.pure newValue, ..}

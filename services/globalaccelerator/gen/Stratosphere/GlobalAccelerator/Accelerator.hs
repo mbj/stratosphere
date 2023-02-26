@@ -10,7 +10,7 @@ import Stratosphere.Value
 data Accelerator
   = Accelerator {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                  ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
-                 ipAddresses :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 ipAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
                  name :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
 mkAccelerator :: Value Prelude.Text -> Accelerator
@@ -51,7 +51,7 @@ instance Property "IpAddressType" Accelerator where
   set newValue Accelerator {..}
     = Accelerator {ipAddressType = Prelude.pure newValue, ..}
 instance Property "IpAddresses" Accelerator where
-  type PropertyType "IpAddresses" Accelerator = ValueList (Value Prelude.Text)
+  type PropertyType "IpAddresses" Accelerator = ValueList Prelude.Text
   set newValue Accelerator {..}
     = Accelerator {ipAddresses = Prelude.pure newValue, ..}
 instance Property "Name" Accelerator where

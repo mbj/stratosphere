@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecretsManagerSecretResourceDataProperty
   = SecretsManagerSecretResourceDataProperty {aRN :: (Value Prelude.Text),
-                                              additionalStagingLabelsToDownload :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                              additionalStagingLabelsToDownload :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkSecretsManagerSecretResourceDataProperty ::
   Value Prelude.Text -> SecretsManagerSecretResourceDataProperty
 mkSecretsManagerSecretResourceDataProperty aRN
@@ -39,7 +39,7 @@ instance Property "ARN" SecretsManagerSecretResourceDataProperty where
   set newValue SecretsManagerSecretResourceDataProperty {..}
     = SecretsManagerSecretResourceDataProperty {aRN = newValue, ..}
 instance Property "AdditionalStagingLabelsToDownload" SecretsManagerSecretResourceDataProperty where
-  type PropertyType "AdditionalStagingLabelsToDownload" SecretsManagerSecretResourceDataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AdditionalStagingLabelsToDownload" SecretsManagerSecretResourceDataProperty = ValueList Prelude.Text
   set newValue SecretsManagerSecretResourceDataProperty {..}
     = SecretsManagerSecretResourceDataProperty
         {additionalStagingLabelsToDownload = Prelude.pure newValue, ..}

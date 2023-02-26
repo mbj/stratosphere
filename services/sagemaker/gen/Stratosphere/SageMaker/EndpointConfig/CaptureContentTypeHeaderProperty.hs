@@ -8,8 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CaptureContentTypeHeaderProperty
-  = CaptureContentTypeHeaderProperty {csvContentTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                      jsonContentTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = CaptureContentTypeHeaderProperty {csvContentTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      jsonContentTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCaptureContentTypeHeaderProperty ::
   CaptureContentTypeHeaderProperty
 mkCaptureContentTypeHeaderProperty
@@ -32,12 +32,12 @@ instance JSON.ToJSON CaptureContentTypeHeaderProperty where
               [(JSON..=) "CsvContentTypes" Prelude.<$> csvContentTypes,
                (JSON..=) "JsonContentTypes" Prelude.<$> jsonContentTypes]))
 instance Property "CsvContentTypes" CaptureContentTypeHeaderProperty where
-  type PropertyType "CsvContentTypes" CaptureContentTypeHeaderProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CsvContentTypes" CaptureContentTypeHeaderProperty = ValueList Prelude.Text
   set newValue CaptureContentTypeHeaderProperty {..}
     = CaptureContentTypeHeaderProperty
         {csvContentTypes = Prelude.pure newValue, ..}
 instance Property "JsonContentTypes" CaptureContentTypeHeaderProperty where
-  type PropertyType "JsonContentTypes" CaptureContentTypeHeaderProperty = ValueList (Value Prelude.Text)
+  type PropertyType "JsonContentTypes" CaptureContentTypeHeaderProperty = ValueList Prelude.Text
   set newValue CaptureContentTypeHeaderProperty {..}
     = CaptureContentTypeHeaderProperty
         {jsonContentTypes = Prelude.pure newValue, ..}

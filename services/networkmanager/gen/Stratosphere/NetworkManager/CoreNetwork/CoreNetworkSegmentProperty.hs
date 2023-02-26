@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CoreNetworkSegmentProperty
-  = CoreNetworkSegmentProperty {edgeLocations :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = CoreNetworkSegmentProperty {edgeLocations :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 name :: (Prelude.Maybe (Value Prelude.Text)),
-                                sharedSegments :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                sharedSegments :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCoreNetworkSegmentProperty :: CoreNetworkSegmentProperty
 mkCoreNetworkSegmentProperty
   = CoreNetworkSegmentProperty
@@ -33,7 +33,7 @@ instance JSON.ToJSON CoreNetworkSegmentProperty where
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "SharedSegments" Prelude.<$> sharedSegments]))
 instance Property "EdgeLocations" CoreNetworkSegmentProperty where
-  type PropertyType "EdgeLocations" CoreNetworkSegmentProperty = ValueList (Value Prelude.Text)
+  type PropertyType "EdgeLocations" CoreNetworkSegmentProperty = ValueList Prelude.Text
   set newValue CoreNetworkSegmentProperty {..}
     = CoreNetworkSegmentProperty
         {edgeLocations = Prelude.pure newValue, ..}
@@ -42,7 +42,7 @@ instance Property "Name" CoreNetworkSegmentProperty where
   set newValue CoreNetworkSegmentProperty {..}
     = CoreNetworkSegmentProperty {name = Prelude.pure newValue, ..}
 instance Property "SharedSegments" CoreNetworkSegmentProperty where
-  type PropertyType "SharedSegments" CoreNetworkSegmentProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SharedSegments" CoreNetworkSegmentProperty = ValueList Prelude.Text
   set newValue CoreNetworkSegmentProperty {..}
     = CoreNetworkSegmentProperty
         {sharedSegments = Prelude.pure newValue, ..}

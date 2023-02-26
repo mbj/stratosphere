@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CachingConfigProperty
-  = CachingConfigProperty {cachingKeys :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = CachingConfigProperty {cachingKeys :: (Prelude.Maybe (ValueList Prelude.Text)),
                            ttl :: (Value Prelude.Double)}
 mkCachingConfigProperty ::
   Value Prelude.Double -> CachingConfigProperty
@@ -31,7 +31,7 @@ instance JSON.ToJSON CachingConfigProperty where
               (Prelude.catMaybes
                  [(JSON..=) "CachingKeys" Prelude.<$> cachingKeys])))
 instance Property "CachingKeys" CachingConfigProperty where
-  type PropertyType "CachingKeys" CachingConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CachingKeys" CachingConfigProperty = ValueList Prelude.Text
   set newValue CachingConfigProperty {..}
     = CachingConfigProperty {cachingKeys = Prelude.pure newValue, ..}
 instance Property "Ttl" CachingConfigProperty where

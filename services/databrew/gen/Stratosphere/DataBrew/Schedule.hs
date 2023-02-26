@@ -9,7 +9,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Schedule
   = Schedule {cronExpression :: (Value Prelude.Text),
-              jobNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+              jobNames :: (Prelude.Maybe (ValueList Prelude.Text)),
               name :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [Tag])}
 mkSchedule :: Value Prelude.Text -> Value Prelude.Text -> Schedule
@@ -41,7 +41,7 @@ instance Property "CronExpression" Schedule where
   set newValue Schedule {..}
     = Schedule {cronExpression = newValue, ..}
 instance Property "JobNames" Schedule where
-  type PropertyType "JobNames" Schedule = ValueList (Value Prelude.Text)
+  type PropertyType "JobNames" Schedule = ValueList Prelude.Text
   set newValue Schedule {..}
     = Schedule {jobNames = Prelude.pure newValue, ..}
 instance Property "Name" Schedule where

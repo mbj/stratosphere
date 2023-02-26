@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchRestrictionsProperty
-  = BatchRestrictionsProperty {computeTypesAllowed :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = BatchRestrictionsProperty {computeTypesAllowed :: (Prelude.Maybe (ValueList Prelude.Text)),
                                maximumBuildsAllowed :: (Prelude.Maybe (Value Prelude.Integer))}
 mkBatchRestrictionsProperty :: BatchRestrictionsProperty
 mkBatchRestrictionsProperty
@@ -32,7 +32,7 @@ instance JSON.ToJSON BatchRestrictionsProperty where
                (JSON..=) "MaximumBuildsAllowed"
                  Prelude.<$> maximumBuildsAllowed]))
 instance Property "ComputeTypesAllowed" BatchRestrictionsProperty where
-  type PropertyType "ComputeTypesAllowed" BatchRestrictionsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ComputeTypesAllowed" BatchRestrictionsProperty = ValueList Prelude.Text
   set newValue BatchRestrictionsProperty {..}
     = BatchRestrictionsProperty
         {computeTypesAllowed = Prelude.pure newValue, ..}

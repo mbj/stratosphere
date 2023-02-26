@@ -25,7 +25,7 @@ data Fleet
            instanceRoleARN :: (Prelude.Maybe (Value Prelude.Text)),
            locations :: (Prelude.Maybe [LocationConfigurationProperty]),
            maxSize :: (Prelude.Maybe (Value Prelude.Integer)),
-           metricGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           metricGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
            minSize :: (Prelude.Maybe (Value Prelude.Integer)),
            name :: (Value Prelude.Text),
            newGameSessionProtectionPolicy :: (Prelude.Maybe (Value Prelude.Text)),
@@ -165,7 +165,7 @@ instance Property "MaxSize" Fleet where
   set newValue Fleet {..}
     = Fleet {maxSize = Prelude.pure newValue, ..}
 instance Property "MetricGroups" Fleet where
-  type PropertyType "MetricGroups" Fleet = ValueList (Value Prelude.Text)
+  type PropertyType "MetricGroups" Fleet = ValueList Prelude.Text
   set newValue Fleet {..}
     = Fleet {metricGroups = Prelude.pure newValue, ..}
 instance Property "MinSize" Fleet where

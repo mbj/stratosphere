@@ -7,14 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RepositoryTriggerProperty
-  = RepositoryTriggerProperty {branches :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = RepositoryTriggerProperty {branches :: (Prelude.Maybe (ValueList Prelude.Text)),
                                customData :: (Prelude.Maybe (Value Prelude.Text)),
                                destinationArn :: (Value Prelude.Text),
-                               events :: (ValueList (Value Prelude.Text)),
+                               events :: (ValueList Prelude.Text),
                                name :: (Value Prelude.Text)}
 mkRepositoryTriggerProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
+  -> ValueList Prelude.Text
      -> Value Prelude.Text -> RepositoryTriggerProperty
 mkRepositoryTriggerProperty destinationArn events name
   = RepositoryTriggerProperty
@@ -42,7 +42,7 @@ instance JSON.ToJSON RepositoryTriggerProperty where
                  [(JSON..=) "Branches" Prelude.<$> branches,
                   (JSON..=) "CustomData" Prelude.<$> customData])))
 instance Property "Branches" RepositoryTriggerProperty where
-  type PropertyType "Branches" RepositoryTriggerProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Branches" RepositoryTriggerProperty = ValueList Prelude.Text
   set newValue RepositoryTriggerProperty {..}
     = RepositoryTriggerProperty {branches = Prelude.pure newValue, ..}
 instance Property "CustomData" RepositoryTriggerProperty where
@@ -55,7 +55,7 @@ instance Property "DestinationArn" RepositoryTriggerProperty where
   set newValue RepositoryTriggerProperty {..}
     = RepositoryTriggerProperty {destinationArn = newValue, ..}
 instance Property "Events" RepositoryTriggerProperty where
-  type PropertyType "Events" RepositoryTriggerProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Events" RepositoryTriggerProperty = ValueList Prelude.Text
   set newValue RepositoryTriggerProperty {..}
     = RepositoryTriggerProperty {events = newValue, ..}
 instance Property "Name" RepositoryTriggerProperty where

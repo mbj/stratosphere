@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data NetworkInsightsAnalysis
-  = NetworkInsightsAnalysis {additionalAccounts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                             filterInArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = NetworkInsightsAnalysis {additionalAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             filterInArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                              networkInsightsPathId :: (Value Prelude.Text),
                              tags :: (Prelude.Maybe [Tag])}
 mkNetworkInsightsAnalysis ::
@@ -41,12 +41,12 @@ instance JSON.ToJSON NetworkInsightsAnalysis where
                   (JSON..=) "FilterInArns" Prelude.<$> filterInArns,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AdditionalAccounts" NetworkInsightsAnalysis where
-  type PropertyType "AdditionalAccounts" NetworkInsightsAnalysis = ValueList (Value Prelude.Text)
+  type PropertyType "AdditionalAccounts" NetworkInsightsAnalysis = ValueList Prelude.Text
   set newValue NetworkInsightsAnalysis {..}
     = NetworkInsightsAnalysis
         {additionalAccounts = Prelude.pure newValue, ..}
 instance Property "FilterInArns" NetworkInsightsAnalysis where
-  type PropertyType "FilterInArns" NetworkInsightsAnalysis = ValueList (Value Prelude.Text)
+  type PropertyType "FilterInArns" NetworkInsightsAnalysis = ValueList Prelude.Text
   set newValue NetworkInsightsAnalysis {..}
     = NetworkInsightsAnalysis
         {filterInArns = Prelude.pure newValue, ..}

@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LoadBalancer
-  = LoadBalancer {attachedInstances :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = LoadBalancer {attachedInstances :: (Prelude.Maybe (ValueList Prelude.Text)),
                   healthCheckPath :: (Prelude.Maybe (Value Prelude.Text)),
                   instancePort :: (Value Prelude.Integer),
                   ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
@@ -63,7 +63,7 @@ instance JSON.ToJSON LoadBalancer where
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TlsPolicyName" Prelude.<$> tlsPolicyName])))
 instance Property "AttachedInstances" LoadBalancer where
-  type PropertyType "AttachedInstances" LoadBalancer = ValueList (Value Prelude.Text)
+  type PropertyType "AttachedInstances" LoadBalancer = ValueList Prelude.Text
   set newValue LoadBalancer {..}
     = LoadBalancer {attachedInstances = Prelude.pure newValue, ..}
 instance Property "HealthCheckPath" LoadBalancer where

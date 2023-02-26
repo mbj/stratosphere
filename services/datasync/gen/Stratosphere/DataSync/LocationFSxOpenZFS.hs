@@ -11,12 +11,11 @@ import Stratosphere.Value
 data LocationFSxOpenZFS
   = LocationFSxOpenZFS {fsxFilesystemArn :: (Prelude.Maybe (Value Prelude.Text)),
                         protocol :: ProtocolProperty,
-                        securityGroupArns :: (ValueList (Value Prelude.Text)),
+                        securityGroupArns :: (ValueList Prelude.Text),
                         subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                         tags :: (Prelude.Maybe [Tag])}
 mkLocationFSxOpenZFS ::
-  ProtocolProperty
-  -> ValueList (Value Prelude.Text) -> LocationFSxOpenZFS
+  ProtocolProperty -> ValueList Prelude.Text -> LocationFSxOpenZFS
 mkLocationFSxOpenZFS protocol securityGroupArns
   = LocationFSxOpenZFS
       {protocol = protocol, securityGroupArns = securityGroupArns,
@@ -54,7 +53,7 @@ instance Property "Protocol" LocationFSxOpenZFS where
   set newValue LocationFSxOpenZFS {..}
     = LocationFSxOpenZFS {protocol = newValue, ..}
 instance Property "SecurityGroupArns" LocationFSxOpenZFS where
-  type PropertyType "SecurityGroupArns" LocationFSxOpenZFS = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupArns" LocationFSxOpenZFS = ValueList Prelude.Text
   set newValue LocationFSxOpenZFS {..}
     = LocationFSxOpenZFS {securityGroupArns = newValue, ..}
 instance Property "Subdirectory" LocationFSxOpenZFS where

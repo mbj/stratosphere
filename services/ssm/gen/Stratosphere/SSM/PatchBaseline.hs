@@ -12,15 +12,15 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data PatchBaseline
   = PatchBaseline {approvalRules :: (Prelude.Maybe RuleGroupProperty),
-                   approvedPatches :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   approvedPatches :: (Prelude.Maybe (ValueList Prelude.Text)),
                    approvedPatchesComplianceLevel :: (Prelude.Maybe (Value Prelude.Text)),
                    approvedPatchesEnableNonSecurity :: (Prelude.Maybe (Value Prelude.Bool)),
                    description :: (Prelude.Maybe (Value Prelude.Text)),
                    globalFilters :: (Prelude.Maybe PatchFilterGroupProperty),
                    name :: (Value Prelude.Text),
                    operatingSystem :: (Prelude.Maybe (Value Prelude.Text)),
-                   patchGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                   rejectedPatches :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   patchGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   rejectedPatches :: (Prelude.Maybe (ValueList Prelude.Text)),
                    rejectedPatchesAction :: (Prelude.Maybe (Value Prelude.Text)),
                    sources :: (Prelude.Maybe [PatchSourceProperty]),
                    tags :: (Prelude.Maybe [Tag])}
@@ -86,7 +86,7 @@ instance Property "ApprovalRules" PatchBaseline where
   set newValue PatchBaseline {..}
     = PatchBaseline {approvalRules = Prelude.pure newValue, ..}
 instance Property "ApprovedPatches" PatchBaseline where
-  type PropertyType "ApprovedPatches" PatchBaseline = ValueList (Value Prelude.Text)
+  type PropertyType "ApprovedPatches" PatchBaseline = ValueList Prelude.Text
   set newValue PatchBaseline {..}
     = PatchBaseline {approvedPatches = Prelude.pure newValue, ..}
 instance Property "ApprovedPatchesComplianceLevel" PatchBaseline where
@@ -116,11 +116,11 @@ instance Property "OperatingSystem" PatchBaseline where
   set newValue PatchBaseline {..}
     = PatchBaseline {operatingSystem = Prelude.pure newValue, ..}
 instance Property "PatchGroups" PatchBaseline where
-  type PropertyType "PatchGroups" PatchBaseline = ValueList (Value Prelude.Text)
+  type PropertyType "PatchGroups" PatchBaseline = ValueList Prelude.Text
   set newValue PatchBaseline {..}
     = PatchBaseline {patchGroups = Prelude.pure newValue, ..}
 instance Property "RejectedPatches" PatchBaseline where
-  type PropertyType "RejectedPatches" PatchBaseline = ValueList (Value Prelude.Text)
+  type PropertyType "RejectedPatches" PatchBaseline = ValueList Prelude.Text
   set newValue PatchBaseline {..}
     = PatchBaseline {rejectedPatches = Prelude.pure newValue, ..}
 instance Property "RejectedPatchesAction" PatchBaseline where

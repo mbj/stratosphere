@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.FinSpace.Environment.SuperuserParametersPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Environment
-  = Environment {dataBundles :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Environment {dataBundles :: (Prelude.Maybe (ValueList Prelude.Text)),
                  description :: (Prelude.Maybe (Value Prelude.Text)),
                  federationMode :: (Prelude.Maybe (Value Prelude.Text)),
                  federationParameters :: (Prelude.Maybe FederationParametersProperty),
@@ -51,7 +51,7 @@ instance JSON.ToJSON Environment where
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                   (JSON..=) "SuperuserParameters" Prelude.<$> superuserParameters])))
 instance Property "DataBundles" Environment where
-  type PropertyType "DataBundles" Environment = ValueList (Value Prelude.Text)
+  type PropertyType "DataBundles" Environment = ValueList Prelude.Text
   set newValue Environment {..}
     = Environment {dataBundles = Prelude.pure newValue, ..}
 instance Property "Description" Environment where

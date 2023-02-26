@@ -10,9 +10,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3SourceConfigProperty
   = S3SourceConfigProperty {fileFormatDescriptor :: FileFormatDescriptorProperty,
-                            historicalDataPathList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                            historicalDataPathList :: (Prelude.Maybe (ValueList Prelude.Text)),
                             roleArn :: (Value Prelude.Text),
-                            templatedPathList :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                            templatedPathList :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkS3SourceConfigProperty ::
   FileFormatDescriptorProperty
   -> Value Prelude.Text -> S3SourceConfigProperty
@@ -49,7 +49,7 @@ instance Property "FileFormatDescriptor" S3SourceConfigProperty where
   set newValue S3SourceConfigProperty {..}
     = S3SourceConfigProperty {fileFormatDescriptor = newValue, ..}
 instance Property "HistoricalDataPathList" S3SourceConfigProperty where
-  type PropertyType "HistoricalDataPathList" S3SourceConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "HistoricalDataPathList" S3SourceConfigProperty = ValueList Prelude.Text
   set newValue S3SourceConfigProperty {..}
     = S3SourceConfigProperty
         {historicalDataPathList = Prelude.pure newValue, ..}
@@ -58,7 +58,7 @@ instance Property "RoleArn" S3SourceConfigProperty where
   set newValue S3SourceConfigProperty {..}
     = S3SourceConfigProperty {roleArn = newValue, ..}
 instance Property "TemplatedPathList" S3SourceConfigProperty where
-  type PropertyType "TemplatedPathList" S3SourceConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TemplatedPathList" S3SourceConfigProperty = ValueList Prelude.Text
   set newValue S3SourceConfigProperty {..}
     = S3SourceConfigProperty
         {templatedPathList = Prelude.pure newValue, ..}

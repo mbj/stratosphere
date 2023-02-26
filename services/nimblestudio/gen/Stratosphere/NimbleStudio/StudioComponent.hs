@@ -12,7 +12,7 @@ import Stratosphere.Value
 data StudioComponent
   = StudioComponent {configuration :: (Prelude.Maybe StudioComponentConfigurationProperty),
                      description :: (Prelude.Maybe (Value Prelude.Text)),
-                     ec2SecurityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                     ec2SecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                      initializationScripts :: (Prelude.Maybe [StudioComponentInitializationScriptProperty]),
                      name :: (Value Prelude.Text),
                      scriptParameters :: (Prelude.Maybe [ScriptParameterKeyValueProperty]),
@@ -73,7 +73,7 @@ instance Property "Description" StudioComponent where
   set newValue StudioComponent {..}
     = StudioComponent {description = Prelude.pure newValue, ..}
 instance Property "Ec2SecurityGroupIds" StudioComponent where
-  type PropertyType "Ec2SecurityGroupIds" StudioComponent = ValueList (Value Prelude.Text)
+  type PropertyType "Ec2SecurityGroupIds" StudioComponent = ValueList Prelude.Text
   set newValue StudioComponent {..}
     = StudioComponent {ec2SecurityGroupIds = Prelude.pure newValue, ..}
 instance Property "InitializationScripts" StudioComponent where

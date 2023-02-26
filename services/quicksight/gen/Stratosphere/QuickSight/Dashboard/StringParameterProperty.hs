@@ -8,10 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StringParameterProperty
   = StringParameterProperty {name :: (Value Prelude.Text),
-                             values :: (ValueList (Value Prelude.Text))}
+                             values :: (ValueList Prelude.Text)}
 mkStringParameterProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> StringParameterProperty
+  -> ValueList Prelude.Text -> StringParameterProperty
 mkStringParameterProperty name values
   = StringParameterProperty {name = name, values = values}
 instance ToResourceProperties StringParameterProperty where
@@ -27,6 +27,6 @@ instance Property "Name" StringParameterProperty where
   set newValue StringParameterProperty {..}
     = StringParameterProperty {name = newValue, ..}
 instance Property "Values" StringParameterProperty where
-  type PropertyType "Values" StringParameterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" StringParameterProperty = ValueList Prelude.Text
   set newValue StringParameterProperty {..}
     = StringParameterProperty {values = newValue, ..}

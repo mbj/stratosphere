@@ -9,7 +9,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data LocationObjectStorage
   = LocationObjectStorage {accessKey :: (Prelude.Maybe (Value Prelude.Text)),
-                           agentArns :: (ValueList (Value Prelude.Text)),
+                           agentArns :: (ValueList Prelude.Text),
                            bucketName :: (Prelude.Maybe (Value Prelude.Text)),
                            secretKey :: (Prelude.Maybe (Value Prelude.Text)),
                            serverCertificate :: (Prelude.Maybe (Value Prelude.Text)),
@@ -19,7 +19,7 @@ data LocationObjectStorage
                            subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                            tags :: (Prelude.Maybe [Tag])}
 mkLocationObjectStorage ::
-  ValueList (Value Prelude.Text) -> LocationObjectStorage
+  ValueList Prelude.Text -> LocationObjectStorage
 mkLocationObjectStorage agentArns
   = LocationObjectStorage
       {agentArns = agentArns, accessKey = Prelude.Nothing,
@@ -66,7 +66,7 @@ instance Property "AccessKey" LocationObjectStorage where
   set newValue LocationObjectStorage {..}
     = LocationObjectStorage {accessKey = Prelude.pure newValue, ..}
 instance Property "AgentArns" LocationObjectStorage where
-  type PropertyType "AgentArns" LocationObjectStorage = ValueList (Value Prelude.Text)
+  type PropertyType "AgentArns" LocationObjectStorage = ValueList Prelude.Text
   set newValue LocationObjectStorage {..}
     = LocationObjectStorage {agentArns = newValue, ..}
 instance Property "BucketName" LocationObjectStorage where

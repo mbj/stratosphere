@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CategoricalHyperParameterRangeProperty
   = CategoricalHyperParameterRangeProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
-                                            values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                            values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCategoricalHyperParameterRangeProperty ::
   CategoricalHyperParameterRangeProperty
 mkCategoricalHyperParameterRangeProperty
@@ -36,7 +36,7 @@ instance Property "Name" CategoricalHyperParameterRangeProperty where
     = CategoricalHyperParameterRangeProperty
         {name = Prelude.pure newValue, ..}
 instance Property "Values" CategoricalHyperParameterRangeProperty where
-  type PropertyType "Values" CategoricalHyperParameterRangeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" CategoricalHyperParameterRangeProperty = ValueList Prelude.Text
   set newValue CategoricalHyperParameterRangeProperty {..}
     = CategoricalHyperParameterRangeProperty
         {values = Prelude.pure newValue, ..}

@@ -8,8 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RiskExceptionConfigurationTypeProperty
-  = RiskExceptionConfigurationTypeProperty {blockedIPRangeList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                            skippedIPRangeList :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = RiskExceptionConfigurationTypeProperty {blockedIPRangeList :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                            skippedIPRangeList :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkRiskExceptionConfigurationTypeProperty ::
   RiskExceptionConfigurationTypeProperty
 mkRiskExceptionConfigurationTypeProperty
@@ -32,12 +32,12 @@ instance JSON.ToJSON RiskExceptionConfigurationTypeProperty where
               [(JSON..=) "BlockedIPRangeList" Prelude.<$> blockedIPRangeList,
                (JSON..=) "SkippedIPRangeList" Prelude.<$> skippedIPRangeList]))
 instance Property "BlockedIPRangeList" RiskExceptionConfigurationTypeProperty where
-  type PropertyType "BlockedIPRangeList" RiskExceptionConfigurationTypeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "BlockedIPRangeList" RiskExceptionConfigurationTypeProperty = ValueList Prelude.Text
   set newValue RiskExceptionConfigurationTypeProperty {..}
     = RiskExceptionConfigurationTypeProperty
         {blockedIPRangeList = Prelude.pure newValue, ..}
 instance Property "SkippedIPRangeList" RiskExceptionConfigurationTypeProperty where
-  type PropertyType "SkippedIPRangeList" RiskExceptionConfigurationTypeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SkippedIPRangeList" RiskExceptionConfigurationTypeProperty = ValueList Prelude.Text
   set newValue RiskExceptionConfigurationTypeProperty {..}
     = RiskExceptionConfigurationTypeProperty
         {skippedIPRangeList = Prelude.pure newValue, ..}

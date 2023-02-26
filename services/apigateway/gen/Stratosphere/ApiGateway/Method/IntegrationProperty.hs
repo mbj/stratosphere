@@ -8,7 +8,7 @@ import {-# SOURCE #-} Stratosphere.ApiGateway.Method.IntegrationResponseProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntegrationProperty
-  = IntegrationProperty {cacheKeyParameters :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = IntegrationProperty {cacheKeyParameters :: (Prelude.Maybe (ValueList Prelude.Text)),
                          cacheNamespace :: (Prelude.Maybe (Value Prelude.Text)),
                          connectionId :: (Prelude.Maybe (Value Prelude.Text)),
                          connectionType :: (Prelude.Maybe (Value Prelude.Text)),
@@ -78,7 +78,7 @@ instance JSON.ToJSON IntegrationProperty where
                (JSON..=) "Type" Prelude.<$> type',
                (JSON..=) "Uri" Prelude.<$> uri]))
 instance Property "CacheKeyParameters" IntegrationProperty where
-  type PropertyType "CacheKeyParameters" IntegrationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CacheKeyParameters" IntegrationProperty = ValueList Prelude.Text
   set newValue IntegrationProperty {..}
     = IntegrationProperty
         {cacheKeyParameters = Prelude.pure newValue, ..}

@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointsProperty
-  = EndpointsProperty {kafkaBootstrapServers :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = EndpointsProperty {kafkaBootstrapServers :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkEndpointsProperty :: EndpointsProperty
 mkEndpointsProperty
   = EndpointsProperty {kafkaBootstrapServers = Prelude.Nothing}
@@ -27,7 +27,7 @@ instance JSON.ToJSON EndpointsProperty where
               [(JSON..=) "KafkaBootstrapServers"
                  Prelude.<$> kafkaBootstrapServers]))
 instance Property "KafkaBootstrapServers" EndpointsProperty where
-  type PropertyType "KafkaBootstrapServers" EndpointsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "KafkaBootstrapServers" EndpointsProperty = ValueList Prelude.Text
   set newValue EndpointsProperty {}
     = EndpointsProperty
         {kafkaBootstrapServers = Prelude.pure newValue, ..}

@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PushSyncProperty
-  = PushSyncProperty {applicationArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = PushSyncProperty {applicationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                       roleArn :: (Prelude.Maybe (Value Prelude.Text))}
 mkPushSyncProperty :: PushSyncProperty
 mkPushSyncProperty
@@ -29,7 +29,7 @@ instance JSON.ToJSON PushSyncProperty where
               [(JSON..=) "ApplicationArns" Prelude.<$> applicationArns,
                (JSON..=) "RoleArn" Prelude.<$> roleArn]))
 instance Property "ApplicationArns" PushSyncProperty where
-  type PropertyType "ApplicationArns" PushSyncProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ApplicationArns" PushSyncProperty = ValueList Prelude.Text
   set newValue PushSyncProperty {..}
     = PushSyncProperty {applicationArns = Prelude.pure newValue, ..}
 instance Property "RoleArn" PushSyncProperty where

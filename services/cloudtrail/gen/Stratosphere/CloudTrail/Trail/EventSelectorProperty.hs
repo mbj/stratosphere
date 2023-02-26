@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventSelectorProperty
   = EventSelectorProperty {dataResources :: (Prelude.Maybe [DataResourceProperty]),
-                           excludeManagementEventSources :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                           excludeManagementEventSources :: (Prelude.Maybe (ValueList Prelude.Text)),
                            includeManagementEvents :: (Prelude.Maybe (Value Prelude.Bool)),
                            readWriteType :: (Prelude.Maybe (Value Prelude.Text))}
 mkEventSelectorProperty :: EventSelectorProperty
@@ -47,7 +47,7 @@ instance Property "DataResources" EventSelectorProperty where
   set newValue EventSelectorProperty {..}
     = EventSelectorProperty {dataResources = Prelude.pure newValue, ..}
 instance Property "ExcludeManagementEventSources" EventSelectorProperty where
-  type PropertyType "ExcludeManagementEventSources" EventSelectorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludeManagementEventSources" EventSelectorProperty = ValueList Prelude.Text
   set newValue EventSelectorProperty {..}
     = EventSelectorProperty
         {excludeManagementEventSources = Prelude.pure newValue, ..}

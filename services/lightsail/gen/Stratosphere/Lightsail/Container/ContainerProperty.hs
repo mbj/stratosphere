@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.Lightsail.Container.PortInfoProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerProperty
-  = ContainerProperty {command :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ContainerProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
                        containerName :: (Prelude.Maybe (Value Prelude.Text)),
                        environment :: (Prelude.Maybe [EnvironmentVariableProperty]),
                        image :: (Prelude.Maybe (Value Prelude.Text)),
@@ -42,7 +42,7 @@ instance JSON.ToJSON ContainerProperty where
                (JSON..=) "Image" Prelude.<$> image,
                (JSON..=) "Ports" Prelude.<$> ports]))
 instance Property "Command" ContainerProperty where
-  type PropertyType "Command" ContainerProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Command" ContainerProperty = ValueList Prelude.Text
   set newValue ContainerProperty {..}
     = ContainerProperty {command = Prelude.pure newValue, ..}
 instance Property "ContainerName" ContainerProperty where

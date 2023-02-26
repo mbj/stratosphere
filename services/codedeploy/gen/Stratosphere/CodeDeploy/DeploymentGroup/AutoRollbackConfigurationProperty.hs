@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoRollbackConfigurationProperty
   = AutoRollbackConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
-                                       events :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                       events :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAutoRollbackConfigurationProperty ::
   AutoRollbackConfigurationProperty
 mkAutoRollbackConfigurationProperty
@@ -36,7 +36,7 @@ instance Property "Enabled" AutoRollbackConfigurationProperty where
     = AutoRollbackConfigurationProperty
         {enabled = Prelude.pure newValue, ..}
 instance Property "Events" AutoRollbackConfigurationProperty where
-  type PropertyType "Events" AutoRollbackConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Events" AutoRollbackConfigurationProperty = ValueList Prelude.Text
   set newValue AutoRollbackConfigurationProperty {..}
     = AutoRollbackConfigurationProperty
         {events = Prelude.pure newValue, ..}

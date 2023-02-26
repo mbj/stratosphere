@@ -11,7 +11,7 @@ data CsvFormatDescriptorProperty
                                  containsHeader :: (Prelude.Maybe (Value Prelude.Bool)),
                                  delimiter :: (Prelude.Maybe (Value Prelude.Text)),
                                  fileCompression :: (Prelude.Maybe (Value Prelude.Text)),
-                                 headerList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                 headerList :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  quoteSymbol :: (Prelude.Maybe (Value Prelude.Text))}
 mkCsvFormatDescriptorProperty :: CsvFormatDescriptorProperty
 mkCsvFormatDescriptorProperty
@@ -62,7 +62,7 @@ instance Property "FileCompression" CsvFormatDescriptorProperty where
     = CsvFormatDescriptorProperty
         {fileCompression = Prelude.pure newValue, ..}
 instance Property "HeaderList" CsvFormatDescriptorProperty where
-  type PropertyType "HeaderList" CsvFormatDescriptorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "HeaderList" CsvFormatDescriptorProperty = ValueList Prelude.Text
   set newValue CsvFormatDescriptorProperty {..}
     = CsvFormatDescriptorProperty
         {headerList = Prelude.pure newValue, ..}

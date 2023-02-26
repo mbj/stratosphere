@@ -18,10 +18,10 @@ data Policy
             policyDescription :: (Prelude.Maybe (Value Prelude.Text)),
             policyName :: (Value Prelude.Text),
             remediationEnabled :: (Value Prelude.Bool),
-            resourceSetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            resourceSetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
             resourceTags :: (Prelude.Maybe [ResourceTagProperty]),
             resourceType :: (Prelude.Maybe (Value Prelude.Text)),
-            resourceTypeList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            resourceTypeList :: (Prelude.Maybe (ValueList Prelude.Text)),
             resourcesCleanUp :: (Prelude.Maybe (Value Prelude.Bool)),
             securityServicePolicyData :: SecurityServicePolicyDataProperty,
             tags :: (Prelude.Maybe [PolicyTagProperty])}
@@ -116,7 +116,7 @@ instance Property "RemediationEnabled" Policy where
   set newValue Policy {..}
     = Policy {remediationEnabled = newValue, ..}
 instance Property "ResourceSetIds" Policy where
-  type PropertyType "ResourceSetIds" Policy = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceSetIds" Policy = ValueList Prelude.Text
   set newValue Policy {..}
     = Policy {resourceSetIds = Prelude.pure newValue, ..}
 instance Property "ResourceTags" Policy where
@@ -128,7 +128,7 @@ instance Property "ResourceType" Policy where
   set newValue Policy {..}
     = Policy {resourceType = Prelude.pure newValue, ..}
 instance Property "ResourceTypeList" Policy where
-  type PropertyType "ResourceTypeList" Policy = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceTypeList" Policy = ValueList Prelude.Text
   set newValue Policy {..}
     = Policy {resourceTypeList = Prelude.pure newValue, ..}
 instance Property "ResourcesCleanUp" Policy where

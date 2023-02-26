@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KernelCapabilitiesProperty
-  = KernelCapabilitiesProperty {add :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                drop :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = KernelCapabilitiesProperty {add :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                drop :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkKernelCapabilitiesProperty :: KernelCapabilitiesProperty
 mkKernelCapabilitiesProperty
   = KernelCapabilitiesProperty
@@ -29,10 +29,10 @@ instance JSON.ToJSON KernelCapabilitiesProperty where
               [(JSON..=) "Add" Prelude.<$> add,
                (JSON..=) "Drop" Prelude.<$> drop]))
 instance Property "Add" KernelCapabilitiesProperty where
-  type PropertyType "Add" KernelCapabilitiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Add" KernelCapabilitiesProperty = ValueList Prelude.Text
   set newValue KernelCapabilitiesProperty {..}
     = KernelCapabilitiesProperty {add = Prelude.pure newValue, ..}
 instance Property "Drop" KernelCapabilitiesProperty where
-  type PropertyType "Drop" KernelCapabilitiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Drop" KernelCapabilitiesProperty = ValueList Prelude.Text
   set newValue KernelCapabilitiesProperty {..}
     = KernelCapabilitiesProperty {drop = Prelude.pure newValue, ..}

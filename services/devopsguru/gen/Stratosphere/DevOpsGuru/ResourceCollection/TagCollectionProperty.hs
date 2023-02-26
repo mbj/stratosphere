@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagCollectionProperty
   = TagCollectionProperty {appBoundaryKey :: (Prelude.Maybe (Value Prelude.Text)),
-                           tagValues :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                           tagValues :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkTagCollectionProperty :: TagCollectionProperty
 mkTagCollectionProperty
   = TagCollectionProperty
@@ -34,6 +34,6 @@ instance Property "AppBoundaryKey" TagCollectionProperty where
     = TagCollectionProperty
         {appBoundaryKey = Prelude.pure newValue, ..}
 instance Property "TagValues" TagCollectionProperty where
-  type PropertyType "TagValues" TagCollectionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TagValues" TagCollectionProperty = ValueList Prelude.Text
   set newValue TagCollectionProperty {..}
     = TagCollectionProperty {tagValues = Prelude.pure newValue, ..}

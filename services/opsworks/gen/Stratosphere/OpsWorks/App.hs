@@ -15,7 +15,7 @@ data App
          attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
          dataSources :: (Prelude.Maybe [DataSourceProperty]),
          description :: (Prelude.Maybe (Value Prelude.Text)),
-         domains :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+         domains :: (Prelude.Maybe (ValueList Prelude.Text)),
          enableSsl :: (Prelude.Maybe (Value Prelude.Bool)),
          environment :: (Prelude.Maybe [EnvironmentVariableProperty]),
          name :: (Value Prelude.Text),
@@ -85,7 +85,7 @@ instance Property "Description" App where
   set newValue App {..}
     = App {description = Prelude.pure newValue, ..}
 instance Property "Domains" App where
-  type PropertyType "Domains" App = ValueList (Value Prelude.Text)
+  type PropertyType "Domains" App = ValueList Prelude.Text
   set newValue App {..} = App {domains = Prelude.pure newValue, ..}
 instance Property "EnableSsl" App where
   type PropertyType "EnableSsl" App = Value Prelude.Bool

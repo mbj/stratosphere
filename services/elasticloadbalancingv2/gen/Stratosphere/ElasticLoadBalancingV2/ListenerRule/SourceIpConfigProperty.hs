@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceIpConfigProperty
-  = SourceIpConfigProperty {values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = SourceIpConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkSourceIpConfigProperty :: SourceIpConfigProperty
 mkSourceIpConfigProperty
   = SourceIpConfigProperty {values = Prelude.Nothing}
@@ -23,6 +23,6 @@ instance JSON.ToJSON SourceIpConfigProperty where
         (Prelude.fromList
            (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values]))
 instance Property "Values" SourceIpConfigProperty where
-  type PropertyType "Values" SourceIpConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" SourceIpConfigProperty = ValueList Prelude.Text
   set newValue SourceIpConfigProperty {}
     = SourceIpConfigProperty {values = Prelude.pure newValue, ..}

@@ -12,7 +12,7 @@ import Stratosphere.Value
 data ComponentType
   = ComponentType {componentTypeId :: (Value Prelude.Text),
                    description :: (Prelude.Maybe (Value Prelude.Text)),
-                   extendsFrom :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   extendsFrom :: (Prelude.Maybe (ValueList Prelude.Text)),
                    functions :: (Prelude.Maybe (Prelude.Map Prelude.Text FunctionProperty)),
                    isSingleton :: (Prelude.Maybe (Value Prelude.Bool)),
                    propertyDefinitions :: (Prelude.Maybe (Prelude.Map Prelude.Text PropertyDefinitionProperty)),
@@ -68,7 +68,7 @@ instance Property "Description" ComponentType where
   set newValue ComponentType {..}
     = ComponentType {description = Prelude.pure newValue, ..}
 instance Property "ExtendsFrom" ComponentType where
-  type PropertyType "ExtendsFrom" ComponentType = ValueList (Value Prelude.Text)
+  type PropertyType "ExtendsFrom" ComponentType = ValueList Prelude.Text
   set newValue ComponentType {..}
     = ComponentType {extendsFrom = Prelude.pure newValue, ..}
 instance Property "Functions" ComponentType where

@@ -14,8 +14,8 @@ import Stratosphere.Value
 data SalesforceConfigurationProperty
   = SalesforceConfigurationProperty {chatterFeedConfiguration :: (Prelude.Maybe SalesforceChatterFeedConfigurationProperty),
                                      crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool)),
-                                     excludeAttachmentFilePatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                     includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                     excludeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                     includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      knowledgeArticleConfiguration :: (Prelude.Maybe SalesforceKnowledgeArticleConfigurationProperty),
                                      secretArn :: (Value Prelude.Text),
                                      serverUrl :: (Value Prelude.Text),
@@ -86,12 +86,12 @@ instance Property "CrawlAttachments" SalesforceConfigurationProperty where
     = SalesforceConfigurationProperty
         {crawlAttachments = Prelude.pure newValue, ..}
 instance Property "ExcludeAttachmentFilePatterns" SalesforceConfigurationProperty where
-  type PropertyType "ExcludeAttachmentFilePatterns" SalesforceConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludeAttachmentFilePatterns" SalesforceConfigurationProperty = ValueList Prelude.Text
   set newValue SalesforceConfigurationProperty {..}
     = SalesforceConfigurationProperty
         {excludeAttachmentFilePatterns = Prelude.pure newValue, ..}
 instance Property "IncludeAttachmentFilePatterns" SalesforceConfigurationProperty where
-  type PropertyType "IncludeAttachmentFilePatterns" SalesforceConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludeAttachmentFilePatterns" SalesforceConfigurationProperty = ValueList Prelude.Text
   set newValue SalesforceConfigurationProperty {..}
     = SalesforceConfigurationProperty
         {includeAttachmentFilePatterns = Prelude.pure newValue, ..}

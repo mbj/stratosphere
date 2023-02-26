@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ControlScopeProperty
-  = ControlScopeProperty {complianceResourceIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                          complianceResourceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ControlScopeProperty {complianceResourceIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                          complianceResourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                           tags :: (Prelude.Maybe [Tag])}
 mkControlScopeProperty :: ControlScopeProperty
 mkControlScopeProperty
@@ -38,12 +38,12 @@ instance JSON.ToJSON ControlScopeProperty where
                  Prelude.<$> complianceResourceTypes,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "ComplianceResourceIds" ControlScopeProperty where
-  type PropertyType "ComplianceResourceIds" ControlScopeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ComplianceResourceIds" ControlScopeProperty = ValueList Prelude.Text
   set newValue ControlScopeProperty {..}
     = ControlScopeProperty
         {complianceResourceIds = Prelude.pure newValue, ..}
 instance Property "ComplianceResourceTypes" ControlScopeProperty where
-  type PropertyType "ComplianceResourceTypes" ControlScopeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ComplianceResourceTypes" ControlScopeProperty = ValueList Prelude.Text
   set newValue ControlScopeProperty {..}
     = ControlScopeProperty
         {complianceResourceTypes = Prelude.pure newValue, ..}

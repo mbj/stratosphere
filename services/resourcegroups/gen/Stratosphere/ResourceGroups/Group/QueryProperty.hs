@@ -8,7 +8,7 @@ import {-# SOURCE #-} Stratosphere.ResourceGroups.Group.TagFilterProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryProperty
-  = QueryProperty {resourceTypeFilters :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = QueryProperty {resourceTypeFilters :: (Prelude.Maybe (ValueList Prelude.Text)),
                    stackIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                    tagFilters :: (Prelude.Maybe [TagFilterProperty])}
 mkQueryProperty :: QueryProperty
@@ -34,7 +34,7 @@ instance JSON.ToJSON QueryProperty where
                (JSON..=) "StackIdentifier" Prelude.<$> stackIdentifier,
                (JSON..=) "TagFilters" Prelude.<$> tagFilters]))
 instance Property "ResourceTypeFilters" QueryProperty where
-  type PropertyType "ResourceTypeFilters" QueryProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceTypeFilters" QueryProperty = ValueList Prelude.Text
   set newValue QueryProperty {..}
     = QueryProperty {resourceTypeFilters = Prelude.pure newValue, ..}
 instance Property "StackIdentifier" QueryProperty where

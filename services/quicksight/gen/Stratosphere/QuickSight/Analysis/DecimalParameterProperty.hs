@@ -8,10 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DecimalParameterProperty
   = DecimalParameterProperty {name :: (Value Prelude.Text),
-                              values :: (ValueList (Value Prelude.Double))}
+                              values :: (ValueList Prelude.Double)}
 mkDecimalParameterProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Double) -> DecimalParameterProperty
+  -> ValueList Prelude.Double -> DecimalParameterProperty
 mkDecimalParameterProperty name values
   = DecimalParameterProperty {name = name, values = values}
 instance ToResourceProperties DecimalParameterProperty where
@@ -27,6 +27,6 @@ instance Property "Name" DecimalParameterProperty where
   set newValue DecimalParameterProperty {..}
     = DecimalParameterProperty {name = newValue, ..}
 instance Property "Values" DecimalParameterProperty where
-  type PropertyType "Values" DecimalParameterProperty = ValueList (Value Prelude.Double)
+  type PropertyType "Values" DecimalParameterProperty = ValueList Prelude.Double
   set newValue DecimalParameterProperty {..}
     = DecimalParameterProperty {values = newValue, ..}

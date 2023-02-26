@@ -9,10 +9,10 @@ import Stratosphere.Value
 data EventParametersProperty
   = EventParametersProperty {descriptionRegex :: (Prelude.Maybe (Value Prelude.Text)),
                              eventType :: (Value Prelude.Text),
-                             snapshotOwner :: (ValueList (Value Prelude.Text))}
+                             snapshotOwner :: (ValueList Prelude.Text)}
 mkEventParametersProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> EventParametersProperty
+  -> ValueList Prelude.Text -> EventParametersProperty
 mkEventParametersProperty eventType snapshotOwner
   = EventParametersProperty
       {eventType = eventType, snapshotOwner = snapshotOwner,
@@ -46,6 +46,6 @@ instance Property "EventType" EventParametersProperty where
   set newValue EventParametersProperty {..}
     = EventParametersProperty {eventType = newValue, ..}
 instance Property "SnapshotOwner" EventParametersProperty where
-  type PropertyType "SnapshotOwner" EventParametersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SnapshotOwner" EventParametersProperty = ValueList Prelude.Text
   set newValue EventParametersProperty {..}
     = EventParametersProperty {snapshotOwner = newValue, ..}

@@ -11,7 +11,7 @@ import Stratosphere.Value
 data ConnectPeerConfigurationProperty
   = ConnectPeerConfigurationProperty {bgpConfigurations :: (Prelude.Maybe [ConnectPeerBgpConfigurationProperty]),
                                       coreNetworkAddress :: (Prelude.Maybe (Value Prelude.Text)),
-                                      insideCidrBlocks :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                      insideCidrBlocks :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       peerAddress :: (Prelude.Maybe (Value Prelude.Text)),
                                       protocol :: (Prelude.Maybe (Value Prelude.Text))}
 mkConnectPeerConfigurationProperty ::
@@ -54,7 +54,7 @@ instance Property "CoreNetworkAddress" ConnectPeerConfigurationProperty where
     = ConnectPeerConfigurationProperty
         {coreNetworkAddress = Prelude.pure newValue, ..}
 instance Property "InsideCidrBlocks" ConnectPeerConfigurationProperty where
-  type PropertyType "InsideCidrBlocks" ConnectPeerConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InsideCidrBlocks" ConnectPeerConfigurationProperty = ValueList Prelude.Text
   set newValue ConnectPeerConfigurationProperty {..}
     = ConnectPeerConfigurationProperty
         {insideCidrBlocks = Prelude.pure newValue, ..}

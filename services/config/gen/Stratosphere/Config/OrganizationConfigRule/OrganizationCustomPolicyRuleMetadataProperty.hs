@@ -8,14 +8,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrganizationCustomPolicyRuleMetadataProperty
-  = OrganizationCustomPolicyRuleMetadataProperty {debugLogDeliveryAccounts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = OrganizationCustomPolicyRuleMetadataProperty {debugLogDeliveryAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                   description :: (Prelude.Maybe (Value Prelude.Text)),
                                                   inputParameters :: (Prelude.Maybe (Value Prelude.Text)),
                                                   maximumExecutionFrequency :: (Prelude.Maybe (Value Prelude.Text)),
-                                                  organizationConfigRuleTriggerTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                                  organizationConfigRuleTriggerTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                   policyText :: (Value Prelude.Text),
                                                   resourceIdScope :: (Prelude.Maybe (Value Prelude.Text)),
-                                                  resourceTypesScope :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                                  resourceTypesScope :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                   runtime :: (Value Prelude.Text),
                                                   tagKeyScope :: (Prelude.Maybe (Value Prelude.Text)),
                                                   tagValueScope :: (Prelude.Maybe (Value Prelude.Text))}
@@ -74,7 +74,7 @@ instance JSON.ToJSON OrganizationCustomPolicyRuleMetadataProperty where
                   (JSON..=) "TagKeyScope" Prelude.<$> tagKeyScope,
                   (JSON..=) "TagValueScope" Prelude.<$> tagValueScope])))
 instance Property "DebugLogDeliveryAccounts" OrganizationCustomPolicyRuleMetadataProperty where
-  type PropertyType "DebugLogDeliveryAccounts" OrganizationCustomPolicyRuleMetadataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DebugLogDeliveryAccounts" OrganizationCustomPolicyRuleMetadataProperty = ValueList Prelude.Text
   set newValue OrganizationCustomPolicyRuleMetadataProperty {..}
     = OrganizationCustomPolicyRuleMetadataProperty
         {debugLogDeliveryAccounts = Prelude.pure newValue, ..}
@@ -94,7 +94,7 @@ instance Property "MaximumExecutionFrequency" OrganizationCustomPolicyRuleMetada
     = OrganizationCustomPolicyRuleMetadataProperty
         {maximumExecutionFrequency = Prelude.pure newValue, ..}
 instance Property "OrganizationConfigRuleTriggerTypes" OrganizationCustomPolicyRuleMetadataProperty where
-  type PropertyType "OrganizationConfigRuleTriggerTypes" OrganizationCustomPolicyRuleMetadataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OrganizationConfigRuleTriggerTypes" OrganizationCustomPolicyRuleMetadataProperty = ValueList Prelude.Text
   set newValue OrganizationCustomPolicyRuleMetadataProperty {..}
     = OrganizationCustomPolicyRuleMetadataProperty
         {organizationConfigRuleTriggerTypes = Prelude.pure newValue, ..}
@@ -109,7 +109,7 @@ instance Property "ResourceIdScope" OrganizationCustomPolicyRuleMetadataProperty
     = OrganizationCustomPolicyRuleMetadataProperty
         {resourceIdScope = Prelude.pure newValue, ..}
 instance Property "ResourceTypesScope" OrganizationCustomPolicyRuleMetadataProperty where
-  type PropertyType "ResourceTypesScope" OrganizationCustomPolicyRuleMetadataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceTypesScope" OrganizationCustomPolicyRuleMetadataProperty = ValueList Prelude.Text
   set newValue OrganizationCustomPolicyRuleMetadataProperty {..}
     = OrganizationCustomPolicyRuleMetadataProperty
         {resourceTypesScope = Prelude.pure newValue, ..}

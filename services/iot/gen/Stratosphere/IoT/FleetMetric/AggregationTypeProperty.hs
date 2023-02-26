@@ -8,10 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AggregationTypeProperty
   = AggregationTypeProperty {name :: (Value Prelude.Text),
-                             values :: (ValueList (Value Prelude.Text))}
+                             values :: (ValueList Prelude.Text)}
 mkAggregationTypeProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> AggregationTypeProperty
+  -> ValueList Prelude.Text -> AggregationTypeProperty
 mkAggregationTypeProperty name values
   = AggregationTypeProperty {name = name, values = values}
 instance ToResourceProperties AggregationTypeProperty where
@@ -27,6 +27,6 @@ instance Property "Name" AggregationTypeProperty where
   set newValue AggregationTypeProperty {..}
     = AggregationTypeProperty {name = newValue, ..}
 instance Property "Values" AggregationTypeProperty where
-  type PropertyType "Values" AggregationTypeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" AggregationTypeProperty = ValueList Prelude.Text
   set newValue AggregationTypeProperty {..}
     = AggregationTypeProperty {values = newValue, ..}

@@ -10,14 +10,14 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Workspace
   = Workspace {accountAccessType :: (Prelude.Maybe (Value Prelude.Text)),
-               authenticationProviders :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               authenticationProviders :: (Prelude.Maybe (ValueList Prelude.Text)),
                clientToken :: (Prelude.Maybe (Value Prelude.Text)),
-               dataSources :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               dataSources :: (Prelude.Maybe (ValueList Prelude.Text)),
                description :: (Prelude.Maybe (Value Prelude.Text)),
                name :: (Prelude.Maybe (Value Prelude.Text)),
-               notificationDestinations :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               notificationDestinations :: (Prelude.Maybe (ValueList Prelude.Text)),
                organizationRoleName :: (Prelude.Maybe (Value Prelude.Text)),
-               organizationalUnits :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               organizationalUnits :: (Prelude.Maybe (ValueList Prelude.Text)),
                permissionType :: (Prelude.Maybe (Value Prelude.Text)),
                roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                samlConfiguration :: (Prelude.Maybe SamlConfigurationProperty),
@@ -84,7 +84,7 @@ instance Property "AccountAccessType" Workspace where
   set newValue Workspace {..}
     = Workspace {accountAccessType = Prelude.pure newValue, ..}
 instance Property "AuthenticationProviders" Workspace where
-  type PropertyType "AuthenticationProviders" Workspace = ValueList (Value Prelude.Text)
+  type PropertyType "AuthenticationProviders" Workspace = ValueList Prelude.Text
   set newValue Workspace {..}
     = Workspace {authenticationProviders = Prelude.pure newValue, ..}
 instance Property "ClientToken" Workspace where
@@ -92,7 +92,7 @@ instance Property "ClientToken" Workspace where
   set newValue Workspace {..}
     = Workspace {clientToken = Prelude.pure newValue, ..}
 instance Property "DataSources" Workspace where
-  type PropertyType "DataSources" Workspace = ValueList (Value Prelude.Text)
+  type PropertyType "DataSources" Workspace = ValueList Prelude.Text
   set newValue Workspace {..}
     = Workspace {dataSources = Prelude.pure newValue, ..}
 instance Property "Description" Workspace where
@@ -104,7 +104,7 @@ instance Property "Name" Workspace where
   set newValue Workspace {..}
     = Workspace {name = Prelude.pure newValue, ..}
 instance Property "NotificationDestinations" Workspace where
-  type PropertyType "NotificationDestinations" Workspace = ValueList (Value Prelude.Text)
+  type PropertyType "NotificationDestinations" Workspace = ValueList Prelude.Text
   set newValue Workspace {..}
     = Workspace {notificationDestinations = Prelude.pure newValue, ..}
 instance Property "OrganizationRoleName" Workspace where
@@ -112,7 +112,7 @@ instance Property "OrganizationRoleName" Workspace where
   set newValue Workspace {..}
     = Workspace {organizationRoleName = Prelude.pure newValue, ..}
 instance Property "OrganizationalUnits" Workspace where
-  type PropertyType "OrganizationalUnits" Workspace = ValueList (Value Prelude.Text)
+  type PropertyType "OrganizationalUnits" Workspace = ValueList Prelude.Text
   set newValue Workspace {..}
     = Workspace {organizationalUnits = Prelude.pure newValue, ..}
 instance Property "PermissionType" Workspace where

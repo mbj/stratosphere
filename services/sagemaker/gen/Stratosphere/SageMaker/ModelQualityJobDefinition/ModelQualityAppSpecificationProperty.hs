@@ -8,8 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelQualityAppSpecificationProperty
-  = ModelQualityAppSpecificationProperty {containerArguments :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                          containerEntrypoint :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ModelQualityAppSpecificationProperty {containerArguments :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                          containerEntrypoint :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           environment :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                           imageUri :: (Value Prelude.Text),
                                           postAnalyticsProcessorSourceUri :: (Prelude.Maybe (Value Prelude.Text)),
@@ -56,12 +56,12 @@ instance JSON.ToJSON ModelQualityAppSpecificationProperty where
                   (JSON..=) "RecordPreprocessorSourceUri"
                     Prelude.<$> recordPreprocessorSourceUri])))
 instance Property "ContainerArguments" ModelQualityAppSpecificationProperty where
-  type PropertyType "ContainerArguments" ModelQualityAppSpecificationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ContainerArguments" ModelQualityAppSpecificationProperty = ValueList Prelude.Text
   set newValue ModelQualityAppSpecificationProperty {..}
     = ModelQualityAppSpecificationProperty
         {containerArguments = Prelude.pure newValue, ..}
 instance Property "ContainerEntrypoint" ModelQualityAppSpecificationProperty where
-  type PropertyType "ContainerEntrypoint" ModelQualityAppSpecificationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ContainerEntrypoint" ModelQualityAppSpecificationProperty = ValueList Prelude.Text
   set newValue ModelQualityAppSpecificationProperty {..}
     = ModelQualityAppSpecificationProperty
         {containerEntrypoint = Prelude.pure newValue, ..}

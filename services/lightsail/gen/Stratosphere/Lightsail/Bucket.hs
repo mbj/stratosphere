@@ -13,8 +13,8 @@ data Bucket
             bucketName :: (Value Prelude.Text),
             bundleId :: (Value Prelude.Text),
             objectVersioning :: (Prelude.Maybe (Value Prelude.Bool)),
-            readOnlyAccessAccounts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-            resourcesReceivingAccess :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+            readOnlyAccessAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+            resourcesReceivingAccess :: (Prelude.Maybe (ValueList Prelude.Text)),
             tags :: (Prelude.Maybe [Tag])}
 mkBucket :: Value Prelude.Text -> Value Prelude.Text -> Bucket
 mkBucket bucketName bundleId
@@ -67,11 +67,11 @@ instance Property "ObjectVersioning" Bucket where
   set newValue Bucket {..}
     = Bucket {objectVersioning = Prelude.pure newValue, ..}
 instance Property "ReadOnlyAccessAccounts" Bucket where
-  type PropertyType "ReadOnlyAccessAccounts" Bucket = ValueList (Value Prelude.Text)
+  type PropertyType "ReadOnlyAccessAccounts" Bucket = ValueList Prelude.Text
   set newValue Bucket {..}
     = Bucket {readOnlyAccessAccounts = Prelude.pure newValue, ..}
 instance Property "ResourcesReceivingAccess" Bucket where
-  type PropertyType "ResourcesReceivingAccess" Bucket = ValueList (Value Prelude.Text)
+  type PropertyType "ResourcesReceivingAccess" Bucket = ValueList Prelude.Text
   set newValue Bucket {..}
     = Bucket {resourcesReceivingAccess = Prelude.pure newValue, ..}
 instance Property "Tags" Bucket where

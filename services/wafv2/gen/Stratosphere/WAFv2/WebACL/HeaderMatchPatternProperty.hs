@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HeaderMatchPatternProperty
   = HeaderMatchPatternProperty {all :: (Prelude.Maybe JSON.Object),
-                                excludedHeaders :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                includedHeaders :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                excludedHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                includedHeaders :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkHeaderMatchPatternProperty :: HeaderMatchPatternProperty
 mkHeaderMatchPatternProperty
   = HeaderMatchPatternProperty
@@ -37,12 +37,12 @@ instance Property "All" HeaderMatchPatternProperty where
   set newValue HeaderMatchPatternProperty {..}
     = HeaderMatchPatternProperty {all = Prelude.pure newValue, ..}
 instance Property "ExcludedHeaders" HeaderMatchPatternProperty where
-  type PropertyType "ExcludedHeaders" HeaderMatchPatternProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludedHeaders" HeaderMatchPatternProperty = ValueList Prelude.Text
   set newValue HeaderMatchPatternProperty {..}
     = HeaderMatchPatternProperty
         {excludedHeaders = Prelude.pure newValue, ..}
 instance Property "IncludedHeaders" HeaderMatchPatternProperty where
-  type PropertyType "IncludedHeaders" HeaderMatchPatternProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludedHeaders" HeaderMatchPatternProperty = ValueList Prelude.Text
   set newValue HeaderMatchPatternProperty {..}
     = HeaderMatchPatternProperty
         {includedHeaders = Prelude.pure newValue, ..}

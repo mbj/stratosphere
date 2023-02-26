@@ -8,10 +8,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserToGroupAddition
   = UserToGroupAddition {groupName :: (Value Prelude.Text),
-                         users :: (ValueList (Value Prelude.Text))}
+                         users :: (ValueList Prelude.Text)}
 mkUserToGroupAddition ::
-  Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> UserToGroupAddition
+  Value Prelude.Text -> ValueList Prelude.Text -> UserToGroupAddition
 mkUserToGroupAddition groupName users
   = UserToGroupAddition {groupName = groupName, users = users}
 instance ToResourceProperties UserToGroupAddition where
@@ -29,6 +28,6 @@ instance Property "GroupName" UserToGroupAddition where
   set newValue UserToGroupAddition {..}
     = UserToGroupAddition {groupName = newValue, ..}
 instance Property "Users" UserToGroupAddition where
-  type PropertyType "Users" UserToGroupAddition = ValueList (Value Prelude.Text)
+  type PropertyType "Users" UserToGroupAddition = ValueList Prelude.Text
   set newValue UserToGroupAddition {..}
     = UserToGroupAddition {users = newValue, ..}

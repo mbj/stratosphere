@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PosixProfileProperty
   = PosixProfileProperty {gid :: (Value Prelude.Double),
-                          secondaryGids :: (Prelude.Maybe (ValueList (Value Prelude.Double))),
+                          secondaryGids :: (Prelude.Maybe (ValueList Prelude.Double)),
                           uid :: (Value Prelude.Double)}
 mkPosixProfileProperty ::
   Value Prelude.Double
@@ -38,7 +38,7 @@ instance Property "Gid" PosixProfileProperty where
   set newValue PosixProfileProperty {..}
     = PosixProfileProperty {gid = newValue, ..}
 instance Property "SecondaryGids" PosixProfileProperty where
-  type PropertyType "SecondaryGids" PosixProfileProperty = ValueList (Value Prelude.Double)
+  type PropertyType "SecondaryGids" PosixProfileProperty = ValueList Prelude.Double
   set newValue PosixProfileProperty {..}
     = PosixProfileProperty {secondaryGids = Prelude.pure newValue, ..}
 instance Property "Uid" PosixProfileProperty where

@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityDetailsProperty
   = SecurityDetailsProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
-                             securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                             subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             subnetIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkSecurityDetailsProperty :: SecurityDetailsProperty
 mkSecurityDetailsProperty
   = SecurityDetailsProperty
@@ -37,11 +37,11 @@ instance Property "RoleArn" SecurityDetailsProperty where
   set newValue SecurityDetailsProperty {..}
     = SecurityDetailsProperty {roleArn = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" SecurityDetailsProperty where
-  type PropertyType "SecurityGroupIds" SecurityDetailsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" SecurityDetailsProperty = ValueList Prelude.Text
   set newValue SecurityDetailsProperty {..}
     = SecurityDetailsProperty
         {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetIds" SecurityDetailsProperty where
-  type PropertyType "SubnetIds" SecurityDetailsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" SecurityDetailsProperty = ValueList Prelude.Text
   set newValue SecurityDetailsProperty {..}
     = SecurityDetailsProperty {subnetIds = Prelude.pure newValue, ..}

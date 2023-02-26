@@ -12,7 +12,7 @@ data Association
   = Association {applyOnlyAtCronInterval :: (Prelude.Maybe (Value Prelude.Bool)),
                  associationName :: (Prelude.Maybe (Value Prelude.Text)),
                  automationTargetParameterName :: (Prelude.Maybe (Value Prelude.Text)),
-                 calendarNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 calendarNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                  complianceSeverity :: (Prelude.Maybe (Value Prelude.Text)),
                  documentVersion :: (Prelude.Maybe (Value Prelude.Text)),
                  instanceId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -108,7 +108,7 @@ instance Property "AutomationTargetParameterName" Association where
     = Association
         {automationTargetParameterName = Prelude.pure newValue, ..}
 instance Property "CalendarNames" Association where
-  type PropertyType "CalendarNames" Association = ValueList (Value Prelude.Text)
+  type PropertyType "CalendarNames" Association = ValueList Prelude.Text
   set newValue Association {..}
     = Association {calendarNames = Prelude.pure newValue, ..}
 instance Property "ComplianceSeverity" Association where

@@ -18,8 +18,8 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.ViewerCertificateProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DistributionConfigProperty
-  = DistributionConfigProperty {aliases :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                cNAMEs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = DistributionConfigProperty {aliases :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                cNAMEs :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 cacheBehaviors :: (Prelude.Maybe [CacheBehaviorProperty]),
                                 comment :: (Prelude.Maybe (Value Prelude.Text)),
                                 continuousDeploymentPolicyId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -114,11 +114,11 @@ instance JSON.ToJSON DistributionConfigProperty where
                   (JSON..=) "ViewerCertificate" Prelude.<$> viewerCertificate,
                   (JSON..=) "WebACLId" Prelude.<$> webACLId])))
 instance Property "Aliases" DistributionConfigProperty where
-  type PropertyType "Aliases" DistributionConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Aliases" DistributionConfigProperty = ValueList Prelude.Text
   set newValue DistributionConfigProperty {..}
     = DistributionConfigProperty {aliases = Prelude.pure newValue, ..}
 instance Property "CNAMEs" DistributionConfigProperty where
-  type PropertyType "CNAMEs" DistributionConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CNAMEs" DistributionConfigProperty = ValueList Prelude.Text
   set newValue DistributionConfigProperty {..}
     = DistributionConfigProperty {cNAMEs = Prelude.pure newValue, ..}
 instance Property "CacheBehaviors" DistributionConfigProperty where

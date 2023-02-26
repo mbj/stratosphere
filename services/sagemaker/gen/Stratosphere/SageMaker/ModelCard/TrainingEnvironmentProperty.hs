@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrainingEnvironmentProperty
-  = TrainingEnvironmentProperty {containerImage :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = TrainingEnvironmentProperty {containerImage :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkTrainingEnvironmentProperty :: TrainingEnvironmentProperty
 mkTrainingEnvironmentProperty
   = TrainingEnvironmentProperty {containerImage = Prelude.Nothing}
@@ -25,7 +25,7 @@ instance JSON.ToJSON TrainingEnvironmentProperty where
            (Prelude.catMaybes
               [(JSON..=) "ContainerImage" Prelude.<$> containerImage]))
 instance Property "ContainerImage" TrainingEnvironmentProperty where
-  type PropertyType "ContainerImage" TrainingEnvironmentProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ContainerImage" TrainingEnvironmentProperty = ValueList Prelude.Text
   set newValue TrainingEnvironmentProperty {}
     = TrainingEnvironmentProperty
         {containerImage = Prelude.pure newValue, ..}

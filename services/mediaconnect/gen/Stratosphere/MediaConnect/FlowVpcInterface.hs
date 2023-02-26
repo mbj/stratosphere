@@ -10,14 +10,13 @@ data FlowVpcInterface
   = FlowVpcInterface {flowArn :: (Value Prelude.Text),
                       name :: (Value Prelude.Text),
                       roleArn :: (Value Prelude.Text),
-                      securityGroupIds :: (ValueList (Value Prelude.Text)),
+                      securityGroupIds :: (ValueList Prelude.Text),
                       subnetId :: (Value Prelude.Text)}
 mkFlowVpcInterface ::
   Value Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text
-        -> ValueList (Value Prelude.Text)
-           -> Value Prelude.Text -> FlowVpcInterface
+        -> ValueList Prelude.Text -> Value Prelude.Text -> FlowVpcInterface
 mkFlowVpcInterface flowArn name roleArn securityGroupIds subnetId
   = FlowVpcInterface
       {flowArn = flowArn, name = name, roleArn = roleArn,
@@ -50,7 +49,7 @@ instance Property "RoleArn" FlowVpcInterface where
   set newValue FlowVpcInterface {..}
     = FlowVpcInterface {roleArn = newValue, ..}
 instance Property "SecurityGroupIds" FlowVpcInterface where
-  type PropertyType "SecurityGroupIds" FlowVpcInterface = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" FlowVpcInterface = ValueList Prelude.Text
   set newValue FlowVpcInterface {..}
     = FlowVpcInterface {securityGroupIds = newValue, ..}
 instance Property "SubnetId" FlowVpcInterface where

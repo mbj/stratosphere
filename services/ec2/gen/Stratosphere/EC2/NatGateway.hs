@@ -12,9 +12,9 @@ data NatGateway
                 connectivityType :: (Prelude.Maybe (Value Prelude.Text)),
                 maxDrainDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                 privateIpAddress :: (Prelude.Maybe (Value Prelude.Text)),
-                secondaryAllocationIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                secondaryAllocationIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                 secondaryPrivateIpAddressCount :: (Prelude.Maybe (Value Prelude.Integer)),
-                secondaryPrivateIpAddresses :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                secondaryPrivateIpAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
                 subnetId :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag])}
 mkNatGateway :: Value Prelude.Text -> NatGateway
@@ -84,7 +84,7 @@ instance Property "PrivateIpAddress" NatGateway where
   set newValue NatGateway {..}
     = NatGateway {privateIpAddress = Prelude.pure newValue, ..}
 instance Property "SecondaryAllocationIds" NatGateway where
-  type PropertyType "SecondaryAllocationIds" NatGateway = ValueList (Value Prelude.Text)
+  type PropertyType "SecondaryAllocationIds" NatGateway = ValueList Prelude.Text
   set newValue NatGateway {..}
     = NatGateway {secondaryAllocationIds = Prelude.pure newValue, ..}
 instance Property "SecondaryPrivateIpAddressCount" NatGateway where
@@ -93,7 +93,7 @@ instance Property "SecondaryPrivateIpAddressCount" NatGateway where
     = NatGateway
         {secondaryPrivateIpAddressCount = Prelude.pure newValue, ..}
 instance Property "SecondaryPrivateIpAddresses" NatGateway where
-  type PropertyType "SecondaryPrivateIpAddresses" NatGateway = ValueList (Value Prelude.Text)
+  type PropertyType "SecondaryPrivateIpAddresses" NatGateway = ValueList Prelude.Text
   set newValue NatGateway {..}
     = NatGateway
         {secondaryPrivateIpAddresses = Prelude.pure newValue, ..}

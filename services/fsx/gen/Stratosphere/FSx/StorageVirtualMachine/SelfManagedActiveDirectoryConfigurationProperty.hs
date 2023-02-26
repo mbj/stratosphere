@@ -8,7 +8,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SelfManagedActiveDirectoryConfigurationProperty
-  = SelfManagedActiveDirectoryConfigurationProperty {dnsIps :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = SelfManagedActiveDirectoryConfigurationProperty {dnsIps :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                      domainName :: (Prelude.Maybe (Value Prelude.Text)),
                                                      fileSystemAdministratorsGroup :: (Prelude.Maybe (Value Prelude.Text)),
                                                      organizationalUnitDistinguishedName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -51,7 +51,7 @@ instance JSON.ToJSON SelfManagedActiveDirectoryConfigurationProperty where
                (JSON..=) "Password" Prelude.<$> password,
                (JSON..=) "UserName" Prelude.<$> userName]))
 instance Property "DnsIps" SelfManagedActiveDirectoryConfigurationProperty where
-  type PropertyType "DnsIps" SelfManagedActiveDirectoryConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DnsIps" SelfManagedActiveDirectoryConfigurationProperty = ValueList Prelude.Text
   set newValue SelfManagedActiveDirectoryConfigurationProperty {..}
     = SelfManagedActiveDirectoryConfigurationProperty
         {dnsIps = Prelude.pure newValue, ..}

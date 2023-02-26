@@ -11,13 +11,13 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.PlacementTypeProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobFlowInstancesConfigProperty
-  = JobFlowInstancesConfigProperty {additionalMasterSecurityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                    additionalSlaveSecurityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = JobFlowInstancesConfigProperty {additionalMasterSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    additionalSlaveSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                                     coreInstanceFleet :: (Prelude.Maybe InstanceFleetConfigProperty),
                                     coreInstanceGroup :: (Prelude.Maybe InstanceGroupConfigProperty),
                                     ec2KeyName :: (Prelude.Maybe (Value Prelude.Text)),
                                     ec2SubnetId :: (Prelude.Maybe (Value Prelude.Text)),
-                                    ec2SubnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                    ec2SubnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                     emrManagedMasterSecurityGroup :: (Prelude.Maybe (Value Prelude.Text)),
                                     emrManagedSlaveSecurityGroup :: (Prelude.Maybe (Value Prelude.Text)),
                                     hadoopVersion :: (Prelude.Maybe (Value Prelude.Text)),
@@ -109,12 +109,12 @@ instance JSON.ToJSON JobFlowInstancesConfigProperty where
                (JSON..=) "TerminationProtected"
                  Prelude.<$> terminationProtected]))
 instance Property "AdditionalMasterSecurityGroups" JobFlowInstancesConfigProperty where
-  type PropertyType "AdditionalMasterSecurityGroups" JobFlowInstancesConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AdditionalMasterSecurityGroups" JobFlowInstancesConfigProperty = ValueList Prelude.Text
   set newValue JobFlowInstancesConfigProperty {..}
     = JobFlowInstancesConfigProperty
         {additionalMasterSecurityGroups = Prelude.pure newValue, ..}
 instance Property "AdditionalSlaveSecurityGroups" JobFlowInstancesConfigProperty where
-  type PropertyType "AdditionalSlaveSecurityGroups" JobFlowInstancesConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AdditionalSlaveSecurityGroups" JobFlowInstancesConfigProperty = ValueList Prelude.Text
   set newValue JobFlowInstancesConfigProperty {..}
     = JobFlowInstancesConfigProperty
         {additionalSlaveSecurityGroups = Prelude.pure newValue, ..}
@@ -139,7 +139,7 @@ instance Property "Ec2SubnetId" JobFlowInstancesConfigProperty where
     = JobFlowInstancesConfigProperty
         {ec2SubnetId = Prelude.pure newValue, ..}
 instance Property "Ec2SubnetIds" JobFlowInstancesConfigProperty where
-  type PropertyType "Ec2SubnetIds" JobFlowInstancesConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Ec2SubnetIds" JobFlowInstancesConfigProperty = ValueList Prelude.Text
   set newValue JobFlowInstancesConfigProperty {..}
     = JobFlowInstancesConfigProperty
         {ec2SubnetIds = Prelude.pure newValue, ..}

@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipelineConfigProperty
-  = PipelineConfigProperty {functions :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = PipelineConfigProperty {functions :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkPipelineConfigProperty :: PipelineConfigProperty
 mkPipelineConfigProperty
   = PipelineConfigProperty {functions = Prelude.Nothing}
@@ -23,6 +23,6 @@ instance JSON.ToJSON PipelineConfigProperty where
         (Prelude.fromList
            (Prelude.catMaybes [(JSON..=) "Functions" Prelude.<$> functions]))
 instance Property "Functions" PipelineConfigProperty where
-  type PropertyType "Functions" PipelineConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Functions" PipelineConfigProperty = ValueList Prelude.Text
   set newValue PipelineConfigProperty {}
     = PipelineConfigProperty {functions = Prelude.pure newValue, ..}

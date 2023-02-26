@@ -8,9 +8,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicPolicy
   = TopicPolicy {policyDocument :: JSON.Object,
-                 topics :: (ValueList (Value Prelude.Text))}
+                 topics :: (ValueList Prelude.Text)}
 mkTopicPolicy ::
-  JSON.Object -> ValueList (Value Prelude.Text) -> TopicPolicy
+  JSON.Object -> ValueList Prelude.Text -> TopicPolicy
 mkTopicPolicy policyDocument topics
   = TopicPolicy {policyDocument = policyDocument, topics = topics}
 instance ToResourceProperties TopicPolicy where
@@ -28,5 +28,5 @@ instance Property "PolicyDocument" TopicPolicy where
   set newValue TopicPolicy {..}
     = TopicPolicy {policyDocument = newValue, ..}
 instance Property "Topics" TopicPolicy where
-  type PropertyType "Topics" TopicPolicy = ValueList (Value Prelude.Text)
+  type PropertyType "Topics" TopicPolicy = ValueList Prelude.Text
   set newValue TopicPolicy {..} = TopicPolicy {topics = newValue, ..}

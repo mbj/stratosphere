@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuthenticationModeProperty
-  = AuthenticationModeProperty {passwords :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = AuthenticationModeProperty {passwords :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 type' :: (Value Prelude.Text)}
 mkAuthenticationModeProperty ::
   Value Prelude.Text -> AuthenticationModeProperty
@@ -30,7 +30,7 @@ instance JSON.ToJSON AuthenticationModeProperty where
               ["Type" JSON..= type']
               (Prelude.catMaybes [(JSON..=) "Passwords" Prelude.<$> passwords])))
 instance Property "Passwords" AuthenticationModeProperty where
-  type PropertyType "Passwords" AuthenticationModeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Passwords" AuthenticationModeProperty = ValueList Prelude.Text
   set newValue AuthenticationModeProperty {..}
     = AuthenticationModeProperty
         {passwords = Prelude.pure newValue, ..}

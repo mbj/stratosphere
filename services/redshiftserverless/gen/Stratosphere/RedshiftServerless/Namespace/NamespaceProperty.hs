@@ -11,9 +11,9 @@ data NamespaceProperty
                        creationDate :: (Prelude.Maybe (Value Prelude.Text)),
                        dbName :: (Prelude.Maybe (Value Prelude.Text)),
                        defaultIamRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
-                       iamRoles :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                       iamRoles :: (Prelude.Maybe (ValueList Prelude.Text)),
                        kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
-                       logExports :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                       logExports :: (Prelude.Maybe (ValueList Prelude.Text)),
                        namespaceArn :: (Prelude.Maybe (Value Prelude.Text)),
                        namespaceId :: (Prelude.Maybe (Value Prelude.Text)),
                        namespaceName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -77,7 +77,7 @@ instance Property "DefaultIamRoleArn" NamespaceProperty where
   set newValue NamespaceProperty {..}
     = NamespaceProperty {defaultIamRoleArn = Prelude.pure newValue, ..}
 instance Property "IamRoles" NamespaceProperty where
-  type PropertyType "IamRoles" NamespaceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IamRoles" NamespaceProperty = ValueList Prelude.Text
   set newValue NamespaceProperty {..}
     = NamespaceProperty {iamRoles = Prelude.pure newValue, ..}
 instance Property "KmsKeyId" NamespaceProperty where
@@ -85,7 +85,7 @@ instance Property "KmsKeyId" NamespaceProperty where
   set newValue NamespaceProperty {..}
     = NamespaceProperty {kmsKeyId = Prelude.pure newValue, ..}
 instance Property "LogExports" NamespaceProperty where
-  type PropertyType "LogExports" NamespaceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "LogExports" NamespaceProperty = ValueList Prelude.Text
   set newValue NamespaceProperty {..}
     = NamespaceProperty {logExports = Prelude.pure newValue, ..}
 instance Property "NamespaceArn" NamespaceProperty where

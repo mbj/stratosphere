@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPCEndpointServicePermissions
-  = VPCEndpointServicePermissions {allowedPrincipals :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = VPCEndpointServicePermissions {allowedPrincipals :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    serviceId :: (Value Prelude.Text)}
 mkVPCEndpointServicePermissions ::
   Value Prelude.Text -> VPCEndpointServicePermissions
@@ -32,7 +32,7 @@ instance JSON.ToJSON VPCEndpointServicePermissions where
               (Prelude.catMaybes
                  [(JSON..=) "AllowedPrincipals" Prelude.<$> allowedPrincipals])))
 instance Property "AllowedPrincipals" VPCEndpointServicePermissions where
-  type PropertyType "AllowedPrincipals" VPCEndpointServicePermissions = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedPrincipals" VPCEndpointServicePermissions = ValueList Prelude.Text
   set newValue VPCEndpointServicePermissions {..}
     = VPCEndpointServicePermissions
         {allowedPrincipals = Prelude.pure newValue, ..}

@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BaseScreenshotProperty
-  = BaseScreenshotProperty {ignoreCoordinates :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = BaseScreenshotProperty {ignoreCoordinates :: (Prelude.Maybe (ValueList Prelude.Text)),
                             screenshotName :: (Value Prelude.Text)}
 mkBaseScreenshotProperty ::
   Value Prelude.Text -> BaseScreenshotProperty
@@ -33,7 +33,7 @@ instance JSON.ToJSON BaseScreenshotProperty where
               (Prelude.catMaybes
                  [(JSON..=) "IgnoreCoordinates" Prelude.<$> ignoreCoordinates])))
 instance Property "IgnoreCoordinates" BaseScreenshotProperty where
-  type PropertyType "IgnoreCoordinates" BaseScreenshotProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IgnoreCoordinates" BaseScreenshotProperty = ValueList Prelude.Text
   set newValue BaseScreenshotProperty {..}
     = BaseScreenshotProperty
         {ignoreCoordinates = Prelude.pure newValue, ..}

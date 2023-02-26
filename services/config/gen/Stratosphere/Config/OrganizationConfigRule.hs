@@ -11,7 +11,7 @@ import {-# SOURCE #-} Stratosphere.Config.OrganizationConfigRule.OrganizationMan
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrganizationConfigRule
-  = OrganizationConfigRule {excludedAccounts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = OrganizationConfigRule {excludedAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
                             organizationConfigRuleName :: (Value Prelude.Text),
                             organizationCustomPolicyRuleMetadata :: (Prelude.Maybe OrganizationCustomPolicyRuleMetadataProperty),
                             organizationCustomRuleMetadata :: (Prelude.Maybe OrganizationCustomRuleMetadataProperty),
@@ -55,7 +55,7 @@ instance JSON.ToJSON OrganizationConfigRule where
                   (JSON..=) "OrganizationManagedRuleMetadata"
                     Prelude.<$> organizationManagedRuleMetadata])))
 instance Property "ExcludedAccounts" OrganizationConfigRule where
-  type PropertyType "ExcludedAccounts" OrganizationConfigRule = ValueList (Value Prelude.Text)
+  type PropertyType "ExcludedAccounts" OrganizationConfigRule = ValueList Prelude.Text
   set newValue OrganizationConfigRule {..}
     = OrganizationConfigRule
         {excludedAccounts = Prelude.pure newValue, ..}

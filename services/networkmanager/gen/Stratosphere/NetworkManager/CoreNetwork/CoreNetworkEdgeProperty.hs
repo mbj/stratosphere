@@ -9,7 +9,7 @@ import Stratosphere.Value
 data CoreNetworkEdgeProperty
   = CoreNetworkEdgeProperty {asn :: (Prelude.Maybe (Value Prelude.Double)),
                              edgeLocation :: (Prelude.Maybe (Value Prelude.Text)),
-                             insideCidrBlocks :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                             insideCidrBlocks :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCoreNetworkEdgeProperty :: CoreNetworkEdgeProperty
 mkCoreNetworkEdgeProperty
   = CoreNetworkEdgeProperty
@@ -42,7 +42,7 @@ instance Property "EdgeLocation" CoreNetworkEdgeProperty where
     = CoreNetworkEdgeProperty
         {edgeLocation = Prelude.pure newValue, ..}
 instance Property "InsideCidrBlocks" CoreNetworkEdgeProperty where
-  type PropertyType "InsideCidrBlocks" CoreNetworkEdgeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InsideCidrBlocks" CoreNetworkEdgeProperty = ValueList Prelude.Text
   set newValue CoreNetworkEdgeProperty {..}
     = CoreNetworkEdgeProperty
         {insideCidrBlocks = Prelude.pure newValue, ..}

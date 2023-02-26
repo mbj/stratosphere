@@ -14,7 +14,7 @@ data InstanceNetworkInterfaceSpecificationProperty
                                                    deleteOnTermination :: (Prelude.Maybe (Value Prelude.Bool)),
                                                    description :: (Prelude.Maybe (Value Prelude.Text)),
                                                    deviceIndex :: (Prelude.Maybe (Value Prelude.Integer)),
-                                                   groups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                                   groups :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                    ipv6AddressCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                                    ipv6Addresses :: (Prelude.Maybe [InstanceIpv6AddressProperty]),
                                                    networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -93,7 +93,7 @@ instance Property "DeviceIndex" InstanceNetworkInterfaceSpecificationProperty wh
     = InstanceNetworkInterfaceSpecificationProperty
         {deviceIndex = Prelude.pure newValue, ..}
 instance Property "Groups" InstanceNetworkInterfaceSpecificationProperty where
-  type PropertyType "Groups" InstanceNetworkInterfaceSpecificationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Groups" InstanceNetworkInterfaceSpecificationProperty = ValueList Prelude.Text
   set newValue InstanceNetworkInterfaceSpecificationProperty {..}
     = InstanceNetworkInterfaceSpecificationProperty
         {groups = Prelude.pure newValue, ..}

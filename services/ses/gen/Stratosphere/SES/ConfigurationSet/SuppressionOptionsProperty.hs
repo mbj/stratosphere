@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SuppressionOptionsProperty
-  = SuppressionOptionsProperty {suppressedReasons :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = SuppressionOptionsProperty {suppressedReasons :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkSuppressionOptionsProperty :: SuppressionOptionsProperty
 mkSuppressionOptionsProperty
   = SuppressionOptionsProperty {suppressedReasons = Prelude.Nothing}
@@ -25,7 +25,7 @@ instance JSON.ToJSON SuppressionOptionsProperty where
            (Prelude.catMaybes
               [(JSON..=) "SuppressedReasons" Prelude.<$> suppressedReasons]))
 instance Property "SuppressedReasons" SuppressionOptionsProperty where
-  type PropertyType "SuppressedReasons" SuppressionOptionsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SuppressedReasons" SuppressionOptionsProperty = ValueList Prelude.Text
   set newValue SuppressionOptionsProperty {}
     = SuppressionOptionsProperty
         {suppressedReasons = Prelude.pure newValue, ..}

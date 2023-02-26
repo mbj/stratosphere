@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeDimensionProperty
   = AttributeDimensionProperty {attributeType :: (Prelude.Maybe (Value Prelude.Text)),
-                                values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAttributeDimensionProperty :: AttributeDimensionProperty
 mkAttributeDimensionProperty
   = AttributeDimensionProperty
@@ -34,6 +34,6 @@ instance Property "AttributeType" AttributeDimensionProperty where
     = AttributeDimensionProperty
         {attributeType = Prelude.pure newValue, ..}
 instance Property "Values" AttributeDimensionProperty where
-  type PropertyType "Values" AttributeDimensionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" AttributeDimensionProperty = ValueList Prelude.Text
   set newValue AttributeDimensionProperty {..}
     = AttributeDimensionProperty {values = Prelude.pure newValue, ..}

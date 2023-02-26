@@ -9,12 +9,12 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RealtimeLogConfig
   = RealtimeLogConfig {endPoints :: [EndPointProperty],
-                       fields :: (ValueList (Value Prelude.Text)),
+                       fields :: (ValueList Prelude.Text),
                        name :: (Value Prelude.Text),
                        samplingRate :: (Value Prelude.Double)}
 mkRealtimeLogConfig ::
   [EndPointProperty]
-  -> ValueList (Value Prelude.Text)
+  -> ValueList Prelude.Text
      -> Value Prelude.Text -> Value Prelude.Double -> RealtimeLogConfig
 mkRealtimeLogConfig endPoints fields name samplingRate
   = RealtimeLogConfig
@@ -37,7 +37,7 @@ instance Property "EndPoints" RealtimeLogConfig where
   set newValue RealtimeLogConfig {..}
     = RealtimeLogConfig {endPoints = newValue, ..}
 instance Property "Fields" RealtimeLogConfig where
-  type PropertyType "Fields" RealtimeLogConfig = ValueList (Value Prelude.Text)
+  type PropertyType "Fields" RealtimeLogConfig = ValueList Prelude.Text
   set newValue RealtimeLogConfig {..}
     = RealtimeLogConfig {fields = newValue, ..}
 instance Property "Name" RealtimeLogConfig where

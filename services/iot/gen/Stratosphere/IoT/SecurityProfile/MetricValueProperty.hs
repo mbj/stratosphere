@@ -7,12 +7,12 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricValueProperty
-  = MetricValueProperty {cidrs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = MetricValueProperty {cidrs :: (Prelude.Maybe (ValueList Prelude.Text)),
                          count :: (Prelude.Maybe (Value Prelude.Text)),
                          number :: (Prelude.Maybe (Value Prelude.Double)),
-                         numbers :: (Prelude.Maybe (ValueList (Value Prelude.Double))),
-                         ports :: (Prelude.Maybe (ValueList (Value Prelude.Integer))),
-                         strings :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                         numbers :: (Prelude.Maybe (ValueList Prelude.Double)),
+                         ports :: (Prelude.Maybe (ValueList Prelude.Integer)),
+                         strings :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkMetricValueProperty :: MetricValueProperty
 mkMetricValueProperty
   = MetricValueProperty
@@ -43,7 +43,7 @@ instance JSON.ToJSON MetricValueProperty where
                (JSON..=) "Ports" Prelude.<$> ports,
                (JSON..=) "Strings" Prelude.<$> strings]))
 instance Property "Cidrs" MetricValueProperty where
-  type PropertyType "Cidrs" MetricValueProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Cidrs" MetricValueProperty = ValueList Prelude.Text
   set newValue MetricValueProperty {..}
     = MetricValueProperty {cidrs = Prelude.pure newValue, ..}
 instance Property "Count" MetricValueProperty where
@@ -55,14 +55,14 @@ instance Property "Number" MetricValueProperty where
   set newValue MetricValueProperty {..}
     = MetricValueProperty {number = Prelude.pure newValue, ..}
 instance Property "Numbers" MetricValueProperty where
-  type PropertyType "Numbers" MetricValueProperty = ValueList (Value Prelude.Double)
+  type PropertyType "Numbers" MetricValueProperty = ValueList Prelude.Double
   set newValue MetricValueProperty {..}
     = MetricValueProperty {numbers = Prelude.pure newValue, ..}
 instance Property "Ports" MetricValueProperty where
-  type PropertyType "Ports" MetricValueProperty = ValueList (Value Prelude.Integer)
+  type PropertyType "Ports" MetricValueProperty = ValueList Prelude.Integer
   set newValue MetricValueProperty {..}
     = MetricValueProperty {ports = Prelude.pure newValue, ..}
 instance Property "Strings" MetricValueProperty where
-  type PropertyType "Strings" MetricValueProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Strings" MetricValueProperty = ValueList Prelude.Text
   set newValue MetricValueProperty {..}
     = MetricValueProperty {strings = Prelude.pure newValue, ..}

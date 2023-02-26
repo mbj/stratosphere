@@ -8,10 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssociationParameterProperty
   = AssociationParameterProperty {key :: (Value Prelude.Text),
-                                  value :: (ValueList (Value Prelude.Text))}
+                                  value :: (ValueList Prelude.Text)}
 mkAssociationParameterProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> AssociationParameterProperty
+  -> ValueList Prelude.Text -> AssociationParameterProperty
 mkAssociationParameterProperty key value
   = AssociationParameterProperty {key = key, value = value}
 instance ToResourceProperties AssociationParameterProperty where
@@ -27,6 +27,6 @@ instance Property "Key" AssociationParameterProperty where
   set newValue AssociationParameterProperty {..}
     = AssociationParameterProperty {key = newValue, ..}
 instance Property "Value" AssociationParameterProperty where
-  type PropertyType "Value" AssociationParameterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Value" AssociationParameterProperty = ValueList Prelude.Text
   set newValue AssociationParameterProperty {..}
     = AssociationParameterProperty {value = newValue, ..}

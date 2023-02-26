@@ -53,8 +53,8 @@ data Instance
               privateIpAddress :: (Prelude.Maybe (Value Prelude.Text)),
               propagateTagsToVolumeOnCreation :: (Prelude.Maybe (Value Prelude.Bool)),
               ramdiskId :: (Prelude.Maybe (Value Prelude.Text)),
-              securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-              securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+              securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+              securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
               sourceDestCheck :: (Prelude.Maybe (Value Prelude.Bool)),
               ssmAssociations :: (Prelude.Maybe [SsmAssociationProperty]),
               subnetId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -327,11 +327,11 @@ instance Property "RamdiskId" Instance where
   set newValue Instance {..}
     = Instance {ramdiskId = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" Instance where
-  type PropertyType "SecurityGroupIds" Instance = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" Instance = ValueList Prelude.Text
   set newValue Instance {..}
     = Instance {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SecurityGroups" Instance where
-  type PropertyType "SecurityGroups" Instance = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" Instance = ValueList Prelude.Text
   set newValue Instance {..}
     = Instance {securityGroups = Prelude.pure newValue, ..}
 instance Property "SourceDestCheck" Instance where

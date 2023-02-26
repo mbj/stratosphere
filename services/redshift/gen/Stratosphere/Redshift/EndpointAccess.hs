@@ -11,12 +11,11 @@ data EndpointAccess
                     endpointName :: (Value Prelude.Text),
                     resourceOwner :: (Prelude.Maybe (Value Prelude.Text)),
                     subnetGroupName :: (Value Prelude.Text),
-                    vpcSecurityGroupIds :: (ValueList (Value Prelude.Text))}
+                    vpcSecurityGroupIds :: (ValueList Prelude.Text)}
 mkEndpointAccess ::
   Value Prelude.Text
   -> Value Prelude.Text
-     -> Value Prelude.Text
-        -> ValueList (Value Prelude.Text) -> EndpointAccess
+     -> Value Prelude.Text -> ValueList Prelude.Text -> EndpointAccess
 mkEndpointAccess
   clusterIdentifier
   endpointName
@@ -67,6 +66,6 @@ instance Property "SubnetGroupName" EndpointAccess where
   set newValue EndpointAccess {..}
     = EndpointAccess {subnetGroupName = newValue, ..}
 instance Property "VpcSecurityGroupIds" EndpointAccess where
-  type PropertyType "VpcSecurityGroupIds" EndpointAccess = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSecurityGroupIds" EndpointAccess = ValueList Prelude.Text
   set newValue EndpointAccess {..}
     = EndpointAccess {vpcSecurityGroupIds = newValue, ..}

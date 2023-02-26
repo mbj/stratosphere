@@ -7,10 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatusCodesProperty
-  = StatusCodesProperty {items :: (ValueList (Value Prelude.Integer)),
+  = StatusCodesProperty {items :: (ValueList Prelude.Integer),
                          quantity :: (Value Prelude.Integer)}
 mkStatusCodesProperty ::
-  ValueList (Value Prelude.Integer)
+  ValueList Prelude.Integer
   -> Value Prelude.Integer -> StatusCodesProperty
 mkStatusCodesProperty items quantity
   = StatusCodesProperty {items = items, quantity = quantity}
@@ -23,7 +23,7 @@ instance JSON.ToJSON StatusCodesProperty where
   toJSON StatusCodesProperty {..}
     = JSON.object ["Items" JSON..= items, "Quantity" JSON..= quantity]
 instance Property "Items" StatusCodesProperty where
-  type PropertyType "Items" StatusCodesProperty = ValueList (Value Prelude.Integer)
+  type PropertyType "Items" StatusCodesProperty = ValueList Prelude.Integer
   set newValue StatusCodesProperty {..}
     = StatusCodesProperty {items = newValue, ..}
 instance Property "Quantity" StatusCodesProperty where

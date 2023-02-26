@@ -10,7 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZendeskDestinationPropertiesProperty
   = ZendeskDestinationPropertiesProperty {errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
-                                          idFieldNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                          idFieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           object :: (Value Prelude.Text),
                                           writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
 mkZendeskDestinationPropertiesProperty ::
@@ -47,7 +47,7 @@ instance Property "ErrorHandlingConfig" ZendeskDestinationPropertiesProperty whe
     = ZendeskDestinationPropertiesProperty
         {errorHandlingConfig = Prelude.pure newValue, ..}
 instance Property "IdFieldNames" ZendeskDestinationPropertiesProperty where
-  type PropertyType "IdFieldNames" ZendeskDestinationPropertiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IdFieldNames" ZendeskDestinationPropertiesProperty = ValueList Prelude.Text
   set newValue ZendeskDestinationPropertiesProperty {..}
     = ZendeskDestinationPropertiesProperty
         {idFieldNames = Prelude.pure newValue, ..}

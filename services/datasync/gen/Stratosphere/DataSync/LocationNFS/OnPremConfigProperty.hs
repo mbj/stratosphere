@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnPremConfigProperty
-  = OnPremConfigProperty {agentArns :: (ValueList (Value Prelude.Text))}
+  = OnPremConfigProperty {agentArns :: (ValueList Prelude.Text)}
 mkOnPremConfigProperty ::
-  ValueList (Value Prelude.Text) -> OnPremConfigProperty
+  ValueList Prelude.Text -> OnPremConfigProperty
 mkOnPremConfigProperty agentArns
   = OnPremConfigProperty {agentArns = agentArns}
 instance ToResourceProperties OnPremConfigProperty where
@@ -21,6 +21,6 @@ instance JSON.ToJSON OnPremConfigProperty where
   toJSON OnPremConfigProperty {..}
     = JSON.object ["AgentArns" JSON..= agentArns]
 instance Property "AgentArns" OnPremConfigProperty where
-  type PropertyType "AgentArns" OnPremConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AgentArns" OnPremConfigProperty = ValueList Prelude.Text
   set newValue OnPremConfigProperty {}
     = OnPremConfigProperty {agentArns = newValue, ..}

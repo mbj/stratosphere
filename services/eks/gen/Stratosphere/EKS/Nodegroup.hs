@@ -17,7 +17,7 @@ data Nodegroup
                clusterName :: (Value Prelude.Text),
                diskSize :: (Prelude.Maybe (Value Prelude.Integer)),
                forceUpdateEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
-               instanceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               instanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                labels :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                launchTemplate :: (Prelude.Maybe LaunchTemplateSpecificationProperty),
                nodeRole :: (Value Prelude.Text),
@@ -25,15 +25,14 @@ data Nodegroup
                releaseVersion :: (Prelude.Maybe (Value Prelude.Text)),
                remoteAccess :: (Prelude.Maybe RemoteAccessProperty),
                scalingConfig :: (Prelude.Maybe ScalingConfigProperty),
-               subnets :: (ValueList (Value Prelude.Text)),
+               subnets :: (ValueList Prelude.Text),
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                taints :: (Prelude.Maybe [TaintProperty]),
                updateConfig :: (Prelude.Maybe UpdateConfigProperty),
                version :: (Prelude.Maybe (Value Prelude.Text))}
 mkNodegroup ::
   Value Prelude.Text
-  -> Value Prelude.Text
-     -> ValueList (Value Prelude.Text) -> Nodegroup
+  -> Value Prelude.Text -> ValueList Prelude.Text -> Nodegroup
 mkNodegroup clusterName nodeRole subnets
   = Nodegroup
       {clusterName = clusterName, nodeRole = nodeRole, subnets = subnets,
@@ -113,7 +112,7 @@ instance Property "ForceUpdateEnabled" Nodegroup where
   set newValue Nodegroup {..}
     = Nodegroup {forceUpdateEnabled = Prelude.pure newValue, ..}
 instance Property "InstanceTypes" Nodegroup where
-  type PropertyType "InstanceTypes" Nodegroup = ValueList (Value Prelude.Text)
+  type PropertyType "InstanceTypes" Nodegroup = ValueList Prelude.Text
   set newValue Nodegroup {..}
     = Nodegroup {instanceTypes = Prelude.pure newValue, ..}
 instance Property "Labels" Nodegroup where
@@ -144,7 +143,7 @@ instance Property "ScalingConfig" Nodegroup where
   set newValue Nodegroup {..}
     = Nodegroup {scalingConfig = Prelude.pure newValue, ..}
 instance Property "Subnets" Nodegroup where
-  type PropertyType "Subnets" Nodegroup = ValueList (Value Prelude.Text)
+  type PropertyType "Subnets" Nodegroup = ValueList Prelude.Text
   set newValue Nodegroup {..} = Nodegroup {subnets = newValue, ..}
 instance Property "Tags" Nodegroup where
   type PropertyType "Tags" Nodegroup = Prelude.Map Prelude.Text (Value Prelude.Text)

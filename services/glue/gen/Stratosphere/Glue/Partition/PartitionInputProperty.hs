@@ -11,9 +11,9 @@ import Stratosphere.Value
 data PartitionInputProperty
   = PartitionInputProperty {parameters :: (Prelude.Maybe JSON.Object),
                             storageDescriptor :: (Prelude.Maybe StorageDescriptorProperty),
-                            values :: (ValueList (Value Prelude.Text))}
+                            values :: (ValueList Prelude.Text)}
 mkPartitionInputProperty ::
-  ValueList (Value Prelude.Text) -> PartitionInputProperty
+  ValueList Prelude.Text -> PartitionInputProperty
 mkPartitionInputProperty values
   = PartitionInputProperty
       {values = values, parameters = Prelude.Nothing,
@@ -47,6 +47,6 @@ instance Property "StorageDescriptor" PartitionInputProperty where
     = PartitionInputProperty
         {storageDescriptor = Prelude.pure newValue, ..}
 instance Property "Values" PartitionInputProperty where
-  type PropertyType "Values" PartitionInputProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" PartitionInputProperty = ValueList Prelude.Text
   set newValue PartitionInputProperty {..}
     = PartitionInputProperty {values = newValue, ..}

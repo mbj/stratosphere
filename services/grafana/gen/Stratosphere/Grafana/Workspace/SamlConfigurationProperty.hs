@@ -11,7 +11,7 @@ import {-# SOURCE #-} Stratosphere.Grafana.Workspace.RoleValuesProperty as Expor
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SamlConfigurationProperty
-  = SamlConfigurationProperty {allowedOrganizations :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = SamlConfigurationProperty {allowedOrganizations :: (Prelude.Maybe (ValueList Prelude.Text)),
                                assertionAttributes :: (Prelude.Maybe AssertionAttributesProperty),
                                idpMetadata :: IdpMetadataProperty,
                                loginValidityDuration :: (Prelude.Maybe (Value Prelude.Double)),
@@ -50,7 +50,7 @@ instance JSON.ToJSON SamlConfigurationProperty where
                     Prelude.<$> loginValidityDuration,
                   (JSON..=) "RoleValues" Prelude.<$> roleValues])))
 instance Property "AllowedOrganizations" SamlConfigurationProperty where
-  type PropertyType "AllowedOrganizations" SamlConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedOrganizations" SamlConfigurationProperty = ValueList Prelude.Text
   set newValue SamlConfigurationProperty {..}
     = SamlConfigurationProperty
         {allowedOrganizations = Prelude.pure newValue, ..}

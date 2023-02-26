@@ -9,10 +9,10 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAnalysis.PortRangeProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisPacketHeaderProperty
-  = AnalysisPacketHeaderProperty {destinationAddresses :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = AnalysisPacketHeaderProperty {destinationAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   destinationPortRanges :: (Prelude.Maybe [PortRangeProperty]),
                                   protocol :: (Prelude.Maybe (Value Prelude.Text)),
-                                  sourceAddresses :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                  sourceAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   sourcePortRanges :: (Prelude.Maybe [PortRangeProperty])}
 mkAnalysisPacketHeaderProperty :: AnalysisPacketHeaderProperty
 mkAnalysisPacketHeaderProperty
@@ -45,7 +45,7 @@ instance JSON.ToJSON AnalysisPacketHeaderProperty where
                (JSON..=) "SourceAddresses" Prelude.<$> sourceAddresses,
                (JSON..=) "SourcePortRanges" Prelude.<$> sourcePortRanges]))
 instance Property "DestinationAddresses" AnalysisPacketHeaderProperty where
-  type PropertyType "DestinationAddresses" AnalysisPacketHeaderProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DestinationAddresses" AnalysisPacketHeaderProperty = ValueList Prelude.Text
   set newValue AnalysisPacketHeaderProperty {..}
     = AnalysisPacketHeaderProperty
         {destinationAddresses = Prelude.pure newValue, ..}
@@ -60,7 +60,7 @@ instance Property "Protocol" AnalysisPacketHeaderProperty where
     = AnalysisPacketHeaderProperty
         {protocol = Prelude.pure newValue, ..}
 instance Property "SourceAddresses" AnalysisPacketHeaderProperty where
-  type PropertyType "SourceAddresses" AnalysisPacketHeaderProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SourceAddresses" AnalysisPacketHeaderProperty = ValueList Prelude.Text
   set newValue AnalysisPacketHeaderProperty {..}
     = AnalysisPacketHeaderProperty
         {sourceAddresses = Prelude.pure newValue, ..}

@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoImportPolicyProperty
-  = AutoImportPolicyProperty {events :: (ValueList (Value Prelude.Text))}
+  = AutoImportPolicyProperty {events :: (ValueList Prelude.Text)}
 mkAutoImportPolicyProperty ::
-  ValueList (Value Prelude.Text) -> AutoImportPolicyProperty
+  ValueList Prelude.Text -> AutoImportPolicyProperty
 mkAutoImportPolicyProperty events
   = AutoImportPolicyProperty {events = events}
 instance ToResourceProperties AutoImportPolicyProperty where
@@ -21,6 +21,6 @@ instance JSON.ToJSON AutoImportPolicyProperty where
   toJSON AutoImportPolicyProperty {..}
     = JSON.object ["Events" JSON..= events]
 instance Property "Events" AutoImportPolicyProperty where
-  type PropertyType "Events" AutoImportPolicyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Events" AutoImportPolicyProperty = ValueList Prelude.Text
   set newValue AutoImportPolicyProperty {}
     = AutoImportPolicyProperty {events = newValue, ..}

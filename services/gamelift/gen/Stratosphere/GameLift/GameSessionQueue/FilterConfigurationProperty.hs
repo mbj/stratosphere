@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterConfigurationProperty
-  = FilterConfigurationProperty {allowedLocations :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = FilterConfigurationProperty {allowedLocations :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkFilterConfigurationProperty :: FilterConfigurationProperty
 mkFilterConfigurationProperty
   = FilterConfigurationProperty {allowedLocations = Prelude.Nothing}
@@ -25,7 +25,7 @@ instance JSON.ToJSON FilterConfigurationProperty where
            (Prelude.catMaybes
               [(JSON..=) "AllowedLocations" Prelude.<$> allowedLocations]))
 instance Property "AllowedLocations" FilterConfigurationProperty where
-  type PropertyType "AllowedLocations" FilterConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedLocations" FilterConfigurationProperty = ValueList Prelude.Text
   set newValue FilterConfigurationProperty {}
     = FilterConfigurationProperty
         {allowedLocations = Prelude.pure newValue, ..}

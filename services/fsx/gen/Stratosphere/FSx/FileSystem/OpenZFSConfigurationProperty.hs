@@ -16,7 +16,7 @@ data OpenZFSConfigurationProperty
                                   dailyAutomaticBackupStartTime :: (Prelude.Maybe (Value Prelude.Text)),
                                   deploymentType :: (Value Prelude.Text),
                                   diskIopsConfiguration :: (Prelude.Maybe DiskIopsConfigurationProperty),
-                                  options :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                  options :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   rootVolumeConfiguration :: (Prelude.Maybe RootVolumeConfigurationProperty),
                                   throughputCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                   weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
@@ -106,7 +106,7 @@ instance Property "DiskIopsConfiguration" OpenZFSConfigurationProperty where
     = OpenZFSConfigurationProperty
         {diskIopsConfiguration = Prelude.pure newValue, ..}
 instance Property "Options" OpenZFSConfigurationProperty where
-  type PropertyType "Options" OpenZFSConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Options" OpenZFSConfigurationProperty = ValueList Prelude.Text
   set newValue OpenZFSConfigurationProperty {..}
     = OpenZFSConfigurationProperty
         {options = Prelude.pure newValue, ..}

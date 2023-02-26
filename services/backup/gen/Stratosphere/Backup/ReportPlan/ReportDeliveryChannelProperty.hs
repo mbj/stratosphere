@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReportDeliveryChannelProperty
-  = ReportDeliveryChannelProperty {formats :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ReportDeliveryChannelProperty {formats :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    s3BucketName :: (Value Prelude.Text),
                                    s3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
 mkReportDeliveryChannelProperty ::
@@ -36,7 +36,7 @@ instance JSON.ToJSON ReportDeliveryChannelProperty where
                  [(JSON..=) "Formats" Prelude.<$> formats,
                   (JSON..=) "S3KeyPrefix" Prelude.<$> s3KeyPrefix])))
 instance Property "Formats" ReportDeliveryChannelProperty where
-  type PropertyType "Formats" ReportDeliveryChannelProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Formats" ReportDeliveryChannelProperty = ValueList Prelude.Text
   set newValue ReportDeliveryChannelProperty {..}
     = ReportDeliveryChannelProperty
         {formats = Prelude.pure newValue, ..}

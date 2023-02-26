@@ -7,11 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GeoSpatialColumnGroupProperty
-  = GeoSpatialColumnGroupProperty {columns :: (ValueList (Value Prelude.Text)),
+  = GeoSpatialColumnGroupProperty {columns :: (ValueList Prelude.Text),
                                    countryCode :: (Prelude.Maybe (Value Prelude.Text)),
                                    name :: (Value Prelude.Text)}
 mkGeoSpatialColumnGroupProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> GeoSpatialColumnGroupProperty
 mkGeoSpatialColumnGroupProperty columns name
   = GeoSpatialColumnGroupProperty
@@ -34,7 +34,7 @@ instance JSON.ToJSON GeoSpatialColumnGroupProperty where
               (Prelude.catMaybes
                  [(JSON..=) "CountryCode" Prelude.<$> countryCode])))
 instance Property "Columns" GeoSpatialColumnGroupProperty where
-  type PropertyType "Columns" GeoSpatialColumnGroupProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Columns" GeoSpatialColumnGroupProperty = ValueList Prelude.Text
   set newValue GeoSpatialColumnGroupProperty {..}
     = GeoSpatialColumnGroupProperty {columns = newValue, ..}
 instance Property "CountryCode" GeoSpatialColumnGroupProperty where

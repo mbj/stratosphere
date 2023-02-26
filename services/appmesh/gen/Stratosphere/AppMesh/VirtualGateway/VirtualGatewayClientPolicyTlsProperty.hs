@@ -12,7 +12,7 @@ import Stratosphere.Value
 data VirtualGatewayClientPolicyTlsProperty
   = VirtualGatewayClientPolicyTlsProperty {certificate :: (Prelude.Maybe VirtualGatewayClientTlsCertificateProperty),
                                            enforce :: (Prelude.Maybe (Value Prelude.Bool)),
-                                           ports :: (Prelude.Maybe (ValueList (Value Prelude.Integer))),
+                                           ports :: (Prelude.Maybe (ValueList Prelude.Integer)),
                                            validation :: VirtualGatewayTlsValidationContextProperty}
 mkVirtualGatewayClientPolicyTlsProperty ::
   VirtualGatewayTlsValidationContextProperty
@@ -53,7 +53,7 @@ instance Property "Enforce" VirtualGatewayClientPolicyTlsProperty where
     = VirtualGatewayClientPolicyTlsProperty
         {enforce = Prelude.pure newValue, ..}
 instance Property "Ports" VirtualGatewayClientPolicyTlsProperty where
-  type PropertyType "Ports" VirtualGatewayClientPolicyTlsProperty = ValueList (Value Prelude.Integer)
+  type PropertyType "Ports" VirtualGatewayClientPolicyTlsProperty = ValueList Prelude.Integer
   set newValue VirtualGatewayClientPolicyTlsProperty {..}
     = VirtualGatewayClientPolicyTlsProperty
         {ports = Prelude.pure newValue, ..}

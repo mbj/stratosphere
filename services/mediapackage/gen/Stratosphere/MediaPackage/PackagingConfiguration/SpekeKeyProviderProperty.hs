@@ -11,11 +11,11 @@ import Stratosphere.Value
 data SpekeKeyProviderProperty
   = SpekeKeyProviderProperty {encryptionContractConfiguration :: (Prelude.Maybe EncryptionContractConfigurationProperty),
                               roleArn :: (Value Prelude.Text),
-                              systemIds :: (ValueList (Value Prelude.Text)),
+                              systemIds :: (ValueList Prelude.Text),
                               url :: (Value Prelude.Text)}
 mkSpekeKeyProviderProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
+  -> ValueList Prelude.Text
      -> Value Prelude.Text -> SpekeKeyProviderProperty
 mkSpekeKeyProviderProperty roleArn systemIds url
   = SpekeKeyProviderProperty
@@ -52,7 +52,7 @@ instance Property "RoleArn" SpekeKeyProviderProperty where
   set newValue SpekeKeyProviderProperty {..}
     = SpekeKeyProviderProperty {roleArn = newValue, ..}
 instance Property "SystemIds" SpekeKeyProviderProperty where
-  type PropertyType "SystemIds" SpekeKeyProviderProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SystemIds" SpekeKeyProviderProperty = ValueList Prelude.Text
   set newValue SpekeKeyProviderProperty {..}
     = SpekeKeyProviderProperty {systemIds = newValue, ..}
 instance Property "Url" SpekeKeyProviderProperty where

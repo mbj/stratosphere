@@ -10,11 +10,11 @@ import Stratosphere.Value
 data ReplicationSubnetGroup
   = ReplicationSubnetGroup {replicationSubnetGroupDescription :: (Value Prelude.Text),
                             replicationSubnetGroupIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
-                            subnetIds :: (ValueList (Value Prelude.Text)),
+                            subnetIds :: (ValueList Prelude.Text),
                             tags :: (Prelude.Maybe [Tag])}
 mkReplicationSubnetGroup ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> ReplicationSubnetGroup
+  -> ValueList Prelude.Text -> ReplicationSubnetGroup
 mkReplicationSubnetGroup
   replicationSubnetGroupDescription
   subnetIds
@@ -59,7 +59,7 @@ instance Property "ReplicationSubnetGroupIdentifier" ReplicationSubnetGroup wher
     = ReplicationSubnetGroup
         {replicationSubnetGroupIdentifier = Prelude.pure newValue, ..}
 instance Property "SubnetIds" ReplicationSubnetGroup where
-  type PropertyType "SubnetIds" ReplicationSubnetGroup = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" ReplicationSubnetGroup = ValueList Prelude.Text
   set newValue ReplicationSubnetGroup {..}
     = ReplicationSubnetGroup {subnetIds = newValue, ..}
 instance Property "Tags" ReplicationSubnetGroup where

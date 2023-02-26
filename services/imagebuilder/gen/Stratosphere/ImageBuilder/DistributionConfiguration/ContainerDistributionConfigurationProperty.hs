@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.DistributionConfiguration.Target
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerDistributionConfigurationProperty
-  = ContainerDistributionConfigurationProperty {containerTags :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ContainerDistributionConfigurationProperty {containerTags :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                 description :: (Prelude.Maybe (Value Prelude.Text)),
                                                 targetRepository :: (Prelude.Maybe TargetContainerRepositoryProperty)}
 mkContainerDistributionConfigurationProperty ::
@@ -37,7 +37,7 @@ instance JSON.ToJSON ContainerDistributionConfigurationProperty where
                (JSON..=) "Description" Prelude.<$> description,
                (JSON..=) "TargetRepository" Prelude.<$> targetRepository]))
 instance Property "ContainerTags" ContainerDistributionConfigurationProperty where
-  type PropertyType "ContainerTags" ContainerDistributionConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ContainerTags" ContainerDistributionConfigurationProperty = ValueList Prelude.Text
   set newValue ContainerDistributionConfigurationProperty {..}
     = ContainerDistributionConfigurationProperty
         {containerTags = Prelude.pure newValue, ..}

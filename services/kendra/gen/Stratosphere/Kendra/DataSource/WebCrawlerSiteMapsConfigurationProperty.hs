@@ -8,10 +8,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebCrawlerSiteMapsConfigurationProperty
-  = WebCrawlerSiteMapsConfigurationProperty {siteMaps :: (ValueList (Value Prelude.Text))}
+  = WebCrawlerSiteMapsConfigurationProperty {siteMaps :: (ValueList Prelude.Text)}
 mkWebCrawlerSiteMapsConfigurationProperty ::
-  ValueList (Value Prelude.Text)
-  -> WebCrawlerSiteMapsConfigurationProperty
+  ValueList Prelude.Text -> WebCrawlerSiteMapsConfigurationProperty
 mkWebCrawlerSiteMapsConfigurationProperty siteMaps
   = WebCrawlerSiteMapsConfigurationProperty {siteMaps = siteMaps}
 instance ToResourceProperties WebCrawlerSiteMapsConfigurationProperty where
@@ -23,6 +22,6 @@ instance JSON.ToJSON WebCrawlerSiteMapsConfigurationProperty where
   toJSON WebCrawlerSiteMapsConfigurationProperty {..}
     = JSON.object ["SiteMaps" JSON..= siteMaps]
 instance Property "SiteMaps" WebCrawlerSiteMapsConfigurationProperty where
-  type PropertyType "SiteMaps" WebCrawlerSiteMapsConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SiteMaps" WebCrawlerSiteMapsConfigurationProperty = ValueList Prelude.Text
   set newValue WebCrawlerSiteMapsConfigurationProperty {}
     = WebCrawlerSiteMapsConfigurationProperty {siteMaps = newValue, ..}

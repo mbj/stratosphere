@@ -7,10 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourcePermissionProperty
-  = ResourcePermissionProperty {actions :: (ValueList (Value Prelude.Text)),
+  = ResourcePermissionProperty {actions :: (ValueList Prelude.Text),
                                 principal :: (Value Prelude.Text)}
 mkResourcePermissionProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> ResourcePermissionProperty
 mkResourcePermissionProperty actions principal
   = ResourcePermissionProperty
@@ -26,7 +26,7 @@ instance JSON.ToJSON ResourcePermissionProperty where
     = JSON.object
         ["Actions" JSON..= actions, "Principal" JSON..= principal]
 instance Property "Actions" ResourcePermissionProperty where
-  type PropertyType "Actions" ResourcePermissionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Actions" ResourcePermissionProperty = ValueList Prelude.Text
   set newValue ResourcePermissionProperty {..}
     = ResourcePermissionProperty {actions = newValue, ..}
 instance Property "Principal" ResourcePermissionProperty where

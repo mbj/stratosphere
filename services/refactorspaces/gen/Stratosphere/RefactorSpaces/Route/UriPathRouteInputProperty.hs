@@ -9,7 +9,7 @@ import Stratosphere.Value
 data UriPathRouteInputProperty
   = UriPathRouteInputProperty {activationState :: (Value Prelude.Text),
                                includeChildPaths :: (Prelude.Maybe (Value Prelude.Bool)),
-                               methods :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                               methods :: (Prelude.Maybe (ValueList Prelude.Text)),
                                sourcePath :: (Prelude.Maybe (Value Prelude.Text))}
 mkUriPathRouteInputProperty ::
   Value Prelude.Text -> UriPathRouteInputProperty
@@ -49,7 +49,7 @@ instance Property "IncludeChildPaths" UriPathRouteInputProperty where
     = UriPathRouteInputProperty
         {includeChildPaths = Prelude.pure newValue, ..}
 instance Property "Methods" UriPathRouteInputProperty where
-  type PropertyType "Methods" UriPathRouteInputProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Methods" UriPathRouteInputProperty = ValueList Prelude.Text
   set newValue UriPathRouteInputProperty {..}
     = UriPathRouteInputProperty {methods = Prelude.pure newValue, ..}
 instance Property "SourcePath" UriPathRouteInputProperty where

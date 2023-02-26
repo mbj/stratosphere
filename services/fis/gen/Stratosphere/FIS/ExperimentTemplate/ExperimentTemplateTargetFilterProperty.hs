@@ -9,11 +9,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExperimentTemplateTargetFilterProperty
   = ExperimentTemplateTargetFilterProperty {path :: (Value Prelude.Text),
-                                            values :: (ValueList (Value Prelude.Text))}
+                                            values :: (ValueList Prelude.Text)}
 mkExperimentTemplateTargetFilterProperty ::
   Value Prelude.Text
-  -> ValueList (Value Prelude.Text)
-     -> ExperimentTemplateTargetFilterProperty
+  -> ValueList Prelude.Text -> ExperimentTemplateTargetFilterProperty
 mkExperimentTemplateTargetFilterProperty path values
   = ExperimentTemplateTargetFilterProperty
       {path = path, values = values}
@@ -30,6 +29,6 @@ instance Property "Path" ExperimentTemplateTargetFilterProperty where
   set newValue ExperimentTemplateTargetFilterProperty {..}
     = ExperimentTemplateTargetFilterProperty {path = newValue, ..}
 instance Property "Values" ExperimentTemplateTargetFilterProperty where
-  type PropertyType "Values" ExperimentTemplateTargetFilterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" ExperimentTemplateTargetFilterProperty = ValueList Prelude.Text
   set newValue ExperimentTemplateTargetFilterProperty {..}
     = ExperimentTemplateTargetFilterProperty {values = newValue, ..}

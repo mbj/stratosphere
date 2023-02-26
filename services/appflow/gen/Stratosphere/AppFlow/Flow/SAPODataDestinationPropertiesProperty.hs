@@ -11,7 +11,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SAPODataDestinationPropertiesProperty
   = SAPODataDestinationPropertiesProperty {errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
-                                           idFieldNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                           idFieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                            objectPath :: (Value Prelude.Text),
                                            successResponseHandlingConfig :: (Prelude.Maybe SuccessResponseHandlingConfigProperty),
                                            writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
@@ -54,7 +54,7 @@ instance Property "ErrorHandlingConfig" SAPODataDestinationPropertiesProperty wh
     = SAPODataDestinationPropertiesProperty
         {errorHandlingConfig = Prelude.pure newValue, ..}
 instance Property "IdFieldNames" SAPODataDestinationPropertiesProperty where
-  type PropertyType "IdFieldNames" SAPODataDestinationPropertiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IdFieldNames" SAPODataDestinationPropertiesProperty = ValueList Prelude.Text
   set newValue SAPODataDestinationPropertiesProperty {..}
     = SAPODataDestinationPropertiesProperty
         {idFieldNames = Prelude.pure newValue, ..}

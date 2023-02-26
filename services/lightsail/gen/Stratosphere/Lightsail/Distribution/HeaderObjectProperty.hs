@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HeaderObjectProperty
-  = HeaderObjectProperty {headersAllowList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = HeaderObjectProperty {headersAllowList :: (Prelude.Maybe (ValueList Prelude.Text)),
                           option :: (Prelude.Maybe (Value Prelude.Text))}
 mkHeaderObjectProperty :: HeaderObjectProperty
 mkHeaderObjectProperty
@@ -29,7 +29,7 @@ instance JSON.ToJSON HeaderObjectProperty where
               [(JSON..=) "HeadersAllowList" Prelude.<$> headersAllowList,
                (JSON..=) "Option" Prelude.<$> option]))
 instance Property "HeadersAllowList" HeaderObjectProperty where
-  type PropertyType "HeadersAllowList" HeaderObjectProperty = ValueList (Value Prelude.Text)
+  type PropertyType "HeadersAllowList" HeaderObjectProperty = ValueList Prelude.Text
   set newValue HeaderObjectProperty {..}
     = HeaderObjectProperty
         {headersAllowList = Prelude.pure newValue, ..}

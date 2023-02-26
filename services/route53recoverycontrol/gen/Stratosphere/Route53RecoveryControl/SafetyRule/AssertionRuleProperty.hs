@@ -7,10 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssertionRuleProperty
-  = AssertionRuleProperty {assertedControls :: (ValueList (Value Prelude.Text)),
+  = AssertionRuleProperty {assertedControls :: (ValueList Prelude.Text),
                            waitPeriodMs :: (Value Prelude.Integer)}
 mkAssertionRuleProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Integer -> AssertionRuleProperty
 mkAssertionRuleProperty assertedControls waitPeriodMs
   = AssertionRuleProperty
@@ -27,7 +27,7 @@ instance JSON.ToJSON AssertionRuleProperty where
         ["AssertedControls" JSON..= assertedControls,
          "WaitPeriodMs" JSON..= waitPeriodMs]
 instance Property "AssertedControls" AssertionRuleProperty where
-  type PropertyType "AssertedControls" AssertionRuleProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AssertedControls" AssertionRuleProperty = ValueList Prelude.Text
   set newValue AssertionRuleProperty {..}
     = AssertionRuleProperty {assertedControls = newValue, ..}
 instance Property "WaitPeriodMs" AssertionRuleProperty where

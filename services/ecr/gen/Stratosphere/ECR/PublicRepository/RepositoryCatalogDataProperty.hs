@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RepositoryCatalogDataProperty
   = RepositoryCatalogDataProperty {aboutText :: (Prelude.Maybe (Value Prelude.Text)),
-                                   architectures :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                   operatingSystems :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                   architectures :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                   operatingSystems :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    repositoryDescription :: (Prelude.Maybe (Value Prelude.Text)),
                                    usageText :: (Prelude.Maybe (Value Prelude.Text))}
 mkRepositoryCatalogDataProperty :: RepositoryCatalogDataProperty
@@ -48,12 +48,12 @@ instance Property "AboutText" RepositoryCatalogDataProperty where
     = RepositoryCatalogDataProperty
         {aboutText = Prelude.pure newValue, ..}
 instance Property "Architectures" RepositoryCatalogDataProperty where
-  type PropertyType "Architectures" RepositoryCatalogDataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Architectures" RepositoryCatalogDataProperty = ValueList Prelude.Text
   set newValue RepositoryCatalogDataProperty {..}
     = RepositoryCatalogDataProperty
         {architectures = Prelude.pure newValue, ..}
 instance Property "OperatingSystems" RepositoryCatalogDataProperty where
-  type PropertyType "OperatingSystems" RepositoryCatalogDataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OperatingSystems" RepositoryCatalogDataProperty = ValueList Prelude.Text
   set newValue RepositoryCatalogDataProperty {..}
     = RepositoryCatalogDataProperty
         {operatingSystems = Prelude.pure newValue, ..}

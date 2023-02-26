@@ -12,16 +12,16 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.StatelessRuleG
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirewallPolicyProperty
-  = FirewallPolicyProperty {statefulDefaultActions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = FirewallPolicyProperty {statefulDefaultActions :: (Prelude.Maybe (ValueList Prelude.Text)),
                             statefulEngineOptions :: (Prelude.Maybe StatefulEngineOptionsProperty),
                             statefulRuleGroupReferences :: (Prelude.Maybe [StatefulRuleGroupReferenceProperty]),
                             statelessCustomActions :: (Prelude.Maybe [CustomActionProperty]),
-                            statelessDefaultActions :: (ValueList (Value Prelude.Text)),
-                            statelessFragmentDefaultActions :: (ValueList (Value Prelude.Text)),
+                            statelessDefaultActions :: (ValueList Prelude.Text),
+                            statelessFragmentDefaultActions :: (ValueList Prelude.Text),
                             statelessRuleGroupReferences :: (Prelude.Maybe [StatelessRuleGroupReferenceProperty])}
 mkFirewallPolicyProperty ::
-  ValueList (Value Prelude.Text)
-  -> ValueList (Value Prelude.Text) -> FirewallPolicyProperty
+  ValueList Prelude.Text
+  -> ValueList Prelude.Text -> FirewallPolicyProperty
 mkFirewallPolicyProperty
   statelessDefaultActions
   statelessFragmentDefaultActions
@@ -73,7 +73,7 @@ instance JSON.ToJSON FirewallPolicyProperty where
                   (JSON..=) "StatelessRuleGroupReferences"
                     Prelude.<$> statelessRuleGroupReferences])))
 instance Property "StatefulDefaultActions" FirewallPolicyProperty where
-  type PropertyType "StatefulDefaultActions" FirewallPolicyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StatefulDefaultActions" FirewallPolicyProperty = ValueList Prelude.Text
   set newValue FirewallPolicyProperty {..}
     = FirewallPolicyProperty
         {statefulDefaultActions = Prelude.pure newValue, ..}
@@ -93,11 +93,11 @@ instance Property "StatelessCustomActions" FirewallPolicyProperty where
     = FirewallPolicyProperty
         {statelessCustomActions = Prelude.pure newValue, ..}
 instance Property "StatelessDefaultActions" FirewallPolicyProperty where
-  type PropertyType "StatelessDefaultActions" FirewallPolicyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StatelessDefaultActions" FirewallPolicyProperty = ValueList Prelude.Text
   set newValue FirewallPolicyProperty {..}
     = FirewallPolicyProperty {statelessDefaultActions = newValue, ..}
 instance Property "StatelessFragmentDefaultActions" FirewallPolicyProperty where
-  type PropertyType "StatelessFragmentDefaultActions" FirewallPolicyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StatelessFragmentDefaultActions" FirewallPolicyProperty = ValueList Prelude.Text
   set newValue FirewallPolicyProperty {..}
     = FirewallPolicyProperty
         {statelessFragmentDefaultActions = newValue, ..}

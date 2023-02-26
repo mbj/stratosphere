@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TagFilterProperty
   = TagFilterProperty {key :: (Value Prelude.Text),
-                       values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                       values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkTagFilterProperty :: Value Prelude.Text -> TagFilterProperty
 mkTagFilterProperty key
   = TagFilterProperty {key = key, values = Prelude.Nothing}
@@ -32,6 +32,6 @@ instance Property "Key" TagFilterProperty where
   set newValue TagFilterProperty {..}
     = TagFilterProperty {key = newValue, ..}
 instance Property "Values" TagFilterProperty where
-  type PropertyType "Values" TagFilterProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" TagFilterProperty = ValueList Prelude.Text
   set newValue TagFilterProperty {..}
     = TagFilterProperty {values = Prelude.pure newValue, ..}

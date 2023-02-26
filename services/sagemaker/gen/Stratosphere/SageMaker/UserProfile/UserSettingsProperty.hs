@@ -15,7 +15,7 @@ data UserSettingsProperty
                           jupyterServerAppSettings :: (Prelude.Maybe JupyterServerAppSettingsProperty),
                           kernelGatewayAppSettings :: (Prelude.Maybe KernelGatewayAppSettingsProperty),
                           rStudioServerProAppSettings :: (Prelude.Maybe RStudioServerProAppSettingsProperty),
-                          securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                          securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                           sharingSettings :: (Prelude.Maybe SharingSettingsProperty)}
 mkUserSettingsProperty :: UserSettingsProperty
 mkUserSettingsProperty
@@ -75,7 +75,7 @@ instance Property "RStudioServerProAppSettings" UserSettingsProperty where
     = UserSettingsProperty
         {rStudioServerProAppSettings = Prelude.pure newValue, ..}
 instance Property "SecurityGroups" UserSettingsProperty where
-  type PropertyType "SecurityGroups" UserSettingsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" UserSettingsProperty = ValueList Prelude.Text
   set newValue UserSettingsProperty {..}
     = UserSettingsProperty {securityGroups = Prelude.pure newValue, ..}
 instance Property "SharingSettings" UserSettingsProperty where

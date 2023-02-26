@@ -9,10 +9,10 @@ import {-# SOURCE #-} Stratosphere.CloudWatch.MetricStream.MetricStreamStatistic
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricStreamStatisticsConfigurationProperty
-  = MetricStreamStatisticsConfigurationProperty {additionalStatistics :: (ValueList (Value Prelude.Text)),
+  = MetricStreamStatisticsConfigurationProperty {additionalStatistics :: (ValueList Prelude.Text),
                                                  includeMetrics :: [MetricStreamStatisticsMetricProperty]}
 mkMetricStreamStatisticsConfigurationProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> [MetricStreamStatisticsMetricProperty]
      -> MetricStreamStatisticsConfigurationProperty
 mkMetricStreamStatisticsConfigurationProperty
@@ -34,7 +34,7 @@ instance JSON.ToJSON MetricStreamStatisticsConfigurationProperty where
         ["AdditionalStatistics" JSON..= additionalStatistics,
          "IncludeMetrics" JSON..= includeMetrics]
 instance Property "AdditionalStatistics" MetricStreamStatisticsConfigurationProperty where
-  type PropertyType "AdditionalStatistics" MetricStreamStatisticsConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AdditionalStatistics" MetricStreamStatisticsConfigurationProperty = ValueList Prelude.Text
   set newValue MetricStreamStatisticsConfigurationProperty {..}
     = MetricStreamStatisticsConfigurationProperty
         {additionalStatistics = newValue, ..}

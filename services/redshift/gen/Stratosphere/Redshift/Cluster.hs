@@ -19,7 +19,7 @@ data Cluster
              classic :: (Prelude.Maybe (Value Prelude.Bool)),
              clusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
              clusterParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
-             clusterSecurityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+             clusterSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
              clusterSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
              clusterType :: (Value Prelude.Text),
              clusterVersion :: (Prelude.Maybe (Value Prelude.Text)),
@@ -35,7 +35,7 @@ data Cluster
              enhancedVpcRouting :: (Prelude.Maybe (Value Prelude.Bool)),
              hsmClientCertificateIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
              hsmConfigurationIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
-             iamRoles :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+             iamRoles :: (Prelude.Maybe (ValueList Prelude.Text)),
              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
              loggingProperties :: (Prelude.Maybe LoggingPropertiesProperty),
              maintenanceTrackName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -57,7 +57,7 @@ data Cluster
              snapshotCopyRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
              snapshotIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag]),
-             vpcSecurityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+             vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCluster ::
   Value Prelude.Text
   -> Value Prelude.Text
@@ -289,7 +289,7 @@ instance Property "ClusterParameterGroupName" Cluster where
   set newValue Cluster {..}
     = Cluster {clusterParameterGroupName = Prelude.pure newValue, ..}
 instance Property "ClusterSecurityGroups" Cluster where
-  type PropertyType "ClusterSecurityGroups" Cluster = ValueList (Value Prelude.Text)
+  type PropertyType "ClusterSecurityGroups" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}
     = Cluster {clusterSecurityGroups = Prelude.pure newValue, ..}
 instance Property "ClusterSubnetGroupName" Cluster where
@@ -352,7 +352,7 @@ instance Property "HsmConfigurationIdentifier" Cluster where
   set newValue Cluster {..}
     = Cluster {hsmConfigurationIdentifier = Prelude.pure newValue, ..}
 instance Property "IamRoles" Cluster where
-  type PropertyType "IamRoles" Cluster = ValueList (Value Prelude.Text)
+  type PropertyType "IamRoles" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}
     = Cluster {iamRoles = Prelude.pure newValue, ..}
 instance Property "KmsKeyId" Cluster where
@@ -439,6 +439,6 @@ instance Property "Tags" Cluster where
   set newValue Cluster {..}
     = Cluster {tags = Prelude.pure newValue, ..}
 instance Property "VpcSecurityGroupIds" Cluster where
-  type PropertyType "VpcSecurityGroupIds" Cluster = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSecurityGroupIds" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}
     = Cluster {vpcSecurityGroupIds = Prelude.pure newValue, ..}

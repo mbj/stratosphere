@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CookiesConfigProperty
   = CookiesConfigProperty {cookieBehavior :: (Value Prelude.Text),
-                           cookies :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                           cookies :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCookiesConfigProperty ::
   Value Prelude.Text -> CookiesConfigProperty
 mkCookiesConfigProperty cookieBehavior
@@ -34,6 +34,6 @@ instance Property "CookieBehavior" CookiesConfigProperty where
   set newValue CookiesConfigProperty {..}
     = CookiesConfigProperty {cookieBehavior = newValue, ..}
 instance Property "Cookies" CookiesConfigProperty where
-  type PropertyType "Cookies" CookiesConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Cookies" CookiesConfigProperty = ValueList Prelude.Text
   set newValue CookiesConfigProperty {..}
     = CookiesConfigProperty {cookies = Prelude.pure newValue, ..}

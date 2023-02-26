@@ -12,7 +12,7 @@ data LaunchConfiguration
   = LaunchConfiguration {associatePublicIpAddress :: (Prelude.Maybe (Value Prelude.Bool)),
                          blockDeviceMappings :: (Prelude.Maybe [BlockDeviceMappingProperty]),
                          classicLinkVPCId :: (Prelude.Maybe (Value Prelude.Text)),
-                         classicLinkVPCSecurityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         classicLinkVPCSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                          ebsOptimized :: (Prelude.Maybe (Value Prelude.Bool)),
                          iamInstanceProfile :: (Prelude.Maybe (Value Prelude.Text)),
                          imageId :: (Value Prelude.Text),
@@ -25,7 +25,7 @@ data LaunchConfiguration
                          metadataOptions :: (Prelude.Maybe MetadataOptionsProperty),
                          placementTenancy :: (Prelude.Maybe (Value Prelude.Text)),
                          ramDiskId :: (Prelude.Maybe (Value Prelude.Text)),
-                         securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                          spotPrice :: (Prelude.Maybe (Value Prelude.Text)),
                          userData :: (Prelude.Maybe (Value Prelude.Text))}
 mkLaunchConfiguration ::
@@ -117,7 +117,7 @@ instance Property "ClassicLinkVPCId" LaunchConfiguration where
     = LaunchConfiguration
         {classicLinkVPCId = Prelude.pure newValue, ..}
 instance Property "ClassicLinkVPCSecurityGroups" LaunchConfiguration where
-  type PropertyType "ClassicLinkVPCSecurityGroups" LaunchConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "ClassicLinkVPCSecurityGroups" LaunchConfiguration = ValueList Prelude.Text
   set newValue LaunchConfiguration {..}
     = LaunchConfiguration
         {classicLinkVPCSecurityGroups = Prelude.pure newValue, ..}
@@ -174,7 +174,7 @@ instance Property "RamDiskId" LaunchConfiguration where
   set newValue LaunchConfiguration {..}
     = LaunchConfiguration {ramDiskId = Prelude.pure newValue, ..}
 instance Property "SecurityGroups" LaunchConfiguration where
-  type PropertyType "SecurityGroups" LaunchConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" LaunchConfiguration = ValueList Prelude.Text
   set newValue LaunchConfiguration {..}
     = LaunchConfiguration {securityGroups = Prelude.pure newValue, ..}
 instance Property "SpotPrice" LaunchConfiguration where

@@ -8,11 +8,11 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data VpcConnector
-  = VpcConnector {securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                  subnets :: (ValueList (Value Prelude.Text)),
+  = VpcConnector {securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  subnets :: (ValueList Prelude.Text),
                   tags :: (Prelude.Maybe [Tag]),
                   vpcConnectorName :: (Prelude.Maybe (Value Prelude.Text))}
-mkVpcConnector :: ValueList (Value Prelude.Text) -> VpcConnector
+mkVpcConnector :: ValueList Prelude.Text -> VpcConnector
 mkVpcConnector subnets
   = VpcConnector
       {subnets = subnets, securityGroups = Prelude.Nothing,
@@ -39,11 +39,11 @@ instance JSON.ToJSON VpcConnector where
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "VpcConnectorName" Prelude.<$> vpcConnectorName])))
 instance Property "SecurityGroups" VpcConnector where
-  type PropertyType "SecurityGroups" VpcConnector = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" VpcConnector = ValueList Prelude.Text
   set newValue VpcConnector {..}
     = VpcConnector {securityGroups = Prelude.pure newValue, ..}
 instance Property "Subnets" VpcConnector where
-  type PropertyType "Subnets" VpcConnector = ValueList (Value Prelude.Text)
+  type PropertyType "Subnets" VpcConnector = ValueList Prelude.Text
   set newValue VpcConnector {..}
     = VpcConnector {subnets = newValue, ..}
 instance Property "Tags" VpcConnector where

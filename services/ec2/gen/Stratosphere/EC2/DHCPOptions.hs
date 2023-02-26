@@ -9,10 +9,10 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data DHCPOptions
   = DHCPOptions {domainName :: (Prelude.Maybe (Value Prelude.Text)),
-                 domainNameServers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                 netbiosNameServers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 domainNameServers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 netbiosNameServers :: (Prelude.Maybe (ValueList Prelude.Text)),
                  netbiosNodeType :: (Prelude.Maybe (Value Prelude.Integer)),
-                 ntpServers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 ntpServers :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
 mkDHCPOptions :: DHCPOptions
 mkDHCPOptions
@@ -49,11 +49,11 @@ instance Property "DomainName" DHCPOptions where
   set newValue DHCPOptions {..}
     = DHCPOptions {domainName = Prelude.pure newValue, ..}
 instance Property "DomainNameServers" DHCPOptions where
-  type PropertyType "DomainNameServers" DHCPOptions = ValueList (Value Prelude.Text)
+  type PropertyType "DomainNameServers" DHCPOptions = ValueList Prelude.Text
   set newValue DHCPOptions {..}
     = DHCPOptions {domainNameServers = Prelude.pure newValue, ..}
 instance Property "NetbiosNameServers" DHCPOptions where
-  type PropertyType "NetbiosNameServers" DHCPOptions = ValueList (Value Prelude.Text)
+  type PropertyType "NetbiosNameServers" DHCPOptions = ValueList Prelude.Text
   set newValue DHCPOptions {..}
     = DHCPOptions {netbiosNameServers = Prelude.pure newValue, ..}
 instance Property "NetbiosNodeType" DHCPOptions where
@@ -61,7 +61,7 @@ instance Property "NetbiosNodeType" DHCPOptions where
   set newValue DHCPOptions {..}
     = DHCPOptions {netbiosNodeType = Prelude.pure newValue, ..}
 instance Property "NtpServers" DHCPOptions where
-  type PropertyType "NtpServers" DHCPOptions = ValueList (Value Prelude.Text)
+  type PropertyType "NtpServers" DHCPOptions = ValueList Prelude.Text
   set newValue DHCPOptions {..}
     = DHCPOptions {ntpServers = Prelude.pure newValue, ..}
 instance Property "Tags" DHCPOptions where

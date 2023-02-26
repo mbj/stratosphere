@@ -9,9 +9,8 @@ import Stratosphere.Value
 data InstanceProfile
   = InstanceProfile {instanceProfileName :: (Prelude.Maybe (Value Prelude.Text)),
                      path :: (Prelude.Maybe (Value Prelude.Text)),
-                     roles :: (ValueList (Value Prelude.Text))}
-mkInstanceProfile ::
-  ValueList (Value Prelude.Text) -> InstanceProfile
+                     roles :: (ValueList Prelude.Text)}
+mkInstanceProfile :: ValueList Prelude.Text -> InstanceProfile
 mkInstanceProfile roles
   = InstanceProfile
       {roles = roles, instanceProfileName = Prelude.Nothing,
@@ -44,6 +43,6 @@ instance Property "Path" InstanceProfile where
   set newValue InstanceProfile {..}
     = InstanceProfile {path = Prelude.pure newValue, ..}
 instance Property "Roles" InstanceProfile where
-  type PropertyType "Roles" InstanceProfile = ValueList (Value Prelude.Text)
+  type PropertyType "Roles" InstanceProfile = ValueList Prelude.Text
   set newValue InstanceProfile {..}
     = InstanceProfile {roles = newValue, ..}

@@ -12,7 +12,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLocationRefProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsGroupSettingsProperty
-  = HlsGroupSettingsProperty {adMarkers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = HlsGroupSettingsProperty {adMarkers :: (Prelude.Maybe (ValueList Prelude.Text)),
                               baseUrlContent :: (Prelude.Maybe (Value Prelude.Text)),
                               baseUrlContent1 :: (Prelude.Maybe (Value Prelude.Text)),
                               baseUrlManifest :: (Prelude.Maybe (Value Prelude.Text)),
@@ -210,7 +210,7 @@ instance JSON.ToJSON HlsGroupSettingsProperty where
                  Prelude.<$> timestampDeltaMilliseconds,
                (JSON..=) "TsFileMode" Prelude.<$> tsFileMode]))
 instance Property "AdMarkers" HlsGroupSettingsProperty where
-  type PropertyType "AdMarkers" HlsGroupSettingsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AdMarkers" HlsGroupSettingsProperty = ValueList Prelude.Text
   set newValue HlsGroupSettingsProperty {..}
     = HlsGroupSettingsProperty {adMarkers = Prelude.pure newValue, ..}
 instance Property "BaseUrlContent" HlsGroupSettingsProperty where

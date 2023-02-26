@@ -17,20 +17,20 @@ data ComputeResourcesProperty
                               ec2KeyPair :: (Prelude.Maybe (Value Prelude.Text)),
                               imageId :: (Prelude.Maybe (Value Prelude.Text)),
                               instanceRole :: (Prelude.Maybe (Value Prelude.Text)),
-                              instanceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                              instanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                               launchTemplate :: (Prelude.Maybe LaunchTemplateSpecificationProperty),
                               maxvCpus :: (Value Prelude.Integer),
                               minvCpus :: (Prelude.Maybe (Value Prelude.Integer)),
                               placementGroup :: (Prelude.Maybe (Value Prelude.Text)),
-                              securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                              securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                               spotIamFleetRole :: (Prelude.Maybe (Value Prelude.Text)),
-                              subnets :: (ValueList (Value Prelude.Text)),
+                              subnets :: (ValueList Prelude.Text),
                               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                               type' :: (Value Prelude.Text),
                               updateToLatestImageVersion :: (Prelude.Maybe (Value Prelude.Bool))}
 mkComputeResourcesProperty ::
   Value Prelude.Integer
-  -> ValueList (Value Prelude.Text)
+  -> ValueList Prelude.Text
      -> Value Prelude.Text -> ComputeResourcesProperty
 mkComputeResourcesProperty maxvCpus subnets type'
   = ComputeResourcesProperty
@@ -127,7 +127,7 @@ instance Property "InstanceRole" ComputeResourcesProperty where
     = ComputeResourcesProperty
         {instanceRole = Prelude.pure newValue, ..}
 instance Property "InstanceTypes" ComputeResourcesProperty where
-  type PropertyType "InstanceTypes" ComputeResourcesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InstanceTypes" ComputeResourcesProperty = ValueList Prelude.Text
   set newValue ComputeResourcesProperty {..}
     = ComputeResourcesProperty
         {instanceTypes = Prelude.pure newValue, ..}
@@ -150,7 +150,7 @@ instance Property "PlacementGroup" ComputeResourcesProperty where
     = ComputeResourcesProperty
         {placementGroup = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" ComputeResourcesProperty where
-  type PropertyType "SecurityGroupIds" ComputeResourcesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" ComputeResourcesProperty = ValueList Prelude.Text
   set newValue ComputeResourcesProperty {..}
     = ComputeResourcesProperty
         {securityGroupIds = Prelude.pure newValue, ..}
@@ -160,7 +160,7 @@ instance Property "SpotIamFleetRole" ComputeResourcesProperty where
     = ComputeResourcesProperty
         {spotIamFleetRole = Prelude.pure newValue, ..}
 instance Property "Subnets" ComputeResourcesProperty where
-  type PropertyType "Subnets" ComputeResourcesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Subnets" ComputeResourcesProperty = ValueList Prelude.Text
   set newValue ComputeResourcesProperty {..}
     = ComputeResourcesProperty {subnets = newValue, ..}
 instance Property "Tags" ComputeResourcesProperty where

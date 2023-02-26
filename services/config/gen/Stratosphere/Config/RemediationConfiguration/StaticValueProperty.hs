@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StaticValueProperty
-  = StaticValueProperty {values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = StaticValueProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkStaticValueProperty :: StaticValueProperty
 mkStaticValueProperty
   = StaticValueProperty {values = Prelude.Nothing}
@@ -23,6 +23,6 @@ instance JSON.ToJSON StaticValueProperty where
         (Prelude.fromList
            (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values]))
 instance Property "Values" StaticValueProperty where
-  type PropertyType "Values" StaticValueProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" StaticValueProperty = ValueList Prelude.Text
   set newValue StaticValueProperty {}
     = StaticValueProperty {values = Prelude.pure newValue, ..}

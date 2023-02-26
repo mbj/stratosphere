@@ -8,8 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentTargetsProperty
   = DeploymentTargetsProperty {accountFilterType :: (Prelude.Maybe (Value Prelude.Text)),
-                               accounts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                               organizationalUnitIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                               accounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               organizationalUnitIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkDeploymentTargetsProperty :: DeploymentTargetsProperty
 mkDeploymentTargetsProperty
   = DeploymentTargetsProperty
@@ -40,11 +40,11 @@ instance Property "AccountFilterType" DeploymentTargetsProperty where
     = DeploymentTargetsProperty
         {accountFilterType = Prelude.pure newValue, ..}
 instance Property "Accounts" DeploymentTargetsProperty where
-  type PropertyType "Accounts" DeploymentTargetsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Accounts" DeploymentTargetsProperty = ValueList Prelude.Text
   set newValue DeploymentTargetsProperty {..}
     = DeploymentTargetsProperty {accounts = Prelude.pure newValue, ..}
 instance Property "OrganizationalUnitIds" DeploymentTargetsProperty where
-  type PropertyType "OrganizationalUnitIds" DeploymentTargetsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OrganizationalUnitIds" DeploymentTargetsProperty = ValueList Prelude.Text
   set newValue DeploymentTargetsProperty {..}
     = DeploymentTargetsProperty
         {organizationalUnitIds = Prelude.pure newValue, ..}

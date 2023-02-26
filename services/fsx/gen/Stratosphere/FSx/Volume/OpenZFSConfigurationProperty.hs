@@ -14,7 +14,7 @@ data OpenZFSConfigurationProperty
   = OpenZFSConfigurationProperty {copyTagsToSnapshots :: (Prelude.Maybe (Value Prelude.Bool)),
                                   dataCompressionType :: (Prelude.Maybe (Value Prelude.Text)),
                                   nfsExports :: (Prelude.Maybe [NfsExportsProperty]),
-                                  options :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                  options :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   originSnapshot :: (Prelude.Maybe OriginSnapshotProperty),
                                   parentVolumeId :: (Value Prelude.Text),
                                   readOnly :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -90,7 +90,7 @@ instance Property "NfsExports" OpenZFSConfigurationProperty where
     = OpenZFSConfigurationProperty
         {nfsExports = Prelude.pure newValue, ..}
 instance Property "Options" OpenZFSConfigurationProperty where
-  type PropertyType "Options" OpenZFSConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Options" OpenZFSConfigurationProperty = ValueList Prelude.Text
   set newValue OpenZFSConfigurationProperty {..}
     = OpenZFSConfigurationProperty
         {options = Prelude.pure newValue, ..}

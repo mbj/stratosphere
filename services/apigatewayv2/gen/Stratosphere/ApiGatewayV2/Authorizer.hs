@@ -15,7 +15,7 @@ data Authorizer
                 authorizerType :: (Value Prelude.Text),
                 authorizerUri :: (Prelude.Maybe (Value Prelude.Text)),
                 enableSimpleResponses :: (Prelude.Maybe (Value Prelude.Bool)),
-                identitySource :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                identitySource :: (Prelude.Maybe (ValueList Prelude.Text)),
                 identityValidationExpression :: (Prelude.Maybe (Value Prelude.Text)),
                 jwtConfiguration :: (Prelude.Maybe JWTConfigurationProperty),
                 name :: (Value Prelude.Text)}
@@ -106,7 +106,7 @@ instance Property "EnableSimpleResponses" Authorizer where
   set newValue Authorizer {..}
     = Authorizer {enableSimpleResponses = Prelude.pure newValue, ..}
 instance Property "IdentitySource" Authorizer where
-  type PropertyType "IdentitySource" Authorizer = ValueList (Value Prelude.Text)
+  type PropertyType "IdentitySource" Authorizer = ValueList Prelude.Text
   set newValue Authorizer {..}
     = Authorizer {identitySource = Prelude.pure newValue, ..}
 instance Property "IdentityValidationExpression" Authorizer where

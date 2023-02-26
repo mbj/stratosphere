@@ -9,7 +9,7 @@ import Stratosphere.Value
 data AttachmentsSourceProperty
   = AttachmentsSourceProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
                                name :: (Prelude.Maybe (Value Prelude.Text)),
-                               values :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                               values :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAttachmentsSourceProperty :: AttachmentsSourceProperty
 mkAttachmentsSourceProperty
   = AttachmentsSourceProperty
@@ -41,6 +41,6 @@ instance Property "Name" AttachmentsSourceProperty where
   set newValue AttachmentsSourceProperty {..}
     = AttachmentsSourceProperty {name = Prelude.pure newValue, ..}
 instance Property "Values" AttachmentsSourceProperty where
-  type PropertyType "Values" AttachmentsSourceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Values" AttachmentsSourceProperty = ValueList Prelude.Text
   set newValue AttachmentsSourceProperty {..}
     = AttachmentsSourceProperty {values = Prelude.pure newValue, ..}

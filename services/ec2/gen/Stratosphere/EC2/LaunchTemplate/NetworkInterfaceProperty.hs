@@ -17,7 +17,7 @@ data NetworkInterfaceProperty
                               deleteOnTermination :: (Prelude.Maybe (Value Prelude.Bool)),
                               description :: (Prelude.Maybe (Value Prelude.Text)),
                               deviceIndex :: (Prelude.Maybe (Value Prelude.Integer)),
-                              groups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                              groups :: (Prelude.Maybe (ValueList Prelude.Text)),
                               interfaceType :: (Prelude.Maybe (Value Prelude.Text)),
                               ipv4PrefixCount :: (Prelude.Maybe (Value Prelude.Integer)),
                               ipv4Prefixes :: (Prelude.Maybe [Ipv4PrefixSpecificationProperty]),
@@ -129,7 +129,7 @@ instance Property "DeviceIndex" NetworkInterfaceProperty where
     = NetworkInterfaceProperty
         {deviceIndex = Prelude.pure newValue, ..}
 instance Property "Groups" NetworkInterfaceProperty where
-  type PropertyType "Groups" NetworkInterfaceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Groups" NetworkInterfaceProperty = ValueList Prelude.Text
   set newValue NetworkInterfaceProperty {..}
     = NetworkInterfaceProperty {groups = Prelude.pure newValue, ..}
 instance Property "InterfaceType" NetworkInterfaceProperty where

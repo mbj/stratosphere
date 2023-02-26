@@ -15,7 +15,7 @@ data DBCluster
   = DBCluster {allocatedStorage :: (Prelude.Maybe (Value Prelude.Integer)),
                associatedRoles :: (Prelude.Maybe [DBClusterRoleProperty]),
                autoMinorVersionUpgrade :: (Prelude.Maybe (Value Prelude.Bool)),
-               availabilityZones :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
                backtrackWindow :: (Prelude.Maybe (Value Prelude.Integer)),
                backupRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
                copyTagsToSnapshot :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -29,7 +29,7 @@ data DBCluster
                deletionProtection :: (Prelude.Maybe (Value Prelude.Bool)),
                domain :: (Prelude.Maybe (Value Prelude.Text)),
                domainIAMRoleName :: (Prelude.Maybe (Value Prelude.Text)),
-               enableCloudwatchLogsExports :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               enableCloudwatchLogsExports :: (Prelude.Maybe (ValueList Prelude.Text)),
                enableHttpEndpoint :: (Prelude.Maybe (Value Prelude.Bool)),
                enableIAMDatabaseAuthentication :: (Prelude.Maybe (Value Prelude.Bool)),
                engine :: (Prelude.Maybe (Value Prelude.Text)),
@@ -63,7 +63,7 @@ data DBCluster
                storageType :: (Prelude.Maybe (Value Prelude.Text)),
                tags :: (Prelude.Maybe [Tag]),
                useLatestRestorableTime :: (Prelude.Maybe (Value Prelude.Bool)),
-               vpcSecurityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+               vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkDBCluster :: DBCluster
 mkDBCluster
   = DBCluster
@@ -275,7 +275,7 @@ instance Property "AutoMinorVersionUpgrade" DBCluster where
   set newValue DBCluster {..}
     = DBCluster {autoMinorVersionUpgrade = Prelude.pure newValue, ..}
 instance Property "AvailabilityZones" DBCluster where
-  type PropertyType "AvailabilityZones" DBCluster = ValueList (Value Prelude.Text)
+  type PropertyType "AvailabilityZones" DBCluster = ValueList Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {availabilityZones = Prelude.pure newValue, ..}
 instance Property "BacktrackWindow" DBCluster where
@@ -333,7 +333,7 @@ instance Property "DomainIAMRoleName" DBCluster where
   set newValue DBCluster {..}
     = DBCluster {domainIAMRoleName = Prelude.pure newValue, ..}
 instance Property "EnableCloudwatchLogsExports" DBCluster where
-  type PropertyType "EnableCloudwatchLogsExports" DBCluster = ValueList (Value Prelude.Text)
+  type PropertyType "EnableCloudwatchLogsExports" DBCluster = ValueList Prelude.Text
   set newValue DBCluster {..}
     = DBCluster
         {enableCloudwatchLogsExports = Prelude.pure newValue, ..}
@@ -477,6 +477,6 @@ instance Property "UseLatestRestorableTime" DBCluster where
   set newValue DBCluster {..}
     = DBCluster {useLatestRestorableTime = Prelude.pure newValue, ..}
 instance Property "VpcSecurityGroupIds" DBCluster where
-  type PropertyType "VpcSecurityGroupIds" DBCluster = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSecurityGroupIds" DBCluster = ValueList Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {vpcSecurityGroupIds = Prelude.pure newValue, ..}

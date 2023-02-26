@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Function
-  = Function {architectures :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Function {architectures :: (Prelude.Maybe (ValueList Prelude.Text)),
               code :: CodeProperty,
               codeSigningConfigArn :: (Prelude.Maybe (Value Prelude.Text)),
               deadLetterConfig :: (Prelude.Maybe DeadLetterConfigProperty),
@@ -30,7 +30,7 @@ data Function
               handler :: (Prelude.Maybe (Value Prelude.Text)),
               imageConfig :: (Prelude.Maybe ImageConfigProperty),
               kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
-              layers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+              layers :: (Prelude.Maybe (ValueList Prelude.Text)),
               memorySize :: (Prelude.Maybe (Value Prelude.Integer)),
               packageType :: (Prelude.Maybe (Value Prelude.Text)),
               reservedConcurrentExecutions :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -124,7 +124,7 @@ instance JSON.ToJSON Function where
                   (JSON..=) "TracingConfig" Prelude.<$> tracingConfig,
                   (JSON..=) "VpcConfig" Prelude.<$> vpcConfig])))
 instance Property "Architectures" Function where
-  type PropertyType "Architectures" Function = ValueList (Value Prelude.Text)
+  type PropertyType "Architectures" Function = ValueList Prelude.Text
   set newValue Function {..}
     = Function {architectures = Prelude.pure newValue, ..}
 instance Property "Code" Function where
@@ -171,7 +171,7 @@ instance Property "KmsKeyArn" Function where
   set newValue Function {..}
     = Function {kmsKeyArn = Prelude.pure newValue, ..}
 instance Property "Layers" Function where
-  type PropertyType "Layers" Function = ValueList (Value Prelude.Text)
+  type PropertyType "Layers" Function = ValueList Prelude.Text
   set newValue Function {..}
     = Function {layers = Prelude.pure newValue, ..}
 instance Property "MemorySize" Function where

@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TmpfsProperty
   = TmpfsProperty {containerPath :: (Prelude.Maybe (Value Prelude.Text)),
-                   mountOptions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   mountOptions :: (Prelude.Maybe (ValueList Prelude.Text)),
                    size :: (Value Prelude.Integer)}
 mkTmpfsProperty :: Value Prelude.Integer -> TmpfsProperty
 mkTmpfsProperty size
@@ -39,7 +39,7 @@ instance Property "ContainerPath" TmpfsProperty where
   set newValue TmpfsProperty {..}
     = TmpfsProperty {containerPath = Prelude.pure newValue, ..}
 instance Property "MountOptions" TmpfsProperty where
-  type PropertyType "MountOptions" TmpfsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "MountOptions" TmpfsProperty = ValueList Prelude.Text
   set newValue TmpfsProperty {..}
     = TmpfsProperty {mountOptions = Prelude.pure newValue, ..}
 instance Property "Size" TmpfsProperty where

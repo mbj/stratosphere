@@ -7,10 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TCPFlagFieldProperty
-  = TCPFlagFieldProperty {flags :: (ValueList (Value Prelude.Text)),
-                          masks :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = TCPFlagFieldProperty {flags :: (ValueList Prelude.Text),
+                          masks :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkTCPFlagFieldProperty ::
-  ValueList (Value Prelude.Text) -> TCPFlagFieldProperty
+  ValueList Prelude.Text -> TCPFlagFieldProperty
 mkTCPFlagFieldProperty flags
   = TCPFlagFieldProperty {flags = flags, masks = Prelude.Nothing}
 instance ToResourceProperties TCPFlagFieldProperty where
@@ -29,10 +29,10 @@ instance JSON.ToJSON TCPFlagFieldProperty where
               ["Flags" JSON..= flags]
               (Prelude.catMaybes [(JSON..=) "Masks" Prelude.<$> masks])))
 instance Property "Flags" TCPFlagFieldProperty where
-  type PropertyType "Flags" TCPFlagFieldProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Flags" TCPFlagFieldProperty = ValueList Prelude.Text
   set newValue TCPFlagFieldProperty {..}
     = TCPFlagFieldProperty {flags = newValue, ..}
 instance Property "Masks" TCPFlagFieldProperty where
-  type PropertyType "Masks" TCPFlagFieldProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Masks" TCPFlagFieldProperty = ValueList Prelude.Text
   set newValue TCPFlagFieldProperty {..}
     = TCPFlagFieldProperty {masks = Prelude.pure newValue, ..}

@@ -15,8 +15,8 @@ data Workgroup
                namespaceName :: (Prelude.Maybe (Value Prelude.Text)),
                port :: (Prelude.Maybe (Value Prelude.Integer)),
                publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
-               securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-               subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+               securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+               subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                tags :: (Prelude.Maybe [Tag]),
                workgroupName :: (Value Prelude.Text)}
 mkWorkgroup :: Value Prelude.Text -> Workgroup
@@ -87,11 +87,11 @@ instance Property "PubliclyAccessible" Workgroup where
   set newValue Workgroup {..}
     = Workgroup {publiclyAccessible = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" Workgroup where
-  type PropertyType "SecurityGroupIds" Workgroup = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" Workgroup = ValueList Prelude.Text
   set newValue Workgroup {..}
     = Workgroup {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetIds" Workgroup where
-  type PropertyType "SubnetIds" Workgroup = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" Workgroup = ValueList Prelude.Text
   set newValue Workgroup {..}
     = Workgroup {subnetIds = Prelude.pure newValue, ..}
 instance Property "Tags" Workgroup where

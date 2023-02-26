@@ -8,7 +8,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationRecipientTypeProperty
-  = NotificationRecipientTypeProperty {userArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = NotificationRecipientTypeProperty {userArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                        userTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
 mkNotificationRecipientTypeProperty ::
   NotificationRecipientTypeProperty
@@ -31,7 +31,7 @@ instance JSON.ToJSON NotificationRecipientTypeProperty where
               [(JSON..=) "UserArns" Prelude.<$> userArns,
                (JSON..=) "UserTags" Prelude.<$> userTags]))
 instance Property "UserArns" NotificationRecipientTypeProperty where
-  type PropertyType "UserArns" NotificationRecipientTypeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "UserArns" NotificationRecipientTypeProperty = ValueList Prelude.Text
   set newValue NotificationRecipientTypeProperty {..}
     = NotificationRecipientTypeProperty
         {userArns = Prelude.pure newValue, ..}

@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceEnvironmentProperty
-  = InferenceEnvironmentProperty {containerImage :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = InferenceEnvironmentProperty {containerImage :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkInferenceEnvironmentProperty :: InferenceEnvironmentProperty
 mkInferenceEnvironmentProperty
   = InferenceEnvironmentProperty {containerImage = Prelude.Nothing}
@@ -25,7 +25,7 @@ instance JSON.ToJSON InferenceEnvironmentProperty where
            (Prelude.catMaybes
               [(JSON..=) "ContainerImage" Prelude.<$> containerImage]))
 instance Property "ContainerImage" InferenceEnvironmentProperty where
-  type PropertyType "ContainerImage" InferenceEnvironmentProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ContainerImage" InferenceEnvironmentProperty = ValueList Prelude.Text
   set newValue InferenceEnvironmentProperty {}
     = InferenceEnvironmentProperty
         {containerImage = Prelude.pure newValue, ..}

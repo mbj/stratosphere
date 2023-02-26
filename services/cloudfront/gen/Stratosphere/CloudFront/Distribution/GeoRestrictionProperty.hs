@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GeoRestrictionProperty
-  = GeoRestrictionProperty {locations :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = GeoRestrictionProperty {locations :: (Prelude.Maybe (ValueList Prelude.Text)),
                             restrictionType :: (Value Prelude.Text)}
 mkGeoRestrictionProperty ::
   Value Prelude.Text -> GeoRestrictionProperty
@@ -30,7 +30,7 @@ instance JSON.ToJSON GeoRestrictionProperty where
               ["RestrictionType" JSON..= restrictionType]
               (Prelude.catMaybes [(JSON..=) "Locations" Prelude.<$> locations])))
 instance Property "Locations" GeoRestrictionProperty where
-  type PropertyType "Locations" GeoRestrictionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Locations" GeoRestrictionProperty = ValueList Prelude.Text
   set newValue GeoRestrictionProperty {..}
     = GeoRestrictionProperty {locations = Prelude.pure newValue, ..}
 instance Property "RestrictionType" GeoRestrictionProperty where

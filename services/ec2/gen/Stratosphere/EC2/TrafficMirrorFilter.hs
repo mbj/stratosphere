@@ -9,7 +9,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data TrafficMirrorFilter
   = TrafficMirrorFilter {description :: (Prelude.Maybe (Value Prelude.Text)),
-                         networkServices :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         networkServices :: (Prelude.Maybe (ValueList Prelude.Text)),
                          tags :: (Prelude.Maybe [Tag])}
 mkTrafficMirrorFilter :: TrafficMirrorFilter
 mkTrafficMirrorFilter
@@ -38,7 +38,7 @@ instance Property "Description" TrafficMirrorFilter where
   set newValue TrafficMirrorFilter {..}
     = TrafficMirrorFilter {description = Prelude.pure newValue, ..}
 instance Property "NetworkServices" TrafficMirrorFilter where
-  type PropertyType "NetworkServices" TrafficMirrorFilter = ValueList (Value Prelude.Text)
+  type PropertyType "NetworkServices" TrafficMirrorFilter = ValueList Prelude.Text
   set newValue TrafficMirrorFilter {..}
     = TrafficMirrorFilter {networkServices = Prelude.pure newValue, ..}
 instance Property "Tags" TrafficMirrorFilter where

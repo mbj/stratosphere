@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SensorProperty
-  = SensorProperty {allowedValues :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = SensorProperty {allowedValues :: (Prelude.Maybe (ValueList Prelude.Text)),
                     dataType :: (Value Prelude.Text),
                     description :: (Prelude.Maybe (Value Prelude.Text)),
                     fullyQualifiedName :: (Value Prelude.Text),
@@ -48,7 +48,7 @@ instance JSON.ToJSON SensorProperty where
                   (JSON..=) "Max" Prelude.<$> max, (JSON..=) "Min" Prelude.<$> min,
                   (JSON..=) "Unit" Prelude.<$> unit])))
 instance Property "AllowedValues" SensorProperty where
-  type PropertyType "AllowedValues" SensorProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AllowedValues" SensorProperty = ValueList Prelude.Text
   set newValue SensorProperty {..}
     = SensorProperty {allowedValues = Prelude.pure newValue, ..}
 instance Property "DataType" SensorProperty where

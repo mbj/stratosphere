@@ -9,10 +9,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AddThingsToThingGroupParamsProperty
   = AddThingsToThingGroupParamsProperty {overrideDynamicGroups :: (Prelude.Maybe (Value Prelude.Bool)),
-                                         thingGroupNames :: (ValueList (Value Prelude.Text))}
+                                         thingGroupNames :: (ValueList Prelude.Text)}
 mkAddThingsToThingGroupParamsProperty ::
-  ValueList (Value Prelude.Text)
-  -> AddThingsToThingGroupParamsProperty
+  ValueList Prelude.Text -> AddThingsToThingGroupParamsProperty
 mkAddThingsToThingGroupParamsProperty thingGroupNames
   = AddThingsToThingGroupParamsProperty
       {thingGroupNames = thingGroupNames,
@@ -42,7 +41,7 @@ instance Property "OverrideDynamicGroups" AddThingsToThingGroupParamsProperty wh
     = AddThingsToThingGroupParamsProperty
         {overrideDynamicGroups = Prelude.pure newValue, ..}
 instance Property "ThingGroupNames" AddThingsToThingGroupParamsProperty where
-  type PropertyType "ThingGroupNames" AddThingsToThingGroupParamsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ThingGroupNames" AddThingsToThingGroupParamsProperty = ValueList Prelude.Text
   set newValue AddThingsToThingGroupParamsProperty {..}
     = AddThingsToThingGroupParamsProperty
         {thingGroupNames = newValue, ..}

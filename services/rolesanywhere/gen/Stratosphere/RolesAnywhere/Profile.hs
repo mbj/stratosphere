@@ -10,14 +10,14 @@ import Stratosphere.Value
 data Profile
   = Profile {durationSeconds :: (Prelude.Maybe (Value Prelude.Double)),
              enabled :: (Prelude.Maybe (Value Prelude.Bool)),
-             managedPolicyArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+             managedPolicyArns :: (Prelude.Maybe (ValueList Prelude.Text)),
              name :: (Value Prelude.Text),
              requireInstanceProperties :: (Prelude.Maybe (Value Prelude.Bool)),
-             roleArns :: (ValueList (Value Prelude.Text)),
+             roleArns :: (ValueList Prelude.Text),
              sessionPolicy :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag])}
 mkProfile ::
-  Value Prelude.Text -> ValueList (Value Prelude.Text) -> Profile
+  Value Prelude.Text -> ValueList Prelude.Text -> Profile
 mkProfile name roleArns
   = Profile
       {name = name, roleArns = roleArns,
@@ -63,7 +63,7 @@ instance Property "Enabled" Profile where
   set newValue Profile {..}
     = Profile {enabled = Prelude.pure newValue, ..}
 instance Property "ManagedPolicyArns" Profile where
-  type PropertyType "ManagedPolicyArns" Profile = ValueList (Value Prelude.Text)
+  type PropertyType "ManagedPolicyArns" Profile = ValueList Prelude.Text
   set newValue Profile {..}
     = Profile {managedPolicyArns = Prelude.pure newValue, ..}
 instance Property "Name" Profile where
@@ -74,7 +74,7 @@ instance Property "RequireInstanceProperties" Profile where
   set newValue Profile {..}
     = Profile {requireInstanceProperties = Prelude.pure newValue, ..}
 instance Property "RoleArns" Profile where
-  type PropertyType "RoleArns" Profile = ValueList (Value Prelude.Text)
+  type PropertyType "RoleArns" Profile = ValueList Prelude.Text
   set newValue Profile {..} = Profile {roleArns = newValue, ..}
 instance Property "SessionPolicy" Profile where
   type PropertyType "SessionPolicy" Profile = Value Prelude.Text

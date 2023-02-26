@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HealthCheckProperty
-  = HealthCheckProperty {command :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = HealthCheckProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
                          interval :: (Prelude.Maybe (Value Prelude.Integer)),
                          retries :: (Prelude.Maybe (Value Prelude.Integer)),
                          startPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -40,7 +40,7 @@ instance JSON.ToJSON HealthCheckProperty where
                (JSON..=) "StartPeriod" Prelude.<$> startPeriod,
                (JSON..=) "Timeout" Prelude.<$> timeout]))
 instance Property "Command" HealthCheckProperty where
-  type PropertyType "Command" HealthCheckProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Command" HealthCheckProperty = ValueList Prelude.Text
   set newValue HealthCheckProperty {..}
     = HealthCheckProperty {command = Prelude.pure newValue, ..}
 instance Property "Interval" HealthCheckProperty where

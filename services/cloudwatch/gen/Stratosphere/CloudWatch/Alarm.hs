@@ -10,7 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Alarm
   = Alarm {actionsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
-           alarmActions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           alarmActions :: (Prelude.Maybe (ValueList Prelude.Text)),
            alarmDescription :: (Prelude.Maybe (Value Prelude.Text)),
            alarmName :: (Prelude.Maybe (Value Prelude.Text)),
            comparisonOperator :: (Value Prelude.Text),
@@ -19,11 +19,11 @@ data Alarm
            evaluateLowSampleCountPercentile :: (Prelude.Maybe (Value Prelude.Text)),
            evaluationPeriods :: (Value Prelude.Integer),
            extendedStatistic :: (Prelude.Maybe (Value Prelude.Text)),
-           insufficientDataActions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           insufficientDataActions :: (Prelude.Maybe (ValueList Prelude.Text)),
            metricName :: (Prelude.Maybe (Value Prelude.Text)),
            metrics :: (Prelude.Maybe [MetricDataQueryProperty]),
            namespace :: (Prelude.Maybe (Value Prelude.Text)),
-           oKActions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           oKActions :: (Prelude.Maybe (ValueList Prelude.Text)),
            period :: (Prelude.Maybe (Value Prelude.Integer)),
            statistic :: (Prelude.Maybe (Value Prelude.Text)),
            threshold :: (Prelude.Maybe (Value Prelude.Double)),
@@ -110,7 +110,7 @@ instance Property "ActionsEnabled" Alarm where
   set newValue Alarm {..}
     = Alarm {actionsEnabled = Prelude.pure newValue, ..}
 instance Property "AlarmActions" Alarm where
-  type PropertyType "AlarmActions" Alarm = ValueList (Value Prelude.Text)
+  type PropertyType "AlarmActions" Alarm = ValueList Prelude.Text
   set newValue Alarm {..}
     = Alarm {alarmActions = Prelude.pure newValue, ..}
 instance Property "AlarmDescription" Alarm where
@@ -145,7 +145,7 @@ instance Property "ExtendedStatistic" Alarm where
   set newValue Alarm {..}
     = Alarm {extendedStatistic = Prelude.pure newValue, ..}
 instance Property "InsufficientDataActions" Alarm where
-  type PropertyType "InsufficientDataActions" Alarm = ValueList (Value Prelude.Text)
+  type PropertyType "InsufficientDataActions" Alarm = ValueList Prelude.Text
   set newValue Alarm {..}
     = Alarm {insufficientDataActions = Prelude.pure newValue, ..}
 instance Property "MetricName" Alarm where
@@ -161,7 +161,7 @@ instance Property "Namespace" Alarm where
   set newValue Alarm {..}
     = Alarm {namespace = Prelude.pure newValue, ..}
 instance Property "OKActions" Alarm where
-  type PropertyType "OKActions" Alarm = ValueList (Value Prelude.Text)
+  type PropertyType "OKActions" Alarm = ValueList Prelude.Text
   set newValue Alarm {..}
     = Alarm {oKActions = Prelude.pure newValue, ..}
 instance Property "Period" Alarm where

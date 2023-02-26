@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReportDefinition
-  = ReportDefinition {additionalArtifacts :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                      additionalSchemaElements :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ReportDefinition {additionalArtifacts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      additionalSchemaElements :: (Prelude.Maybe (ValueList Prelude.Text)),
                       billingViewArn :: (Prelude.Maybe (Value Prelude.Text)),
                       compression :: (Value Prelude.Text),
                       format :: (Value Prelude.Text),
@@ -80,12 +80,12 @@ instance JSON.ToJSON ReportDefinition where
                     Prelude.<$> additionalSchemaElements,
                   (JSON..=) "BillingViewArn" Prelude.<$> billingViewArn])))
 instance Property "AdditionalArtifacts" ReportDefinition where
-  type PropertyType "AdditionalArtifacts" ReportDefinition = ValueList (Value Prelude.Text)
+  type PropertyType "AdditionalArtifacts" ReportDefinition = ValueList Prelude.Text
   set newValue ReportDefinition {..}
     = ReportDefinition
         {additionalArtifacts = Prelude.pure newValue, ..}
 instance Property "AdditionalSchemaElements" ReportDefinition where
-  type PropertyType "AdditionalSchemaElements" ReportDefinition = ValueList (Value Prelude.Text)
+  type PropertyType "AdditionalSchemaElements" ReportDefinition = ValueList Prelude.Text
   set newValue ReportDefinition {..}
     = ReportDefinition
         {additionalSchemaElements = Prelude.pure newValue, ..}

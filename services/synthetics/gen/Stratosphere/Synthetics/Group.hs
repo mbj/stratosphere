@@ -9,7 +9,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Group
   = Group {name :: (Value Prelude.Text),
-           resourceArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+           resourceArns :: (Prelude.Maybe (ValueList Prelude.Text)),
            tags :: (Prelude.Maybe [Tag])}
 mkGroup :: Value Prelude.Text -> Group
 mkGroup name
@@ -39,7 +39,7 @@ instance Property "Name" Group where
   type PropertyType "Name" Group = Value Prelude.Text
   set newValue Group {..} = Group {name = newValue, ..}
 instance Property "ResourceArns" Group where
-  type PropertyType "ResourceArns" Group = ValueList (Value Prelude.Text)
+  type PropertyType "ResourceArns" Group = ValueList Prelude.Text
   set newValue Group {..}
     = Group {resourceArns = Prelude.pure newValue, ..}
 instance Property "Tags" Group where

@@ -18,10 +18,10 @@ data ExplanationProperty
   = ExplanationProperty {acl :: (Prelude.Maybe AnalysisComponentProperty),
                          aclRule :: (Prelude.Maybe AnalysisAclRuleProperty),
                          address :: (Prelude.Maybe (Value Prelude.Text)),
-                         addresses :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         addresses :: (Prelude.Maybe (ValueList Prelude.Text)),
                          attachedTo :: (Prelude.Maybe AnalysisComponentProperty),
-                         availabilityZones :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                         cidrs :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
+                         cidrs :: (Prelude.Maybe (ValueList Prelude.Text)),
                          classicLoadBalancerListener :: (Prelude.Maybe AnalysisLoadBalancerListenerProperty),
                          component :: (Prelude.Maybe AnalysisComponentProperty),
                          componentAccount :: (Prelude.Maybe (Value Prelude.Text)),
@@ -47,7 +47,7 @@ data ExplanationProperty
                          port :: (Prelude.Maybe (Value Prelude.Integer)),
                          portRanges :: (Prelude.Maybe [PortRangeProperty]),
                          prefixList :: (Prelude.Maybe AnalysisComponentProperty),
-                         protocols :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         protocols :: (Prelude.Maybe (ValueList Prelude.Text)),
                          routeTable :: (Prelude.Maybe AnalysisComponentProperty),
                          routeTableRoute :: (Prelude.Maybe AnalysisRouteTableRouteProperty),
                          securityGroup :: (Prelude.Maybe AnalysisComponentProperty),
@@ -249,7 +249,7 @@ instance Property "Address" ExplanationProperty where
   set newValue ExplanationProperty {..}
     = ExplanationProperty {address = Prelude.pure newValue, ..}
 instance Property "Addresses" ExplanationProperty where
-  type PropertyType "Addresses" ExplanationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Addresses" ExplanationProperty = ValueList Prelude.Text
   set newValue ExplanationProperty {..}
     = ExplanationProperty {addresses = Prelude.pure newValue, ..}
 instance Property "AttachedTo" ExplanationProperty where
@@ -257,12 +257,12 @@ instance Property "AttachedTo" ExplanationProperty where
   set newValue ExplanationProperty {..}
     = ExplanationProperty {attachedTo = Prelude.pure newValue, ..}
 instance Property "AvailabilityZones" ExplanationProperty where
-  type PropertyType "AvailabilityZones" ExplanationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AvailabilityZones" ExplanationProperty = ValueList Prelude.Text
   set newValue ExplanationProperty {..}
     = ExplanationProperty
         {availabilityZones = Prelude.pure newValue, ..}
 instance Property "Cidrs" ExplanationProperty where
-  type PropertyType "Cidrs" ExplanationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Cidrs" ExplanationProperty = ValueList Prelude.Text
   set newValue ExplanationProperty {..}
     = ExplanationProperty {cidrs = Prelude.pure newValue, ..}
 instance Property "ClassicLoadBalancerListener" ExplanationProperty where
@@ -377,7 +377,7 @@ instance Property "PrefixList" ExplanationProperty where
   set newValue ExplanationProperty {..}
     = ExplanationProperty {prefixList = Prelude.pure newValue, ..}
 instance Property "Protocols" ExplanationProperty where
-  type PropertyType "Protocols" ExplanationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Protocols" ExplanationProperty = ValueList Prelude.Text
   set newValue ExplanationProperty {..}
     = ExplanationProperty {protocols = Prelude.pure newValue, ..}
 instance Property "RouteTable" ExplanationProperty where

@@ -9,11 +9,10 @@ import {-# SOURCE #-} Stratosphere.NimbleStudio.LaunchProfile.StreamingSessionSt
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StreamConfigurationSessionStorageProperty
-  = StreamConfigurationSessionStorageProperty {mode :: (ValueList (Value Prelude.Text)),
+  = StreamConfigurationSessionStorageProperty {mode :: (ValueList Prelude.Text),
                                                root :: (Prelude.Maybe StreamingSessionStorageRootProperty)}
 mkStreamConfigurationSessionStorageProperty ::
-  ValueList (Value Prelude.Text)
-  -> StreamConfigurationSessionStorageProperty
+  ValueList Prelude.Text -> StreamConfigurationSessionStorageProperty
 mkStreamConfigurationSessionStorageProperty mode
   = StreamConfigurationSessionStorageProperty
       {mode = mode, root = Prelude.Nothing}
@@ -33,7 +32,7 @@ instance JSON.ToJSON StreamConfigurationSessionStorageProperty where
               ["Mode" JSON..= mode]
               (Prelude.catMaybes [(JSON..=) "Root" Prelude.<$> root])))
 instance Property "Mode" StreamConfigurationSessionStorageProperty where
-  type PropertyType "Mode" StreamConfigurationSessionStorageProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Mode" StreamConfigurationSessionStorageProperty = ValueList Prelude.Text
   set newValue StreamConfigurationSessionStorageProperty {..}
     = StreamConfigurationSessionStorageProperty {mode = newValue, ..}
 instance Property "Root" StreamConfigurationSessionStorageProperty where

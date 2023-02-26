@@ -13,12 +13,12 @@ data InfrastructureConfiguration
   = InfrastructureConfiguration {description :: (Prelude.Maybe (Value Prelude.Text)),
                                  instanceMetadataOptions :: (Prelude.Maybe InstanceMetadataOptionsProperty),
                                  instanceProfileName :: (Value Prelude.Text),
-                                 instanceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                 instanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  keyPair :: (Prelude.Maybe (Value Prelude.Text)),
                                  logging :: (Prelude.Maybe LoggingProperty),
                                  name :: (Value Prelude.Text),
                                  resourceTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
-                                 securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                 securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  snsTopicArn :: (Prelude.Maybe (Value Prelude.Text)),
                                  subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                                  tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
@@ -94,7 +94,7 @@ instance Property "InstanceProfileName" InfrastructureConfiguration where
   set newValue InfrastructureConfiguration {..}
     = InfrastructureConfiguration {instanceProfileName = newValue, ..}
 instance Property "InstanceTypes" InfrastructureConfiguration where
-  type PropertyType "InstanceTypes" InfrastructureConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "InstanceTypes" InfrastructureConfiguration = ValueList Prelude.Text
   set newValue InfrastructureConfiguration {..}
     = InfrastructureConfiguration
         {instanceTypes = Prelude.pure newValue, ..}
@@ -116,7 +116,7 @@ instance Property "ResourceTags" InfrastructureConfiguration where
     = InfrastructureConfiguration
         {resourceTags = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" InfrastructureConfiguration where
-  type PropertyType "SecurityGroupIds" InfrastructureConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" InfrastructureConfiguration = ValueList Prelude.Text
   set newValue InfrastructureConfiguration {..}
     = InfrastructureConfiguration
         {securityGroupIds = Prelude.pure newValue, ..}

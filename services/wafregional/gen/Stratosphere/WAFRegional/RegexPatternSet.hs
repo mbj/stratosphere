@@ -8,10 +8,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegexPatternSet
   = RegexPatternSet {name :: (Value Prelude.Text),
-                     regexPatternStrings :: (ValueList (Value Prelude.Text))}
+                     regexPatternStrings :: (ValueList Prelude.Text)}
 mkRegexPatternSet ::
-  Value Prelude.Text
-  -> ValueList (Value Prelude.Text) -> RegexPatternSet
+  Value Prelude.Text -> ValueList Prelude.Text -> RegexPatternSet
 mkRegexPatternSet name regexPatternStrings
   = RegexPatternSet
       {name = name, regexPatternStrings = regexPatternStrings}
@@ -31,6 +30,6 @@ instance Property "Name" RegexPatternSet where
   set newValue RegexPatternSet {..}
     = RegexPatternSet {name = newValue, ..}
 instance Property "RegexPatternStrings" RegexPatternSet where
-  type PropertyType "RegexPatternStrings" RegexPatternSet = ValueList (Value Prelude.Text)
+  type PropertyType "RegexPatternStrings" RegexPatternSet = ValueList Prelude.Text
   set newValue RegexPatternSet {..}
     = RegexPatternSet {regexPatternStrings = newValue, ..}

@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectionProperty
-  = ProjectionProperty {nonKeyAttributes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ProjectionProperty {nonKeyAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
                         projectionType :: (Prelude.Maybe (Value Prelude.Text))}
 mkProjectionProperty :: ProjectionProperty
 mkProjectionProperty
@@ -30,7 +30,7 @@ instance JSON.ToJSON ProjectionProperty where
               [(JSON..=) "NonKeyAttributes" Prelude.<$> nonKeyAttributes,
                (JSON..=) "ProjectionType" Prelude.<$> projectionType]))
 instance Property "NonKeyAttributes" ProjectionProperty where
-  type PropertyType "NonKeyAttributes" ProjectionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "NonKeyAttributes" ProjectionProperty = ValueList Prelude.Text
   set newValue ProjectionProperty {..}
     = ProjectionProperty {nonKeyAttributes = Prelude.pure newValue, ..}
 instance Property "ProjectionType" ProjectionProperty where

@@ -8,8 +8,8 @@ import {-# SOURCE #-} Stratosphere.Lambda.LayerVersion.ContentProperty as Export
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LayerVersion
-  = LayerVersion {compatibleArchitectures :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                  compatibleRuntimes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = LayerVersion {compatibleArchitectures :: (Prelude.Maybe (ValueList Prelude.Text)),
+                  compatibleRuntimes :: (Prelude.Maybe (ValueList Prelude.Text)),
                   content :: ContentProperty,
                   description :: (Prelude.Maybe (Value Prelude.Text)),
                   layerName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -49,12 +49,12 @@ instance JSON.ToJSON LayerVersion where
                   (JSON..=) "LayerName" Prelude.<$> layerName,
                   (JSON..=) "LicenseInfo" Prelude.<$> licenseInfo])))
 instance Property "CompatibleArchitectures" LayerVersion where
-  type PropertyType "CompatibleArchitectures" LayerVersion = ValueList (Value Prelude.Text)
+  type PropertyType "CompatibleArchitectures" LayerVersion = ValueList Prelude.Text
   set newValue LayerVersion {..}
     = LayerVersion
         {compatibleArchitectures = Prelude.pure newValue, ..}
 instance Property "CompatibleRuntimes" LayerVersion where
-  type PropertyType "CompatibleRuntimes" LayerVersion = ValueList (Value Prelude.Text)
+  type PropertyType "CompatibleRuntimes" LayerVersion = ValueList Prelude.Text
   set newValue LayerVersion {..}
     = LayerVersion {compatibleRuntimes = Prelude.pure newValue, ..}
 instance Property "Content" LayerVersion where

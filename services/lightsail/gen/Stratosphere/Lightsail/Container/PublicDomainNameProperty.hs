@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PublicDomainNameProperty
   = PublicDomainNameProperty {certificateName :: (Prelude.Maybe (Value Prelude.Text)),
-                              domainNames :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                              domainNames :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkPublicDomainNameProperty :: PublicDomainNameProperty
 mkPublicDomainNameProperty
   = PublicDomainNameProperty
@@ -34,7 +34,7 @@ instance Property "CertificateName" PublicDomainNameProperty where
     = PublicDomainNameProperty
         {certificateName = Prelude.pure newValue, ..}
 instance Property "DomainNames" PublicDomainNameProperty where
-  type PropertyType "DomainNames" PublicDomainNameProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DomainNames" PublicDomainNameProperty = ValueList Prelude.Text
   set newValue PublicDomainNameProperty {..}
     = PublicDomainNameProperty
         {domainNames = Prelude.pure newValue, ..}

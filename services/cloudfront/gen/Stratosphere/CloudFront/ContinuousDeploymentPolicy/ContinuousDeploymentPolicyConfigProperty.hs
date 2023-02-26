@@ -10,11 +10,11 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContinuousDeploymentPolicyConfigProperty
   = ContinuousDeploymentPolicyConfigProperty {enabled :: (Value Prelude.Bool),
-                                              stagingDistributionDnsNames :: (ValueList (Value Prelude.Text)),
+                                              stagingDistributionDnsNames :: (ValueList Prelude.Text),
                                               trafficConfig :: (Prelude.Maybe TrafficConfigProperty)}
 mkContinuousDeploymentPolicyConfigProperty ::
   Value Prelude.Bool
-  -> ValueList (Value Prelude.Text)
+  -> ValueList Prelude.Text
      -> ContinuousDeploymentPolicyConfigProperty
 mkContinuousDeploymentPolicyConfigProperty
   enabled
@@ -47,7 +47,7 @@ instance Property "Enabled" ContinuousDeploymentPolicyConfigProperty where
   set newValue ContinuousDeploymentPolicyConfigProperty {..}
     = ContinuousDeploymentPolicyConfigProperty {enabled = newValue, ..}
 instance Property "StagingDistributionDnsNames" ContinuousDeploymentPolicyConfigProperty where
-  type PropertyType "StagingDistributionDnsNames" ContinuousDeploymentPolicyConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StagingDistributionDnsNames" ContinuousDeploymentPolicyConfigProperty = ValueList Prelude.Text
   set newValue ContinuousDeploymentPolicyConfigProperty {..}
     = ContinuousDeploymentPolicyConfigProperty
         {stagingDistributionDnsNames = newValue, ..}

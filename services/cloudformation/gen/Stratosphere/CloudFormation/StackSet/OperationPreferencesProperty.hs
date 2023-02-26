@@ -12,7 +12,7 @@ data OperationPreferencesProperty
                                   maxConcurrentCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                   maxConcurrentPercentage :: (Prelude.Maybe (Value Prelude.Integer)),
                                   regionConcurrencyType :: (Prelude.Maybe (Value Prelude.Text)),
-                                  regionOrder :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                  regionOrder :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkOperationPreferencesProperty :: OperationPreferencesProperty
 mkOperationPreferencesProperty
   = OperationPreferencesProperty
@@ -79,7 +79,7 @@ instance Property "RegionConcurrencyType" OperationPreferencesProperty where
     = OperationPreferencesProperty
         {regionConcurrencyType = Prelude.pure newValue, ..}
 instance Property "RegionOrder" OperationPreferencesProperty where
-  type PropertyType "RegionOrder" OperationPreferencesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "RegionOrder" OperationPreferencesProperty = ValueList Prelude.Text
   set newValue OperationPreferencesProperty {..}
     = OperationPreferencesProperty
         {regionOrder = Prelude.pure newValue, ..}

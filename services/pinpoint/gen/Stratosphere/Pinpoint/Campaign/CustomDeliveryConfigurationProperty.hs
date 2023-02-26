@@ -9,7 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomDeliveryConfigurationProperty
   = CustomDeliveryConfigurationProperty {deliveryUri :: (Prelude.Maybe (Value Prelude.Text)),
-                                         endpointTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                         endpointTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCustomDeliveryConfigurationProperty ::
   CustomDeliveryConfigurationProperty
 mkCustomDeliveryConfigurationProperty
@@ -36,7 +36,7 @@ instance Property "DeliveryUri" CustomDeliveryConfigurationProperty where
     = CustomDeliveryConfigurationProperty
         {deliveryUri = Prelude.pure newValue, ..}
 instance Property "EndpointTypes" CustomDeliveryConfigurationProperty where
-  type PropertyType "EndpointTypes" CustomDeliveryConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "EndpointTypes" CustomDeliveryConfigurationProperty = ValueList Prelude.Text
   set newValue CustomDeliveryConfigurationProperty {..}
     = CustomDeliveryConfigurationProperty
         {endpointTypes = Prelude.pure newValue, ..}

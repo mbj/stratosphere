@@ -7,10 +7,10 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VPNGatewayRoutePropagation
-  = VPNGatewayRoutePropagation {routeTableIds :: (ValueList (Value Prelude.Text)),
+  = VPNGatewayRoutePropagation {routeTableIds :: (ValueList Prelude.Text),
                                 vpnGatewayId :: (Value Prelude.Text)}
 mkVPNGatewayRoutePropagation ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> VPNGatewayRoutePropagation
 mkVPNGatewayRoutePropagation routeTableIds vpnGatewayId
   = VPNGatewayRoutePropagation
@@ -27,7 +27,7 @@ instance JSON.ToJSON VPNGatewayRoutePropagation where
         ["RouteTableIds" JSON..= routeTableIds,
          "VpnGatewayId" JSON..= vpnGatewayId]
 instance Property "RouteTableIds" VPNGatewayRoutePropagation where
-  type PropertyType "RouteTableIds" VPNGatewayRoutePropagation = ValueList (Value Prelude.Text)
+  type PropertyType "RouteTableIds" VPNGatewayRoutePropagation = ValueList Prelude.Text
   set newValue VPNGatewayRoutePropagation {..}
     = VPNGatewayRoutePropagation {routeTableIds = newValue, ..}
 instance Property "VpnGatewayId" VPNGatewayRoutePropagation where

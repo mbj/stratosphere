@@ -23,7 +23,7 @@ data DeploymentGroup
   = DeploymentGroup {alarmConfiguration :: (Prelude.Maybe AlarmConfigurationProperty),
                      applicationName :: (Value Prelude.Text),
                      autoRollbackConfiguration :: (Prelude.Maybe AutoRollbackConfigurationProperty),
-                     autoScalingGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                     autoScalingGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                      blueGreenDeploymentConfiguration :: (Prelude.Maybe BlueGreenDeploymentConfigurationProperty),
                      deployment :: (Prelude.Maybe DeploymentProperty),
                      deploymentConfigName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -134,7 +134,7 @@ instance Property "AutoRollbackConfiguration" DeploymentGroup where
     = DeploymentGroup
         {autoRollbackConfiguration = Prelude.pure newValue, ..}
 instance Property "AutoScalingGroups" DeploymentGroup where
-  type PropertyType "AutoScalingGroups" DeploymentGroup = ValueList (Value Prelude.Text)
+  type PropertyType "AutoScalingGroups" DeploymentGroup = ValueList Prelude.Text
   set newValue DeploymentGroup {..}
     = DeploymentGroup {autoScalingGroups = Prelude.pure newValue, ..}
 instance Property "BlueGreenDeploymentConfiguration" DeploymentGroup where

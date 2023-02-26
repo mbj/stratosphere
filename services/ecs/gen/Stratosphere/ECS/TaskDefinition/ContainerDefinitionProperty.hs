@@ -24,15 +24,15 @@ import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.VolumeFromProperty as Expo
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContainerDefinitionProperty
-  = ContainerDefinitionProperty {command :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ContainerDefinitionProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  cpu :: (Prelude.Maybe (Value Prelude.Integer)),
                                  dependsOn :: (Prelude.Maybe [ContainerDependencyProperty]),
                                  disableNetworking :: (Prelude.Maybe (Value Prelude.Bool)),
-                                 dnsSearchDomains :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                 dnsServers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                 dnsSearchDomains :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 dnsServers :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  dockerLabels :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
-                                 dockerSecurityOptions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                 entryPoint :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                 dockerSecurityOptions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 entryPoint :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  environment :: (Prelude.Maybe [KeyValuePairProperty]),
                                  environmentFiles :: (Prelude.Maybe [EnvironmentFileProperty]),
                                  essential :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -42,7 +42,7 @@ data ContainerDefinitionProperty
                                  hostname :: (Prelude.Maybe (Value Prelude.Text)),
                                  image :: (Value Prelude.Text),
                                  interactive :: (Prelude.Maybe (Value Prelude.Bool)),
-                                 links :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                 links :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  linuxParameters :: (Prelude.Maybe LinuxParametersProperty),
                                  logConfiguration :: (Prelude.Maybe LogConfigurationProperty),
                                  memory :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -190,7 +190,7 @@ instance JSON.ToJSON ContainerDefinitionProperty where
                   (JSON..=) "VolumesFrom" Prelude.<$> volumesFrom,
                   (JSON..=) "WorkingDirectory" Prelude.<$> workingDirectory])))
 instance Property "Command" ContainerDefinitionProperty where
-  type PropertyType "Command" ContainerDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Command" ContainerDefinitionProperty = ValueList Prelude.Text
   set newValue ContainerDefinitionProperty {..}
     = ContainerDefinitionProperty {command = Prelude.pure newValue, ..}
 instance Property "Cpu" ContainerDefinitionProperty where
@@ -208,12 +208,12 @@ instance Property "DisableNetworking" ContainerDefinitionProperty where
     = ContainerDefinitionProperty
         {disableNetworking = Prelude.pure newValue, ..}
 instance Property "DnsSearchDomains" ContainerDefinitionProperty where
-  type PropertyType "DnsSearchDomains" ContainerDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DnsSearchDomains" ContainerDefinitionProperty = ValueList Prelude.Text
   set newValue ContainerDefinitionProperty {..}
     = ContainerDefinitionProperty
         {dnsSearchDomains = Prelude.pure newValue, ..}
 instance Property "DnsServers" ContainerDefinitionProperty where
-  type PropertyType "DnsServers" ContainerDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DnsServers" ContainerDefinitionProperty = ValueList Prelude.Text
   set newValue ContainerDefinitionProperty {..}
     = ContainerDefinitionProperty
         {dnsServers = Prelude.pure newValue, ..}
@@ -223,12 +223,12 @@ instance Property "DockerLabels" ContainerDefinitionProperty where
     = ContainerDefinitionProperty
         {dockerLabels = Prelude.pure newValue, ..}
 instance Property "DockerSecurityOptions" ContainerDefinitionProperty where
-  type PropertyType "DockerSecurityOptions" ContainerDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DockerSecurityOptions" ContainerDefinitionProperty = ValueList Prelude.Text
   set newValue ContainerDefinitionProperty {..}
     = ContainerDefinitionProperty
         {dockerSecurityOptions = Prelude.pure newValue, ..}
 instance Property "EntryPoint" ContainerDefinitionProperty where
-  type PropertyType "EntryPoint" ContainerDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "EntryPoint" ContainerDefinitionProperty = ValueList Prelude.Text
   set newValue ContainerDefinitionProperty {..}
     = ContainerDefinitionProperty
         {entryPoint = Prelude.pure newValue, ..}
@@ -277,7 +277,7 @@ instance Property "Interactive" ContainerDefinitionProperty where
     = ContainerDefinitionProperty
         {interactive = Prelude.pure newValue, ..}
 instance Property "Links" ContainerDefinitionProperty where
-  type PropertyType "Links" ContainerDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Links" ContainerDefinitionProperty = ValueList Prelude.Text
   set newValue ContainerDefinitionProperty {..}
     = ContainerDefinitionProperty {links = Prelude.pure newValue, ..}
 instance Property "LinuxParameters" ContainerDefinitionProperty where

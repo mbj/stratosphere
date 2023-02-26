@@ -11,7 +11,7 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.EcsResourceRequirementProperty as 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EcsContainerOverrideProperty
-  = EcsContainerOverrideProperty {command :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = EcsContainerOverrideProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   cpu :: (Prelude.Maybe (Value Prelude.Integer)),
                                   environment :: (Prelude.Maybe [EcsEnvironmentVariableProperty]),
                                   environmentFiles :: (Prelude.Maybe [EcsEnvironmentFileProperty]),
@@ -56,7 +56,7 @@ instance JSON.ToJSON EcsContainerOverrideProperty where
                (JSON..=) "ResourceRequirements"
                  Prelude.<$> resourceRequirements]))
 instance Property "Command" EcsContainerOverrideProperty where
-  type PropertyType "Command" EcsContainerOverrideProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Command" EcsContainerOverrideProperty = ValueList Prelude.Text
   set newValue EcsContainerOverrideProperty {..}
     = EcsContainerOverrideProperty
         {command = Prelude.pure newValue, ..}

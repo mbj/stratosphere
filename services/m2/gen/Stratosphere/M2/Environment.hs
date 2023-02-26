@@ -18,9 +18,9 @@ data Environment
                  name :: (Value Prelude.Text),
                  preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
                  publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
-                 securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                  storageConfigurations :: (Prelude.Maybe [StorageConfigurationProperty]),
-                 subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
 mkEnvironment ::
   Value Prelude.Text
@@ -116,7 +116,7 @@ instance Property "PubliclyAccessible" Environment where
   set newValue Environment {..}
     = Environment {publiclyAccessible = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" Environment where
-  type PropertyType "SecurityGroupIds" Environment = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" Environment = ValueList Prelude.Text
   set newValue Environment {..}
     = Environment {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "StorageConfigurations" Environment where
@@ -124,7 +124,7 @@ instance Property "StorageConfigurations" Environment where
   set newValue Environment {..}
     = Environment {storageConfigurations = Prelude.pure newValue, ..}
 instance Property "SubnetIds" Environment where
-  type PropertyType "SubnetIds" Environment = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" Environment = ValueList Prelude.Text
   set newValue Environment {..}
     = Environment {subnetIds = Prelude.pure newValue, ..}
 instance Property "Tags" Environment where

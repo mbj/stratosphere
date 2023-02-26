@@ -9,11 +9,10 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data LocationFSxLustre
   = LocationFSxLustre {fsxFilesystemArn :: (Prelude.Maybe (Value Prelude.Text)),
-                       securityGroupArns :: (ValueList (Value Prelude.Text)),
+                       securityGroupArns :: (ValueList Prelude.Text),
                        subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                        tags :: (Prelude.Maybe [Tag])}
-mkLocationFSxLustre ::
-  ValueList (Value Prelude.Text) -> LocationFSxLustre
+mkLocationFSxLustre :: ValueList Prelude.Text -> LocationFSxLustre
 mkLocationFSxLustre securityGroupArns
   = LocationFSxLustre
       {securityGroupArns = securityGroupArns,
@@ -45,7 +44,7 @@ instance Property "FsxFilesystemArn" LocationFSxLustre where
   set newValue LocationFSxLustre {..}
     = LocationFSxLustre {fsxFilesystemArn = Prelude.pure newValue, ..}
 instance Property "SecurityGroupArns" LocationFSxLustre where
-  type PropertyType "SecurityGroupArns" LocationFSxLustre = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupArns" LocationFSxLustre = ValueList Prelude.Text
   set newValue LocationFSxLustre {..}
     = LocationFSxLustre {securityGroupArns = newValue, ..}
 instance Property "Subdirectory" LocationFSxLustre where

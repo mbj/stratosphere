@@ -14,9 +14,9 @@ data LoadBalancer
                   loadBalancerAttributes :: (Prelude.Maybe [LoadBalancerAttributeProperty]),
                   name :: (Prelude.Maybe (Value Prelude.Text)),
                   scheme :: (Prelude.Maybe (Value Prelude.Text)),
-                  securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                   subnetMappings :: (Prelude.Maybe [SubnetMappingProperty]),
-                  subnets :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  subnets :: (Prelude.Maybe (ValueList Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag]),
                   type' :: (Prelude.Maybe (Value Prelude.Text))}
 mkLoadBalancer :: LoadBalancer
@@ -75,7 +75,7 @@ instance Property "Scheme" LoadBalancer where
   set newValue LoadBalancer {..}
     = LoadBalancer {scheme = Prelude.pure newValue, ..}
 instance Property "SecurityGroups" LoadBalancer where
-  type PropertyType "SecurityGroups" LoadBalancer = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" LoadBalancer = ValueList Prelude.Text
   set newValue LoadBalancer {..}
     = LoadBalancer {securityGroups = Prelude.pure newValue, ..}
 instance Property "SubnetMappings" LoadBalancer where
@@ -83,7 +83,7 @@ instance Property "SubnetMappings" LoadBalancer where
   set newValue LoadBalancer {..}
     = LoadBalancer {subnetMappings = Prelude.pure newValue, ..}
 instance Property "Subnets" LoadBalancer where
-  type PropertyType "Subnets" LoadBalancer = ValueList (Value Prelude.Text)
+  type PropertyType "Subnets" LoadBalancer = ValueList Prelude.Text
   set newValue LoadBalancer {..}
     = LoadBalancer {subnets = Prelude.pure newValue, ..}
 instance Property "Tags" LoadBalancer where

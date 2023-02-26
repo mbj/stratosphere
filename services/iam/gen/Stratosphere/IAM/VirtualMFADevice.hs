@@ -10,10 +10,9 @@ import Stratosphere.Value
 data VirtualMFADevice
   = VirtualMFADevice {path :: (Prelude.Maybe (Value Prelude.Text)),
                       tags :: (Prelude.Maybe [Tag]),
-                      users :: (ValueList (Value Prelude.Text)),
+                      users :: (ValueList Prelude.Text),
                       virtualMfaDeviceName :: (Prelude.Maybe (Value Prelude.Text))}
-mkVirtualMFADevice ::
-  ValueList (Value Prelude.Text) -> VirtualMFADevice
+mkVirtualMFADevice :: ValueList Prelude.Text -> VirtualMFADevice
 mkVirtualMFADevice users
   = VirtualMFADevice
       {users = users, path = Prelude.Nothing, tags = Prelude.Nothing,
@@ -50,7 +49,7 @@ instance Property "Tags" VirtualMFADevice where
   set newValue VirtualMFADevice {..}
     = VirtualMFADevice {tags = Prelude.pure newValue, ..}
 instance Property "Users" VirtualMFADevice where
-  type PropertyType "Users" VirtualMFADevice = ValueList (Value Prelude.Text)
+  type PropertyType "Users" VirtualMFADevice = ValueList Prelude.Text
   set newValue VirtualMFADevice {..}
     = VirtualMFADevice {users = newValue, ..}
 instance Property "VirtualMfaDeviceName" VirtualMFADevice where

@@ -9,8 +9,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DBProxyTargetGroup
   = DBProxyTargetGroup {connectionPoolConfigurationInfo :: (Prelude.Maybe ConnectionPoolConfigurationInfoFormatProperty),
-                        dBClusterIdentifiers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                        dBInstanceIdentifiers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                        dBClusterIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        dBInstanceIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
                         dBProxyName :: (Value Prelude.Text),
                         targetGroupName :: (Value Prelude.Text)}
 mkDBProxyTargetGroup ::
@@ -54,12 +54,12 @@ instance Property "ConnectionPoolConfigurationInfo" DBProxyTargetGroup where
     = DBProxyTargetGroup
         {connectionPoolConfigurationInfo = Prelude.pure newValue, ..}
 instance Property "DBClusterIdentifiers" DBProxyTargetGroup where
-  type PropertyType "DBClusterIdentifiers" DBProxyTargetGroup = ValueList (Value Prelude.Text)
+  type PropertyType "DBClusterIdentifiers" DBProxyTargetGroup = ValueList Prelude.Text
   set newValue DBProxyTargetGroup {..}
     = DBProxyTargetGroup
         {dBClusterIdentifiers = Prelude.pure newValue, ..}
 instance Property "DBInstanceIdentifiers" DBProxyTargetGroup where
-  type PropertyType "DBInstanceIdentifiers" DBProxyTargetGroup = ValueList (Value Prelude.Text)
+  type PropertyType "DBInstanceIdentifiers" DBProxyTargetGroup = ValueList Prelude.Text
   set newValue DBProxyTargetGroup {..}
     = DBProxyTargetGroup
         {dBInstanceIdentifiers = Prelude.pure newValue, ..}

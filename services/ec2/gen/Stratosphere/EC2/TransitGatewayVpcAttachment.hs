@@ -10,15 +10,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TransitGatewayVpcAttachment
-  = TransitGatewayVpcAttachment {addSubnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = TransitGatewayVpcAttachment {addSubnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  options :: (Prelude.Maybe OptionsProperty),
-                                 removeSubnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                 subnetIds :: (ValueList (Value Prelude.Text)),
+                                 removeSubnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                 subnetIds :: (ValueList Prelude.Text),
                                  tags :: (Prelude.Maybe [Tag]),
                                  transitGatewayId :: (Value Prelude.Text),
                                  vpcId :: (Value Prelude.Text)}
 mkTransitGatewayVpcAttachment ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text -> TransitGatewayVpcAttachment
 mkTransitGatewayVpcAttachment subnetIds transitGatewayId vpcId
@@ -53,7 +53,7 @@ instance JSON.ToJSON TransitGatewayVpcAttachment where
                   (JSON..=) "RemoveSubnetIds" Prelude.<$> removeSubnetIds,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AddSubnetIds" TransitGatewayVpcAttachment where
-  type PropertyType "AddSubnetIds" TransitGatewayVpcAttachment = ValueList (Value Prelude.Text)
+  type PropertyType "AddSubnetIds" TransitGatewayVpcAttachment = ValueList Prelude.Text
   set newValue TransitGatewayVpcAttachment {..}
     = TransitGatewayVpcAttachment
         {addSubnetIds = Prelude.pure newValue, ..}
@@ -62,12 +62,12 @@ instance Property "Options" TransitGatewayVpcAttachment where
   set newValue TransitGatewayVpcAttachment {..}
     = TransitGatewayVpcAttachment {options = Prelude.pure newValue, ..}
 instance Property "RemoveSubnetIds" TransitGatewayVpcAttachment where
-  type PropertyType "RemoveSubnetIds" TransitGatewayVpcAttachment = ValueList (Value Prelude.Text)
+  type PropertyType "RemoveSubnetIds" TransitGatewayVpcAttachment = ValueList Prelude.Text
   set newValue TransitGatewayVpcAttachment {..}
     = TransitGatewayVpcAttachment
         {removeSubnetIds = Prelude.pure newValue, ..}
 instance Property "SubnetIds" TransitGatewayVpcAttachment where
-  type PropertyType "SubnetIds" TransitGatewayVpcAttachment = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" TransitGatewayVpcAttachment = ValueList Prelude.Text
   set newValue TransitGatewayVpcAttachment {..}
     = TransitGatewayVpcAttachment {subnetIds = newValue, ..}
 instance Property "Tags" TransitGatewayVpcAttachment where

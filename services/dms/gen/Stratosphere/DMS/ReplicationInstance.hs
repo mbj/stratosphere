@@ -22,7 +22,7 @@ data ReplicationInstance
                          replicationSubnetGroupIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                          resourceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                          tags :: (Prelude.Maybe [Tag]),
-                         vpcSecurityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                         vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkReplicationInstance :: Value Prelude.Text -> ReplicationInstance
 mkReplicationInstance replicationInstanceClass
   = ReplicationInstance
@@ -158,7 +158,7 @@ instance Property "Tags" ReplicationInstance where
   set newValue ReplicationInstance {..}
     = ReplicationInstance {tags = Prelude.pure newValue, ..}
 instance Property "VpcSecurityGroupIds" ReplicationInstance where
-  type PropertyType "VpcSecurityGroupIds" ReplicationInstance = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSecurityGroupIds" ReplicationInstance = ValueList Prelude.Text
   set newValue ReplicationInstance {..}
     = ReplicationInstance
         {vpcSecurityGroupIds = Prelude.pure newValue, ..}

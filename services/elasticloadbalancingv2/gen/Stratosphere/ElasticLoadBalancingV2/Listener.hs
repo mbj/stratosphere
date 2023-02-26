@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.Listener.CertificatePr
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Listener
-  = Listener {alpnPolicy :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = Listener {alpnPolicy :: (Prelude.Maybe (ValueList Prelude.Text)),
               certificates :: (Prelude.Maybe [CertificateProperty]),
               defaultActions :: [ActionProperty],
               loadBalancerArn :: (Value Prelude.Text),
@@ -51,7 +51,7 @@ instance JSON.ToJSON Listener where
                   (JSON..=) "Protocol" Prelude.<$> protocol,
                   (JSON..=) "SslPolicy" Prelude.<$> sslPolicy])))
 instance Property "AlpnPolicy" Listener where
-  type PropertyType "AlpnPolicy" Listener = ValueList (Value Prelude.Text)
+  type PropertyType "AlpnPolicy" Listener = ValueList Prelude.Text
   set newValue Listener {..}
     = Listener {alpnPolicy = Prelude.pure newValue, ..}
 instance Property "Certificates" Listener where

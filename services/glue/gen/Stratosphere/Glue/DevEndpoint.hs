@@ -15,10 +15,10 @@ data DevEndpoint
                  numberOfNodes :: (Prelude.Maybe (Value Prelude.Integer)),
                  numberOfWorkers :: (Prelude.Maybe (Value Prelude.Integer)),
                  publicKey :: (Prelude.Maybe (Value Prelude.Text)),
-                 publicKeys :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 publicKeys :: (Prelude.Maybe (ValueList Prelude.Text)),
                  roleArn :: (Value Prelude.Text),
                  securityConfiguration :: (Prelude.Maybe (Value Prelude.Text)),
-                 securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                  subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe JSON.Object),
                  workerType :: (Prelude.Maybe (Value Prelude.Text))}
@@ -114,7 +114,7 @@ instance Property "PublicKey" DevEndpoint where
   set newValue DevEndpoint {..}
     = DevEndpoint {publicKey = Prelude.pure newValue, ..}
 instance Property "PublicKeys" DevEndpoint where
-  type PropertyType "PublicKeys" DevEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "PublicKeys" DevEndpoint = ValueList Prelude.Text
   set newValue DevEndpoint {..}
     = DevEndpoint {publicKeys = Prelude.pure newValue, ..}
 instance Property "RoleArn" DevEndpoint where
@@ -126,7 +126,7 @@ instance Property "SecurityConfiguration" DevEndpoint where
   set newValue DevEndpoint {..}
     = DevEndpoint {securityConfiguration = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" DevEndpoint where
-  type PropertyType "SecurityGroupIds" DevEndpoint = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" DevEndpoint = ValueList Prelude.Text
   set newValue DevEndpoint {..}
     = DevEndpoint {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetId" DevEndpoint where

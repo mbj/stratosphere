@@ -10,8 +10,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Permissions
   = Permissions {dataLakePrincipal :: DataLakePrincipalProperty,
-                 permissions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                 permissionsWithGrantOption :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 permissions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 permissionsWithGrantOption :: (Prelude.Maybe (ValueList Prelude.Text)),
                  resource :: ResourceProperty}
 mkPermissions ::
   DataLakePrincipalProperty -> ResourceProperty -> Permissions
@@ -48,11 +48,11 @@ instance Property "DataLakePrincipal" Permissions where
   set newValue Permissions {..}
     = Permissions {dataLakePrincipal = newValue, ..}
 instance Property "Permissions" Permissions where
-  type PropertyType "Permissions" Permissions = ValueList (Value Prelude.Text)
+  type PropertyType "Permissions" Permissions = ValueList Prelude.Text
   set newValue Permissions {..}
     = Permissions {permissions = Prelude.pure newValue, ..}
 instance Property "PermissionsWithGrantOption" Permissions where
-  type PropertyType "PermissionsWithGrantOption" Permissions = ValueList (Value Prelude.Text)
+  type PropertyType "PermissionsWithGrantOption" Permissions = ValueList Prelude.Text
   set newValue Permissions {..}
     = Permissions
         {permissionsWithGrantOption = Prelude.pure newValue, ..}

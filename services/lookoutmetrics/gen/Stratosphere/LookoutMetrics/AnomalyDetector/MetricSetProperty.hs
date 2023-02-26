@@ -10,7 +10,7 @@ import {-# SOURCE #-} Stratosphere.LookoutMetrics.AnomalyDetector.TimestampColum
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricSetProperty
-  = MetricSetProperty {dimensionList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = MetricSetProperty {dimensionList :: (Prelude.Maybe (ValueList Prelude.Text)),
                        metricList :: [MetricProperty],
                        metricSetDescription :: (Prelude.Maybe (Value Prelude.Text)),
                        metricSetFrequency :: (Prelude.Maybe (Value Prelude.Text)),
@@ -61,7 +61,7 @@ instance JSON.ToJSON MetricSetProperty where
                   (JSON..=) "TimestampColumn" Prelude.<$> timestampColumn,
                   (JSON..=) "Timezone" Prelude.<$> timezone])))
 instance Property "DimensionList" MetricSetProperty where
-  type PropertyType "DimensionList" MetricSetProperty = ValueList (Value Prelude.Text)
+  type PropertyType "DimensionList" MetricSetProperty = ValueList Prelude.Text
   set newValue MetricSetProperty {..}
     = MetricSetProperty {dimensionList = Prelude.pure newValue, ..}
 instance Property "MetricList" MetricSetProperty where

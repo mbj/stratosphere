@@ -11,12 +11,12 @@ data AssessmentTemplate
   = AssessmentTemplate {assessmentTargetArn :: (Value Prelude.Text),
                         assessmentTemplateName :: (Prelude.Maybe (Value Prelude.Text)),
                         durationInSeconds :: (Value Prelude.Integer),
-                        rulesPackageArns :: (ValueList (Value Prelude.Text)),
+                        rulesPackageArns :: (ValueList Prelude.Text),
                         userAttributesForFindings :: (Prelude.Maybe [Tag])}
 mkAssessmentTemplate ::
   Value Prelude.Text
   -> Value Prelude.Integer
-     -> ValueList (Value Prelude.Text) -> AssessmentTemplate
+     -> ValueList Prelude.Text -> AssessmentTemplate
 mkAssessmentTemplate
   assessmentTargetArn
   durationInSeconds
@@ -68,7 +68,7 @@ instance Property "DurationInSeconds" AssessmentTemplate where
   set newValue AssessmentTemplate {..}
     = AssessmentTemplate {durationInSeconds = newValue, ..}
 instance Property "RulesPackageArns" AssessmentTemplate where
-  type PropertyType "RulesPackageArns" AssessmentTemplate = ValueList (Value Prelude.Text)
+  type PropertyType "RulesPackageArns" AssessmentTemplate = ValueList Prelude.Text
   set newValue AssessmentTemplate {..}
     = AssessmentTemplate {rulesPackageArns = newValue, ..}
 instance Property "UserAttributesForFindings" AssessmentTemplate where

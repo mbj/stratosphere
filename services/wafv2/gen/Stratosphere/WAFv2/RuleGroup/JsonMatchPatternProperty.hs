@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JsonMatchPatternProperty
   = JsonMatchPatternProperty {all :: (Prelude.Maybe JSON.Object),
-                              includedPaths :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                              includedPaths :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkJsonMatchPatternProperty :: JsonMatchPatternProperty
 mkJsonMatchPatternProperty
   = JsonMatchPatternProperty
@@ -33,7 +33,7 @@ instance Property "All" JsonMatchPatternProperty where
   set newValue JsonMatchPatternProperty {..}
     = JsonMatchPatternProperty {all = Prelude.pure newValue, ..}
 instance Property "IncludedPaths" JsonMatchPatternProperty where
-  type PropertyType "IncludedPaths" JsonMatchPatternProperty = ValueList (Value Prelude.Text)
+  type PropertyType "IncludedPaths" JsonMatchPatternProperty = ValueList Prelude.Text
   set newValue JsonMatchPatternProperty {..}
     = JsonMatchPatternProperty
         {includedPaths = Prelude.pure newValue, ..}

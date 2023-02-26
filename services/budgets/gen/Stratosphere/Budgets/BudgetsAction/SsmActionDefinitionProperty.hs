@@ -7,11 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SsmActionDefinitionProperty
-  = SsmActionDefinitionProperty {instanceIds :: (ValueList (Value Prelude.Text)),
+  = SsmActionDefinitionProperty {instanceIds :: (ValueList Prelude.Text),
                                  region :: (Value Prelude.Text),
                                  subtype :: (Value Prelude.Text)}
 mkSsmActionDefinitionProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text -> SsmActionDefinitionProperty
 mkSsmActionDefinitionProperty instanceIds region subtype
@@ -29,7 +29,7 @@ instance JSON.ToJSON SsmActionDefinitionProperty where
         ["InstanceIds" JSON..= instanceIds, "Region" JSON..= region,
          "Subtype" JSON..= subtype]
 instance Property "InstanceIds" SsmActionDefinitionProperty where
-  type PropertyType "InstanceIds" SsmActionDefinitionProperty = ValueList (Value Prelude.Text)
+  type PropertyType "InstanceIds" SsmActionDefinitionProperty = ValueList Prelude.Text
   set newValue SsmActionDefinitionProperty {..}
     = SsmActionDefinitionProperty {instanceIds = newValue, ..}
 instance Property "Region" SsmActionDefinitionProperty where

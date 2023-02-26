@@ -8,7 +8,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScriptBootstrapActionConfigProperty
-  = ScriptBootstrapActionConfigProperty {args :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = ScriptBootstrapActionConfigProperty {args :: (Prelude.Maybe (ValueList Prelude.Text)),
                                          path :: (Value Prelude.Text)}
 mkScriptBootstrapActionConfigProperty ::
   Value Prelude.Text -> ScriptBootstrapActionConfigProperty
@@ -31,7 +31,7 @@ instance JSON.ToJSON ScriptBootstrapActionConfigProperty where
               ["Path" JSON..= path]
               (Prelude.catMaybes [(JSON..=) "Args" Prelude.<$> args])))
 instance Property "Args" ScriptBootstrapActionConfigProperty where
-  type PropertyType "Args" ScriptBootstrapActionConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Args" ScriptBootstrapActionConfigProperty = ValueList Prelude.Text
   set newValue ScriptBootstrapActionConfigProperty {..}
     = ScriptBootstrapActionConfigProperty
         {args = Prelude.pure newValue, ..}

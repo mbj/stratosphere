@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScopeProperty
   = ScopeProperty {complianceResourceId :: (Prelude.Maybe (Value Prelude.Text)),
-                   complianceResourceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   complianceResourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                    tagKey :: (Prelude.Maybe (Value Prelude.Text)),
                    tagValue :: (Prelude.Maybe (Value Prelude.Text))}
 mkScopeProperty :: ScopeProperty
@@ -43,7 +43,7 @@ instance Property "ComplianceResourceId" ScopeProperty where
   set newValue ScopeProperty {..}
     = ScopeProperty {complianceResourceId = Prelude.pure newValue, ..}
 instance Property "ComplianceResourceTypes" ScopeProperty where
-  type PropertyType "ComplianceResourceTypes" ScopeProperty = ValueList (Value Prelude.Text)
+  type PropertyType "ComplianceResourceTypes" ScopeProperty = ValueList Prelude.Text
   set newValue ScopeProperty {..}
     = ScopeProperty
         {complianceResourceTypes = Prelude.pure newValue, ..}

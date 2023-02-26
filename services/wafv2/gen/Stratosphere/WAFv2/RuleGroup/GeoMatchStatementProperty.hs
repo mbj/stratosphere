@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.ForwardedIPConfigurationPrope
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GeoMatchStatementProperty
-  = GeoMatchStatementProperty {countryCodes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = GeoMatchStatementProperty {countryCodes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                forwardedIPConfig :: (Prelude.Maybe ForwardedIPConfigurationProperty)}
 mkGeoMatchStatementProperty :: GeoMatchStatementProperty
 mkGeoMatchStatementProperty
@@ -32,7 +32,7 @@ instance JSON.ToJSON GeoMatchStatementProperty where
               [(JSON..=) "CountryCodes" Prelude.<$> countryCodes,
                (JSON..=) "ForwardedIPConfig" Prelude.<$> forwardedIPConfig]))
 instance Property "CountryCodes" GeoMatchStatementProperty where
-  type PropertyType "CountryCodes" GeoMatchStatementProperty = ValueList (Value Prelude.Text)
+  type PropertyType "CountryCodes" GeoMatchStatementProperty = ValueList Prelude.Text
   set newValue GeoMatchStatementProperty {..}
     = GeoMatchStatementProperty
         {countryCodes = Prelude.pure newValue, ..}

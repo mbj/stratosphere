@@ -13,7 +13,7 @@ import Stratosphere.Value
 data MatchAttributesProperty
   = MatchAttributesProperty {destinationPorts :: (Prelude.Maybe [PortRangeProperty]),
                              destinations :: (Prelude.Maybe [AddressProperty]),
-                             protocols :: (Prelude.Maybe (ValueList (Value Prelude.Integer))),
+                             protocols :: (Prelude.Maybe (ValueList Prelude.Integer)),
                              sourcePorts :: (Prelude.Maybe [PortRangeProperty]),
                              sources :: (Prelude.Maybe [AddressProperty]),
                              tCPFlags :: (Prelude.Maybe [TCPFlagFieldProperty])}
@@ -58,7 +58,7 @@ instance Property "Destinations" MatchAttributesProperty where
     = MatchAttributesProperty
         {destinations = Prelude.pure newValue, ..}
 instance Property "Protocols" MatchAttributesProperty where
-  type PropertyType "Protocols" MatchAttributesProperty = ValueList (Value Prelude.Integer)
+  type PropertyType "Protocols" MatchAttributesProperty = ValueList Prelude.Integer
   set newValue MatchAttributesProperty {..}
     = MatchAttributesProperty {protocols = Prelude.pure newValue, ..}
 instance Property "SourcePorts" MatchAttributesProperty where

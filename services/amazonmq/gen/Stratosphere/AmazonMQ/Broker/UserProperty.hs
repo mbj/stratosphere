@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserProperty
   = UserProperty {consoleAccess :: (Prelude.Maybe (Value Prelude.Bool)),
-                  groups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  groups :: (Prelude.Maybe (ValueList Prelude.Text)),
                   password :: (Value Prelude.Text),
                   username :: (Value Prelude.Text)}
 mkUserProperty ::
@@ -41,7 +41,7 @@ instance Property "ConsoleAccess" UserProperty where
   set newValue UserProperty {..}
     = UserProperty {consoleAccess = Prelude.pure newValue, ..}
 instance Property "Groups" UserProperty where
-  type PropertyType "Groups" UserProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Groups" UserProperty = ValueList Prelude.Text
   set newValue UserProperty {..}
     = UserProperty {groups = Prelude.pure newValue, ..}
 instance Property "Password" UserProperty where

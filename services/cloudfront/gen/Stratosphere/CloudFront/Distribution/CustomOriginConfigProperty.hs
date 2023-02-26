@@ -12,7 +12,7 @@ data CustomOriginConfigProperty
                                 originKeepaliveTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                 originProtocolPolicy :: (Value Prelude.Text),
                                 originReadTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
-                                originSSLProtocols :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                originSSLProtocols :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCustomOriginConfigProperty ::
   Value Prelude.Text -> CustomOriginConfigProperty
 mkCustomOriginConfigProperty originProtocolPolicy
@@ -73,7 +73,7 @@ instance Property "OriginReadTimeout" CustomOriginConfigProperty where
     = CustomOriginConfigProperty
         {originReadTimeout = Prelude.pure newValue, ..}
 instance Property "OriginSSLProtocols" CustomOriginConfigProperty where
-  type PropertyType "OriginSSLProtocols" CustomOriginConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "OriginSSLProtocols" CustomOriginConfigProperty = ValueList Prelude.Text
   set newValue CustomOriginConfigProperty {..}
     = CustomOriginConfigProperty
         {originSSLProtocols = Prelude.pure newValue, ..}

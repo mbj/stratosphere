@@ -9,7 +9,7 @@ import {-# SOURCE #-} Stratosphere.Glue.Database.DataLakePrincipalProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrincipalPrivilegesProperty
-  = PrincipalPrivilegesProperty {permissions :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = PrincipalPrivilegesProperty {permissions :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  principal :: (Prelude.Maybe DataLakePrincipalProperty)}
 mkPrincipalPrivilegesProperty :: PrincipalPrivilegesProperty
 mkPrincipalPrivilegesProperty
@@ -31,7 +31,7 @@ instance JSON.ToJSON PrincipalPrivilegesProperty where
               [(JSON..=) "Permissions" Prelude.<$> permissions,
                (JSON..=) "Principal" Prelude.<$> principal]))
 instance Property "Permissions" PrincipalPrivilegesProperty where
-  type PropertyType "Permissions" PrincipalPrivilegesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Permissions" PrincipalPrivilegesProperty = ValueList Prelude.Text
   set newValue PrincipalPrivilegesProperty {..}
     = PrincipalPrivilegesProperty
         {permissions = Prelude.pure newValue, ..}

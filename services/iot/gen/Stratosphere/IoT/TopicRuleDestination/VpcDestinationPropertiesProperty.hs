@@ -9,8 +9,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcDestinationPropertiesProperty
   = VpcDestinationPropertiesProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
-                                      securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                      subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                      securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                      subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       vpcId :: (Prelude.Maybe (Value Prelude.Text))}
 mkVpcDestinationPropertiesProperty ::
   VpcDestinationPropertiesProperty
@@ -43,12 +43,12 @@ instance Property "RoleArn" VpcDestinationPropertiesProperty where
     = VpcDestinationPropertiesProperty
         {roleArn = Prelude.pure newValue, ..}
 instance Property "SecurityGroups" VpcDestinationPropertiesProperty where
-  type PropertyType "SecurityGroups" VpcDestinationPropertiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" VpcDestinationPropertiesProperty = ValueList Prelude.Text
   set newValue VpcDestinationPropertiesProperty {..}
     = VpcDestinationPropertiesProperty
         {securityGroups = Prelude.pure newValue, ..}
 instance Property "SubnetIds" VpcDestinationPropertiesProperty where
-  type PropertyType "SubnetIds" VpcDestinationPropertiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" VpcDestinationPropertiesProperty = ValueList Prelude.Text
   set newValue VpcDestinationPropertiesProperty {..}
     = VpcDestinationPropertiesProperty
         {subnetIds = Prelude.pure newValue, ..}

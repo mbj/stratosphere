@@ -10,10 +10,10 @@ import Stratosphere.Value
 data SubnetGroup
   = SubnetGroup {description :: (Prelude.Maybe (Value Prelude.Text)),
                  subnetGroupName :: (Value Prelude.Text),
-                 subnetIds :: (ValueList (Value Prelude.Text)),
+                 subnetIds :: (ValueList Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
 mkSubnetGroup ::
-  Value Prelude.Text -> ValueList (Value Prelude.Text) -> SubnetGroup
+  Value Prelude.Text -> ValueList Prelude.Text -> SubnetGroup
 mkSubnetGroup subnetGroupName subnetIds
   = SubnetGroup
       {subnetGroupName = subnetGroupName, subnetIds = subnetIds,
@@ -48,7 +48,7 @@ instance Property "SubnetGroupName" SubnetGroup where
   set newValue SubnetGroup {..}
     = SubnetGroup {subnetGroupName = newValue, ..}
 instance Property "SubnetIds" SubnetGroup where
-  type PropertyType "SubnetIds" SubnetGroup = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" SubnetGroup = ValueList Prelude.Text
   set newValue SubnetGroup {..}
     = SubnetGroup {subnetIds = newValue, ..}
 instance Property "Tags" SubnetGroup where

@@ -10,9 +10,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ForwardedValuesProperty
   = ForwardedValuesProperty {cookies :: (Prelude.Maybe CookiesProperty),
-                             headers :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                             headers :: (Prelude.Maybe (ValueList Prelude.Text)),
                              queryString :: (Value Prelude.Bool),
-                             queryStringCacheKeys :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                             queryStringCacheKeys :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkForwardedValuesProperty ::
   Value Prelude.Bool -> ForwardedValuesProperty
 mkForwardedValuesProperty queryString
@@ -47,7 +47,7 @@ instance Property "Cookies" ForwardedValuesProperty where
   set newValue ForwardedValuesProperty {..}
     = ForwardedValuesProperty {cookies = Prelude.pure newValue, ..}
 instance Property "Headers" ForwardedValuesProperty where
-  type PropertyType "Headers" ForwardedValuesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Headers" ForwardedValuesProperty = ValueList Prelude.Text
   set newValue ForwardedValuesProperty {..}
     = ForwardedValuesProperty {headers = Prelude.pure newValue, ..}
 instance Property "QueryString" ForwardedValuesProperty where
@@ -55,7 +55,7 @@ instance Property "QueryString" ForwardedValuesProperty where
   set newValue ForwardedValuesProperty {..}
     = ForwardedValuesProperty {queryString = newValue, ..}
 instance Property "QueryStringCacheKeys" ForwardedValuesProperty where
-  type PropertyType "QueryStringCacheKeys" ForwardedValuesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "QueryStringCacheKeys" ForwardedValuesProperty = ValueList Prelude.Text
   set newValue ForwardedValuesProperty {..}
     = ForwardedValuesProperty
         {queryStringCacheKeys = Prelude.pure newValue, ..}

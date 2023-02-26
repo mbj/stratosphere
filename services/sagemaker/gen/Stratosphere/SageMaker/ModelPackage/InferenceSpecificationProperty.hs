@@ -10,14 +10,14 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceSpecificationProperty
   = InferenceSpecificationProperty {containers :: [ModelPackageContainerDefinitionProperty],
-                                    supportedContentTypes :: (ValueList (Value Prelude.Text)),
-                                    supportedRealtimeInferenceInstanceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                                    supportedResponseMIMETypes :: (ValueList (Value Prelude.Text)),
-                                    supportedTransformInstanceTypes :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                    supportedContentTypes :: (ValueList Prelude.Text),
+                                    supportedRealtimeInferenceInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                    supportedResponseMIMETypes :: (ValueList Prelude.Text),
+                                    supportedTransformInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkInferenceSpecificationProperty ::
   [ModelPackageContainerDefinitionProperty]
-  -> ValueList (Value Prelude.Text)
-     -> ValueList (Value Prelude.Text) -> InferenceSpecificationProperty
+  -> ValueList Prelude.Text
+     -> ValueList Prelude.Text -> InferenceSpecificationProperty
 mkInferenceSpecificationProperty
   containers
   supportedContentTypes
@@ -60,23 +60,23 @@ instance Property "Containers" InferenceSpecificationProperty where
   set newValue InferenceSpecificationProperty {..}
     = InferenceSpecificationProperty {containers = newValue, ..}
 instance Property "SupportedContentTypes" InferenceSpecificationProperty where
-  type PropertyType "SupportedContentTypes" InferenceSpecificationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SupportedContentTypes" InferenceSpecificationProperty = ValueList Prelude.Text
   set newValue InferenceSpecificationProperty {..}
     = InferenceSpecificationProperty
         {supportedContentTypes = newValue, ..}
 instance Property "SupportedRealtimeInferenceInstanceTypes" InferenceSpecificationProperty where
-  type PropertyType "SupportedRealtimeInferenceInstanceTypes" InferenceSpecificationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SupportedRealtimeInferenceInstanceTypes" InferenceSpecificationProperty = ValueList Prelude.Text
   set newValue InferenceSpecificationProperty {..}
     = InferenceSpecificationProperty
         {supportedRealtimeInferenceInstanceTypes = Prelude.pure newValue,
          ..}
 instance Property "SupportedResponseMIMETypes" InferenceSpecificationProperty where
-  type PropertyType "SupportedResponseMIMETypes" InferenceSpecificationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SupportedResponseMIMETypes" InferenceSpecificationProperty = ValueList Prelude.Text
   set newValue InferenceSpecificationProperty {..}
     = InferenceSpecificationProperty
         {supportedResponseMIMETypes = newValue, ..}
 instance Property "SupportedTransformInstanceTypes" InferenceSpecificationProperty where
-  type PropertyType "SupportedTransformInstanceTypes" InferenceSpecificationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SupportedTransformInstanceTypes" InferenceSpecificationProperty = ValueList Prelude.Text
   set newValue InferenceSpecificationProperty {..}
     = InferenceSpecificationProperty
         {supportedTransformInstanceTypes = Prelude.pure newValue, ..}

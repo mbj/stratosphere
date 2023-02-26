@@ -8,11 +8,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountAggregationSourceProperty
-  = AccountAggregationSourceProperty {accountIds :: (ValueList (Value Prelude.Text)),
+  = AccountAggregationSourceProperty {accountIds :: (ValueList Prelude.Text),
                                       allAwsRegions :: (Prelude.Maybe (Value Prelude.Bool)),
-                                      awsRegions :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                      awsRegions :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAccountAggregationSourceProperty ::
-  ValueList (Value Prelude.Text) -> AccountAggregationSourceProperty
+  ValueList Prelude.Text -> AccountAggregationSourceProperty
 mkAccountAggregationSourceProperty accountIds
   = AccountAggregationSourceProperty
       {accountIds = accountIds, allAwsRegions = Prelude.Nothing,
@@ -37,7 +37,7 @@ instance JSON.ToJSON AccountAggregationSourceProperty where
                  [(JSON..=) "AllAwsRegions" Prelude.<$> allAwsRegions,
                   (JSON..=) "AwsRegions" Prelude.<$> awsRegions])))
 instance Property "AccountIds" AccountAggregationSourceProperty where
-  type PropertyType "AccountIds" AccountAggregationSourceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AccountIds" AccountAggregationSourceProperty = ValueList Prelude.Text
   set newValue AccountAggregationSourceProperty {..}
     = AccountAggregationSourceProperty {accountIds = newValue, ..}
 instance Property "AllAwsRegions" AccountAggregationSourceProperty where
@@ -46,7 +46,7 @@ instance Property "AllAwsRegions" AccountAggregationSourceProperty where
     = AccountAggregationSourceProperty
         {allAwsRegions = Prelude.pure newValue, ..}
 instance Property "AwsRegions" AccountAggregationSourceProperty where
-  type PropertyType "AwsRegions" AccountAggregationSourceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AwsRegions" AccountAggregationSourceProperty = ValueList Prelude.Text
   set newValue AccountAggregationSourceProperty {..}
     = AccountAggregationSourceProperty
         {awsRegions = Prelude.pure newValue, ..}

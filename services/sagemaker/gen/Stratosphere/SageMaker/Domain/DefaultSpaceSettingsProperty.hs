@@ -13,7 +13,7 @@ data DefaultSpaceSettingsProperty
   = DefaultSpaceSettingsProperty {executionRole :: (Prelude.Maybe (Value Prelude.Text)),
                                   jupyterServerAppSettings :: (Prelude.Maybe JupyterServerAppSettingsProperty),
                                   kernelGatewayAppSettings :: (Prelude.Maybe KernelGatewayAppSettingsProperty),
-                                  securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                  securityGroups :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkDefaultSpaceSettingsProperty :: DefaultSpaceSettingsProperty
 mkDefaultSpaceSettingsProperty
   = DefaultSpaceSettingsProperty
@@ -60,7 +60,7 @@ instance Property "KernelGatewayAppSettings" DefaultSpaceSettingsProperty where
     = DefaultSpaceSettingsProperty
         {kernelGatewayAppSettings = Prelude.pure newValue, ..}
 instance Property "SecurityGroups" DefaultSpaceSettingsProperty where
-  type PropertyType "SecurityGroups" DefaultSpaceSettingsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" DefaultSpaceSettingsProperty = ValueList Prelude.Text
   set newValue DefaultSpaceSettingsProperty {..}
     = DefaultSpaceSettingsProperty
         {securityGroups = Prelude.pure newValue, ..}

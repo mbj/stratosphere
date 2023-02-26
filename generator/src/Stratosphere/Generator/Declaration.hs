@@ -368,15 +368,25 @@ genType :: HasCallStack => Type -> Generator GHC.HsType'
 genType type'@Type{..} =
   case (propertyPrimitiveType, propertyType, propertyPrimitiveItemType, propertyItemType) of
     ((Just prim), Nothing,                          Nothing,     Nothing)     -> genPrimitive prim
-    (Nothing,     (Just Raw.ComposedTypeList),      (Just prim), Nothing)     -> genValueList =<< genPrimitive prim
+    (Nothing,     (Just Raw.ComposedTypeList),      (Just prim), Nothing)     -> genValueList prim
     (Nothing,     (Just Raw.ComposedTypeList),      Nothing,     (Just item)) -> GHC.listTy <$> genReference item
     (Nothing,     (Just Raw.ComposedTypeMap),       (Just prim), Nothing)     -> genMap =<< genPrimitive prim
     (Nothing,     (Just Raw.ComposedTypeMap),       Nothing,     (Just item)) -> genMap =<< genReference item
     (Nothing,     (Just (Raw.ComposedTypeSub sub)), Nothing,     Nothing)     -> genReference sub
     _other -> error $ "Unknown raw property type: " <> show type'
 
-genValueList :: GHC.HsType' -> Generator GHC.HsType'
-genValueList member = addImport Value $ GHC.var "ValueList" @@ member
+genValueList :: Raw.PrimitiveType -> Generator GHC.HsType'
+genValueList = \case
+  Raw.PrimitiveTypeBoolean   -> valueList =<< addImport Prelude (GHC.var "Prelude.Bool")
+  Raw.PrimitiveTypeDouble    -> valueList =<< addImport Prelude (GHC.var "Prelude.Double")
+  Raw.PrimitiveTypeInteger   -> valueList =<< addImport Prelude (GHC.var "Prelude.Integer")
+  Raw.PrimitiveTypeJSON      -> addImport JSON $ GHC.var "JSON.Object"
+  Raw.PrimitiveTypeLong      -> valueList =<< addImport Prelude (GHC.var "Prelude.Integer")
+  Raw.PrimitiveTypeString    -> valueList =<< addImport Prelude (GHC.var "Prelude.Text")
+  Raw.PrimitiveTypeTimestamp -> valueList =<< addImport Prelude (GHC.var "Prelude.Text")
+  where
+    valueList :: GHC.HsType' -> Generator GHC.HsType'
+    valueList member = addImport Value $ GHC.var "ValueList" @@ member
 
 mkMaybe :: Bool -> GHC.HsType' -> GHC.HsType'
 mkMaybe propertyRequired hsType =

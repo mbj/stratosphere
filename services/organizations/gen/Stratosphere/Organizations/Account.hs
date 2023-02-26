@@ -10,7 +10,7 @@ import Stratosphere.Value
 data Account
   = Account {accountName :: (Value Prelude.Text),
              email :: (Value Prelude.Text),
-             parentIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+             parentIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              roleName :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag])}
 mkAccount :: Value Prelude.Text -> Value Prelude.Text -> Account
@@ -47,7 +47,7 @@ instance Property "Email" Account where
   type PropertyType "Email" Account = Value Prelude.Text
   set newValue Account {..} = Account {email = newValue, ..}
 instance Property "ParentIds" Account where
-  type PropertyType "ParentIds" Account = ValueList (Value Prelude.Text)
+  type PropertyType "ParentIds" Account = ValueList Prelude.Text
   set newValue Account {..}
     = Account {parentIds = Prelude.pure newValue, ..}
 instance Property "RoleName" Account where

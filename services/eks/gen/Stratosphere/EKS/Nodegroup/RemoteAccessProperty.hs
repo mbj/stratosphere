@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RemoteAccessProperty
   = RemoteAccessProperty {ec2SshKey :: (Value Prelude.Text),
-                          sourceSecurityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                          sourceSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkRemoteAccessProperty ::
   Value Prelude.Text -> RemoteAccessProperty
 mkRemoteAccessProperty ec2SshKey
@@ -38,7 +38,7 @@ instance Property "Ec2SshKey" RemoteAccessProperty where
   set newValue RemoteAccessProperty {..}
     = RemoteAccessProperty {ec2SshKey = newValue, ..}
 instance Property "SourceSecurityGroups" RemoteAccessProperty where
-  type PropertyType "SourceSecurityGroups" RemoteAccessProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SourceSecurityGroups" RemoteAccessProperty = ValueList Prelude.Text
   set newValue RemoteAccessProperty {..}
     = RemoteAccessProperty
         {sourceSecurityGroups = Prelude.pure newValue, ..}

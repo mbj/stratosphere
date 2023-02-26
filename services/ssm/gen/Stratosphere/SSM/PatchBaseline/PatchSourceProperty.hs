@@ -9,7 +9,7 @@ import Stratosphere.Value
 data PatchSourceProperty
   = PatchSourceProperty {configuration :: (Prelude.Maybe (Value Prelude.Text)),
                          name :: (Prelude.Maybe (Value Prelude.Text)),
-                         products :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                         products :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkPatchSourceProperty :: PatchSourceProperty
 mkPatchSourceProperty
   = PatchSourceProperty
@@ -41,6 +41,6 @@ instance Property "Name" PatchSourceProperty where
   set newValue PatchSourceProperty {..}
     = PatchSourceProperty {name = Prelude.pure newValue, ..}
 instance Property "Products" PatchSourceProperty where
-  type PropertyType "Products" PatchSourceProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Products" PatchSourceProperty = ValueList Prelude.Text
   set newValue PatchSourceProperty {..}
     = PatchSourceProperty {products = Prelude.pure newValue, ..}

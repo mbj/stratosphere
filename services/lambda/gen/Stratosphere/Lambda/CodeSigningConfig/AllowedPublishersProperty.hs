@@ -7,9 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AllowedPublishersProperty
-  = AllowedPublishersProperty {signingProfileVersionArns :: (ValueList (Value Prelude.Text))}
+  = AllowedPublishersProperty {signingProfileVersionArns :: (ValueList Prelude.Text)}
 mkAllowedPublishersProperty ::
-  ValueList (Value Prelude.Text) -> AllowedPublishersProperty
+  ValueList Prelude.Text -> AllowedPublishersProperty
 mkAllowedPublishersProperty signingProfileVersionArns
   = AllowedPublishersProperty
       {signingProfileVersionArns = signingProfileVersionArns}
@@ -24,7 +24,7 @@ instance JSON.ToJSON AllowedPublishersProperty where
     = JSON.object
         ["SigningProfileVersionArns" JSON..= signingProfileVersionArns]
 instance Property "SigningProfileVersionArns" AllowedPublishersProperty where
-  type PropertyType "SigningProfileVersionArns" AllowedPublishersProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SigningProfileVersionArns" AllowedPublishersProperty = ValueList Prelude.Text
   set newValue AllowedPublishersProperty {}
     = AllowedPublishersProperty
         {signingProfileVersionArns = newValue, ..}

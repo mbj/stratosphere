@@ -16,7 +16,7 @@ data Studio
             idpRelayStateParameterName :: (Prelude.Maybe (Value Prelude.Text)),
             name :: (Value Prelude.Text),
             serviceRole :: (Value Prelude.Text),
-            subnetIds :: (ValueList (Value Prelude.Text)),
+            subnetIds :: (ValueList Prelude.Text),
             tags :: (Prelude.Maybe [Tag]),
             userRole :: (Prelude.Maybe (Value Prelude.Text)),
             vpcId :: (Value Prelude.Text),
@@ -27,7 +27,7 @@ mkStudio ::
      -> Value Prelude.Text
         -> Value Prelude.Text
            -> Value Prelude.Text
-              -> ValueList (Value Prelude.Text)
+              -> ValueList Prelude.Text
                  -> Value Prelude.Text -> Value Prelude.Text -> Studio
 mkStudio
   authMode
@@ -113,7 +113,7 @@ instance Property "ServiceRole" Studio where
   type PropertyType "ServiceRole" Studio = Value Prelude.Text
   set newValue Studio {..} = Studio {serviceRole = newValue, ..}
 instance Property "SubnetIds" Studio where
-  type PropertyType "SubnetIds" Studio = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" Studio = ValueList Prelude.Text
   set newValue Studio {..} = Studio {subnetIds = newValue, ..}
 instance Property "Tags" Studio where
   type PropertyType "Tags" Studio = [Tag]

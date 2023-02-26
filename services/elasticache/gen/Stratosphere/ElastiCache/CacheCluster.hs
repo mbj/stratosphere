@@ -13,7 +13,7 @@ data CacheCluster
                   autoMinorVersionUpgrade :: (Prelude.Maybe (Value Prelude.Bool)),
                   cacheNodeType :: (Value Prelude.Text),
                   cacheParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
-                  cacheSecurityGroupNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  cacheSecurityGroupNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                   cacheSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                   clusterName :: (Prelude.Maybe (Value Prelude.Text)),
                   engine :: (Value Prelude.Text),
@@ -25,15 +25,15 @@ data CacheCluster
                   numCacheNodes :: (Value Prelude.Integer),
                   port :: (Prelude.Maybe (Value Prelude.Integer)),
                   preferredAvailabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
-                  preferredAvailabilityZones :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  preferredAvailabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
                   preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
-                  snapshotArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                  snapshotArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                   snapshotName :: (Prelude.Maybe (Value Prelude.Text)),
                   snapshotRetentionLimit :: (Prelude.Maybe (Value Prelude.Integer)),
                   snapshotWindow :: (Prelude.Maybe (Value Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag]),
                   transitEncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
-                  vpcSecurityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                  vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCacheCluster ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Integer -> CacheCluster
@@ -156,7 +156,7 @@ instance Property "CacheParameterGroupName" CacheCluster where
     = CacheCluster
         {cacheParameterGroupName = Prelude.pure newValue, ..}
 instance Property "CacheSecurityGroupNames" CacheCluster where
-  type PropertyType "CacheSecurityGroupNames" CacheCluster = ValueList (Value Prelude.Text)
+  type PropertyType "CacheSecurityGroupNames" CacheCluster = ValueList Prelude.Text
   set newValue CacheCluster {..}
     = CacheCluster
         {cacheSecurityGroupNames = Prelude.pure newValue, ..}
@@ -207,7 +207,7 @@ instance Property "PreferredAvailabilityZone" CacheCluster where
     = CacheCluster
         {preferredAvailabilityZone = Prelude.pure newValue, ..}
 instance Property "PreferredAvailabilityZones" CacheCluster where
-  type PropertyType "PreferredAvailabilityZones" CacheCluster = ValueList (Value Prelude.Text)
+  type PropertyType "PreferredAvailabilityZones" CacheCluster = ValueList Prelude.Text
   set newValue CacheCluster {..}
     = CacheCluster
         {preferredAvailabilityZones = Prelude.pure newValue, ..}
@@ -217,7 +217,7 @@ instance Property "PreferredMaintenanceWindow" CacheCluster where
     = CacheCluster
         {preferredMaintenanceWindow = Prelude.pure newValue, ..}
 instance Property "SnapshotArns" CacheCluster where
-  type PropertyType "SnapshotArns" CacheCluster = ValueList (Value Prelude.Text)
+  type PropertyType "SnapshotArns" CacheCluster = ValueList Prelude.Text
   set newValue CacheCluster {..}
     = CacheCluster {snapshotArns = Prelude.pure newValue, ..}
 instance Property "SnapshotName" CacheCluster where
@@ -242,6 +242,6 @@ instance Property "TransitEncryptionEnabled" CacheCluster where
     = CacheCluster
         {transitEncryptionEnabled = Prelude.pure newValue, ..}
 instance Property "VpcSecurityGroupIds" CacheCluster where
-  type PropertyType "VpcSecurityGroupIds" CacheCluster = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSecurityGroupIds" CacheCluster = ValueList Prelude.Text
   set newValue CacheCluster {..}
     = CacheCluster {vpcSecurityGroupIds = Prelude.pure newValue, ..}

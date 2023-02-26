@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LdapServerMetadataProperty
-  = LdapServerMetadataProperty {hosts :: (ValueList (Value Prelude.Text)),
+  = LdapServerMetadataProperty {hosts :: (ValueList Prelude.Text),
                                 roleBase :: (Value Prelude.Text),
                                 roleName :: (Prelude.Maybe (Value Prelude.Text)),
                                 roleSearchMatching :: (Value Prelude.Text),
@@ -19,7 +19,7 @@ data LdapServerMetadataProperty
                                 userSearchMatching :: (Value Prelude.Text),
                                 userSearchSubtree :: (Prelude.Maybe (Value Prelude.Bool))}
 mkLdapServerMetadataProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text
         -> Value Prelude.Text
@@ -77,7 +77,7 @@ instance JSON.ToJSON LdapServerMetadataProperty where
                   (JSON..=) "UserRoleName" Prelude.<$> userRoleName,
                   (JSON..=) "UserSearchSubtree" Prelude.<$> userSearchSubtree])))
 instance Property "Hosts" LdapServerMetadataProperty where
-  type PropertyType "Hosts" LdapServerMetadataProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Hosts" LdapServerMetadataProperty = ValueList Prelude.Text
   set newValue LdapServerMetadataProperty {..}
     = LdapServerMetadataProperty {hosts = newValue, ..}
 instance Property "RoleBase" LdapServerMetadataProperty where

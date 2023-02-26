@@ -16,7 +16,7 @@ data StackSet
   = StackSet {administrationRoleARN :: (Prelude.Maybe (Value Prelude.Text)),
               autoDeployment :: (Prelude.Maybe AutoDeploymentProperty),
               callAs :: (Prelude.Maybe (Value Prelude.Text)),
-              capabilities :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+              capabilities :: (Prelude.Maybe (ValueList Prelude.Text)),
               description :: (Prelude.Maybe (Value Prelude.Text)),
               executionRoleName :: (Prelude.Maybe (Value Prelude.Text)),
               managedExecution :: (Prelude.Maybe ManagedExecutionProperty),
@@ -99,7 +99,7 @@ instance Property "CallAs" StackSet where
   set newValue StackSet {..}
     = StackSet {callAs = Prelude.pure newValue, ..}
 instance Property "Capabilities" StackSet where
-  type PropertyType "Capabilities" StackSet = ValueList (Value Prelude.Text)
+  type PropertyType "Capabilities" StackSet = ValueList Prelude.Text
   set newValue StackSet {..}
     = StackSet {capabilities = Prelude.pure newValue, ..}
 instance Property "Description" StackSet where

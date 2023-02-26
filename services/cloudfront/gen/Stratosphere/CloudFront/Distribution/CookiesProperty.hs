@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CookiesProperty
   = CookiesProperty {forward :: (Value Prelude.Text),
-                     whitelistedNames :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                     whitelistedNames :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkCookiesProperty :: Value Prelude.Text -> CookiesProperty
 mkCookiesProperty forward
   = CookiesProperty
@@ -35,6 +35,6 @@ instance Property "Forward" CookiesProperty where
   set newValue CookiesProperty {..}
     = CookiesProperty {forward = newValue, ..}
 instance Property "WhitelistedNames" CookiesProperty where
-  type PropertyType "WhitelistedNames" CookiesProperty = ValueList (Value Prelude.Text)
+  type PropertyType "WhitelistedNames" CookiesProperty = ValueList Prelude.Text
   set newValue CookiesProperty {..}
     = CookiesProperty {whitelistedNames = Prelude.pure newValue, ..}

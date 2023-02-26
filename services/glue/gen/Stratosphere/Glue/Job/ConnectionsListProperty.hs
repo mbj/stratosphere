@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionsListProperty
-  = ConnectionsListProperty {connections :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = ConnectionsListProperty {connections :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkConnectionsListProperty :: ConnectionsListProperty
 mkConnectionsListProperty
   = ConnectionsListProperty {connections = Prelude.Nothing}
@@ -25,6 +25,6 @@ instance JSON.ToJSON ConnectionsListProperty where
            (Prelude.catMaybes
               [(JSON..=) "Connections" Prelude.<$> connections]))
 instance Property "Connections" ConnectionsListProperty where
-  type PropertyType "Connections" ConnectionsListProperty = ValueList (Value Prelude.Text)
+  type PropertyType "Connections" ConnectionsListProperty = ValueList Prelude.Text
   set newValue ConnectionsListProperty {}
     = ConnectionsListProperty {connections = Prelude.pure newValue, ..}

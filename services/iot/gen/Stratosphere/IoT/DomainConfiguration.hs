@@ -13,7 +13,7 @@ data DomainConfiguration
                          domainConfigurationName :: (Prelude.Maybe (Value Prelude.Text)),
                          domainConfigurationStatus :: (Prelude.Maybe (Value Prelude.Text)),
                          domainName :: (Prelude.Maybe (Value Prelude.Text)),
-                         serverCertificateArns :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                         serverCertificateArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                          serviceType :: (Prelude.Maybe (Value Prelude.Text)),
                          tags :: (Prelude.Maybe [Tag]),
                          validationCertificateArn :: (Prelude.Maybe (Value Prelude.Text))}
@@ -82,7 +82,7 @@ instance Property "DomainName" DomainConfiguration where
   set newValue DomainConfiguration {..}
     = DomainConfiguration {domainName = Prelude.pure newValue, ..}
 instance Property "ServerCertificateArns" DomainConfiguration where
-  type PropertyType "ServerCertificateArns" DomainConfiguration = ValueList (Value Prelude.Text)
+  type PropertyType "ServerCertificateArns" DomainConfiguration = ValueList Prelude.Text
   set newValue DomainConfiguration {..}
     = DomainConfiguration
         {serverCertificateArns = Prelude.pure newValue, ..}

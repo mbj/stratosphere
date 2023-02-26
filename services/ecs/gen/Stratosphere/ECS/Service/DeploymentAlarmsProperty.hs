@@ -7,11 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentAlarmsProperty
-  = DeploymentAlarmsProperty {alarmNames :: (ValueList (Value Prelude.Text)),
+  = DeploymentAlarmsProperty {alarmNames :: (ValueList Prelude.Text),
                               enable :: (Value Prelude.Bool),
                               rollback :: (Value Prelude.Bool)}
 mkDeploymentAlarmsProperty ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Bool
      -> Value Prelude.Bool -> DeploymentAlarmsProperty
 mkDeploymentAlarmsProperty alarmNames enable rollback
@@ -29,7 +29,7 @@ instance JSON.ToJSON DeploymentAlarmsProperty where
         ["AlarmNames" JSON..= alarmNames, "Enable" JSON..= enable,
          "Rollback" JSON..= rollback]
 instance Property "AlarmNames" DeploymentAlarmsProperty where
-  type PropertyType "AlarmNames" DeploymentAlarmsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "AlarmNames" DeploymentAlarmsProperty = ValueList Prelude.Text
   set newValue DeploymentAlarmsProperty {..}
     = DeploymentAlarmsProperty {alarmNames = newValue, ..}
 instance Property "Enable" DeploymentAlarmsProperty where

@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ObjectTypeKeyProperty
-  = ObjectTypeKeyProperty {fieldNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                           standardIdentifiers :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = ObjectTypeKeyProperty {fieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
+                           standardIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkObjectTypeKeyProperty :: ObjectTypeKeyProperty
 mkObjectTypeKeyProperty
   = ObjectTypeKeyProperty
@@ -30,11 +30,11 @@ instance JSON.ToJSON ObjectTypeKeyProperty where
               [(JSON..=) "FieldNames" Prelude.<$> fieldNames,
                (JSON..=) "StandardIdentifiers" Prelude.<$> standardIdentifiers]))
 instance Property "FieldNames" ObjectTypeKeyProperty where
-  type PropertyType "FieldNames" ObjectTypeKeyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "FieldNames" ObjectTypeKeyProperty = ValueList Prelude.Text
   set newValue ObjectTypeKeyProperty {..}
     = ObjectTypeKeyProperty {fieldNames = Prelude.pure newValue, ..}
 instance Property "StandardIdentifiers" ObjectTypeKeyProperty where
-  type PropertyType "StandardIdentifiers" ObjectTypeKeyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "StandardIdentifiers" ObjectTypeKeyProperty = ValueList Prelude.Text
   set newValue ObjectTypeKeyProperty {..}
     = ObjectTypeKeyProperty
         {standardIdentifiers = Prelude.pure newValue, ..}

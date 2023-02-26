@@ -9,10 +9,10 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.DurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpRetryPolicyProperty
-  = HttpRetryPolicyProperty {httpRetryEvents :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = HttpRetryPolicyProperty {httpRetryEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
                              maxRetries :: (Value Prelude.Integer),
                              perRetryTimeout :: DurationProperty,
-                             tcpRetryEvents :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                             tcpRetryEvents :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkHttpRetryPolicyProperty ::
   Value Prelude.Integer
   -> DurationProperty -> HttpRetryPolicyProperty
@@ -43,7 +43,7 @@ instance JSON.ToJSON HttpRetryPolicyProperty where
                  [(JSON..=) "HttpRetryEvents" Prelude.<$> httpRetryEvents,
                   (JSON..=) "TcpRetryEvents" Prelude.<$> tcpRetryEvents])))
 instance Property "HttpRetryEvents" HttpRetryPolicyProperty where
-  type PropertyType "HttpRetryEvents" HttpRetryPolicyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "HttpRetryEvents" HttpRetryPolicyProperty = ValueList Prelude.Text
   set newValue HttpRetryPolicyProperty {..}
     = HttpRetryPolicyProperty
         {httpRetryEvents = Prelude.pure newValue, ..}
@@ -56,7 +56,7 @@ instance Property "PerRetryTimeout" HttpRetryPolicyProperty where
   set newValue HttpRetryPolicyProperty {..}
     = HttpRetryPolicyProperty {perRetryTimeout = newValue, ..}
 instance Property "TcpRetryEvents" HttpRetryPolicyProperty where
-  type PropertyType "TcpRetryEvents" HttpRetryPolicyProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TcpRetryEvents" HttpRetryPolicyProperty = ValueList Prelude.Text
   set newValue HttpRetryPolicyProperty {..}
     = HttpRetryPolicyProperty
         {tcpRetryEvents = Prelude.pure newValue, ..}

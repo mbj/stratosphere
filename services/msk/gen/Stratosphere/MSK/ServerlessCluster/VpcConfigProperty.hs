@@ -7,10 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConfigProperty
-  = VpcConfigProperty {securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                       subnetIds :: (ValueList (Value Prelude.Text))}
-mkVpcConfigProperty ::
-  ValueList (Value Prelude.Text) -> VpcConfigProperty
+  = VpcConfigProperty {securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
+                       subnetIds :: (ValueList Prelude.Text)}
+mkVpcConfigProperty :: ValueList Prelude.Text -> VpcConfigProperty
 mkVpcConfigProperty subnetIds
   = VpcConfigProperty
       {subnetIds = subnetIds, securityGroups = Prelude.Nothing}
@@ -32,10 +31,10 @@ instance JSON.ToJSON VpcConfigProperty where
               (Prelude.catMaybes
                  [(JSON..=) "SecurityGroups" Prelude.<$> securityGroups])))
 instance Property "SecurityGroups" VpcConfigProperty where
-  type PropertyType "SecurityGroups" VpcConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroups" VpcConfigProperty = ValueList Prelude.Text
   set newValue VpcConfigProperty {..}
     = VpcConfigProperty {securityGroups = Prelude.pure newValue, ..}
 instance Property "SubnetIds" VpcConfigProperty where
-  type PropertyType "SubnetIds" VpcConfigProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" VpcConfigProperty = ValueList Prelude.Text
   set newValue VpcConfigProperty {..}
     = VpcConfigProperty {subnetIds = newValue, ..}

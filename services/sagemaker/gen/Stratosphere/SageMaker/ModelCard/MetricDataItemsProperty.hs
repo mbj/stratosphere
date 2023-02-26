@@ -11,8 +11,8 @@ data MetricDataItemsProperty
                              notes :: (Prelude.Maybe (Value Prelude.Text)),
                              type' :: (Value Prelude.Text),
                              value :: JSON.Object,
-                             xAxisName :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                             yAxisName :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                             xAxisName :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             yAxisName :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkMetricDataItemsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> JSON.Object -> MetricDataItemsProperty
@@ -59,10 +59,10 @@ instance Property "Value" MetricDataItemsProperty where
   set newValue MetricDataItemsProperty {..}
     = MetricDataItemsProperty {value = newValue, ..}
 instance Property "XAxisName" MetricDataItemsProperty where
-  type PropertyType "XAxisName" MetricDataItemsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "XAxisName" MetricDataItemsProperty = ValueList Prelude.Text
   set newValue MetricDataItemsProperty {..}
     = MetricDataItemsProperty {xAxisName = Prelude.pure newValue, ..}
 instance Property "YAxisName" MetricDataItemsProperty where
-  type PropertyType "YAxisName" MetricDataItemsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "YAxisName" MetricDataItemsProperty = ValueList Prelude.Text
   set newValue MetricDataItemsProperty {..}
     = MetricDataItemsProperty {yAxisName = Prelude.pure newValue, ..}

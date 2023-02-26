@@ -7,8 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputVpcRequestProperty
-  = InputVpcRequestProperty {securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-                             subnetIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+  = InputVpcRequestProperty {securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                             subnetIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkInputVpcRequestProperty :: InputVpcRequestProperty
 mkInputVpcRequestProperty
   = InputVpcRequestProperty
@@ -29,11 +29,11 @@ instance JSON.ToJSON InputVpcRequestProperty where
               [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
                (JSON..=) "SubnetIds" Prelude.<$> subnetIds]))
 instance Property "SecurityGroupIds" InputVpcRequestProperty where
-  type PropertyType "SecurityGroupIds" InputVpcRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" InputVpcRequestProperty = ValueList Prelude.Text
   set newValue InputVpcRequestProperty {..}
     = InputVpcRequestProperty
         {securityGroupIds = Prelude.pure newValue, ..}
 instance Property "SubnetIds" InputVpcRequestProperty where
-  type PropertyType "SubnetIds" InputVpcRequestProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SubnetIds" InputVpcRequestProperty = ValueList Prelude.Text
   set newValue InputVpcRequestProperty {..}
     = InputVpcRequestProperty {subnetIds = Prelude.pure newValue, ..}

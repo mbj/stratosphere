@@ -10,7 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DomainSettingsProperty
   = DomainSettingsProperty {rStudioServerProDomainSettings :: (Prelude.Maybe RStudioServerProDomainSettingsProperty),
-                            securityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                            securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkDomainSettingsProperty :: DomainSettingsProperty
 mkDomainSettingsProperty
   = DomainSettingsProperty
@@ -39,7 +39,7 @@ instance Property "RStudioServerProDomainSettings" DomainSettingsProperty where
     = DomainSettingsProperty
         {rStudioServerProDomainSettings = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" DomainSettingsProperty where
-  type PropertyType "SecurityGroupIds" DomainSettingsProperty = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityGroupIds" DomainSettingsProperty = ValueList Prelude.Text
   set newValue DomainSettingsProperty {..}
     = DomainSettingsProperty
         {securityGroupIds = Prelude.pure newValue, ..}

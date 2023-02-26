@@ -10,7 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LocationHDFS
-  = LocationHDFS {agentArns :: (ValueList (Value Prelude.Text)),
+  = LocationHDFS {agentArns :: (ValueList Prelude.Text),
                   authenticationType :: (Value Prelude.Text),
                   blockSize :: (Prelude.Maybe (Value Prelude.Integer)),
                   kerberosKeytab :: (Prelude.Maybe (Value Prelude.Text)),
@@ -24,7 +24,7 @@ data LocationHDFS
                   subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag])}
 mkLocationHDFS ::
-  ValueList (Value Prelude.Text)
+  ValueList Prelude.Text
   -> Value Prelude.Text -> [NameNodeProperty] -> LocationHDFS
 mkLocationHDFS agentArns authenticationType nameNodes
   = LocationHDFS
@@ -77,7 +77,7 @@ instance JSON.ToJSON LocationHDFS where
                   (JSON..=) "Subdirectory" Prelude.<$> subdirectory,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AgentArns" LocationHDFS where
-  type PropertyType "AgentArns" LocationHDFS = ValueList (Value Prelude.Text)
+  type PropertyType "AgentArns" LocationHDFS = ValueList Prelude.Text
   set newValue LocationHDFS {..}
     = LocationHDFS {agentArns = newValue, ..}
 instance Property "AuthenticationType" LocationHDFS where

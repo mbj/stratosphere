@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Configuration
   = Configuration {description :: (Prelude.Maybe (Value Prelude.Text)),
-                   kafkaVersionsList :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                   kafkaVersionsList :: (Prelude.Maybe (ValueList Prelude.Text)),
                    name :: (Value Prelude.Text),
                    serverProperties :: (Value Prelude.Text)}
 mkConfiguration ::
@@ -41,7 +41,7 @@ instance Property "Description" Configuration where
   set newValue Configuration {..}
     = Configuration {description = Prelude.pure newValue, ..}
 instance Property "KafkaVersionsList" Configuration where
-  type PropertyType "KafkaVersionsList" Configuration = ValueList (Value Prelude.Text)
+  type PropertyType "KafkaVersionsList" Configuration = ValueList Prelude.Text
   set newValue Configuration {..}
     = Configuration {kafkaVersionsList = Prelude.pure newValue, ..}
 instance Property "Name" Configuration where

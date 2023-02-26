@@ -14,7 +14,7 @@ data AmiDistributionConfigurationProperty
                                           kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                                           launchPermissionConfiguration :: (Prelude.Maybe LaunchPermissionConfigurationProperty),
                                           name :: (Prelude.Maybe (Value Prelude.Text)),
-                                          targetAccountIds :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+                                          targetAccountIds :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAmiDistributionConfigurationProperty ::
   AmiDistributionConfigurationProperty
 mkAmiDistributionConfigurationProperty
@@ -74,7 +74,7 @@ instance Property "Name" AmiDistributionConfigurationProperty where
     = AmiDistributionConfigurationProperty
         {name = Prelude.pure newValue, ..}
 instance Property "TargetAccountIds" AmiDistributionConfigurationProperty where
-  type PropertyType "TargetAccountIds" AmiDistributionConfigurationProperty = ValueList (Value Prelude.Text)
+  type PropertyType "TargetAccountIds" AmiDistributionConfigurationProperty = ValueList Prelude.Text
   set newValue AmiDistributionConfigurationProperty {..}
     = AmiDistributionConfigurationProperty
         {targetAccountIds = Prelude.pure newValue, ..}

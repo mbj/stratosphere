@@ -17,13 +17,13 @@ data DBProxy
              requireTLS :: (Prelude.Maybe (Value Prelude.Bool)),
              roleArn :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [TagFormatProperty]),
-             vpcSecurityGroupIds :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-             vpcSubnetIds :: (ValueList (Value Prelude.Text))}
+             vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+             vpcSubnetIds :: (ValueList Prelude.Text)}
 mkDBProxy ::
   [AuthFormatProperty]
   -> Value Prelude.Text
      -> Value Prelude.Text
-        -> Value Prelude.Text -> ValueList (Value Prelude.Text) -> DBProxy
+        -> Value Prelude.Text -> ValueList Prelude.Text -> DBProxy
 mkDBProxy auth dBProxyName engineFamily roleArn vpcSubnetIds
   = DBProxy
       {auth = auth, dBProxyName = dBProxyName,
@@ -89,9 +89,9 @@ instance Property "Tags" DBProxy where
   set newValue DBProxy {..}
     = DBProxy {tags = Prelude.pure newValue, ..}
 instance Property "VpcSecurityGroupIds" DBProxy where
-  type PropertyType "VpcSecurityGroupIds" DBProxy = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSecurityGroupIds" DBProxy = ValueList Prelude.Text
   set newValue DBProxy {..}
     = DBProxy {vpcSecurityGroupIds = Prelude.pure newValue, ..}
 instance Property "VpcSubnetIds" DBProxy where
-  type PropertyType "VpcSubnetIds" DBProxy = ValueList (Value Prelude.Text)
+  type PropertyType "VpcSubnetIds" DBProxy = ValueList Prelude.Text
   set newValue DBProxy {..} = DBProxy {vpcSubnetIds = newValue, ..}

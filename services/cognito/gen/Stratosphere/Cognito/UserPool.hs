@@ -21,14 +21,14 @@ import Stratosphere.Value
 data UserPool
   = UserPool {accountRecoverySetting :: (Prelude.Maybe AccountRecoverySettingProperty),
               adminCreateUserConfig :: (Prelude.Maybe AdminCreateUserConfigProperty),
-              aliasAttributes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
-              autoVerifiedAttributes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+              aliasAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
+              autoVerifiedAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
               deletionProtection :: (Prelude.Maybe (Value Prelude.Text)),
               deviceConfiguration :: (Prelude.Maybe DeviceConfigurationProperty),
               emailConfiguration :: (Prelude.Maybe EmailConfigurationProperty),
               emailVerificationMessage :: (Prelude.Maybe (Value Prelude.Text)),
               emailVerificationSubject :: (Prelude.Maybe (Value Prelude.Text)),
-              enabledMfas :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+              enabledMfas :: (Prelude.Maybe (ValueList Prelude.Text)),
               lambdaConfig :: (Prelude.Maybe LambdaConfigProperty),
               mfaConfiguration :: (Prelude.Maybe (Value Prelude.Text)),
               policies :: (Prelude.Maybe PoliciesProperty),
@@ -40,7 +40,7 @@ data UserPool
               userPoolAddOns :: (Prelude.Maybe UserPoolAddOnsProperty),
               userPoolName :: (Prelude.Maybe (Value Prelude.Text)),
               userPoolTags :: (Prelude.Maybe JSON.Object),
-              usernameAttributes :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+              usernameAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
               usernameConfiguration :: (Prelude.Maybe UsernameConfigurationProperty),
               verificationMessageTemplate :: (Prelude.Maybe VerificationMessageTemplateProperty)}
 mkUserPool :: UserPool
@@ -155,11 +155,11 @@ instance Property "AdminCreateUserConfig" UserPool where
   set newValue UserPool {..}
     = UserPool {adminCreateUserConfig = Prelude.pure newValue, ..}
 instance Property "AliasAttributes" UserPool where
-  type PropertyType "AliasAttributes" UserPool = ValueList (Value Prelude.Text)
+  type PropertyType "AliasAttributes" UserPool = ValueList Prelude.Text
   set newValue UserPool {..}
     = UserPool {aliasAttributes = Prelude.pure newValue, ..}
 instance Property "AutoVerifiedAttributes" UserPool where
-  type PropertyType "AutoVerifiedAttributes" UserPool = ValueList (Value Prelude.Text)
+  type PropertyType "AutoVerifiedAttributes" UserPool = ValueList Prelude.Text
   set newValue UserPool {..}
     = UserPool {autoVerifiedAttributes = Prelude.pure newValue, ..}
 instance Property "DeletionProtection" UserPool where
@@ -183,7 +183,7 @@ instance Property "EmailVerificationSubject" UserPool where
   set newValue UserPool {..}
     = UserPool {emailVerificationSubject = Prelude.pure newValue, ..}
 instance Property "EnabledMfas" UserPool where
-  type PropertyType "EnabledMfas" UserPool = ValueList (Value Prelude.Text)
+  type PropertyType "EnabledMfas" UserPool = ValueList Prelude.Text
   set newValue UserPool {..}
     = UserPool {enabledMfas = Prelude.pure newValue, ..}
 instance Property "LambdaConfig" UserPool where
@@ -232,7 +232,7 @@ instance Property "UserPoolTags" UserPool where
   set newValue UserPool {..}
     = UserPool {userPoolTags = Prelude.pure newValue, ..}
 instance Property "UsernameAttributes" UserPool where
-  type PropertyType "UsernameAttributes" UserPool = ValueList (Value Prelude.Text)
+  type PropertyType "UsernameAttributes" UserPool = ValueList Prelude.Text
   set newValue UserPool {..}
     = UserPool {usernameAttributes = Prelude.pure newValue, ..}
 instance Property "UsernameConfiguration" UserPool where

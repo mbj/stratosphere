@@ -17,14 +17,14 @@ data User
           password :: (Prelude.Maybe (Value Prelude.Text)),
           phoneConfig :: UserPhoneConfigProperty,
           routingProfileArn :: (Value Prelude.Text),
-          securityProfileArns :: (ValueList (Value Prelude.Text)),
+          securityProfileArns :: (ValueList Prelude.Text),
           tags :: (Prelude.Maybe [Tag]),
           username :: (Value Prelude.Text)}
 mkUser ::
   Value Prelude.Text
   -> UserPhoneConfigProperty
      -> Value Prelude.Text
-        -> ValueList (Value Prelude.Text) -> Value Prelude.Text -> User
+        -> ValueList Prelude.Text -> Value Prelude.Text -> User
 mkUser
   instanceArn
   phoneConfig
@@ -98,7 +98,7 @@ instance Property "RoutingProfileArn" User where
   type PropertyType "RoutingProfileArn" User = Value Prelude.Text
   set newValue User {..} = User {routingProfileArn = newValue, ..}
 instance Property "SecurityProfileArns" User where
-  type PropertyType "SecurityProfileArns" User = ValueList (Value Prelude.Text)
+  type PropertyType "SecurityProfileArns" User = ValueList Prelude.Text
   set newValue User {..} = User {securityProfileArns = newValue, ..}
 instance Property "Tags" User where
   type PropertyType "Tags" User = [Tag]

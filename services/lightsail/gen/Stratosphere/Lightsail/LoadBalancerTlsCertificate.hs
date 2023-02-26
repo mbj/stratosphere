@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoadBalancerTlsCertificate
-  = LoadBalancerTlsCertificate {certificateAlternativeNames :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+  = LoadBalancerTlsCertificate {certificateAlternativeNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 certificateDomainName :: (Value Prelude.Text),
                                 certificateName :: (Value Prelude.Text),
                                 httpsRedirectionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -58,7 +58,7 @@ instance JSON.ToJSON LoadBalancerTlsCertificate where
                     Prelude.<$> httpsRedirectionEnabled,
                   (JSON..=) "IsAttached" Prelude.<$> isAttached])))
 instance Property "CertificateAlternativeNames" LoadBalancerTlsCertificate where
-  type PropertyType "CertificateAlternativeNames" LoadBalancerTlsCertificate = ValueList (Value Prelude.Text)
+  type PropertyType "CertificateAlternativeNames" LoadBalancerTlsCertificate = ValueList Prelude.Text
   set newValue LoadBalancerTlsCertificate {..}
     = LoadBalancerTlsCertificate
         {certificateAlternativeNames = Prelude.pure newValue, ..}
