@@ -2,35 +2,45 @@
 
 ## 1.0 [unreleased]
 
+TLDR: Loads of breaking changes, with good reasons.
+
 Overall this release is meant to serve the future, not the past. So this release has many
 "bunched up" breaking changes which should reduce the need for breakng changes in the
-future.
+future, and improve maintainability and thus release frequency dramatically.
+
+* Drop generated field prefixes, making usage of the library way more natural. Especially its
+  now possible to use this library just from the AWS provided cloudformation documentation
+  without having to lookup the field prefixes in a second tab.
 
 * Drop support for GHC < 9.2. This simplifies the generator significantly. If you need older
-  GHCs use the old versions of stratospehre. Dependency of dropping field prefixes.
+  GHCs use the old versions of stratosphere. Dependency of dropping field prefixes. This library
+  relies now on `NoFieldSelectors` internally.
 
-* Fully re-written generator, which works directly on the raw, un-preprocessed AWS specification.
-  This should increase maintainabiltiy and release frequency dramatically.
+* Fully re-written generator, which works directly on the raw, un-preprocessed AWS
+  specification, this should increase maintainabiltiy and release frequency.
 
-* Re-aligned generated module structure, removing all manual overwrites for dismabiguation.
+* Re-aligned generated module / builder function structure, removing all manual
+  overwrites for dismabiguation.
 
-* Drop of the lens dependency, results in slightly more verbose call sides, but significantly
-  reduced dependency and API lock in.
-
-* Drop generated field prefixes, making usage of the library way more natural and
-  offsets the drop of lens with room to spare.
+* Drop of the lens dependency, replaced with the `set @"PropertyName" value` idiom.
 
 * Split to one package per AWS service. This induces a small overhead on the user to
   select the packages the user needs, but reduces compilation time significantly.
-  Also this works aroudn limitations on OSX linker issues on many modules.
+  Also this works around limitations on OSX linker issues on many modules.
+  Fixes: [#111](https://github.com/mbj/stratosphere/issues/184) [#102](https://github.com/mbj/stratosphere/issues/102)
 
-* Change `Val` to `Value`, its recommended to include stratosphere qualified to
-  disambuguiate with potentially conflicting `aeson` imports.
+* Change `Val` to `Value`, its recommended to include stratosphere qualified where it clashes with
+  `aeson` imports.
 
 * Remove support for custom enum types stratosphere used to tag
-  on to the raw spec. See: [#202](https://github.com/mbj/stratosphere/pull/202)
+  on to the raw spec. Fixes: [#195](https://github.com/mbj/stratosphere/pull/195)
 
-* Update resource specification document to version 112.0.0
+* Update resource specification document to version 112.0.0 and re-generate all services.
+  Fixes: [#140](https://github.com/mbj/stratosphere/issues/140)
+
+TODO:
+
+* [ ] Render in-line haddocks or accept they are gone for the moment.
 
 ## 0.60.0
 

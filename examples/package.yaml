@@ -17,6 +17,7 @@ dependencies:
 - bytestring
 - stratosphere
 - stratosphere-autoscaling
+- stratosphere-ec2
 - stratosphere-iam
 - stratosphere-lambda
 - stratosphere-rds
