@@ -23,7 +23,7 @@ template
 
 lambda :: Resource
 lambda
-  = set @"DependsOn" [role.name]
+  = set @"DependsOn" [role.logicalName]
   . resource "CopyS3ObjectLambda"
   $ Lambda.mkFunction lambdaCode (GetAtt "IAMRole" "Arn")
   & set @"Code"         lambdaCode
@@ -97,7 +97,7 @@ role
 
 incomingS3Bucket :: Resource
 incomingS3Bucket
-  = set @"DependsOn" [lambda.name]
+  = set @"DependsOn" [lambda.logicalName]
   . resource "IncomingBucket"
   $ S3.mkBucket
   & set @"BucketName"                "stratosphere-s3-copy-incoming"

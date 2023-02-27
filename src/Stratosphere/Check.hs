@@ -20,7 +20,7 @@ duplicateProperties :: Template -> [DuplicateProperty]
 duplicateProperties =
     map DuplicateProperty
   . duplicates
-  . map (.name)
+  . map (.logicalName)
   . (.resourceList)
   . (\Template{..} -> resources)
 
