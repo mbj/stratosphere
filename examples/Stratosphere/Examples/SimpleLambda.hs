@@ -14,7 +14,7 @@ template
 
 lambda :: Resource
 lambda
-  = set @"DependsOn" [role.name]
+  = set @"DependsOn" [role.logicalName]
   . resource "LambdaFunction"
   $ Lambda.mkFunction lambdaCode (GetAtt "IAMRole" "Arn")
   & set @"Handler" "index.handler"

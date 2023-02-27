@@ -37,8 +37,8 @@ data Resource = Resource
   , creationPolicy :: Maybe ResourceAttributes.CreationPolicy
   , deletionPolicy :: Maybe DeletionPolicy
   , dependsOn      :: Maybe [Text]
+  , logicalName    :: Text
   , metadata       :: Maybe JSON.Object
-  , name           :: Text
   , properties     :: ResourceProperties
   , updatePolicy   :: Maybe ResourceAttributes.UpdatePolicy
   }
@@ -60,13 +60,13 @@ instance Property "DependsOn" Resource where
   type PropertyType "DependsOn" Resource = [Text]
   set newValue Resource{..} = Resource{dependsOn = pure newValue, ..}
 
+instance Property "LogicalName" Resource where
+  type PropertyType "LogicalName" Resource = Text
+  set newValue Resource{..} = Resource{logicalName = newValue, ..}
+
 instance Property "Metadata" Resource where
   type PropertyType "Metadata" Resource = JSON.Object
   set newValue Resource{..} = Resource{metadata = pure newValue, ..}
-
-instance Property "Name" Resource where
-  type PropertyType "Name" Resource = Text
-  set newValue Resource{..} = Resource{name = newValue, ..}
 
 instance Property "Properties" Resource where
   type PropertyType "Properties" Resource = ResourceProperties
@@ -77,7 +77,7 @@ instance Property "UpdatePolicy" Resource where
   set newValue Resource{..} = Resource{updatePolicy = pure newValue, ..}
 
 instance ToRef Resource b where
-  toRef = Ref . (.name)
+  toRef = Ref . (.logicalName)
 
 -- | Convenient constructor for 'Resource' with required arguments.
 resource
@@ -85,7 +85,7 @@ resource
   => Text -- ^ Logical name
   -> a
   -> Resource
-resource name properties =
+resource logicalName properties =
   Resource
   { condition      = Nothing
   , creationPolicy = Nothing
@@ -121,7 +121,7 @@ instance IsList Resources where
   toList              = (.resourceList)
 
 instance NamedItem Resource where
-  itemName   = (.name)
+  itemName   = (.logicalName)
   nameToJSON = resourceToJSON
 
 instance JSON.ToJSON Resources where
