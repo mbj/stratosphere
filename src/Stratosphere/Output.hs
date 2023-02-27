@@ -32,9 +32,8 @@ instance JSON.ToJSON OutputExport where
     [ "Name" .= outputExportName
     ]
 
--- | See 'output' for a convenient constructor.
-data Output =
-  Output
+-- | See 'mkOutput' for a convenient constructor.
+data Output = Output
   { name :: Text
     -- ^ An identifier for this output. The logical ID must be alphanumeric
     -- (A-Za-z0-9) and unique within the template.
