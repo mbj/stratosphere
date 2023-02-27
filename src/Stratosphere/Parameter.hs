@@ -62,6 +62,10 @@ instance Property "Type" Parameter where
   type PropertyType "Type" Parameter = Text
   set newValue Parameter{..} = Parameter{type' = newValue, ..}
 
+instance Property "Default" Parameter where
+  type PropertyType "Default" Parameter = JSON.Value
+  set newValue Parameter{..} = Parameter{default' = pure newValue, ..}
+
 instance Property "NoEcho" Parameter where
   type PropertyType "NoEcho" Parameter = Bool
   set newValue Parameter{..} = Parameter{noEcho = pure newValue, ..}

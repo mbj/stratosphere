@@ -20,11 +20,11 @@ module Stratosphere
   )
 where
 
-import Data.Function                   as Exports ((&))
+import Data.Function                   as Exports ((&), (.), ($))
+import Data.Text                       as Exports (Text)
 import Stratosphere.Check              as Exports
 import Stratosphere.Output             as Exports
 import Stratosphere.Parameter          as Exports
-import Stratosphere.Prelude            as Exports
 import Stratosphere.Property           as Exports
 import Stratosphere.NamedItem          as Exports
 import Stratosphere.Resource           as Exports
