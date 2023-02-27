@@ -112,8 +112,9 @@ resourceToJSON Resource{..}
 -- | Wrapper around a list of 'Resources's to we can modify the aeson instances.
 newtype Resources = Resources { resourceList :: [Resource] }
   deriving stock (Show, Eq)
-  deriving newtype (Semigroup, Monoid)
+  deriving newtype (Monoid, MonoFunctor, Semigroup)
 
+type instance Element Resources = Resource
 
 instance IsList Resources where
   type Item Resources = Resource

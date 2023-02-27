@@ -88,6 +88,7 @@ library
     , base >=4.8
     , bytestring
     , containers
+    , mono-traversable
     , text >=1.1
   default-language: Haskell2010
   if flag(development)
@@ -140,6 +141,7 @@ test-suite spec
     , containers
     , hspec
     , hspec-discover
+    , mono-traversable
     , stratosphere
     , text >=1.1
   default-language: Haskell2010

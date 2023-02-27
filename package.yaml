@@ -18,12 +18,13 @@ extra-source-files:
 - README.md
 
 dependencies:
-- base         >= 4.8
-- aeson        >= 2
-- aeson-pretty >= 0.8
+- aeson            >= 2
+- aeson-pretty     >= 0.8
+- base             >= 4.8
 - bytestring
 - containers
-- text         >= 1.1
+- mono-traversable
+- text             >= 1.1
 
 library:
   source-dirs:
