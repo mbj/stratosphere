@@ -17,6 +17,7 @@ instance ToResourceProperties InputVpcRequestProperty where
   toResourceProperties InputVpcRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Input.InputVpcRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,

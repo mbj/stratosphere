@@ -29,6 +29,7 @@ instance ToResourceProperties WaitAndContinueSpecificationProperty where
   toResourceProperties WaitAndContinueSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.WaitAndContinueSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ContinueResponse" JSON..= continueResponse,

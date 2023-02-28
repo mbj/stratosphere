@@ -23,6 +23,7 @@ instance ToResourceProperties GrpcGatewayRouteMatchProperty where
   toResourceProperties GrpcGatewayRouteMatchProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMatch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Hostname" Prelude.<$> hostname,

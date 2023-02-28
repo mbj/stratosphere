@@ -43,6 +43,7 @@ instance ToResourceProperties BurnInDestinationSettingsProperty where
   toResourceProperties BurnInDestinationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.BurnInDestinationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Alignment" Prelude.<$> alignment,

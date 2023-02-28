@@ -20,6 +20,7 @@ instance ToResourceProperties OpenSearchServiceConfigProperty where
   toResourceProperties OpenSearchServiceConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.OpenSearchServiceConfig",
+         supportsTags = Prelude.False,
          properties = ["AwsRegion" JSON..= awsRegion,
                        "Endpoint" JSON..= endpoint]}
 instance JSON.ToJSON OpenSearchServiceConfigProperty where

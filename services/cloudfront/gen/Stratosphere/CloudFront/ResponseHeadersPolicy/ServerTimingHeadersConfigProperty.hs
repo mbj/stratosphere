@@ -19,6 +19,7 @@ instance ToResourceProperties ServerTimingHeadersConfigProperty where
   toResourceProperties ServerTimingHeadersConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.ServerTimingHeadersConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

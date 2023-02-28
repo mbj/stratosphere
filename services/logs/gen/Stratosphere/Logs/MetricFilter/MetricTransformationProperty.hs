@@ -31,6 +31,7 @@ instance ToResourceProperties MetricTransformationProperty where
   toResourceProperties MetricTransformationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Logs::MetricFilter.MetricTransformation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricName" JSON..= metricName,

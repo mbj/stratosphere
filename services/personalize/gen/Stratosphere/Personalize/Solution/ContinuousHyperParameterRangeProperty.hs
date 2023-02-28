@@ -21,6 +21,7 @@ instance ToResourceProperties ContinuousHyperParameterRangeProperty where
   toResourceProperties ContinuousHyperParameterRangeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Solution.ContinuousHyperParameterRange",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxValue" Prelude.<$> maxValue,

@@ -28,7 +28,7 @@ mkFaq indexId name roleArn s3Path
 instance ToResourceProperties Faq where
   toResourceProperties Faq {..}
     = ResourceProperties
-        {awsType = "AWS::Kendra::Faq",
+        {awsType = "AWS::Kendra::Faq", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IndexId" JSON..= indexId, "Name" JSON..= name,

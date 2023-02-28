@@ -32,6 +32,7 @@ instance ToResourceProperties PolicyDetailsProperty where
   toResourceProperties PolicyDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.PolicyDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Actions" Prelude.<$> actions,

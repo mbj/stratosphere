@@ -20,6 +20,7 @@ instance ToResourceProperties ContentSecurityPolicyProperty where
   toResourceProperties ContentSecurityPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.ContentSecurityPolicy",
+         supportsTags = Prelude.False,
          properties = ["ContentSecurityPolicy"
                          JSON..= contentSecurityPolicy,
                        "Override" JSON..= override]}

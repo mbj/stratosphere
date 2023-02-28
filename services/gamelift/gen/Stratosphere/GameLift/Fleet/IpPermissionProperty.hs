@@ -24,6 +24,7 @@ instance ToResourceProperties IpPermissionProperty where
   toResourceProperties IpPermissionProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::Fleet.IpPermission",
+         supportsTags = Prelude.False,
          properties = ["FromPort" JSON..= fromPort,
                        "IpRange" JSON..= ipRange, "Protocol" JSON..= protocol,
                        "ToPort" JSON..= toPort]}

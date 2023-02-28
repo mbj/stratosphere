@@ -16,6 +16,7 @@ instance ToResourceProperties CaptureOptionProperty where
   toResourceProperties CaptureOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.CaptureOption",
+         supportsTags = Prelude.False,
          properties = ["CaptureMode" JSON..= captureMode]}
 instance JSON.ToJSON CaptureOptionProperty where
   toJSON CaptureOptionProperty {..}

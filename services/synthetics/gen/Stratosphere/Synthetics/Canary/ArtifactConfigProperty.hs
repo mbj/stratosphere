@@ -16,6 +16,7 @@ instance ToResourceProperties ArtifactConfigProperty where
   toResourceProperties ArtifactConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Synthetics::Canary.ArtifactConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "S3Encryption" Prelude.<$> s3Encryption])}

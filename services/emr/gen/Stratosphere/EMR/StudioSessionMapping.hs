@@ -27,6 +27,7 @@ instance ToResourceProperties StudioSessionMapping where
   toResourceProperties StudioSessionMapping {..}
     = ResourceProperties
         {awsType = "AWS::EMR::StudioSessionMapping",
+         supportsTags = Prelude.False,
          properties = ["IdentityName" JSON..= identityName,
                        "IdentityType" JSON..= identityType,
                        "SessionPolicyArn" JSON..= sessionPolicyArn,

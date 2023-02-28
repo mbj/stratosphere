@@ -19,6 +19,7 @@ instance ToResourceProperties TargetGroupStickinessConfigProperty where
   toResourceProperties TargetGroupStickinessConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DurationSeconds" Prelude.<$> durationSeconds,

@@ -23,6 +23,7 @@ instance ToResourceProperties JsonTokenTypeConfigurationProperty where
   toResourceProperties JsonTokenTypeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::Index.JsonTokenTypeConfiguration",
+         supportsTags = Prelude.False,
          properties = ["GroupAttributeField" JSON..= groupAttributeField,
                        "UserNameAttributeField" JSON..= userNameAttributeField]}
 instance JSON.ToJSON JsonTokenTypeConfigurationProperty where

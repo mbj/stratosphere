@@ -20,6 +20,7 @@ instance ToResourceProperties CognitoOptionsProperty where
   toResourceProperties CognitoOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.CognitoOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

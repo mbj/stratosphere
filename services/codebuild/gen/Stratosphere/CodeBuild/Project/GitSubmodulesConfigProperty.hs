@@ -16,6 +16,7 @@ instance ToResourceProperties GitSubmodulesConfigProperty where
   toResourceProperties GitSubmodulesConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.GitSubmodulesConfig",
+         supportsTags = Prelude.False,
          properties = ["FetchSubmodules" JSON..= fetchSubmodules]}
 instance JSON.ToJSON GitSubmodulesConfigProperty where
   toJSON GitSubmodulesConfigProperty {..}

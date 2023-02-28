@@ -16,6 +16,7 @@ instance ToResourceProperties RegionConfigurationProperty where
   toResourceProperties RegionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ReplicationSet.RegionConfiguration",
+         supportsTags = Prelude.False,
          properties = ["SseKmsKeyId" JSON..= sseKmsKeyId]}
 instance JSON.ToJSON RegionConfigurationProperty where
   toJSON RegionConfigurationProperty {..}

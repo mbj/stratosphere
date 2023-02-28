@@ -17,6 +17,7 @@ instance ToResourceProperties LicenseServiceConfigurationProperty where
   toResourceProperties LicenseServiceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::StudioComponent.LicenseServiceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Endpoint" Prelude.<$> endpoint])}
 instance JSON.ToJSON LicenseServiceConfigurationProperty where

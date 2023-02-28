@@ -19,6 +19,7 @@ instance ToResourceProperties LambdaConfigurationProperty where
   toResourceProperties LambdaConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::Alert.LambdaConfiguration",
+         supportsTags = Prelude.False,
          properties = ["LambdaArn" JSON..= lambdaArn,
                        "RoleArn" JSON..= roleArn]}
 instance JSON.ToJSON LambdaConfigurationProperty where

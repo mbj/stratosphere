@@ -17,6 +17,7 @@ instance ToResourceProperties SystemResourceLimitsProperty where
   toResourceProperties SystemResourceLimitsProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.SystemResourceLimits",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Cpus" Prelude.<$> cpus,

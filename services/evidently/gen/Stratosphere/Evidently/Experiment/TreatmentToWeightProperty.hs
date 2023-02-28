@@ -19,6 +19,7 @@ instance ToResourceProperties TreatmentToWeightProperty where
   toResourceProperties TreatmentToWeightProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Experiment.TreatmentToWeight",
+         supportsTags = Prelude.False,
          properties = ["SplitWeight" JSON..= splitWeight,
                        "Treatment" JSON..= treatment]}
 instance JSON.ToJSON TreatmentToWeightProperty where

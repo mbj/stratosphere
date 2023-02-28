@@ -21,6 +21,7 @@ instance ToResourceProperties SimpleScalingPolicyConfigurationProperty where
   toResourceProperties SimpleScalingPolicyConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.SimpleScalingPolicyConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ScalingAdjustment" JSON..= scalingAdjustment]

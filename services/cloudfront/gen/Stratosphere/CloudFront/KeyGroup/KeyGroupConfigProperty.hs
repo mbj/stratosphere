@@ -20,6 +20,7 @@ instance ToResourceProperties KeyGroupConfigProperty where
   toResourceProperties KeyGroupConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::KeyGroup.KeyGroupConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Items" JSON..= items, "Name" JSON..= name]

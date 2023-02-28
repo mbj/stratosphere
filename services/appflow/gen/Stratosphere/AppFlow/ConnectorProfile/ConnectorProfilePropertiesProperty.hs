@@ -50,6 +50,7 @@ instance ToResourceProperties ConnectorProfilePropertiesProperty where
   toResourceProperties ConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.ConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomConnector" Prelude.<$> customConnector,

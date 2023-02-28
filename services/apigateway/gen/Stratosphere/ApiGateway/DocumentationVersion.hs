@@ -20,6 +20,7 @@ instance ToResourceProperties DocumentationVersion where
   toResourceProperties DocumentationVersion {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::DocumentationVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DocumentationVersion" JSON..= documentationVersion,

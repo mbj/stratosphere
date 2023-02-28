@@ -24,6 +24,7 @@ instance ToResourceProperties ImageConfigurationProperty where
   toResourceProperties ImageConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.ImageConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Port" Prelude.<$> port,

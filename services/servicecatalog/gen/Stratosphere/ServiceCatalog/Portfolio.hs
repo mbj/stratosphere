@@ -24,6 +24,7 @@ instance ToResourceProperties Portfolio where
   toResourceProperties Portfolio {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::Portfolio",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DisplayName" JSON..= displayName,

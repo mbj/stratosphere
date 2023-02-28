@@ -22,6 +22,7 @@ instance ToResourceProperties CustomLineItemPercentageChargeDetailsProperty wher
     CustomLineItemPercentageChargeDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::CustomLineItem.CustomLineItemPercentageChargeDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PercentageValue" JSON..= percentageValue]

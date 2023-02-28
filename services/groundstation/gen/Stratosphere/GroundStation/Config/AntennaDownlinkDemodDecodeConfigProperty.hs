@@ -24,6 +24,7 @@ instance ToResourceProperties AntennaDownlinkDemodDecodeConfigProperty where
   toResourceProperties AntennaDownlinkDemodDecodeConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.AntennaDownlinkDemodDecodeConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DecodeConfig" Prelude.<$> decodeConfig,

@@ -24,6 +24,7 @@ instance ToResourceProperties ResourceInstanceProperty where
   toResourceProperties ResourceInstanceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinition.ResourceInstance",
+         supportsTags = Prelude.False,
          properties = ["Id" JSON..= id, "Name" JSON..= name,
                        "ResourceDataContainer" JSON..= resourceDataContainer]}
 instance JSON.ToJSON ResourceInstanceProperty where

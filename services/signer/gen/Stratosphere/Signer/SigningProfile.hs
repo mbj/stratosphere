@@ -21,6 +21,7 @@ instance ToResourceProperties SigningProfile where
   toResourceProperties SigningProfile {..}
     = ResourceProperties
         {awsType = "AWS::Signer::SigningProfile",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PlatformId" JSON..= platformId]

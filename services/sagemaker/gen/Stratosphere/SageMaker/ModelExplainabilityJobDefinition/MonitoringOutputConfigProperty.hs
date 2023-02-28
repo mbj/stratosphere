@@ -20,6 +20,7 @@ instance ToResourceProperties MonitoringOutputConfigProperty where
   toResourceProperties MonitoringOutputConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelExplainabilityJobDefinition.MonitoringOutputConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MonitoringOutputs" JSON..= monitoringOutputs]

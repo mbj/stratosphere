@@ -22,6 +22,7 @@ instance ToResourceProperties LogicalTableProperty where
   toResourceProperties LogicalTableProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.LogicalTable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Alias" JSON..= alias, "Source" JSON..= source]

@@ -32,6 +32,7 @@ instance ToResourceProperties ReplicationDestinationProperty where
   toResourceProperties ReplicationDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ReplicationDestination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket]

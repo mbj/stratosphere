@@ -18,6 +18,7 @@ instance ToResourceProperties EncryptionConfigurationProperty where
   toResourceProperties EncryptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.EncryptionConfiguration",
+         supportsTags = Prelude.False,
          properties = ["ReplicaKmsKeyID" JSON..= replicaKmsKeyID]}
 instance JSON.ToJSON EncryptionConfigurationProperty where
   toJSON EncryptionConfigurationProperty {..}

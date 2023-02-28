@@ -20,6 +20,7 @@ instance ToResourceProperties ControlScopeProperty where
   toResourceProperties ControlScopeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::Framework.ControlScope",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComplianceResourceIds"

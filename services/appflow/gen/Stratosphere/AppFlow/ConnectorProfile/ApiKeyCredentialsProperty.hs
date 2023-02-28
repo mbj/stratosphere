@@ -18,6 +18,7 @@ instance ToResourceProperties ApiKeyCredentialsProperty where
   toResourceProperties ApiKeyCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.ApiKeyCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiKey" JSON..= apiKey]

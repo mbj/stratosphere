@@ -19,6 +19,7 @@ instance ToResourceProperties TsvStoreOptionsProperty where
   toResourceProperties TsvStoreOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Omics::AnnotationStore.TsvStoreOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AnnotationType" Prelude.<$> annotationType,

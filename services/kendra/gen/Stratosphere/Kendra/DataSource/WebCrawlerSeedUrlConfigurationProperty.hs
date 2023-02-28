@@ -19,6 +19,7 @@ instance ToResourceProperties WebCrawlerSeedUrlConfigurationProperty where
   toResourceProperties WebCrawlerSeedUrlConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.WebCrawlerSeedUrlConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SeedUrls" JSON..= seedUrls]

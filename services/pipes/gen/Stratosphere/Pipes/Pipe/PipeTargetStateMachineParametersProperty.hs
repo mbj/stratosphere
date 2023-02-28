@@ -18,6 +18,7 @@ instance ToResourceProperties PipeTargetStateMachineParametersProperty where
   toResourceProperties PipeTargetStateMachineParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeTargetStateMachineParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InvocationType" Prelude.<$> invocationType])}

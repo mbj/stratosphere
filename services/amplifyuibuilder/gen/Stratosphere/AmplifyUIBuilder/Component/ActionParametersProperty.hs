@@ -31,6 +31,7 @@ instance ToResourceProperties ActionParametersProperty where
   toResourceProperties ActionParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.ActionParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Anchor" Prelude.<$> anchor,

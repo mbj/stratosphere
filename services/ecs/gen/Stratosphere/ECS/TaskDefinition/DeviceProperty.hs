@@ -19,6 +19,7 @@ instance ToResourceProperties DeviceProperty where
   toResourceProperties DeviceProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.Device",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerPath" Prelude.<$> containerPath,

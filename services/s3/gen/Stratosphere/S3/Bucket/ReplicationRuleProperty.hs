@@ -34,6 +34,7 @@ instance ToResourceProperties ReplicationRuleProperty where
   toResourceProperties ReplicationRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ReplicationRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Destination" JSON..= destination, "Status" JSON..= status]

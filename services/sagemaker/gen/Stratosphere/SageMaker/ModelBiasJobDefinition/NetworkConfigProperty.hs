@@ -21,6 +21,7 @@ instance ToResourceProperties NetworkConfigProperty where
   toResourceProperties NetworkConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelBiasJobDefinition.NetworkConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EnableInterContainerTrafficEncryption"

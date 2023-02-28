@@ -17,6 +17,7 @@ instance ToResourceProperties FilterRuleProperty where
   toResourceProperties FilterRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.FilterRule",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON FilterRuleProperty where
   toJSON FilterRuleProperty {..}

@@ -21,7 +21,7 @@ mkVpcLink name targetArns
 instance ToResourceProperties VpcLink where
   toResourceProperties VpcLink {..}
     = ResourceProperties
-        {awsType = "AWS::ApiGateway::VpcLink",
+        {awsType = "AWS::ApiGateway::VpcLink", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "TargetArns" JSON..= targetArns]

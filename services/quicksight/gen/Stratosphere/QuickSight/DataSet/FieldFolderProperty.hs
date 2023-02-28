@@ -17,6 +17,7 @@ instance ToResourceProperties FieldFolderProperty where
   toResourceProperties FieldFolderProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.FieldFolder",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Columns" Prelude.<$> columns,

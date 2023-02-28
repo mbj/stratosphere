@@ -25,6 +25,7 @@ instance ToResourceProperties S3SourceConfigProperty where
   toResourceProperties S3SourceConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.S3SourceConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FileFormatDescriptor" JSON..= fileFormatDescriptor,

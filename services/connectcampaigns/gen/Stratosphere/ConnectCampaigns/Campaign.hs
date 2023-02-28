@@ -28,6 +28,7 @@ instance ToResourceProperties Campaign where
   toResourceProperties Campaign {..}
     = ResourceProperties
         {awsType = "AWS::ConnectCampaigns::Campaign",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectInstanceArn" JSON..= connectInstanceArn,

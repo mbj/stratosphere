@@ -20,6 +20,7 @@ instance ToResourceProperties ApplicationMaintenanceConfigurationProperty where
     ApplicationMaintenanceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.ApplicationMaintenanceConfiguration",
+         supportsTags = Prelude.False,
          properties = ["ApplicationMaintenanceWindowStartTime"
                          JSON..= applicationMaintenanceWindowStartTime]}
 instance JSON.ToJSON ApplicationMaintenanceConfigurationProperty where

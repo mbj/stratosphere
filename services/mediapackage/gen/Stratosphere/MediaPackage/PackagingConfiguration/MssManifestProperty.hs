@@ -18,6 +18,7 @@ instance ToResourceProperties MssManifestProperty where
   toResourceProperties MssManifestProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingConfiguration.MssManifest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ManifestName" Prelude.<$> manifestName,

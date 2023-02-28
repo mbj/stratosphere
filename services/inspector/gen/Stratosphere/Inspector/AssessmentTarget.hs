@@ -18,6 +18,7 @@ instance ToResourceProperties AssessmentTarget where
   toResourceProperties AssessmentTarget {..}
     = ResourceProperties
         {awsType = "AWS::Inspector::AssessmentTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AssessmentTargetName" Prelude.<$> assessmentTargetName,

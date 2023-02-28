@@ -2,6 +2,7 @@ module Stratosphere.WAFv2.WebACL.AndStatementProperty (
         module Exports, AndStatementProperty(..), mkAndStatementProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.StatementProperty as Exports
 import Stratosphere.ResourceProperties
@@ -15,6 +16,7 @@ instance ToResourceProperties AndStatementProperty where
   toResourceProperties AndStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.AndStatement",
+         supportsTags = Prelude.False,
          properties = ["Statements" JSON..= statements]}
 instance JSON.ToJSON AndStatementProperty where
   toJSON AndStatementProperty {..}

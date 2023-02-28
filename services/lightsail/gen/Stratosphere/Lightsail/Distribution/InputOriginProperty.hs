@@ -19,6 +19,7 @@ instance ToResourceProperties InputOriginProperty where
   toResourceProperties InputOriginProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Distribution.InputOrigin",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

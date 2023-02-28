@@ -3,6 +3,7 @@ module Stratosphere.AppMesh.VirtualNode.SubjectAlternativeNamesProperty (
         mkSubjectAlternativeNamesProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.SubjectAlternativeNameMatchersProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,7 +18,7 @@ instance ToResourceProperties SubjectAlternativeNamesProperty where
   toResourceProperties SubjectAlternativeNamesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.SubjectAlternativeNames",
-         properties = ["Match" JSON..= match]}
+         supportsTags = Prelude.False, properties = ["Match" JSON..= match]}
 instance JSON.ToJSON SubjectAlternativeNamesProperty where
   toJSON SubjectAlternativeNamesProperty {..}
     = JSON.object ["Match" JSON..= match]

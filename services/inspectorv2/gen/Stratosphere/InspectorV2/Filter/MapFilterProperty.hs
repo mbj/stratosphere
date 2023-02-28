@@ -19,6 +19,7 @@ instance ToResourceProperties MapFilterProperty where
   toResourceProperties MapFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::InspectorV2::Filter.MapFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Comparison" JSON..= comparison]

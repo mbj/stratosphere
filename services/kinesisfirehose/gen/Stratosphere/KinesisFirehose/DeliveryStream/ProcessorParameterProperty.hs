@@ -19,6 +19,7 @@ instance ToResourceProperties ProcessorParameterProperty where
   toResourceProperties ProcessorParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.ProcessorParameter",
+         supportsTags = Prelude.False,
          properties = ["ParameterName" JSON..= parameterName,
                        "ParameterValue" JSON..= parameterValue]}
 instance JSON.ToJSON ProcessorParameterProperty where

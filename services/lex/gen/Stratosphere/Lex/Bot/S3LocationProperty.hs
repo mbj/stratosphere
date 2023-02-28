@@ -20,6 +20,7 @@ instance ToResourceProperties S3LocationProperty where
   toResourceProperties S3LocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.S3Location",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3Bucket" JSON..= s3Bucket, "S3ObjectKey" JSON..= s3ObjectKey]

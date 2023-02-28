@@ -20,6 +20,7 @@ instance ToResourceProperties CanInterfaceProperty where
   toResourceProperties CanInterfaceProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::DecoderManifest.CanInterface",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

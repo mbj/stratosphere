@@ -15,6 +15,7 @@ instance ToResourceProperties ModelInputProperty where
   toResourceProperties ModelInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.ModelInput",
+         supportsTags = Prelude.False,
          properties = ["DataInputConfig" JSON..= dataInputConfig]}
 instance JSON.ToJSON ModelInputProperty where
   toJSON ModelInputProperty {..}

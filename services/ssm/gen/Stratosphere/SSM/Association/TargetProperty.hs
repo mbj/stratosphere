@@ -17,6 +17,7 @@ instance ToResourceProperties TargetProperty where
   toResourceProperties TargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::Association.Target",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Values" JSON..= values]}
 instance JSON.ToJSON TargetProperty where
   toJSON TargetProperty {..}

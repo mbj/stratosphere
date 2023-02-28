@@ -15,6 +15,7 @@ instance ToResourceProperties DataSetSchemaProperty where
   toResourceProperties DataSetSchemaProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Template.DataSetSchema",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ColumnSchemaList" Prelude.<$> columnSchemaList])}

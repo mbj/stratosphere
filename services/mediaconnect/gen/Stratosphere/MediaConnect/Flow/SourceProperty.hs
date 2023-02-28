@@ -46,6 +46,7 @@ instance ToResourceProperties SourceProperty where
   toResourceProperties SourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaConnect::Flow.Source",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Decryption" Prelude.<$> decryption,

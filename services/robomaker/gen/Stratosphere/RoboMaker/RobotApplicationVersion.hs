@@ -18,6 +18,7 @@ instance ToResourceProperties RobotApplicationVersion where
   toResourceProperties RobotApplicationVersion {..}
     = ResourceProperties
         {awsType = "AWS::RoboMaker::RobotApplicationVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Application" JSON..= application]

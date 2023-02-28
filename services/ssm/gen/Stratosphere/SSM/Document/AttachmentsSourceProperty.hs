@@ -19,6 +19,7 @@ instance ToResourceProperties AttachmentsSourceProperty where
   toResourceProperties AttachmentsSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::Document.AttachmentsSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

@@ -29,6 +29,7 @@ instance ToResourceProperties ConformancePack where
   toResourceProperties ConformancePack {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConformancePack",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConformancePackName" JSON..= conformancePackName]

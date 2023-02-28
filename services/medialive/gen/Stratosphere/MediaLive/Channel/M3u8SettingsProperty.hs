@@ -41,6 +41,7 @@ instance ToResourceProperties M3u8SettingsProperty where
   toResourceProperties M3u8SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.M3u8Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioFramesPerPes" Prelude.<$> audioFramesPerPes,

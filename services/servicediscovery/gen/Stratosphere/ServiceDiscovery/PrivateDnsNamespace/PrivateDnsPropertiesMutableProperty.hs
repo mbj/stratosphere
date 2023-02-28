@@ -17,6 +17,7 @@ instance ToResourceProperties PrivateDnsPropertiesMutableProperty where
   toResourceProperties PrivateDnsPropertiesMutableProperty {..}
     = ResourceProperties
         {awsType = "AWS::ServiceDiscovery::PrivateDnsNamespace.PrivateDnsPropertiesMutable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "SOA" Prelude.<$> sOA])}
 instance JSON.ToJSON PrivateDnsPropertiesMutableProperty where

@@ -21,6 +21,7 @@ instance ToResourceProperties DeviceProfile where
   toResourceProperties DeviceProfile {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::DeviceProfile",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LoRaWAN" Prelude.<$> loRaWAN,

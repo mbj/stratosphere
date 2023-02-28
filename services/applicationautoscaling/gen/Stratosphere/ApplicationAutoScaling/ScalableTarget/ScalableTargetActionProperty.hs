@@ -17,6 +17,7 @@ instance ToResourceProperties ScalableTargetActionProperty where
   toResourceProperties ScalableTargetActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationAutoScaling::ScalableTarget.ScalableTargetAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxCapacity" Prelude.<$> maxCapacity,

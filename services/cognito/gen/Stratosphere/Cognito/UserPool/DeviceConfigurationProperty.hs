@@ -18,6 +18,7 @@ instance ToResourceProperties DeviceConfigurationProperty where
   toResourceProperties DeviceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.DeviceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ChallengeRequiredOnNewDevice"

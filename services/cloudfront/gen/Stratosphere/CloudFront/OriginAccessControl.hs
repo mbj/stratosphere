@@ -2,6 +2,7 @@ module Stratosphere.CloudFront.OriginAccessControl (
         module Exports, OriginAccessControl(..), mkOriginAccessControl
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.OriginAccessControl.OriginAccessControlConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties OriginAccessControl where
   toResourceProperties OriginAccessControl {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::OriginAccessControl",
+         supportsTags = Prelude.False,
          properties = ["OriginAccessControlConfig"
                          JSON..= originAccessControlConfig]}
 instance JSON.ToJSON OriginAccessControl where

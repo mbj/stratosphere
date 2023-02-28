@@ -20,6 +20,7 @@ instance ToResourceProperties KernelGatewayImageConfigProperty where
   toResourceProperties KernelGatewayImageConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::AppImageConfig.KernelGatewayImageConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KernelSpecs" JSON..= kernelSpecs]

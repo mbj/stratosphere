@@ -15,6 +15,7 @@ instance ToResourceProperties AudioPidSelectionProperty where
   toResourceProperties AudioPidSelectionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AudioPidSelection",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Pid" Prelude.<$> pid])}
 instance JSON.ToJSON AudioPidSelectionProperty where

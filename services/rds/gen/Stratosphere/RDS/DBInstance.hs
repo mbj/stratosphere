@@ -141,7 +141,7 @@ mkDBInstance
 instance ToResourceProperties DBInstance where
   toResourceProperties DBInstance {..}
     = ResourceProperties
-        {awsType = "AWS::RDS::DBInstance",
+        {awsType = "AWS::RDS::DBInstance", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllocatedStorage" Prelude.<$> allocatedStorage,

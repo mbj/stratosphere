@@ -29,6 +29,7 @@ instance ToResourceProperties RootVolumeConfigurationProperty where
   toResourceProperties RootVolumeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::FileSystem.RootVolumeConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CopyTagsToSnapshots" Prelude.<$> copyTagsToSnapshots,

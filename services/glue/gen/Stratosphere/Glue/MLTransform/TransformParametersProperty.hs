@@ -21,6 +21,7 @@ instance ToResourceProperties TransformParametersProperty where
   toResourceProperties TransformParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::MLTransform.TransformParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TransformType" JSON..= transformType]

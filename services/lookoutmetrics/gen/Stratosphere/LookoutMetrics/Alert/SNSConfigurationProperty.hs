@@ -19,6 +19,7 @@ instance ToResourceProperties SNSConfigurationProperty where
   toResourceProperties SNSConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::Alert.SNSConfiguration",
+         supportsTags = Prelude.False,
          properties = ["RoleArn" JSON..= roleArn,
                        "SnsTopicArn" JSON..= snsTopicArn]}
 instance JSON.ToJSON SNSConfigurationProperty where

@@ -17,7 +17,7 @@ instance ToResourceProperties ElasticGpuSpecificationProperty where
   toResourceProperties ElasticGpuSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.ElasticGpuSpecification",
-         properties = ["Type" JSON..= type']}
+         supportsTags = Prelude.False, properties = ["Type" JSON..= type']}
 instance JSON.ToJSON ElasticGpuSpecificationProperty where
   toJSON ElasticGpuSpecificationProperty {..}
     = JSON.object ["Type" JSON..= type']

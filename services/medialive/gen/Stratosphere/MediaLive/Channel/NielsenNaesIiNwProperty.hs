@@ -17,6 +17,7 @@ instance ToResourceProperties NielsenNaesIiNwProperty where
   toResourceProperties NielsenNaesIiNwProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.NielsenNaesIiNw",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CheckDigitString" Prelude.<$> checkDigitString,

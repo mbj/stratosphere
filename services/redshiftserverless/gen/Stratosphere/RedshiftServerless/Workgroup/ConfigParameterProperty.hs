@@ -17,6 +17,7 @@ instance ToResourceProperties ConfigParameterProperty where
   toResourceProperties ConfigParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::RedshiftServerless::Workgroup.ConfigParameter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ParameterKey" Prelude.<$> parameterKey,

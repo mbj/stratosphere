@@ -33,6 +33,7 @@ instance ToResourceProperties NetworkAclEntry where
   toResourceProperties NetworkAclEntry {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkAclEntry",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["NetworkAclId" JSON..= networkAclId, "Protocol" JSON..= protocol,

@@ -19,6 +19,7 @@ instance ToResourceProperties GroupToWeightProperty where
   toResourceProperties GroupToWeightProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Launch.GroupToWeight",
+         supportsTags = Prelude.False,
          properties = ["GroupName" JSON..= groupName,
                        "SplitWeight" JSON..= splitWeight]}
 instance JSON.ToJSON GroupToWeightProperty where

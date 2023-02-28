@@ -17,6 +17,7 @@ instance ToResourceProperties RecoveryOptionProperty where
   toResourceProperties RecoveryOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.RecoveryOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

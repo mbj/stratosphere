@@ -3,6 +3,7 @@ module Stratosphere.CloudFront.CloudFrontOriginAccessIdentity (
         mkCloudFrontOriginAccessIdentity
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -19,6 +20,7 @@ instance ToResourceProperties CloudFrontOriginAccessIdentity where
   toResourceProperties CloudFrontOriginAccessIdentity {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+         supportsTags = Prelude.False,
          properties = ["CloudFrontOriginAccessIdentityConfig"
                          JSON..= cloudFrontOriginAccessIdentityConfig]}
 instance JSON.ToJSON CloudFrontOriginAccessIdentity where

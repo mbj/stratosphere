@@ -25,6 +25,7 @@ instance ToResourceProperties SqliMatchStatementProperty where
   toResourceProperties SqliMatchStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.SqliMatchStatement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FieldToMatch" JSON..= fieldToMatch,

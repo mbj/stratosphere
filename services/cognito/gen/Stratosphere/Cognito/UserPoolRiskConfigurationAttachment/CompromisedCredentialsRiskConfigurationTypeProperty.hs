@@ -23,6 +23,7 @@ instance ToResourceProperties CompromisedCredentialsRiskConfigurationTypePropert
     CompromisedCredentialsRiskConfigurationTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Actions" JSON..= actions]

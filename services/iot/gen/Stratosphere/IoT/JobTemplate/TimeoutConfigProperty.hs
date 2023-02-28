@@ -17,6 +17,7 @@ instance ToResourceProperties TimeoutConfigProperty where
   toResourceProperties TimeoutConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::JobTemplate.TimeoutConfig",
+         supportsTags = Prelude.False,
          properties = ["InProgressTimeoutInMinutes"
                          JSON..= inProgressTimeoutInMinutes]}
 instance JSON.ToJSON TimeoutConfigProperty where

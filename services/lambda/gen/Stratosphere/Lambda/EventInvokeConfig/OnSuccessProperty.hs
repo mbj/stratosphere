@@ -15,6 +15,7 @@ instance ToResourceProperties OnSuccessProperty where
   toResourceProperties OnSuccessProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventInvokeConfig.OnSuccess",
+         supportsTags = Prelude.False,
          properties = ["Destination" JSON..= destination]}
 instance JSON.ToJSON OnSuccessProperty where
   toJSON OnSuccessProperty {..}

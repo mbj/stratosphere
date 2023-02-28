@@ -20,6 +20,7 @@ instance ToResourceProperties TrafficMirrorFilter where
   toResourceProperties TrafficMirrorFilter {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TrafficMirrorFilter",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

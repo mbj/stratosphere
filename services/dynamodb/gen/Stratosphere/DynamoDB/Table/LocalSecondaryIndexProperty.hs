@@ -25,6 +25,7 @@ instance ToResourceProperties LocalSecondaryIndexProperty where
   toResourceProperties LocalSecondaryIndexProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.LocalSecondaryIndex",
+         supportsTags = Prelude.False,
          properties = ["IndexName" JSON..= indexName,
                        "KeySchema" JSON..= keySchema, "Projection" JSON..= projection]}
 instance JSON.ToJSON LocalSecondaryIndexProperty where

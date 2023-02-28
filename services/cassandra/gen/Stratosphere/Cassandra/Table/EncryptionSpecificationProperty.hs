@@ -20,6 +20,7 @@ instance ToResourceProperties EncryptionSpecificationProperty where
   toResourceProperties EncryptionSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cassandra::Table.EncryptionSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EncryptionType" JSON..= encryptionType]

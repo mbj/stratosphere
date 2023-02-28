@@ -25,6 +25,7 @@ instance ToResourceProperties ProjectBuildBatchConfigProperty where
   toResourceProperties ProjectBuildBatchConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.ProjectBuildBatchConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BatchReportMode" Prelude.<$> batchReportMode,

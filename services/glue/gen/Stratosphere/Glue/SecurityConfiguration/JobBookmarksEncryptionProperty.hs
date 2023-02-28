@@ -19,6 +19,7 @@ instance ToResourceProperties JobBookmarksEncryptionProperty where
   toResourceProperties JobBookmarksEncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::SecurityConfiguration.JobBookmarksEncryption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "JobBookmarksEncryptionMode"

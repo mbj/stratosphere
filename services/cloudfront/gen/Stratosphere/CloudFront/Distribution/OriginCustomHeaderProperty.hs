@@ -19,6 +19,7 @@ instance ToResourceProperties OriginCustomHeaderProperty where
   toResourceProperties OriginCustomHeaderProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.OriginCustomHeader",
+         supportsTags = Prelude.False,
          properties = ["HeaderName" JSON..= headerName,
                        "HeaderValue" JSON..= headerValue]}
 instance JSON.ToJSON OriginCustomHeaderProperty where

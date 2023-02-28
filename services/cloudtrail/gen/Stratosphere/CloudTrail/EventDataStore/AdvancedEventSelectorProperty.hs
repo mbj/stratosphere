@@ -20,6 +20,7 @@ instance ToResourceProperties AdvancedEventSelectorProperty where
   toResourceProperties AdvancedEventSelectorProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudTrail::EventDataStore.AdvancedEventSelector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FieldSelectors" JSON..= fieldSelectors]

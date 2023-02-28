@@ -20,6 +20,7 @@ instance ToResourceProperties DataExportProperty where
   toResourceProperties DataExportProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.DataExport",
+         supportsTags = Prelude.False,
          properties = ["Destination" JSON..= destination,
                        "OutputSchemaVersion" JSON..= outputSchemaVersion]}
 instance JSON.ToJSON DataExportProperty where

@@ -23,6 +23,7 @@ instance ToResourceProperties ClarifyExplainerConfigProperty where
   toResourceProperties ClarifyExplainerConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.ClarifyExplainerConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ShapConfig" JSON..= shapConfig]

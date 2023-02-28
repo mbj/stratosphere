@@ -33,6 +33,7 @@ instance ToResourceProperties HostedRotationLambdaProperty where
   toResourceProperties HostedRotationLambdaProperty {..}
     = ResourceProperties
         {awsType = "AWS::SecretsManager::RotationSchedule.HostedRotationLambda",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RotationType" JSON..= rotationType]

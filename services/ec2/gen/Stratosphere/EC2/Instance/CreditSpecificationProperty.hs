@@ -15,6 +15,7 @@ instance ToResourceProperties CreditSpecificationProperty where
   toResourceProperties CreditSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.CreditSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CPUCredits" Prelude.<$> cPUCredits])}

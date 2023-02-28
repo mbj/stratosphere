@@ -16,6 +16,7 @@ instance ToResourceProperties SidewalkUpdateAccountProperty where
   toResourceProperties SidewalkUpdateAccountProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::PartnerAccount.SidewalkUpdateAccount",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AppServerPrivateKey" Prelude.<$> appServerPrivateKey])}

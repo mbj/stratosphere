@@ -17,6 +17,7 @@ instance ToResourceProperties TagFormatProperty where
   toResourceProperties TagFormatProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBProxyEndpoint.TagFormat",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

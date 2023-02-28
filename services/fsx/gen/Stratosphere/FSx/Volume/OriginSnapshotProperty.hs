@@ -18,6 +18,7 @@ instance ToResourceProperties OriginSnapshotProperty where
   toResourceProperties OriginSnapshotProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::Volume.OriginSnapshot",
+         supportsTags = Prelude.False,
          properties = ["CopyStrategy" JSON..= copyStrategy,
                        "SnapshotARN" JSON..= snapshotARN]}
 instance JSON.ToJSON OriginSnapshotProperty where

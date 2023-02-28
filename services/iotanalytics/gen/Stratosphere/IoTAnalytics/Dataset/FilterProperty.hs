@@ -14,6 +14,7 @@ instance ToResourceProperties FilterProperty where
   toResourceProperties FilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.Filter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "DeltaTime" Prelude.<$> deltaTime])}
 instance JSON.ToJSON FilterProperty where

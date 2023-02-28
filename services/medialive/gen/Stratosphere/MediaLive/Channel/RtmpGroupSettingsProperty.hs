@@ -26,6 +26,7 @@ instance ToResourceProperties RtmpGroupSettingsProperty where
   toResourceProperties RtmpGroupSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.RtmpGroupSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdMarkers" Prelude.<$> adMarkers,

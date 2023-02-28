@@ -19,6 +19,7 @@ instance ToResourceProperties MeshSpecProperty where
   toResourceProperties MeshSpecProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Mesh.MeshSpec",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EgressFilter" Prelude.<$> egressFilter,

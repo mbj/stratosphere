@@ -24,7 +24,7 @@ mkGlobalCluster
 instance ToResourceProperties GlobalCluster where
   toResourceProperties GlobalCluster {..}
     = ResourceProperties
-        {awsType = "AWS::RDS::GlobalCluster",
+        {awsType = "AWS::RDS::GlobalCluster", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,

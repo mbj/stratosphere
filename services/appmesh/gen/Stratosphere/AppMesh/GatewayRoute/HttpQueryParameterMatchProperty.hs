@@ -17,6 +17,7 @@ instance ToResourceProperties HttpQueryParameterMatchProperty where
   toResourceProperties HttpQueryParameterMatchProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.HttpQueryParameterMatch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Exact" Prelude.<$> exact])}
 instance JSON.ToJSON HttpQueryParameterMatchProperty where

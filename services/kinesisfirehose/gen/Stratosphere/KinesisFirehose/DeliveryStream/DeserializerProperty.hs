@@ -18,6 +18,7 @@ instance ToResourceProperties DeserializerProperty where
   toResourceProperties DeserializerProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.Deserializer",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HiveJsonSerDe" Prelude.<$> hiveJsonSerDe,

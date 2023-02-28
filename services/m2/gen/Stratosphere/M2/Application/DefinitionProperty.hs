@@ -17,6 +17,7 @@ instance ToResourceProperties DefinitionProperty where
   toResourceProperties DefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::M2::Application.Definition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Content" Prelude.<$> content,

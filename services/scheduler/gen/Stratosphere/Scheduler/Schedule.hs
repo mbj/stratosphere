@@ -36,6 +36,7 @@ instance ToResourceProperties Schedule where
   toResourceProperties Schedule {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FlexibleTimeWindow" JSON..= flexibleTimeWindow,

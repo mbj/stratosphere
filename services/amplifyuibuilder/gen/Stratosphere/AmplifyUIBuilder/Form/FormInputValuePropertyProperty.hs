@@ -16,6 +16,7 @@ instance ToResourceProperties FormInputValuePropertyProperty where
   toResourceProperties FormInputValuePropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.FormInputValueProperty",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Value" Prelude.<$> value])}
 instance JSON.ToJSON FormInputValuePropertyProperty where

@@ -28,6 +28,7 @@ instance ToResourceProperties RecordingConfiguration where
   toResourceProperties RecordingConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::IVS::RecordingConfiguration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationConfiguration" JSON..= destinationConfiguration]

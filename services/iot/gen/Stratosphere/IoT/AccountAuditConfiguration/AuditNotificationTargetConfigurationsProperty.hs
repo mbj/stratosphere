@@ -19,6 +19,7 @@ instance ToResourceProperties AuditNotificationTargetConfigurationsProperty wher
     AuditNotificationTargetConfigurationsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Sns" Prelude.<$> sns])}
 instance JSON.ToJSON AuditNotificationTargetConfigurationsProperty where

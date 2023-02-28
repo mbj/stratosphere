@@ -17,7 +17,7 @@ mkThing
 instance ToResourceProperties Thing where
   toResourceProperties Thing {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::Thing",
+        {awsType = "AWS::IoT::Thing", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AttributePayload" Prelude.<$> attributePayload,

@@ -3,6 +3,7 @@ module Stratosphere.SageMaker.Endpoint.AutoRollbackConfigProperty (
         mkAutoRollbackConfigProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.AlarmProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties AutoRollbackConfigProperty where
   toResourceProperties AutoRollbackConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Endpoint.AutoRollbackConfig",
+         supportsTags = Prelude.False,
          properties = ["Alarms" JSON..= alarms]}
 instance JSON.ToJSON AutoRollbackConfigProperty where
   toJSON AutoRollbackConfigProperty {..}

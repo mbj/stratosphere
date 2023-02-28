@@ -20,6 +20,7 @@ instance ToResourceProperties IngressVpcConfigurationProperty where
   toResourceProperties IngressVpcConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::VpcIngressConnection.IngressVpcConfiguration",
+         supportsTags = Prelude.False,
          properties = ["VpcEndpointId" JSON..= vpcEndpointId,
                        "VpcId" JSON..= vpcId]}
 instance JSON.ToJSON IngressVpcConfigurationProperty where

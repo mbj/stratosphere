@@ -16,7 +16,7 @@ mkCarrierGateway vpcId
 instance ToResourceProperties CarrierGateway where
   toResourceProperties CarrierGateway {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::CarrierGateway",
+        {awsType = "AWS::EC2::CarrierGateway", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VpcId" JSON..= vpcId]

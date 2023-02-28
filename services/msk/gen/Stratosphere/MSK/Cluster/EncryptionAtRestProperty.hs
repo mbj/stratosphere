@@ -17,6 +17,7 @@ instance ToResourceProperties EncryptionAtRestProperty where
   toResourceProperties EncryptionAtRestProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.EncryptionAtRest",
+         supportsTags = Prelude.False,
          properties = ["DataVolumeKMSKeyId" JSON..= dataVolumeKMSKeyId]}
 instance JSON.ToJSON EncryptionAtRestProperty where
   toJSON EncryptionAtRestProperty {..}

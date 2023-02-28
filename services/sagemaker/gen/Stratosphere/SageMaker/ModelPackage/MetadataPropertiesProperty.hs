@@ -20,6 +20,7 @@ instance ToResourceProperties MetadataPropertiesProperty where
   toResourceProperties MetadataPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.MetadataProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CommitId" Prelude.<$> commitId,

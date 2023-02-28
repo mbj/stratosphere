@@ -24,6 +24,7 @@ instance ToResourceProperties SubscriptionDefinitionVersion where
   toResourceProperties SubscriptionDefinitionVersion {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::SubscriptionDefinitionVersion",
+         supportsTags = Prelude.False,
          properties = ["SubscriptionDefinitionId"
                          JSON..= subscriptionDefinitionId,
                        "Subscriptions" JSON..= subscriptions]}

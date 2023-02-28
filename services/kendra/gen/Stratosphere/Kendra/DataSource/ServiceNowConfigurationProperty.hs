@@ -34,6 +34,7 @@ instance ToResourceProperties ServiceNowConfigurationProperty where
   toResourceProperties ServiceNowConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ServiceNowConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HostUrl" JSON..= hostUrl, "SecretArn" JSON..= secretArn,

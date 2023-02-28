@@ -21,6 +21,7 @@ instance ToResourceProperties LambdaLinuxProcessParamsProperty where
   toResourceProperties LambdaLinuxProcessParamsProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::ComponentVersion.LambdaLinuxProcessParams",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerParams" Prelude.<$> containerParams,

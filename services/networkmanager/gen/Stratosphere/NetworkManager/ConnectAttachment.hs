@@ -32,6 +32,7 @@ instance ToResourceProperties ConnectAttachment where
   toResourceProperties ConnectAttachment {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::ConnectAttachment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CoreNetworkId" JSON..= coreNetworkId,

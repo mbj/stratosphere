@@ -32,6 +32,7 @@ instance ToResourceProperties SamplingRuleUpdateProperty where
   toResourceProperties SamplingRuleUpdateProperty {..}
     = ResourceProperties
         {awsType = "AWS::XRay::SamplingRule.SamplingRuleUpdate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Attributes" Prelude.<$> attributes,

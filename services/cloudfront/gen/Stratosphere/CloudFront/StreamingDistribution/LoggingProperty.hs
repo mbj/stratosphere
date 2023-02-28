@@ -20,6 +20,7 @@ instance ToResourceProperties LoggingProperty where
   toResourceProperties LoggingProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::StreamingDistribution.Logging",
+         supportsTags = Prelude.False,
          properties = ["Bucket" JSON..= bucket, "Enabled" JSON..= enabled,
                        "Prefix" JSON..= prefix]}
 instance JSON.ToJSON LoggingProperty where

@@ -26,6 +26,7 @@ instance ToResourceProperties ResolverRule where
   toResourceProperties ResolverRule {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::ResolverRule",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName, "RuleType" JSON..= ruleType]

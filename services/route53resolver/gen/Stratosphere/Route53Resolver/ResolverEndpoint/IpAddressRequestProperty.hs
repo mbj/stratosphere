@@ -19,6 +19,7 @@ instance ToResourceProperties IpAddressRequestProperty where
   toResourceProperties IpAddressRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::ResolverEndpoint.IpAddressRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubnetId" JSON..= subnetId]

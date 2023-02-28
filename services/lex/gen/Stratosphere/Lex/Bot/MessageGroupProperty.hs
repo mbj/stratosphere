@@ -17,6 +17,7 @@ instance ToResourceProperties MessageGroupProperty where
   toResourceProperties MessageGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.MessageGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Message" JSON..= message]

@@ -14,7 +14,7 @@ instance ToResourceProperties SecondaryProperty where
   toResourceProperties SecondaryProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Endpoint.Secondary",
-         properties = ["Route" JSON..= route]}
+         supportsTags = Prelude.False, properties = ["Route" JSON..= route]}
 instance JSON.ToJSON SecondaryProperty where
   toJSON SecondaryProperty {..} = JSON.object ["Route" JSON..= route]
 instance Property "Route" SecondaryProperty where

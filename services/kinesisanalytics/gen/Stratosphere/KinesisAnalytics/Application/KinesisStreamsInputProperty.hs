@@ -19,6 +19,7 @@ instance ToResourceProperties KinesisStreamsInputProperty where
   toResourceProperties KinesisStreamsInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::Application.KinesisStreamsInput",
+         supportsTags = Prelude.False,
          properties = ["ResourceARN" JSON..= resourceARN,
                        "RoleARN" JSON..= roleARN]}
 instance JSON.ToJSON KinesisStreamsInputProperty where

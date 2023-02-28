@@ -24,6 +24,7 @@ instance ToResourceProperties Deployment where
   toResourceProperties Deployment {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Deployment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RestApiId" JSON..= restApiId]

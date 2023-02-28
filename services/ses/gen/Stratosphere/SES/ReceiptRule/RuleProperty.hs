@@ -24,6 +24,7 @@ instance ToResourceProperties RuleProperty where
   toResourceProperties RuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ReceiptRule.Rule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Actions" Prelude.<$> actions,

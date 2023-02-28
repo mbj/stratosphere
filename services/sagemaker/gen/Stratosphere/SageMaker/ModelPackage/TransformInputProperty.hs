@@ -23,6 +23,7 @@ instance ToResourceProperties TransformInputProperty where
   toResourceProperties TransformInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.TransformInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataSource" JSON..= dataSource]

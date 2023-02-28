@@ -18,6 +18,7 @@ instance ToResourceProperties TextTransformationProperty where
   toResourceProperties TextTransformationProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.TextTransformation",
+         supportsTags = Prelude.False,
          properties = ["Priority" JSON..= priority, "Type" JSON..= type']}
 instance JSON.ToJSON TextTransformationProperty where
   toJSON TextTransformationProperty {..}

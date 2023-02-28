@@ -19,6 +19,7 @@ instance ToResourceProperties FormStyleProperty where
   toResourceProperties FormStyleProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.FormStyle",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HorizontalGap" Prelude.<$> horizontalGap,

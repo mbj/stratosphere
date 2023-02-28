@@ -26,6 +26,7 @@ instance ToResourceProperties IdentityProviderConfig where
   toResourceProperties IdentityProviderConfig {..}
     = ResourceProperties
         {awsType = "AWS::EKS::IdentityProviderConfig",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterName" JSON..= clusterName, "Type" JSON..= type']

@@ -19,6 +19,7 @@ instance ToResourceProperties ResponseParameterProperty where
   toResourceProperties ResponseParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Integration.ResponseParameter",
+         supportsTags = Prelude.False,
          properties = ["Destination" JSON..= destination,
                        "Source" JSON..= source]}
 instance JSON.ToJSON ResponseParameterProperty where

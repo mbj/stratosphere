@@ -23,6 +23,7 @@ instance ToResourceProperties RouteOverridesProperty where
   toResourceProperties RouteOverridesProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::ApiGatewayManagedOverrides.RouteOverrides",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AuthorizationScopes" Prelude.<$> authorizationScopes,

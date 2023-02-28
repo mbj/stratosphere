@@ -23,6 +23,7 @@ instance ToResourceProperties DocDbSettingsProperty where
   toResourceProperties DocDbSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.DocDbSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DocsToInvestigate" Prelude.<$> docsToInvestigate,

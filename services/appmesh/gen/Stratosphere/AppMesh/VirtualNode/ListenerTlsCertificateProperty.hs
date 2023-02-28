@@ -22,6 +22,7 @@ instance ToResourceProperties ListenerTlsCertificateProperty where
   toResourceProperties ListenerTlsCertificateProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.ListenerTlsCertificate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ACM" Prelude.<$> aCM,

@@ -31,6 +31,7 @@ instance ToResourceProperties StillWaitingResponseSpecificationProperty where
   toResourceProperties StillWaitingResponseSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.StillWaitingResponseSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FrequencyInSeconds" JSON..= frequencyInSeconds,

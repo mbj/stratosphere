@@ -30,6 +30,7 @@ instance ToResourceProperties AnomalyDetector where
   toResourceProperties AnomalyDetector {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::AnomalyDetector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Configuration" Prelude.<$> configuration,

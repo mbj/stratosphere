@@ -53,7 +53,7 @@ mkDatabase
 instance ToResourceProperties Database where
   toResourceProperties Database {..}
     = ResourceProperties
-        {awsType = "AWS::Lightsail::Database",
+        {awsType = "AWS::Lightsail::Database", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MasterDatabaseName" JSON..= masterDatabaseName,

@@ -21,6 +21,7 @@ instance ToResourceProperties DocumentAttributeValueProperty where
   toResourceProperties DocumentAttributeValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.DocumentAttributeValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DateValue" Prelude.<$> dateValue,

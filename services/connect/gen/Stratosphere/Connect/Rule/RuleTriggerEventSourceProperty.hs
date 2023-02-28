@@ -20,6 +20,7 @@ instance ToResourceProperties RuleTriggerEventSourceProperty where
   toResourceProperties RuleTriggerEventSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::Rule.RuleTriggerEventSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EventSourceName" JSON..= eventSourceName]

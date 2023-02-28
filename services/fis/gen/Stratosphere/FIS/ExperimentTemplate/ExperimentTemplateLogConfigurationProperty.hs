@@ -25,6 +25,7 @@ instance ToResourceProperties ExperimentTemplateLogConfigurationProperty where
     ExperimentTemplateLogConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FIS::ExperimentTemplate.ExperimentTemplateLogConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LogSchemaVersion" JSON..= logSchemaVersion]

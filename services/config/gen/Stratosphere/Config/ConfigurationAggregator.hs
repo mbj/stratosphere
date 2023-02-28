@@ -26,6 +26,7 @@ instance ToResourceProperties ConfigurationAggregator where
   toResourceProperties ConfigurationAggregator {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConfigurationAggregator",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccountAggregationSources"

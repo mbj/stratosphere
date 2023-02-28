@@ -16,6 +16,7 @@ instance ToResourceProperties VideoSelectorProgramIdProperty where
   toResourceProperties VideoSelectorProgramIdProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.VideoSelectorProgramId",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "ProgramId" Prelude.<$> programId])}
 instance JSON.ToJSON VideoSelectorProgramIdProperty where

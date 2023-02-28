@@ -17,6 +17,7 @@ instance ToResourceProperties AuditCheckConfigurationProperty where
   toResourceProperties AuditCheckConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::AccountAuditConfiguration.AuditCheckConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled])}
 instance JSON.ToJSON AuditCheckConfigurationProperty where

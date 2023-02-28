@@ -31,6 +31,7 @@ instance ToResourceProperties BehaviorCriteriaProperty where
   toResourceProperties BehaviorCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::SecurityProfile.BehaviorCriteria",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComparisonOperator" Prelude.<$> comparisonOperator,

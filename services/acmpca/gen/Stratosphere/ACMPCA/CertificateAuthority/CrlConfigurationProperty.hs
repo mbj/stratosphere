@@ -22,6 +22,7 @@ instance ToResourceProperties CrlConfigurationProperty where
   toResourceProperties CrlConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.CrlConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomCname" Prelude.<$> customCname,

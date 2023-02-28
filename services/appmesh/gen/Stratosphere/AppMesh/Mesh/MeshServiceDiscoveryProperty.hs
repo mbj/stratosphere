@@ -15,6 +15,7 @@ instance ToResourceProperties MeshServiceDiscoveryProperty where
   toResourceProperties MeshServiceDiscoveryProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Mesh.MeshServiceDiscovery",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IpPreference" Prelude.<$> ipPreference])}

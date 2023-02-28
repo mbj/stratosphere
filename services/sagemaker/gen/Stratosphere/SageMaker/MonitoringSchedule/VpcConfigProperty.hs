@@ -19,6 +19,7 @@ instance ToResourceProperties VpcConfigProperty where
   toResourceProperties VpcConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule.VpcConfig",
+         supportsTags = Prelude.False,
          properties = ["SecurityGroupIds" JSON..= securityGroupIds,
                        "Subnets" JSON..= subnets]}
 instance JSON.ToJSON VpcConfigProperty where

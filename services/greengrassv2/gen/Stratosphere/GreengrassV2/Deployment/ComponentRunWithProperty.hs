@@ -22,6 +22,7 @@ instance ToResourceProperties ComponentRunWithProperty where
   toResourceProperties ComponentRunWithProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.ComponentRunWith",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PosixUser" Prelude.<$> posixUser,

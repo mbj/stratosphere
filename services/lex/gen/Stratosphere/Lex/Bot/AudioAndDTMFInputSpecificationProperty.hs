@@ -24,6 +24,7 @@ instance ToResourceProperties AudioAndDTMFInputSpecificationProperty where
   toResourceProperties AudioAndDTMFInputSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.AudioAndDTMFInputSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StartTimeoutMs" JSON..= startTimeoutMs]

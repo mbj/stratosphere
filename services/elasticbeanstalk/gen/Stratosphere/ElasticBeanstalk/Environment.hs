@@ -35,6 +35,7 @@ instance ToResourceProperties Environment where
   toResourceProperties Environment {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::Environment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationName" JSON..= applicationName]

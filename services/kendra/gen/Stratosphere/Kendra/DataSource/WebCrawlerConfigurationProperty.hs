@@ -36,6 +36,7 @@ instance ToResourceProperties WebCrawlerConfigurationProperty where
   toResourceProperties WebCrawlerConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.WebCrawlerConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Urls" JSON..= urls]

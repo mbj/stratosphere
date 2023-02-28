@@ -24,6 +24,7 @@ instance ToResourceProperties LFTagPolicyResourceProperty where
   toResourceProperties LFTagPolicyResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::PrincipalPermissions.LFTagPolicyResource",
+         supportsTags = Prelude.False,
          properties = ["CatalogId" JSON..= catalogId,
                        "Expression" JSON..= expression,
                        "ResourceType" JSON..= resourceType]}

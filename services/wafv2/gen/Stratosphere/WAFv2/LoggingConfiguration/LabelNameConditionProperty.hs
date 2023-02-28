@@ -16,6 +16,7 @@ instance ToResourceProperties LabelNameConditionProperty where
   toResourceProperties LabelNameConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::LoggingConfiguration.LabelNameCondition",
+         supportsTags = Prelude.False,
          properties = ["LabelName" JSON..= labelName]}
 instance JSON.ToJSON LabelNameConditionProperty where
   toJSON LabelNameConditionProperty {..}

@@ -30,7 +30,7 @@ mkFeature name project variations
 instance ToResourceProperties Feature where
   toResourceProperties Feature {..}
     = ResourceProperties
-        {awsType = "AWS::Evidently::Feature",
+        {awsType = "AWS::Evidently::Feature", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Project" JSON..= project,

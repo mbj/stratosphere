@@ -21,6 +21,7 @@ instance ToResourceProperties HlsBasicPutSettingsProperty where
   toResourceProperties HlsBasicPutSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HlsBasicPutSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectionRetryInterval"

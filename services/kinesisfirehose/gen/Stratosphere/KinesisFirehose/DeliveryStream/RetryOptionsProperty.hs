@@ -15,6 +15,7 @@ instance ToResourceProperties RetryOptionsProperty where
   toResourceProperties RetryOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.RetryOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DurationInSeconds" Prelude.<$> durationInSeconds])}

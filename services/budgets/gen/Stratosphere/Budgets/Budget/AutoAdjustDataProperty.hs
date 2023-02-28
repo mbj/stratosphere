@@ -21,6 +21,7 @@ instance ToResourceProperties AutoAdjustDataProperty where
   toResourceProperties AutoAdjustDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::Budget.AutoAdjustData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AutoAdjustType" JSON..= autoAdjustType]

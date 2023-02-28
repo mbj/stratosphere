@@ -44,6 +44,7 @@ instance ToResourceProperties LoRaWANDeviceProfileProperty where
   toResourceProperties LoRaWANDeviceProfileProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::DeviceProfile.LoRaWANDeviceProfile",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClassBTimeout" Prelude.<$> classBTimeout,

@@ -20,6 +20,7 @@ instance ToResourceProperties FunctionProperty where
   toResourceProperties FunctionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::ComponentType.Function",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ImplementedBy" Prelude.<$> implementedBy,

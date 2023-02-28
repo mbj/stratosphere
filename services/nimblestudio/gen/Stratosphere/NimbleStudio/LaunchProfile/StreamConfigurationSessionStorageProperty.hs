@@ -20,6 +20,7 @@ instance ToResourceProperties StreamConfigurationSessionStorageProperty where
   toResourceProperties StreamConfigurationSessionStorageProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::LaunchProfile.StreamConfigurationSessionStorage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Mode" JSON..= mode]

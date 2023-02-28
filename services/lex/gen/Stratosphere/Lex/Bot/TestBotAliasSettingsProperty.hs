@@ -26,6 +26,7 @@ instance ToResourceProperties TestBotAliasSettingsProperty where
   toResourceProperties TestBotAliasSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.TestBotAliasSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BotAliasLocaleSettings"

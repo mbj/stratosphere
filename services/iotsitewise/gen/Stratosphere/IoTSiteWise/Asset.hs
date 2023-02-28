@@ -26,7 +26,7 @@ mkAsset assetModelId assetName
 instance ToResourceProperties Asset where
   toResourceProperties Asset {..}
     = ResourceProperties
-        {awsType = "AWS::IoTSiteWise::Asset",
+        {awsType = "AWS::IoTSiteWise::Asset", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AssetModelId" JSON..= assetModelId,

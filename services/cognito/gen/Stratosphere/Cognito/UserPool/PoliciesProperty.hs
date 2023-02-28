@@ -15,6 +15,7 @@ instance ToResourceProperties PoliciesProperty where
   toResourceProperties PoliciesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.Policies",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PasswordPolicy" Prelude.<$> passwordPolicy])}

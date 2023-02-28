@@ -30,6 +30,7 @@ instance ToResourceProperties WirelessDevice where
   toResourceProperties WirelessDevice {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::WirelessDevice",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationName" JSON..= destinationName, "Type" JSON..= type']

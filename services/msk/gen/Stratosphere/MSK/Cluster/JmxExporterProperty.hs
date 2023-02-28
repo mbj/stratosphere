@@ -15,6 +15,7 @@ instance ToResourceProperties JmxExporterProperty where
   toResourceProperties JmxExporterProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.JmxExporter",
+         supportsTags = Prelude.False,
          properties = ["EnabledInBroker" JSON..= enabledInBroker]}
 instance JSON.ToJSON JmxExporterProperty where
   toJSON JmxExporterProperty {..}

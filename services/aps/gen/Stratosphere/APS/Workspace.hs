@@ -21,7 +21,7 @@ mkWorkspace
 instance ToResourceProperties Workspace where
   toResourceProperties Workspace {..}
     = ResourceProperties
-        {awsType = "AWS::APS::Workspace",
+        {awsType = "AWS::APS::Workspace", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AlertManagerDefinition"

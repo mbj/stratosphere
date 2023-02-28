@@ -26,6 +26,7 @@ instance ToResourceProperties Solution where
   toResourceProperties Solution {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Solution",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatasetGroupArn" JSON..= datasetGroupArn, "Name" JSON..= name]

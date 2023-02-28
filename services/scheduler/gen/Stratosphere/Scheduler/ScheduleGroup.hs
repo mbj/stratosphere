@@ -17,6 +17,7 @@ instance ToResourceProperties ScheduleGroup where
   toResourceProperties ScheduleGroup {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::ScheduleGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

@@ -26,6 +26,7 @@ instance ToResourceProperties DestinationOptionsProperty where
   toResourceProperties DestinationOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::FlowLog.DestinationOptions",
+         supportsTags = Prelude.False,
          properties = ["FileFormat" JSON..= fileFormat,
                        "HiveCompatiblePartitions" JSON..= hiveCompatiblePartitions,
                        "PerHourPartition" JSON..= perHourPartition]}

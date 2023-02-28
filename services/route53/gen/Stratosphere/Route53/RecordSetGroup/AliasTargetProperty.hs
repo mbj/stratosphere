@@ -20,6 +20,7 @@ instance ToResourceProperties AliasTargetProperty where
   toResourceProperties AliasTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::RecordSetGroup.AliasTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DNSName" JSON..= dNSName, "HostedZoneId" JSON..= hostedZoneId]

@@ -14,6 +14,7 @@ instance ToResourceProperties SchemaProperty where
   toResourceProperties SchemaProperty {..}
     = ResourceProperties
         {awsType = "AWS::Forecast::Dataset.Schema",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Attributes" Prelude.<$> attributes])}

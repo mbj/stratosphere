@@ -17,6 +17,7 @@ instance ToResourceProperties SingularSourcePropertiesProperty where
   toResourceProperties SingularSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.SingularSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON SingularSourcePropertiesProperty where
   toJSON SingularSourcePropertiesProperty {..}

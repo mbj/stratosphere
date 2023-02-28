@@ -30,6 +30,7 @@ instance ToResourceProperties LifecycleHook where
   toResourceProperties LifecycleHook {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::LifecycleHook",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AutoScalingGroupName" JSON..= autoScalingGroupName,

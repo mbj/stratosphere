@@ -18,6 +18,7 @@ instance ToResourceProperties PredicateProperty where
   toResourceProperties PredicateProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Trigger.Predicate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Conditions" Prelude.<$> conditions,

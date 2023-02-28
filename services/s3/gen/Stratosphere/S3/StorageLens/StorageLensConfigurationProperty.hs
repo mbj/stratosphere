@@ -34,6 +34,7 @@ instance ToResourceProperties StorageLensConfigurationProperty where
   toResourceProperties StorageLensConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.StorageLensConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccountLevel" JSON..= accountLevel, "Id" JSON..= id,

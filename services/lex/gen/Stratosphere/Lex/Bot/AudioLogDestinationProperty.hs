@@ -3,6 +3,7 @@ module Stratosphere.Lex.Bot.AudioLogDestinationProperty (
         mkAudioLogDestinationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.S3BucketLogDestinationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties AudioLogDestinationProperty where
   toResourceProperties AudioLogDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.AudioLogDestination",
+         supportsTags = Prelude.False,
          properties = ["S3Bucket" JSON..= s3Bucket]}
 instance JSON.ToJSON AudioLogDestinationProperty where
   toJSON AudioLogDestinationProperty {..}

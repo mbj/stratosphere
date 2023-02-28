@@ -24,6 +24,7 @@ instance ToResourceProperties BatchParametersProperty where
   toResourceProperties BatchParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.BatchParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["JobDefinition" JSON..= jobDefinition, "JobName" JSON..= jobName]

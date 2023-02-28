@@ -2,6 +2,7 @@ module Stratosphere.KafkaConnect.Connector.PluginProperty (
         module Exports, PluginProperty(..), mkPluginProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.CustomPluginProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,7 @@ instance ToResourceProperties PluginProperty where
   toResourceProperties PluginProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.Plugin",
+         supportsTags = Prelude.False,
          properties = ["CustomPlugin" JSON..= customPlugin]}
 instance JSON.ToJSON PluginProperty where
   toJSON PluginProperty {..}

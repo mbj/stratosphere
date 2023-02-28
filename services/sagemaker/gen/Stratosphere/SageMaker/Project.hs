@@ -24,7 +24,7 @@ mkProject projectName serviceCatalogProvisioningDetails
 instance ToResourceProperties Project where
   toResourceProperties Project {..}
     = ResourceProperties
-        {awsType = "AWS::SageMaker::Project",
+        {awsType = "AWS::SageMaker::Project", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ProjectName" JSON..= projectName,

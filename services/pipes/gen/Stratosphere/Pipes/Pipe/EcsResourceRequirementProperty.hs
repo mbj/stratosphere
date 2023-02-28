@@ -19,6 +19,7 @@ instance ToResourceProperties EcsResourceRequirementProperty where
   toResourceProperties EcsResourceRequirementProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.EcsResourceRequirement",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON EcsResourceRequirementProperty where
   toJSON EcsResourceRequirementProperty {..}

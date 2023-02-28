@@ -28,6 +28,7 @@ instance ToResourceProperties ExponentialRolloutRateProperty where
   toResourceProperties ExponentialRolloutRateProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::JobTemplate.ExponentialRolloutRate",
+         supportsTags = Prelude.False,
          properties = ["BaseRatePerMinute" JSON..= baseRatePerMinute,
                        "IncrementFactor" JSON..= incrementFactor,
                        "RateIncreaseCriteria" JSON..= rateIncreaseCriteria]}

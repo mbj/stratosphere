@@ -24,7 +24,7 @@ mkEbsProperty
 instance ToResourceProperties EbsProperty where
   toResourceProperties EbsProperty {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::Instance.Ebs",
+        {awsType = "AWS::EC2::Instance.Ebs", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,

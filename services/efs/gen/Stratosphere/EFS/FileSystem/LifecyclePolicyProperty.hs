@@ -18,6 +18,7 @@ instance ToResourceProperties LifecyclePolicyProperty where
   toResourceProperties LifecyclePolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::EFS::FileSystem.LifecyclePolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TransitionToIA" Prelude.<$> transitionToIA,

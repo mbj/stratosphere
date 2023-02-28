@@ -21,6 +21,7 @@ instance ToResourceProperties StepFunctionsActionProperty where
   toResourceProperties StepFunctionsActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.StepFunctionsAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn,

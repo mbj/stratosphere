@@ -28,6 +28,7 @@ instance ToResourceProperties CustomLineItem where
   toResourceProperties CustomLineItem {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::CustomLineItem",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BillingGroupArn" JSON..= billingGroupArn, "Name" JSON..= name]

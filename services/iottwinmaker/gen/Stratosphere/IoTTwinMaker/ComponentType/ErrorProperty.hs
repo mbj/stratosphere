@@ -16,6 +16,7 @@ instance ToResourceProperties ErrorProperty where
   toResourceProperties ErrorProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::ComponentType.Error",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Code" Prelude.<$> code,

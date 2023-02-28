@@ -26,7 +26,7 @@ mkSecurityGroup groupDescription
 instance ToResourceProperties SecurityGroup where
   toResourceProperties SecurityGroup {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::SecurityGroup",
+        {awsType = "AWS::EC2::SecurityGroup", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GroupDescription" JSON..= groupDescription]

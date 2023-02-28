@@ -29,6 +29,7 @@ instance ToResourceProperties ComputeLimitsProperty where
   toResourceProperties ComputeLimitsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.ComputeLimits",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MaximumCapacityUnits" JSON..= maximumCapacityUnits,

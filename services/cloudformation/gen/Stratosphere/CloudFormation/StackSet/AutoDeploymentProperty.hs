@@ -18,6 +18,7 @@ instance ToResourceProperties AutoDeploymentProperty where
   toResourceProperties AutoDeploymentProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::StackSet.AutoDeployment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

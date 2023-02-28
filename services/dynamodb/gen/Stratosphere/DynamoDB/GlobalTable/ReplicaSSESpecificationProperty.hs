@@ -17,6 +17,7 @@ instance ToResourceProperties ReplicaSSESpecificationProperty where
   toResourceProperties ReplicaSSESpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.ReplicaSSESpecification",
+         supportsTags = Prelude.False,
          properties = ["KMSMasterKeyId" JSON..= kMSMasterKeyId]}
 instance JSON.ToJSON ReplicaSSESpecificationProperty where
   toJSON ReplicaSSESpecificationProperty {..}

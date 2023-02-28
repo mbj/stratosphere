@@ -26,6 +26,7 @@ instance ToResourceProperties MetricDefinitionObjectProperty where
   toResourceProperties MetricDefinitionObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Launch.MetricDefinitionObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EntityIdKey" JSON..= entityIdKey,

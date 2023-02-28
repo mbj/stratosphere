@@ -16,6 +16,7 @@ instance ToResourceProperties FeatureActivationsProperty where
   toResourceProperties FeatureActivationsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.FeatureActivations",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InputPrepareScheduleActions"

@@ -16,6 +16,7 @@ instance ToResourceProperties EntryProperty where
   toResourceProperties EntryProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::PrefixList.Entry",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Cidr" JSON..= cidr]

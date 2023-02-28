@@ -22,6 +22,7 @@ instance ToResourceProperties PhysicalResourceIdProperty where
   toResourceProperties PhysicalResourceIdProperty {..}
     = ResourceProperties
         {awsType = "AWS::ResilienceHub::App.PhysicalResourceId",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Identifier" JSON..= identifier, "Type" JSON..= type']

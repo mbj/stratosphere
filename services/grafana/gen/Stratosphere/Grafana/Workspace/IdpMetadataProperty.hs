@@ -17,6 +17,7 @@ instance ToResourceProperties IdpMetadataProperty where
   toResourceProperties IdpMetadataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Grafana::Workspace.IdpMetadata",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Url" Prelude.<$> url,

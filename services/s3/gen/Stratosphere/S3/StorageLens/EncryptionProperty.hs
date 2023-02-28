@@ -17,6 +17,7 @@ instance ToResourceProperties EncryptionProperty where
   toResourceProperties EncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.Encryption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SSEKMS" Prelude.<$> sSEKMS,

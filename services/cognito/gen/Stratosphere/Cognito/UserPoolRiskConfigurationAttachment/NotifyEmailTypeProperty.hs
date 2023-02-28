@@ -20,6 +20,7 @@ instance ToResourceProperties NotifyEmailTypeProperty where
   toResourceProperties NotifyEmailTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyEmailType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Subject" JSON..= subject]

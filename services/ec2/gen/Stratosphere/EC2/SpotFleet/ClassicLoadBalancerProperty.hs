@@ -16,7 +16,7 @@ instance ToResourceProperties ClassicLoadBalancerProperty where
   toResourceProperties ClassicLoadBalancerProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.ClassicLoadBalancer",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON ClassicLoadBalancerProperty where
   toJSON ClassicLoadBalancerProperty {..}
     = JSON.object ["Name" JSON..= name]

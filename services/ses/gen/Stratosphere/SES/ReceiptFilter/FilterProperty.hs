@@ -17,6 +17,7 @@ instance ToResourceProperties FilterProperty where
   toResourceProperties FilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ReceiptFilter.Filter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IpFilter" JSON..= ipFilter]

@@ -17,6 +17,7 @@ instance ToResourceProperties S3DestinationConfigurationProperty where
   toResourceProperties S3DestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IVS::RecordingConfiguration.S3DestinationConfiguration",
+         supportsTags = Prelude.False,
          properties = ["BucketName" JSON..= bucketName]}
 instance JSON.ToJSON S3DestinationConfigurationProperty where
   toJSON S3DestinationConfigurationProperty {..}

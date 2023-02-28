@@ -22,6 +22,7 @@ instance ToResourceProperties SubnetMappingProperty where
   toResourceProperties SubnetMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::LoadBalancer.SubnetMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubnetId" JSON..= subnetId]

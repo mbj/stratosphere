@@ -34,6 +34,7 @@ instance ToResourceProperties ResponseHeadersPolicyConfigProperty where
   toResourceProperties ResponseHeadersPolicyConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.ResponseHeadersPolicyConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

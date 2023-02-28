@@ -26,6 +26,7 @@ instance ToResourceProperties OperationPreferencesProperty where
   toResourceProperties OperationPreferencesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::StackSet.OperationPreferences",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FailureToleranceCount"

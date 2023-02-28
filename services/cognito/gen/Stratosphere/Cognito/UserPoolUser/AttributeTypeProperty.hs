@@ -17,6 +17,7 @@ instance ToResourceProperties AttributeTypeProperty where
   toResourceProperties AttributeTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolUser.AttributeType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

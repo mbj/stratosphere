@@ -25,6 +25,7 @@ instance ToResourceProperties AnalysisPacketHeaderProperty where
   toResourceProperties AnalysisPacketHeaderProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.AnalysisPacketHeader",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DestinationAddresses" Prelude.<$> destinationAddresses,

@@ -31,6 +31,7 @@ instance ToResourceProperties DomainName where
   toResourceProperties DomainName {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::DomainName",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateArn" Prelude.<$> certificateArn,

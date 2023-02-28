@@ -14,6 +14,7 @@ instance ToResourceProperties AlarmProperty where
   toResourceProperties AlarmProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.Alarm",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name])}
 instance JSON.ToJSON AlarmProperty where

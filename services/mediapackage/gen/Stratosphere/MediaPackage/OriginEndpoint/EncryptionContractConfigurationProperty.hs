@@ -23,6 +23,7 @@ instance ToResourceProperties EncryptionContractConfigurationProperty where
   toResourceProperties EncryptionContractConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::OriginEndpoint.EncryptionContractConfiguration",
+         supportsTags = Prelude.False,
          properties = ["PresetSpeke20Audio" JSON..= presetSpeke20Audio,
                        "PresetSpeke20Video" JSON..= presetSpeke20Video]}
 instance JSON.ToJSON EncryptionContractConfigurationProperty where

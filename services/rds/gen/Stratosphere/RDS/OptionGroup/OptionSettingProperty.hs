@@ -17,6 +17,7 @@ instance ToResourceProperties OptionSettingProperty where
   toResourceProperties OptionSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::OptionGroup.OptionSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

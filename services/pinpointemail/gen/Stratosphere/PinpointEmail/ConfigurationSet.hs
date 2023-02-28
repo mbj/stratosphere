@@ -29,6 +29,7 @@ instance ToResourceProperties ConfigurationSet where
   toResourceProperties ConfigurationSet {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::ConfigurationSet",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -27,6 +27,7 @@ instance ToResourceProperties FunctionConfigurationProperty where
   toResourceProperties FunctionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::FunctionDefinitionVersion.FunctionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EncodingType" Prelude.<$> encodingType,

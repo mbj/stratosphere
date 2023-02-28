@@ -17,7 +17,7 @@ mkSink name
 instance ToResourceProperties Sink where
   toResourceProperties Sink {..}
     = ResourceProperties
-        {awsType = "AWS::Oam::Sink",
+        {awsType = "AWS::Oam::Sink", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

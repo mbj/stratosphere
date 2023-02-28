@@ -21,6 +21,7 @@ instance ToResourceProperties PredefinedLoadMetricSpecificationProperty where
   toResourceProperties PredefinedLoadMetricSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScalingPlans::ScalingPlan.PredefinedLoadMetricSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PredefinedLoadMetricType" JSON..= predefinedLoadMetricType]

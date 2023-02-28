@@ -28,6 +28,7 @@ instance ToResourceProperties CodeConfigurationValuesProperty where
   toResourceProperties CodeConfigurationValuesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.CodeConfigurationValues",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Runtime" JSON..= runtime]

@@ -16,6 +16,7 @@ instance ToResourceProperties MultipleValuesSettingProperty where
   toResourceProperties MultipleValuesSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.MultipleValuesSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowMultipleValues" Prelude.<$> allowMultipleValues])}

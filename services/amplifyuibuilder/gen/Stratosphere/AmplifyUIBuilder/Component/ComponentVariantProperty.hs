@@ -17,6 +17,7 @@ instance ToResourceProperties ComponentVariantProperty where
   toResourceProperties ComponentVariantProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.ComponentVariant",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Overrides" Prelude.<$> overrides,

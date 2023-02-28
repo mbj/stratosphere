@@ -23,6 +23,7 @@ instance ToResourceProperties JsonBodyProperty where
   toResourceProperties JsonBodyProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.JsonBody",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MatchPattern" JSON..= matchPattern,

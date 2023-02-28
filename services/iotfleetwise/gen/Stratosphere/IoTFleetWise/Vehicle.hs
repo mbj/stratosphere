@@ -27,6 +27,7 @@ instance ToResourceProperties Vehicle where
   toResourceProperties Vehicle {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::Vehicle",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DecoderManifestArn" JSON..= decoderManifestArn,

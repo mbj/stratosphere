@@ -43,7 +43,7 @@ mkAlarm
 instance ToResourceProperties Alarm where
   toResourceProperties Alarm {..}
     = ResourceProperties
-        {awsType = "AWS::Lightsail::Alarm",
+        {awsType = "AWS::Lightsail::Alarm", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AlarmName" JSON..= alarmName,

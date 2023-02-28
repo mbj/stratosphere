@@ -17,6 +17,7 @@ instance ToResourceProperties TimePeriodProperty where
   toResourceProperties TimePeriodProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::Budget.TimePeriod",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "End" Prelude.<$> end,

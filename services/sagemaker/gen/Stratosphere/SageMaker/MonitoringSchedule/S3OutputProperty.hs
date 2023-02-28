@@ -20,6 +20,7 @@ instance ToResourceProperties S3OutputProperty where
   toResourceProperties S3OutputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule.S3Output",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LocalPath" JSON..= localPath, "S3Uri" JSON..= s3Uri]

@@ -33,6 +33,7 @@ instance ToResourceProperties MetricSetProperty where
   toResourceProperties MetricSetProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.MetricSet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricList" JSON..= metricList,

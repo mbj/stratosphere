@@ -23,6 +23,7 @@ instance ToResourceProperties RtmpOutputSettingsProperty where
   toResourceProperties RtmpOutputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.RtmpOutputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateMode" Prelude.<$> certificateMode,

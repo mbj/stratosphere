@@ -34,6 +34,7 @@ instance ToResourceProperties ComputeEnvironment where
   toResourceProperties ComputeEnvironment {..}
     = ResourceProperties
         {awsType = "AWS::Batch::ComputeEnvironment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

@@ -2,6 +2,7 @@ module Stratosphere.CloudFront.CachePolicy (
         module Exports, CachePolicy(..), mkCachePolicy
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.CachePolicy.CachePolicyConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,7 @@ instance ToResourceProperties CachePolicy where
   toResourceProperties CachePolicy {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::CachePolicy",
+         supportsTags = Prelude.False,
          properties = ["CachePolicyConfig" JSON..= cachePolicyConfig]}
 instance JSON.ToJSON CachePolicy where
   toJSON CachePolicy {..}

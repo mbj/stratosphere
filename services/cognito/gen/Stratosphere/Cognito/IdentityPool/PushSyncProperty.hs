@@ -17,6 +17,7 @@ instance ToResourceProperties PushSyncProperty where
   toResourceProperties PushSyncProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::IdentityPool.PushSync",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplicationArns" Prelude.<$> applicationArns,

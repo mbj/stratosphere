@@ -21,6 +21,7 @@ instance ToResourceProperties ClusterSubnetGroup where
   toResourceProperties ClusterSubnetGroup {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::ClusterSubnetGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description, "SubnetIds" JSON..= subnetIds]

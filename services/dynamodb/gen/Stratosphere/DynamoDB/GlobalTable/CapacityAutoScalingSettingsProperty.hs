@@ -30,6 +30,7 @@ instance ToResourceProperties CapacityAutoScalingSettingsProperty where
   toResourceProperties CapacityAutoScalingSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.CapacityAutoScalingSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MaxCapacity" JSON..= maxCapacity,

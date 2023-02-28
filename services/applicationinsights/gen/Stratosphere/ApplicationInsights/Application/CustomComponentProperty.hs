@@ -19,6 +19,7 @@ instance ToResourceProperties CustomComponentProperty where
   toResourceProperties CustomComponentProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.CustomComponent",
+         supportsTags = Prelude.False,
          properties = ["ComponentName" JSON..= componentName,
                        "ResourceList" JSON..= resourceList]}
 instance JSON.ToJSON CustomComponentProperty where

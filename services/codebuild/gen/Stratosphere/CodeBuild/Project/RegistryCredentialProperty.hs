@@ -19,6 +19,7 @@ instance ToResourceProperties RegistryCredentialProperty where
   toResourceProperties RegistryCredentialProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.RegistryCredential",
+         supportsTags = Prelude.False,
          properties = ["Credential" JSON..= credential,
                        "CredentialProvider" JSON..= credentialProvider]}
 instance JSON.ToJSON RegistryCredentialProperty where

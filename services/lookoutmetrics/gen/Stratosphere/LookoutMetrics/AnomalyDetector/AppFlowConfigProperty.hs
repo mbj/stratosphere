@@ -17,6 +17,7 @@ instance ToResourceProperties AppFlowConfigProperty where
   toResourceProperties AppFlowConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.AppFlowConfig",
+         supportsTags = Prelude.False,
          properties = ["FlowName" JSON..= flowName,
                        "RoleArn" JSON..= roleArn]}
 instance JSON.ToJSON AppFlowConfigProperty where

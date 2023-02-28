@@ -17,6 +17,7 @@ instance ToResourceProperties CloudWatchLoggingOptionProperty where
   toResourceProperties CloudWatchLoggingOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption.CloudWatchLoggingOption",
+         supportsTags = Prelude.False,
          properties = ["LogStreamARN" JSON..= logStreamARN]}
 instance JSON.ToJSON CloudWatchLoggingOptionProperty where
   toJSON CloudWatchLoggingOptionProperty {..}

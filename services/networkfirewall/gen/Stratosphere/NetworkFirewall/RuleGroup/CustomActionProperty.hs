@@ -20,6 +20,7 @@ instance ToResourceProperties CustomActionProperty where
   toResourceProperties CustomActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.CustomAction",
+         supportsTags = Prelude.False,
          properties = ["ActionDefinition" JSON..= actionDefinition,
                        "ActionName" JSON..= actionName]}
 instance JSON.ToJSON CustomActionProperty where

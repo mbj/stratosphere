@@ -24,6 +24,7 @@ instance ToResourceProperties AuditLogConfigurationProperty where
   toResourceProperties AuditLogConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::FileSystem.AuditLogConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FileAccessAuditLogLevel" JSON..= fileAccessAuditLogLevel,

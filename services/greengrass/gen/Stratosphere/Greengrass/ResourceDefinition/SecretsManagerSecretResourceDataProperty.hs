@@ -19,6 +19,7 @@ instance ToResourceProperties SecretsManagerSecretResourceDataProperty where
   toResourceProperties SecretsManagerSecretResourceDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinition.SecretsManagerSecretResourceData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ARN" JSON..= aRN]

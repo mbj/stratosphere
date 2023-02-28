@@ -28,6 +28,7 @@ instance ToResourceProperties AndroidPushNotificationTemplateProperty where
   toResourceProperties AndroidPushNotificationTemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::PushTemplate.AndroidPushNotificationTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Action" Prelude.<$> action,

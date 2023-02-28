@@ -17,7 +17,7 @@ instance ToResourceProperties AccessControlAllowMethodsProperty where
   toResourceProperties AccessControlAllowMethodsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowMethods",
-         properties = ["Items" JSON..= items]}
+         supportsTags = Prelude.False, properties = ["Items" JSON..= items]}
 instance JSON.ToJSON AccessControlAllowMethodsProperty where
   toJSON AccessControlAllowMethodsProperty {..}
     = JSON.object ["Items" JSON..= items]

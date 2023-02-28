@@ -19,6 +19,7 @@ instance ToResourceProperties BasicAuthConfigProperty where
   toResourceProperties BasicAuthConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Amplify::App.BasicAuthConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EnableBasicAuth" Prelude.<$> enableBasicAuth,

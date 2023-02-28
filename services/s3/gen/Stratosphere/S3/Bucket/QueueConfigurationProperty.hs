@@ -22,6 +22,7 @@ instance ToResourceProperties QueueConfigurationProperty where
   toResourceProperties QueueConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.QueueConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Event" JSON..= event, "Queue" JSON..= queue]

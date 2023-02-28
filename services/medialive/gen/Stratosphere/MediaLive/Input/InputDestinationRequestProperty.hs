@@ -17,6 +17,7 @@ instance ToResourceProperties InputDestinationRequestProperty where
   toResourceProperties InputDestinationRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Input.InputDestinationRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "StreamName" Prelude.<$> streamName])}

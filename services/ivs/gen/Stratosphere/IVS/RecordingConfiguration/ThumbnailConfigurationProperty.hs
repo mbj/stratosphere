@@ -20,6 +20,7 @@ instance ToResourceProperties ThumbnailConfigurationProperty where
   toResourceProperties ThumbnailConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IVS::RecordingConfiguration.ThumbnailConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RecordingMode" JSON..= recordingMode]

@@ -24,6 +24,7 @@ instance ToResourceProperties Endpoint where
   toResourceProperties Endpoint {..}
     = ResourceProperties
         {awsType = "AWS::S3Outposts::Endpoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["OutpostId" JSON..= outpostId,

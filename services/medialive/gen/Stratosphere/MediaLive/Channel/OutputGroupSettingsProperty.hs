@@ -38,6 +38,7 @@ instance ToResourceProperties OutputGroupSettingsProperty where
   toResourceProperties OutputGroupSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.OutputGroupSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ArchiveGroupSettings" Prelude.<$> archiveGroupSettings,

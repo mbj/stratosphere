@@ -20,6 +20,7 @@ instance ToResourceProperties TargetDescriptionProperty where
   toResourceProperties TargetDescriptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::TargetGroup.TargetDescription",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id]

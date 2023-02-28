@@ -31,6 +31,7 @@ instance ToResourceProperties ComponentMonitoringSettingProperty where
   toResourceProperties ComponentMonitoringSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.ComponentMonitoringSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ComponentConfigurationMode" JSON..= componentConfigurationMode,

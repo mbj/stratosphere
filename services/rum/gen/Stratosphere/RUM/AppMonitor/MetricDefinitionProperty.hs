@@ -23,6 +23,7 @@ instance ToResourceProperties MetricDefinitionProperty where
   toResourceProperties MetricDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::RUM::AppMonitor.MetricDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

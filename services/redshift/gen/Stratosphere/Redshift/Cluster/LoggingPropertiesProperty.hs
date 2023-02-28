@@ -18,6 +18,7 @@ instance ToResourceProperties LoggingPropertiesProperty where
   toResourceProperties LoggingPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::Cluster.LoggingProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName]

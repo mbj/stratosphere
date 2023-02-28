@@ -20,6 +20,7 @@ instance ToResourceProperties NodeRangePropertyProperty where
   toResourceProperties NodeRangePropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.NodeRangeProperty",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TargetNodes" JSON..= targetNodes]

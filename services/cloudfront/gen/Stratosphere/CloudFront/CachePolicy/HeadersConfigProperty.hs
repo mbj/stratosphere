@@ -18,6 +18,7 @@ instance ToResourceProperties HeadersConfigProperty where
   toResourceProperties HeadersConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::CachePolicy.HeadersConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HeaderBehavior" JSON..= headerBehavior]

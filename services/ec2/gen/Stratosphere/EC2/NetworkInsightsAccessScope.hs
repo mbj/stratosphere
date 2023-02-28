@@ -21,6 +21,7 @@ instance ToResourceProperties NetworkInsightsAccessScope where
   toResourceProperties NetworkInsightsAccessScope {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAccessScope",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExcludePaths" Prelude.<$> excludePaths,

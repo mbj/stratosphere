@@ -3,6 +3,7 @@ module Stratosphere.DataBrew.Job.S3TableOutputOptionsProperty (
         mkS3TableOutputOptionsProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataBrew.Job.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties S3TableOutputOptionsProperty where
   toResourceProperties S3TableOutputOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.S3TableOutputOptions",
+         supportsTags = Prelude.False,
          properties = ["Location" JSON..= location]}
 instance JSON.ToJSON S3TableOutputOptionsProperty where
   toJSON S3TableOutputOptionsProperty {..}

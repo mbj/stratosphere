@@ -23,6 +23,7 @@ instance ToResourceProperties DocumentAttributeTargetProperty where
   toResourceProperties DocumentAttributeTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.DocumentAttributeTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TargetDocumentAttributeKey" JSON..= targetDocumentAttributeKey]

@@ -21,6 +21,7 @@ instance ToResourceProperties ScopeProperty where
   toResourceProperties ScopeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConfigRule.Scope",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComplianceResourceId" Prelude.<$> complianceResourceId,

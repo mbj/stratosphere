@@ -15,6 +15,7 @@ instance ToResourceProperties S3OriginConfigProperty where
   toResourceProperties S3OriginConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.S3OriginConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OriginAccessIdentity"

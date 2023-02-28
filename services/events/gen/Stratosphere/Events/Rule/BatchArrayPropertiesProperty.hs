@@ -15,6 +15,7 @@ instance ToResourceProperties BatchArrayPropertiesProperty where
   toResourceProperties BatchArrayPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.BatchArrayProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Size" Prelude.<$> size])}
 instance JSON.ToJSON BatchArrayPropertiesProperty where

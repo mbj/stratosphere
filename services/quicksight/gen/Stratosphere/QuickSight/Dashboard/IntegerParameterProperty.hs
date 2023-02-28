@@ -18,6 +18,7 @@ instance ToResourceProperties IntegerParameterProperty where
   toResourceProperties IntegerParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.IntegerParameter",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Values" JSON..= values]}
 instance JSON.ToJSON IntegerParameterProperty where
   toJSON IntegerParameterProperty {..}

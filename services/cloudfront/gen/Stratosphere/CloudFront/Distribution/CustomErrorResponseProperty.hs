@@ -21,6 +21,7 @@ instance ToResourceProperties CustomErrorResponseProperty where
   toResourceProperties CustomErrorResponseProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.CustomErrorResponse",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ErrorCode" JSON..= errorCode]

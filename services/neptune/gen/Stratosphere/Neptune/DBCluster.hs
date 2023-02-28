@@ -55,7 +55,7 @@ mkDBCluster
 instance ToResourceProperties DBCluster where
   toResourceProperties DBCluster {..}
     = ResourceProperties
-        {awsType = "AWS::Neptune::DBCluster",
+        {awsType = "AWS::Neptune::DBCluster", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AssociatedRoles" Prelude.<$> associatedRoles,

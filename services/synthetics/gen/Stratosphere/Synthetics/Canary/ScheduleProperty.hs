@@ -17,6 +17,7 @@ instance ToResourceProperties ScheduleProperty where
   toResourceProperties ScheduleProperty {..}
     = ResourceProperties
         {awsType = "AWS::Synthetics::Canary.Schedule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Expression" JSON..= expression]

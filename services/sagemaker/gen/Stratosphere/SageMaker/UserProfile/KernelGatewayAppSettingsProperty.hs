@@ -21,6 +21,7 @@ instance ToResourceProperties KernelGatewayAppSettingsProperty where
   toResourceProperties KernelGatewayAppSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::UserProfile.KernelGatewayAppSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomImages" Prelude.<$> customImages,

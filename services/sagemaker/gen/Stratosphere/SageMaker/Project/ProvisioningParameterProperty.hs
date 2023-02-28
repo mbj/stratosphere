@@ -18,6 +18,7 @@ instance ToResourceProperties ProvisioningParameterProperty where
   toResourceProperties ProvisioningParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Project.ProvisioningParameter",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON ProvisioningParameterProperty where
   toJSON ProvisioningParameterProperty {..}

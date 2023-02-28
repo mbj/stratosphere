@@ -20,6 +20,7 @@ instance ToResourceProperties HttpEndpointCommonAttributeProperty where
   toResourceProperties HttpEndpointCommonAttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.HttpEndpointCommonAttribute",
+         supportsTags = Prelude.False,
          properties = ["AttributeName" JSON..= attributeName,
                        "AttributeValue" JSON..= attributeValue]}
 instance JSON.ToJSON HttpEndpointCommonAttributeProperty where

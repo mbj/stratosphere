@@ -18,6 +18,7 @@ instance ToResourceProperties AdvancedCostOptimizationMetricsProperty where
   toResourceProperties AdvancedCostOptimizationMetricsProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.AdvancedCostOptimizationMetrics",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "IsEnabled" Prelude.<$> isEnabled])}
 instance JSON.ToJSON AdvancedCostOptimizationMetricsProperty where

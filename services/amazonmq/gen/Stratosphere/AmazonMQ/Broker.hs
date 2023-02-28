@@ -65,7 +65,7 @@ mkBroker
 instance ToResourceProperties Broker where
   toResourceProperties Broker {..}
     = ResourceProperties
-        {awsType = "AWS::AmazonMQ::Broker",
+        {awsType = "AWS::AmazonMQ::Broker", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AutoMinorVersionUpgrade" JSON..= autoMinorVersionUpgrade,

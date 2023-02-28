@@ -38,6 +38,7 @@ instance ToResourceProperties TimestreamConfigurationProperty where
   toResourceProperties TimestreamConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::ScheduledQuery.TimestreamConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatabaseName" JSON..= databaseName,

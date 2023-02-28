@@ -17,6 +17,7 @@ instance ToResourceProperties AuthenticationModeProperty where
   toResourceProperties AuthenticationModeProperty {..}
     = ResourceProperties
         {awsType = "AWS::MemoryDB::User.AuthenticationMode",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Passwords" Prelude.<$> passwords,

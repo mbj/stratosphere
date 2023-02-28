@@ -20,6 +20,7 @@ instance ToResourceProperties ConnectorProperty where
   toResourceProperties ConnectorProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ConnectorDefinition.Connector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectorArn" JSON..= connectorArn, "Id" JSON..= id]

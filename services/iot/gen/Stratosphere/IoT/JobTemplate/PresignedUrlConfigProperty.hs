@@ -18,6 +18,7 @@ instance ToResourceProperties PresignedUrlConfigProperty where
   toResourceProperties PresignedUrlConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::JobTemplate.PresignedUrlConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn]

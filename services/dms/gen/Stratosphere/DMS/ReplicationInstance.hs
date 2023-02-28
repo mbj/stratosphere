@@ -43,6 +43,7 @@ instance ToResourceProperties ReplicationInstance where
   toResourceProperties ReplicationInstance {..}
     = ResourceProperties
         {awsType = "AWS::DMS::ReplicationInstance",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ReplicationInstanceClass" JSON..= replicationInstanceClass]

@@ -24,6 +24,7 @@ instance ToResourceProperties RouteSettingsProperty where
   toResourceProperties RouteSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Stage.RouteSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataTraceEnabled" Prelude.<$> dataTraceEnabled,

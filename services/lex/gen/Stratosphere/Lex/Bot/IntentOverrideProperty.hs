@@ -19,6 +19,7 @@ instance ToResourceProperties IntentOverrideProperty where
   toResourceProperties IntentOverrideProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.IntentOverride",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

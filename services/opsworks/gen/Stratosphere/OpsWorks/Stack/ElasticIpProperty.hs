@@ -16,6 +16,7 @@ instance ToResourceProperties ElasticIpProperty where
   toResourceProperties ElasticIpProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Stack.ElasticIp",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Ip" JSON..= ip]

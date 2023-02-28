@@ -31,6 +31,7 @@ instance ToResourceProperties HealthCheckProperty where
   toResourceProperties HealthCheckProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancing::LoadBalancer.HealthCheck",
+         supportsTags = Prelude.False,
          properties = ["HealthyThreshold" JSON..= healthyThreshold,
                        "Interval" JSON..= interval, "Target" JSON..= target,
                        "Timeout" JSON..= timeout,

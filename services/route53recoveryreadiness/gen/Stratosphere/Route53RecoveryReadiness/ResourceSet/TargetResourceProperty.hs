@@ -19,6 +19,7 @@ instance ToResourceProperties TargetResourceProperty where
   toResourceProperties TargetResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryReadiness::ResourceSet.TargetResource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NLBResource" Prelude.<$> nLBResource,

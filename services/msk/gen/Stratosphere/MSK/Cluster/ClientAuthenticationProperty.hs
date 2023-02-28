@@ -22,6 +22,7 @@ instance ToResourceProperties ClientAuthenticationProperty where
   toResourceProperties ClientAuthenticationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.ClientAuthentication",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Sasl" Prelude.<$> sasl,

@@ -23,6 +23,7 @@ instance ToResourceProperties DBSubnetGroup where
   toResourceProperties DBSubnetGroup {..}
     = ResourceProperties
         {awsType = "AWS::Neptune::DBSubnetGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DBSubnetGroupDescription" JSON..= dBSubnetGroupDescription,

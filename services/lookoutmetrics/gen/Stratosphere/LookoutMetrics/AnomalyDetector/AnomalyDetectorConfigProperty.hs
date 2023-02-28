@@ -17,6 +17,7 @@ instance ToResourceProperties AnomalyDetectorConfigProperty where
   toResourceProperties AnomalyDetectorConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.AnomalyDetectorConfig",
+         supportsTags = Prelude.False,
          properties = ["AnomalyDetectorFrequency"
                          JSON..= anomalyDetectorFrequency]}
 instance JSON.ToJSON AnomalyDetectorConfigProperty where

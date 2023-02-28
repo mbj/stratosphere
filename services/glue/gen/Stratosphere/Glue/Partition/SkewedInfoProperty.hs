@@ -20,6 +20,7 @@ instance ToResourceProperties SkewedInfoProperty where
   toResourceProperties SkewedInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Partition.SkewedInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SkewedColumnNames" Prelude.<$> skewedColumnNames,

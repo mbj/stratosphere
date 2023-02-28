@@ -16,7 +16,7 @@ instance ToResourceProperties OutputArtifactProperty where
   toResourceProperties OutputArtifactProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Pipeline.OutputArtifact",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON OutputArtifactProperty where
   toJSON OutputArtifactProperty {..}
     = JSON.object ["Name" JSON..= name]

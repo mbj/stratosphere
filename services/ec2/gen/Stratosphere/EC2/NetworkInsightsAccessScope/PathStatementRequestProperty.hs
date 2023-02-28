@@ -20,6 +20,7 @@ instance ToResourceProperties PathStatementRequestProperty where
   toResourceProperties PathStatementRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAccessScope.PathStatementRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PacketHeaderStatement"

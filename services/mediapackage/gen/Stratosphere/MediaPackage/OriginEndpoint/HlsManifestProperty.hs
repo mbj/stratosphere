@@ -32,6 +32,7 @@ instance ToResourceProperties HlsManifestProperty where
   toResourceProperties HlsManifestProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::OriginEndpoint.HlsManifest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id]

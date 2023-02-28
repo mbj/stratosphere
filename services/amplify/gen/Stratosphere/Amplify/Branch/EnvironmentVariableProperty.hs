@@ -18,6 +18,7 @@ instance ToResourceProperties EnvironmentVariableProperty where
   toResourceProperties EnvironmentVariableProperty {..}
     = ResourceProperties
         {awsType = "AWS::Amplify::Branch.EnvironmentVariable",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON EnvironmentVariableProperty where
   toJSON EnvironmentVariableProperty {..}

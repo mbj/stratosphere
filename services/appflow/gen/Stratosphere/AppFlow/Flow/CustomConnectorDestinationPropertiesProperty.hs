@@ -27,6 +27,7 @@ instance ToResourceProperties CustomConnectorDestinationPropertiesProperty where
     CustomConnectorDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.CustomConnectorDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EntityName" JSON..= entityName]

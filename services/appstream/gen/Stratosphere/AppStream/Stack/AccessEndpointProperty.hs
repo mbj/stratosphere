@@ -18,6 +18,7 @@ instance ToResourceProperties AccessEndpointProperty where
   toResourceProperties AccessEndpointProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::Stack.AccessEndpoint",
+         supportsTags = Prelude.False,
          properties = ["EndpointType" JSON..= endpointType,
                        "VpceId" JSON..= vpceId]}
 instance JSON.ToJSON AccessEndpointProperty where

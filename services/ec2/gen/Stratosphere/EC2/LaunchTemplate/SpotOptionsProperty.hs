@@ -23,6 +23,7 @@ instance ToResourceProperties SpotOptionsProperty where
   toResourceProperties SpotOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.SpotOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlockDurationMinutes" Prelude.<$> blockDurationMinutes,

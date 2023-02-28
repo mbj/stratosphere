@@ -18,6 +18,7 @@ instance ToResourceProperties ClientCertificate where
   toResourceProperties ClientCertificate {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::ClientCertificate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

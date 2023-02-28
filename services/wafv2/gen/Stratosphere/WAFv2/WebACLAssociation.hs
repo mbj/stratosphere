@@ -18,6 +18,7 @@ instance ToResourceProperties WebACLAssociation where
   toResourceProperties WebACLAssociation {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACLAssociation",
+         supportsTags = Prelude.False,
          properties = ["ResourceArn" JSON..= resourceArn,
                        "WebACLArn" JSON..= webACLArn]}
 instance JSON.ToJSON WebACLAssociation where

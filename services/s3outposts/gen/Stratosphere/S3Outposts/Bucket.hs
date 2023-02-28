@@ -21,7 +21,7 @@ mkBucket bucketName outpostId
 instance ToResourceProperties Bucket where
   toResourceProperties Bucket {..}
     = ResourceProperties
-        {awsType = "AWS::S3Outposts::Bucket",
+        {awsType = "AWS::S3Outposts::Bucket", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName, "OutpostId" JSON..= outpostId]

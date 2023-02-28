@@ -24,6 +24,7 @@ instance ToResourceProperties ConnectionAliasAssociationProperty where
   toResourceProperties ConnectionAliasAssociationProperty {..}
     = ResourceProperties
         {awsType = "AWS::WorkSpaces::ConnectionAlias.ConnectionAliasAssociation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AssociatedAccountId" Prelude.<$> associatedAccountId,

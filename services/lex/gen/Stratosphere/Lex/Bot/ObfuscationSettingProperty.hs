@@ -17,6 +17,7 @@ instance ToResourceProperties ObfuscationSettingProperty where
   toResourceProperties ObfuscationSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.ObfuscationSetting",
+         supportsTags = Prelude.False,
          properties = ["ObfuscationSettingType"
                          JSON..= obfuscationSettingType]}
 instance JSON.ToJSON ObfuscationSettingProperty where

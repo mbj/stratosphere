@@ -27,6 +27,7 @@ instance ToResourceProperties SAPODataDestinationPropertiesProperty where
   toResourceProperties SAPODataDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.SAPODataDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ObjectPath" JSON..= objectPath]

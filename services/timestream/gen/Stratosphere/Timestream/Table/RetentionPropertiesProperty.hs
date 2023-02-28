@@ -18,6 +18,7 @@ instance ToResourceProperties RetentionPropertiesProperty where
   toResourceProperties RetentionPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::Table.RetentionProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MagneticStoreRetentionPeriodInDays"

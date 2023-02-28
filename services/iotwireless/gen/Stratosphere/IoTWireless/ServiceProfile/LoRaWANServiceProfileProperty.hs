@@ -44,6 +44,7 @@ instance ToResourceProperties LoRaWANServiceProfileProperty where
   toResourceProperties LoRaWANServiceProfileProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::ServiceProfile.LoRaWANServiceProfile",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AddGwMetadata" Prelude.<$> addGwMetadata,

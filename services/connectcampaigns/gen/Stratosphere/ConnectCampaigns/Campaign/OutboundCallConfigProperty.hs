@@ -26,6 +26,7 @@ instance ToResourceProperties OutboundCallConfigProperty where
   toResourceProperties OutboundCallConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ConnectCampaigns::Campaign.OutboundCallConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectContactFlowArn" JSON..= connectContactFlowArn,

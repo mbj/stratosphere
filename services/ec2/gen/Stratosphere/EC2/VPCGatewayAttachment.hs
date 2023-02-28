@@ -20,6 +20,7 @@ instance ToResourceProperties VPCGatewayAttachment where
   toResourceProperties VPCGatewayAttachment {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VPCGatewayAttachment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VpcId" JSON..= vpcId]

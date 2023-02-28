@@ -15,6 +15,7 @@ instance ToResourceProperties PartitionProperty where
   toResourceProperties PartitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore.Partition",
+         supportsTags = Prelude.False,
          properties = ["AttributeName" JSON..= attributeName]}
 instance JSON.ToJSON PartitionProperty where
   toJSON PartitionProperty {..}

@@ -18,7 +18,7 @@ mkAccessKey userName
 instance ToResourceProperties AccessKey where
   toResourceProperties AccessKey {..}
     = ResourceProperties
-        {awsType = "AWS::IAM::AccessKey",
+        {awsType = "AWS::IAM::AccessKey", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["UserName" JSON..= userName]

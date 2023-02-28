@@ -24,6 +24,7 @@ instance ToResourceProperties BlockDeviceMappingProperty where
   toResourceProperties BlockDeviceMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.BlockDeviceMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeviceName" JSON..= deviceName]

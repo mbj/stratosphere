@@ -15,6 +15,7 @@ instance ToResourceProperties MetricWindowProperty where
   toResourceProperties MetricWindowProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AssetModel.MetricWindow",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Tumbling" Prelude.<$> tumbling])}
 instance JSON.ToJSON MetricWindowProperty where

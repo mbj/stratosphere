@@ -16,6 +16,7 @@ instance ToResourceProperties UnauthenticatedProperty where
   toResourceProperties UnauthenticatedProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.Unauthenticated",
+         supportsTags = Prelude.False,
          properties = ["Enabled" JSON..= enabled]}
 instance JSON.ToJSON UnauthenticatedProperty where
   toJSON UnauthenticatedProperty {..}

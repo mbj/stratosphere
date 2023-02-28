@@ -23,6 +23,7 @@ instance ToResourceProperties HookVersion where
   toResourceProperties HookVersion {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::HookVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SchemaHandlerPackage" JSON..= schemaHandlerPackage,

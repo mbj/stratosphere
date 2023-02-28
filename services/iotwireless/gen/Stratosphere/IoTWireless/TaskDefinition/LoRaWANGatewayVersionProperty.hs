@@ -19,6 +19,7 @@ instance ToResourceProperties LoRaWANGatewayVersionProperty where
   toResourceProperties LoRaWANGatewayVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::TaskDefinition.LoRaWANGatewayVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Model" Prelude.<$> model,

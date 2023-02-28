@@ -21,6 +21,7 @@ instance ToResourceProperties VirtualGatewayTlsValidationContextAcmTrustProperty
     VirtualGatewayTlsValidationContextAcmTrustProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextAcmTrust",
+         supportsTags = Prelude.False,
          properties = ["CertificateAuthorityArns"
                          JSON..= certificateAuthorityArns]}
 instance JSON.ToJSON VirtualGatewayTlsValidationContextAcmTrustProperty where

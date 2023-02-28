@@ -27,7 +27,7 @@ mkVPCCidrBlock vpcId
 instance ToResourceProperties VPCCidrBlock where
   toResourceProperties VPCCidrBlock {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::VPCCidrBlock",
+        {awsType = "AWS::EC2::VPCCidrBlock", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VpcId" JSON..= vpcId]

@@ -18,6 +18,7 @@ instance ToResourceProperties ReplaceDefaultPolicyVersionParamsProperty where
   toResourceProperties ReplaceDefaultPolicyVersionParamsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::MitigationAction.ReplaceDefaultPolicyVersionParams",
+         supportsTags = Prelude.False,
          properties = ["TemplateName" JSON..= templateName]}
 instance JSON.ToJSON ReplaceDefaultPolicyVersionParamsProperty where
   toJSON ReplaceDefaultPolicyVersionParamsProperty {..}

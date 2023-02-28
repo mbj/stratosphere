@@ -17,6 +17,7 @@ instance ToResourceProperties DvbSubSourceSettingsProperty where
   toResourceProperties DvbSubSourceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.DvbSubSourceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OcrLanguage" Prelude.<$> ocrLanguage,

@@ -20,6 +20,7 @@ instance ToResourceProperties ReportDeliveryChannelProperty where
   toResourceProperties ReportDeliveryChannelProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::ReportPlan.ReportDeliveryChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3BucketName" JSON..= s3BucketName]

@@ -18,6 +18,7 @@ instance ToResourceProperties CustomAttributeProperty where
   toResourceProperties CustomAttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.CustomAttribute",
+         supportsTags = Prelude.False,
          properties = ["ObjectIdentifier" JSON..= objectIdentifier,
                        "Value" JSON..= value]}
 instance JSON.ToJSON CustomAttributeProperty where

@@ -20,6 +20,7 @@ instance ToResourceProperties MetricPolicyProperty where
   toResourceProperties MetricPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaStore::Container.MetricPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ContainerLevelMetrics" JSON..= containerLevelMetrics]

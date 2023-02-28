@@ -23,6 +23,7 @@ instance ToResourceProperties UpsolverS3OutputFormatConfigProperty where
   toResourceProperties UpsolverS3OutputFormatConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.UpsolverS3OutputFormatConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PrefixConfig" JSON..= prefixConfig]

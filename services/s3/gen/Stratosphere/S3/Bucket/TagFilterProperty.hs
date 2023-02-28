@@ -17,6 +17,7 @@ instance ToResourceProperties TagFilterProperty where
   toResourceProperties TagFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.TagFilter",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON TagFilterProperty where
   toJSON TagFilterProperty {..}

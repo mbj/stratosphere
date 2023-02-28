@@ -23,6 +23,7 @@ instance ToResourceProperties DeploymentPoliciesProperty where
   toResourceProperties DeploymentPoliciesProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.DeploymentPolicies",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComponentUpdatePolicy"

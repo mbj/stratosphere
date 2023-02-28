@@ -33,6 +33,7 @@ instance ToResourceProperties InstanceStorageConfig where
   toResourceProperties InstanceStorageConfig {..}
     = ResourceProperties
         {awsType = "AWS::Connect::InstanceStorageConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceArn" JSON..= instanceArn,

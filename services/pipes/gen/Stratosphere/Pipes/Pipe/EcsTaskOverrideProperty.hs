@@ -30,6 +30,7 @@ instance ToResourceProperties EcsTaskOverrideProperty where
   toResourceProperties EcsTaskOverrideProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.EcsTaskOverride",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerOverrides" Prelude.<$> containerOverrides,

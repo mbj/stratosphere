@@ -4,6 +4,7 @@ module Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingCustomizedCapacit
         mkPredictiveScalingCustomizedCapacityMetricProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AutoScaling.ScalingPolicy.MetricDataQueryProperty as Exports
 import Stratosphere.ResourceProperties
@@ -21,6 +22,7 @@ instance ToResourceProperties PredictiveScalingCustomizedCapacityMetricProperty 
     PredictiveScalingCustomizedCapacityMetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::ScalingPolicy.PredictiveScalingCustomizedCapacityMetric",
+         supportsTags = Prelude.False,
          properties = ["MetricDataQueries" JSON..= metricDataQueries]}
 instance JSON.ToJSON PredictiveScalingCustomizedCapacityMetricProperty where
   toJSON PredictiveScalingCustomizedCapacityMetricProperty {..}

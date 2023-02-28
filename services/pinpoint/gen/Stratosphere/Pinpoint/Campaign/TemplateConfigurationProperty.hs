@@ -21,6 +21,7 @@ instance ToResourceProperties TemplateConfigurationProperty where
   toResourceProperties TemplateConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.TemplateConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EmailTemplate" Prelude.<$> emailTemplate,

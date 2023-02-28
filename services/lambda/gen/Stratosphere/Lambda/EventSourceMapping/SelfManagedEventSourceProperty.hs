@@ -16,6 +16,7 @@ instance ToResourceProperties SelfManagedEventSourceProperty where
   toResourceProperties SelfManagedEventSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventSourceMapping.SelfManagedEventSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Endpoints" Prelude.<$> endpoints])}
 instance JSON.ToJSON SelfManagedEventSourceProperty where

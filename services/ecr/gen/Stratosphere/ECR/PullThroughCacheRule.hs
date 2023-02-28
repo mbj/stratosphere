@@ -18,6 +18,7 @@ instance ToResourceProperties PullThroughCacheRule where
   toResourceProperties PullThroughCacheRule {..}
     = ResourceProperties
         {awsType = "AWS::ECR::PullThroughCacheRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EcrRepositoryPrefix" Prelude.<$> ecrRepositoryPrefix,

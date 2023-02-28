@@ -25,6 +25,7 @@ instance ToResourceProperties TransitionEventProperty where
   toResourceProperties TransitionEventProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.TransitionEvent",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Condition" JSON..= condition, "EventName" JSON..= eventName,

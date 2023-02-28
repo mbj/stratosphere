@@ -17,6 +17,7 @@ instance ToResourceProperties DataSourceErrorInfoProperty where
   toResourceProperties DataSourceErrorInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.DataSourceErrorInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Message" Prelude.<$> message,

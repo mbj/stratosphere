@@ -20,6 +20,7 @@ instance ToResourceProperties VpnTunnelOptionsSpecificationProperty where
   toResourceProperties VpnTunnelOptionsSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VPNConnection.VpnTunnelOptionsSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PreSharedKey" Prelude.<$> preSharedKey,

@@ -22,6 +22,7 @@ instance ToResourceProperties CSVMappingParametersProperty where
   toResourceProperties CSVMappingParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::ApplicationReferenceDataSource.CSVMappingParameters",
+         supportsTags = Prelude.False,
          properties = ["RecordColumnDelimiter"
                          JSON..= recordColumnDelimiter,
                        "RecordRowDelimiter" JSON..= recordRowDelimiter]}

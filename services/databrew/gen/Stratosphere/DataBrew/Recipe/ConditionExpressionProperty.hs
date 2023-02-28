@@ -21,6 +21,7 @@ instance ToResourceProperties ConditionExpressionProperty where
   toResourceProperties ConditionExpressionProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Recipe.ConditionExpression",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Condition" JSON..= condition,

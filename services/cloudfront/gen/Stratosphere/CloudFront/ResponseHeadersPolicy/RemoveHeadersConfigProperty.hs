@@ -3,6 +3,7 @@ module Stratosphere.CloudFront.ResponseHeadersPolicy.RemoveHeadersConfigProperty
         mkRemoveHeadersConfigProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.RemoveHeaderProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,7 +17,7 @@ instance ToResourceProperties RemoveHeadersConfigProperty where
   toResourceProperties RemoveHeadersConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.RemoveHeadersConfig",
-         properties = ["Items" JSON..= items]}
+         supportsTags = Prelude.False, properties = ["Items" JSON..= items]}
 instance JSON.ToJSON RemoveHeadersConfigProperty where
   toJSON RemoveHeadersConfigProperty {..}
     = JSON.object ["Items" JSON..= items]

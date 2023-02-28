@@ -33,6 +33,7 @@ instance ToResourceProperties AppMonitorConfigurationProperty where
   toResourceProperties AppMonitorConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::RUM::AppMonitor.AppMonitorConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowCookies" Prelude.<$> allowCookies,

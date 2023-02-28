@@ -16,6 +16,7 @@ instance ToResourceProperties ActionDefinitionProperty where
   toResourceProperties ActionDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.ActionDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PublishMetricAction" Prelude.<$> publishMetricAction])}

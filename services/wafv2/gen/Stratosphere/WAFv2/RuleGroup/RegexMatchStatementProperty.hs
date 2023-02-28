@@ -28,6 +28,7 @@ instance ToResourceProperties RegexMatchStatementProperty where
   toResourceProperties RegexMatchStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.RegexMatchStatement",
+         supportsTags = Prelude.False,
          properties = ["FieldToMatch" JSON..= fieldToMatch,
                        "RegexString" JSON..= regexString,
                        "TextTransformations" JSON..= textTransformations]}

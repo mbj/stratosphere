@@ -17,6 +17,7 @@ instance ToResourceProperties GeoMatchSet where
   toResourceProperties GeoMatchSet {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::GeoMatchSet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

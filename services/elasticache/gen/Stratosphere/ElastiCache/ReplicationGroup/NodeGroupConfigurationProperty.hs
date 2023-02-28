@@ -24,6 +24,7 @@ instance ToResourceProperties NodeGroupConfigurationProperty where
   toResourceProperties NodeGroupConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::ReplicationGroup.NodeGroupConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NodeGroupId" Prelude.<$> nodeGroupId,

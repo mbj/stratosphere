@@ -20,6 +20,7 @@ instance ToResourceProperties MetricStatProperty where
   toResourceProperties MetricStatProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::ScalingPolicy.MetricStat",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Metric" JSON..= metric, "Stat" JSON..= stat]

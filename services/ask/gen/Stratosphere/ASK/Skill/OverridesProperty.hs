@@ -14,6 +14,7 @@ instance ToResourceProperties OverridesProperty where
   toResourceProperties OverridesProperty {..}
     = ResourceProperties
         {awsType = "Alexa::ASK::Skill.Overrides",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Manifest" Prelude.<$> manifest])}
 instance JSON.ToJSON OverridesProperty where

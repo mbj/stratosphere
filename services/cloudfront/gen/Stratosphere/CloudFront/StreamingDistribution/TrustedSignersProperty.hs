@@ -18,6 +18,7 @@ instance ToResourceProperties TrustedSignersProperty where
   toResourceProperties TrustedSignersProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::StreamingDistribution.TrustedSigners",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

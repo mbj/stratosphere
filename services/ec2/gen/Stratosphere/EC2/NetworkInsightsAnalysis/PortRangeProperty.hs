@@ -16,6 +16,7 @@ instance ToResourceProperties PortRangeProperty where
   toResourceProperties PortRangeProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.PortRange",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "From" Prelude.<$> from,

@@ -27,7 +27,7 @@ mkDomain appId domainName subDomainSettings
 instance ToResourceProperties Domain where
   toResourceProperties Domain {..}
     = ResourceProperties
-        {awsType = "AWS::Amplify::Domain",
+        {awsType = "AWS::Amplify::Domain", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AppId" JSON..= appId, "DomainName" JSON..= domainName,

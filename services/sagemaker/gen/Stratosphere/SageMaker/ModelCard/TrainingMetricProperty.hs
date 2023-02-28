@@ -20,6 +20,7 @@ instance ToResourceProperties TrainingMetricProperty where
   toResourceProperties TrainingMetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.TrainingMetric",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Value" JSON..= value]

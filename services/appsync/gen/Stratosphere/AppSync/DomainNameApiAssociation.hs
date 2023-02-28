@@ -18,6 +18,7 @@ instance ToResourceProperties DomainNameApiAssociation where
   toResourceProperties DomainNameApiAssociation {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DomainNameApiAssociation",
+         supportsTags = Prelude.False,
          properties = ["ApiId" JSON..= apiId,
                        "DomainName" JSON..= domainName]}
 instance JSON.ToJSON DomainNameApiAssociation where

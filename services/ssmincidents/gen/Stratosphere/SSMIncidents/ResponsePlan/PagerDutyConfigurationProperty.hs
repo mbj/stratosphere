@@ -28,6 +28,7 @@ instance ToResourceProperties PagerDutyConfigurationProperty where
   toResourceProperties PagerDutyConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ResponsePlan.PagerDutyConfiguration",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name,
                        "PagerDutyIncidentConfiguration"
                          JSON..= pagerDutyIncidentConfiguration,

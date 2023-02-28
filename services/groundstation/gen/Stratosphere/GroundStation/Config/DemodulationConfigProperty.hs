@@ -15,6 +15,7 @@ instance ToResourceProperties DemodulationConfigProperty where
   toResourceProperties DemodulationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.DemodulationConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "UnvalidatedJSON" Prelude.<$> unvalidatedJSON])}

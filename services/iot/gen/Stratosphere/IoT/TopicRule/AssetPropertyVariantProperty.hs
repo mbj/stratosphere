@@ -20,6 +20,7 @@ instance ToResourceProperties AssetPropertyVariantProperty where
   toResourceProperties AssetPropertyVariantProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.AssetPropertyVariant",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BooleanValue" Prelude.<$> booleanValue,

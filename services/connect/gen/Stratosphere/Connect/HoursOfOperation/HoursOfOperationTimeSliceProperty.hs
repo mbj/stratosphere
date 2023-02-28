@@ -20,6 +20,7 @@ instance ToResourceProperties HoursOfOperationTimeSliceProperty where
   toResourceProperties HoursOfOperationTimeSliceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice",
+         supportsTags = Prelude.False,
          properties = ["Hours" JSON..= hours, "Minutes" JSON..= minutes]}
 instance JSON.ToJSON HoursOfOperationTimeSliceProperty where
   toJSON HoursOfOperationTimeSliceProperty {..}

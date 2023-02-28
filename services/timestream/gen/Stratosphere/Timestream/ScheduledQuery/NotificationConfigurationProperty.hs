@@ -3,6 +3,7 @@ module Stratosphere.Timestream.ScheduledQuery.NotificationConfigurationProperty 
         mkNotificationConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.SnsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties NotificationConfigurationProperty where
   toResourceProperties NotificationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::ScheduledQuery.NotificationConfiguration",
+         supportsTags = Prelude.False,
          properties = ["SnsConfiguration" JSON..= snsConfiguration]}
 instance JSON.ToJSON NotificationConfigurationProperty where
   toJSON NotificationConfigurationProperty {..}

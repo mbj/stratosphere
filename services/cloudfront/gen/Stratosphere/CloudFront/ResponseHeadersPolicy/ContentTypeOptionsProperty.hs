@@ -16,6 +16,7 @@ instance ToResourceProperties ContentTypeOptionsProperty where
   toResourceProperties ContentTypeOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.ContentTypeOptions",
+         supportsTags = Prelude.False,
          properties = ["Override" JSON..= override]}
 instance JSON.ToJSON ContentTypeOptionsProperty where
   toJSON ContentTypeOptionsProperty {..}

@@ -19,6 +19,7 @@ instance ToResourceProperties ScriptParameterKeyValueProperty where
   toResourceProperties ScriptParameterKeyValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::StudioComponent.ScriptParameterKeyValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

@@ -31,6 +31,7 @@ instance ToResourceProperties TrainingJobDetailsProperty where
   toResourceProperties TrainingJobDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.TrainingJobDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HyperParameters" Prelude.<$> hyperParameters,

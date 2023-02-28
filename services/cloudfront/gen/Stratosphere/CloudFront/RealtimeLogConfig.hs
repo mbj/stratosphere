@@ -24,6 +24,7 @@ instance ToResourceProperties RealtimeLogConfig where
   toResourceProperties RealtimeLogConfig {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::RealtimeLogConfig",
+         supportsTags = Prelude.False,
          properties = ["EndPoints" JSON..= endPoints,
                        "Fields" JSON..= fields, "Name" JSON..= name,
                        "SamplingRate" JSON..= samplingRate]}

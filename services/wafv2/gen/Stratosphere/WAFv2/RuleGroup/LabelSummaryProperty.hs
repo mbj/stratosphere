@@ -15,6 +15,7 @@ instance ToResourceProperties LabelSummaryProperty where
   toResourceProperties LabelSummaryProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.LabelSummary",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name])}
 instance JSON.ToJSON LabelSummaryProperty where

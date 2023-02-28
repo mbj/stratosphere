@@ -33,6 +33,7 @@ instance ToResourceProperties EndpointInputProperty where
   toResourceProperties EndpointInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelBiasJobDefinition.EndpointInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EndpointName" JSON..= endpointName,

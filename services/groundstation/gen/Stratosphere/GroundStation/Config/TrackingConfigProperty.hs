@@ -15,6 +15,7 @@ instance ToResourceProperties TrackingConfigProperty where
   toResourceProperties TrackingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.TrackingConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Autotrack" Prelude.<$> autotrack])}
 instance JSON.ToJSON TrackingConfigProperty where

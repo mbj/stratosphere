@@ -21,6 +21,7 @@ instance ToResourceProperties VpcEndpoint where
   toResourceProperties VpcEndpoint {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchServerless::VpcEndpoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "VpcId" JSON..= vpcId]

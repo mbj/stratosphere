@@ -15,6 +15,7 @@ instance ToResourceProperties BatchRetryStrategyProperty where
   toResourceProperties BatchRetryStrategyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.BatchRetryStrategy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Attempts" Prelude.<$> attempts])}
 instance JSON.ToJSON BatchRetryStrategyProperty where

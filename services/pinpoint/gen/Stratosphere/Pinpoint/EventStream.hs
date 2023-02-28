@@ -21,6 +21,7 @@ instance ToResourceProperties EventStream where
   toResourceProperties EventStream {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::EventStream",
+         supportsTags = Prelude.False,
          properties = ["ApplicationId" JSON..= applicationId,
                        "DestinationStreamArn" JSON..= destinationStreamArn,
                        "RoleArn" JSON..= roleArn]}

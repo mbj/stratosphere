@@ -36,6 +36,7 @@ instance ToResourceProperties RemediationConfiguration where
   toResourceProperties RemediationConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::Config::RemediationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConfigRuleName" JSON..= configRuleName,

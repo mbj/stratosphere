@@ -19,6 +19,7 @@ instance ToResourceProperties NumberAttributeConstraintsProperty where
   toResourceProperties NumberAttributeConstraintsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.NumberAttributeConstraints",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxValue" Prelude.<$> maxValue,

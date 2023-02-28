@@ -19,6 +19,7 @@ instance ToResourceProperties ValidationConfigurationProperty where
   toResourceProperties ValidationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.ValidationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RulesetArn" JSON..= rulesetArn]

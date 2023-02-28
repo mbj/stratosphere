@@ -22,7 +22,7 @@ mkClassifier
 instance ToResourceProperties Classifier where
   toResourceProperties Classifier {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Classifier",
+        {awsType = "AWS::Glue::Classifier", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CsvClassifier" Prelude.<$> csvClassifier,

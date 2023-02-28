@@ -22,6 +22,7 @@ instance ToResourceProperties SubnetGroup where
   toResourceProperties SubnetGroup {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::SubnetGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description, "SubnetIds" JSON..= subnetIds]

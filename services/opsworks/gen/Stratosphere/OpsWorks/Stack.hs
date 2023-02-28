@@ -64,7 +64,7 @@ mkStack defaultInstanceProfileArn name serviceRoleArn
 instance ToResourceProperties Stack where
   toResourceProperties Stack {..}
     = ResourceProperties
-        {awsType = "AWS::OpsWorks::Stack",
+        {awsType = "AWS::OpsWorks::Stack", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DefaultInstanceProfileArn" JSON..= defaultInstanceProfileArn,

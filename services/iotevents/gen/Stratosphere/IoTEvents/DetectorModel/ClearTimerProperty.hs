@@ -15,6 +15,7 @@ instance ToResourceProperties ClearTimerProperty where
   toResourceProperties ClearTimerProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.ClearTimer",
+         supportsTags = Prelude.False,
          properties = ["TimerName" JSON..= timerName]}
 instance JSON.ToJSON ClearTimerProperty where
   toJSON ClearTimerProperty {..}

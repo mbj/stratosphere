@@ -28,6 +28,7 @@ instance ToResourceProperties InstanceTypeSpecificationProperty where
   toResourceProperties InstanceTypeSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::CapacityReservationFleet.InstanceTypeSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,

@@ -22,6 +22,7 @@ instance ToResourceProperties BaiduChannel where
   toResourceProperties BaiduChannel {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::BaiduChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiKey" JSON..= apiKey, "ApplicationId" JSON..= applicationId,

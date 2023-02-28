@@ -18,6 +18,7 @@ instance ToResourceProperties S3LocationProperty where
   toResourceProperties S3LocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SimSpaceWeaver::Simulation.S3Location",
+         supportsTags = Prelude.False,
          properties = ["BucketName" JSON..= bucketName,
                        "ObjectKey" JSON..= objectKey]}
 instance JSON.ToJSON S3LocationProperty where

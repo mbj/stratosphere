@@ -20,6 +20,7 @@ instance ToResourceProperties ReplicationConfigurationProperty where
   toResourceProperties ReplicationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ReplicationConfiguration",
+         supportsTags = Prelude.False,
          properties = ["Role" JSON..= role, "Rules" JSON..= rules]}
 instance JSON.ToJSON ReplicationConfigurationProperty where
   toJSON ReplicationConfigurationProperty {..}

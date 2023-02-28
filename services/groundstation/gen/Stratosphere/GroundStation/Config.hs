@@ -20,6 +20,7 @@ instance ToResourceProperties Config where
   toResourceProperties Config {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConfigData" JSON..= configData, "Name" JSON..= name]

@@ -18,6 +18,7 @@ instance ToResourceProperties KafkaClusterClientAuthenticationProperty where
   toResourceProperties KafkaClusterClientAuthenticationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.KafkaClusterClientAuthentication",
+         supportsTags = Prelude.False,
          properties = ["AuthenticationType" JSON..= authenticationType]}
 instance JSON.ToJSON KafkaClusterClientAuthenticationProperty where
   toJSON KafkaClusterClientAuthenticationProperty {..}

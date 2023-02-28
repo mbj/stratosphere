@@ -38,6 +38,7 @@ instance ToResourceProperties InputSettingsProperty where
   toResourceProperties InputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.InputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioSelectors" Prelude.<$> audioSelectors,

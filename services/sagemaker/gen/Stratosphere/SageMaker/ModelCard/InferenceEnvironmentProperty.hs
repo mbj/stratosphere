@@ -15,6 +15,7 @@ instance ToResourceProperties InferenceEnvironmentProperty where
   toResourceProperties InferenceEnvironmentProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.InferenceEnvironment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerImage" Prelude.<$> containerImage])}

@@ -20,6 +20,7 @@ instance ToResourceProperties CoreDefinition where
   toResourceProperties CoreDefinition {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::CoreDefinition",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

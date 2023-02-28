@@ -18,6 +18,7 @@ instance ToResourceProperties SentimentAnalysisSettingsProperty where
   toResourceProperties SentimentAnalysisSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SentimentAnalysisSettings",
+         supportsTags = Prelude.False,
          properties = ["DetectSentiment" JSON..= detectSentiment]}
 instance JSON.ToJSON SentimentAnalysisSettingsProperty where
   toJSON SentimentAnalysisSettingsProperty {..}

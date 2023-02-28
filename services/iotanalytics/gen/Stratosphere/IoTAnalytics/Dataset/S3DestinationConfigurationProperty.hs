@@ -25,6 +25,7 @@ instance ToResourceProperties S3DestinationConfigurationProperty where
   toResourceProperties S3DestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.S3DestinationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket, "Key" JSON..= key,

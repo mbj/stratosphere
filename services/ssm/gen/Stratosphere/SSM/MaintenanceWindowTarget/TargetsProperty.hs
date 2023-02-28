@@ -17,6 +17,7 @@ instance ToResourceProperties TargetsProperty where
   toResourceProperties TargetsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTarget.Targets",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Values" JSON..= values]}
 instance JSON.ToJSON TargetsProperty where
   toJSON TargetsProperty {..}

@@ -14,7 +14,7 @@ instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::WebACL.Action",
-         properties = ["Type" JSON..= type']}
+         supportsTags = Prelude.False, properties = ["Type" JSON..= type']}
 instance JSON.ToJSON ActionProperty where
   toJSON ActionProperty {..} = JSON.object ["Type" JSON..= type']
 instance Property "Type" ActionProperty where

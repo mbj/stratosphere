@@ -17,6 +17,7 @@ instance ToResourceProperties TagEntryProperty where
   toResourceProperties TagEntryProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::EventBus.TagEntry",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON TagEntryProperty where
   toJSON TagEntryProperty {..}

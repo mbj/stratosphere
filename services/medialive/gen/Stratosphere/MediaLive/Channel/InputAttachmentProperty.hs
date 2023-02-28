@@ -24,6 +24,7 @@ instance ToResourceProperties InputAttachmentProperty where
   toResourceProperties InputAttachmentProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.InputAttachment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutomaticInputFailoverSettings"

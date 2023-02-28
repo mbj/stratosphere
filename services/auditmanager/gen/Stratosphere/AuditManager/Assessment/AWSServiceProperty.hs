@@ -15,6 +15,7 @@ instance ToResourceProperties AWSServiceProperty where
   toResourceProperties AWSServiceProperty {..}
     = ResourceProperties
         {awsType = "AWS::AuditManager::Assessment.AWSService",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ServiceName" Prelude.<$> serviceName])}

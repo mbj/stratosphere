@@ -23,6 +23,7 @@ instance ToResourceProperties CustomArtifactConfigurationProperty where
   toResourceProperties CustomArtifactConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.CustomArtifactConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ArtifactType" JSON..= artifactType]

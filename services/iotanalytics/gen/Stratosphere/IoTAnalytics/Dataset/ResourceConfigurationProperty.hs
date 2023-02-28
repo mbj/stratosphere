@@ -19,6 +19,7 @@ instance ToResourceProperties ResourceConfigurationProperty where
   toResourceProperties ResourceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.ResourceConfiguration",
+         supportsTags = Prelude.False,
          properties = ["ComputeType" JSON..= computeType,
                        "VolumeSizeInGB" JSON..= volumeSizeInGB]}
 instance JSON.ToJSON ResourceConfigurationProperty where

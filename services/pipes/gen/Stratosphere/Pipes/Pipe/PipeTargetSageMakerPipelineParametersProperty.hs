@@ -19,6 +19,7 @@ instance ToResourceProperties PipeTargetSageMakerPipelineParametersProperty wher
     PipeTargetSageMakerPipelineParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeTargetSageMakerPipelineParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PipelineParameterList"

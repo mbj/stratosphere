@@ -22,6 +22,7 @@ instance ToResourceProperties AccessPolicyIdentityProperty where
   toResourceProperties AccessPolicyIdentityProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AccessPolicy.AccessPolicyIdentity",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IamRole" Prelude.<$> iamRole,

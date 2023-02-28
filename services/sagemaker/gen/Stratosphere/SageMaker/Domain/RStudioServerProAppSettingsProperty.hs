@@ -19,6 +19,7 @@ instance ToResourceProperties RStudioServerProAppSettingsProperty where
   toResourceProperties RStudioServerProAppSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Domain.RStudioServerProAppSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessStatus" Prelude.<$> accessStatus,

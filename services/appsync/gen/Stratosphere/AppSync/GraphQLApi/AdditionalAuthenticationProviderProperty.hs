@@ -27,6 +27,7 @@ instance ToResourceProperties AdditionalAuthenticationProviderProperty where
   toResourceProperties AdditionalAuthenticationProviderProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::GraphQLApi.AdditionalAuthenticationProvider",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthenticationType" JSON..= authenticationType]

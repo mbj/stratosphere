@@ -47,6 +47,7 @@ instance ToResourceProperties LdapServerMetadataProperty where
   toResourceProperties LdapServerMetadataProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmazonMQ::Broker.LdapServerMetadata",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Hosts" JSON..= hosts, "RoleBase" JSON..= roleBase,

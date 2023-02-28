@@ -23,6 +23,7 @@ instance ToResourceProperties FindMatchesParametersProperty where
   toResourceProperties FindMatchesParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::MLTransform.FindMatchesParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PrimaryKeyColumnName" JSON..= primaryKeyColumnName]

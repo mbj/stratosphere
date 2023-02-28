@@ -22,6 +22,7 @@ instance ToResourceProperties BorrowConfigurationProperty where
   toResourceProperties BorrowConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::LicenseManager::License.BorrowConfiguration",
+         supportsTags = Prelude.False,
          properties = ["AllowEarlyCheckIn" JSON..= allowEarlyCheckIn,
                        "MaxTimeToLiveInMinutes" JSON..= maxTimeToLiveInMinutes]}
 instance JSON.ToJSON BorrowConfigurationProperty where

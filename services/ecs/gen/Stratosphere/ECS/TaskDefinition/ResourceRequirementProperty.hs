@@ -18,6 +18,7 @@ instance ToResourceProperties ResourceRequirementProperty where
   toResourceProperties ResourceRequirementProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.ResourceRequirement",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON ResourceRequirementProperty where
   toJSON ResourceRequirementProperty {..}

@@ -19,6 +19,7 @@ instance ToResourceProperties RetentionArchiveTierProperty where
   toResourceProperties RetentionArchiveTierProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.RetentionArchiveTier",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Count" Prelude.<$> count,

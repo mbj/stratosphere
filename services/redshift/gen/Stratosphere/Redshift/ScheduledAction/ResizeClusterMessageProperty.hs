@@ -23,6 +23,7 @@ instance ToResourceProperties ResizeClusterMessageProperty where
   toResourceProperties ResizeClusterMessageProperty {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::ScheduledAction.ResizeClusterMessage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterIdentifier" JSON..= clusterIdentifier]

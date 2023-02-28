@@ -18,6 +18,7 @@ instance ToResourceProperties HttpUrlDestinationSummaryProperty where
   toResourceProperties HttpUrlDestinationSummaryProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRuleDestination.HttpUrlDestinationSummary",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConfirmationUrl" Prelude.<$> confirmationUrl])}

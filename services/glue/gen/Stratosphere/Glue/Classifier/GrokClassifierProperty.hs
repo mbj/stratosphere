@@ -21,6 +21,7 @@ instance ToResourceProperties GrokClassifierProperty where
   toResourceProperties GrokClassifierProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Classifier.GrokClassifier",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Classification" JSON..= classification,

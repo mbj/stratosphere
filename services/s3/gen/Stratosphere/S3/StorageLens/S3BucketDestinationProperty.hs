@@ -33,6 +33,7 @@ instance ToResourceProperties S3BucketDestinationProperty where
   toResourceProperties S3BucketDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.S3BucketDestination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccountId" JSON..= accountId, "Arn" JSON..= arn,

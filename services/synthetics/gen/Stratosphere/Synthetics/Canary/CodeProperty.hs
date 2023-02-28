@@ -22,6 +22,7 @@ instance ToResourceProperties CodeProperty where
   toResourceProperties CodeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Synthetics::Canary.Code",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Handler" JSON..= handler]

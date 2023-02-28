@@ -29,6 +29,7 @@ instance ToResourceProperties ScheduledTriggerPropertiesProperty where
   toResourceProperties ScheduledTriggerPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.ScheduledTriggerProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ScheduleExpression" JSON..= scheduleExpression]

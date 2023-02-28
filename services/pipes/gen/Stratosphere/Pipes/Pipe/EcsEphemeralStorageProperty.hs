@@ -16,6 +16,7 @@ instance ToResourceProperties EcsEphemeralStorageProperty where
   toResourceProperties EcsEphemeralStorageProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.EcsEphemeralStorage",
+         supportsTags = Prelude.False,
          properties = ["SizeInGiB" JSON..= sizeInGiB]}
 instance JSON.ToJSON EcsEphemeralStorageProperty where
   toJSON EcsEphemeralStorageProperty {..}

@@ -45,6 +45,7 @@ instance ToResourceProperties RDSSourceConfigProperty where
   toResourceProperties RDSSourceConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.RDSSourceConfig",
+         supportsTags = Prelude.False,
          properties = ["DBInstanceIdentifier" JSON..= dBInstanceIdentifier,
                        "DatabaseHost" JSON..= databaseHost,
                        "DatabaseName" JSON..= databaseName,

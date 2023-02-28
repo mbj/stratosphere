@@ -21,6 +21,7 @@ instance ToResourceProperties NotificationConfigProperty where
   toResourceProperties NotificationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTask.NotificationConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["NotificationArn" JSON..= notificationArn]

@@ -31,6 +31,7 @@ instance ToResourceProperties InforNexusConnectorProfileCredentialsProperty wher
     InforNexusConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.InforNexusConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = ["AccessKeyId" JSON..= accessKeyId,
                        "Datakey" JSON..= datakey,
                        "SecretAccessKey" JSON..= secretAccessKey,

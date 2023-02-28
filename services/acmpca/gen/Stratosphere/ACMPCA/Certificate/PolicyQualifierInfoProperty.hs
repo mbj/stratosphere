@@ -21,6 +21,7 @@ instance ToResourceProperties PolicyQualifierInfoProperty where
   toResourceProperties PolicyQualifierInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate.PolicyQualifierInfo",
+         supportsTags = Prelude.False,
          properties = ["PolicyQualifierId" JSON..= policyQualifierId,
                        "Qualifier" JSON..= qualifier]}
 instance JSON.ToJSON PolicyQualifierInfoProperty where

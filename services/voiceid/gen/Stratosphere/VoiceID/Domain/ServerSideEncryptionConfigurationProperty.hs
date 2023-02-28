@@ -17,6 +17,7 @@ instance ToResourceProperties ServerSideEncryptionConfigurationProperty where
   toResourceProperties ServerSideEncryptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::VoiceID::Domain.ServerSideEncryptionConfiguration",
+         supportsTags = Prelude.False,
          properties = ["KmsKeyId" JSON..= kmsKeyId]}
 instance JSON.ToJSON ServerSideEncryptionConfigurationProperty where
   toJSON ServerSideEncryptionConfigurationProperty {..}

@@ -15,6 +15,7 @@ instance ToResourceProperties HlsIngestProperty where
   toResourceProperties HlsIngestProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::Channel.HlsIngest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ingestEndpoints" Prelude.<$> ingestEndpoints])}

@@ -21,6 +21,7 @@ instance ToResourceProperties TransformOutputProperty where
   toResourceProperties TransformOutputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.TransformOutput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3OutputPath" JSON..= s3OutputPath]

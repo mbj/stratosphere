@@ -17,6 +17,7 @@ instance ToResourceProperties PolicyTagProperty where
   toResourceProperties PolicyTagProperty {..}
     = ResourceProperties
         {awsType = "AWS::FMS::Policy.PolicyTag",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON PolicyTagProperty where
   toJSON PolicyTagProperty {..}

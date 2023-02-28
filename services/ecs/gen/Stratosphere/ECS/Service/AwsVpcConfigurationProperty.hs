@@ -19,6 +19,7 @@ instance ToResourceProperties AwsVpcConfigurationProperty where
   toResourceProperties AwsVpcConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.AwsVpcConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AssignPublicIp" Prelude.<$> assignPublicIp,

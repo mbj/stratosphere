@@ -15,6 +15,7 @@ instance ToResourceProperties OnFailureProperty where
   toResourceProperties OnFailureProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventInvokeConfig.OnFailure",
+         supportsTags = Prelude.False,
          properties = ["Destination" JSON..= destination]}
 instance JSON.ToJSON OnFailureProperty where
   toJSON OnFailureProperty {..}

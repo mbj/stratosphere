@@ -16,7 +16,7 @@ instance ToResourceProperties SingleQueryArgumentProperty where
   toResourceProperties SingleQueryArgumentProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.SingleQueryArgument",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON SingleQueryArgumentProperty where
   toJSON SingleQueryArgumentProperty {..}
     = JSON.object ["Name" JSON..= name]

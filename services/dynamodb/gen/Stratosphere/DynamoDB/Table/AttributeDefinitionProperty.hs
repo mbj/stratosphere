@@ -19,6 +19,7 @@ instance ToResourceProperties AttributeDefinitionProperty where
   toResourceProperties AttributeDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.AttributeDefinition",
+         supportsTags = Prelude.False,
          properties = ["AttributeName" JSON..= attributeName,
                        "AttributeType" JSON..= attributeType]}
 instance JSON.ToJSON AttributeDefinitionProperty where

@@ -36,6 +36,7 @@ instance ToResourceProperties CaptionSelectorSettingsProperty where
   toResourceProperties CaptionSelectorSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.CaptionSelectorSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AncillarySourceSettings"

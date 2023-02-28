@@ -22,6 +22,7 @@ instance ToResourceProperties RuntimeConfigurationProperty where
   toResourceProperties RuntimeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::Fleet.RuntimeConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GameSessionActivationTimeoutSeconds"

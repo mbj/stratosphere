@@ -20,6 +20,7 @@ instance ToResourceProperties InstanceMetadataOptionsProperty where
   toResourceProperties InstanceMetadataOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::InfrastructureConfiguration.InstanceMetadataOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HttpPutResponseHopLimit"

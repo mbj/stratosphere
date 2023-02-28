@@ -27,6 +27,7 @@ instance ToResourceProperties SpotProvisioningSpecificationProperty where
   toResourceProperties SpotProvisioningSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.SpotProvisioningSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TimeoutAction" JSON..= timeoutAction,

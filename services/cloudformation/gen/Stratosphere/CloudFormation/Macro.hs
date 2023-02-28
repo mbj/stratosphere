@@ -22,6 +22,7 @@ instance ToResourceProperties Macro where
   toResourceProperties Macro {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::Macro",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionName" JSON..= functionName, "Name" JSON..= name]

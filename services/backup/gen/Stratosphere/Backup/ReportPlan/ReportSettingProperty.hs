@@ -23,6 +23,7 @@ instance ToResourceProperties ReportSettingProperty where
   toResourceProperties ReportSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::ReportPlan.ReportSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ReportTemplate" JSON..= reportTemplate]

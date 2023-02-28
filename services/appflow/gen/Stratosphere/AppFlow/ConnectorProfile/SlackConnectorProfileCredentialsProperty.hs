@@ -25,6 +25,7 @@ instance ToResourceProperties SlackConnectorProfileCredentialsProperty where
   toResourceProperties SlackConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.SlackConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientId" JSON..= clientId, "ClientSecret" JSON..= clientSecret]

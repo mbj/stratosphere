@@ -17,6 +17,7 @@ instance ToResourceProperties EfsInputFileLocationProperty where
   toResourceProperties EfsInputFileLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Workflow.EfsInputFileLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FileSystemId" Prelude.<$> fileSystemId,

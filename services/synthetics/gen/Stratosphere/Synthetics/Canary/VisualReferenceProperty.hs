@@ -21,6 +21,7 @@ instance ToResourceProperties VisualReferenceProperty where
   toResourceProperties VisualReferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Synthetics::Canary.VisualReference",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BaseCanaryRunId" JSON..= baseCanaryRunId]

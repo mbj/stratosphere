@@ -17,6 +17,7 @@ instance ToResourceProperties ContributorInsightsSpecificationProperty where
   toResourceProperties ContributorInsightsSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.ContributorInsightsSpecification",
+         supportsTags = Prelude.False,
          properties = ["Enabled" JSON..= enabled]}
 instance JSON.ToJSON ContributorInsightsSpecificationProperty where
   toJSON ContributorInsightsSpecificationProperty {..}

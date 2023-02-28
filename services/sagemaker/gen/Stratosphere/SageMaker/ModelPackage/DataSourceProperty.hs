@@ -2,6 +2,7 @@ module Stratosphere.SageMaker.ModelPackage.DataSourceProperty (
         module Exports, DataSourceProperty(..), mkDataSourceProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.S3DataSourceProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,7 @@ instance ToResourceProperties DataSourceProperty where
   toResourceProperties DataSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.DataSource",
+         supportsTags = Prelude.False,
          properties = ["S3DataSource" JSON..= s3DataSource]}
 instance JSON.ToJSON DataSourceProperty where
   toJSON DataSourceProperty {..}

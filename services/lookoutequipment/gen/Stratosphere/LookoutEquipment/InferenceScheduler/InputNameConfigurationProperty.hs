@@ -19,6 +19,7 @@ instance ToResourceProperties InputNameConfigurationProperty where
   toResourceProperties InputNameConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutEquipment::InferenceScheduler.InputNameConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComponentTimestampDelimiter"

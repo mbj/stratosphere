@@ -19,6 +19,7 @@ instance ToResourceProperties StatisticOverrideProperty where
   toResourceProperties StatisticOverrideProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.StatisticOverride",
+         supportsTags = Prelude.False,
          properties = ["Parameters" JSON..= parameters,
                        "Statistic" JSON..= statistic]}
 instance JSON.ToJSON StatisticOverrideProperty where

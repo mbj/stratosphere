@@ -18,6 +18,7 @@ instance ToResourceProperties ResourceAccessPolicyProperty where
   toResourceProperties ResourceAccessPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::FunctionDefinition.ResourceAccessPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResourceId" JSON..= resourceId]

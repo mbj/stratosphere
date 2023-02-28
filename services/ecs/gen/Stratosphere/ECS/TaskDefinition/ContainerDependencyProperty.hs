@@ -17,6 +17,7 @@ instance ToResourceProperties ContainerDependencyProperty where
   toResourceProperties ContainerDependencyProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.ContainerDependency",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Condition" Prelude.<$> condition,

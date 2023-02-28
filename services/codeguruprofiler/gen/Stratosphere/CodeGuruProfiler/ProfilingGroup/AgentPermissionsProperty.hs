@@ -16,6 +16,7 @@ instance ToResourceProperties AgentPermissionsProperty where
   toResourceProperties AgentPermissionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeGuruProfiler::ProfilingGroup.AgentPermissions",
+         supportsTags = Prelude.False,
          properties = ["Principals" JSON..= principals]}
 instance JSON.ToJSON AgentPermissionsProperty where
   toJSON AgentPermissionsProperty {..}

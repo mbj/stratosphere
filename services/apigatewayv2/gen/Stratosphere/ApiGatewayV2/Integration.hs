@@ -48,6 +48,7 @@ instance ToResourceProperties Integration where
   toResourceProperties Integration {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Integration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId, "IntegrationType" JSON..= integrationType]

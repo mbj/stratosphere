@@ -26,6 +26,7 @@ instance ToResourceProperties ElasticsearchActionProperty where
   toResourceProperties ElasticsearchActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.ElasticsearchAction",
+         supportsTags = Prelude.False,
          properties = ["Endpoint" JSON..= endpoint, "Id" JSON..= id,
                        "Index" JSON..= index, "RoleArn" JSON..= roleArn,
                        "Type" JSON..= type']}

@@ -24,6 +24,7 @@ instance ToResourceProperties Theme where
   toResourceProperties Theme {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Theme",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Values" JSON..= values]

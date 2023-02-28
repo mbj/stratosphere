@@ -39,7 +39,7 @@ mkWorkspace
 instance ToResourceProperties Workspace where
   toResourceProperties Workspace {..}
     = ResourceProperties
-        {awsType = "AWS::Grafana::Workspace",
+        {awsType = "AWS::Grafana::Workspace", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccountAccessType" Prelude.<$> accountAccessType,

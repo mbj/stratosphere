@@ -16,6 +16,7 @@ instance ToResourceProperties ImmunityTimePropertyProperty where
   toResourceProperties ImmunityTimePropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.ImmunityTimeProperty",
+         supportsTags = Prelude.False,
          properties = ["ImmunityTime" JSON..= immunityTime]}
 instance JSON.ToJSON ImmunityTimePropertyProperty where
   toJSON ImmunityTimePropertyProperty {..}

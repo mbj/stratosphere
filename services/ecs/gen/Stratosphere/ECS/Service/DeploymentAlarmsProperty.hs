@@ -21,6 +21,7 @@ instance ToResourceProperties DeploymentAlarmsProperty where
   toResourceProperties DeploymentAlarmsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.DeploymentAlarms",
+         supportsTags = Prelude.False,
          properties = ["AlarmNames" JSON..= alarmNames,
                        "Enable" JSON..= enable, "Rollback" JSON..= rollback]}
 instance JSON.ToJSON DeploymentAlarmsProperty where

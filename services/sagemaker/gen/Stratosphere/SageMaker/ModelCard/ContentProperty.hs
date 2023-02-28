@@ -30,6 +30,7 @@ instance ToResourceProperties ContentProperty where
   toResourceProperties ContentProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.Content",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdditionalInformation"

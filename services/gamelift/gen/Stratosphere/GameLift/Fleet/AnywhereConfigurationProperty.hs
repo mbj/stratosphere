@@ -16,7 +16,7 @@ instance ToResourceProperties AnywhereConfigurationProperty where
   toResourceProperties AnywhereConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::Fleet.AnywhereConfiguration",
-         properties = ["Cost" JSON..= cost]}
+         supportsTags = Prelude.False, properties = ["Cost" JSON..= cost]}
 instance JSON.ToJSON AnywhereConfigurationProperty where
   toJSON AnywhereConfigurationProperty {..}
     = JSON.object ["Cost" JSON..= cost]

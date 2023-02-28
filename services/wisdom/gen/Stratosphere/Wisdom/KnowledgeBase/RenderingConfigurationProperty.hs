@@ -16,6 +16,7 @@ instance ToResourceProperties RenderingConfigurationProperty where
   toResourceProperties RenderingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Wisdom::KnowledgeBase.RenderingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TemplateUri" Prelude.<$> templateUri])}

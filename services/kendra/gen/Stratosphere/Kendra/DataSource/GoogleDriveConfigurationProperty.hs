@@ -30,6 +30,7 @@ instance ToResourceProperties GoogleDriveConfigurationProperty where
   toResourceProperties GoogleDriveConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.GoogleDriveConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SecretArn" JSON..= secretArn]

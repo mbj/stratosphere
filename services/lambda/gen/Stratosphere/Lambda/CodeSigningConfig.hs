@@ -23,6 +23,7 @@ instance ToResourceProperties CodeSigningConfig where
   toResourceProperties CodeSigningConfig {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::CodeSigningConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AllowedPublishers" JSON..= allowedPublishers]

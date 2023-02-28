@@ -48,7 +48,7 @@ mkPolicy
 instance ToResourceProperties Policy where
   toResourceProperties Policy {..}
     = ResourceProperties
-        {awsType = "AWS::FMS::Policy",
+        {awsType = "AWS::FMS::Policy", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ExcludeResourceTags" JSON..= excludeResourceTags,

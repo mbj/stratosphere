@@ -45,7 +45,7 @@ mkResolver apiId fieldName typeName
 instance ToResourceProperties Resolver where
   toResourceProperties Resolver {..}
     = ResourceProperties
-        {awsType = "AWS::AppSync::Resolver",
+        {awsType = "AWS::AppSync::Resolver", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId, "FieldName" JSON..= fieldName,

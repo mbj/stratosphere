@@ -27,6 +27,7 @@ instance ToResourceProperties Deployment where
   toResourceProperties Deployment {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TargetArn" JSON..= targetArn]

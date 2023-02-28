@@ -29,6 +29,7 @@ instance ToResourceProperties DataValueProperty where
   toResourceProperties DataValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::Entity.DataValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BooleanValue" Prelude.<$> booleanValue,

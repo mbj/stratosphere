@@ -45,6 +45,7 @@ instance ToResourceProperties HealthCheckConfigProperty where
   toResourceProperties HealthCheckConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::HealthCheck.HealthCheckConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

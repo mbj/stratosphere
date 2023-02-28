@@ -23,6 +23,7 @@ instance ToResourceProperties CFNDataSourceConfigurationsProperty where
   toResourceProperties CFNDataSourceConfigurationsProperty {..}
     = ResourceProperties
         {awsType = "AWS::GuardDuty::Detector.CFNDataSourceConfigurations",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Kubernetes" Prelude.<$> kubernetes,

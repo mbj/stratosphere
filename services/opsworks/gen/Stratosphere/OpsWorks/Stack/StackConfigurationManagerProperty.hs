@@ -19,6 +19,7 @@ instance ToResourceProperties StackConfigurationManagerProperty where
   toResourceProperties StackConfigurationManagerProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Stack.StackConfigurationManager",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

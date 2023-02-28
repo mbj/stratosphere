@@ -19,6 +19,7 @@ instance ToResourceProperties OutputColumnProperty where
   toResourceProperties OutputColumnProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.OutputColumn",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

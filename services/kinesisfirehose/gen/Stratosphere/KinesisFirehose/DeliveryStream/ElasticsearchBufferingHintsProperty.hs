@@ -19,6 +19,7 @@ instance ToResourceProperties ElasticsearchBufferingHintsProperty where
   toResourceProperties ElasticsearchBufferingHintsProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.ElasticsearchBufferingHints",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IntervalInSeconds" Prelude.<$> intervalInSeconds,

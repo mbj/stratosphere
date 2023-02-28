@@ -21,7 +21,7 @@ mkInstance attributes identityManagementType
 instance ToResourceProperties Instance where
   toResourceProperties Instance {..}
     = ResourceProperties
-        {awsType = "AWS::Connect::Instance",
+        {awsType = "AWS::Connect::Instance", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Attributes" JSON..= attributes,

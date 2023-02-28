@@ -23,6 +23,7 @@ instance ToResourceProperties ManagedScalingProperty where
   toResourceProperties ManagedScalingProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::CapacityProvider.ManagedScaling",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InstanceWarmupPeriod" Prelude.<$> instanceWarmupPeriod,

@@ -42,6 +42,7 @@ instance ToResourceProperties Distribution where
   toResourceProperties Distribution {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Distribution",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BundleId" JSON..= bundleId,

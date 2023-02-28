@@ -17,6 +17,7 @@ instance ToResourceProperties ResourceRequirementProperty where
   toResourceProperties ResourceRequirementProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.ResourceRequirement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Type" Prelude.<$> type',

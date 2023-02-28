@@ -23,6 +23,7 @@ instance ToResourceProperties ProxyConfigurationProperty where
   toResourceProperties ProxyConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.ProxyConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ContainerName" JSON..= containerName]

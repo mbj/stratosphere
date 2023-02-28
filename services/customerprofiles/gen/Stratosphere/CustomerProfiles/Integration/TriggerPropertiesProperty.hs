@@ -16,6 +16,7 @@ instance ToResourceProperties TriggerPropertiesProperty where
   toResourceProperties TriggerPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.TriggerProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Scheduled" Prelude.<$> scheduled])}
 instance JSON.ToJSON TriggerPropertiesProperty where

@@ -20,6 +20,7 @@ instance ToResourceProperties PosixProfileProperty where
   toResourceProperties PosixProfileProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::User.PosixProfile",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Gid" JSON..= gid, "Uid" JSON..= uid]

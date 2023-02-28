@@ -14,6 +14,7 @@ instance ToResourceProperties BodyProperty where
   toResourceProperties BodyProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.Body",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OversizeHandling" Prelude.<$> oversizeHandling])}

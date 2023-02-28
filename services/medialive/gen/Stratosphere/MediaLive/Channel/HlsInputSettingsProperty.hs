@@ -22,6 +22,7 @@ instance ToResourceProperties HlsInputSettingsProperty where
   toResourceProperties HlsInputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HlsInputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Bandwidth" Prelude.<$> bandwidth,

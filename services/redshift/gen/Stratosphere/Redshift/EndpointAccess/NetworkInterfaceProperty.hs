@@ -21,6 +21,7 @@ instance ToResourceProperties NetworkInterfaceProperty where
   toResourceProperties NetworkInterfaceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::EndpointAccess.NetworkInterface",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,

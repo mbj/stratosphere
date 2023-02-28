@@ -20,6 +20,7 @@ instance ToResourceProperties EfsStorageConfigurationProperty where
   toResourceProperties EfsStorageConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::M2::Environment.EfsStorageConfiguration",
+         supportsTags = Prelude.False,
          properties = ["FileSystemId" JSON..= fileSystemId,
                        "MountPoint" JSON..= mountPoint]}
 instance JSON.ToJSON EfsStorageConfigurationProperty where

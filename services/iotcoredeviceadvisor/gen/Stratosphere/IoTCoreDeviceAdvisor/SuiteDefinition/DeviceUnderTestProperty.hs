@@ -17,6 +17,7 @@ instance ToResourceProperties DeviceUnderTestProperty where
   toResourceProperties DeviceUnderTestProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTCoreDeviceAdvisor::SuiteDefinition.DeviceUnderTest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateArn" Prelude.<$> certificateArn,

@@ -19,6 +19,7 @@ instance ToResourceProperties LookoutMetricsDestinationPropertiesProperty where
     LookoutMetricsDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.LookoutMetricsDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Object" Prelude.<$> object])}
 instance JSON.ToJSON LookoutMetricsDestinationPropertiesProperty where

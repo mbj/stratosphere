@@ -19,6 +19,7 @@ instance ToResourceProperties DefaultRetentionProperty where
   toResourceProperties DefaultRetentionProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.DefaultRetention",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Days" Prelude.<$> days,

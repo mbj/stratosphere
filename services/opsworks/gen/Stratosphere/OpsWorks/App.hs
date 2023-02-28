@@ -37,7 +37,7 @@ mkApp name stackId type'
 instance ToResourceProperties App where
   toResourceProperties App {..}
     = ResourceProperties
-        {awsType = "AWS::OpsWorks::App",
+        {awsType = "AWS::OpsWorks::App", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "StackId" JSON..= stackId,

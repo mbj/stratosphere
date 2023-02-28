@@ -21,6 +21,7 @@ instance ToResourceProperties LogConfigurationProperty where
   toResourceProperties LogConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.LogConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LogDriver" Prelude.<$> logDriver,

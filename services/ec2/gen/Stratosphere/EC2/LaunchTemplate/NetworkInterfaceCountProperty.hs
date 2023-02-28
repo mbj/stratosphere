@@ -17,6 +17,7 @@ instance ToResourceProperties NetworkInterfaceCountProperty where
   toResourceProperties NetworkInterfaceCountProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.NetworkInterfaceCount",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

@@ -22,6 +22,7 @@ instance ToResourceProperties SubnetGroup where
   toResourceProperties SubnetGroup {..}
     = ResourceProperties
         {awsType = "AWS::MemoryDB::SubnetGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubnetGroupName" JSON..= subnetGroupName,

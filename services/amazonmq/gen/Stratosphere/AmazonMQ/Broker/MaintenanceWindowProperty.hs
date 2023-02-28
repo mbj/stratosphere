@@ -21,6 +21,7 @@ instance ToResourceProperties MaintenanceWindowProperty where
   toResourceProperties MaintenanceWindowProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmazonMQ::Broker.MaintenanceWindow",
+         supportsTags = Prelude.False,
          properties = ["DayOfWeek" JSON..= dayOfWeek,
                        "TimeOfDay" JSON..= timeOfDay, "TimeZone" JSON..= timeZone]}
 instance JSON.ToJSON MaintenanceWindowProperty where

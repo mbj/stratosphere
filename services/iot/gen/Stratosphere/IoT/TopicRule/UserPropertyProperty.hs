@@ -17,6 +17,7 @@ instance ToResourceProperties UserPropertyProperty where
   toResourceProperties UserPropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.UserProperty",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON UserPropertyProperty where
   toJSON UserPropertyProperty {..}

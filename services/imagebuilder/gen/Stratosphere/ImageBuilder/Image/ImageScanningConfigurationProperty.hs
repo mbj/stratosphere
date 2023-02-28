@@ -21,6 +21,7 @@ instance ToResourceProperties ImageScanningConfigurationProperty where
   toResourceProperties ImageScanningConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::Image.ImageScanningConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EcrConfiguration" Prelude.<$> ecrConfiguration,

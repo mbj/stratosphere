@@ -29,6 +29,7 @@ instance ToResourceProperties WorkGroupConfigurationProperty where
   toResourceProperties WorkGroupConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Athena::WorkGroup.WorkGroupConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BytesScannedCutoffPerQuery"

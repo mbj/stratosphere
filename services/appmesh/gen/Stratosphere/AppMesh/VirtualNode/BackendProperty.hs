@@ -15,6 +15,7 @@ instance ToResourceProperties BackendProperty where
   toResourceProperties BackendProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.Backend",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "VirtualService" Prelude.<$> virtualService])}

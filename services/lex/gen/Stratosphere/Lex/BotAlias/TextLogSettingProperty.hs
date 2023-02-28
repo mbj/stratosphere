@@ -21,6 +21,7 @@ instance ToResourceProperties TextLogSettingProperty where
   toResourceProperties TextLogSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::BotAlias.TextLogSetting",
+         supportsTags = Prelude.False,
          properties = ["Destination" JSON..= destination,
                        "Enabled" JSON..= enabled]}
 instance JSON.ToJSON TextLogSettingProperty where

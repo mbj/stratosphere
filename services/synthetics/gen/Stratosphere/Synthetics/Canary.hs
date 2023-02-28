@@ -58,7 +58,7 @@ mkCanary
 instance ToResourceProperties Canary where
   toResourceProperties Canary {..}
     = ResourceProperties
-        {awsType = "AWS::Synthetics::Canary",
+        {awsType = "AWS::Synthetics::Canary", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ArtifactS3Location" JSON..= artifactS3Location,

@@ -20,6 +20,7 @@ instance ToResourceProperties FastRestoreRuleProperty where
   toResourceProperties FastRestoreRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.FastRestoreRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZones" Prelude.<$> availabilityZones,

@@ -32,6 +32,7 @@ instance ToResourceProperties ConfigurationSet where
   toResourceProperties ConfigurationSet {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeliveryOptions" Prelude.<$> deliveryOptions,

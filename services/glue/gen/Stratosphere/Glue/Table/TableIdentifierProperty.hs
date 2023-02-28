@@ -19,6 +19,7 @@ instance ToResourceProperties TableIdentifierProperty where
   toResourceProperties TableIdentifierProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Table.TableIdentifier",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CatalogId" Prelude.<$> catalogId,

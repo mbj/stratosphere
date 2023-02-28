@@ -23,6 +23,7 @@ instance ToResourceProperties VirtualGatewayListenerTlsValidationContextProperty
     VirtualGatewayListenerTlsValidationContextProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTlsValidationContext",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Trust" JSON..= trust]

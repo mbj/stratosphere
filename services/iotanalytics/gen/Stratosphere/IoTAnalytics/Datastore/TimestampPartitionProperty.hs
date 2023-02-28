@@ -18,6 +18,7 @@ instance ToResourceProperties TimestampPartitionProperty where
   toResourceProperties TimestampPartitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore.TimestampPartition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AttributeName" JSON..= attributeName]

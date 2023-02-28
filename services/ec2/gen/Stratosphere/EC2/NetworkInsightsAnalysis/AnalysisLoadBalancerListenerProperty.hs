@@ -20,6 +20,7 @@ instance ToResourceProperties AnalysisLoadBalancerListenerProperty where
   toResourceProperties AnalysisLoadBalancerListenerProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.AnalysisLoadBalancerListener",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InstancePort" Prelude.<$> instancePort,

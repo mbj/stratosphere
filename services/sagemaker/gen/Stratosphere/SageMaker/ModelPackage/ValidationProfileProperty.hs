@@ -22,6 +22,7 @@ instance ToResourceProperties ValidationProfileProperty where
   toResourceProperties ValidationProfileProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.ValidationProfile",
+         supportsTags = Prelude.False,
          properties = ["ProfileName" JSON..= profileName,
                        "TransformJobDefinition" JSON..= transformJobDefinition]}
 instance JSON.ToJSON ValidationProfileProperty where

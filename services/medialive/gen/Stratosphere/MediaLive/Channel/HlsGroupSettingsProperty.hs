@@ -98,6 +98,7 @@ instance ToResourceProperties HlsGroupSettingsProperty where
   toResourceProperties HlsGroupSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HlsGroupSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdMarkers" Prelude.<$> adMarkers,

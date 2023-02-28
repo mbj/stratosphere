@@ -24,6 +24,7 @@ instance ToResourceProperties SubComponentTypeConfigurationProperty where
   toResourceProperties SubComponentTypeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.SubComponentTypeConfiguration",
+         supportsTags = Prelude.False,
          properties = ["SubComponentConfigurationDetails"
                          JSON..= subComponentConfigurationDetails,
                        "SubComponentType" JSON..= subComponentType]}

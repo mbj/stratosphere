@@ -27,6 +27,7 @@ instance ToResourceProperties DimensionConfigurationProperty where
   toResourceProperties DimensionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::ConfigurationSetEventDestination.DimensionConfiguration",
+         supportsTags = Prelude.False,
          properties = ["DefaultDimensionValue"
                          JSON..= defaultDimensionValue,
                        "DimensionName" JSON..= dimensionName,

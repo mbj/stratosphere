@@ -17,7 +17,7 @@ mkColumnProperty name
 instance ToResourceProperties ColumnProperty where
   toResourceProperties ColumnProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Table.Column",
+        {awsType = "AWS::Glue::Table.Column", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

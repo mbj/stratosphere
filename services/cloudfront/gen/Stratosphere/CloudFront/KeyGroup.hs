@@ -2,6 +2,7 @@ module Stratosphere.CloudFront.KeyGroup (
         module Exports, KeyGroup(..), mkKeyGroup
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.KeyGroup.KeyGroupConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -13,6 +14,7 @@ instance ToResourceProperties KeyGroup where
   toResourceProperties KeyGroup {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::KeyGroup",
+         supportsTags = Prelude.False,
          properties = ["KeyGroupConfig" JSON..= keyGroupConfig]}
 instance JSON.ToJSON KeyGroup where
   toJSON KeyGroup {..}

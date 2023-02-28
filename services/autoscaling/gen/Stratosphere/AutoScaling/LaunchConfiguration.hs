@@ -50,6 +50,7 @@ instance ToResourceProperties LaunchConfiguration where
   toResourceProperties LaunchConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::LaunchConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ImageId" JSON..= imageId, "InstanceType" JSON..= instanceType]

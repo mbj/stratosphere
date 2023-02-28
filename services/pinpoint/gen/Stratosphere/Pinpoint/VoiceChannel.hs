@@ -17,6 +17,7 @@ instance ToResourceProperties VoiceChannel where
   toResourceProperties VoiceChannel {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::VoiceChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId]

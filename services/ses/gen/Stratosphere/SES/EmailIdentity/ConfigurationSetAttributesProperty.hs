@@ -18,6 +18,7 @@ instance ToResourceProperties ConfigurationSetAttributesProperty where
   toResourceProperties ConfigurationSetAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::EmailIdentity.ConfigurationSetAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConfigurationSetName"

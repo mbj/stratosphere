@@ -39,6 +39,7 @@ instance ToResourceProperties WindowsConfigurationProperty where
   toResourceProperties WindowsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::FileSystem.WindowsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ThroughputCapacity" JSON..= throughputCapacity]

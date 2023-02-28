@@ -27,6 +27,7 @@ instance ToResourceProperties SnowflakeDestinationPropertiesProperty where
   toResourceProperties SnowflakeDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.SnowflakeDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IntermediateBucketName" JSON..= intermediateBucketName,

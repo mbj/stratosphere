@@ -42,6 +42,7 @@ instance ToResourceProperties Mpeg2SettingsProperty where
   toResourceProperties Mpeg2SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Mpeg2Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdaptiveQuantization" Prelude.<$> adaptiveQuantization,

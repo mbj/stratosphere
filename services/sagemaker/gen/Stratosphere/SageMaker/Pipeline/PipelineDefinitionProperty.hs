@@ -20,6 +20,7 @@ instance ToResourceProperties PipelineDefinitionProperty where
   toResourceProperties PipelineDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Pipeline.PipelineDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PipelineDefinitionBody"

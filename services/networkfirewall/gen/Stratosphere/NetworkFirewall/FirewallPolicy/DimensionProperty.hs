@@ -14,7 +14,7 @@ instance ToResourceProperties DimensionProperty where
   toResourceProperties DimensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::FirewallPolicy.Dimension",
-         properties = ["Value" JSON..= value]}
+         supportsTags = Prelude.False, properties = ["Value" JSON..= value]}
 instance JSON.ToJSON DimensionProperty where
   toJSON DimensionProperty {..} = JSON.object ["Value" JSON..= value]
 instance Property "Value" DimensionProperty where

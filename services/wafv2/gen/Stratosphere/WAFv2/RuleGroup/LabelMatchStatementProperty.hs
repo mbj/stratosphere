@@ -18,6 +18,7 @@ instance ToResourceProperties LabelMatchStatementProperty where
   toResourceProperties LabelMatchStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.LabelMatchStatement",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Scope" JSON..= scope]}
 instance JSON.ToJSON LabelMatchStatementProperty where
   toJSON LabelMatchStatementProperty {..}

@@ -23,6 +23,7 @@ instance ToResourceProperties StageDeclarationProperty where
   toResourceProperties StageDeclarationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Pipeline.StageDeclaration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Actions" JSON..= actions, "Name" JSON..= name]

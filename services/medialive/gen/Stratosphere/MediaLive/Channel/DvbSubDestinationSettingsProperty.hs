@@ -43,6 +43,7 @@ instance ToResourceProperties DvbSubDestinationSettingsProperty where
   toResourceProperties DvbSubDestinationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.DvbSubDestinationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Alignment" Prelude.<$> alignment,

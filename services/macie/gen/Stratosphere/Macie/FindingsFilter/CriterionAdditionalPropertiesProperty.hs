@@ -24,6 +24,7 @@ instance ToResourceProperties CriterionAdditionalPropertiesProperty where
   toResourceProperties CriterionAdditionalPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Macie::FindingsFilter.CriterionAdditionalProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "eq" Prelude.<$> eq, (JSON..=) "gt" Prelude.<$> gt,

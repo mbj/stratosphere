@@ -15,6 +15,7 @@ instance ToResourceProperties S3ConfigProperty where
   toResourceProperties S3ConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationS3.S3Config",
+         supportsTags = Prelude.False,
          properties = ["BucketAccessRoleArn" JSON..= bucketAccessRoleArn]}
 instance JSON.ToJSON S3ConfigProperty where
   toJSON S3ConfigProperty {..}

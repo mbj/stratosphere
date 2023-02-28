@@ -15,6 +15,7 @@ instance ToResourceProperties DestinationProperty where
   toResourceProperties DestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::GameSessionQueue.Destination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DestinationArn" Prelude.<$> destinationArn])}

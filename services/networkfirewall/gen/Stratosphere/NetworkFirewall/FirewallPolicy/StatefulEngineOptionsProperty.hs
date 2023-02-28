@@ -18,6 +18,7 @@ instance ToResourceProperties StatefulEngineOptionsProperty where
   toResourceProperties StatefulEngineOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::FirewallPolicy.StatefulEngineOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RuleOrder" Prelude.<$> ruleOrder,

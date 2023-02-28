@@ -28,6 +28,7 @@ instance ToResourceProperties PipeSourceRabbitMQBrokerParametersProperty where
     PipeSourceRabbitMQBrokerParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeSourceRabbitMQBrokerParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Credentials" JSON..= credentials, "QueueName" JSON..= queueName]

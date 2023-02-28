@@ -24,6 +24,7 @@ instance ToResourceProperties ApplicationReferenceDataSource where
   toResourceProperties ApplicationReferenceDataSource {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource",
+         supportsTags = Prelude.False,
          properties = ["ApplicationName" JSON..= applicationName,
                        "ReferenceDataSource" JSON..= referenceDataSource]}
 instance JSON.ToJSON ApplicationReferenceDataSource where

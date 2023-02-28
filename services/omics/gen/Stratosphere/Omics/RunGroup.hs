@@ -21,7 +21,7 @@ mkRunGroup
 instance ToResourceProperties RunGroup where
   toResourceProperties RunGroup {..}
     = ResourceProperties
-        {awsType = "AWS::Omics::RunGroup",
+        {awsType = "AWS::Omics::RunGroup", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxCpus" Prelude.<$> maxCpus,

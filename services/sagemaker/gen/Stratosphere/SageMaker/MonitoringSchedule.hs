@@ -33,6 +33,7 @@ instance ToResourceProperties MonitoringSchedule where
   toResourceProperties MonitoringSchedule {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MonitoringScheduleConfig" JSON..= monitoringScheduleConfig,

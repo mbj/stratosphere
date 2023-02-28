@@ -20,6 +20,7 @@ instance ToResourceProperties SessionStickinessConfigProperty where
   toResourceProperties SessionStickinessConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ContinuousDeploymentPolicy.SessionStickinessConfig",
+         supportsTags = Prelude.False,
          properties = ["IdleTTL" JSON..= idleTTL,
                        "MaximumTTL" JSON..= maximumTTL]}
 instance JSON.ToJSON SessionStickinessConfigProperty where

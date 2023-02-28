@@ -34,7 +34,7 @@ mkFlowLog resourceId resourceType
 instance ToResourceProperties FlowLog where
   toResourceProperties FlowLog {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::FlowLog",
+        {awsType = "AWS::EC2::FlowLog", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResourceId" JSON..= resourceId,

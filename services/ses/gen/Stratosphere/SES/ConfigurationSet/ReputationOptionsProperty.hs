@@ -16,6 +16,7 @@ instance ToResourceProperties ReputationOptionsProperty where
   toResourceProperties ReputationOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSet.ReputationOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReputationMetricsEnabled"

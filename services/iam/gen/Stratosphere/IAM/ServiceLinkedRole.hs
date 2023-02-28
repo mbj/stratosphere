@@ -19,6 +19,7 @@ instance ToResourceProperties ServiceLinkedRole where
   toResourceProperties ServiceLinkedRole {..}
     = ResourceProperties
         {awsType = "AWS::IAM::ServiceLinkedRole",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AWSServiceName" JSON..= aWSServiceName]

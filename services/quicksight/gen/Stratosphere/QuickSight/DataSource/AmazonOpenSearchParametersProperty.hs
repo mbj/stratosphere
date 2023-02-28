@@ -17,6 +17,7 @@ instance ToResourceProperties AmazonOpenSearchParametersProperty where
   toResourceProperties AmazonOpenSearchParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.AmazonOpenSearchParameters",
+         supportsTags = Prelude.False,
          properties = ["Domain" JSON..= domain]}
 instance JSON.ToJSON AmazonOpenSearchParametersProperty where
   toJSON AmazonOpenSearchParametersProperty {..}

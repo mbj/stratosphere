@@ -19,6 +19,7 @@ instance ToResourceProperties ElasticInferenceAcceleratorProperty where
   toResourceProperties ElasticInferenceAcceleratorProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.ElasticInferenceAccelerator",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

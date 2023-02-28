@@ -24,6 +24,7 @@ instance ToResourceProperties VirtualNode where
   toResourceProperties VirtualNode {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MeshName" JSON..= meshName, "Spec" JSON..= spec]

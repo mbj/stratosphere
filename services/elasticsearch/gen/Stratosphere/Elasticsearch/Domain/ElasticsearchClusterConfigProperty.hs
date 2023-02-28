@@ -37,6 +37,7 @@ instance ToResourceProperties ElasticsearchClusterConfigProperty where
   toResourceProperties ElasticsearchClusterConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Elasticsearch::Domain.ElasticsearchClusterConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ColdStorageOptions" Prelude.<$> coldStorageOptions,

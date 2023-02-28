@@ -112,7 +112,7 @@ mkCluster
 instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
-        {awsType = "AWS::Redshift::Cluster",
+        {awsType = "AWS::Redshift::Cluster", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterType" JSON..= clusterType, "DBName" JSON..= dBName,

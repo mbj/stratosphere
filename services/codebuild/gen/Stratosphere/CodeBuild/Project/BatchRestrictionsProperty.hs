@@ -18,6 +18,7 @@ instance ToResourceProperties BatchRestrictionsProperty where
   toResourceProperties BatchRestrictionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.BatchRestrictions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComputeTypesAllowed" Prelude.<$> computeTypesAllowed,

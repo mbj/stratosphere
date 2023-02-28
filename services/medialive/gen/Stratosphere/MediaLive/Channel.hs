@@ -37,7 +37,7 @@ mkChannel
 instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties
-        {awsType = "AWS::MediaLive::Channel",
+        {awsType = "AWS::MediaLive::Channel", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CdiInputSpecification"

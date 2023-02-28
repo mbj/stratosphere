@@ -25,6 +25,7 @@ instance ToResourceProperties Stream where
   toResourceProperties Stream {..}
     = ResourceProperties
         {awsType = "AWS::KinesisVideo::Stream",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataRetentionInHours" Prelude.<$> dataRetentionInHours,

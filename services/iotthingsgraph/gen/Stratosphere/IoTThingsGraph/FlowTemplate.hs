@@ -19,6 +19,7 @@ instance ToResourceProperties FlowTemplate where
   toResourceProperties FlowTemplate {..}
     = ResourceProperties
         {awsType = "AWS::IoTThingsGraph::FlowTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Definition" JSON..= definition]

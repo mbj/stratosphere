@@ -34,6 +34,7 @@ instance ToResourceProperties Dataset where
   toResourceProperties Dataset {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Actions" JSON..= actions]

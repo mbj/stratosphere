@@ -19,6 +19,7 @@ instance ToResourceProperties EndpointProperty where
   toResourceProperties EndpointProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBInstance.Endpoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Address" Prelude.<$> address,

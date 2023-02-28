@@ -19,6 +19,7 @@ instance ToResourceProperties CertificateAuthenticationRequestProperty where
   toResourceProperties CertificateAuthenticationRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::ClientVpnEndpoint.CertificateAuthenticationRequest",
+         supportsTags = Prelude.False,
          properties = ["ClientRootCertificateChainArn"
                          JSON..= clientRootCertificateChainArn]}
 instance JSON.ToJSON CertificateAuthenticationRequestProperty where

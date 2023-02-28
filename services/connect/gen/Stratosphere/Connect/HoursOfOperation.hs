@@ -28,6 +28,7 @@ instance ToResourceProperties HoursOfOperation where
   toResourceProperties HoursOfOperation {..}
     = ResourceProperties
         {awsType = "AWS::Connect::HoursOfOperation",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Config" JSON..= config, "InstanceArn" JSON..= instanceArn,

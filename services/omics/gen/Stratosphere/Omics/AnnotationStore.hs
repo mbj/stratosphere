@@ -29,6 +29,7 @@ instance ToResourceProperties AnnotationStore where
   toResourceProperties AnnotationStore {..}
     = ResourceProperties
         {awsType = "AWS::Omics::AnnotationStore",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "StoreFormat" JSON..= storeFormat]

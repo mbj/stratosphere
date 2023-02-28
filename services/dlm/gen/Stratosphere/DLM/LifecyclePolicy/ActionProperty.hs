@@ -19,6 +19,7 @@ instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.Action",
+         supportsTags = Prelude.False,
          properties = ["CrossRegionCopy" JSON..= crossRegionCopy,
                        "Name" JSON..= name]}
 instance JSON.ToJSON ActionProperty where

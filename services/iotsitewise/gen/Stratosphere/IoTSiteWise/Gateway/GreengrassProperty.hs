@@ -15,6 +15,7 @@ instance ToResourceProperties GreengrassProperty where
   toResourceProperties GreengrassProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::Gateway.Greengrass",
+         supportsTags = Prelude.False,
          properties = ["GroupArn" JSON..= groupArn]}
 instance JSON.ToJSON GreengrassProperty where
   toJSON GreengrassProperty {..}

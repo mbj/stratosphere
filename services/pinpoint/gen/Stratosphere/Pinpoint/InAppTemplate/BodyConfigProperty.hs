@@ -19,6 +19,7 @@ instance ToResourceProperties BodyConfigProperty where
   toResourceProperties BodyConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::InAppTemplate.BodyConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Alignment" Prelude.<$> alignment,

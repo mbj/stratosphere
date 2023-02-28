@@ -24,7 +24,7 @@ mkMetricFilter filterPattern logGroupName metricTransformations
 instance ToResourceProperties MetricFilter where
   toResourceProperties MetricFilter {..}
     = ResourceProperties
-        {awsType = "AWS::Logs::MetricFilter",
+        {awsType = "AWS::Logs::MetricFilter", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FilterPattern" JSON..= filterPattern,

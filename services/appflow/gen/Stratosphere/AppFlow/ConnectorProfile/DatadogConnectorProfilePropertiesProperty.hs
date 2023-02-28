@@ -18,6 +18,7 @@ instance ToResourceProperties DatadogConnectorProfilePropertiesProperty where
   toResourceProperties DatadogConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.DatadogConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = ["InstanceUrl" JSON..= instanceUrl]}
 instance JSON.ToJSON DatadogConnectorProfilePropertiesProperty where
   toJSON DatadogConnectorProfilePropertiesProperty {..}

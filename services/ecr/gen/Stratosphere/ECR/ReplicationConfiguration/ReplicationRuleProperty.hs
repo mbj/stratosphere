@@ -20,6 +20,7 @@ instance ToResourceProperties ReplicationRuleProperty where
   toResourceProperties ReplicationRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECR::ReplicationConfiguration.ReplicationRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Destinations" JSON..= destinations]

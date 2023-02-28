@@ -16,7 +16,7 @@ mkLocation locationName
 instance ToResourceProperties Location where
   toResourceProperties Location {..}
     = ResourceProperties
-        {awsType = "AWS::GameLift::Location",
+        {awsType = "AWS::GameLift::Location", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LocationName" JSON..= locationName]

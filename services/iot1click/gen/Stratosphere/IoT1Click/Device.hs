@@ -15,7 +15,7 @@ mkDevice deviceId enabled
 instance ToResourceProperties Device where
   toResourceProperties Device {..}
     = ResourceProperties
-        {awsType = "AWS::IoT1Click::Device",
+        {awsType = "AWS::IoT1Click::Device", supportsTags = Prelude.False,
          properties = ["DeviceId" JSON..= deviceId,
                        "Enabled" JSON..= enabled]}
 instance JSON.ToJSON Device where

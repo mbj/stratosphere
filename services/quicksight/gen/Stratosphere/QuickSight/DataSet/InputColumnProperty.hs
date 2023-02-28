@@ -17,6 +17,7 @@ instance ToResourceProperties InputColumnProperty where
   toResourceProperties InputColumnProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.InputColumn",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Type" JSON..= type']}
 instance JSON.ToJSON InputColumnProperty where
   toJSON InputColumnProperty {..}

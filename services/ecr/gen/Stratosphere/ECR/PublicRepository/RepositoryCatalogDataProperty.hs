@@ -23,6 +23,7 @@ instance ToResourceProperties RepositoryCatalogDataProperty where
   toResourceProperties RepositoryCatalogDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECR::PublicRepository.RepositoryCatalogData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AboutText" Prelude.<$> aboutText,

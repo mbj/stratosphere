@@ -22,6 +22,7 @@ instance ToResourceProperties S3BucketLogDestinationProperty where
   toResourceProperties S3BucketLogDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.S3BucketLogDestination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LogPrefix" JSON..= logPrefix, "S3BucketArn" JSON..= s3BucketArn]

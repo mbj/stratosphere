@@ -24,6 +24,7 @@ instance ToResourceProperties IotSiteWiseProperty where
   toResourceProperties IotSiteWiseProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.IotSiteWise",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PropertyValue" JSON..= propertyValue]

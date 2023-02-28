@@ -20,6 +20,7 @@ instance ToResourceProperties FixedResponseConfigProperty where
   toResourceProperties FixedResponseConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::Listener.FixedResponseConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StatusCode" JSON..= statusCode]

@@ -24,6 +24,7 @@ instance ToResourceProperties BotVersionLocaleSpecificationProperty where
   toResourceProperties BotVersionLocaleSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::BotVersion.BotVersionLocaleSpecification",
+         supportsTags = Prelude.False,
          properties = ["BotVersionLocaleDetails"
                          JSON..= botVersionLocaleDetails,
                        "LocaleId" JSON..= localeId]}

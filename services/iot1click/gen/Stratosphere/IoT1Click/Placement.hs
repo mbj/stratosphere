@@ -20,6 +20,7 @@ instance ToResourceProperties Placement where
   toResourceProperties Placement {..}
     = ResourceProperties
         {awsType = "AWS::IoT1Click::Placement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ProjectName" JSON..= projectName]

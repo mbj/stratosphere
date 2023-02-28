@@ -17,6 +17,7 @@ instance ToResourceProperties AccessPointTagProperty where
   toResourceProperties AccessPointTagProperty {..}
     = ResourceProperties
         {awsType = "AWS::EFS::AccessPoint.AccessPointTag",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

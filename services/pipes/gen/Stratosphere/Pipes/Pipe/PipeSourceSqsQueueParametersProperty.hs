@@ -20,6 +20,7 @@ instance ToResourceProperties PipeSourceSqsQueueParametersProperty where
   toResourceProperties PipeSourceSqsQueueParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeSourceSqsQueueParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BatchSize" Prelude.<$> batchSize,

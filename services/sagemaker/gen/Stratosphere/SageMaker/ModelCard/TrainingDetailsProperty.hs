@@ -23,6 +23,7 @@ instance ToResourceProperties TrainingDetailsProperty where
   toResourceProperties TrainingDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.TrainingDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ObjectiveFunction" Prelude.<$> objectiveFunction,

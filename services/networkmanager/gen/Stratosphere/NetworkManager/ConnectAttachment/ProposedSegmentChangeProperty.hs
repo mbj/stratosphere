@@ -20,6 +20,7 @@ instance ToResourceProperties ProposedSegmentChangeProperty where
   toResourceProperties ProposedSegmentChangeProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::ConnectAttachment.ProposedSegmentChange",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AttachmentPolicyRuleNumber"

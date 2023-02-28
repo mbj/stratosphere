@@ -24,6 +24,7 @@ instance ToResourceProperties LaunchRoleConstraint where
   toResourceProperties LaunchRoleConstraint {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::LaunchRoleConstraint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PortfolioId" JSON..= portfolioId, "ProductId" JSON..= productId]

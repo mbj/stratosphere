@@ -20,6 +20,7 @@ instance ToResourceProperties ResourceServerScopeTypeProperty where
   toResourceProperties ResourceServerScopeTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolResourceServer.ResourceServerScopeType",
+         supportsTags = Prelude.False,
          properties = ["ScopeDescription" JSON..= scopeDescription,
                        "ScopeName" JSON..= scopeName]}
 instance JSON.ToJSON ResourceServerScopeTypeProperty where

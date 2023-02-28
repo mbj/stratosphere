@@ -23,6 +23,7 @@ instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Channel",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ChannelName" Prelude.<$> channelName,

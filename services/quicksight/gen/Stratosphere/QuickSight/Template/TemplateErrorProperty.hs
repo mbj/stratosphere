@@ -17,6 +17,7 @@ instance ToResourceProperties TemplateErrorProperty where
   toResourceProperties TemplateErrorProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Template.TemplateError",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Message" Prelude.<$> message,

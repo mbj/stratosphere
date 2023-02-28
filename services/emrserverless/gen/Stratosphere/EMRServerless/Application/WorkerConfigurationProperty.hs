@@ -20,6 +20,7 @@ instance ToResourceProperties WorkerConfigurationProperty where
   toResourceProperties WorkerConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMRServerless::Application.WorkerConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Cpu" JSON..= cpu, "Memory" JSON..= memory]

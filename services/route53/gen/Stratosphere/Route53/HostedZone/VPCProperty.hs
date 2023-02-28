@@ -17,6 +17,7 @@ instance ToResourceProperties VPCProperty where
   toResourceProperties VPCProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::HostedZone.VPC",
+         supportsTags = Prelude.False,
          properties = ["VPCId" JSON..= vPCId,
                        "VPCRegion" JSON..= vPCRegion]}
 instance JSON.ToJSON VPCProperty where

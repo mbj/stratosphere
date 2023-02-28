@@ -18,6 +18,7 @@ instance ToResourceProperties UpdateConfigProperty where
   toResourceProperties UpdateConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Nodegroup.UpdateConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxUnavailable" Prelude.<$> maxUnavailable,

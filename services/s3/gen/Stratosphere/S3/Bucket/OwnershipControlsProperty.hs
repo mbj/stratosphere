@@ -3,6 +3,7 @@ module Stratosphere.S3.Bucket.OwnershipControlsProperty (
         mkOwnershipControlsProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.Bucket.OwnershipControlsRuleProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,7 +17,7 @@ instance ToResourceProperties OwnershipControlsProperty where
   toResourceProperties OwnershipControlsProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.OwnershipControls",
-         properties = ["Rules" JSON..= rules]}
+         supportsTags = Prelude.False, properties = ["Rules" JSON..= rules]}
 instance JSON.ToJSON OwnershipControlsProperty where
   toJSON OwnershipControlsProperty {..}
     = JSON.object ["Rules" JSON..= rules]

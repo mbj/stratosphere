@@ -21,6 +21,7 @@ instance ToResourceProperties GlobalReplicationGroupMemberProperty where
   toResourceProperties GlobalReplicationGroupMemberProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::GlobalReplicationGroup.GlobalReplicationGroupMember",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReplicationGroupId" Prelude.<$> replicationGroupId,

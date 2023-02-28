@@ -18,6 +18,7 @@ instance ToResourceProperties ConnectedHomeSettingsProperty where
   toResourceProperties ConnectedHomeSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Rekognition::StreamProcessor.ConnectedHomeSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Labels" JSON..= labels]

@@ -26,6 +26,7 @@ instance ToResourceProperties ExecuteCommandLogConfigurationProperty where
   toResourceProperties ExecuteCommandLogConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Cluster.ExecuteCommandLogConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchEncryptionEnabled"

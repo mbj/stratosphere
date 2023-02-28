@@ -17,6 +17,7 @@ instance ToResourceProperties RangeProperty where
   toResourceProperties RangeProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::AnomalyDetector.Range",
+         supportsTags = Prelude.False,
          properties = ["EndTime" JSON..= endTime,
                        "StartTime" JSON..= startTime]}
 instance JSON.ToJSON RangeProperty where

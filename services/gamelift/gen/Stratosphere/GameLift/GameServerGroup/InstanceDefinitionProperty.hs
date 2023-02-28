@@ -18,6 +18,7 @@ instance ToResourceProperties InstanceDefinitionProperty where
   toResourceProperties InstanceDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::GameServerGroup.InstanceDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceType" JSON..= instanceType]

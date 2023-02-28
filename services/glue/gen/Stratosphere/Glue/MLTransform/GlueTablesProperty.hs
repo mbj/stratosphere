@@ -21,6 +21,7 @@ instance ToResourceProperties GlueTablesProperty where
   toResourceProperties GlueTablesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::MLTransform.GlueTables",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatabaseName" JSON..= databaseName,

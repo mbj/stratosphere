@@ -22,6 +22,7 @@ instance ToResourceProperties ConnectorOperatorProperty where
   toResourceProperties ConnectorOperatorProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.ConnectorOperator",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Marketo" Prelude.<$> marketo,

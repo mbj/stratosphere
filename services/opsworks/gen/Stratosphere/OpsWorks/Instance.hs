@@ -50,7 +50,7 @@ mkInstance instanceType layerIds stackId
 instance ToResourceProperties Instance where
   toResourceProperties Instance {..}
     = ResourceProperties
-        {awsType = "AWS::OpsWorks::Instance",
+        {awsType = "AWS::OpsWorks::Instance", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceType" JSON..= instanceType, "LayerIds" JSON..= layerIds,

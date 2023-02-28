@@ -20,6 +20,7 @@ instance ToResourceProperties UserQuickConnectConfigProperty where
   toResourceProperties UserQuickConnectConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::QuickConnect.UserQuickConnectConfig",
+         supportsTags = Prelude.False,
          properties = ["ContactFlowArn" JSON..= contactFlowArn,
                        "UserArn" JSON..= userArn]}
 instance JSON.ToJSON UserQuickConnectConfigProperty where

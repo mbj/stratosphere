@@ -18,6 +18,7 @@ instance ToResourceProperties FargatePlatformConfigurationProperty where
   toResourceProperties FargatePlatformConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.FargatePlatformConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PlatformVersion" Prelude.<$> platformVersion])}

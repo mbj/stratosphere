@@ -18,6 +18,7 @@ instance ToResourceProperties CriteriaProperty where
   toResourceProperties CriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::Macie::AllowList.Criteria",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Regex" Prelude.<$> regex,

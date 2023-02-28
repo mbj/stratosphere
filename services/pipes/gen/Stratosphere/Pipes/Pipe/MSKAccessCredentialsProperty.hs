@@ -18,6 +18,7 @@ instance ToResourceProperties MSKAccessCredentialsProperty where
   toResourceProperties MSKAccessCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.MSKAccessCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClientCertificateTlsAuth"

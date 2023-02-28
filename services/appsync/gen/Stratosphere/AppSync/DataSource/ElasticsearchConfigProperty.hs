@@ -19,6 +19,7 @@ instance ToResourceProperties ElasticsearchConfigProperty where
   toResourceProperties ElasticsearchConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.ElasticsearchConfig",
+         supportsTags = Prelude.False,
          properties = ["AwsRegion" JSON..= awsRegion,
                        "Endpoint" JSON..= endpoint]}
 instance JSON.ToJSON ElasticsearchConfigProperty where

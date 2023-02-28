@@ -16,6 +16,7 @@ instance ToResourceProperties IpamOperatingRegionProperty where
   toResourceProperties IpamOperatingRegionProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::IPAMResourceDiscovery.IpamOperatingRegion",
+         supportsTags = Prelude.False,
          properties = ["RegionName" JSON..= regionName]}
 instance JSON.ToJSON IpamOperatingRegionProperty where
   toJSON IpamOperatingRegionProperty {..}

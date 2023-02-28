@@ -18,7 +18,7 @@ mkSubnetGroup subnetIds
 instance ToResourceProperties SubnetGroup where
   toResourceProperties SubnetGroup {..}
     = ResourceProperties
-        {awsType = "AWS::DAX::SubnetGroup",
+        {awsType = "AWS::DAX::SubnetGroup", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubnetIds" JSON..= subnetIds]

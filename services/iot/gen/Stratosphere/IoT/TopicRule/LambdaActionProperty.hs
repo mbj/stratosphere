@@ -15,6 +15,7 @@ instance ToResourceProperties LambdaActionProperty where
   toResourceProperties LambdaActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.LambdaAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FunctionArn" Prelude.<$> functionArn])}

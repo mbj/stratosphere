@@ -20,6 +20,7 @@ instance ToResourceProperties EntityType where
   toResourceProperties EntityType {..}
     = ResourceProperties
         {awsType = "AWS::FraudDetector::EntityType",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

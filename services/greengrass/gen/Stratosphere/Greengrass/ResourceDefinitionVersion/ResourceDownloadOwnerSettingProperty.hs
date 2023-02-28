@@ -20,6 +20,7 @@ instance ToResourceProperties ResourceDownloadOwnerSettingProperty where
   toResourceProperties ResourceDownloadOwnerSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinitionVersion.ResourceDownloadOwnerSetting",
+         supportsTags = Prelude.False,
          properties = ["GroupOwner" JSON..= groupOwner,
                        "GroupPermission" JSON..= groupPermission]}
 instance JSON.ToJSON ResourceDownloadOwnerSettingProperty where

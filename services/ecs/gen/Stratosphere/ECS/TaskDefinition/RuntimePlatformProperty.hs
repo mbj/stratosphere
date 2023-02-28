@@ -18,6 +18,7 @@ instance ToResourceProperties RuntimePlatformProperty where
   toResourceProperties RuntimePlatformProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.RuntimePlatform",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CpuArchitecture" Prelude.<$> cpuArchitecture,

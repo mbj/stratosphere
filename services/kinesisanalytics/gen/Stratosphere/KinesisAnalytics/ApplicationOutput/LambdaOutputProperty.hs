@@ -18,6 +18,7 @@ instance ToResourceProperties LambdaOutputProperty where
   toResourceProperties LambdaOutputProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::ApplicationOutput.LambdaOutput",
+         supportsTags = Prelude.False,
          properties = ["ResourceARN" JSON..= resourceARN,
                        "RoleARN" JSON..= roleARN]}
 instance JSON.ToJSON LambdaOutputProperty where

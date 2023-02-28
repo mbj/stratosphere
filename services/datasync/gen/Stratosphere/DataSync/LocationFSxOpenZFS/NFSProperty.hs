@@ -2,6 +2,7 @@ module Stratosphere.DataSync.LocationFSxOpenZFS.NFSProperty (
         module Exports, NFSProperty(..), mkNFSProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxOpenZFS.MountOptionsProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,7 @@ instance ToResourceProperties NFSProperty where
   toResourceProperties NFSProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationFSxOpenZFS.NFS",
+         supportsTags = Prelude.False,
          properties = ["MountOptions" JSON..= mountOptions]}
 instance JSON.ToJSON NFSProperty where
   toJSON NFSProperty {..}

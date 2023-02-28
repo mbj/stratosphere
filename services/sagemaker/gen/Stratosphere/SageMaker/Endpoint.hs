@@ -28,7 +28,7 @@ mkEndpoint endpointConfigName
 instance ToResourceProperties Endpoint where
   toResourceProperties Endpoint {..}
     = ResourceProperties
-        {awsType = "AWS::SageMaker::Endpoint",
+        {awsType = "AWS::SageMaker::Endpoint", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EndpointConfigName" JSON..= endpointConfigName]

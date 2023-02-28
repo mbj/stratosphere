@@ -20,6 +20,7 @@ instance ToResourceProperties BlueInstanceTerminationOptionProperty where
   toResourceProperties BlueInstanceTerminationOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.BlueInstanceTerminationOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Action" Prelude.<$> action,

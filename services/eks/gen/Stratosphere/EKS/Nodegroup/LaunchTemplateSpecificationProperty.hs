@@ -21,6 +21,7 @@ instance ToResourceProperties LaunchTemplateSpecificationProperty where
   toResourceProperties LaunchTemplateSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Nodegroup.LaunchTemplateSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Id" Prelude.<$> id, (JSON..=) "Name" Prelude.<$> name,

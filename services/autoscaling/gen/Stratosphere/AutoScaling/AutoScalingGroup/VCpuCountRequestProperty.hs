@@ -17,6 +17,7 @@ instance ToResourceProperties VCpuCountRequestProperty where
   toResourceProperties VCpuCountRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.VCpuCountRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

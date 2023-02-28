@@ -19,6 +19,7 @@ instance ToResourceProperties ScalingConfigProperty where
   toResourceProperties ScalingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Nodegroup.ScalingConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DesiredSize" Prelude.<$> desiredSize,

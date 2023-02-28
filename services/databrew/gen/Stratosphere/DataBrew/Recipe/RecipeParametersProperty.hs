@@ -177,6 +177,7 @@ instance ToResourceProperties RecipeParametersProperty where
   toResourceProperties RecipeParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Recipe.RecipeParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AggregateFunction" Prelude.<$> aggregateFunction,

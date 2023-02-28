@@ -18,7 +18,7 @@ mkStorageLens storageLensConfiguration
 instance ToResourceProperties StorageLens where
   toResourceProperties StorageLens {..}
     = ResourceProperties
-        {awsType = "AWS::S3::StorageLens",
+        {awsType = "AWS::S3::StorageLens", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StorageLensConfiguration" JSON..= storageLensConfiguration]

@@ -26,6 +26,7 @@ instance ToResourceProperties LinuxParametersProperty where
   toResourceProperties LinuxParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.LinuxParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Devices" Prelude.<$> devices,

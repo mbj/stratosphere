@@ -20,6 +20,7 @@ instance ToResourceProperties Scte35SpliceInsertProperty where
   toResourceProperties Scte35SpliceInsertProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Scte35SpliceInsert",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdAvailOffset" Prelude.<$> adAvailOffset,

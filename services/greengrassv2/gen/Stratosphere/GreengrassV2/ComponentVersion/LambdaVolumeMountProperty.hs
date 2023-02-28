@@ -21,6 +21,7 @@ instance ToResourceProperties LambdaVolumeMountProperty where
   toResourceProperties LambdaVolumeMountProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::ComponentVersion.LambdaVolumeMount",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AddGroupOwner" Prelude.<$> addGroupOwner,

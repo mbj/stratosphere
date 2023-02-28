@@ -17,6 +17,7 @@ instance ToResourceProperties GrpcGatewayRouteRewriteProperty where
   toResourceProperties GrpcGatewayRouteRewriteProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteRewrite",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Hostname" Prelude.<$> hostname])}
 instance JSON.ToJSON GrpcGatewayRouteRewriteProperty where

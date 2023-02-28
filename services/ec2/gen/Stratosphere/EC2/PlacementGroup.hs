@@ -20,7 +20,7 @@ mkPlacementGroup
 instance ToResourceProperties PlacementGroup where
   toResourceProperties PlacementGroup {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::PlacementGroup",
+        {awsType = "AWS::EC2::PlacementGroup", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PartitionCount" Prelude.<$> partitionCount,

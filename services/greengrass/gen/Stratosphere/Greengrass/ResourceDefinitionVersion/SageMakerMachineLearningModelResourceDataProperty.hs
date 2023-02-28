@@ -28,6 +28,7 @@ instance ToResourceProperties SageMakerMachineLearningModelResourceDataProperty 
     SageMakerMachineLearningModelResourceDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinitionVersion.SageMakerMachineLearningModelResourceData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationPath" JSON..= destinationPath,

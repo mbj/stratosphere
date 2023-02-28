@@ -24,7 +24,7 @@ mkEIP
 instance ToResourceProperties EIP where
   toResourceProperties EIP {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::EIP",
+        {awsType = "AWS::EC2::EIP", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Domain" Prelude.<$> domain,

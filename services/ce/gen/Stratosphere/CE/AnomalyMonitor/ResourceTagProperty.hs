@@ -17,6 +17,7 @@ instance ToResourceProperties ResourceTagProperty where
   toResourceProperties ResourceTagProperty {..}
     = ResourceProperties
         {awsType = "AWS::CE::AnomalyMonitor.ResourceTag",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON ResourceTagProperty where
   toJSON ResourceTagProperty {..}

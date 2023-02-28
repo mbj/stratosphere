@@ -39,7 +39,7 @@ mkMethod httpMethod resourceId restApiId
 instance ToResourceProperties Method where
   toResourceProperties Method {..}
     = ResourceProperties
-        {awsType = "AWS::ApiGateway::Method",
+        {awsType = "AWS::ApiGateway::Method", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HttpMethod" JSON..= httpMethod, "ResourceId" JSON..= resourceId,

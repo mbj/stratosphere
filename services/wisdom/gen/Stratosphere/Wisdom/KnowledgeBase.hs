@@ -31,6 +31,7 @@ instance ToResourceProperties KnowledgeBase where
   toResourceProperties KnowledgeBase {..}
     = ResourceProperties
         {awsType = "AWS::Wisdom::KnowledgeBase",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KnowledgeBaseType" JSON..= knowledgeBaseType,

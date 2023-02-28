@@ -16,6 +16,7 @@ instance ToResourceProperties AssociationDataProperty where
   toResourceProperties AssociationDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Wisdom::AssistantAssociation.AssociationData",
+         supportsTags = Prelude.False,
          properties = ["KnowledgeBaseId" JSON..= knowledgeBaseId]}
 instance JSON.ToJSON AssociationDataProperty where
   toJSON AssociationDataProperty {..}

@@ -87,6 +87,7 @@ instance ToResourceProperties ReplicationGroup where
   toResourceProperties ReplicationGroup {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::ReplicationGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ReplicationGroupDescription" JSON..= replicationGroupDescription]

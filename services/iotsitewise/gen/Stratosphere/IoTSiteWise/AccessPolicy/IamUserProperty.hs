@@ -14,6 +14,7 @@ instance ToResourceProperties IamUserProperty where
   toResourceProperties IamUserProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AccessPolicy.IamUser",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "arn" Prelude.<$> arn])}
 instance JSON.ToJSON IamUserProperty where

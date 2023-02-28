@@ -15,6 +15,7 @@ instance ToResourceProperties PathPatternConfigProperty where
   toResourceProperties PathPatternConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule.PathPatternConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values])}
 instance JSON.ToJSON PathPatternConfigProperty where

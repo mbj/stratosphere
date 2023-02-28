@@ -20,6 +20,7 @@ instance ToResourceProperties EnclaveCertificateIamRoleAssociation where
   toResourceProperties EnclaveCertificateIamRoleAssociation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EnclaveCertificateIamRoleAssociation",
+         supportsTags = Prelude.False,
          properties = ["CertificateArn" JSON..= certificateArn,
                        "RoleArn" JSON..= roleArn]}
 instance JSON.ToJSON EnclaveCertificateIamRoleAssociation where

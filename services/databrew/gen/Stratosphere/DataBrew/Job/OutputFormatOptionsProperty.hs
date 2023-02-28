@@ -16,6 +16,7 @@ instance ToResourceProperties OutputFormatOptionsProperty where
   toResourceProperties OutputFormatOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.OutputFormatOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Csv" Prelude.<$> csv])}
 instance JSON.ToJSON OutputFormatOptionsProperty where

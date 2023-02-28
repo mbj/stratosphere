@@ -21,6 +21,7 @@ instance ToResourceProperties FirewallDomainList where
   toResourceProperties FirewallDomainList {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::FirewallDomainList",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DomainFileUrl" Prelude.<$> domainFileUrl,

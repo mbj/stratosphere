@@ -15,7 +15,7 @@ mkKeyValueProperty
 instance ToResourceProperties KeyValueProperty where
   toResourceProperties KeyValueProperty {..}
     = ResourceProperties
-        {awsType = "AWS::EMR::Step.KeyValue",
+        {awsType = "AWS::EMR::Step.KeyValue", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

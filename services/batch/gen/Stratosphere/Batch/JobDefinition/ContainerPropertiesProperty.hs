@@ -59,6 +59,7 @@ instance ToResourceProperties ContainerPropertiesProperty where
   toResourceProperties ContainerPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.ContainerProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Image" JSON..= image]

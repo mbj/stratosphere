@@ -17,7 +17,7 @@ mkSession
 instance ToResourceProperties Session where
   toResourceProperties Session {..}
     = ResourceProperties
-        {awsType = "AWS::Macie::Session",
+        {awsType = "AWS::Macie::Session", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FindingPublishingFrequency"

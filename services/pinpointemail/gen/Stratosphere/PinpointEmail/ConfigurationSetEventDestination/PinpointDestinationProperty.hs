@@ -15,6 +15,7 @@ instance ToResourceProperties PinpointDestinationProperty where
   toResourceProperties PinpointDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::ConfigurationSetEventDestination.PinpointDestination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplicationArn" Prelude.<$> applicationArn])}

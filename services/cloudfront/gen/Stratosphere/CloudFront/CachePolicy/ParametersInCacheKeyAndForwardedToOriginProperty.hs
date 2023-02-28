@@ -39,6 +39,7 @@ instance ToResourceProperties ParametersInCacheKeyAndForwardedToOriginProperty w
     ParametersInCacheKeyAndForwardedToOriginProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::CachePolicy.ParametersInCacheKeyAndForwardedToOrigin",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CookiesConfig" JSON..= cookiesConfig,

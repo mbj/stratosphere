@@ -26,6 +26,7 @@ instance ToResourceProperties RuleProperty where
   toResourceProperties RuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::PatchBaseline.Rule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApproveAfterDays" Prelude.<$> approveAfterDays,

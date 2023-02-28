@@ -16,6 +16,7 @@ instance ToResourceProperties OnPremConfigProperty where
   toResourceProperties OnPremConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationNFS.OnPremConfig",
+         supportsTags = Prelude.False,
          properties = ["AgentArns" JSON..= agentArns]}
 instance JSON.ToJSON OnPremConfigProperty where
   toJSON OnPremConfigProperty {..}

@@ -26,6 +26,7 @@ instance ToResourceProperties StepScalingPolicyConfigurationProperty where
   toResourceProperties StepScalingPolicyConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationAutoScaling::ScalingPolicy.StepScalingPolicyConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdjustmentType" Prelude.<$> adjustmentType,

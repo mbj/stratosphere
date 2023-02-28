@@ -17,6 +17,7 @@ instance ToResourceProperties FilterRuleProperty where
   toResourceProperties FilterRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::Task.FilterRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FilterType" Prelude.<$> filterType,

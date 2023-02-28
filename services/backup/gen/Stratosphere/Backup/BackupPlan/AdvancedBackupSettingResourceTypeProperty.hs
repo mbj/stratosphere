@@ -22,6 +22,7 @@ instance ToResourceProperties AdvancedBackupSettingResourceTypeProperty where
   toResourceProperties AdvancedBackupSettingResourceTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::BackupPlan.AdvancedBackupSettingResourceType",
+         supportsTags = Prelude.False,
          properties = ["BackupOptions" JSON..= backupOptions,
                        "ResourceType" JSON..= resourceType]}
 instance JSON.ToJSON AdvancedBackupSettingResourceTypeProperty where

@@ -19,6 +19,7 @@ instance ToResourceProperties RepositoryFilterProperty where
   toResourceProperties RepositoryFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECR::ReplicationConfiguration.RepositoryFilter",
+         supportsTags = Prelude.False,
          properties = ["Filter" JSON..= filter,
                        "FilterType" JSON..= filterType]}
 instance JSON.ToJSON RepositoryFilterProperty where

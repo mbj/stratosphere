@@ -27,6 +27,7 @@ instance ToResourceProperties StudioComponentConfigurationProperty where
   toResourceProperties StudioComponentConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::StudioComponent.StudioComponentConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ActiveDirectoryConfiguration"

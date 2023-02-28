@@ -20,6 +20,7 @@ instance ToResourceProperties AppConfigResourceObjectProperty where
   toResourceProperties AppConfigResourceObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Project.AppConfigResourceObject",
+         supportsTags = Prelude.False,
          properties = ["ApplicationId" JSON..= applicationId,
                        "EnvironmentId" JSON..= environmentId]}
 instance JSON.ToJSON AppConfigResourceObjectProperty where

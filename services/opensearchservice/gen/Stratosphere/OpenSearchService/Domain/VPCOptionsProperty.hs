@@ -17,6 +17,7 @@ instance ToResourceProperties VPCOptionsProperty where
   toResourceProperties VPCOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.VPCOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,

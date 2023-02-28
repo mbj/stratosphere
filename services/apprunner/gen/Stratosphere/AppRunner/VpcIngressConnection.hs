@@ -25,6 +25,7 @@ instance ToResourceProperties VpcIngressConnection where
   toResourceProperties VpcIngressConnection {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::VpcIngressConnection",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IngressVpcConfiguration" JSON..= ingressVpcConfiguration,

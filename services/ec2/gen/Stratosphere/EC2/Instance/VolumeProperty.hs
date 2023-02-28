@@ -17,6 +17,7 @@ instance ToResourceProperties VolumeProperty where
   toResourceProperties VolumeProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.Volume",
+         supportsTags = Prelude.False,
          properties = ["Device" JSON..= device,
                        "VolumeId" JSON..= volumeId]}
 instance JSON.ToJSON VolumeProperty where

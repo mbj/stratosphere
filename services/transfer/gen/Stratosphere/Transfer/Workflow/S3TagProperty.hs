@@ -17,6 +17,7 @@ instance ToResourceProperties S3TagProperty where
   toResourceProperties S3TagProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Workflow.S3Tag",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON S3TagProperty where
   toJSON S3TagProperty {..}

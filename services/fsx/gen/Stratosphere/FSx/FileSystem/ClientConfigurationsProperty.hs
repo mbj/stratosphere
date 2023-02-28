@@ -17,6 +17,7 @@ instance ToResourceProperties ClientConfigurationsProperty where
   toResourceProperties ClientConfigurationsProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::FileSystem.ClientConfigurations",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Clients" Prelude.<$> clients,

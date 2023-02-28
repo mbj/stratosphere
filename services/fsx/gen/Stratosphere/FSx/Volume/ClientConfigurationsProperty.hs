@@ -19,6 +19,7 @@ instance ToResourceProperties ClientConfigurationsProperty where
   toResourceProperties ClientConfigurationsProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::Volume.ClientConfigurations",
+         supportsTags = Prelude.False,
          properties = ["Clients" JSON..= clients,
                        "Options" JSON..= options]}
 instance JSON.ToJSON ClientConfigurationsProperty where

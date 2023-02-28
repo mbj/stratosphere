@@ -43,7 +43,7 @@ mkStack
 instance ToResourceProperties Stack where
   toResourceProperties Stack {..}
     = ResourceProperties
-        {awsType = "AWS::AppStream::Stack",
+        {awsType = "AWS::AppStream::Stack", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessEndpoints" Prelude.<$> accessEndpoints,

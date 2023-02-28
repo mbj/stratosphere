@@ -17,6 +17,7 @@ instance ToResourceProperties EncryptionConfigProperty where
   toResourceProperties EncryptionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Forecast::Dataset.EncryptionConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,

@@ -34,6 +34,7 @@ instance ToResourceProperties Namespace where
   toResourceProperties Namespace {..}
     = ResourceProperties
         {awsType = "AWS::RedshiftServerless::Namespace",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["NamespaceName" JSON..= namespaceName]

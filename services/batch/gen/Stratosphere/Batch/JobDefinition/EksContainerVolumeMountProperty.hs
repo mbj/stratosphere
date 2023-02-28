@@ -21,6 +21,7 @@ instance ToResourceProperties EksContainerVolumeMountProperty where
   toResourceProperties EksContainerVolumeMountProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.EksContainerVolumeMount",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MountPath" Prelude.<$> mountPath,

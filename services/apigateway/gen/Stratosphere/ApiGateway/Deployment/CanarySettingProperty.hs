@@ -20,6 +20,7 @@ instance ToResourceProperties CanarySettingProperty where
   toResourceProperties CanarySettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Deployment.CanarySetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PercentTraffic" Prelude.<$> percentTraffic,

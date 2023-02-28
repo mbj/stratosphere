@@ -19,6 +19,7 @@ instance ToResourceProperties ImageConfigProperty where
   toResourceProperties ImageConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.ImageConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Command" Prelude.<$> command,

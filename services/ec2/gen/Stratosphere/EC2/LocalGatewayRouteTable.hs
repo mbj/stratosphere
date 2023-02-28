@@ -21,6 +21,7 @@ instance ToResourceProperties LocalGatewayRouteTable where
   toResourceProperties LocalGatewayRouteTable {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LocalGatewayRouteTable",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LocalGatewayId" JSON..= localGatewayId]

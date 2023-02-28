@@ -21,6 +21,7 @@ instance ToResourceProperties ProjectTriggersProperty where
   toResourceProperties ProjectTriggersProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.ProjectTriggers",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BuildType" Prelude.<$> buildType,

@@ -33,7 +33,7 @@ mkVolume availabilityZone
 instance ToResourceProperties Volume where
   toResourceProperties Volume {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::Volume",
+        {awsType = "AWS::EC2::Volume", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AvailabilityZone" JSON..= availabilityZone]

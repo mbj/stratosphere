@@ -19,6 +19,7 @@ instance ToResourceProperties SuperuserParametersProperty where
   toResourceProperties SuperuserParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::FinSpace::Environment.SuperuserParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EmailAddress" Prelude.<$> emailAddress,

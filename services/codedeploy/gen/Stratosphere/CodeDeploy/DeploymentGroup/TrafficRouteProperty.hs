@@ -15,6 +15,7 @@ instance ToResourceProperties TrafficRouteProperty where
   toResourceProperties TrafficRouteProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.TrafficRoute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ListenerArns" Prelude.<$> listenerArns])}

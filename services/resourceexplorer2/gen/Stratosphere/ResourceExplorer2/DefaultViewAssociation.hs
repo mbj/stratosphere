@@ -16,6 +16,7 @@ instance ToResourceProperties DefaultViewAssociation where
   toResourceProperties DefaultViewAssociation {..}
     = ResourceProperties
         {awsType = "AWS::ResourceExplorer2::DefaultViewAssociation",
+         supportsTags = Prelude.False,
          properties = ["ViewArn" JSON..= viewArn]}
 instance JSON.ToJSON DefaultViewAssociation where
   toJSON DefaultViewAssociation {..}

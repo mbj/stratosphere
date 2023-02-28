@@ -19,6 +19,7 @@ instance ToResourceProperties BatchEnvironmentVariableProperty where
   toResourceProperties BatchEnvironmentVariableProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.BatchEnvironmentVariable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

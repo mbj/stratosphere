@@ -16,6 +16,7 @@ instance ToResourceProperties DashboardSourceEntityProperty where
   toResourceProperties DashboardSourceEntityProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.DashboardSourceEntity",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SourceTemplate" Prelude.<$> sourceTemplate])}

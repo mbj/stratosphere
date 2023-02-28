@@ -23,6 +23,7 @@ instance ToResourceProperties ProvisioningArtifactPropertiesProperty where
   toResourceProperties ProvisioningArtifactPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Info" JSON..= info]

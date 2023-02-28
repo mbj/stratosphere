@@ -32,6 +32,7 @@ instance ToResourceProperties GoogleAnalyticsConnectorProfileCredentialsProperty
     GoogleAnalyticsConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.GoogleAnalyticsConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientId" JSON..= clientId, "ClientSecret" JSON..= clientSecret]

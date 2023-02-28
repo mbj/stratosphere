@@ -21,6 +21,7 @@ instance ToResourceProperties TargetGroupPairInfoProperty where
   toResourceProperties TargetGroupPairInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.TargetGroupPairInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ProdTrafficRoute" Prelude.<$> prodTrafficRoute,

@@ -15,6 +15,7 @@ instance ToResourceProperties MaintenanceOptionsProperty where
   toResourceProperties MaintenanceOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.MaintenanceOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutoRecovery" Prelude.<$> autoRecovery])}

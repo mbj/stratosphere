@@ -40,6 +40,7 @@ instance ToResourceProperties ConnectorOperatorProperty where
   toResourceProperties ConnectorOperatorProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.ConnectorOperator",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Amplitude" Prelude.<$> amplitude,

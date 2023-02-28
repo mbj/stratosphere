@@ -39,6 +39,7 @@ instance ToResourceProperties PostgreSqlSettingsProperty where
   toResourceProperties PostgreSqlSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.PostgreSqlSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AfterConnectScript" Prelude.<$> afterConnectScript,

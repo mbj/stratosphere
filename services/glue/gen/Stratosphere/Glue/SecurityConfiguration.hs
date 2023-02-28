@@ -20,6 +20,7 @@ instance ToResourceProperties SecurityConfiguration where
   toResourceProperties SecurityConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::Glue::SecurityConfiguration",
+         supportsTags = Prelude.False,
          properties = ["EncryptionConfiguration"
                          JSON..= encryptionConfiguration,
                        "Name" JSON..= name]}

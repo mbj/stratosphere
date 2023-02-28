@@ -36,6 +36,7 @@ instance ToResourceProperties SlackChannelConfiguration where
   toResourceProperties SlackChannelConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::Chatbot::SlackChannelConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConfigurationName" JSON..= configurationName,

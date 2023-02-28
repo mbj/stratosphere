@@ -26,6 +26,7 @@ instance ToResourceProperties DatasetParameterProperty where
   toResourceProperties DatasetParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.DatasetParameter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Type" JSON..= type']

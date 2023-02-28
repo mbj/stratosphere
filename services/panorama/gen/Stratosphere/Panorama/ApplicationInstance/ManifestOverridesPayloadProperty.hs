@@ -17,6 +17,7 @@ instance ToResourceProperties ManifestOverridesPayloadProperty where
   toResourceProperties ManifestOverridesPayloadProperty {..}
     = ResourceProperties
         {awsType = "AWS::Panorama::ApplicationInstance.ManifestOverridesPayload",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PayloadData" Prelude.<$> payloadData])}

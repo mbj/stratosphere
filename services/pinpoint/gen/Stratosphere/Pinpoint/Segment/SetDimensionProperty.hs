@@ -17,6 +17,7 @@ instance ToResourceProperties SetDimensionProperty where
   toResourceProperties SetDimensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.SetDimension",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DimensionType" Prelude.<$> dimensionType,

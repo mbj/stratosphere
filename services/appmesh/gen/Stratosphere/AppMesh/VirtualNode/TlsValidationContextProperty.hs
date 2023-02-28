@@ -20,6 +20,7 @@ instance ToResourceProperties TlsValidationContextProperty where
   toResourceProperties TlsValidationContextProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.TlsValidationContext",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Trust" JSON..= trust]

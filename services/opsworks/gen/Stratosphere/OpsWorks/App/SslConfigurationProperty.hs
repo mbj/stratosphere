@@ -19,6 +19,7 @@ instance ToResourceProperties SslConfigurationProperty where
   toResourceProperties SslConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::App.SslConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Certificate" Prelude.<$> certificate,

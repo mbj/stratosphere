@@ -18,6 +18,7 @@ instance ToResourceProperties ManifestProcessingRulesProperty where
   toResourceProperties ManifestProcessingRulesProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaTailor::PlaybackConfiguration.ManifestProcessingRules",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdMarkerPassthrough" Prelude.<$> adMarkerPassthrough])}

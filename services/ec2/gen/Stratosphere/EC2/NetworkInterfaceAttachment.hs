@@ -27,6 +27,7 @@ instance ToResourceProperties NetworkInterfaceAttachment where
   toResourceProperties NetworkInterfaceAttachment {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInterfaceAttachment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeviceIndex" JSON..= deviceIndex,

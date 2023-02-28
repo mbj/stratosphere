@@ -17,7 +17,7 @@ mkTlsProperty
 instance ToResourceProperties TlsProperty where
   toResourceProperties TlsProperty {..}
     = ResourceProperties
-        {awsType = "AWS::MSK::Cluster.Tls",
+        {awsType = "AWS::MSK::Cluster.Tls", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateAuthorityArnList"

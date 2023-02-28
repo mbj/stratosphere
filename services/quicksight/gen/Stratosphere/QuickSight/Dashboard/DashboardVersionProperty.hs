@@ -32,6 +32,7 @@ instance ToResourceProperties DashboardVersionProperty where
   toResourceProperties DashboardVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.DashboardVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn,

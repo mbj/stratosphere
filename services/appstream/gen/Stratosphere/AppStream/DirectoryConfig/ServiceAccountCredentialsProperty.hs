@@ -20,6 +20,7 @@ instance ToResourceProperties ServiceAccountCredentialsProperty where
   toResourceProperties ServiceAccountCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::DirectoryConfig.ServiceAccountCredentials",
+         supportsTags = Prelude.False,
          properties = ["AccountName" JSON..= accountName,
                        "AccountPassword" JSON..= accountPassword]}
 instance JSON.ToJSON ServiceAccountCredentialsProperty where

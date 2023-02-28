@@ -16,6 +16,7 @@ instance ToResourceProperties ChallengeConfigProperty where
   toResourceProperties ChallengeConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.ChallengeConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ImmunityTimeProperty"

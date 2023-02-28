@@ -18,6 +18,7 @@ instance ToResourceProperties ProjectionProperty where
   toResourceProperties ProjectionProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.Projection",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NonKeyAttributes" Prelude.<$> nonKeyAttributes,

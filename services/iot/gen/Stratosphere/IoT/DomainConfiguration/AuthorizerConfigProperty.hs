@@ -18,6 +18,7 @@ instance ToResourceProperties AuthorizerConfigProperty where
   toResourceProperties AuthorizerConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::DomainConfiguration.AuthorizerConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowAuthorizerOverride"

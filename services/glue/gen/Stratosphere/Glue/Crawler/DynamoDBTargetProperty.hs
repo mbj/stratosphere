@@ -15,6 +15,7 @@ instance ToResourceProperties DynamoDBTargetProperty where
   toResourceProperties DynamoDBTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Crawler.DynamoDBTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Path" Prelude.<$> path])}
 instance JSON.ToJSON DynamoDBTargetProperty where

@@ -22,6 +22,7 @@ instance ToResourceProperties DefinitionProperty where
   toResourceProperties DefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::BudgetsAction.Definition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IamActionDefinition" Prelude.<$> iamActionDefinition,

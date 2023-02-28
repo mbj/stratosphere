@@ -24,6 +24,7 @@ instance ToResourceProperties PoliciesProperty where
   toResourceProperties PoliciesProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancing::LoadBalancer.Policies",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Attributes" JSON..= attributes, "PolicyName" JSON..= policyName,

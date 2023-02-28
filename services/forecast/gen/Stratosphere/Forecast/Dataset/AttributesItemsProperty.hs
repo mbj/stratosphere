@@ -17,6 +17,7 @@ instance ToResourceProperties AttributesItemsProperty where
   toResourceProperties AttributesItemsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Forecast::Dataset.AttributesItems",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AttributeName" Prelude.<$> attributeName,

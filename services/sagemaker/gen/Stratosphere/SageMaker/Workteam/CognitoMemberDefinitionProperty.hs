@@ -27,6 +27,7 @@ instance ToResourceProperties CognitoMemberDefinitionProperty where
   toResourceProperties CognitoMemberDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Workteam.CognitoMemberDefinition",
+         supportsTags = Prelude.False,
          properties = ["CognitoClientId" JSON..= cognitoClientId,
                        "CognitoUserGroup" JSON..= cognitoUserGroup,
                        "CognitoUserPool" JSON..= cognitoUserPool]}

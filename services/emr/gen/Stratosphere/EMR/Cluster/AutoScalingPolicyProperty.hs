@@ -3,6 +3,7 @@ module Stratosphere.EMR.Cluster.AutoScalingPolicyProperty (
         mkAutoScalingPolicyProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.ScalingConstraintsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.ScalingRuleProperty as Exports
@@ -20,6 +21,7 @@ instance ToResourceProperties AutoScalingPolicyProperty where
   toResourceProperties AutoScalingPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.AutoScalingPolicy",
+         supportsTags = Prelude.False,
          properties = ["Constraints" JSON..= constraints,
                        "Rules" JSON..= rules]}
 instance JSON.ToJSON AutoScalingPolicyProperty where

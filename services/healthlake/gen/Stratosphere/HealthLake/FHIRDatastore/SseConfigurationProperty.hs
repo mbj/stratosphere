@@ -3,6 +3,7 @@ module Stratosphere.HealthLake.FHIRDatastore.SseConfigurationProperty (
         mkSseConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.HealthLake.FHIRDatastore.KmsEncryptionConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties SseConfigurationProperty where
   toResourceProperties SseConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::HealthLake::FHIRDatastore.SseConfiguration",
+         supportsTags = Prelude.False,
          properties = ["KmsEncryptionConfig" JSON..= kmsEncryptionConfig]}
 instance JSON.ToJSON SseConfigurationProperty where
   toJSON SseConfigurationProperty {..}

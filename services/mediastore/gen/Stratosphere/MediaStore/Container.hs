@@ -29,6 +29,7 @@ instance ToResourceProperties Container where
   toResourceProperties Container {..}
     = ResourceProperties
         {awsType = "AWS::MediaStore::Container",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ContainerName" JSON..= containerName]

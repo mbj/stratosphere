@@ -3,6 +3,7 @@ module Stratosphere.AppMesh.VirtualRouter.VirtualRouterListenerProperty (
         mkVirtualRouterListenerProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualRouter.PortMappingProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties VirtualRouterListenerProperty where
   toResourceProperties VirtualRouterListenerProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualRouter.VirtualRouterListener",
+         supportsTags = Prelude.False,
          properties = ["PortMapping" JSON..= portMapping]}
 instance JSON.ToJSON VirtualRouterListenerProperty where
   toJSON VirtualRouterListenerProperty {..}

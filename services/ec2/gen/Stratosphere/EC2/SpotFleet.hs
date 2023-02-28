@@ -2,6 +2,7 @@ module Stratosphere.EC2.SpotFleet (
         module Exports, SpotFleet(..), mkSpotFleet
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.SpotFleetRequestConfigDataProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,7 +15,7 @@ mkSpotFleet spotFleetRequestConfigData
 instance ToResourceProperties SpotFleet where
   toResourceProperties SpotFleet {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::SpotFleet",
+        {awsType = "AWS::EC2::SpotFleet", supportsTags = Prelude.False,
          properties = ["SpotFleetRequestConfigData"
                          JSON..= spotFleetRequestConfigData]}
 instance JSON.ToJSON SpotFleet where

@@ -20,6 +20,7 @@ instance ToResourceProperties RSessionAppSettingsProperty where
   toResourceProperties RSessionAppSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Domain.RSessionAppSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomImages" Prelude.<$> customImages,

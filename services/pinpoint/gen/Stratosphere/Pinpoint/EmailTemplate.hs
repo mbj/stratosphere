@@ -26,6 +26,7 @@ instance ToResourceProperties EmailTemplate where
   toResourceProperties EmailTemplate {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::EmailTemplate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Subject" JSON..= subject, "TemplateName" JSON..= templateName]

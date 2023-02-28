@@ -38,6 +38,7 @@ instance ToResourceProperties LambdaExecutionParametersProperty where
   toResourceProperties LambdaExecutionParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::ComponentVersion.LambdaExecutionParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,

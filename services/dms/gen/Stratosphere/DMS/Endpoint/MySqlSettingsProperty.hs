@@ -31,6 +31,7 @@ instance ToResourceProperties MySqlSettingsProperty where
   toResourceProperties MySqlSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.MySqlSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AfterConnectScript" Prelude.<$> afterConnectScript,

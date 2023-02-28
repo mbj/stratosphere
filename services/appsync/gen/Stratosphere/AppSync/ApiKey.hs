@@ -19,7 +19,7 @@ mkApiKey apiId
 instance ToResourceProperties ApiKey where
   toResourceProperties ApiKey {..}
     = ResourceProperties
-        {awsType = "AWS::AppSync::ApiKey",
+        {awsType = "AWS::AppSync::ApiKey", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId]

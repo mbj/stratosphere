@@ -14,6 +14,7 @@ instance ToResourceProperties ProviderProperty where
   toResourceProperties ProviderProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Cluster.Provider",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "KeyArn" Prelude.<$> keyArn])}
 instance JSON.ToJSON ProviderProperty where

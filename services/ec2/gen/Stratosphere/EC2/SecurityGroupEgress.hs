@@ -30,6 +30,7 @@ instance ToResourceProperties SecurityGroupEgress where
   toResourceProperties SecurityGroupEgress {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SecurityGroupEgress",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GroupId" JSON..= groupId, "IpProtocol" JSON..= ipProtocol]

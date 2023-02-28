@@ -22,6 +22,7 @@ instance ToResourceProperties SecurityServicePolicyDataProperty where
   toResourceProperties SecurityServicePolicyDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::FMS::Policy.SecurityServicePolicyData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

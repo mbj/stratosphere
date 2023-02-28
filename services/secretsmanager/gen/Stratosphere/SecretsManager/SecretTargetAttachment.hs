@@ -21,6 +21,7 @@ instance ToResourceProperties SecretTargetAttachment where
   toResourceProperties SecretTargetAttachment {..}
     = ResourceProperties
         {awsType = "AWS::SecretsManager::SecretTargetAttachment",
+         supportsTags = Prelude.False,
          properties = ["SecretId" JSON..= secretId,
                        "TargetId" JSON..= targetId, "TargetType" JSON..= targetType]}
 instance JSON.ToJSON SecretTargetAttachment where

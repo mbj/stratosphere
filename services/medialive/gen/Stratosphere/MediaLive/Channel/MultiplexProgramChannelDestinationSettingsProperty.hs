@@ -20,6 +20,7 @@ instance ToResourceProperties MultiplexProgramChannelDestinationSettingsProperty
     MultiplexProgramChannelDestinationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.MultiplexProgramChannelDestinationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MultiplexId" Prelude.<$> multiplexId,

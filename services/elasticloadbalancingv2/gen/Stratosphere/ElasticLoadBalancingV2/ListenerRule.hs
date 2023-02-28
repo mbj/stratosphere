@@ -25,6 +25,7 @@ instance ToResourceProperties ListenerRule where
   toResourceProperties ListenerRule {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule",
+         supportsTags = Prelude.False,
          properties = ["Actions" JSON..= actions,
                        "Conditions" JSON..= conditions, "ListenerArn" JSON..= listenerArn,
                        "Priority" JSON..= priority]}

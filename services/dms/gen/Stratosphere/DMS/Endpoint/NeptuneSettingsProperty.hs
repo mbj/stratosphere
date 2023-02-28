@@ -26,6 +26,7 @@ instance ToResourceProperties NeptuneSettingsProperty where
   toResourceProperties NeptuneSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.NeptuneSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ErrorRetryDuration" Prelude.<$> errorRetryDuration,

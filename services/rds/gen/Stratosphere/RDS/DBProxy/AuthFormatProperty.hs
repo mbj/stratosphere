@@ -23,6 +23,7 @@ instance ToResourceProperties AuthFormatProperty where
   toResourceProperties AuthFormatProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBProxy.AuthFormat",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AuthScheme" Prelude.<$> authScheme,

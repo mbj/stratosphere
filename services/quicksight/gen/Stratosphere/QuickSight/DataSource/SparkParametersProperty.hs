@@ -18,6 +18,7 @@ instance ToResourceProperties SparkParametersProperty where
   toResourceProperties SparkParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.SparkParameters",
+         supportsTags = Prelude.False,
          properties = ["Host" JSON..= host, "Port" JSON..= port]}
 instance JSON.ToJSON SparkParametersProperty where
   toJSON SparkParametersProperty {..}

@@ -36,7 +36,7 @@ mkAgreement
 instance ToResourceProperties Agreement where
   toResourceProperties Agreement {..}
     = ResourceProperties
-        {awsType = "AWS::Transfer::Agreement",
+        {awsType = "AWS::Transfer::Agreement", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccessRole" JSON..= accessRole,

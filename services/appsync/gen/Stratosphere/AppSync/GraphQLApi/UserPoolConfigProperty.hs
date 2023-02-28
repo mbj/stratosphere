@@ -20,6 +20,7 @@ instance ToResourceProperties UserPoolConfigProperty where
   toResourceProperties UserPoolConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::GraphQLApi.UserPoolConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AppIdClientRegex" Prelude.<$> appIdClientRegex,

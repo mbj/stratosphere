@@ -18,7 +18,7 @@ mkReceiptRule rule ruleSetName
 instance ToResourceProperties ReceiptRule where
   toResourceProperties ReceiptRule {..}
     = ResourceProperties
-        {awsType = "AWS::SES::ReceiptRule",
+        {awsType = "AWS::SES::ReceiptRule", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Rule" JSON..= rule, "RuleSetName" JSON..= ruleSetName]

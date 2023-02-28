@@ -19,6 +19,7 @@ instance ToResourceProperties CopyCommandProperty where
   toResourceProperties CopyCommandProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.CopyCommand",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataTableName" JSON..= dataTableName]

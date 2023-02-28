@@ -18,6 +18,7 @@ instance ToResourceProperties VirtualNodeTcpConnectionPoolProperty where
   toResourceProperties VirtualNodeTcpConnectionPoolProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.VirtualNodeTcpConnectionPool",
+         supportsTags = Prelude.False,
          properties = ["MaxConnections" JSON..= maxConnections]}
 instance JSON.ToJSON VirtualNodeTcpConnectionPoolProperty where
   toJSON VirtualNodeTcpConnectionPoolProperty {..}

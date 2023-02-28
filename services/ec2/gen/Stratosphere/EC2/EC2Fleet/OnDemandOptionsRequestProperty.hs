@@ -28,6 +28,7 @@ instance ToResourceProperties OnDemandOptionsRequestProperty where
   toResourceProperties OnDemandOptionsRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EC2Fleet.OnDemandOptionsRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllocationStrategy" Prelude.<$> allocationStrategy,

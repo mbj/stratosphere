@@ -16,6 +16,7 @@ instance ToResourceProperties AlarmProperty where
   toResourceProperties AlarmProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.Alarm",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AlarmName" JSON..= alarmName]

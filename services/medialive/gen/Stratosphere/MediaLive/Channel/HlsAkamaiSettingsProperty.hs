@@ -26,6 +26,7 @@ instance ToResourceProperties HlsAkamaiSettingsProperty where
   toResourceProperties HlsAkamaiSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HlsAkamaiSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectionRetryInterval"

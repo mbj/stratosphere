@@ -23,6 +23,7 @@ instance ToResourceProperties ActionTypeIdProperty where
   toResourceProperties ActionTypeIdProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Pipeline.ActionTypeId",
+         supportsTags = Prelude.False,
          properties = ["Category" JSON..= category, "Owner" JSON..= owner,
                        "Provider" JSON..= provider, "Version" JSON..= version]}
 instance JSON.ToJSON ActionTypeIdProperty where

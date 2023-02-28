@@ -29,6 +29,7 @@ instance ToResourceProperties IoTJobExponentialRolloutRateProperty where
   toResourceProperties IoTJobExponentialRolloutRateProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.IoTJobExponentialRolloutRate",
+         supportsTags = Prelude.False,
          properties = ["BaseRatePerMinute" JSON..= baseRatePerMinute,
                        "IncrementFactor" JSON..= incrementFactor,
                        "RateIncreaseCriteria" JSON..= rateIncreaseCriteria]}

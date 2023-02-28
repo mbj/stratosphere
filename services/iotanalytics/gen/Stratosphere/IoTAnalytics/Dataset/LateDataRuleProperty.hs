@@ -19,6 +19,7 @@ instance ToResourceProperties LateDataRuleProperty where
   toResourceProperties LateDataRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.LateDataRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RuleConfiguration" JSON..= ruleConfiguration]

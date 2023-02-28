@@ -29,6 +29,7 @@ instance ToResourceProperties LocationSMB where
   toResourceProperties LocationSMB {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationSMB",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AgentArns" JSON..= agentArns, "User" JSON..= user]

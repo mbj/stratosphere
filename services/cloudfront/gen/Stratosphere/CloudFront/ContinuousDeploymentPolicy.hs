@@ -3,6 +3,7 @@ module Stratosphere.CloudFront.ContinuousDeploymentPolicy (
         mkContinuousDeploymentPolicy
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -18,6 +19,7 @@ instance ToResourceProperties ContinuousDeploymentPolicy where
   toResourceProperties ContinuousDeploymentPolicy {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ContinuousDeploymentPolicy",
+         supportsTags = Prelude.False,
          properties = ["ContinuousDeploymentPolicyConfig"
                          JSON..= continuousDeploymentPolicyConfig]}
 instance JSON.ToJSON ContinuousDeploymentPolicy where

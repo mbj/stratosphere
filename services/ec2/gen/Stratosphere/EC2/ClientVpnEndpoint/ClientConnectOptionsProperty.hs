@@ -18,6 +18,7 @@ instance ToResourceProperties ClientConnectOptionsProperty where
   toResourceProperties ClientConnectOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::ClientVpnEndpoint.ClientConnectOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

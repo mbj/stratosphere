@@ -24,6 +24,7 @@ instance ToResourceProperties NielsenWatermarksSettingsProperty where
   toResourceProperties NielsenWatermarksSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.NielsenWatermarksSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NielsenCbetSettings" Prelude.<$> nielsenCbetSettings,

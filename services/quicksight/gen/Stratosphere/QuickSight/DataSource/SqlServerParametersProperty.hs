@@ -21,6 +21,7 @@ instance ToResourceProperties SqlServerParametersProperty where
   toResourceProperties SqlServerParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.SqlServerParameters",
+         supportsTags = Prelude.False,
          properties = ["Database" JSON..= database, "Host" JSON..= host,
                        "Port" JSON..= port]}
 instance JSON.ToJSON SqlServerParametersProperty where

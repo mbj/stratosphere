@@ -20,6 +20,7 @@ instance ToResourceProperties AddAttributesProperty where
   toResourceProperties AddAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline.AddAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Attributes" JSON..= attributes, "Name" JSON..= name]

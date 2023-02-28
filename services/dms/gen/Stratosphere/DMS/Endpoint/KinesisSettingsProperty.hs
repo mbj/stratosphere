@@ -33,6 +33,7 @@ instance ToResourceProperties KinesisSettingsProperty where
   toResourceProperties KinesisSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.KinesisSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IncludeControlDetails"

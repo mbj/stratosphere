@@ -17,6 +17,7 @@ instance ToResourceProperties DataflowEdgeProperty where
   toResourceProperties DataflowEdgeProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::MissionProfile.DataflowEdge",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Destination" Prelude.<$> destination,

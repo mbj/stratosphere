@@ -21,6 +21,7 @@ instance ToResourceProperties DomainValidationOptionProperty where
   toResourceProperties DomainValidationOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CertificateManager::Certificate.DomainValidationOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName]

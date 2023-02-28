@@ -29,7 +29,7 @@ mkRole assumeRolePolicyDocument
 instance ToResourceProperties Role where
   toResourceProperties Role {..}
     = ResourceProperties
-        {awsType = "AWS::IAM::Role",
+        {awsType = "AWS::IAM::Role", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AssumeRolePolicyDocument" JSON..= assumeRolePolicyDocument]

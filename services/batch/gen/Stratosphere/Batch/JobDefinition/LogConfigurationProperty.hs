@@ -22,6 +22,7 @@ instance ToResourceProperties LogConfigurationProperty where
   toResourceProperties LogConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.LogConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LogDriver" JSON..= logDriver]

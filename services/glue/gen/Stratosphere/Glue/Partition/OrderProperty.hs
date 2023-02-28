@@ -16,6 +16,7 @@ instance ToResourceProperties OrderProperty where
   toResourceProperties OrderProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Partition.Order",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Column" JSON..= column]

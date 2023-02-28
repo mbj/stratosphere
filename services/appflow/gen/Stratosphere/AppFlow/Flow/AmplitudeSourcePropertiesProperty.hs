@@ -17,6 +17,7 @@ instance ToResourceProperties AmplitudeSourcePropertiesProperty where
   toResourceProperties AmplitudeSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.AmplitudeSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON AmplitudeSourcePropertiesProperty where
   toJSON AmplitudeSourcePropertiesProperty {..}

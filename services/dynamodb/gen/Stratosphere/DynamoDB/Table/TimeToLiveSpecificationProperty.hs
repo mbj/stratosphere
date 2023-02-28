@@ -20,6 +20,7 @@ instance ToResourceProperties TimeToLiveSpecificationProperty where
   toResourceProperties TimeToLiveSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.TimeToLiveSpecification",
+         supportsTags = Prelude.False,
          properties = ["AttributeName" JSON..= attributeName,
                        "Enabled" JSON..= enabled]}
 instance JSON.ToJSON TimeToLiveSpecificationProperty where

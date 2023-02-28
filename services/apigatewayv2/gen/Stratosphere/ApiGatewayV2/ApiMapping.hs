@@ -22,6 +22,7 @@ instance ToResourceProperties ApiMapping where
   toResourceProperties ApiMapping {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::ApiMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId, "DomainName" JSON..= domainName,

@@ -23,6 +23,7 @@ instance ToResourceProperties PredictiveScalingPredefinedScalingMetricProperty w
     PredictiveScalingPredefinedScalingMetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::ScalingPolicy.PredictiveScalingPredefinedScalingMetric",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PredefinedMetricType" JSON..= predefinedMetricType]

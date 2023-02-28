@@ -21,6 +21,7 @@ instance ToResourceProperties DatabricksParametersProperty where
   toResourceProperties DatabricksParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.DatabricksParameters",
+         supportsTags = Prelude.False,
          properties = ["Host" JSON..= host, "Port" JSON..= port,
                        "SqlEndpointPath" JSON..= sqlEndpointPath]}
 instance JSON.ToJSON DatabricksParametersProperty where

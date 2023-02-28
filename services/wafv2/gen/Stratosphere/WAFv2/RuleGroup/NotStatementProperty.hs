@@ -2,6 +2,7 @@ module Stratosphere.WAFv2.RuleGroup.NotStatementProperty (
         module Exports, NotStatementProperty(..), mkNotStatementProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.StatementProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,7 @@ instance ToResourceProperties NotStatementProperty where
   toResourceProperties NotStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.NotStatement",
+         supportsTags = Prelude.False,
          properties = ["Statement" JSON..= statement]}
 instance JSON.ToJSON NotStatementProperty where
   toJSON NotStatementProperty {..}

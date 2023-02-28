@@ -33,6 +33,7 @@ instance ToResourceProperties TimestreamActionProperty where
   toResourceProperties TimestreamActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.TimestreamAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatabaseName" JSON..= databaseName,

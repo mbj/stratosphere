@@ -21,6 +21,7 @@ instance ToResourceProperties DatasetFormatProperty where
   toResourceProperties DatasetFormatProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelQualityJobDefinition.DatasetFormat",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Csv" Prelude.<$> csv,

@@ -23,6 +23,7 @@ instance ToResourceProperties ClusterConfigProperty where
   toResourceProperties ClusterConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::DataQualityJobDefinition.ClusterConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceCount" JSON..= instanceCount,

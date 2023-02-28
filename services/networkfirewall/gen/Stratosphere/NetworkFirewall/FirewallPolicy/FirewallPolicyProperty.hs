@@ -37,6 +37,7 @@ instance ToResourceProperties FirewallPolicyProperty where
   toResourceProperties FirewallPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::FirewallPolicy.FirewallPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StatelessDefaultActions" JSON..= statelessDefaultActions,

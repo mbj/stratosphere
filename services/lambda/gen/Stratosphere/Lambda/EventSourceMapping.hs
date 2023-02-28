@@ -62,6 +62,7 @@ instance ToResourceProperties EventSourceMapping where
   toResourceProperties EventSourceMapping {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventSourceMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionName" JSON..= functionName]

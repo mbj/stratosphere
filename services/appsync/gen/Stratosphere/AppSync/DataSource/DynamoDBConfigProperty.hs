@@ -26,6 +26,7 @@ instance ToResourceProperties DynamoDBConfigProperty where
   toResourceProperties DynamoDBConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.DynamoDBConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AwsRegion" JSON..= awsRegion, "TableName" JSON..= tableName]

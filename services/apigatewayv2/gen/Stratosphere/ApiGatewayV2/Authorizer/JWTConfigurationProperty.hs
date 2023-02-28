@@ -17,6 +17,7 @@ instance ToResourceProperties JWTConfigurationProperty where
   toResourceProperties JWTConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Authorizer.JWTConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Audience" Prelude.<$> audience,

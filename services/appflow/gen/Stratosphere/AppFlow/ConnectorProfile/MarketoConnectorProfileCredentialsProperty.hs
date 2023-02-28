@@ -26,6 +26,7 @@ instance ToResourceProperties MarketoConnectorProfileCredentialsProperty where
     MarketoConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.MarketoConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientId" JSON..= clientId, "ClientSecret" JSON..= clientSecret]

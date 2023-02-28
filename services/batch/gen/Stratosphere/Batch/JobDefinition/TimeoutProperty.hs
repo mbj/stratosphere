@@ -15,6 +15,7 @@ instance ToResourceProperties TimeoutProperty where
   toResourceProperties TimeoutProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.Timeout",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AttemptDurationSeconds"

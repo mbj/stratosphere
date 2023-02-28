@@ -19,6 +19,7 @@ instance ToResourceProperties SubnetNetworkAclAssociation where
   toResourceProperties SubnetNetworkAclAssociation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SubnetNetworkAclAssociation",
+         supportsTags = Prelude.False,
          properties = ["NetworkAclId" JSON..= networkAclId,
                        "SubnetId" JSON..= subnetId]}
 instance JSON.ToJSON SubnetNetworkAclAssociation where

@@ -18,6 +18,7 @@ instance ToResourceProperties EgressConfigurationProperty where
   toResourceProperties EgressConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.EgressConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EgressType" JSON..= egressType]

@@ -21,6 +21,7 @@ instance ToResourceProperties AccountTakeoverActionsTypeProperty where
   toResourceProperties AccountTakeoverActionsTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionsType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HighAction" Prelude.<$> highAction,

@@ -20,6 +20,7 @@ instance ToResourceProperties FileFormatDescriptorProperty where
   toResourceProperties FileFormatDescriptorProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.FileFormatDescriptor",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CsvFormatDescriptor" Prelude.<$> csvFormatDescriptor,

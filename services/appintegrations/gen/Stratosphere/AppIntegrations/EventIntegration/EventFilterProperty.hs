@@ -15,6 +15,7 @@ instance ToResourceProperties EventFilterProperty where
   toResourceProperties EventFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppIntegrations::EventIntegration.EventFilter",
+         supportsTags = Prelude.False,
          properties = ["Source" JSON..= source]}
 instance JSON.ToJSON EventFilterProperty where
   toJSON EventFilterProperty {..}

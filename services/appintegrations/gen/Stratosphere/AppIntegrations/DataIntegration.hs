@@ -28,6 +28,7 @@ instance ToResourceProperties DataIntegration where
   toResourceProperties DataIntegration {..}
     = ResourceProperties
         {awsType = "AWS::AppIntegrations::DataIntegration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KmsKey" JSON..= kmsKey, "Name" JSON..= name,

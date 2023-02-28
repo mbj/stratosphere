@@ -15,6 +15,7 @@ instance ToResourceProperties ArchiveS3SettingsProperty where
   toResourceProperties ArchiveS3SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.ArchiveS3Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "CannedAcl" Prelude.<$> cannedAcl])}
 instance JSON.ToJSON ArchiveS3SettingsProperty where

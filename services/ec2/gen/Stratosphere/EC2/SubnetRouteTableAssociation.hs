@@ -19,6 +19,7 @@ instance ToResourceProperties SubnetRouteTableAssociation where
   toResourceProperties SubnetRouteTableAssociation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SubnetRouteTableAssociation",
+         supportsTags = Prelude.False,
          properties = ["RouteTableId" JSON..= routeTableId,
                        "SubnetId" JSON..= subnetId]}
 instance JSON.ToJSON SubnetRouteTableAssociation where

@@ -19,6 +19,7 @@ instance ToResourceProperties ConditionProperty where
   toResourceProperties ConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::EventBusPolicy.Condition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

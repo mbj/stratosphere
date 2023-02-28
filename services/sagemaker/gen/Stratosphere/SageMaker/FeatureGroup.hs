@@ -42,6 +42,7 @@ instance ToResourceProperties FeatureGroup where
   toResourceProperties FeatureGroup {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::FeatureGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EventTimeFeatureName" JSON..= eventTimeFeatureName,

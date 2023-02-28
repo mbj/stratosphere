@@ -21,6 +21,7 @@ instance ToResourceProperties ResourceAssociation where
   toResourceProperties ResourceAssociation {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalogAppRegistry::ResourceAssociation",
+         supportsTags = Prelude.False,
          properties = ["Application" JSON..= application,
                        "Resource" JSON..= resource, "ResourceType" JSON..= resourceType]}
 instance JSON.ToJSON ResourceAssociation where

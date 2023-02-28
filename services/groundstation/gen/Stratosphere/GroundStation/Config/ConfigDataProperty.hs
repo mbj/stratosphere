@@ -34,6 +34,7 @@ instance ToResourceProperties ConfigDataProperty where
   toResourceProperties ConfigDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.ConfigData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AntennaDownlinkConfig"

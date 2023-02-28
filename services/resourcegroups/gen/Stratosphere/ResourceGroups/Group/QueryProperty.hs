@@ -20,6 +20,7 @@ instance ToResourceProperties QueryProperty where
   toResourceProperties QueryProperty {..}
     = ResourceProperties
         {awsType = "AWS::ResourceGroups::Group.Query",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ResourceTypeFilters" Prelude.<$> resourceTypeFilters,

@@ -16,6 +16,7 @@ instance ToResourceProperties IncrementalPullConfigProperty where
   toResourceProperties IncrementalPullConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.IncrementalPullConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DatetimeTypeFieldName"

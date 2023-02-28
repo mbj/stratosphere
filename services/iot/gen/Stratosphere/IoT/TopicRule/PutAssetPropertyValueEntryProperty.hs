@@ -25,6 +25,7 @@ instance ToResourceProperties PutAssetPropertyValueEntryProperty where
   toResourceProperties PutAssetPropertyValueEntryProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.PutAssetPropertyValueEntry",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PropertyValues" JSON..= propertyValues]

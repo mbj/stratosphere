@@ -24,6 +24,7 @@ instance ToResourceProperties MetadataOptionsProperty where
   toResourceProperties MetadataOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.MetadataOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HttpEndpoint" Prelude.<$> httpEndpoint,

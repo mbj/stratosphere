@@ -28,6 +28,7 @@ instance ToResourceProperties GlobalConfigurationProperty where
   toResourceProperties GlobalConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.GlobalConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InitialAudioGain" Prelude.<$> initialAudioGain,

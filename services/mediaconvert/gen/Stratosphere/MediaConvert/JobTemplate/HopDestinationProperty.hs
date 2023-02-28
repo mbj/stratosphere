@@ -19,6 +19,7 @@ instance ToResourceProperties HopDestinationProperty where
   toResourceProperties HopDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaConvert::JobTemplate.HopDestination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Priority" Prelude.<$> priority,

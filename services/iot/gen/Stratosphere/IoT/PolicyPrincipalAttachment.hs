@@ -19,6 +19,7 @@ instance ToResourceProperties PolicyPrincipalAttachment where
   toResourceProperties PolicyPrincipalAttachment {..}
     = ResourceProperties
         {awsType = "AWS::IoT::PolicyPrincipalAttachment",
+         supportsTags = Prelude.False,
          properties = ["PolicyName" JSON..= policyName,
                        "Principal" JSON..= principal]}
 instance JSON.ToJSON PolicyPrincipalAttachment where

@@ -20,6 +20,7 @@ instance ToResourceProperties ElasticLoadBalancerAttachment where
   toResourceProperties ElasticLoadBalancerAttachment {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::ElasticLoadBalancerAttachment",
+         supportsTags = Prelude.False,
          properties = ["ElasticLoadBalancerName"
                          JSON..= elasticLoadBalancerName,
                        "LayerId" JSON..= layerId]}

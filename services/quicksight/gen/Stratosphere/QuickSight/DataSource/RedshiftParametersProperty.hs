@@ -21,6 +21,7 @@ instance ToResourceProperties RedshiftParametersProperty where
   toResourceProperties RedshiftParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.RedshiftParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Database" JSON..= database]

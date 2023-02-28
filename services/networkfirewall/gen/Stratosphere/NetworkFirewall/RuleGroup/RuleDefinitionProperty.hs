@@ -21,6 +21,7 @@ instance ToResourceProperties RuleDefinitionProperty where
   toResourceProperties RuleDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.RuleDefinition",
+         supportsTags = Prelude.False,
          properties = ["Actions" JSON..= actions,
                        "MatchAttributes" JSON..= matchAttributes]}
 instance JSON.ToJSON RuleDefinitionProperty where

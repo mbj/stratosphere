@@ -17,6 +17,7 @@ instance ToResourceProperties ThemeErrorProperty where
   toResourceProperties ThemeErrorProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.ThemeError",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Message" Prelude.<$> message,

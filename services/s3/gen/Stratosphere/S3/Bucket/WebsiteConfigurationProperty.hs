@@ -24,6 +24,7 @@ instance ToResourceProperties WebsiteConfigurationProperty where
   toResourceProperties WebsiteConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.WebsiteConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ErrorDocument" Prelude.<$> errorDocument,

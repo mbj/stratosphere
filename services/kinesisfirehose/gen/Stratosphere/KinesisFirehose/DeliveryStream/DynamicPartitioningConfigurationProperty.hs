@@ -20,6 +20,7 @@ instance ToResourceProperties DynamicPartitioningConfigurationProperty where
   toResourceProperties DynamicPartitioningConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.DynamicPartitioningConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

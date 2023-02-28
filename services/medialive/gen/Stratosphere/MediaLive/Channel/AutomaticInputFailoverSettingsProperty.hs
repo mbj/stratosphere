@@ -25,6 +25,7 @@ instance ToResourceProperties AutomaticInputFailoverSettingsProperty where
   toResourceProperties AutomaticInputFailoverSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AutomaticInputFailoverSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ErrorClearTimeMsec" Prelude.<$> errorClearTimeMsec,

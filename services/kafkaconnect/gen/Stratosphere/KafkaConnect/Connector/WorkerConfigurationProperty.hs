@@ -20,6 +20,7 @@ instance ToResourceProperties WorkerConfigurationProperty where
   toResourceProperties WorkerConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.WorkerConfiguration",
+         supportsTags = Prelude.False,
          properties = ["Revision" JSON..= revision,
                        "WorkerConfigurationArn" JSON..= workerConfigurationArn]}
 instance JSON.ToJSON WorkerConfigurationProperty where

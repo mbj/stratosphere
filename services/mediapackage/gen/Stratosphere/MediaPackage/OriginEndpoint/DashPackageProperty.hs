@@ -46,6 +46,7 @@ instance ToResourceProperties DashPackageProperty where
   toResourceProperties DashPackageProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::OriginEndpoint.DashPackage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdTriggers" Prelude.<$> adTriggers,

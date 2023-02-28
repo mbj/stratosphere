@@ -13,6 +13,7 @@ instance ToResourceProperties Project where
   toResourceProperties Project {..}
     = ResourceProperties
         {awsType = "AWS::LookoutVision::Project",
+         supportsTags = Prelude.False,
          properties = ["ProjectName" JSON..= projectName]}
 instance JSON.ToJSON Project where
   toJSON Project {..}

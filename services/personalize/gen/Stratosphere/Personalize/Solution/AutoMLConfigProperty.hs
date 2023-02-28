@@ -17,6 +17,7 @@ instance ToResourceProperties AutoMLConfigProperty where
   toResourceProperties AutoMLConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Solution.AutoMLConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MetricName" Prelude.<$> metricName,

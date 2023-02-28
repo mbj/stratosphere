@@ -20,6 +20,7 @@ instance ToResourceProperties MetricStreamStatisticsMetricProperty where
   toResourceProperties MetricStreamStatisticsMetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::MetricStream.MetricStreamStatisticsMetric",
+         supportsTags = Prelude.False,
          properties = ["MetricName" JSON..= metricName,
                        "Namespace" JSON..= namespace]}
 instance JSON.ToJSON MetricStreamStatisticsMetricProperty where

@@ -17,6 +17,7 @@ instance ToResourceProperties BumperProperty where
   toResourceProperties BumperProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaTailor::PlaybackConfiguration.Bumper",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EndUrl" Prelude.<$> endUrl,

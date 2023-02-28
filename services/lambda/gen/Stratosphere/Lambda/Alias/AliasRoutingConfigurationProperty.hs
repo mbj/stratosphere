@@ -3,6 +3,7 @@ module Stratosphere.Lambda.Alias.AliasRoutingConfigurationProperty (
         mkAliasRoutingConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lambda.Alias.VersionWeightProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties AliasRoutingConfigurationProperty where
   toResourceProperties AliasRoutingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Alias.AliasRoutingConfiguration",
+         supportsTags = Prelude.False,
          properties = ["AdditionalVersionWeights"
                          JSON..= additionalVersionWeights]}
 instance JSON.ToJSON AliasRoutingConfigurationProperty where

@@ -19,7 +19,7 @@ mkRegistry name
 instance ToResourceProperties Registry where
   toResourceProperties Registry {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Registry",
+        {awsType = "AWS::Glue::Registry", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

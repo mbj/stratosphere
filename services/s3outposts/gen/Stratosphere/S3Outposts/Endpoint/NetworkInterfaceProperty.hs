@@ -17,6 +17,7 @@ instance ToResourceProperties NetworkInterfaceProperty where
   toResourceProperties NetworkInterfaceProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3Outposts::Endpoint.NetworkInterface",
+         supportsTags = Prelude.False,
          properties = ["NetworkInterfaceId" JSON..= networkInterfaceId]}
 instance JSON.ToJSON NetworkInterfaceProperty where
   toJSON NetworkInterfaceProperty {..}

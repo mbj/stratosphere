@@ -17,6 +17,7 @@ instance ToResourceProperties DatastoreProperty where
   toResourceProperties DatastoreProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline.Datastore",
+         supportsTags = Prelude.False,
          properties = ["DatastoreName" JSON..= datastoreName,
                        "Name" JSON..= name]}
 instance JSON.ToJSON DatastoreProperty where

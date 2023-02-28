@@ -17,6 +17,7 @@ instance ToResourceProperties TagCollectionProperty where
   toResourceProperties TagCollectionProperty {..}
     = ResourceProperties
         {awsType = "AWS::DevOpsGuru::ResourceCollection.TagCollection",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AppBoundaryKey" Prelude.<$> appBoundaryKey,

@@ -20,6 +20,7 @@ instance ToResourceProperties NetworkInputSettingsProperty where
   toResourceProperties NetworkInputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.NetworkInputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HlsInputSettings" Prelude.<$> hlsInputSettings,

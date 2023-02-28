@@ -3,6 +3,7 @@ module Stratosphere.S3.Bucket.CorsConfigurationProperty (
         mkCorsConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.Bucket.CorsRuleProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties CorsConfigurationProperty where
   toResourceProperties CorsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.CorsConfiguration",
+         supportsTags = Prelude.False,
          properties = ["CorsRules" JSON..= corsRules]}
 instance JSON.ToJSON CorsConfigurationProperty where
   toJSON CorsConfigurationProperty {..}

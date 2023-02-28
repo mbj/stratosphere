@@ -16,6 +16,7 @@ instance ToResourceProperties AutoImportPolicyProperty where
   toResourceProperties AutoImportPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::DataRepositoryAssociation.AutoImportPolicy",
+         supportsTags = Prelude.False,
          properties = ["Events" JSON..= events]}
 instance JSON.ToJSON AutoImportPolicyProperty where
   toJSON AutoImportPolicyProperty {..}

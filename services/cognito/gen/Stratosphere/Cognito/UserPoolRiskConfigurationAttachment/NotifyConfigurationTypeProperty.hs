@@ -26,6 +26,7 @@ instance ToResourceProperties NotifyConfigurationTypeProperty where
   toResourceProperties NotifyConfigurationTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolRiskConfigurationAttachment.NotifyConfigurationType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SourceArn" JSON..= sourceArn]

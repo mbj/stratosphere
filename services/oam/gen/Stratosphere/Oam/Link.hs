@@ -19,7 +19,7 @@ mkLink resourceTypes sinkIdentifier
 instance ToResourceProperties Link where
   toResourceProperties Link {..}
     = ResourceProperties
-        {awsType = "AWS::Oam::Link",
+        {awsType = "AWS::Oam::Link", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResourceTypes" JSON..= resourceTypes,

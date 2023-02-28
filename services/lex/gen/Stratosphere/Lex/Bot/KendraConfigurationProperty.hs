@@ -20,6 +20,7 @@ instance ToResourceProperties KendraConfigurationProperty where
   toResourceProperties KendraConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.KendraConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KendraIndex" JSON..= kendraIndex]

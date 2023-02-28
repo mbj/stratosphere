@@ -20,6 +20,7 @@ instance ToResourceProperties RiskExceptionConfigurationTypeProperty where
   toResourceProperties RiskExceptionConfigurationTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolRiskConfigurationAttachment.RiskExceptionConfigurationType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlockedIPRangeList" Prelude.<$> blockedIPRangeList,

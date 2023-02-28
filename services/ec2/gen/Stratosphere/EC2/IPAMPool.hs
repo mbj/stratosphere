@@ -41,7 +41,7 @@ mkIPAMPool addressFamily ipamScopeId
 instance ToResourceProperties IPAMPool where
   toResourceProperties IPAMPool {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::IPAMPool",
+        {awsType = "AWS::EC2::IPAMPool", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AddressFamily" JSON..= addressFamily,

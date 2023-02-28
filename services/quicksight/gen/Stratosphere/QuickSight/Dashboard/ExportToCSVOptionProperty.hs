@@ -15,6 +15,7 @@ instance ToResourceProperties ExportToCSVOptionProperty where
   toResourceProperties ExportToCSVOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.ExportToCSVOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityStatus" Prelude.<$> availabilityStatus])}

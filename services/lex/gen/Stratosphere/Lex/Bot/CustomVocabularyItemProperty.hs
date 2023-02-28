@@ -18,6 +18,7 @@ instance ToResourceProperties CustomVocabularyItemProperty where
   toResourceProperties CustomVocabularyItemProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.CustomVocabularyItem",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Phrase" JSON..= phrase]

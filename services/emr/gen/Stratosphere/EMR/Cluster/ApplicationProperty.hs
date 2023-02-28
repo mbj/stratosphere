@@ -20,6 +20,7 @@ instance ToResourceProperties ApplicationProperty where
   toResourceProperties ApplicationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.Application",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdditionalInfo" Prelude.<$> additionalInfo,

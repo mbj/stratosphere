@@ -22,6 +22,7 @@ instance ToResourceProperties UserIdentityInfoProperty where
   toResourceProperties UserIdentityInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::User.UserIdentityInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Email" Prelude.<$> email,

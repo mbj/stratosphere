@@ -22,6 +22,7 @@ instance ToResourceProperties EndpointDetailsProperty where
   toResourceProperties EndpointDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Server.EndpointDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AddressAllocationIds" Prelude.<$> addressAllocationIds,

@@ -29,6 +29,7 @@ instance ToResourceProperties HlsCdnSettingsProperty where
   toResourceProperties HlsCdnSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HlsCdnSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HlsAkamaiSettings" Prelude.<$> hlsAkamaiSettings,

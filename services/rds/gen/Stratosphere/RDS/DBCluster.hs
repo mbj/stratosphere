@@ -114,7 +114,7 @@ mkDBCluster
 instance ToResourceProperties DBCluster where
   toResourceProperties DBCluster {..}
     = ResourceProperties
-        {awsType = "AWS::RDS::DBCluster",
+        {awsType = "AWS::RDS::DBCluster", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllocatedStorage" Prelude.<$> allocatedStorage,

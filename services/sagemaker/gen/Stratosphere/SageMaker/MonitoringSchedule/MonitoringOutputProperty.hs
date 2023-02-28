@@ -3,6 +3,7 @@ module Stratosphere.SageMaker.MonitoringSchedule.MonitoringOutputProperty (
         mkMonitoringOutputProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.MonitoringSchedule.S3OutputProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties MonitoringOutputProperty where
   toResourceProperties MonitoringOutputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule.MonitoringOutput",
+         supportsTags = Prelude.False,
          properties = ["S3Output" JSON..= s3Output]}
 instance JSON.ToJSON MonitoringOutputProperty where
   toJSON MonitoringOutputProperty {..}

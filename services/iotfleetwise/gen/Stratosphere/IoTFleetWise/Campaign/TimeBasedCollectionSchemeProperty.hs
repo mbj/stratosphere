@@ -17,6 +17,7 @@ instance ToResourceProperties TimeBasedCollectionSchemeProperty where
   toResourceProperties TimeBasedCollectionSchemeProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::Campaign.TimeBasedCollectionScheme",
+         supportsTags = Prelude.False,
          properties = ["PeriodMs" JSON..= periodMs]}
 instance JSON.ToJSON TimeBasedCollectionSchemeProperty where
   toJSON TimeBasedCollectionSchemeProperty {..}

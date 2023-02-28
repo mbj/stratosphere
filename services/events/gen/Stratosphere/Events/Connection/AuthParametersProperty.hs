@@ -26,6 +26,7 @@ instance ToResourceProperties AuthParametersProperty where
   toResourceProperties AuthParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Connection.AuthParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApiKeyAuthParameters" Prelude.<$> apiKeyAuthParameters,

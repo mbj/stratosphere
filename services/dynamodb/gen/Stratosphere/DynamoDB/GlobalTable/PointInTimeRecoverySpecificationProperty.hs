@@ -18,6 +18,7 @@ instance ToResourceProperties PointInTimeRecoverySpecificationProperty where
   toResourceProperties PointInTimeRecoverySpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.PointInTimeRecoverySpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PointInTimeRecoveryEnabled"

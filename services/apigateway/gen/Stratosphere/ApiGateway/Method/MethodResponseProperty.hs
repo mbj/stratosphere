@@ -20,6 +20,7 @@ instance ToResourceProperties MethodResponseProperty where
   toResourceProperties MethodResponseProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Method.MethodResponse",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StatusCode" JSON..= statusCode]

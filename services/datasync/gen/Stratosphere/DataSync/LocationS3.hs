@@ -24,6 +24,7 @@ instance ToResourceProperties LocationS3 where
   toResourceProperties LocationS3 {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationS3",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3Config" JSON..= s3Config]

@@ -31,6 +31,7 @@ instance ToResourceProperties SizeConstraintProperty where
   toResourceProperties SizeConstraintProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAF::SizeConstraintSet.SizeConstraint",
+         supportsTags = Prelude.False,
          properties = ["ComparisonOperator" JSON..= comparisonOperator,
                        "FieldToMatch" JSON..= fieldToMatch, "Size" JSON..= size,
                        "TextTransformation" JSON..= textTransformation]}

@@ -34,6 +34,7 @@ instance ToResourceProperties CloudwatchMetricActionProperty where
   toResourceProperties CloudwatchMetricActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.CloudwatchMetricAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricName" JSON..= metricName,

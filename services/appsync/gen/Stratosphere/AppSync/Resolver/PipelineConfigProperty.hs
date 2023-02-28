@@ -15,6 +15,7 @@ instance ToResourceProperties PipelineConfigProperty where
   toResourceProperties PipelineConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::Resolver.PipelineConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Functions" Prelude.<$> functions])}
 instance JSON.ToJSON PipelineConfigProperty where

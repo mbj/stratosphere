@@ -19,6 +19,7 @@ instance ToResourceProperties ServerlessV2ScalingConfigurationProperty where
   toResourceProperties ServerlessV2ScalingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBCluster.ServerlessV2ScalingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxCapacity" Prelude.<$> maxCapacity,

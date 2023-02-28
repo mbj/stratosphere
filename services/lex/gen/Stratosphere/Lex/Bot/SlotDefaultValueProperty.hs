@@ -16,6 +16,7 @@ instance ToResourceProperties SlotDefaultValueProperty where
   toResourceProperties SlotDefaultValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SlotDefaultValue",
+         supportsTags = Prelude.False,
          properties = ["DefaultValue" JSON..= defaultValue]}
 instance JSON.ToJSON SlotDefaultValueProperty where
   toJSON SlotDefaultValueProperty {..}

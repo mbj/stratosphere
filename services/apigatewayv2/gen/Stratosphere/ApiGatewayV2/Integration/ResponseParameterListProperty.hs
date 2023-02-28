@@ -17,6 +17,7 @@ instance ToResourceProperties ResponseParameterListProperty where
   toResourceProperties ResponseParameterListProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Integration.ResponseParameterList",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ResponseParameters" Prelude.<$> responseParameters])}

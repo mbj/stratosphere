@@ -25,6 +25,7 @@ instance ToResourceProperties OAuthCredentialsProperty where
   toResourceProperties OAuthCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.OAuthCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessToken" Prelude.<$> accessToken,

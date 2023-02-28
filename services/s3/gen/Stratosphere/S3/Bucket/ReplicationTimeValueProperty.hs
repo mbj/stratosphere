@@ -16,6 +16,7 @@ instance ToResourceProperties ReplicationTimeValueProperty where
   toResourceProperties ReplicationTimeValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ReplicationTimeValue",
+         supportsTags = Prelude.False,
          properties = ["Minutes" JSON..= minutes]}
 instance JSON.ToJSON ReplicationTimeValueProperty where
   toJSON ReplicationTimeValueProperty {..}

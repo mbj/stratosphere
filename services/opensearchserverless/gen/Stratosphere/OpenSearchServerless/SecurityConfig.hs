@@ -21,6 +21,7 @@ instance ToResourceProperties SecurityConfig where
   toResourceProperties SecurityConfig {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchServerless::SecurityConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

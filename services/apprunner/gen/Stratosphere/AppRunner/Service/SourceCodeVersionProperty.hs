@@ -18,6 +18,7 @@ instance ToResourceProperties SourceCodeVersionProperty where
   toResourceProperties SourceCodeVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.SourceCodeVersion",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON SourceCodeVersionProperty where
   toJSON SourceCodeVersionProperty {..}

@@ -19,6 +19,7 @@ instance ToResourceProperties QueryParameterProperty where
   toResourceProperties QueryParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.QueryParameter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -25,6 +25,7 @@ instance ToResourceProperties H265ColorSpaceSettingsProperty where
   toResourceProperties H265ColorSpaceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.H265ColorSpaceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ColorSpacePassthroughSettings"

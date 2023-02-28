@@ -17,6 +17,7 @@ instance ToResourceProperties GreenFleetProvisioningOptionProperty where
   toResourceProperties GreenFleetProvisioningOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.GreenFleetProvisioningOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Action" Prelude.<$> action])}
 instance JSON.ToJSON GreenFleetProvisioningOptionProperty where

@@ -20,6 +20,7 @@ instance ToResourceProperties SelfManagedKafkaAccessConfigurationVpcProperty whe
     SelfManagedKafkaAccessConfigurationVpcProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.SelfManagedKafkaAccessConfigurationVpc",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SecurityGroup" Prelude.<$> securityGroup,

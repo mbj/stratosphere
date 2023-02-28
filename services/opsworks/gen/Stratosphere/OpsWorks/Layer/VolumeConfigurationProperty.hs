@@ -25,6 +25,7 @@ instance ToResourceProperties VolumeConfigurationProperty where
   toResourceProperties VolumeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Layer.VolumeConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Encrypted" Prelude.<$> encrypted,

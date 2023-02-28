@@ -20,6 +20,7 @@ instance ToResourceProperties ClusteringKeyColumnProperty where
   toResourceProperties ClusteringKeyColumnProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cassandra::Table.ClusteringKeyColumn",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Column" JSON..= column]

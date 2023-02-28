@@ -17,6 +17,7 @@ instance ToResourceProperties MatcherProperty where
   toResourceProperties MatcherProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::TargetGroup.Matcher",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GrpcCode" Prelude.<$> grpcCode,

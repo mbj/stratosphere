@@ -22,6 +22,7 @@ instance ToResourceProperties LambdaProperty where
   toResourceProperties LambdaProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline.Lambda",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BatchSize" JSON..= batchSize, "LambdaName" JSON..= lambdaName,

@@ -27,6 +27,7 @@ instance ToResourceProperties TransitGatewayMulticastDomainAssociation where
   toResourceProperties TransitGatewayMulticastDomainAssociation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TransitGatewayMulticastDomainAssociation",
+         supportsTags = Prelude.False,
          properties = ["SubnetId" JSON..= subnetId,
                        "TransitGatewayAttachmentId" JSON..= transitGatewayAttachmentId,
                        "TransitGatewayMulticastDomainId"

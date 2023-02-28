@@ -20,6 +20,7 @@ instance ToResourceProperties ResourcePolicy where
   toResourceProperties ResourcePolicy {..}
     = ResourceProperties
         {awsType = "AWS::SecretsManager::ResourcePolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResourcePolicy" JSON..= resourcePolicy,

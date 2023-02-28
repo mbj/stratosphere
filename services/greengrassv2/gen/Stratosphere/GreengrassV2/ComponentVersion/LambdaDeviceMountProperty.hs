@@ -19,6 +19,7 @@ instance ToResourceProperties LambdaDeviceMountProperty where
   toResourceProperties LambdaDeviceMountProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::ComponentVersion.LambdaDeviceMount",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AddGroupOwner" Prelude.<$> addGroupOwner,

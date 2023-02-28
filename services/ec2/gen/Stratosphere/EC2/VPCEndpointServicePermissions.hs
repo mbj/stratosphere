@@ -18,6 +18,7 @@ instance ToResourceProperties VPCEndpointServicePermissions where
   toResourceProperties VPCEndpointServicePermissions {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VPCEndpointServicePermissions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ServiceId" JSON..= serviceId]

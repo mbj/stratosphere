@@ -26,6 +26,7 @@ instance ToResourceProperties ZendeskConnectorProfileCredentialsProperty where
     ZendeskConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.ZendeskConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientId" JSON..= clientId, "ClientSecret" JSON..= clientSecret]

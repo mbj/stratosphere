@@ -21,6 +21,7 @@ instance ToResourceProperties AdditionalInstanceConfigurationProperty where
   toResourceProperties AdditionalInstanceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ImageRecipe.AdditionalInstanceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SystemsManagerAgent" Prelude.<$> systemsManagerAgent,

@@ -17,6 +17,7 @@ instance ToResourceProperties JsonMatchPatternProperty where
   toResourceProperties JsonMatchPatternProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.JsonMatchPattern",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "All" Prelude.<$> all,

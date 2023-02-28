@@ -26,6 +26,7 @@ instance ToResourceProperties DeltaSyncConfigProperty where
   toResourceProperties DeltaSyncConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.DeltaSyncConfig",
+         supportsTags = Prelude.False,
          properties = ["BaseTableTTL" JSON..= baseTableTTL,
                        "DeltaSyncTableName" JSON..= deltaSyncTableName,
                        "DeltaSyncTableTTL" JSON..= deltaSyncTableTTL]}

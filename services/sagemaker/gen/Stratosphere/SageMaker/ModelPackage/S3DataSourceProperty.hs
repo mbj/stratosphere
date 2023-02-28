@@ -17,6 +17,7 @@ instance ToResourceProperties S3DataSourceProperty where
   toResourceProperties S3DataSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.S3DataSource",
+         supportsTags = Prelude.False,
          properties = ["S3DataType" JSON..= s3DataType,
                        "S3Uri" JSON..= s3Uri]}
 instance JSON.ToJSON S3DataSourceProperty where

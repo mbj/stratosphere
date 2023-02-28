@@ -20,6 +20,7 @@ instance ToResourceProperties SnsActionProperty where
   toResourceProperties SnsActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.SnsAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn, "TargetArn" JSON..= targetArn]

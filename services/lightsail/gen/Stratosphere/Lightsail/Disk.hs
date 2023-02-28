@@ -23,7 +23,7 @@ mkDisk diskName sizeInGb
 instance ToResourceProperties Disk where
   toResourceProperties Disk {..}
     = ResourceProperties
-        {awsType = "AWS::Lightsail::Disk",
+        {awsType = "AWS::Lightsail::Disk", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DiskName" JSON..= diskName, "SizeInGb" JSON..= sizeInGb]

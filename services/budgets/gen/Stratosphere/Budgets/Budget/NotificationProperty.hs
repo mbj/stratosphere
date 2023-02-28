@@ -27,6 +27,7 @@ instance ToResourceProperties NotificationProperty where
   toResourceProperties NotificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::Budget.Notification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ComparisonOperator" JSON..= comparisonOperator,

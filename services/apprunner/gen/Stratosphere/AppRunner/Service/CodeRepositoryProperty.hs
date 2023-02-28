@@ -25,6 +25,7 @@ instance ToResourceProperties CodeRepositoryProperty where
   toResourceProperties CodeRepositoryProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.CodeRepository",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RepositoryUrl" JSON..= repositoryUrl,

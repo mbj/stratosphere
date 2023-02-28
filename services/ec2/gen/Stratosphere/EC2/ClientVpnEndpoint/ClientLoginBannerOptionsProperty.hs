@@ -19,6 +19,7 @@ instance ToResourceProperties ClientLoginBannerOptionsProperty where
   toResourceProperties ClientLoginBannerOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::ClientVpnEndpoint.ClientLoginBannerOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

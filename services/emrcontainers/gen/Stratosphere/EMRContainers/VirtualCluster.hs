@@ -22,6 +22,7 @@ instance ToResourceProperties VirtualCluster where
   toResourceProperties VirtualCluster {..}
     = ResourceProperties
         {awsType = "AWS::EMRContainers::VirtualCluster",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ContainerProvider" JSON..= containerProvider,

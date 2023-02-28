@@ -30,6 +30,7 @@ instance ToResourceProperties DirectoryConfig where
   toResourceProperties DirectoryConfig {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::DirectoryConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DirectoryName" JSON..= directoryName,

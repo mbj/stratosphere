@@ -27,6 +27,7 @@ instance ToResourceProperties SsmAutomationProperty where
   toResourceProperties SsmAutomationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ResponsePlan.SsmAutomation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DocumentName" JSON..= documentName, "RoleArn" JSON..= roleArn]

@@ -21,7 +21,7 @@ mkChannel
 instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties
-        {awsType = "AWS::CloudTrail::Channel",
+        {awsType = "AWS::CloudTrail::Channel", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Destinations" Prelude.<$> destinations,

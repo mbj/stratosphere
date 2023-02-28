@@ -21,6 +21,7 @@ instance ToResourceProperties DashboardSourceTemplateProperty where
   toResourceProperties DashboardSourceTemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.DashboardSourceTemplate",
+         supportsTags = Prelude.False,
          properties = ["Arn" JSON..= arn,
                        "DataSetReferences" JSON..= dataSetReferences]}
 instance JSON.ToJSON DashboardSourceTemplateProperty where

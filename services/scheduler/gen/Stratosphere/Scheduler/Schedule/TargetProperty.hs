@@ -38,6 +38,7 @@ instance ToResourceProperties TargetProperty where
   toResourceProperties TargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule.Target",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Arn" JSON..= arn, "RoleArn" JSON..= roleArn]

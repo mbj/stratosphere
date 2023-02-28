@@ -21,6 +21,7 @@ instance ToResourceProperties EbsBlockDeviceConfigProperty where
   toResourceProperties EbsBlockDeviceConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::InstanceGroupConfig.EbsBlockDeviceConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VolumeSpecification" JSON..= volumeSpecification]

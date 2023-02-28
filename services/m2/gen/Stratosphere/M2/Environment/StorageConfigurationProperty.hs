@@ -19,6 +19,7 @@ instance ToResourceProperties StorageConfigurationProperty where
   toResourceProperties StorageConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::M2::Environment.StorageConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Efs" Prelude.<$> efs,

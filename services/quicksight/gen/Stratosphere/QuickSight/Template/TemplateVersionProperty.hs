@@ -33,6 +33,7 @@ instance ToResourceProperties TemplateVersionProperty where
   toResourceProperties TemplateVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Template.TemplateVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CreatedTime" Prelude.<$> createdTime,

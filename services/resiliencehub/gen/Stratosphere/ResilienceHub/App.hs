@@ -28,7 +28,7 @@ mkApp appTemplateBody name resourceMappings
 instance ToResourceProperties App where
   toResourceProperties App {..}
     = ResourceProperties
-        {awsType = "AWS::ResilienceHub::App",
+        {awsType = "AWS::ResilienceHub::App", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AppTemplateBody" JSON..= appTemplateBody, "Name" JSON..= name,

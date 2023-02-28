@@ -25,6 +25,7 @@ instance ToResourceProperties EventInvokeConfig where
   toResourceProperties EventInvokeConfig {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventInvokeConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionName" JSON..= functionName,

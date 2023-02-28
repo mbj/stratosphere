@@ -20,6 +20,7 @@ instance ToResourceProperties BaselineConfigProperty where
   toResourceProperties BaselineConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule.BaselineConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConstraintsResource" Prelude.<$> constraintsResource,

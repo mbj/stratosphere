@@ -18,6 +18,7 @@ instance ToResourceProperties CloudWatchEncryptionProperty where
   toResourceProperties CloudWatchEncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::SecurityConfiguration.CloudWatchEncryption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchEncryptionMode"

@@ -17,6 +17,7 @@ instance ToResourceProperties DateFilterProperty where
   toResourceProperties DateFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::InspectorV2::Filter.DateFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EndInclusive" Prelude.<$> endInclusive,

@@ -17,6 +17,7 @@ instance ToResourceProperties TagsEntryProperty where
   toResourceProperties TagsEntryProperty {..}
     = ResourceProperties
         {awsType = "AWS::StepFunctions::StateMachine.TagsEntry",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON TagsEntryProperty where
   toJSON TagsEntryProperty {..}

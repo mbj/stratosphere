@@ -15,7 +15,7 @@ mkAlias aliasName targetKeyId
 instance ToResourceProperties Alias where
   toResourceProperties Alias {..}
     = ResourceProperties
-        {awsType = "AWS::KMS::Alias",
+        {awsType = "AWS::KMS::Alias", supportsTags = Prelude.False,
          properties = ["AliasName" JSON..= aliasName,
                        "TargetKeyId" JSON..= targetKeyId]}
 instance JSON.ToJSON Alias where

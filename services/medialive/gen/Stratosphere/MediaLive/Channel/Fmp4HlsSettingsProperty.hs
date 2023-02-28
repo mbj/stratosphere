@@ -20,6 +20,7 @@ instance ToResourceProperties Fmp4HlsSettingsProperty where
   toResourceProperties Fmp4HlsSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Fmp4HlsSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioRenditionSets" Prelude.<$> audioRenditionSets,

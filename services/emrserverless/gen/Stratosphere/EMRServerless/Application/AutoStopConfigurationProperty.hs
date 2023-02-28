@@ -17,6 +17,7 @@ instance ToResourceProperties AutoStopConfigurationProperty where
   toResourceProperties AutoStopConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMRServerless::Application.AutoStopConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

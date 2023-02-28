@@ -17,6 +17,7 @@ instance ToResourceProperties ReferenceProperty where
   toResourceProperties ReferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::Rule.Reference",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON ReferenceProperty where
   toJSON ReferenceProperty {..}

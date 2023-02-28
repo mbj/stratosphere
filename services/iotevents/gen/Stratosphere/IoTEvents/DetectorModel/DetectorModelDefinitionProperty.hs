@@ -21,6 +21,7 @@ instance ToResourceProperties DetectorModelDefinitionProperty where
   toResourceProperties DetectorModelDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.DetectorModelDefinition",
+         supportsTags = Prelude.False,
          properties = ["InitialStateName" JSON..= initialStateName,
                        "States" JSON..= states]}
 instance JSON.ToJSON DetectorModelDefinitionProperty where

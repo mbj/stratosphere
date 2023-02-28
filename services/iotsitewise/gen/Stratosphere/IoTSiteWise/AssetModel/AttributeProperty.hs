@@ -15,6 +15,7 @@ instance ToResourceProperties AttributeProperty where
   toResourceProperties AttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AssetModel.Attribute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefaultValue" Prelude.<$> defaultValue])}

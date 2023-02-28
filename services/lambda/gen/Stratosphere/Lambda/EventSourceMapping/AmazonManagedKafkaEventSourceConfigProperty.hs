@@ -19,6 +19,7 @@ instance ToResourceProperties AmazonManagedKafkaEventSourceConfigProperty where
     AmazonManagedKafkaEventSourceConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventSourceMapping.AmazonManagedKafkaEventSourceConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConsumerGroupId" Prelude.<$> consumerGroupId])}

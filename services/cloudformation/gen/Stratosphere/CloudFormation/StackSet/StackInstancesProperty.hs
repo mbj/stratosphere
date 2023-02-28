@@ -24,6 +24,7 @@ instance ToResourceProperties StackInstancesProperty where
   toResourceProperties StackInstancesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::StackSet.StackInstances",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeploymentTargets" JSON..= deploymentTargets,

@@ -3,6 +3,7 @@ module Stratosphere.MediaPackage.PackagingConfiguration.CmafEncryptionProperty (
         mkCmafEncryptionProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.SpekeKeyProviderProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties CmafEncryptionProperty where
   toResourceProperties CmafEncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingConfiguration.CmafEncryption",
+         supportsTags = Prelude.False,
          properties = ["SpekeKeyProvider" JSON..= spekeKeyProvider]}
 instance JSON.ToJSON CmafEncryptionProperty where
   toJSON CmafEncryptionProperty {..}

@@ -19,6 +19,7 @@ instance ToResourceProperties DeprecateRuleProperty where
   toResourceProperties DeprecateRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.DeprecateRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Count" Prelude.<$> count,

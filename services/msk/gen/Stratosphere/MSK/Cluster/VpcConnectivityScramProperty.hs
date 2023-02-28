@@ -16,6 +16,7 @@ instance ToResourceProperties VpcConnectivityScramProperty where
   toResourceProperties VpcConnectivityScramProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.VpcConnectivityScram",
+         supportsTags = Prelude.False,
          properties = ["Enabled" JSON..= enabled]}
 instance JSON.ToJSON VpcConnectivityScramProperty where
   toJSON VpcConnectivityScramProperty {..}

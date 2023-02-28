@@ -17,6 +17,7 @@ instance ToResourceProperties MemoryGiBPerVCpuProperty where
   toResourceProperties MemoryGiBPerVCpuProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.MemoryGiBPerVCpu",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

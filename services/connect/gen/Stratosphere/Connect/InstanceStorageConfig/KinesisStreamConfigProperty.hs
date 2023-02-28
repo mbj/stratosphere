@@ -16,6 +16,7 @@ instance ToResourceProperties KinesisStreamConfigProperty where
   toResourceProperties KinesisStreamConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::InstanceStorageConfig.KinesisStreamConfig",
+         supportsTags = Prelude.False,
          properties = ["StreamArn" JSON..= streamArn]}
 instance JSON.ToJSON KinesisStreamConfigProperty where
   toJSON KinesisStreamConfigProperty {..}

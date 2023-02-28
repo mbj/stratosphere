@@ -23,6 +23,7 @@ instance ToResourceProperties MitigationAction where
   toResourceProperties MitigationAction {..}
     = ResourceProperties
         {awsType = "AWS::IoT::MitigationAction",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ActionParams" JSON..= actionParams, "RoleArn" JSON..= roleArn]

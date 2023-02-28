@@ -24,6 +24,7 @@ instance ToResourceProperties CmafPackageProperty where
   toResourceProperties CmafPackageProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingConfiguration.CmafPackage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HlsManifests" JSON..= hlsManifests]

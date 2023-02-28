@@ -14,6 +14,7 @@ instance ToResourceProperties Account where
   toResourceProperties Account {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Account",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchRoleArn" Prelude.<$> cloudWatchRoleArn])}

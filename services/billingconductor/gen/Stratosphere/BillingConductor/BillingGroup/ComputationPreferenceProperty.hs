@@ -16,6 +16,7 @@ instance ToResourceProperties ComputationPreferenceProperty where
   toResourceProperties ComputationPreferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::BillingGroup.ComputationPreference",
+         supportsTags = Prelude.False,
          properties = ["PricingPlanArn" JSON..= pricingPlanArn]}
 instance JSON.ToJSON ComputationPreferenceProperty where
   toJSON ComputationPreferenceProperty {..}

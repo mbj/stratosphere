@@ -21,6 +21,7 @@ instance ToResourceProperties MySqlParametersProperty where
   toResourceProperties MySqlParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.MySqlParameters",
+         supportsTags = Prelude.False,
          properties = ["Database" JSON..= database, "Host" JSON..= host,
                        "Port" JSON..= port]}
 instance JSON.ToJSON MySqlParametersProperty where

@@ -18,6 +18,7 @@ instance ToResourceProperties DataLakeSettings where
   toResourceProperties DataLakeSettings {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::DataLakeSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Admins" Prelude.<$> admins,

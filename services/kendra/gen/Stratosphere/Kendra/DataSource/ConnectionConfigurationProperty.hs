@@ -33,6 +33,7 @@ instance ToResourceProperties ConnectionConfigurationProperty where
   toResourceProperties ConnectionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ConnectionConfiguration",
+         supportsTags = Prelude.False,
          properties = ["DatabaseHost" JSON..= databaseHost,
                        "DatabaseName" JSON..= databaseName,
                        "DatabasePort" JSON..= databasePort, "SecretArn" JSON..= secretArn,

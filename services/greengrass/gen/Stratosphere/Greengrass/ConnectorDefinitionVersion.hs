@@ -22,6 +22,7 @@ instance ToResourceProperties ConnectorDefinitionVersion where
   toResourceProperties ConnectorDefinitionVersion {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ConnectorDefinitionVersion",
+         supportsTags = Prelude.False,
          properties = ["ConnectorDefinitionId"
                          JSON..= connectorDefinitionId,
                        "Connectors" JSON..= connectors]}

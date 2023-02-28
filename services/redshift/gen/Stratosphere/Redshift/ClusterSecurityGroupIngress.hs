@@ -22,6 +22,7 @@ instance ToResourceProperties ClusterSecurityGroupIngress where
   toResourceProperties ClusterSecurityGroupIngress {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::ClusterSecurityGroupIngress",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterSecurityGroupName" JSON..= clusterSecurityGroupName]

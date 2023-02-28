@@ -18,6 +18,7 @@ instance ToResourceProperties DynamoDBv2Property where
   toResourceProperties DynamoDBv2Property {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.DynamoDBv2",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TableName" JSON..= tableName]

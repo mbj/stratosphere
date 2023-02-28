@@ -16,6 +16,7 @@ instance ToResourceProperties JSONMappingParametersProperty where
   toResourceProperties JSONMappingParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::ApplicationReferenceDataSource.JSONMappingParameters",
+         supportsTags = Prelude.False,
          properties = ["RecordRowPath" JSON..= recordRowPath]}
 instance JSON.ToJSON JSONMappingParametersProperty where
   toJSON JSONMappingParametersProperty {..}

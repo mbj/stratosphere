@@ -27,6 +27,7 @@ instance ToResourceProperties SalesforceKnowledgeArticleConfigurationProperty wh
     SalesforceKnowledgeArticleConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.SalesforceKnowledgeArticleConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IncludedStates" JSON..= includedStates]

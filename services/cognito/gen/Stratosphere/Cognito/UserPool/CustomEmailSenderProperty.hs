@@ -17,6 +17,7 @@ instance ToResourceProperties CustomEmailSenderProperty where
   toResourceProperties CustomEmailSenderProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.CustomEmailSender",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LambdaArn" Prelude.<$> lambdaArn,

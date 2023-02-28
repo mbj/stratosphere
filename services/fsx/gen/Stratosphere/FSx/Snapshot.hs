@@ -18,7 +18,7 @@ mkSnapshot name volumeId
 instance ToResourceProperties Snapshot where
   toResourceProperties Snapshot {..}
     = ResourceProperties
-        {awsType = "AWS::FSx::Snapshot",
+        {awsType = "AWS::FSx::Snapshot", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "VolumeId" JSON..= volumeId]

@@ -23,6 +23,7 @@ instance ToResourceProperties StorageLocationProperty where
   toResourceProperties StorageLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::Build.StorageLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket, "Key" JSON..= key,

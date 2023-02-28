@@ -23,6 +23,7 @@ instance ToResourceProperties RowLevelPermissionDataSetProperty where
   toResourceProperties RowLevelPermissionDataSetProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.RowLevelPermissionDataSet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Arn" JSON..= arn, "PermissionPolicy" JSON..= permissionPolicy]

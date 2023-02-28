@@ -26,6 +26,7 @@ instance ToResourceProperties SourceConfigurationProperty where
   toResourceProperties SourceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.SourceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AuthenticationConfiguration"

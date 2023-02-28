@@ -20,6 +20,7 @@ instance ToResourceProperties DashConfigurationProperty where
   toResourceProperties DashConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaTailor::PlaybackConfiguration.DashConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ManifestEndpointPrefix"

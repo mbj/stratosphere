@@ -14,6 +14,7 @@ instance ToResourceProperties CsvProperty where
   toResourceProperties CsvProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::DataQualityJobDefinition.Csv",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Header" Prelude.<$> header])}
 instance JSON.ToJSON CsvProperty where

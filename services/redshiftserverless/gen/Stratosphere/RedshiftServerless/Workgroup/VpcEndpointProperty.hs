@@ -20,6 +20,7 @@ instance ToResourceProperties VpcEndpointProperty where
   toResourceProperties VpcEndpointProperty {..}
     = ResourceProperties
         {awsType = "AWS::RedshiftServerless::Workgroup.VpcEndpoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NetworkInterfaces" Prelude.<$> networkInterfaces,

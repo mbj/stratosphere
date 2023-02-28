@@ -15,6 +15,7 @@ instance ToResourceProperties ScheduleProperty where
   toResourceProperties ScheduleProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.Schedule",
+         supportsTags = Prelude.False,
          properties = ["ScheduleExpression" JSON..= scheduleExpression]}
 instance JSON.ToJSON ScheduleProperty where
   toJSON ScheduleProperty {..}

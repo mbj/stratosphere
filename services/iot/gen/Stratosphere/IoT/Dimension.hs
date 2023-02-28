@@ -21,7 +21,7 @@ mkDimension stringValues type'
 instance ToResourceProperties Dimension where
   toResourceProperties Dimension {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::Dimension",
+        {awsType = "AWS::IoT::Dimension", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StringValues" JSON..= stringValues, "Type" JSON..= type']

@@ -21,6 +21,7 @@ instance ToResourceProperties AutoScalingPolicyProperty where
   toResourceProperties AutoScalingPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::GameServerGroup.AutoScalingPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TargetTrackingConfiguration" JSON..= targetTrackingConfiguration]

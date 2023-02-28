@@ -18,6 +18,7 @@ instance ToResourceProperties S3DestinationProperty where
   toResourceProperties S3DestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Project.S3Destination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName]

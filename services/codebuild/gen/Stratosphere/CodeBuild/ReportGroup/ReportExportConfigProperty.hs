@@ -21,6 +21,7 @@ instance ToResourceProperties ReportExportConfigProperty where
   toResourceProperties ReportExportConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::ReportGroup.ReportExportConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ExportConfigType" JSON..= exportConfigType]

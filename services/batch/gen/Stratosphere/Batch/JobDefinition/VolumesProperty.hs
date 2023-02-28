@@ -21,6 +21,7 @@ instance ToResourceProperties VolumesProperty where
   toResourceProperties VolumesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.Volumes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EfsVolumeConfiguration"

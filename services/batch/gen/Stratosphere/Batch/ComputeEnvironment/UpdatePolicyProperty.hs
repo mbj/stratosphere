@@ -18,6 +18,7 @@ instance ToResourceProperties UpdatePolicyProperty where
   toResourceProperties UpdatePolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::ComputeEnvironment.UpdatePolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "JobExecutionTimeoutMinutes"

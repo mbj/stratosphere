@@ -19,6 +19,7 @@ instance ToResourceProperties DataSourceProperty where
   toResourceProperties DataSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::App.DataSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn,

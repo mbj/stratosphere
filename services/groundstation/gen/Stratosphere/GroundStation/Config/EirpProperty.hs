@@ -16,6 +16,7 @@ instance ToResourceProperties EirpProperty where
   toResourceProperties EirpProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.Eirp",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Units" Prelude.<$> units,

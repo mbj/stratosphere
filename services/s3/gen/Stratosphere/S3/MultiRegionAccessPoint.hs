@@ -23,6 +23,7 @@ instance ToResourceProperties MultiRegionAccessPoint where
   toResourceProperties MultiRegionAccessPoint {..}
     = ResourceProperties
         {awsType = "AWS::S3::MultiRegionAccessPoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Regions" JSON..= regions]

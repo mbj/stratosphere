@@ -23,7 +23,7 @@ mkResourceShare name
 instance ToResourceProperties ResourceShare where
   toResourceProperties ResourceShare {..}
     = ResourceProperties
-        {awsType = "AWS::RAM::ResourceShare",
+        {awsType = "AWS::RAM::ResourceShare", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

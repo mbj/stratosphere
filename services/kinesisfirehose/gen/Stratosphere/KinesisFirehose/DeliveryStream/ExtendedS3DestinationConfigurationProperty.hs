@@ -49,6 +49,7 @@ instance ToResourceProperties ExtendedS3DestinationConfigurationProperty where
     ExtendedS3DestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.ExtendedS3DestinationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketARN" JSON..= bucketARN, "RoleARN" JSON..= roleARN]

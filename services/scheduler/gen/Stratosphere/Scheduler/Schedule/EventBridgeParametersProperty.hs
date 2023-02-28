@@ -19,6 +19,7 @@ instance ToResourceProperties EventBridgeParametersProperty where
   toResourceProperties EventBridgeParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule.EventBridgeParameters",
+         supportsTags = Prelude.False,
          properties = ["DetailType" JSON..= detailType,
                        "Source" JSON..= source]}
 instance JSON.ToJSON EventBridgeParametersProperty where

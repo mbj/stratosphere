@@ -2,6 +2,7 @@ module Stratosphere.WAFv2.RuleGroup.OrStatementProperty (
         module Exports, OrStatementProperty(..), mkOrStatementProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.StatementProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,7 @@ instance ToResourceProperties OrStatementProperty where
   toResourceProperties OrStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.OrStatement",
+         supportsTags = Prelude.False,
          properties = ["Statements" JSON..= statements]}
 instance JSON.ToJSON OrStatementProperty where
   toJSON OrStatementProperty {..}

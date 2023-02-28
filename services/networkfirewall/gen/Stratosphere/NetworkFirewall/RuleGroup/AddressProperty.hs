@@ -15,6 +15,7 @@ instance ToResourceProperties AddressProperty where
   toResourceProperties AddressProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.Address",
+         supportsTags = Prelude.False,
          properties = ["AddressDefinition" JSON..= addressDefinition]}
 instance JSON.ToJSON AddressProperty where
   toJSON AddressProperty {..}

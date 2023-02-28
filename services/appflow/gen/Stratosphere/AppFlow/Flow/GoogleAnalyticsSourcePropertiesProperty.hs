@@ -17,6 +17,7 @@ instance ToResourceProperties GoogleAnalyticsSourcePropertiesProperty where
   toResourceProperties GoogleAnalyticsSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.GoogleAnalyticsSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON GoogleAnalyticsSourcePropertiesProperty where
   toJSON GoogleAnalyticsSourcePropertiesProperty {..}

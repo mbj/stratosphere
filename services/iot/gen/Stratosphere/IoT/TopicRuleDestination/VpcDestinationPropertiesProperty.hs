@@ -22,6 +22,7 @@ instance ToResourceProperties VpcDestinationPropertiesProperty where
   toResourceProperties VpcDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRuleDestination.VpcDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RoleArn" Prelude.<$> roleArn,

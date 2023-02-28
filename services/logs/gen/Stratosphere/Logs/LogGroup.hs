@@ -22,7 +22,7 @@ mkLogGroup
 instance ToResourceProperties LogGroup where
   toResourceProperties LogGroup {..}
     = ResourceProperties
-        {awsType = "AWS::Logs::LogGroup",
+        {awsType = "AWS::Logs::LogGroup", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataProtectionPolicy" Prelude.<$> dataProtectionPolicy,

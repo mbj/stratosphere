@@ -19,6 +19,7 @@ instance ToResourceProperties InforNexusConnectorProfilePropertiesProperty where
     InforNexusConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.InforNexusConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = ["InstanceUrl" JSON..= instanceUrl]}
 instance JSON.ToJSON InforNexusConnectorProfilePropertiesProperty where
   toJSON InforNexusConnectorProfilePropertiesProperty {..}

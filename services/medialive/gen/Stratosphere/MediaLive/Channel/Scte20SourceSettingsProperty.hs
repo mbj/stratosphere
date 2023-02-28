@@ -18,6 +18,7 @@ instance ToResourceProperties Scte20SourceSettingsProperty where
   toResourceProperties Scte20SourceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Scte20SourceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Convert608To708" Prelude.<$> convert608To708,

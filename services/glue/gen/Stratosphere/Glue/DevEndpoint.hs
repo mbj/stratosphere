@@ -37,7 +37,7 @@ mkDevEndpoint roleArn
 instance ToResourceProperties DevEndpoint where
   toResourceProperties DevEndpoint {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::DevEndpoint",
+        {awsType = "AWS::Glue::DevEndpoint", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn]

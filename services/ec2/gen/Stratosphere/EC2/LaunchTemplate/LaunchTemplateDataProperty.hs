@@ -89,6 +89,7 @@ instance ToResourceProperties LaunchTemplateDataProperty where
   toResourceProperties LaunchTemplateDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.LaunchTemplateData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlockDeviceMappings" Prelude.<$> blockDeviceMappings,

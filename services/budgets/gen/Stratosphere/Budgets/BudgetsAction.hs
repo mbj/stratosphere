@@ -43,6 +43,7 @@ instance ToResourceProperties BudgetsAction where
   toResourceProperties BudgetsAction {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::BudgetsAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ActionThreshold" JSON..= actionThreshold,

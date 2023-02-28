@@ -15,6 +15,7 @@ instance ToResourceProperties TlsConfigProperty where
   toResourceProperties TlsConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Integration.TlsConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ServerNameToVerify" Prelude.<$> serverNameToVerify])}

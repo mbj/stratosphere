@@ -28,6 +28,7 @@ instance ToResourceProperties ClusterCapacityProviderAssociations where
   toResourceProperties ClusterCapacityProviderAssociations {..}
     = ResourceProperties
         {awsType = "AWS::ECS::ClusterCapacityProviderAssociations",
+         supportsTags = Prelude.False,
          properties = ["CapacityProviders" JSON..= capacityProviders,
                        "Cluster" JSON..= cluster,
                        "DefaultCapacityProviderStrategy"

@@ -19,6 +19,7 @@ instance ToResourceProperties CognitoStreamsProperty where
   toResourceProperties CognitoStreamsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::IdentityPool.CognitoStreams",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RoleArn" Prelude.<$> roleArn,

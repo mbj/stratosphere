@@ -18,6 +18,7 @@ instance ToResourceProperties OnInputProperty where
   toResourceProperties OnInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.OnInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Events" Prelude.<$> events,

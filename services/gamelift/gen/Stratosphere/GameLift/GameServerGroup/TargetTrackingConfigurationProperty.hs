@@ -17,6 +17,7 @@ instance ToResourceProperties TargetTrackingConfigurationProperty where
   toResourceProperties TargetTrackingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::GameServerGroup.TargetTrackingConfiguration",
+         supportsTags = Prelude.False,
          properties = ["TargetValue" JSON..= targetValue]}
 instance JSON.ToJSON TargetTrackingConfigurationProperty where
   toJSON TargetTrackingConfigurationProperty {..}

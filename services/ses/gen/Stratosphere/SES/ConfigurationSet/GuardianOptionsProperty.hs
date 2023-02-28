@@ -17,6 +17,7 @@ instance ToResourceProperties GuardianOptionsProperty where
   toResourceProperties GuardianOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSet.GuardianOptions",
+         supportsTags = Prelude.False,
          properties = ["OptimizedSharedDelivery"
                          JSON..= optimizedSharedDelivery]}
 instance JSON.ToJSON GuardianOptionsProperty where

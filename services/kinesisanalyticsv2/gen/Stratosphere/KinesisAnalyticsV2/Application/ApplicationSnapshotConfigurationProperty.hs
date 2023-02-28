@@ -18,6 +18,7 @@ instance ToResourceProperties ApplicationSnapshotConfigurationProperty where
   toResourceProperties ApplicationSnapshotConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.ApplicationSnapshotConfiguration",
+         supportsTags = Prelude.False,
          properties = ["SnapshotsEnabled" JSON..= snapshotsEnabled]}
 instance JSON.ToJSON ApplicationSnapshotConfigurationProperty where
   toJSON ApplicationSnapshotConfigurationProperty {..}

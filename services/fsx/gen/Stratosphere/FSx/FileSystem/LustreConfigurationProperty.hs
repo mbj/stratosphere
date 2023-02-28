@@ -36,6 +36,7 @@ instance ToResourceProperties LustreConfigurationProperty where
   toResourceProperties LustreConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::FileSystem.LustreConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutoImportPolicy" Prelude.<$> autoImportPolicy,

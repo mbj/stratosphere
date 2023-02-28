@@ -45,6 +45,7 @@ instance ToResourceProperties RedshiftSourceConfigProperty where
   toResourceProperties RedshiftSourceConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.RedshiftSourceConfig",
+         supportsTags = Prelude.False,
          properties = ["ClusterIdentifier" JSON..= clusterIdentifier,
                        "DatabaseHost" JSON..= databaseHost,
                        "DatabaseName" JSON..= databaseName,

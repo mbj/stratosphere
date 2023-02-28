@@ -28,6 +28,7 @@ instance ToResourceProperties MaintenanceWindowTarget where
   toResourceProperties MaintenanceWindowTarget {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResourceType" JSON..= resourceType, "Targets" JSON..= targets,

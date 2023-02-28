@@ -19,6 +19,7 @@ instance ToResourceProperties HeaderMatchPatternProperty where
   toResourceProperties HeaderMatchPatternProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.HeaderMatchPattern",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "All" Prelude.<$> all,

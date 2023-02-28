@@ -21,6 +21,7 @@ instance ToResourceProperties IotAnalyticsActionProperty where
   toResourceProperties IotAnalyticsActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.IotAnalyticsAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ChannelName" JSON..= channelName, "RoleArn" JSON..= roleArn]

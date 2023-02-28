@@ -38,6 +38,7 @@ instance ToResourceProperties OrganizationCustomPolicyRuleMetadataProperty where
     OrganizationCustomPolicyRuleMetadataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PolicyText" JSON..= policyText, "Runtime" JSON..= runtime]

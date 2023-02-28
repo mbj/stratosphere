@@ -20,6 +20,7 @@ instance ToResourceProperties EnvironmentVariableProperty where
   toResourceProperties EnvironmentVariableProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::App.EnvironmentVariable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Key" JSON..= key, "Value" JSON..= value]

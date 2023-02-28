@@ -11,7 +11,7 @@ mkHub = Hub {tags = Prelude.Nothing}
 instance ToResourceProperties Hub where
   toResourceProperties Hub {..}
     = ResourceProperties
-        {awsType = "AWS::SecurityHub::Hub",
+        {awsType = "AWS::SecurityHub::Hub", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON Hub where

@@ -37,7 +37,7 @@ mkCrawler role targets
 instance ToResourceProperties Crawler where
   toResourceProperties Crawler {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Crawler",
+        {awsType = "AWS::Glue::Crawler", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Role" JSON..= role, "Targets" JSON..= targets]

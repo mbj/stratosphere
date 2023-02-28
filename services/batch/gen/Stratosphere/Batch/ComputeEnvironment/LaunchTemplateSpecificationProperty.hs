@@ -21,6 +21,7 @@ instance ToResourceProperties LaunchTemplateSpecificationProperty where
   toResourceProperties LaunchTemplateSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::ComputeEnvironment.LaunchTemplateSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LaunchTemplateId" Prelude.<$> launchTemplateId,

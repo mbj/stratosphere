@@ -18,6 +18,7 @@ instance ToResourceProperties PipeTargetKinesisStreamParametersProperty where
   toResourceProperties PipeTargetKinesisStreamParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeTargetKinesisStreamParameters",
+         supportsTags = Prelude.False,
          properties = ["PartitionKey" JSON..= partitionKey]}
 instance JSON.ToJSON PipeTargetKinesisStreamParametersProperty where
   toJSON PipeTargetKinesisStreamParametersProperty {..}

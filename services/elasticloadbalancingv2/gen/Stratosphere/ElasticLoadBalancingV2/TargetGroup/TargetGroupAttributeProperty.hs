@@ -17,6 +17,7 @@ instance ToResourceProperties TargetGroupAttributeProperty where
   toResourceProperties TargetGroupAttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::TargetGroup.TargetGroupAttribute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

@@ -26,6 +26,7 @@ instance ToResourceProperties SectionalElementProperty where
   toResourceProperties SectionalElementProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.SectionalElement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

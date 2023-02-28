@@ -29,6 +29,7 @@ instance ToResourceProperties ConfigurationPropertiesProperty where
   toResourceProperties ConfigurationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::CustomActionType.ConfigurationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Key" JSON..= key, "Name" JSON..= name,

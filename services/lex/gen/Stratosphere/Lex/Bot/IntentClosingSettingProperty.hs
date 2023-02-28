@@ -24,6 +24,7 @@ instance ToResourceProperties IntentClosingSettingProperty where
   toResourceProperties IntentClosingSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.IntentClosingSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClosingResponse" Prelude.<$> closingResponse,

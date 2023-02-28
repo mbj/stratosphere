@@ -53,6 +53,7 @@ instance ToResourceProperties TargetProperty where
   toResourceProperties TargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.Target",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Arn" JSON..= arn, "Id" JSON..= id]

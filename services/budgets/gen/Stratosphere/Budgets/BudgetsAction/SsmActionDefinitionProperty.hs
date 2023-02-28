@@ -21,6 +21,7 @@ instance ToResourceProperties SsmActionDefinitionProperty where
   toResourceProperties SsmActionDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::BudgetsAction.SsmActionDefinition",
+         supportsTags = Prelude.False,
          properties = ["InstanceIds" JSON..= instanceIds,
                        "Region" JSON..= region, "Subtype" JSON..= subtype]}
 instance JSON.ToJSON SsmActionDefinitionProperty where

@@ -17,6 +17,7 @@ instance ToResourceProperties EncryptionKeyProperty where
   toResourceProperties EncryptionKeyProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Pipeline.EncryptionKey",
+         supportsTags = Prelude.False,
          properties = ["Id" JSON..= id, "Type" JSON..= type']}
 instance JSON.ToJSON EncryptionKeyProperty where
   toJSON EncryptionKeyProperty {..}

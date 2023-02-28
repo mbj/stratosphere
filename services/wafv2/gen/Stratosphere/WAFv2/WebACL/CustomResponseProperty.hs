@@ -23,6 +23,7 @@ instance ToResourceProperties CustomResponseProperty where
   toResourceProperties CustomResponseProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.CustomResponse",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResponseCode" JSON..= responseCode]

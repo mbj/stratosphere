@@ -21,6 +21,7 @@ instance ToResourceProperties ActivatedRuleProperty where
   toResourceProperties ActivatedRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAF::WebACL.ActivatedRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Priority" JSON..= priority, "RuleId" JSON..= ruleId]

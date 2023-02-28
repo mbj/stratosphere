@@ -42,6 +42,7 @@ instance ToResourceProperties FunctionConfiguration where
   toResourceProperties FunctionConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::FunctionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId, "DataSourceName" JSON..= dataSourceName,

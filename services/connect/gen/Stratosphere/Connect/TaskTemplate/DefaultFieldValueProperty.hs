@@ -20,6 +20,7 @@ instance ToResourceProperties DefaultFieldValueProperty where
   toResourceProperties DefaultFieldValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::TaskTemplate.DefaultFieldValue",
+         supportsTags = Prelude.False,
          properties = ["DefaultValue" JSON..= defaultValue,
                        "Id" JSON..= id]}
 instance JSON.ToJSON DefaultFieldValueProperty where

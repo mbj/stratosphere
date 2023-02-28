@@ -21,6 +21,7 @@ instance ToResourceProperties MetricProperty where
   toResourceProperties MetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::AnomalyDetector.Metric",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricName" JSON..= metricName, "Namespace" JSON..= namespace]

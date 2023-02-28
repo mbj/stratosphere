@@ -15,6 +15,7 @@ instance ToResourceProperties AlarmMetricProperty where
   toResourceProperties AlarmMetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.AlarmMetric",
+         supportsTags = Prelude.False,
          properties = ["AlarmMetricName" JSON..= alarmMetricName]}
 instance JSON.ToJSON AlarmMetricProperty where
   toJSON AlarmMetricProperty {..}

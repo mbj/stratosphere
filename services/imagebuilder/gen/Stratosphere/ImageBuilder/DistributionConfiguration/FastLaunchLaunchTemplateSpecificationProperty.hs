@@ -23,6 +23,7 @@ instance ToResourceProperties FastLaunchLaunchTemplateSpecificationProperty wher
     FastLaunchLaunchTemplateSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::DistributionConfiguration.FastLaunchLaunchTemplateSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LaunchTemplateId" Prelude.<$> launchTemplateId,

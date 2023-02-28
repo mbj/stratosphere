@@ -19,6 +19,7 @@ instance ToResourceProperties SpotPlacementProperty where
   toResourceProperties SpotPlacementProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.SpotPlacement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,

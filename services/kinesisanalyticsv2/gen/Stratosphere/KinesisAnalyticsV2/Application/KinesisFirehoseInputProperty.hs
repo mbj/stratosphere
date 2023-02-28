@@ -16,6 +16,7 @@ instance ToResourceProperties KinesisFirehoseInputProperty where
   toResourceProperties KinesisFirehoseInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.KinesisFirehoseInput",
+         supportsTags = Prelude.False,
          properties = ["ResourceARN" JSON..= resourceARN]}
 instance JSON.ToJSON KinesisFirehoseInputProperty where
   toJSON KinesisFirehoseInputProperty {..}

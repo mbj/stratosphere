@@ -27,6 +27,7 @@ instance ToResourceProperties DataQualityAppSpecificationProperty where
   toResourceProperties DataQualityAppSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::DataQualityJobDefinition.DataQualityAppSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ImageUri" JSON..= imageUri]

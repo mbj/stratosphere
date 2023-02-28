@@ -25,6 +25,7 @@ instance ToResourceProperties DomainNameConfigurationProperty where
   toResourceProperties DomainNameConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::DomainName.DomainNameConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateArn" Prelude.<$> certificateArn,

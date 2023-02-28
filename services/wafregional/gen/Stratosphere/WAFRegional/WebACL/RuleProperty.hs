@@ -21,6 +21,7 @@ instance ToResourceProperties RuleProperty where
   toResourceProperties RuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::WebACL.Rule",
+         supportsTags = Prelude.False,
          properties = ["Action" JSON..= action, "Priority" JSON..= priority,
                        "RuleId" JSON..= ruleId]}
 instance JSON.ToJSON RuleProperty where

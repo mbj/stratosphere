@@ -21,6 +21,7 @@ instance ToResourceProperties BrokerLogsProperty where
   toResourceProperties BrokerLogsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.BrokerLogs",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchLogs" Prelude.<$> cloudWatchLogs,

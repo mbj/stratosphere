@@ -18,6 +18,7 @@ instance ToResourceProperties JsonClassifierProperty where
   toResourceProperties JsonClassifierProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Classifier.JsonClassifier",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["JsonPath" JSON..= jsonPath]

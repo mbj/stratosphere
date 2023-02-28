@@ -21,6 +21,7 @@ instance ToResourceProperties Collection where
   toResourceProperties Collection {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchServerless::Collection",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -19,6 +19,7 @@ instance ToResourceProperties AccessPointPolicy where
   toResourceProperties AccessPointPolicy {..}
     = ResourceProperties
         {awsType = "AWS::S3ObjectLambda::AccessPointPolicy",
+         supportsTags = Prelude.False,
          properties = ["ObjectLambdaAccessPoint"
                          JSON..= objectLambdaAccessPoint,
                        "PolicyDocument" JSON..= policyDocument]}

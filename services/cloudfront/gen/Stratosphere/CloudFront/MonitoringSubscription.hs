@@ -22,6 +22,7 @@ instance ToResourceProperties MonitoringSubscription where
   toResourceProperties MonitoringSubscription {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::MonitoringSubscription",
+         supportsTags = Prelude.False,
          properties = ["DistributionId" JSON..= distributionId,
                        "MonitoringSubscription" JSON..= monitoringSubscription]}
 instance JSON.ToJSON MonitoringSubscription where

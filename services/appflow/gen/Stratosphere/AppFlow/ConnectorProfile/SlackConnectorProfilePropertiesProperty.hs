@@ -18,6 +18,7 @@ instance ToResourceProperties SlackConnectorProfilePropertiesProperty where
   toResourceProperties SlackConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.SlackConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = ["InstanceUrl" JSON..= instanceUrl]}
 instance JSON.ToJSON SlackConnectorProfilePropertiesProperty where
   toJSON SlackConnectorProfilePropertiesProperty {..}

@@ -16,6 +16,7 @@ instance ToResourceProperties ReferenceItemProperty where
   toResourceProperties ReferenceItemProperty {..}
     = ResourceProperties
         {awsType = "AWS::Omics::VariantStore.ReferenceItem",
+         supportsTags = Prelude.False,
          properties = ["ReferenceArn" JSON..= referenceArn]}
 instance JSON.ToJSON ReferenceItemProperty where
   toJSON ReferenceItemProperty {..}

@@ -17,6 +17,7 @@ instance ToResourceProperties LambdaEventSourceProperty where
   toResourceProperties LambdaEventSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::ComponentVersion.LambdaEventSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Topic" Prelude.<$> topic,

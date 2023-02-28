@@ -20,6 +20,7 @@ instance ToResourceProperties StorageConnectorProperty where
   toResourceProperties StorageConnectorProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::Stack.StorageConnector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectorType" JSON..= connectorType]

@@ -24,6 +24,7 @@ instance ToResourceProperties DefaultPushNotificationTemplateProperty where
   toResourceProperties DefaultPushNotificationTemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::PushTemplate.DefaultPushNotificationTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Action" Prelude.<$> action,

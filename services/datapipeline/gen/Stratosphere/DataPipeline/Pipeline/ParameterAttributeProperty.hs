@@ -18,6 +18,7 @@ instance ToResourceProperties ParameterAttributeProperty where
   toResourceProperties ParameterAttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataPipeline::Pipeline.ParameterAttribute",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key,
                        "StringValue" JSON..= stringValue]}
 instance JSON.ToJSON ParameterAttributeProperty where

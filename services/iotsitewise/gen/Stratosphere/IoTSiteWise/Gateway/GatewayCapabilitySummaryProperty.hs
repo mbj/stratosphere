@@ -20,6 +20,7 @@ instance ToResourceProperties GatewayCapabilitySummaryProperty where
   toResourceProperties GatewayCapabilitySummaryProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::Gateway.GatewayCapabilitySummary",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CapabilityNamespace" JSON..= capabilityNamespace]

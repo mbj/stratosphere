@@ -17,6 +17,7 @@ instance ToResourceProperties PropertyGroupProperty where
   toResourceProperties PropertyGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.PropertyGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PropertyGroupId" Prelude.<$> propertyGroupId,

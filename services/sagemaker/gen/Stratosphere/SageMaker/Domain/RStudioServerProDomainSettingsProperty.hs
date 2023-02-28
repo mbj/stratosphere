@@ -25,6 +25,7 @@ instance ToResourceProperties RStudioServerProDomainSettingsProperty where
   toResourceProperties RStudioServerProDomainSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Domain.RStudioServerProDomainSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainExecutionRoleArn" JSON..= domainExecutionRoleArn]

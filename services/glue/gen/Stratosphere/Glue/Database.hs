@@ -17,7 +17,7 @@ mkDatabase catalogId databaseInput
 instance ToResourceProperties Database where
   toResourceProperties Database {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Database",
+        {awsType = "AWS::Glue::Database", supportsTags = Prelude.False,
          properties = ["CatalogId" JSON..= catalogId,
                        "DatabaseInput" JSON..= databaseInput]}
 instance JSON.ToJSON Database where

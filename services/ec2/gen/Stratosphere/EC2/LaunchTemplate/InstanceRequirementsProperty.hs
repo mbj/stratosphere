@@ -68,6 +68,7 @@ instance ToResourceProperties InstanceRequirementsProperty where
   toResourceProperties InstanceRequirementsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.InstanceRequirements",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AcceleratorCount" Prelude.<$> acceleratorCount,

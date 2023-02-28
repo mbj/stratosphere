@@ -15,6 +15,7 @@ instance ToResourceProperties SuppressionOptionsProperty where
   toResourceProperties SuppressionOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSet.SuppressionOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SuppressedReasons" Prelude.<$> suppressedReasons])}

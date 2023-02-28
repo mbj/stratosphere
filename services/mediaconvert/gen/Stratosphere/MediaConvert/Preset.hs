@@ -22,6 +22,7 @@ instance ToResourceProperties Preset where
   toResourceProperties Preset {..}
     = ResourceProperties
         {awsType = "AWS::MediaConvert::Preset",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SettingsJson" JSON..= settingsJson]

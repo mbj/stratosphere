@@ -39,6 +39,7 @@ instance ToResourceProperties CustomActionType where
   toResourceProperties CustomActionType {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::CustomActionType",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Category" JSON..= category,

@@ -19,6 +19,7 @@ instance ToResourceProperties ClusterSecurityGroup where
   toResourceProperties ClusterSecurityGroup {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::ClusterSecurityGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description]

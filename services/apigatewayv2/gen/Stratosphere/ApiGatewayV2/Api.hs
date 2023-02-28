@@ -43,7 +43,7 @@ mkApi
 instance ToResourceProperties Api where
   toResourceProperties Api {..}
     = ResourceProperties
-        {awsType = "AWS::ApiGatewayV2::Api",
+        {awsType = "AWS::ApiGatewayV2::Api", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApiKeySelectionExpression"

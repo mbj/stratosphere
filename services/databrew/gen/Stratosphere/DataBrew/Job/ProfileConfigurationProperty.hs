@@ -26,6 +26,7 @@ instance ToResourceProperties ProfileConfigurationProperty where
   toResourceProperties ProfileConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.ProfileConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ColumnStatisticsConfigurations"

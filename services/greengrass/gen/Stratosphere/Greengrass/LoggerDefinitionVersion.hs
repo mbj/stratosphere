@@ -20,6 +20,7 @@ instance ToResourceProperties LoggerDefinitionVersion where
   toResourceProperties LoggerDefinitionVersion {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::LoggerDefinitionVersion",
+         supportsTags = Prelude.False,
          properties = ["LoggerDefinitionId" JSON..= loggerDefinitionId,
                        "Loggers" JSON..= loggers]}
 instance JSON.ToJSON LoggerDefinitionVersion where

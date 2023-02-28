@@ -29,6 +29,7 @@ instance ToResourceProperties DTMFSpecificationProperty where
   toResourceProperties DTMFSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.DTMFSpecification",
+         supportsTags = Prelude.False,
          properties = ["DeletionCharacter" JSON..= deletionCharacter,
                        "EndCharacter" JSON..= endCharacter,
                        "EndTimeoutMs" JSON..= endTimeoutMs,

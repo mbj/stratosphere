@@ -14,6 +14,7 @@ instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ResponsePlan.Action",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SsmAutomation" Prelude.<$> ssmAutomation])}

@@ -18,6 +18,7 @@ instance ToResourceProperties ProvisionedCapacityProperty where
   toResourceProperties ProvisionedCapacityProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.ProvisionedCapacity",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["WorkerCount" JSON..= workerCount]

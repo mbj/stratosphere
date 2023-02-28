@@ -16,6 +16,7 @@ instance ToResourceProperties SnsDestinationProperty where
   toResourceProperties SnsDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::ConfigurationSetEventDestination.SnsDestination",
+         supportsTags = Prelude.False,
          properties = ["TopicArn" JSON..= topicArn]}
 instance JSON.ToJSON SnsDestinationProperty where
   toJSON SnsDestinationProperty {..}

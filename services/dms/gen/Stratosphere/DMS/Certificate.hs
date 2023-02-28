@@ -19,7 +19,7 @@ mkCertificate
 instance ToResourceProperties Certificate where
   toResourceProperties Certificate {..}
     = ResourceProperties
-        {awsType = "AWS::DMS::Certificate",
+        {awsType = "AWS::DMS::Certificate", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateIdentifier"

@@ -18,6 +18,7 @@ instance ToResourceProperties DBClusterRoleProperty where
   toResourceProperties DBClusterRoleProperty {..}
     = ResourceProperties
         {awsType = "AWS::Neptune::DBCluster.DBClusterRole",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn]

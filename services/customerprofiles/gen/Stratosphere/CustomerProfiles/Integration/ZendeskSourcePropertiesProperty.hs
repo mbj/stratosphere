@@ -17,6 +17,7 @@ instance ToResourceProperties ZendeskSourcePropertiesProperty where
   toResourceProperties ZendeskSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.ZendeskSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON ZendeskSourcePropertiesProperty where
   toJSON ZendeskSourcePropertiesProperty {..}

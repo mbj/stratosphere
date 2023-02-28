@@ -3,6 +3,7 @@ module Stratosphere.Lex.BotAlias.TextLogDestinationProperty (
         mkTextLogDestinationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.BotAlias.CloudWatchLogGroupLogDestinationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties TextLogDestinationProperty where
   toResourceProperties TextLogDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::BotAlias.TextLogDestination",
+         supportsTags = Prelude.False,
          properties = ["CloudWatch" JSON..= cloudWatch]}
 instance JSON.ToJSON TextLogDestinationProperty where
   toJSON TextLogDestinationProperty {..}

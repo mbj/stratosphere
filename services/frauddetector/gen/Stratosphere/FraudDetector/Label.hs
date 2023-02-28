@@ -20,6 +20,7 @@ instance ToResourceProperties Label where
   toResourceProperties Label {..}
     = ResourceProperties
         {awsType = "AWS::FraudDetector::Label",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

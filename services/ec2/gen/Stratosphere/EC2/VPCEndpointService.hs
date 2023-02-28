@@ -24,6 +24,7 @@ instance ToResourceProperties VPCEndpointService where
   toResourceProperties VPCEndpointService {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VPCEndpointService",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AcceptanceRequired" Prelude.<$> acceptanceRequired,

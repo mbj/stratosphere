@@ -17,6 +17,7 @@ instance ToResourceProperties PatchFilterProperty where
   toResourceProperties PatchFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::PatchBaseline.PatchFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

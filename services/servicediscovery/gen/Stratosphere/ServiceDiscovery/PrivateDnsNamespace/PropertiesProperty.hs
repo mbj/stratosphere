@@ -15,6 +15,7 @@ instance ToResourceProperties PropertiesProperty where
   toResourceProperties PropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::ServiceDiscovery::PrivateDnsNamespace.Properties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DnsProperties" Prelude.<$> dnsProperties])}

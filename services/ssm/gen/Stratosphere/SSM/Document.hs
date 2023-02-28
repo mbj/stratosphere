@@ -31,7 +31,7 @@ mkDocument content
 instance ToResourceProperties Document where
   toResourceProperties Document {..}
     = ResourceProperties
-        {awsType = "AWS::SSM::Document",
+        {awsType = "AWS::SSM::Document", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Content" JSON..= content]

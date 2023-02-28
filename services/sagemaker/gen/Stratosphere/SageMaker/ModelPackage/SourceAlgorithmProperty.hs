@@ -18,6 +18,7 @@ instance ToResourceProperties SourceAlgorithmProperty where
   toResourceProperties SourceAlgorithmProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.SourceAlgorithm",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AlgorithmName" JSON..= algorithmName]

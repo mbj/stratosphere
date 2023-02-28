@@ -21,6 +21,7 @@ instance ToResourceProperties MaximumAllowedResourcesProperty where
   toResourceProperties MaximumAllowedResourcesProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMRServerless::Application.MaximumAllowedResources",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Cpu" JSON..= cpu, "Memory" JSON..= memory]

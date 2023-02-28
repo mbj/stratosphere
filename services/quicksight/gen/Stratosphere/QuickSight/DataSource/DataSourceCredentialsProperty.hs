@@ -21,6 +21,7 @@ instance ToResourceProperties DataSourceCredentialsProperty where
   toResourceProperties DataSourceCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.DataSourceCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CopySourceArn" Prelude.<$> copySourceArn,

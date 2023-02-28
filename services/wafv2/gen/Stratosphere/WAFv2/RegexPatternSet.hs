@@ -24,6 +24,7 @@ instance ToResourceProperties RegexPatternSet where
   toResourceProperties RegexPatternSet {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RegexPatternSet",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RegularExpressionList" JSON..= regularExpressionList,

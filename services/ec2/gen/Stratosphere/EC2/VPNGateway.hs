@@ -19,7 +19,7 @@ mkVPNGateway type'
 instance ToResourceProperties VPNGateway where
   toResourceProperties VPNGateway {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::VPNGateway",
+        {awsType = "AWS::EC2::VPNGateway", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

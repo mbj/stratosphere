@@ -16,6 +16,7 @@ instance ToResourceProperties PatchFilterGroupProperty where
   toResourceProperties PatchFilterGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::PatchBaseline.PatchFilterGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PatchFilters" Prelude.<$> patchFilters])}

@@ -21,6 +21,7 @@ instance ToResourceProperties MagneticStoreWritePropertiesProperty where
   toResourceProperties MagneticStoreWritePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::Table.MagneticStoreWriteProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EnableMagneticStoreWrites" JSON..= enableMagneticStoreWrites]

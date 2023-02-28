@@ -18,6 +18,7 @@ instance ToResourceProperties KeySchemaProperty where
   toResourceProperties KeySchemaProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.KeySchema",
+         supportsTags = Prelude.False,
          properties = ["AttributeName" JSON..= attributeName,
                        "KeyType" JSON..= keyType]}
 instance JSON.ToJSON KeySchemaProperty where

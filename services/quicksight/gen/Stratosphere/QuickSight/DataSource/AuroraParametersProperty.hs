@@ -21,6 +21,7 @@ instance ToResourceProperties AuroraParametersProperty where
   toResourceProperties AuroraParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.AuroraParameters",
+         supportsTags = Prelude.False,
          properties = ["Database" JSON..= database, "Host" JSON..= host,
                        "Port" JSON..= port]}
 instance JSON.ToJSON AuroraParametersProperty where

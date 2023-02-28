@@ -25,6 +25,7 @@ instance ToResourceProperties ModelManifest where
   toResourceProperties ModelManifest {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::ModelManifest",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "SignalCatalogArn" JSON..= signalCatalogArn]

@@ -26,6 +26,7 @@ instance ToResourceProperties PackageVersion where
   toResourceProperties PackageVersion {..}
     = ResourceProperties
         {awsType = "AWS::Panorama::PackageVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PackageId" JSON..= packageId,

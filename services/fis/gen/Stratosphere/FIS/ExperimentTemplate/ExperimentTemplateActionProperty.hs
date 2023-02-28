@@ -24,6 +24,7 @@ instance ToResourceProperties ExperimentTemplateActionProperty where
   toResourceProperties ExperimentTemplateActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::FIS::ExperimentTemplate.ExperimentTemplateAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ActionId" JSON..= actionId]

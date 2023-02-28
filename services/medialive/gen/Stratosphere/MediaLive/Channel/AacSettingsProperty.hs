@@ -28,6 +28,7 @@ instance ToResourceProperties AacSettingsProperty where
   toResourceProperties AacSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AacSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Bitrate" Prelude.<$> bitrate,

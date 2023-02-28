@@ -17,6 +17,7 @@ instance ToResourceProperties SnapStartResponseProperty where
   toResourceProperties SnapStartResponseProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.SnapStartResponse",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplyOn" Prelude.<$> applyOn,

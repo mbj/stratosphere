@@ -19,6 +19,7 @@ instance ToResourceProperties RetainRuleProperty where
   toResourceProperties RetainRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.RetainRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Count" Prelude.<$> count,

@@ -18,6 +18,7 @@ instance ToResourceProperties StageProperty where
   toResourceProperties StageProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMContacts::Contact.Stage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DurationInMinutes" JSON..= durationInMinutes]

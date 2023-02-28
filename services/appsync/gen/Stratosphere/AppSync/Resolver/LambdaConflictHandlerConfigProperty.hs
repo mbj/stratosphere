@@ -18,6 +18,7 @@ instance ToResourceProperties LambdaConflictHandlerConfigProperty where
   toResourceProperties LambdaConflictHandlerConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::Resolver.LambdaConflictHandlerConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LambdaConflictHandlerArn"

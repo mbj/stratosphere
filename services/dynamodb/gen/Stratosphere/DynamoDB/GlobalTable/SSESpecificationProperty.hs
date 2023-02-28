@@ -18,6 +18,7 @@ instance ToResourceProperties SSESpecificationProperty where
   toResourceProperties SSESpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.SSESpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SSEEnabled" JSON..= sSEEnabled]

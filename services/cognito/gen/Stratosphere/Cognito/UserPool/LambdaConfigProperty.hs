@@ -39,6 +39,7 @@ instance ToResourceProperties LambdaConfigProperty where
   toResourceProperties LambdaConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.LambdaConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CreateAuthChallenge" Prelude.<$> createAuthChallenge,

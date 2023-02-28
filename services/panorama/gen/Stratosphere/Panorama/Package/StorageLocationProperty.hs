@@ -23,6 +23,7 @@ instance ToResourceProperties StorageLocationProperty where
   toResourceProperties StorageLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Panorama::Package.StorageLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BinaryPrefixLocation" Prelude.<$> binaryPrefixLocation,

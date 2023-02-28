@@ -21,6 +21,7 @@ instance ToResourceProperties Discoverer where
   toResourceProperties Discoverer {..}
     = ResourceProperties
         {awsType = "AWS::EventSchemas::Discoverer",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SourceArn" JSON..= sourceArn]

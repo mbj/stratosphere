@@ -31,6 +31,7 @@ instance ToResourceProperties HANAPrometheusExporterProperty where
   toResourceProperties HANAPrometheusExporterProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.HANAPrometheusExporter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AgreeToInstallHANADBClient" JSON..= agreeToInstallHANADBClient,

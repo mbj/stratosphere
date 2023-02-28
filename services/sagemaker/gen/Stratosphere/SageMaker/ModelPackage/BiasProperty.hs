@@ -19,6 +19,7 @@ instance ToResourceProperties BiasProperty where
   toResourceProperties BiasProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.Bias",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PostTrainingReport" Prelude.<$> postTrainingReport,

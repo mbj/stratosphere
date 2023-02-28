@@ -19,6 +19,7 @@ instance ToResourceProperties GatewayPlatformProperty where
   toResourceProperties GatewayPlatformProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::Gateway.GatewayPlatform",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Greengrass" Prelude.<$> greengrass,

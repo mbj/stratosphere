@@ -15,7 +15,7 @@ instance ToResourceProperties SingleHeaderProperty where
   toResourceProperties SingleHeaderProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.SingleHeader",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON SingleHeaderProperty where
   toJSON SingleHeaderProperty {..}
     = JSON.object ["Name" JSON..= name]

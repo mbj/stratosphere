@@ -15,6 +15,7 @@ instance ToResourceProperties ColumnWildcardProperty where
   toResourceProperties ColumnWildcardProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::Permissions.ColumnWildcard",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExcludedColumnNames" Prelude.<$> excludedColumnNames])}

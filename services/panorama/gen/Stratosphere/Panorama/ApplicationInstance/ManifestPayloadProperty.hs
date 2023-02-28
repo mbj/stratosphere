@@ -15,6 +15,7 @@ instance ToResourceProperties ManifestPayloadProperty where
   toResourceProperties ManifestPayloadProperty {..}
     = ResourceProperties
         {awsType = "AWS::Panorama::ApplicationInstance.ManifestPayload",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PayloadData" Prelude.<$> payloadData])}

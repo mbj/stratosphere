@@ -17,6 +17,7 @@ instance ToResourceProperties SqlApplicationConfigurationProperty where
   toResourceProperties SqlApplicationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.SqlApplicationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Inputs" Prelude.<$> inputs])}
 instance JSON.ToJSON SqlApplicationConfigurationProperty where

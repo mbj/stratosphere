@@ -30,7 +30,7 @@ mkFilter action description detectorId findingCriteria name rank
 instance ToResourceProperties Filter where
   toResourceProperties Filter {..}
     = ResourceProperties
-        {awsType = "AWS::GuardDuty::Filter",
+        {awsType = "AWS::GuardDuty::Filter", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Action" JSON..= action, "Description" JSON..= description,

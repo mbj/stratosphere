@@ -15,7 +15,7 @@ instance ToResourceProperties InputArtifactProperty where
   toResourceProperties InputArtifactProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Pipeline.InputArtifact",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON InputArtifactProperty where
   toJSON InputArtifactProperty {..}
     = JSON.object ["Name" JSON..= name]

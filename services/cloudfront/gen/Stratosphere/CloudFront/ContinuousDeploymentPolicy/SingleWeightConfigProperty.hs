@@ -20,6 +20,7 @@ instance ToResourceProperties SingleWeightConfigProperty where
   toResourceProperties SingleWeightConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ContinuousDeploymentPolicy.SingleWeightConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Weight" JSON..= weight]

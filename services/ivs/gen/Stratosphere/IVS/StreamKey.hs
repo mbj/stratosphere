@@ -16,7 +16,7 @@ mkStreamKey channelArn
 instance ToResourceProperties StreamKey where
   toResourceProperties StreamKey {..}
     = ResourceProperties
-        {awsType = "AWS::IVS::StreamKey",
+        {awsType = "AWS::IVS::StreamKey", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ChannelArn" JSON..= channelArn]

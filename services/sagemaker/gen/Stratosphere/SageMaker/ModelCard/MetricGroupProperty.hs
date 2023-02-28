@@ -19,6 +19,7 @@ instance ToResourceProperties MetricGroupProperty where
   toResourceProperties MetricGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.MetricGroup",
+         supportsTags = Prelude.False,
          properties = ["MetricData" JSON..= metricData,
                        "Name" JSON..= name]}
 instance JSON.ToJSON MetricGroupProperty where

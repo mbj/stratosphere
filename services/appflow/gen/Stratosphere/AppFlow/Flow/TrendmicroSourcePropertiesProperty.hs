@@ -17,6 +17,7 @@ instance ToResourceProperties TrendmicroSourcePropertiesProperty where
   toResourceProperties TrendmicroSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.TrendmicroSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON TrendmicroSourcePropertiesProperty where
   toJSON TrendmicroSourcePropertiesProperty {..}

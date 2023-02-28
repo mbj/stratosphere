@@ -22,7 +22,7 @@ mkSkill authenticationConfiguration skillPackage vendorId
 instance ToResourceProperties Skill where
   toResourceProperties Skill {..}
     = ResourceProperties
-        {awsType = "Alexa::ASK::Skill",
+        {awsType = "Alexa::ASK::Skill", supportsTags = Prelude.False,
          properties = ["AuthenticationConfiguration"
                          JSON..= authenticationConfiguration,
                        "SkillPackage" JSON..= skillPackage, "VendorId" JSON..= vendorId]}

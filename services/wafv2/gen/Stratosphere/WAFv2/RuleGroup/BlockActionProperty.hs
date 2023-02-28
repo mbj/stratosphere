@@ -15,6 +15,7 @@ instance ToResourceProperties BlockActionProperty where
   toResourceProperties BlockActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.BlockAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomResponse" Prelude.<$> customResponse])}

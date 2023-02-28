@@ -19,6 +19,7 @@ instance ToResourceProperties InstanceProfile where
   toResourceProperties InstanceProfile {..}
     = ResourceProperties
         {awsType = "AWS::IAM::InstanceProfile",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Roles" JSON..= roles]

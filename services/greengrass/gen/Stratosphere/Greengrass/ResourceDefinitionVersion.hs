@@ -22,6 +22,7 @@ instance ToResourceProperties ResourceDefinitionVersion where
   toResourceProperties ResourceDefinitionVersion {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinitionVersion",
+         supportsTags = Prelude.False,
          properties = ["ResourceDefinitionId" JSON..= resourceDefinitionId,
                        "Resources" JSON..= resources]}
 instance JSON.ToJSON ResourceDefinitionVersion where

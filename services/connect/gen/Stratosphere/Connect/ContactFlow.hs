@@ -28,6 +28,7 @@ instance ToResourceProperties ContactFlow where
   toResourceProperties ContactFlow {..}
     = ResourceProperties
         {awsType = "AWS::Connect::ContactFlow",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Content" JSON..= content, "InstanceArn" JSON..= instanceArn,

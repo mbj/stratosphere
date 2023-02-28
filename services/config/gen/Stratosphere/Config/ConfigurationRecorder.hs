@@ -21,6 +21,7 @@ instance ToResourceProperties ConfigurationRecorder where
   toResourceProperties ConfigurationRecorder {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConfigurationRecorder",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleARN" JSON..= roleARN]

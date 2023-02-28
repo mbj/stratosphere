@@ -15,7 +15,7 @@ instance ToResourceProperties InputContextProperty where
   toResourceProperties InputContextProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.InputContext",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON InputContextProperty where
   toJSON InputContextProperty {..}
     = JSON.object ["Name" JSON..= name]

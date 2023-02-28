@@ -25,6 +25,7 @@ instance ToResourceProperties ApplicationSettings where
   toResourceProperties ApplicationSettings {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::ApplicationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId]

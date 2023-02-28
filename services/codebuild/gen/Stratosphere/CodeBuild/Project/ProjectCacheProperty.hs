@@ -20,6 +20,7 @@ instance ToResourceProperties ProjectCacheProperty where
   toResourceProperties ProjectCacheProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.ProjectCache",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

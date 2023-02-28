@@ -19,6 +19,7 @@ instance ToResourceProperties LogPatternSetProperty where
   toResourceProperties LogPatternSetProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.LogPatternSet",
+         supportsTags = Prelude.False,
          properties = ["LogPatterns" JSON..= logPatterns,
                        "PatternSetName" JSON..= patternSetName]}
 instance JSON.ToJSON LogPatternSetProperty where

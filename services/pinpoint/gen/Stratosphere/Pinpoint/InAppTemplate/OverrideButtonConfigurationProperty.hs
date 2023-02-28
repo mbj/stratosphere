@@ -19,6 +19,7 @@ instance ToResourceProperties OverrideButtonConfigurationProperty where
   toResourceProperties OverrideButtonConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::InAppTemplate.OverrideButtonConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ButtonAction" Prelude.<$> buttonAction,

@@ -14,6 +14,7 @@ instance ToResourceProperties InternetGateway where
   toResourceProperties InternetGateway {..}
     = ResourceProperties
         {awsType = "AWS::EC2::InternetGateway",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON InternetGateway where

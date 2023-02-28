@@ -17,6 +17,7 @@ instance ToResourceProperties CloudWatchLogsDestinationDetailsProperty where
   toResourceProperties CloudWatchLogsDestinationDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::CacheCluster.CloudWatchLogsDestinationDetails",
+         supportsTags = Prelude.False,
          properties = ["LogGroup" JSON..= logGroup]}
 instance JSON.ToJSON CloudWatchLogsDestinationDetailsProperty where
   toJSON CloudWatchLogsDestinationDetailsProperty {..}

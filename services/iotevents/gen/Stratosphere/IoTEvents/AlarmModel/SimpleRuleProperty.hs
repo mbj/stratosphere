@@ -21,6 +21,7 @@ instance ToResourceProperties SimpleRuleProperty where
   toResourceProperties SimpleRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.SimpleRule",
+         supportsTags = Prelude.False,
          properties = ["ComparisonOperator" JSON..= comparisonOperator,
                        "InputProperty" JSON..= inputProperty,
                        "Threshold" JSON..= threshold]}

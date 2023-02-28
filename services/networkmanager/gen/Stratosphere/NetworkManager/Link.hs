@@ -29,6 +29,7 @@ instance ToResourceProperties Link where
   toResourceProperties Link {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::Link",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bandwidth" JSON..= bandwidth,

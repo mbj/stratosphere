@@ -34,6 +34,7 @@ instance ToResourceProperties MicrosoftSqlServerSettingsProperty where
   toResourceProperties MicrosoftSqlServerSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.MicrosoftSqlServerSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BcpPacketSize" Prelude.<$> bcpPacketSize,

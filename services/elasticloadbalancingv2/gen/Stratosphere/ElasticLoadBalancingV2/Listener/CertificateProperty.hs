@@ -15,6 +15,7 @@ instance ToResourceProperties CertificateProperty where
   toResourceProperties CertificateProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::Listener.Certificate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateArn" Prelude.<$> certificateArn])}

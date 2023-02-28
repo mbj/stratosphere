@@ -29,6 +29,7 @@ instance ToResourceProperties AbortCriteriaProperty where
   toResourceProperties AbortCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::JobTemplate.AbortCriteria",
+         supportsTags = Prelude.False,
          properties = ["Action" JSON..= action,
                        "FailureType" JSON..= failureType,
                        "MinNumberOfExecutedThings" JSON..= minNumberOfExecutedThings,

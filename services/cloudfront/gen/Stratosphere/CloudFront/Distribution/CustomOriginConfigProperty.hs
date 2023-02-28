@@ -26,6 +26,7 @@ instance ToResourceProperties CustomOriginConfigProperty where
   toResourceProperties CustomOriginConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.CustomOriginConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["OriginProtocolPolicy" JSON..= originProtocolPolicy]

@@ -20,6 +20,7 @@ instance ToResourceProperties LivePreRollConfigurationProperty where
   toResourceProperties LivePreRollConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaTailor::PlaybackConfiguration.LivePreRollConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdDecisionServerUrl" Prelude.<$> adDecisionServerUrl,

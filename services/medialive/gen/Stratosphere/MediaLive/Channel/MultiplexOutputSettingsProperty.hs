@@ -17,6 +17,7 @@ instance ToResourceProperties MultiplexOutputSettingsProperty where
   toResourceProperties MultiplexOutputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.MultiplexOutputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Destination" Prelude.<$> destination])}

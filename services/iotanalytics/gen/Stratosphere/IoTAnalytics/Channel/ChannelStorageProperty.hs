@@ -19,6 +19,7 @@ instance ToResourceProperties ChannelStorageProperty where
   toResourceProperties ChannelStorageProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Channel.ChannelStorage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomerManagedS3" Prelude.<$> customerManagedS3,

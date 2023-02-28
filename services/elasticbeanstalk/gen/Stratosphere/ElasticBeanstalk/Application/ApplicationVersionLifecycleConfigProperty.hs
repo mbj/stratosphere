@@ -20,6 +20,7 @@ instance ToResourceProperties ApplicationVersionLifecycleConfigProperty where
   toResourceProperties ApplicationVersionLifecycleConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::Application.ApplicationVersionLifecycleConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxAgeRule" Prelude.<$> maxAgeRule,

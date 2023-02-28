@@ -24,6 +24,7 @@ instance ToResourceProperties MssPackageProperty where
   toResourceProperties MssPackageProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::OriginEndpoint.MssPackage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Encryption" Prelude.<$> encryption,

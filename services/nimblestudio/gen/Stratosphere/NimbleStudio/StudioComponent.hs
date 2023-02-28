@@ -35,6 +35,7 @@ instance ToResourceProperties StudioComponent where
   toResourceProperties StudioComponent {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::StudioComponent",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "StudioId" JSON..= studioId,

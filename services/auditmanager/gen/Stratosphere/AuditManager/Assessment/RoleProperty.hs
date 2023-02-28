@@ -17,6 +17,7 @@ instance ToResourceProperties RoleProperty where
   toResourceProperties RoleProperty {..}
     = ResourceProperties
         {awsType = "AWS::AuditManager::Assessment.Role",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RoleArn" Prelude.<$> roleArn,

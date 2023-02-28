@@ -34,6 +34,7 @@ instance ToResourceProperties MetricStream where
   toResourceProperties MetricStream {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::MetricStream",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FirehoseArn" JSON..= firehoseArn,

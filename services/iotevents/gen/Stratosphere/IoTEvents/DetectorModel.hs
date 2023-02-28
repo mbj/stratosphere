@@ -30,6 +30,7 @@ instance ToResourceProperties DetectorModel where
   toResourceProperties DetectorModel {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DetectorModelDefinition" JSON..= detectorModelDefinition,

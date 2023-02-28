@@ -19,6 +19,7 @@ instance ToResourceProperties StringAttributeConstraintsProperty where
   toResourceProperties StringAttributeConstraintsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.StringAttributeConstraints",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxLength" Prelude.<$> maxLength,

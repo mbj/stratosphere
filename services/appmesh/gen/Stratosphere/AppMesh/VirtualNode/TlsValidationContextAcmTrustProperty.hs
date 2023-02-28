@@ -18,6 +18,7 @@ instance ToResourceProperties TlsValidationContextAcmTrustProperty where
   toResourceProperties TlsValidationContextAcmTrustProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.TlsValidationContextAcmTrust",
+         supportsTags = Prelude.False,
          properties = ["CertificateAuthorityArns"
                          JSON..= certificateAuthorityArns]}
 instance JSON.ToJSON TlsValidationContextAcmTrustProperty where

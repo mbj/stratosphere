@@ -17,6 +17,7 @@ instance ToResourceProperties MonitoringSubscriptionProperty where
   toResourceProperties MonitoringSubscriptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::MonitoringSubscription.MonitoringSubscription",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RealtimeMetricsSubscriptionConfig"

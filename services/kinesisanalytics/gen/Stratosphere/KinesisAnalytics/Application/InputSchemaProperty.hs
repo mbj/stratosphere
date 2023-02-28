@@ -23,6 +23,7 @@ instance ToResourceProperties InputSchemaProperty where
   toResourceProperties InputSchemaProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::Application.InputSchema",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RecordColumns" JSON..= recordColumns,

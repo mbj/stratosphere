@@ -15,6 +15,7 @@ instance ToResourceProperties ScheduleProperty where
   toResourceProperties ScheduleProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Crawler.Schedule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ScheduleExpression" Prelude.<$> scheduleExpression])}

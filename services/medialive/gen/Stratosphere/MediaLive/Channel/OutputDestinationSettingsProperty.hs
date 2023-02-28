@@ -22,6 +22,7 @@ instance ToResourceProperties OutputDestinationSettingsProperty where
   toResourceProperties OutputDestinationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.OutputDestinationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PasswordParam" Prelude.<$> passwordParam,

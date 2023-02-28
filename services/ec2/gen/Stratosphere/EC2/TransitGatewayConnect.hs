@@ -24,6 +24,7 @@ instance ToResourceProperties TransitGatewayConnect where
   toResourceProperties TransitGatewayConnect {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TransitGatewayConnect",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Options" JSON..= options,

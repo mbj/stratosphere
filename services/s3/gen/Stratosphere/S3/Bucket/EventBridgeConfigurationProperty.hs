@@ -18,6 +18,7 @@ instance ToResourceProperties EventBridgeConfigurationProperty where
   toResourceProperties EventBridgeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.EventBridgeConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EventBridgeEnabled" Prelude.<$> eventBridgeEnabled])}

@@ -19,6 +19,7 @@ instance ToResourceProperties ThingPrincipalAttachment where
   toResourceProperties ThingPrincipalAttachment {..}
     = ResourceProperties
         {awsType = "AWS::IoT::ThingPrincipalAttachment",
+         supportsTags = Prelude.False,
          properties = ["Principal" JSON..= principal,
                        "ThingName" JSON..= thingName]}
 instance JSON.ToJSON ThingPrincipalAttachment where

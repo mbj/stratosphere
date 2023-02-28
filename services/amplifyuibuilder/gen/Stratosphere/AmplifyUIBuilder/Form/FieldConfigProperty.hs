@@ -25,6 +25,7 @@ instance ToResourceProperties FieldConfigProperty where
   toResourceProperties FieldConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.FieldConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Excluded" Prelude.<$> excluded,

@@ -48,6 +48,7 @@ instance ToResourceProperties ReplicationTask where
   toResourceProperties ReplicationTask {..}
     = ResourceProperties
         {awsType = "AWS::DMS::ReplicationTask",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MigrationType" JSON..= migrationType,

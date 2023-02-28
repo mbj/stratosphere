@@ -20,6 +20,7 @@ instance ToResourceProperties HttpParametersProperty where
   toResourceProperties HttpParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.HttpParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HeaderParameters" Prelude.<$> headerParameters,

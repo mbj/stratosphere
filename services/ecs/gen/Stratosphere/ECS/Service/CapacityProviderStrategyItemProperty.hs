@@ -21,6 +21,7 @@ instance ToResourceProperties CapacityProviderStrategyItemProperty where
   toResourceProperties CapacityProviderStrategyItemProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.CapacityProviderStrategyItem",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Base" Prelude.<$> base,

@@ -31,7 +31,7 @@ mkTrigger actions type'
 instance ToResourceProperties Trigger where
   toResourceProperties Trigger {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Trigger",
+        {awsType = "AWS::Glue::Trigger", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Actions" JSON..= actions, "Type" JSON..= type']

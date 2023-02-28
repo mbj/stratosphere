@@ -29,6 +29,7 @@ instance ToResourceProperties ComponentChildProperty where
   toResourceProperties ComponentChildProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.ComponentChild",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ComponentType" JSON..= componentType, "Name" JSON..= name,

@@ -24,6 +24,7 @@ instance ToResourceProperties StrictTransportSecurityProperty where
   toResourceProperties StrictTransportSecurityProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.StrictTransportSecurity",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccessControlMaxAgeSec" JSON..= accessControlMaxAgeSec,

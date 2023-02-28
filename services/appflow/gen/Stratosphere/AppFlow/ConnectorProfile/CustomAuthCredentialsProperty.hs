@@ -19,6 +19,7 @@ instance ToResourceProperties CustomAuthCredentialsProperty where
   toResourceProperties CustomAuthCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.CustomAuthCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CustomAuthenticationType" JSON..= customAuthenticationType]

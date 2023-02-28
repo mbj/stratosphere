@@ -26,7 +26,7 @@ mkVPC
 instance ToResourceProperties VPC where
   toResourceProperties VPC {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::VPC",
+        {awsType = "AWS::EC2::VPC", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CidrBlock" Prelude.<$> cidrBlock,

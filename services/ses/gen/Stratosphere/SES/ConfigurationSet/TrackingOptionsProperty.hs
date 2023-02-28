@@ -15,6 +15,7 @@ instance ToResourceProperties TrackingOptionsProperty where
   toResourceProperties TrackingOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSet.TrackingOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomRedirectDomain"

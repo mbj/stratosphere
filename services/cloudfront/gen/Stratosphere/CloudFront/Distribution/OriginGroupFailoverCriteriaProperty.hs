@@ -3,6 +3,7 @@ module Stratosphere.CloudFront.Distribution.OriginGroupFailoverCriteriaProperty 
         mkOriginGroupFailoverCriteriaProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.StatusCodesProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties OriginGroupFailoverCriteriaProperty where
   toResourceProperties OriginGroupFailoverCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.OriginGroupFailoverCriteria",
+         supportsTags = Prelude.False,
          properties = ["StatusCodes" JSON..= statusCodes]}
 instance JSON.ToJSON OriginGroupFailoverCriteriaProperty where
   toJSON OriginGroupFailoverCriteriaProperty {..}

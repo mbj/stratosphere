@@ -42,7 +42,7 @@ mkEC2Fleet launchTemplateConfigs targetCapacitySpecification
 instance ToResourceProperties EC2Fleet where
   toResourceProperties EC2Fleet {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::EC2Fleet",
+        {awsType = "AWS::EC2::EC2Fleet", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LaunchTemplateConfigs" JSON..= launchTemplateConfigs,

@@ -2,6 +2,7 @@ module Stratosphere.SSMIncidents.ResponsePlan.IntegrationProperty (
         module Exports, IntegrationProperty(..), mkIntegrationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSMIncidents.ResponsePlan.PagerDutyConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties IntegrationProperty where
   toResourceProperties IntegrationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ResponsePlan.Integration",
+         supportsTags = Prelude.False,
          properties = ["PagerDutyConfiguration"
                          JSON..= pagerDutyConfiguration]}
 instance JSON.ToJSON IntegrationProperty where

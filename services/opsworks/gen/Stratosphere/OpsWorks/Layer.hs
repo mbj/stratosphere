@@ -63,7 +63,7 @@ mkLayer
 instance ToResourceProperties Layer where
   toResourceProperties Layer {..}
     = ResourceProperties
-        {awsType = "AWS::OpsWorks::Layer",
+        {awsType = "AWS::OpsWorks::Layer", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AutoAssignElasticIps" JSON..= autoAssignElasticIps,

@@ -28,6 +28,7 @@ instance ToResourceProperties ObdInterfaceProperty where
   toResourceProperties ObdInterfaceProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::DecoderManifest.ObdInterface",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "RequestMessageId" JSON..= requestMessageId]

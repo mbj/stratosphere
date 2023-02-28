@@ -21,6 +21,7 @@ instance ToResourceProperties PricingPlan where
   toResourceProperties PricingPlan {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::PricingPlan",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

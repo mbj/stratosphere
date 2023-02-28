@@ -25,6 +25,7 @@ instance ToResourceProperties ParametersProperty where
   toResourceProperties ParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Analysis.Parameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DateTimeParameters" Prelude.<$> dateTimeParameters,

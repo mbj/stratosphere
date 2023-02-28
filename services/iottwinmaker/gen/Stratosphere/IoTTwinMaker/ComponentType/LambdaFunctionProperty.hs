@@ -15,7 +15,7 @@ instance ToResourceProperties LambdaFunctionProperty where
   toResourceProperties LambdaFunctionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::ComponentType.LambdaFunction",
-         properties = ["Arn" JSON..= arn]}
+         supportsTags = Prelude.False, properties = ["Arn" JSON..= arn]}
 instance JSON.ToJSON LambdaFunctionProperty where
   toJSON LambdaFunctionProperty {..}
     = JSON.object ["Arn" JSON..= arn]

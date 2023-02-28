@@ -20,6 +20,7 @@ instance ToResourceProperties ComponentPropertyBindingPropertiesProperty where
     ComponentPropertyBindingPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.ComponentPropertyBindingProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Property" JSON..= property]

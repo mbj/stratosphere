@@ -20,7 +20,7 @@ mkConfiguration name serverProperties
 instance ToResourceProperties Configuration where
   toResourceProperties Configuration {..}
     = ResourceProperties
-        {awsType = "AWS::MSK::Configuration",
+        {awsType = "AWS::MSK::Configuration", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "ServerProperties" JSON..= serverProperties]

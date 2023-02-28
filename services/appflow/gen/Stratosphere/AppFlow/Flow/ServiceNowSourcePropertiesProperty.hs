@@ -17,6 +17,7 @@ instance ToResourceProperties ServiceNowSourcePropertiesProperty where
   toResourceProperties ServiceNowSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.ServiceNowSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON ServiceNowSourcePropertiesProperty where
   toJSON ServiceNowSourcePropertiesProperty {..}

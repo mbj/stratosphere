@@ -17,6 +17,7 @@ instance ToResourceProperties DimensionProperty where
   toResourceProperties DimensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Logs::MetricFilter.Dimension",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON DimensionProperty where
   toJSON DimensionProperty {..}

@@ -32,6 +32,7 @@ instance ToResourceProperties EnvironmentProperty where
   toResourceProperties EnvironmentProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.Environment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ComputeType" JSON..= computeType, "Image" JSON..= image,

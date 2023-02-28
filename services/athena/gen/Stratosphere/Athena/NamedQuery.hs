@@ -22,7 +22,7 @@ mkNamedQuery database queryString
 instance ToResourceProperties NamedQuery where
   toResourceProperties NamedQuery {..}
     = ResourceProperties
-        {awsType = "AWS::Athena::NamedQuery",
+        {awsType = "AWS::Athena::NamedQuery", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Database" JSON..= database, "QueryString" JSON..= queryString]

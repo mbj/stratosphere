@@ -17,6 +17,7 @@ instance ToResourceProperties ValidatorsProperty where
   toResourceProperties ValidatorsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppConfig::ConfigurationProfile.Validators",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Content" Prelude.<$> content,

@@ -18,6 +18,7 @@ instance ToResourceProperties AccelerateConfigurationProperty where
   toResourceProperties AccelerateConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.AccelerateConfiguration",
+         supportsTags = Prelude.False,
          properties = ["AccelerationStatus" JSON..= accelerationStatus]}
 instance JSON.ToJSON AccelerateConfigurationProperty where
   toJSON AccelerateConfigurationProperty {..}

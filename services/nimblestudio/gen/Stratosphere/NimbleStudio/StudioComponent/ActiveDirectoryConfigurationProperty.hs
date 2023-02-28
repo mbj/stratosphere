@@ -23,6 +23,7 @@ instance ToResourceProperties ActiveDirectoryConfigurationProperty where
   toResourceProperties ActiveDirectoryConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::StudioComponent.ActiveDirectoryConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComputerAttributes" Prelude.<$> computerAttributes,

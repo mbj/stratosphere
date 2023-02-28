@@ -14,6 +14,7 @@ instance ToResourceProperties OnExitProperty where
   toResourceProperties OnExitProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.OnExit",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Events" Prelude.<$> events])}
 instance JSON.ToJSON OnExitProperty where

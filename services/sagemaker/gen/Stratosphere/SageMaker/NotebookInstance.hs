@@ -44,6 +44,7 @@ instance ToResourceProperties NotebookInstance where
   toResourceProperties NotebookInstance {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::NotebookInstance",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceType" JSON..= instanceType, "RoleArn" JSON..= roleArn]

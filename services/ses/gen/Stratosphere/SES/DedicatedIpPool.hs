@@ -17,6 +17,7 @@ instance ToResourceProperties DedicatedIpPool where
   toResourceProperties DedicatedIpPool {..}
     = ResourceProperties
         {awsType = "AWS::SES::DedicatedIpPool",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PoolName" Prelude.<$> poolName,

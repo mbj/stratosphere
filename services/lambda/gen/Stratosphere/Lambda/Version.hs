@@ -21,7 +21,7 @@ mkVersion functionName
 instance ToResourceProperties Version where
   toResourceProperties Version {..}
     = ResourceProperties
-        {awsType = "AWS::Lambda::Version",
+        {awsType = "AWS::Lambda::Version", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionName" JSON..= functionName]

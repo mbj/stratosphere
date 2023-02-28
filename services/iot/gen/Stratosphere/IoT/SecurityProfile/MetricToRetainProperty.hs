@@ -20,6 +20,7 @@ instance ToResourceProperties MetricToRetainProperty where
   toResourceProperties MetricToRetainProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::SecurityProfile.MetricToRetain",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Metric" JSON..= metric]

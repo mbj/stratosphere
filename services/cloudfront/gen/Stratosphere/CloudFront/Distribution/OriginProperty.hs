@@ -37,6 +37,7 @@ instance ToResourceProperties OriginProperty where
   toResourceProperties OriginProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.Origin",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName, "Id" JSON..= id]

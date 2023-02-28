@@ -36,6 +36,7 @@ instance ToResourceProperties EndpointGroup where
   toResourceProperties EndpointGroup {..}
     = ResourceProperties
         {awsType = "AWS::GlobalAccelerator::EndpointGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EndpointGroupRegion" JSON..= endpointGroupRegion,

@@ -20,6 +20,7 @@ instance ToResourceProperties MetadataOptionsProperty where
   toResourceProperties MetadataOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::LaunchConfiguration.MetadataOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HttpEndpoint" Prelude.<$> httpEndpoint,

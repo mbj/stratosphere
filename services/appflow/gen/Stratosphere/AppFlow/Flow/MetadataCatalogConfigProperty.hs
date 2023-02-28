@@ -16,6 +16,7 @@ instance ToResourceProperties MetadataCatalogConfigProperty where
   toResourceProperties MetadataCatalogConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.MetadataCatalogConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GlueDataCatalog" Prelude.<$> glueDataCatalog])}

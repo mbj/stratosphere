@@ -14,7 +14,7 @@ mkConditionProperty expressionString
 instance ToResourceProperties ConditionProperty where
   toResourceProperties ConditionProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Lex::Bot.Condition",
+        {awsType = "AWS::Lex::Bot.Condition", supportsTags = Prelude.False,
          properties = ["ExpressionString" JSON..= expressionString]}
 instance JSON.ToJSON ConditionProperty where
   toJSON ConditionProperty {..}

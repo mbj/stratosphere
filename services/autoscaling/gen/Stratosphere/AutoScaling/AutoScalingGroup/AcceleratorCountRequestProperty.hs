@@ -19,6 +19,7 @@ instance ToResourceProperties AcceleratorCountRequestProperty where
   toResourceProperties AcceleratorCountRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.AcceleratorCountRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

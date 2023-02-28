@@ -19,6 +19,7 @@ instance ToResourceProperties DimensionMappingProperty where
   toResourceProperties DimensionMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::ScheduledQuery.DimensionMapping",
+         supportsTags = Prelude.False,
          properties = ["DimensionValueType" JSON..= dimensionValueType,
                        "Name" JSON..= name]}
 instance JSON.ToJSON DimensionMappingProperty where

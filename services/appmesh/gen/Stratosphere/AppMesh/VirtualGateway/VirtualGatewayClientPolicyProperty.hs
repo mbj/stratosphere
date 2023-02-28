@@ -17,6 +17,7 @@ instance ToResourceProperties VirtualGatewayClientPolicyProperty where
   toResourceProperties VirtualGatewayClientPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayClientPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "TLS" Prelude.<$> tLS])}
 instance JSON.ToJSON VirtualGatewayClientPolicyProperty where

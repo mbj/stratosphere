@@ -20,6 +20,7 @@ instance ToResourceProperties PermissionsBoundaryProperty where
   toResourceProperties PermissionsBoundaryProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSO::PermissionSet.PermissionsBoundary",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomerManagedPolicyReference"

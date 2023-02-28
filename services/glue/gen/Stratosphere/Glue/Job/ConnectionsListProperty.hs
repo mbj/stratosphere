@@ -15,6 +15,7 @@ instance ToResourceProperties ConnectionsListProperty where
   toResourceProperties ConnectionsListProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Job.ConnectionsList",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Connections" Prelude.<$> connections])}

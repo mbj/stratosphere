@@ -26,6 +26,7 @@ instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
         {awsType = "AWS::RefactorSpaces::Application",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApiGatewayProxy" Prelude.<$> apiGatewayProxy,

@@ -30,6 +30,7 @@ instance ToResourceProperties SecurityProfile where
   toResourceProperties SecurityProfile {..}
     = ResourceProperties
         {awsType = "AWS::IoT::SecurityProfile",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdditionalMetricsToRetainV2"

@@ -19,6 +19,7 @@ instance ToResourceProperties ComponentConfigurationUpdateProperty where
   toResourceProperties ComponentConfigurationUpdateProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.ComponentConfigurationUpdate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Merge" Prelude.<$> merge,

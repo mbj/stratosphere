@@ -22,6 +22,7 @@ instance ToResourceProperties AsyncInferenceOutputConfigProperty where
   toResourceProperties AsyncInferenceOutputConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.AsyncInferenceOutputConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3OutputPath" JSON..= s3OutputPath]

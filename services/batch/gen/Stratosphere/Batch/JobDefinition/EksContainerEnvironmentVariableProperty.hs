@@ -19,6 +19,7 @@ instance ToResourceProperties EksContainerEnvironmentVariableProperty where
   toResourceProperties EksContainerEnvironmentVariableProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.EksContainerEnvironmentVariable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

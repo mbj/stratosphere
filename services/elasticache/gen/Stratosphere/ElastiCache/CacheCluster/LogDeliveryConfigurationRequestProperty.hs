@@ -31,6 +31,7 @@ instance ToResourceProperties LogDeliveryConfigurationRequestProperty where
   toResourceProperties LogDeliveryConfigurationRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::CacheCluster.LogDeliveryConfigurationRequest",
+         supportsTags = Prelude.False,
          properties = ["DestinationDetails" JSON..= destinationDetails,
                        "DestinationType" JSON..= destinationType,
                        "LogFormat" JSON..= logFormat, "LogType" JSON..= logType]}

@@ -20,6 +20,7 @@ instance ToResourceProperties FileFormatConfigurationProperty where
   toResourceProperties FileFormatConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore.FileFormatConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "JsonConfiguration" Prelude.<$> jsonConfiguration,

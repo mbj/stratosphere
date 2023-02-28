@@ -21,6 +21,7 @@ instance ToResourceProperties EndpointConfigurationProperty where
   toResourceProperties EndpointConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GlobalAccelerator::EndpointGroup.EndpointConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EndpointId" JSON..= endpointId]

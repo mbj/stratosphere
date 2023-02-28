@@ -17,6 +17,7 @@ instance ToResourceProperties AvailSuppressionProperty where
   toResourceProperties AvailSuppressionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaTailor::PlaybackConfiguration.AvailSuppression",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Mode" Prelude.<$> mode,

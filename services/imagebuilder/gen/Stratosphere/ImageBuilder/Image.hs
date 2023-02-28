@@ -30,7 +30,7 @@ mkImage infrastructureConfigurationArn
 instance ToResourceProperties Image where
   toResourceProperties Image {..}
     = ResourceProperties
-        {awsType = "AWS::ImageBuilder::Image",
+        {awsType = "AWS::ImageBuilder::Image", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InfrastructureConfigurationArn"

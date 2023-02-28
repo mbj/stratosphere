@@ -18,6 +18,7 @@ instance ToResourceProperties MachineLearningDetectionConfigProperty where
   toResourceProperties MachineLearningDetectionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::SecurityProfile.MachineLearningDetectionConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConfidenceLevel" Prelude.<$> confidenceLevel])}

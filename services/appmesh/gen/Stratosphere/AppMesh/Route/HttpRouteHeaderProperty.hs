@@ -21,6 +21,7 @@ instance ToResourceProperties HttpRouteHeaderProperty where
   toResourceProperties HttpRouteHeaderProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.HttpRouteHeader",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

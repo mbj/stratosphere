@@ -19,6 +19,7 @@ instance ToResourceProperties NodeConfigurationProperty where
   toResourceProperties NodeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ManagedBlockchain::Node.NodeConfiguration",
+         supportsTags = Prelude.False,
          properties = ["AvailabilityZone" JSON..= availabilityZone,
                        "InstanceType" JSON..= instanceType]}
 instance JSON.ToJSON NodeConfigurationProperty where

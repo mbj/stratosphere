@@ -24,6 +24,7 @@ instance ToResourceProperties DockerVolumeConfigurationProperty where
   toResourceProperties DockerVolumeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.DockerVolumeConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Autoprovision" Prelude.<$> autoprovision,

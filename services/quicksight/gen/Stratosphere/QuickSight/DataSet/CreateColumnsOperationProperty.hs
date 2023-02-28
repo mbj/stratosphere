@@ -3,6 +3,7 @@ module Stratosphere.QuickSight.DataSet.CreateColumnsOperationProperty (
         mkCreateColumnsOperationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.CalculatedColumnProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties CreateColumnsOperationProperty where
   toResourceProperties CreateColumnsOperationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.CreateColumnsOperation",
+         supportsTags = Prelude.False,
          properties = ["Columns" JSON..= columns]}
 instance JSON.ToJSON CreateColumnsOperationProperty where
   toJSON CreateColumnsOperationProperty {..}

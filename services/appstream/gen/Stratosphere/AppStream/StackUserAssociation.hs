@@ -22,6 +22,7 @@ instance ToResourceProperties StackUserAssociation where
   toResourceProperties StackUserAssociation {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::StackUserAssociation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthenticationType" JSON..= authenticationType,

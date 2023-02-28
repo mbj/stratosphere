@@ -32,6 +32,7 @@ instance ToResourceProperties OriginAccessControlConfigProperty where
   toResourceProperties OriginAccessControlConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::OriginAccessControl.OriginAccessControlConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name,

@@ -17,6 +17,7 @@ instance ToResourceProperties PortRangeProperty where
   toResourceProperties PortRangeProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.PortRange",
+         supportsTags = Prelude.False,
          properties = ["FromPort" JSON..= fromPort,
                        "ToPort" JSON..= toPort]}
 instance JSON.ToJSON PortRangeProperty where

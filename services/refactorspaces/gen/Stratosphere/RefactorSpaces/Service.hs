@@ -32,6 +32,7 @@ instance ToResourceProperties Service where
   toResourceProperties Service {..}
     = ResourceProperties
         {awsType = "AWS::RefactorSpaces::Service",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationIdentifier" JSON..= applicationIdentifier,

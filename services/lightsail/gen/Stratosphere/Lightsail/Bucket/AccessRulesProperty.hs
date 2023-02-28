@@ -18,6 +18,7 @@ instance ToResourceProperties AccessRulesProperty where
   toResourceProperties AccessRulesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Bucket.AccessRules",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowPublicOverrides" Prelude.<$> allowPublicOverrides,

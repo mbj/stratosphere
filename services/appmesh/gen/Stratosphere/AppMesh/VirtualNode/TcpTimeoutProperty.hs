@@ -14,6 +14,7 @@ instance ToResourceProperties TcpTimeoutProperty where
   toResourceProperties TcpTimeoutProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.TcpTimeout",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Idle" Prelude.<$> idle])}
 instance JSON.ToJSON TcpTimeoutProperty where

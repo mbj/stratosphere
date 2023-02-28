@@ -27,6 +27,7 @@ instance ToResourceProperties Listener where
   toResourceProperties Listener {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::Listener",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DefaultActions" JSON..= defaultActions,

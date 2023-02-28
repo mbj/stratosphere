@@ -18,6 +18,7 @@ instance ToResourceProperties BillingPeriodRangeProperty where
   toResourceProperties BillingPeriodRangeProperty {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::CustomLineItem.BillingPeriodRange",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExclusiveEndBillingPeriod"

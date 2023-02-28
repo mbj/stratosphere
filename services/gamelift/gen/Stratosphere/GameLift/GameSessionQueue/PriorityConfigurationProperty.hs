@@ -17,6 +17,7 @@ instance ToResourceProperties PriorityConfigurationProperty where
   toResourceProperties PriorityConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::GameSessionQueue.PriorityConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LocationOrder" Prelude.<$> locationOrder,

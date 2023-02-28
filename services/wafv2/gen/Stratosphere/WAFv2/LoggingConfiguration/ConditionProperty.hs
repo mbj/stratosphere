@@ -19,6 +19,7 @@ instance ToResourceProperties ConditionProperty where
   toResourceProperties ConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::LoggingConfiguration.Condition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ActionCondition" Prelude.<$> actionCondition,

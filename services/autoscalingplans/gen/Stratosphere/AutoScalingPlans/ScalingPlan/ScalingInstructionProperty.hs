@@ -57,6 +57,7 @@ instance ToResourceProperties ScalingInstructionProperty where
   toResourceProperties ScalingInstructionProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScalingPlans::ScalingPlan.ScalingInstruction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MaxCapacity" JSON..= maxCapacity,

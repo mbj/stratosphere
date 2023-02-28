@@ -22,6 +22,7 @@ instance ToResourceProperties SidewalkAccountInfoWithFingerprintProperty where
     SidewalkAccountInfoWithFingerprintProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::PartnerAccount.SidewalkAccountInfoWithFingerprint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AmazonId" Prelude.<$> amazonId,

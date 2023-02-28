@@ -17,6 +17,7 @@ instance ToResourceProperties QueryLoggingConfigProperty where
   toResourceProperties QueryLoggingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::HostedZone.QueryLoggingConfig",
+         supportsTags = Prelude.False,
          properties = ["CloudWatchLogsLogGroupArn"
                          JSON..= cloudWatchLogsLogGroupArn]}
 instance JSON.ToJSON QueryLoggingConfigProperty where

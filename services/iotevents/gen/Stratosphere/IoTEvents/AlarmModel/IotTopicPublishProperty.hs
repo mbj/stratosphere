@@ -20,6 +20,7 @@ instance ToResourceProperties IotTopicPublishProperty where
   toResourceProperties IotTopicPublishProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.IotTopicPublish",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MqttTopic" JSON..= mqttTopic]

@@ -20,6 +20,7 @@ instance ToResourceProperties UserGroup where
   toResourceProperties UserGroup {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::UserGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Engine" JSON..= engine, "UserGroupId" JSON..= userGroupId]

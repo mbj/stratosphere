@@ -20,6 +20,7 @@ instance ToResourceProperties ClientVpnTargetNetworkAssociation where
   toResourceProperties ClientVpnTargetNetworkAssociation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::ClientVpnTargetNetworkAssociation",
+         supportsTags = Prelude.False,
          properties = ["ClientVpnEndpointId" JSON..= clientVpnEndpointId,
                        "SubnetId" JSON..= subnetId]}
 instance JSON.ToJSON ClientVpnTargetNetworkAssociation where

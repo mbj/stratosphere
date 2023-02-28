@@ -3,6 +3,7 @@ module Stratosphere.Wisdom.KnowledgeBase.SourceConfigurationProperty (
         mkSourceConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.AppIntegrationsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties SourceConfigurationProperty where
   toResourceProperties SourceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Wisdom::KnowledgeBase.SourceConfiguration",
+         supportsTags = Prelude.False,
          properties = ["AppIntegrations" JSON..= appIntegrations]}
 instance JSON.ToJSON SourceConfigurationProperty where
   toJSON SourceConfigurationProperty {..}

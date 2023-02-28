@@ -16,6 +16,7 @@ instance ToResourceProperties StreamSpecificationProperty where
   toResourceProperties StreamSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.StreamSpecification",
+         supportsTags = Prelude.False,
          properties = ["StreamViewType" JSON..= streamViewType]}
 instance JSON.ToJSON StreamSpecificationProperty where
   toJSON StreamSpecificationProperty {..}

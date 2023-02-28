@@ -33,6 +33,7 @@ instance ToResourceProperties ManagedRuleGroupStatementProperty where
   toResourceProperties ManagedRuleGroupStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.ManagedRuleGroupStatement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "VendorName" JSON..= vendorName]

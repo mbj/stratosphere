@@ -17,7 +17,7 @@ instance ToResourceProperties AccessControlExposeHeadersProperty where
   toResourceProperties AccessControlExposeHeadersProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.AccessControlExposeHeaders",
-         properties = ["Items" JSON..= items]}
+         supportsTags = Prelude.False, properties = ["Items" JSON..= items]}
 instance JSON.ToJSON AccessControlExposeHeadersProperty where
   toJSON AccessControlExposeHeadersProperty {..}
     = JSON.object ["Items" JSON..= items]

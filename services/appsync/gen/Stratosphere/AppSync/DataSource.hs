@@ -43,6 +43,7 @@ instance ToResourceProperties DataSource where
   toResourceProperties DataSource {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId, "Name" JSON..= name, "Type" JSON..= type']

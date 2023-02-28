@@ -18,6 +18,7 @@ instance ToResourceProperties ApplicationSettingsProperty where
   toResourceProperties ApplicationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::Stack.ApplicationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

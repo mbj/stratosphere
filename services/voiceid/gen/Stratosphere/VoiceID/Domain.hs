@@ -24,7 +24,7 @@ mkDomain name serverSideEncryptionConfiguration
 instance ToResourceProperties Domain where
   toResourceProperties Domain {..}
     = ResourceProperties
-        {awsType = "AWS::VoiceID::Domain",
+        {awsType = "AWS::VoiceID::Domain", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name,

@@ -19,6 +19,7 @@ instance ToResourceProperties BatchResourceRequirementProperty where
   toResourceProperties BatchResourceRequirementProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.BatchResourceRequirement",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON BatchResourceRequirementProperty where
   toJSON BatchResourceRequirementProperty {..}

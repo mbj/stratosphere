@@ -22,6 +22,7 @@ instance ToResourceProperties EmailConfigurationProperty where
   toResourceProperties EmailConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.EmailConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConfigurationSet" Prelude.<$> configurationSet,

@@ -19,6 +19,7 @@ instance ToResourceProperties UplinkSpectrumConfigProperty where
   toResourceProperties UplinkSpectrumConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.UplinkSpectrumConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CenterFrequency" Prelude.<$> centerFrequency,

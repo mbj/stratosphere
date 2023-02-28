@@ -16,6 +16,7 @@ instance ToResourceProperties EventBridgeConfigProperty where
   toResourceProperties EventBridgeConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.EventBridgeConfig",
+         supportsTags = Prelude.False,
          properties = ["EventBusArn" JSON..= eventBusArn]}
 instance JSON.ToJSON EventBridgeConfigProperty where
   toJSON EventBridgeConfigProperty {..}

@@ -18,6 +18,7 @@ instance ToResourceProperties CustomPluginProperty where
   toResourceProperties CustomPluginProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.CustomPlugin",
+         supportsTags = Prelude.False,
          properties = ["CustomPluginArn" JSON..= customPluginArn,
                        "Revision" JSON..= revision]}
 instance JSON.ToJSON CustomPluginProperty where

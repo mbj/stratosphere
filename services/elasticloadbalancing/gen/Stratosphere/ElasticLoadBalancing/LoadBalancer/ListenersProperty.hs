@@ -25,6 +25,7 @@ instance ToResourceProperties ListenersProperty where
   toResourceProperties ListenersProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancing::LoadBalancer.Listeners",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstancePort" JSON..= instancePort,

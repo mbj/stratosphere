@@ -36,7 +36,7 @@ mkSubnet vpcId
 instance ToResourceProperties Subnet where
   toResourceProperties Subnet {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::Subnet",
+        {awsType = "AWS::EC2::Subnet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VpcId" JSON..= vpcId]

@@ -16,7 +16,7 @@ mkRouteTable vpcId
 instance ToResourceProperties RouteTable where
   toResourceProperties RouteTable {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::RouteTable",
+        {awsType = "AWS::EC2::RouteTable", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VpcId" JSON..= vpcId]

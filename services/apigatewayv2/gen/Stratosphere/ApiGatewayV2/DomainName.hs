@@ -23,6 +23,7 @@ instance ToResourceProperties DomainName where
   toResourceProperties DomainName {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::DomainName",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName]

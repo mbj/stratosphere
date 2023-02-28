@@ -23,6 +23,7 @@ instance ToResourceProperties ImageResponseCardProperty where
   toResourceProperties ImageResponseCardProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.ImageResponseCard",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Title" JSON..= title]

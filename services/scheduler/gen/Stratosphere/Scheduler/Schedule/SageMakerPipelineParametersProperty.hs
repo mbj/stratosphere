@@ -18,6 +18,7 @@ instance ToResourceProperties SageMakerPipelineParametersProperty where
   toResourceProperties SageMakerPipelineParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule.SageMakerPipelineParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PipelineParameterList"

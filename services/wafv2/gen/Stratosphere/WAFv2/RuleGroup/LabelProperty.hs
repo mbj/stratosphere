@@ -13,7 +13,7 @@ instance ToResourceProperties LabelProperty where
   toResourceProperties LabelProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.Label",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON LabelProperty where
   toJSON LabelProperty {..} = JSON.object ["Name" JSON..= name]
 instance Property "Name" LabelProperty where

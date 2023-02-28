@@ -15,6 +15,7 @@ instance ToResourceProperties InsightSelectorProperty where
   toResourceProperties InsightSelectorProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudTrail::Trail.InsightSelector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InsightType" Prelude.<$> insightType])}

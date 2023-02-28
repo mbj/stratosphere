@@ -24,6 +24,7 @@ instance ToResourceProperties BehaviorProperty where
   toResourceProperties BehaviorProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::SecurityProfile.Behavior",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

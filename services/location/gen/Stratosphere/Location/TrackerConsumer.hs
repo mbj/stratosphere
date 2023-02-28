@@ -18,6 +18,7 @@ instance ToResourceProperties TrackerConsumer where
   toResourceProperties TrackerConsumer {..}
     = ResourceProperties
         {awsType = "AWS::Location::TrackerConsumer",
+         supportsTags = Prelude.False,
          properties = ["ConsumerArn" JSON..= consumerArn,
                        "TrackerName" JSON..= trackerName]}
 instance JSON.ToJSON TrackerConsumer where

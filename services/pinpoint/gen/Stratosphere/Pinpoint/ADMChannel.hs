@@ -22,6 +22,7 @@ instance ToResourceProperties ADMChannel where
   toResourceProperties ADMChannel {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::ADMChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId,

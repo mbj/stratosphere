@@ -17,6 +17,7 @@ instance ToResourceProperties ApprovedOrigin where
   toResourceProperties ApprovedOrigin {..}
     = ResourceProperties
         {awsType = "AWS::Connect::ApprovedOrigin",
+         supportsTags = Prelude.False,
          properties = ["InstanceId" JSON..= instanceId,
                        "Origin" JSON..= origin]}
 instance JSON.ToJSON ApprovedOrigin where

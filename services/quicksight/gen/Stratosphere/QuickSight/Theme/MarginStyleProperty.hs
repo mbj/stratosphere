@@ -15,6 +15,7 @@ instance ToResourceProperties MarginStyleProperty where
   toResourceProperties MarginStyleProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.MarginStyle",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Show" Prelude.<$> show])}
 instance JSON.ToJSON MarginStyleProperty where

@@ -24,6 +24,7 @@ instance ToResourceProperties FirewallPolicy where
   toResourceProperties FirewallPolicy {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::FirewallPolicy",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FirewallPolicy" JSON..= firewallPolicy,

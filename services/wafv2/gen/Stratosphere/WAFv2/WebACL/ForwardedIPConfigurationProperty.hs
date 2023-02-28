@@ -20,6 +20,7 @@ instance ToResourceProperties ForwardedIPConfigurationProperty where
   toResourceProperties ForwardedIPConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.ForwardedIPConfiguration",
+         supportsTags = Prelude.False,
          properties = ["FallbackBehavior" JSON..= fallbackBehavior,
                        "HeaderName" JSON..= headerName]}
 instance JSON.ToJSON ForwardedIPConfigurationProperty where

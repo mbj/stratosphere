@@ -16,7 +16,7 @@ instance ToResourceProperties PlainTextMessageProperty where
   toResourceProperties PlainTextMessageProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.PlainTextMessage",
-         properties = ["Value" JSON..= value]}
+         supportsTags = Prelude.False, properties = ["Value" JSON..= value]}
 instance JSON.ToJSON PlainTextMessageProperty where
   toJSON PlainTextMessageProperty {..}
     = JSON.object ["Value" JSON..= value]

@@ -21,6 +21,7 @@ instance ToResourceProperties NetworkInsightsAccessScopeAnalysis where
   toResourceProperties NetworkInsightsAccessScopeAnalysis {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["NetworkInsightsAccessScopeId"

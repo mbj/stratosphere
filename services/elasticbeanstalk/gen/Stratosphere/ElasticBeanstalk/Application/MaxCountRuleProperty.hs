@@ -19,6 +19,7 @@ instance ToResourceProperties MaxCountRuleProperty where
   toResourceProperties MaxCountRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::Application.MaxCountRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeleteSourceFromS3" Prelude.<$> deleteSourceFromS3,

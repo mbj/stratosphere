@@ -18,6 +18,7 @@ instance ToResourceProperties SsmControlsProperty where
   toResourceProperties SsmControlsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::RemediationConfiguration.SsmControls",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConcurrentExecutionRatePercentage"

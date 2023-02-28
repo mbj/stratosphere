@@ -39,7 +39,7 @@ mkPatchBaseline name
 instance ToResourceProperties PatchBaseline where
   toResourceProperties PatchBaseline {..}
     = ResourceProperties
-        {awsType = "AWS::SSM::PatchBaseline",
+        {awsType = "AWS::SSM::PatchBaseline", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

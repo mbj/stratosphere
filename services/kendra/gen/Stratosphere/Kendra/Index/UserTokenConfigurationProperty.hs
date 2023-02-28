@@ -20,6 +20,7 @@ instance ToResourceProperties UserTokenConfigurationProperty where
   toResourceProperties UserTokenConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::Index.UserTokenConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "JsonTokenTypeConfiguration"

@@ -15,6 +15,7 @@ instance ToResourceProperties FilterConfigurationProperty where
   toResourceProperties FilterConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::GameSessionQueue.FilterConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowedLocations" Prelude.<$> allowedLocations])}

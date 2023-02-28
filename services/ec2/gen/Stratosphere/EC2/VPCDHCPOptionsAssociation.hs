@@ -19,6 +19,7 @@ instance ToResourceProperties VPCDHCPOptionsAssociation where
   toResourceProperties VPCDHCPOptionsAssociation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VPCDHCPOptionsAssociation",
+         supportsTags = Prelude.False,
          properties = ["DhcpOptionsId" JSON..= dhcpOptionsId,
                        "VpcId" JSON..= vpcId]}
 instance JSON.ToJSON VPCDHCPOptionsAssociation where

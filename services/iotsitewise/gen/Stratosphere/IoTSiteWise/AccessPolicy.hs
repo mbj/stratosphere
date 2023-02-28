@@ -28,6 +28,7 @@ instance ToResourceProperties AccessPolicy where
   toResourceProperties AccessPolicy {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AccessPolicy",
+         supportsTags = Prelude.False,
          properties = ["AccessPolicyIdentity" JSON..= accessPolicyIdentity,
                        "AccessPolicyPermission" JSON..= accessPolicyPermission,
                        "AccessPolicyResource" JSON..= accessPolicyResource]}

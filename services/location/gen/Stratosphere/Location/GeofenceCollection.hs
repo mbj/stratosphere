@@ -19,6 +19,7 @@ instance ToResourceProperties GeofenceCollection where
   toResourceProperties GeofenceCollection {..}
     = ResourceProperties
         {awsType = "AWS::Location::GeofenceCollection",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CollectionName" JSON..= collectionName]

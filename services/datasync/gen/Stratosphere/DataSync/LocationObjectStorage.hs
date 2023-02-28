@@ -32,6 +32,7 @@ instance ToResourceProperties LocationObjectStorage where
   toResourceProperties LocationObjectStorage {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationObjectStorage",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AgentArns" JSON..= agentArns]

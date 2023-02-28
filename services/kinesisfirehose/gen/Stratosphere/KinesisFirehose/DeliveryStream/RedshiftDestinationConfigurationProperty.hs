@@ -51,6 +51,7 @@ instance ToResourceProperties RedshiftDestinationConfigurationProperty where
   toResourceProperties RedshiftDestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.RedshiftDestinationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterJDBCURL" JSON..= clusterJDBCURL,

@@ -17,6 +17,7 @@ instance ToResourceProperties OcspConfigurationProperty where
   toResourceProperties OcspConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.OcspConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

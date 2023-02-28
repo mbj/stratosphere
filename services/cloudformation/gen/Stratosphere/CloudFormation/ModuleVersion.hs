@@ -18,6 +18,7 @@ instance ToResourceProperties ModuleVersion where
   toResourceProperties ModuleVersion {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::ModuleVersion",
+         supportsTags = Prelude.False,
          properties = ["ModuleName" JSON..= moduleName,
                        "ModulePackage" JSON..= modulePackage]}
 instance JSON.ToJSON ModuleVersion where

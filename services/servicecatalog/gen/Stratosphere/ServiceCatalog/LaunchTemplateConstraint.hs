@@ -24,6 +24,7 @@ instance ToResourceProperties LaunchTemplateConstraint where
   toResourceProperties LaunchTemplateConstraint {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::LaunchTemplateConstraint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PortfolioId" JSON..= portfolioId, "ProductId" JSON..= productId,

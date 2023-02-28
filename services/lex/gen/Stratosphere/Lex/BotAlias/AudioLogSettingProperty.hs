@@ -21,6 +21,7 @@ instance ToResourceProperties AudioLogSettingProperty where
   toResourceProperties AudioLogSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::BotAlias.AudioLogSetting",
+         supportsTags = Prelude.False,
          properties = ["Destination" JSON..= destination,
                        "Enabled" JSON..= enabled]}
 instance JSON.ToJSON AudioLogSettingProperty where

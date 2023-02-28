@@ -27,6 +27,7 @@ instance ToResourceProperties CustomDocumentEnrichmentConfigurationProperty wher
     CustomDocumentEnrichmentConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.CustomDocumentEnrichmentConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InlineConfigurations" Prelude.<$> inlineConfigurations,

@@ -17,6 +17,7 @@ instance ToResourceProperties PardotSourcePropertiesProperty where
   toResourceProperties PardotSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.PardotSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON PardotSourcePropertiesProperty where
   toJSON PardotSourcePropertiesProperty {..}

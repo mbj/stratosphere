@@ -35,7 +35,7 @@ mkUser role serverId userName
 instance ToResourceProperties User where
   toResourceProperties User {..}
     = ResourceProperties
-        {awsType = "AWS::Transfer::User",
+        {awsType = "AWS::Transfer::User", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Role" JSON..= role, "ServerId" JSON..= serverId,

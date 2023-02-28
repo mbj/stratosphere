@@ -18,6 +18,7 @@ instance ToResourceProperties SybaseSettingsProperty where
   toResourceProperties SybaseSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.SybaseSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SecretsManagerAccessRoleArn"

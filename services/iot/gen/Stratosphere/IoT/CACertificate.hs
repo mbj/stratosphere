@@ -30,7 +30,7 @@ mkCACertificate cACertificatePem status
 instance ToResourceProperties CACertificate where
   toResourceProperties CACertificate {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::CACertificate",
+        {awsType = "AWS::IoT::CACertificate", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CACertificatePem" JSON..= cACertificatePem,

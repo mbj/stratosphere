@@ -15,6 +15,7 @@ instance ToResourceProperties JoinKeyPropertiesProperty where
   toResourceProperties JoinKeyPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.JoinKeyProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "UniqueKey" Prelude.<$> uniqueKey])}
 instance JSON.ToJSON JoinKeyPropertiesProperty where

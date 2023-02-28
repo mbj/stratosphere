@@ -22,7 +22,7 @@ mkCostCategory name ruleVersion rules
 instance ToResourceProperties CostCategory where
   toResourceProperties CostCategory {..}
     = ResourceProperties
-        {awsType = "AWS::CE::CostCategory",
+        {awsType = "AWS::CE::CostCategory", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "RuleVersion" JSON..= ruleVersion,

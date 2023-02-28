@@ -30,6 +30,7 @@ instance ToResourceProperties ContainerActionProperty where
   toResourceProperties ContainerActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.ContainerAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ExecutionRoleArn" JSON..= executionRoleArn,

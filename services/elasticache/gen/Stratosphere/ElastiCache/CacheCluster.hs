@@ -62,6 +62,7 @@ instance ToResourceProperties CacheCluster where
   toResourceProperties CacheCluster {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::CacheCluster",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CacheNodeType" JSON..= cacheNodeType, "Engine" JSON..= engine,

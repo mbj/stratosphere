@@ -17,6 +17,7 @@ instance ToResourceProperties ImageVersion where
   toResourceProperties ImageVersion {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ImageVersion",
+         supportsTags = Prelude.False,
          properties = ["BaseImage" JSON..= baseImage,
                        "ImageName" JSON..= imageName]}
 instance JSON.ToJSON ImageVersion where

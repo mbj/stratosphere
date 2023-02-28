@@ -3,6 +3,7 @@ module Stratosphere.WAFv2.RuleGroup.CustomRequestHandlingProperty (
         mkCustomRequestHandlingProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CustomHTTPHeaderProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties CustomRequestHandlingProperty where
   toResourceProperties CustomRequestHandlingProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.CustomRequestHandling",
+         supportsTags = Prelude.False,
          properties = ["InsertHeaders" JSON..= insertHeaders]}
 instance JSON.ToJSON CustomRequestHandlingProperty where
   toJSON CustomRequestHandlingProperty {..}

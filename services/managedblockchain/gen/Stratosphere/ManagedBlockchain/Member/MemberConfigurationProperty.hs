@@ -22,6 +22,7 @@ instance ToResourceProperties MemberConfigurationProperty where
   toResourceProperties MemberConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ManagedBlockchain::Member.MemberConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

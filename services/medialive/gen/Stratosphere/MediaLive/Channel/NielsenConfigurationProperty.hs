@@ -18,6 +18,7 @@ instance ToResourceProperties NielsenConfigurationProperty where
   toResourceProperties NielsenConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.NielsenConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DistributorId" Prelude.<$> distributorId,

@@ -24,7 +24,7 @@ mkProject name
 instance ToResourceProperties Project where
   toResourceProperties Project {..}
     = ResourceProperties
-        {awsType = "AWS::Evidently::Project",
+        {awsType = "AWS::Evidently::Project", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

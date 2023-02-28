@@ -20,6 +20,7 @@ instance ToResourceProperties SourceDetailProperty where
   toResourceProperties SourceDetailProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConfigRule.SourceDetail",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EventSource" JSON..= eventSource,

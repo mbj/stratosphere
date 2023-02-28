@@ -17,6 +17,7 @@ instance ToResourceProperties R53ResourceRecordProperty where
   toResourceProperties R53ResourceRecordProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryReadiness::ResourceSet.R53ResourceRecord",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DomainName" Prelude.<$> domainName,

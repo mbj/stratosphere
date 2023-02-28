@@ -24,6 +24,7 @@ instance ToResourceProperties WarmPool where
   toResourceProperties WarmPool {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::WarmPool",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AutoScalingGroupName" JSON..= autoScalingGroupName]

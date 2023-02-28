@@ -20,6 +20,7 @@ instance ToResourceProperties AccountTakeoverActionTypeProperty where
   toResourceProperties AccountTakeoverActionTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType",
+         supportsTags = Prelude.False,
          properties = ["EventAction" JSON..= eventAction,
                        "Notify" JSON..= notify]}
 instance JSON.ToJSON AccountTakeoverActionTypeProperty where

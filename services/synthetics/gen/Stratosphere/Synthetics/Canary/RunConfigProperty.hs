@@ -21,6 +21,7 @@ instance ToResourceProperties RunConfigProperty where
   toResourceProperties RunConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Synthetics::Canary.RunConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ActiveTracing" Prelude.<$> activeTracing,

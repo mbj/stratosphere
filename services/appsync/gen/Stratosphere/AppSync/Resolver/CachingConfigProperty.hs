@@ -17,6 +17,7 @@ instance ToResourceProperties CachingConfigProperty where
   toResourceProperties CachingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::Resolver.CachingConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Ttl" JSON..= ttl]

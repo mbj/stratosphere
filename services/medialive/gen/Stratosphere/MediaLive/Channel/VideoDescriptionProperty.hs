@@ -27,6 +27,7 @@ instance ToResourceProperties VideoDescriptionProperty where
   toResourceProperties VideoDescriptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.VideoDescription",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CodecSettings" Prelude.<$> codecSettings,

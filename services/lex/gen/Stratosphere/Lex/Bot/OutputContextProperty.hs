@@ -22,6 +22,7 @@ instance ToResourceProperties OutputContextProperty where
   toResourceProperties OutputContextProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.OutputContext",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name,
                        "TimeToLiveInSeconds" JSON..= timeToLiveInSeconds,
                        "TurnsToLive" JSON..= turnsToLive]}

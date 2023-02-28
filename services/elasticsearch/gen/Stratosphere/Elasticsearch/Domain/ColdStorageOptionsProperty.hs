@@ -15,6 +15,7 @@ instance ToResourceProperties ColdStorageOptionsProperty where
   toResourceProperties ColdStorageOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Elasticsearch::Domain.ColdStorageOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled])}
 instance JSON.ToJSON ColdStorageOptionsProperty where

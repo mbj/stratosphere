@@ -26,7 +26,7 @@ mkIPAM
 instance ToResourceProperties IPAM where
   toResourceProperties IPAM {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::IPAM",
+        {awsType = "AWS::EC2::IPAM", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefaultResourceDiscoveryAssociationId"

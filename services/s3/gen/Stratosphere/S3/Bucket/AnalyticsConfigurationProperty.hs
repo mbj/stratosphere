@@ -25,6 +25,7 @@ instance ToResourceProperties AnalyticsConfigurationProperty where
   toResourceProperties AnalyticsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.AnalyticsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id,

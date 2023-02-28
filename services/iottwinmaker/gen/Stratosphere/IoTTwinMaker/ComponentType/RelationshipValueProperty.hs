@@ -18,6 +18,7 @@ instance ToResourceProperties RelationshipValueProperty where
   toResourceProperties RelationshipValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::ComponentType.RelationshipValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TargetComponentName" Prelude.<$> targetComponentName,

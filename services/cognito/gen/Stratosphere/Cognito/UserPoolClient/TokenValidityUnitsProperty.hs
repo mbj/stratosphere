@@ -19,6 +19,7 @@ instance ToResourceProperties TokenValidityUnitsProperty where
   toResourceProperties TokenValidityUnitsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolClient.TokenValidityUnits",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessToken" Prelude.<$> accessToken,

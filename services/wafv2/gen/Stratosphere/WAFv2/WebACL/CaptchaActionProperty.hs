@@ -15,6 +15,7 @@ instance ToResourceProperties CaptchaActionProperty where
   toResourceProperties CaptchaActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.CaptchaAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomRequestHandling"

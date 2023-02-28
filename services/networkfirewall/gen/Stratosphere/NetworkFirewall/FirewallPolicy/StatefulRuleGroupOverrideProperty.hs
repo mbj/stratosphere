@@ -17,6 +17,7 @@ instance ToResourceProperties StatefulRuleGroupOverrideProperty where
   toResourceProperties StatefulRuleGroupOverrideProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::FirewallPolicy.StatefulRuleGroupOverride",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Action" Prelude.<$> action])}
 instance JSON.ToJSON StatefulRuleGroupOverrideProperty where

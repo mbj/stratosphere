@@ -17,6 +17,7 @@ instance ToResourceProperties KinesisConfigurationProperty where
   toResourceProperties KinesisConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QLDB::Stream.KinesisConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AggregationEnabled" Prelude.<$> aggregationEnabled,

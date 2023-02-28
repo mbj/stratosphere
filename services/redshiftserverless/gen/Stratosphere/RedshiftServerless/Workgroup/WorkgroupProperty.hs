@@ -37,6 +37,7 @@ instance ToResourceProperties WorkgroupProperty where
   toResourceProperties WorkgroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::RedshiftServerless::Workgroup.Workgroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BaseCapacity" Prelude.<$> baseCapacity,

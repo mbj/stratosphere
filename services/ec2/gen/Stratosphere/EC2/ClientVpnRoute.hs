@@ -27,6 +27,7 @@ instance ToResourceProperties ClientVpnRoute where
   toResourceProperties ClientVpnRoute {..}
     = ResourceProperties
         {awsType = "AWS::EC2::ClientVpnRoute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientVpnEndpointId" JSON..= clientVpnEndpointId,

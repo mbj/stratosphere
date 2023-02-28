@@ -56,7 +56,7 @@ mkDBCluster
 instance ToResourceProperties DBCluster where
   toResourceProperties DBCluster {..}
     = ResourceProperties
-        {awsType = "AWS::DocDB::DBCluster",
+        {awsType = "AWS::DocDB::DBCluster", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZones" Prelude.<$> availabilityZones,

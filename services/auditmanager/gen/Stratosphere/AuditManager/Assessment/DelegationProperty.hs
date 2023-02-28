@@ -31,6 +31,7 @@ instance ToResourceProperties DelegationProperty where
   toResourceProperties DelegationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AuditManager::Assessment.Delegation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AssessmentId" Prelude.<$> assessmentId,

@@ -18,6 +18,7 @@ instance ToResourceProperties WebhookFilterRuleProperty where
   toResourceProperties WebhookFilterRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Webhook.WebhookFilterRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["JsonPath" JSON..= jsonPath]

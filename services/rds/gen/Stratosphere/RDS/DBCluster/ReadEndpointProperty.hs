@@ -15,6 +15,7 @@ instance ToResourceProperties ReadEndpointProperty where
   toResourceProperties ReadEndpointProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBCluster.ReadEndpoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Address" Prelude.<$> address])}
 instance JSON.ToJSON ReadEndpointProperty where

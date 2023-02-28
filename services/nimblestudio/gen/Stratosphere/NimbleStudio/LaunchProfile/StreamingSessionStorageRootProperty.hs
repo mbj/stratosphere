@@ -19,6 +19,7 @@ instance ToResourceProperties StreamingSessionStorageRootProperty where
   toResourceProperties StreamingSessionStorageRootProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::LaunchProfile.StreamingSessionStorageRoot",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Linux" Prelude.<$> linux,

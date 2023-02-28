@@ -20,6 +20,7 @@ instance ToResourceProperties AmazonOpenSearchServerlessBufferingHintsProperty w
     AmazonOpenSearchServerlessBufferingHintsProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.AmazonOpenSearchServerlessBufferingHints",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IntervalInSeconds" Prelude.<$> intervalInSeconds,

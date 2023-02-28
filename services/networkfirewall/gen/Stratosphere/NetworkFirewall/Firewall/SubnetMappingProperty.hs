@@ -18,6 +18,7 @@ instance ToResourceProperties SubnetMappingProperty where
   toResourceProperties SubnetMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::Firewall.SubnetMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubnetId" JSON..= subnetId]

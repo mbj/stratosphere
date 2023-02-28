@@ -40,6 +40,7 @@ instance ToResourceProperties StorageDescriptorProperty where
   toResourceProperties StorageDescriptorProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Partition.StorageDescriptor",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BucketColumns" Prelude.<$> bucketColumns,

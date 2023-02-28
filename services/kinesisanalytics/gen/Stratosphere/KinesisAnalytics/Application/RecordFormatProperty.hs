@@ -20,6 +20,7 @@ instance ToResourceProperties RecordFormatProperty where
   toResourceProperties RecordFormatProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::Application.RecordFormat",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RecordFormatType" JSON..= recordFormatType]

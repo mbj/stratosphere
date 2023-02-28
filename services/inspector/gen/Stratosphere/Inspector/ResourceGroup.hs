@@ -2,6 +2,7 @@ module Stratosphere.Inspector.ResourceGroup (
         ResourceGroup(..), mkResourceGroup
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -13,6 +14,7 @@ instance ToResourceProperties ResourceGroup where
   toResourceProperties ResourceGroup {..}
     = ResourceProperties
         {awsType = "AWS::Inspector::ResourceGroup",
+         supportsTags = Prelude.False,
          properties = ["ResourceGroupTags" JSON..= resourceGroupTags]}
 instance JSON.ToJSON ResourceGroup where
   toJSON ResourceGroup {..}

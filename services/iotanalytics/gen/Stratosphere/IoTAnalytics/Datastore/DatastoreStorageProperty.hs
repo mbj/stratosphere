@@ -22,6 +22,7 @@ instance ToResourceProperties DatastoreStorageProperty where
   toResourceProperties DatastoreStorageProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore.DatastoreStorage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomerManagedS3" Prelude.<$> customerManagedS3,

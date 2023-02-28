@@ -21,6 +21,7 @@ instance ToResourceProperties ModelQualityBaselineConfigProperty where
   toResourceProperties ModelQualityBaselineConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelQualityJobDefinition.ModelQualityBaselineConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BaseliningJobName" Prelude.<$> baseliningJobName,

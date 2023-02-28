@@ -20,6 +20,7 @@ instance ToResourceProperties GeoSpatialColumnGroupProperty where
   toResourceProperties GeoSpatialColumnGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.GeoSpatialColumnGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Columns" JSON..= columns, "Name" JSON..= name]

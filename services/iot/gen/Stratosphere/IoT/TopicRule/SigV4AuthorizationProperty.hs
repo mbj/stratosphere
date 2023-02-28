@@ -22,6 +22,7 @@ instance ToResourceProperties SigV4AuthorizationProperty where
   toResourceProperties SigV4AuthorizationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.SigV4Authorization",
+         supportsTags = Prelude.False,
          properties = ["RoleArn" JSON..= roleArn,
                        "ServiceName" JSON..= serviceName,
                        "SigningRegion" JSON..= signingRegion]}

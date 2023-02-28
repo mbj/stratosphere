@@ -17,6 +17,7 @@ instance ToResourceProperties PlacementStrategyProperty where
   toResourceProperties PlacementStrategyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule.PlacementStrategy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Field" Prelude.<$> field,

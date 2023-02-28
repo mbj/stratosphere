@@ -40,6 +40,7 @@ instance ToResourceProperties ReplicaSpecificationProperty where
   toResourceProperties ReplicaSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.ReplicaSpecification",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Region" JSON..= region]

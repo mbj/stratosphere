@@ -51,6 +51,7 @@ instance ToResourceProperties JobFlowInstancesConfigProperty where
   toResourceProperties JobFlowInstancesConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.JobFlowInstancesConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdditionalMasterSecurityGroups"

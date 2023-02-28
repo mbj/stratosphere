@@ -47,6 +47,7 @@ instance ToResourceProperties Eac3SettingsProperty where
   toResourceProperties Eac3SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Eac3Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AttenuationControl" Prelude.<$> attenuationControl,

@@ -24,6 +24,7 @@ instance ToResourceProperties KafkaActionProperty where
   toResourceProperties KafkaActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.KafkaAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientProperties" JSON..= clientProperties,

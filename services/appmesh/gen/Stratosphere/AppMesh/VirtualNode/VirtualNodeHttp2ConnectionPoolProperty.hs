@@ -18,6 +18,7 @@ instance ToResourceProperties VirtualNodeHttp2ConnectionPoolProperty where
   toResourceProperties VirtualNodeHttp2ConnectionPoolProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.VirtualNodeHttp2ConnectionPool",
+         supportsTags = Prelude.False,
          properties = ["MaxRequests" JSON..= maxRequests]}
 instance JSON.ToJSON VirtualNodeHttp2ConnectionPoolProperty where
   toJSON VirtualNodeHttp2ConnectionPoolProperty {..}

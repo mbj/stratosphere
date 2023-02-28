@@ -21,6 +21,7 @@ instance ToResourceProperties ColumnStatisticsConfigurationProperty where
   toResourceProperties ColumnStatisticsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.ColumnStatisticsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Statistics" JSON..= statistics]

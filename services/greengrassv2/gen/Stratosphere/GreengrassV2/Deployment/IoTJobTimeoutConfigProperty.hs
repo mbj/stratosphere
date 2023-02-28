@@ -16,6 +16,7 @@ instance ToResourceProperties IoTJobTimeoutConfigProperty where
   toResourceProperties IoTJobTimeoutConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.IoTJobTimeoutConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InProgressTimeoutInMinutes"

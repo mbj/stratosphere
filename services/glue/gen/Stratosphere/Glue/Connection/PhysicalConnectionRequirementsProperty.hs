@@ -21,6 +21,7 @@ instance ToResourceProperties PhysicalConnectionRequirementsProperty where
   toResourceProperties PhysicalConnectionRequirementsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Connection.PhysicalConnectionRequirements",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,

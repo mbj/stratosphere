@@ -19,6 +19,7 @@ instance ToResourceProperties LambdaCodeHookProperty where
   toResourceProperties LambdaCodeHookProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.LambdaCodeHook",
+         supportsTags = Prelude.False,
          properties = ["CodeHookInterfaceVersion"
                          JSON..= codeHookInterfaceVersion,
                        "LambdaArn" JSON..= lambdaArn]}

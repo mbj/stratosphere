@@ -31,7 +31,7 @@ mkBotAlias botAliasName botId
 instance ToResourceProperties BotAlias where
   toResourceProperties BotAlias {..}
     = ResourceProperties
-        {awsType = "AWS::Lex::BotAlias",
+        {awsType = "AWS::Lex::BotAlias", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BotAliasName" JSON..= botAliasName, "BotId" JSON..= botId]

@@ -19,6 +19,7 @@ instance ToResourceProperties WriteProvisionedThroughputSettingsProperty where
     WriteProvisionedThroughputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.WriteProvisionedThroughputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "WriteCapacityAutoScalingSettings"

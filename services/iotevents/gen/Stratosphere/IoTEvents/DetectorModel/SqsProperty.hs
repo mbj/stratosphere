@@ -20,6 +20,7 @@ instance ToResourceProperties SqsProperty where
   toResourceProperties SqsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.Sqs",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["QueueUrl" JSON..= queueUrl]

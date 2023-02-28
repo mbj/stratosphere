@@ -30,7 +30,7 @@ mkModel executionRoleArn
 instance ToResourceProperties Model where
   toResourceProperties Model {..}
     = ResourceProperties
-        {awsType = "AWS::SageMaker::Model",
+        {awsType = "AWS::SageMaker::Model", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ExecutionRoleArn" JSON..= executionRoleArn]

@@ -35,7 +35,7 @@ mkTaskSet cluster service taskDefinition
 instance ToResourceProperties TaskSet where
   toResourceProperties TaskSet {..}
     = ResourceProperties
-        {awsType = "AWS::ECS::TaskSet",
+        {awsType = "AWS::ECS::TaskSet", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Cluster" JSON..= cluster, "Service" JSON..= service,

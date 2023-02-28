@@ -26,6 +26,7 @@ instance ToResourceProperties ConfluenceSpaceConfigurationProperty where
   toResourceProperties ConfluenceSpaceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ConfluenceSpaceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CrawlArchivedSpaces" Prelude.<$> crawlArchivedSpaces,

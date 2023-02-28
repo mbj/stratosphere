@@ -38,6 +38,7 @@ instance ToResourceProperties PipeSourceParametersProperty where
   toResourceProperties PipeSourceParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeSourceParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ActiveMQBrokerParameters"

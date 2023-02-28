@@ -20,6 +20,7 @@ instance ToResourceProperties RedshiftConnectorProfileCredentialsProperty where
     RedshiftConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.RedshiftConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Password" Prelude.<$> password,

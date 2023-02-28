@@ -17,7 +17,7 @@ mkBudget budget
 instance ToResourceProperties Budget where
   toResourceProperties Budget {..}
     = ResourceProperties
-        {awsType = "AWS::Budgets::Budget",
+        {awsType = "AWS::Budgets::Budget", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Budget" JSON..= budget]

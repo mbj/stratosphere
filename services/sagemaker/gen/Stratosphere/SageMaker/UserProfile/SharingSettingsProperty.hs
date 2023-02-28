@@ -19,6 +19,7 @@ instance ToResourceProperties SharingSettingsProperty where
   toResourceProperties SharingSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::UserProfile.SharingSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NotebookOutputOption" Prelude.<$> notebookOutputOption,

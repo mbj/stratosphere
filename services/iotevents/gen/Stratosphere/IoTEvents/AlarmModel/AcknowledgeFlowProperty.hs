@@ -15,6 +15,7 @@ instance ToResourceProperties AcknowledgeFlowProperty where
   toResourceProperties AcknowledgeFlowProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.AcknowledgeFlow",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled])}
 instance JSON.ToJSON AcknowledgeFlowProperty where

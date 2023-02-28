@@ -21,6 +21,7 @@ instance ToResourceProperties ApplicationCodeConfigurationProperty where
   toResourceProperties ApplicationCodeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.ApplicationCodeConfiguration",
+         supportsTags = Prelude.False,
          properties = ["CodeContent" JSON..= codeContent,
                        "CodeContentType" JSON..= codeContentType]}
 instance JSON.ToJSON ApplicationCodeConfigurationProperty where

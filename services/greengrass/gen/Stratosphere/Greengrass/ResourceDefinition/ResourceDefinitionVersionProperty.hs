@@ -3,6 +3,7 @@ module Stratosphere.Greengrass.ResourceDefinition.ResourceDefinitionVersionPrope
         mkResourceDefinitionVersionProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.ResourceInstanceProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties ResourceDefinitionVersionProperty where
   toResourceProperties ResourceDefinitionVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinition.ResourceDefinitionVersion",
+         supportsTags = Prelude.False,
          properties = ["Resources" JSON..= resources]}
 instance JSON.ToJSON ResourceDefinitionVersionProperty where
   toJSON ResourceDefinitionVersionProperty {..}

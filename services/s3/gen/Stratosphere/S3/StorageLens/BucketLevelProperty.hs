@@ -28,6 +28,7 @@ instance ToResourceProperties BucketLevelProperty where
   toResourceProperties BucketLevelProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.BucketLevel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ActivityMetrics" Prelude.<$> activityMetrics,

@@ -21,6 +21,7 @@ instance ToResourceProperties OrganizationAggregationSourceProperty where
   toResourceProperties OrganizationAggregationSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConfigurationAggregator.OrganizationAggregationSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn]

@@ -23,6 +23,7 @@ instance ToResourceProperties AccessPoint where
   toResourceProperties AccessPoint {..}
     = ResourceProperties
         {awsType = "AWS::S3Outposts::AccessPoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket, "Name" JSON..= name,

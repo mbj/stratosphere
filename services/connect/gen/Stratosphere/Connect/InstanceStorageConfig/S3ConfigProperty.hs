@@ -21,6 +21,7 @@ instance ToResourceProperties S3ConfigProperty where
   toResourceProperties S3ConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::InstanceStorageConfig.S3Config",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName,

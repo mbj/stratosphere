@@ -21,7 +21,7 @@ mkDestination destinationName roleArn targetArn
 instance ToResourceProperties Destination where
   toResourceProperties Destination {..}
     = ResourceProperties
-        {awsType = "AWS::Logs::Destination",
+        {awsType = "AWS::Logs::Destination", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationName" JSON..= destinationName,

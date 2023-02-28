@@ -18,6 +18,7 @@ instance ToResourceProperties SubnetCidrBlock where
   toResourceProperties SubnetCidrBlock {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SubnetCidrBlock",
+         supportsTags = Prelude.False,
          properties = ["Ipv6CidrBlock" JSON..= ipv6CidrBlock,
                        "SubnetId" JSON..= subnetId]}
 instance JSON.ToJSON SubnetCidrBlock where

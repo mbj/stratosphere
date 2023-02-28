@@ -17,6 +17,7 @@ instance ToResourceProperties ScaleOutPolicyProperty where
   toResourceProperties ScaleOutPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.ScaleOutPolicy",
+         supportsTags = Prelude.False,
          properties = ["CpuUtilizationPercentage"
                          JSON..= cpuUtilizationPercentage]}
 instance JSON.ToJSON ScaleOutPolicyProperty where

@@ -17,6 +17,7 @@ instance ToResourceProperties BucketsAndRegionsProperty where
   toResourceProperties BucketsAndRegionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.BucketsAndRegions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Buckets" Prelude.<$> buckets,

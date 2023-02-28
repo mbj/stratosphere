@@ -24,7 +24,7 @@ mkAnomalyMonitor monitorName monitorType
 instance ToResourceProperties AnomalyMonitor where
   toResourceProperties AnomalyMonitor {..}
     = ResourceProperties
-        {awsType = "AWS::CE::AnomalyMonitor",
+        {awsType = "AWS::CE::AnomalyMonitor", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MonitorName" JSON..= monitorName,

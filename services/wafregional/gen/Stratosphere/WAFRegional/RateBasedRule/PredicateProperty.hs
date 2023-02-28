@@ -20,6 +20,7 @@ instance ToResourceProperties PredicateProperty where
   toResourceProperties PredicateProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::RateBasedRule.Predicate",
+         supportsTags = Prelude.False,
          properties = ["DataId" JSON..= dataId, "Negated" JSON..= negated,
                        "Type" JSON..= type']}
 instance JSON.ToJSON PredicateProperty where

@@ -15,6 +15,7 @@ instance ToResourceProperties NfsExportsProperty where
   toResourceProperties NfsExportsProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::FileSystem.NfsExports",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClientConfigurations"

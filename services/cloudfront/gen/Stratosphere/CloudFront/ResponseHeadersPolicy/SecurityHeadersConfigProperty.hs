@@ -31,6 +31,7 @@ instance ToResourceProperties SecurityHeadersConfigProperty where
   toResourceProperties SecurityHeadersConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.SecurityHeadersConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContentSecurityPolicy"

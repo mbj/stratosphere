@@ -28,6 +28,7 @@ instance ToResourceProperties GroupVersionProperty where
   toResourceProperties GroupVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::Group.GroupVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectorDefinitionVersionArn"

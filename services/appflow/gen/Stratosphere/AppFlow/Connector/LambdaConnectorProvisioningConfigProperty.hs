@@ -17,6 +17,7 @@ instance ToResourceProperties LambdaConnectorProvisioningConfigProperty where
   toResourceProperties LambdaConnectorProvisioningConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Connector.LambdaConnectorProvisioningConfig",
+         supportsTags = Prelude.False,
          properties = ["LambdaArn" JSON..= lambdaArn]}
 instance JSON.ToJSON LambdaConnectorProvisioningConfigProperty where
   toJSON LambdaConnectorProvisioningConfigProperty {..}

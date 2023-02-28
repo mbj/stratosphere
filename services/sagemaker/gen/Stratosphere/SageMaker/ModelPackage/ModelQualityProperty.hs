@@ -17,6 +17,7 @@ instance ToResourceProperties ModelQualityProperty where
   toResourceProperties ModelQualityProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.ModelQuality",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Constraints" Prelude.<$> constraints,

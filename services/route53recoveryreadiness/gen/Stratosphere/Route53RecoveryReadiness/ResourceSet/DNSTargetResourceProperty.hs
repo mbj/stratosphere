@@ -24,6 +24,7 @@ instance ToResourceProperties DNSTargetResourceProperty where
   toResourceProperties DNSTargetResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryReadiness::ResourceSet.DNSTargetResource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DomainName" Prelude.<$> domainName,

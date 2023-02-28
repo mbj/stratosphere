@@ -35,6 +35,7 @@ instance ToResourceProperties LocationActionProperty where
   toResourceProperties LocationActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.LocationAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeviceId" JSON..= deviceId, "Latitude" JSON..= latitude,

@@ -23,7 +23,7 @@ mkAgent
 instance ToResourceProperties Agent where
   toResourceProperties Agent {..}
     = ResourceProperties
-        {awsType = "AWS::DataSync::Agent",
+        {awsType = "AWS::DataSync::Agent", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ActivationKey" Prelude.<$> activationKey,

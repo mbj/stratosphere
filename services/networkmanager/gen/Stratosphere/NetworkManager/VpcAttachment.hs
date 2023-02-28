@@ -25,6 +25,7 @@ instance ToResourceProperties VpcAttachment where
   toResourceProperties VpcAttachment {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::VpcAttachment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CoreNetworkId" JSON..= coreNetworkId,

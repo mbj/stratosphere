@@ -18,6 +18,7 @@ instance ToResourceProperties CloudFormationCollectionFilterProperty where
   toResourceProperties CloudFormationCollectionFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::DevOpsGuru::ResourceCollection.CloudFormationCollectionFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "StackNames" Prelude.<$> stackNames])}

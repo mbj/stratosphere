@@ -43,6 +43,7 @@ instance ToResourceProperties SplunkDestinationConfigurationProperty where
   toResourceProperties SplunkDestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HECEndpoint" JSON..= hECEndpoint,

@@ -21,7 +21,7 @@ mkWorkflow steps
 instance ToResourceProperties Workflow where
   toResourceProperties Workflow {..}
     = ResourceProperties
-        {awsType = "AWS::Transfer::Workflow",
+        {awsType = "AWS::Transfer::Workflow", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Steps" JSON..= steps]

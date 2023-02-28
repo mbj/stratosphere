@@ -18,6 +18,7 @@ instance ToResourceProperties ManifestFileLocationProperty where
   toResourceProperties ManifestFileLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.ManifestFileLocation",
+         supportsTags = Prelude.False,
          properties = ["Bucket" JSON..= bucket, "Key" JSON..= key]}
 instance JSON.ToJSON ManifestFileLocationProperty where
   toJSON ManifestFileLocationProperty {..}

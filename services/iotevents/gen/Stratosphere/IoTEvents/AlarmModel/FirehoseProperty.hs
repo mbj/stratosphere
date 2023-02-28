@@ -20,6 +20,7 @@ instance ToResourceProperties FirehoseProperty where
   toResourceProperties FirehoseProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.Firehose",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeliveryStreamName" JSON..= deliveryStreamName]

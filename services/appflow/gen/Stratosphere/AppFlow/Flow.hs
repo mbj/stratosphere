@@ -42,7 +42,7 @@ mkFlow
 instance ToResourceProperties Flow where
   toResourceProperties Flow {..}
     = ResourceProperties
-        {awsType = "AWS::AppFlow::Flow",
+        {awsType = "AWS::AppFlow::Flow", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationFlowConfigList" JSON..= destinationFlowConfigList,

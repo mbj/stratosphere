@@ -22,7 +22,7 @@ mkFramework frameworkControls
 instance ToResourceProperties Framework where
   toResourceProperties Framework {..}
     = ResourceProperties
-        {awsType = "AWS::Backup::Framework",
+        {awsType = "AWS::Backup::Framework", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FrameworkControls" JSON..= frameworkControls]

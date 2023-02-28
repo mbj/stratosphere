@@ -17,6 +17,7 @@ instance ToResourceProperties TagsItemsProperty where
   toResourceProperties TagsItemsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Forecast::Dataset.TagsItems",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON TagsItemsProperty where
   toJSON TagsItemsProperty {..}

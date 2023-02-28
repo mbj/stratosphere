@@ -24,6 +24,7 @@ instance ToResourceProperties PackageFilterProperty where
   toResourceProperties PackageFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::InspectorV2::Filter.PackageFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Architecture" Prelude.<$> architecture,

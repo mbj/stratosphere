@@ -20,6 +20,7 @@ instance ToResourceProperties OpenIDConnectConfigProperty where
   toResourceProperties OpenIDConnectConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::GraphQLApi.OpenIDConnectConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AuthTTL" Prelude.<$> authTTL,

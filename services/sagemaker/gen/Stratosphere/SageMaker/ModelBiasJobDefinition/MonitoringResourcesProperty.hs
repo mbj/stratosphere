@@ -3,6 +3,7 @@ module Stratosphere.SageMaker.ModelBiasJobDefinition.MonitoringResourcesProperty
         mkMonitoringResourcesProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelBiasJobDefinition.ClusterConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties MonitoringResourcesProperty where
   toResourceProperties MonitoringResourcesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelBiasJobDefinition.MonitoringResources",
+         supportsTags = Prelude.False,
          properties = ["ClusterConfig" JSON..= clusterConfig]}
 instance JSON.ToJSON MonitoringResourcesProperty where
   toJSON MonitoringResourcesProperty {..}

@@ -20,6 +20,7 @@ instance ToResourceProperties Simulation where
   toResourceProperties Simulation {..}
     = ResourceProperties
         {awsType = "AWS::SimSpaceWeaver::Simulation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

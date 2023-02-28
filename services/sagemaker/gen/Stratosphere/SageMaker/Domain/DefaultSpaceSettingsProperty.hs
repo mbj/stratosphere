@@ -25,6 +25,7 @@ instance ToResourceProperties DefaultSpaceSettingsProperty where
   toResourceProperties DefaultSpaceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Domain.DefaultSpaceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExecutionRole" Prelude.<$> executionRole,

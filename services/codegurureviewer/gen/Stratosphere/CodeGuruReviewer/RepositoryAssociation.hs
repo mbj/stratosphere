@@ -25,6 +25,7 @@ instance ToResourceProperties RepositoryAssociation where
   toResourceProperties RepositoryAssociation {..}
     = ResourceProperties
         {awsType = "AWS::CodeGuruReviewer::RepositoryAssociation",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Type" JSON..= type']

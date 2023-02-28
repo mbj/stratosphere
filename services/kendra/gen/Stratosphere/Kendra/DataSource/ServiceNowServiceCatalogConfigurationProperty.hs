@@ -31,6 +31,7 @@ instance ToResourceProperties ServiceNowServiceCatalogConfigurationProperty wher
     ServiceNowServiceCatalogConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ServiceNowServiceCatalogConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DocumentDataFieldName" JSON..= documentDataFieldName]

@@ -55,7 +55,7 @@ mkJob name roleArn type'
 instance ToResourceProperties Job where
   toResourceProperties Job {..}
     = ResourceProperties
-        {awsType = "AWS::DataBrew::Job",
+        {awsType = "AWS::DataBrew::Job", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "RoleArn" JSON..= roleArn,

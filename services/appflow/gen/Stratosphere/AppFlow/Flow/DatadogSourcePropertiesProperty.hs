@@ -17,6 +17,7 @@ instance ToResourceProperties DatadogSourcePropertiesProperty where
   toResourceProperties DatadogSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.DatadogSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON DatadogSourcePropertiesProperty where
   toJSON DatadogSourcePropertiesProperty {..}

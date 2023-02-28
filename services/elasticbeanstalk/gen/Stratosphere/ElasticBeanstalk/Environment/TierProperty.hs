@@ -19,6 +19,7 @@ instance ToResourceProperties TierProperty where
   toResourceProperties TierProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::Environment.Tier",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

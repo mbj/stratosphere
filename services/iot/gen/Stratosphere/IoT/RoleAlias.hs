@@ -20,7 +20,7 @@ mkRoleAlias roleArn
 instance ToResourceProperties RoleAlias where
   toResourceProperties RoleAlias {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::RoleAlias",
+        {awsType = "AWS::IoT::RoleAlias", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn]

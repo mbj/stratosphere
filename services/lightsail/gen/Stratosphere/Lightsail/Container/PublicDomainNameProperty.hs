@@ -17,6 +17,7 @@ instance ToResourceProperties PublicDomainNameProperty where
   toResourceProperties PublicDomainNameProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Container.PublicDomainName",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateName" Prelude.<$> certificateName,

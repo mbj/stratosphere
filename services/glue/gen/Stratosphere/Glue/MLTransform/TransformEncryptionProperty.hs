@@ -20,6 +20,7 @@ instance ToResourceProperties TransformEncryptionProperty where
   toResourceProperties TransformEncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::MLTransform.TransformEncryption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MLUserDataEncryption" Prelude.<$> mLUserDataEncryption,

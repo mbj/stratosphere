@@ -23,6 +23,7 @@ instance ToResourceProperties ConnectPeerBgpConfigurationProperty where
   toResourceProperties ConnectPeerBgpConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::ConnectPeer.ConnectPeerBgpConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CoreNetworkAddress" Prelude.<$> coreNetworkAddress,

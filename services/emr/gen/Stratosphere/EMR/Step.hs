@@ -23,7 +23,7 @@ mkStep actionOnFailure hadoopJarStep jobFlowId name
 instance ToResourceProperties Step where
   toResourceProperties Step {..}
     = ResourceProperties
-        {awsType = "AWS::EMR::Step",
+        {awsType = "AWS::EMR::Step", supportsTags = Prelude.False,
          properties = ["ActionOnFailure" JSON..= actionOnFailure,
                        "HadoopJarStep" JSON..= hadoopJarStep,
                        "JobFlowId" JSON..= jobFlowId, "Name" JSON..= name]}

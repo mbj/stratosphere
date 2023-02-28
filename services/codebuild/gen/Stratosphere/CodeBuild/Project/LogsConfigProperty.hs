@@ -18,6 +18,7 @@ instance ToResourceProperties LogsConfigProperty where
   toResourceProperties LogsConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.LogsConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchLogs" Prelude.<$> cloudWatchLogs,

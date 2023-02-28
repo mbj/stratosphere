@@ -20,6 +20,7 @@ instance ToResourceProperties ContainerServiceDeploymentProperty where
   toResourceProperties ContainerServiceDeploymentProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Container.ContainerServiceDeployment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Containers" Prelude.<$> containers,

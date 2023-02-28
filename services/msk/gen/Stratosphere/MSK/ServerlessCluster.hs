@@ -25,6 +25,7 @@ instance ToResourceProperties ServerlessCluster where
   toResourceProperties ServerlessCluster {..}
     = ResourceProperties
         {awsType = "AWS::MSK::ServerlessCluster",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientAuthentication" JSON..= clientAuthentication,

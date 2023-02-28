@@ -26,6 +26,7 @@ instance ToResourceProperties AuthenticationConfigurationProperty where
   toResourceProperties AuthenticationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "Alexa::ASK::Skill.AuthenticationConfiguration",
+         supportsTags = Prelude.False,
          properties = ["ClientId" JSON..= clientId,
                        "ClientSecret" JSON..= clientSecret,
                        "RefreshToken" JSON..= refreshToken]}

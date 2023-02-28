@@ -19,6 +19,7 @@ instance ToResourceProperties AwsCloudMapInstanceAttributeProperty where
   toResourceProperties AwsCloudMapInstanceAttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.AwsCloudMapInstanceAttribute",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON AwsCloudMapInstanceAttributeProperty where
   toJSON AwsCloudMapInstanceAttributeProperty {..}

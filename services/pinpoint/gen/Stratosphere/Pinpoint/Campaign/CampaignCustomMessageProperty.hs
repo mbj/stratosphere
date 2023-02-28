@@ -15,6 +15,7 @@ instance ToResourceProperties CampaignCustomMessageProperty where
   toResourceProperties CampaignCustomMessageProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.CampaignCustomMessage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Data" Prelude.<$> data'])}
 instance JSON.ToJSON CampaignCustomMessageProperty where

@@ -21,6 +21,7 @@ instance ToResourceProperties ArchiveOutputSettingsProperty where
   toResourceProperties ArchiveOutputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.ArchiveOutputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerSettings" Prelude.<$> containerSettings,

@@ -20,6 +20,7 @@ instance ToResourceProperties IotEventsDestinationConfigurationProperty where
   toResourceProperties IotEventsDestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.IotEventsDestinationConfiguration",
+         supportsTags = Prelude.False,
          properties = ["InputName" JSON..= inputName,
                        "RoleArn" JSON..= roleArn]}
 instance JSON.ToJSON IotEventsDestinationConfigurationProperty where

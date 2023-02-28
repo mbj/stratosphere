@@ -18,6 +18,7 @@ instance ToResourceProperties HealthCheckCustomConfigProperty where
   toResourceProperties HealthCheckCustomConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ServiceDiscovery::Service.HealthCheckCustomConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FailureThreshold" Prelude.<$> failureThreshold])}

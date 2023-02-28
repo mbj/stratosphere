@@ -17,6 +17,7 @@ instance ToResourceProperties StringFilterProperty where
   toResourceProperties StringFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::InspectorV2::Filter.StringFilter",
+         supportsTags = Prelude.False,
          properties = ["Comparison" JSON..= comparison,
                        "Value" JSON..= value]}
 instance JSON.ToJSON StringFilterProperty where

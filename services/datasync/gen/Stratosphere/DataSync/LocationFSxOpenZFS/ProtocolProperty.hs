@@ -14,6 +14,7 @@ instance ToResourceProperties ProtocolProperty where
   toResourceProperties ProtocolProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationFSxOpenZFS.Protocol",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "NFS" Prelude.<$> nFS])}
 instance JSON.ToJSON ProtocolProperty where

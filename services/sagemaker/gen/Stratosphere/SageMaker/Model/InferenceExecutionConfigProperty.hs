@@ -17,7 +17,7 @@ instance ToResourceProperties InferenceExecutionConfigProperty where
   toResourceProperties InferenceExecutionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Model.InferenceExecutionConfig",
-         properties = ["Mode" JSON..= mode]}
+         supportsTags = Prelude.False, properties = ["Mode" JSON..= mode]}
 instance JSON.ToJSON InferenceExecutionConfigProperty where
   toJSON InferenceExecutionConfigProperty {..}
     = JSON.object ["Mode" JSON..= mode]

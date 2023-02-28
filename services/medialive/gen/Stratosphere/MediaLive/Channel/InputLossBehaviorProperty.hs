@@ -26,6 +26,7 @@ instance ToResourceProperties InputLossBehaviorProperty where
   toResourceProperties InputLossBehaviorProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.InputLossBehavior",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlackFrameMsec" Prelude.<$> blackFrameMsec,

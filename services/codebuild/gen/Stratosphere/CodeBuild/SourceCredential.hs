@@ -22,6 +22,7 @@ instance ToResourceProperties SourceCredential where
   toResourceProperties SourceCredential {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::SourceCredential",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthType" JSON..= authType, "ServerType" JSON..= serverType,

@@ -20,6 +20,7 @@ instance ToResourceProperties Resource where
   toResourceProperties Resource {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Resource",
+         supportsTags = Prelude.False,
          properties = ["ParentId" JSON..= parentId,
                        "PathPart" JSON..= pathPart, "RestApiId" JSON..= restApiId]}
 instance JSON.ToJSON Resource where

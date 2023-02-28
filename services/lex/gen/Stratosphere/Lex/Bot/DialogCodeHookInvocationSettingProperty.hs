@@ -31,6 +31,7 @@ instance ToResourceProperties DialogCodeHookInvocationSettingProperty where
   toResourceProperties DialogCodeHookInvocationSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.DialogCodeHookInvocationSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EnableCodeHookInvocation" JSON..= enableCodeHookInvocation,

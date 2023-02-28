@@ -15,6 +15,7 @@ instance ToResourceProperties FunctionMetadataProperty where
   toResourceProperties FunctionMetadataProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Function.FunctionMetadata",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FunctionARN" Prelude.<$> functionARN])}

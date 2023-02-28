@@ -17,6 +17,7 @@ instance ToResourceProperties SystemControlProperty where
   toResourceProperties SystemControlProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.SystemControl",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Namespace" Prelude.<$> namespace,

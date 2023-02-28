@@ -22,6 +22,7 @@ instance ToResourceProperties StatefulRuleProperty where
   toResourceProperties StatefulRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.StatefulRule",
+         supportsTags = Prelude.False,
          properties = ["Action" JSON..= action, "Header" JSON..= header,
                        "RuleOptions" JSON..= ruleOptions]}
 instance JSON.ToJSON StatefulRuleProperty where

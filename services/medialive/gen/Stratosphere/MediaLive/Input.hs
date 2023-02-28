@@ -34,7 +34,7 @@ mkInput
 instance ToResourceProperties Input where
   toResourceProperties Input {..}
     = ResourceProperties
-        {awsType = "AWS::MediaLive::Input",
+        {awsType = "AWS::MediaLive::Input", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Destinations" Prelude.<$> destinations,

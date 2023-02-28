@@ -17,6 +17,7 @@ instance ToResourceProperties UserSettingProperty where
   toResourceProperties UserSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::Stack.UserSetting",
+         supportsTags = Prelude.False,
          properties = ["Action" JSON..= action,
                        "Permission" JSON..= permission]}
 instance JSON.ToJSON UserSettingProperty where

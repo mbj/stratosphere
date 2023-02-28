@@ -42,6 +42,7 @@ instance ToResourceProperties Experiment where
   toResourceProperties Experiment {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Experiment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricGoals" JSON..= metricGoals, "Name" JSON..= name,

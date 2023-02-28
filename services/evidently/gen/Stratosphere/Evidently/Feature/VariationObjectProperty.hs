@@ -23,6 +23,7 @@ instance ToResourceProperties VariationObjectProperty where
   toResourceProperties VariationObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Feature.VariationObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VariationName" JSON..= variationName]

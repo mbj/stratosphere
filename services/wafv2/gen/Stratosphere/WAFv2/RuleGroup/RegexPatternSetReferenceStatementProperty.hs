@@ -29,6 +29,7 @@ instance ToResourceProperties RegexPatternSetReferenceStatementProperty where
   toResourceProperties RegexPatternSetReferenceStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.RegexPatternSetReferenceStatement",
+         supportsTags = Prelude.False,
          properties = ["Arn" JSON..= arn,
                        "FieldToMatch" JSON..= fieldToMatch,
                        "TextTransformations" JSON..= textTransformations]}

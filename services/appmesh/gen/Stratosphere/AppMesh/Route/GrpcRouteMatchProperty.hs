@@ -22,6 +22,7 @@ instance ToResourceProperties GrpcRouteMatchProperty where
   toResourceProperties GrpcRouteMatchProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.GrpcRouteMatch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Metadata" Prelude.<$> metadata,

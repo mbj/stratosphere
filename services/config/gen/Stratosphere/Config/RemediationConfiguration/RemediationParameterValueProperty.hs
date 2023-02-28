@@ -20,6 +20,7 @@ instance ToResourceProperties RemediationParameterValueProperty where
   toResourceProperties RemediationParameterValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::RemediationConfiguration.RemediationParameterValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ResourceValue" Prelude.<$> resourceValue,

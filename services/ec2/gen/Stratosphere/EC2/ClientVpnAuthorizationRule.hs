@@ -26,6 +26,7 @@ instance ToResourceProperties ClientVpnAuthorizationRule where
   toResourceProperties ClientVpnAuthorizationRule {..}
     = ResourceProperties
         {awsType = "AWS::EC2::ClientVpnAuthorizationRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientVpnEndpointId" JSON..= clientVpnEndpointId,

@@ -19,6 +19,7 @@ instance ToResourceProperties VpcOutputSettingsProperty where
   toResourceProperties VpcOutputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.VpcOutputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PublicAddressAllocationIds"

@@ -18,6 +18,7 @@ instance ToResourceProperties WorkflowDetailProperty where
   toResourceProperties WorkflowDetailProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Server.WorkflowDetail",
+         supportsTags = Prelude.False,
          properties = ["ExecutionRole" JSON..= executionRole,
                        "WorkflowId" JSON..= workflowId]}
 instance JSON.ToJSON WorkflowDetailProperty where

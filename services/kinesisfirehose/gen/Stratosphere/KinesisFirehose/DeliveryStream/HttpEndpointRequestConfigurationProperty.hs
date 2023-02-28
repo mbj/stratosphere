@@ -21,6 +21,7 @@ instance ToResourceProperties HttpEndpointRequestConfigurationProperty where
   toResourceProperties HttpEndpointRequestConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.HttpEndpointRequestConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CommonAttributes" Prelude.<$> commonAttributes,

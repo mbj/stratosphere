@@ -21,6 +21,7 @@ instance ToResourceProperties MavenReferenceProperty where
   toResourceProperties MavenReferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.MavenReference",
+         supportsTags = Prelude.False,
          properties = ["ArtifactId" JSON..= artifactId,
                        "GroupId" JSON..= groupId, "Version" JSON..= version]}
 instance JSON.ToJSON MavenReferenceProperty where

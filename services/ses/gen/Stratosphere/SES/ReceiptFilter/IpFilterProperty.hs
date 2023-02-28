@@ -17,6 +17,7 @@ instance ToResourceProperties IpFilterProperty where
   toResourceProperties IpFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ReceiptFilter.IpFilter",
+         supportsTags = Prelude.False,
          properties = ["Cidr" JSON..= cidr, "Policy" JSON..= policy]}
 instance JSON.ToJSON IpFilterProperty where
   toJSON IpFilterProperty {..}

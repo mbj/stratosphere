@@ -20,6 +20,7 @@ instance ToResourceProperties StreamingImageEncryptionConfigurationProperty wher
     StreamingImageEncryptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::StreamingImage.StreamingImageEncryptionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KeyType" JSON..= keyType]

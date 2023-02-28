@@ -23,6 +23,7 @@ instance ToResourceProperties StateProperty where
   toResourceProperties StateProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.State",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StateName" JSON..= stateName]

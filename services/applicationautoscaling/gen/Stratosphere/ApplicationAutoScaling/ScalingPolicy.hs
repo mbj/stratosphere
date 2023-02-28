@@ -31,6 +31,7 @@ instance ToResourceProperties ScalingPolicy where
   toResourceProperties ScalingPolicy {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationAutoScaling::ScalingPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PolicyName" JSON..= policyName, "PolicyType" JSON..= policyType]

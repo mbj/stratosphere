@@ -17,6 +17,7 @@ instance ToResourceProperties IamInstanceProfileProperty where
   toResourceProperties IamInstanceProfileProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.IamInstanceProfile",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn,

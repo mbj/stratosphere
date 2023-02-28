@@ -16,6 +16,7 @@ instance ToResourceProperties SnsConfigurationProperty where
   toResourceProperties SnsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::ScheduledQuery.SnsConfiguration",
+         supportsTags = Prelude.False,
          properties = ["TopicArn" JSON..= topicArn]}
 instance JSON.ToJSON SnsConfigurationProperty where
   toJSON SnsConfigurationProperty {..}

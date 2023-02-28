@@ -16,7 +16,7 @@ mkTieringProperty accessTier days
 instance ToResourceProperties TieringProperty where
   toResourceProperties TieringProperty {..}
     = ResourceProperties
-        {awsType = "AWS::S3::Bucket.Tiering",
+        {awsType = "AWS::S3::Bucket.Tiering", supportsTags = Prelude.False,
          properties = ["AccessTier" JSON..= accessTier,
                        "Days" JSON..= days]}
 instance JSON.ToJSON TieringProperty where

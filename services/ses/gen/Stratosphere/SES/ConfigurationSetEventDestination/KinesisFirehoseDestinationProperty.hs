@@ -20,6 +20,7 @@ instance ToResourceProperties KinesisFirehoseDestinationProperty where
   toResourceProperties KinesisFirehoseDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSetEventDestination.KinesisFirehoseDestination",
+         supportsTags = Prelude.False,
          properties = ["DeliveryStreamARN" JSON..= deliveryStreamARN,
                        "IAMRoleARN" JSON..= iAMRoleARN]}
 instance JSON.ToJSON KinesisFirehoseDestinationProperty where

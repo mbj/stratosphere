@@ -31,6 +31,7 @@ instance ToResourceProperties ScheduledTriggerPropertiesProperty where
   toResourceProperties ScheduledTriggerPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.ScheduledTriggerProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ScheduleExpression" JSON..= scheduleExpression]

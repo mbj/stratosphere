@@ -18,6 +18,7 @@ instance ToResourceProperties AbpV11Property where
   toResourceProperties AbpV11Property {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::WirelessDevice.AbpV11",
+         supportsTags = Prelude.False,
          properties = ["DevAddr" JSON..= devAddr,
                        "SessionKeys" JSON..= sessionKeys]}
 instance JSON.ToJSON AbpV11Property where

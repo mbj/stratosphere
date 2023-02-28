@@ -25,6 +25,7 @@ instance ToResourceProperties TargetTrackingScalingPolicyConfigurationProperty w
     TargetTrackingScalingPolicyConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.TargetTrackingScalingPolicyConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TargetValue" JSON..= targetValue]

@@ -15,6 +15,7 @@ instance ToResourceProperties HibernationOptionsProperty where
   toResourceProperties HibernationOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.HibernationOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Configured" Prelude.<$> configured])}

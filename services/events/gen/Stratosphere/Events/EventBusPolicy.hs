@@ -24,6 +24,7 @@ instance ToResourceProperties EventBusPolicy where
   toResourceProperties EventBusPolicy {..}
     = ResourceProperties
         {awsType = "AWS::Events::EventBusPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StatementId" JSON..= statementId]

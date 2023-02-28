@@ -19,6 +19,7 @@ instance ToResourceProperties DataExportProperty where
   toResourceProperties DataExportProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.DataExport",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchMetrics" Prelude.<$> cloudWatchMetrics,

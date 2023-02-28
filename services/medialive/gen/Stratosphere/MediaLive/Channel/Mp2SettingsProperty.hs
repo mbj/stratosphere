@@ -19,6 +19,7 @@ instance ToResourceProperties Mp2SettingsProperty where
   toResourceProperties Mp2SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Mp2Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Bitrate" Prelude.<$> bitrate,

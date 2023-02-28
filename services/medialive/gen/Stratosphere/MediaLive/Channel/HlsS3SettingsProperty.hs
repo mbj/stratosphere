@@ -15,6 +15,7 @@ instance ToResourceProperties HlsS3SettingsProperty where
   toResourceProperties HlsS3SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HlsS3Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "CannedAcl" Prelude.<$> cannedAcl])}
 instance JSON.ToJSON HlsS3SettingsProperty where

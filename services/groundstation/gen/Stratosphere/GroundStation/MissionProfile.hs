@@ -36,6 +36,7 @@ instance ToResourceProperties MissionProfile where
   toResourceProperties MissionProfile {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::MissionProfile",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataflowEdges" JSON..= dataflowEdges,

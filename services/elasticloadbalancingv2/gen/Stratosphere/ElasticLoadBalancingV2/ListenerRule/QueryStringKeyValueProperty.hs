@@ -17,6 +17,7 @@ instance ToResourceProperties QueryStringKeyValueProperty where
   toResourceProperties QueryStringKeyValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule.QueryStringKeyValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

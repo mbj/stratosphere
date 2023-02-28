@@ -28,7 +28,7 @@ mkKey keyPolicy
 instance ToResourceProperties Key where
   toResourceProperties Key {..}
     = ResourceProperties
-        {awsType = "AWS::KMS::Key",
+        {awsType = "AWS::KMS::Key", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KeyPolicy" JSON..= keyPolicy]

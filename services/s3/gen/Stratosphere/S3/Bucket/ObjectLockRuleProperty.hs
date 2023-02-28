@@ -16,6 +16,7 @@ instance ToResourceProperties ObjectLockRuleProperty where
   toResourceProperties ObjectLockRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ObjectLockRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefaultRetention" Prelude.<$> defaultRetention])}

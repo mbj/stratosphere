@@ -17,6 +17,7 @@ instance ToResourceProperties SlotPriorityProperty where
   toResourceProperties SlotPriorityProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SlotPriority",
+         supportsTags = Prelude.False,
          properties = ["Priority" JSON..= priority,
                        "SlotName" JSON..= slotName]}
 instance JSON.ToJSON SlotPriorityProperty where

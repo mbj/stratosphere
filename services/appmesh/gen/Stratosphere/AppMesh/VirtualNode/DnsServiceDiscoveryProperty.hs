@@ -20,6 +20,7 @@ instance ToResourceProperties DnsServiceDiscoveryProperty where
   toResourceProperties DnsServiceDiscoveryProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.DnsServiceDiscovery",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Hostname" JSON..= hostname]

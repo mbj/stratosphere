@@ -20,6 +20,7 @@ instance ToResourceProperties TemplateProperty where
   toResourceProperties TemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::Template.Template",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubjectPart" JSON..= subjectPart]

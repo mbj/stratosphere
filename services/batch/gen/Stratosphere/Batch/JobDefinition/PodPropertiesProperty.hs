@@ -24,6 +24,7 @@ instance ToResourceProperties PodPropertiesProperty where
   toResourceProperties PodPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.PodProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Containers" Prelude.<$> containers,

@@ -21,6 +21,7 @@ instance ToResourceProperties AuditNotificationTargetProperty where
   toResourceProperties AuditNotificationTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::AccountAuditConfiguration.AuditNotificationTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

@@ -22,7 +22,7 @@ mkPermission actions certificateAuthorityArn principal
 instance ToResourceProperties Permission where
   toResourceProperties Permission {..}
     = ResourceProperties
-        {awsType = "AWS::ACMPCA::Permission",
+        {awsType = "AWS::ACMPCA::Permission", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Actions" JSON..= actions,

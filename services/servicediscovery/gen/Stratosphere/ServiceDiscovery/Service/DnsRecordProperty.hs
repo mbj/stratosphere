@@ -17,6 +17,7 @@ instance ToResourceProperties DnsRecordProperty where
   toResourceProperties DnsRecordProperty {..}
     = ResourceProperties
         {awsType = "AWS::ServiceDiscovery::Service.DnsRecord",
+         supportsTags = Prelude.False,
          properties = ["TTL" JSON..= tTL, "Type" JSON..= type']}
 instance JSON.ToJSON DnsRecordProperty where
   toJSON DnsRecordProperty {..}

@@ -21,6 +21,7 @@ instance ToResourceProperties MonitoringConfigurationProperty where
   toResourceProperties MonitoringConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.MonitoringConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConfigurationType" JSON..= configurationType]

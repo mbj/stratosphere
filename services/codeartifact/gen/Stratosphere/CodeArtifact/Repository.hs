@@ -29,6 +29,7 @@ instance ToResourceProperties Repository where
   toResourceProperties Repository {..}
     = ResourceProperties
         {awsType = "AWS::CodeArtifact::Repository",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName,

@@ -21,6 +21,7 @@ instance ToResourceProperties ReferenceStore where
   toResourceProperties ReferenceStore {..}
     = ResourceProperties
         {awsType = "AWS::Omics::ReferenceStore",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

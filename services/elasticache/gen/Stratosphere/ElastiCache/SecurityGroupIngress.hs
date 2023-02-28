@@ -21,6 +21,7 @@ instance ToResourceProperties SecurityGroupIngress where
   toResourceProperties SecurityGroupIngress {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::SecurityGroupIngress",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CacheSecurityGroupName" JSON..= cacheSecurityGroupName,

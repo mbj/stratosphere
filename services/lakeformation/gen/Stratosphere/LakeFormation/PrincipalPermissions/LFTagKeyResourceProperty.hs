@@ -21,6 +21,7 @@ instance ToResourceProperties LFTagKeyResourceProperty where
   toResourceProperties LFTagKeyResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::PrincipalPermissions.LFTagKeyResource",
+         supportsTags = Prelude.False,
          properties = ["CatalogId" JSON..= catalogId,
                        "TagKey" JSON..= tagKey, "TagValues" JSON..= tagValues]}
 instance JSON.ToJSON LFTagKeyResourceProperty where

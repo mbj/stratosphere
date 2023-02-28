@@ -36,6 +36,7 @@ instance ToResourceProperties NetworkInterface where
   toResourceProperties NetworkInterface {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInterface",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubnetId" JSON..= subnetId]

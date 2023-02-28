@@ -18,6 +18,7 @@ instance ToResourceProperties RetryPolicyProperty where
   toResourceProperties RetryPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule.RetryPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaximumEventAgeInSeconds"

@@ -32,6 +32,7 @@ instance ToResourceProperties ByteMatchTupleProperty where
   toResourceProperties ByteMatchTupleProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::ByteMatchSet.ByteMatchTuple",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FieldToMatch" JSON..= fieldToMatch,

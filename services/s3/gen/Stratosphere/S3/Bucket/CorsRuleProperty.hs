@@ -25,6 +25,7 @@ instance ToResourceProperties CorsRuleProperty where
   toResourceProperties CorsRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.CorsRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AllowedMethods" JSON..= allowedMethods,

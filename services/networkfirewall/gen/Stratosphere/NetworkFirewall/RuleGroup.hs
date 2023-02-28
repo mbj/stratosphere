@@ -27,6 +27,7 @@ instance ToResourceProperties RuleGroup where
   toResourceProperties RuleGroup {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Capacity" JSON..= capacity,

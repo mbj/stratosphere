@@ -19,6 +19,7 @@ instance ToResourceProperties S3OriginProperty where
   toResourceProperties S3OriginProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::StreamingDistribution.S3Origin",
+         supportsTags = Prelude.False,
          properties = ["DomainName" JSON..= domainName,
                        "OriginAccessIdentity" JSON..= originAccessIdentity]}
 instance JSON.ToJSON S3OriginProperty where

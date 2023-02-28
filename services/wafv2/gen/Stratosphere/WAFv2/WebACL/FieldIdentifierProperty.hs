@@ -16,6 +16,7 @@ instance ToResourceProperties FieldIdentifierProperty where
   toResourceProperties FieldIdentifierProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.FieldIdentifier",
+         supportsTags = Prelude.False,
          properties = ["Identifier" JSON..= identifier]}
 instance JSON.ToJSON FieldIdentifierProperty where
   toJSON FieldIdentifierProperty {..}

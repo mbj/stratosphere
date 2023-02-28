@@ -20,6 +20,7 @@ instance ToResourceProperties DataSourceVpcConfigurationProperty where
   toResourceProperties DataSourceVpcConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.DataSourceVpcConfiguration",
+         supportsTags = Prelude.False,
          properties = ["SecurityGroupIds" JSON..= securityGroupIds,
                        "SubnetIds" JSON..= subnetIds]}
 instance JSON.ToJSON DataSourceVpcConfigurationProperty where

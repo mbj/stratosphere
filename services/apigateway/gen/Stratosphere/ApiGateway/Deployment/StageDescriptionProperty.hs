@@ -52,6 +52,7 @@ instance ToResourceProperties StageDescriptionProperty where
   toResourceProperties StageDescriptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Deployment.StageDescription",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessLogSetting" Prelude.<$> accessLogSetting,

@@ -17,6 +17,7 @@ instance ToResourceProperties EncryptionConfigurationProperty where
   toResourceProperties EncryptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.EncryptionConfiguration",
+         supportsTags = Prelude.False,
          properties = ["KmsKey" JSON..= kmsKey]}
 instance JSON.ToJSON EncryptionConfigurationProperty where
   toJSON EncryptionConfigurationProperty {..}

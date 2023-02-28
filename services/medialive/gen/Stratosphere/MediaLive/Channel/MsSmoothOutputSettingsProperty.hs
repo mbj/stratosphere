@@ -19,6 +19,7 @@ instance ToResourceProperties MsSmoothOutputSettingsProperty where
   toResourceProperties MsSmoothOutputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.MsSmoothOutputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "H265PackagingType" Prelude.<$> h265PackagingType,

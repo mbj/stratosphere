@@ -23,6 +23,7 @@ instance ToResourceProperties ParallelismConfigurationProperty where
   toResourceProperties ParallelismConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.ParallelismConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConfigurationType" JSON..= configurationType]

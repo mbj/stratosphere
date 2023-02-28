@@ -30,6 +30,7 @@ instance ToResourceProperties ProvisioningTemplate where
   toResourceProperties ProvisioningTemplate {..}
     = ResourceProperties
         {awsType = "AWS::IoT::ProvisioningTemplate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ProvisioningRoleArn" JSON..= provisioningRoleArn,

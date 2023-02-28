@@ -20,6 +20,7 @@ instance ToResourceProperties VideoBlackFailoverSettingsProperty where
   toResourceProperties VideoBlackFailoverSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.VideoBlackFailoverSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlackDetectThreshold" Prelude.<$> blackDetectThreshold,

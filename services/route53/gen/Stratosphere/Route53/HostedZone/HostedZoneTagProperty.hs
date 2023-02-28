@@ -17,6 +17,7 @@ instance ToResourceProperties HostedZoneTagProperty where
   toResourceProperties HostedZoneTagProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::HostedZone.HostedZoneTag",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON HostedZoneTagProperty where
   toJSON HostedZoneTagProperty {..}

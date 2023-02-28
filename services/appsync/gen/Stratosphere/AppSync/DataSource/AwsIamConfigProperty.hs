@@ -18,6 +18,7 @@ instance ToResourceProperties AwsIamConfigProperty where
   toResourceProperties AwsIamConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.AwsIamConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SigningRegion" Prelude.<$> signingRegion,

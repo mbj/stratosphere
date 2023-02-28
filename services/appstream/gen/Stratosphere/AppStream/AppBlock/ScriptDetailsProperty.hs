@@ -29,6 +29,7 @@ instance ToResourceProperties ScriptDetailsProperty where
   toResourceProperties ScriptDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::AppBlock.ScriptDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ExecutablePath" JSON..= executablePath,

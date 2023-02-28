@@ -23,6 +23,7 @@ instance ToResourceProperties MetricValueProperty where
   toResourceProperties MetricValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::SecurityProfile.MetricValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Cidrs" Prelude.<$> cidrs,

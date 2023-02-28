@@ -18,6 +18,7 @@ instance ToResourceProperties AlertTargetProperty where
   toResourceProperties AlertTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::SecurityProfile.AlertTarget",
+         supportsTags = Prelude.False,
          properties = ["AlertTargetArn" JSON..= alertTargetArn,
                        "RoleArn" JSON..= roleArn]}
 instance JSON.ToJSON AlertTargetProperty where

@@ -23,6 +23,7 @@ instance ToResourceProperties TopicProperty where
   toResourceProperties TopicProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ContactList.Topic",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DefaultSubscriptionStatus" JSON..= defaultSubscriptionStatus,

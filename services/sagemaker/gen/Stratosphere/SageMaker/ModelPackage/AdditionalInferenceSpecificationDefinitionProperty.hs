@@ -36,6 +36,7 @@ instance ToResourceProperties AdditionalInferenceSpecificationDefinitionProperty
     AdditionalInferenceSpecificationDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.AdditionalInferenceSpecificationDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Containers" JSON..= containers, "Name" JSON..= name]

@@ -23,6 +23,7 @@ instance ToResourceProperties LoggingConfiguration where
   toResourceProperties LoggingConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::LoggingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FirewallArn" JSON..= firewallArn,

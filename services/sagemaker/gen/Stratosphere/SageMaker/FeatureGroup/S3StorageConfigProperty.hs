@@ -18,6 +18,7 @@ instance ToResourceProperties S3StorageConfigProperty where
   toResourceProperties S3StorageConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::FeatureGroup.S3StorageConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3Uri" JSON..= s3Uri]

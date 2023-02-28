@@ -3,6 +3,7 @@ module Stratosphere.Timestream.ScheduledQuery.TargetConfigurationProperty (
         mkTargetConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.TimestreamConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties TargetConfigurationProperty where
   toResourceProperties TargetConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::ScheduledQuery.TargetConfiguration",
+         supportsTags = Prelude.False,
          properties = ["TimestreamConfiguration"
                          JSON..= timestreamConfiguration]}
 instance JSON.ToJSON TargetConfigurationProperty where

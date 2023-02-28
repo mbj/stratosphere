@@ -45,6 +45,7 @@ instance ToResourceProperties HttpEndpointDestinationConfigurationProperty where
     HttpEndpointDestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.HttpEndpointDestinationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EndpointConfiguration" JSON..= endpointConfiguration,

@@ -20,6 +20,7 @@ instance ToResourceProperties QueryDefinition where
   toResourceProperties QueryDefinition {..}
     = ResourceProperties
         {awsType = "AWS::Logs::QueryDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "QueryString" JSON..= queryString]

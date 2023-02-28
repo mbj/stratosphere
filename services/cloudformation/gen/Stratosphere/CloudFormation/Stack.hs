@@ -23,6 +23,7 @@ instance ToResourceProperties Stack where
   toResourceProperties Stack {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::Stack",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TemplateURL" JSON..= templateURL]

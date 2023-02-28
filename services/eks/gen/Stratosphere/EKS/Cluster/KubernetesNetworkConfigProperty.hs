@@ -21,6 +21,7 @@ instance ToResourceProperties KubernetesNetworkConfigProperty where
   toResourceProperties KubernetesNetworkConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Cluster.KubernetesNetworkConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IpFamily" Prelude.<$> ipFamily,

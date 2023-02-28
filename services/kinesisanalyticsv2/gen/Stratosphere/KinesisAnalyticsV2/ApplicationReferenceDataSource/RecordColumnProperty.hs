@@ -19,6 +19,7 @@ instance ToResourceProperties RecordColumnProperty where
   toResourceProperties RecordColumnProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.RecordColumn",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "SqlType" JSON..= sqlType]

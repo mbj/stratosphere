@@ -15,6 +15,7 @@ instance ToResourceProperties LogConfigurationProperty where
   toResourceProperties LogConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingGroup.LogConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LogGroupName" Prelude.<$> logGroupName])}

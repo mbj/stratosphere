@@ -18,6 +18,7 @@ instance ToResourceProperties GeoMatchConstraintProperty where
   toResourceProperties GeoMatchConstraintProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::GeoMatchSet.GeoMatchConstraint",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON GeoMatchConstraintProperty where
   toJSON GeoMatchConstraintProperty {..}

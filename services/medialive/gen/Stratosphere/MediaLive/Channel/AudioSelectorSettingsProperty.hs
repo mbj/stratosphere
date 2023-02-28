@@ -26,6 +26,7 @@ instance ToResourceProperties AudioSelectorSettingsProperty where
   toResourceProperties AudioSelectorSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AudioSelectorSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioHlsRenditionSelection"

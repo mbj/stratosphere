@@ -19,6 +19,7 @@ instance ToResourceProperties CsrExtensionsProperty where
   toResourceProperties CsrExtensionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.CsrExtensions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "KeyUsage" Prelude.<$> keyUsage,

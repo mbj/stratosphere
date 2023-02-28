@@ -22,7 +22,7 @@ mkDetector enable
 instance ToResourceProperties Detector where
   toResourceProperties Detector {..}
     = ResourceProperties
-        {awsType = "AWS::GuardDuty::Detector",
+        {awsType = "AWS::GuardDuty::Detector", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enable" JSON..= enable]

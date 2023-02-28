@@ -22,6 +22,7 @@ instance ToResourceProperties ResourceProperty where
   toResourceProperties ResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::TagAssociation.Resource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Catalog" Prelude.<$> catalog,

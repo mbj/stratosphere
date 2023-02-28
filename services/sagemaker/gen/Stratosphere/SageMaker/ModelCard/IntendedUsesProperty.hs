@@ -23,6 +23,7 @@ instance ToResourceProperties IntendedUsesProperty where
   toResourceProperties IntendedUsesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.IntendedUses",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExplanationsForRiskRating"

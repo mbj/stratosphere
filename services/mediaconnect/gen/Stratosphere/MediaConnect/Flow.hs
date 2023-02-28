@@ -21,7 +21,7 @@ mkFlow name source
 instance ToResourceProperties Flow where
   toResourceProperties Flow {..}
     = ResourceProperties
-        {awsType = "AWS::MediaConnect::Flow",
+        {awsType = "AWS::MediaConnect::Flow", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Source" JSON..= source]

@@ -19,6 +19,7 @@ instance ToResourceProperties FormBindingElementProperty where
   toResourceProperties FormBindingElementProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.FormBindingElement",
+         supportsTags = Prelude.False,
          properties = ["Element" JSON..= element,
                        "Property" JSON..= property]}
 instance JSON.ToJSON FormBindingElementProperty where

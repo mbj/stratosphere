@@ -21,6 +21,7 @@ instance ToResourceProperties CloudWatchLoggingOptionsProperty where
   toResourceProperties CloudWatchLoggingOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.CloudWatchLoggingOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

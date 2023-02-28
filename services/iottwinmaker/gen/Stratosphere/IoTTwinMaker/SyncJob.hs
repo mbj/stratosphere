@@ -22,6 +22,7 @@ instance ToResourceProperties SyncJob where
   toResourceProperties SyncJob {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::SyncJob",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SyncRole" JSON..= syncRole, "SyncSource" JSON..= syncSource,

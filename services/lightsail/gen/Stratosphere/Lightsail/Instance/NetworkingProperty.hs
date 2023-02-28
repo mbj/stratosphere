@@ -18,6 +18,7 @@ instance ToResourceProperties NetworkingProperty where
   toResourceProperties NetworkingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Instance.Networking",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Ports" JSON..= ports]

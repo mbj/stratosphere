@@ -17,6 +17,7 @@ instance ToResourceProperties ClusterConfigurationProperty where
   toResourceProperties ClusterConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Cluster.ClusterConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExecuteCommandConfiguration"

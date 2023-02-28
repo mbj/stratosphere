@@ -20,6 +20,7 @@ instance ToResourceProperties Scte35TimeSignalAposProperty where
   toResourceProperties Scte35TimeSignalAposProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Scte35TimeSignalApos",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdAvailOffset" Prelude.<$> adAvailOffset,

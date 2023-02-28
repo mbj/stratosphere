@@ -16,6 +16,7 @@ instance ToResourceProperties RemoveHeaderProperty where
   toResourceProperties RemoveHeaderProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.RemoveHeader",
+         supportsTags = Prelude.False,
          properties = ["Header" JSON..= header]}
 instance JSON.ToJSON RemoveHeaderProperty where
   toJSON RemoveHeaderProperty {..}

@@ -18,6 +18,7 @@ instance ToResourceProperties ElasticsearchRetryOptionsProperty where
   toResourceProperties ElasticsearchRetryOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.ElasticsearchRetryOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DurationInSeconds" Prelude.<$> durationInSeconds])}

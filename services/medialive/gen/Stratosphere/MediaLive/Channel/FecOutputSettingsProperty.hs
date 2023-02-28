@@ -19,6 +19,7 @@ instance ToResourceProperties FecOutputSettingsProperty where
   toResourceProperties FecOutputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.FecOutputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ColumnDepth" Prelude.<$> columnDepth,

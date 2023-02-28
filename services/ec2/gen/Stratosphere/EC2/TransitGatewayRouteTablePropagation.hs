@@ -23,6 +23,7 @@ instance ToResourceProperties TransitGatewayRouteTablePropagation where
   toResourceProperties TransitGatewayRouteTablePropagation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TransitGatewayRouteTablePropagation",
+         supportsTags = Prelude.False,
          properties = ["TransitGatewayAttachmentId"
                          JSON..= transitGatewayAttachmentId,
                        "TransitGatewayRouteTableId" JSON..= transitGatewayRouteTableId]}

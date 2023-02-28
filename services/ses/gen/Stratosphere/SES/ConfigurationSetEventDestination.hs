@@ -24,6 +24,7 @@ instance ToResourceProperties ConfigurationSetEventDestination where
   toResourceProperties ConfigurationSetEventDestination {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSetEventDestination",
+         supportsTags = Prelude.False,
          properties = ["ConfigurationSetName" JSON..= configurationSetName,
                        "EventDestination" JSON..= eventDestination]}
 instance JSON.ToJSON ConfigurationSetEventDestination where

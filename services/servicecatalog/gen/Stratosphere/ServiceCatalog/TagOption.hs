@@ -18,6 +18,7 @@ instance ToResourceProperties TagOption where
   toResourceProperties TagOption {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::TagOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Key" JSON..= key, "Value" JSON..= value]

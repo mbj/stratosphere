@@ -23,6 +23,7 @@ instance ToResourceProperties AutoScalingGroupProviderProperty where
   toResourceProperties AutoScalingGroupProviderProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::CapacityProvider.AutoScalingGroupProvider",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AutoScalingGroupArn" JSON..= autoScalingGroupArn]

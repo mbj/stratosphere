@@ -20,6 +20,7 @@ instance ToResourceProperties CampaignEmailMessageProperty where
   toResourceProperties CampaignEmailMessageProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.CampaignEmailMessage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Body" Prelude.<$> body,

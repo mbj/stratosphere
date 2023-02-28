@@ -19,6 +19,7 @@ instance ToResourceProperties ResourcePermissionProperty where
   toResourceProperties ResourcePermissionProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.ResourcePermission",
+         supportsTags = Prelude.False,
          properties = ["Actions" JSON..= actions,
                        "Principal" JSON..= principal]}
 instance JSON.ToJSON ResourcePermissionProperty where

@@ -27,6 +27,7 @@ instance ToResourceProperties StageOverridesProperty where
   toResourceProperties StageOverridesProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::ApiGatewayManagedOverrides.StageOverrides",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessLogSettings" Prelude.<$> accessLogSettings,

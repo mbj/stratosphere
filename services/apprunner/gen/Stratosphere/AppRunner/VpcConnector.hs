@@ -21,6 +21,7 @@ instance ToResourceProperties VpcConnector where
   toResourceProperties VpcConnector {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::VpcConnector",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Subnets" JSON..= subnets]

@@ -18,6 +18,7 @@ instance ToResourceProperties VirtualNodeServiceProviderProperty where
   toResourceProperties VirtualNodeServiceProviderProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualService.VirtualNodeServiceProvider",
+         supportsTags = Prelude.False,
          properties = ["VirtualNodeName" JSON..= virtualNodeName]}
 instance JSON.ToJSON VirtualNodeServiceProviderProperty where
   toJSON VirtualNodeServiceProviderProperty {..}

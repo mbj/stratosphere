@@ -68,7 +68,7 @@ mkBucket
 instance ToResourceProperties Bucket where
   toResourceProperties Bucket {..}
     = ResourceProperties
-        {awsType = "AWS::S3::Bucket",
+        {awsType = "AWS::S3::Bucket", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccelerateConfiguration"

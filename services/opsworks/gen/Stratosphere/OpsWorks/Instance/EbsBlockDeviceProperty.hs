@@ -22,6 +22,7 @@ instance ToResourceProperties EbsBlockDeviceProperty where
   toResourceProperties EbsBlockDeviceProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Instance.EbsBlockDevice",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,

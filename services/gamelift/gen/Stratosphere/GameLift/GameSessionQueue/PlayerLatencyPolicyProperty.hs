@@ -18,6 +18,7 @@ instance ToResourceProperties PlayerLatencyPolicyProperty where
   toResourceProperties PlayerLatencyPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::GameSessionQueue.PlayerLatencyPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaximumIndividualPlayerLatencyMilliseconds"

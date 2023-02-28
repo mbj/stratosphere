@@ -22,6 +22,7 @@ instance ToResourceProperties DocumentationPart where
   toResourceProperties DocumentationPart {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::DocumentationPart",
+         supportsTags = Prelude.False,
          properties = ["Location" JSON..= location,
                        "Properties" JSON..= properties, "RestApiId" JSON..= restApiId]}
 instance JSON.ToJSON DocumentationPart where

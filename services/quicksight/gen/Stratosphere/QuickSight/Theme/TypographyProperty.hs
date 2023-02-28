@@ -15,6 +15,7 @@ instance ToResourceProperties TypographyProperty where
   toResourceProperties TypographyProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.Typography",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FontFamilies" Prelude.<$> fontFamilies])}

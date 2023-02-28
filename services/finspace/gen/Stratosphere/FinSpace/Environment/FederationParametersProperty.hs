@@ -26,6 +26,7 @@ instance ToResourceProperties FederationParametersProperty where
   toResourceProperties FederationParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::FinSpace::Environment.FederationParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplicationCallBackURL"

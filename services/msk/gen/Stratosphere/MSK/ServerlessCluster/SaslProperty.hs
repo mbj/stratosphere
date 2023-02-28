@@ -2,6 +2,7 @@ module Stratosphere.MSK.ServerlessCluster.SaslProperty (
         module Exports, SaslProperty(..), mkSaslProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.ServerlessCluster.IamProperty as Exports
 import Stratosphere.ResourceProperties
@@ -12,7 +13,7 @@ instance ToResourceProperties SaslProperty where
   toResourceProperties SaslProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::ServerlessCluster.Sasl",
-         properties = ["Iam" JSON..= iam]}
+         supportsTags = Prelude.False, properties = ["Iam" JSON..= iam]}
 instance JSON.ToJSON SaslProperty where
   toJSON SaslProperty {..} = JSON.object ["Iam" JSON..= iam]
 instance Property "Iam" SaslProperty where

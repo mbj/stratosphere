@@ -28,6 +28,7 @@ instance ToResourceProperties ResourceUpdateConstraint where
   toResourceProperties ResourceUpdateConstraint {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::ResourceUpdateConstraint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PortfolioId" JSON..= portfolioId, "ProductId" JSON..= productId,

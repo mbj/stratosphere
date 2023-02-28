@@ -24,6 +24,7 @@ instance ToResourceProperties FrameworkControlProperty where
   toResourceProperties FrameworkControlProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::Framework.FrameworkControl",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ControlName" JSON..= controlName]

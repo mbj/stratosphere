@@ -22,6 +22,7 @@ instance ToResourceProperties PrivateDnsNameOptionsOnLaunchProperty where
   toResourceProperties PrivateDnsNameOptionsOnLaunchProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Subnet.PrivateDnsNameOptionsOnLaunch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EnableResourceNameDnsAAAARecord"

@@ -15,6 +15,7 @@ instance ToResourceProperties UsernameConfigurationProperty where
   toResourceProperties UsernameConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.UsernameConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CaseSensitive" Prelude.<$> caseSensitive])}

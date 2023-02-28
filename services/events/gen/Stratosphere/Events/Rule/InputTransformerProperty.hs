@@ -18,6 +18,7 @@ instance ToResourceProperties InputTransformerProperty where
   toResourceProperties InputTransformerProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.InputTransformer",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InputTemplate" JSON..= inputTemplate]

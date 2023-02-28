@@ -28,6 +28,7 @@ instance ToResourceProperties PacketHeaderStatementRequestProperty where
   toResourceProperties PacketHeaderStatementRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAccessScope.PacketHeaderStatementRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DestinationAddresses" Prelude.<$> destinationAddresses,

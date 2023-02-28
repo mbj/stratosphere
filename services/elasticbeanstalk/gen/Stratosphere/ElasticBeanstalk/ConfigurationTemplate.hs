@@ -28,6 +28,7 @@ instance ToResourceProperties ConfigurationTemplate where
   toResourceProperties ConfigurationTemplate {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::ConfigurationTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationName" JSON..= applicationName]

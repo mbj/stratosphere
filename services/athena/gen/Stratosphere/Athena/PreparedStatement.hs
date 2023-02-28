@@ -22,6 +22,7 @@ instance ToResourceProperties PreparedStatement where
   toResourceProperties PreparedStatement {..}
     = ResourceProperties
         {awsType = "AWS::Athena::PreparedStatement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["QueryStatement" JSON..= queryStatement,

@@ -17,6 +17,7 @@ instance ToResourceProperties EnvironmentProperty where
   toResourceProperties EnvironmentProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.Environment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

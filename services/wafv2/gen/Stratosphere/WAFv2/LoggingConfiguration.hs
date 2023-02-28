@@ -25,6 +25,7 @@ instance ToResourceProperties LoggingConfiguration where
   toResourceProperties LoggingConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::LoggingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LogDestinationConfigs" JSON..= logDestinationConfigs,

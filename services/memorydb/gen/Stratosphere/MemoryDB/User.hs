@@ -24,7 +24,7 @@ mkUser accessString authenticationMode userName
 instance ToResourceProperties User where
   toResourceProperties User {..}
     = ResourceProperties
-        {awsType = "AWS::MemoryDB::User",
+        {awsType = "AWS::MemoryDB::User", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccessString" JSON..= accessString,

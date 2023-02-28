@@ -24,6 +24,7 @@ instance ToResourceProperties PublicAccessBlockConfigurationProperty where
   toResourceProperties PublicAccessBlockConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.PublicAccessBlockConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlockPublicAcls" Prelude.<$> blockPublicAcls,

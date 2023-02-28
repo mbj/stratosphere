@@ -17,6 +17,7 @@ instance ToResourceProperties Scte27SourceSettingsProperty where
   toResourceProperties Scte27SourceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Scte27SourceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OcrLanguage" Prelude.<$> ocrLanguage,

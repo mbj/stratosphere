@@ -17,6 +17,7 @@ instance ToResourceProperties CookieObjectProperty where
   toResourceProperties CookieObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Distribution.CookieObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CookiesAllowList" Prelude.<$> cookiesAllowList,

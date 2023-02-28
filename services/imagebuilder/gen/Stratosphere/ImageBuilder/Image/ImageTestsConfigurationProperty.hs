@@ -20,6 +20,7 @@ instance ToResourceProperties ImageTestsConfigurationProperty where
   toResourceProperties ImageTestsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::Image.ImageTestsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ImageTestsEnabled" Prelude.<$> imageTestsEnabled,

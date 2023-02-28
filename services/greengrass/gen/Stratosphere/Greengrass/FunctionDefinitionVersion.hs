@@ -24,6 +24,7 @@ instance ToResourceProperties FunctionDefinitionVersion where
   toResourceProperties FunctionDefinitionVersion {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::FunctionDefinitionVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionDefinitionId" JSON..= functionDefinitionId,

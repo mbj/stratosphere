@@ -16,7 +16,7 @@ mkButtonProperty text value
 instance ToResourceProperties ButtonProperty where
   toResourceProperties ButtonProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Lex::Bot.Button",
+        {awsType = "AWS::Lex::Bot.Button", supportsTags = Prelude.False,
          properties = ["Text" JSON..= text, "Value" JSON..= value]}
 instance JSON.ToJSON ButtonProperty where
   toJSON ButtonProperty {..}

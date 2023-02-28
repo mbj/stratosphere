@@ -20,6 +20,7 @@ instance ToResourceProperties Registry where
   toResourceProperties Registry {..}
     = ResourceProperties
         {awsType = "AWS::EventSchemas::Registry",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

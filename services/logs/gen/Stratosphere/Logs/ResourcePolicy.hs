@@ -18,6 +18,7 @@ instance ToResourceProperties ResourcePolicy where
   toResourceProperties ResourcePolicy {..}
     = ResourceProperties
         {awsType = "AWS::Logs::ResourcePolicy",
+         supportsTags = Prelude.False,
          properties = ["PolicyDocument" JSON..= policyDocument,
                        "PolicyName" JSON..= policyName]}
 instance JSON.ToJSON ResourcePolicy where

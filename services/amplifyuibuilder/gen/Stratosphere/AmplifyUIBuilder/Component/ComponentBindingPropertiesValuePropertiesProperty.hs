@@ -30,6 +30,7 @@ instance ToResourceProperties ComponentBindingPropertiesValuePropertiesProperty 
     ComponentBindingPropertiesValuePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.ComponentBindingPropertiesValueProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Bucket" Prelude.<$> bucket,

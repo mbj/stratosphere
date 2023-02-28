@@ -18,6 +18,7 @@ instance ToResourceProperties IngestionWaitPolicyProperty where
   toResourceProperties IngestionWaitPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.IngestionWaitPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IngestionWaitTimeInHours"

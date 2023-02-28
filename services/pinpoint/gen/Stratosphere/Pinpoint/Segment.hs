@@ -23,7 +23,7 @@ mkSegment applicationId name
 instance ToResourceProperties Segment where
   toResourceProperties Segment {..}
     = ResourceProperties
-        {awsType = "AWS::Pinpoint::Segment",
+        {awsType = "AWS::Pinpoint::Segment", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId, "Name" JSON..= name]

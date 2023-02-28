@@ -15,6 +15,7 @@ instance ToResourceProperties EphemeralStorageProperty where
   toResourceProperties EphemeralStorageProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.EphemeralStorage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "SizeInGiB" Prelude.<$> sizeInGiB])}
 instance JSON.ToJSON EphemeralStorageProperty where

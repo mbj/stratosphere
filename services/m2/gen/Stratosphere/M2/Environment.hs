@@ -39,7 +39,7 @@ mkEnvironment engineType instanceType name
 instance ToResourceProperties Environment where
   toResourceProperties Environment {..}
     = ResourceProperties
-        {awsType = "AWS::M2::Environment",
+        {awsType = "AWS::M2::Environment", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EngineType" JSON..= engineType,

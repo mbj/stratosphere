@@ -28,6 +28,7 @@ instance ToResourceProperties ListenerProperty where
   toResourceProperties ListenerProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.Listener",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PortMapping" JSON..= portMapping]

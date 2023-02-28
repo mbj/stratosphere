@@ -24,6 +24,7 @@ instance ToResourceProperties DriftCheckBaselinesProperty where
   toResourceProperties DriftCheckBaselinesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.DriftCheckBaselines",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Bias" Prelude.<$> bias,

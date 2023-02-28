@@ -20,6 +20,7 @@ instance ToResourceProperties EventProperty where
   toResourceProperties EventProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.Event",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EventName" JSON..= eventName]

@@ -16,6 +16,7 @@ instance ToResourceProperties Activity where
   toResourceProperties Activity {..}
     = ResourceProperties
         {awsType = "AWS::StepFunctions::Activity",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

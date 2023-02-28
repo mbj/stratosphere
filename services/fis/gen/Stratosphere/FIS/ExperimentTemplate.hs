@@ -39,6 +39,7 @@ instance ToResourceProperties ExperimentTemplate where
   toResourceProperties ExperimentTemplate {..}
     = ResourceProperties
         {awsType = "AWS::FIS::ExperimentTemplate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description, "RoleArn" JSON..= roleArn,

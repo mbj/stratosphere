@@ -22,6 +22,7 @@ instance ToResourceProperties ModelBiasAppSpecificationProperty where
   toResourceProperties ModelBiasAppSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelBiasJobDefinition.ModelBiasAppSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConfigUri" JSON..= configUri, "ImageUri" JSON..= imageUri]

@@ -20,6 +20,7 @@ instance ToResourceProperties KinesisStreamSourceConfigurationProperty where
   toResourceProperties KinesisStreamSourceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.KinesisStreamSourceConfiguration",
+         supportsTags = Prelude.False,
          properties = ["KinesisStreamARN" JSON..= kinesisStreamARN,
                        "RoleARN" JSON..= roleARN]}
 instance JSON.ToJSON KinesisStreamSourceConfigurationProperty where

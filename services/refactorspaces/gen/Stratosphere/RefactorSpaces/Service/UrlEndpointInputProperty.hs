@@ -17,6 +17,7 @@ instance ToResourceProperties UrlEndpointInputProperty where
   toResourceProperties UrlEndpointInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::RefactorSpaces::Service.UrlEndpointInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Url" JSON..= url]

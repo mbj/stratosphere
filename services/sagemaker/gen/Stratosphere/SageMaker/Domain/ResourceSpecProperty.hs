@@ -22,6 +22,7 @@ instance ToResourceProperties ResourceSpecProperty where
   toResourceProperties ResourceSpecProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Domain.ResourceSpec",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InstanceType" Prelude.<$> instanceType,

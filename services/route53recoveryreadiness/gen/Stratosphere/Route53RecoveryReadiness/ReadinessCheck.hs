@@ -20,6 +20,7 @@ instance ToResourceProperties ReadinessCheck where
   toResourceProperties ReadinessCheck {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryReadiness::ReadinessCheck",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReadinessCheckName" Prelude.<$> readinessCheckName,

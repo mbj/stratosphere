@@ -17,6 +17,7 @@ instance ToResourceProperties HttpRequestMethodConfigProperty where
   toResourceProperties HttpRequestMethodConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule.HttpRequestMethodConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values])}
 instance JSON.ToJSON HttpRequestMethodConfigProperty where

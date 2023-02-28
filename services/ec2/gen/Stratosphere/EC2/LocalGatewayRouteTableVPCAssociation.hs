@@ -25,6 +25,7 @@ instance ToResourceProperties LocalGatewayRouteTableVPCAssociation where
   toResourceProperties LocalGatewayRouteTableVPCAssociation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LocalGatewayRouteTableVPCAssociation",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LocalGatewayRouteTableId" JSON..= localGatewayRouteTableId,

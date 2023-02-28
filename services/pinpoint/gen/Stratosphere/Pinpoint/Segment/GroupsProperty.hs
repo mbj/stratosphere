@@ -22,6 +22,7 @@ instance ToResourceProperties GroupsProperty where
   toResourceProperties GroupsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.Groups",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Dimensions" Prelude.<$> dimensions,

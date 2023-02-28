@@ -17,6 +17,7 @@ instance ToResourceProperties OnlineStoreSecurityConfigProperty where
   toResourceProperties OnlineStoreSecurityConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::FeatureGroup.OnlineStoreSecurityConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId])}
 instance JSON.ToJSON OnlineStoreSecurityConfigProperty where

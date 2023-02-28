@@ -20,7 +20,7 @@ mkMap configuration mapName
 instance ToResourceProperties Map where
   toResourceProperties Map {..}
     = ResourceProperties
-        {awsType = "AWS::Location::Map",
+        {awsType = "AWS::Location::Map", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Configuration" JSON..= configuration, "MapName" JSON..= mapName]

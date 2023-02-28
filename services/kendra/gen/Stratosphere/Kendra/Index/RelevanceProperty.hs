@@ -23,6 +23,7 @@ instance ToResourceProperties RelevanceProperty where
   toResourceProperties RelevanceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::Index.Relevance",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Duration" Prelude.<$> duration,

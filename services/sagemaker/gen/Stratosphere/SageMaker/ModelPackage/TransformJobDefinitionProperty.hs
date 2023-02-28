@@ -37,6 +37,7 @@ instance ToResourceProperties TransformJobDefinitionProperty where
   toResourceProperties TransformJobDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.TransformJobDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TransformInput" JSON..= transformInput,

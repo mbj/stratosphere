@@ -32,7 +32,7 @@ mkTask destinationLocationArn sourceLocationArn
 instance ToResourceProperties Task where
   toResourceProperties Task {..}
     = ResourceProperties
-        {awsType = "AWS::DataSync::Task",
+        {awsType = "AWS::DataSync::Task", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationLocationArn" JSON..= destinationLocationArn,

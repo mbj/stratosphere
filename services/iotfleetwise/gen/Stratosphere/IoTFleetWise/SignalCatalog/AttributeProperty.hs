@@ -29,6 +29,7 @@ instance ToResourceProperties AttributeProperty where
   toResourceProperties AttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::SignalCatalog.Attribute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataType" JSON..= dataType,

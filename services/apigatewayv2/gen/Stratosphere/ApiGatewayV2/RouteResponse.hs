@@ -27,6 +27,7 @@ instance ToResourceProperties RouteResponse where
   toResourceProperties RouteResponse {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::RouteResponse",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId, "RouteId" JSON..= routeId,

@@ -18,6 +18,7 @@ instance ToResourceProperties DeltaTimeProperty where
   toResourceProperties DeltaTimeProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.DeltaTime",
+         supportsTags = Prelude.False,
          properties = ["OffsetSeconds" JSON..= offsetSeconds,
                        "TimeExpression" JSON..= timeExpression]}
 instance JSON.ToJSON DeltaTimeProperty where

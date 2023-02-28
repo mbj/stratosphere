@@ -40,6 +40,7 @@ instance ToResourceProperties ImagePipeline where
   toResourceProperties ImagePipeline {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ImagePipeline",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InfrastructureConfigurationArn"

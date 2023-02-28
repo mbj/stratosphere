@@ -37,6 +37,7 @@ instance ToResourceProperties Authorizer where
   toResourceProperties Authorizer {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Authorizer",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId, "AuthorizerType" JSON..= authorizerType,

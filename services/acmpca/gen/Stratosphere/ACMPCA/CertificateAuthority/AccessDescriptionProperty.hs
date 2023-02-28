@@ -3,6 +3,7 @@ module Stratosphere.ACMPCA.CertificateAuthority.AccessDescriptionProperty (
         mkAccessDescriptionProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.AccessMethodProperty as Exports
 import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.GeneralNameProperty as Exports
@@ -20,6 +21,7 @@ instance ToResourceProperties AccessDescriptionProperty where
   toResourceProperties AccessDescriptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.AccessDescription",
+         supportsTags = Prelude.False,
          properties = ["AccessLocation" JSON..= accessLocation,
                        "AccessMethod" JSON..= accessMethod]}
 instance JSON.ToJSON AccessDescriptionProperty where

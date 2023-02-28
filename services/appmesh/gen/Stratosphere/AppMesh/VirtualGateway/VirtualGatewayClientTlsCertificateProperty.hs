@@ -21,6 +21,7 @@ instance ToResourceProperties VirtualGatewayClientTlsCertificateProperty where
     VirtualGatewayClientTlsCertificateProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayClientTlsCertificate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "File" Prelude.<$> file,

@@ -15,6 +15,7 @@ instance ToResourceProperties EC2TagSetProperty where
   toResourceProperties EC2TagSetProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.EC2TagSet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Ec2TagSetList" Prelude.<$> ec2TagSetList])}

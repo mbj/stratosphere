@@ -33,6 +33,7 @@ instance ToResourceProperties ConfigurationDetailsProperty where
   toResourceProperties ConfigurationDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.ConfigurationDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AlarmMetrics" Prelude.<$> alarmMetrics,

@@ -18,6 +18,7 @@ instance ToResourceProperties EdgeOutputConfigProperty where
   toResourceProperties EdgeOutputConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::DeviceFleet.EdgeOutputConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3OutputLocation" JSON..= s3OutputLocation]

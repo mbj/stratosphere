@@ -23,6 +23,7 @@ instance ToResourceProperties MappingRuleProperty where
   toResourceProperties MappingRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::IdentityPoolRoleAttachment.MappingRule",
+         supportsTags = Prelude.False,
          properties = ["Claim" JSON..= claim, "MatchType" JSON..= matchType,
                        "RoleARN" JSON..= roleARN, "Value" JSON..= value]}
 instance JSON.ToJSON MappingRuleProperty where

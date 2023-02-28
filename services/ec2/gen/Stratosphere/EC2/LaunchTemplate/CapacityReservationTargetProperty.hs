@@ -20,6 +20,7 @@ instance ToResourceProperties CapacityReservationTargetProperty where
   toResourceProperties CapacityReservationTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.CapacityReservationTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CapacityReservationId"

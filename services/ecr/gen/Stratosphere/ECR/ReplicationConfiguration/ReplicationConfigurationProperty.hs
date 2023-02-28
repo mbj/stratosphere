@@ -3,6 +3,7 @@ module Stratosphere.ECR.ReplicationConfiguration.ReplicationConfigurationPropert
         mkReplicationConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ECR.ReplicationConfiguration.ReplicationRuleProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,7 +17,7 @@ instance ToResourceProperties ReplicationConfigurationProperty where
   toResourceProperties ReplicationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECR::ReplicationConfiguration.ReplicationConfiguration",
-         properties = ["Rules" JSON..= rules]}
+         supportsTags = Prelude.False, properties = ["Rules" JSON..= rules]}
 instance JSON.ToJSON ReplicationConfigurationProperty where
   toJSON ReplicationConfigurationProperty {..}
     = JSON.object ["Rules" JSON..= rules]

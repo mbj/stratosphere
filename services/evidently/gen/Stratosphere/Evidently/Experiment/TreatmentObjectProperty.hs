@@ -23,6 +23,7 @@ instance ToResourceProperties TreatmentObjectProperty where
   toResourceProperties TreatmentObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Experiment.TreatmentObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Feature" JSON..= feature, "TreatmentName" JSON..= treatmentName,

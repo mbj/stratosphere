@@ -16,6 +16,7 @@ instance ToResourceProperties IssuerDataProperty where
   toResourceProperties IssuerDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::LicenseManager::License.IssuerData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -21,6 +21,7 @@ instance ToResourceProperties S3ContentLocationProperty where
   toResourceProperties S3ContentLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.S3ContentLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketARN" JSON..= bucketARN, "FileKey" JSON..= fileKey]

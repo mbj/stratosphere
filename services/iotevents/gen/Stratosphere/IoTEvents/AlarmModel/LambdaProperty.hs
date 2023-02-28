@@ -18,6 +18,7 @@ instance ToResourceProperties LambdaProperty where
   toResourceProperties LambdaProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.Lambda",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionArn" JSON..= functionArn]

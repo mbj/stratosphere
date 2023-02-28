@@ -20,6 +20,7 @@ instance ToResourceProperties SignalInformationProperty where
   toResourceProperties SignalInformationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::Campaign.SignalInformation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

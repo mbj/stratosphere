@@ -16,6 +16,7 @@ instance ToResourceProperties StopActionProperty where
   toResourceProperties StopActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ReceiptRule.StopAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Scope" JSON..= scope]

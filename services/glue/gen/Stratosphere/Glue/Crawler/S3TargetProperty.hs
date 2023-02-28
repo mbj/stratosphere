@@ -24,6 +24,7 @@ instance ToResourceProperties S3TargetProperty where
   toResourceProperties S3TargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Crawler.S3Target",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectionName" Prelude.<$> connectionName,

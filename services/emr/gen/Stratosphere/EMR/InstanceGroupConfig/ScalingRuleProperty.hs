@@ -25,6 +25,7 @@ instance ToResourceProperties ScalingRuleProperty where
   toResourceProperties ScalingRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::InstanceGroupConfig.ScalingRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Action" JSON..= action, "Name" JSON..= name,

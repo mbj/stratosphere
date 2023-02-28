@@ -19,6 +19,7 @@ instance ToResourceProperties ListenerCertificate where
   toResourceProperties ListenerCertificate {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerCertificate",
+         supportsTags = Prelude.False,
          properties = ["Certificates" JSON..= certificates,
                        "ListenerArn" JSON..= listenerArn]}
 instance JSON.ToJSON ListenerCertificate where

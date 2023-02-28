@@ -25,6 +25,7 @@ instance ToResourceProperties ScheduleConfigProperty where
   toResourceProperties ScheduleConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppIntegrations::DataIntegration.ScheduleConfig",
+         supportsTags = Prelude.False,
          properties = ["FirstExecutionFrom" JSON..= firstExecutionFrom,
                        "Object" JSON..= object,
                        "ScheduleExpression" JSON..= scheduleExpression]}

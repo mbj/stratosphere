@@ -22,6 +22,7 @@ instance ToResourceProperties RegionalConfigurationProperty where
   toResourceProperties RegionalConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::GlobalReplicationGroup.RegionalConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReplicationGroupId" Prelude.<$> replicationGroupId,

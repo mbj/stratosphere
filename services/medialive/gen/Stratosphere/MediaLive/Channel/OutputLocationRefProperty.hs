@@ -15,6 +15,7 @@ instance ToResourceProperties OutputLocationRefProperty where
   toResourceProperties OutputLocationRefProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.OutputLocationRef",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DestinationRefId" Prelude.<$> destinationRefId])}

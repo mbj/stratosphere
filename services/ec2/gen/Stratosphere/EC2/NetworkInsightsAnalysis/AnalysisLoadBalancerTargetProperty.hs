@@ -23,6 +23,7 @@ instance ToResourceProperties AnalysisLoadBalancerTargetProperty where
   toResourceProperties AnalysisLoadBalancerTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.AnalysisLoadBalancerTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Address" Prelude.<$> address,

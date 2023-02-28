@@ -18,6 +18,7 @@ instance ToResourceProperties StreamingExperienceSettingsProperty where
   toResourceProperties StreamingExperienceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::Stack.StreamingExperienceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PreferredProtocol" Prelude.<$> preferredProtocol])}

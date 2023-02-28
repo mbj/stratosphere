@@ -17,7 +17,7 @@ mkXssMatchSet name xssMatchTuples
 instance ToResourceProperties XssMatchSet where
   toResourceProperties XssMatchSet {..}
     = ResourceProperties
-        {awsType = "AWS::WAF::XssMatchSet",
+        {awsType = "AWS::WAF::XssMatchSet", supportsTags = Prelude.False,
          properties = ["Name" JSON..= name,
                        "XssMatchTuples" JSON..= xssMatchTuples]}
 instance JSON.ToJSON XssMatchSet where

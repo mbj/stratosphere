@@ -16,6 +16,7 @@ instance ToResourceProperties SqlConfigurationProperty where
   toResourceProperties SqlConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.SqlConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "QueryIdentifiersEnclosingOption"

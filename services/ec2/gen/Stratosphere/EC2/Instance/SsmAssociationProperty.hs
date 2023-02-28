@@ -21,6 +21,7 @@ instance ToResourceProperties SsmAssociationProperty where
   toResourceProperties SsmAssociationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.SsmAssociation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DocumentName" JSON..= documentName]

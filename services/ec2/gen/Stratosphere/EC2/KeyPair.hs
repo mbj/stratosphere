@@ -20,7 +20,7 @@ mkKeyPair keyName
 instance ToResourceProperties KeyPair where
   toResourceProperties KeyPair {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::KeyPair",
+        {awsType = "AWS::EC2::KeyPair", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KeyName" JSON..= keyName]

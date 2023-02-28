@@ -17,6 +17,7 @@ instance ToResourceProperties ListenerTlsSdsCertificateProperty where
   toResourceProperties ListenerTlsSdsCertificateProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.ListenerTlsSdsCertificate",
+         supportsTags = Prelude.False,
          properties = ["SecretName" JSON..= secretName]}
 instance JSON.ToJSON ListenerTlsSdsCertificateProperty where
   toJSON ListenerTlsSdsCertificateProperty {..}

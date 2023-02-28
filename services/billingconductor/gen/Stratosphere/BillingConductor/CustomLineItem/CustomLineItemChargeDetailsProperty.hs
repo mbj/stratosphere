@@ -23,6 +23,7 @@ instance ToResourceProperties CustomLineItemChargeDetailsProperty where
   toResourceProperties CustomLineItemChargeDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::CustomLineItem.CustomLineItemChargeDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

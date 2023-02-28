@@ -39,6 +39,7 @@ instance ToResourceProperties CloudFormationProduct where
   toResourceProperties CloudFormationProduct {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::CloudFormationProduct",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Owner" JSON..= owner,

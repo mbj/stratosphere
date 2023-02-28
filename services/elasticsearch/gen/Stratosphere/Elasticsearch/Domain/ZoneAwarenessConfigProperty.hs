@@ -16,6 +16,7 @@ instance ToResourceProperties ZoneAwarenessConfigProperty where
   toResourceProperties ZoneAwarenessConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Elasticsearch::Domain.ZoneAwarenessConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZoneCount"

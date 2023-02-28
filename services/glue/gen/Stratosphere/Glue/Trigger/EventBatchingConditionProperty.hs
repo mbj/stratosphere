@@ -19,6 +19,7 @@ instance ToResourceProperties EventBatchingConditionProperty where
   toResourceProperties EventBatchingConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Trigger.EventBatchingCondition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BatchSize" JSON..= batchSize]

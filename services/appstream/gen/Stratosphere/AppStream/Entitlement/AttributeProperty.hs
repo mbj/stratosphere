@@ -17,6 +17,7 @@ instance ToResourceProperties AttributeProperty where
   toResourceProperties AttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::Entitlement.Attribute",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON AttributeProperty where
   toJSON AttributeProperty {..}

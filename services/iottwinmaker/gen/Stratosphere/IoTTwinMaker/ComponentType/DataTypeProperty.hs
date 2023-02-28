@@ -24,6 +24,7 @@ instance ToResourceProperties DataTypeProperty where
   toResourceProperties DataTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::ComponentType.DataType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

@@ -17,6 +17,7 @@ instance ToResourceProperties TimestampColumnProperty where
   toResourceProperties TimestampColumnProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.TimestampColumn",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ColumnFormat" Prelude.<$> columnFormat,

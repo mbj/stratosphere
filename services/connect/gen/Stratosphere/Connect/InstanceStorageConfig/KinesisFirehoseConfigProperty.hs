@@ -16,6 +16,7 @@ instance ToResourceProperties KinesisFirehoseConfigProperty where
   toResourceProperties KinesisFirehoseConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::InstanceStorageConfig.KinesisFirehoseConfig",
+         supportsTags = Prelude.False,
          properties = ["FirehoseArn" JSON..= firehoseArn]}
 instance JSON.ToJSON KinesisFirehoseConfigProperty where
   toJSON KinesisFirehoseConfigProperty {..}

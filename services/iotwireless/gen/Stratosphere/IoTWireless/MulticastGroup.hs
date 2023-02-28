@@ -26,6 +26,7 @@ instance ToResourceProperties MulticastGroup where
   toResourceProperties MulticastGroup {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::MulticastGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LoRaWAN" JSON..= loRaWAN]

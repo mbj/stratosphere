@@ -21,6 +21,7 @@ instance ToResourceProperties CustomConnectorProfilePropertiesProperty where
   toResourceProperties CustomConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.CustomConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OAuth2Properties" Prelude.<$> oAuth2Properties,

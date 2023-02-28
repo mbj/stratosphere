@@ -31,6 +31,7 @@ instance ToResourceProperties LoadBalancer where
   toResourceProperties LoadBalancer {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::LoadBalancer",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstancePort" JSON..= instancePort,

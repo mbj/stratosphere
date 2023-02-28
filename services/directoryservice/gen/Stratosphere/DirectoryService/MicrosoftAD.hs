@@ -27,6 +27,7 @@ instance ToResourceProperties MicrosoftAD where
   toResourceProperties MicrosoftAD {..}
     = ResourceProperties
         {awsType = "AWS::DirectoryService::MicrosoftAD",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Password" JSON..= password,

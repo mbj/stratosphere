@@ -27,6 +27,7 @@ instance ToResourceProperties TaskDefinition where
   toResourceProperties TaskDefinition {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::TaskDefinition",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AutoCreateTasks" JSON..= autoCreateTasks]

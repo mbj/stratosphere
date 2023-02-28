@@ -27,6 +27,7 @@ instance ToResourceProperties SelfManagedActiveDirectoryConfigurationProperty wh
     SelfManagedActiveDirectoryConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::StorageVirtualMachine.SelfManagedActiveDirectoryConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DnsIps" Prelude.<$> dnsIps,

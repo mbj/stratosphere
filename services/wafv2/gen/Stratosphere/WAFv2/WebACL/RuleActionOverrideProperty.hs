@@ -21,6 +21,7 @@ instance ToResourceProperties RuleActionOverrideProperty where
   toResourceProperties RuleActionOverrideProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.RuleActionOverride",
+         supportsTags = Prelude.False,
          properties = ["ActionToUse" JSON..= actionToUse,
                        "Name" JSON..= name]}
 instance JSON.ToJSON RuleActionOverrideProperty where

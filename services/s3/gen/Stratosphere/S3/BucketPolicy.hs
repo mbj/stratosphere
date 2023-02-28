@@ -15,7 +15,7 @@ mkBucketPolicy bucket policyDocument
 instance ToResourceProperties BucketPolicy where
   toResourceProperties BucketPolicy {..}
     = ResourceProperties
-        {awsType = "AWS::S3::BucketPolicy",
+        {awsType = "AWS::S3::BucketPolicy", supportsTags = Prelude.False,
          properties = ["Bucket" JSON..= bucket,
                        "PolicyDocument" JSON..= policyDocument]}
 instance JSON.ToJSON BucketPolicy where

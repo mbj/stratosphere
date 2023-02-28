@@ -21,6 +21,7 @@ instance ToResourceProperties DataflowEndpointProperty where
   toResourceProperties DataflowEndpointProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::DataflowEndpointGroup.DataflowEndpoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Address" Prelude.<$> address,

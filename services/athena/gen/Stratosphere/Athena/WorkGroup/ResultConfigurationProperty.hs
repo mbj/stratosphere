@@ -20,6 +20,7 @@ instance ToResourceProperties ResultConfigurationProperty where
   toResourceProperties ResultConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Athena::WorkGroup.ResultConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EncryptionConfiguration"

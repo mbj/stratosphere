@@ -27,7 +27,7 @@ mkApiKey
 instance ToResourceProperties ApiKey where
   toResourceProperties ApiKey {..}
     = ResourceProperties
-        {awsType = "AWS::ApiGateway::ApiKey",
+        {awsType = "AWS::ApiGateway::ApiKey", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomerId" Prelude.<$> customerId,

@@ -29,6 +29,7 @@ instance ToResourceProperties LaunchTemplateOverridesProperty where
   toResourceProperties LaunchTemplateOverridesProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.LaunchTemplateOverrides",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,

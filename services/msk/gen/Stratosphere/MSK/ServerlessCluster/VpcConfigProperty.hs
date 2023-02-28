@@ -17,6 +17,7 @@ instance ToResourceProperties VpcConfigProperty where
   toResourceProperties VpcConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::ServerlessCluster.VpcConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubnetIds" JSON..= subnetIds]

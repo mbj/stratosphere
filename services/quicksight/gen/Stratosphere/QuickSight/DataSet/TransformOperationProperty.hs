@@ -32,6 +32,7 @@ instance ToResourceProperties TransformOperationProperty where
   toResourceProperties TransformOperationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.TransformOperation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CastColumnTypeOperation"

@@ -16,7 +16,7 @@ instance ToResourceProperties EventBridgeActionProperty where
   toResourceProperties EventBridgeActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::Rule.EventBridgeAction",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON EventBridgeActionProperty where
   toJSON EventBridgeActionProperty {..}
     = JSON.object ["Name" JSON..= name]

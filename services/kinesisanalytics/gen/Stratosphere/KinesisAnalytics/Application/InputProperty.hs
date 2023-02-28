@@ -31,6 +31,7 @@ instance ToResourceProperties InputProperty where
   toResourceProperties InputProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::Application.Input",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InputSchema" JSON..= inputSchema,

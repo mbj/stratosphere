@@ -40,6 +40,7 @@ instance ToResourceProperties FieldInputConfigProperty where
   toResourceProperties FieldInputConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.FieldInputConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

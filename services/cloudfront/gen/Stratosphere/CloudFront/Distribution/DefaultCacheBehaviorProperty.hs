@@ -55,6 +55,7 @@ instance ToResourceProperties DefaultCacheBehaviorProperty where
   toResourceProperties DefaultCacheBehaviorProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.DefaultCacheBehavior",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TargetOriginId" JSON..= targetOriginId,

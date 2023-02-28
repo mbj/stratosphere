@@ -25,6 +25,7 @@ instance ToResourceProperties GatewayRouteMetadataMatchProperty where
   toResourceProperties GatewayRouteMetadataMatchProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.GatewayRouteMetadataMatch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Exact" Prelude.<$> exact,

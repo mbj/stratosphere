@@ -15,6 +15,7 @@ instance ToResourceProperties DeploymentControllerProperty where
   toResourceProperties DeploymentControllerProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.DeploymentController",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Type" Prelude.<$> type'])}
 instance JSON.ToJSON DeploymentControllerProperty where

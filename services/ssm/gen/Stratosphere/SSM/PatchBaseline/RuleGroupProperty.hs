@@ -15,6 +15,7 @@ instance ToResourceProperties RuleGroupProperty where
   toResourceProperties RuleGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::PatchBaseline.RuleGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PatchRules" Prelude.<$> patchRules])}

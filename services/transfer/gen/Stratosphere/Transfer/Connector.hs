@@ -24,7 +24,7 @@ mkConnector accessRole as2Config url
 instance ToResourceProperties Connector where
   toResourceProperties Connector {..}
     = ResourceProperties
-        {awsType = "AWS::Transfer::Connector",
+        {awsType = "AWS::Transfer::Connector", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccessRole" JSON..= accessRole, "As2Config" JSON..= as2Config,

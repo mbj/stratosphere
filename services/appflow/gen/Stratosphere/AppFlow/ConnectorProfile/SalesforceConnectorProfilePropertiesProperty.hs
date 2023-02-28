@@ -21,6 +21,7 @@ instance ToResourceProperties SalesforceConnectorProfilePropertiesProperty where
     SalesforceConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InstanceUrl" Prelude.<$> instanceUrl,

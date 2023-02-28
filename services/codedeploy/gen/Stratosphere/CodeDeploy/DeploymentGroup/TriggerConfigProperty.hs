@@ -19,6 +19,7 @@ instance ToResourceProperties TriggerConfigProperty where
   toResourceProperties TriggerConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.TriggerConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TriggerEvents" Prelude.<$> triggerEvents,

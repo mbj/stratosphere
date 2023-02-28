@@ -18,6 +18,7 @@ instance ToResourceProperties FastLaunchSnapshotConfigurationProperty where
   toResourceProperties FastLaunchSnapshotConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::DistributionConfiguration.FastLaunchSnapshotConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TargetResourceCount" Prelude.<$> targetResourceCount])}

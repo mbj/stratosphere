@@ -19,6 +19,7 @@ instance ToResourceProperties SourceAccessConfigurationProperty where
   toResourceProperties SourceAccessConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventSourceMapping.SourceAccessConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Type" Prelude.<$> type',

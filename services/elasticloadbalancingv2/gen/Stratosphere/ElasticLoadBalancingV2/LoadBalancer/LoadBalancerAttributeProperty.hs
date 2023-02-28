@@ -17,6 +17,7 @@ instance ToResourceProperties LoadBalancerAttributeProperty where
   toResourceProperties LoadBalancerAttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::LoadBalancer.LoadBalancerAttribute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

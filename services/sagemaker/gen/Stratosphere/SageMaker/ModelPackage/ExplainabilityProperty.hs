@@ -16,6 +16,7 @@ instance ToResourceProperties ExplainabilityProperty where
   toResourceProperties ExplainabilityProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.Explainability",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Report" Prelude.<$> report])}
 instance JSON.ToJSON ExplainabilityProperty where

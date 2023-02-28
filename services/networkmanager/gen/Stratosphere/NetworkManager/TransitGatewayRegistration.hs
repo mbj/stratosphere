@@ -20,6 +20,7 @@ instance ToResourceProperties TransitGatewayRegistration where
   toResourceProperties TransitGatewayRegistration {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::TransitGatewayRegistration",
+         supportsTags = Prelude.False,
          properties = ["GlobalNetworkId" JSON..= globalNetworkId,
                        "TransitGatewayArn" JSON..= transitGatewayArn]}
 instance JSON.ToJSON TransitGatewayRegistration where

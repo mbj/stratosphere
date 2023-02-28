@@ -20,6 +20,7 @@ instance ToResourceProperties GeoMatchStatementProperty where
   toResourceProperties GeoMatchStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.GeoMatchStatement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CountryCodes" Prelude.<$> countryCodes,

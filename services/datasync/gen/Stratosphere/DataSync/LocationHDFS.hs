@@ -41,6 +41,7 @@ instance ToResourceProperties LocationHDFS where
   toResourceProperties LocationHDFS {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationHDFS",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AgentArns" JSON..= agentArns,

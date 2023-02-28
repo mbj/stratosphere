@@ -70,7 +70,7 @@ mkUserPool
 instance ToResourceProperties UserPool where
   toResourceProperties UserPool {..}
     = ResourceProperties
-        {awsType = "AWS::Cognito::UserPool",
+        {awsType = "AWS::Cognito::UserPool", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccountRecoverySetting"

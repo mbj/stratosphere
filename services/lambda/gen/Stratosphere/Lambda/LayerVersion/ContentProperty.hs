@@ -20,6 +20,7 @@ instance ToResourceProperties ContentProperty where
   toResourceProperties ContentProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::LayerVersion.Content",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3Bucket" JSON..= s3Bucket, "S3Key" JSON..= s3Key]

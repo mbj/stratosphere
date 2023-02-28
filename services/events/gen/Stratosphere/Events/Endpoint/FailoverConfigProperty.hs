@@ -3,6 +3,7 @@ module Stratosphere.Events.Endpoint.FailoverConfigProperty (
         mkFailoverConfigProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Endpoint.PrimaryProperty as Exports
 import {-# SOURCE #-} Stratosphere.Events.Endpoint.SecondaryProperty as Exports
@@ -18,6 +19,7 @@ instance ToResourceProperties FailoverConfigProperty where
   toResourceProperties FailoverConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Endpoint.FailoverConfig",
+         supportsTags = Prelude.False,
          properties = ["Primary" JSON..= primary,
                        "Secondary" JSON..= secondary]}
 instance JSON.ToJSON FailoverConfigProperty where

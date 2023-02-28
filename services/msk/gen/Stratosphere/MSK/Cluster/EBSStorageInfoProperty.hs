@@ -20,6 +20,7 @@ instance ToResourceProperties EBSStorageInfoProperty where
   toResourceProperties EBSStorageInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.EBSStorageInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ProvisionedThroughput"

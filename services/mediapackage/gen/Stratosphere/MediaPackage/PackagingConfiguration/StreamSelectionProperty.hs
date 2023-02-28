@@ -20,6 +20,7 @@ instance ToResourceProperties StreamSelectionProperty where
   toResourceProperties StreamSelectionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingConfiguration.StreamSelection",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxVideoBitsPerSecond"

@@ -16,6 +16,7 @@ instance ToResourceProperties LambdaConfigProperty where
   toResourceProperties LambdaConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.LambdaConfig",
+         supportsTags = Prelude.False,
          properties = ["LambdaFunctionArn" JSON..= lambdaFunctionArn]}
 instance JSON.ToJSON LambdaConfigProperty where
   toJSON LambdaConfigProperty {..}

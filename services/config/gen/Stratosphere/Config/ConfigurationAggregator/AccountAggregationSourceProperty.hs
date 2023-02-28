@@ -21,6 +21,7 @@ instance ToResourceProperties AccountAggregationSourceProperty where
   toResourceProperties AccountAggregationSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConfigurationAggregator.AccountAggregationSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccountIds" JSON..= accountIds]

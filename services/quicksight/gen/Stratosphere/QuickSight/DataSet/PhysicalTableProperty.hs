@@ -21,6 +21,7 @@ instance ToResourceProperties PhysicalTableProperty where
   toResourceProperties PhysicalTableProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.PhysicalTable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomSql" Prelude.<$> customSql,

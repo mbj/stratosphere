@@ -15,6 +15,7 @@ instance ToResourceProperties AutoTerminationPolicyProperty where
   toResourceProperties AutoTerminationPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.AutoTerminationPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IdleTimeout" Prelude.<$> idleTimeout])}

@@ -19,6 +19,7 @@ instance ToResourceProperties MemoryGiBPerVCpuRequestProperty where
   toResourceProperties MemoryGiBPerVCpuRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.MemoryGiBPerVCpuRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

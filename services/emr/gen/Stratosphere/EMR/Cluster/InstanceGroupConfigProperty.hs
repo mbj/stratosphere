@@ -34,6 +34,7 @@ instance ToResourceProperties InstanceGroupConfigProperty where
   toResourceProperties InstanceGroupConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.InstanceGroupConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceCount" JSON..= instanceCount,

@@ -16,6 +16,7 @@ instance ToResourceProperties DestinationConfigProperty where
   toResourceProperties DestinationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventSourceMapping.DestinationConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "OnFailure" Prelude.<$> onFailure])}
 instance JSON.ToJSON DestinationConfigProperty where

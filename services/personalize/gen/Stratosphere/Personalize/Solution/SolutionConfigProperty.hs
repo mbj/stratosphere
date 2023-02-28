@@ -27,6 +27,7 @@ instance ToResourceProperties SolutionConfigProperty where
   toResourceProperties SolutionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Solution.SolutionConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AlgorithmHyperParameters"

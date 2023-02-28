@@ -20,6 +20,7 @@ instance ToResourceProperties ApacheKafkaClusterProperty where
   toResourceProperties ApacheKafkaClusterProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.ApacheKafkaCluster",
+         supportsTags = Prelude.False,
          properties = ["BootstrapServers" JSON..= bootstrapServers,
                        "Vpc" JSON..= vpc]}
 instance JSON.ToJSON ApacheKafkaClusterProperty where

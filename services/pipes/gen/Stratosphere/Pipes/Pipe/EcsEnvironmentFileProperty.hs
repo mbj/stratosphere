@@ -18,6 +18,7 @@ instance ToResourceProperties EcsEnvironmentFileProperty where
   toResourceProperties EcsEnvironmentFileProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.EcsEnvironmentFile",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON EcsEnvironmentFileProperty where
   toJSON EcsEnvironmentFileProperty {..}

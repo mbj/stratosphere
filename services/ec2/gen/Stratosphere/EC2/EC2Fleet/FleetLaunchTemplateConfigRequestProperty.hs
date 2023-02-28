@@ -21,6 +21,7 @@ instance ToResourceProperties FleetLaunchTemplateConfigRequestProperty where
   toResourceProperties FleetLaunchTemplateConfigRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EC2Fleet.FleetLaunchTemplateConfigRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LaunchTemplateSpecification"

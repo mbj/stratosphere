@@ -22,6 +22,7 @@ instance ToResourceProperties ModelPackageGroup where
   toResourceProperties ModelPackageGroup {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackageGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ModelPackageGroupName" JSON..= modelPackageGroupName]

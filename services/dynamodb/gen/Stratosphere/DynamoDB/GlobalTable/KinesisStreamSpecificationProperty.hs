@@ -17,6 +17,7 @@ instance ToResourceProperties KinesisStreamSpecificationProperty where
   toResourceProperties KinesisStreamSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.KinesisStreamSpecification",
+         supportsTags = Prelude.False,
          properties = ["StreamArn" JSON..= streamArn]}
 instance JSON.ToJSON KinesisStreamSpecificationProperty where
   toJSON KinesisStreamSpecificationProperty {..}

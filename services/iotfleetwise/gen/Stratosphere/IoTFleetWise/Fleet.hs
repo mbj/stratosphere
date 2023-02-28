@@ -20,7 +20,7 @@ mkFleet id signalCatalogArn
 instance ToResourceProperties Fleet where
   toResourceProperties Fleet {..}
     = ResourceProperties
-        {awsType = "AWS::IoTFleetWise::Fleet",
+        {awsType = "AWS::IoTFleetWise::Fleet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id, "SignalCatalogArn" JSON..= signalCatalogArn]

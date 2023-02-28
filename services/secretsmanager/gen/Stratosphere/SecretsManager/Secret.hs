@@ -28,6 +28,7 @@ instance ToResourceProperties Secret where
   toResourceProperties Secret {..}
     = ResourceProperties
         {awsType = "AWS::SecretsManager::Secret",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

@@ -24,6 +24,7 @@ instance ToResourceProperties AdvancedSecurityOptionsInputProperty where
   toResourceProperties AdvancedSecurityOptionsInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::Elasticsearch::Domain.AdvancedSecurityOptionsInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AnonymousAuthEnabled" Prelude.<$> anonymousAuthEnabled,

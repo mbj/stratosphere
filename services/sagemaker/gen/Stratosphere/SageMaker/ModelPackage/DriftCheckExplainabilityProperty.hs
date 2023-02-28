@@ -20,6 +20,7 @@ instance ToResourceProperties DriftCheckExplainabilityProperty where
   toResourceProperties DriftCheckExplainabilityProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.DriftCheckExplainability",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConfigFile" Prelude.<$> configFile,

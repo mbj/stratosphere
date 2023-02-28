@@ -19,6 +19,7 @@ instance ToResourceProperties CustomPolicyDetailsProperty where
   toResourceProperties CustomPolicyDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConfigRule.CustomPolicyDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EnableDebugLogDelivery"

@@ -22,6 +22,7 @@ instance ToResourceProperties AggregationAuthorization where
   toResourceProperties AggregationAuthorization {..}
     = ResourceProperties
         {awsType = "AWS::Config::AggregationAuthorization",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthorizedAccountId" JSON..= authorizedAccountId,

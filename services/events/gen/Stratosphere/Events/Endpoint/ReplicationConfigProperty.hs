@@ -16,7 +16,7 @@ instance ToResourceProperties ReplicationConfigProperty where
   toResourceProperties ReplicationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Endpoint.ReplicationConfig",
-         properties = ["State" JSON..= state]}
+         supportsTags = Prelude.False, properties = ["State" JSON..= state]}
 instance JSON.ToJSON ReplicationConfigProperty where
   toJSON ReplicationConfigProperty {..}
     = JSON.object ["State" JSON..= state]

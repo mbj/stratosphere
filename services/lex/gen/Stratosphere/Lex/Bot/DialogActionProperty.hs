@@ -20,6 +20,7 @@ instance ToResourceProperties DialogActionProperty where
   toResourceProperties DialogActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.DialogAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

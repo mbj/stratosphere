@@ -23,6 +23,7 @@ instance ToResourceProperties SmsTemplate where
   toResourceProperties SmsTemplate {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::SmsTemplate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Body" JSON..= body, "TemplateName" JSON..= templateName]

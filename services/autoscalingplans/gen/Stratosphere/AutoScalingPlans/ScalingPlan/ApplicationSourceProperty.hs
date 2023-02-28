@@ -20,6 +20,7 @@ instance ToResourceProperties ApplicationSourceProperty where
   toResourceProperties ApplicationSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScalingPlans::ScalingPlan.ApplicationSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudFormationStackARN"

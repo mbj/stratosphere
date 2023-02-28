@@ -22,6 +22,7 @@ instance ToResourceProperties LoRaWANProperty where
   toResourceProperties LoRaWANProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::MulticastGroup.LoRaWAN",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DlClass" JSON..= dlClass, "RfRegion" JSON..= rfRegion]

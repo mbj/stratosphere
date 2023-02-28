@@ -17,6 +17,7 @@ instance ToResourceProperties DynatraceSourcePropertiesProperty where
   toResourceProperties DynatraceSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.DynatraceSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON DynatraceSourcePropertiesProperty where
   toJSON DynatraceSourcePropertiesProperty {..}

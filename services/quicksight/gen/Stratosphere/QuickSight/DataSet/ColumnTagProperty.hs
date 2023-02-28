@@ -19,6 +19,7 @@ instance ToResourceProperties ColumnTagProperty where
   toResourceProperties ColumnTagProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.ColumnTag",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ColumnDescription" Prelude.<$> columnDescription,

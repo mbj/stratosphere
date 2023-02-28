@@ -23,6 +23,7 @@ instance ToResourceProperties HlsOutputSettingsProperty where
   toResourceProperties HlsOutputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HlsOutputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "H265PackagingType" Prelude.<$> h265PackagingType,

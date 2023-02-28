@@ -47,6 +47,7 @@ instance ToResourceProperties Campaign where
   toResourceProperties Campaign {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::Campaign",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Action" JSON..= action,

@@ -22,6 +22,7 @@ instance ToResourceProperties View where
   toResourceProperties View {..}
     = ResourceProperties
         {awsType = "AWS::ResourceExplorer2::View",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ViewName" JSON..= viewName]

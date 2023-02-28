@@ -21,6 +21,7 @@ instance ToResourceProperties DashEncryptionProperty where
   toResourceProperties DashEncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::OriginEndpoint.DashEncryption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SpekeKeyProvider" JSON..= spekeKeyProvider]

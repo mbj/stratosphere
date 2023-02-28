@@ -17,6 +17,7 @@ instance ToResourceProperties TtmlDestinationSettingsProperty where
   toResourceProperties TtmlDestinationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.TtmlDestinationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "StyleControl" Prelude.<$> styleControl])}

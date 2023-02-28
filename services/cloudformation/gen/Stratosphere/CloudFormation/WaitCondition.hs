@@ -19,6 +19,7 @@ instance ToResourceProperties WaitCondition where
   toResourceProperties WaitCondition {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::WaitCondition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Count" Prelude.<$> count,

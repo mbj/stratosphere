@@ -17,6 +17,7 @@ instance ToResourceProperties KernelCapabilitiesProperty where
   toResourceProperties KernelCapabilitiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.KernelCapabilities",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Add" Prelude.<$> add,

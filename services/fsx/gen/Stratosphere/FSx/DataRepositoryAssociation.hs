@@ -35,6 +35,7 @@ instance ToResourceProperties DataRepositoryAssociation where
   toResourceProperties DataRepositoryAssociation {..}
     = ResourceProperties
         {awsType = "AWS::FSx::DataRepositoryAssociation",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataRepositoryPath" JSON..= dataRepositoryPath,

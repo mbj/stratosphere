@@ -24,6 +24,7 @@ instance ToResourceProperties DomainEndpointOptionsProperty where
   toResourceProperties DomainEndpointOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Elasticsearch::Domain.DomainEndpointOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomEndpoint" Prelude.<$> customEndpoint,

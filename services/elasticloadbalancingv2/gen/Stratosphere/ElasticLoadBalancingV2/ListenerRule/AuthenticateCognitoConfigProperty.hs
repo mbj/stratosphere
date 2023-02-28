@@ -35,6 +35,7 @@ instance ToResourceProperties AuthenticateCognitoConfigProperty where
   toResourceProperties AuthenticateCognitoConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule.AuthenticateCognitoConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["UserPoolArn" JSON..= userPoolArn,

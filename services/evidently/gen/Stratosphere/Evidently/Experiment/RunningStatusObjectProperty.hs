@@ -21,6 +21,7 @@ instance ToResourceProperties RunningStatusObjectProperty where
   toResourceProperties RunningStatusObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Experiment.RunningStatusObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Status" JSON..= status]

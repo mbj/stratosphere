@@ -22,7 +22,7 @@ mkUrl authType targetFunctionArn
 instance ToResourceProperties Url where
   toResourceProperties Url {..}
     = ResourceProperties
-        {awsType = "AWS::Lambda::Url",
+        {awsType = "AWS::Lambda::Url", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthType" JSON..= authType,

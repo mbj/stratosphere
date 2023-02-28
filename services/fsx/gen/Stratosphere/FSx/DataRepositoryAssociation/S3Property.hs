@@ -19,6 +19,7 @@ instance ToResourceProperties S3Property where
   toResourceProperties S3Property {..}
     = ResourceProperties
         {awsType = "AWS::FSx::DataRepositoryAssociation.S3",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutoExportPolicy" Prelude.<$> autoExportPolicy,

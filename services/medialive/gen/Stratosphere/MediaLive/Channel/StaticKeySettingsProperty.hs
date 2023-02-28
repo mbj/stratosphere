@@ -20,6 +20,7 @@ instance ToResourceProperties StaticKeySettingsProperty where
   toResourceProperties StaticKeySettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.StaticKeySettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "KeyProviderServer" Prelude.<$> keyProviderServer,

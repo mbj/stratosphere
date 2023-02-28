@@ -24,6 +24,7 @@ instance ToResourceProperties BlueGreenDeploymentConfigurationProperty where
   toResourceProperties BlueGreenDeploymentConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.BlueGreenDeploymentConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeploymentReadyOption"

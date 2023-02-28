@@ -24,6 +24,7 @@ instance ToResourceProperties ActionsProperty where
   toResourceProperties ActionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::Rule.Actions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AssignContactCategoryActions"

@@ -18,6 +18,7 @@ instance ToResourceProperties DataConnectorProperty where
   toResourceProperties DataConnectorProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::ComponentType.DataConnector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IsNative" Prelude.<$> isNative,

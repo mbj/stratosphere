@@ -20,6 +20,7 @@ instance ToResourceProperties EventDimensionsProperty where
   toResourceProperties EventDimensionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.EventDimensions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Attributes" Prelude.<$> attributes,

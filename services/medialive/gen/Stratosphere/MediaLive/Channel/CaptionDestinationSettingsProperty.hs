@@ -54,6 +54,7 @@ instance ToResourceProperties CaptionDestinationSettingsProperty where
   toResourceProperties CaptionDestinationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.CaptionDestinationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AribDestinationSettings"

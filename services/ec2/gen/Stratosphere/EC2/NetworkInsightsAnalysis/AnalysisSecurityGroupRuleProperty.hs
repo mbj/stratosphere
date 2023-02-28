@@ -26,6 +26,7 @@ instance ToResourceProperties AnalysisSecurityGroupRuleProperty where
   toResourceProperties AnalysisSecurityGroupRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.AnalysisSecurityGroupRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Cidr" Prelude.<$> cidr,

@@ -23,6 +23,7 @@ instance ToResourceProperties AssertionAttributesProperty where
   toResourceProperties AssertionAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Grafana::Workspace.AssertionAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Email" Prelude.<$> email,

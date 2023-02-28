@@ -20,6 +20,7 @@ instance ToResourceProperties DnsConfigProperty where
   toResourceProperties DnsConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ServiceDiscovery::Service.DnsConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DnsRecords" JSON..= dnsRecords]

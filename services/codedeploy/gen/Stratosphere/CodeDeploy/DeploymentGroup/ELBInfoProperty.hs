@@ -14,6 +14,7 @@ instance ToResourceProperties ELBInfoProperty where
   toResourceProperties ELBInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.ELBInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name])}
 instance JSON.ToJSON ELBInfoProperty where

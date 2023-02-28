@@ -26,6 +26,7 @@ instance ToResourceProperties MetricStreamStatisticsConfigurationProperty where
     MetricStreamStatisticsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::MetricStream.MetricStreamStatisticsConfiguration",
+         supportsTags = Prelude.False,
          properties = ["AdditionalStatistics" JSON..= additionalStatistics,
                        "IncludeMetrics" JSON..= includeMetrics]}
 instance JSON.ToJSON MetricStreamStatisticsConfigurationProperty where

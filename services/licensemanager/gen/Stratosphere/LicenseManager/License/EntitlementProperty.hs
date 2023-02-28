@@ -24,6 +24,7 @@ instance ToResourceProperties EntitlementProperty where
   toResourceProperties EntitlementProperty {..}
     = ResourceProperties
         {awsType = "AWS::LicenseManager::License.Entitlement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Unit" JSON..= unit]

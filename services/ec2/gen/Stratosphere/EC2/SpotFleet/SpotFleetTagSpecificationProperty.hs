@@ -20,6 +20,7 @@ instance ToResourceProperties SpotFleetTagSpecificationProperty where
   toResourceProperties SpotFleetTagSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.SpotFleetTagSpecification",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ResourceType" Prelude.<$> resourceType,

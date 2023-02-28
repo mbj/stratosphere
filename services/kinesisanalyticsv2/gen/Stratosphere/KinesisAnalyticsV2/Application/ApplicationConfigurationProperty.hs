@@ -36,6 +36,7 @@ instance ToResourceProperties ApplicationConfigurationProperty where
   toResourceProperties ApplicationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.ApplicationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplicationCodeConfiguration"

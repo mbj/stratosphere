@@ -17,6 +17,7 @@ instance ToResourceProperties MetadataProperty where
   toResourceProperties MetadataProperty {..}
     = ResourceProperties
         {awsType = "AWS::LicenseManager::License.Metadata",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON MetadataProperty where
   toJSON MetadataProperty {..}

@@ -15,6 +15,7 @@ instance ToResourceProperties SourceIpConfigProperty where
   toResourceProperties SourceIpConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule.SourceIpConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values])}
 instance JSON.ToJSON SourceIpConfigProperty where

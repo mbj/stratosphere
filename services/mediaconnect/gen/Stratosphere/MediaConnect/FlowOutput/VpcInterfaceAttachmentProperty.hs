@@ -17,6 +17,7 @@ instance ToResourceProperties VpcInterfaceAttachmentProperty where
   toResourceProperties VpcInterfaceAttachmentProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaConnect::FlowOutput.VpcInterfaceAttachment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "VpcInterfaceName" Prelude.<$> vpcInterfaceName])}

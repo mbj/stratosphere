@@ -20,6 +20,7 @@ instance ToResourceProperties SearchProperty where
   toResourceProperties SearchProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::Index.Search",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Displayable" Prelude.<$> displayable,

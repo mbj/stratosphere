@@ -23,6 +23,7 @@ instance ToResourceProperties SecurityContextProperty where
   toResourceProperties SecurityContextProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.SecurityContext",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Privileged" Prelude.<$> privileged,

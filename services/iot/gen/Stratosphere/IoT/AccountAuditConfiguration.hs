@@ -31,6 +31,7 @@ instance ToResourceProperties AccountAuditConfiguration where
   toResourceProperties AccountAuditConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::IoT::AccountAuditConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccountId" JSON..= accountId,

@@ -18,6 +18,7 @@ instance ToResourceProperties TagSpecificationProperty where
   toResourceProperties TagSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::CapacityReservation.TagSpecification",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ResourceType" Prelude.<$> resourceType,

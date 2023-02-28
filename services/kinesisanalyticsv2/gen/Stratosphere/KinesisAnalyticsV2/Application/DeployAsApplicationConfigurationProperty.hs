@@ -3,6 +3,7 @@ module Stratosphere.KinesisAnalyticsV2.Application.DeployAsApplicationConfigurat
         mkDeployAsApplicationConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.S3ContentBaseLocationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -18,6 +19,7 @@ instance ToResourceProperties DeployAsApplicationConfigurationProperty where
   toResourceProperties DeployAsApplicationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.DeployAsApplicationConfiguration",
+         supportsTags = Prelude.False,
          properties = ["S3ContentLocation" JSON..= s3ContentLocation]}
 instance JSON.ToJSON DeployAsApplicationConfigurationProperty where
   toJSON DeployAsApplicationConfigurationProperty {..}

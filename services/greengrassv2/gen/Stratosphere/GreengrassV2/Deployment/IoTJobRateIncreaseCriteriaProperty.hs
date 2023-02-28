@@ -20,6 +20,7 @@ instance ToResourceProperties IoTJobRateIncreaseCriteriaProperty where
   toResourceProperties IoTJobRateIncreaseCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.IoTJobRateIncreaseCriteria",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NumberOfNotifiedThings"

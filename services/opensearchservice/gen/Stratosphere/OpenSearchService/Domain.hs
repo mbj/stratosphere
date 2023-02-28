@@ -52,6 +52,7 @@ instance ToResourceProperties Domain where
   toResourceProperties Domain {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessPolicies" Prelude.<$> accessPolicies,

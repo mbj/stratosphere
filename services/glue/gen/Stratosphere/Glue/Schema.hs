@@ -31,7 +31,7 @@ mkSchema compatibility dataFormat name schemaDefinition
 instance ToResourceProperties Schema where
   toResourceProperties Schema {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Schema",
+        {awsType = "AWS::Glue::Schema", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Compatibility" JSON..= compatibility,

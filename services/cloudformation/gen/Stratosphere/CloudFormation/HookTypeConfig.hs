@@ -21,6 +21,7 @@ instance ToResourceProperties HookTypeConfig where
   toResourceProperties HookTypeConfig {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::HookTypeConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Configuration" JSON..= configuration]

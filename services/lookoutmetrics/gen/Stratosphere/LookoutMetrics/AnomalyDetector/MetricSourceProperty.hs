@@ -28,6 +28,7 @@ instance ToResourceProperties MetricSourceProperty where
   toResourceProperties MetricSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.MetricSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AppFlowConfig" Prelude.<$> appFlowConfig,

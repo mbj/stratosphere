@@ -24,6 +24,7 @@ instance ToResourceProperties Contact where
   toResourceProperties Contact {..}
     = ResourceProperties
         {awsType = "AWS::SSMContacts::Contact",
+         supportsTags = Prelude.False,
          properties = ["Alias" JSON..= alias,
                        "DisplayName" JSON..= displayName, "Plan" JSON..= plan,
                        "Type" JSON..= type']}

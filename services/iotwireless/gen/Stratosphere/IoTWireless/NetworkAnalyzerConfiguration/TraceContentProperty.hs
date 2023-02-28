@@ -18,6 +18,7 @@ instance ToResourceProperties TraceContentProperty where
   toResourceProperties TraceContentProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::NetworkAnalyzerConfiguration.TraceContent",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LogLevel" Prelude.<$> logLevel,

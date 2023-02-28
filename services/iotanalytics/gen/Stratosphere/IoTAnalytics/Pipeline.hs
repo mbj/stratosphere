@@ -21,6 +21,7 @@ instance ToResourceProperties Pipeline where
   toResourceProperties Pipeline {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PipelineActivities" JSON..= pipelineActivities]

@@ -64,7 +64,7 @@ mkCluster instances jobFlowRole name serviceRole
 instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
-        {awsType = "AWS::EMR::Cluster",
+        {awsType = "AWS::EMR::Cluster", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Instances" JSON..= instances, "JobFlowRole" JSON..= jobFlowRole,

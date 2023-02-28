@@ -19,6 +19,7 @@ instance ToResourceProperties ExperimentTemplateStopConditionProperty where
   toResourceProperties ExperimentTemplateStopConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::FIS::ExperimentTemplate.ExperimentTemplateStopCondition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Source" JSON..= source]

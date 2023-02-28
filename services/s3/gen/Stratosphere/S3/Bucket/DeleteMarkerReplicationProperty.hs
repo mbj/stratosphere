@@ -17,6 +17,7 @@ instance ToResourceProperties DeleteMarkerReplicationProperty where
   toResourceProperties DeleteMarkerReplicationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.DeleteMarkerReplication",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Status" Prelude.<$> status])}
 instance JSON.ToJSON DeleteMarkerReplicationProperty where

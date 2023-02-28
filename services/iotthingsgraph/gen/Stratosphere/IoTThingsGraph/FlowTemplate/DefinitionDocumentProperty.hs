@@ -18,6 +18,7 @@ instance ToResourceProperties DefinitionDocumentProperty where
   toResourceProperties DefinitionDocumentProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTThingsGraph::FlowTemplate.DefinitionDocument",
+         supportsTags = Prelude.False,
          properties = ["Language" JSON..= language, "Text" JSON..= text]}
 instance JSON.ToJSON DefinitionDocumentProperty where
   toJSON DefinitionDocumentProperty {..}

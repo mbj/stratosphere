@@ -18,6 +18,7 @@ instance ToResourceProperties RunCommandTargetProperty where
   toResourceProperties RunCommandTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.RunCommandTarget",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Values" JSON..= values]}
 instance JSON.ToJSON RunCommandTargetProperty where
   toJSON RunCommandTargetProperty {..}

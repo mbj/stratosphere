@@ -17,6 +17,7 @@ instance ToResourceProperties LFTagProperty where
   toResourceProperties LFTagProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::PrincipalPermissions.LFTag",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TagKey" Prelude.<$> tagKey,

@@ -18,6 +18,7 @@ instance ToResourceProperties ActionThresholdProperty where
   toResourceProperties ActionThresholdProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::BudgetsAction.ActionThreshold",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON ActionThresholdProperty where
   toJSON ActionThresholdProperty {..}

@@ -3,6 +3,7 @@ module Stratosphere.EMR.Cluster.ScalingTriggerProperty (
         mkScalingTriggerProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.CloudWatchAlarmDefinitionProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties ScalingTriggerProperty where
   toResourceProperties ScalingTriggerProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.ScalingTrigger",
+         supportsTags = Prelude.False,
          properties = ["CloudWatchAlarmDefinition"
                          JSON..= cloudWatchAlarmDefinition]}
 instance JSON.ToJSON ScalingTriggerProperty where

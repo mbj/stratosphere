@@ -26,6 +26,7 @@ instance ToResourceProperties ProfilingGroup where
   toResourceProperties ProfilingGroup {..}
     = ResourceProperties
         {awsType = "AWS::CodeGuruProfiler::ProfilingGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ProfilingGroupName" JSON..= profilingGroupName]

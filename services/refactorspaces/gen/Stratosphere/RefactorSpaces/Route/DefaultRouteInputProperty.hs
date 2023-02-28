@@ -16,6 +16,7 @@ instance ToResourceProperties DefaultRouteInputProperty where
   toResourceProperties DefaultRouteInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::RefactorSpaces::Route.DefaultRouteInput",
+         supportsTags = Prelude.False,
          properties = ["ActivationState" JSON..= activationState]}
 instance JSON.ToJSON DefaultRouteInputProperty where
   toJSON DefaultRouteInputProperty {..}

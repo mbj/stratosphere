@@ -20,6 +20,7 @@ instance ToResourceProperties MonitoringInputProperty where
   toResourceProperties MonitoringInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule.MonitoringInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BatchTransformInput" Prelude.<$> batchTransformInput,

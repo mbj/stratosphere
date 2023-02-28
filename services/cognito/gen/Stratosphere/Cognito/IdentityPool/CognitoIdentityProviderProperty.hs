@@ -21,6 +21,7 @@ instance ToResourceProperties CognitoIdentityProviderProperty where
   toResourceProperties CognitoIdentityProviderProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::IdentityPool.CognitoIdentityProvider",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClientId" Prelude.<$> clientId,

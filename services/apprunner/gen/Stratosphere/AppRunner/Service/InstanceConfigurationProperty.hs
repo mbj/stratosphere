@@ -19,6 +19,7 @@ instance ToResourceProperties InstanceConfigurationProperty where
   toResourceProperties InstanceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.InstanceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Cpu" Prelude.<$> cpu,

@@ -22,6 +22,7 @@ instance ToResourceProperties AccountTakeoverRiskConfigurationTypeProperty where
     AccountTakeoverRiskConfigurationTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfigurationType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Actions" JSON..= actions]

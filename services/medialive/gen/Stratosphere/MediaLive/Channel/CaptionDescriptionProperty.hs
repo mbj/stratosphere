@@ -25,6 +25,7 @@ instance ToResourceProperties CaptionDescriptionProperty where
   toResourceProperties CaptionDescriptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.CaptionDescription",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CaptionSelectorName" Prelude.<$> captionSelectorName,

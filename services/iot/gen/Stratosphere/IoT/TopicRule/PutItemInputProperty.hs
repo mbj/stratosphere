@@ -16,6 +16,7 @@ instance ToResourceProperties PutItemInputProperty where
   toResourceProperties PutItemInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.PutItemInput",
+         supportsTags = Prelude.False,
          properties = ["TableName" JSON..= tableName]}
 instance JSON.ToJSON PutItemInputProperty where
   toJSON PutItemInputProperty {..}

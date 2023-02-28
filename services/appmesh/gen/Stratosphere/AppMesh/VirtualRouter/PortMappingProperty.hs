@@ -17,6 +17,7 @@ instance ToResourceProperties PortMappingProperty where
   toResourceProperties PortMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualRouter.PortMapping",
+         supportsTags = Prelude.False,
          properties = ["Port" JSON..= port, "Protocol" JSON..= protocol]}
 instance JSON.ToJSON PortMappingProperty where
   toJSON PortMappingProperty {..}

@@ -27,6 +27,7 @@ instance ToResourceProperties TaskInvocationParametersProperty where
   toResourceProperties TaskInvocationParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTask.TaskInvocationParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaintenanceWindowAutomationParameters"

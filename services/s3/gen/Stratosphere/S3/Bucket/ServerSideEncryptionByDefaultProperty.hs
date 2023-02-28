@@ -19,6 +19,7 @@ instance ToResourceProperties ServerSideEncryptionByDefaultProperty where
   toResourceProperties ServerSideEncryptionByDefaultProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ServerSideEncryptionByDefault",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SSEAlgorithm" JSON..= sSEAlgorithm]

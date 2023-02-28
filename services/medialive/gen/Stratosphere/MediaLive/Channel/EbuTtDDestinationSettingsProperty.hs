@@ -22,6 +22,7 @@ instance ToResourceProperties EbuTtDDestinationSettingsProperty where
   toResourceProperties EbuTtDDestinationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.EbuTtDDestinationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CopyrightHolder" Prelude.<$> copyrightHolder,

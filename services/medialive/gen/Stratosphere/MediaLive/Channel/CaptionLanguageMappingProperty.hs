@@ -20,6 +20,7 @@ instance ToResourceProperties CaptionLanguageMappingProperty where
   toResourceProperties CaptionLanguageMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.CaptionLanguageMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CaptionChannel" Prelude.<$> captionChannel,

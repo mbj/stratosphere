@@ -17,6 +17,7 @@ instance ToResourceProperties XssMatchSet where
   toResourceProperties XssMatchSet {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::XssMatchSet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

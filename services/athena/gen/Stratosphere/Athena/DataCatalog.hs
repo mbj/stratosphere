@@ -22,7 +22,7 @@ mkDataCatalog name type'
 instance ToResourceProperties DataCatalog where
   toResourceProperties DataCatalog {..}
     = ResourceProperties
-        {awsType = "AWS::Athena::DataCatalog",
+        {awsType = "AWS::Athena::DataCatalog", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Type" JSON..= type']

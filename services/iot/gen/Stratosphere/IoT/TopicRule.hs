@@ -20,7 +20,7 @@ mkTopicRule topicRulePayload
 instance ToResourceProperties TopicRule where
   toResourceProperties TopicRule {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::TopicRule",
+        {awsType = "AWS::IoT::TopicRule", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TopicRulePayload" JSON..= topicRulePayload]

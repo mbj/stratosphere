@@ -19,6 +19,7 @@ instance ToResourceProperties TrendmicroConnectorProfileCredentialsProperty wher
     TrendmicroConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.TrendmicroConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = ["ApiSecretKey" JSON..= apiSecretKey]}
 instance JSON.ToJSON TrendmicroConnectorProfileCredentialsProperty where
   toJSON TrendmicroConnectorProfileCredentialsProperty {..}

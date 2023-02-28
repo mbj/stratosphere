@@ -18,6 +18,7 @@ instance ToResourceProperties IotEventsProperty where
   toResourceProperties IotEventsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.IotEvents",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InputName" JSON..= inputName]

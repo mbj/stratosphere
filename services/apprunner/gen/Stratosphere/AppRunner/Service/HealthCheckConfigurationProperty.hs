@@ -25,6 +25,7 @@ instance ToResourceProperties HealthCheckConfigurationProperty where
   toResourceProperties HealthCheckConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.HealthCheckConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HealthyThreshold" Prelude.<$> healthyThreshold,

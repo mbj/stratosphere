@@ -21,6 +21,7 @@ instance ToResourceProperties XSSProtectionProperty where
   toResourceProperties XSSProtectionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.XSSProtection",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Override" JSON..= override, "Protection" JSON..= protection]

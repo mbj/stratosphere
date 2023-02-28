@@ -16,6 +16,7 @@ instance ToResourceProperties InstanceIpv6AddressProperty where
   toResourceProperties InstanceIpv6AddressProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.InstanceIpv6Address",
+         supportsTags = Prelude.False,
          properties = ["Ipv6Address" JSON..= ipv6Address]}
 instance JSON.ToJSON InstanceIpv6AddressProperty where
   toJSON InstanceIpv6AddressProperty {..}

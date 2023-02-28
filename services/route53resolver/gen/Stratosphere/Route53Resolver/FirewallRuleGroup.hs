@@ -21,6 +21,7 @@ instance ToResourceProperties FirewallRuleGroup where
   toResourceProperties FirewallRuleGroup {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::FirewallRuleGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FirewallRules" Prelude.<$> firewallRules,

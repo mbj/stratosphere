@@ -24,6 +24,7 @@ instance ToResourceProperties KeySigningKey where
   toResourceProperties KeySigningKey {..}
     = ResourceProperties
         {awsType = "AWS::Route53::KeySigningKey",
+         supportsTags = Prelude.False,
          properties = ["HostedZoneId" JSON..= hostedZoneId,
                        "KeyManagementServiceArn" JSON..= keyManagementServiceArn,
                        "Name" JSON..= name, "Status" JSON..= status]}

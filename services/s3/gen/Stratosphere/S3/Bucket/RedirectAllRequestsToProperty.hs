@@ -18,6 +18,7 @@ instance ToResourceProperties RedirectAllRequestsToProperty where
   toResourceProperties RedirectAllRequestsToProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.RedirectAllRequestsTo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HostName" JSON..= hostName]

@@ -26,6 +26,7 @@ instance ToResourceProperties RepublishActionHeadersProperty where
   toResourceProperties RepublishActionHeadersProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.RepublishActionHeaders",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContentType" Prelude.<$> contentType,

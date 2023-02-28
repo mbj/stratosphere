@@ -19,6 +19,7 @@ instance ToResourceProperties CustomResponseBodyProperty where
   toResourceProperties CustomResponseBodyProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.CustomResponseBody",
+         supportsTags = Prelude.False,
          properties = ["Content" JSON..= content,
                        "ContentType" JSON..= contentType]}
 instance JSON.ToJSON CustomResponseBodyProperty where

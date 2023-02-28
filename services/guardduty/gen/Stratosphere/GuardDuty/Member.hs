@@ -24,7 +24,7 @@ mkMember detectorId email memberId
 instance ToResourceProperties Member where
   toResourceProperties Member {..}
     = ResourceProperties
-        {awsType = "AWS::GuardDuty::Member",
+        {awsType = "AWS::GuardDuty::Member", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DetectorId" JSON..= detectorId, "Email" JSON..= email,

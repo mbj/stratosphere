@@ -26,6 +26,7 @@ instance ToResourceProperties SalesforceConnectorProfileCredentialsProperty wher
     SalesforceConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessToken" Prelude.<$> accessToken,

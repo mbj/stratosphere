@@ -31,7 +31,7 @@ mkNatGateway subnetId
 instance ToResourceProperties NatGateway where
   toResourceProperties NatGateway {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::NatGateway",
+        {awsType = "AWS::EC2::NatGateway", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubnetId" JSON..= subnetId]

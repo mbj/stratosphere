@@ -18,6 +18,7 @@ instance ToResourceProperties AdvancedRecognitionSettingProperty where
   toResourceProperties AdvancedRecognitionSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.AdvancedRecognitionSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioRecognitionStrategy"

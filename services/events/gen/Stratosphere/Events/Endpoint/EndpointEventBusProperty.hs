@@ -16,6 +16,7 @@ instance ToResourceProperties EndpointEventBusProperty where
   toResourceProperties EndpointEventBusProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Endpoint.EndpointEventBus",
+         supportsTags = Prelude.False,
          properties = ["EventBusArn" JSON..= eventBusArn]}
 instance JSON.ToJSON EndpointEventBusProperty where
   toJSON EndpointEventBusProperty {..}

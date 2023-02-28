@@ -18,6 +18,7 @@ instance ToResourceProperties OnDemandProvisioningSpecificationProperty where
   toResourceProperties OnDemandProvisioningSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.OnDemandProvisioningSpecification",
+         supportsTags = Prelude.False,
          properties = ["AllocationStrategy" JSON..= allocationStrategy]}
 instance JSON.ToJSON OnDemandProvisioningSpecificationProperty where
   toJSON OnDemandProvisioningSpecificationProperty {..}

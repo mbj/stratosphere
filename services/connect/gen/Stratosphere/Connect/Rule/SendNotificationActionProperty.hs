@@ -33,6 +33,7 @@ instance ToResourceProperties SendNotificationActionProperty where
   toResourceProperties SendNotificationActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::Rule.SendNotificationAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Content" JSON..= content, "ContentType" JSON..= contentType,

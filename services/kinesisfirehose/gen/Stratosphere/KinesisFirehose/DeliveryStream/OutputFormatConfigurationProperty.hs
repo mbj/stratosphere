@@ -17,6 +17,7 @@ instance ToResourceProperties OutputFormatConfigurationProperty where
   toResourceProperties OutputFormatConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.OutputFormatConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Serializer" Prelude.<$> serializer])}

@@ -38,6 +38,7 @@ instance ToResourceProperties PostDialogCodeHookInvocationSpecificationProperty 
     PostDialogCodeHookInvocationSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.PostDialogCodeHookInvocationSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FailureConditional" Prelude.<$> failureConditional,

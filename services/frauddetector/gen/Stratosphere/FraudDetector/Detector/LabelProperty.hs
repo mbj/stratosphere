@@ -26,6 +26,7 @@ instance ToResourceProperties LabelProperty where
   toResourceProperties LabelProperty {..}
     = ResourceProperties
         {awsType = "AWS::FraudDetector::Detector.Label",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn,

@@ -15,6 +15,7 @@ instance ToResourceProperties SslPropertiesProperty where
   toResourceProperties SslPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.SslProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DisableSsl" Prelude.<$> disableSsl])}

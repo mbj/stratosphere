@@ -23,6 +23,7 @@ instance ToResourceProperties ParameterGroup where
   toResourceProperties ParameterGroup {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::ParameterGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CacheParameterGroupFamily" JSON..= cacheParameterGroupFamily,

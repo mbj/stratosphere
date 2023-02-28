@@ -20,6 +20,7 @@ instance ToResourceProperties RemoveAttributesProperty where
   toResourceProperties RemoveAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline.RemoveAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Attributes" JSON..= attributes, "Name" JSON..= name]

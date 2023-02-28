@@ -19,6 +19,7 @@ instance ToResourceProperties DynatraceConnectorProfilePropertiesProperty where
     DynatraceConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.DynatraceConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = ["InstanceUrl" JSON..= instanceUrl]}
 instance JSON.ToJSON DynatraceConnectorProfilePropertiesProperty where
   toJSON DynatraceConnectorProfilePropertiesProperty {..}

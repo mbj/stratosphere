@@ -18,6 +18,7 @@ instance ToResourceProperties GeoRestrictionProperty where
   toResourceProperties GeoRestrictionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.GeoRestriction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RestrictionType" JSON..= restrictionType]

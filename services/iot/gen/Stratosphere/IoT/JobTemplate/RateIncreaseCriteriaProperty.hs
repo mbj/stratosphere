@@ -18,6 +18,7 @@ instance ToResourceProperties RateIncreaseCriteriaProperty where
   toResourceProperties RateIncreaseCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::JobTemplate.RateIncreaseCriteria",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NumberOfNotifiedThings"

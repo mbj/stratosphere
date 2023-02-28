@@ -20,6 +20,7 @@ instance ToResourceProperties CustomImageProperty where
   toResourceProperties CustomImageProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Domain.CustomImage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AppImageConfigName" JSON..= appImageConfigName,

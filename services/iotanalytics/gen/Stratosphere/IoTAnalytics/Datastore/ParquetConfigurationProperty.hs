@@ -16,6 +16,7 @@ instance ToResourceProperties ParquetConfigurationProperty where
   toResourceProperties ParquetConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore.ParquetConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SchemaDefinition" Prelude.<$> schemaDefinition])}

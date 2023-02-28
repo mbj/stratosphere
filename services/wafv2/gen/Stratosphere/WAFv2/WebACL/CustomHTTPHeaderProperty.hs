@@ -18,6 +18,7 @@ instance ToResourceProperties CustomHTTPHeaderProperty where
   toResourceProperties CustomHTTPHeaderProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.CustomHTTPHeader",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON CustomHTTPHeaderProperty where
   toJSON CustomHTTPHeaderProperty {..}

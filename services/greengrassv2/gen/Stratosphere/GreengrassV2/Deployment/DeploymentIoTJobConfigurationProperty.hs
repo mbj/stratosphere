@@ -24,6 +24,7 @@ instance ToResourceProperties DeploymentIoTJobConfigurationProperty where
   toResourceProperties DeploymentIoTJobConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.DeploymentIoTJobConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AbortConfig" Prelude.<$> abortConfig,

@@ -25,6 +25,7 @@ instance ToResourceProperties FulfillmentUpdatesSpecificationProperty where
   toResourceProperties FulfillmentUpdatesSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.FulfillmentUpdatesSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Active" JSON..= active]

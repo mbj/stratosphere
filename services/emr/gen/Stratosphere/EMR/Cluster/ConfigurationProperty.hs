@@ -20,6 +20,7 @@ instance ToResourceProperties ConfigurationProperty where
   toResourceProperties ConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.Configuration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Classification" Prelude.<$> classification,

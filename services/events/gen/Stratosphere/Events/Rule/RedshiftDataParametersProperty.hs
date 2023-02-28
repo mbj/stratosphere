@@ -26,6 +26,7 @@ instance ToResourceProperties RedshiftDataParametersProperty where
   toResourceProperties RedshiftDataParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.RedshiftDataParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Database" JSON..= database, "Sql" JSON..= sql]

@@ -15,6 +15,7 @@ instance ToResourceProperties BorderStyleProperty where
   toResourceProperties BorderStyleProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.BorderStyle",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Show" Prelude.<$> show])}
 instance JSON.ToJSON BorderStyleProperty where

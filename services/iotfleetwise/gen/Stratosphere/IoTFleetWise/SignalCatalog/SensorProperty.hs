@@ -26,6 +26,7 @@ instance ToResourceProperties SensorProperty where
   toResourceProperties SensorProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::SignalCatalog.Sensor",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataType" JSON..= dataType,

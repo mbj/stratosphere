@@ -17,6 +17,7 @@ instance ToResourceProperties VolumeFromProperty where
   toResourceProperties VolumeFromProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.VolumeFrom",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReadOnly" Prelude.<$> readOnly,

@@ -24,6 +24,7 @@ instance ToResourceProperties ServiceConnectServiceProperty where
   toResourceProperties ServiceConnectServiceProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.ServiceConnectService",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PortName" JSON..= portName]

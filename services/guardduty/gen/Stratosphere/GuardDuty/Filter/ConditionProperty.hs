@@ -33,6 +33,7 @@ instance ToResourceProperties ConditionProperty where
   toResourceProperties ConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::GuardDuty::Filter.Condition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Eq" Prelude.<$> eq,

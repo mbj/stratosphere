@@ -2,6 +2,7 @@ module Stratosphere.KafkaConnect.Connector.LogDeliveryProperty (
         module Exports, LogDeliveryProperty(..), mkLogDeliveryProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.WorkerLogDeliveryProperty as Exports
 import Stratosphere.ResourceProperties
@@ -15,6 +16,7 @@ instance ToResourceProperties LogDeliveryProperty where
   toResourceProperties LogDeliveryProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.LogDelivery",
+         supportsTags = Prelude.False,
          properties = ["WorkerLogDelivery" JSON..= workerLogDelivery]}
 instance JSON.ToJSON LogDeliveryProperty where
   toJSON LogDeliveryProperty {..}

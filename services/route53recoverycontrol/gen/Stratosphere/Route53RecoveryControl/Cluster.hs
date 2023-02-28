@@ -21,6 +21,7 @@ instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryControl::Cluster",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClusterEndpoints" Prelude.<$> clusterEndpoints,

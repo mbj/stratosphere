@@ -25,6 +25,7 @@ instance ToResourceProperties DefaultButtonConfigurationProperty where
   toResourceProperties DefaultButtonConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::InAppTemplate.DefaultButtonConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BackgroundColor" Prelude.<$> backgroundColor,

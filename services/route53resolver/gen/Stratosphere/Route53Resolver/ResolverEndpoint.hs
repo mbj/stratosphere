@@ -32,6 +32,7 @@ instance ToResourceProperties ResolverEndpoint where
   toResourceProperties ResolverEndpoint {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::ResolverEndpoint",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Direction" JSON..= direction, "IpAddresses" JSON..= ipAddresses,

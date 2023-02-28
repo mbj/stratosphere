@@ -20,6 +20,7 @@ instance ToResourceProperties CrossRegionCopyRetainRuleProperty where
   toResourceProperties CrossRegionCopyRetainRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.CrossRegionCopyRetainRule",
+         supportsTags = Prelude.False,
          properties = ["Interval" JSON..= interval,
                        "IntervalUnit" JSON..= intervalUnit]}
 instance JSON.ToJSON CrossRegionCopyRetainRuleProperty where

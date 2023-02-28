@@ -20,6 +20,7 @@ instance ToResourceProperties OutputLocationProperty where
   toResourceProperties OutputLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.OutputLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket]

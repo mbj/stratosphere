@@ -38,7 +38,7 @@ mkBranch appId branchName
 instance ToResourceProperties Branch where
   toResourceProperties Branch {..}
     = ResourceProperties
-        {awsType = "AWS::Amplify::Branch",
+        {awsType = "AWS::Amplify::Branch", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AppId" JSON..= appId, "BranchName" JSON..= branchName]

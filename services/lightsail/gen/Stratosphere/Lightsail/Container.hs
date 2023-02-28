@@ -30,6 +30,7 @@ instance ToResourceProperties Container where
   toResourceProperties Container {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Container",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Power" JSON..= power, "Scale" JSON..= scale,

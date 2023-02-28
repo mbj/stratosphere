@@ -35,6 +35,7 @@ instance ToResourceProperties Certificate where
   toResourceProperties Certificate {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CertificateAuthorityArn" JSON..= certificateAuthorityArn,

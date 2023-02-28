@@ -18,6 +18,7 @@ instance ToResourceProperties GatewayRouteHostnameRewriteProperty where
   toResourceProperties GatewayRouteHostnameRewriteProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.GatewayRouteHostnameRewrite",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefaultTargetHostname"

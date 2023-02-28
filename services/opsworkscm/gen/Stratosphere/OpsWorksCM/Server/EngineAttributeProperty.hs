@@ -17,6 +17,7 @@ instance ToResourceProperties EngineAttributeProperty where
   toResourceProperties EngineAttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorksCM::Server.EngineAttribute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

@@ -17,6 +17,7 @@ instance ToResourceProperties HostEntryProperty where
   toResourceProperties HostEntryProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.HostEntry",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Hostname" Prelude.<$> hostname,

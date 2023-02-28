@@ -19,6 +19,7 @@ instance ToResourceProperties ErrorHandlingConfigProperty where
   toResourceProperties ErrorHandlingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.ErrorHandlingConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BucketName" Prelude.<$> bucketName,

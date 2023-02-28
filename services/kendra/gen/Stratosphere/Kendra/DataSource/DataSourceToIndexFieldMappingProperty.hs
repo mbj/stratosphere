@@ -24,6 +24,7 @@ instance ToResourceProperties DataSourceToIndexFieldMappingProperty where
   toResourceProperties DataSourceToIndexFieldMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.DataSourceToIndexFieldMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataSourceFieldName" JSON..= dataSourceFieldName,

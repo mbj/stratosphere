@@ -17,6 +17,7 @@ instance ToResourceProperties ColumnSelectorProperty where
   toResourceProperties ColumnSelectorProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.ColumnSelector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

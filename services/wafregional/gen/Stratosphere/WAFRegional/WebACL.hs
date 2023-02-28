@@ -24,6 +24,7 @@ instance ToResourceProperties WebACL where
   toResourceProperties WebACL {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::WebACL",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DefaultAction" JSON..= defaultAction,

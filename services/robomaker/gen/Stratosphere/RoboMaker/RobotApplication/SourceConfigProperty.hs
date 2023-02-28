@@ -20,6 +20,7 @@ instance ToResourceProperties SourceConfigProperty where
   toResourceProperties SourceConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::RoboMaker::RobotApplication.SourceConfig",
+         supportsTags = Prelude.False,
          properties = ["Architecture" JSON..= architecture,
                        "S3Bucket" JSON..= s3Bucket, "S3Key" JSON..= s3Key]}
 instance JSON.ToJSON SourceConfigProperty where

@@ -20,6 +20,7 @@ instance ToResourceProperties MaintenanceWindowAutomationParametersProperty wher
     MaintenanceWindowAutomationParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTask.MaintenanceWindowAutomationParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DocumentVersion" Prelude.<$> documentVersion,

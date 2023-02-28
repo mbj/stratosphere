@@ -26,6 +26,7 @@ instance ToResourceProperties FHIRDatastore where
   toResourceProperties FHIRDatastore {..}
     = ResourceProperties
         {awsType = "AWS::HealthLake::FHIRDatastore",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatastoreTypeVersion" JSON..= datastoreTypeVersion]

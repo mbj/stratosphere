@@ -23,6 +23,7 @@ instance ToResourceProperties StreamingImage where
   toResourceProperties StreamingImage {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::StreamingImage",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Ec2ImageId" JSON..= ec2ImageId, "Name" JSON..= name,

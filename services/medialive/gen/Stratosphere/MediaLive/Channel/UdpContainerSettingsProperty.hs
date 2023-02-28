@@ -16,6 +16,7 @@ instance ToResourceProperties UdpContainerSettingsProperty where
   toResourceProperties UdpContainerSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.UdpContainerSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "M2tsSettings" Prelude.<$> m2tsSettings])}

@@ -19,6 +19,7 @@ instance ToResourceProperties ConnectivityInfoProperty where
   toResourceProperties ConnectivityInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.ConnectivityInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PublicAccess" Prelude.<$> publicAccess,

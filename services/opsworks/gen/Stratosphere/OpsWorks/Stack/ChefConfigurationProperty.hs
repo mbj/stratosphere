@@ -18,6 +18,7 @@ instance ToResourceProperties ChefConfigurationProperty where
   toResourceProperties ChefConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Stack.ChefConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BerkshelfVersion" Prelude.<$> berkshelfVersion,

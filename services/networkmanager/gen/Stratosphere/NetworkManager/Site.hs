@@ -22,6 +22,7 @@ instance ToResourceProperties Site where
   toResourceProperties Site {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::Site",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GlobalNetworkId" JSON..= globalNetworkId]

@@ -18,6 +18,7 @@ instance ToResourceProperties TimestreamTimestampProperty where
   toResourceProperties TimestreamTimestampProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.TimestreamTimestamp",
+         supportsTags = Prelude.False,
          properties = ["Unit" JSON..= unit, "Value" JSON..= value]}
 instance JSON.ToJSON TimestreamTimestampProperty where
   toJSON TimestreamTimestampProperty {..}

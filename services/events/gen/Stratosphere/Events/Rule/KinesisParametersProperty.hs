@@ -16,6 +16,7 @@ instance ToResourceProperties KinesisParametersProperty where
   toResourceProperties KinesisParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.KinesisParameters",
+         supportsTags = Prelude.False,
          properties = ["PartitionKeyPath" JSON..= partitionKeyPath]}
 instance JSON.ToJSON KinesisParametersProperty where
   toJSON KinesisParametersProperty {..}

@@ -18,6 +18,7 @@ instance ToResourceProperties GitHubLocationProperty where
   toResourceProperties GitHubLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.GitHubLocation",
+         supportsTags = Prelude.False,
          properties = ["CommitId" JSON..= commitId,
                        "Repository" JSON..= repository]}
 instance JSON.ToJSON GitHubLocationProperty where

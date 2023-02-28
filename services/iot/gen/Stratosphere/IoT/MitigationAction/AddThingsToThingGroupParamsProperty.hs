@@ -20,6 +20,7 @@ instance ToResourceProperties AddThingsToThingGroupParamsProperty where
   toResourceProperties AddThingsToThingGroupParamsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::MitigationAction.AddThingsToThingGroupParams",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ThingGroupNames" JSON..= thingGroupNames]

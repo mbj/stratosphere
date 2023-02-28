@@ -18,6 +18,7 @@ instance ToResourceProperties AvailBlankingProperty where
   toResourceProperties AvailBlankingProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AvailBlanking",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailBlankingImage" Prelude.<$> availBlankingImage,

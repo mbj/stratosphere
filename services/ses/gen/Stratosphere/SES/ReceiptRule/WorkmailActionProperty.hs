@@ -18,6 +18,7 @@ instance ToResourceProperties WorkmailActionProperty where
   toResourceProperties WorkmailActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ReceiptRule.WorkmailAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["OrganizationArn" JSON..= organizationArn]

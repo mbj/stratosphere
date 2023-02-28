@@ -23,6 +23,7 @@ instance ToResourceProperties GatewayResponse where
   toResourceProperties GatewayResponse {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::GatewayResponse",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResponseType" JSON..= responseType,

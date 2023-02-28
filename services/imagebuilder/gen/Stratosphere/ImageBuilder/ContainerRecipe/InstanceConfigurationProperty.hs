@@ -19,6 +19,7 @@ instance ToResourceProperties InstanceConfigurationProperty where
   toResourceProperties InstanceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ContainerRecipe.InstanceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlockDeviceMappings" Prelude.<$> blockDeviceMappings,

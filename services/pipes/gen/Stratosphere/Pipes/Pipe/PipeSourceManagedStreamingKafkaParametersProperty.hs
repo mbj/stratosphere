@@ -30,6 +30,7 @@ instance ToResourceProperties PipeSourceManagedStreamingKafkaParametersProperty 
     PipeSourceManagedStreamingKafkaParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeSourceManagedStreamingKafkaParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TopicName" JSON..= topicName]

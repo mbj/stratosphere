@@ -49,6 +49,7 @@ instance ToResourceProperties MsSmoothGroupSettingsProperty where
   toResourceProperties MsSmoothGroupSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.MsSmoothGroupSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AcquisitionPointId" Prelude.<$> acquisitionPointId,

@@ -28,6 +28,7 @@ instance ToResourceProperties ThemeVersionProperty where
   toResourceProperties ThemeVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.ThemeVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn,

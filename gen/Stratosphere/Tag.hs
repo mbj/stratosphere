@@ -13,7 +13,7 @@ mkTag key value = Tag {key = key, value = value}
 instance ToResourceProperties Tag where
   toResourceProperties Tag {..}
     = ResourceProperties
-        {awsType = "Tag",
+        {awsType = "Tag", supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON Tag where
   toJSON Tag {..}

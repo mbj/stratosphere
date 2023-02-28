@@ -37,6 +37,7 @@ instance ToResourceProperties PostFulfillmentStatusSpecificationProperty where
     PostFulfillmentStatusSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.PostFulfillmentStatusSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FailureConditional" Prelude.<$> failureConditional,

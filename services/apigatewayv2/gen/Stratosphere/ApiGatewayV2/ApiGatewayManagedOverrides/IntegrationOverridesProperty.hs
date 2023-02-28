@@ -22,6 +22,7 @@ instance ToResourceProperties IntegrationOverridesProperty where
   toResourceProperties IntegrationOverridesProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::ApiGatewayManagedOverrides.IntegrationOverrides",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

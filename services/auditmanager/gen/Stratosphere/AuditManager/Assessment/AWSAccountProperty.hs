@@ -19,6 +19,7 @@ instance ToResourceProperties AWSAccountProperty where
   toResourceProperties AWSAccountProperty {..}
     = ResourceProperties
         {awsType = "AWS::AuditManager::Assessment.AWSAccount",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EmailAddress" Prelude.<$> emailAddress,

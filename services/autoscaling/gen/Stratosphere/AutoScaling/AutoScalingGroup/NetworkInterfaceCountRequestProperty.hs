@@ -19,6 +19,7 @@ instance ToResourceProperties NetworkInterfaceCountRequestProperty where
   toResourceProperties NetworkInterfaceCountRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.NetworkInterfaceCountRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

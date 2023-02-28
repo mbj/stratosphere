@@ -24,6 +24,7 @@ instance ToResourceProperties DBSecurityGroupIngress where
   toResourceProperties DBSecurityGroupIngress {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBSecurityGroupIngress",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DBSecurityGroupName" JSON..= dBSecurityGroupName]

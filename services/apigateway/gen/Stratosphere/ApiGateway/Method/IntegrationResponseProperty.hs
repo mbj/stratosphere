@@ -24,6 +24,7 @@ instance ToResourceProperties IntegrationResponseProperty where
   toResourceProperties IntegrationResponseProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Method.IntegrationResponse",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StatusCode" JSON..= statusCode]

@@ -15,6 +15,7 @@ instance ToResourceProperties InputDeviceRequestProperty where
   toResourceProperties InputDeviceRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Input.InputDeviceRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Id" Prelude.<$> id])}
 instance JSON.ToJSON InputDeviceRequestProperty where

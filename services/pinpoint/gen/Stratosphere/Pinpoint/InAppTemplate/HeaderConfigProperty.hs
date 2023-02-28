@@ -19,6 +19,7 @@ instance ToResourceProperties HeaderConfigProperty where
   toResourceProperties HeaderConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::InAppTemplate.HeaderConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Alignment" Prelude.<$> alignment,

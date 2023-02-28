@@ -19,6 +19,7 @@ instance ToResourceProperties VariableValueProperty where
   toResourceProperties VariableValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AssetModel.VariableValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PropertyLogicalId" JSON..= propertyLogicalId]

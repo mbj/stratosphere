@@ -18,6 +18,7 @@ instance ToResourceProperties ZendeskConnectorProfilePropertiesProperty where
   toResourceProperties ZendeskConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.ZendeskConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = ["InstanceUrl" JSON..= instanceUrl]}
 instance JSON.ToJSON ZendeskConnectorProfilePropertiesProperty where
   toJSON ZendeskConnectorProfilePropertiesProperty {..}

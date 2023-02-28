@@ -28,6 +28,7 @@ instance ToResourceProperties NetworkAnalyzerConfiguration where
   toResourceProperties NetworkAnalyzerConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::NetworkAnalyzerConfiguration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

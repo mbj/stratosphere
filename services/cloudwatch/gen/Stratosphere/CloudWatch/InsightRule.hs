@@ -23,6 +23,7 @@ instance ToResourceProperties InsightRule where
   toResourceProperties InsightRule {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::InsightRule",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RuleBody" JSON..= ruleBody, "RuleName" JSON..= ruleName,

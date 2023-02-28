@@ -15,6 +15,7 @@ instance ToResourceProperties ScalingConfigProperty where
   toResourceProperties ScalingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventSourceMapping.ScalingConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaximumConcurrency" Prelude.<$> maximumConcurrency])}

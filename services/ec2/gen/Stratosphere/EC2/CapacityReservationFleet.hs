@@ -32,6 +32,7 @@ instance ToResourceProperties CapacityReservationFleet where
   toResourceProperties CapacityReservationFleet {..}
     = ResourceProperties
         {awsType = "AWS::EC2::CapacityReservationFleet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllocationStrategy" Prelude.<$> allocationStrategy,

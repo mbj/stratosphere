@@ -19,6 +19,7 @@ instance ToResourceProperties InputSourceRequestProperty where
   toResourceProperties InputSourceRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Input.InputSourceRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PasswordParam" Prelude.<$> passwordParam,

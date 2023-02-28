@@ -17,6 +17,7 @@ instance ToResourceProperties SpendProperty where
   toResourceProperties SpendProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::Budget.Spend",
+         supportsTags = Prelude.False,
          properties = ["Amount" JSON..= amount, "Unit" JSON..= unit]}
 instance JSON.ToJSON SpendProperty where
   toJSON SpendProperty {..}

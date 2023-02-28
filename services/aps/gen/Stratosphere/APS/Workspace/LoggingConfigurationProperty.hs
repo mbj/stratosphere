@@ -15,6 +15,7 @@ instance ToResourceProperties LoggingConfigurationProperty where
   toResourceProperties LoggingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::APS::Workspace.LoggingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LogGroupArn" Prelude.<$> logGroupArn])}

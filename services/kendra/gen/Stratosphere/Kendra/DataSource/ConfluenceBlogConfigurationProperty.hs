@@ -18,6 +18,7 @@ instance ToResourceProperties ConfluenceBlogConfigurationProperty where
   toResourceProperties ConfluenceBlogConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ConfluenceBlogConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlogFieldMappings" Prelude.<$> blogFieldMappings])}

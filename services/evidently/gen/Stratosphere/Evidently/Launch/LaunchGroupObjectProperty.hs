@@ -23,6 +23,7 @@ instance ToResourceProperties LaunchGroupObjectProperty where
   toResourceProperties LaunchGroupObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Launch.LaunchGroupObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Feature" JSON..= feature, "GroupName" JSON..= groupName,

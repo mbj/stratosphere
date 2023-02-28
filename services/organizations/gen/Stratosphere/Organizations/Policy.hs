@@ -26,6 +26,7 @@ instance ToResourceProperties Policy where
   toResourceProperties Policy {..}
     = ResourceProperties
         {awsType = "AWS::Organizations::Policy",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Content" JSON..= content, "Name" JSON..= name,

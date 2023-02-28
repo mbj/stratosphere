@@ -14,7 +14,7 @@ instance ToResourceProperties SampleValueProperty where
   toResourceProperties SampleValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SampleValue",
-         properties = ["Value" JSON..= value]}
+         supportsTags = Prelude.False, properties = ["Value" JSON..= value]}
 instance JSON.ToJSON SampleValueProperty where
   toJSON SampleValueProperty {..}
     = JSON.object ["Value" JSON..= value]

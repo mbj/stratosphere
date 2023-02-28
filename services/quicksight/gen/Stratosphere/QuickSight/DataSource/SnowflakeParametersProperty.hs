@@ -21,6 +21,7 @@ instance ToResourceProperties SnowflakeParametersProperty where
   toResourceProperties SnowflakeParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.SnowflakeParameters",
+         supportsTags = Prelude.False,
          properties = ["Database" JSON..= database, "Host" JSON..= host,
                        "Warehouse" JSON..= warehouse]}
 instance JSON.ToJSON SnowflakeParametersProperty where

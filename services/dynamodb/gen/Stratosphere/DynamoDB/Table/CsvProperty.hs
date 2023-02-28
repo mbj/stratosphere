@@ -17,6 +17,7 @@ instance ToResourceProperties CsvProperty where
   toResourceProperties CsvProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.Csv",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Delimiter" Prelude.<$> delimiter,

@@ -17,6 +17,7 @@ instance ToResourceProperties ClusterEndpointProperty where
   toResourceProperties ClusterEndpointProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryControl::Cluster.ClusterEndpoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Endpoint" Prelude.<$> endpoint,

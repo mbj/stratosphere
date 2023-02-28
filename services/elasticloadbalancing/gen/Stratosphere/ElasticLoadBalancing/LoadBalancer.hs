@@ -49,6 +49,7 @@ instance ToResourceProperties LoadBalancer where
   toResourceProperties LoadBalancer {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancing::LoadBalancer",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Listeners" JSON..= listeners]

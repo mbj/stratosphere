@@ -21,6 +21,7 @@ instance ToResourceProperties MetricProperty where
   toResourceProperties MetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::ScalingPolicy.Metric",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricName" JSON..= metricName, "Namespace" JSON..= namespace]

@@ -19,6 +19,7 @@ instance ToResourceProperties CoreNetworkSegmentProperty where
   toResourceProperties CoreNetworkSegmentProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::CoreNetwork.CoreNetworkSegment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EdgeLocations" Prelude.<$> edgeLocations,

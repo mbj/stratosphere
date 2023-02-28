@@ -29,6 +29,7 @@ instance ToResourceProperties SafetyRule where
   toResourceProperties SafetyRule {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryControl::SafetyRule",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ControlPanelArn" JSON..= controlPanelArn, "Name" JSON..= name,

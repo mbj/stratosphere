@@ -16,6 +16,7 @@ instance ToResourceProperties AvailConfigurationProperty where
   toResourceProperties AvailConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AvailConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailSettings" Prelude.<$> availSettings])}

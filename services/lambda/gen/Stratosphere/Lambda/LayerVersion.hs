@@ -25,6 +25,7 @@ instance ToResourceProperties LayerVersion where
   toResourceProperties LayerVersion {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::LayerVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Content" JSON..= content]

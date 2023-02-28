@@ -17,6 +17,7 @@ instance ToResourceProperties VpcConfigProperty where
   toResourceProperties VpcConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.VpcConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,

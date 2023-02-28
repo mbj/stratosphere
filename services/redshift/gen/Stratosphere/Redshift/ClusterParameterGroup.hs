@@ -24,6 +24,7 @@ instance ToResourceProperties ClusterParameterGroup where
   toResourceProperties ClusterParameterGroup {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::ClusterParameterGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description,

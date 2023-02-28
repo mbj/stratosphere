@@ -20,6 +20,7 @@ instance ToResourceProperties OnlineAbConfigObjectProperty where
   toResourceProperties OnlineAbConfigObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Experiment.OnlineAbConfigObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ControlTreatmentName" Prelude.<$> controlTreatmentName,

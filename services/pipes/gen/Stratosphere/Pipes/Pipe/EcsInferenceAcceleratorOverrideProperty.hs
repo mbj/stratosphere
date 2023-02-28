@@ -19,6 +19,7 @@ instance ToResourceProperties EcsInferenceAcceleratorOverrideProperty where
   toResourceProperties EcsInferenceAcceleratorOverrideProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.EcsInferenceAcceleratorOverride",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeviceName" Prelude.<$> deviceName,

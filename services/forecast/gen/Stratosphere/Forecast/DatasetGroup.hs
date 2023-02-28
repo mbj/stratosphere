@@ -22,6 +22,7 @@ instance ToResourceProperties DatasetGroup where
   toResourceProperties DatasetGroup {..}
     = ResourceProperties
         {awsType = "AWS::Forecast::DatasetGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatasetGroupName" JSON..= datasetGroupName,

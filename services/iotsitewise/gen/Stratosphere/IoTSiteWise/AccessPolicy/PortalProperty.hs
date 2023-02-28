@@ -14,6 +14,7 @@ instance ToResourceProperties PortalProperty where
   toResourceProperties PortalProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AccessPolicy.Portal",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "id" Prelude.<$> id])}
 instance JSON.ToJSON PortalProperty where

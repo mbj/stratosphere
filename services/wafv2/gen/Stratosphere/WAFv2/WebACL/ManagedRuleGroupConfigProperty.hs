@@ -25,6 +25,7 @@ instance ToResourceProperties ManagedRuleGroupConfigProperty where
   toResourceProperties ManagedRuleGroupConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.ManagedRuleGroupConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AWSManagedRulesBotControlRuleSet"

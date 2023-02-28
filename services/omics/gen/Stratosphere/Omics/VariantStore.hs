@@ -23,7 +23,7 @@ mkVariantStore name reference
 instance ToResourceProperties VariantStore where
   toResourceProperties VariantStore {..}
     = ResourceProperties
-        {awsType = "AWS::Omics::VariantStore",
+        {awsType = "AWS::Omics::VariantStore", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Reference" JSON..= reference]

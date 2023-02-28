@@ -23,6 +23,7 @@ instance ToResourceProperties WorkspacePropertiesProperty where
   toResourceProperties WorkspacePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::WorkSpaces::Workspace.WorkspaceProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComputeTypeName" Prelude.<$> computeTypeName,

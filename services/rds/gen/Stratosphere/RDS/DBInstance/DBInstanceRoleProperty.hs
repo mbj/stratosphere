@@ -18,6 +18,7 @@ instance ToResourceProperties DBInstanceRoleProperty where
   toResourceProperties DBInstanceRoleProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBInstance.DBInstanceRole",
+         supportsTags = Prelude.False,
          properties = ["FeatureName" JSON..= featureName,
                        "RoleArn" JSON..= roleArn]}
 instance JSON.ToJSON DBInstanceRoleProperty where

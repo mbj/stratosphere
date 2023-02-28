@@ -19,6 +19,7 @@ instance ToResourceProperties PortOverrideProperty where
   toResourceProperties PortOverrideProperty {..}
     = ResourceProperties
         {awsType = "AWS::GlobalAccelerator::EndpointGroup.PortOverride",
+         supportsTags = Prelude.False,
          properties = ["EndpointPort" JSON..= endpointPort,
                        "ListenerPort" JSON..= listenerPort]}
 instance JSON.ToJSON PortOverrideProperty where

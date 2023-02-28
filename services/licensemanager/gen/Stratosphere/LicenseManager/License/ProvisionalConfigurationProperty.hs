@@ -18,6 +18,7 @@ instance ToResourceProperties ProvisionalConfigurationProperty where
   toResourceProperties ProvisionalConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::LicenseManager::License.ProvisionalConfiguration",
+         supportsTags = Prelude.False,
          properties = ["MaxTimeToLiveInMinutes"
                          JSON..= maxTimeToLiveInMinutes]}
 instance JSON.ToJSON ProvisionalConfigurationProperty where

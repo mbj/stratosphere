@@ -19,6 +19,7 @@ instance ToResourceProperties MaxAgeRuleProperty where
   toResourceProperties MaxAgeRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::Application.MaxAgeRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeleteSourceFromS3" Prelude.<$> deleteSourceFromS3,

@@ -18,6 +18,7 @@ instance ToResourceProperties ExecutionProperty where
   toResourceProperties ExecutionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::FunctionDefinitionVersion.Execution",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IsolationMode" Prelude.<$> isolationMode,

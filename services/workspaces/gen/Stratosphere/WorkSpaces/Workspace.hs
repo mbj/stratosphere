@@ -32,6 +32,7 @@ instance ToResourceProperties Workspace where
   toResourceProperties Workspace {..}
     = ResourceProperties
         {awsType = "AWS::WorkSpaces::Workspace",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BundleId" JSON..= bundleId, "DirectoryId" JSON..= directoryId,

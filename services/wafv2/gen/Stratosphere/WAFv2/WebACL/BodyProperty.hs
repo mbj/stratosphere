@@ -13,7 +13,7 @@ mkBodyProperty = BodyProperty {oversizeHandling = Prelude.Nothing}
 instance ToResourceProperties BodyProperty where
   toResourceProperties BodyProperty {..}
     = ResourceProperties
-        {awsType = "AWS::WAFv2::WebACL.Body",
+        {awsType = "AWS::WAFv2::WebACL.Body", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OversizeHandling" Prelude.<$> oversizeHandling])}

@@ -18,6 +18,7 @@ instance ToResourceProperties CapacityReservationOptionsRequestProperty where
   toResourceProperties CapacityReservationOptionsRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EC2Fleet.CapacityReservationOptionsRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "UsageStrategy" Prelude.<$> usageStrategy])}

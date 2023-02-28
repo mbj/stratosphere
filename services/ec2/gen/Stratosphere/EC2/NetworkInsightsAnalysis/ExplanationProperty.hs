@@ -109,6 +109,7 @@ instance ToResourceProperties ExplanationProperty where
   toResourceProperties ExplanationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.Explanation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Acl" Prelude.<$> acl,

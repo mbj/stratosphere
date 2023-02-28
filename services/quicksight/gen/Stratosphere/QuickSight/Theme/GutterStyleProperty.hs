@@ -15,6 +15,7 @@ instance ToResourceProperties GutterStyleProperty where
   toResourceProperties GutterStyleProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.GutterStyle",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Show" Prelude.<$> show])}
 instance JSON.ToJSON GutterStyleProperty where

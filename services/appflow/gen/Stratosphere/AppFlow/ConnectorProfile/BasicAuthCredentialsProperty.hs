@@ -19,6 +19,7 @@ instance ToResourceProperties BasicAuthCredentialsProperty where
   toResourceProperties BasicAuthCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.BasicAuthCredentials",
+         supportsTags = Prelude.False,
          properties = ["Password" JSON..= password,
                        "Username" JSON..= username]}
 instance JSON.ToJSON BasicAuthCredentialsProperty where

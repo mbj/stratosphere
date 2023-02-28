@@ -29,6 +29,7 @@ instance ToResourceProperties NetworkPerformanceMetricSubscription where
   toResourceProperties NetworkPerformanceMetricSubscription {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkPerformanceMetricSubscription",
+         supportsTags = Prelude.False,
          properties = ["Destination" JSON..= destination,
                        "Metric" JSON..= metric, "Source" JSON..= source,
                        "Statistic" JSON..= statistic]}

@@ -28,6 +28,7 @@ instance ToResourceProperties LocationEFS where
   toResourceProperties LocationEFS {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationEFS",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Ec2Config" JSON..= ec2Config]

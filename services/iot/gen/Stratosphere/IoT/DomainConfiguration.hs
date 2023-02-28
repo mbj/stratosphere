@@ -31,6 +31,7 @@ instance ToResourceProperties DomainConfiguration where
   toResourceProperties DomainConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::IoT::DomainConfiguration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AuthorizerConfig" Prelude.<$> authorizerConfig,

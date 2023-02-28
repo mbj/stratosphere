@@ -31,6 +31,7 @@ instance ToResourceProperties NamespaceProperty where
   toResourceProperties NamespaceProperty {..}
     = ResourceProperties
         {awsType = "AWS::RedshiftServerless::Namespace.Namespace",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdminUsername" Prelude.<$> adminUsername,

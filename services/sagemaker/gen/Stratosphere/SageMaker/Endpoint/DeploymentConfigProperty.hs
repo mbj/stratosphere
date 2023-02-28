@@ -21,6 +21,7 @@ instance ToResourceProperties DeploymentConfigProperty where
   toResourceProperties DeploymentConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Endpoint.DeploymentConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BlueGreenUpdatePolicy" JSON..= blueGreenUpdatePolicy]

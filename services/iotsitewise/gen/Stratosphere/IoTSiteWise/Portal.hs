@@ -30,7 +30,7 @@ mkPortal portalContactEmail portalName roleArn
 instance ToResourceProperties Portal where
   toResourceProperties Portal {..}
     = ResourceProperties
-        {awsType = "AWS::IoTSiteWise::Portal",
+        {awsType = "AWS::IoTSiteWise::Portal", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PortalContactEmail" JSON..= portalContactEmail,

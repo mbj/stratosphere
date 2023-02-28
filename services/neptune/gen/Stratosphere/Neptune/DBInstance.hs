@@ -36,7 +36,7 @@ mkDBInstance dBInstanceClass
 instance ToResourceProperties DBInstance where
   toResourceProperties DBInstance {..}
     = ResourceProperties
-        {awsType = "AWS::Neptune::DBInstance",
+        {awsType = "AWS::Neptune::DBInstance", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DBInstanceClass" JSON..= dBInstanceClass]

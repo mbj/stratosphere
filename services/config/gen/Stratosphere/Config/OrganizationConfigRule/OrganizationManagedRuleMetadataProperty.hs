@@ -30,6 +30,7 @@ instance ToResourceProperties OrganizationManagedRuleMetadataProperty where
   toResourceProperties OrganizationManagedRuleMetadataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::OrganizationConfigRule.OrganizationManagedRuleMetadata",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RuleIdentifier" JSON..= ruleIdentifier]

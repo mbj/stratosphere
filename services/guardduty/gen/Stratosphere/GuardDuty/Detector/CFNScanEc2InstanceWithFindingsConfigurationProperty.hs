@@ -19,6 +19,7 @@ instance ToResourceProperties CFNScanEc2InstanceWithFindingsConfigurationPropert
     CFNScanEc2InstanceWithFindingsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GuardDuty::Detector.CFNScanEc2InstanceWithFindingsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EbsVolumes" Prelude.<$> ebsVolumes])}

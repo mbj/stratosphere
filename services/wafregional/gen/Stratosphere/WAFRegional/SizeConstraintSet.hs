@@ -18,6 +18,7 @@ instance ToResourceProperties SizeConstraintSet where
   toResourceProperties SizeConstraintSet {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::SizeConstraintSet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

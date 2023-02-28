@@ -17,6 +17,7 @@ instance ToResourceProperties StoppingConditionProperty where
   toResourceProperties StoppingConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelBiasJobDefinition.StoppingCondition",
+         supportsTags = Prelude.False,
          properties = ["MaxRuntimeInSeconds" JSON..= maxRuntimeInSeconds]}
 instance JSON.ToJSON StoppingConditionProperty where
   toJSON StoppingConditionProperty {..}

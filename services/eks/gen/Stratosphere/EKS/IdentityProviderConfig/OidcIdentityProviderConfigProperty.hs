@@ -29,6 +29,7 @@ instance ToResourceProperties OidcIdentityProviderConfigProperty where
   toResourceProperties OidcIdentityProviderConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::IdentityProviderConfig.OidcIdentityProviderConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientId" JSON..= clientId, "IssuerUrl" JSON..= issuerUrl]

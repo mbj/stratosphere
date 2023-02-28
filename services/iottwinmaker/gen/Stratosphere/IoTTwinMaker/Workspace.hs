@@ -23,6 +23,7 @@ instance ToResourceProperties Workspace where
   toResourceProperties Workspace {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::Workspace",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Role" JSON..= role, "S3Location" JSON..= s3Location,

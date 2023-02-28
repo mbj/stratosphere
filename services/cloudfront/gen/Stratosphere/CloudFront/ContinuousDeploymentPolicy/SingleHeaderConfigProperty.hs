@@ -18,6 +18,7 @@ instance ToResourceProperties SingleHeaderConfigProperty where
   toResourceProperties SingleHeaderConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ContinuousDeploymentPolicy.SingleHeaderConfig",
+         supportsTags = Prelude.False,
          properties = ["Header" JSON..= header, "Value" JSON..= value]}
 instance JSON.ToJSON SingleHeaderConfigProperty where
   toJSON SingleHeaderConfigProperty {..}

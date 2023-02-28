@@ -18,6 +18,7 @@ instance ToResourceProperties EdiPartyNameProperty where
   toResourceProperties EdiPartyNameProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.EdiPartyName",
+         supportsTags = Prelude.False,
          properties = ["NameAssigner" JSON..= nameAssigner,
                        "PartyName" JSON..= partyName]}
 instance JSON.ToJSON EdiPartyNameProperty where

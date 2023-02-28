@@ -20,6 +20,7 @@ instance ToResourceProperties RunConfigurationProperty where
   toResourceProperties RunConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.RunConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplicationRestoreConfiguration"

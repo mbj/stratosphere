@@ -20,6 +20,7 @@ instance ToResourceProperties S3BucketSourceProperty where
   toResourceProperties S3BucketSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.S3BucketSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3Bucket" JSON..= s3Bucket]

@@ -25,6 +25,7 @@ instance ToResourceProperties Gateway where
   toResourceProperties Gateway {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::Gateway",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GatewayName" JSON..= gatewayName,

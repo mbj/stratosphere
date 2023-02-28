@@ -16,7 +16,7 @@ mkIEMapProperty
 instance ToResourceProperties IEMapProperty where
   toResourceProperties IEMapProperty {..}
     = ResourceProperties
-        {awsType = "AWS::FMS::Policy.IEMap",
+        {awsType = "AWS::FMS::Policy.IEMap", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ACCOUNT" Prelude.<$> aCCOUNT,

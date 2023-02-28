@@ -19,6 +19,7 @@ instance ToResourceProperties VPNGatewayRoutePropagation where
   toResourceProperties VPNGatewayRoutePropagation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VPNGatewayRoutePropagation",
+         supportsTags = Prelude.False,
          properties = ["RouteTableIds" JSON..= routeTableIds,
                        "VpnGatewayId" JSON..= vpnGatewayId]}
 instance JSON.ToJSON VPNGatewayRoutePropagation where

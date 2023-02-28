@@ -18,6 +18,7 @@ instance ToResourceProperties CapacityUnitsConfigurationProperty where
   toResourceProperties CapacityUnitsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KendraRanking::ExecutionPlan.CapacityUnitsConfiguration",
+         supportsTags = Prelude.False,
          properties = ["RescoreCapacityUnits" JSON..= rescoreCapacityUnits]}
 instance JSON.ToJSON CapacityUnitsConfigurationProperty where
   toJSON CapacityUnitsConfigurationProperty {..}

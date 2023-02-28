@@ -20,6 +20,7 @@ instance ToResourceProperties PlaybackKeyPair where
   toResourceProperties PlaybackKeyPair {..}
     = ResourceProperties
         {awsType = "AWS::IVS::PlaybackKeyPair",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

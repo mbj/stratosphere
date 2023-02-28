@@ -25,6 +25,7 @@ instance ToResourceProperties EmailChannel where
   toResourceProperties EmailChannel {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::EmailChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId,

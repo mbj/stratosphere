@@ -20,6 +20,7 @@ instance ToResourceProperties QueueQuickConnectConfigProperty where
   toResourceProperties QueueQuickConnectConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::QuickConnect.QueueQuickConnectConfig",
+         supportsTags = Prelude.False,
          properties = ["ContactFlowArn" JSON..= contactFlowArn,
                        "QueueArn" JSON..= queueArn]}
 instance JSON.ToJSON QueueQuickConnectConfigProperty where

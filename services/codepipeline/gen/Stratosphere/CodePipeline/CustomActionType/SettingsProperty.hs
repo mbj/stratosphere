@@ -22,6 +22,7 @@ instance ToResourceProperties SettingsProperty where
   toResourceProperties SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::CustomActionType.Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EntityUrlTemplate" Prelude.<$> entityUrlTemplate,

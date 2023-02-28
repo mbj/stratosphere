@@ -24,6 +24,7 @@ instance ToResourceProperties SegmentOverrideProperty where
   toResourceProperties SegmentOverrideProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Launch.SegmentOverride",
+         supportsTags = Prelude.False,
          properties = ["EvaluationOrder" JSON..= evaluationOrder,
                        "Segment" JSON..= segment, "Weights" JSON..= weights]}
 instance JSON.ToJSON SegmentOverrideProperty where

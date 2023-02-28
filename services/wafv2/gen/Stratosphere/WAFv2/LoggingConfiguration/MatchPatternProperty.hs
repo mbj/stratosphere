@@ -17,6 +17,7 @@ instance ToResourceProperties MatchPatternProperty where
   toResourceProperties MatchPatternProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::LoggingConfiguration.MatchPattern",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "All" Prelude.<$> all,

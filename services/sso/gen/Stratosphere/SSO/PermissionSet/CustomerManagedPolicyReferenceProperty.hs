@@ -19,6 +19,7 @@ instance ToResourceProperties CustomerManagedPolicyReferenceProperty where
   toResourceProperties CustomerManagedPolicyReferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSO::PermissionSet.CustomerManagedPolicyReference",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -21,6 +21,7 @@ instance ToResourceProperties SamplingRuleRecordProperty where
   toResourceProperties SamplingRuleRecordProperty {..}
     = ResourceProperties
         {awsType = "AWS::XRay::SamplingRule.SamplingRuleRecord",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CreatedAt" Prelude.<$> createdAt,

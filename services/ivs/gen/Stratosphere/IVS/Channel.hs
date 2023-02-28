@@ -24,7 +24,7 @@ mkChannel
 instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties
-        {awsType = "AWS::IVS::Channel",
+        {awsType = "AWS::IVS::Channel", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Authorized" Prelude.<$> authorized,

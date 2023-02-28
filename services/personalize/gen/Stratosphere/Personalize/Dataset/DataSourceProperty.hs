@@ -15,6 +15,7 @@ instance ToResourceProperties DataSourceProperty where
   toResourceProperties DataSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Dataset.DataSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataLocation" Prelude.<$> dataLocation])}

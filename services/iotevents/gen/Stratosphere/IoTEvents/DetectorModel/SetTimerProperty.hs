@@ -19,6 +19,7 @@ instance ToResourceProperties SetTimerProperty where
   toResourceProperties SetTimerProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.SetTimer",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TimerName" JSON..= timerName]

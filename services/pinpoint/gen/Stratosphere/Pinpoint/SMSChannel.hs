@@ -20,6 +20,7 @@ instance ToResourceProperties SMSChannel where
   toResourceProperties SMSChannel {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::SMSChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId]

@@ -18,6 +18,7 @@ instance ToResourceProperties WorkerTypeSpecificationInputProperty where
   toResourceProperties WorkerTypeSpecificationInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMRServerless::Application.WorkerTypeSpecificationInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ImageConfiguration" Prelude.<$> imageConfiguration])}

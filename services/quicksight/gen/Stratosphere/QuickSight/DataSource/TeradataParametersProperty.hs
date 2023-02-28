@@ -21,6 +21,7 @@ instance ToResourceProperties TeradataParametersProperty where
   toResourceProperties TeradataParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.TeradataParameters",
+         supportsTags = Prelude.False,
          properties = ["Database" JSON..= database, "Host" JSON..= host,
                        "Port" JSON..= port]}
 instance JSON.ToJSON TeradataParametersProperty where

@@ -24,6 +24,7 @@ instance ToResourceProperties DistributionConfiguration where
   toResourceProperties DistributionConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::DistributionConfiguration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Distributions" JSON..= distributions, "Name" JSON..= name]

@@ -21,6 +21,7 @@ instance ToResourceProperties MariaDbParametersProperty where
   toResourceProperties MariaDbParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.MariaDbParameters",
+         supportsTags = Prelude.False,
          properties = ["Database" JSON..= database, "Host" JSON..= host,
                        "Port" JSON..= port]}
 instance JSON.ToJSON MariaDbParametersProperty where

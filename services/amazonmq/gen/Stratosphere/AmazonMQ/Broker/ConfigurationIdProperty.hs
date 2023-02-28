@@ -18,6 +18,7 @@ instance ToResourceProperties ConfigurationIdProperty where
   toResourceProperties ConfigurationIdProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmazonMQ::Broker.ConfigurationId",
+         supportsTags = Prelude.False,
          properties = ["Id" JSON..= id, "Revision" JSON..= revision]}
 instance JSON.ToJSON ConfigurationIdProperty where
   toJSON ConfigurationIdProperty {..}

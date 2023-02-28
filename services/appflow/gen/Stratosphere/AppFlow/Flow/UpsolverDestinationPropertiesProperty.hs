@@ -27,6 +27,7 @@ instance ToResourceProperties UpsolverDestinationPropertiesProperty where
   toResourceProperties UpsolverDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.UpsolverDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName,

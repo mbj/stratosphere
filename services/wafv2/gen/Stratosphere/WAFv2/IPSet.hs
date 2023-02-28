@@ -25,7 +25,7 @@ mkIPSet addresses iPAddressVersion scope
 instance ToResourceProperties IPSet where
   toResourceProperties IPSet {..}
     = ResourceProperties
-        {awsType = "AWS::WAFv2::IPSet",
+        {awsType = "AWS::WAFv2::IPSet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Addresses" JSON..= addresses,

@@ -17,6 +17,7 @@ instance ToResourceProperties H265FilterSettingsProperty where
   toResourceProperties H265FilterSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.H265FilterSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TemporalFilterSettings"

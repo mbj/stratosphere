@@ -21,6 +21,7 @@ instance ToResourceProperties ModelExplainabilityJobInputProperty where
   toResourceProperties ModelExplainabilityJobInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityJobInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BatchTransformInput" Prelude.<$> batchTransformInput,

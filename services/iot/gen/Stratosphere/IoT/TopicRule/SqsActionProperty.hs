@@ -20,6 +20,7 @@ instance ToResourceProperties SqsActionProperty where
   toResourceProperties SqsActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.SqsAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["QueueUrl" JSON..= queueUrl, "RoleArn" JSON..= roleArn]

@@ -18,7 +18,7 @@ mkVdmAttributes
 instance ToResourceProperties VdmAttributes where
   toResourceProperties VdmAttributes {..}
     = ResourceProperties
-        {awsType = "AWS::SES::VdmAttributes",
+        {awsType = "AWS::SES::VdmAttributes", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DashboardAttributes" Prelude.<$> dashboardAttributes,

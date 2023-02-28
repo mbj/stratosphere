@@ -14,7 +14,7 @@ instance ToResourceProperties TargetGroupProperty where
   toResourceProperties TargetGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.TargetGroup",
-         properties = ["Arn" JSON..= arn]}
+         supportsTags = Prelude.False, properties = ["Arn" JSON..= arn]}
 instance JSON.ToJSON TargetGroupProperty where
   toJSON TargetGroupProperty {..} = JSON.object ["Arn" JSON..= arn]
 instance Property "Arn" TargetGroupProperty where

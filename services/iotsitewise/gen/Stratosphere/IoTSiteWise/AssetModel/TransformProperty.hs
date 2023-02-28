@@ -20,6 +20,7 @@ instance ToResourceProperties TransformProperty where
   toResourceProperties TransformProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AssetModel.Transform",
+         supportsTags = Prelude.False,
          properties = ["Expression" JSON..= expression,
                        "Variables" JSON..= variables]}
 instance JSON.ToJSON TransformProperty where

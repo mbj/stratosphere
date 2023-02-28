@@ -16,6 +16,7 @@ instance ToResourceProperties SnsDestinationProperty where
   toResourceProperties SnsDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSetEventDestination.SnsDestination",
+         supportsTags = Prelude.False,
          properties = ["TopicARN" JSON..= topicARN]}
 instance JSON.ToJSON SnsDestinationProperty where
   toJSON SnsDestinationProperty {..}

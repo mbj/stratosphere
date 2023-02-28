@@ -19,6 +19,7 @@ instance ToResourceProperties BaselineEbsBandwidthMbpsRequestProperty where
   toResourceProperties BaselineEbsBandwidthMbpsRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.BaselineEbsBandwidthMbpsRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

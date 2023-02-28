@@ -16,6 +16,7 @@ instance ToResourceProperties SystemsManagerAgentProperty where
   toResourceProperties SystemsManagerAgentProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ImageRecipe.SystemsManagerAgent",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "UninstallAfterBuild" Prelude.<$> uninstallAfterBuild])}

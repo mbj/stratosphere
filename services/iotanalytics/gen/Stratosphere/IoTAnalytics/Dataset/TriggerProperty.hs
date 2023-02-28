@@ -18,6 +18,7 @@ instance ToResourceProperties TriggerProperty where
   toResourceProperties TriggerProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.Trigger",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Schedule" Prelude.<$> schedule,

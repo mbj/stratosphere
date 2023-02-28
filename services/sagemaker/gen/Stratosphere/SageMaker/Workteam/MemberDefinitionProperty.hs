@@ -20,6 +20,7 @@ instance ToResourceProperties MemberDefinitionProperty where
   toResourceProperties MemberDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Workteam.MemberDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CognitoMemberDefinition"

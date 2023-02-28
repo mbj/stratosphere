@@ -17,6 +17,7 @@ instance ToResourceProperties PipelineTagProperty where
   toResourceProperties PipelineTagProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataPipeline::Pipeline.PipelineTag",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON PipelineTagProperty where
   toJSON PipelineTagProperty {..}

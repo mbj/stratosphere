@@ -26,6 +26,7 @@ instance ToResourceProperties OutcomeProperty where
   toResourceProperties OutcomeProperty {..}
     = ResourceProperties
         {awsType = "AWS::FraudDetector::Detector.Outcome",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn,

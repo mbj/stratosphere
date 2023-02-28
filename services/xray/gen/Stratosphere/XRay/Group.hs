@@ -21,7 +21,7 @@ mkGroup
 instance ToResourceProperties Group where
   toResourceProperties Group {..}
     = ResourceProperties
-        {awsType = "AWS::XRay::Group",
+        {awsType = "AWS::XRay::Group", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FilterExpression" Prelude.<$> filterExpression,

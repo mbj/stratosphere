@@ -19,6 +19,7 @@ instance ToResourceProperties SimulationSoftwareSuiteProperty where
   toResourceProperties SimulationSoftwareSuiteProperty {..}
     = ResourceProperties
         {awsType = "AWS::RoboMaker::SimulationApplication.SimulationSoftwareSuite",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -2,6 +2,7 @@ module Stratosphere.LakeFormation.TagAssociation (
         module Exports, TagAssociation(..), mkTagAssociation
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.LakeFormation.TagAssociation.LFTagPairProperty as Exports
 import {-# SOURCE #-} Stratosphere.LakeFormation.TagAssociation.ResourceProperty as Exports
@@ -17,6 +18,7 @@ instance ToResourceProperties TagAssociation where
   toResourceProperties TagAssociation {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::TagAssociation",
+         supportsTags = Prelude.False,
          properties = ["LFTags" JSON..= lFTags,
                        "Resource" JSON..= resource]}
 instance JSON.ToJSON TagAssociation where

@@ -43,6 +43,7 @@ instance ToResourceProperties CapacityReservation where
   toResourceProperties CapacityReservation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::CapacityReservation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AvailabilityZone" JSON..= availabilityZone,

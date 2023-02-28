@@ -27,6 +27,7 @@ instance ToResourceProperties ThreatIntelSet where
   toResourceProperties ThreatIntelSet {..}
     = ResourceProperties
         {awsType = "AWS::GuardDuty::ThreatIntelSet",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Activate" JSON..= activate, "DetectorId" JSON..= detectorId,

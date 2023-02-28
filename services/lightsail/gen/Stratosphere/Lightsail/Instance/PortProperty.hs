@@ -29,6 +29,7 @@ instance ToResourceProperties PortProperty where
   toResourceProperties PortProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Instance.Port",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessDirection" Prelude.<$> accessDirection,

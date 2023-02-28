@@ -23,6 +23,7 @@ instance ToResourceProperties EventSelectorProperty where
   toResourceProperties EventSelectorProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudTrail::Trail.EventSelector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataResources" Prelude.<$> dataResources,

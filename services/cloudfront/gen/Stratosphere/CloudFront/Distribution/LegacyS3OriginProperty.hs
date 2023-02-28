@@ -18,6 +18,7 @@ instance ToResourceProperties LegacyS3OriginProperty where
   toResourceProperties LegacyS3OriginProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.LegacyS3Origin",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DNSName" JSON..= dNSName]

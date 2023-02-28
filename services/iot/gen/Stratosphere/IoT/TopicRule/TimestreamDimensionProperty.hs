@@ -18,6 +18,7 @@ instance ToResourceProperties TimestreamDimensionProperty where
   toResourceProperties TimestreamDimensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.TimestreamDimension",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON TimestreamDimensionProperty where
   toJSON TimestreamDimensionProperty {..}

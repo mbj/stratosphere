@@ -26,6 +26,7 @@ instance ToResourceProperties RuleActionProperty where
   toResourceProperties RuleActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.RuleAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Allow" Prelude.<$> allow,

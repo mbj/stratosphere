@@ -18,6 +18,7 @@ instance ToResourceProperties Publisher where
   toResourceProperties Publisher {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::Publisher",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AcceptTermsAndConditions" JSON..= acceptTermsAndConditions]

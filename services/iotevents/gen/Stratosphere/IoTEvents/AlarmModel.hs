@@ -34,6 +34,7 @@ instance ToResourceProperties AlarmModel where
   toResourceProperties AlarmModel {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AlarmRule" JSON..= alarmRule, "RoleArn" JSON..= roleArn]

@@ -19,6 +19,7 @@ instance ToResourceProperties VirtualServiceProviderProperty where
   toResourceProperties VirtualServiceProviderProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualService.VirtualServiceProvider",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "VirtualNode" Prelude.<$> virtualNode,

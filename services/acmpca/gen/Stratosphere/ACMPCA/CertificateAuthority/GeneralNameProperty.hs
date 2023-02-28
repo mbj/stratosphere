@@ -30,6 +30,7 @@ instance ToResourceProperties GeneralNameProperty where
   toResourceProperties GeneralNameProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.GeneralName",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DirectoryName" Prelude.<$> directoryName,

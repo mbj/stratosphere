@@ -38,7 +38,7 @@ mkJobTemplate description jobTemplateId
 instance ToResourceProperties JobTemplate where
   toResourceProperties JobTemplate {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::JobTemplate",
+        {awsType = "AWS::IoT::JobTemplate", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description,

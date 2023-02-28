@@ -28,6 +28,7 @@ instance ToResourceProperties Studio where
   toResourceProperties Studio {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::Studio",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AdminRoleArn" JSON..= adminRoleArn,

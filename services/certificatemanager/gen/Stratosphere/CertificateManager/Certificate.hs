@@ -29,6 +29,7 @@ instance ToResourceProperties Certificate where
   toResourceProperties Certificate {..}
     = ResourceProperties
         {awsType = "AWS::CertificateManager::Certificate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName]

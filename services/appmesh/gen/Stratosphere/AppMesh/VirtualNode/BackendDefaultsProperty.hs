@@ -16,6 +16,7 @@ instance ToResourceProperties BackendDefaultsProperty where
   toResourceProperties BackendDefaultsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.BackendDefaults",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClientPolicy" Prelude.<$> clientPolicy])}

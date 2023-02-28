@@ -24,6 +24,7 @@ instance ToResourceProperties S3OutputFormatConfigProperty where
   toResourceProperties S3OutputFormatConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.S3OutputFormatConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AggregationConfig" Prelude.<$> aggregationConfig,

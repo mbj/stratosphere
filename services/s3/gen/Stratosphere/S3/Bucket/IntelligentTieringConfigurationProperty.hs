@@ -27,6 +27,7 @@ instance ToResourceProperties IntelligentTieringConfigurationProperty where
   toResourceProperties IntelligentTieringConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.IntelligentTieringConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id, "Status" JSON..= status,

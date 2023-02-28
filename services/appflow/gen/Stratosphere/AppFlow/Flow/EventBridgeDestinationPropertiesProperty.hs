@@ -20,6 +20,7 @@ instance ToResourceProperties EventBridgeDestinationPropertiesProperty where
   toResourceProperties EventBridgeDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.EventBridgeDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Object" JSON..= object]

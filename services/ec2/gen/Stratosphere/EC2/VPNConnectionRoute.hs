@@ -19,6 +19,7 @@ instance ToResourceProperties VPNConnectionRoute where
   toResourceProperties VPNConnectionRoute {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VPNConnectionRoute",
+         supportsTags = Prelude.False,
          properties = ["DestinationCidrBlock" JSON..= destinationCidrBlock,
                        "VpnConnectionId" JSON..= vpnConnectionId]}
 instance JSON.ToJSON VPNConnectionRoute where

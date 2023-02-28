@@ -20,6 +20,7 @@ instance ToResourceProperties InstanceMetadataServiceConfigurationProperty where
     InstanceMetadataServiceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::NotebookInstance.InstanceMetadataServiceConfiguration",
+         supportsTags = Prelude.False,
          properties = ["MinimumInstanceMetadataServiceVersion"
                          JSON..= minimumInstanceMetadataServiceVersion]}
 instance JSON.ToJSON InstanceMetadataServiceConfigurationProperty where

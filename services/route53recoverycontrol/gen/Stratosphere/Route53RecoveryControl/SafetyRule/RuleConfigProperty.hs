@@ -21,6 +21,7 @@ instance ToResourceProperties RuleConfigProperty where
   toResourceProperties RuleConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryControl::SafetyRule.RuleConfig",
+         supportsTags = Prelude.False,
          properties = ["Inverted" JSON..= inverted,
                        "Threshold" JSON..= threshold, "Type" JSON..= type']}
 instance JSON.ToJSON RuleConfigProperty where

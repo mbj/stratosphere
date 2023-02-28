@@ -28,6 +28,7 @@ instance ToResourceProperties Certificate where
   toResourceProperties Certificate {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Certificate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Certificate" JSON..= certificate, "Usage" JSON..= usage]

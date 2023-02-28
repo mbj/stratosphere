@@ -16,6 +16,7 @@ instance ToResourceProperties ResourcesProperty where
   toResourceProperties ResourcesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.Resources",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Limits" Prelude.<$> limits,

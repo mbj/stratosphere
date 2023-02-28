@@ -15,6 +15,7 @@ instance ToResourceProperties EndpointsProperty where
   toResourceProperties EndpointsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventSourceMapping.Endpoints",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "KafkaBootstrapServers"

@@ -24,6 +24,7 @@ instance ToResourceProperties MultiMeasureAttributeMappingProperty where
   toResourceProperties MultiMeasureAttributeMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::ScheduledQuery.MultiMeasureAttributeMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MeasureValueType" JSON..= measureValueType,

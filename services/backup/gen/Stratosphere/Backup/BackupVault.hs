@@ -27,6 +27,7 @@ instance ToResourceProperties BackupVault where
   toResourceProperties BackupVault {..}
     = ResourceProperties
         {awsType = "AWS::Backup::BackupVault",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BackupVaultName" JSON..= backupVaultName]

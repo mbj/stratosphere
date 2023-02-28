@@ -24,6 +24,7 @@ instance ToResourceProperties InitialResponseSettingProperty where
   toResourceProperties InitialResponseSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.InitialResponseSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CodeHook" Prelude.<$> codeHook,

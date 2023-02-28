@@ -36,7 +36,7 @@ mkStream
 instance ToResourceProperties Stream where
   toResourceProperties Stream {..}
     = ResourceProperties
-        {awsType = "AWS::QLDB::Stream",
+        {awsType = "AWS::QLDB::Stream", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InclusiveStartTime" JSON..= inclusiveStartTime,

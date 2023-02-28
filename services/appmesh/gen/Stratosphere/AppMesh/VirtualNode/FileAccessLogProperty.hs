@@ -18,6 +18,7 @@ instance ToResourceProperties FileAccessLogProperty where
   toResourceProperties FileAccessLogProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.FileAccessLog",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Path" JSON..= path]

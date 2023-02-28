@@ -20,7 +20,7 @@ mkLogging accountId defaultLogLevel roleArn
 instance ToResourceProperties Logging where
   toResourceProperties Logging {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::Logging",
+        {awsType = "AWS::IoT::Logging", supportsTags = Prelude.False,
          properties = ["AccountId" JSON..= accountId,
                        "DefaultLogLevel" JSON..= defaultLogLevel,
                        "RoleArn" JSON..= roleArn]}

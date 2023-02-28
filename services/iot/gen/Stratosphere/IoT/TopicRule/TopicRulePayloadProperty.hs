@@ -26,6 +26,7 @@ instance ToResourceProperties TopicRulePayloadProperty where
   toResourceProperties TopicRulePayloadProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.TopicRulePayload",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Actions" JSON..= actions, "Sql" JSON..= sql]

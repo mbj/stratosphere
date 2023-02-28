@@ -20,6 +20,7 @@ instance ToResourceProperties ApiStageProperty where
   toResourceProperties ApiStageProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::UsagePlan.ApiStage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApiId" Prelude.<$> apiId,

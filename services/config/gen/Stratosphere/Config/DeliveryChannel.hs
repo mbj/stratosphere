@@ -25,6 +25,7 @@ instance ToResourceProperties DeliveryChannel where
   toResourceProperties DeliveryChannel {..}
     = ResourceProperties
         {awsType = "AWS::Config::DeliveryChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3BucketName" JSON..= s3BucketName]

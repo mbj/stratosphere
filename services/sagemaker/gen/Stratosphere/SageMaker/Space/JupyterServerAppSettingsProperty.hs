@@ -18,6 +18,7 @@ instance ToResourceProperties JupyterServerAppSettingsProperty where
   toResourceProperties JupyterServerAppSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Space.JupyterServerAppSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec])}

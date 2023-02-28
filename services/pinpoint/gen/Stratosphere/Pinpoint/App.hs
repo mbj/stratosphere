@@ -14,7 +14,7 @@ mkApp name = App {name = name, tags = Prelude.Nothing}
 instance ToResourceProperties App where
   toResourceProperties App {..}
     = ResourceProperties
-        {awsType = "AWS::Pinpoint::App",
+        {awsType = "AWS::Pinpoint::App", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

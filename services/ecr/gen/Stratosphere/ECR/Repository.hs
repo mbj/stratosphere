@@ -30,7 +30,7 @@ mkRepository
 instance ToResourceProperties Repository where
   toResourceProperties Repository {..}
     = ResourceProperties
-        {awsType = "AWS::ECR::Repository",
+        {awsType = "AWS::ECR::Repository", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EncryptionConfiguration"

@@ -15,6 +15,7 @@ instance ToResourceProperties EnclaveOptionsProperty where
   toResourceProperties EnclaveOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.EnclaveOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled])}
 instance JSON.ToJSON EnclaveOptionsProperty where

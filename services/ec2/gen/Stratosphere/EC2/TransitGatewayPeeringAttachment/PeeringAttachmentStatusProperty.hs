@@ -19,6 +19,7 @@ instance ToResourceProperties PeeringAttachmentStatusProperty where
   toResourceProperties PeeringAttachmentStatusProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TransitGatewayPeeringAttachment.PeeringAttachmentStatus",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Code" Prelude.<$> code,

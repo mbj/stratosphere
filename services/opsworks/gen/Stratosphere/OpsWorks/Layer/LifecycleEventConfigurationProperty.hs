@@ -18,6 +18,7 @@ instance ToResourceProperties LifecycleEventConfigurationProperty where
   toResourceProperties LifecycleEventConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Layer.LifecycleEventConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ShutdownEventConfiguration"

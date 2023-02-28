@@ -18,6 +18,7 @@ instance ToResourceProperties ScopeProperty where
   toResourceProperties ScopeProperty {..}
     = ResourceProperties
         {awsType = "AWS::AuditManager::Assessment.Scope",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AwsAccounts" Prelude.<$> awsAccounts,

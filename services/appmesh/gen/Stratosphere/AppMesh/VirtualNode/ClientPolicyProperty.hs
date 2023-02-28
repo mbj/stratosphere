@@ -15,6 +15,7 @@ instance ToResourceProperties ClientPolicyProperty where
   toResourceProperties ClientPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.ClientPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "TLS" Prelude.<$> tLS])}
 instance JSON.ToJSON ClientPolicyProperty where

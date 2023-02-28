@@ -21,6 +21,7 @@ instance ToResourceProperties VpcLink where
   toResourceProperties VpcLink {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::VpcLink",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "SubnetIds" JSON..= subnetIds]

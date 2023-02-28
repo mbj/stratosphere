@@ -17,6 +17,7 @@ instance ToResourceProperties SessionAttributeProperty where
   toResourceProperties SessionAttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SessionAttribute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Key" JSON..= key]

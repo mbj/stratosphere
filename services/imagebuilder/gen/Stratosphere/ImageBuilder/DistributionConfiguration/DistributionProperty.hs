@@ -30,6 +30,7 @@ instance ToResourceProperties DistributionProperty where
   toResourceProperties DistributionProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::DistributionConfiguration.Distribution",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Region" JSON..= region]

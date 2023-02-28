@@ -20,6 +20,7 @@ instance ToResourceProperties DynamicSsmParameterProperty where
   toResourceProperties DynamicSsmParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ResponsePlan.DynamicSsmParameter",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON DynamicSsmParameterProperty where
   toJSON DynamicSsmParameterProperty {..}

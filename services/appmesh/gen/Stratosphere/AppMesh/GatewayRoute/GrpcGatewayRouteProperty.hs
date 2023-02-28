@@ -3,6 +3,7 @@ module Stratosphere.AppMesh.GatewayRoute.GrpcGatewayRouteProperty (
         mkGrpcGatewayRouteProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GrpcGatewayRouteActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GrpcGatewayRouteMatchProperty as Exports
@@ -19,6 +20,7 @@ instance ToResourceProperties GrpcGatewayRouteProperty where
   toResourceProperties GrpcGatewayRouteProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.GrpcGatewayRoute",
+         supportsTags = Prelude.False,
          properties = ["Action" JSON..= action, "Match" JSON..= match]}
 instance JSON.ToJSON GrpcGatewayRouteProperty where
   toJSON GrpcGatewayRouteProperty {..}

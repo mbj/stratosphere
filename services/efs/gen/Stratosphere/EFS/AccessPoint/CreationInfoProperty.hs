@@ -21,6 +21,7 @@ instance ToResourceProperties CreationInfoProperty where
   toResourceProperties CreationInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::EFS::AccessPoint.CreationInfo",
+         supportsTags = Prelude.False,
          properties = ["OwnerGid" JSON..= ownerGid,
                        "OwnerUid" JSON..= ownerUid, "Permissions" JSON..= permissions]}
 instance JSON.ToJSON CreationInfoProperty where

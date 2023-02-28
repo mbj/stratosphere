@@ -15,6 +15,7 @@ instance ToResourceProperties InstanceReusePolicyProperty where
   toResourceProperties InstanceReusePolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::WarmPool.InstanceReusePolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReuseOnScaleIn" Prelude.<$> reuseOnScaleIn])}

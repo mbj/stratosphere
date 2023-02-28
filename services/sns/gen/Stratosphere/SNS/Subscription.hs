@@ -31,7 +31,7 @@ mkSubscription protocol topicArn
 instance ToResourceProperties Subscription where
   toResourceProperties Subscription {..}
     = ResourceProperties
-        {awsType = "AWS::SNS::Subscription",
+        {awsType = "AWS::SNS::Subscription", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Protocol" JSON..= protocol, "TopicArn" JSON..= topicArn]

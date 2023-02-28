@@ -24,6 +24,7 @@ instance ToResourceProperties ThemeConfigurationProperty where
   toResourceProperties ThemeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.ThemeConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataColorPalette" Prelude.<$> dataColorPalette,

@@ -14,6 +14,7 @@ instance ToResourceProperties ModelProperty where
   toResourceProperties ModelProperty {..}
     = ResourceProperties
         {awsType = "AWS::FraudDetector::Detector.Model",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Arn" Prelude.<$> arn])}
 instance JSON.ToJSON ModelProperty where

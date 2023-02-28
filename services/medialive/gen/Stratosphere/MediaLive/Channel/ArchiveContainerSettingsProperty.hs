@@ -20,6 +20,7 @@ instance ToResourceProperties ArchiveContainerSettingsProperty where
   toResourceProperties ArchiveContainerSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.ArchiveContainerSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "M2tsSettings" Prelude.<$> m2tsSettings,

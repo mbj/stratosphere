@@ -19,6 +19,7 @@ instance ToResourceProperties CategoricalHyperParameterRangeProperty where
   toResourceProperties CategoricalHyperParameterRangeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Solution.CategoricalHyperParameterRange",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

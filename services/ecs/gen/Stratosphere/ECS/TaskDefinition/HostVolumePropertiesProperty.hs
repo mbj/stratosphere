@@ -15,6 +15,7 @@ instance ToResourceProperties HostVolumePropertiesProperty where
   toResourceProperties HostVolumePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.HostVolumeProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SourcePath" Prelude.<$> sourcePath])}

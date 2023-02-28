@@ -19,6 +19,7 @@ instance ToResourceProperties ProjectSourceVersionProperty where
   toResourceProperties ProjectSourceVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.ProjectSourceVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SourceIdentifier" JSON..= sourceIdentifier]

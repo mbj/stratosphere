@@ -19,6 +19,7 @@ instance ToResourceProperties SerdeInfoProperty where
   toResourceProperties SerdeInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Partition.SerdeInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

@@ -38,6 +38,7 @@ instance ToResourceProperties SalesforceConfigurationProperty where
   toResourceProperties SalesforceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.SalesforceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SecretArn" JSON..= secretArn, "ServerUrl" JSON..= serverUrl]

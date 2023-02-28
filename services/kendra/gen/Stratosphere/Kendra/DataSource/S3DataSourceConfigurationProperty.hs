@@ -30,6 +30,7 @@ instance ToResourceProperties S3DataSourceConfigurationProperty where
   toResourceProperties S3DataSourceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.S3DataSourceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName]

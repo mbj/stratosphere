@@ -26,6 +26,7 @@ instance ToResourceProperties ScheduledActionProperty where
   toResourceProperties ScheduledActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationAutoScaling::ScalableTarget.ScheduledAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Schedule" JSON..= schedule,

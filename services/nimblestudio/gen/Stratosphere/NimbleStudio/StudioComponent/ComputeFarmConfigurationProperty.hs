@@ -19,6 +19,7 @@ instance ToResourceProperties ComputeFarmConfigurationProperty where
   toResourceProperties ComputeFarmConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::StudioComponent.ComputeFarmConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ActiveDirectoryUser" Prelude.<$> activeDirectoryUser,

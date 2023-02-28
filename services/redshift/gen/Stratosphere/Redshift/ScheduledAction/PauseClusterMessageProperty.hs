@@ -17,6 +17,7 @@ instance ToResourceProperties PauseClusterMessageProperty where
   toResourceProperties PauseClusterMessageProperty {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::ScheduledAction.PauseClusterMessage",
+         supportsTags = Prelude.False,
          properties = ["ClusterIdentifier" JSON..= clusterIdentifier]}
 instance JSON.ToJSON PauseClusterMessageProperty where
   toJSON PauseClusterMessageProperty {..}

@@ -38,6 +38,7 @@ instance ToResourceProperties MaintenanceWindowRunCommandParametersProperty wher
     MaintenanceWindowRunCommandParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTask.MaintenanceWindowRunCommandParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchOutputConfig"

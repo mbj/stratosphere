@@ -18,6 +18,7 @@ instance ToResourceProperties HighAvailabilityConfigProperty where
   toResourceProperties HighAvailabilityConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::M2::Environment.HighAvailabilityConfig",
+         supportsTags = Prelude.False,
          properties = ["DesiredCapacity" JSON..= desiredCapacity]}
 instance JSON.ToJSON HighAvailabilityConfigProperty where
   toJSON HighAvailabilityConfigProperty {..}

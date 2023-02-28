@@ -20,6 +20,7 @@ instance ToResourceProperties XMLClassifierProperty where
   toResourceProperties XMLClassifierProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Classifier.XMLClassifier",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Classification" JSON..= classification, "RowTag" JSON..= rowTag]

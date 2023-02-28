@@ -3,6 +3,7 @@ module Stratosphere.AppMesh.VirtualRouter.VirtualRouterSpecProperty (
         mkVirtualRouterSpecProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.VirtualRouter.VirtualRouterListenerProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties VirtualRouterSpecProperty where
   toResourceProperties VirtualRouterSpecProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualRouter.VirtualRouterSpec",
+         supportsTags = Prelude.False,
          properties = ["Listeners" JSON..= listeners]}
 instance JSON.ToJSON VirtualRouterSpecProperty where
   toJSON VirtualRouterSpecProperty {..}

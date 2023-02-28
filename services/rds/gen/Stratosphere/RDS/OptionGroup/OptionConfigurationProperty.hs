@@ -28,6 +28,7 @@ instance ToResourceProperties OptionConfigurationProperty where
   toResourceProperties OptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::OptionGroup.OptionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["OptionName" JSON..= optionName]

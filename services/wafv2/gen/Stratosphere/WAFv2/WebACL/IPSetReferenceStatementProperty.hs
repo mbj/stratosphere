@@ -20,6 +20,7 @@ instance ToResourceProperties IPSetReferenceStatementProperty where
   toResourceProperties IPSetReferenceStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.IPSetReferenceStatement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Arn" JSON..= arn]

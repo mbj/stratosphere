@@ -20,7 +20,7 @@ mkMesh
 instance ToResourceProperties Mesh where
   toResourceProperties Mesh {..}
     = ResourceProperties
-        {awsType = "AWS::AppMesh::Mesh",
+        {awsType = "AWS::AppMesh::Mesh", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MeshName" Prelude.<$> meshName,

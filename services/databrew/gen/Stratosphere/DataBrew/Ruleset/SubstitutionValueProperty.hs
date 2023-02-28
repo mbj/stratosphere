@@ -19,6 +19,7 @@ instance ToResourceProperties SubstitutionValueProperty where
   toResourceProperties SubstitutionValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Ruleset.SubstitutionValue",
+         supportsTags = Prelude.False,
          properties = ["Value" JSON..= value,
                        "ValueReference" JSON..= valueReference]}
 instance JSON.ToJSON SubstitutionValueProperty where

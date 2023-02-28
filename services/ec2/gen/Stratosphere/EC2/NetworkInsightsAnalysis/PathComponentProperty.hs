@@ -51,6 +51,7 @@ instance ToResourceProperties PathComponentProperty where
   toResourceProperties PathComponentProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.PathComponent",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AclRule" Prelude.<$> aclRule,

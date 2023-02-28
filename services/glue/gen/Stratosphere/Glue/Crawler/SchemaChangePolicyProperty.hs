@@ -18,6 +18,7 @@ instance ToResourceProperties SchemaChangePolicyProperty where
   toResourceProperties SchemaChangePolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Crawler.SchemaChangePolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeleteBehavior" Prelude.<$> deleteBehavior,

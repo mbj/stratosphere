@@ -19,6 +19,7 @@ instance ToResourceProperties TaskDefinitionPlacementConstraintProperty where
   toResourceProperties TaskDefinitionPlacementConstraintProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.TaskDefinitionPlacementConstraint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

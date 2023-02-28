@@ -20,6 +20,7 @@ instance ToResourceProperties KinesisActionProperty where
   toResourceProperties KinesisActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.KinesisAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn, "StreamName" JSON..= streamName]

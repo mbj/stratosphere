@@ -16,6 +16,7 @@ instance ToResourceProperties AutoStartConfigurationProperty where
   toResourceProperties AutoStartConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMRServerless::Application.AutoStartConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled])}
 instance JSON.ToJSON AutoStartConfigurationProperty where

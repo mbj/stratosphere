@@ -17,6 +17,7 @@ instance ToResourceProperties TimecodeConfigProperty where
   toResourceProperties TimecodeConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.TimecodeConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Source" Prelude.<$> source,

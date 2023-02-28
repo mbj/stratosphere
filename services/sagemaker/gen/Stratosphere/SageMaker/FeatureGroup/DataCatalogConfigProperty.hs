@@ -21,6 +21,7 @@ instance ToResourceProperties DataCatalogConfigProperty where
   toResourceProperties DataCatalogConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::FeatureGroup.DataCatalogConfig",
+         supportsTags = Prelude.False,
          properties = ["Catalog" JSON..= catalog,
                        "Database" JSON..= database, "TableName" JSON..= tableName]}
 instance JSON.ToJSON DataCatalogConfigProperty where

@@ -20,7 +20,7 @@ mkGroup
 instance ToResourceProperties Group where
   toResourceProperties Group {..}
     = ResourceProperties
-        {awsType = "AWS::IAM::Group",
+        {awsType = "AWS::IAM::Group", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GroupName" Prelude.<$> groupName,

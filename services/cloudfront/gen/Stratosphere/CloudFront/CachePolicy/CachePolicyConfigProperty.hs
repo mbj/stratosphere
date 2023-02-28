@@ -37,6 +37,7 @@ instance ToResourceProperties CachePolicyConfigProperty where
   toResourceProperties CachePolicyConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::CachePolicy.CachePolicyConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DefaultTTL" JSON..= defaultTTL, "MaxTTL" JSON..= maxTTL,

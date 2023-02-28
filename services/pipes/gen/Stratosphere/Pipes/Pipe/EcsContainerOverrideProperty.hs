@@ -30,6 +30,7 @@ instance ToResourceProperties EcsContainerOverrideProperty where
   toResourceProperties EcsContainerOverrideProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.EcsContainerOverride",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Command" Prelude.<$> command,

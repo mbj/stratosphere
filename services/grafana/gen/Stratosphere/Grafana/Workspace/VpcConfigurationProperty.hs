@@ -19,6 +19,7 @@ instance ToResourceProperties VpcConfigurationProperty where
   toResourceProperties VpcConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Grafana::Workspace.VpcConfiguration",
+         supportsTags = Prelude.False,
          properties = ["SecurityGroupIds" JSON..= securityGroupIds,
                        "SubnetIds" JSON..= subnetIds]}
 instance JSON.ToJSON VpcConfigurationProperty where

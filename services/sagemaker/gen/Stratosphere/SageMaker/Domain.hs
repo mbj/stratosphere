@@ -39,7 +39,7 @@ mkDomain authMode defaultUserSettings domainName subnetIds vpcId
 instance ToResourceProperties Domain where
   toResourceProperties Domain {..}
     = ResourceProperties
-        {awsType = "AWS::SageMaker::Domain",
+        {awsType = "AWS::SageMaker::Domain", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthMode" JSON..= authMode,

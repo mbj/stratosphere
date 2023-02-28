@@ -19,6 +19,7 @@ instance ToResourceProperties PatchSourceProperty where
   toResourceProperties PatchSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::PatchBaseline.PatchSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Configuration" Prelude.<$> configuration,

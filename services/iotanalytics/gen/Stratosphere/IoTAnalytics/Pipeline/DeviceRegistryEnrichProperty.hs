@@ -25,6 +25,7 @@ instance ToResourceProperties DeviceRegistryEnrichProperty where
   toResourceProperties DeviceRegistryEnrichProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline.DeviceRegistryEnrich",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Attribute" JSON..= attribute, "Name" JSON..= name,

@@ -16,6 +16,7 @@ instance ToResourceProperties VpcConnectivityTlsProperty where
   toResourceProperties VpcConnectivityTlsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.VpcConnectivityTls",
+         supportsTags = Prelude.False,
          properties = ["Enabled" JSON..= enabled]}
 instance JSON.ToJSON VpcConnectivityTlsProperty where
   toJSON VpcConnectivityTlsProperty {..}

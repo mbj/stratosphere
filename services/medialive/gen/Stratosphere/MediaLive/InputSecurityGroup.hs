@@ -17,6 +17,7 @@ instance ToResourceProperties InputSecurityGroup where
   toResourceProperties InputSecurityGroup {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::InputSecurityGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Tags" Prelude.<$> tags,

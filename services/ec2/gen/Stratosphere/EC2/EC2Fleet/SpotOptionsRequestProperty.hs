@@ -32,6 +32,7 @@ instance ToResourceProperties SpotOptionsRequestProperty where
   toResourceProperties SpotOptionsRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EC2Fleet.SpotOptionsRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllocationStrategy" Prelude.<$> allocationStrategy,

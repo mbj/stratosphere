@@ -19,6 +19,7 @@ instance ToResourceProperties GraphQLSchema where
   toResourceProperties GraphQLSchema {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::GraphQLSchema",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId]

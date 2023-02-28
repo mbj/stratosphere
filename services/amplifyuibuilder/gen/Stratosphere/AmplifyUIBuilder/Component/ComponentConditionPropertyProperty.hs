@@ -28,6 +28,7 @@ instance ToResourceProperties ComponentConditionPropertyProperty where
   toResourceProperties ComponentConditionPropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.ComponentConditionProperty",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Else" Prelude.<$> else',

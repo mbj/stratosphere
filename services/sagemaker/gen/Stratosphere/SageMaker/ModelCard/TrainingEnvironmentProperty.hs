@@ -15,6 +15,7 @@ instance ToResourceProperties TrainingEnvironmentProperty where
   toResourceProperties TrainingEnvironmentProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.TrainingEnvironment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerImage" Prelude.<$> containerImage])}

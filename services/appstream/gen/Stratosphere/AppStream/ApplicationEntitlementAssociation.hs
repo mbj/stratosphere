@@ -26,6 +26,7 @@ instance ToResourceProperties ApplicationEntitlementAssociation where
   toResourceProperties ApplicationEntitlementAssociation {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::ApplicationEntitlementAssociation",
+         supportsTags = Prelude.False,
          properties = ["ApplicationIdentifier"
                          JSON..= applicationIdentifier,
                        "EntitlementName" JSON..= entitlementName,
