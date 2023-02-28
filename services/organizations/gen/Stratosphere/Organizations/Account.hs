@@ -23,6 +23,7 @@ instance ToResourceProperties Account where
   toResourceProperties Account {..}
     = ResourceProperties
         {awsType = "AWS::Organizations::Account",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccountName" JSON..= accountName, "Email" JSON..= email]

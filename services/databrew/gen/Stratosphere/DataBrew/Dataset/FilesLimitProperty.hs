@@ -19,6 +19,7 @@ instance ToResourceProperties FilesLimitProperty where
   toResourceProperties FilesLimitProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.FilesLimit",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MaxFiles" JSON..= maxFiles]

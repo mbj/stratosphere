@@ -27,7 +27,7 @@ mkApp appName appType domainId userProfileName
 instance ToResourceProperties App where
   toResourceProperties App {..}
     = ResourceProperties
-        {awsType = "AWS::SageMaker::App",
+        {awsType = "AWS::SageMaker::App", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AppName" JSON..= appName, "AppType" JSON..= appType,

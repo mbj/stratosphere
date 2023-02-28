@@ -28,6 +28,7 @@ instance ToResourceProperties CustomConnectorProfileCredentialsProperty where
   toResourceProperties CustomConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.CustomConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthenticationType" JSON..= authenticationType]

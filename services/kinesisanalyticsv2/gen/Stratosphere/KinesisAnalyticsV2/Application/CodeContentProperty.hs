@@ -20,6 +20,7 @@ instance ToResourceProperties CodeContentProperty where
   toResourceProperties CodeContentProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.CodeContent",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "S3ContentLocation" Prelude.<$> s3ContentLocation,

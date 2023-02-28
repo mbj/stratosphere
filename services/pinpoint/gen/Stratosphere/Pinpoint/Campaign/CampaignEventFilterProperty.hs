@@ -19,6 +19,7 @@ instance ToResourceProperties CampaignEventFilterProperty where
   toResourceProperties CampaignEventFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.CampaignEventFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Dimensions" Prelude.<$> dimensions,

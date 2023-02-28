@@ -20,6 +20,7 @@ instance ToResourceProperties Outcome where
   toResourceProperties Outcome {..}
     = ResourceProperties
         {awsType = "AWS::FraudDetector::Outcome",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -17,6 +17,7 @@ instance ToResourceProperties Schema where
   toResourceProperties Schema {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Schema",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Schema" JSON..= schema]

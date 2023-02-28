@@ -20,6 +20,7 @@ instance ToResourceProperties BasicAuthConfigProperty where
   toResourceProperties BasicAuthConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Amplify::Branch.BasicAuthConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Password" JSON..= password, "Username" JSON..= username]

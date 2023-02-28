@@ -39,6 +39,7 @@ instance ToResourceProperties MonitoringExecutionSummaryProperty where
   toResourceProperties MonitoringExecutionSummaryProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule.MonitoringExecutionSummary",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CreationTime" JSON..= creationTime,

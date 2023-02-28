@@ -21,6 +21,7 @@ instance ToResourceProperties Connection where
   toResourceProperties Connection {..}
     = ResourceProperties
         {awsType = "AWS::CodeStarConnections::Connection",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectionName" JSON..= connectionName]

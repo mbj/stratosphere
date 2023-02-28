@@ -73,6 +73,7 @@ instance ToResourceProperties FilterCriteriaProperty where
   toResourceProperties FilterCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::InspectorV2::Filter.FilterCriteria",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AwsAccountId" Prelude.<$> awsAccountId,

@@ -17,6 +17,7 @@ instance ToResourceProperties PropertyGroupProperty where
   toResourceProperties PropertyGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::ComponentType.PropertyGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GroupType" Prelude.<$> groupType,

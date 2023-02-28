@@ -27,7 +27,7 @@ mkWorkteam
 instance ToResourceProperties Workteam where
   toResourceProperties Workteam {..}
     = ResourceProperties
-        {awsType = "AWS::SageMaker::Workteam",
+        {awsType = "AWS::SageMaker::Workteam", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

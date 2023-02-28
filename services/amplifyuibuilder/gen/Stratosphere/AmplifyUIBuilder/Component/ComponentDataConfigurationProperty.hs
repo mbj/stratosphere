@@ -24,6 +24,7 @@ instance ToResourceProperties ComponentDataConfigurationProperty where
   toResourceProperties ComponentDataConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.ComponentDataConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Model" JSON..= model]

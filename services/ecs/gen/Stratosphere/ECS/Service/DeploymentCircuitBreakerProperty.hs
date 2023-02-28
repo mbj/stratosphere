@@ -20,6 +20,7 @@ instance ToResourceProperties DeploymentCircuitBreakerProperty where
   toResourceProperties DeploymentCircuitBreakerProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.DeploymentCircuitBreaker",
+         supportsTags = Prelude.False,
          properties = ["Enable" JSON..= enable,
                        "Rollback" JSON..= rollback]}
 instance JSON.ToJSON DeploymentCircuitBreakerProperty where

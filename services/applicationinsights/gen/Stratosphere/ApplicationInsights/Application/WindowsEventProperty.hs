@@ -22,6 +22,7 @@ instance ToResourceProperties WindowsEventProperty where
   toResourceProperties WindowsEventProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.WindowsEvent",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EventLevels" JSON..= eventLevels, "EventName" JSON..= eventName,

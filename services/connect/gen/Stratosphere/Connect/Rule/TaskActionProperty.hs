@@ -22,6 +22,7 @@ instance ToResourceProperties TaskActionProperty where
   toResourceProperties TaskActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::Rule.TaskAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ContactFlowArn" JSON..= contactFlowArn, "Name" JSON..= name]

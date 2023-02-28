@@ -17,6 +17,7 @@ instance ToResourceProperties EndpointProperty where
   toResourceProperties EndpointProperty {..}
     = ResourceProperties
         {awsType = "AWS::MemoryDB::Cluster.Endpoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Address" Prelude.<$> address,

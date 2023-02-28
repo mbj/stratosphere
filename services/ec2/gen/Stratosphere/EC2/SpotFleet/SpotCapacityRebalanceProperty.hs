@@ -18,6 +18,7 @@ instance ToResourceProperties SpotCapacityRebalanceProperty where
   toResourceProperties SpotCapacityRebalanceProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.SpotCapacityRebalance",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReplacementStrategy" Prelude.<$> replacementStrategy,

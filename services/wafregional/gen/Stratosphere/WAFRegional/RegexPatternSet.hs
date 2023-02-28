@@ -18,6 +18,7 @@ instance ToResourceProperties RegexPatternSet where
   toResourceProperties RegexPatternSet {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::RegexPatternSet",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name,
                        "RegexPatternStrings" JSON..= regexPatternStrings]}
 instance JSON.ToJSON RegexPatternSet where

@@ -20,6 +20,7 @@ instance ToResourceProperties Resource where
   toResourceProperties Resource {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::Resource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResourceArn" JSON..= resourceArn,

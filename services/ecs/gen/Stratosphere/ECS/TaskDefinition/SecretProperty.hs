@@ -17,6 +17,7 @@ instance ToResourceProperties SecretProperty where
   toResourceProperties SecretProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.Secret",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "ValueFrom" JSON..= valueFrom]}
 instance JSON.ToJSON SecretProperty where
   toJSON SecretProperty {..}

@@ -16,7 +16,7 @@ mkS3PathProperty bucket key
 instance ToResourceProperties S3PathProperty where
   toResourceProperties S3PathProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Kendra::Faq.S3Path",
+        {awsType = "AWS::Kendra::Faq.S3Path", supportsTags = Prelude.False,
          properties = ["Bucket" JSON..= bucket, "Key" JSON..= key]}
 instance JSON.ToJSON S3PathProperty where
   toJSON S3PathProperty {..}

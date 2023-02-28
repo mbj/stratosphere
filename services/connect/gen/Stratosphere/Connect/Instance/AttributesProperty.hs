@@ -26,6 +26,7 @@ instance ToResourceProperties AttributesProperty where
   toResourceProperties AttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::Instance.Attributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InboundCalls" JSON..= inboundCalls,

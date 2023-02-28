@@ -3,6 +3,7 @@ module Stratosphere.EC2.SpotFleet.ClassicLoadBalancersConfigProperty (
         mkClassicLoadBalancersConfigProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.ClassicLoadBalancerProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties ClassicLoadBalancersConfigProperty where
   toResourceProperties ClassicLoadBalancersConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.ClassicLoadBalancersConfig",
+         supportsTags = Prelude.False,
          properties = ["ClassicLoadBalancers" JSON..= classicLoadBalancers]}
 instance JSON.ToJSON ClassicLoadBalancersConfigProperty where
   toJSON ClassicLoadBalancersConfigProperty {..}

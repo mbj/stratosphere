@@ -25,7 +25,7 @@ mkStream
 instance ToResourceProperties Stream where
   toResourceProperties Stream {..}
     = ResourceProperties
-        {awsType = "AWS::Kinesis::Stream",
+        {awsType = "AWS::Kinesis::Stream", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

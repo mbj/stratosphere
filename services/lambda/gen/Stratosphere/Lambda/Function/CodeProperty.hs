@@ -22,6 +22,7 @@ instance ToResourceProperties CodeProperty where
   toResourceProperties CodeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.Code",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ImageUri" Prelude.<$> imageUri,

@@ -19,6 +19,7 @@ instance ToResourceProperties ControlInputParameterProperty where
   toResourceProperties ControlInputParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::Framework.ControlInputParameter",
+         supportsTags = Prelude.False,
          properties = ["ParameterName" JSON..= parameterName,
                        "ParameterValue" JSON..= parameterValue]}
 instance JSON.ToJSON ControlInputParameterProperty where

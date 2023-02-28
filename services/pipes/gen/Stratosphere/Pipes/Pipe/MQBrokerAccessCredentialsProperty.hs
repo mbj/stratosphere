@@ -17,6 +17,7 @@ instance ToResourceProperties MQBrokerAccessCredentialsProperty where
   toResourceProperties MQBrokerAccessCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.MQBrokerAccessCredentials",
+         supportsTags = Prelude.False,
          properties = ["BasicAuth" JSON..= basicAuth]}
 instance JSON.ToJSON MQBrokerAccessCredentialsProperty where
   toJSON MQBrokerAccessCredentialsProperty {..}

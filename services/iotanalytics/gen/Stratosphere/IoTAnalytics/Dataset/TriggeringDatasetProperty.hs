@@ -16,6 +16,7 @@ instance ToResourceProperties TriggeringDatasetProperty where
   toResourceProperties TriggeringDatasetProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.TriggeringDataset",
+         supportsTags = Prelude.False,
          properties = ["DatasetName" JSON..= datasetName]}
 instance JSON.ToJSON TriggeringDatasetProperty where
   toJSON TriggeringDatasetProperty {..}

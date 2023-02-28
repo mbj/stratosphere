@@ -15,6 +15,7 @@ instance ToResourceProperties SendingOptionsProperty where
   toResourceProperties SendingOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSet.SendingOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SendingEnabled" Prelude.<$> sendingEnabled])}

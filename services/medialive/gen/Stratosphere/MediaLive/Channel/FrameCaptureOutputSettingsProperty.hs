@@ -18,6 +18,7 @@ instance ToResourceProperties FrameCaptureOutputSettingsProperty where
   toResourceProperties FrameCaptureOutputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.FrameCaptureOutputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NameModifier" Prelude.<$> nameModifier])}

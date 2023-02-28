@@ -26,6 +26,7 @@ instance ToResourceProperties RateBasedStatementProperty where
   toResourceProperties RateBasedStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.RateBasedStatement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AggregateKeyType" JSON..= aggregateKeyType,

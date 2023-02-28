@@ -18,6 +18,7 @@ instance ToResourceProperties MailFromAttributesProperty where
   toResourceProperties MailFromAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::Identity.MailFromAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BehaviorOnMxFailure" Prelude.<$> behaviorOnMxFailure,

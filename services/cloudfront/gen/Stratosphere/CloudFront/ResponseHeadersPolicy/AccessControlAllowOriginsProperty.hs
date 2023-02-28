@@ -17,7 +17,7 @@ instance ToResourceProperties AccessControlAllowOriginsProperty where
   toResourceProperties AccessControlAllowOriginsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.AccessControlAllowOrigins",
-         properties = ["Items" JSON..= items]}
+         supportsTags = Prelude.False, properties = ["Items" JSON..= items]}
 instance JSON.ToJSON AccessControlAllowOriginsProperty where
   toJSON AccessControlAllowOriginsProperty {..}
     = JSON.object ["Items" JSON..= items]

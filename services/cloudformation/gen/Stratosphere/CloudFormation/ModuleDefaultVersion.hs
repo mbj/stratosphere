@@ -19,6 +19,7 @@ instance ToResourceProperties ModuleDefaultVersion where
   toResourceProperties ModuleDefaultVersion {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::ModuleDefaultVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn,

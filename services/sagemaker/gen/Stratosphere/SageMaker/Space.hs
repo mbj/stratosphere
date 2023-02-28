@@ -21,7 +21,7 @@ mkSpace domainId spaceName
 instance ToResourceProperties Space where
   toResourceProperties Space {..}
     = ResourceProperties
-        {awsType = "AWS::SageMaker::Space",
+        {awsType = "AWS::SageMaker::Space", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainId" JSON..= domainId, "SpaceName" JSON..= spaceName]

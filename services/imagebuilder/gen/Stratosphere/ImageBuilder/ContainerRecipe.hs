@@ -54,6 +54,7 @@ instance ToResourceProperties ContainerRecipe where
   toResourceProperties ContainerRecipe {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ContainerRecipe",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Components" JSON..= components,

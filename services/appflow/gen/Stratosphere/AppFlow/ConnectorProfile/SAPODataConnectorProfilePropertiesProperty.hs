@@ -30,6 +30,7 @@ instance ToResourceProperties SAPODataConnectorProfilePropertiesProperty where
     SAPODataConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.SAPODataConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplicationHostUrl" Prelude.<$> applicationHostUrl,

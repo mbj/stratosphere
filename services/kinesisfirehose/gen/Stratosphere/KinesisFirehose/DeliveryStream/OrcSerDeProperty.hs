@@ -33,6 +33,7 @@ instance ToResourceProperties OrcSerDeProperty where
   toResourceProperties OrcSerDeProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.OrcSerDe",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlockSizeBytes" Prelude.<$> blockSizeBytes,

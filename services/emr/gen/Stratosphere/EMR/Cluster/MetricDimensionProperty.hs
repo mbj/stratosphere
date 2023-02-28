@@ -17,6 +17,7 @@ instance ToResourceProperties MetricDimensionProperty where
   toResourceProperties MetricDimensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.MetricDimension",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON MetricDimensionProperty where
   toJSON MetricDimensionProperty {..}

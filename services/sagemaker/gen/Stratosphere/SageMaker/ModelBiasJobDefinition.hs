@@ -53,6 +53,7 @@ instance ToResourceProperties ModelBiasJobDefinition where
   toResourceProperties ModelBiasJobDefinition {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelBiasJobDefinition",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["JobResources" JSON..= jobResources,

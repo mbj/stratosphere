@@ -17,6 +17,7 @@ instance ToResourceProperties CookiesProperty where
   toResourceProperties CookiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.Cookies",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Forward" JSON..= forward]

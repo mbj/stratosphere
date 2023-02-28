@@ -3,6 +3,7 @@ module Stratosphere.MediaLive.Channel.FrameCaptureHlsSettingsProperty (
         mkFrameCaptureHlsSettingsProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FrameCaptureHlsSettingsProperty
   = FrameCaptureHlsSettingsProperty {}
@@ -14,6 +15,6 @@ instance ToResourceProperties FrameCaptureHlsSettingsProperty where
   toResourceProperties FrameCaptureHlsSettingsProperty {}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.FrameCaptureHlsSettings",
-         properties = []}
+         supportsTags = Prelude.False, properties = []}
 instance JSON.ToJSON FrameCaptureHlsSettingsProperty where
   toJSON FrameCaptureHlsSettingsProperty {} = JSON.object []

@@ -18,6 +18,7 @@ instance ToResourceProperties DecimalParameterProperty where
   toResourceProperties DecimalParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.DecimalParameter",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Values" JSON..= values]}
 instance JSON.ToJSON DecimalParameterProperty where
   toJSON DecimalParameterProperty {..}

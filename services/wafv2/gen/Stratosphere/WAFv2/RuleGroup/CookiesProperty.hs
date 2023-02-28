@@ -22,6 +22,7 @@ instance ToResourceProperties CookiesProperty where
   toResourceProperties CookiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.Cookies",
+         supportsTags = Prelude.False,
          properties = ["MatchPattern" JSON..= matchPattern,
                        "MatchScope" JSON..= matchScope,
                        "OversizeHandling" JSON..= oversizeHandling]}

@@ -36,6 +36,7 @@ instance ToResourceProperties DynamoDBActionProperty where
   toResourceProperties DynamoDBActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.DynamoDBAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HashKeyField" JSON..= hashKeyField,

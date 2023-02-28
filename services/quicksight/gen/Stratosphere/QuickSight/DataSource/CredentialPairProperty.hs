@@ -22,6 +22,7 @@ instance ToResourceProperties CredentialPairProperty where
   toResourceProperties CredentialPairProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.CredentialPair",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Password" JSON..= password, "Username" JSON..= username]

@@ -18,6 +18,7 @@ instance ToResourceProperties LocationProperty where
   toResourceProperties LocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.Location",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Country" Prelude.<$> country,

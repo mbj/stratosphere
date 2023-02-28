@@ -19,6 +19,7 @@ instance ToResourceProperties KinesisStreamConfigProperty where
   toResourceProperties KinesisStreamConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::RealtimeLogConfig.KinesisStreamConfig",
+         supportsTags = Prelude.False,
          properties = ["RoleArn" JSON..= roleArn,
                        "StreamArn" JSON..= streamArn]}
 instance JSON.ToJSON KinesisStreamConfigProperty where

@@ -20,6 +20,7 @@ instance ToResourceProperties ComponentDependencyRequirementProperty where
   toResourceProperties ComponentDependencyRequirementProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::ComponentVersion.ComponentDependencyRequirement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DependencyType" Prelude.<$> dependencyType,

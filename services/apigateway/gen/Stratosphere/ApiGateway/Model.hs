@@ -21,7 +21,7 @@ mkModel restApiId
 instance ToResourceProperties Model where
   toResourceProperties Model {..}
     = ResourceProperties
-        {awsType = "AWS::ApiGateway::Model",
+        {awsType = "AWS::ApiGateway::Model", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RestApiId" JSON..= restApiId]

@@ -33,6 +33,7 @@ instance ToResourceProperties Workgroup where
   toResourceProperties Workgroup {..}
     = ResourceProperties
         {awsType = "AWS::RedshiftServerless::Workgroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["WorkgroupName" JSON..= workgroupName]

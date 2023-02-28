@@ -22,6 +22,7 @@ instance ToResourceProperties PartitionInputProperty where
   toResourceProperties PartitionInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Partition.PartitionInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Values" JSON..= values]

@@ -21,7 +21,7 @@ mkUser authenticationType userName
 instance ToResourceProperties User where
   toResourceProperties User {..}
     = ResourceProperties
-        {awsType = "AWS::AppStream::User",
+        {awsType = "AWS::AppStream::User", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthenticationType" JSON..= authenticationType,

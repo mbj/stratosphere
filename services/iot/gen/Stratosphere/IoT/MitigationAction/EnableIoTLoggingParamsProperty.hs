@@ -20,6 +20,7 @@ instance ToResourceProperties EnableIoTLoggingParamsProperty where
   toResourceProperties EnableIoTLoggingParamsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::MitigationAction.EnableIoTLoggingParams",
+         supportsTags = Prelude.False,
          properties = ["LogLevel" JSON..= logLevel,
                        "RoleArnForLogging" JSON..= roleArnForLogging]}
 instance JSON.ToJSON EnableIoTLoggingParamsProperty where

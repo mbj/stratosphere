@@ -19,6 +19,7 @@ instance ToResourceProperties MountPointProperty where
   toResourceProperties MountPointProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.MountPoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerPath" Prelude.<$> containerPath,

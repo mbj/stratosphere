@@ -18,6 +18,7 @@ instance ToResourceProperties KeyMapProperty where
   toResourceProperties KeyMapProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::ObjectType.KeyMap",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

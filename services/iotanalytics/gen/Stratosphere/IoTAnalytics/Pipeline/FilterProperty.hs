@@ -19,6 +19,7 @@ instance ToResourceProperties FilterProperty where
   toResourceProperties FilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline.Filter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Filter" JSON..= filter, "Name" JSON..= name]

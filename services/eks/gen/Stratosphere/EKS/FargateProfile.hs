@@ -27,7 +27,7 @@ mkFargateProfile clusterName podExecutionRoleArn selectors
 instance ToResourceProperties FargateProfile where
   toResourceProperties FargateProfile {..}
     = ResourceProperties
-        {awsType = "AWS::EKS::FargateProfile",
+        {awsType = "AWS::EKS::FargateProfile", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterName" JSON..= clusterName,

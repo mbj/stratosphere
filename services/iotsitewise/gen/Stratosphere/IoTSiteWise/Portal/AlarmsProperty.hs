@@ -18,6 +18,7 @@ instance ToResourceProperties AlarmsProperty where
   toResourceProperties AlarmsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::Portal.Alarms",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AlarmRoleArn" Prelude.<$> alarmRoleArn,

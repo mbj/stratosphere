@@ -25,6 +25,7 @@ instance ToResourceProperties RateBasedRule where
   toResourceProperties RateBasedRule {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::RateBasedRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricName" JSON..= metricName, "Name" JSON..= name,

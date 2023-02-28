@@ -22,6 +22,7 @@ instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetHub::Application",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationName" JSON..= applicationName,

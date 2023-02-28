@@ -26,6 +26,7 @@ instance ToResourceProperties VPCEndpointConnectionNotification where
   toResourceProperties VPCEndpointConnectionNotification {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VPCEndpointConnectionNotification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectionEvents" JSON..= connectionEvents,

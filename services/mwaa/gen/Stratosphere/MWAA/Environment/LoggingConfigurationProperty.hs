@@ -23,6 +23,7 @@ instance ToResourceProperties LoggingConfigurationProperty where
   toResourceProperties LoggingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MWAA::Environment.LoggingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DagProcessingLogs" Prelude.<$> dagProcessingLogs,

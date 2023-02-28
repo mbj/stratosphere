@@ -23,6 +23,7 @@ instance ToResourceProperties Project where
   toResourceProperties Project {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::Project",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PortalId" JSON..= portalId, "ProjectName" JSON..= projectName]

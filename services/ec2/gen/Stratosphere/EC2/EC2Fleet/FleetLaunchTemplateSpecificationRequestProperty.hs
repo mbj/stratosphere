@@ -23,6 +23,7 @@ instance ToResourceProperties FleetLaunchTemplateSpecificationRequestProperty wh
     FleetLaunchTemplateSpecificationRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EC2Fleet.FleetLaunchTemplateSpecificationRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Version" JSON..= version]

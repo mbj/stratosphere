@@ -35,7 +35,7 @@ mkCluster resourcesVpcConfig roleArn
 instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
-        {awsType = "AWS::EKS::Cluster",
+        {awsType = "AWS::EKS::Cluster", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResourcesVpcConfig" JSON..= resourcesVpcConfig,

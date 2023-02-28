@@ -17,6 +17,7 @@ instance ToResourceProperties WebCrawlerSiteMapsConfigurationProperty where
   toResourceProperties WebCrawlerSiteMapsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.WebCrawlerSiteMapsConfiguration",
+         supportsTags = Prelude.False,
          properties = ["SiteMaps" JSON..= siteMaps]}
 instance JSON.ToJSON WebCrawlerSiteMapsConfigurationProperty where
   toJSON WebCrawlerSiteMapsConfigurationProperty {..}

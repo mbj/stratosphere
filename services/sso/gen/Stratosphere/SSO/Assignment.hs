@@ -33,7 +33,7 @@ mkAssignment
 instance ToResourceProperties Assignment where
   toResourceProperties Assignment {..}
     = ResourceProperties
-        {awsType = "AWS::SSO::Assignment",
+        {awsType = "AWS::SSO::Assignment", supportsTags = Prelude.False,
          properties = ["InstanceArn" JSON..= instanceArn,
                        "PermissionSetArn" JSON..= permissionSetArn,
                        "PrincipalId" JSON..= principalId,

@@ -19,6 +19,7 @@ instance ToResourceProperties ContactTargetInfoProperty where
   toResourceProperties ContactTargetInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMContacts::Contact.ContactTargetInfo",
+         supportsTags = Prelude.False,
          properties = ["ContactId" JSON..= contactId,
                        "IsEssential" JSON..= isEssential]}
 instance JSON.ToJSON ContactTargetInfoProperty where

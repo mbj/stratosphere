@@ -185,11 +185,16 @@ genRecord Record{..} = runGen $ do
 
               propertiesExpression <- genMergeExpression required optional
 
-              pure $ GHC.recordConE "ResourceProperties"
-                [ ("awsType",    GHC.string $ Text.unpack awsType)
-                , ("properties", propertiesExpression)
+              addImport Prelude $ GHC.recordConE "ResourceProperties"
+                [ ("awsType",      GHC.string $ Text.unpack awsType)
+                , ("supportsTags", supportsTags)
+                , ("properties",   propertiesExpression)
                 ]
 
+            supportsTags =
+              if Map.member (Raw.PropertyName "Tags") properties
+                then GHC.var "Prelude.True"
+                else GHC.var "Prelude.False"
 
     genMergeExpression :: [GHC.HsExpr'] -> [GHC.HsExpr'] -> Generator GHC.HsExpr'
     genMergeExpression required optional

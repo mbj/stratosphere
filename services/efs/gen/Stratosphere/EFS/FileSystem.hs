@@ -36,7 +36,7 @@ mkFileSystem
 instance ToResourceProperties FileSystem where
   toResourceProperties FileSystem {..}
     = ResourceProperties
-        {awsType = "AWS::EFS::FileSystem",
+        {awsType = "AWS::EFS::FileSystem", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZoneName" Prelude.<$> availabilityZoneName,

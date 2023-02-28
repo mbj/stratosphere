@@ -25,6 +25,7 @@ instance ToResourceProperties ScalingConfigurationProperty where
   toResourceProperties ScalingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBCluster.ScalingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutoPause" Prelude.<$> autoPause,

@@ -28,7 +28,7 @@ mkTheme awsAccountId themeId
 instance ToResourceProperties Theme where
   toResourceProperties Theme {..}
     = ResourceProperties
-        {awsType = "AWS::QuickSight::Theme",
+        {awsType = "AWS::QuickSight::Theme", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AwsAccountId" JSON..= awsAccountId, "ThemeId" JSON..= themeId]

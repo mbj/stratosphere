@@ -19,6 +19,7 @@ instance ToResourceProperties NielsenCBETProperty where
   toResourceProperties NielsenCBETProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.NielsenCBET",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CbetCheckDigitString" Prelude.<$> cbetCheckDigitString,

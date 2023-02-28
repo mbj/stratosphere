@@ -20,6 +20,7 @@ instance ToResourceProperties FormButtonProperty where
   toResourceProperties FormButtonProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.FormButton",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Children" Prelude.<$> children,

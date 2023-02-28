@@ -21,6 +21,7 @@ instance ToResourceProperties ArtifactStoreProperty where
   toResourceProperties ArtifactStoreProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Pipeline.ArtifactStore",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Location" JSON..= location, "Type" JSON..= type']

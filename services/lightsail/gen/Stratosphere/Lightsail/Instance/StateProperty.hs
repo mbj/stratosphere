@@ -16,6 +16,7 @@ instance ToResourceProperties StateProperty where
   toResourceProperties StateProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Instance.State",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Code" Prelude.<$> code,

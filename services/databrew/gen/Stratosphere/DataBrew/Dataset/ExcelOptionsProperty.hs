@@ -19,6 +19,7 @@ instance ToResourceProperties ExcelOptionsProperty where
   toResourceProperties ExcelOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.ExcelOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HeaderRow" Prelude.<$> headerRow,

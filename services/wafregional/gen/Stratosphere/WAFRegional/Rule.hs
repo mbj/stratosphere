@@ -19,7 +19,7 @@ mkRule metricName name
 instance ToResourceProperties Rule where
   toResourceProperties Rule {..}
     = ResourceProperties
-        {awsType = "AWS::WAFRegional::Rule",
+        {awsType = "AWS::WAFRegional::Rule", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricName" JSON..= metricName, "Name" JSON..= name]

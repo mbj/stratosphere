@@ -19,6 +19,7 @@ instance ToResourceProperties ApiPassthroughProperty where
   toResourceProperties ApiPassthroughProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate.ApiPassthrough",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Extensions" Prelude.<$> extensions,

@@ -17,6 +17,7 @@ instance ToResourceProperties CodeProperty where
   toResourceProperties CodeProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeCommit::Repository.Code",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3" JSON..= s3]

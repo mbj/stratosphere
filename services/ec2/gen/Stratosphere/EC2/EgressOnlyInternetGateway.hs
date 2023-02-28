@@ -16,7 +16,7 @@ instance ToResourceProperties EgressOnlyInternetGateway where
   toResourceProperties EgressOnlyInternetGateway {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EgressOnlyInternetGateway",
-         properties = ["VpcId" JSON..= vpcId]}
+         supportsTags = Prelude.False, properties = ["VpcId" JSON..= vpcId]}
 instance JSON.ToJSON EgressOnlyInternetGateway where
   toJSON EgressOnlyInternetGateway {..}
     = JSON.object ["VpcId" JSON..= vpcId]

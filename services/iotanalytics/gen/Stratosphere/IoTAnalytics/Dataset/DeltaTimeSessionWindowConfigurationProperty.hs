@@ -20,6 +20,7 @@ instance ToResourceProperties DeltaTimeSessionWindowConfigurationProperty where
     DeltaTimeSessionWindowConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.DeltaTimeSessionWindowConfiguration",
+         supportsTags = Prelude.False,
          properties = ["TimeoutInMinutes" JSON..= timeoutInMinutes]}
 instance JSON.ToJSON DeltaTimeSessionWindowConfigurationProperty where
   toJSON DeltaTimeSessionWindowConfigurationProperty {..}

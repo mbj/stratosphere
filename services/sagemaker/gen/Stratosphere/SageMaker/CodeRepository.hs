@@ -21,6 +21,7 @@ instance ToResourceProperties CodeRepository where
   toResourceProperties CodeRepository {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::CodeRepository",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GitConfig" JSON..= gitConfig]

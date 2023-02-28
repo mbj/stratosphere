@@ -25,6 +25,7 @@ instance ToResourceProperties ConfluenceSpaceToIndexFieldMappingProperty where
     ConfluenceSpaceToIndexFieldMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ConfluenceSpaceToIndexFieldMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataSourceFieldName" JSON..= dataSourceFieldName,

@@ -17,6 +17,7 @@ instance ToResourceProperties ExternalSourceSettingProperty where
   toResourceProperties ExternalSourceSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.ExternalSourceSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GrammarSlotTypeSetting"

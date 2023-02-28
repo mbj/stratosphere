@@ -12,8 +12,9 @@ import qualified Data.Aeson.Types as JSON
 
 data ResourceProperties
   = ResourceProperties
-  { awsType    :: Text
-  , properties :: JSON.Object
+  { awsType      :: Text
+  , properties   :: JSON.Object
+  , supportsTags :: Bool
   }
   deriving (Show, Eq)
 

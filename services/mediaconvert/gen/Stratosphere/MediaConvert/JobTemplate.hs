@@ -32,6 +32,7 @@ instance ToResourceProperties JobTemplate where
   toResourceProperties JobTemplate {..}
     = ResourceProperties
         {awsType = "AWS::MediaConvert::JobTemplate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SettingsJson" JSON..= settingsJson]

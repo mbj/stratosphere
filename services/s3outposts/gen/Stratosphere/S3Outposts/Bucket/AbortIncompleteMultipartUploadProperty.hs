@@ -18,6 +18,7 @@ instance ToResourceProperties AbortIncompleteMultipartUploadProperty where
   toResourceProperties AbortIncompleteMultipartUploadProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3Outposts::Bucket.AbortIncompleteMultipartUpload",
+         supportsTags = Prelude.False,
          properties = ["DaysAfterInitiation" JSON..= daysAfterInitiation]}
 instance JSON.ToJSON AbortIncompleteMultipartUploadProperty where
   toJSON AbortIncompleteMultipartUploadProperty {..}

@@ -21,6 +21,7 @@ instance ToResourceProperties SequenceStore where
   toResourceProperties SequenceStore {..}
     = ResourceProperties
         {awsType = "AWS::Omics::SequenceStore",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -20,6 +20,7 @@ instance ToResourceProperties RemixSettingsProperty where
   toResourceProperties RemixSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.RemixSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ChannelMappings" Prelude.<$> channelMappings,

@@ -18,6 +18,7 @@ instance ToResourceProperties S3OutputConfigurationProperty where
   toResourceProperties S3OutputConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutEquipment::InferenceScheduler.S3OutputConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket]

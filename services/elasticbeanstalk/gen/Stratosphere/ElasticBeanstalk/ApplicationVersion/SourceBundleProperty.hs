@@ -17,6 +17,7 @@ instance ToResourceProperties SourceBundleProperty where
   toResourceProperties SourceBundleProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::ApplicationVersion.SourceBundle",
+         supportsTags = Prelude.False,
          properties = ["S3Bucket" JSON..= s3Bucket, "S3Key" JSON..= s3Key]}
 instance JSON.ToJSON SourceBundleProperty where
   toJSON SourceBundleProperty {..}

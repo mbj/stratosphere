@@ -52,7 +52,7 @@ mkCampaign applicationId name schedule segmentId
 instance ToResourceProperties Campaign where
   toResourceProperties Campaign {..}
     = ResourceProperties
-        {awsType = "AWS::Pinpoint::Campaign",
+        {awsType = "AWS::Pinpoint::Campaign", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId, "Name" JSON..= name,

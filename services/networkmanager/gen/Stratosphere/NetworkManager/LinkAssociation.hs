@@ -21,6 +21,7 @@ instance ToResourceProperties LinkAssociation where
   toResourceProperties LinkAssociation {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::LinkAssociation",
+         supportsTags = Prelude.False,
          properties = ["DeviceId" JSON..= deviceId,
                        "GlobalNetworkId" JSON..= globalNetworkId,
                        "LinkId" JSON..= linkId]}

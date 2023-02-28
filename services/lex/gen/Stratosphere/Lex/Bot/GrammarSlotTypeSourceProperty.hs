@@ -21,6 +21,7 @@ instance ToResourceProperties GrammarSlotTypeSourceProperty where
   toResourceProperties GrammarSlotTypeSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.GrammarSlotTypeSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3BucketName" JSON..= s3BucketName,

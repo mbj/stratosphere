@@ -51,6 +51,7 @@ instance ToResourceProperties DeliveryStream where
   toResourceProperties DeliveryStream {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AmazonOpenSearchServerlessDestinationConfiguration"

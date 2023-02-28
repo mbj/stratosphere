@@ -35,6 +35,7 @@ instance ToResourceProperties OneDriveConfigurationProperty where
   toResourceProperties OneDriveConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.OneDriveConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["OneDriveUsers" JSON..= oneDriveUsers,

@@ -18,7 +18,7 @@ mkConnection catalogId connectionInput
 instance ToResourceProperties Connection where
   toResourceProperties Connection {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Connection",
+        {awsType = "AWS::Glue::Connection", supportsTags = Prelude.False,
          properties = ["CatalogId" JSON..= catalogId,
                        "ConnectionInput" JSON..= connectionInput]}
 instance JSON.ToJSON Connection where

@@ -19,6 +19,7 @@ instance ToResourceProperties NetworkBandwidthGbpsRequestProperty where
   toResourceProperties NetworkBandwidthGbpsRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.NetworkBandwidthGbpsRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

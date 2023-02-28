@@ -16,7 +16,7 @@ instance ToResourceProperties FieldIdentifierProperty where
   toResourceProperties FieldIdentifierProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::TaskTemplate.FieldIdentifier",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON FieldIdentifierProperty where
   toJSON FieldIdentifierProperty {..}
     = JSON.object ["Name" JSON..= name]

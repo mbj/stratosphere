@@ -16,6 +16,7 @@ instance ToResourceProperties FindingCriteriaProperty where
   toResourceProperties FindingCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::Macie::FindingsFilter.FindingCriteria",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Criterion" Prelude.<$> criterion])}
 instance JSON.ToJSON FindingCriteriaProperty where

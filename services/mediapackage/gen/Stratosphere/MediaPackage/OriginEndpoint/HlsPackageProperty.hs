@@ -39,6 +39,7 @@ instance ToResourceProperties HlsPackageProperty where
   toResourceProperties HlsPackageProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::OriginEndpoint.HlsPackage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdMarkers" Prelude.<$> adMarkers,

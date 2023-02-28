@@ -32,6 +32,7 @@ instance ToResourceProperties CustomizedScalingMetricSpecificationProperty where
     CustomizedScalingMetricSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScalingPlans::ScalingPlan.CustomizedScalingMetricSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricName" JSON..= metricName, "Namespace" JSON..= namespace,

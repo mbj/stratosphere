@@ -31,6 +31,7 @@ instance ToResourceProperties ProjectFileSystemLocationProperty where
   toResourceProperties ProjectFileSystemLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.ProjectFileSystemLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Identifier" JSON..= identifier, "Location" JSON..= location,

@@ -17,6 +17,7 @@ instance ToResourceProperties DataResourceProperty where
   toResourceProperties DataResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudTrail::Trail.DataResource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

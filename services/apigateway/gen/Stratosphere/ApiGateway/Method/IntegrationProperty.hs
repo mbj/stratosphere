@@ -40,6 +40,7 @@ instance ToResourceProperties IntegrationProperty where
   toResourceProperties IntegrationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Method.Integration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CacheKeyParameters" Prelude.<$> cacheKeyParameters,

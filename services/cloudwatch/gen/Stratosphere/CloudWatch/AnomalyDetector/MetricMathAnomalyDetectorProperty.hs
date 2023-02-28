@@ -18,6 +18,7 @@ instance ToResourceProperties MetricMathAnomalyDetectorProperty where
   toResourceProperties MetricMathAnomalyDetectorProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::AnomalyDetector.MetricMathAnomalyDetector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MetricDataQueries" Prelude.<$> metricDataQueries])}

@@ -15,7 +15,7 @@ mkScaleProperty
 instance ToResourceProperties ScaleProperty where
   toResourceProperties ScaleProperty {..}
     = ResourceProperties
-        {awsType = "AWS::ECS::TaskSet.Scale",
+        {awsType = "AWS::ECS::TaskSet.Scale", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Unit" Prelude.<$> unit,

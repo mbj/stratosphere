@@ -23,6 +23,7 @@ instance ToResourceProperties EmbeddedSourceSettingsProperty where
   toResourceProperties EmbeddedSourceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.EmbeddedSourceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Convert608To708" Prelude.<$> convert608To708,

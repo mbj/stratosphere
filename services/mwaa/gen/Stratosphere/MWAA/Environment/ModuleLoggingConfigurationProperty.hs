@@ -21,6 +21,7 @@ instance ToResourceProperties ModuleLoggingConfigurationProperty where
   toResourceProperties ModuleLoggingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MWAA::Environment.ModuleLoggingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchLogGroupArn"

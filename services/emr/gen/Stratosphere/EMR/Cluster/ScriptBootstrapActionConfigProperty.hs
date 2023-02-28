@@ -19,6 +19,7 @@ instance ToResourceProperties ScriptBootstrapActionConfigProperty where
   toResourceProperties ScriptBootstrapActionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.ScriptBootstrapActionConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Path" JSON..= path]

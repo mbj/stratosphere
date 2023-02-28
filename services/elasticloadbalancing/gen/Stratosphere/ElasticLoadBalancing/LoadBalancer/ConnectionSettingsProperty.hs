@@ -16,6 +16,7 @@ instance ToResourceProperties ConnectionSettingsProperty where
   toResourceProperties ConnectionSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancing::LoadBalancer.ConnectionSettings",
+         supportsTags = Prelude.False,
          properties = ["IdleTimeout" JSON..= idleTimeout]}
 instance JSON.ToJSON ConnectionSettingsProperty where
   toJSON ConnectionSettingsProperty {..}

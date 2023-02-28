@@ -25,6 +25,7 @@ instance ToResourceProperties HlsSettingsProperty where
   toResourceProperties HlsSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HlsSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioOnlyHlsSettings" Prelude.<$> audioOnlyHlsSettings,

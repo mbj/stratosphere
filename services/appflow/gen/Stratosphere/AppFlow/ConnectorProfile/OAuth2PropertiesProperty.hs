@@ -19,6 +19,7 @@ instance ToResourceProperties OAuth2PropertiesProperty where
   toResourceProperties OAuth2PropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.OAuth2Properties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OAuth2GrantType" Prelude.<$> oAuth2GrantType,

@@ -17,6 +17,7 @@ instance ToResourceProperties ComponentPlatformProperty where
   toResourceProperties ComponentPlatformProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::ComponentVersion.ComponentPlatform",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Attributes" Prelude.<$> attributes,

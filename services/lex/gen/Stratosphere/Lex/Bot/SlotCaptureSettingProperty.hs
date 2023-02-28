@@ -34,6 +34,7 @@ instance ToResourceProperties SlotCaptureSettingProperty where
   toResourceProperties SlotCaptureSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SlotCaptureSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CaptureConditional" Prelude.<$> captureConditional,

@@ -21,6 +21,7 @@ instance ToResourceProperties DestinationProperty where
   toResourceProperties DestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.Destination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketArn" JSON..= bucketArn, "Format" JSON..= format]

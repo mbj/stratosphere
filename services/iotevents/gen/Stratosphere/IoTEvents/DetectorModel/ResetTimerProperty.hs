@@ -15,6 +15,7 @@ instance ToResourceProperties ResetTimerProperty where
   toResourceProperties ResetTimerProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.ResetTimer",
+         supportsTags = Prelude.False,
          properties = ["TimerName" JSON..= timerName]}
 instance JSON.ToJSON ResetTimerProperty where
   toJSON ResetTimerProperty {..}

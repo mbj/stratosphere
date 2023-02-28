@@ -21,6 +21,7 @@ instance ToResourceProperties PrestoParametersProperty where
   toResourceProperties PrestoParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.PrestoParameters",
+         supportsTags = Prelude.False,
          properties = ["Catalog" JSON..= catalog, "Host" JSON..= host,
                        "Port" JSON..= port]}
 instance JSON.ToJSON PrestoParametersProperty where

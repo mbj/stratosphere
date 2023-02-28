@@ -23,6 +23,7 @@ instance ToResourceProperties ContainerDistributionConfigurationProperty where
     ContainerDistributionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::DistributionConfiguration.ContainerDistributionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerTags" Prelude.<$> containerTags,

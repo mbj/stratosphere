@@ -21,6 +21,7 @@ instance ToResourceProperties WeightedTargetProperty where
   toResourceProperties WeightedTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.WeightedTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VirtualNode" JSON..= virtualNode, "Weight" JSON..= weight]

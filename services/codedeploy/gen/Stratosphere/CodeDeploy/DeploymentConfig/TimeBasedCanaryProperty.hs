@@ -20,6 +20,7 @@ instance ToResourceProperties TimeBasedCanaryProperty where
   toResourceProperties TimeBasedCanaryProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentConfig.TimeBasedCanary",
+         supportsTags = Prelude.False,
          properties = ["CanaryInterval" JSON..= canaryInterval,
                        "CanaryPercentage" JSON..= canaryPercentage]}
 instance JSON.ToJSON TimeBasedCanaryProperty where

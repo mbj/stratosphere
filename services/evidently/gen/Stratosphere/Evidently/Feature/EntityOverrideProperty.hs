@@ -17,6 +17,7 @@ instance ToResourceProperties EntityOverrideProperty where
   toResourceProperties EntityOverrideProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Feature.EntityOverride",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EntityId" Prelude.<$> entityId,

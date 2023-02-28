@@ -23,6 +23,7 @@ instance ToResourceProperties SourceProperty where
   toResourceProperties SourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConfigRule.Source",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Owner" JSON..= owner]

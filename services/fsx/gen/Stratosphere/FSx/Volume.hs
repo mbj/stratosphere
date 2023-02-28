@@ -26,7 +26,7 @@ mkVolume name
 instance ToResourceProperties Volume where
   toResourceProperties Volume {..}
     = ResourceProperties
-        {awsType = "AWS::FSx::Volume",
+        {awsType = "AWS::FSx::Volume", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

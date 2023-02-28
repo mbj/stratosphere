@@ -18,6 +18,7 @@ instance ToResourceProperties DatabaseResourceProperty where
   toResourceProperties DatabaseResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::PrincipalPermissions.DatabaseResource",
+         supportsTags = Prelude.False,
          properties = ["CatalogId" JSON..= catalogId, "Name" JSON..= name]}
 instance JSON.ToJSON DatabaseResourceProperty where
   toJSON DatabaseResourceProperty {..}

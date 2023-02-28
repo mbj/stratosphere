@@ -17,6 +17,7 @@ instance ToResourceProperties ImageConfigurationInputProperty where
   toResourceProperties ImageConfigurationInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMRServerless::Application.ImageConfigurationInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "ImageUri" Prelude.<$> imageUri])}
 instance JSON.ToJSON ImageConfigurationInputProperty where

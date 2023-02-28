@@ -16,7 +16,7 @@ mkNetworkAcl vpcId
 instance ToResourceProperties NetworkAcl where
   toResourceProperties NetworkAcl {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::NetworkAcl",
+        {awsType = "AWS::EC2::NetworkAcl", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VpcId" JSON..= vpcId]

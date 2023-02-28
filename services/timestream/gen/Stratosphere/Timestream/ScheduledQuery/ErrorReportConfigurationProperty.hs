@@ -3,6 +3,7 @@ module Stratosphere.Timestream.ScheduledQuery.ErrorReportConfigurationProperty (
         mkErrorReportConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.S3ConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties ErrorReportConfigurationProperty where
   toResourceProperties ErrorReportConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::ScheduledQuery.ErrorReportConfiguration",
+         supportsTags = Prelude.False,
          properties = ["S3Configuration" JSON..= s3Configuration]}
 instance JSON.ToJSON ErrorReportConfigurationProperty where
   toJSON ErrorReportConfigurationProperty {..}

@@ -50,6 +50,7 @@ instance ToResourceProperties Form where
   toResourceProperties Form {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataType" JSON..= dataType, "Fields" JSON..= fields,

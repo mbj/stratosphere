@@ -22,6 +22,7 @@ instance ToResourceProperties InstanceAccessControlAttributeConfiguration where
     InstanceAccessControlAttributeConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::SSO::InstanceAccessControlAttributeConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceArn" JSON..= instanceArn]

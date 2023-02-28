@@ -18,6 +18,7 @@ instance ToResourceProperties AsyncInferenceClientConfigProperty where
   toResourceProperties AsyncInferenceClientConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.AsyncInferenceClientConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxConcurrentInvocationsPerInstance"

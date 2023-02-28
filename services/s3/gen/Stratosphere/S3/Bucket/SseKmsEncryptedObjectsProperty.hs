@@ -17,6 +17,7 @@ instance ToResourceProperties SseKmsEncryptedObjectsProperty where
   toResourceProperties SseKmsEncryptedObjectsProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.SseKmsEncryptedObjects",
+         supportsTags = Prelude.False,
          properties = ["Status" JSON..= status]}
 instance JSON.ToJSON SseKmsEncryptedObjectsProperty where
   toJSON SseKmsEncryptedObjectsProperty {..}

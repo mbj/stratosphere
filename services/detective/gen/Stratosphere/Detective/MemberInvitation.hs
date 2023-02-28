@@ -24,6 +24,7 @@ instance ToResourceProperties MemberInvitation where
   toResourceProperties MemberInvitation {..}
     = ResourceProperties
         {awsType = "AWS::Detective::MemberInvitation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GraphArn" JSON..= graphArn,

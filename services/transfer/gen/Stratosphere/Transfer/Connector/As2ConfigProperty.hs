@@ -29,6 +29,7 @@ instance ToResourceProperties As2ConfigProperty where
   toResourceProperties As2ConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Connector.As2Config",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Compression" Prelude.<$> compression,

@@ -37,7 +37,7 @@ mkRuleGroup capacity scope visibilityConfig
 instance ToResourceProperties RuleGroup where
   toResourceProperties RuleGroup {..}
     = ResourceProperties
-        {awsType = "AWS::WAFv2::RuleGroup",
+        {awsType = "AWS::WAFv2::RuleGroup", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Capacity" JSON..= capacity, "Scope" JSON..= scope,

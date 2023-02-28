@@ -25,6 +25,7 @@ instance ToResourceProperties BackupPlanResourceTypeProperty where
   toResourceProperties BackupPlanResourceTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::BackupPlan.BackupPlanResourceType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BackupPlanName" JSON..= backupPlanName,

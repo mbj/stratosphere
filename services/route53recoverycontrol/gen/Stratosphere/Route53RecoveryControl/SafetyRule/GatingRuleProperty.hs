@@ -22,6 +22,7 @@ instance ToResourceProperties GatingRuleProperty where
   toResourceProperties GatingRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryControl::SafetyRule.GatingRule",
+         supportsTags = Prelude.False,
          properties = ["GatingControls" JSON..= gatingControls,
                        "TargetControls" JSON..= targetControls,
                        "WaitPeriodMs" JSON..= waitPeriodMs]}

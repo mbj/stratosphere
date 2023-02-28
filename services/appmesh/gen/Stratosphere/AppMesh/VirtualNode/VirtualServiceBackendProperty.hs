@@ -21,6 +21,7 @@ instance ToResourceProperties VirtualServiceBackendProperty where
   toResourceProperties VirtualServiceBackendProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.VirtualServiceBackend",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VirtualServiceName" JSON..= virtualServiceName]

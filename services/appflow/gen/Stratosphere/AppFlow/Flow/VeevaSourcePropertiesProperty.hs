@@ -24,6 +24,7 @@ instance ToResourceProperties VeevaSourcePropertiesProperty where
   toResourceProperties VeevaSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.VeevaSourceProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Object" JSON..= object]

@@ -22,6 +22,7 @@ instance ToResourceProperties Analyzer where
   toResourceProperties Analyzer {..}
     = ResourceProperties
         {awsType = "AWS::AccessAnalyzer::Analyzer",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

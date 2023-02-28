@@ -41,6 +41,7 @@ instance ToResourceProperties ImageBuilder where
   toResourceProperties ImageBuilder {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::ImageBuilder",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceType" JSON..= instanceType, "Name" JSON..= name]

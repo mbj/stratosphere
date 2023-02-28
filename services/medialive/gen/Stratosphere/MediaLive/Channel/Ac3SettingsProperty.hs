@@ -25,6 +25,7 @@ instance ToResourceProperties Ac3SettingsProperty where
   toResourceProperties Ac3SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Ac3Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Bitrate" Prelude.<$> bitrate,

@@ -22,6 +22,7 @@ instance ToResourceProperties EBSOptionsProperty where
   toResourceProperties EBSOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.EBSOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EBSEnabled" Prelude.<$> eBSEnabled,

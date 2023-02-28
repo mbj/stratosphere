@@ -19,6 +19,7 @@ instance ToResourceProperties CredentialProperty where
   toResourceProperties CredentialProperty {..}
     = ResourceProperties
         {awsType = "AWS::SystemsManagerSAP::Application.Credential",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CredentialType" Prelude.<$> credentialType,

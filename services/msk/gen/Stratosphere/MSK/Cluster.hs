@@ -48,7 +48,7 @@ mkCluster
 instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
-        {awsType = "AWS::MSK::Cluster",
+        {awsType = "AWS::MSK::Cluster", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BrokerNodeGroupInfo" JSON..= brokerNodeGroupInfo,

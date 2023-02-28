@@ -26,6 +26,7 @@ instance ToResourceProperties Alert where
   toResourceProperties Alert {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::Alert",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Action" JSON..= action,

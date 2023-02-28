@@ -19,6 +19,7 @@ instance ToResourceProperties CustomerManagedS3StorageProperty where
   toResourceProperties CustomerManagedS3StorageProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore.CustomerManagedS3Storage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket]

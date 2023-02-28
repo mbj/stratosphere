@@ -22,7 +22,7 @@ mkInput inputDefinition
 instance ToResourceProperties Input where
   toResourceProperties Input {..}
     = ResourceProperties
-        {awsType = "AWS::IoTEvents::Input",
+        {awsType = "AWS::IoTEvents::Input", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InputDefinition" JSON..= inputDefinition]

@@ -18,6 +18,7 @@ instance ToResourceProperties NotificationChannel where
   toResourceProperties NotificationChannel {..}
     = ResourceProperties
         {awsType = "AWS::FMS::NotificationChannel",
+         supportsTags = Prelude.False,
          properties = ["SnsRoleName" JSON..= snsRoleName,
                        "SnsTopicArn" JSON..= snsTopicArn]}
 instance JSON.ToJSON NotificationChannel where

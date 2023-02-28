@@ -25,6 +25,7 @@ instance ToResourceProperties Entitlement where
   toResourceProperties Entitlement {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::Entitlement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AppVisibility" JSON..= appVisibility,

@@ -17,7 +17,7 @@ mkMetricsProperty status
 instance ToResourceProperties MetricsProperty where
   toResourceProperties MetricsProperty {..}
     = ResourceProperties
-        {awsType = "AWS::S3::Bucket.Metrics",
+        {awsType = "AWS::S3::Bucket.Metrics", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Status" JSON..= status]

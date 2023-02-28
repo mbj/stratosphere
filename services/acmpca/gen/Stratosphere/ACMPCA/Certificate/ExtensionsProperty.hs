@@ -27,6 +27,7 @@ instance ToResourceProperties ExtensionsProperty where
   toResourceProperties ExtensionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate.Extensions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificatePolicies" Prelude.<$> certificatePolicies,

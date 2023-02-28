@@ -21,6 +21,7 @@ instance ToResourceProperties ServerSideEncryptionRuleProperty where
   toResourceProperties ServerSideEncryptionRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ServerSideEncryptionRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BucketKeyEnabled" Prelude.<$> bucketKeyEnabled,

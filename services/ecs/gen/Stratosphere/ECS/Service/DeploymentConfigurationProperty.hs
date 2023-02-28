@@ -26,6 +26,7 @@ instance ToResourceProperties DeploymentConfigurationProperty where
   toResourceProperties DeploymentConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.DeploymentConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Alarms" Prelude.<$> alarms,

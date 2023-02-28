@@ -24,6 +24,7 @@ instance ToResourceProperties VirtualGatewayListenerTlsProperty where
   toResourceProperties VirtualGatewayListenerTlsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTls",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Certificate" JSON..= certificate, "Mode" JSON..= mode]

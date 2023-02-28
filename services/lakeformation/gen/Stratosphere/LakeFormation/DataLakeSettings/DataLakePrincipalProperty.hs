@@ -16,6 +16,7 @@ instance ToResourceProperties DataLakePrincipalProperty where
   toResourceProperties DataLakePrincipalProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::DataLakeSettings.DataLakePrincipal",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataLakePrincipalIdentifier"

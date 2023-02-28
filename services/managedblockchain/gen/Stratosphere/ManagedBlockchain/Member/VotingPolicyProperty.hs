@@ -15,6 +15,7 @@ instance ToResourceProperties VotingPolicyProperty where
   toResourceProperties VotingPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::ManagedBlockchain::Member.VotingPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApprovalThresholdPolicy"

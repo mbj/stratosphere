@@ -22,6 +22,7 @@ instance ToResourceProperties LocationFSxLustre where
   toResourceProperties LocationFSxLustre {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationFSxLustre",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SecurityGroupArns" JSON..= securityGroupArns]

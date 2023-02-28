@@ -42,6 +42,7 @@ instance ToResourceProperties SharePointConfigurationProperty where
   toResourceProperties SharePointConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.SharePointConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SecretArn" JSON..= secretArn,

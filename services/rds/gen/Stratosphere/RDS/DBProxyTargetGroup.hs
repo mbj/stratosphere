@@ -25,6 +25,7 @@ instance ToResourceProperties DBProxyTargetGroup where
   toResourceProperties DBProxyTargetGroup {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBProxyTargetGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DBProxyName" JSON..= dBProxyName,

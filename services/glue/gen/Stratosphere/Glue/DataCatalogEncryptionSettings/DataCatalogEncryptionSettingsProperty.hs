@@ -21,6 +21,7 @@ instance ToResourceProperties DataCatalogEncryptionSettingsProperty where
   toResourceProperties DataCatalogEncryptionSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::DataCatalogEncryptionSettings.DataCatalogEncryptionSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectionPasswordEncryption"

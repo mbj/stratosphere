@@ -23,6 +23,7 @@ instance ToResourceProperties SchemaConfigurationProperty where
   toResourceProperties SchemaConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.SchemaConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CatalogId" Prelude.<$> catalogId,

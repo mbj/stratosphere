@@ -32,6 +32,7 @@ instance ToResourceProperties DynamoDBProperty where
   toResourceProperties DynamoDBProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.DynamoDB",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HashKeyField" JSON..= hashKeyField,

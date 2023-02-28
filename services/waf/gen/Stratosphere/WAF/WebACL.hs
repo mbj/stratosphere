@@ -23,7 +23,7 @@ mkWebACL defaultAction metricName name
 instance ToResourceProperties WebACL where
   toResourceProperties WebACL {..}
     = ResourceProperties
-        {awsType = "AWS::WAF::WebACL",
+        {awsType = "AWS::WAF::WebACL", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DefaultAction" JSON..= defaultAction,

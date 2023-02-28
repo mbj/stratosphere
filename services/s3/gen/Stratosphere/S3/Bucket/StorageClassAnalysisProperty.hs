@@ -16,6 +16,7 @@ instance ToResourceProperties StorageClassAnalysisProperty where
   toResourceProperties StorageClassAnalysisProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.StorageClassAnalysis",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataExport" Prelude.<$> dataExport])}

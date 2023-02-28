@@ -19,6 +19,7 @@ instance ToResourceProperties ArtifactDetailsProperty where
   toResourceProperties ArtifactDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::CustomActionType.ArtifactDetails",
+         supportsTags = Prelude.False,
          properties = ["MaximumCount" JSON..= maximumCount,
                        "MinimumCount" JSON..= minimumCount]}
 instance JSON.ToJSON ArtifactDetailsProperty where

@@ -39,6 +39,7 @@ instance ToResourceProperties SubjectProperty where
   toResourceProperties SubjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate.Subject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CommonName" Prelude.<$> commonName,

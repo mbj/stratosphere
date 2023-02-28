@@ -21,6 +21,7 @@ instance ToResourceProperties AccessScopePathRequestProperty where
   toResourceProperties AccessScopePathRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAccessScope.AccessScopePathRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Destination" Prelude.<$> destination,

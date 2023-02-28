@@ -18,6 +18,7 @@ instance ToResourceProperties LifecycleResourceTypeProperty where
   toResourceProperties LifecycleResourceTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::BackupPlan.LifecycleResourceType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeleteAfterDays" Prelude.<$> deleteAfterDays,

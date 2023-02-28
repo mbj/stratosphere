@@ -62,7 +62,7 @@ mkService
 instance ToResourceProperties Service where
   toResourceProperties Service {..}
     = ResourceProperties
-        {awsType = "AWS::ECS::Service",
+        {awsType = "AWS::ECS::Service", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CapacityProviderStrategy"

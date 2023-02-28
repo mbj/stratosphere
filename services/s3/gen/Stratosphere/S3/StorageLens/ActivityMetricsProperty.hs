@@ -15,6 +15,7 @@ instance ToResourceProperties ActivityMetricsProperty where
   toResourceProperties ActivityMetricsProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.ActivityMetrics",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "IsEnabled" Prelude.<$> isEnabled])}
 instance JSON.ToJSON ActivityMetricsProperty where

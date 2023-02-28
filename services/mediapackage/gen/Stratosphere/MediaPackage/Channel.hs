@@ -26,6 +26,7 @@ instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::Channel",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id]

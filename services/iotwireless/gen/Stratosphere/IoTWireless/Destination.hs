@@ -27,6 +27,7 @@ instance ToResourceProperties Destination where
   toResourceProperties Destination {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::Destination",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Expression" JSON..= expression,

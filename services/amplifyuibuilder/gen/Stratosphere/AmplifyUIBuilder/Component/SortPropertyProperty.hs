@@ -17,6 +17,7 @@ instance ToResourceProperties SortPropertyProperty where
   toResourceProperties SortPropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.SortProperty",
+         supportsTags = Prelude.False,
          properties = ["Direction" JSON..= direction,
                        "Field" JSON..= field]}
 instance JSON.ToJSON SortPropertyProperty where

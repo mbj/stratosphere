@@ -19,6 +19,7 @@ instance ToResourceProperties ServerlessConfigProperty where
   toResourceProperties ServerlessConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.ServerlessConfig",
+         supportsTags = Prelude.False,
          properties = ["MaxConcurrency" JSON..= maxConcurrency,
                        "MemorySizeInMB" JSON..= memorySizeInMB]}
 instance JSON.ToJSON ServerlessConfigProperty where

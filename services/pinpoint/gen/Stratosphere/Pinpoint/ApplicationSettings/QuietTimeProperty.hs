@@ -17,6 +17,7 @@ instance ToResourceProperties QuietTimeProperty where
   toResourceProperties QuietTimeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::ApplicationSettings.QuietTime",
+         supportsTags = Prelude.False,
          properties = ["End" JSON..= end, "Start" JSON..= start]}
 instance JSON.ToJSON QuietTimeProperty where
   toJSON QuietTimeProperty {..}

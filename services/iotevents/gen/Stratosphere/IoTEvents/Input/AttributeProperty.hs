@@ -15,6 +15,7 @@ instance ToResourceProperties AttributeProperty where
   toResourceProperties AttributeProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::Input.Attribute",
+         supportsTags = Prelude.False,
          properties = ["JsonPath" JSON..= jsonPath]}
 instance JSON.ToJSON AttributeProperty where
   toJSON AttributeProperty {..}

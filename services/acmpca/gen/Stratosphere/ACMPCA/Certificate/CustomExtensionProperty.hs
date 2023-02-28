@@ -20,6 +20,7 @@ instance ToResourceProperties CustomExtensionProperty where
   toResourceProperties CustomExtensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate.CustomExtension",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ObjectIdentifier" JSON..= objectIdentifier,

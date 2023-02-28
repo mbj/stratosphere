@@ -19,6 +19,7 @@ instance ToResourceProperties GitConfigProperty where
   toResourceProperties GitConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::CodeRepository.GitConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RepositoryUrl" JSON..= repositoryUrl]

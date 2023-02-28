@@ -22,6 +22,7 @@ instance ToResourceProperties LambdaConfigurationProperty where
   toResourceProperties LambdaConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.LambdaConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Event" JSON..= event, "Function" JSON..= function]

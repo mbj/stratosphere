@@ -29,6 +29,7 @@ instance ToResourceProperties OrganizationConfigRule where
   toResourceProperties OrganizationConfigRule {..}
     = ResourceProperties
         {awsType = "AWS::Config::OrganizationConfigRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["OrganizationConfigRuleName" JSON..= organizationConfigRuleName]

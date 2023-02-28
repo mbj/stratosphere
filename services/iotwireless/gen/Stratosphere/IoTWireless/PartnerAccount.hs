@@ -29,6 +29,7 @@ instance ToResourceProperties PartnerAccount where
   toResourceProperties PartnerAccount {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::PartnerAccount",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccountLinked" Prelude.<$> accountLinked,

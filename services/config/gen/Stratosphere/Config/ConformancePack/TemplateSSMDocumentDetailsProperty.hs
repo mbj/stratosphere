@@ -19,6 +19,7 @@ instance ToResourceProperties TemplateSSMDocumentDetailsProperty where
   toResourceProperties TemplateSSMDocumentDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConformancePack.TemplateSSMDocumentDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DocumentName" Prelude.<$> documentName,

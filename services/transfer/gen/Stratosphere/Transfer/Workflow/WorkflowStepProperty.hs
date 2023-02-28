@@ -30,6 +30,7 @@ instance ToResourceProperties WorkflowStepProperty where
   toResourceProperties WorkflowStepProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Workflow.WorkflowStep",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CopyStepDetails" Prelude.<$> copyStepDetails,

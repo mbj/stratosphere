@@ -17,6 +17,7 @@ instance ToResourceProperties ChannelProperty where
   toResourceProperties ChannelProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeGuruProfiler::ProfilingGroup.Channel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["channelUri" JSON..= channelUri]

@@ -18,6 +18,7 @@ instance ToResourceProperties NumberFilterProperty where
   toResourceProperties NumberFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::InspectorV2::Filter.NumberFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LowerInclusive" Prelude.<$> lowerInclusive,

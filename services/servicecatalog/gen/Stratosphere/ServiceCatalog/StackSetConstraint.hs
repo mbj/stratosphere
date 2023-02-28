@@ -45,6 +45,7 @@ instance ToResourceProperties StackSetConstraint where
   toResourceProperties StackSetConstraint {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::StackSetConstraint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccountList" JSON..= accountList, "AdminRole" JSON..= adminRole,

@@ -15,6 +15,7 @@ instance ToResourceProperties PolicyStatusProperty where
   toResourceProperties PolicyStatusProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::AccessPoint.PolicyStatus",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "IsPublic" Prelude.<$> isPublic])}
 instance JSON.ToJSON PolicyStatusProperty where

@@ -17,6 +17,7 @@ instance ToResourceProperties MasterUserSecretProperty where
   toResourceProperties MasterUserSecretProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBCluster.MasterUserSecret",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,

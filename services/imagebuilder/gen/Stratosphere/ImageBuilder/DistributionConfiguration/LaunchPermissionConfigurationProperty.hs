@@ -23,6 +23,7 @@ instance ToResourceProperties LaunchPermissionConfigurationProperty where
   toResourceProperties LaunchPermissionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::DistributionConfiguration.LaunchPermissionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OrganizationArns" Prelude.<$> organizationArns,

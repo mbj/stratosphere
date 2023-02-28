@@ -18,6 +18,7 @@ instance ToResourceProperties ValueMappingProperty where
   toResourceProperties ValueMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.ValueMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Value" JSON..= value]

@@ -48,6 +48,7 @@ instance ToResourceProperties ComputeResourcesProperty where
   toResourceProperties ComputeResourcesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::ComputeEnvironment.ComputeResources",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MaxvCpus" JSON..= maxvCpus, "Subnets" JSON..= subnets,

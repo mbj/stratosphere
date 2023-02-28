@@ -16,6 +16,7 @@ instance ToResourceProperties RepositoryCredentialsProperty where
   toResourceProperties RepositoryCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.RepositoryCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CredentialsParameter"

@@ -19,6 +19,7 @@ instance ToResourceProperties ClarifyTextConfigProperty where
   toResourceProperties ClarifyTextConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.ClarifyTextConfig",
+         supportsTags = Prelude.False,
          properties = ["Granularity" JSON..= granularity,
                        "Language" JSON..= language]}
 instance JSON.ToJSON ClarifyTextConfigProperty where

@@ -31,6 +31,7 @@ instance ToResourceProperties OutlierDetectionProperty where
   toResourceProperties OutlierDetectionProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.OutlierDetection",
+         supportsTags = Prelude.False,
          properties = ["BaseEjectionDuration" JSON..= baseEjectionDuration,
                        "Interval" JSON..= interval,
                        "MaxEjectionPercent" JSON..= maxEjectionPercent,

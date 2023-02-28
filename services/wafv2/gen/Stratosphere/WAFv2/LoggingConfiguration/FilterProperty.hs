@@ -22,6 +22,7 @@ instance ToResourceProperties FilterProperty where
   toResourceProperties FilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::LoggingConfiguration.Filter",
+         supportsTags = Prelude.False,
          properties = ["Behavior" JSON..= behavior,
                        "Conditions" JSON..= conditions,
                        "Requirement" JSON..= requirement]}

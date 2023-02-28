@@ -17,6 +17,7 @@ instance ToResourceProperties OtherNameProperty where
   toResourceProperties OtherNameProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.OtherName",
+         supportsTags = Prelude.False,
          properties = ["TypeId" JSON..= typeId, "Value" JSON..= value]}
 instance JSON.ToJSON OtherNameProperty where
   toJSON OtherNameProperty {..}

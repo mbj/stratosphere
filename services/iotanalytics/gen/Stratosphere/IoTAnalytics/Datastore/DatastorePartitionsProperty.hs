@@ -16,6 +16,7 @@ instance ToResourceProperties DatastorePartitionsProperty where
   toResourceProperties DatastorePartitionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore.DatastorePartitions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Partitions" Prelude.<$> partitions])}

@@ -41,6 +41,7 @@ instance ToResourceProperties Webhook where
   toResourceProperties Webhook {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Webhook",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Authentication" JSON..= authentication,

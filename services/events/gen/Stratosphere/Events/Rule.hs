@@ -26,7 +26,7 @@ mkRule
 instance ToResourceProperties Rule where
   toResourceProperties Rule {..}
     = ResourceProperties
-        {awsType = "AWS::Events::Rule",
+        {awsType = "AWS::Events::Rule", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

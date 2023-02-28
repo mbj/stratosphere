@@ -21,6 +21,7 @@ instance ToResourceProperties ReplicationSet where
   toResourceProperties ReplicationSet {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ReplicationSet",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Regions" JSON..= regions]

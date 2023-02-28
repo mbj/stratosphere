@@ -21,6 +21,7 @@ instance ToResourceProperties VolumeSpecificationProperty where
   toResourceProperties VolumeSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.VolumeSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SizeInGB" JSON..= sizeInGB, "VolumeType" JSON..= volumeType]

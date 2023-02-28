@@ -22,6 +22,7 @@ instance ToResourceProperties ServiceNowConnectorProfileCredentialsProperty wher
     ServiceNowConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.ServiceNowConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = ["Password" JSON..= password,
                        "Username" JSON..= username]}
 instance JSON.ToJSON ServiceNowConnectorProfileCredentialsProperty where

@@ -17,6 +17,7 @@ instance ToResourceProperties AllowedPublishersProperty where
   toResourceProperties AllowedPublishersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::CodeSigningConfig.AllowedPublishers",
+         supportsTags = Prelude.False,
          properties = ["SigningProfileVersionArns"
                          JSON..= signingProfileVersionArns]}
 instance JSON.ToJSON AllowedPublishersProperty where

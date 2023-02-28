@@ -19,6 +19,7 @@ instance ToResourceProperties DeploymentTargetsProperty where
   toResourceProperties DeploymentTargetsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::StackSet.DeploymentTargets",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccountFilterType" Prelude.<$> accountFilterType,

@@ -28,7 +28,7 @@ mkPermission action functionName principal
 instance ToResourceProperties Permission where
   toResourceProperties Permission {..}
     = ResourceProperties
-        {awsType = "AWS::Lambda::Permission",
+        {awsType = "AWS::Lambda::Permission", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Action" JSON..= action, "FunctionName" JSON..= functionName,

@@ -26,6 +26,7 @@ instance ToResourceProperties SalesforceDestinationPropertiesProperty where
   toResourceProperties SalesforceDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.SalesforceDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Object" JSON..= object]

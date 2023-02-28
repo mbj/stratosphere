@@ -15,6 +15,7 @@ instance ToResourceProperties StorageInfoProperty where
   toResourceProperties StorageInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.StorageInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EBSStorageInfo" Prelude.<$> eBSStorageInfo])}

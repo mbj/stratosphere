@@ -20,6 +20,7 @@ instance ToResourceProperties ReshardingConfigurationProperty where
   toResourceProperties ReshardingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::GlobalReplicationGroup.ReshardingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NodeGroupId" Prelude.<$> nodeGroupId,

@@ -19,6 +19,7 @@ instance ToResourceProperties TagFilterProperty where
   toResourceProperties TagFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.TagFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

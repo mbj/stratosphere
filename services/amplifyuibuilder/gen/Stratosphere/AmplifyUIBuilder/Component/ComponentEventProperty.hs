@@ -19,6 +19,7 @@ instance ToResourceProperties ComponentEventProperty where
   toResourceProperties ComponentEventProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.ComponentEvent",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Action" Prelude.<$> action,

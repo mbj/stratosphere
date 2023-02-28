@@ -30,7 +30,7 @@ mkPipeline pipelineDefinition pipelineName roleArn
 instance ToResourceProperties Pipeline where
   toResourceProperties Pipeline {..}
     = ResourceProperties
-        {awsType = "AWS::SageMaker::Pipeline",
+        {awsType = "AWS::SageMaker::Pipeline", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PipelineDefinition" JSON..= pipelineDefinition,

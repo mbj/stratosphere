@@ -3,6 +3,7 @@ module Stratosphere.WAFv2.WebACL.XssMatchStatementProperty (
         mkXssMatchStatementProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.FieldToMatchProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.TextTransformationProperty as Exports
@@ -21,6 +22,7 @@ instance ToResourceProperties XssMatchStatementProperty where
   toResourceProperties XssMatchStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.XssMatchStatement",
+         supportsTags = Prelude.False,
          properties = ["FieldToMatch" JSON..= fieldToMatch,
                        "TextTransformations" JSON..= textTransformations]}
 instance JSON.ToJSON XssMatchStatementProperty where

@@ -18,6 +18,7 @@ instance ToResourceProperties UplinkEchoConfigProperty where
   toResourceProperties UplinkEchoConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.UplinkEchoConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AntennaUplinkConfigArn"

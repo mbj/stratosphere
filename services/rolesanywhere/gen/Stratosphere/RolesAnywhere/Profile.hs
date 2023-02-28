@@ -29,6 +29,7 @@ instance ToResourceProperties Profile where
   toResourceProperties Profile {..}
     = ResourceProperties
         {awsType = "AWS::RolesAnywhere::Profile",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "RoleArns" JSON..= roleArns]

@@ -29,6 +29,7 @@ instance ToResourceProperties BrokerNodeGroupInfoProperty where
   toResourceProperties BrokerNodeGroupInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.BrokerNodeGroupInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientSubnets" JSON..= clientSubnets,

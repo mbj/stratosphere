@@ -25,6 +25,7 @@ instance ToResourceProperties NetworkInterfacePermission where
   toResourceProperties NetworkInterfacePermission {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInterfacePermission",
+         supportsTags = Prelude.False,
          properties = ["AwsAccountId" JSON..= awsAccountId,
                        "NetworkInterfaceId" JSON..= networkInterfaceId,
                        "Permission" JSON..= permission]}

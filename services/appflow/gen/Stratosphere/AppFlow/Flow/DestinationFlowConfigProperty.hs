@@ -29,6 +29,7 @@ instance ToResourceProperties DestinationFlowConfigProperty where
   toResourceProperties DestinationFlowConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.DestinationFlowConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectorType" JSON..= connectorType,

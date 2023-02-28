@@ -24,7 +24,7 @@ mkDHCPOptions
 instance ToResourceProperties DHCPOptions where
   toResourceProperties DHCPOptions {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::DHCPOptions",
+        {awsType = "AWS::EC2::DHCPOptions", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DomainName" Prelude.<$> domainName,

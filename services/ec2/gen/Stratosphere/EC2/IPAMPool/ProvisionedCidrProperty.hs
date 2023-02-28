@@ -16,7 +16,7 @@ instance ToResourceProperties ProvisionedCidrProperty where
   toResourceProperties ProvisionedCidrProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::IPAMPool.ProvisionedCidr",
-         properties = ["Cidr" JSON..= cidr]}
+         supportsTags = Prelude.False, properties = ["Cidr" JSON..= cidr]}
 instance JSON.ToJSON ProvisionedCidrProperty where
   toJSON ProvisionedCidrProperty {..}
     = JSON.object ["Cidr" JSON..= cidr]

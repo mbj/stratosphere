@@ -17,6 +17,7 @@ instance ToResourceProperties MonitorsProperty where
   toResourceProperties MonitorsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppConfig::Environment.Monitors",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AlarmArn" Prelude.<$> alarmArn,

@@ -21,6 +21,7 @@ instance ToResourceProperties ModelExplainabilityBaselineConfigProperty where
   toResourceProperties ModelExplainabilityBaselineConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BaseliningJobName" Prelude.<$> baseliningJobName,

@@ -16,6 +16,7 @@ instance ToResourceProperties FlinkRunConfigurationProperty where
   toResourceProperties FlinkRunConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.FlinkRunConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowNonRestoredState"

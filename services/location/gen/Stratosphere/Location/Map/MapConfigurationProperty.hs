@@ -16,7 +16,7 @@ instance ToResourceProperties MapConfigurationProperty where
   toResourceProperties MapConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Location::Map.MapConfiguration",
-         properties = ["Style" JSON..= style]}
+         supportsTags = Prelude.False, properties = ["Style" JSON..= style]}
 instance JSON.ToJSON MapConfigurationProperty where
   toJSON MapConfigurationProperty {..}
     = JSON.object ["Style" JSON..= style]

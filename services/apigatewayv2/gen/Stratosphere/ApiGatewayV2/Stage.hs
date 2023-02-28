@@ -35,7 +35,7 @@ mkStage apiId stageName
 instance ToResourceProperties Stage where
   toResourceProperties Stage {..}
     = ResourceProperties
-        {awsType = "AWS::ApiGatewayV2::Stage",
+        {awsType = "AWS::ApiGatewayV2::Stage", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId, "StageName" JSON..= stageName]

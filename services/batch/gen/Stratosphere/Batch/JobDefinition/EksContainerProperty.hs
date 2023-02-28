@@ -32,6 +32,7 @@ instance ToResourceProperties EksContainerProperty where
   toResourceProperties EksContainerProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.EksContainer",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Image" JSON..= image]

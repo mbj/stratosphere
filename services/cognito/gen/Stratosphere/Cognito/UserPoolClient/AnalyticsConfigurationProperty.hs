@@ -23,6 +23,7 @@ instance ToResourceProperties AnalyticsConfigurationProperty where
   toResourceProperties AnalyticsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolClient.AnalyticsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplicationArn" Prelude.<$> applicationArn,

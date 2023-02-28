@@ -16,6 +16,7 @@ instance ToResourceProperties KinesisParametersProperty where
   toResourceProperties KinesisParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule.KinesisParameters",
+         supportsTags = Prelude.False,
          properties = ["PartitionKey" JSON..= partitionKey]}
 instance JSON.ToJSON KinesisParametersProperty where
   toJSON KinesisParametersProperty {..}

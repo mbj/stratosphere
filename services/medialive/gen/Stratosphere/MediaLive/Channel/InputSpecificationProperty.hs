@@ -19,6 +19,7 @@ instance ToResourceProperties InputSpecificationProperty where
   toResourceProperties InputSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.InputSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Codec" Prelude.<$> codec,

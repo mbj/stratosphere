@@ -20,6 +20,7 @@ instance ToResourceProperties MaintenanceWindowStepFunctionsParametersProperty w
     MaintenanceWindowStepFunctionsParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTask.MaintenanceWindowStepFunctionsParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Input" Prelude.<$> input,

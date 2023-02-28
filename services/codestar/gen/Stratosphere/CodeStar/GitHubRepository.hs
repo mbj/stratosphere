@@ -30,6 +30,7 @@ instance ToResourceProperties GitHubRepository where
   toResourceProperties GitHubRepository {..}
     = ResourceProperties
         {awsType = "AWS::CodeStar::GitHubRepository",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RepositoryName" JSON..= repositoryName,

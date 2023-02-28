@@ -41,6 +41,7 @@ instance ToResourceProperties MaintenanceWindow where
   toResourceProperties MaintenanceWindow {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindow",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AllowUnassociatedTargets" JSON..= allowUnassociatedTargets,

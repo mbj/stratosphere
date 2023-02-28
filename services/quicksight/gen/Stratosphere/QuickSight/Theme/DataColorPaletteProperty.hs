@@ -19,6 +19,7 @@ instance ToResourceProperties DataColorPaletteProperty where
   toResourceProperties DataColorPaletteProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.DataColorPalette",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Colors" Prelude.<$> colors,

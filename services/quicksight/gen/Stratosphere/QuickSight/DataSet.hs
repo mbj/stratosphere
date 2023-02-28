@@ -47,7 +47,7 @@ mkDataSet
 instance ToResourceProperties DataSet where
   toResourceProperties DataSet {..}
     = ResourceProperties
-        {awsType = "AWS::QuickSight::DataSet",
+        {awsType = "AWS::QuickSight::DataSet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AwsAccountId" Prelude.<$> awsAccountId,

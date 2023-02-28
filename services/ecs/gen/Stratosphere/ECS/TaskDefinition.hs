@@ -48,7 +48,7 @@ mkTaskDefinition
 instance ToResourceProperties TaskDefinition where
   toResourceProperties TaskDefinition {..}
     = ResourceProperties
-        {awsType = "AWS::ECS::TaskDefinition",
+        {awsType = "AWS::ECS::TaskDefinition", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerDefinitions" Prelude.<$> containerDefinitions,

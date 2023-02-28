@@ -20,6 +20,7 @@ instance ToResourceProperties LaunchTemplateTagSpecificationProperty where
   toResourceProperties LaunchTemplateTagSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.LaunchTemplateTagSpecification",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ResourceType" Prelude.<$> resourceType,

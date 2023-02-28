@@ -28,6 +28,7 @@ instance ToResourceProperties SamlConfigurationProperty where
   toResourceProperties SamlConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Grafana::Workspace.SamlConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IdpMetadata" JSON..= idpMetadata]

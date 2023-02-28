@@ -25,6 +25,7 @@ instance ToResourceProperties ServiceAction where
   toResourceProperties ServiceAction {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::ServiceAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Definition" JSON..= definition,

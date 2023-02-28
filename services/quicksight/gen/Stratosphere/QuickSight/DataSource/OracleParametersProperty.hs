@@ -21,6 +21,7 @@ instance ToResourceProperties OracleParametersProperty where
   toResourceProperties OracleParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.OracleParameters",
+         supportsTags = Prelude.False,
          properties = ["Database" JSON..= database, "Host" JSON..= host,
                        "Port" JSON..= port]}
 instance JSON.ToJSON OracleParametersProperty where

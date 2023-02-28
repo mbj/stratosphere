@@ -21,6 +21,7 @@ instance ToResourceProperties AuthorizationConfigProperty where
   toResourceProperties AuthorizationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.AuthorizationConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthorizationType" JSON..= authorizationType]

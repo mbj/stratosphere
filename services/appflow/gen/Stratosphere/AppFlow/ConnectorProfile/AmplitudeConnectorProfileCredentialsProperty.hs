@@ -22,6 +22,7 @@ instance ToResourceProperties AmplitudeConnectorProfileCredentialsProperty where
     AmplitudeConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.AmplitudeConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = ["ApiKey" JSON..= apiKey,
                        "SecretKey" JSON..= secretKey]}
 instance JSON.ToJSON AmplitudeConnectorProfileCredentialsProperty where

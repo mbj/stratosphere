@@ -32,6 +32,7 @@ instance ToResourceProperties WriteTreatmentResourceProperty where
   toResourceProperties WriteTreatmentResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.WriteTreatmentResource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomDeliveryConfiguration"

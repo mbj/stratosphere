@@ -24,6 +24,7 @@ instance ToResourceProperties CustomDataIdentifier where
   toResourceProperties CustomDataIdentifier {..}
     = ResourceProperties
         {awsType = "AWS::Macie::CustomDataIdentifier",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Regex" JSON..= regex]

@@ -28,7 +28,7 @@ mkAddon addonName clusterName
 instance ToResourceProperties Addon where
   toResourceProperties Addon {..}
     = ResourceProperties
-        {awsType = "AWS::EKS::Addon",
+        {awsType = "AWS::EKS::Addon", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AddonName" JSON..= addonName, "ClusterName" JSON..= clusterName]

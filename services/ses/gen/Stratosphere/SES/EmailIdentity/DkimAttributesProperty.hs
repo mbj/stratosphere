@@ -15,6 +15,7 @@ instance ToResourceProperties DkimAttributesProperty where
   toResourceProperties DkimAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::EmailIdentity.DkimAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SigningEnabled" Prelude.<$> signingEnabled])}

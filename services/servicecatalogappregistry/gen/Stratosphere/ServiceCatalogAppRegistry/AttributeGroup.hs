@@ -21,6 +21,7 @@ instance ToResourceProperties AttributeGroup where
   toResourceProperties AttributeGroup {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalogAppRegistry::AttributeGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Attributes" JSON..= attributes, "Name" JSON..= name]

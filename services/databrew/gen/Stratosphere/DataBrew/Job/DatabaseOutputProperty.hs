@@ -24,6 +24,7 @@ instance ToResourceProperties DatabaseOutputProperty where
   toResourceProperties DatabaseOutputProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.DatabaseOutput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatabaseOptions" JSON..= databaseOptions,

@@ -15,6 +15,7 @@ instance ToResourceProperties MultiModelConfigProperty where
   toResourceProperties MultiModelConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Model.MultiModelConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ModelCacheSetting" Prelude.<$> modelCacheSetting])}

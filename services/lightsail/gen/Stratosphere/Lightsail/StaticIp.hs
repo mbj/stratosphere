@@ -17,6 +17,7 @@ instance ToResourceProperties StaticIp where
   toResourceProperties StaticIp {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::StaticIp",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StaticIpName" JSON..= staticIpName]

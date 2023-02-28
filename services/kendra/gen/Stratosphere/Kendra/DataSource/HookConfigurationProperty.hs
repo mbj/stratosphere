@@ -23,6 +23,7 @@ instance ToResourceProperties HookConfigurationProperty where
   toResourceProperties HookConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.HookConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LambdaArn" JSON..= lambdaArn, "S3Bucket" JSON..= s3Bucket]

@@ -46,6 +46,7 @@ instance ToResourceProperties GameServerGroup where
   toResourceProperties GameServerGroup {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::GameServerGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GameServerGroupName" JSON..= gameServerGroupName,

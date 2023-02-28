@@ -27,6 +27,7 @@ instance ToResourceProperties VerificationMessageTemplateProperty where
   toResourceProperties VerificationMessageTemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.VerificationMessageTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefaultEmailOption" Prelude.<$> defaultEmailOption,

@@ -24,6 +24,7 @@ instance ToResourceProperties ContainerProperty where
   toResourceProperties ContainerProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Container.Container",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Command" Prelude.<$> command,

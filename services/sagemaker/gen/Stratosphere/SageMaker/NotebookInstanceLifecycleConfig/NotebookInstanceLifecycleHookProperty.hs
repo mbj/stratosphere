@@ -17,6 +17,7 @@ instance ToResourceProperties NotebookInstanceLifecycleHookProperty where
   toResourceProperties NotebookInstanceLifecycleHookProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHook",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Content" Prelude.<$> content])}
 instance JSON.ToJSON NotebookInstanceLifecycleHookProperty where

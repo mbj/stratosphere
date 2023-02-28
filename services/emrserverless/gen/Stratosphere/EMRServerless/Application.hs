@@ -44,6 +44,7 @@ instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
         {awsType = "AWS::EMRServerless::Application",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ReleaseLabel" JSON..= releaseLabel, "Type" JSON..= type']

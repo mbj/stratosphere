@@ -18,6 +18,7 @@ instance ToResourceProperties KmsEncryptionConfigProperty where
   toResourceProperties KmsEncryptionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::HealthLake::FHIRDatastore.KmsEncryptionConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CmkType" JSON..= cmkType]

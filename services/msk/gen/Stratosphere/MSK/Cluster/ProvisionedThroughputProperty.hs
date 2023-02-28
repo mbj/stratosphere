@@ -17,6 +17,7 @@ instance ToResourceProperties ProvisionedThroughputProperty where
   toResourceProperties ProvisionedThroughputProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.ProvisionedThroughput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

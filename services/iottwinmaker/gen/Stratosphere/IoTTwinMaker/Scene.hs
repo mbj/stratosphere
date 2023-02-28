@@ -24,7 +24,7 @@ mkScene contentLocation sceneId workspaceId
 instance ToResourceProperties Scene where
   toResourceProperties Scene {..}
     = ResourceProperties
-        {awsType = "AWS::IoTTwinMaker::Scene",
+        {awsType = "AWS::IoTTwinMaker::Scene", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ContentLocation" JSON..= contentLocation,

@@ -17,6 +17,7 @@ instance ToResourceProperties ColumnGroupColumnSchemaProperty where
   toResourceProperties ColumnGroupColumnSchemaProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Template.ColumnGroupColumnSchema",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name])}
 instance JSON.ToJSON ColumnGroupColumnSchemaProperty where

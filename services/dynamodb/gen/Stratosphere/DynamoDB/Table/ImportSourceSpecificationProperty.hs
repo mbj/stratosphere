@@ -26,6 +26,7 @@ instance ToResourceProperties ImportSourceSpecificationProperty where
   toResourceProperties ImportSourceSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.ImportSourceSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InputFormat" JSON..= inputFormat,

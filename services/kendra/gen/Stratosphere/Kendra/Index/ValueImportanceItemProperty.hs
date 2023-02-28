@@ -17,6 +17,7 @@ instance ToResourceProperties ValueImportanceItemProperty where
   toResourceProperties ValueImportanceItemProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::Index.ValueImportanceItem",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

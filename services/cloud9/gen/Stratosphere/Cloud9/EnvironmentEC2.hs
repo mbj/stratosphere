@@ -32,6 +32,7 @@ instance ToResourceProperties EnvironmentEC2 where
   toResourceProperties EnvironmentEC2 {..}
     = ResourceProperties
         {awsType = "AWS::Cloud9::EnvironmentEC2",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceType" JSON..= instanceType]

@@ -38,6 +38,7 @@ instance ToResourceProperties CloudWatchAlarmDefinitionProperty where
   toResourceProperties CloudWatchAlarmDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.CloudWatchAlarmDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ComparisonOperator" JSON..= comparisonOperator,

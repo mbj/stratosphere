@@ -19,6 +19,7 @@ instance ToResourceProperties QuotaSettingsProperty where
   toResourceProperties QuotaSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::UsagePlan.QuotaSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Limit" Prelude.<$> limit,

@@ -21,6 +21,7 @@ instance ToResourceProperties ResponseSpecificationProperty where
   toResourceProperties ResponseSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.ResponseSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MessageGroupsList" JSON..= messageGroupsList]

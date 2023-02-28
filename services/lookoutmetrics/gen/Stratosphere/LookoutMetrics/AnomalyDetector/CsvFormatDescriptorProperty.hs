@@ -23,6 +23,7 @@ instance ToResourceProperties CsvFormatDescriptorProperty where
   toResourceProperties CsvFormatDescriptorProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.CsvFormatDescriptor",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Charset" Prelude.<$> charset,

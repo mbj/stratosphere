@@ -49,7 +49,7 @@ mkStudio
 instance ToResourceProperties Studio where
   toResourceProperties Studio {..}
     = ResourceProperties
-        {awsType = "AWS::EMR::Studio",
+        {awsType = "AWS::EMR::Studio", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthMode" JSON..= authMode,

@@ -68,6 +68,7 @@ instance ToResourceProperties InstanceRequirementsProperty where
   toResourceProperties InstanceRequirementsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.InstanceRequirements",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AcceleratorCount" Prelude.<$> acceleratorCount,

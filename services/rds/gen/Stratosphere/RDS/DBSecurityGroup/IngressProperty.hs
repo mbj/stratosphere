@@ -21,6 +21,7 @@ instance ToResourceProperties IngressProperty where
   toResourceProperties IngressProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBSecurityGroup.Ingress",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CIDRIP" Prelude.<$> cIDRIP,

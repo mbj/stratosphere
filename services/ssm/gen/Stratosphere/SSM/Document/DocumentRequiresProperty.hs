@@ -17,6 +17,7 @@ instance ToResourceProperties DocumentRequiresProperty where
   toResourceProperties DocumentRequiresProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::Document.DocumentRequires",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

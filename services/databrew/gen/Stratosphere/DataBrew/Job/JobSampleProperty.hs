@@ -17,6 +17,7 @@ instance ToResourceProperties JobSampleProperty where
   toResourceProperties JobSampleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.JobSample",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Mode" Prelude.<$> mode,

@@ -15,6 +15,7 @@ instance ToResourceProperties AdMarkerPassthroughProperty where
   toResourceProperties AdMarkerPassthroughProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaTailor::PlaybackConfiguration.AdMarkerPassthrough",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled])}
 instance JSON.ToJSON AdMarkerPassthroughProperty where

@@ -25,6 +25,7 @@ instance ToResourceProperties LocationFSxOpenZFS where
   toResourceProperties LocationFSxOpenZFS {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationFSxOpenZFS",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Protocol" JSON..= protocol,

@@ -19,6 +19,7 @@ instance ToResourceProperties EnabledControl where
   toResourceProperties EnabledControl {..}
     = ResourceProperties
         {awsType = "AWS::ControlTower::EnabledControl",
+         supportsTags = Prelude.False,
          properties = ["ControlIdentifier" JSON..= controlIdentifier,
                        "TargetIdentifier" JSON..= targetIdentifier]}
 instance JSON.ToJSON EnabledControl where

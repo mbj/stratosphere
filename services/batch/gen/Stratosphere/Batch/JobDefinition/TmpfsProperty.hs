@@ -20,6 +20,7 @@ instance ToResourceProperties TmpfsProperty where
   toResourceProperties TmpfsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.Tmpfs",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ContainerPath" JSON..= containerPath, "Size" JSON..= size]

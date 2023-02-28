@@ -21,6 +21,7 @@ instance ToResourceProperties IPAMResourceDiscovery where
   toResourceProperties IPAMResourceDiscovery {..}
     = ResourceProperties
         {awsType = "AWS::EC2::IPAMResourceDiscovery",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

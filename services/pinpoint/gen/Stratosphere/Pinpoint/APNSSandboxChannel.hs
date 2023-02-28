@@ -29,6 +29,7 @@ instance ToResourceProperties APNSSandboxChannel where
   toResourceProperties APNSSandboxChannel {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::APNSSandboxChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId]

@@ -20,6 +20,7 @@ instance ToResourceProperties RoutingRuleProperty where
   toResourceProperties RoutingRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.RoutingRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RedirectRule" JSON..= redirectRule]

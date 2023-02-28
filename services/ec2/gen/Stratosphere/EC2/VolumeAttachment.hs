@@ -20,6 +20,7 @@ instance ToResourceProperties VolumeAttachment where
   toResourceProperties VolumeAttachment {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VolumeAttachment",
+         supportsTags = Prelude.False,
          properties = ["Device" JSON..= device,
                        "InstanceId" JSON..= instanceId, "VolumeId" JSON..= volumeId]}
 instance JSON.ToJSON VolumeAttachment where

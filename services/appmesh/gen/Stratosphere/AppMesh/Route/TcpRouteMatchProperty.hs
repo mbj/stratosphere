@@ -15,6 +15,7 @@ instance ToResourceProperties TcpRouteMatchProperty where
   toResourceProperties TcpRouteMatchProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.TcpRouteMatch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Port" Prelude.<$> port])}
 instance JSON.ToJSON TcpRouteMatchProperty where

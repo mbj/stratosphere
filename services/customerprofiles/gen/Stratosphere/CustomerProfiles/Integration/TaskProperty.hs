@@ -26,6 +26,7 @@ instance ToResourceProperties TaskProperty where
   toResourceProperties TaskProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.Task",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SourceFields" JSON..= sourceFields, "TaskType" JSON..= taskType]

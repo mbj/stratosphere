@@ -29,6 +29,7 @@ instance ToResourceProperties SuiteDefinitionConfigurationProperty where
   toResourceProperties SuiteDefinitionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTCoreDeviceAdvisor::SuiteDefinition.SuiteDefinitionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DevicePermissionRoleArn" JSON..= devicePermissionRoleArn,

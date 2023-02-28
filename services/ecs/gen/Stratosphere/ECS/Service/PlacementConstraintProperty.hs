@@ -18,6 +18,7 @@ instance ToResourceProperties PlacementConstraintProperty where
   toResourceProperties PlacementConstraintProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.PlacementConstraint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

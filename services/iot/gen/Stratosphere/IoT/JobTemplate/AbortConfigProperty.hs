@@ -2,6 +2,7 @@ module Stratosphere.IoT.JobTemplate.AbortConfigProperty (
         module Exports, AbortConfigProperty(..), mkAbortConfigProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.AbortCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
@@ -15,6 +16,7 @@ instance ToResourceProperties AbortConfigProperty where
   toResourceProperties AbortConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::JobTemplate.AbortConfig",
+         supportsTags = Prelude.False,
          properties = ["CriteriaList" JSON..= criteriaList]}
 instance JSON.ToJSON AbortConfigProperty where
   toJSON AbortConfigProperty {..}

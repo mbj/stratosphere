@@ -18,6 +18,7 @@ instance ToResourceProperties KafkaClusterEncryptionInTransitProperty where
   toResourceProperties KafkaClusterEncryptionInTransitProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.KafkaClusterEncryptionInTransit",
+         supportsTags = Prelude.False,
          properties = ["EncryptionType" JSON..= encryptionType]}
 instance JSON.ToJSON KafkaClusterEncryptionInTransitProperty where
   toJSON KafkaClusterEncryptionInTransitProperty {..}

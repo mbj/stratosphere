@@ -17,6 +17,7 @@ instance ToResourceProperties EnvironmentVariableProperty where
   toResourceProperties EnvironmentVariableProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Container.EnvironmentVariable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Value" Prelude.<$> value,

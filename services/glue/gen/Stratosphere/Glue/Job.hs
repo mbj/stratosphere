@@ -49,7 +49,7 @@ mkJob command role
 instance ToResourceProperties Job where
   toResourceProperties Job {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Job",
+        {awsType = "AWS::Glue::Job", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Command" JSON..= command, "Role" JSON..= role]

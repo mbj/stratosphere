@@ -25,6 +25,7 @@ instance ToResourceProperties DocumentAttributeConditionProperty where
   toResourceProperties DocumentAttributeConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.DocumentAttributeCondition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConditionDocumentAttributeKey"

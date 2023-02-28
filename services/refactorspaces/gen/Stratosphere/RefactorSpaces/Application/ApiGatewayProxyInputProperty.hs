@@ -17,6 +17,7 @@ instance ToResourceProperties ApiGatewayProxyInputProperty where
   toResourceProperties ApiGatewayProxyInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::RefactorSpaces::Application.ApiGatewayProxyInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EndpointType" Prelude.<$> endpointType,

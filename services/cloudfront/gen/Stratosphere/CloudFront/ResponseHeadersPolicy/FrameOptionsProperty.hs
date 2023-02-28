@@ -18,6 +18,7 @@ instance ToResourceProperties FrameOptionsProperty where
   toResourceProperties FrameOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.FrameOptions",
+         supportsTags = Prelude.False,
          properties = ["FrameOption" JSON..= frameOption,
                        "Override" JSON..= override]}
 instance JSON.ToJSON FrameOptionsProperty where

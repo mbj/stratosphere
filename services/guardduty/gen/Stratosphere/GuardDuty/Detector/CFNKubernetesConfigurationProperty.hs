@@ -17,6 +17,7 @@ instance ToResourceProperties CFNKubernetesConfigurationProperty where
   toResourceProperties CFNKubernetesConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GuardDuty::Detector.CFNKubernetesConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "AuditLogs" Prelude.<$> auditLogs])}
 instance JSON.ToJSON CFNKubernetesConfigurationProperty where

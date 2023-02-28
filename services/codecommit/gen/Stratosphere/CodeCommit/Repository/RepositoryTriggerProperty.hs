@@ -24,6 +24,7 @@ instance ToResourceProperties RepositoryTriggerProperty where
   toResourceProperties RepositoryTriggerProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeCommit::Repository.RepositoryTrigger",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationArn" JSON..= destinationArn, "Events" JSON..= events,

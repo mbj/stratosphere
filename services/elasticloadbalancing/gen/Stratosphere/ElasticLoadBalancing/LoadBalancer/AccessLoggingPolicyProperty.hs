@@ -22,6 +22,7 @@ instance ToResourceProperties AccessLoggingPolicyProperty where
   toResourceProperties AccessLoggingPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancing::LoadBalancer.AccessLoggingPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled, "S3BucketName" JSON..= s3BucketName]

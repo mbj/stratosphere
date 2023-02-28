@@ -28,6 +28,7 @@ instance ToResourceProperties PromptSpecificationProperty where
   toResourceProperties PromptSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.PromptSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MaxRetries" JSON..= maxRetries,

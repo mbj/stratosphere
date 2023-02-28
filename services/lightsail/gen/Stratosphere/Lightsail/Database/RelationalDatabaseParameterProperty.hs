@@ -28,6 +28,7 @@ instance ToResourceProperties RelationalDatabaseParameterProperty where
   toResourceProperties RelationalDatabaseParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Database.RelationalDatabaseParameter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowedValues" Prelude.<$> allowedValues,

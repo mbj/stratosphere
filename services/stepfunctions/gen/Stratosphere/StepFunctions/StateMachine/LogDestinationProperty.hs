@@ -16,6 +16,7 @@ instance ToResourceProperties LogDestinationProperty where
   toResourceProperties LogDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::StepFunctions::StateMachine.LogDestination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchLogsLogGroup"

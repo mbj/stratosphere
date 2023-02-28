@@ -18,6 +18,7 @@ instance ToResourceProperties MultiRegionAccessPointPolicy where
   toResourceProperties MultiRegionAccessPointPolicy {..}
     = ResourceProperties
         {awsType = "AWS::S3::MultiRegionAccessPointPolicy",
+         supportsTags = Prelude.False,
          properties = ["MrapName" JSON..= mrapName,
                        "Policy" JSON..= policy]}
 instance JSON.ToJSON MultiRegionAccessPointPolicy where

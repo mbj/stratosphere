@@ -27,6 +27,7 @@ instance ToResourceProperties ResourceMappingProperty where
   toResourceProperties ResourceMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::ResilienceHub::App.ResourceMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MappingType" JSON..= mappingType,

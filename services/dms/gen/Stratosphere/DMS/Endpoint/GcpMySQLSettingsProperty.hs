@@ -38,6 +38,7 @@ instance ToResourceProperties GcpMySQLSettingsProperty where
   toResourceProperties GcpMySQLSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.GcpMySQLSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AfterConnectScript" Prelude.<$> afterConnectScript,

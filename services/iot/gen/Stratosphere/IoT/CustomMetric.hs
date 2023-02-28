@@ -20,7 +20,7 @@ mkCustomMetric metricType
 instance ToResourceProperties CustomMetric where
   toResourceProperties CustomMetric {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::CustomMetric",
+        {awsType = "AWS::IoT::CustomMetric", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricType" JSON..= metricType]

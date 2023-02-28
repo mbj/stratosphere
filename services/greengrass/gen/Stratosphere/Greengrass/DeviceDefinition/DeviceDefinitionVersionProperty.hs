@@ -3,6 +3,7 @@ module Stratosphere.Greengrass.DeviceDefinition.DeviceDefinitionVersionProperty 
         mkDeviceDefinitionVersionProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.DeviceDefinition.DeviceProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties DeviceDefinitionVersionProperty where
   toResourceProperties DeviceDefinitionVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::DeviceDefinition.DeviceDefinitionVersion",
+         supportsTags = Prelude.False,
          properties = ["Devices" JSON..= devices]}
 instance JSON.ToJSON DeviceDefinitionVersionProperty where
   toJSON DeviceDefinitionVersionProperty {..}

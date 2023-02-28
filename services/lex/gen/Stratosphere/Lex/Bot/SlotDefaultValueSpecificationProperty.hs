@@ -3,6 +3,7 @@ module Stratosphere.Lex.Bot.SlotDefaultValueSpecificationProperty (
         mkSlotDefaultValueSpecificationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotDefaultValueProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties SlotDefaultValueSpecificationProperty where
   toResourceProperties SlotDefaultValueSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SlotDefaultValueSpecification",
+         supportsTags = Prelude.False,
          properties = ["DefaultValueList" JSON..= defaultValueList]}
 instance JSON.ToJSON SlotDefaultValueSpecificationProperty where
   toJSON SlotDefaultValueSpecificationProperty {..}

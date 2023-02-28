@@ -15,7 +15,7 @@ instance ToResourceProperties EgressFilterProperty where
   toResourceProperties EgressFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Mesh.EgressFilter",
-         properties = ["Type" JSON..= type']}
+         supportsTags = Prelude.False, properties = ["Type" JSON..= type']}
 instance JSON.ToJSON EgressFilterProperty where
   toJSON EgressFilterProperty {..}
     = JSON.object ["Type" JSON..= type']

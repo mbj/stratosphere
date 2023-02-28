@@ -18,6 +18,7 @@ instance ToResourceProperties StatusCodesProperty where
   toResourceProperties StatusCodesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.StatusCodes",
+         supportsTags = Prelude.False,
          properties = ["Items" JSON..= items, "Quantity" JSON..= quantity]}
 instance JSON.ToJSON StatusCodesProperty where
   toJSON StatusCodesProperty {..}

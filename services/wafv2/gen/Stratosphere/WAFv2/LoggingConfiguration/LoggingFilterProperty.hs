@@ -19,6 +19,7 @@ instance ToResourceProperties LoggingFilterProperty where
   toResourceProperties LoggingFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::LoggingConfiguration.LoggingFilter",
+         supportsTags = Prelude.False,
          properties = ["DefaultBehavior" JSON..= defaultBehavior,
                        "Filters" JSON..= filters]}
 instance JSON.ToJSON LoggingFilterProperty where

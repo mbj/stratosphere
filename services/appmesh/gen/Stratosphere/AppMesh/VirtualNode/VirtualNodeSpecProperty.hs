@@ -27,6 +27,7 @@ instance ToResourceProperties VirtualNodeSpecProperty where
   toResourceProperties VirtualNodeSpecProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.VirtualNodeSpec",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BackendDefaults" Prelude.<$> backendDefaults,

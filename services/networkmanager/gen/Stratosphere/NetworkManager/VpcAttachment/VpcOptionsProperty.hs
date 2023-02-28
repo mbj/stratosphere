@@ -18,6 +18,7 @@ instance ToResourceProperties VpcOptionsProperty where
   toResourceProperties VpcOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::VpcAttachment.VpcOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplianceModeSupport" Prelude.<$> applianceModeSupport,

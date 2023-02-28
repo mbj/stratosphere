@@ -20,6 +20,7 @@ instance ToResourceProperties ShareRuleProperty where
   toResourceProperties ShareRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.ShareRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TargetAccounts" Prelude.<$> targetAccounts,

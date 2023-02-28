@@ -23,6 +23,7 @@ instance ToResourceProperties InstanceFleetProvisioningSpecificationsProperty wh
     InstanceFleetProvisioningSpecificationsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::InstanceFleetConfig.InstanceFleetProvisioningSpecifications",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OnDemandSpecification"

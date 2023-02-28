@@ -25,6 +25,7 @@ instance ToResourceProperties PasswordPolicyProperty where
   toResourceProperties PasswordPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.PasswordPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MinimumLength" Prelude.<$> minimumLength,

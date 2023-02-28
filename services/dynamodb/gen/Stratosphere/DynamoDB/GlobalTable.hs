@@ -46,6 +46,7 @@ instance ToResourceProperties GlobalTable where
   toResourceProperties GlobalTable {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AttributeDefinitions" JSON..= attributeDefinitions,

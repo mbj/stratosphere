@@ -16,6 +16,7 @@ instance ToResourceProperties ChallengeActionProperty where
   toResourceProperties ChallengeActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.ChallengeAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomRequestHandling"

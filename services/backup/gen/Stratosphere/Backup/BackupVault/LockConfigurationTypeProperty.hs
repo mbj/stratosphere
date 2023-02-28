@@ -21,6 +21,7 @@ instance ToResourceProperties LockConfigurationTypeProperty where
   toResourceProperties LockConfigurationTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::BackupVault.LockConfigurationType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MinRetentionDays" JSON..= minRetentionDays]

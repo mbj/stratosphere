@@ -19,6 +19,7 @@ instance ToResourceProperties EncryptionAtRestOptionsProperty where
   toResourceProperties EncryptionAtRestOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.EncryptionAtRestOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

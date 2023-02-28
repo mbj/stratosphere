@@ -20,6 +20,7 @@ instance ToResourceProperties LimitsProperty where
   toResourceProperties LimitsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::ApplicationSettings.Limits",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Daily" Prelude.<$> daily,

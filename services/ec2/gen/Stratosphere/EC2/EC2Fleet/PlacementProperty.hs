@@ -27,6 +27,7 @@ instance ToResourceProperties PlacementProperty where
   toResourceProperties PlacementProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EC2Fleet.Placement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Affinity" Prelude.<$> affinity,

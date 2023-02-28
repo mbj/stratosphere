@@ -36,6 +36,7 @@ instance ToResourceProperties AlarmActionProperty where
   toResourceProperties AlarmActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.AlarmAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DynamoDB" Prelude.<$> dynamoDB,

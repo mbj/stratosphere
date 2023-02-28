@@ -18,6 +18,7 @@ instance ToResourceProperties AssetHierarchyProperty where
   toResourceProperties AssetHierarchyProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::Asset.AssetHierarchy",
+         supportsTags = Prelude.False,
          properties = ["ChildAssetId" JSON..= childAssetId,
                        "LogicalId" JSON..= logicalId]}
 instance JSON.ToJSON AssetHierarchyProperty where

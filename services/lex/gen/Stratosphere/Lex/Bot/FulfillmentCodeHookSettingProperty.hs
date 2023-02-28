@@ -26,6 +26,7 @@ instance ToResourceProperties FulfillmentCodeHookSettingProperty where
   toResourceProperties FulfillmentCodeHookSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.FulfillmentCodeHookSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

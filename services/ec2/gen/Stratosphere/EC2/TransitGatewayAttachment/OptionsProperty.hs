@@ -19,6 +19,7 @@ instance ToResourceProperties OptionsProperty where
   toResourceProperties OptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TransitGatewayAttachment.Options",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplianceModeSupport" Prelude.<$> applianceModeSupport,

@@ -20,6 +20,7 @@ instance ToResourceProperties OnlineStoreConfigProperty where
   toResourceProperties OnlineStoreConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::FeatureGroup.OnlineStoreConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EnableOnlineStore" Prelude.<$> enableOnlineStore,

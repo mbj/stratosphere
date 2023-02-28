@@ -29,6 +29,7 @@ instance ToResourceProperties UserPoolRiskConfigurationAttachment where
   toResourceProperties UserPoolRiskConfigurationAttachment {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolRiskConfigurationAttachment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientId" JSON..= clientId, "UserPoolId" JSON..= userPoolId]

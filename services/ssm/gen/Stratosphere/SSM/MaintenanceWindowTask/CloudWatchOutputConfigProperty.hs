@@ -19,6 +19,7 @@ instance ToResourceProperties CloudWatchOutputConfigProperty where
   toResourceProperties CloudWatchOutputConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTask.CloudWatchOutputConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchLogGroupName"

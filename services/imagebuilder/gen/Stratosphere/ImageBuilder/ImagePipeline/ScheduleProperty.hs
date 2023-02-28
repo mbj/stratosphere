@@ -18,6 +18,7 @@ instance ToResourceProperties ScheduleProperty where
   toResourceProperties ScheduleProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ImagePipeline.Schedule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PipelineExecutionStartCondition"

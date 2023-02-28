@@ -13,7 +13,7 @@ instance ToResourceProperties AwsOrgProperty where
   toResourceProperties AwsOrgProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.AwsOrg",
-         properties = ["Arn" JSON..= arn]}
+         supportsTags = Prelude.False, properties = ["Arn" JSON..= arn]}
 instance JSON.ToJSON AwsOrgProperty where
   toJSON AwsOrgProperty {..} = JSON.object ["Arn" JSON..= arn]
 instance Property "Arn" AwsOrgProperty where

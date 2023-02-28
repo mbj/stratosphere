@@ -21,6 +21,7 @@ instance ToResourceProperties ActiveDirectoryConfigurationProperty where
   toResourceProperties ActiveDirectoryConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::StorageVirtualMachine.ActiveDirectoryConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NetBiosName" Prelude.<$> netBiosName,

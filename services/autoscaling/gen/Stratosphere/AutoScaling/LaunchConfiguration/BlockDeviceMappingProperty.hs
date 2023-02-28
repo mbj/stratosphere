@@ -23,6 +23,7 @@ instance ToResourceProperties BlockDeviceMappingProperty where
   toResourceProperties BlockDeviceMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeviceName" JSON..= deviceName]

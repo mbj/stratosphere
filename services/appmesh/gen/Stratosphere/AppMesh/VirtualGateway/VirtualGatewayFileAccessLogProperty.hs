@@ -20,6 +20,7 @@ instance ToResourceProperties VirtualGatewayFileAccessLogProperty where
   toResourceProperties VirtualGatewayFileAccessLogProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayFileAccessLog",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Path" JSON..= path]

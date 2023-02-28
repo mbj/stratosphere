@@ -19,6 +19,7 @@ instance ToResourceProperties EncryptionConfigurationProperty where
   toResourceProperties EncryptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECR::Repository.EncryptionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EncryptionType" JSON..= encryptionType]

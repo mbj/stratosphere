@@ -25,6 +25,7 @@ instance ToResourceProperties HttpRetryPolicyProperty where
   toResourceProperties HttpRetryPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.HttpRetryPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MaxRetries" JSON..= maxRetries,

@@ -28,6 +28,7 @@ instance ToResourceProperties UserPoolUser where
   toResourceProperties UserPoolUser {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolUser",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["UserPoolId" JSON..= userPoolId]

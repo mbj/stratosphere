@@ -18,6 +18,7 @@ instance ToResourceProperties AssociationParameterProperty where
   toResourceProperties AssociationParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.AssociationParameter",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON AssociationParameterProperty where
   toJSON AssociationParameterProperty {..}

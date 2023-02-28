@@ -17,6 +17,7 @@ instance ToResourceProperties ConnectorProvisioningConfigProperty where
   toResourceProperties ConnectorProvisioningConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Connector.ConnectorProvisioningConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Lambda" Prelude.<$> lambda])}
 instance JSON.ToJSON ConnectorProvisioningConfigProperty where

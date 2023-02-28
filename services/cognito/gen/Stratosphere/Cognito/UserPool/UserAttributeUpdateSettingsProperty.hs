@@ -19,6 +19,7 @@ instance ToResourceProperties UserAttributeUpdateSettingsProperty where
   toResourceProperties UserAttributeUpdateSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.UserAttributeUpdateSettings",
+         supportsTags = Prelude.False,
          properties = ["AttributesRequireVerificationBeforeUpdate"
                          JSON..= attributesRequireVerificationBeforeUpdate]}
 instance JSON.ToJSON UserAttributeUpdateSettingsProperty where

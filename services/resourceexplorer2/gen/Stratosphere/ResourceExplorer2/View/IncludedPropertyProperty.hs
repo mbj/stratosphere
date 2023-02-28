@@ -16,7 +16,7 @@ instance ToResourceProperties IncludedPropertyProperty where
   toResourceProperties IncludedPropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::ResourceExplorer2::View.IncludedProperty",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON IncludedPropertyProperty where
   toJSON IncludedPropertyProperty {..}
     = JSON.object ["Name" JSON..= name]

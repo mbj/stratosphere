@@ -18,6 +18,7 @@ instance ToResourceProperties ConfigSnapshotDeliveryPropertiesProperty where
   toResourceProperties ConfigSnapshotDeliveryPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::DeliveryChannel.ConfigSnapshotDeliveryProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeliveryFrequency" Prelude.<$> deliveryFrequency])}

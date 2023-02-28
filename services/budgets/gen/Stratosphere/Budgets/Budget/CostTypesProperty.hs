@@ -34,6 +34,7 @@ instance ToResourceProperties CostTypesProperty where
   toResourceProperties CostTypesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::Budget.CostTypes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IncludeCredit" Prelude.<$> includeCredit,

@@ -17,6 +17,7 @@ instance ToResourceProperties LoggingConfigProperty where
   toResourceProperties LoggingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::HookVersion.LoggingConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LogGroupName" Prelude.<$> logGroupName,

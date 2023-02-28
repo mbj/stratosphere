@@ -17,6 +17,7 @@ instance ToResourceProperties PlacementConstraintProperty where
   toResourceProperties PlacementConstraintProperty {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule.PlacementConstraint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Expression" Prelude.<$> expression,

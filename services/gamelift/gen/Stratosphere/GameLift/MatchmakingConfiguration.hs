@@ -51,6 +51,7 @@ instance ToResourceProperties MatchmakingConfiguration where
   toResourceProperties MatchmakingConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::MatchmakingConfiguration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AcceptanceRequired" JSON..= acceptanceRequired,

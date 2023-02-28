@@ -18,6 +18,7 @@ instance ToResourceProperties LoggingConfigurationProperty where
   toResourceProperties LoggingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.LoggingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DestinationBucketName"

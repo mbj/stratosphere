@@ -13,7 +13,7 @@ mkScramProperty enabled = ScramProperty {enabled = enabled}
 instance ToResourceProperties ScramProperty where
   toResourceProperties ScramProperty {..}
     = ResourceProperties
-        {awsType = "AWS::MSK::Cluster.Scram",
+        {awsType = "AWS::MSK::Cluster.Scram", supportsTags = Prelude.False,
          properties = ["Enabled" JSON..= enabled]}
 instance JSON.ToJSON ScramProperty where
   toJSON ScramProperty {..} = JSON.object ["Enabled" JSON..= enabled]

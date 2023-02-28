@@ -21,6 +21,7 @@ instance ToResourceProperties RouteCalculator where
   toResourceProperties RouteCalculator {..}
     = ResourceProperties
         {awsType = "AWS::Location::RouteCalculator",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CalculatorName" JSON..= calculatorName,

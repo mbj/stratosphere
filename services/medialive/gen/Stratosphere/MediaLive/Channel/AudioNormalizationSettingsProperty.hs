@@ -21,6 +21,7 @@ instance ToResourceProperties AudioNormalizationSettingsProperty where
   toResourceProperties AudioNormalizationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AudioNormalizationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Algorithm" Prelude.<$> algorithm,

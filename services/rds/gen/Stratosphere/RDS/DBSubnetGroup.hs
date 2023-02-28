@@ -22,7 +22,7 @@ mkDBSubnetGroup dBSubnetGroupDescription subnetIds
 instance ToResourceProperties DBSubnetGroup where
   toResourceProperties DBSubnetGroup {..}
     = ResourceProperties
-        {awsType = "AWS::RDS::DBSubnetGroup",
+        {awsType = "AWS::RDS::DBSubnetGroup", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DBSubnetGroupDescription" JSON..= dBSubnetGroupDescription,

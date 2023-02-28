@@ -23,6 +23,7 @@ instance ToResourceProperties ResourceSet where
   toResourceProperties ResourceSet {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryReadiness::ResourceSet",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResourceSetType" JSON..= resourceSetType,

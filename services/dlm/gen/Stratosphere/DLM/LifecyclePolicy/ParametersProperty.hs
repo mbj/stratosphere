@@ -21,6 +21,7 @@ instance ToResourceProperties ParametersProperty where
   toResourceProperties ParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.Parameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExcludeBootVolume" Prelude.<$> excludeBootVolume,

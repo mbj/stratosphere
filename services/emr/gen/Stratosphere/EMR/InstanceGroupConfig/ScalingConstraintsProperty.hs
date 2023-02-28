@@ -19,6 +19,7 @@ instance ToResourceProperties ScalingConstraintsProperty where
   toResourceProperties ScalingConstraintsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::InstanceGroupConfig.ScalingConstraints",
+         supportsTags = Prelude.False,
          properties = ["MaxCapacity" JSON..= maxCapacity,
                        "MinCapacity" JSON..= minCapacity]}
 instance JSON.ToJSON ScalingConstraintsProperty where

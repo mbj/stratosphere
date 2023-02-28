@@ -25,6 +25,7 @@ instance ToResourceProperties MetricDataItemsProperty where
   toResourceProperties MetricDataItemsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.MetricDataItems",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Type" JSON..= type', "Value" JSON..= value]

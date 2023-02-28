@@ -26,6 +26,7 @@ instance ToResourceProperties TargetTrackingConfigurationProperty where
   toResourceProperties TargetTrackingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TargetValue" JSON..= targetValue]

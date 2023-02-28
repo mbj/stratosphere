@@ -20,6 +20,7 @@ instance ToResourceProperties ReplicationRegionProperty where
   toResourceProperties ReplicationRegionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ReplicationSet.ReplicationRegion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RegionConfiguration" Prelude.<$> regionConfiguration,

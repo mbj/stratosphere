@@ -26,6 +26,7 @@ instance ToResourceProperties DeviceFleet where
   toResourceProperties DeviceFleet {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::DeviceFleet",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeviceFleetName" JSON..= deviceFleetName,

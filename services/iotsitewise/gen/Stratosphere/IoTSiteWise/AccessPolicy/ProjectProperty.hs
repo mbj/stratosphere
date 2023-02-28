@@ -14,6 +14,7 @@ instance ToResourceProperties ProjectProperty where
   toResourceProperties ProjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AccessPolicy.Project",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "id" Prelude.<$> id])}
 instance JSON.ToJSON ProjectProperty where

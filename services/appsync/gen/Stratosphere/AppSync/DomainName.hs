@@ -20,6 +20,7 @@ instance ToResourceProperties DomainName where
   toResourceProperties DomainName {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DomainName",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CertificateArn" JSON..= certificateArn,

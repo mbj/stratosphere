@@ -20,6 +20,7 @@ instance ToResourceProperties ComponentConfigurationProperty where
   toResourceProperties ComponentConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.ComponentConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConfigurationDetails" Prelude.<$> configurationDetails,

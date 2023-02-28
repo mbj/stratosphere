@@ -32,7 +32,7 @@ mkTopic
 instance ToResourceProperties Topic where
   toResourceProperties Topic {..}
     = ResourceProperties
-        {awsType = "AWS::SNS::Topic",
+        {awsType = "AWS::SNS::Topic", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContentBasedDeduplication"

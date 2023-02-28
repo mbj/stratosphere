@@ -22,6 +22,7 @@ instance ToResourceProperties PortfolioShare where
   toResourceProperties PortfolioShare {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::PortfolioShare",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccountId" JSON..= accountId, "PortfolioId" JSON..= portfolioId]

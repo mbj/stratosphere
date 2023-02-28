@@ -17,6 +17,7 @@ instance ToResourceProperties AwsLambdaProperty where
   toResourceProperties AwsLambdaProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3ObjectLambda::AccessPoint.AwsLambda",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionArn" JSON..= functionArn]

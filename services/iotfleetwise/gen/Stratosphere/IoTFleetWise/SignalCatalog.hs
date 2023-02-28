@@ -25,6 +25,7 @@ instance ToResourceProperties SignalCatalog where
   toResourceProperties SignalCatalog {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::SignalCatalog",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

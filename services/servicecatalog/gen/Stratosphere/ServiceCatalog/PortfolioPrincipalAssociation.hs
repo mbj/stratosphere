@@ -26,6 +26,7 @@ instance ToResourceProperties PortfolioPrincipalAssociation where
   toResourceProperties PortfolioPrincipalAssociation {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::PortfolioPrincipalAssociation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PortfolioId" JSON..= portfolioId,

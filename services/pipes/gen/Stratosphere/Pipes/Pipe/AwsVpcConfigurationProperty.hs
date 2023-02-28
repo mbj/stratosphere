@@ -20,6 +20,7 @@ instance ToResourceProperties AwsVpcConfigurationProperty where
   toResourceProperties AwsVpcConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.AwsVpcConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Subnets" JSON..= subnets]

@@ -24,6 +24,7 @@ instance ToResourceProperties ServiceConnectConfigurationProperty where
   toResourceProperties ServiceConnectConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.ServiceConnectConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

@@ -23,6 +23,7 @@ instance ToResourceProperties BounceActionProperty where
   toResourceProperties BounceActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ReceiptRule.BounceAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Message" JSON..= message, "Sender" JSON..= sender,

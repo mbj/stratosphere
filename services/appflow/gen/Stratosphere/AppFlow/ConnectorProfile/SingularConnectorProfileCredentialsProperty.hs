@@ -18,6 +18,7 @@ instance ToResourceProperties SingularConnectorProfileCredentialsProperty where
     SingularConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.SingularConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = ["ApiKey" JSON..= apiKey]}
 instance JSON.ToJSON SingularConnectorProfileCredentialsProperty where
   toJSON SingularConnectorProfileCredentialsProperty {..}

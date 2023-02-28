@@ -18,6 +18,7 @@ instance ToResourceProperties CookiesConfigProperty where
   toResourceProperties CookiesConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::OriginRequestPolicy.CookiesConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CookieBehavior" JSON..= cookieBehavior]

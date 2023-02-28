@@ -21,6 +21,7 @@ instance ToResourceProperties EncryptionProperty where
   toResourceProperties EncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaConnect::FlowOutput.Encryption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn, "SecretArn" JSON..= secretArn]

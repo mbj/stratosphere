@@ -27,7 +27,7 @@ mkReportPlan reportDeliveryChannel reportSetting
 instance ToResourceProperties ReportPlan where
   toResourceProperties ReportPlan {..}
     = ResourceProperties
-        {awsType = "AWS::Backup::ReportPlan",
+        {awsType = "AWS::Backup::ReportPlan", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ReportDeliveryChannel" JSON..= reportDeliveryChannel,

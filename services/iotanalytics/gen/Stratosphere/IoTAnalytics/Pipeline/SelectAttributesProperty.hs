@@ -20,6 +20,7 @@ instance ToResourceProperties SelectAttributesProperty where
   toResourceProperties SelectAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline.SelectAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Attributes" JSON..= attributes, "Name" JSON..= name]

@@ -41,6 +41,7 @@ instance ToResourceProperties ProductionVariantProperty where
   toResourceProperties ProductionVariantProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.ProductionVariant",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InitialVariantWeight" JSON..= initialVariantWeight,

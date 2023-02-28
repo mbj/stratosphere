@@ -19,6 +19,7 @@ instance ToResourceProperties TileLayoutStyleProperty where
   toResourceProperties TileLayoutStyleProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.TileLayoutStyle",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Gutter" Prelude.<$> gutter,

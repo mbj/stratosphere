@@ -24,6 +24,7 @@ instance ToResourceProperties ConditionBasedCollectionSchemeProperty where
   toResourceProperties ConditionBasedCollectionSchemeProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::Campaign.ConditionBasedCollectionScheme",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Expression" JSON..= expression]

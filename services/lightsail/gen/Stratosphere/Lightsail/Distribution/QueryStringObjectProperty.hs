@@ -17,6 +17,7 @@ instance ToResourceProperties QueryStringObjectProperty where
   toResourceProperties QueryStringObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Distribution.QueryStringObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Option" Prelude.<$> option,

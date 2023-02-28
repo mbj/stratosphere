@@ -28,6 +28,7 @@ instance ToResourceProperties ConnectionInputProperty where
   toResourceProperties ConnectionInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Connection.ConnectionInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectionType" JSON..= connectionType]

@@ -17,6 +17,7 @@ instance ToResourceProperties NetworkConfigurationProperty where
   toResourceProperties NetworkConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MWAA::Environment.NetworkConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,

@@ -3,6 +3,7 @@ module Stratosphere.IVS.RecordingConfiguration.DestinationConfigurationProperty 
         mkDestinationConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IVS.RecordingConfiguration.S3DestinationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,7 +18,7 @@ instance ToResourceProperties DestinationConfigurationProperty where
   toResourceProperties DestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IVS::RecordingConfiguration.DestinationConfiguration",
-         properties = ["S3" JSON..= s3]}
+         supportsTags = Prelude.False, properties = ["S3" JSON..= s3]}
 instance JSON.ToJSON DestinationConfigurationProperty where
   toJSON DestinationConfigurationProperty {..}
     = JSON.object ["S3" JSON..= s3]

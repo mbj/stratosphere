@@ -24,6 +24,7 @@ instance ToResourceProperties CheckpointConfigurationProperty where
   toResourceProperties CheckpointConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.CheckpointConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConfigurationType" JSON..= configurationType]

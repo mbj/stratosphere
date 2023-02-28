@@ -17,6 +17,7 @@ instance ToResourceProperties UserToGroupAddition where
   toResourceProperties UserToGroupAddition {..}
     = ResourceProperties
         {awsType = "AWS::IAM::UserToGroupAddition",
+         supportsTags = Prelude.False,
          properties = ["GroupName" JSON..= groupName,
                        "Users" JSON..= users]}
 instance JSON.ToJSON UserToGroupAddition where

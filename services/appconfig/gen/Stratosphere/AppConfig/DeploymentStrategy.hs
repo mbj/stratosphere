@@ -35,6 +35,7 @@ instance ToResourceProperties DeploymentStrategy where
   toResourceProperties DeploymentStrategy {..}
     = ResourceProperties
         {awsType = "AWS::AppConfig::DeploymentStrategy",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeploymentDurationInMinutes" JSON..= deploymentDurationInMinutes,

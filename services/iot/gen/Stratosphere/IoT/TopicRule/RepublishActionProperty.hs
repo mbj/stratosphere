@@ -23,6 +23,7 @@ instance ToResourceProperties RepublishActionProperty where
   toResourceProperties RepublishActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.RepublishAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn, "Topic" JSON..= topic]

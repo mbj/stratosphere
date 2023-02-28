@@ -49,7 +49,7 @@ mkEnvironment name
 instance ToResourceProperties Environment where
   toResourceProperties Environment {..}
     = ResourceProperties
-        {awsType = "AWS::MWAA::Environment",
+        {awsType = "AWS::MWAA::Environment", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

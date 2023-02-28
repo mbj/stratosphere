@@ -16,6 +16,7 @@ instance ToResourceProperties ReplicaModificationsProperty where
   toResourceProperties ReplicaModificationsProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ReplicaModifications",
+         supportsTags = Prelude.False,
          properties = ["Status" JSON..= status]}
 instance JSON.ToJSON ReplicaModificationsProperty where
   toJSON ReplicaModificationsProperty {..}

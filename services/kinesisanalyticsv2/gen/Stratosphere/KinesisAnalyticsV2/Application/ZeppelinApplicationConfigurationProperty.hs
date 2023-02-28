@@ -27,6 +27,7 @@ instance ToResourceProperties ZeppelinApplicationConfigurationProperty where
   toResourceProperties ZeppelinApplicationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.ZeppelinApplicationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CatalogConfiguration" Prelude.<$> catalogConfiguration,

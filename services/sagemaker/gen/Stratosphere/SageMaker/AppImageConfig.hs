@@ -21,6 +21,7 @@ instance ToResourceProperties AppImageConfig where
   toResourceProperties AppImageConfig {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::AppImageConfig",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AppImageConfigName" JSON..= appImageConfigName]

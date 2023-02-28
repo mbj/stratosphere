@@ -15,6 +15,7 @@ instance ToResourceProperties AthenaParametersProperty where
   toResourceProperties AthenaParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.AthenaParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "WorkGroup" Prelude.<$> workGroup])}
 instance JSON.ToJSON AthenaParametersProperty where

@@ -23,6 +23,7 @@ instance ToResourceProperties EksVolumeProperty where
   toResourceProperties EksVolumeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.EksVolume",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

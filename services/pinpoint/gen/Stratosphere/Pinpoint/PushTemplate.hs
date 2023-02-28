@@ -31,6 +31,7 @@ instance ToResourceProperties PushTemplate where
   toResourceProperties PushTemplate {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::PushTemplate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TemplateName" JSON..= templateName]

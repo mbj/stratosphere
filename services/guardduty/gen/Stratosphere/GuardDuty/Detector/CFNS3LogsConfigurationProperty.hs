@@ -16,6 +16,7 @@ instance ToResourceProperties CFNS3LogsConfigurationProperty where
   toResourceProperties CFNS3LogsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GuardDuty::Detector.CFNS3LogsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enable" Prelude.<$> enable])}
 instance JSON.ToJSON CFNS3LogsConfigurationProperty where

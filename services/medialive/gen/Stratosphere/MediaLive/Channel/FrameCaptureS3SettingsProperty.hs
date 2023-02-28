@@ -16,6 +16,7 @@ instance ToResourceProperties FrameCaptureS3SettingsProperty where
   toResourceProperties FrameCaptureS3SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.FrameCaptureS3Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "CannedAcl" Prelude.<$> cannedAcl])}
 instance JSON.ToJSON FrameCaptureS3SettingsProperty where

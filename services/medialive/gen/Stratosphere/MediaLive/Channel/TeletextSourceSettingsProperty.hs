@@ -19,6 +19,7 @@ instance ToResourceProperties TeletextSourceSettingsProperty where
   toResourceProperties TeletextSourceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.TeletextSourceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OutputRectangle" Prelude.<$> outputRectangle,

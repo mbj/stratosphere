@@ -16,6 +16,7 @@ instance ToResourceProperties InputWhitelistRuleCidrProperty where
   toResourceProperties InputWhitelistRuleCidrProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::InputSecurityGroup.InputWhitelistRuleCidr",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Cidr" Prelude.<$> cidr])}
 instance JSON.ToJSON InputWhitelistRuleCidrProperty where

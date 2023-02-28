@@ -44,6 +44,7 @@ instance ToResourceProperties StreamConfigurationProperty where
   toResourceProperties StreamConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::LaunchProfile.StreamConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClipboardMode" JSON..= clipboardMode,

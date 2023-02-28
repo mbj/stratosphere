@@ -17,6 +17,7 @@ instance ToResourceProperties TextInputSpecificationProperty where
   toResourceProperties TextInputSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.TextInputSpecification",
+         supportsTags = Prelude.False,
          properties = ["StartTimeoutMs" JSON..= startTimeoutMs]}
 instance JSON.ToJSON TextInputSpecificationProperty where
   toJSON TextInputSpecificationProperty {..}

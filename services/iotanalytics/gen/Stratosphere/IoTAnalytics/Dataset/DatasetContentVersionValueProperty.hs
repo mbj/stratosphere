@@ -17,6 +17,7 @@ instance ToResourceProperties DatasetContentVersionValueProperty where
   toResourceProperties DatasetContentVersionValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.DatasetContentVersionValue",
+         supportsTags = Prelude.False,
          properties = ["DatasetName" JSON..= datasetName]}
 instance JSON.ToJSON DatasetContentVersionValueProperty where
   toJSON DatasetContentVersionValueProperty {..}

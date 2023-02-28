@@ -15,6 +15,7 @@ instance ToResourceProperties VariantPropertyProperty where
   toResourceProperties VariantPropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Endpoint.VariantProperty",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "VariantPropertyType" Prelude.<$> variantPropertyType])}

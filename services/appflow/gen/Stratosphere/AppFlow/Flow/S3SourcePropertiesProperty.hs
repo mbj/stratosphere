@@ -23,6 +23,7 @@ instance ToResourceProperties S3SourcePropertiesProperty where
   toResourceProperties S3SourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.S3SourceProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName,

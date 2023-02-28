@@ -19,7 +19,7 @@ mkAlias name routingStrategy
 instance ToResourceProperties Alias where
   toResourceProperties Alias {..}
     = ResourceProperties
-        {awsType = "AWS::GameLift::Alias",
+        {awsType = "AWS::GameLift::Alias", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "RoutingStrategy" JSON..= routingStrategy]

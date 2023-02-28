@@ -24,6 +24,7 @@ instance ToResourceProperties HealthCheckConfigProperty where
   toResourceProperties HealthCheckConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Container.HealthCheckConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HealthyThreshold" Prelude.<$> healthyThreshold,

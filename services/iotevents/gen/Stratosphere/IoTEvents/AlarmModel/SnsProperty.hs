@@ -17,6 +17,7 @@ instance ToResourceProperties SnsProperty where
   toResourceProperties SnsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.Sns",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TargetArn" JSON..= targetArn]

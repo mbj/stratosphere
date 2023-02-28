@@ -31,6 +31,7 @@ instance ToResourceProperties GlobalSecondaryIndexProperty where
   toResourceProperties GlobalSecondaryIndexProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.GlobalSecondaryIndex",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IndexName" JSON..= indexName, "KeySchema" JSON..= keySchema,

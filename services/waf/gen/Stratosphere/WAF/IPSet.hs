@@ -16,7 +16,7 @@ mkIPSet name
 instance ToResourceProperties IPSet where
   toResourceProperties IPSet {..}
     = ResourceProperties
-        {awsType = "AWS::WAF::IPSet",
+        {awsType = "AWS::WAF::IPSet", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

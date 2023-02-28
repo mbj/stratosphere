@@ -19,6 +19,7 @@ instance ToResourceProperties VpcConnectivitySaslProperty where
   toResourceProperties VpcConnectivitySaslProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.VpcConnectivitySasl",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Iam" Prelude.<$> iam,

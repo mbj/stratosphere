@@ -19,6 +19,7 @@ instance ToResourceProperties PrefixConfigProperty where
   toResourceProperties PrefixConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.PrefixConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PathPrefixHierarchy" Prelude.<$> pathPrefixHierarchy,

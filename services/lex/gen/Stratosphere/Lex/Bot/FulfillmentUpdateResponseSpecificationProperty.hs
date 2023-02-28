@@ -27,6 +27,7 @@ instance ToResourceProperties FulfillmentUpdateResponseSpecificationProperty whe
     FulfillmentUpdateResponseSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.FulfillmentUpdateResponseSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FrequencyInSeconds" JSON..= frequencyInSeconds,

@@ -19,6 +19,7 @@ instance ToResourceProperties NetworkBandwidthGbpsRequestProperty where
   toResourceProperties NetworkBandwidthGbpsRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.NetworkBandwidthGbpsRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

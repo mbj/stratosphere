@@ -20,6 +20,7 @@ instance ToResourceProperties MetricProperty where
   toResourceProperties MetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.Metric",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AggregationFunction" JSON..= aggregationFunction,

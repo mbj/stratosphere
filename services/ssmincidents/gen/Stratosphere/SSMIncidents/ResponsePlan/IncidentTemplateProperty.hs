@@ -28,6 +28,7 @@ instance ToResourceProperties IncidentTemplateProperty where
   toResourceProperties IncidentTemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ResponsePlan.IncidentTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Impact" JSON..= impact, "Title" JSON..= title]

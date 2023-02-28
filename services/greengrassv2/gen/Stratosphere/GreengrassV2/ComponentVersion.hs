@@ -20,6 +20,7 @@ instance ToResourceProperties ComponentVersion where
   toResourceProperties ComponentVersion {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::ComponentVersion",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InlineRecipe" Prelude.<$> inlineRecipe,

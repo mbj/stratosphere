@@ -25,7 +25,7 @@ mkConfigRule source
 instance ToResourceProperties ConfigRule where
   toResourceProperties ConfigRule {..}
     = ResourceProperties
-        {awsType = "AWS::Config::ConfigRule",
+        {awsType = "AWS::Config::ConfigRule", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Source" JSON..= source]

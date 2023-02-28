@@ -19,6 +19,7 @@ instance ToResourceProperties NotificationRecipientTypeProperty where
   toResourceProperties NotificationRecipientTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::Rule.NotificationRecipientType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "UserArns" Prelude.<$> userArns,

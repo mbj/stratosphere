@@ -18,6 +18,7 @@ instance ToResourceProperties RetryPolicyProperty where
   toResourceProperties RetryPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.RetryPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaximumEventAgeInSeconds"

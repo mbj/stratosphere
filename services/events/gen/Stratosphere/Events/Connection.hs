@@ -22,7 +22,7 @@ mkConnection authParameters authorizationType
 instance ToResourceProperties Connection where
   toResourceProperties Connection {..}
     = ResourceProperties
-        {awsType = "AWS::Events::Connection",
+        {awsType = "AWS::Events::Connection", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthParameters" JSON..= authParameters,

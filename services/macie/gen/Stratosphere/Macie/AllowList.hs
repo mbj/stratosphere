@@ -21,7 +21,7 @@ mkAllowList criteria name
 instance ToResourceProperties AllowList where
   toResourceProperties AllowList {..}
     = ResourceProperties
-        {awsType = "AWS::Macie::AllowList",
+        {awsType = "AWS::Macie::AllowList", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Criteria" JSON..= criteria, "Name" JSON..= name]

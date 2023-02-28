@@ -20,6 +20,7 @@ instance ToResourceProperties MutualTlsAuthenticationProperty where
   toResourceProperties MutualTlsAuthenticationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::DomainName.MutualTlsAuthentication",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TruststoreUri" Prelude.<$> truststoreUri,

@@ -31,6 +31,7 @@ instance ToResourceProperties ModelOverviewProperty where
   toResourceProperties ModelOverviewProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.ModelOverview",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AlgorithmType" Prelude.<$> algorithmType,

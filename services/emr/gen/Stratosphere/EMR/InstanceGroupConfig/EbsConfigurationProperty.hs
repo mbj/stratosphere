@@ -20,6 +20,7 @@ instance ToResourceProperties EbsConfigurationProperty where
   toResourceProperties EbsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::InstanceGroupConfig.EbsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EbsBlockDeviceConfigs"

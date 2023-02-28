@@ -42,6 +42,7 @@ instance ToResourceProperties OriginEndpoint where
   toResourceProperties OriginEndpoint {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::OriginEndpoint",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ChannelId" JSON..= channelId, "Id" JSON..= id]

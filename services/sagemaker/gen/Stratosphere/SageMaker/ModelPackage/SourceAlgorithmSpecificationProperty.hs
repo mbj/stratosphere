@@ -3,6 +3,7 @@ module Stratosphere.SageMaker.ModelPackage.SourceAlgorithmSpecificationProperty 
         mkSourceAlgorithmSpecificationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.SourceAlgorithmProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties SourceAlgorithmSpecificationProperty where
   toResourceProperties SourceAlgorithmSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.SourceAlgorithmSpecification",
+         supportsTags = Prelude.False,
          properties = ["SourceAlgorithms" JSON..= sourceAlgorithms]}
 instance JSON.ToJSON SourceAlgorithmSpecificationProperty where
   toJSON SourceAlgorithmSpecificationProperty {..}

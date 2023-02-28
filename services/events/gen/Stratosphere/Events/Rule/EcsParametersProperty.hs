@@ -45,6 +45,7 @@ instance ToResourceProperties EcsParametersProperty where
   toResourceProperties EcsParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.EcsParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TaskDefinitionArn" JSON..= taskDefinitionArn]

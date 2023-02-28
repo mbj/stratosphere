@@ -18,6 +18,7 @@ instance ToResourceProperties TumblingWindowProperty where
   toResourceProperties TumblingWindowProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AssetModel.TumblingWindow",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Interval" JSON..= interval]

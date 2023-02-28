@@ -18,6 +18,7 @@ instance ToResourceProperties ConfigurationInfoProperty where
   toResourceProperties ConfigurationInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.ConfigurationInfo",
+         supportsTags = Prelude.False,
          properties = ["Arn" JSON..= arn, "Revision" JSON..= revision]}
 instance JSON.ToJSON ConfigurationInfoProperty where
   toJSON ConfigurationInfoProperty {..}

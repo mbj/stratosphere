@@ -23,6 +23,7 @@ instance ToResourceProperties IngestEndpointProperty where
   toResourceProperties IngestEndpointProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::Channel.IngestEndpoint",
+         supportsTags = Prelude.False,
          properties = ["Id" JSON..= id, "Password" JSON..= password,
                        "Url" JSON..= url, "Username" JSON..= username]}
 instance JSON.ToJSON IngestEndpointProperty where

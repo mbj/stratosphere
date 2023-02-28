@@ -17,6 +17,7 @@ instance ToResourceProperties CertificateDetailsProperty where
   toResourceProperties CertificateDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBInstance.CertificateDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CAIdentifier" Prelude.<$> cAIdentifier,

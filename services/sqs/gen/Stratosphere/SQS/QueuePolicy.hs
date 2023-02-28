@@ -16,7 +16,7 @@ mkQueuePolicy policyDocument queues
 instance ToResourceProperties QueuePolicy where
   toResourceProperties QueuePolicy {..}
     = ResourceProperties
-        {awsType = "AWS::SQS::QueuePolicy",
+        {awsType = "AWS::SQS::QueuePolicy", supportsTags = Prelude.False,
          properties = ["PolicyDocument" JSON..= policyDocument,
                        "Queues" JSON..= queues]}
 instance JSON.ToJSON QueuePolicy where

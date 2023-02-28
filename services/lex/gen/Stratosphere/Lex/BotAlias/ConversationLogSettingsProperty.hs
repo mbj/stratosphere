@@ -21,6 +21,7 @@ instance ToResourceProperties ConversationLogSettingsProperty where
   toResourceProperties ConversationLogSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::BotAlias.ConversationLogSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioLogSettings" Prelude.<$> audioLogSettings,

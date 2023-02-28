@@ -22,6 +22,7 @@ instance ToResourceProperties ConnectionHttpParametersProperty where
   toResourceProperties ConnectionHttpParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Connection.ConnectionHttpParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BodyParameters" Prelude.<$> bodyParameters,

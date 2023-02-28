@@ -41,6 +41,7 @@ instance ToResourceProperties ConfluenceConfigurationProperty where
   toResourceProperties ConfluenceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ConfluenceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SecretArn" JSON..= secretArn, "ServerUrl" JSON..= serverUrl,

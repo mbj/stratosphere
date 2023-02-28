@@ -29,6 +29,7 @@ instance ToResourceProperties IoTJobAbortCriteriaProperty where
   toResourceProperties IoTJobAbortCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.IoTJobAbortCriteria",
+         supportsTags = Prelude.False,
          properties = ["Action" JSON..= action,
                        "FailureType" JSON..= failureType,
                        "MinNumberOfExecutedThings" JSON..= minNumberOfExecutedThings,

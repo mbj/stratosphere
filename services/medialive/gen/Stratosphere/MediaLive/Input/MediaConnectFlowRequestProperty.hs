@@ -17,6 +17,7 @@ instance ToResourceProperties MediaConnectFlowRequestProperty where
   toResourceProperties MediaConnectFlowRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Input.MediaConnectFlowRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "FlowArn" Prelude.<$> flowArn])}
 instance JSON.ToJSON MediaConnectFlowRequestProperty where

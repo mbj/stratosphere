@@ -31,6 +31,7 @@ instance ToResourceProperties CacheSettingsProperty where
   toResourceProperties CacheSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Distribution.CacheSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowedHTTPMethods" Prelude.<$> allowedHTTPMethods,

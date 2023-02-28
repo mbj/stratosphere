@@ -22,6 +22,7 @@ instance ToResourceProperties RevisionLocationProperty where
   toResourceProperties RevisionLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.RevisionLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GitHubLocation" Prelude.<$> gitHubLocation,

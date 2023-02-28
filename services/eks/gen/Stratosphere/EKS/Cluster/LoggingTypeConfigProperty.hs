@@ -15,6 +15,7 @@ instance ToResourceProperties LoggingTypeConfigProperty where
   toResourceProperties LoggingTypeConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Cluster.LoggingTypeConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Type" Prelude.<$> type'])}
 instance JSON.ToJSON LoggingTypeConfigProperty where

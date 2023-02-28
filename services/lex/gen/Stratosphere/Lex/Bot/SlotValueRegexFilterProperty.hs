@@ -16,6 +16,7 @@ instance ToResourceProperties SlotValueRegexFilterProperty where
   toResourceProperties SlotValueRegexFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SlotValueRegexFilter",
+         supportsTags = Prelude.False,
          properties = ["Pattern" JSON..= pattern]}
 instance JSON.ToJSON SlotValueRegexFilterProperty where
   toJSON SlotValueRegexFilterProperty {..}

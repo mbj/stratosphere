@@ -27,6 +27,7 @@ instance ToResourceProperties PipeTargetRedshiftDataParametersProperty where
   toResourceProperties PipeTargetRedshiftDataParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeTargetRedshiftDataParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Database" JSON..= database, "Sqls" JSON..= sqls]

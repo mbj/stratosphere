@@ -19,6 +19,7 @@ instance ToResourceProperties PrincipalPrivilegesProperty where
   toResourceProperties PrincipalPrivilegesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Database.PrincipalPrivileges",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Permissions" Prelude.<$> permissions,

@@ -20,6 +20,7 @@ instance ToResourceProperties ApplicationRestoreConfigurationProperty where
   toResourceProperties ApplicationRestoreConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.ApplicationRestoreConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationRestoreType" JSON..= applicationRestoreType]

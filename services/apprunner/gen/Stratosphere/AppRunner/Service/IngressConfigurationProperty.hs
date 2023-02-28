@@ -17,6 +17,7 @@ instance ToResourceProperties IngressConfigurationProperty where
   toResourceProperties IngressConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.IngressConfiguration",
+         supportsTags = Prelude.False,
          properties = ["IsPubliclyAccessible" JSON..= isPubliclyAccessible]}
 instance JSON.ToJSON IngressConfigurationProperty where
   toJSON IngressConfigurationProperty {..}

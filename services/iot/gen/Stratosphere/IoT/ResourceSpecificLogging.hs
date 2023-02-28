@@ -22,6 +22,7 @@ instance ToResourceProperties ResourceSpecificLogging where
   toResourceProperties ResourceSpecificLogging {..}
     = ResourceProperties
         {awsType = "AWS::IoT::ResourceSpecificLogging",
+         supportsTags = Prelude.False,
          properties = ["LogLevel" JSON..= logLevel,
                        "TargetName" JSON..= targetName, "TargetType" JSON..= targetType]}
 instance JSON.ToJSON ResourceSpecificLogging where

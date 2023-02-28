@@ -22,6 +22,7 @@ instance ToResourceProperties PredictiveScalingPredefinedLoadMetricProperty wher
     PredictiveScalingPredefinedLoadMetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::ScalingPolicy.PredictiveScalingPredefinedLoadMetric",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PredefinedMetricType" JSON..= predefinedMetricType]

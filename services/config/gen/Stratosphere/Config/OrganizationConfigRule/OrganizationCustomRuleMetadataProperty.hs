@@ -35,6 +35,7 @@ instance ToResourceProperties OrganizationCustomRuleMetadataProperty where
   toResourceProperties OrganizationCustomRuleMetadataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::OrganizationConfigRule.OrganizationCustomRuleMetadata",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LambdaFunctionArn" JSON..= lambdaFunctionArn,

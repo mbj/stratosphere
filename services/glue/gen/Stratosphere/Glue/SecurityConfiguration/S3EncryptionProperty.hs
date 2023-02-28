@@ -17,6 +17,7 @@ instance ToResourceProperties S3EncryptionProperty where
   toResourceProperties S3EncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::SecurityConfiguration.S3Encryption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,

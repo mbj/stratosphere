@@ -18,6 +18,7 @@ instance ToResourceProperties MarketoConnectorProfilePropertiesProperty where
   toResourceProperties MarketoConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.MarketoConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = ["InstanceUrl" JSON..= instanceUrl]}
 instance JSON.ToJSON MarketoConnectorProfilePropertiesProperty where
   toJSON MarketoConnectorProfilePropertiesProperty {..}

@@ -17,6 +17,7 @@ instance ToResourceProperties CoordinatesProperty where
   toResourceProperties CoordinatesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.Coordinates",
+         supportsTags = Prelude.False,
          properties = ["Latitude" JSON..= latitude,
                        "Longitude" JSON..= longitude]}
 instance JSON.ToJSON CoordinatesProperty where

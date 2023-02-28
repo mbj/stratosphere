@@ -17,6 +17,7 @@ instance ToResourceProperties InforNexusSourcePropertiesProperty where
   toResourceProperties InforNexusSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.InforNexusSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON InforNexusSourcePropertiesProperty where
   toJSON InforNexusSourcePropertiesProperty {..}

@@ -46,6 +46,7 @@ instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::Application",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AppBlockArn" JSON..= appBlockArn,

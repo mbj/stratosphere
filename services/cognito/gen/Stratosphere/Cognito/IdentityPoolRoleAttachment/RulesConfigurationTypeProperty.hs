@@ -3,6 +3,7 @@ module Stratosphere.Cognito.IdentityPoolRoleAttachment.RulesConfigurationTypePro
         mkRulesConfigurationTypeProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cognito.IdentityPoolRoleAttachment.MappingRuleProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,7 +17,7 @@ instance ToResourceProperties RulesConfigurationTypeProperty where
   toResourceProperties RulesConfigurationTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::IdentityPoolRoleAttachment.RulesConfigurationType",
-         properties = ["Rules" JSON..= rules]}
+         supportsTags = Prelude.False, properties = ["Rules" JSON..= rules]}
 instance JSON.ToJSON RulesConfigurationTypeProperty where
   toJSON RulesConfigurationTypeProperty {..}
     = JSON.object ["Rules" JSON..= rules]

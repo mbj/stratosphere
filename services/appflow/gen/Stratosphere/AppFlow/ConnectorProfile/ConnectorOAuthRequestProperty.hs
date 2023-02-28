@@ -17,6 +17,7 @@ instance ToResourceProperties ConnectorOAuthRequestProperty where
   toResourceProperties ConnectorOAuthRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.ConnectorOAuthRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AuthCode" Prelude.<$> authCode,

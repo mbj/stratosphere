@@ -37,6 +37,7 @@ instance ToResourceProperties InventoryConfigurationProperty where
   toResourceProperties InventoryConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.InventoryConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Destination" JSON..= destination, "Enabled" JSON..= enabled,

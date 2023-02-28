@@ -17,6 +17,7 @@ instance ToResourceProperties CacheBehaviorPerPathProperty where
   toResourceProperties CacheBehaviorPerPathProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Distribution.CacheBehaviorPerPath",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Behavior" Prelude.<$> behavior,

@@ -54,7 +54,7 @@ mkFleet name
 instance ToResourceProperties Fleet where
   toResourceProperties Fleet {..}
     = ResourceProperties
-        {awsType = "AWS::GameLift::Fleet",
+        {awsType = "AWS::GameLift::Fleet", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

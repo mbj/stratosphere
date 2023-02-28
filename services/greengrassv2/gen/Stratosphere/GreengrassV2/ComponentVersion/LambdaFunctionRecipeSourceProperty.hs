@@ -30,6 +30,7 @@ instance ToResourceProperties LambdaFunctionRecipeSourceProperty where
   toResourceProperties LambdaFunctionRecipeSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::ComponentVersion.LambdaFunctionRecipeSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComponentDependencies"

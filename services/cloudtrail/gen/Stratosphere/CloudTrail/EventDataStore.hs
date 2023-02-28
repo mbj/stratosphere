@@ -29,6 +29,7 @@ instance ToResourceProperties EventDataStore where
   toResourceProperties EventDataStore {..}
     = ResourceProperties
         {awsType = "AWS::CloudTrail::EventDataStore",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdvancedEventSelectors"

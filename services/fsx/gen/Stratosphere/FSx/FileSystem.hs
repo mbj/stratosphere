@@ -41,7 +41,7 @@ mkFileSystem fileSystemType subnetIds
 instance ToResourceProperties FileSystem where
   toResourceProperties FileSystem {..}
     = ResourceProperties
-        {awsType = "AWS::FSx::FileSystem",
+        {awsType = "AWS::FSx::FileSystem", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FileSystemType" JSON..= fileSystemType,

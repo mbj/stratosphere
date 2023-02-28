@@ -22,7 +22,7 @@ mkImage imageName imageRoleArn
 instance ToResourceProperties Image where
   toResourceProperties Image {..}
     = ResourceProperties
-        {awsType = "AWS::SageMaker::Image",
+        {awsType = "AWS::SageMaker::Image", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ImageName" JSON..= imageName,

@@ -35,7 +35,7 @@ mkGraphQLApi authenticationType name
 instance ToResourceProperties GraphQLApi where
   toResourceProperties GraphQLApi {..}
     = ResourceProperties
-        {awsType = "AWS::AppSync::GraphQLApi",
+        {awsType = "AWS::AppSync::GraphQLApi", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthenticationType" JSON..= authenticationType,

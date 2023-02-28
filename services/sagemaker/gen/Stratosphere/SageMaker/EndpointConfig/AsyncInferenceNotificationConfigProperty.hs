@@ -19,6 +19,7 @@ instance ToResourceProperties AsyncInferenceNotificationConfigProperty where
   toResourceProperties AsyncInferenceNotificationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.AsyncInferenceNotificationConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ErrorTopic" Prelude.<$> errorTopic,

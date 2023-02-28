@@ -35,6 +35,7 @@ instance ToResourceProperties FlowSource where
   toResourceProperties FlowSource {..}
     = ResourceProperties
         {awsType = "AWS::MediaConnect::FlowSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description, "Name" JSON..= name]

@@ -3,6 +3,7 @@ module Stratosphere.MSK.Cluster.OpenMonitoringProperty (
         mkOpenMonitoringProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.Cluster.PrometheusProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties OpenMonitoringProperty where
   toResourceProperties OpenMonitoringProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.OpenMonitoring",
+         supportsTags = Prelude.False,
          properties = ["Prometheus" JSON..= prometheus]}
 instance JSON.ToJSON OpenMonitoringProperty where
   toJSON OpenMonitoringProperty {..}

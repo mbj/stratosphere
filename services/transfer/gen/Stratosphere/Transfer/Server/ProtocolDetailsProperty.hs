@@ -23,6 +23,7 @@ instance ToResourceProperties ProtocolDetailsProperty where
   toResourceProperties ProtocolDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Server.ProtocolDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "As2Transports" Prelude.<$> as2Transports,

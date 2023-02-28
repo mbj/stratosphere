@@ -14,6 +14,7 @@ instance ToResourceProperties FontProperty where
   toResourceProperties FontProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.Font",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FontFamily" Prelude.<$> fontFamily])}

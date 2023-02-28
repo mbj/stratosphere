@@ -17,6 +17,7 @@ instance ToResourceProperties CloudWatchLogsConfigurationProperty where
   toResourceProperties CloudWatchLogsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FIS::ExperimentTemplate.CloudWatchLogsConfiguration",
+         supportsTags = Prelude.False,
          properties = ["LogGroupArn" JSON..= logGroupArn]}
 instance JSON.ToJSON CloudWatchLogsConfigurationProperty where
   toJSON CloudWatchLogsConfigurationProperty {..}

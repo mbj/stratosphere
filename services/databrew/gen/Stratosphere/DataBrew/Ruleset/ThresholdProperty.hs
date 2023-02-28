@@ -18,6 +18,7 @@ instance ToResourceProperties ThresholdProperty where
   toResourceProperties ThresholdProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Ruleset.Threshold",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Value" JSON..= value]

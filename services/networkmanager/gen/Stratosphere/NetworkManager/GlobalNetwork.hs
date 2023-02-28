@@ -18,6 +18,7 @@ instance ToResourceProperties GlobalNetwork where
   toResourceProperties GlobalNetwork {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::GlobalNetwork",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

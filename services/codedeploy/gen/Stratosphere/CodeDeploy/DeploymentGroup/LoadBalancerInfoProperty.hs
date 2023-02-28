@@ -23,6 +23,7 @@ instance ToResourceProperties LoadBalancerInfoProperty where
   toResourceProperties LoadBalancerInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.LoadBalancerInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ElbInfoList" Prelude.<$> elbInfoList,

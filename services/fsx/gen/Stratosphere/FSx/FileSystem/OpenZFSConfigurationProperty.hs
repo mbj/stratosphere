@@ -37,6 +37,7 @@ instance ToResourceProperties OpenZFSConfigurationProperty where
   toResourceProperties OpenZFSConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::FileSystem.OpenZFSConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeploymentType" JSON..= deploymentType]

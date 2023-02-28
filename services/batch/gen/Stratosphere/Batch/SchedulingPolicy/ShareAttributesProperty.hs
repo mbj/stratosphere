@@ -17,6 +17,7 @@ instance ToResourceProperties ShareAttributesProperty where
   toResourceProperties ShareAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::SchedulingPolicy.ShareAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ShareIdentifier" Prelude.<$> shareIdentifier,

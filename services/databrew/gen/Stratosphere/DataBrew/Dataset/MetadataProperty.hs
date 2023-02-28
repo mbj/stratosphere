@@ -14,6 +14,7 @@ instance ToResourceProperties MetadataProperty where
   toResourceProperties MetadataProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.Metadata",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "SourceArn" Prelude.<$> sourceArn])}
 instance JSON.ToJSON MetadataProperty where

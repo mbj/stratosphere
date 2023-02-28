@@ -22,6 +22,7 @@ instance ToResourceProperties CastColumnTypeOperationProperty where
   toResourceProperties CastColumnTypeOperationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.CastColumnTypeOperation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ColumnName" JSON..= columnName,

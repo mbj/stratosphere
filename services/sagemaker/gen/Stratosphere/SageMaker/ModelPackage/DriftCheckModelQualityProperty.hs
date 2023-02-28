@@ -18,6 +18,7 @@ instance ToResourceProperties DriftCheckModelQualityProperty where
   toResourceProperties DriftCheckModelQualityProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.DriftCheckModelQuality",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Constraints" Prelude.<$> constraints,

@@ -21,6 +21,7 @@ instance ToResourceProperties TransformResourcesProperty where
   toResourceProperties TransformResourcesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.TransformResources",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceCount" JSON..= instanceCount,

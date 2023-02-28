@@ -18,6 +18,7 @@ instance ToResourceProperties LoRaWANGatewayProperty where
   toResourceProperties LoRaWANGatewayProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::WirelessGateway.LoRaWANGateway",
+         supportsTags = Prelude.False,
          properties = ["GatewayEui" JSON..= gatewayEui,
                        "RfRegion" JSON..= rfRegion]}
 instance JSON.ToJSON LoRaWANGatewayProperty where

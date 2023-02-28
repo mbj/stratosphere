@@ -30,6 +30,7 @@ instance ToResourceProperties ModelQualityAppSpecificationProperty where
   toResourceProperties ModelQualityAppSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelQualityJobDefinition.ModelQualityAppSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ImageUri" JSON..= imageUri, "ProblemType" JSON..= problemType]

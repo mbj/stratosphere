@@ -20,6 +20,7 @@ instance ToResourceProperties EntityDetectorConfigurationProperty where
   toResourceProperties EntityDetectorConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.EntityDetectorConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EntityTypes" JSON..= entityTypes]

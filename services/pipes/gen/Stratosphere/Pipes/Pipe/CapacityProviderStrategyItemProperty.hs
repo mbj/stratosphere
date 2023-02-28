@@ -21,6 +21,7 @@ instance ToResourceProperties CapacityProviderStrategyItemProperty where
   toResourceProperties CapacityProviderStrategyItemProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.CapacityProviderStrategyItem",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CapacityProvider" JSON..= capacityProvider]

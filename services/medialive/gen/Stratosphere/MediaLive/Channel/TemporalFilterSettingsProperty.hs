@@ -19,6 +19,7 @@ instance ToResourceProperties TemporalFilterSettingsProperty where
   toResourceProperties TemporalFilterSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.TemporalFilterSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PostFilterSharpening" Prelude.<$> postFilterSharpening,

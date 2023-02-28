@@ -17,6 +17,7 @@ instance ToResourceProperties NetworkConfigurationProperty where
   toResourceProperties NetworkConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule.NetworkConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AwsvpcConfiguration" Prelude.<$> awsvpcConfiguration])}

@@ -23,6 +23,7 @@ instance ToResourceProperties SubComponentConfigurationDetailsProperty where
   toResourceProperties SubComponentConfigurationDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.SubComponentConfigurationDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AlarmMetrics" Prelude.<$> alarmMetrics,

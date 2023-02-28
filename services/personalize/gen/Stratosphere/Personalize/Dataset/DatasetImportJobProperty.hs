@@ -24,6 +24,7 @@ instance ToResourceProperties DatasetImportJobProperty where
   toResourceProperties DatasetImportJobProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Dataset.DatasetImportJob",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataSource" Prelude.<$> dataSource,

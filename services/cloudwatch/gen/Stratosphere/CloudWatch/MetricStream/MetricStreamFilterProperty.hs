@@ -16,6 +16,7 @@ instance ToResourceProperties MetricStreamFilterProperty where
   toResourceProperties MetricStreamFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::MetricStream.MetricStreamFilter",
+         supportsTags = Prelude.False,
          properties = ["Namespace" JSON..= namespace]}
 instance JSON.ToJSON MetricStreamFilterProperty where
   toJSON MetricStreamFilterProperty {..}

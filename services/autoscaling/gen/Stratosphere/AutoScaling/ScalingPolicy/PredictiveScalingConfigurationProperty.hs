@@ -27,6 +27,7 @@ instance ToResourceProperties PredictiveScalingConfigurationProperty where
   toResourceProperties PredictiveScalingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::ScalingPolicy.PredictiveScalingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricSpecifications" JSON..= metricSpecifications]

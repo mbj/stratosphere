@@ -34,6 +34,7 @@ instance ToResourceProperties RuleConditionProperty where
   toResourceProperties RuleConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule.RuleCondition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Field" Prelude.<$> field,

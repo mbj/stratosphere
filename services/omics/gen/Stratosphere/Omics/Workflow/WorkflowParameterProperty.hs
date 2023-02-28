@@ -17,6 +17,7 @@ instance ToResourceProperties WorkflowParameterProperty where
   toResourceProperties WorkflowParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::Omics::Workflow.WorkflowParameter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

@@ -18,7 +18,7 @@ mkMaster detectorId masterId
 instance ToResourceProperties Master where
   toResourceProperties Master {..}
     = ResourceProperties
-        {awsType = "AWS::GuardDuty::Master",
+        {awsType = "AWS::GuardDuty::Master", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DetectorId" JSON..= detectorId, "MasterId" JSON..= masterId]

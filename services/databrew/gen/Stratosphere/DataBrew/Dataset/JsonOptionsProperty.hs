@@ -15,6 +15,7 @@ instance ToResourceProperties JsonOptionsProperty where
   toResourceProperties JsonOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.JsonOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "MultiLine" Prelude.<$> multiLine])}
 instance JSON.ToJSON JsonOptionsProperty where

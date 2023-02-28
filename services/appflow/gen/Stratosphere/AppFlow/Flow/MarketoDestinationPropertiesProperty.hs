@@ -20,6 +20,7 @@ instance ToResourceProperties MarketoDestinationPropertiesProperty where
   toResourceProperties MarketoDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.MarketoDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Object" JSON..= object]

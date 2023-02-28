@@ -18,6 +18,7 @@ instance ToResourceProperties ZeppelinMonitoringConfigurationProperty where
   toResourceProperties ZeppelinMonitoringConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.ZeppelinMonitoringConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "LogLevel" Prelude.<$> logLevel])}
 instance JSON.ToJSON ZeppelinMonitoringConfigurationProperty where

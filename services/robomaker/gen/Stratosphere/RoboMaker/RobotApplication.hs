@@ -27,6 +27,7 @@ instance ToResourceProperties RobotApplication where
   toResourceProperties RobotApplication {..}
     = ResourceProperties
         {awsType = "AWS::RoboMaker::RobotApplication",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RobotSoftwareSuite" JSON..= robotSoftwareSuite]

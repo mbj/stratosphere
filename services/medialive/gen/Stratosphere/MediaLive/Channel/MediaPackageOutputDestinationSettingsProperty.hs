@@ -19,6 +19,7 @@ instance ToResourceProperties MediaPackageOutputDestinationSettingsProperty wher
     MediaPackageOutputDestinationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.MediaPackageOutputDestinationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "ChannelId" Prelude.<$> channelId])}
 instance JSON.ToJSON MediaPackageOutputDestinationSettingsProperty where

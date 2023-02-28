@@ -23,6 +23,7 @@ instance ToResourceProperties DemographicProperty where
   toResourceProperties DemographicProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.Demographic",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AppVersion" Prelude.<$> appVersion,

@@ -20,7 +20,7 @@ mkPackage packageName
 instance ToResourceProperties Package where
   toResourceProperties Package {..}
     = ResourceProperties
-        {awsType = "AWS::Panorama::Package",
+        {awsType = "AWS::Panorama::Package", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PackageName" JSON..= packageName]

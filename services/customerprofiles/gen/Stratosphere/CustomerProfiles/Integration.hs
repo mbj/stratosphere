@@ -27,6 +27,7 @@ instance ToResourceProperties Integration where
   toResourceProperties Integration {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName]

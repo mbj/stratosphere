@@ -21,6 +21,7 @@ instance ToResourceProperties ProvisionedConcurrencyConfigurationProperty where
     ProvisionedConcurrencyConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Version.ProvisionedConcurrencyConfiguration",
+         supportsTags = Prelude.False,
          properties = ["ProvisionedConcurrentExecutions"
                          JSON..= provisionedConcurrentExecutions]}
 instance JSON.ToJSON ProvisionedConcurrencyConfigurationProperty where

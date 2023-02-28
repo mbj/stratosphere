@@ -21,6 +21,7 @@ instance ToResourceProperties CopyActionResourceTypeProperty where
   toResourceProperties CopyActionResourceTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::BackupPlan.CopyActionResourceType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationBackupVaultArn" JSON..= destinationBackupVaultArn]

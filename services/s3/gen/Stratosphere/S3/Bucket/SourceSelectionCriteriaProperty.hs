@@ -21,6 +21,7 @@ instance ToResourceProperties SourceSelectionCriteriaProperty where
   toResourceProperties SourceSelectionCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.SourceSelectionCriteria",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReplicaModifications" Prelude.<$> replicaModifications,

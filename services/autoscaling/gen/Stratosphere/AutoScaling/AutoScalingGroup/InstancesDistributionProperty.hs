@@ -26,6 +26,7 @@ instance ToResourceProperties InstancesDistributionProperty where
   toResourceProperties InstancesDistributionProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.InstancesDistribution",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OnDemandAllocationStrategy"

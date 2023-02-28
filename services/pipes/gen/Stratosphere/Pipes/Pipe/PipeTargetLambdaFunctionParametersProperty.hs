@@ -19,6 +19,7 @@ instance ToResourceProperties PipeTargetLambdaFunctionParametersProperty where
     PipeTargetLambdaFunctionParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeTargetLambdaFunctionParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InvocationType" Prelude.<$> invocationType])}

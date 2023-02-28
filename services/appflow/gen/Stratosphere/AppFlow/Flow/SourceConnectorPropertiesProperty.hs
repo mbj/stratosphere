@@ -58,6 +58,7 @@ instance ToResourceProperties SourceConnectorPropertiesProperty where
   toResourceProperties SourceConnectorPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.SourceConnectorProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Amplitude" Prelude.<$> amplitude,

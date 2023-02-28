@@ -3,6 +3,7 @@ module Stratosphere.Budgets.Budget.NotificationWithSubscribersProperty (
         mkNotificationWithSubscribersProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Budgets.Budget.NotificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Budgets.Budget.SubscriberProperty as Exports
@@ -20,6 +21,7 @@ instance ToResourceProperties NotificationWithSubscribersProperty where
   toResourceProperties NotificationWithSubscribersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::Budget.NotificationWithSubscribers",
+         supportsTags = Prelude.False,
          properties = ["Notification" JSON..= notification,
                        "Subscribers" JSON..= subscribers]}
 instance JSON.ToJSON NotificationWithSubscribersProperty where

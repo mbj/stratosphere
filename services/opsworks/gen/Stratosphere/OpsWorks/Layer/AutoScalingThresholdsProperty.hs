@@ -25,6 +25,7 @@ instance ToResourceProperties AutoScalingThresholdsProperty where
   toResourceProperties AutoScalingThresholdsProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Layer.AutoScalingThresholds",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CpuThreshold" Prelude.<$> cpuThreshold,

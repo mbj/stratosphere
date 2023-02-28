@@ -19,6 +19,7 @@ instance ToResourceProperties ParameterProperty where
   toResourceProperties ParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Connection.Parameter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Key" JSON..= key, "Value" JSON..= value]

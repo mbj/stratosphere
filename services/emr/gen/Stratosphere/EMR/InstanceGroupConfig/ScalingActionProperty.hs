@@ -20,6 +20,7 @@ instance ToResourceProperties ScalingActionProperty where
   toResourceProperties ScalingActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::InstanceGroupConfig.ScalingAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SimpleScalingPolicyConfiguration"

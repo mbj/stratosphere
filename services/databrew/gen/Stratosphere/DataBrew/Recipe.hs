@@ -21,7 +21,7 @@ mkRecipe name steps
 instance ToResourceProperties Recipe where
   toResourceProperties Recipe {..}
     = ResourceProperties
-        {awsType = "AWS::DataBrew::Recipe",
+        {awsType = "AWS::DataBrew::Recipe", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Steps" JSON..= steps]

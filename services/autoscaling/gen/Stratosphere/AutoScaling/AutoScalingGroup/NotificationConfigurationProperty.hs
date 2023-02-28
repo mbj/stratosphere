@@ -19,6 +19,7 @@ instance ToResourceProperties NotificationConfigurationProperty where
   toResourceProperties NotificationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.NotificationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TopicARN" JSON..= topicARN]

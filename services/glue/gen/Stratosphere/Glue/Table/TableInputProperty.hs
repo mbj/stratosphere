@@ -34,6 +34,7 @@ instance ToResourceProperties TableInputProperty where
   toResourceProperties TableInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Table.TableInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

@@ -22,6 +22,7 @@ instance ToResourceProperties ExecuteCommandConfigurationProperty where
   toResourceProperties ExecuteCommandConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Cluster.ExecuteCommandConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,

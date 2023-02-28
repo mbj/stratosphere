@@ -19,6 +19,7 @@ instance ToResourceProperties CampaignHookProperty where
   toResourceProperties CampaignHookProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.CampaignHook",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LambdaFunctionName" Prelude.<$> lambdaFunctionName,

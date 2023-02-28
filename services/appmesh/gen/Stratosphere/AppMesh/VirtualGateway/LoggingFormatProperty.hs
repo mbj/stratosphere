@@ -18,6 +18,7 @@ instance ToResourceProperties LoggingFormatProperty where
   toResourceProperties LoggingFormatProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.LoggingFormat",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Json" Prelude.<$> json,

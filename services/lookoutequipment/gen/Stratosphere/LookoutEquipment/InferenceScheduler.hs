@@ -41,6 +41,7 @@ instance ToResourceProperties InferenceScheduler where
   toResourceProperties InferenceScheduler {..}
     = ResourceProperties
         {awsType = "AWS::LookoutEquipment::InferenceScheduler",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataInputConfiguration" JSON..= dataInputConfiguration,

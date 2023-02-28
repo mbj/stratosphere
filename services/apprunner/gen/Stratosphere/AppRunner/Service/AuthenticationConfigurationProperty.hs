@@ -19,6 +19,7 @@ instance ToResourceProperties AuthenticationConfigurationProperty where
   toResourceProperties AuthenticationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.AuthenticationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessRoleArn" Prelude.<$> accessRoleArn,

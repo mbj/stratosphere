@@ -17,6 +17,7 @@ instance ToResourceProperties RetentionPeriodProperty where
   toResourceProperties RetentionPeriodProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.RetentionPeriod",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NumberOfDays" Prelude.<$> numberOfDays,

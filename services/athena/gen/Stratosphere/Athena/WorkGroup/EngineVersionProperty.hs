@@ -18,6 +18,7 @@ instance ToResourceProperties EngineVersionProperty where
   toResourceProperties EngineVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Athena::WorkGroup.EngineVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EffectiveEngineVersion"

@@ -19,7 +19,7 @@ mkGroup name
 instance ToResourceProperties Group where
   toResourceProperties Group {..}
     = ResourceProperties
-        {awsType = "AWS::Synthetics::Group",
+        {awsType = "AWS::Synthetics::Group", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

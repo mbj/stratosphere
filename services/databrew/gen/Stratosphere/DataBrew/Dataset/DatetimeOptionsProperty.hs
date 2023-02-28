@@ -20,6 +20,7 @@ instance ToResourceProperties DatetimeOptionsProperty where
   toResourceProperties DatetimeOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.DatetimeOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Format" JSON..= format]

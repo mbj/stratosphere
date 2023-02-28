@@ -26,6 +26,7 @@ instance ToResourceProperties Function where
   toResourceProperties Function {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Function",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionCode" JSON..= functionCode,

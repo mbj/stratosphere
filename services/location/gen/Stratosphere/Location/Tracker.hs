@@ -23,7 +23,7 @@ mkTracker trackerName
 instance ToResourceProperties Tracker where
   toResourceProperties Tracker {..}
     = ResourceProperties
-        {awsType = "AWS::Location::Tracker",
+        {awsType = "AWS::Location::Tracker", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TrackerName" JSON..= trackerName]

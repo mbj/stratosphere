@@ -18,6 +18,7 @@ instance ToResourceProperties MinimumHealthyHostsProperty where
   toResourceProperties MinimumHealthyHostsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentConfig.MinimumHealthyHosts",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON MinimumHealthyHostsProperty where
   toJSON MinimumHealthyHostsProperty {..}

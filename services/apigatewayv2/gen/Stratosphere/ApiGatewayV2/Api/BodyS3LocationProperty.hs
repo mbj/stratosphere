@@ -20,6 +20,7 @@ instance ToResourceProperties BodyS3LocationProperty where
   toResourceProperties BodyS3LocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Api.BodyS3Location",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Bucket" Prelude.<$> bucket,

@@ -32,6 +32,7 @@ instance ToResourceProperties MethodSettingProperty where
   toResourceProperties MethodSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Deployment.MethodSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CacheDataEncrypted" Prelude.<$> cacheDataEncrypted,

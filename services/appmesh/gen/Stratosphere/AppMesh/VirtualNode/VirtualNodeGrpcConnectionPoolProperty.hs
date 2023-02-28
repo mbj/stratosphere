@@ -17,6 +17,7 @@ instance ToResourceProperties VirtualNodeGrpcConnectionPoolProperty where
   toResourceProperties VirtualNodeGrpcConnectionPoolProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.VirtualNodeGrpcConnectionPool",
+         supportsTags = Prelude.False,
          properties = ["MaxRequests" JSON..= maxRequests]}
 instance JSON.ToJSON VirtualNodeGrpcConnectionPoolProperty where
   toJSON VirtualNodeGrpcConnectionPoolProperty {..}

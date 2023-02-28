@@ -17,6 +17,7 @@ instance ToResourceProperties HttpGatewayRoutePathRewriteProperty where
   toResourceProperties HttpGatewayRoutePathRewriteProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.HttpGatewayRoutePathRewrite",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Exact" Prelude.<$> exact])}
 instance JSON.ToJSON HttpGatewayRoutePathRewriteProperty where

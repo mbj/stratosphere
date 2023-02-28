@@ -19,6 +19,7 @@ instance ToResourceProperties CapacityProperty where
   toResourceProperties CapacityProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.Capacity",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutoScaling" Prelude.<$> autoScaling,

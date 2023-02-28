@@ -20,6 +20,7 @@ instance ToResourceProperties AllowedInputTypesProperty where
   toResourceProperties AllowedInputTypesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.AllowedInputTypes",
+         supportsTags = Prelude.False,
          properties = ["AllowAudioInput" JSON..= allowAudioInput,
                        "AllowDTMFInput" JSON..= allowDTMFInput]}
 instance JSON.ToJSON AllowedInputTypesProperty where

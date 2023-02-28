@@ -27,6 +27,7 @@ instance ToResourceProperties ContinuousDeploymentPolicyConfigProperty where
   toResourceProperties ContinuousDeploymentPolicyConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled,

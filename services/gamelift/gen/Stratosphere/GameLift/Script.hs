@@ -21,7 +21,7 @@ mkScript storageLocation
 instance ToResourceProperties Script where
   toResourceProperties Script {..}
     = ResourceProperties
-        {awsType = "AWS::GameLift::Script",
+        {awsType = "AWS::GameLift::Script", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StorageLocation" JSON..= storageLocation]

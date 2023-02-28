@@ -19,6 +19,7 @@ instance ToResourceProperties ChannelProperty where
   toResourceProperties ChannelProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline.Channel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ChannelName" JSON..= channelName, "Name" JSON..= name]

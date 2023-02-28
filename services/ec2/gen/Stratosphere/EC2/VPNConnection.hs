@@ -27,7 +27,7 @@ mkVPNConnection customerGatewayId type'
 instance ToResourceProperties VPNConnection where
   toResourceProperties VPNConnection {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::VPNConnection",
+        {awsType = "AWS::EC2::VPNConnection", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CustomerGatewayId" JSON..= customerGatewayId,

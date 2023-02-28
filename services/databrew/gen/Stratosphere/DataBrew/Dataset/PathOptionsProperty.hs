@@ -22,6 +22,7 @@ instance ToResourceProperties PathOptionsProperty where
   toResourceProperties PathOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.PathOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FilesLimit" Prelude.<$> filesLimit,

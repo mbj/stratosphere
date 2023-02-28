@@ -20,6 +20,7 @@ instance ToResourceProperties ProxyConfigurationProperty where
   toResourceProperties ProxyConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ProxyConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Host" JSON..= host, "Port" JSON..= port]

@@ -25,6 +25,7 @@ instance ToResourceProperties DashManifestProperty where
   toResourceProperties DashManifestProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingConfiguration.DashManifest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ManifestLayout" Prelude.<$> manifestLayout,

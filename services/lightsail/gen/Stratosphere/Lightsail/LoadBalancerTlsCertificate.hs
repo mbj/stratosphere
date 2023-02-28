@@ -32,6 +32,7 @@ instance ToResourceProperties LoadBalancerTlsCertificate where
   toResourceProperties LoadBalancerTlsCertificate {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::LoadBalancerTlsCertificate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CertificateDomainName" JSON..= certificateDomainName,

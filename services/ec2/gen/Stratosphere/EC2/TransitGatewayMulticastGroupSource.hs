@@ -27,6 +27,7 @@ instance ToResourceProperties TransitGatewayMulticastGroupSource where
   toResourceProperties TransitGatewayMulticastGroupSource {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TransitGatewayMulticastGroupSource",
+         supportsTags = Prelude.False,
          properties = ["GroupIpAddress" JSON..= groupIpAddress,
                        "NetworkInterfaceId" JSON..= networkInterfaceId,
                        "TransitGatewayMulticastDomainId"

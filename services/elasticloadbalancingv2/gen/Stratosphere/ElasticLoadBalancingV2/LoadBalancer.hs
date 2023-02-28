@@ -31,6 +31,7 @@ instance ToResourceProperties LoadBalancer where
   toResourceProperties LoadBalancer {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::LoadBalancer",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IpAddressType" Prelude.<$> ipAddressType,

@@ -16,7 +16,7 @@ instance ToResourceProperties EphemeralStorageProperty where
   toResourceProperties EphemeralStorageProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.EphemeralStorage",
-         properties = ["Size" JSON..= size]}
+         supportsTags = Prelude.False, properties = ["Size" JSON..= size]}
 instance JSON.ToJSON EphemeralStorageProperty where
   toJSON EphemeralStorageProperty {..}
     = JSON.object ["Size" JSON..= size]

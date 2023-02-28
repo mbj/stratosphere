@@ -16,6 +16,7 @@ instance ToResourceProperties OverrideActionProperty where
   toResourceProperties OverrideActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.OverrideAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Count" Prelude.<$> count,

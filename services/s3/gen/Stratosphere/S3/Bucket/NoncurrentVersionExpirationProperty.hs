@@ -20,6 +20,7 @@ instance ToResourceProperties NoncurrentVersionExpirationProperty where
   toResourceProperties NoncurrentVersionExpirationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.NoncurrentVersionExpiration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["NoncurrentDays" JSON..= noncurrentDays]

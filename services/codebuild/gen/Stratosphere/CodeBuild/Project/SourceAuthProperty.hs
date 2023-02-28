@@ -16,6 +16,7 @@ instance ToResourceProperties SourceAuthProperty where
   toResourceProperties SourceAuthProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.SourceAuth",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

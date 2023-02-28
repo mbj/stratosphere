@@ -22,6 +22,7 @@ instance ToResourceProperties PublicDnsNamespace where
   toResourceProperties PublicDnsNamespace {..}
     = ResourceProperties
         {awsType = "AWS::ServiceDiscovery::PublicDnsNamespace",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

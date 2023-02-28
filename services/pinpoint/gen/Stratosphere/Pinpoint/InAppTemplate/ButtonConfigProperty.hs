@@ -21,6 +21,7 @@ instance ToResourceProperties ButtonConfigProperty where
   toResourceProperties ButtonConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::InAppTemplate.ButtonConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Android" Prelude.<$> android,

@@ -17,6 +17,7 @@ instance ToResourceProperties DeliveryOptionsProperty where
   toResourceProperties DeliveryOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSet.DeliveryOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SendingPoolName" Prelude.<$> sendingPoolName,

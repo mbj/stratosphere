@@ -22,6 +22,7 @@ instance ToResourceProperties Model where
   toResourceProperties Model {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Model",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId, "Name" JSON..= name,

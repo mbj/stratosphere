@@ -21,6 +21,7 @@ instance ToResourceProperties PublicEndpointProperty where
   toResourceProperties PublicEndpointProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Container.PublicEndpoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerName" Prelude.<$> containerName,

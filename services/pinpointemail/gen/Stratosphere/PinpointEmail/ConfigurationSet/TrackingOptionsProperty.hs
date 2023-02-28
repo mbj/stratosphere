@@ -15,6 +15,7 @@ instance ToResourceProperties TrackingOptionsProperty where
   toResourceProperties TrackingOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::ConfigurationSet.TrackingOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomRedirectDomain"

@@ -18,6 +18,7 @@ instance ToResourceProperties FirehoseLogDeliveryProperty where
   toResourceProperties FirehoseLogDeliveryProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.FirehoseLogDelivery",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

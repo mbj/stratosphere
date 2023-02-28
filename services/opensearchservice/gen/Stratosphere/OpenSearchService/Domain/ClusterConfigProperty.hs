@@ -32,6 +32,7 @@ instance ToResourceProperties ClusterConfigProperty where
   toResourceProperties ClusterConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.ClusterConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DedicatedMasterCount" Prelude.<$> dedicatedMasterCount,

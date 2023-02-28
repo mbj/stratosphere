@@ -20,7 +20,7 @@ mkProfile as2Id profileType
 instance ToResourceProperties Profile where
   toResourceProperties Profile {..}
     = ResourceProperties
-        {awsType = "AWS::Transfer::Profile",
+        {awsType = "AWS::Transfer::Profile", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["As2Id" JSON..= as2Id, "ProfileType" JSON..= profileType]

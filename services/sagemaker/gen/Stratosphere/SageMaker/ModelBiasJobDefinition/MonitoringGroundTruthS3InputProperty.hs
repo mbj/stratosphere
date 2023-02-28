@@ -17,7 +17,7 @@ instance ToResourceProperties MonitoringGroundTruthS3InputProperty where
   toResourceProperties MonitoringGroundTruthS3InputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelBiasJobDefinition.MonitoringGroundTruthS3Input",
-         properties = ["S3Uri" JSON..= s3Uri]}
+         supportsTags = Prelude.False, properties = ["S3Uri" JSON..= s3Uri]}
 instance JSON.ToJSON MonitoringGroundTruthS3InputProperty where
   toJSON MonitoringGroundTruthS3InputProperty {..}
     = JSON.object ["S3Uri" JSON..= s3Uri]

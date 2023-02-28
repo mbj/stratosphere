@@ -83,6 +83,7 @@ instance ToResourceProperties S3SettingsProperty where
   toResourceProperties S3SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.S3Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AddColumnName" Prelude.<$> addColumnName,

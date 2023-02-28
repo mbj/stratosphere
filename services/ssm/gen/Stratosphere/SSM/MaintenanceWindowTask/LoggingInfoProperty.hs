@@ -19,6 +19,7 @@ instance ToResourceProperties LoggingInfoProperty where
   toResourceProperties LoggingInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTask.LoggingInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Region" JSON..= region, "S3Bucket" JSON..= s3Bucket]

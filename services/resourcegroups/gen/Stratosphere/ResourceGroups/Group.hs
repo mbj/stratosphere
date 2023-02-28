@@ -26,6 +26,7 @@ instance ToResourceProperties Group where
   toResourceProperties Group {..}
     = ResourceProperties
         {awsType = "AWS::ResourceGroups::Group",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

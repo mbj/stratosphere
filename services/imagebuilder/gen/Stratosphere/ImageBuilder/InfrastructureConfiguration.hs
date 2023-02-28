@@ -40,6 +40,7 @@ instance ToResourceProperties InfrastructureConfiguration where
   toResourceProperties InfrastructureConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::InfrastructureConfiguration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceProfileName" JSON..= instanceProfileName,

@@ -17,6 +17,7 @@ instance ToResourceProperties Mpeg2FilterSettingsProperty where
   toResourceProperties Mpeg2FilterSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Mpeg2FilterSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TemporalFilterSettings"

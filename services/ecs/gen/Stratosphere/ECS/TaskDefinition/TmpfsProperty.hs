@@ -19,6 +19,7 @@ instance ToResourceProperties TmpfsProperty where
   toResourceProperties TmpfsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.Tmpfs",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Size" JSON..= size]

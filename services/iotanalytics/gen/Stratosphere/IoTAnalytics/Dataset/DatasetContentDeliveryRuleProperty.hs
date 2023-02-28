@@ -21,6 +21,7 @@ instance ToResourceProperties DatasetContentDeliveryRuleProperty where
   toResourceProperties DatasetContentDeliveryRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.DatasetContentDeliveryRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Destination" JSON..= destination]

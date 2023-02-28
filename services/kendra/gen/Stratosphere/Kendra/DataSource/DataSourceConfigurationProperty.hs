@@ -45,6 +45,7 @@ instance ToResourceProperties DataSourceConfigurationProperty where
   toResourceProperties DataSourceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.DataSourceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConfluenceConfiguration"

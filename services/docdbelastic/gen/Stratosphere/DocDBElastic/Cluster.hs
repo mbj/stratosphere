@@ -42,6 +42,7 @@ instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
         {awsType = "AWS::DocDBElastic::Cluster",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AdminUserName" JSON..= adminUserName,

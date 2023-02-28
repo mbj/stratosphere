@@ -98,7 +98,9 @@ outputToJSON Output{..}
 -- | Wrapper around a list of 'Output's to we can modify the aeson instances.
 newtype Outputs = Outputs { outputs :: [Output] }
   deriving stock (Show, Eq)
-  deriving newtype (Semigroup, Monoid)
+  deriving newtype (Monoid, MonoFunctor, Semigroup)
+
+type instance Element Outputs = Output
 
 instance IsList Outputs where
   type Item Outputs = Output

@@ -18,6 +18,7 @@ instance ToResourceProperties WorkflowDetailsProperty where
   toResourceProperties WorkflowDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Server.WorkflowDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OnPartialUpload" Prelude.<$> onPartialUpload,

@@ -19,6 +19,7 @@ instance ToResourceProperties S3RecordingConfigProperty where
   toResourceProperties S3RecordingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.S3RecordingConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BucketArn" Prelude.<$> bucketArn,

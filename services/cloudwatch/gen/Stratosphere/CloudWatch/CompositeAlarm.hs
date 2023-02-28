@@ -32,6 +32,7 @@ instance ToResourceProperties CompositeAlarm where
   toResourceProperties CompositeAlarm {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::CompositeAlarm",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AlarmRule" JSON..= alarmRule]

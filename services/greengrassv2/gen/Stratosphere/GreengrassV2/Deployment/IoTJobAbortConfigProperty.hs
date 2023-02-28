@@ -3,6 +3,7 @@ module Stratosphere.GreengrassV2.Deployment.IoTJobAbortConfigProperty (
         mkIoTJobAbortConfigProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GreengrassV2.Deployment.IoTJobAbortCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties IoTJobAbortConfigProperty where
   toResourceProperties IoTJobAbortConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.IoTJobAbortConfig",
+         supportsTags = Prelude.False,
          properties = ["CriteriaList" JSON..= criteriaList]}
 instance JSON.ToJSON IoTJobAbortConfigProperty where
   toJSON IoTJobAbortConfigProperty {..}

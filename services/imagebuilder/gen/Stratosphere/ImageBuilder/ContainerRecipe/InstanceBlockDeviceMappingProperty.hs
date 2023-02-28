@@ -23,6 +23,7 @@ instance ToResourceProperties InstanceBlockDeviceMappingProperty where
   toResourceProperties InstanceBlockDeviceMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ContainerRecipe.InstanceBlockDeviceMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeviceName" Prelude.<$> deviceName,

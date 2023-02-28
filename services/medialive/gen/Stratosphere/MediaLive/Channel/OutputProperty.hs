@@ -24,6 +24,7 @@ instance ToResourceProperties OutputProperty where
   toResourceProperties OutputProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Output",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioDescriptionNames"

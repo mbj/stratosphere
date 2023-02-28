@@ -26,6 +26,7 @@ instance ToResourceProperties ConfluenceAttachmentToIndexFieldMappingProperty wh
     ConfluenceAttachmentToIndexFieldMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ConfluenceAttachmentToIndexFieldMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataSourceFieldName" JSON..= dataSourceFieldName,

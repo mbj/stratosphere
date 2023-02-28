@@ -20,6 +20,7 @@ instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::Application",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApplicationName" Prelude.<$> applicationName,

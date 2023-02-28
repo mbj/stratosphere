@@ -18,6 +18,7 @@ instance ToResourceProperties TargetProperty where
   toResourceProperties TargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeStarNotifications::NotificationRule.Target",
+         supportsTags = Prelude.False,
          properties = ["TargetAddress" JSON..= targetAddress,
                        "TargetType" JSON..= targetType]}
 instance JSON.ToJSON TargetProperty where

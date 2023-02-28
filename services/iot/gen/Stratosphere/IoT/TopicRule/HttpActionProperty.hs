@@ -22,6 +22,7 @@ instance ToResourceProperties HttpActionProperty where
   toResourceProperties HttpActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.HttpAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Url" JSON..= url]

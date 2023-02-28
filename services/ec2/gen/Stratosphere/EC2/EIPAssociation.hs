@@ -22,6 +22,7 @@ instance ToResourceProperties EIPAssociation where
   toResourceProperties EIPAssociation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EIPAssociation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllocationId" Prelude.<$> allocationId,

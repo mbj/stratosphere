@@ -33,6 +33,7 @@ instance ToResourceProperties BudgetDataProperty where
   toResourceProperties BudgetDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::Budget.BudgetData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BudgetType" JSON..= budgetType, "TimeUnit" JSON..= timeUnit]

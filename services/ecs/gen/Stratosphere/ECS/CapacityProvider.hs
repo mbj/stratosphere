@@ -22,6 +22,7 @@ instance ToResourceProperties CapacityProvider where
   toResourceProperties CapacityProvider {..}
     = ResourceProperties
         {awsType = "AWS::ECS::CapacityProvider",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AutoScalingGroupProvider" JSON..= autoScalingGroupProvider]

@@ -3,6 +3,7 @@ module Stratosphere.MediaLive.Channel.EmbeddedPlusScte20DestinationSettingsPrope
         mkEmbeddedPlusScte20DestinationSettingsProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EmbeddedPlusScte20DestinationSettingsProperty
   = EmbeddedPlusScte20DestinationSettingsProperty {}
@@ -15,7 +16,7 @@ instance ToResourceProperties EmbeddedPlusScte20DestinationSettingsProperty wher
     EmbeddedPlusScte20DestinationSettingsProperty {}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.EmbeddedPlusScte20DestinationSettings",
-         properties = []}
+         supportsTags = Prelude.False, properties = []}
 instance JSON.ToJSON EmbeddedPlusScte20DestinationSettingsProperty where
   toJSON EmbeddedPlusScte20DestinationSettingsProperty {}
     = JSON.object []

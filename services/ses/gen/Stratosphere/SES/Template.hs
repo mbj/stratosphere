@@ -13,7 +13,7 @@ mkTemplate = Template {template = Prelude.Nothing}
 instance ToResourceProperties Template where
   toResourceProperties Template {..}
     = ResourceProperties
-        {awsType = "AWS::SES::Template",
+        {awsType = "AWS::SES::Template", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Template" Prelude.<$> template])}
 instance JSON.ToJSON Template where

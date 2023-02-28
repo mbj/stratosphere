@@ -25,6 +25,7 @@ instance ToResourceProperties VideoCodecSettingsProperty where
   toResourceProperties VideoCodecSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.VideoCodecSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FrameCaptureSettings" Prelude.<$> frameCaptureSettings,

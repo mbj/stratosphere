@@ -17,6 +17,7 @@ instance ToResourceProperties JsonFormatRefProperty where
   toResourceProperties JsonFormatRefProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.JsonFormatRef",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON JsonFormatRefProperty where
   toJSON JsonFormatRefProperty {..}

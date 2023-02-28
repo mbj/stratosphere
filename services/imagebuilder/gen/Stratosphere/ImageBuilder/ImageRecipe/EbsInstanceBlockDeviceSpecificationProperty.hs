@@ -30,6 +30,7 @@ instance ToResourceProperties EbsInstanceBlockDeviceSpecificationProperty where
     EbsInstanceBlockDeviceSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ImageRecipe.EbsInstanceBlockDeviceSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,

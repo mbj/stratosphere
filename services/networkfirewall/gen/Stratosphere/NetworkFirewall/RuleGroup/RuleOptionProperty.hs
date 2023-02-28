@@ -17,6 +17,7 @@ instance ToResourceProperties RuleOptionProperty where
   toResourceProperties RuleOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.RuleOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Keyword" JSON..= keyword]

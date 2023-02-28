@@ -20,6 +20,7 @@ instance ToResourceProperties NotificationChannelConfigProperty where
   toResourceProperties NotificationChannelConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::DevOpsGuru::NotificationChannel.NotificationChannelConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Filters" Prelude.<$> filters,

@@ -35,6 +35,7 @@ instance ToResourceProperties MongoDbSettingsProperty where
   toResourceProperties MongoDbSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.MongoDbSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AuthMechanism" Prelude.<$> authMechanism,

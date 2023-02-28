@@ -37,6 +37,7 @@ instance ToResourceProperties VirtualGatewayHealthCheckPolicyProperty where
   toResourceProperties VirtualGatewayHealthCheckPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayHealthCheckPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HealthyThreshold" JSON..= healthyThreshold,

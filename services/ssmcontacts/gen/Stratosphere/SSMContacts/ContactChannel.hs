@@ -25,6 +25,7 @@ instance ToResourceProperties ContactChannel where
   toResourceProperties ContactChannel {..}
     = ResourceProperties
         {awsType = "AWS::SSMContacts::ContactChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ChannelAddress" JSON..= channelAddress,

@@ -15,6 +15,7 @@ instance ToResourceProperties SecurityConfigProperty where
   toResourceProperties SecurityConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.SecurityConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId])}
 instance JSON.ToJSON SecurityConfigProperty where

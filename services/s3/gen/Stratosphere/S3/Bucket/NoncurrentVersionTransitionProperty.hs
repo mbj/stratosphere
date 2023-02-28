@@ -22,6 +22,7 @@ instance ToResourceProperties NoncurrentVersionTransitionProperty where
   toResourceProperties NoncurrentVersionTransitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.NoncurrentVersionTransition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StorageClass" JSON..= storageClass,

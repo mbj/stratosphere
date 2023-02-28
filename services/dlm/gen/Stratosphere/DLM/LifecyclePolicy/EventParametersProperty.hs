@@ -21,6 +21,7 @@ instance ToResourceProperties EventParametersProperty where
   toResourceProperties EventParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.EventParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EventType" JSON..= eventType,

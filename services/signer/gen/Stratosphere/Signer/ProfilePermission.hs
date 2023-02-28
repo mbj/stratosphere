@@ -24,6 +24,7 @@ instance ToResourceProperties ProfilePermission where
   toResourceProperties ProfilePermission {..}
     = ResourceProperties
         {awsType = "AWS::Signer::ProfilePermission",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Action" JSON..= action, "Principal" JSON..= principal,

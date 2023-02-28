@@ -18,6 +18,7 @@ instance ToResourceProperties SsmParameterProperty where
   toResourceProperties SsmParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ResponsePlan.SsmParameter",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Values" JSON..= values]}
 instance JSON.ToJSON SsmParameterProperty where
   toJSON SsmParameterProperty {..}

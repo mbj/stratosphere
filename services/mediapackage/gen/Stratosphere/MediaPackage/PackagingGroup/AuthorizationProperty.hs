@@ -19,6 +19,7 @@ instance ToResourceProperties AuthorizationProperty where
   toResourceProperties AuthorizationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingGroup.Authorization",
+         supportsTags = Prelude.False,
          properties = ["CdnIdentifierSecret" JSON..= cdnIdentifierSecret,
                        "SecretsRoleArn" JSON..= secretsRoleArn]}
 instance JSON.ToJSON AuthorizationProperty where

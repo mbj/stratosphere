@@ -16,7 +16,7 @@ mkOrderProperty column sortOrder
 instance ToResourceProperties OrderProperty where
   toResourceProperties OrderProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Table.Order",
+        {awsType = "AWS::Glue::Table.Order", supportsTags = Prelude.False,
          properties = ["Column" JSON..= column,
                        "SortOrder" JSON..= sortOrder]}
 instance JSON.ToJSON OrderProperty where

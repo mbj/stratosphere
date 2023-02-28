@@ -16,6 +16,7 @@ instance ToResourceProperties RunAsProperty where
   toResourceProperties RunAsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::FunctionDefinitionVersion.RunAs",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Gid" Prelude.<$> gid,

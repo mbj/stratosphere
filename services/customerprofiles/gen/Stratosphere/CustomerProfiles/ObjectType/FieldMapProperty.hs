@@ -18,6 +18,7 @@ instance ToResourceProperties FieldMapProperty where
   toResourceProperties FieldMapProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::ObjectType.FieldMap",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

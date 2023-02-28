@@ -19,6 +19,7 @@ instance ToResourceProperties ImageConfigProperty where
   toResourceProperties ImageConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Model.ImageConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RepositoryAccessMode" JSON..= repositoryAccessMode]

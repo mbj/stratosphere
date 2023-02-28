@@ -22,6 +22,7 @@ instance ToResourceProperties BlockDeviceMappingProperty where
   toResourceProperties BlockDeviceMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Instance.BlockDeviceMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeviceName" Prelude.<$> deviceName,

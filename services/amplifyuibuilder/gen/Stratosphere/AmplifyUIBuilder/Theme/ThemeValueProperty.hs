@@ -18,6 +18,7 @@ instance ToResourceProperties ThemeValueProperty where
   toResourceProperties ThemeValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Theme.ThemeValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Children" Prelude.<$> children,

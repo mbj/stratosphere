@@ -34,6 +34,7 @@ instance ToResourceProperties BillingGroup where
   toResourceProperties BillingGroup {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::BillingGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccountGrouping" JSON..= accountGrouping,

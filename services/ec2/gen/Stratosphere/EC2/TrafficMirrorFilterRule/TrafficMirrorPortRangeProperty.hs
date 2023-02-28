@@ -20,6 +20,7 @@ instance ToResourceProperties TrafficMirrorPortRangeProperty where
   toResourceProperties TrafficMirrorPortRangeProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange",
+         supportsTags = Prelude.False,
          properties = ["FromPort" JSON..= fromPort,
                        "ToPort" JSON..= toPort]}
 instance JSON.ToJSON TrafficMirrorPortRangeProperty where

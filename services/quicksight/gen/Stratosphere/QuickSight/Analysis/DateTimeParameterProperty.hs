@@ -18,6 +18,7 @@ instance ToResourceProperties DateTimeParameterProperty where
   toResourceProperties DateTimeParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Analysis.DateTimeParameter",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Values" JSON..= values]}
 instance JSON.ToJSON DateTimeParameterProperty where
   toJSON DateTimeParameterProperty {..}

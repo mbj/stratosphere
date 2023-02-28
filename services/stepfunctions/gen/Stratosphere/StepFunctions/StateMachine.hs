@@ -36,6 +36,7 @@ instance ToResourceProperties StateMachine where
   toResourceProperties StateMachine {..}
     = ResourceProperties
         {awsType = "AWS::StepFunctions::StateMachine",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn]

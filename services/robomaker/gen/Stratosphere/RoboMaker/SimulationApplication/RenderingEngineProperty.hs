@@ -17,6 +17,7 @@ instance ToResourceProperties RenderingEngineProperty where
   toResourceProperties RenderingEngineProperty {..}
     = ResourceProperties
         {awsType = "AWS::RoboMaker::SimulationApplication.RenderingEngine",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Version" JSON..= version]}
 instance JSON.ToJSON RenderingEngineProperty where
   toJSON RenderingEngineProperty {..}

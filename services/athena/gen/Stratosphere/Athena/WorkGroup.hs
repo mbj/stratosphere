@@ -24,7 +24,7 @@ mkWorkGroup name
 instance ToResourceProperties WorkGroup where
   toResourceProperties WorkGroup {..}
     = ResourceProperties
-        {awsType = "AWS::Athena::WorkGroup",
+        {awsType = "AWS::Athena::WorkGroup", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

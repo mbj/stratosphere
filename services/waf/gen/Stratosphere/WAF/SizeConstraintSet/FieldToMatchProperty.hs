@@ -17,6 +17,7 @@ instance ToResourceProperties FieldToMatchProperty where
   toResourceProperties FieldToMatchProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAF::SizeConstraintSet.FieldToMatch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

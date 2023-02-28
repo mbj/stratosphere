@@ -40,7 +40,7 @@ mkWebACL defaultAction scope visibilityConfig
 instance ToResourceProperties WebACL where
   toResourceProperties WebACL {..}
     = ResourceProperties
-        {awsType = "AWS::WAFv2::WebACL",
+        {awsType = "AWS::WAFv2::WebACL", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DefaultAction" JSON..= defaultAction, "Scope" JSON..= scope,

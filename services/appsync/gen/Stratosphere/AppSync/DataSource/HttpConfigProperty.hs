@@ -18,6 +18,7 @@ instance ToResourceProperties HttpConfigProperty where
   toResourceProperties HttpConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.HttpConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Endpoint" JSON..= endpoint]

@@ -18,6 +18,7 @@ instance ToResourceProperties MetricsCollectionProperty where
   toResourceProperties MetricsCollectionProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.MetricsCollection",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Granularity" JSON..= granularity]

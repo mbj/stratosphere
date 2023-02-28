@@ -20,6 +20,7 @@ instance ToResourceProperties SuiteDefinition where
   toResourceProperties SuiteDefinition {..}
     = ResourceProperties
         {awsType = "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SuiteDefinitionConfiguration"

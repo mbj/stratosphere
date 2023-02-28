@@ -20,6 +20,7 @@ instance ToResourceProperties InAppMessageBodyConfigProperty where
   toResourceProperties InAppMessageBodyConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.InAppMessageBodyConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Alignment" Prelude.<$> alignment,

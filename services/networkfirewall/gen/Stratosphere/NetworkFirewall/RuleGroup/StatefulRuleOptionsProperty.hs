@@ -15,6 +15,7 @@ instance ToResourceProperties StatefulRuleOptionsProperty where
   toResourceProperties StatefulRuleOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.StatefulRuleOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "RuleOrder" Prelude.<$> ruleOrder])}
 instance JSON.ToJSON StatefulRuleOptionsProperty where

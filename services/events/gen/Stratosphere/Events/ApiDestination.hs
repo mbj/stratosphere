@@ -27,6 +27,7 @@ instance ToResourceProperties ApiDestination where
   toResourceProperties ApiDestination {..}
     = ResourceProperties
         {awsType = "AWS::Events::ApiDestination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectionArn" JSON..= connectionArn,

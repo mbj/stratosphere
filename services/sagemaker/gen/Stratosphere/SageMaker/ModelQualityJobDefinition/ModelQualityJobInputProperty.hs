@@ -25,6 +25,7 @@ instance ToResourceProperties ModelQualityJobInputProperty where
   toResourceProperties ModelQualityJobInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelQualityJobDefinition.ModelQualityJobInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GroundTruthS3Input" JSON..= groundTruthS3Input]

@@ -20,6 +20,7 @@ instance ToResourceProperties ReplicationRuleAndOperatorProperty where
   toResourceProperties ReplicationRuleAndOperatorProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ReplicationRuleAndOperator",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Prefix" Prelude.<$> prefix,

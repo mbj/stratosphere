@@ -23,6 +23,7 @@ instance ToResourceProperties SMBProperty where
   toResourceProperties SMBProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationFSxONTAP.SMB",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MountOptions" JSON..= mountOptions, "Password" JSON..= password,

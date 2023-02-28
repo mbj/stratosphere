@@ -22,6 +22,7 @@ instance ToResourceProperties RecipesProperty where
   toResourceProperties RecipesProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Layer.Recipes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Configure" Prelude.<$> configure,

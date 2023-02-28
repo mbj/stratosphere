@@ -96,6 +96,7 @@ instance ToResourceProperties ContainerDefinitionProperty where
   toResourceProperties ContainerDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.ContainerDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Image" JSON..= image, "Name" JSON..= name]

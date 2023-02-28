@@ -14,6 +14,7 @@ instance ToResourceProperties QualifierProperty where
   toResourceProperties QualifierProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate.Qualifier",
+         supportsTags = Prelude.False,
          properties = ["CpsUri" JSON..= cpsUri]}
 instance JSON.ToJSON QualifierProperty where
   toJSON QualifierProperty {..}

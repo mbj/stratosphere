@@ -26,6 +26,7 @@ instance ToResourceProperties VisibilityConfigProperty where
   toResourceProperties VisibilityConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.VisibilityConfig",
+         supportsTags = Prelude.False,
          properties = ["CloudWatchMetricsEnabled"
                          JSON..= cloudWatchMetricsEnabled,
                        "MetricName" JSON..= metricName,

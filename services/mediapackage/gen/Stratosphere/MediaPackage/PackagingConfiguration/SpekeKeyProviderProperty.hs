@@ -25,6 +25,7 @@ instance ToResourceProperties SpekeKeyProviderProperty where
   toResourceProperties SpekeKeyProviderProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingConfiguration.SpekeKeyProvider",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn, "SystemIds" JSON..= systemIds,

@@ -21,6 +21,7 @@ instance ToResourceProperties EndpointAuthorization where
   toResourceProperties EndpointAuthorization {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::EndpointAuthorization",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Account" JSON..= account,

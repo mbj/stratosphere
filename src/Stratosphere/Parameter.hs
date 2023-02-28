@@ -145,7 +145,9 @@ mkParameter name type' =
 -- instances.
 newtype Parameters = Parameters { parameterList :: [Parameter] }
   deriving stock (Show, Eq)
-  deriving newtype (Semigroup, Monoid)
+  deriving newtype (Monoid, MonoFunctor, Semigroup)
+
+type instance Element Parameters = Parameter
 
 instance IsList Parameters where
   type Item Parameters = Parameter

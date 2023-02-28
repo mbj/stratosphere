@@ -17,6 +17,7 @@ instance ToResourceProperties CodeSigningPoliciesProperty where
   toResourceProperties CodeSigningPoliciesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::CodeSigningConfig.CodeSigningPolicies",
+         supportsTags = Prelude.False,
          properties = ["UntrustedArtifactOnDeployment"
                          JSON..= untrustedArtifactOnDeployment]}
 instance JSON.ToJSON CodeSigningPoliciesProperty where

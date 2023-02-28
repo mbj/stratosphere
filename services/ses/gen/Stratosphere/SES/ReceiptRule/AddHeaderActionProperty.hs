@@ -18,6 +18,7 @@ instance ToResourceProperties AddHeaderActionProperty where
   toResourceProperties AddHeaderActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ReceiptRule.AddHeaderAction",
+         supportsTags = Prelude.False,
          properties = ["HeaderName" JSON..= headerName,
                        "HeaderValue" JSON..= headerValue]}
 instance JSON.ToJSON AddHeaderActionProperty where

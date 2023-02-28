@@ -32,6 +32,7 @@ instance ToResourceProperties ModelPackageContainerDefinitionProperty where
   toResourceProperties ModelPackageContainerDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.ModelPackageContainerDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Image" JSON..= image]

@@ -19,6 +19,7 @@ instance ToResourceProperties VdmOptionsProperty where
   toResourceProperties VdmOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSet.VdmOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DashboardOptions" Prelude.<$> dashboardOptions,

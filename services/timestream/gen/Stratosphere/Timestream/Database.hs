@@ -20,6 +20,7 @@ instance ToResourceProperties Database where
   toResourceProperties Database {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::Database",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DatabaseName" Prelude.<$> databaseName,

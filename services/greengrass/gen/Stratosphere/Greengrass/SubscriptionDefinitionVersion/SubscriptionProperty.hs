@@ -22,6 +22,7 @@ instance ToResourceProperties SubscriptionProperty where
   toResourceProperties SubscriptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::SubscriptionDefinitionVersion.Subscription",
+         supportsTags = Prelude.False,
          properties = ["Id" JSON..= id, "Source" JSON..= source,
                        "Subject" JSON..= subject, "Target" JSON..= target]}
 instance JSON.ToJSON SubscriptionProperty where

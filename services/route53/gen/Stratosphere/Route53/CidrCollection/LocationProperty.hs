@@ -18,6 +18,7 @@ instance ToResourceProperties LocationProperty where
   toResourceProperties LocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::CidrCollection.Location",
+         supportsTags = Prelude.False,
          properties = ["CidrList" JSON..= cidrList,
                        "LocationName" JSON..= locationName]}
 instance JSON.ToJSON LocationProperty where

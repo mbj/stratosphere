@@ -3,6 +3,7 @@ module Stratosphere.AppMesh.Route.HttpRouteActionProperty (
         mkHttpRouteActionProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppMesh.Route.WeightedTargetProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties HttpRouteActionProperty where
   toResourceProperties HttpRouteActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.HttpRouteAction",
+         supportsTags = Prelude.False,
          properties = ["WeightedTargets" JSON..= weightedTargets]}
 instance JSON.ToJSON HttpRouteActionProperty where
   toJSON HttpRouteActionProperty {..}

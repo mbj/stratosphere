@@ -20,6 +20,7 @@ instance ToResourceProperties NetworkConfigurationProperty where
   toResourceProperties NetworkConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.NetworkConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EgressConfiguration" Prelude.<$> egressConfiguration,

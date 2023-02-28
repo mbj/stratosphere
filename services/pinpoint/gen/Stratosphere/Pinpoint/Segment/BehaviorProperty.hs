@@ -14,6 +14,7 @@ instance ToResourceProperties BehaviorProperty where
   toResourceProperties BehaviorProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.Behavior",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Recency" Prelude.<$> recency])}
 instance JSON.ToJSON BehaviorProperty where

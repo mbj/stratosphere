@@ -29,6 +29,7 @@ instance ToResourceProperties LinuxParametersProperty where
   toResourceProperties LinuxParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.LinuxParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Capabilities" Prelude.<$> capabilities,

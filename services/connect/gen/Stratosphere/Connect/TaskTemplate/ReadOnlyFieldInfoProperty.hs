@@ -3,6 +3,7 @@ module Stratosphere.Connect.TaskTemplate.ReadOnlyFieldInfoProperty (
         mkReadOnlyFieldInfoProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,7 +17,7 @@ instance ToResourceProperties ReadOnlyFieldInfoProperty where
   toResourceProperties ReadOnlyFieldInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::TaskTemplate.ReadOnlyFieldInfo",
-         properties = ["Id" JSON..= id]}
+         supportsTags = Prelude.False, properties = ["Id" JSON..= id]}
 instance JSON.ToJSON ReadOnlyFieldInfoProperty where
   toJSON ReadOnlyFieldInfoProperty {..}
     = JSON.object ["Id" JSON..= id]

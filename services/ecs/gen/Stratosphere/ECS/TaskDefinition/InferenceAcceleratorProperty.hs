@@ -17,6 +17,7 @@ instance ToResourceProperties InferenceAcceleratorProperty where
   toResourceProperties InferenceAcceleratorProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.InferenceAccelerator",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeviceName" Prelude.<$> deviceName,

@@ -16,7 +16,7 @@ mkSaslProperty
 instance ToResourceProperties SaslProperty where
   toResourceProperties SaslProperty {..}
     = ResourceProperties
-        {awsType = "AWS::MSK::Cluster.Sasl",
+        {awsType = "AWS::MSK::Cluster.Sasl", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Iam" Prelude.<$> iam,

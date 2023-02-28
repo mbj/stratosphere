@@ -27,6 +27,7 @@ instance ToResourceProperties Environment where
   toResourceProperties Environment {..}
     = ResourceProperties
         {awsType = "AWS::FinSpace::Environment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

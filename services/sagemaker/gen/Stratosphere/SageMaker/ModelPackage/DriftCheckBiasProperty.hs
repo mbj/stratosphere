@@ -22,6 +22,7 @@ instance ToResourceProperties DriftCheckBiasProperty where
   toResourceProperties DriftCheckBiasProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.DriftCheckBias",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConfigFile" Prelude.<$> configFile,

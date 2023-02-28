@@ -35,6 +35,7 @@ instance ToResourceProperties GlobalReplicationGroup where
   toResourceProperties GlobalReplicationGroup {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::GlobalReplicationGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Members" JSON..= members]

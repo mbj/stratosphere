@@ -21,6 +21,7 @@ instance ToResourceProperties RevocationConfigurationProperty where
   toResourceProperties RevocationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.RevocationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CrlConfiguration" Prelude.<$> crlConfiguration,

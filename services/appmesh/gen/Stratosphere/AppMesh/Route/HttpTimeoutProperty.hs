@@ -17,6 +17,7 @@ instance ToResourceProperties HttpTimeoutProperty where
   toResourceProperties HttpTimeoutProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.HttpTimeout",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Idle" Prelude.<$> idle,

@@ -18,6 +18,7 @@ instance ToResourceProperties EncryptionOptionsProperty where
   toResourceProperties EncryptionOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmazonMQ::Broker.EncryptionOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["UseAwsOwnedKey" JSON..= useAwsOwnedKey]

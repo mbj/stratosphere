@@ -26,6 +26,7 @@ instance ToResourceProperties QuickConnectConfigProperty where
   toResourceProperties QuickConnectConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::QuickConnect.QuickConnectConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["QuickConnectType" JSON..= quickConnectType]

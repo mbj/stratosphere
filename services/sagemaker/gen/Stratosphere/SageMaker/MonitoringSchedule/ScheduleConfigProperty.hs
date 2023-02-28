@@ -16,6 +16,7 @@ instance ToResourceProperties ScheduleConfigProperty where
   toResourceProperties ScheduleConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule.ScheduleConfig",
+         supportsTags = Prelude.False,
          properties = ["ScheduleExpression" JSON..= scheduleExpression]}
 instance JSON.ToJSON ScheduleConfigProperty where
   toJSON ScheduleConfigProperty {..}

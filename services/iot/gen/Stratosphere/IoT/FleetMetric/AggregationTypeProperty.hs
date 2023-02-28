@@ -18,6 +18,7 @@ instance ToResourceProperties AggregationTypeProperty where
   toResourceProperties AggregationTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::FleetMetric.AggregationType",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Values" JSON..= values]}
 instance JSON.ToJSON AggregationTypeProperty where
   toJSON AggregationTypeProperty {..}

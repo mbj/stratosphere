@@ -16,7 +16,7 @@ instance ToResourceProperties CustomPayloadProperty where
   toResourceProperties CustomPayloadProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.CustomPayload",
-         properties = ["Value" JSON..= value]}
+         supportsTags = Prelude.False, properties = ["Value" JSON..= value]}
 instance JSON.ToJSON CustomPayloadProperty where
   toJSON CustomPayloadProperty {..}
     = JSON.object ["Value" JSON..= value]

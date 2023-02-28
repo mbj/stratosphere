@@ -30,6 +30,7 @@ instance ToResourceProperties ConfigurationProfile where
   toResourceProperties ConfigurationProfile {..}
     = ResourceProperties
         {awsType = "AWS::AppConfig::ConfigurationProfile",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId,

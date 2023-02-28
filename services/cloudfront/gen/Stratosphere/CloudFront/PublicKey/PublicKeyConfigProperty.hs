@@ -23,6 +23,7 @@ instance ToResourceProperties PublicKeyConfigProperty where
   toResourceProperties PublicKeyConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::PublicKey.PublicKeyConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CallerReference" JSON..= callerReference,

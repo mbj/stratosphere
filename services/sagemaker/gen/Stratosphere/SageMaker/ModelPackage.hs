@@ -78,6 +78,7 @@ instance ToResourceProperties ModelPackage where
   toResourceProperties ModelPackage {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdditionalInferenceSpecificationDefinition"

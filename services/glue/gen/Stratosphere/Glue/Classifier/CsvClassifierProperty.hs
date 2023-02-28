@@ -25,6 +25,7 @@ instance ToResourceProperties CsvClassifierProperty where
   toResourceProperties CsvClassifierProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Classifier.CsvClassifier",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowSingleColumn" Prelude.<$> allowSingleColumn,

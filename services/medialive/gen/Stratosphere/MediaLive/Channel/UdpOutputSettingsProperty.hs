@@ -24,6 +24,7 @@ instance ToResourceProperties UdpOutputSettingsProperty where
   toResourceProperties UdpOutputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.UdpOutputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BufferMsec" Prelude.<$> bufferMsec,

@@ -18,6 +18,7 @@ instance ToResourceProperties BillingModeProperty where
   toResourceProperties BillingModeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cassandra::Table.BillingMode",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Mode" JSON..= mode]

@@ -22,6 +22,7 @@ instance ToResourceProperties UserPoolUICustomizationAttachment where
   toResourceProperties UserPoolUICustomizationAttachment {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolUICustomizationAttachment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClientId" JSON..= clientId, "UserPoolId" JSON..= userPoolId]

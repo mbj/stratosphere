@@ -17,6 +17,7 @@ instance ToResourceProperties CreatedAtProperty where
   toResourceProperties CreatedAtProperty {..}
     = ResourceProperties
         {awsType = "AWS::HealthLake::FHIRDatastore.CreatedAt",
+         supportsTags = Prelude.False,
          properties = ["Nanos" JSON..= nanos, "Seconds" JSON..= seconds]}
 instance JSON.ToJSON CreatedAtProperty where
   toJSON CreatedAtProperty {..}

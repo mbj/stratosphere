@@ -18,6 +18,7 @@ instance ToResourceProperties VideoSelectorColorSpaceSettingsProperty where
   toResourceProperties VideoSelectorColorSpaceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.VideoSelectorColorSpaceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Hdr10Settings" Prelude.<$> hdr10Settings])}

@@ -19,6 +19,7 @@ instance ToResourceProperties FormDataTypeConfigProperty where
   toResourceProperties FormDataTypeConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.FormDataTypeConfig",
+         supportsTags = Prelude.False,
          properties = ["DataSourceType" JSON..= dataSourceType,
                        "DataTypeName" JSON..= dataTypeName]}
 instance JSON.ToJSON FormDataTypeConfigProperty where

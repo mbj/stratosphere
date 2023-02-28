@@ -36,7 +36,7 @@ mkIndex edition name roleArn
 instance ToResourceProperties Index where
   toResourceProperties Index {..}
     = ResourceProperties
-        {awsType = "AWS::Kendra::Index",
+        {awsType = "AWS::Kendra::Index", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Edition" JSON..= edition, "Name" JSON..= name,

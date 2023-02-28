@@ -15,6 +15,7 @@ instance ToResourceProperties DynamoDbSettingsProperty where
   toResourceProperties DynamoDbSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.DynamoDbSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ServiceAccessRoleArn"

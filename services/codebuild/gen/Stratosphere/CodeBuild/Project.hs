@@ -66,7 +66,7 @@ mkProject artifacts environment serviceRole source
 instance ToResourceProperties Project where
   toResourceProperties Project {..}
     = ResourceProperties
-        {awsType = "AWS::CodeBuild::Project",
+        {awsType = "AWS::CodeBuild::Project", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Artifacts" JSON..= artifacts, "Environment" JSON..= environment,

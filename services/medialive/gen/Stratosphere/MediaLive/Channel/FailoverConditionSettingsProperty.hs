@@ -24,6 +24,7 @@ instance ToResourceProperties FailoverConditionSettingsProperty where
   toResourceProperties FailoverConditionSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.FailoverConditionSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioSilenceSettings" Prelude.<$> audioSilenceSettings,

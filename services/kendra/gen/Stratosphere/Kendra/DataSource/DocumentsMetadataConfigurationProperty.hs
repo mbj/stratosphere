@@ -18,6 +18,7 @@ instance ToResourceProperties DocumentsMetadataConfigurationProperty where
   toResourceProperties DocumentsMetadataConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.DocumentsMetadataConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "S3Prefix" Prelude.<$> s3Prefix])}
 instance JSON.ToJSON DocumentsMetadataConfigurationProperty where

@@ -16,7 +16,7 @@ mkLogStream logGroupName
 instance ToResourceProperties LogStream where
   toResourceProperties LogStream {..}
     = ResourceProperties
-        {awsType = "AWS::Logs::LogStream",
+        {awsType = "AWS::Logs::LogStream", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LogGroupName" JSON..= logGroupName]

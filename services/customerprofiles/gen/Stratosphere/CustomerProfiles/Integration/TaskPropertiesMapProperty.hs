@@ -19,6 +19,7 @@ instance ToResourceProperties TaskPropertiesMapProperty where
   toResourceProperties TaskPropertiesMapProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.TaskPropertiesMap",
+         supportsTags = Prelude.False,
          properties = ["OperatorPropertyKey" JSON..= operatorPropertyKey,
                        "Property" JSON..= property]}
 instance JSON.ToJSON TaskPropertiesMapProperty where

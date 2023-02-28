@@ -24,6 +24,7 @@ instance ToResourceProperties BlackoutSlateProperty where
   toResourceProperties BlackoutSlateProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.BlackoutSlate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlackoutSlateImage" Prelude.<$> blackoutSlateImage,

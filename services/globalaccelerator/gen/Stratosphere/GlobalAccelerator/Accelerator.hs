@@ -23,6 +23,7 @@ instance ToResourceProperties Accelerator where
   toResourceProperties Accelerator {..}
     = ResourceProperties
         {awsType = "AWS::GlobalAccelerator::Accelerator",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

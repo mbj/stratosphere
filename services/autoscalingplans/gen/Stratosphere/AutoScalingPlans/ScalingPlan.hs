@@ -2,6 +2,7 @@ module Stratosphere.AutoScalingPlans.ScalingPlan (
         module Exports, ScalingPlan(..), mkScalingPlan
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AutoScalingPlans.ScalingPlan.ApplicationSourceProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScalingPlans.ScalingPlan.ScalingInstructionProperty as Exports
@@ -20,6 +21,7 @@ instance ToResourceProperties ScalingPlan where
   toResourceProperties ScalingPlan {..}
     = ResourceProperties
         {awsType = "AWS::AutoScalingPlans::ScalingPlan",
+         supportsTags = Prelude.False,
          properties = ["ApplicationSource" JSON..= applicationSource,
                        "ScalingInstructions" JSON..= scalingInstructions]}
 instance JSON.ToJSON ScalingPlan where

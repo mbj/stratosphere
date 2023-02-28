@@ -60,6 +60,7 @@ instance ToResourceProperties DistributionConfigProperty where
   toResourceProperties DistributionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.DistributionConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DefaultCacheBehavior" JSON..= defaultCacheBehavior,

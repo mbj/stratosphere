@@ -27,6 +27,7 @@ instance ToResourceProperties MixedMeasureMappingProperty where
   toResourceProperties MixedMeasureMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::ScheduledQuery.MixedMeasureMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MeasureValueType" JSON..= measureValueType]

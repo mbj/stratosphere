@@ -26,6 +26,7 @@ instance ToResourceProperties ResiliencyPolicy where
   toResourceProperties ResiliencyPolicy {..}
     = ResourceProperties
         {awsType = "AWS::ResilienceHub::ResiliencyPolicy",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Policy" JSON..= policy, "PolicyName" JSON..= policyName,

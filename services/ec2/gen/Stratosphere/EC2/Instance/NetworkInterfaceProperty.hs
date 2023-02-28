@@ -43,6 +43,7 @@ instance ToResourceProperties NetworkInterfaceProperty where
   toResourceProperties NetworkInterfaceProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.NetworkInterface",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeviceIndex" JSON..= deviceIndex]

@@ -27,6 +27,7 @@ instance ToResourceProperties ReplicationSubnetGroup where
   toResourceProperties ReplicationSubnetGroup {..}
     = ResourceProperties
         {awsType = "AWS::DMS::ReplicationSubnetGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ReplicationSubnetGroupDescription"

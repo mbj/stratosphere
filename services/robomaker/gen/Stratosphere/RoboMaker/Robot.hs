@@ -21,7 +21,7 @@ mkRobot architecture greengrassGroupId
 instance ToResourceProperties Robot where
   toResourceProperties Robot {..}
     = ResourceProperties
-        {awsType = "AWS::RoboMaker::Robot",
+        {awsType = "AWS::RoboMaker::Robot", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Architecture" JSON..= architecture,

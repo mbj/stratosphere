@@ -19,6 +19,7 @@ instance ToResourceProperties WebhookAuthConfigurationProperty where
   toResourceProperties WebhookAuthConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Webhook.WebhookAuthConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowedIPRange" Prelude.<$> allowedIPRange,

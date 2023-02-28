@@ -19,6 +19,7 @@ instance ToResourceProperties JdbcTargetProperty where
   toResourceProperties JdbcTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Crawler.JdbcTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectionName" Prelude.<$> connectionName,

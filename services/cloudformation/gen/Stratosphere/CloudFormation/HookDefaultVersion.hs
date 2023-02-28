@@ -19,6 +19,7 @@ instance ToResourceProperties HookDefaultVersion where
   toResourceProperties HookDefaultVersion {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::HookDefaultVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TypeName" Prelude.<$> typeName,

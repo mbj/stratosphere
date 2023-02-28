@@ -47,6 +47,7 @@ instance ToResourceProperties IntentConfirmationSettingProperty where
   toResourceProperties IntentConfirmationSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.IntentConfirmationSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PromptSpecification" JSON..= promptSpecification]

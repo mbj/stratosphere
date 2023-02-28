@@ -17,6 +17,7 @@ instance ToResourceProperties NetworkConfigurationProperty where
   toResourceProperties NetworkConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskSet.NetworkConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AwsVpcConfiguration" Prelude.<$> awsVpcConfiguration])}

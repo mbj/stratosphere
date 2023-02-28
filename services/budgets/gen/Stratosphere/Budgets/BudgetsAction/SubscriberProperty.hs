@@ -17,6 +17,7 @@ instance ToResourceProperties SubscriberProperty where
   toResourceProperties SubscriberProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::BudgetsAction.Subscriber",
+         supportsTags = Prelude.False,
          properties = ["Address" JSON..= address, "Type" JSON..= type']}
 instance JSON.ToJSON SubscriberProperty where
   toJSON SubscriberProperty {..}

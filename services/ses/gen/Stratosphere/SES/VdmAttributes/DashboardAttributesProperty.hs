@@ -15,6 +15,7 @@ instance ToResourceProperties DashboardAttributesProperty where
   toResourceProperties DashboardAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::VdmAttributes.DashboardAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EngagementMetrics" Prelude.<$> engagementMetrics])}

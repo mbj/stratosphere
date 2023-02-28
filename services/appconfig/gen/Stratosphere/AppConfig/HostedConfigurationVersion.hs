@@ -32,6 +32,7 @@ instance ToResourceProperties HostedConfigurationVersion where
   toResourceProperties HostedConfigurationVersion {..}
     = ResourceProperties
         {awsType = "AWS::AppConfig::HostedConfigurationVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId,

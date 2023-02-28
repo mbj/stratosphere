@@ -17,6 +17,7 @@ instance ToResourceProperties BandwidthProperty where
   toResourceProperties BandwidthProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::Link.Bandwidth",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DownloadSpeed" Prelude.<$> downloadSpeed,

@@ -23,6 +23,7 @@ instance ToResourceProperties RuleGroupReferenceStatementProperty where
   toResourceProperties RuleGroupReferenceStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.RuleGroupReferenceStatement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Arn" JSON..= arn]

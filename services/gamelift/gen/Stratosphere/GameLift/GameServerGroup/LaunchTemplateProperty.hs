@@ -19,6 +19,7 @@ instance ToResourceProperties LaunchTemplateProperty where
   toResourceProperties LaunchTemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::GameServerGroup.LaunchTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LaunchTemplateId" Prelude.<$> launchTemplateId,

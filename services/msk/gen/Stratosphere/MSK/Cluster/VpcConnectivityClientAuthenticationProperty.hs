@@ -21,6 +21,7 @@ instance ToResourceProperties VpcConnectivityClientAuthenticationProperty where
     VpcConnectivityClientAuthenticationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.VpcConnectivityClientAuthentication",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Sasl" Prelude.<$> sasl,

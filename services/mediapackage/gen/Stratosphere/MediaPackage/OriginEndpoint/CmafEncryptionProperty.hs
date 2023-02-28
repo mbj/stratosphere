@@ -25,6 +25,7 @@ instance ToResourceProperties CmafEncryptionProperty where
   toResourceProperties CmafEncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::OriginEndpoint.CmafEncryption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SpekeKeyProvider" JSON..= spekeKeyProvider]

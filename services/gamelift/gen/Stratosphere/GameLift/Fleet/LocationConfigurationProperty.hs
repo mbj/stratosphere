@@ -20,6 +20,7 @@ instance ToResourceProperties LocationConfigurationProperty where
   toResourceProperties LocationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::Fleet.LocationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Location" JSON..= location]

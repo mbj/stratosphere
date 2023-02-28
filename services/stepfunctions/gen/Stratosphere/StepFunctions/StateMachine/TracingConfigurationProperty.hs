@@ -15,6 +15,7 @@ instance ToResourceProperties TracingConfigurationProperty where
   toResourceProperties TracingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::StepFunctions::StateMachine.TracingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled])}
 instance JSON.ToJSON TracingConfigurationProperty where

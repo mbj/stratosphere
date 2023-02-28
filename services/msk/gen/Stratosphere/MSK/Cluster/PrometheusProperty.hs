@@ -18,6 +18,7 @@ instance ToResourceProperties PrometheusProperty where
   toResourceProperties PrometheusProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.Prometheus",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "JmxExporter" Prelude.<$> jmxExporter,

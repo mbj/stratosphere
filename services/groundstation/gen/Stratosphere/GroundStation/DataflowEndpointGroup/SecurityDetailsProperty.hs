@@ -19,6 +19,7 @@ instance ToResourceProperties SecurityDetailsProperty where
   toResourceProperties SecurityDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::DataflowEndpointGroup.SecurityDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RoleArn" Prelude.<$> roleArn,

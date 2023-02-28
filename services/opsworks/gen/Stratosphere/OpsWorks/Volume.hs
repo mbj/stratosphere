@@ -19,7 +19,7 @@ mkVolume ec2VolumeId stackId
 instance ToResourceProperties Volume where
   toResourceProperties Volume {..}
     = ResourceProperties
-        {awsType = "AWS::OpsWorks::Volume",
+        {awsType = "AWS::OpsWorks::Volume", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Ec2VolumeId" JSON..= ec2VolumeId, "StackId" JSON..= stackId]

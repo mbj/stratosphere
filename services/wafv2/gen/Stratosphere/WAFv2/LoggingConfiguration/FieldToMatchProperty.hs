@@ -23,6 +23,7 @@ instance ToResourceProperties FieldToMatchProperty where
   toResourceProperties FieldToMatchProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::LoggingConfiguration.FieldToMatch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "JsonBody" Prelude.<$> jsonBody,

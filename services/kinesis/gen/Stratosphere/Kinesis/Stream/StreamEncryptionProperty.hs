@@ -19,6 +19,7 @@ instance ToResourceProperties StreamEncryptionProperty where
   toResourceProperties StreamEncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kinesis::Stream.StreamEncryption",
+         supportsTags = Prelude.False,
          properties = ["EncryptionType" JSON..= encryptionType,
                        "KeyId" JSON..= keyId]}
 instance JSON.ToJSON StreamEncryptionProperty where

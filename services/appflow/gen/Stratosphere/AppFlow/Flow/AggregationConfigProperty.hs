@@ -18,6 +18,7 @@ instance ToResourceProperties AggregationConfigProperty where
   toResourceProperties AggregationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.AggregationConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AggregationType" Prelude.<$> aggregationType,

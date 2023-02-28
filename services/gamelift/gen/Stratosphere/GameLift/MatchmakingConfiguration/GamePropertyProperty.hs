@@ -17,6 +17,7 @@ instance ToResourceProperties GamePropertyProperty where
   toResourceProperties GamePropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::MatchmakingConfiguration.GameProperty",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON GamePropertyProperty where
   toJSON GamePropertyProperty {..}

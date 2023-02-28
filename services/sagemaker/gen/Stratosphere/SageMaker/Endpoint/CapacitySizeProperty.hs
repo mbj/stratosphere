@@ -17,6 +17,7 @@ instance ToResourceProperties CapacitySizeProperty where
   toResourceProperties CapacitySizeProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Endpoint.CapacitySize",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON CapacitySizeProperty where
   toJSON CapacitySizeProperty {..}

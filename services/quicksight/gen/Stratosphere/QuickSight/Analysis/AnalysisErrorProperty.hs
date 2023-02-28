@@ -17,6 +17,7 @@ instance ToResourceProperties AnalysisErrorProperty where
   toResourceProperties AnalysisErrorProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Analysis.AnalysisError",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Message" Prelude.<$> message,

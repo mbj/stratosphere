@@ -15,6 +15,7 @@ instance ToResourceProperties NetworkConfigurationProperty where
   toResourceProperties NetworkConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.NetworkConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AssignPublicIp" Prelude.<$> assignPublicIp])}

@@ -17,6 +17,7 @@ instance ToResourceProperties JsonFormatDescriptorProperty where
   toResourceProperties JsonFormatDescriptorProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.JsonFormatDescriptor",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Charset" Prelude.<$> charset,

@@ -17,6 +17,7 @@ instance ToResourceProperties SecurityGroup where
   toResourceProperties SecurityGroup {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::SecurityGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description]

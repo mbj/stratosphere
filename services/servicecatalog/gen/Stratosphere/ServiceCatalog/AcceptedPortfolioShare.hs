@@ -18,6 +18,7 @@ instance ToResourceProperties AcceptedPortfolioShare where
   toResourceProperties AcceptedPortfolioShare {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::AcceptedPortfolioShare",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PortfolioId" JSON..= portfolioId]

@@ -18,6 +18,7 @@ instance ToResourceProperties StringParameterProperty where
   toResourceProperties StringParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.StringParameter",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Values" JSON..= values]}
 instance JSON.ToJSON StringParameterProperty where
   toJSON StringParameterProperty {..}

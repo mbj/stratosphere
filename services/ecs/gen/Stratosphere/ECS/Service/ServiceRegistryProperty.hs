@@ -20,6 +20,7 @@ instance ToResourceProperties ServiceRegistryProperty where
   toResourceProperties ServiceRegistryProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.ServiceRegistry",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerName" Prelude.<$> containerName,

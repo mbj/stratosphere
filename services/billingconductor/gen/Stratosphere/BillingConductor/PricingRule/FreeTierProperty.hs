@@ -15,6 +15,7 @@ instance ToResourceProperties FreeTierProperty where
   toResourceProperties FreeTierProperty {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::PricingRule.FreeTier",
+         supportsTags = Prelude.False,
          properties = ["Activated" JSON..= activated]}
 instance JSON.ToJSON FreeTierProperty where
   toJSON FreeTierProperty {..}

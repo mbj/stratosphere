@@ -29,6 +29,7 @@ instance ToResourceProperties AssetModel where
   toResourceProperties AssetModel {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AssetModel",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AssetModelName" JSON..= assetModelName]

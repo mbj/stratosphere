@@ -18,6 +18,7 @@ instance ToResourceProperties ArchiveRuleProperty where
   toResourceProperties ArchiveRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::AccessAnalyzer::Analyzer.ArchiveRule",
+         supportsTags = Prelude.False,
          properties = ["Filter" JSON..= filter,
                        "RuleName" JSON..= ruleName]}
 instance JSON.ToJSON ArchiveRuleProperty where

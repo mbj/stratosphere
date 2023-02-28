@@ -23,6 +23,7 @@ instance ToResourceProperties MetricsConfigurationProperty where
   toResourceProperties MetricsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.MetricsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id]

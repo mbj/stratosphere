@@ -19,6 +19,7 @@ instance ToResourceProperties AudioHlsRenditionSelectionProperty where
   toResourceProperties AudioHlsRenditionSelectionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AudioHlsRenditionSelection",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GroupId" Prelude.<$> groupId,

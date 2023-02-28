@@ -17,6 +17,7 @@ instance ToResourceProperties VpcSettingsProperty where
   toResourceProperties VpcSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DirectoryService::SimpleAD.VpcSettings",
+         supportsTags = Prelude.False,
          properties = ["SubnetIds" JSON..= subnetIds,
                        "VpcId" JSON..= vpcId]}
 instance JSON.ToJSON VpcSettingsProperty where

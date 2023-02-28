@@ -17,6 +17,7 @@ instance ToResourceProperties FirelensConfigurationProperty where
   toResourceProperties FirelensConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.FirelensConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Options" Prelude.<$> options,

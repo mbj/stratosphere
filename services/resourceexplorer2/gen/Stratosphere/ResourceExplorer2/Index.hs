@@ -15,6 +15,7 @@ instance ToResourceProperties Index where
   toResourceProperties Index {..}
     = ResourceProperties
         {awsType = "AWS::ResourceExplorer2::Index",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

@@ -16,6 +16,7 @@ instance ToResourceProperties AdHocFilteringOptionProperty where
   toResourceProperties AdHocFilteringOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.AdHocFilteringOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityStatus" Prelude.<$> availabilityStatus])}

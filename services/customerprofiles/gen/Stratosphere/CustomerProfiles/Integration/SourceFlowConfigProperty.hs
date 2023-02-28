@@ -27,6 +27,7 @@ instance ToResourceProperties SourceFlowConfigProperty where
   toResourceProperties SourceFlowConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.SourceFlowConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectorType" JSON..= connectorType,

@@ -15,6 +15,7 @@ instance ToResourceProperties InputParallelismProperty where
   toResourceProperties InputParallelismProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::Application.InputParallelism",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Count" Prelude.<$> count])}
 instance JSON.ToJSON InputParallelismProperty where

@@ -13,7 +13,7 @@ mkDomain = Domain {description = Prelude.Nothing}
 instance ToResourceProperties Domain where
   toResourceProperties Domain {..}
     = ResourceProperties
-        {awsType = "AWS::SDB::Domain",
+        {awsType = "AWS::SDB::Domain", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description])}

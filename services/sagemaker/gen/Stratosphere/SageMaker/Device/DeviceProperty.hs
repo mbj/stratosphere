@@ -19,6 +19,7 @@ instance ToResourceProperties DeviceProperty where
   toResourceProperties DeviceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Device.Device",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeviceName" JSON..= deviceName]

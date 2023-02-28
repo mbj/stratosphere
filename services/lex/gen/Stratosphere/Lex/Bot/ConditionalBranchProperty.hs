@@ -27,6 +27,7 @@ instance ToResourceProperties ConditionalBranchProperty where
   toResourceProperties ConditionalBranchProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.ConditionalBranch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Condition" JSON..= condition, "Name" JSON..= name,

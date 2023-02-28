@@ -19,6 +19,7 @@ instance ToResourceProperties ResourceDefaultVersion where
   toResourceProperties ResourceDefaultVersion {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::ResourceDefaultVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TypeName" Prelude.<$> typeName,

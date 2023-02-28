@@ -21,6 +21,7 @@ instance ToResourceProperties FormatOptionsProperty where
   toResourceProperties FormatOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.FormatOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Csv" Prelude.<$> csv,

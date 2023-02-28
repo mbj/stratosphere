@@ -19,6 +19,7 @@ instance ToResourceProperties GlueConfigurationProperty where
   toResourceProperties GlueConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.GlueConfiguration",
+         supportsTags = Prelude.False,
          properties = ["DatabaseName" JSON..= databaseName,
                        "TableName" JSON..= tableName]}
 instance JSON.ToJSON GlueConfigurationProperty where

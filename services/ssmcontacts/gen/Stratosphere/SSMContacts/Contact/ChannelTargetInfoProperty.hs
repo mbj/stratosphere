@@ -20,6 +20,7 @@ instance ToResourceProperties ChannelTargetInfoProperty where
   toResourceProperties ChannelTargetInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMContacts::Contact.ChannelTargetInfo",
+         supportsTags = Prelude.False,
          properties = ["ChannelId" JSON..= channelId,
                        "RetryIntervalInMinutes" JSON..= retryIntervalInMinutes]}
 instance JSON.ToJSON ChannelTargetInfoProperty where

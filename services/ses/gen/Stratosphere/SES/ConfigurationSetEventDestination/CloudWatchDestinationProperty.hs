@@ -17,6 +17,7 @@ instance ToResourceProperties CloudWatchDestinationProperty where
   toResourceProperties CloudWatchDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSetEventDestination.CloudWatchDestination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DimensionConfigurations"

@@ -18,6 +18,7 @@ instance ToResourceProperties ReplicaRegionProperty where
   toResourceProperties ReplicaRegionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SecretsManager::Secret.ReplicaRegion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Region" JSON..= region]

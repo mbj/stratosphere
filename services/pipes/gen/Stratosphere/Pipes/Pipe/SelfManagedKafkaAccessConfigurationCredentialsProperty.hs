@@ -25,6 +25,7 @@ instance ToResourceProperties SelfManagedKafkaAccessConfigurationCredentialsProp
     SelfManagedKafkaAccessConfigurationCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.SelfManagedKafkaAccessConfigurationCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BasicAuth" Prelude.<$> basicAuth,

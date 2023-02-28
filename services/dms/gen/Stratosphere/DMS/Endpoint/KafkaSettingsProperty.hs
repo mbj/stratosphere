@@ -46,6 +46,7 @@ instance ToResourceProperties KafkaSettingsProperty where
   toResourceProperties KafkaSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.KafkaSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Broker" Prelude.<$> broker,

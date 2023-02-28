@@ -30,7 +30,7 @@ mkCluster
 instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
-        {awsType = "AWS::ECS::Cluster",
+        {awsType = "AWS::ECS::Cluster", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CapacityProviders" Prelude.<$> capacityProviders,

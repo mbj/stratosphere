@@ -18,6 +18,7 @@ instance ToResourceProperties InputLossFailoverSettingsProperty where
   toResourceProperties InputLossFailoverSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.InputLossFailoverSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InputLossThresholdMsec"

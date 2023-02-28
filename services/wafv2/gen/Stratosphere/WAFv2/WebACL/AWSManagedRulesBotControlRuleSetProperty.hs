@@ -18,6 +18,7 @@ instance ToResourceProperties AWSManagedRulesBotControlRuleSetProperty where
   toResourceProperties AWSManagedRulesBotControlRuleSetProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.AWSManagedRulesBotControlRuleSet",
+         supportsTags = Prelude.False,
          properties = ["InspectionLevel" JSON..= inspectionLevel]}
 instance JSON.ToJSON AWSManagedRulesBotControlRuleSetProperty where
   toJSON AWSManagedRulesBotControlRuleSetProperty {..}

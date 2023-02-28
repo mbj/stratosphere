@@ -37,6 +37,7 @@ instance ToResourceProperties Dashboard where
   toResourceProperties Dashboard {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AwsAccountId" JSON..= awsAccountId,

@@ -14,6 +14,7 @@ instance ToResourceProperties MemberIdProperty where
   toResourceProperties MemberIdProperty {..}
     = ResourceProperties
         {awsType = "AWS::IdentityStore::GroupMembership.MemberId",
+         supportsTags = Prelude.False,
          properties = ["UserId" JSON..= userId]}
 instance JSON.ToJSON MemberIdProperty where
   toJSON MemberIdProperty {..}

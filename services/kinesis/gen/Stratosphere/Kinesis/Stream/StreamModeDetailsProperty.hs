@@ -16,6 +16,7 @@ instance ToResourceProperties StreamModeDetailsProperty where
   toResourceProperties StreamModeDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kinesis::Stream.StreamModeDetails",
+         supportsTags = Prelude.False,
          properties = ["StreamMode" JSON..= streamMode]}
 instance JSON.ToJSON StreamModeDetailsProperty where
   toJSON StreamModeDetailsProperty {..}

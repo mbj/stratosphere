@@ -20,6 +20,7 @@ instance ToResourceProperties EncryptionInfoProperty where
   toResourceProperties EncryptionInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.EncryptionInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EncryptionAtRest" Prelude.<$> encryptionAtRest,

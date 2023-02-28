@@ -34,7 +34,7 @@ mkPermissionSet instanceArn name
 instance ToResourceProperties PermissionSet where
   toResourceProperties PermissionSet {..}
     = ResourceProperties
-        {awsType = "AWS::SSO::PermissionSet",
+        {awsType = "AWS::SSO::PermissionSet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceArn" JSON..= instanceArn, "Name" JSON..= name]

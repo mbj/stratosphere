@@ -17,6 +17,7 @@ instance ToResourceProperties AnalysisComponentProperty where
   toResourceProperties AnalysisComponentProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.AnalysisComponent",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn, (JSON..=) "Id" Prelude.<$> id])}

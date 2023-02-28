@@ -24,6 +24,7 @@ instance ToResourceProperties InputProperty where
   toResourceProperties InputProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.Input",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataCatalogInputDefinition"

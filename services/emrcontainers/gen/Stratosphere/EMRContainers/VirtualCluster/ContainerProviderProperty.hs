@@ -22,6 +22,7 @@ instance ToResourceProperties ContainerProviderProperty where
   toResourceProperties ContainerProviderProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMRContainers::VirtualCluster.ContainerProvider",
+         supportsTags = Prelude.False,
          properties = ["Id" JSON..= id, "Info" JSON..= info,
                        "Type" JSON..= type']}
 instance JSON.ToJSON ContainerProviderProperty where

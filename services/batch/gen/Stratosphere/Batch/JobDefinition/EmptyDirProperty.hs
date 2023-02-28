@@ -17,6 +17,7 @@ instance ToResourceProperties EmptyDirProperty where
   toResourceProperties EmptyDirProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.EmptyDir",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Medium" Prelude.<$> medium,

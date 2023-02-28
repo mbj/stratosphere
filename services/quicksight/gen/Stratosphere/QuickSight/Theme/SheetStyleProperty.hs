@@ -18,6 +18,7 @@ instance ToResourceProperties SheetStyleProperty where
   toResourceProperties SheetStyleProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.SheetStyle",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Tile" Prelude.<$> tile,

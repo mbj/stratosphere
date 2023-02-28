@@ -20,6 +20,7 @@ instance ToResourceProperties PipeTargetSqsQueueParametersProperty where
   toResourceProperties PipeTargetSqsQueueParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeTargetSqsQueueParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MessageDeduplicationId"

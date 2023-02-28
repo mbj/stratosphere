@@ -14,6 +14,7 @@ instance ToResourceProperties PortSetProperty where
   toResourceProperties PortSetProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.PortSet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Definition" Prelude.<$> definition])}

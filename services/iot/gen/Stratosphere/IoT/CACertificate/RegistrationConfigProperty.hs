@@ -19,6 +19,7 @@ instance ToResourceProperties RegistrationConfigProperty where
   toResourceProperties RegistrationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::CACertificate.RegistrationConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RoleArn" Prelude.<$> roleArn,

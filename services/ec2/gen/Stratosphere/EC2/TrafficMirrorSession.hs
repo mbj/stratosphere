@@ -36,6 +36,7 @@ instance ToResourceProperties TrafficMirrorSession where
   toResourceProperties TrafficMirrorSession {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TrafficMirrorSession",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["NetworkInterfaceId" JSON..= networkInterfaceId,

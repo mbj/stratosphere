@@ -34,6 +34,7 @@ instance ToResourceProperties ActionDeclarationProperty where
   toResourceProperties ActionDeclarationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Pipeline.ActionDeclaration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ActionTypeId" JSON..= actionTypeId, "Name" JSON..= name]

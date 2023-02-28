@@ -17,6 +17,7 @@ instance ToResourceProperties SocketAddressProperty where
   toResourceProperties SocketAddressProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::DataflowEndpointGroup.SocketAddress",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

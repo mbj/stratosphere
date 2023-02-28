@@ -18,6 +18,7 @@ instance ToResourceProperties VoiceSettingsProperty where
   toResourceProperties VoiceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.VoiceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VoiceId" JSON..= voiceId]

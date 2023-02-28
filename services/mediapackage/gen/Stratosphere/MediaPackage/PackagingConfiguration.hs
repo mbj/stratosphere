@@ -32,6 +32,7 @@ instance ToResourceProperties PackagingConfiguration where
   toResourceProperties PackagingConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingConfiguration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id, "PackagingGroupId" JSON..= packagingGroupId]

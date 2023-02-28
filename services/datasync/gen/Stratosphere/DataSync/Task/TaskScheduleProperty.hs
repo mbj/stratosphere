@@ -16,6 +16,7 @@ instance ToResourceProperties TaskScheduleProperty where
   toResourceProperties TaskScheduleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::Task.TaskSchedule",
+         supportsTags = Prelude.False,
          properties = ["ScheduleExpression" JSON..= scheduleExpression]}
 instance JSON.ToJSON TaskScheduleProperty where
   toJSON TaskScheduleProperty {..}

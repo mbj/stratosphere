@@ -24,6 +24,7 @@ instance ToResourceProperties AlgorithmHyperParameterRangesProperty where
   toResourceProperties AlgorithmHyperParameterRangesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Solution.AlgorithmHyperParameterRanges",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CategoricalHyperParameterRanges"

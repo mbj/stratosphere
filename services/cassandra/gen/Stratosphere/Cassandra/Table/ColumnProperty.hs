@@ -17,6 +17,7 @@ instance ToResourceProperties ColumnProperty where
   toResourceProperties ColumnProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cassandra::Table.Column",
+         supportsTags = Prelude.False,
          properties = ["ColumnName" JSON..= columnName,
                        "ColumnType" JSON..= columnType]}
 instance JSON.ToJSON ColumnProperty where

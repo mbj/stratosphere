@@ -18,6 +18,7 @@ instance ToResourceProperties IotSiteWiseMultiLayerStorageProperty where
   toResourceProperties IotSiteWiseMultiLayerStorageProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore.IotSiteWiseMultiLayerStorage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomerManagedS3Storage"

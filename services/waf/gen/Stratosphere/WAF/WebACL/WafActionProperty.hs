@@ -14,7 +14,7 @@ instance ToResourceProperties WafActionProperty where
   toResourceProperties WafActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAF::WebACL.WafAction",
-         properties = ["Type" JSON..= type']}
+         supportsTags = Prelude.False, properties = ["Type" JSON..= type']}
 instance JSON.ToJSON WafActionProperty where
   toJSON WafActionProperty {..} = JSON.object ["Type" JSON..= type']
 instance Property "Type" WafActionProperty where

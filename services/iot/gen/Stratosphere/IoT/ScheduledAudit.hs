@@ -24,7 +24,7 @@ mkScheduledAudit frequency targetCheckNames
 instance ToResourceProperties ScheduledAudit where
   toResourceProperties ScheduledAudit {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::ScheduledAudit",
+        {awsType = "AWS::IoT::ScheduledAudit", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Frequency" JSON..= frequency,

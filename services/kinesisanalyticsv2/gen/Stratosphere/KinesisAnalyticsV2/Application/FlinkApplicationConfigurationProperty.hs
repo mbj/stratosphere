@@ -24,6 +24,7 @@ instance ToResourceProperties FlinkApplicationConfigurationProperty where
   toResourceProperties FlinkApplicationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.FlinkApplicationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CheckpointConfiguration"

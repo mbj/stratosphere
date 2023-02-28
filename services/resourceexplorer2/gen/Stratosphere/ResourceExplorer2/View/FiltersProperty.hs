@@ -15,6 +15,7 @@ instance ToResourceProperties FiltersProperty where
   toResourceProperties FiltersProperty {..}
     = ResourceProperties
         {awsType = "AWS::ResourceExplorer2::View.Filters",
+         supportsTags = Prelude.False,
          properties = ["FilterString" JSON..= filterString]}
 instance JSON.ToJSON FiltersProperty where
   toJSON FiltersProperty {..}

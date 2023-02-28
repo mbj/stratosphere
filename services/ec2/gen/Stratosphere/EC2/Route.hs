@@ -36,7 +36,7 @@ mkRoute routeTableId
 instance ToResourceProperties Route where
   toResourceProperties Route {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::Route",
+        {awsType = "AWS::EC2::Route", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RouteTableId" JSON..= routeTableId]

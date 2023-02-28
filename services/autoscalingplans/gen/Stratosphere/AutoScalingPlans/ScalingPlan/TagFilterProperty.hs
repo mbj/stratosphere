@@ -16,6 +16,7 @@ instance ToResourceProperties TagFilterProperty where
   toResourceProperties TagFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScalingPlans::ScalingPlan.TagFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Key" JSON..= key]

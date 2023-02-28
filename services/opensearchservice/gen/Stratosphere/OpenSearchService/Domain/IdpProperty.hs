@@ -18,6 +18,7 @@ instance ToResourceProperties IdpProperty where
   toResourceProperties IdpProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.Idp",
+         supportsTags = Prelude.False,
          properties = ["EntityId" JSON..= entityId,
                        "MetadataContent" JSON..= metadataContent]}
 instance JSON.ToJSON IdpProperty where

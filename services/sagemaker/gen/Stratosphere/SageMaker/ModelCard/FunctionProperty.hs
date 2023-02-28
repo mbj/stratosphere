@@ -19,6 +19,7 @@ instance ToResourceProperties FunctionProperty where
   toResourceProperties FunctionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.Function",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Condition" Prelude.<$> condition,

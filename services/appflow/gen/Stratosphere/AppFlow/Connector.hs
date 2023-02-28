@@ -23,7 +23,7 @@ mkConnector connectorProvisioningConfig connectorProvisioningType
 instance ToResourceProperties Connector where
   toResourceProperties Connector {..}
     = ResourceProperties
-        {awsType = "AWS::AppFlow::Connector",
+        {awsType = "AWS::AppFlow::Connector", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectorProvisioningConfig" JSON..= connectorProvisioningConfig,

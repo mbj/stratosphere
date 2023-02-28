@@ -15,6 +15,7 @@ instance ToResourceProperties CustomResource where
   toResourceProperties CustomResource {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::CustomResource",
+         supportsTags = Prelude.False,
          properties = ["ServiceToken" JSON..= serviceToken]}
 instance JSON.ToJSON CustomResource where
   toJSON CustomResource {..}

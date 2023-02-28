@@ -17,6 +17,7 @@ instance ToResourceProperties TCPFlagFieldProperty where
   toResourceProperties TCPFlagFieldProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.TCPFlagField",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Flags" JSON..= flags]

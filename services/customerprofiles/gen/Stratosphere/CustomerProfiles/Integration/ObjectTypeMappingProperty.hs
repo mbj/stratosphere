@@ -18,6 +18,7 @@ instance ToResourceProperties ObjectTypeMappingProperty where
   toResourceProperties ObjectTypeMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.ObjectTypeMapping",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON ObjectTypeMappingProperty where
   toJSON ObjectTypeMappingProperty {..}

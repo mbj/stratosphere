@@ -21,6 +21,7 @@ instance ToResourceProperties ServiceCatalogProvisionedProductDetailsProperty wh
     ServiceCatalogProvisionedProductDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Project.ServiceCatalogProvisionedProductDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ProvisionedProductId" Prelude.<$> provisionedProductId,

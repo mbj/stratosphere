@@ -27,6 +27,7 @@ instance ToResourceProperties MutationActionSetStateParameterProperty where
   toResourceProperties MutationActionSetStateParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.MutationActionSetStateParameter",
+         supportsTags = Prelude.False,
          properties = ["ComponentName" JSON..= componentName,
                        "Property" JSON..= property, "Set" JSON..= set']}
 instance JSON.ToJSON MutationActionSetStateParameterProperty where

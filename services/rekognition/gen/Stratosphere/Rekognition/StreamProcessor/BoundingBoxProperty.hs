@@ -23,6 +23,7 @@ instance ToResourceProperties BoundingBoxProperty where
   toResourceProperties BoundingBoxProperty {..}
     = ResourceProperties
         {awsType = "AWS::Rekognition::StreamProcessor.BoundingBox",
+         supportsTags = Prelude.False,
          properties = ["Height" JSON..= height, "Left" JSON..= left,
                        "Top" JSON..= top, "Width" JSON..= width]}
 instance JSON.ToJSON BoundingBoxProperty where

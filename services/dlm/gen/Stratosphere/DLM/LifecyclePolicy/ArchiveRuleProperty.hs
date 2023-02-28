@@ -2,6 +2,7 @@ module Stratosphere.DLM.LifecyclePolicy.ArchiveRuleProperty (
         module Exports, ArchiveRuleProperty(..), mkArchiveRuleProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.ArchiveRetainRuleProperty as Exports
 import Stratosphere.ResourceProperties
@@ -15,6 +16,7 @@ instance ToResourceProperties ArchiveRuleProperty where
   toResourceProperties ArchiveRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.ArchiveRule",
+         supportsTags = Prelude.False,
          properties = ["RetainRule" JSON..= retainRule]}
 instance JSON.ToJSON ArchiveRuleProperty where
   toJSON ArchiveRuleProperty {..}

@@ -19,6 +19,7 @@ instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalogAppRegistry::Application",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

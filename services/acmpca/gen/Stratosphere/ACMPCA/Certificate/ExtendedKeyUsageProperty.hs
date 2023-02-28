@@ -18,6 +18,7 @@ instance ToResourceProperties ExtendedKeyUsageProperty where
   toResourceProperties ExtendedKeyUsageProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate.ExtendedKeyUsage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExtendedKeyUsageObjectIdentifier"

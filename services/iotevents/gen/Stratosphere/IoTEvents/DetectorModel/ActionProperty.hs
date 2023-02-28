@@ -46,6 +46,7 @@ instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.Action",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClearTimer" Prelude.<$> clearTimer,

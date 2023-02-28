@@ -20,6 +20,7 @@ instance ToResourceProperties PolicyInformationProperty where
   toResourceProperties PolicyInformationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate.PolicyInformation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CertPolicyId" JSON..= certPolicyId]

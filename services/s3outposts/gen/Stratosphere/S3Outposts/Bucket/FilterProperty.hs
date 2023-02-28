@@ -21,6 +21,7 @@ instance ToResourceProperties FilterProperty where
   toResourceProperties FilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3Outposts::Bucket.Filter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AndOperator" Prelude.<$> andOperator,

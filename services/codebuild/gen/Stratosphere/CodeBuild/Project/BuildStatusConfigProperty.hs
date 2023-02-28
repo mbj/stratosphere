@@ -17,6 +17,7 @@ instance ToResourceProperties BuildStatusConfigProperty where
   toResourceProperties BuildStatusConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.BuildStatusConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Context" Prelude.<$> context,

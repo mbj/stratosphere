@@ -33,6 +33,7 @@ instance ToResourceProperties TargetTrackingScalingPolicyConfigurationProperty w
     TargetTrackingScalingPolicyConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationAutoScaling::ScalingPolicy.TargetTrackingScalingPolicyConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TargetValue" JSON..= targetValue]

@@ -22,6 +22,7 @@ instance ToResourceProperties SAPODataConnectorProfileCredentialsProperty where
     SAPODataConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.SAPODataConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BasicAuthCredentials" Prelude.<$> basicAuthCredentials,

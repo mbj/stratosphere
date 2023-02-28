@@ -21,6 +21,7 @@ instance ToResourceProperties MotionGraphicsConfigurationProperty where
   toResourceProperties MotionGraphicsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.MotionGraphicsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MotionGraphicsInsertion"

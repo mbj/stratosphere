@@ -27,6 +27,7 @@ instance ToResourceProperties TargetCapacitySpecificationRequestProperty where
     TargetCapacitySpecificationRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EC2Fleet.TargetCapacitySpecificationRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TotalTargetCapacity" JSON..= totalTargetCapacity]

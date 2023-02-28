@@ -16,6 +16,7 @@ instance ToResourceProperties VirtualGatewayLoggingProperty where
   toResourceProperties VirtualGatewayLoggingProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayLogging",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "AccessLog" Prelude.<$> accessLog])}
 instance JSON.ToJSON VirtualGatewayLoggingProperty where

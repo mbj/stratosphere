@@ -18,6 +18,7 @@ instance ToResourceProperties RetryStrategyProperty where
   toResourceProperties RetryStrategyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.RetryStrategy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Attempts" Prelude.<$> attempts,

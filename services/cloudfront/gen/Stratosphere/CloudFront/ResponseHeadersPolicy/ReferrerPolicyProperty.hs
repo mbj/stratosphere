@@ -18,6 +18,7 @@ instance ToResourceProperties ReferrerPolicyProperty where
   toResourceProperties ReferrerPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.ReferrerPolicy",
+         supportsTags = Prelude.False,
          properties = ["Override" JSON..= override,
                        "ReferrerPolicy" JSON..= referrerPolicy]}
 instance JSON.ToJSON ReferrerPolicyProperty where

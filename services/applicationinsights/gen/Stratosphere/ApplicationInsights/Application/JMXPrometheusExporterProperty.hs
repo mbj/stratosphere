@@ -19,6 +19,7 @@ instance ToResourceProperties JMXPrometheusExporterProperty where
   toResourceProperties JMXPrometheusExporterProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.JMXPrometheusExporter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HostPort" Prelude.<$> hostPort,

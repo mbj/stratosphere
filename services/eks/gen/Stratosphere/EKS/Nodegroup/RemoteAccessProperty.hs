@@ -18,6 +18,7 @@ instance ToResourceProperties RemoteAccessProperty where
   toResourceProperties RemoteAccessProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Nodegroup.RemoteAccess",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Ec2SshKey" JSON..= ec2SshKey]

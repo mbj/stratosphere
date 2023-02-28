@@ -21,6 +21,7 @@ instance ToResourceProperties TransitGatewayPeering where
   toResourceProperties TransitGatewayPeering {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::TransitGatewayPeering",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CoreNetworkId" JSON..= coreNetworkId,

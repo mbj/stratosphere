@@ -44,7 +44,7 @@ mkAssociation name
 instance ToResourceProperties Association where
   toResourceProperties Association {..}
     = ResourceProperties
-        {awsType = "AWS::SSM::Association",
+        {awsType = "AWS::SSM::Association", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

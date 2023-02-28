@@ -16,6 +16,7 @@ instance ToResourceProperties InputRecordTablesProperty where
   toResourceProperties InputRecordTablesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::MLTransform.InputRecordTables",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GlueTables" Prelude.<$> glueTables])}

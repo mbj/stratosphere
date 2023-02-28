@@ -27,6 +27,7 @@ instance ToResourceProperties RuleProperty where
   toResourceProperties RuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Ruleset.Rule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CheckExpression" JSON..= checkExpression, "Name" JSON..= name]

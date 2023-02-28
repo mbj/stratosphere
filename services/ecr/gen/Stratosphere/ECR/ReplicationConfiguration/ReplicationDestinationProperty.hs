@@ -20,6 +20,7 @@ instance ToResourceProperties ReplicationDestinationProperty where
   toResourceProperties ReplicationDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECR::ReplicationConfiguration.ReplicationDestination",
+         supportsTags = Prelude.False,
          properties = ["Region" JSON..= region,
                        "RegistryId" JSON..= registryId]}
 instance JSON.ToJSON ReplicationDestinationProperty where

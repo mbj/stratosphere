@@ -39,7 +39,7 @@ mkBot dataPrivacy idleSessionTTLInSeconds name roleArn
 instance ToResourceProperties Bot where
   toResourceProperties Bot {..}
     = ResourceProperties
-        {awsType = "AWS::Lex::Bot",
+        {awsType = "AWS::Lex::Bot", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataPrivacy" JSON..= dataPrivacy,

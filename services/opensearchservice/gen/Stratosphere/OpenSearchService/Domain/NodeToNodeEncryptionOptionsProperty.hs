@@ -17,6 +17,7 @@ instance ToResourceProperties NodeToNodeEncryptionOptionsProperty where
   toResourceProperties NodeToNodeEncryptionOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.NodeToNodeEncryptionOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled])}
 instance JSON.ToJSON NodeToNodeEncryptionOptionsProperty where

@@ -15,6 +15,7 @@ instance ToResourceProperties SSESpecificationProperty where
   toResourceProperties SSESpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DAX::Cluster.SSESpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SSEEnabled" Prelude.<$> sSEEnabled])}

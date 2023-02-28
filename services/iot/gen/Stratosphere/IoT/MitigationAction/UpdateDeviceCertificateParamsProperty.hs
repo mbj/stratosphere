@@ -17,6 +17,7 @@ instance ToResourceProperties UpdateDeviceCertificateParamsProperty where
   toResourceProperties UpdateDeviceCertificateParamsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::MitigationAction.UpdateDeviceCertificateParams",
+         supportsTags = Prelude.False,
          properties = ["Action" JSON..= action]}
 instance JSON.ToJSON UpdateDeviceCertificateParamsProperty where
   toJSON UpdateDeviceCertificateParamsProperty {..}

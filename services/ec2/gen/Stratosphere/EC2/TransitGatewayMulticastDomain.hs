@@ -23,6 +23,7 @@ instance ToResourceProperties TransitGatewayMulticastDomain where
   toResourceProperties TransitGatewayMulticastDomain {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TransitGatewayMulticastDomain",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TransitGatewayId" JSON..= transitGatewayId]

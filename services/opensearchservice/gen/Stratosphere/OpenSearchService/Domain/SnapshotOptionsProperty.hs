@@ -16,6 +16,7 @@ instance ToResourceProperties SnapshotOptionsProperty where
   toResourceProperties SnapshotOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.SnapshotOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutomatedSnapshotStartHour"

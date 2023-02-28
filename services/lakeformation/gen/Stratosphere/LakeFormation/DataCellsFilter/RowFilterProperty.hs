@@ -18,6 +18,7 @@ instance ToResourceProperties RowFilterProperty where
   toResourceProperties RowFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::DataCellsFilter.RowFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllRowsWildcard" Prelude.<$> allRowsWildcard,

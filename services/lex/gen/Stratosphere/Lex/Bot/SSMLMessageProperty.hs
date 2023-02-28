@@ -14,7 +14,7 @@ instance ToResourceProperties SSMLMessageProperty where
   toResourceProperties SSMLMessageProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SSMLMessage",
-         properties = ["Value" JSON..= value]}
+         supportsTags = Prelude.False, properties = ["Value" JSON..= value]}
 instance JSON.ToJSON SSMLMessageProperty where
   toJSON SSMLMessageProperty {..}
     = JSON.object ["Value" JSON..= value]

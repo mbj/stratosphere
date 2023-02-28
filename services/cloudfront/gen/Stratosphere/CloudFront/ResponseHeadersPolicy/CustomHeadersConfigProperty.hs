@@ -3,6 +3,7 @@ module Stratosphere.CloudFront.ResponseHeadersPolicy.CustomHeadersConfigProperty
         mkCustomHeadersConfigProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.CustomHeaderProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,7 +17,7 @@ instance ToResourceProperties CustomHeadersConfigProperty where
   toResourceProperties CustomHeadersConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.CustomHeadersConfig",
-         properties = ["Items" JSON..= items]}
+         supportsTags = Prelude.False, properties = ["Items" JSON..= items]}
 instance JSON.ToJSON CustomHeadersConfigProperty where
   toJSON CustomHeadersConfigProperty {..}
     = JSON.object ["Items" JSON..= items]

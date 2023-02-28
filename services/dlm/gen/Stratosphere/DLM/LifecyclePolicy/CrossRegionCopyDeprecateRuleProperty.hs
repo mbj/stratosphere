@@ -20,6 +20,7 @@ instance ToResourceProperties CrossRegionCopyDeprecateRuleProperty where
   toResourceProperties CrossRegionCopyDeprecateRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.CrossRegionCopyDeprecateRule",
+         supportsTags = Prelude.False,
          properties = ["Interval" JSON..= interval,
                        "IntervalUnit" JSON..= intervalUnit]}
 instance JSON.ToJSON CrossRegionCopyDeprecateRuleProperty where

@@ -20,6 +20,7 @@ instance ToResourceProperties DataQualityJobInputProperty where
   toResourceProperties DataQualityJobInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::DataQualityJobDefinition.DataQualityJobInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BatchTransformInput" Prelude.<$> batchTransformInput,

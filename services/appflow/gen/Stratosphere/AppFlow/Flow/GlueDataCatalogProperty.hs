@@ -22,6 +22,7 @@ instance ToResourceProperties GlueDataCatalogProperty where
   toResourceProperties GlueDataCatalogProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.GlueDataCatalog",
+         supportsTags = Prelude.False,
          properties = ["DatabaseName" JSON..= databaseName,
                        "RoleArn" JSON..= roleArn, "TablePrefix" JSON..= tablePrefix]}
 instance JSON.ToJSON GlueDataCatalogProperty where

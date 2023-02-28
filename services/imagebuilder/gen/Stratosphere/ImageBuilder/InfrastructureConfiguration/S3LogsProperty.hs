@@ -17,6 +17,7 @@ instance ToResourceProperties S3LogsProperty where
   toResourceProperties S3LogsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::InfrastructureConfiguration.S3Logs",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "S3BucketName" Prelude.<$> s3BucketName,

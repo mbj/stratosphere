@@ -21,6 +21,7 @@ instance ToResourceProperties JobExecutionsRolloutConfigProperty where
   toResourceProperties JobExecutionsRolloutConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::JobTemplate.JobExecutionsRolloutConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExponentialRolloutRate"

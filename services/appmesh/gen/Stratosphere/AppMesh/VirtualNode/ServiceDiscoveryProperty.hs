@@ -19,6 +19,7 @@ instance ToResourceProperties ServiceDiscoveryProperty where
   toResourceProperties ServiceDiscoveryProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.ServiceDiscovery",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AWSCloudMap" Prelude.<$> aWSCloudMap,

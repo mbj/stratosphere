@@ -25,6 +25,7 @@ instance ToResourceProperties KerberosAttributesProperty where
   toResourceProperties KerberosAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.KerberosAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KdcAdminPassword" JSON..= kdcAdminPassword,

@@ -22,6 +22,7 @@ instance ToResourceProperties SpectrumConfigProperty where
   toResourceProperties SpectrumConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.SpectrumConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Bandwidth" Prelude.<$> bandwidth,

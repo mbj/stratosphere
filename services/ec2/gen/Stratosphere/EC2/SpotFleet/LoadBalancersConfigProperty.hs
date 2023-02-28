@@ -20,6 +20,7 @@ instance ToResourceProperties LoadBalancersConfigProperty where
   toResourceProperties LoadBalancersConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.LoadBalancersConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClassicLoadBalancersConfig"

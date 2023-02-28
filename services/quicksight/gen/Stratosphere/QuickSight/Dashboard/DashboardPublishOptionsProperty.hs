@@ -24,6 +24,7 @@ instance ToResourceProperties DashboardPublishOptionsProperty where
   toResourceProperties DashboardPublishOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.DashboardPublishOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdHocFilteringOption" Prelude.<$> adHocFilteringOption,

@@ -17,6 +17,7 @@ instance ToResourceProperties FunctionConfigProperty where
   toResourceProperties FunctionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Function.FunctionConfig",
+         supportsTags = Prelude.False,
          properties = ["Comment" JSON..= comment,
                        "Runtime" JSON..= runtime]}
 instance JSON.ToJSON FunctionConfigProperty where

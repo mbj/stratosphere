@@ -19,6 +19,7 @@ instance ToResourceProperties UserAndGroupQuotasProperty where
   toResourceProperties UserAndGroupQuotasProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::FileSystem.UserAndGroupQuotas",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Id" Prelude.<$> id,

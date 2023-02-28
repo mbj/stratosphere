@@ -30,7 +30,7 @@ mkSlotProperty name slotTypeName valueElicitationSetting
 instance ToResourceProperties SlotProperty where
   toResourceProperties SlotProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Lex::Bot.Slot",
+        {awsType = "AWS::Lex::Bot.Slot", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "SlotTypeName" JSON..= slotTypeName,

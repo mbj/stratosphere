@@ -22,6 +22,7 @@ instance ToResourceProperties VpcConfigurationProperty where
   toResourceProperties VpcConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.VpcConfiguration",
+         supportsTags = Prelude.False,
          properties = ["RoleARN" JSON..= roleARN,
                        "SecurityGroupIds" JSON..= securityGroupIds,
                        "SubnetIds" JSON..= subnetIds]}

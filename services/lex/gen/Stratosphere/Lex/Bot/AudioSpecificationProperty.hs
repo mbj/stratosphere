@@ -19,6 +19,7 @@ instance ToResourceProperties AudioSpecificationProperty where
   toResourceProperties AudioSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.AudioSpecification",
+         supportsTags = Prelude.False,
          properties = ["EndTimeoutMs" JSON..= endTimeoutMs,
                        "MaxLengthMs" JSON..= maxLengthMs]}
 instance JSON.ToJSON AudioSpecificationProperty where

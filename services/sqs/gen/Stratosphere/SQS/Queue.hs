@@ -44,7 +44,7 @@ mkQueue
 instance ToResourceProperties Queue where
   toResourceProperties Queue {..}
     = ResourceProperties
-        {awsType = "AWS::SQS::Queue",
+        {awsType = "AWS::SQS::Queue", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContentBasedDeduplication"

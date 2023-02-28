@@ -19,6 +19,7 @@ instance ToResourceProperties TagSpecificationProperty where
   toResourceProperties TagSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::ClientVpnEndpoint.TagSpecification",
+         supportsTags = Prelude.True,
          properties = ["ResourceType" JSON..= resourceType,
                        "Tags" JSON..= tags]}
 instance JSON.ToJSON TagSpecificationProperty where

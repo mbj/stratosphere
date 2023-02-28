@@ -15,6 +15,7 @@ instance ToResourceProperties DeadLetterConfigProperty where
   toResourceProperties DeadLetterConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule.DeadLetterConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Arn" Prelude.<$> arn])}
 instance JSON.ToJSON DeadLetterConfigProperty where

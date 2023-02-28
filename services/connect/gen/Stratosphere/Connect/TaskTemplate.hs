@@ -33,6 +33,7 @@ instance ToResourceProperties TaskTemplate where
   toResourceProperties TaskTemplate {..}
     = ResourceProperties
         {awsType = "AWS::Connect::TaskTemplate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceArn" JSON..= instanceArn]

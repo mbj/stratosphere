@@ -20,7 +20,7 @@ mkGroup name
 instance ToResourceProperties Group where
   toResourceProperties Group {..}
     = ResourceProperties
-        {awsType = "AWS::Greengrass::Group",
+        {awsType = "AWS::Greengrass::Group", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -50,6 +50,7 @@ instance ToResourceProperties TargetGroup where
   toResourceProperties TargetGroup {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::TargetGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HealthCheckEnabled" Prelude.<$> healthCheckEnabled,

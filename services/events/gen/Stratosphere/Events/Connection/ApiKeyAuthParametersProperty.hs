@@ -19,6 +19,7 @@ instance ToResourceProperties ApiKeyAuthParametersProperty where
   toResourceProperties ApiKeyAuthParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Connection.ApiKeyAuthParameters",
+         supportsTags = Prelude.False,
          properties = ["ApiKeyName" JSON..= apiKeyName,
                        "ApiKeyValue" JSON..= apiKeyValue]}
 instance JSON.ToJSON ApiKeyAuthParametersProperty where

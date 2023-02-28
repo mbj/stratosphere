@@ -22,6 +22,7 @@ instance ToResourceProperties BasePathMapping where
   toResourceProperties BasePathMapping {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::BasePathMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName]

@@ -16,6 +16,7 @@ instance ToResourceProperties OidcMemberDefinitionProperty where
   toResourceProperties OidcMemberDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Workteam.OidcMemberDefinition",
+         supportsTags = Prelude.False,
          properties = ["OidcGroups" JSON..= oidcGroups]}
 instance JSON.ToJSON OidcMemberDefinitionProperty where
   toJSON OidcMemberDefinitionProperty {..}

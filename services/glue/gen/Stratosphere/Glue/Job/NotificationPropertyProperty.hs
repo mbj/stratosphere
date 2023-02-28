@@ -15,6 +15,7 @@ instance ToResourceProperties NotificationPropertyProperty where
   toResourceProperties NotificationPropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Job.NotificationProperty",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NotifyDelayAfter" Prelude.<$> notifyDelayAfter])}

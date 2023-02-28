@@ -20,6 +20,7 @@ instance ToResourceProperties CaptionRectangleProperty where
   toResourceProperties CaptionRectangleProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.CaptionRectangle",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Height" Prelude.<$> height,

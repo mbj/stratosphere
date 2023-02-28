@@ -21,6 +21,7 @@ instance ToResourceProperties RelationalDatabaseConfigProperty where
   toResourceProperties RelationalDatabaseConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.RelationalDatabaseConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RelationalDatabaseSourceType"

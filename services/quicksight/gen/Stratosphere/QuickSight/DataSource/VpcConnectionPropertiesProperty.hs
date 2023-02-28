@@ -18,6 +18,7 @@ instance ToResourceProperties VpcConnectionPropertiesProperty where
   toResourceProperties VpcConnectionPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.VpcConnectionProperties",
+         supportsTags = Prelude.False,
          properties = ["VpcConnectionArn" JSON..= vpcConnectionArn]}
 instance JSON.ToJSON VpcConnectionPropertiesProperty where
   toJSON VpcConnectionPropertiesProperty {..}

@@ -34,6 +34,7 @@ instance ToResourceProperties FieldToMatchProperty where
   toResourceProperties FieldToMatchProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.FieldToMatch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllQueryArguments" Prelude.<$> allQueryArguments,

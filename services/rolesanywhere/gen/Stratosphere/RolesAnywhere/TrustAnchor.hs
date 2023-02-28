@@ -23,6 +23,7 @@ instance ToResourceProperties TrustAnchor where
   toResourceProperties TrustAnchor {..}
     = ResourceProperties
         {awsType = "AWS::RolesAnywhere::TrustAnchor",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Source" JSON..= source]

@@ -18,6 +18,7 @@ instance ToResourceProperties BranchProperty where
   toResourceProperties BranchProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::SignalCatalog.Branch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FullyQualifiedName" JSON..= fullyQualifiedName]

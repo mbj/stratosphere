@@ -30,6 +30,7 @@ instance ToResourceProperties DashPackageProperty where
   toResourceProperties DashPackageProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingConfiguration.DashPackage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DashManifests" JSON..= dashManifests]

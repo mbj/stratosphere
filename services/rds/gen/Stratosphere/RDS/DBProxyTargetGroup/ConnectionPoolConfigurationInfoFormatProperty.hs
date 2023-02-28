@@ -27,6 +27,7 @@ instance ToResourceProperties ConnectionPoolConfigurationInfoFormatProperty wher
     ConnectionPoolConfigurationInfoFormatProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBProxyTargetGroup.ConnectionPoolConfigurationInfoFormat",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectionBorrowTimeout"

@@ -18,6 +18,7 @@ instance ToResourceProperties CloudWatchLogsProperty where
   toResourceProperties CloudWatchLogsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.CloudWatchLogs",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

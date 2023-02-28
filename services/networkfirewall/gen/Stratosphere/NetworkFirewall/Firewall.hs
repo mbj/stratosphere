@@ -34,6 +34,7 @@ instance ToResourceProperties Firewall where
   toResourceProperties Firewall {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::Firewall",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FirewallName" JSON..= firewallName,

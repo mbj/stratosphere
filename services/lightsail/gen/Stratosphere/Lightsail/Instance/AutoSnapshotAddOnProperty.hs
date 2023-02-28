@@ -15,6 +15,7 @@ instance ToResourceProperties AutoSnapshotAddOnProperty where
   toResourceProperties AutoSnapshotAddOnProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Instance.AutoSnapshotAddOn",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SnapshotTimeOfDay" Prelude.<$> snapshotTimeOfDay])}

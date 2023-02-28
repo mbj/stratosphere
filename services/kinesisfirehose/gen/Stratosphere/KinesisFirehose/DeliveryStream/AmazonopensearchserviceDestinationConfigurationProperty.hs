@@ -52,6 +52,7 @@ instance ToResourceProperties AmazonopensearchserviceDestinationConfigurationPro
     AmazonopensearchserviceDestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.AmazonopensearchserviceDestinationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IndexName" JSON..= indexName, "RoleARN" JSON..= roleARN,

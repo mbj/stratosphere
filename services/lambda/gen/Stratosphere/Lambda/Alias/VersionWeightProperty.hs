@@ -19,6 +19,7 @@ instance ToResourceProperties VersionWeightProperty where
   toResourceProperties VersionWeightProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Alias.VersionWeight",
+         supportsTags = Prelude.False,
          properties = ["FunctionVersion" JSON..= functionVersion,
                        "FunctionWeight" JSON..= functionWeight]}
 instance JSON.ToJSON VersionWeightProperty where

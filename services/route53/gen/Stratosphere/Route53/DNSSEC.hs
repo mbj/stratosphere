@@ -12,7 +12,7 @@ mkDNSSEC hostedZoneId = DNSSEC {hostedZoneId = hostedZoneId}
 instance ToResourceProperties DNSSEC where
   toResourceProperties DNSSEC {..}
     = ResourceProperties
-        {awsType = "AWS::Route53::DNSSEC",
+        {awsType = "AWS::Route53::DNSSEC", supportsTags = Prelude.False,
          properties = ["HostedZoneId" JSON..= hostedZoneId]}
 instance JSON.ToJSON DNSSEC where
   toJSON DNSSEC {..}

@@ -35,7 +35,7 @@ mkPipe roleArn source target
 instance ToResourceProperties Pipe where
   toResourceProperties Pipe {..}
     = ResourceProperties
-        {awsType = "AWS::Pipes::Pipe",
+        {awsType = "AWS::Pipes::Pipe", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RoleArn" JSON..= roleArn, "Source" JSON..= source,

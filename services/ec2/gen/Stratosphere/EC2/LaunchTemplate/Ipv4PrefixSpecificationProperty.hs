@@ -17,6 +17,7 @@ instance ToResourceProperties Ipv4PrefixSpecificationProperty where
   toResourceProperties Ipv4PrefixSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.Ipv4PrefixSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Ipv4Prefix" Prelude.<$> ipv4Prefix])}

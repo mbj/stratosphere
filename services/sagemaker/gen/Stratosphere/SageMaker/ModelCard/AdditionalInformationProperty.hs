@@ -20,6 +20,7 @@ instance ToResourceProperties AdditionalInformationProperty where
   toResourceProperties AdditionalInformationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.AdditionalInformation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CaveatsAndRecommendations"

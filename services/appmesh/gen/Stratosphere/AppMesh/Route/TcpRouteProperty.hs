@@ -21,6 +21,7 @@ instance ToResourceProperties TcpRouteProperty where
   toResourceProperties TcpRouteProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.TcpRoute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Action" JSON..= action]

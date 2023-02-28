@@ -20,6 +20,7 @@ instance ToResourceProperties RecoveryGroup where
   toResourceProperties RecoveryGroup {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryReadiness::RecoveryGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Cells" Prelude.<$> cells,

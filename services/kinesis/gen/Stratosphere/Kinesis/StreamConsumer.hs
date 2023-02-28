@@ -18,6 +18,7 @@ instance ToResourceProperties StreamConsumer where
   toResourceProperties StreamConsumer {..}
     = ResourceProperties
         {awsType = "AWS::Kinesis::StreamConsumer",
+         supportsTags = Prelude.False,
          properties = ["ConsumerName" JSON..= consumerName,
                        "StreamARN" JSON..= streamARN]}
 instance JSON.ToJSON StreamConsumer where

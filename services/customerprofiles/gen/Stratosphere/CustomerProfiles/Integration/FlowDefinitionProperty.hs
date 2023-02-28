@@ -37,6 +37,7 @@ instance ToResourceProperties FlowDefinitionProperty where
   toResourceProperties FlowDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.FlowDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FlowName" JSON..= flowName, "KmsArn" JSON..= kmsArn,

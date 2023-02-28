@@ -22,6 +22,7 @@ instance ToResourceProperties TopicConfigurationProperty where
   toResourceProperties TopicConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.TopicConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Event" JSON..= event, "Topic" JSON..= topic]

@@ -18,6 +18,7 @@ instance ToResourceProperties RootDirectoryProperty where
   toResourceProperties RootDirectoryProperty {..}
     = ResourceProperties
         {awsType = "AWS::EFS::AccessPoint.RootDirectory",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CreationInfo" Prelude.<$> creationInfo,

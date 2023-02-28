@@ -24,6 +24,7 @@ instance ToResourceProperties S3MachineLearningModelResourceDataProperty where
     S3MachineLearningModelResourceDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinition.S3MachineLearningModelResourceData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationPath" JSON..= destinationPath, "S3Uri" JSON..= s3Uri]

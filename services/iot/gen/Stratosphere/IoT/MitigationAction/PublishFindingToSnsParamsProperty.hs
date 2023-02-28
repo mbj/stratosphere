@@ -17,6 +17,7 @@ instance ToResourceProperties PublishFindingToSnsParamsProperty where
   toResourceProperties PublishFindingToSnsParamsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::MitigationAction.PublishFindingToSnsParams",
+         supportsTags = Prelude.False,
          properties = ["TopicArn" JSON..= topicArn]}
 instance JSON.ToJSON PublishFindingToSnsParamsProperty where
   toJSON PublishFindingToSnsParamsProperty {..}

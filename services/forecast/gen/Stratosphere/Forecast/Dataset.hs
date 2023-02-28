@@ -29,7 +29,7 @@ mkDataset datasetName datasetType domain schema
 instance ToResourceProperties Dataset where
   toResourceProperties Dataset {..}
     = ResourceProperties
-        {awsType = "AWS::Forecast::Dataset",
+        {awsType = "AWS::Forecast::Dataset", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatasetName" JSON..= datasetName,

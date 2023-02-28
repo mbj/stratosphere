@@ -27,6 +27,7 @@ instance ToResourceProperties ReplicaGlobalSecondaryIndexSpecificationProperty w
     ReplicaGlobalSecondaryIndexSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.ReplicaGlobalSecondaryIndexSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IndexName" JSON..= indexName]

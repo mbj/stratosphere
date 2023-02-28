@@ -32,7 +32,7 @@ mkDataSource indexId name type'
 instance ToResourceProperties DataSource where
   toResourceProperties DataSource {..}
     = ResourceProperties
-        {awsType = "AWS::Kendra::DataSource",
+        {awsType = "AWS::Kendra::DataSource", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IndexId" JSON..= indexId, "Name" JSON..= name,

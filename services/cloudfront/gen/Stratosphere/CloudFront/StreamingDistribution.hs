@@ -2,6 +2,7 @@ module Stratosphere.CloudFront.StreamingDistribution (
         module Exports, StreamingDistribution(..), mkStreamingDistribution
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.StreamingDistribution.StreamingDistributionConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -20,6 +21,7 @@ instance ToResourceProperties StreamingDistribution where
   toResourceProperties StreamingDistribution {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::StreamingDistribution",
+         supportsTags = Prelude.True,
          properties = ["StreamingDistributionConfig"
                          JSON..= streamingDistributionConfig,
                        "Tags" JSON..= tags]}

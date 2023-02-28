@@ -25,7 +25,7 @@ mkTable databaseName
 instance ToResourceProperties Table where
   toResourceProperties Table {..}
     = ResourceProperties
-        {awsType = "AWS::Timestream::Table",
+        {awsType = "AWS::Timestream::Table", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatabaseName" JSON..= databaseName]

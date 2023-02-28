@@ -33,6 +33,7 @@ instance ToResourceProperties UserSettingsProperty where
   toResourceProperties UserSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Domain.UserSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExecutionRole" Prelude.<$> executionRole,

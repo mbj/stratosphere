@@ -18,6 +18,7 @@ instance ToResourceProperties ComponentParameterProperty where
   toResourceProperties ComponentParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ContainerRecipe.ComponentParameter",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON ComponentParameterProperty where
   toJSON ComponentParameterProperty {..}

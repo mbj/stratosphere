@@ -15,6 +15,7 @@ instance ToResourceProperties ManagedExecutionProperty where
   toResourceProperties ManagedExecutionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::StackSet.ManagedExecution",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Active" Prelude.<$> active])}
 instance JSON.ToJSON ManagedExecutionProperty where

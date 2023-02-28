@@ -17,6 +17,7 @@ instance ToResourceProperties RecencyProperty where
   toResourceProperties RecencyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.Recency",
+         supportsTags = Prelude.False,
          properties = ["Duration" JSON..= duration,
                        "RecencyType" JSON..= recencyType]}
 instance JSON.ToJSON RecencyProperty where

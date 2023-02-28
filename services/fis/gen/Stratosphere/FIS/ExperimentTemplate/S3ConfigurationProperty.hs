@@ -18,6 +18,7 @@ instance ToResourceProperties S3ConfigurationProperty where
   toResourceProperties S3ConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FIS::ExperimentTemplate.S3Configuration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName]

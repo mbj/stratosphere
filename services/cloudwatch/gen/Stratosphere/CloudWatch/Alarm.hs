@@ -49,7 +49,7 @@ mkAlarm comparisonOperator evaluationPeriods
 instance ToResourceProperties Alarm where
   toResourceProperties Alarm {..}
     = ResourceProperties
-        {awsType = "AWS::CloudWatch::Alarm",
+        {awsType = "AWS::CloudWatch::Alarm", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ComparisonOperator" JSON..= comparisonOperator,

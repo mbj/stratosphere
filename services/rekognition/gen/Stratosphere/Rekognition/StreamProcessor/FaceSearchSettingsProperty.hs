@@ -18,6 +18,7 @@ instance ToResourceProperties FaceSearchSettingsProperty where
   toResourceProperties FaceSearchSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Rekognition::StreamProcessor.FaceSearchSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CollectionId" JSON..= collectionId]

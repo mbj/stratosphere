@@ -18,6 +18,7 @@ instance ToResourceProperties StackFleetAssociation where
   toResourceProperties StackFleetAssociation {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::StackFleetAssociation",
+         supportsTags = Prelude.False,
          properties = ["FleetName" JSON..= fleetName,
                        "StackName" JSON..= stackName]}
 instance JSON.ToJSON StackFleetAssociation where

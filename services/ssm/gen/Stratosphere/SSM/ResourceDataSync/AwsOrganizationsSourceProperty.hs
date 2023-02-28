@@ -20,6 +20,7 @@ instance ToResourceProperties AwsOrganizationsSourceProperty where
   toResourceProperties AwsOrganizationsSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::ResourceDataSync.AwsOrganizationsSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["OrganizationSourceType" JSON..= organizationSourceType]

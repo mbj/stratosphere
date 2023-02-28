@@ -15,6 +15,7 @@ instance ToResourceProperties CsvOutputOptionsProperty where
   toResourceProperties CsvOutputOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.CsvOutputOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Delimiter" Prelude.<$> delimiter])}
 instance JSON.ToJSON CsvOutputOptionsProperty where

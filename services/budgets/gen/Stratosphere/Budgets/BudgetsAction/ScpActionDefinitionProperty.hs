@@ -19,6 +19,7 @@ instance ToResourceProperties ScpActionDefinitionProperty where
   toResourceProperties ScpActionDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::BudgetsAction.ScpActionDefinition",
+         supportsTags = Prelude.False,
          properties = ["PolicyId" JSON..= policyId,
                        "TargetIds" JSON..= targetIds]}
 instance JSON.ToJSON ScpActionDefinitionProperty where

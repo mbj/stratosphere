@@ -16,6 +16,7 @@ instance ToResourceProperties ManagedScalingPolicyProperty where
   toResourceProperties ManagedScalingPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.ManagedScalingPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComputeLimits" Prelude.<$> computeLimits])}

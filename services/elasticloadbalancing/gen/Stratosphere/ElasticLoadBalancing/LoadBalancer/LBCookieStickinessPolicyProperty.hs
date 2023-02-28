@@ -20,6 +20,7 @@ instance ToResourceProperties LBCookieStickinessPolicyProperty where
   toResourceProperties LBCookieStickinessPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancing::LoadBalancer.LBCookieStickinessPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CookieExpirationPeriod"

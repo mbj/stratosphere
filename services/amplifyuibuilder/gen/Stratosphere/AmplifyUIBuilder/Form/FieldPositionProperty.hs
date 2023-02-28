@@ -19,6 +19,7 @@ instance ToResourceProperties FieldPositionProperty where
   toResourceProperties FieldPositionProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.FieldPosition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Below" Prelude.<$> below,

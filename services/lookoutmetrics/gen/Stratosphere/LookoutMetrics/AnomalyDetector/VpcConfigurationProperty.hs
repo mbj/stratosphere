@@ -20,6 +20,7 @@ instance ToResourceProperties VpcConfigurationProperty where
   toResourceProperties VpcConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.VpcConfiguration",
+         supportsTags = Prelude.False,
          properties = ["SecurityGroupIdList" JSON..= securityGroupIdList,
                        "SubnetIdList" JSON..= subnetIdList]}
 instance JSON.ToJSON VpcConfigurationProperty where

@@ -19,6 +19,7 @@ instance ToResourceProperties InputLambdaProcessorProperty where
   toResourceProperties InputLambdaProcessorProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::Application.InputLambdaProcessor",
+         supportsTags = Prelude.False,
          properties = ["ResourceARN" JSON..= resourceARN,
                        "RoleARN" JSON..= roleARN]}
 instance JSON.ToJSON InputLambdaProcessorProperty where

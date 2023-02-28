@@ -27,6 +27,7 @@ instance ToResourceProperties SAMLOptionsProperty where
   toResourceProperties SAMLOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.SAMLOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

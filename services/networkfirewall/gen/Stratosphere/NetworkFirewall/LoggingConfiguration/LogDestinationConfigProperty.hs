@@ -25,6 +25,7 @@ instance ToResourceProperties LogDestinationConfigProperty where
   toResourceProperties LogDestinationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::LoggingConfiguration.LogDestinationConfig",
+         supportsTags = Prelude.False,
          properties = ["LogDestination" JSON..= logDestination,
                        "LogDestinationType" JSON..= logDestinationType,
                        "LogType" JSON..= logType]}

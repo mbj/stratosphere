@@ -17,6 +17,7 @@ instance ToResourceProperties SecurityKey where
   toResourceProperties SecurityKey {..}
     = ResourceProperties
         {awsType = "AWS::Connect::SecurityKey",
+         supportsTags = Prelude.False,
          properties = ["InstanceId" JSON..= instanceId, "Key" JSON..= key]}
 instance JSON.ToJSON SecurityKey where
   toJSON SecurityKey {..}

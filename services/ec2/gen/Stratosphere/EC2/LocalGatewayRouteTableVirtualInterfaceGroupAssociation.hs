@@ -28,6 +28,7 @@ instance ToResourceProperties LocalGatewayRouteTableVirtualInterfaceGroupAssocia
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LocalGatewayRouteTableId" JSON..= localGatewayRouteTableId,

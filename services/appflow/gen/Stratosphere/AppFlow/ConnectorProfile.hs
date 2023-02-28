@@ -30,6 +30,7 @@ instance ToResourceProperties ConnectorProfile where
   toResourceProperties ConnectorProfile {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectionMode" JSON..= connectionMode,

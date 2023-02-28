@@ -30,6 +30,7 @@ instance ToResourceProperties InstanceTypeConfigProperty where
   toResourceProperties InstanceTypeConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.InstanceTypeConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceType" JSON..= instanceType]

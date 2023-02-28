@@ -23,7 +23,7 @@ mkResourceSet name resourceTypeList
 instance ToResourceProperties ResourceSet where
   toResourceProperties ResourceSet {..}
     = ResourceProperties
-        {awsType = "AWS::FMS::ResourceSet",
+        {awsType = "AWS::FMS::ResourceSet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "ResourceTypeList" JSON..= resourceTypeList]

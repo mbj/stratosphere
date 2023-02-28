@@ -21,6 +21,7 @@ instance ToResourceProperties LaunchTemplateProperty where
   toResourceProperties LaunchTemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.LaunchTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LaunchTemplateSpecification" JSON..= launchTemplateSpecification]

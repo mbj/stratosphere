@@ -14,6 +14,7 @@ instance ToResourceProperties TieringProperty where
   toResourceProperties TieringProperty {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::PricingRule.Tiering",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "FreeTier" Prelude.<$> freeTier])}
 instance JSON.ToJSON TieringProperty where

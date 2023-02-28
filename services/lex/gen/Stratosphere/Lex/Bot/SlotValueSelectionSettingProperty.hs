@@ -24,6 +24,7 @@ instance ToResourceProperties SlotValueSelectionSettingProperty where
   toResourceProperties SlotValueSelectionSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SlotValueSelectionSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResolutionStrategy" JSON..= resolutionStrategy]

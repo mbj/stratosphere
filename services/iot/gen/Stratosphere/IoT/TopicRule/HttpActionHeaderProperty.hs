@@ -18,6 +18,7 @@ instance ToResourceProperties HttpActionHeaderProperty where
   toResourceProperties HttpActionHeaderProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.HttpActionHeader",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON HttpActionHeaderProperty where
   toJSON HttpActionHeaderProperty {..}

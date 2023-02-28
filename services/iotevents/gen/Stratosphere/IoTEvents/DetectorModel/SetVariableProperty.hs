@@ -17,6 +17,7 @@ instance ToResourceProperties SetVariableProperty where
   toResourceProperties SetVariableProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::DetectorModel.SetVariable",
+         supportsTags = Prelude.False,
          properties = ["Value" JSON..= value,
                        "VariableName" JSON..= variableName]}
 instance JSON.ToJSON SetVariableProperty where

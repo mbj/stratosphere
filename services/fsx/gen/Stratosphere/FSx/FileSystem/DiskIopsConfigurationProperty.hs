@@ -17,6 +17,7 @@ instance ToResourceProperties DiskIopsConfigurationProperty where
   toResourceProperties DiskIopsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::FileSystem.DiskIopsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Iops" Prelude.<$> iops,

@@ -20,6 +20,7 @@ instance ToResourceProperties UdpGroupSettingsProperty where
   toResourceProperties UdpGroupSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.UdpGroupSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InputLossAction" Prelude.<$> inputLossAction,

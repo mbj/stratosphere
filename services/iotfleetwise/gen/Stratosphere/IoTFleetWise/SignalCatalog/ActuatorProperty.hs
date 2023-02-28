@@ -27,6 +27,7 @@ instance ToResourceProperties ActuatorProperty where
   toResourceProperties ActuatorProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::SignalCatalog.Actuator",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataType" JSON..= dataType,

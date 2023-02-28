@@ -20,6 +20,7 @@ instance ToResourceProperties RoutingStrategyProperty where
   toResourceProperties RoutingStrategyProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::Alias.RoutingStrategy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

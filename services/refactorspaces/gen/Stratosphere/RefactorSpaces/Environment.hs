@@ -21,6 +21,7 @@ instance ToResourceProperties Environment where
   toResourceProperties Environment {..}
     = ResourceProperties
         {awsType = "AWS::RefactorSpaces::Environment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

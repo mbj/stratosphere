@@ -18,6 +18,7 @@ instance ToResourceProperties GlueDataCatalogConfigurationProperty where
   toResourceProperties GlueDataCatalogConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.GlueDataCatalogConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DatabaseARN" Prelude.<$> databaseARN])}

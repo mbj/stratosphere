@@ -14,6 +14,7 @@ instance ToResourceProperties HostPathProperty where
   toResourceProperties HostPathProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.HostPath",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Path" Prelude.<$> path])}
 instance JSON.ToJSON HostPathProperty where

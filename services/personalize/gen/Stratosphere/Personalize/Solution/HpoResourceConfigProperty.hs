@@ -18,6 +18,7 @@ instance ToResourceProperties HpoResourceConfigProperty where
   toResourceProperties HpoResourceConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Solution.HpoResourceConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxNumberOfTrainingJobs"

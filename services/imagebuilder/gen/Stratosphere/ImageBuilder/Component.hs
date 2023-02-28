@@ -31,6 +31,7 @@ instance ToResourceProperties Component where
   toResourceProperties Component {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::Component",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Platform" JSON..= platform,

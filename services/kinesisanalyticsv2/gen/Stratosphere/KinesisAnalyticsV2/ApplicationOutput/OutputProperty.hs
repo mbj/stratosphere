@@ -27,6 +27,7 @@ instance ToResourceProperties OutputProperty where
   toResourceProperties OutputProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::ApplicationOutput.Output",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationSchema" JSON..= destinationSchema]

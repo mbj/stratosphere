@@ -16,6 +16,7 @@ instance ToResourceProperties HttpAuthorizationProperty where
   toResourceProperties HttpAuthorizationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.HttpAuthorization",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Sigv4" Prelude.<$> sigv4])}
 instance JSON.ToJSON HttpAuthorizationProperty where

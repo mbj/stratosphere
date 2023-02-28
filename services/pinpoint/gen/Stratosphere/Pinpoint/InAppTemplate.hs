@@ -24,6 +24,7 @@ instance ToResourceProperties InAppTemplate where
   toResourceProperties InAppTemplate {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::InAppTemplate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TemplateName" JSON..= templateName]

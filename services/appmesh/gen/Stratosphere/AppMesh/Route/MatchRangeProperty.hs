@@ -18,6 +18,7 @@ instance ToResourceProperties MatchRangeProperty where
   toResourceProperties MatchRangeProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.MatchRange",
+         supportsTags = Prelude.False,
          properties = ["End" JSON..= end, "Start" JSON..= start]}
 instance JSON.ToJSON MatchRangeProperty where
   toJSON MatchRangeProperty {..}

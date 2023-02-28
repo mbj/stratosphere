@@ -18,6 +18,7 @@ instance ToResourceProperties ParallelismConfigurationProperty where
   toResourceProperties ParallelismConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Pipeline.ParallelismConfiguration",
+         supportsTags = Prelude.False,
          properties = ["MaxParallelExecutionSteps"
                          JSON..= maxParallelExecutionSteps]}
 instance JSON.ToJSON ParallelismConfigurationProperty where

@@ -21,6 +21,7 @@ instance ToResourceProperties RecordSetGroup where
   toResourceProperties RecordSetGroup {..}
     = ResourceProperties
         {awsType = "AWS::Route53::RecordSetGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Comment" Prelude.<$> comment,

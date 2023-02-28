@@ -27,6 +27,7 @@ instance ToResourceProperties EFSVolumeConfigurationProperty where
   toResourceProperties EFSVolumeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.EFSVolumeConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FilesystemId" JSON..= filesystemId]

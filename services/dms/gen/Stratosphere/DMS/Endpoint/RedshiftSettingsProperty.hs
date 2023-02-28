@@ -57,6 +57,7 @@ instance ToResourceProperties RedshiftSettingsProperty where
   toResourceProperties RedshiftSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.RedshiftSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AcceptAnyDate" Prelude.<$> acceptAnyDate,

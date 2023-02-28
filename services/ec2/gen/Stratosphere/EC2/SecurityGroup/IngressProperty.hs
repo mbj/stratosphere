@@ -31,6 +31,7 @@ instance ToResourceProperties IngressProperty where
   toResourceProperties IngressProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SecurityGroup.Ingress",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IpProtocol" JSON..= ipProtocol]

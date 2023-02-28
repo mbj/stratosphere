@@ -27,6 +27,7 @@ instance ToResourceProperties NetworkInsightsPath where
   toResourceProperties NetworkInsightsPath {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsPath",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Protocol" JSON..= protocol, "Source" JSON..= source]

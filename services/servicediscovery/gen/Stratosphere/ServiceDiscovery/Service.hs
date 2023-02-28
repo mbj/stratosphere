@@ -31,6 +31,7 @@ instance ToResourceProperties Service where
   toResourceProperties Service {..}
     = ResourceProperties
         {awsType = "AWS::ServiceDiscovery::Service",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

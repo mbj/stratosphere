@@ -20,6 +20,7 @@ instance ToResourceProperties Node where
   toResourceProperties Node {..}
     = ResourceProperties
         {awsType = "AWS::ManagedBlockchain::Node",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["NetworkId" JSON..= networkId,

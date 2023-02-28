@@ -25,6 +25,7 @@ instance ToResourceProperties VirtualGatewayListenerProperty where
   toResourceProperties VirtualGatewayListenerProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayListener",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PortMapping" JSON..= portMapping]

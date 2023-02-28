@@ -18,7 +18,7 @@ mkIPAMPoolCidr ipamPoolId
 instance ToResourceProperties IPAMPoolCidr where
   toResourceProperties IPAMPoolCidr {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::IPAMPoolCidr",
+        {awsType = "AWS::EC2::IPAMPoolCidr", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IpamPoolId" JSON..= ipamPoolId]

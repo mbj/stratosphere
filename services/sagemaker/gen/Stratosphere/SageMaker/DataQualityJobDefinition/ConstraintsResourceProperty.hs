@@ -15,6 +15,7 @@ instance ToResourceProperties ConstraintsResourceProperty where
   toResourceProperties ConstraintsResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::DataQualityJobDefinition.ConstraintsResource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "S3Uri" Prelude.<$> s3Uri])}
 instance JSON.ToJSON ConstraintsResourceProperty where

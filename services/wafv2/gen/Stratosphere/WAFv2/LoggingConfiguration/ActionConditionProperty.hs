@@ -16,6 +16,7 @@ instance ToResourceProperties ActionConditionProperty where
   toResourceProperties ActionConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::LoggingConfiguration.ActionCondition",
+         supportsTags = Prelude.False,
          properties = ["Action" JSON..= action]}
 instance JSON.ToJSON ActionConditionProperty where
   toJSON ActionConditionProperty {..}

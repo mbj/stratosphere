@@ -21,6 +21,7 @@ instance ToResourceProperties DialogStateProperty where
   toResourceProperties DialogStateProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.DialogState",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DialogAction" Prelude.<$> dialogAction,

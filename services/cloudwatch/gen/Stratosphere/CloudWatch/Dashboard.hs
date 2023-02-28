@@ -17,6 +17,7 @@ instance ToResourceProperties Dashboard where
   toResourceProperties Dashboard {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::Dashboard",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DashboardBody" JSON..= dashboardBody]

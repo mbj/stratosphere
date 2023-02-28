@@ -15,6 +15,7 @@ instance ToResourceProperties HiveJsonSerDeProperty where
   toResourceProperties HiveJsonSerDeProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.HiveJsonSerDe",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TimestampFormats" Prelude.<$> timestampFormats])}

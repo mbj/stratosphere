@@ -54,7 +54,7 @@ mkFleet instanceType name
 instance ToResourceProperties Fleet where
   toResourceProperties Fleet {..}
     = ResourceProperties
-        {awsType = "AWS::AppStream::Fleet",
+        {awsType = "AWS::AppStream::Fleet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceType" JSON..= instanceType, "Name" JSON..= name]

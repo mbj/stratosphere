@@ -12,7 +12,7 @@ mkGraph = Graph {tags = Prelude.Nothing}
 instance ToResourceProperties Graph where
   toResourceProperties Graph {..}
     = ResourceProperties
-        {awsType = "AWS::Detective::Graph",
+        {awsType = "AWS::Detective::Graph", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON Graph where

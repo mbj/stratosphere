@@ -15,6 +15,7 @@ instance ToResourceProperties SheetControlsOptionProperty where
   toResourceProperties SheetControlsOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.SheetControlsOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "VisibilityState" Prelude.<$> visibilityState])}

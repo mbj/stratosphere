@@ -15,6 +15,7 @@ instance ToResourceProperties EnvironmentProperty where
   toResourceProperties EnvironmentProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.Environment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Variables" Prelude.<$> variables])}
 instance JSON.ToJSON EnvironmentProperty where

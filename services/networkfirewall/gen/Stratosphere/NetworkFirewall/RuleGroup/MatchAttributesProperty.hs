@@ -28,6 +28,7 @@ instance ToResourceProperties MatchAttributesProperty where
   toResourceProperties MatchAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.MatchAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DestinationPorts" Prelude.<$> destinationPorts,

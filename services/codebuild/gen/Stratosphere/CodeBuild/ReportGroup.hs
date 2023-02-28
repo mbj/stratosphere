@@ -25,6 +25,7 @@ instance ToResourceProperties ReportGroup where
   toResourceProperties ReportGroup {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::ReportGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ExportConfig" JSON..= exportConfig, "Type" JSON..= type']

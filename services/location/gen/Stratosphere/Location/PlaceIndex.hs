@@ -24,6 +24,7 @@ instance ToResourceProperties PlaceIndex where
   toResourceProperties PlaceIndex {..}
     = ResourceProperties
         {awsType = "AWS::Location::PlaceIndex",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataSource" JSON..= dataSource, "IndexName" JSON..= indexName]

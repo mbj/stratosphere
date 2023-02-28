@@ -15,6 +15,7 @@ instance ToResourceProperties CountActionProperty where
   toResourceProperties CountActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.CountAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomRequestHandling"

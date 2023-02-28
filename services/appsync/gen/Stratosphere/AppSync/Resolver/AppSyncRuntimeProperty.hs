@@ -18,6 +18,7 @@ instance ToResourceProperties AppSyncRuntimeProperty where
   toResourceProperties AppSyncRuntimeProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::Resolver.AppSyncRuntime",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name,
                        "RuntimeVersion" JSON..= runtimeVersion]}
 instance JSON.ToJSON AppSyncRuntimeProperty where

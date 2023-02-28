@@ -18,6 +18,7 @@ instance ToResourceProperties LateDataRuleConfigurationProperty where
   toResourceProperties LateDataRuleConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.LateDataRuleConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeltaTimeSessionWindowConfiguration"

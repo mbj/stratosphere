@@ -46,7 +46,7 @@ mkRuleProperty status
 instance ToResourceProperties RuleProperty where
   toResourceProperties RuleProperty {..}
     = ResourceProperties
-        {awsType = "AWS::S3::Bucket.Rule",
+        {awsType = "AWS::S3::Bucket.Rule", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Status" JSON..= status]

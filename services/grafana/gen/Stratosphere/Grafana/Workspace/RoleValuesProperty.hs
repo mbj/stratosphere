@@ -17,6 +17,7 @@ instance ToResourceProperties RoleValuesProperty where
   toResourceProperties RoleValuesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Grafana::Workspace.RoleValues",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Admin" Prelude.<$> admin,

@@ -14,6 +14,7 @@ instance ToResourceProperties LoggingProperty where
   toResourceProperties LoggingProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.Logging",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "AccessLog" Prelude.<$> accessLog])}
 instance JSON.ToJSON LoggingProperty where

@@ -23,7 +23,7 @@ mkReplicaKey keyPolicy primaryKeyArn
 instance ToResourceProperties ReplicaKey where
   toResourceProperties ReplicaKey {..}
     = ResourceProperties
-        {awsType = "AWS::KMS::ReplicaKey",
+        {awsType = "AWS::KMS::ReplicaKey", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KeyPolicy" JSON..= keyPolicy,

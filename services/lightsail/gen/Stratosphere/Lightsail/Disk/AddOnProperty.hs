@@ -20,6 +20,7 @@ instance ToResourceProperties AddOnProperty where
   toResourceProperties AddOnProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Disk.AddOn",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AddOnType" JSON..= addOnType]

@@ -27,6 +27,7 @@ instance ToResourceProperties TransitGatewayRouteTableRouteProperty where
   toResourceProperties TransitGatewayRouteTableRouteProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.TransitGatewayRouteTableRoute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AttachmentId" Prelude.<$> attachmentId,

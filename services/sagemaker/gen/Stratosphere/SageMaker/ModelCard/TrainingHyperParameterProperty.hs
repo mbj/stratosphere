@@ -19,6 +19,7 @@ instance ToResourceProperties TrainingHyperParameterProperty where
   toResourceProperties TrainingHyperParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.TrainingHyperParameter",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON TrainingHyperParameterProperty where
   toJSON TrainingHyperParameterProperty {..}

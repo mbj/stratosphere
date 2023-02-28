@@ -25,6 +25,7 @@ instance ToResourceProperties VPCPeeringConnection where
   toResourceProperties VPCPeeringConnection {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VPCPeeringConnection",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PeerVpcId" JSON..= peerVpcId, "VpcId" JSON..= vpcId]

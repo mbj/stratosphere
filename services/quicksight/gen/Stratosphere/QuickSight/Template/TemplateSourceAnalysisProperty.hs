@@ -21,6 +21,7 @@ instance ToResourceProperties TemplateSourceAnalysisProperty where
   toResourceProperties TemplateSourceAnalysisProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Template.TemplateSourceAnalysis",
+         supportsTags = Prelude.False,
          properties = ["Arn" JSON..= arn,
                        "DataSetReferences" JSON..= dataSetReferences]}
 instance JSON.ToJSON TemplateSourceAnalysisProperty where

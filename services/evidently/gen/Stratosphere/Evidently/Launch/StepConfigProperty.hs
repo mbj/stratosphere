@@ -22,6 +22,7 @@ instance ToResourceProperties StepConfigProperty where
   toResourceProperties StepConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Launch.StepConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GroupWeights" JSON..= groupWeights,

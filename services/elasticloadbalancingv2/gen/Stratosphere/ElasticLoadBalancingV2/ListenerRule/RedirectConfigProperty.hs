@@ -24,6 +24,7 @@ instance ToResourceProperties RedirectConfigProperty where
   toResourceProperties RedirectConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule.RedirectConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StatusCode" JSON..= statusCode]

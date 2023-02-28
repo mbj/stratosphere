@@ -23,6 +23,7 @@ instance ToResourceProperties AdditionalDetailProperty where
   toResourceProperties AdditionalDetailProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.AdditionalDetail",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdditionalDetailType" Prelude.<$> additionalDetailType,

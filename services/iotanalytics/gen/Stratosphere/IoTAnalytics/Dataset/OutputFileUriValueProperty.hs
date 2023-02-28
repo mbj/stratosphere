@@ -16,6 +16,7 @@ instance ToResourceProperties OutputFileUriValueProperty where
   toResourceProperties OutputFileUriValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.OutputFileUriValue",
+         supportsTags = Prelude.False,
          properties = ["FileName" JSON..= fileName]}
 instance JSON.ToJSON OutputFileUriValueProperty where
   toJSON OutputFileUriValueProperty {..}

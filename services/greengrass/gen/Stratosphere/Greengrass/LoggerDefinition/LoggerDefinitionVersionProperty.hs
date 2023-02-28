@@ -3,6 +3,7 @@ module Stratosphere.Greengrass.LoggerDefinition.LoggerDefinitionVersionProperty 
         mkLoggerDefinitionVersionProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Greengrass.LoggerDefinition.LoggerProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties LoggerDefinitionVersionProperty where
   toResourceProperties LoggerDefinitionVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::LoggerDefinition.LoggerDefinitionVersion",
+         supportsTags = Prelude.False,
          properties = ["Loggers" JSON..= loggers]}
 instance JSON.ToJSON LoggerDefinitionVersionProperty where
   toJSON LoggerDefinitionVersionProperty {..}

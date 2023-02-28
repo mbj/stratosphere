@@ -19,6 +19,7 @@ instance ToResourceProperties ResourceStatementRequestProperty where
   toResourceProperties ResourceStatementRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAccessScope.ResourceStatementRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ResourceTypes" Prelude.<$> resourceTypes,

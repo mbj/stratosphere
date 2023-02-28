@@ -27,6 +27,7 @@ instance ToResourceProperties JwtTokenTypeConfigurationProperty where
   toResourceProperties JwtTokenTypeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::Index.JwtTokenTypeConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KeyLocation" JSON..= keyLocation]

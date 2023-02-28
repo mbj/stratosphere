@@ -27,6 +27,7 @@ instance ToResourceProperties RedshiftDestinationPropertiesProperty where
   toResourceProperties RedshiftDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.RedshiftDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IntermediateBucketName" JSON..= intermediateBucketName,

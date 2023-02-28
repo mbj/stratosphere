@@ -16,6 +16,7 @@ instance ToResourceProperties KeyValueProperty where
   toResourceProperties KeyValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.KeyValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

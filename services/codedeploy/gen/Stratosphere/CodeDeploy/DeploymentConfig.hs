@@ -24,6 +24,7 @@ instance ToResourceProperties DeploymentConfig where
   toResourceProperties DeploymentConfig {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComputePlatform" Prelude.<$> computePlatform,

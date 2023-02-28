@@ -17,6 +17,7 @@ instance ToResourceProperties SubjectAlternativeNameMatchersProperty where
   toResourceProperties SubjectAlternativeNameMatchersProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.SubjectAlternativeNameMatchers",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Exact" Prelude.<$> exact])}
 instance JSON.ToJSON SubjectAlternativeNameMatchersProperty where

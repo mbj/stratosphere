@@ -19,6 +19,7 @@ instance ToResourceProperties SubDomainSettingProperty where
   toResourceProperties SubDomainSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Amplify::Domain.SubDomainSetting",
+         supportsTags = Prelude.False,
          properties = ["BranchName" JSON..= branchName,
                        "Prefix" JSON..= prefix]}
 instance JSON.ToJSON SubDomainSettingProperty where

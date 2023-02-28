@@ -16,6 +16,7 @@ instance ToResourceProperties SqsParametersProperty where
   toResourceProperties SqsParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.SqsParameters",
+         supportsTags = Prelude.False,
          properties = ["MessageGroupId" JSON..= messageGroupId]}
 instance JSON.ToJSON SqsParametersProperty where
   toJSON SqsParametersProperty {..}

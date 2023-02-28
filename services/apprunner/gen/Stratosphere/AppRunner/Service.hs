@@ -37,7 +37,7 @@ mkService sourceConfiguration
 instance ToResourceProperties Service where
   toResourceProperties Service {..}
     = ResourceProperties
-        {awsType = "AWS::AppRunner::Service",
+        {awsType = "AWS::AppRunner::Service", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SourceConfiguration" JSON..= sourceConfiguration]

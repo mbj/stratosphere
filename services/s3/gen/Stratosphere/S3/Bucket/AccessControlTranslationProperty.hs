@@ -17,7 +17,7 @@ instance ToResourceProperties AccessControlTranslationProperty where
   toResourceProperties AccessControlTranslationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.AccessControlTranslation",
-         properties = ["Owner" JSON..= owner]}
+         supportsTags = Prelude.False, properties = ["Owner" JSON..= owner]}
 instance JSON.ToJSON AccessControlTranslationProperty where
   toJSON AccessControlTranslationProperty {..}
     = JSON.object ["Owner" JSON..= owner]

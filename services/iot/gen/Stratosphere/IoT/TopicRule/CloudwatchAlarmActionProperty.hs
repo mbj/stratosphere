@@ -28,6 +28,7 @@ instance ToResourceProperties CloudwatchAlarmActionProperty where
   toResourceProperties CloudwatchAlarmActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.CloudwatchAlarmAction",
+         supportsTags = Prelude.False,
          properties = ["AlarmName" JSON..= alarmName,
                        "RoleArn" JSON..= roleArn, "StateReason" JSON..= stateReason,
                        "StateValue" JSON..= stateValue]}

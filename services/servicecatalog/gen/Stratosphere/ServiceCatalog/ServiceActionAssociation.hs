@@ -26,6 +26,7 @@ instance ToResourceProperties ServiceActionAssociation where
   toResourceProperties ServiceActionAssociation {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::ServiceActionAssociation",
+         supportsTags = Prelude.False,
          properties = ["ProductId" JSON..= productId,
                        "ProvisioningArtifactId" JSON..= provisioningArtifactId,
                        "ServiceActionId" JSON..= serviceActionId]}

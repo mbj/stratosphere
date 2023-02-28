@@ -20,6 +20,7 @@ instance ToResourceProperties StatisticsConfigurationProperty where
   toResourceProperties StatisticsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.StatisticsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IncludedStatistics" Prelude.<$> includedStatistics,

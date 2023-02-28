@@ -16,6 +16,7 @@ instance ToResourceProperties CloudwatchConfigProperty where
   toResourceProperties CloudwatchConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector.CloudwatchConfig",
+         supportsTags = Prelude.False,
          properties = ["RoleArn" JSON..= roleArn]}
 instance JSON.ToJSON CloudwatchConfigProperty where
   toJSON CloudwatchConfigProperty {..}

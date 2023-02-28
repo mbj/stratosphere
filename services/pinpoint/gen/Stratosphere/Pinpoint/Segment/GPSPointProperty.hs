@@ -19,6 +19,7 @@ instance ToResourceProperties GPSPointProperty where
   toResourceProperties GPSPointProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.GPSPoint",
+         supportsTags = Prelude.False,
          properties = ["Coordinates" JSON..= coordinates,
                        "RangeInKilometers" JSON..= rangeInKilometers]}
 instance JSON.ToJSON GPSPointProperty where

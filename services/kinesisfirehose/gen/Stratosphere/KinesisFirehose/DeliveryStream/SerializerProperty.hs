@@ -18,6 +18,7 @@ instance ToResourceProperties SerializerProperty where
   toResourceProperties SerializerProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.Serializer",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OrcSerDe" Prelude.<$> orcSerDe,

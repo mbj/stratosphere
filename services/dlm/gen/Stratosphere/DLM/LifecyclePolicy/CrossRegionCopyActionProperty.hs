@@ -24,6 +24,7 @@ instance ToResourceProperties CrossRegionCopyActionProperty where
   toResourceProperties CrossRegionCopyActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.CrossRegionCopyAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EncryptionConfiguration" JSON..= encryptionConfiguration,

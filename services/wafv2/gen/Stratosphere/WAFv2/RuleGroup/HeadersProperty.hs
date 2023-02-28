@@ -22,6 +22,7 @@ instance ToResourceProperties HeadersProperty where
   toResourceProperties HeadersProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.Headers",
+         supportsTags = Prelude.False,
          properties = ["MatchPattern" JSON..= matchPattern,
                        "MatchScope" JSON..= matchScope,
                        "OversizeHandling" JSON..= oversizeHandling]}

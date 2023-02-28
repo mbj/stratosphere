@@ -19,6 +19,7 @@ instance ToResourceProperties ForwardConfigProperty where
   toResourceProperties ForwardConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule.ForwardConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TargetGroupStickinessConfig"

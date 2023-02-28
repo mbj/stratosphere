@@ -22,6 +22,7 @@ instance ToResourceProperties S3SourceProperty where
   toResourceProperties S3SourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.S3Source",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataSourceArn" JSON..= dataSourceArn,

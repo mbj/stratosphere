@@ -24,6 +24,7 @@ instance ToResourceProperties SharedFileSystemConfigurationProperty where
   toResourceProperties SharedFileSystemConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::StudioComponent.SharedFileSystemConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Endpoint" Prelude.<$> endpoint,

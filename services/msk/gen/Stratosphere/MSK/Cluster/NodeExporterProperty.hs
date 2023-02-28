@@ -16,6 +16,7 @@ instance ToResourceProperties NodeExporterProperty where
   toResourceProperties NodeExporterProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.NodeExporter",
+         supportsTags = Prelude.False,
          properties = ["EnabledInBroker" JSON..= enabledInBroker]}
 instance JSON.ToJSON NodeExporterProperty where
   toJSON NodeExporterProperty {..}

@@ -21,6 +21,7 @@ instance ToResourceProperties LoadBalancerProperty where
   toResourceProperties LoadBalancerProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskSet.LoadBalancer",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerName" Prelude.<$> containerName,

@@ -17,6 +17,7 @@ instance ToResourceProperties HttpPathMatchProperty where
   toResourceProperties HttpPathMatchProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.HttpPathMatch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Exact" Prelude.<$> exact,

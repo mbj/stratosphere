@@ -16,6 +16,7 @@ instance ToResourceProperties KMSEncryptionConfigProperty where
   toResourceProperties KMSEncryptionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.KMSEncryptionConfig",
+         supportsTags = Prelude.False,
          properties = ["AWSKMSKeyARN" JSON..= aWSKMSKeyARN]}
 instance JSON.ToJSON KMSEncryptionConfigProperty where
   toJSON KMSEncryptionConfigProperty {..}

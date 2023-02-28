@@ -32,6 +32,7 @@ instance ToResourceProperties PipeTargetBatchJobParametersProperty where
   toResourceProperties PipeTargetBatchJobParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeTargetBatchJobParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["JobDefinition" JSON..= jobDefinition, "JobName" JSON..= jobName]

@@ -18,6 +18,7 @@ instance ToResourceProperties MetricDimensionProperty where
   toResourceProperties MetricDimensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::SecurityProfile.MetricDimension",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DimensionName" JSON..= dimensionName]

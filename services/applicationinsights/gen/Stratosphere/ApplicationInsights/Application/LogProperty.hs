@@ -22,6 +22,7 @@ instance ToResourceProperties LogProperty where
   toResourceProperties LogProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.Log",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LogType" JSON..= logType]

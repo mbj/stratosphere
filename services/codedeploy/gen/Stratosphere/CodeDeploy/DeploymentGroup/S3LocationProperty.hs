@@ -22,6 +22,7 @@ instance ToResourceProperties S3LocationProperty where
   toResourceProperties S3LocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.S3Location",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket, "Key" JSON..= key]

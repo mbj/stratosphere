@@ -21,6 +21,7 @@ instance ToResourceProperties ConfluenceAttachmentConfigurationProperty where
   toResourceProperties ConfluenceAttachmentConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ConfluenceAttachmentConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AttachmentFieldMappings"

@@ -21,6 +21,7 @@ instance ToResourceProperties ConfigurationAssociation where
   toResourceProperties ConfigurationAssociation {..}
     = ResourceProperties
         {awsType = "AWS::AmazonMQ::ConfigurationAssociation",
+         supportsTags = Prelude.False,
          properties = ["Broker" JSON..= broker,
                        "Configuration" JSON..= configuration]}
 instance JSON.ToJSON ConfigurationAssociation where

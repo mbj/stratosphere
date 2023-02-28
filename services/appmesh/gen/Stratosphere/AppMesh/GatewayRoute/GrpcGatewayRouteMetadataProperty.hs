@@ -21,6 +21,7 @@ instance ToResourceProperties GrpcGatewayRouteMetadataProperty where
   toResourceProperties GrpcGatewayRouteMetadataProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.GrpcGatewayRouteMetadata",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -21,6 +21,7 @@ instance ToResourceProperties FrameCaptureGroupSettingsProperty where
   toResourceProperties FrameCaptureGroupSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.FrameCaptureGroupSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Destination" Prelude.<$> destination,

@@ -18,6 +18,7 @@ instance ToResourceProperties NetworkFrameworkConfigurationProperty where
   toResourceProperties NetworkFrameworkConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ManagedBlockchain::Member.NetworkFrameworkConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NetworkFabricConfiguration"

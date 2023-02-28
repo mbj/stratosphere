@@ -17,6 +17,7 @@ instance ToResourceProperties ValidityProperty where
   toResourceProperties ValidityProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate.Validity",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON ValidityProperty where
   toJSON ValidityProperty {..}

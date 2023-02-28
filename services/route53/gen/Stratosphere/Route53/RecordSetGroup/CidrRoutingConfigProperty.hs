@@ -19,6 +19,7 @@ instance ToResourceProperties CidrRoutingConfigProperty where
   toResourceProperties CidrRoutingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::RecordSetGroup.CidrRoutingConfig",
+         supportsTags = Prelude.False,
          properties = ["CollectionId" JSON..= collectionId,
                        "LocationName" JSON..= locationName]}
 instance JSON.ToJSON CidrRoutingConfigProperty where

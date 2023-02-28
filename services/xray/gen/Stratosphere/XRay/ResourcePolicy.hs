@@ -20,6 +20,7 @@ instance ToResourceProperties ResourcePolicy where
   toResourceProperties ResourcePolicy {..}
     = ResourceProperties
         {awsType = "AWS::XRay::ResourcePolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PolicyDocument" JSON..= policyDocument,

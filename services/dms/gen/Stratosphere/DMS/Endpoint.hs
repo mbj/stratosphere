@@ -83,7 +83,7 @@ mkEndpoint endpointType engineName
 instance ToResourceProperties Endpoint where
   toResourceProperties Endpoint {..}
     = ResourceProperties
-        {awsType = "AWS::DMS::Endpoint",
+        {awsType = "AWS::DMS::Endpoint", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EndpointType" JSON..= endpointType,

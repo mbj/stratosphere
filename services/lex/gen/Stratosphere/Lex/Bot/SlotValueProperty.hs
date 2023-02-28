@@ -14,7 +14,7 @@ mkSlotValueProperty
 instance ToResourceProperties SlotValueProperty where
   toResourceProperties SlotValueProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Lex::Bot.SlotValue",
+        {awsType = "AWS::Lex::Bot.SlotValue", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InterpretedValue" Prelude.<$> interpretedValue])}

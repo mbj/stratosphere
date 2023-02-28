@@ -20,6 +20,7 @@ instance ToResourceProperties MappingParametersProperty where
   toResourceProperties MappingParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::Application.MappingParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CSVMappingParameters" Prelude.<$> cSVMappingParameters,

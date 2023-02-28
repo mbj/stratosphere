@@ -22,6 +22,7 @@ instance ToResourceProperties NotebookInstanceLifecycleConfig where
   toResourceProperties NotebookInstanceLifecycleConfig {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::NotebookInstanceLifecycleConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NotebookInstanceLifecycleConfigName"

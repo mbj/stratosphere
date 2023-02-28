@@ -19,6 +19,7 @@ instance ToResourceProperties CoreNetworkEdgeProperty where
   toResourceProperties CoreNetworkEdgeProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::CoreNetwork.CoreNetworkEdge",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Asn" Prelude.<$> asn,

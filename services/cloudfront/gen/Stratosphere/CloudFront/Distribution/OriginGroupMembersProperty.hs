@@ -20,6 +20,7 @@ instance ToResourceProperties OriginGroupMembersProperty where
   toResourceProperties OriginGroupMembersProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.OriginGroupMembers",
+         supportsTags = Prelude.False,
          properties = ["Items" JSON..= items, "Quantity" JSON..= quantity]}
 instance JSON.ToJSON OriginGroupMembersProperty where
   toJSON OriginGroupMembersProperty {..}

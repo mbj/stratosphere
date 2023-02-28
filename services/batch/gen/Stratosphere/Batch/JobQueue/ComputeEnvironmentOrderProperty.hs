@@ -20,6 +20,7 @@ instance ToResourceProperties ComputeEnvironmentOrderProperty where
   toResourceProperties ComputeEnvironmentOrderProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobQueue.ComputeEnvironmentOrder",
+         supportsTags = Prelude.False,
          properties = ["ComputeEnvironment" JSON..= computeEnvironment,
                        "Order" JSON..= order]}
 instance JSON.ToJSON ComputeEnvironmentOrderProperty where

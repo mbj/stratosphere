@@ -21,6 +21,7 @@ instance ToResourceProperties SchemaReferenceProperty where
   toResourceProperties SchemaReferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Table.SchemaReference",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SchemaId" Prelude.<$> schemaId,

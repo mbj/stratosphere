@@ -27,6 +27,7 @@ instance ToResourceProperties EvaluationDetailProperty where
   toResourceProperties EvaluationDetailProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.EvaluationDetail",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

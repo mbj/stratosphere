@@ -39,7 +39,7 @@ mkMLTransform inputRecordTables role transformParameters
 instance ToResourceProperties MLTransform where
   toResourceProperties MLTransform {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::MLTransform",
+        {awsType = "AWS::Glue::MLTransform", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InputRecordTables" JSON..= inputRecordTables,

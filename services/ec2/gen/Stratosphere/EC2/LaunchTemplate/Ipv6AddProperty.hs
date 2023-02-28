@@ -14,6 +14,7 @@ instance ToResourceProperties Ipv6AddProperty where
   toResourceProperties Ipv6AddProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.Ipv6Add",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Ipv6Address" Prelude.<$> ipv6Address])}

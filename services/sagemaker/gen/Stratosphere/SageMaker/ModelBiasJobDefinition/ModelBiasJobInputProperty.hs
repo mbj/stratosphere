@@ -24,6 +24,7 @@ instance ToResourceProperties ModelBiasJobInputProperty where
   toResourceProperties ModelBiasJobInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelBiasJobDefinition.ModelBiasJobInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GroundTruthS3Input" JSON..= groundTruthS3Input]

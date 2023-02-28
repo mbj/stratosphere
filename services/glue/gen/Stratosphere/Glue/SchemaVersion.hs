@@ -19,6 +19,7 @@ instance ToResourceProperties SchemaVersion where
   toResourceProperties SchemaVersion {..}
     = ResourceProperties
         {awsType = "AWS::Glue::SchemaVersion",
+         supportsTags = Prelude.False,
          properties = ["Schema" JSON..= schema,
                        "SchemaDefinition" JSON..= schemaDefinition]}
 instance JSON.ToJSON SchemaVersion where

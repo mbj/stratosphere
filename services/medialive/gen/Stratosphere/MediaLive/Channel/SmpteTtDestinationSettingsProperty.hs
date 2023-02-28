@@ -3,6 +3,7 @@ module Stratosphere.MediaLive.Channel.SmpteTtDestinationSettingsProperty (
         mkSmpteTtDestinationSettingsProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SmpteTtDestinationSettingsProperty
   = SmpteTtDestinationSettingsProperty {}
@@ -14,6 +15,6 @@ instance ToResourceProperties SmpteTtDestinationSettingsProperty where
   toResourceProperties SmpteTtDestinationSettingsProperty {}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.SmpteTtDestinationSettings",
-         properties = []}
+         supportsTags = Prelude.False, properties = []}
 instance JSON.ToJSON SmpteTtDestinationSettingsProperty where
   toJSON SmpteTtDestinationSettingsProperty {} = JSON.object []

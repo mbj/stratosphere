@@ -21,7 +21,7 @@ mkPolicy policyDocument policyName
 instance ToResourceProperties Policy where
   toResourceProperties Policy {..}
     = ResourceProperties
-        {awsType = "AWS::IAM::Policy",
+        {awsType = "AWS::IAM::Policy", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PolicyDocument" JSON..= policyDocument,

@@ -17,6 +17,7 @@ instance ToResourceProperties ConditionParameterProperty where
   toResourceProperties ConditionParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::BackupSelection.ConditionParameter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConditionKey" Prelude.<$> conditionKey,

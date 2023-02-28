@@ -22,6 +22,7 @@ instance ToResourceProperties SqlInjectionMatchTupleProperty where
   toResourceProperties SqlInjectionMatchTupleProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFRegional::SqlInjectionMatchSet.SqlInjectionMatchTuple",
+         supportsTags = Prelude.False,
          properties = ["FieldToMatch" JSON..= fieldToMatch,
                        "TextTransformation" JSON..= textTransformation]}
 instance JSON.ToJSON SqlInjectionMatchTupleProperty where

@@ -19,6 +19,7 @@ instance ToResourceProperties MasterUserOptionsProperty where
   toResourceProperties MasterUserOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Elasticsearch::Domain.MasterUserOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MasterUserARN" Prelude.<$> masterUserARN,

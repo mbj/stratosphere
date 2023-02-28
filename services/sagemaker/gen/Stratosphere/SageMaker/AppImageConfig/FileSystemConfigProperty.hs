@@ -19,6 +19,7 @@ instance ToResourceProperties FileSystemConfigProperty where
   toResourceProperties FileSystemConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::AppImageConfig.FileSystemConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefaultGid" Prelude.<$> defaultGid,

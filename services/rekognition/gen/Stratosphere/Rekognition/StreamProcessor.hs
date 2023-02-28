@@ -46,6 +46,7 @@ instance ToResourceProperties StreamProcessor where
   toResourceProperties StreamProcessor {..}
     = ResourceProperties
         {awsType = "AWS::Rekognition::StreamProcessor",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KinesisVideoStream" JSON..= kinesisVideoStream,

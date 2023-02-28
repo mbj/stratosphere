@@ -15,6 +15,7 @@ instance ToResourceProperties ResolverDNSSECConfig where
   toResourceProperties ResolverDNSSECConfig {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::ResolverDNSSECConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ResourceId" Prelude.<$> resourceId])}

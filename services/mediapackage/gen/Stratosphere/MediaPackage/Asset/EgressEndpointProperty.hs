@@ -18,6 +18,7 @@ instance ToResourceProperties EgressEndpointProperty where
   toResourceProperties EgressEndpointProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::Asset.EgressEndpoint",
+         supportsTags = Prelude.False,
          properties = ["PackagingConfigurationId"
                          JSON..= packagingConfigurationId,
                        "Url" JSON..= url]}

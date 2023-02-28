@@ -22,6 +22,7 @@ instance ToResourceProperties ExecutionPlan where
   toResourceProperties ExecutionPlan {..}
     = ResourceProperties
         {awsType = "AWS::KendraRanking::ExecutionPlan",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -22,6 +22,7 @@ instance ToResourceProperties UriPathRouteInputProperty where
   toResourceProperties UriPathRouteInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::RefactorSpaces::Route.UriPathRouteInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ActivationState" JSON..= activationState]

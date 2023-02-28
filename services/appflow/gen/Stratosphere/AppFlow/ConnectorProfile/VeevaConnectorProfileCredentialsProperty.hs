@@ -20,6 +20,7 @@ instance ToResourceProperties VeevaConnectorProfileCredentialsProperty where
   toResourceProperties VeevaConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = ["Password" JSON..= password,
                        "Username" JSON..= username]}
 instance JSON.ToJSON VeevaConnectorProfileCredentialsProperty where

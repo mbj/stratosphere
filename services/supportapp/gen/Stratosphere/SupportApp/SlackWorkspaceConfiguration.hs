@@ -18,6 +18,7 @@ instance ToResourceProperties SlackWorkspaceConfiguration where
   toResourceProperties SlackWorkspaceConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::SupportApp::SlackWorkspaceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TeamId" JSON..= teamId]

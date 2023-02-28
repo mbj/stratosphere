@@ -15,6 +15,7 @@ instance ToResourceProperties SnsChannelConfigProperty where
   toResourceProperties SnsChannelConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::DevOpsGuru::NotificationChannel.SnsChannelConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "TopicArn" Prelude.<$> topicArn])}
 instance JSON.ToJSON SnsChannelConfigProperty where

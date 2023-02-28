@@ -17,6 +17,7 @@ instance ToResourceProperties AccessControlAttributeValueProperty where
   toResourceProperties AccessControlAttributeValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttributeValue",
+         supportsTags = Prelude.False,
          properties = ["Source" JSON..= source]}
 instance JSON.ToJSON AccessControlAttributeValueProperty where
   toJSON AccessControlAttributeValueProperty {..}

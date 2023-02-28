@@ -36,7 +36,7 @@ mkTransitGateway
 instance ToResourceProperties TransitGateway where
   toResourceProperties TransitGateway {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::TransitGateway",
+        {awsType = "AWS::EC2::TransitGateway", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AmazonSideAsn" Prelude.<$> amazonSideAsn,

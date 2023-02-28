@@ -33,6 +33,7 @@ instance ToResourceProperties SnowflakeConnectorProfilePropertiesProperty where
     SnowflakeConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.SnowflakeConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName, "Stage" JSON..= stage,

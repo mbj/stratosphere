@@ -30,6 +30,7 @@ instance ToResourceProperties EndpointAccess where
   toResourceProperties EndpointAccess {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::EndpointAccess",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterIdentifier" JSON..= clusterIdentifier,

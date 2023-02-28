@@ -22,6 +22,7 @@ instance ToResourceProperties LocationCapacityProperty where
   toResourceProperties LocationCapacityProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::Fleet.LocationCapacity",
+         supportsTags = Prelude.False,
          properties = ["DesiredEC2Instances" JSON..= desiredEC2Instances,
                        "MaxSize" JSON..= maxSize, "MinSize" JSON..= minSize]}
 instance JSON.ToJSON LocationCapacityProperty where

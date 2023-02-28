@@ -37,7 +37,7 @@ mkRule
 instance ToResourceProperties Rule where
   toResourceProperties Rule {..}
     = ResourceProperties
-        {awsType = "AWS::Connect::Rule",
+        {awsType = "AWS::Connect::Rule", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Actions" JSON..= actions, "Function" JSON..= function,

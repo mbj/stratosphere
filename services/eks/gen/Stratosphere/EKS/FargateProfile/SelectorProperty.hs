@@ -18,6 +18,7 @@ instance ToResourceProperties SelectorProperty where
   toResourceProperties SelectorProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::FargateProfile.Selector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Namespace" JSON..= namespace]

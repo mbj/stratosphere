@@ -19,6 +19,7 @@ instance ToResourceProperties ApplicationOutput where
   toResourceProperties ApplicationOutput {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::ApplicationOutput",
+         supportsTags = Prelude.False,
          properties = ["ApplicationName" JSON..= applicationName,
                        "Output" JSON..= output]}
 instance JSON.ToJSON ApplicationOutput where

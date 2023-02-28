@@ -35,6 +35,7 @@ instance ToResourceProperties RuleProperty where
   toResourceProperties RuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.Rule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Priority" JSON..= priority,

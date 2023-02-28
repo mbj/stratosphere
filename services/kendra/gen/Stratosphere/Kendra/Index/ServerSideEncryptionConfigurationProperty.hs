@@ -18,6 +18,7 @@ instance ToResourceProperties ServerSideEncryptionConfigurationProperty where
   toResourceProperties ServerSideEncryptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::Index.ServerSideEncryptionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId])}
 instance JSON.ToJSON ServerSideEncryptionConfigurationProperty where

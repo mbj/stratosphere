@@ -22,6 +22,7 @@ instance ToResourceProperties ScheduledActionTypeProperty where
   toResourceProperties ScheduledActionTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::ScheduledAction.ScheduledActionType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PauseCluster" Prelude.<$> pauseCluster,

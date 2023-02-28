@@ -37,6 +37,7 @@ instance ToResourceProperties AudioDescriptionProperty where
   toResourceProperties AudioDescriptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AudioDescription",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioNormalizationSettings"

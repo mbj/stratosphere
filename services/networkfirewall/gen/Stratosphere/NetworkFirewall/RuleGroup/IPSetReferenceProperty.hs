@@ -15,6 +15,7 @@ instance ToResourceProperties IPSetReferenceProperty where
   toResourceProperties IPSetReferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.IPSetReference",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReferenceArn" Prelude.<$> referenceArn])}

@@ -36,6 +36,7 @@ instance ToResourceProperties Assessment where
   toResourceProperties Assessment {..}
     = ResourceProperties
         {awsType = "AWS::AuditManager::Assessment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AssessmentReportsDestination"

@@ -19,6 +19,7 @@ instance ToResourceProperties TargetAddressProperty where
   toResourceProperties TargetAddressProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::ResolverRule.TargetAddress",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Ip" Prelude.<$> ip, (JSON..=) "Ipv6" Prelude.<$> ipv6,

@@ -22,6 +22,7 @@ instance ToResourceProperties BootstrapActionConfigProperty where
   toResourceProperties BootstrapActionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.BootstrapActionConfig",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name,
                        "ScriptBootstrapAction" JSON..= scriptBootstrapAction]}
 instance JSON.ToJSON BootstrapActionConfigProperty where

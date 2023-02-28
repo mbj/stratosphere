@@ -25,6 +25,7 @@ instance ToResourceProperties FlowVpcInterface where
   toResourceProperties FlowVpcInterface {..}
     = ResourceProperties
         {awsType = "AWS::MediaConnect::FlowVpcInterface",
+         supportsTags = Prelude.False,
          properties = ["FlowArn" JSON..= flowArn, "Name" JSON..= name,
                        "RoleArn" JSON..= roleArn,
                        "SecurityGroupIds" JSON..= securityGroupIds,

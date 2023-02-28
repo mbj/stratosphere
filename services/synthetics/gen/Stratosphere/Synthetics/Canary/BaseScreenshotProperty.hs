@@ -19,6 +19,7 @@ instance ToResourceProperties BaseScreenshotProperty where
   toResourceProperties BaseScreenshotProperty {..}
     = ResourceProperties
         {awsType = "AWS::Synthetics::Canary.BaseScreenshot",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ScreenshotName" JSON..= screenshotName]

@@ -23,6 +23,7 @@ instance ToResourceProperties AppIntegrationsConfigurationProperty where
   toResourceProperties AppIntegrationsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Wisdom::KnowledgeBase.AppIntegrationsConfiguration",
+         supportsTags = Prelude.False,
          properties = ["AppIntegrationArn" JSON..= appIntegrationArn,
                        "ObjectFields" JSON..= objectFields]}
 instance JSON.ToJSON AppIntegrationsConfigurationProperty where

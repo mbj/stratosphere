@@ -53,6 +53,7 @@ instance ToResourceProperties DataQualityJobDefinition where
   toResourceProperties DataQualityJobDefinition {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::DataQualityJobDefinition",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataQualityAppSpecification" JSON..= dataQualityAppSpecification,

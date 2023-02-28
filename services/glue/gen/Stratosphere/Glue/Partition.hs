@@ -23,7 +23,7 @@ mkPartition catalogId databaseName partitionInput tableName
 instance ToResourceProperties Partition where
   toResourceProperties Partition {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Partition",
+        {awsType = "AWS::Glue::Partition", supportsTags = Prelude.False,
          properties = ["CatalogId" JSON..= catalogId,
                        "DatabaseName" JSON..= databaseName,
                        "PartitionInput" JSON..= partitionInput,

@@ -19,6 +19,7 @@ instance ToResourceProperties InviteMessageTemplateProperty where
   toResourceProperties InviteMessageTemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.InviteMessageTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EmailMessage" Prelude.<$> emailMessage,

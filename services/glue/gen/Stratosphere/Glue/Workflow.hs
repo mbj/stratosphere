@@ -21,7 +21,7 @@ mkWorkflow
 instance ToResourceProperties Workflow where
   toResourceProperties Workflow {..}
     = ResourceProperties
-        {awsType = "AWS::Glue::Workflow",
+        {awsType = "AWS::Glue::Workflow", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefaultRunProperties" Prelude.<$> defaultRunProperties,

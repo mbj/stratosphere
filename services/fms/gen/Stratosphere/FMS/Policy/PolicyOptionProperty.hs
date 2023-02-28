@@ -19,6 +19,7 @@ instance ToResourceProperties PolicyOptionProperty where
   toResourceProperties PolicyOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::FMS::Policy.PolicyOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NetworkFirewallPolicy"

@@ -17,6 +17,7 @@ instance ToResourceProperties AccessLogSettingProperty where
   toResourceProperties AccessLogSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Deployment.AccessLogSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DestinationArn" Prelude.<$> destinationArn,

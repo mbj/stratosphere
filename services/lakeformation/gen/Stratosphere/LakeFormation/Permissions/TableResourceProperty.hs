@@ -21,6 +21,7 @@ instance ToResourceProperties TableResourceProperty where
   toResourceProperties TableResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::Permissions.TableResource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CatalogId" Prelude.<$> catalogId,

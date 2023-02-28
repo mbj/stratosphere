@@ -25,7 +25,7 @@ mkPrefixList addressFamily maxEntries prefixListName
 instance ToResourceProperties PrefixList where
   toResourceProperties PrefixList {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::PrefixList",
+        {awsType = "AWS::EC2::PrefixList", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AddressFamily" JSON..= addressFamily,

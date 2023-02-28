@@ -30,7 +30,7 @@ mkBotLocaleProperty localeId nluConfidenceThreshold
 instance ToResourceProperties BotLocaleProperty where
   toResourceProperties BotLocaleProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Lex::Bot.BotLocale",
+        {awsType = "AWS::Lex::Bot.BotLocale", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LocaleId" JSON..= localeId,

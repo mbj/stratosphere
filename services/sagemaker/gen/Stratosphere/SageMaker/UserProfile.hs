@@ -27,6 +27,7 @@ instance ToResourceProperties UserProfile where
   toResourceProperties UserProfile {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::UserProfile",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainId" JSON..= domainId,

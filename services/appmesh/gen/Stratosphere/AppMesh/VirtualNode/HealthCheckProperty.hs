@@ -36,6 +36,7 @@ instance ToResourceProperties HealthCheckProperty where
   toResourceProperties HealthCheckProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.HealthCheck",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HealthyThreshold" JSON..= healthyThreshold,

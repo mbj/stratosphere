@@ -20,6 +20,7 @@ instance ToResourceProperties ShutdownEventConfigurationProperty where
   toResourceProperties ShutdownEventConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Layer.ShutdownEventConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DelayUntilElbConnectionsDrained"

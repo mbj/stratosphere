@@ -20,6 +20,7 @@ instance ToResourceProperties OpenXJsonSerDeProperty where
   toResourceProperties OpenXJsonSerDeProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.OpenXJsonSerDe",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CaseInsensitive" Prelude.<$> caseInsensitive,

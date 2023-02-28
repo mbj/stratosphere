@@ -19,6 +19,7 @@ instance ToResourceProperties BaselineEbsBandwidthMbpsProperty where
   toResourceProperties BaselineEbsBandwidthMbpsProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.BaselineEbsBandwidthMbps",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

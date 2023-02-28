@@ -23,6 +23,7 @@ instance ToResourceProperties DataCatalogInputDefinitionProperty where
   toResourceProperties DataCatalogInputDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Recipe.DataCatalogInputDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CatalogId" Prelude.<$> catalogId,

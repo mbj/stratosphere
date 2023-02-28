@@ -27,6 +27,7 @@ instance ToResourceProperties FastLaunchConfigurationProperty where
   toResourceProperties FastLaunchConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::DistributionConfiguration.FastLaunchConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccountId" Prelude.<$> accountId,

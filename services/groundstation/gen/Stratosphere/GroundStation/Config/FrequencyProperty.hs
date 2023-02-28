@@ -17,6 +17,7 @@ instance ToResourceProperties FrequencyProperty where
   toResourceProperties FrequencyProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.Frequency",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Units" Prelude.<$> units,

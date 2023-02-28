@@ -17,6 +17,7 @@ instance ToResourceProperties AlarmIdentifierProperty where
   toResourceProperties AlarmIdentifierProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::HealthCheck.AlarmIdentifier",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Region" JSON..= region]}
 instance JSON.ToJSON AlarmIdentifierProperty where
   toJSON AlarmIdentifierProperty {..}

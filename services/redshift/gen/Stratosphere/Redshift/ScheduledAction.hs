@@ -28,6 +28,7 @@ instance ToResourceProperties ScheduledAction where
   toResourceProperties ScheduledAction {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::ScheduledAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ScheduledActionName" JSON..= scheduledActionName]

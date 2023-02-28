@@ -18,6 +18,7 @@ instance ToResourceProperties VirtualRouterServiceProviderProperty where
   toResourceProperties VirtualRouterServiceProviderProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualService.VirtualRouterServiceProvider",
+         supportsTags = Prelude.False,
          properties = ["VirtualRouterName" JSON..= virtualRouterName]}
 instance JSON.ToJSON VirtualRouterServiceProviderProperty where
   toJSON VirtualRouterServiceProviderProperty {..}

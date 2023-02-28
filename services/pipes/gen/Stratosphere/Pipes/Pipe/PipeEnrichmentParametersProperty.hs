@@ -20,6 +20,7 @@ instance ToResourceProperties PipeEnrichmentParametersProperty where
   toResourceProperties PipeEnrichmentParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeEnrichmentParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HttpParameters" Prelude.<$> httpParameters,

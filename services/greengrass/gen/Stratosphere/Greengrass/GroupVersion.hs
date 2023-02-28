@@ -30,6 +30,7 @@ instance ToResourceProperties GroupVersion where
   toResourceProperties GroupVersion {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::GroupVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GroupId" JSON..= groupId]

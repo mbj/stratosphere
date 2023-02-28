@@ -23,6 +23,7 @@ instance ToResourceProperties LambdaContainerParamsProperty where
   toResourceProperties LambdaContainerParamsProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::ComponentVersion.LambdaContainerParams",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Devices" Prelude.<$> devices,

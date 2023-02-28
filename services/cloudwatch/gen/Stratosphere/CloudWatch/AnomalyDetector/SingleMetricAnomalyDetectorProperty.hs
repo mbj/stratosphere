@@ -23,6 +23,7 @@ instance ToResourceProperties SingleMetricAnomalyDetectorProperty where
   toResourceProperties SingleMetricAnomalyDetectorProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::AnomalyDetector.SingleMetricAnomalyDetector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Dimensions" Prelude.<$> dimensions,

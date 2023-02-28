@@ -16,6 +16,7 @@ instance ToResourceProperties InputFormatOptionsProperty where
   toResourceProperties InputFormatOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.InputFormatOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Csv" Prelude.<$> csv])}
 instance JSON.ToJSON InputFormatOptionsProperty where

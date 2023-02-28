@@ -21,6 +21,7 @@ instance ToResourceProperties SalesforceSourcePropertiesProperty where
   toResourceProperties SalesforceSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.SalesforceSourceProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Object" JSON..= object]

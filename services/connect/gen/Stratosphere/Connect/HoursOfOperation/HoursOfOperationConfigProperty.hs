@@ -24,6 +24,7 @@ instance ToResourceProperties HoursOfOperationConfigProperty where
   toResourceProperties HoursOfOperationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::HoursOfOperation.HoursOfOperationConfig",
+         supportsTags = Prelude.False,
          properties = ["Day" JSON..= day, "EndTime" JSON..= endTime,
                        "StartTime" JSON..= startTime]}
 instance JSON.ToJSON HoursOfOperationConfigProperty where

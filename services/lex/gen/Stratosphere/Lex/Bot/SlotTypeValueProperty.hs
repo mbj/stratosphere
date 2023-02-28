@@ -18,6 +18,7 @@ instance ToResourceProperties SlotTypeValueProperty where
   toResourceProperties SlotTypeValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SlotTypeValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SampleValue" JSON..= sampleValue]

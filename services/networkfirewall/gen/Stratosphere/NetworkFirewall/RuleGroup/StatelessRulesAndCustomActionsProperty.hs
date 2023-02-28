@@ -20,6 +20,7 @@ instance ToResourceProperties StatelessRulesAndCustomActionsProperty where
   toResourceProperties StatelessRulesAndCustomActionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.StatelessRulesAndCustomActions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StatelessRules" JSON..= statelessRules]

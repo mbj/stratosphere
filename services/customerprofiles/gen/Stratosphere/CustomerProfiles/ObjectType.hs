@@ -32,6 +32,7 @@ instance ToResourceProperties ObjectType where
   toResourceProperties ObjectType {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::ObjectType",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName]

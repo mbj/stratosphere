@@ -18,6 +18,7 @@ instance ToResourceProperties Distribution where
   toResourceProperties Distribution {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DistributionConfig" JSON..= distributionConfig]

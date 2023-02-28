@@ -19,6 +19,7 @@ instance ToResourceProperties TriggerConfigProperty where
   toResourceProperties TriggerConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.TriggerConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TriggerType" JSON..= triggerType]

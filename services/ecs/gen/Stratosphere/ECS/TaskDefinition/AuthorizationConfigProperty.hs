@@ -17,6 +17,7 @@ instance ToResourceProperties AuthorizationConfigProperty where
   toResourceProperties AuthorizationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.AuthorizationConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessPointId" Prelude.<$> accessPointId,

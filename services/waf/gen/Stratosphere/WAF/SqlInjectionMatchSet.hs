@@ -19,6 +19,7 @@ instance ToResourceProperties SqlInjectionMatchSet where
   toResourceProperties SqlInjectionMatchSet {..}
     = ResourceProperties
         {awsType = "AWS::WAF::SqlInjectionMatchSet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

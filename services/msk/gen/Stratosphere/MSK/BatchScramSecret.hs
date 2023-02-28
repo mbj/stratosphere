@@ -17,6 +17,7 @@ instance ToResourceProperties BatchScramSecret where
   toResourceProperties BatchScramSecret {..}
     = ResourceProperties
         {awsType = "AWS::MSK::BatchScramSecret",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterArn" JSON..= clusterArn]

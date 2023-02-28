@@ -24,6 +24,7 @@ instance ToResourceProperties AwsCloudMapServiceDiscoveryProperty where
   toResourceProperties AwsCloudMapServiceDiscoveryProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.AwsCloudMapServiceDiscovery",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["NamespaceName" JSON..= namespaceName,

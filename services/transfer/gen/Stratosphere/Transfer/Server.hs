@@ -43,7 +43,7 @@ mkServer
 instance ToResourceProperties Server where
   toResourceProperties Server {..}
     = ResourceProperties
-        {awsType = "AWS::Transfer::Server",
+        {awsType = "AWS::Transfer::Server", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Certificate" Prelude.<$> certificate,

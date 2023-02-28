@@ -18,6 +18,7 @@ instance ToResourceProperties AuthenticationModeProperty where
   toResourceProperties AuthenticationModeProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::User.AuthenticationMode",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

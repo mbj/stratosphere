@@ -45,6 +45,7 @@ instance ToResourceProperties StackSet where
   toResourceProperties StackSet {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::StackSet",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PermissionModel" JSON..= permissionModel,

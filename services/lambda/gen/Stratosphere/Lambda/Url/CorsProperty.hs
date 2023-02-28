@@ -23,7 +23,7 @@ mkCorsProperty
 instance ToResourceProperties CorsProperty where
   toResourceProperties CorsProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Lambda::Url.Cors",
+        {awsType = "AWS::Lambda::Url.Cors", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowCredentials" Prelude.<$> allowCredentials,

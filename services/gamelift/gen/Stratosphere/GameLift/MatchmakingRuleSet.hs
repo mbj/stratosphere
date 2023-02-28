@@ -20,6 +20,7 @@ instance ToResourceProperties MatchmakingRuleSet where
   toResourceProperties MatchmakingRuleSet {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::MatchmakingRuleSet",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "RuleSetBody" JSON..= ruleSetBody]

@@ -29,6 +29,7 @@ instance ToResourceProperties SalesforceStandardObjectConfigurationProperty wher
     SalesforceStandardObjectConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.SalesforceStandardObjectConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DocumentDataFieldName" JSON..= documentDataFieldName,

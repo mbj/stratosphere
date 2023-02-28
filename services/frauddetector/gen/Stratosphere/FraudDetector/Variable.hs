@@ -29,6 +29,7 @@ instance ToResourceProperties Variable where
   toResourceProperties Variable {..}
     = ResourceProperties
         {awsType = "AWS::FraudDetector::Variable",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataSource" JSON..= dataSource, "DataType" JSON..= dataType,

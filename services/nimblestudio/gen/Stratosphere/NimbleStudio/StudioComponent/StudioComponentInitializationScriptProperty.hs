@@ -24,6 +24,7 @@ instance ToResourceProperties StudioComponentInitializationScriptProperty where
     StudioComponentInitializationScriptProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::StudioComponent.StudioComponentInitializationScript",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LaunchProfileProtocolVersion"

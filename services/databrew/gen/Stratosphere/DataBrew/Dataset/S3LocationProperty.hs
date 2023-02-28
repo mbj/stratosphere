@@ -16,6 +16,7 @@ instance ToResourceProperties S3LocationProperty where
   toResourceProperties S3LocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.S3Location",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket]

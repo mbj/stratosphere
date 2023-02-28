@@ -30,6 +30,7 @@ instance ToResourceProperties DataCellsFilter where
   toResourceProperties DataCellsFilter {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::DataCellsFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatabaseName" JSON..= databaseName, "Name" JSON..= name,

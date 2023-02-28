@@ -20,6 +20,7 @@ instance ToResourceProperties CloudWatchLogsConfigProperty where
   toResourceProperties CloudWatchLogsConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.CloudWatchLogsConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Status" JSON..= status]

@@ -60,6 +60,7 @@ instance ToResourceProperties ConnectorProfileCredentialsProperty where
   toResourceProperties ConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.ConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Amplitude" Prelude.<$> amplitude,

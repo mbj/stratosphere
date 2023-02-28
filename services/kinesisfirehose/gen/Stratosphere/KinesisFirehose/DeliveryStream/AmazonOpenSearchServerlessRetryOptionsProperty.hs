@@ -19,6 +19,7 @@ instance ToResourceProperties AmazonOpenSearchServerlessRetryOptionsProperty whe
     AmazonOpenSearchServerlessRetryOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.AmazonOpenSearchServerlessRetryOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DurationInSeconds" Prelude.<$> durationInSeconds])}

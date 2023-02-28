@@ -22,6 +22,7 @@ instance ToResourceProperties ApprovalThresholdPolicyProperty where
   toResourceProperties ApprovalThresholdPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::ManagedBlockchain::Member.ApprovalThresholdPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ProposalDurationInHours"

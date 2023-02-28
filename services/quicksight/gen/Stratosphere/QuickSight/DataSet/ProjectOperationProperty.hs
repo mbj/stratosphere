@@ -16,6 +16,7 @@ instance ToResourceProperties ProjectOperationProperty where
   toResourceProperties ProjectOperationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.ProjectOperation",
+         supportsTags = Prelude.False,
          properties = ["ProjectedColumns" JSON..= projectedColumns]}
 instance JSON.ToJSON ProjectOperationProperty where
   toJSON ProjectOperationProperty {..}

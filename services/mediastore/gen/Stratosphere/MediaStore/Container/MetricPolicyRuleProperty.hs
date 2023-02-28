@@ -19,6 +19,7 @@ instance ToResourceProperties MetricPolicyRuleProperty where
   toResourceProperties MetricPolicyRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaStore::Container.MetricPolicyRule",
+         supportsTags = Prelude.False,
          properties = ["ObjectGroup" JSON..= objectGroup,
                        "ObjectGroupName" JSON..= objectGroupName]}
 instance JSON.ToJSON MetricPolicyRuleProperty where

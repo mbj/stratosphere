@@ -25,6 +25,7 @@ instance ToResourceProperties SubscriptionFilter where
   toResourceProperties SubscriptionFilter {..}
     = ResourceProperties
         {awsType = "AWS::Logs::SubscriptionFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationArn" JSON..= destinationArn,

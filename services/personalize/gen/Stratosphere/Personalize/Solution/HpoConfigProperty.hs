@@ -22,6 +22,7 @@ instance ToResourceProperties HpoConfigProperty where
   toResourceProperties HpoConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Solution.HpoConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AlgorithmHyperParameterRanges"

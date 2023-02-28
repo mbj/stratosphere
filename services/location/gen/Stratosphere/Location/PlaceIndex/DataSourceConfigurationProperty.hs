@@ -17,6 +17,7 @@ instance ToResourceProperties DataSourceConfigurationProperty where
   toResourceProperties DataSourceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Location::PlaceIndex.DataSourceConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IntendedUse" Prelude.<$> intendedUse])}

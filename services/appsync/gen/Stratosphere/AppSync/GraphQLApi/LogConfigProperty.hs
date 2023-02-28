@@ -20,6 +20,7 @@ instance ToResourceProperties LogConfigProperty where
   toResourceProperties LogConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::GraphQLApi.LogConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchLogsRoleArn"

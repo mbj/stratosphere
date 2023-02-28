@@ -22,6 +22,7 @@ instance ToResourceProperties FieldProperty where
   toResourceProperties FieldProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::TaskTemplate.Field",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id, "Type" JSON..= type']

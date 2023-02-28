@@ -17,6 +17,7 @@ instance ToResourceProperties EndpointConfigurationProperty where
   toResourceProperties EndpointConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::RestApi.EndpointConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Types" Prelude.<$> types,

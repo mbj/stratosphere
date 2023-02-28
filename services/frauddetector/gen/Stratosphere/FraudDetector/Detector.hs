@@ -32,6 +32,7 @@ instance ToResourceProperties Detector where
   toResourceProperties Detector {..}
     = ResourceProperties
         {awsType = "AWS::FraudDetector::Detector",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DetectorId" JSON..= detectorId, "EventType" JSON..= eventType,

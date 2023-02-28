@@ -21,6 +21,7 @@ instance ToResourceProperties SignalingChannel where
   toResourceProperties SignalingChannel {..}
     = ResourceProperties
         {awsType = "AWS::KinesisVideo::SignalingChannel",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MessageTtlSeconds" Prelude.<$> messageTtlSeconds,

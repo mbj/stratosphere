@@ -19,6 +19,7 @@ instance ToResourceProperties RenameColumnOperationProperty where
   toResourceProperties RenameColumnOperationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.RenameColumnOperation",
+         supportsTags = Prelude.False,
          properties = ["ColumnName" JSON..= columnName,
                        "NewColumnName" JSON..= newColumnName]}
 instance JSON.ToJSON RenameColumnOperationProperty where

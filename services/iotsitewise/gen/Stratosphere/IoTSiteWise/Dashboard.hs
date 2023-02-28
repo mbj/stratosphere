@@ -26,6 +26,7 @@ instance ToResourceProperties Dashboard where
   toResourceProperties Dashboard {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::Dashboard",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DashboardDefinition" JSON..= dashboardDefinition,

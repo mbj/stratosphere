@@ -19,6 +19,7 @@ instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::Alert.Action",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LambdaConfiguration" Prelude.<$> lambdaConfiguration,

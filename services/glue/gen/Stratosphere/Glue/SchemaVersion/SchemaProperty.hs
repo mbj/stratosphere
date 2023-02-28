@@ -19,6 +19,7 @@ instance ToResourceProperties SchemaProperty where
   toResourceProperties SchemaProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::SchemaVersion.Schema",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RegistryName" Prelude.<$> registryName,

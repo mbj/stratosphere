@@ -20,6 +20,7 @@ instance ToResourceProperties UsagePlanKey where
   toResourceProperties UsagePlanKey {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::UsagePlanKey",
+         supportsTags = Prelude.False,
          properties = ["KeyId" JSON..= keyId, "KeyType" JSON..= keyType,
                        "UsagePlanId" JSON..= usagePlanId]}
 instance JSON.ToJSON UsagePlanKey where

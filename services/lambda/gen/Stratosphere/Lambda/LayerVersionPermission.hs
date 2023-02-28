@@ -23,6 +23,7 @@ instance ToResourceProperties LayerVersionPermission where
   toResourceProperties LayerVersionPermission {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::LayerVersionPermission",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Action" JSON..= action,

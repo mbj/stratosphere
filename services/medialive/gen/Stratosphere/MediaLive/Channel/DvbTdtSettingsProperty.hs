@@ -15,6 +15,7 @@ instance ToResourceProperties DvbTdtSettingsProperty where
   toResourceProperties DvbTdtSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.DvbTdtSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RepInterval" Prelude.<$> repInterval])}

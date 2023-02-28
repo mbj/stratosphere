@@ -17,6 +17,7 @@ instance ToResourceProperties InputFormatConfigurationProperty where
   toResourceProperties InputFormatConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.InputFormatConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Deserializer" Prelude.<$> deserializer])}

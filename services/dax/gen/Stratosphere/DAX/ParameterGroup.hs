@@ -20,6 +20,7 @@ instance ToResourceProperties ParameterGroup where
   toResourceProperties ParameterGroup {..}
     = ResourceProperties
         {awsType = "AWS::DAX::ParameterGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

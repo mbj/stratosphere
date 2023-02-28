@@ -19,6 +19,7 @@ instance ToResourceProperties FileSystemConfigProperty where
   toResourceProperties FileSystemConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.FileSystemConfig",
+         supportsTags = Prelude.False,
          properties = ["Arn" JSON..= arn,
                        "LocalMountPath" JSON..= localMountPath]}
 instance JSON.ToJSON FileSystemConfigProperty where

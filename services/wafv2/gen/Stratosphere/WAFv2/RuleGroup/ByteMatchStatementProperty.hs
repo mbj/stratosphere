@@ -33,6 +33,7 @@ instance ToResourceProperties ByteMatchStatementProperty where
   toResourceProperties ByteMatchStatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.ByteMatchStatement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FieldToMatch" JSON..= fieldToMatch,

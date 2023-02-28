@@ -23,6 +23,7 @@ instance ToResourceProperties ResourceVersion where
   toResourceProperties ResourceVersion {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::ResourceVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SchemaHandlerPackage" JSON..= schemaHandlerPackage,

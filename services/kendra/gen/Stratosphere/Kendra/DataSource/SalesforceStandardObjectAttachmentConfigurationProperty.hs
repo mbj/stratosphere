@@ -23,6 +23,7 @@ instance ToResourceProperties SalesforceStandardObjectAttachmentConfigurationPro
     SalesforceStandardObjectAttachmentConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.SalesforceStandardObjectAttachmentConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DocumentTitleFieldName"

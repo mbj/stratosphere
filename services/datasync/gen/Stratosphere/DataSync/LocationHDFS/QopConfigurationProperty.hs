@@ -18,6 +18,7 @@ instance ToResourceProperties QopConfigurationProperty where
   toResourceProperties QopConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationHDFS.QopConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataTransferProtection"

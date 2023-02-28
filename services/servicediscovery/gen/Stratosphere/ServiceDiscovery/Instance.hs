@@ -19,6 +19,7 @@ instance ToResourceProperties Instance where
   toResourceProperties Instance {..}
     = ResourceProperties
         {awsType = "AWS::ServiceDiscovery::Instance",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceAttributes" JSON..= instanceAttributes,

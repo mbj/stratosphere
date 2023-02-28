@@ -16,6 +16,7 @@ instance ToResourceProperties SampleUtteranceProperty where
   toResourceProperties SampleUtteranceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SampleUtterance",
+         supportsTags = Prelude.False,
          properties = ["Utterance" JSON..= utterance]}
 instance JSON.ToJSON SampleUtteranceProperty where
   toJSON SampleUtteranceProperty {..}

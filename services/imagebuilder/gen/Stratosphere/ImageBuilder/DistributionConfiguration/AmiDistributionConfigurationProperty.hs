@@ -27,6 +27,7 @@ instance ToResourceProperties AmiDistributionConfigurationProperty where
   toResourceProperties AmiDistributionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::DistributionConfiguration.AmiDistributionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AmiTags" Prelude.<$> amiTags,

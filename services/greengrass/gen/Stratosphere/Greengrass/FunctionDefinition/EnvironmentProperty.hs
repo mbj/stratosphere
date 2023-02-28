@@ -23,6 +23,7 @@ instance ToResourceProperties EnvironmentProperty where
   toResourceProperties EnvironmentProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::FunctionDefinition.Environment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessSysfs" Prelude.<$> accessSysfs,

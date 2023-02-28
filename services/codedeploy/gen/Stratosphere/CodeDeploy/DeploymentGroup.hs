@@ -63,6 +63,7 @@ instance ToResourceProperties DeploymentGroup where
   toResourceProperties DeploymentGroup {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationName" JSON..= applicationName,

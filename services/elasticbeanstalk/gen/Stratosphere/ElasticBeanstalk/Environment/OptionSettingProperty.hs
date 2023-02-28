@@ -21,6 +21,7 @@ instance ToResourceProperties OptionSettingProperty where
   toResourceProperties OptionSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::Environment.OptionSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Namespace" JSON..= namespace, "OptionName" JSON..= optionName]

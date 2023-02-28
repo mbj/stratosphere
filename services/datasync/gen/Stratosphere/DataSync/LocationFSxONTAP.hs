@@ -26,6 +26,7 @@ instance ToResourceProperties LocationFSxONTAP where
   toResourceProperties LocationFSxONTAP {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationFSxONTAP",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SecurityGroupArns" JSON..= securityGroupArns,

@@ -22,6 +22,7 @@ instance ToResourceProperties DeviceProperty where
   toResourceProperties DeviceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::DeviceDefinition.Device",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CertificateArn" JSON..= certificateArn, "Id" JSON..= id,

@@ -26,7 +26,7 @@ mkJobQueue computeEnvironmentOrder priority
 instance ToResourceProperties JobQueue where
   toResourceProperties JobQueue {..}
     = ResourceProperties
-        {awsType = "AWS::Batch::JobQueue",
+        {awsType = "AWS::Batch::JobQueue", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ComputeEnvironmentOrder" JSON..= computeEnvironmentOrder,

@@ -25,6 +25,7 @@ instance ToResourceProperties EventIntegration where
   toResourceProperties EventIntegration {..}
     = ResourceProperties
         {awsType = "AWS::AppIntegrations::EventIntegration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EventBridgeBus" JSON..= eventBridgeBus,

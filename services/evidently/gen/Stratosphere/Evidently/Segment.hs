@@ -20,7 +20,7 @@ mkSegment name
 instance ToResourceProperties Segment where
   toResourceProperties Segment {..}
     = ResourceProperties
-        {awsType = "AWS::Evidently::Segment",
+        {awsType = "AWS::Evidently::Segment", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

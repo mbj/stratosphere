@@ -18,6 +18,7 @@ instance ToResourceProperties ElasticFileSystemTagProperty where
   toResourceProperties ElasticFileSystemTagProperty {..}
     = ResourceProperties
         {awsType = "AWS::EFS::FileSystem.ElasticFileSystemTag",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON ElasticFileSystemTagProperty where
   toJSON ElasticFileSystemTagProperty {..}

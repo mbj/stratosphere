@@ -21,7 +21,7 @@ mkStoredQuery queryExpression queryName
 instance ToResourceProperties StoredQuery where
   toResourceProperties StoredQuery {..}
     = ResourceProperties
-        {awsType = "AWS::Config::StoredQuery",
+        {awsType = "AWS::Config::StoredQuery", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["QueryExpression" JSON..= queryExpression,

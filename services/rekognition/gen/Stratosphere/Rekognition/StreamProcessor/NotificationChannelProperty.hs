@@ -16,7 +16,7 @@ instance ToResourceProperties NotificationChannelProperty where
   toResourceProperties NotificationChannelProperty {..}
     = ResourceProperties
         {awsType = "AWS::Rekognition::StreamProcessor.NotificationChannel",
-         properties = ["Arn" JSON..= arn]}
+         supportsTags = Prelude.False, properties = ["Arn" JSON..= arn]}
 instance JSON.ToJSON NotificationChannelProperty where
   toJSON NotificationChannelProperty {..}
     = JSON.object ["Arn" JSON..= arn]

@@ -19,6 +19,7 @@ instance ToResourceProperties ComponentConfigurationProperty where
   toResourceProperties ComponentConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ImageRecipe.ComponentConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComponentArn" Prelude.<$> componentArn,

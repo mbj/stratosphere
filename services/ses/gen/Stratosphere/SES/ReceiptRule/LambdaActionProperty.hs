@@ -20,6 +20,7 @@ instance ToResourceProperties LambdaActionProperty where
   toResourceProperties LambdaActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ReceiptRule.LambdaAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionArn" JSON..= functionArn]

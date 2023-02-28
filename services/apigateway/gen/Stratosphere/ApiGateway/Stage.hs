@@ -41,7 +41,7 @@ mkStage restApiId
 instance ToResourceProperties Stage where
   toResourceProperties Stage {..}
     = ResourceProperties
-        {awsType = "AWS::ApiGateway::Stage",
+        {awsType = "AWS::ApiGateway::Stage", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RestApiId" JSON..= restApiId]

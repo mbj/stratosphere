@@ -19,6 +19,7 @@ instance ToResourceProperties GeoLocationProperty where
   toResourceProperties GeoLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::RecordSetGroup.GeoLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContinentCode" Prelude.<$> continentCode,

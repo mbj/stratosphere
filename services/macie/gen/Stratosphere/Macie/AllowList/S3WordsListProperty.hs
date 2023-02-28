@@ -18,6 +18,7 @@ instance ToResourceProperties S3WordsListProperty where
   toResourceProperties S3WordsListProperty {..}
     = ResourceProperties
         {awsType = "AWS::Macie::AllowList.S3WordsList",
+         supportsTags = Prelude.False,
          properties = ["BucketName" JSON..= bucketName,
                        "ObjectKey" JSON..= objectKey]}
 instance JSON.ToJSON S3WordsListProperty where

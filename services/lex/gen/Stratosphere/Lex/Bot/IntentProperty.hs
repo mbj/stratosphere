@@ -50,7 +50,7 @@ mkIntentProperty name
 instance ToResourceProperties IntentProperty where
   toResourceProperties IntentProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Lex::Bot.Intent",
+        {awsType = "AWS::Lex::Bot.Intent", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

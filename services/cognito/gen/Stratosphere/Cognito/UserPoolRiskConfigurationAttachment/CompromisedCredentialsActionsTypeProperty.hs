@@ -18,6 +18,7 @@ instance ToResourceProperties CompromisedCredentialsActionsTypeProperty where
   toResourceProperties CompromisedCredentialsActionsTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsType",
+         supportsTags = Prelude.False,
          properties = ["EventAction" JSON..= eventAction]}
 instance JSON.ToJSON CompromisedCredentialsActionsTypeProperty where
   toJSON CompromisedCredentialsActionsTypeProperty {..}

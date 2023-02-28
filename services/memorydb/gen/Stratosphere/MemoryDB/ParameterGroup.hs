@@ -24,6 +24,7 @@ instance ToResourceProperties ParameterGroup where
   toResourceProperties ParameterGroup {..}
     = ResourceProperties
         {awsType = "AWS::MemoryDB::ParameterGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Family" JSON..= family,

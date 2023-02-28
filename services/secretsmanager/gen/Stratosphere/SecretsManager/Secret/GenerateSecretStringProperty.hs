@@ -33,6 +33,7 @@ instance ToResourceProperties GenerateSecretStringProperty where
   toResourceProperties GenerateSecretStringProperty {..}
     = ResourceProperties
         {awsType = "AWS::SecretsManager::Secret.GenerateSecretString",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExcludeCharacters" Prelude.<$> excludeCharacters,

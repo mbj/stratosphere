@@ -16,6 +16,7 @@ instance ToResourceProperties AllowedStatisticsProperty where
   toResourceProperties AllowedStatisticsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Job.AllowedStatistics",
+         supportsTags = Prelude.False,
          properties = ["Statistics" JSON..= statistics]}
 instance JSON.ToJSON AllowedStatisticsProperty where
   toJSON AllowedStatisticsProperty {..}

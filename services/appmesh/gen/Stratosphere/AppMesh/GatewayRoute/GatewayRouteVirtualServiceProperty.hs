@@ -18,6 +18,7 @@ instance ToResourceProperties GatewayRouteVirtualServiceProperty where
   toResourceProperties GatewayRouteVirtualServiceProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.GatewayRouteVirtualService",
+         supportsTags = Prelude.False,
          properties = ["VirtualServiceName" JSON..= virtualServiceName]}
 instance JSON.ToJSON GatewayRouteVirtualServiceProperty where
   toJSON GatewayRouteVirtualServiceProperty {..}

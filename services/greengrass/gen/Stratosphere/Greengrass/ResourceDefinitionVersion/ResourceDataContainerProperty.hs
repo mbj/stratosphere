@@ -29,6 +29,7 @@ instance ToResourceProperties ResourceDataContainerProperty where
   toResourceProperties ResourceDataContainerProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinitionVersion.ResourceDataContainer",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LocalDeviceResourceData"

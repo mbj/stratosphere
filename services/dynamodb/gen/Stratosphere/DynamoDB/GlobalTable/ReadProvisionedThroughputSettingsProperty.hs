@@ -21,6 +21,7 @@ instance ToResourceProperties ReadProvisionedThroughputSettingsProperty where
   toResourceProperties ReadProvisionedThroughputSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::GlobalTable.ReadProvisionedThroughputSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReadCapacityAutoScalingSettings"

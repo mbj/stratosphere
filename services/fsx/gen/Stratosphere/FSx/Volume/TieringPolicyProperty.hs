@@ -17,6 +17,7 @@ instance ToResourceProperties TieringPolicyProperty where
   toResourceProperties TieringPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::Volume.TieringPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CoolingPeriod" Prelude.<$> coolingPeriod,

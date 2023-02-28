@@ -38,6 +38,7 @@ instance ToResourceProperties IdentityPool where
   toResourceProperties IdentityPool {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::IdentityPool",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AllowUnauthenticatedIdentities"

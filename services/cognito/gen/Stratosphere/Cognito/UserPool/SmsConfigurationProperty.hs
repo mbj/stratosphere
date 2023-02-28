@@ -19,6 +19,7 @@ instance ToResourceProperties SmsConfigurationProperty where
   toResourceProperties SmsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.SmsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExternalId" Prelude.<$> externalId,

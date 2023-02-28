@@ -46,6 +46,7 @@ instance ToResourceProperties TrafficMirrorFilterRule where
   toResourceProperties TrafficMirrorFilterRule {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TrafficMirrorFilterRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationCidrBlock" JSON..= destinationCidrBlock,

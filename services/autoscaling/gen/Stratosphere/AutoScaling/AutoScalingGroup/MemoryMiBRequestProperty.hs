@@ -17,6 +17,7 @@ instance ToResourceProperties MemoryMiBRequestProperty where
   toResourceProperties MemoryMiBRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.MemoryMiBRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

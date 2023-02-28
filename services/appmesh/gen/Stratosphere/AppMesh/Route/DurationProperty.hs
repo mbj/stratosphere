@@ -17,6 +17,7 @@ instance ToResourceProperties DurationProperty where
   toResourceProperties DurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.Duration",
+         supportsTags = Prelude.False,
          properties = ["Unit" JSON..= unit, "Value" JSON..= value]}
 instance JSON.ToJSON DurationProperty where
   toJSON DurationProperty {..}

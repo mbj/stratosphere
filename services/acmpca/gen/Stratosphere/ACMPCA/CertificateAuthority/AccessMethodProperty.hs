@@ -18,6 +18,7 @@ instance ToResourceProperties AccessMethodProperty where
   toResourceProperties AccessMethodProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.AccessMethod",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessMethodType" Prelude.<$> accessMethodType,

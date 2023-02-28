@@ -39,6 +39,7 @@ instance ToResourceProperties JobDefinition where
   toResourceProperties JobDefinition {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

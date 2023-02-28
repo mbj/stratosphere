@@ -27,6 +27,7 @@ instance ToResourceProperties StorageVirtualMachine where
   toResourceProperties StorageVirtualMachine {..}
     = ResourceProperties
         {awsType = "AWS::FSx::StorageVirtualMachine",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FileSystemId" JSON..= fileSystemId, "Name" JSON..= name]

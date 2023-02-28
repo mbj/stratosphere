@@ -25,6 +25,7 @@ instance ToResourceProperties DBProxyEndpoint where
   toResourceProperties DBProxyEndpoint {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBProxyEndpoint",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DBProxyEndpointName" JSON..= dBProxyEndpointName,

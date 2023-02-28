@@ -18,6 +18,7 @@ instance ToResourceProperties VeevaConnectorProfilePropertiesProperty where
   toResourceProperties VeevaConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.VeevaConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = ["InstanceUrl" JSON..= instanceUrl]}
 instance JSON.ToJSON VeevaConnectorProfilePropertiesProperty where
   toJSON VeevaConnectorProfilePropertiesProperty {..}

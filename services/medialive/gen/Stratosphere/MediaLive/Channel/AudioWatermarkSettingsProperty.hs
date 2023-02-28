@@ -17,6 +17,7 @@ instance ToResourceProperties AudioWatermarkSettingsProperty where
   toResourceProperties AudioWatermarkSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AudioWatermarkSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NielsenWatermarksSettings"

@@ -15,6 +15,7 @@ instance ToResourceProperties PrimaryProperty where
   toResourceProperties PrimaryProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Endpoint.Primary",
+         supportsTags = Prelude.False,
          properties = ["HealthCheck" JSON..= healthCheck]}
 instance JSON.ToJSON PrimaryProperty where
   toJSON PrimaryProperty {..}

@@ -3,6 +3,7 @@ module Stratosphere.MediaLive.Channel.AribDestinationSettingsProperty (
         mkAribDestinationSettingsProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AribDestinationSettingsProperty
   = AribDestinationSettingsProperty {}
@@ -14,6 +15,6 @@ instance ToResourceProperties AribDestinationSettingsProperty where
   toResourceProperties AribDestinationSettingsProperty {}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AribDestinationSettings",
-         properties = []}
+         supportsTags = Prelude.False, properties = []}
 instance JSON.ToJSON AribDestinationSettingsProperty where
   toJSON AribDestinationSettingsProperty {} = JSON.object []

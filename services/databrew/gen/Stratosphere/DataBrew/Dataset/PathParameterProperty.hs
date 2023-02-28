@@ -21,6 +21,7 @@ instance ToResourceProperties PathParameterProperty where
   toResourceProperties PathParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.PathParameter",
+         supportsTags = Prelude.False,
          properties = ["DatasetParameter" JSON..= datasetParameter,
                        "PathParameterName" JSON..= pathParameterName]}
 instance JSON.ToJSON PathParameterProperty where

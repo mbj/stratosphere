@@ -17,6 +17,7 @@ instance ToResourceProperties ProcessorFeatureProperty where
   toResourceProperties ProcessorFeatureProperty {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBInstance.ProcessorFeature",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

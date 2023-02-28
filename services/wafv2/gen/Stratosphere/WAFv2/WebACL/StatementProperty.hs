@@ -57,6 +57,7 @@ instance ToResourceProperties StatementProperty where
   toResourceProperties StatementProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.Statement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AndStatement" Prelude.<$> andStatement,

@@ -17,6 +17,7 @@ instance ToResourceProperties PortRangeFilterProperty where
   toResourceProperties PortRangeFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::InspectorV2::Filter.PortRangeFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BeginInclusive" Prelude.<$> beginInclusive,

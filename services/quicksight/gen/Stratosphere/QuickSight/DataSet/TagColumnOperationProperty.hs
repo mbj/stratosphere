@@ -20,6 +20,7 @@ instance ToResourceProperties TagColumnOperationProperty where
   toResourceProperties TagColumnOperationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.TagColumnOperation",
+         supportsTags = Prelude.True,
          properties = ["ColumnName" JSON..= columnName,
                        "Tags" JSON..= tags]}
 instance JSON.ToJSON TagColumnOperationProperty where

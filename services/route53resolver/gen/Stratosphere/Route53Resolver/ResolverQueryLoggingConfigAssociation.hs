@@ -20,6 +20,7 @@ instance ToResourceProperties ResolverQueryLoggingConfigAssociation where
   toResourceProperties ResolverQueryLoggingConfigAssociation {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ResolverQueryLogConfigId"

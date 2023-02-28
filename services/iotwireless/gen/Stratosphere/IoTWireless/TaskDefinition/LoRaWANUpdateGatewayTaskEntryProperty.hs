@@ -19,6 +19,7 @@ instance ToResourceProperties LoRaWANUpdateGatewayTaskEntryProperty where
   toResourceProperties LoRaWANUpdateGatewayTaskEntryProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskEntry",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CurrentVersion" Prelude.<$> currentVersion,

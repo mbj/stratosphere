@@ -17,6 +17,7 @@ instance ToResourceProperties NetworkFabricConfigurationProperty where
   toResourceProperties NetworkFabricConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ManagedBlockchain::Member.NetworkFabricConfiguration",
+         supportsTags = Prelude.False,
          properties = ["Edition" JSON..= edition]}
 instance JSON.ToJSON NetworkFabricConfigurationProperty where
   toJSON NetworkFabricConfigurationProperty {..}

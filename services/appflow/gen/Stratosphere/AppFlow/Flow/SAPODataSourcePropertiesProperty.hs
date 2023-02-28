@@ -17,6 +17,7 @@ instance ToResourceProperties SAPODataSourcePropertiesProperty where
   toResourceProperties SAPODataSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.SAPODataSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["ObjectPath" JSON..= objectPath]}
 instance JSON.ToJSON SAPODataSourcePropertiesProperty where
   toJSON SAPODataSourcePropertiesProperty {..}

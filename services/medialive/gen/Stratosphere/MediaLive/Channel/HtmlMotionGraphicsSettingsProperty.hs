@@ -3,6 +3,7 @@ module Stratosphere.MediaLive.Channel.HtmlMotionGraphicsSettingsProperty (
         mkHtmlMotionGraphicsSettingsProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HtmlMotionGraphicsSettingsProperty
   = HtmlMotionGraphicsSettingsProperty {}
@@ -14,6 +15,6 @@ instance ToResourceProperties HtmlMotionGraphicsSettingsProperty where
   toResourceProperties HtmlMotionGraphicsSettingsProperty {}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HtmlMotionGraphicsSettings",
-         properties = []}
+         supportsTags = Prelude.False, properties = []}
 instance JSON.ToJSON HtmlMotionGraphicsSettingsProperty where
   toJSON HtmlMotionGraphicsSettingsProperty {} = JSON.object []

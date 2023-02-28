@@ -17,6 +17,7 @@ instance ToResourceProperties RequiredClaimProperty where
   toResourceProperties RequiredClaimProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::IdentityProviderConfig.RequiredClaim",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON RequiredClaimProperty where
   toJSON RequiredClaimProperty {..}

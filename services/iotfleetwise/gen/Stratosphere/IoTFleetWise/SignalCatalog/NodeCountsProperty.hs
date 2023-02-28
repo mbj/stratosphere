@@ -22,6 +22,7 @@ instance ToResourceProperties NodeCountsProperty where
   toResourceProperties NodeCountsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::SignalCatalog.NodeCounts",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TotalActuators" Prelude.<$> totalActuators,

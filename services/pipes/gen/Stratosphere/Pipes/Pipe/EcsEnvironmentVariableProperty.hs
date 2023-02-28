@@ -18,6 +18,7 @@ instance ToResourceProperties EcsEnvironmentVariableProperty where
   toResourceProperties EcsEnvironmentVariableProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.EcsEnvironmentVariable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

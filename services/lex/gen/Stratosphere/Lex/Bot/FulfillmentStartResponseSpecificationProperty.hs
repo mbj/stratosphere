@@ -27,6 +27,7 @@ instance ToResourceProperties FulfillmentStartResponseSpecificationProperty wher
     FulfillmentStartResponseSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.FulfillmentStartResponseSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DelayInSeconds" JSON..= delayInSeconds,

@@ -26,6 +26,7 @@ instance ToResourceProperties OfflineStoreConfigProperty where
   toResourceProperties OfflineStoreConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::FeatureGroup.OfflineStoreConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3StorageConfig" JSON..= s3StorageConfig]

@@ -18,6 +18,7 @@ instance ToResourceProperties AccessControlListConfigurationProperty where
   toResourceProperties AccessControlListConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.AccessControlListConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "KeyPath" Prelude.<$> keyPath])}
 instance JSON.ToJSON AccessControlListConfigurationProperty where

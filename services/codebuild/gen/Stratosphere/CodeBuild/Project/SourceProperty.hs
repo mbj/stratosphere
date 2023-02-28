@@ -34,6 +34,7 @@ instance ToResourceProperties SourceProperty where
   toResourceProperties SourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.Source",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

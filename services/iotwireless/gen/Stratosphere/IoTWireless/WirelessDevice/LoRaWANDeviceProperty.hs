@@ -29,6 +29,7 @@ instance ToResourceProperties LoRaWANDeviceProperty where
   toResourceProperties LoRaWANDeviceProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::WirelessDevice.LoRaWANDevice",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AbpV10x" Prelude.<$> abpV10x,

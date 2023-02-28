@@ -2,6 +2,7 @@ module Stratosphere.EMRContainers.VirtualCluster.ContainerInfoProperty (
         module Exports, ContainerInfoProperty(..), mkContainerInfoProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMRContainers.VirtualCluster.EksInfoProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,7 @@ instance ToResourceProperties ContainerInfoProperty where
   toResourceProperties ContainerInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMRContainers::VirtualCluster.ContainerInfo",
+         supportsTags = Prelude.False,
          properties = ["EksInfo" JSON..= eksInfo]}
 instance JSON.ToJSON ContainerInfoProperty where
   toJSON ContainerInfoProperty {..}

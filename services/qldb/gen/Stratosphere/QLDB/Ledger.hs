@@ -22,7 +22,7 @@ mkLedger permissionsMode
 instance ToResourceProperties Ledger where
   toResourceProperties Ledger {..}
     = ResourceProperties
-        {awsType = "AWS::QLDB::Ledger",
+        {awsType = "AWS::QLDB::Ledger", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PermissionsMode" JSON..= permissionsMode]

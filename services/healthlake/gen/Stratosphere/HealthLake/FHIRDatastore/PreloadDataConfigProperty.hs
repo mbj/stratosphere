@@ -16,6 +16,7 @@ instance ToResourceProperties PreloadDataConfigProperty where
   toResourceProperties PreloadDataConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::HealthLake::FHIRDatastore.PreloadDataConfig",
+         supportsTags = Prelude.False,
          properties = ["PreloadDataType" JSON..= preloadDataType]}
 instance JSON.ToJSON PreloadDataConfigProperty where
   toJSON PreloadDataConfigProperty {..}

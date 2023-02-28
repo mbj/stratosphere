@@ -21,6 +21,7 @@ instance ToResourceProperties VirtualMFADevice where
   toResourceProperties VirtualMFADevice {..}
     = ResourceProperties
         {awsType = "AWS::IAM::VirtualMFADevice",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Users" JSON..= users]

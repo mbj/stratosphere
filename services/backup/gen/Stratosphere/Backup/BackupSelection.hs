@@ -20,6 +20,7 @@ instance ToResourceProperties BackupSelection where
   toResourceProperties BackupSelection {..}
     = ResourceProperties
         {awsType = "AWS::Backup::BackupSelection",
+         supportsTags = Prelude.False,
          properties = ["BackupPlanId" JSON..= backupPlanId,
                        "BackupSelection" JSON..= backupSelection]}
 instance JSON.ToJSON BackupSelection where

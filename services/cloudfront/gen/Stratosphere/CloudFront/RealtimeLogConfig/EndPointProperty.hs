@@ -21,6 +21,7 @@ instance ToResourceProperties EndPointProperty where
   toResourceProperties EndPointProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::RealtimeLogConfig.EndPoint",
+         supportsTags = Prelude.False,
          properties = ["KinesisStreamConfig" JSON..= kinesisStreamConfig,
                        "StreamType" JSON..= streamType]}
 instance JSON.ToJSON EndPointProperty where

@@ -39,6 +39,7 @@ instance ToResourceProperties FlowOutput where
   toResourceProperties FlowOutput {..}
     = ResourceProperties
         {awsType = "AWS::MediaConnect::FlowOutput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FlowArn" JSON..= flowArn, "Protocol" JSON..= protocol]

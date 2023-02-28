@@ -24,7 +24,7 @@ mkRuleset name rules targetArn
 instance ToResourceProperties Ruleset where
   toResourceProperties Ruleset {..}
     = ResourceProperties
-        {awsType = "AWS::DataBrew::Ruleset",
+        {awsType = "AWS::DataBrew::Ruleset", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Rules" JSON..= rules,

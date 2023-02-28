@@ -17,6 +17,7 @@ instance ToResourceProperties MetricDimensionProperty where
   toResourceProperties MetricDimensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationAutoScaling::ScalingPolicy.MetricDimension",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON MetricDimensionProperty where
   toJSON MetricDimensionProperty {..}

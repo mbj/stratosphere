@@ -17,6 +17,7 @@ instance ToResourceProperties HeaderObjectProperty where
   toResourceProperties HeaderObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Distribution.HeaderObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HeadersAllowList" Prelude.<$> headersAllowList,

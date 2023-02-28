@@ -19,6 +19,7 @@ instance ToResourceProperties MountPointsProperty where
   toResourceProperties MountPointsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.MountPoints",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerPath" Prelude.<$> containerPath,

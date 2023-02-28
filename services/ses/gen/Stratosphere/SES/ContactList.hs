@@ -21,7 +21,7 @@ mkContactList
 instance ToResourceProperties ContactList where
   toResourceProperties ContactList {..}
     = ResourceProperties
-        {awsType = "AWS::SES::ContactList",
+        {awsType = "AWS::SES::ContactList", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContactListName" Prelude.<$> contactListName,

@@ -16,6 +16,7 @@ instance ToResourceProperties PlacementTypeProperty where
   toResourceProperties PlacementTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.PlacementType",
+         supportsTags = Prelude.False,
          properties = ["AvailabilityZone" JSON..= availabilityZone]}
 instance JSON.ToJSON PlacementTypeProperty where
   toJSON PlacementTypeProperty {..}

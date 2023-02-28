@@ -21,7 +21,7 @@ mkArchive sourceArn
 instance ToResourceProperties Archive where
   toResourceProperties Archive {..}
     = ResourceProperties
-        {awsType = "AWS::Events::Archive",
+        {awsType = "AWS::Events::Archive", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SourceArn" JSON..= sourceArn]

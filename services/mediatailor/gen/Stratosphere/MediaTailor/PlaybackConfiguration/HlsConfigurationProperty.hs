@@ -16,6 +16,7 @@ instance ToResourceProperties HlsConfigurationProperty where
   toResourceProperties HlsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaTailor::PlaybackConfiguration.HlsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ManifestEndpointPrefix"

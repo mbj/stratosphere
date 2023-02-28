@@ -39,6 +39,7 @@ instance ToResourceProperties LaunchProfile where
   toResourceProperties LaunchProfile {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::LaunchProfile",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Ec2SubnetIds" JSON..= ec2SubnetIds,

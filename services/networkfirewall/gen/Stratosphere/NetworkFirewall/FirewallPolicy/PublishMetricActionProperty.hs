@@ -3,6 +3,7 @@ module Stratosphere.NetworkFirewall.FirewallPolicy.PublishMetricActionProperty (
         mkPublishMetricActionProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.DimensionProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties PublishMetricActionProperty where
   toResourceProperties PublishMetricActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::FirewallPolicy.PublishMetricAction",
+         supportsTags = Prelude.False,
          properties = ["Dimensions" JSON..= dimensions]}
 instance JSON.ToJSON PublishMetricActionProperty where
   toJSON PublishMetricActionProperty {..}

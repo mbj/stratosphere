@@ -23,7 +23,7 @@ mkHost availabilityZone
 instance ToResourceProperties Host where
   toResourceProperties Host {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::Host",
+        {awsType = "AWS::EC2::Host", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AvailabilityZone" JSON..= availabilityZone]

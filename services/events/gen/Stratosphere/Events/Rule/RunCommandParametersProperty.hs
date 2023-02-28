@@ -3,6 +3,7 @@ module Stratosphere.Events.Rule.RunCommandParametersProperty (
         mkRunCommandParametersProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Rule.RunCommandTargetProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties RunCommandParametersProperty where
   toResourceProperties RunCommandParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Rule.RunCommandParameters",
+         supportsTags = Prelude.False,
          properties = ["RunCommandTargets" JSON..= runCommandTargets]}
 instance JSON.ToJSON RunCommandParametersProperty where
   toJSON RunCommandParametersProperty {..}

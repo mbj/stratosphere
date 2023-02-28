@@ -19,6 +19,7 @@ instance ToResourceProperties CookieMatchPatternProperty where
   toResourceProperties CookieMatchPatternProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.CookieMatchPattern",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "All" Prelude.<$> all,

@@ -22,6 +22,7 @@ instance ToResourceProperties RoleMappingProperty where
   toResourceProperties RoleMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::IdentityPoolRoleAttachment.RoleMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

@@ -3,6 +3,7 @@ module Stratosphere.S3ObjectLambda.AccessPoint.ContentTransformationProperty (
         mkContentTransformationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3ObjectLambda.AccessPoint.AwsLambdaProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties ContentTransformationProperty where
   toResourceProperties ContentTransformationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3ObjectLambda::AccessPoint.ContentTransformation",
+         supportsTags = Prelude.False,
          properties = ["AwsLambda" JSON..= awsLambda]}
 instance JSON.ToJSON ContentTransformationProperty where
   toJSON ContentTransformationProperty {..}

@@ -19,7 +19,7 @@ mkSAMLProvider samlMetadataDocument
 instance ToResourceProperties SAMLProvider where
   toResourceProperties SAMLProvider {..}
     = ResourceProperties
-        {awsType = "AWS::IAM::SAMLProvider",
+        {awsType = "AWS::IAM::SAMLProvider", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SamlMetadataDocument" JSON..= samlMetadataDocument]

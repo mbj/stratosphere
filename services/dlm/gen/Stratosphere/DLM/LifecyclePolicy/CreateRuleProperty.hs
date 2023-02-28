@@ -22,6 +22,7 @@ instance ToResourceProperties CreateRuleProperty where
   toResourceProperties CreateRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.CreateRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CronExpression" Prelude.<$> cronExpression,

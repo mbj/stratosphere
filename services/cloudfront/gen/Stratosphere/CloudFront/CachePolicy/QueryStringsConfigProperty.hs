@@ -19,6 +19,7 @@ instance ToResourceProperties QueryStringsConfigProperty where
   toResourceProperties QueryStringsConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::CachePolicy.QueryStringsConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["QueryStringBehavior" JSON..= queryStringBehavior]

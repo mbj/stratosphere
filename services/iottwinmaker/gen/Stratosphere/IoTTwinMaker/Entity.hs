@@ -26,6 +26,7 @@ instance ToResourceProperties Entity where
   toResourceProperties Entity {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::Entity",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EntityName" JSON..= entityName,

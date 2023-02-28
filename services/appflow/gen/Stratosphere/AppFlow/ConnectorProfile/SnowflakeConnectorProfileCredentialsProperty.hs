@@ -22,6 +22,7 @@ instance ToResourceProperties SnowflakeConnectorProfileCredentialsProperty where
     SnowflakeConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.SnowflakeConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = ["Password" JSON..= password,
                        "Username" JSON..= username]}
 instance JSON.ToJSON SnowflakeConnectorProfileCredentialsProperty where

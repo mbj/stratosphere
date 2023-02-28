@@ -21,7 +21,7 @@ mkCRL crlData name
 instance ToResourceProperties CRL where
   toResourceProperties CRL {..}
     = ResourceProperties
-        {awsType = "AWS::RolesAnywhere::CRL",
+        {awsType = "AWS::RolesAnywhere::CRL", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CrlData" JSON..= crlData, "Name" JSON..= name]

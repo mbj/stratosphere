@@ -27,6 +27,7 @@ instance ToResourceProperties WirelessGateway where
   toResourceProperties WirelessGateway {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::WirelessGateway",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LoRaWAN" JSON..= loRaWAN]

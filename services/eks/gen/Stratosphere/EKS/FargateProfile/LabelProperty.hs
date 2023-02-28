@@ -17,6 +17,7 @@ instance ToResourceProperties LabelProperty where
   toResourceProperties LabelProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::FargateProfile.Label",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON LabelProperty where
   toJSON LabelProperty {..}

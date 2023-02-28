@@ -18,6 +18,7 @@ instance ToResourceProperties FindingsFilterListItemProperty where
   toResourceProperties FindingsFilterListItemProperty {..}
     = ResourceProperties
         {awsType = "AWS::Macie::FindingsFilter.FindingsFilterListItem",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Id" Prelude.<$> id,

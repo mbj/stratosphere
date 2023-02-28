@@ -22,6 +22,7 @@ instance ToResourceProperties TransformationConfigurationProperty where
   toResourceProperties TransformationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3ObjectLambda::AccessPoint.TransformationConfiguration",
+         supportsTags = Prelude.False,
          properties = ["Actions" JSON..= actions,
                        "ContentTransformation" JSON..= contentTransformation]}
 instance JSON.ToJSON TransformationConfigurationProperty where

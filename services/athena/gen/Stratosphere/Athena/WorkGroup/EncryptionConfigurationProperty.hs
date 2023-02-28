@@ -19,6 +19,7 @@ instance ToResourceProperties EncryptionConfigurationProperty where
   toResourceProperties EncryptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Athena::WorkGroup.EncryptionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EncryptionOption" JSON..= encryptionOption]

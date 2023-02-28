@@ -24,6 +24,7 @@ instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Trigger.Action",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arguments" Prelude.<$> arguments,

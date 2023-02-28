@@ -17,6 +17,7 @@ instance ToResourceProperties PlacementTemplateProperty where
   toResourceProperties PlacementTemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT1Click::Project.PlacementTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefaultAttributes" Prelude.<$> defaultAttributes,

@@ -36,6 +36,7 @@ instance ToResourceProperties OntapConfigurationProperty where
   toResourceProperties OntapConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::Volume.OntapConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SizeInMegabytes" JSON..= sizeInMegabytes,

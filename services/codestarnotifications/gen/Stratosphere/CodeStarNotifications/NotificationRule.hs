@@ -34,6 +34,7 @@ instance ToResourceProperties NotificationRule where
   toResourceProperties NotificationRule {..}
     = ResourceProperties
         {awsType = "AWS::CodeStarNotifications::NotificationRule",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DetailType" JSON..= detailType,

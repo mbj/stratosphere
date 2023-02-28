@@ -22,6 +22,7 @@ instance ToResourceProperties StepConfigProperty where
   toResourceProperties StepConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMR::Cluster.StepConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HadoopJarStep" JSON..= hadoopJarStep, "Name" JSON..= name]

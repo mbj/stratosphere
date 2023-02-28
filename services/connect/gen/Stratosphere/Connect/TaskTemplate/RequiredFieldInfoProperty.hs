@@ -3,6 +3,7 @@ module Stratosphere.Connect.TaskTemplate.RequiredFieldInfoProperty (
         mkRequiredFieldInfoProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,7 +17,7 @@ instance ToResourceProperties RequiredFieldInfoProperty where
   toResourceProperties RequiredFieldInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::TaskTemplate.RequiredFieldInfo",
-         properties = ["Id" JSON..= id]}
+         supportsTags = Prelude.False, properties = ["Id" JSON..= id]}
 instance JSON.ToJSON RequiredFieldInfoProperty where
   toJSON RequiredFieldInfoProperty {..}
     = JSON.object ["Id" JSON..= id]

@@ -16,6 +16,7 @@ instance ToResourceProperties SourcePriorityProperty where
   toResourceProperties SourcePriorityProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaConnect::Flow.SourcePriority",
+         supportsTags = Prelude.False,
          properties = ["PrimarySource" JSON..= primarySource]}
 instance JSON.ToJSON SourcePriorityProperty where
   toJSON SourcePriorityProperty {..}

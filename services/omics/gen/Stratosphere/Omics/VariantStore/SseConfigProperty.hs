@@ -16,6 +16,7 @@ instance ToResourceProperties SseConfigProperty where
   toResourceProperties SseConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Omics::VariantStore.SseConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

@@ -20,6 +20,7 @@ instance ToResourceProperties DefaultConditionalBranchProperty where
   toResourceProperties DefaultConditionalBranchProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.DefaultConditionalBranch",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NextStep" Prelude.<$> nextStep,

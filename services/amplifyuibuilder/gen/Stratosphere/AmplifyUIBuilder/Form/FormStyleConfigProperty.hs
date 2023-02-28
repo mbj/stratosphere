@@ -17,6 +17,7 @@ instance ToResourceProperties FormStyleConfigProperty where
   toResourceProperties FormStyleConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.FormStyleConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TokenReference" Prelude.<$> tokenReference,

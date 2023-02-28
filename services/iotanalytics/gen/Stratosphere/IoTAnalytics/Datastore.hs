@@ -30,6 +30,7 @@ instance ToResourceProperties Datastore where
   toResourceProperties Datastore {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DatastoreName" Prelude.<$> datastoreName,

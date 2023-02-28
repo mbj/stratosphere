@@ -20,6 +20,7 @@ instance ToResourceProperties OrganizationalUnit where
   toResourceProperties OrganizationalUnit {..}
     = ResourceProperties
         {awsType = "AWS::Organizations::OrganizationalUnit",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "ParentId" JSON..= parentId]

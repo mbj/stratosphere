@@ -23,6 +23,7 @@ instance ToResourceProperties SkillPackageProperty where
   toResourceProperties SkillPackageProperty {..}
     = ResourceProperties
         {awsType = "Alexa::ASK::Skill.SkillPackage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3Bucket" JSON..= s3Bucket, "S3Key" JSON..= s3Key]

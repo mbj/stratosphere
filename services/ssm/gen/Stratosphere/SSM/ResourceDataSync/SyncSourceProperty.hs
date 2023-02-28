@@ -23,6 +23,7 @@ instance ToResourceProperties SyncSourceProperty where
   toResourceProperties SyncSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::ResourceDataSync.SyncSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SourceRegions" JSON..= sourceRegions,

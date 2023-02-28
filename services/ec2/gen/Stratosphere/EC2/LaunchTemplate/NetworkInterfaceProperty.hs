@@ -52,6 +52,7 @@ instance ToResourceProperties NetworkInterfaceProperty where
   toResourceProperties NetworkInterfaceProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.NetworkInterface",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AssociateCarrierIpAddress"

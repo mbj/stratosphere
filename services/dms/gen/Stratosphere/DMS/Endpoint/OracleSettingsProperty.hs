@@ -82,6 +82,7 @@ instance ToResourceProperties OracleSettingsProperty where
   toResourceProperties OracleSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.OracleSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessAlternateDirectly"

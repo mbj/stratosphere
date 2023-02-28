@@ -26,6 +26,7 @@ instance ToResourceProperties DBClusterParameterGroup where
   toResourceProperties DBClusterParameterGroup {..}
     = ResourceProperties
         {awsType = "AWS::RDS::DBClusterParameterGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description, "Family" JSON..= family,

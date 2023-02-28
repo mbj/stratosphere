@@ -21,6 +21,7 @@ instance ToResourceProperties UserProperty where
   toResourceProperties UserProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmazonMQ::Broker.User",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Password" JSON..= password, "Username" JSON..= username]

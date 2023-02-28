@@ -17,6 +17,7 @@ instance ToResourceProperties TlsValidationContextSdsTrustProperty where
   toResourceProperties TlsValidationContextSdsTrustProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.TlsValidationContextSdsTrust",
+         supportsTags = Prelude.False,
          properties = ["SecretName" JSON..= secretName]}
 instance JSON.ToJSON TlsValidationContextSdsTrustProperty where
   toJSON TlsValidationContextSdsTrustProperty {..}

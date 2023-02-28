@@ -18,6 +18,7 @@ instance ToResourceProperties DefinitionParameterProperty where
   toResourceProperties DefinitionParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::ServiceAction.DefinitionParameter",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON DefinitionParameterProperty where
   toJSON DefinitionParameterProperty {..}

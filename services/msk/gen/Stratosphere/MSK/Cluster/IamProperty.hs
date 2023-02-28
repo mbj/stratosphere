@@ -12,7 +12,7 @@ mkIamProperty enabled = IamProperty {enabled = enabled}
 instance ToResourceProperties IamProperty where
   toResourceProperties IamProperty {..}
     = ResourceProperties
-        {awsType = "AWS::MSK::Cluster.Iam",
+        {awsType = "AWS::MSK::Cluster.Iam", supportsTags = Prelude.False,
          properties = ["Enabled" JSON..= enabled]}
 instance JSON.ToJSON IamProperty where
   toJSON IamProperty {..} = JSON.object ["Enabled" JSON..= enabled]

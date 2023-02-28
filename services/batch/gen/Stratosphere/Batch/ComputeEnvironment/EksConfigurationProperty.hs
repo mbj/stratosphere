@@ -20,6 +20,7 @@ instance ToResourceProperties EksConfigurationProperty where
   toResourceProperties EksConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::ComputeEnvironment.EksConfiguration",
+         supportsTags = Prelude.False,
          properties = ["EksClusterArn" JSON..= eksClusterArn,
                        "KubernetesNamespace" JSON..= kubernetesNamespace]}
 instance JSON.ToJSON EksConfigurationProperty where

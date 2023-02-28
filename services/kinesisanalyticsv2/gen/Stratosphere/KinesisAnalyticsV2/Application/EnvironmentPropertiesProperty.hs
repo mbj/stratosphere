@@ -16,6 +16,7 @@ instance ToResourceProperties EnvironmentPropertiesProperty where
   toResourceProperties EnvironmentPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application.EnvironmentProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PropertyGroups" Prelude.<$> propertyGroups])}

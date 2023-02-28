@@ -20,6 +20,7 @@ instance ToResourceProperties UserProfile where
   toResourceProperties UserProfile {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::UserProfile",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IamUserArn" JSON..= iamUserArn]

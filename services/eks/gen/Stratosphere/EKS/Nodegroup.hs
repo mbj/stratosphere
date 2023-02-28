@@ -47,7 +47,7 @@ mkNodegroup clusterName nodeRole subnets
 instance ToResourceProperties Nodegroup where
   toResourceProperties Nodegroup {..}
     = ResourceProperties
-        {awsType = "AWS::EKS::Nodegroup",
+        {awsType = "AWS::EKS::Nodegroup", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterName" JSON..= clusterName, "NodeRole" JSON..= nodeRole,

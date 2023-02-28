@@ -20,6 +20,7 @@ instance ToResourceProperties RegistryPolicy where
   toResourceProperties RegistryPolicy {..}
     = ResourceProperties
         {awsType = "AWS::EventSchemas::RegistryPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Policy" JSON..= policy, "RegistryName" JSON..= registryName]

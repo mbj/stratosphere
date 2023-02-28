@@ -19,7 +19,7 @@ mkProject placementTemplate
 instance ToResourceProperties Project where
   toResourceProperties Project {..}
     = ResourceProperties
-        {awsType = "AWS::IoT1Click::Project",
+        {awsType = "AWS::IoT1Click::Project", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PlacementTemplate" JSON..= placementTemplate]

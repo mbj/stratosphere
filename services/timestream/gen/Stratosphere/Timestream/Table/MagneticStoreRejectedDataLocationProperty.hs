@@ -18,6 +18,7 @@ instance ToResourceProperties MagneticStoreRejectedDataLocationProperty where
   toResourceProperties MagneticStoreRejectedDataLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::Table.MagneticStoreRejectedDataLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "S3Configuration" Prelude.<$> s3Configuration])}

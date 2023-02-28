@@ -19,6 +19,7 @@ instance ToResourceProperties AcceleratorTotalMemoryMiBProperty where
   toResourceProperties AcceleratorTotalMemoryMiBProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.AcceleratorTotalMemoryMiB",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

@@ -24,6 +24,7 @@ instance ToResourceProperties ReferenceDataSourceProperty where
   toResourceProperties ReferenceDataSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::ApplicationReferenceDataSource.ReferenceDataSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ReferenceSchema" JSON..= referenceSchema]

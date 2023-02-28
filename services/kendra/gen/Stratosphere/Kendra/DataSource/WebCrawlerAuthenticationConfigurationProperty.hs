@@ -19,6 +19,7 @@ instance ToResourceProperties WebCrawlerAuthenticationConfigurationProperty wher
     WebCrawlerAuthenticationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.WebCrawlerAuthenticationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BasicAuthentication" Prelude.<$> basicAuthentication])}

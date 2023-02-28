@@ -55,7 +55,7 @@ mkTable keySchema
 instance ToResourceProperties Table where
   toResourceProperties Table {..}
     = ResourceProperties
-        {awsType = "AWS::DynamoDB::Table",
+        {awsType = "AWS::DynamoDB::Table", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KeySchema" JSON..= keySchema]

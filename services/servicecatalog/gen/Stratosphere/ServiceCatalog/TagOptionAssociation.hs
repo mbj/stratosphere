@@ -18,6 +18,7 @@ instance ToResourceProperties TagOptionAssociation where
   toResourceProperties TagOptionAssociation {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::TagOptionAssociation",
+         supportsTags = Prelude.False,
          properties = ["ResourceId" JSON..= resourceId,
                        "TagOptionId" JSON..= tagOptionId]}
 instance JSON.ToJSON TagOptionAssociation where

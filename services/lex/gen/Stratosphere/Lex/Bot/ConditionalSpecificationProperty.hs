@@ -28,6 +28,7 @@ instance ToResourceProperties ConditionalSpecificationProperty where
   toResourceProperties ConditionalSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.ConditionalSpecification",
+         supportsTags = Prelude.False,
          properties = ["ConditionalBranches" JSON..= conditionalBranches,
                        "DefaultBranch" JSON..= defaultBranch,
                        "IsActive" JSON..= isActive]}

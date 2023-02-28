@@ -18,6 +18,7 @@ instance ToResourceProperties PlacementStrategyProperty where
   toResourceProperties PlacementStrategyProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service.PlacementStrategy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

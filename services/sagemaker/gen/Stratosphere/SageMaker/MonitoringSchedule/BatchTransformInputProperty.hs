@@ -31,6 +31,7 @@ instance ToResourceProperties BatchTransformInputProperty where
   toResourceProperties BatchTransformInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule.BatchTransformInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataCapturedDestinationS3Uri"

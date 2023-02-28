@@ -25,7 +25,7 @@ mkApiCache apiCachingBehavior apiId ttl type'
 instance ToResourceProperties ApiCache where
   toResourceProperties ApiCache {..}
     = ResourceProperties
-        {awsType = "AWS::AppSync::ApiCache",
+        {awsType = "AWS::AppSync::ApiCache", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiCachingBehavior" JSON..= apiCachingBehavior,

@@ -22,6 +22,7 @@ instance ToResourceProperties Certificate where
   toResourceProperties Certificate {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Certificate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CertificateName" JSON..= certificateName,

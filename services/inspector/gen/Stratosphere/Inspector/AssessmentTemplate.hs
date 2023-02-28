@@ -31,6 +31,7 @@ instance ToResourceProperties AssessmentTemplate where
   toResourceProperties AssessmentTemplate {..}
     = ResourceProperties
         {awsType = "AWS::Inspector::AssessmentTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AssessmentTargetArn" JSON..= assessmentTargetArn,

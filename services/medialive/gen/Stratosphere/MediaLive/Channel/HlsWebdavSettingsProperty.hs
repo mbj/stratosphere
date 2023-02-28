@@ -23,6 +23,7 @@ instance ToResourceProperties HlsWebdavSettingsProperty where
   toResourceProperties HlsWebdavSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HlsWebdavSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectionRetryInterval"

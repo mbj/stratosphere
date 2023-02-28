@@ -27,7 +27,7 @@ mkAlias functionName functionVersion name
 instance ToResourceProperties Alias where
   toResourceProperties Alias {..}
     = ResourceProperties
-        {awsType = "AWS::Lambda::Alias",
+        {awsType = "AWS::Lambda::Alias", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionName" JSON..= functionName,

@@ -37,6 +37,7 @@ instance ToResourceProperties OntapConfigurationProperty where
   toResourceProperties OntapConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::FileSystem.OntapConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeploymentType" JSON..= deploymentType]

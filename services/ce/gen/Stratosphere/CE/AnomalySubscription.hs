@@ -35,6 +35,7 @@ instance ToResourceProperties AnomalySubscription where
   toResourceProperties AnomalySubscription {..}
     = ResourceProperties
         {awsType = "AWS::CE::AnomalySubscription",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Frequency" JSON..= frequency,

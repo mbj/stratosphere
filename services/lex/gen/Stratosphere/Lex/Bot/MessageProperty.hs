@@ -23,7 +23,7 @@ mkMessageProperty
 instance ToResourceProperties MessageProperty where
   toResourceProperties MessageProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Lex::Bot.Message",
+        {awsType = "AWS::Lex::Bot.Message", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomPayload" Prelude.<$> customPayload,

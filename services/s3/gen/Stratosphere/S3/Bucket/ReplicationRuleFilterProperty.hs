@@ -22,6 +22,7 @@ instance ToResourceProperties ReplicationRuleFilterProperty where
   toResourceProperties ReplicationRuleFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ReplicationRuleFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "And" Prelude.<$> and,

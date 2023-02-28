@@ -22,6 +22,7 @@ instance ToResourceProperties S3ActionProperty where
   toResourceProperties S3ActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.S3Action",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName, "Key" JSON..= key,

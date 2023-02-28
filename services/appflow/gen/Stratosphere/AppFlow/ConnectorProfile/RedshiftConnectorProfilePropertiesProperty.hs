@@ -34,6 +34,7 @@ instance ToResourceProperties RedshiftConnectorProfilePropertiesProperty where
     RedshiftConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.RedshiftConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName, "RoleArn" JSON..= roleArn]

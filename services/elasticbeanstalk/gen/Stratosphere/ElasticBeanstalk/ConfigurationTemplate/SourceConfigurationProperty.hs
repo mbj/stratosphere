@@ -19,6 +19,7 @@ instance ToResourceProperties SourceConfigurationProperty where
   toResourceProperties SourceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::ConfigurationTemplate.SourceConfiguration",
+         supportsTags = Prelude.False,
          properties = ["ApplicationName" JSON..= applicationName,
                        "TemplateName" JSON..= templateName]}
 instance JSON.ToJSON SourceConfigurationProperty where

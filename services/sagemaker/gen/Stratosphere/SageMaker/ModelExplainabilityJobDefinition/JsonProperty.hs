@@ -14,6 +14,7 @@ instance ToResourceProperties JsonProperty where
   toResourceProperties JsonProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelExplainabilityJobDefinition.Json",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Line" Prelude.<$> line])}
 instance JSON.ToJSON JsonProperty where

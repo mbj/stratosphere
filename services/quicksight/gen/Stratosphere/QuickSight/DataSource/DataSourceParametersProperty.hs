@@ -68,6 +68,7 @@ instance ToResourceProperties DataSourceParametersProperty where
   toResourceProperties DataSourceParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.DataSourceParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AmazonElasticsearchParameters"

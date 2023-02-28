@@ -17,6 +17,7 @@ instance ToResourceProperties SourceSegmentsProperty where
   toResourceProperties SourceSegmentsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.SourceSegments",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id]

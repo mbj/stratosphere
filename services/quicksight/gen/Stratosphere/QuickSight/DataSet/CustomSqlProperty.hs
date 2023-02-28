@@ -24,6 +24,7 @@ instance ToResourceProperties CustomSqlProperty where
   toResourceProperties CustomSqlProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.CustomSql",
+         supportsTags = Prelude.False,
          properties = ["Columns" JSON..= columns,
                        "DataSourceArn" JSON..= dataSourceArn, "Name" JSON..= name,
                        "SqlQuery" JSON..= sqlQuery]}

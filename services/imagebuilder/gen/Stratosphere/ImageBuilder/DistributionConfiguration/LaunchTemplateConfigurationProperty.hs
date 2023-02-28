@@ -21,6 +21,7 @@ instance ToResourceProperties LaunchTemplateConfigurationProperty where
   toResourceProperties LaunchTemplateConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::DistributionConfiguration.LaunchTemplateConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccountId" Prelude.<$> accountId,

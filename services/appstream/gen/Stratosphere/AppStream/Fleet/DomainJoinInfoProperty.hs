@@ -18,6 +18,7 @@ instance ToResourceProperties DomainJoinInfoProperty where
   toResourceProperties DomainJoinInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::Fleet.DomainJoinInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DirectoryName" Prelude.<$> directoryName,

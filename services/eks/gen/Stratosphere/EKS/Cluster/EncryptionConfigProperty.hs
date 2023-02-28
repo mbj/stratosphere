@@ -19,6 +19,7 @@ instance ToResourceProperties EncryptionConfigProperty where
   toResourceProperties EncryptionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Cluster.EncryptionConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Provider" Prelude.<$> provider,

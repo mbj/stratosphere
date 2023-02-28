@@ -25,6 +25,7 @@ instance ToResourceProperties VirtualNodeConnectionPoolProperty where
   toResourceProperties VirtualNodeConnectionPoolProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.VirtualNodeConnectionPool",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GRPC" Prelude.<$> gRPC,

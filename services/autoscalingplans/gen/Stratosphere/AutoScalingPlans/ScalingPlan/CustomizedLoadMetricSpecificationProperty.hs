@@ -30,6 +30,7 @@ instance ToResourceProperties CustomizedLoadMetricSpecificationProperty where
   toResourceProperties CustomizedLoadMetricSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScalingPlans::ScalingPlan.CustomizedLoadMetricSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricName" JSON..= metricName, "Namespace" JSON..= namespace,

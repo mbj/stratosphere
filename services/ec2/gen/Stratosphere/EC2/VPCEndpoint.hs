@@ -28,7 +28,7 @@ mkVPCEndpoint serviceName vpcId
 instance ToResourceProperties VPCEndpoint where
   toResourceProperties VPCEndpoint {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::VPCEndpoint",
+        {awsType = "AWS::EC2::VPCEndpoint", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ServiceName" JSON..= serviceName, "VpcId" JSON..= vpcId]

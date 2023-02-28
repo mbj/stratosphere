@@ -21,6 +21,7 @@ instance ToResourceProperties ApplicationVersion where
   toResourceProperties ApplicationVersion {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::ApplicationVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationName" JSON..= applicationName,

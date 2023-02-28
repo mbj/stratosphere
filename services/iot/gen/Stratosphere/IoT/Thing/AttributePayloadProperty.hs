@@ -15,6 +15,7 @@ instance ToResourceProperties AttributePayloadProperty where
   toResourceProperties AttributePayloadProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::Thing.AttributePayload",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Attributes" Prelude.<$> attributes])}

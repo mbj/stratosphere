@@ -20,6 +20,7 @@ instance ToResourceProperties StatelessRuleGroupReferenceProperty where
   toResourceProperties StatelessRuleGroupReferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::FirewallPolicy.StatelessRuleGroupReference",
+         supportsTags = Prelude.False,
          properties = ["Priority" JSON..= priority,
                        "ResourceArn" JSON..= resourceArn]}
 instance JSON.ToJSON StatelessRuleGroupReferenceProperty where

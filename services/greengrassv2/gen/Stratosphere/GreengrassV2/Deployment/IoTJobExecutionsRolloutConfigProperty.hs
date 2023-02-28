@@ -21,6 +21,7 @@ instance ToResourceProperties IoTJobExecutionsRolloutConfigProperty where
   toResourceProperties IoTJobExecutionsRolloutConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.IoTJobExecutionsRolloutConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExponentialRate" Prelude.<$> exponentialRate,

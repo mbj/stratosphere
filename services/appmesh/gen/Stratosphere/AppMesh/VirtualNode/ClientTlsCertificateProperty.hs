@@ -19,6 +19,7 @@ instance ToResourceProperties ClientTlsCertificateProperty where
   toResourceProperties ClientTlsCertificateProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.ClientTlsCertificate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "File" Prelude.<$> file,

@@ -15,6 +15,7 @@ instance ToResourceProperties MonthlyTransferProperty where
   toResourceProperties MonthlyTransferProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Instance.MonthlyTransfer",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GbPerMonthAllocated" Prelude.<$> gbPerMonthAllocated])}

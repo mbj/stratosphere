@@ -31,7 +31,7 @@ mkDBInstance dBClusterIdentifier dBInstanceClass
 instance ToResourceProperties DBInstance where
   toResourceProperties DBInstance {..}
     = ResourceProperties
-        {awsType = "AWS::DocDB::DBInstance",
+        {awsType = "AWS::DocDB::DBInstance", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DBClusterIdentifier" JSON..= dBClusterIdentifier,

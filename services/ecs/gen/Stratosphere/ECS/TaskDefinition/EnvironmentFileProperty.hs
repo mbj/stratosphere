@@ -17,6 +17,7 @@ instance ToResourceProperties EnvironmentFileProperty where
   toResourceProperties EnvironmentFileProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.EnvironmentFile",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Type" Prelude.<$> type',

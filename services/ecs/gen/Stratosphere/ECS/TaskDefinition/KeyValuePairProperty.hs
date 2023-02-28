@@ -17,6 +17,7 @@ instance ToResourceProperties KeyValuePairProperty where
   toResourceProperties KeyValuePairProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.KeyValuePair",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

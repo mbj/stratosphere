@@ -27,7 +27,7 @@ mkEndpoint eventBuses name routingConfig
 instance ToResourceProperties Endpoint where
   toResourceProperties Endpoint {..}
     = ResourceProperties
-        {awsType = "AWS::Events::Endpoint",
+        {awsType = "AWS::Events::Endpoint", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EventBuses" JSON..= eventBuses, "Name" JSON..= name,

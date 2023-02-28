@@ -21,6 +21,7 @@ instance ToResourceProperties ConstraintsProperty where
   toResourceProperties ConstraintsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::TaskTemplate.Constraints",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InvisibleFields" Prelude.<$> invisibleFields,

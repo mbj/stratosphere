@@ -31,6 +31,7 @@ instance ToResourceProperties TransitGatewayVpcAttachment where
   toResourceProperties TransitGatewayVpcAttachment {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TransitGatewayVpcAttachment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubnetIds" JSON..= subnetIds,

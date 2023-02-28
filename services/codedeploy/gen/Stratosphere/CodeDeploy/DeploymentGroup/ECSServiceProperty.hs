@@ -18,6 +18,7 @@ instance ToResourceProperties ECSServiceProperty where
   toResourceProperties ECSServiceProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.ECSService",
+         supportsTags = Prelude.False,
          properties = ["ClusterName" JSON..= clusterName,
                        "ServiceName" JSON..= serviceName]}
 instance JSON.ToJSON ECSServiceProperty where

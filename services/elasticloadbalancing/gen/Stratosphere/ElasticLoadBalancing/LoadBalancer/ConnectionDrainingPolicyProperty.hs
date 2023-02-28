@@ -19,6 +19,7 @@ instance ToResourceProperties ConnectionDrainingPolicyProperty where
   toResourceProperties ConnectionDrainingPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancing::LoadBalancer.ConnectionDrainingPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

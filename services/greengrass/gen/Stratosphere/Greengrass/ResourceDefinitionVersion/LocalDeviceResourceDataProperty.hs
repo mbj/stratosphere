@@ -20,6 +20,7 @@ instance ToResourceProperties LocalDeviceResourceDataProperty where
   toResourceProperties LocalDeviceResourceDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinitionVersion.LocalDeviceResourceData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SourcePath" JSON..= sourcePath]

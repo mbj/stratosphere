@@ -26,7 +26,7 @@ mkBucket bucketName bundleId
 instance ToResourceProperties Bucket where
   toResourceProperties Bucket {..}
     = ResourceProperties
-        {awsType = "AWS::Lightsail::Bucket",
+        {awsType = "AWS::Lightsail::Bucket", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName, "BundleId" JSON..= bundleId]

@@ -29,6 +29,7 @@ instance ToResourceProperties APNSChannel where
   toResourceProperties APNSChannel {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::APNSChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId]

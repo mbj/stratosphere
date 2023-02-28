@@ -21,6 +21,7 @@ instance ToResourceProperties CustomRuleProperty where
   toResourceProperties CustomRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::Amplify::App.CustomRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Source" JSON..= source, "Target" JSON..= target]

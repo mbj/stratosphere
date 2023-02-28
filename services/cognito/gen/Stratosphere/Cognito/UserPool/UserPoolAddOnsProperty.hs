@@ -15,6 +15,7 @@ instance ToResourceProperties UserPoolAddOnsProperty where
   toResourceProperties UserPoolAddOnsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.UserPoolAddOns",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdvancedSecurityMode"

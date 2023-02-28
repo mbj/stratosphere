@@ -22,7 +22,7 @@ mkCertificate status
 instance ToResourceProperties Certificate where
   toResourceProperties Certificate {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::Certificate",
+        {awsType = "AWS::IoT::Certificate", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Status" JSON..= status]

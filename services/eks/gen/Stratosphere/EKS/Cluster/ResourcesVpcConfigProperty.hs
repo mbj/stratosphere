@@ -24,6 +24,7 @@ instance ToResourceProperties ResourcesVpcConfigProperty where
   toResourceProperties ResourcesVpcConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Cluster.ResourcesVpcConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubnetIds" JSON..= subnetIds]

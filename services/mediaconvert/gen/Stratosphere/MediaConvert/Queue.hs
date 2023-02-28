@@ -21,7 +21,7 @@ mkQueue
 instance ToResourceProperties Queue where
   toResourceProperties Queue {..}
     = ResourceProperties
-        {awsType = "AWS::MediaConvert::Queue",
+        {awsType = "AWS::MediaConvert::Queue", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

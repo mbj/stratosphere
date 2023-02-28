@@ -18,6 +18,7 @@ instance ToResourceProperties WebvttDestinationSettingsProperty where
   toResourceProperties WebvttDestinationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.WebvttDestinationSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "StyleControl" Prelude.<$> styleControl])}

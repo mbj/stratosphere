@@ -16,6 +16,7 @@ instance ToResourceProperties FilterCriteriaProperty where
   toResourceProperties FilterCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventSourceMapping.FilterCriteria",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Filters" Prelude.<$> filters])}
 instance JSON.ToJSON FilterCriteriaProperty where

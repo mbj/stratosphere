@@ -21,6 +21,7 @@ instance ToResourceProperties SamlConfigOptionsProperty where
   toResourceProperties SamlConfigOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchServerless::SecurityConfig.SamlConfigOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Metadata" JSON..= metadata]

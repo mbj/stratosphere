@@ -18,6 +18,7 @@ instance ToResourceProperties DedicatedIpPool where
   toResourceProperties DedicatedIpPool {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::DedicatedIpPool",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PoolName" Prelude.<$> poolName,

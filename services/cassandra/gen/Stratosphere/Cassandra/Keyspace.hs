@@ -16,7 +16,7 @@ mkKeyspace
 instance ToResourceProperties Keyspace where
   toResourceProperties Keyspace {..}
     = ResourceProperties
-        {awsType = "AWS::Cassandra::Keyspace",
+        {awsType = "AWS::Cassandra::Keyspace", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "KeyspaceName" Prelude.<$> keyspaceName,

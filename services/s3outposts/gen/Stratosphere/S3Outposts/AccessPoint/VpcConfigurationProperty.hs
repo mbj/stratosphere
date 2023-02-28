@@ -15,6 +15,7 @@ instance ToResourceProperties VpcConfigurationProperty where
   toResourceProperties VpcConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3Outposts::AccessPoint.VpcConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "VpcId" Prelude.<$> vpcId])}
 instance JSON.ToJSON VpcConfigurationProperty where

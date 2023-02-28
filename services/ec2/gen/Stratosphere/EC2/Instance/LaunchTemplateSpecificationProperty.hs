@@ -21,6 +21,7 @@ instance ToResourceProperties LaunchTemplateSpecificationProperty where
   toResourceProperties LaunchTemplateSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.LaunchTemplateSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Version" JSON..= version]

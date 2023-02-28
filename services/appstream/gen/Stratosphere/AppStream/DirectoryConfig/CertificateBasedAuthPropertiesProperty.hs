@@ -20,6 +20,7 @@ instance ToResourceProperties CertificateBasedAuthPropertiesProperty where
   toResourceProperties CertificateBasedAuthPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::DirectoryConfig.CertificateBasedAuthProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateAuthorityArn"

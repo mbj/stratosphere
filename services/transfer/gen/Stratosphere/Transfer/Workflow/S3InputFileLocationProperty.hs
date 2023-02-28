@@ -17,6 +17,7 @@ instance ToResourceProperties S3InputFileLocationProperty where
   toResourceProperties S3InputFileLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Workflow.S3InputFileLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Bucket" Prelude.<$> bucket,

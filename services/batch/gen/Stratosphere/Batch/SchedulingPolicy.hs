@@ -20,6 +20,7 @@ instance ToResourceProperties SchedulingPolicy where
   toResourceProperties SchedulingPolicy {..}
     = ResourceProperties
         {awsType = "AWS::Batch::SchedulingPolicy",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FairsharePolicy" Prelude.<$> fairsharePolicy,

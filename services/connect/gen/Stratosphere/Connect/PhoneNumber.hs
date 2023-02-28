@@ -26,6 +26,7 @@ instance ToResourceProperties PhoneNumber where
   toResourceProperties PhoneNumber {..}
     = ResourceProperties
         {awsType = "AWS::Connect::PhoneNumber",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CountryCode" JSON..= countryCode, "TargetArn" JSON..= targetArn,

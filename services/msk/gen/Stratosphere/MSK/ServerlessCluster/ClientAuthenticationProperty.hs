@@ -3,6 +3,7 @@ module Stratosphere.MSK.ServerlessCluster.ClientAuthenticationProperty (
         mkClientAuthenticationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.ServerlessCluster.SaslProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,7 +17,7 @@ instance ToResourceProperties ClientAuthenticationProperty where
   toResourceProperties ClientAuthenticationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::ServerlessCluster.ClientAuthentication",
-         properties = ["Sasl" JSON..= sasl]}
+         supportsTags = Prelude.False, properties = ["Sasl" JSON..= sasl]}
 instance JSON.ToJSON ClientAuthenticationProperty where
   toJSON ClientAuthenticationProperty {..}
     = JSON.object ["Sasl" JSON..= sasl]

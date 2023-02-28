@@ -26,6 +26,7 @@ instance ToResourceProperties SalesforceChatterFeedConfigurationProperty where
     SalesforceChatterFeedConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.SalesforceChatterFeedConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DocumentDataFieldName" JSON..= documentDataFieldName]

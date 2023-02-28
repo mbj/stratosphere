@@ -20,6 +20,7 @@ instance ToResourceProperties DataSetUsageConfigurationProperty where
   toResourceProperties DataSetUsageConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.DataSetUsageConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DisableUseAsDirectQuerySource"

@@ -19,6 +19,7 @@ instance ToResourceProperties SuccessResponseHandlingConfigProperty where
   toResourceProperties SuccessResponseHandlingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.SuccessResponseHandlingConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BucketName" Prelude.<$> bucketName,

@@ -16,6 +16,7 @@ instance ToResourceProperties FeedbackAttributesProperty where
   toResourceProperties FeedbackAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::EmailIdentity.FeedbackAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EmailForwardingEnabled"

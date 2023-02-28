@@ -23,6 +23,7 @@ instance ToResourceProperties KinesisVideoStreamConfigProperty where
   toResourceProperties KinesisVideoStreamConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::InstanceStorageConfig.KinesisVideoStreamConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Prefix" JSON..= prefix,

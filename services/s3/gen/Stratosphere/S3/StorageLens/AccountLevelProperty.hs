@@ -28,6 +28,7 @@ instance ToResourceProperties AccountLevelProperty where
   toResourceProperties AccountLevelProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.AccountLevel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketLevel" JSON..= bucketLevel]

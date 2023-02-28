@@ -20,6 +20,7 @@ instance ToResourceProperties UserHierarchyGroup where
   toResourceProperties UserHierarchyGroup {..}
     = ResourceProperties
         {awsType = "AWS::Connect::UserHierarchyGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceArn" JSON..= instanceArn, "Name" JSON..= name]

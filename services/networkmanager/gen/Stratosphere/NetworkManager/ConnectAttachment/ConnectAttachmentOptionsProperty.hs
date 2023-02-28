@@ -17,6 +17,7 @@ instance ToResourceProperties ConnectAttachmentOptionsProperty where
   toResourceProperties ConnectAttachmentOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::ConnectAttachment.ConnectAttachmentOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Protocol" Prelude.<$> protocol])}
 instance JSON.ToJSON ConnectAttachmentOptionsProperty where

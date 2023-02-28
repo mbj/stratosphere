@@ -17,6 +17,7 @@ instance ToResourceProperties TagsItemsProperty where
   toResourceProperties TagsItemsProperty {..}
     = ResourceProperties
         {awsType = "AWS::XRay::SamplingRule.TagsItems",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON TagsItemsProperty where
   toJSON TagsItemsProperty {..}

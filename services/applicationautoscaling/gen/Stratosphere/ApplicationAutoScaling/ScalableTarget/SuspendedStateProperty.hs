@@ -20,6 +20,7 @@ instance ToResourceProperties SuspendedStateProperty where
   toResourceProperties SuspendedStateProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationAutoScaling::ScalableTarget.SuspendedState",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DynamicScalingInSuspended"

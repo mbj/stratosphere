@@ -20,6 +20,7 @@ instance ToResourceProperties OtaaV11Property where
   toResourceProperties OtaaV11Property {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::WirelessDevice.OtaaV11",
+         supportsTags = Prelude.False,
          properties = ["AppKey" JSON..= appKey, "JoinEui" JSON..= joinEui,
                        "NwkKey" JSON..= nwkKey]}
 instance JSON.ToJSON OtaaV11Property where

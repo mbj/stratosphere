@@ -20,6 +20,7 @@ instance ToResourceProperties AppCookieStickinessPolicyProperty where
   toResourceProperties AppCookieStickinessPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancing::LoadBalancer.AppCookieStickinessPolicy",
+         supportsTags = Prelude.False,
          properties = ["CookieName" JSON..= cookieName,
                        "PolicyName" JSON..= policyName]}
 instance JSON.ToJSON AppCookieStickinessPolicyProperty where

@@ -20,6 +20,7 @@ instance ToResourceProperties ProcessingConfigurationProperty where
   toResourceProperties ProcessingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

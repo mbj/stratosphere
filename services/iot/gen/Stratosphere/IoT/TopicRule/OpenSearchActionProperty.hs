@@ -26,6 +26,7 @@ instance ToResourceProperties OpenSearchActionProperty where
   toResourceProperties OpenSearchActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.OpenSearchAction",
+         supportsTags = Prelude.False,
          properties = ["Endpoint" JSON..= endpoint, "Id" JSON..= id,
                        "Index" JSON..= index, "RoleArn" JSON..= roleArn,
                        "Type" JSON..= type']}

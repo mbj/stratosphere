@@ -2,6 +2,7 @@ module Stratosphere.SES.ReceiptFilter (
         module Exports, ReceiptFilter(..), mkReceiptFilter
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SES.ReceiptFilter.FilterProperty as Exports
 import Stratosphere.ResourceProperties
@@ -11,7 +12,7 @@ mkReceiptFilter filter = ReceiptFilter {filter = filter}
 instance ToResourceProperties ReceiptFilter where
   toResourceProperties ReceiptFilter {..}
     = ResourceProperties
-        {awsType = "AWS::SES::ReceiptFilter",
+        {awsType = "AWS::SES::ReceiptFilter", supportsTags = Prelude.False,
          properties = ["Filter" JSON..= filter]}
 instance JSON.ToJSON ReceiptFilter where
   toJSON ReceiptFilter {..} = JSON.object ["Filter" JSON..= filter]

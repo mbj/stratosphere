@@ -19,6 +19,7 @@ instance ToResourceProperties AssertionRuleProperty where
   toResourceProperties AssertionRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryControl::SafetyRule.AssertionRule",
+         supportsTags = Prelude.False,
          properties = ["AssertedControls" JSON..= assertedControls,
                        "WaitPeriodMs" JSON..= waitPeriodMs]}
 instance JSON.ToJSON AssertionRuleProperty where

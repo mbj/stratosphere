@@ -17,6 +17,7 @@ instance ToResourceProperties MetricDimensionProperty where
   toResourceProperties MetricDimensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.MetricDimension",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComparisonOperator" Prelude.<$> comparisonOperator,

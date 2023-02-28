@@ -19,7 +19,7 @@ mkACL aCLName
 instance ToResourceProperties ACL where
   toResourceProperties ACL {..}
     = ResourceProperties
-        {awsType = "AWS::MemoryDB::ACL",
+        {awsType = "AWS::MemoryDB::ACL", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ACLName" JSON..= aCLName]

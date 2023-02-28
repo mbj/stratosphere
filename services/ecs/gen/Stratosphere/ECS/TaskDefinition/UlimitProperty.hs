@@ -20,6 +20,7 @@ instance ToResourceProperties UlimitProperty where
   toResourceProperties UlimitProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.Ulimit",
+         supportsTags = Prelude.False,
          properties = ["HardLimit" JSON..= hardLimit, "Name" JSON..= name,
                        "SoftLimit" JSON..= softLimit]}
 instance JSON.ToJSON UlimitProperty where

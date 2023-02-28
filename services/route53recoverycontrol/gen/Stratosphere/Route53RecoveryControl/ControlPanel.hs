@@ -19,6 +19,7 @@ instance ToResourceProperties ControlPanel where
   toResourceProperties ControlPanel {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryControl::ControlPanel",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

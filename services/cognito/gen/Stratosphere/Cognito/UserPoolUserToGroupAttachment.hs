@@ -22,6 +22,7 @@ instance ToResourceProperties UserPoolUserToGroupAttachment where
   toResourceProperties UserPoolUserToGroupAttachment {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolUserToGroupAttachment",
+         supportsTags = Prelude.False,
          properties = ["GroupName" JSON..= groupName,
                        "UserPoolId" JSON..= userPoolId, "Username" JSON..= username]}
 instance JSON.ToJSON UserPoolUserToGroupAttachment where

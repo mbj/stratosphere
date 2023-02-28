@@ -18,6 +18,7 @@ instance ToResourceProperties ConfluencePageConfigurationProperty where
   toResourceProperties ConfluencePageConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ConfluencePageConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PageFieldMappings" Prelude.<$> pageFieldMappings])}

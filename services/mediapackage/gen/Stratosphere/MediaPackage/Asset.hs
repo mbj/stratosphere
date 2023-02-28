@@ -26,7 +26,7 @@ mkAsset id packagingGroupId sourceArn sourceRoleArn
 instance ToResourceProperties Asset where
   toResourceProperties Asset {..}
     = ResourceProperties
-        {awsType = "AWS::MediaPackage::Asset",
+        {awsType = "AWS::MediaPackage::Asset", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id, "PackagingGroupId" JSON..= packagingGroupId,

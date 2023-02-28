@@ -20,6 +20,7 @@ instance ToResourceProperties MetricsSourceProperty where
   toResourceProperties MetricsSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.MetricsSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ContentType" JSON..= contentType, "S3Uri" JSON..= s3Uri]

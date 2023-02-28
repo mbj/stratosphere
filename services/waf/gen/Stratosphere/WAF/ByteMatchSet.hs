@@ -16,7 +16,7 @@ mkByteMatchSet name
 instance ToResourceProperties ByteMatchSet where
   toResourceProperties ByteMatchSet {..}
     = ResourceProperties
-        {awsType = "AWS::WAF::ByteMatchSet",
+        {awsType = "AWS::WAF::ByteMatchSet", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

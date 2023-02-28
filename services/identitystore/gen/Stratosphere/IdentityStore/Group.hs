@@ -19,6 +19,7 @@ instance ToResourceProperties Group where
   toResourceProperties Group {..}
     = ResourceProperties
         {awsType = "AWS::IdentityStore::Group",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DisplayName" JSON..= displayName,

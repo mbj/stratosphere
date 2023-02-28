@@ -19,6 +19,7 @@ instance ToResourceProperties DeploymentConfigurationValidationPolicyProperty wh
     DeploymentConfigurationValidationPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.DeploymentConfigurationValidationPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TimeoutInSeconds" Prelude.<$> timeoutInSeconds])}

@@ -23,6 +23,7 @@ instance ToResourceProperties LocalVolumeResourceDataProperty where
   toResourceProperties LocalVolumeResourceDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinition.LocalVolumeResourceData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationPath" JSON..= destinationPath,

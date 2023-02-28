@@ -25,6 +25,7 @@ instance ToResourceProperties AssistantAssociation where
   toResourceProperties AssistantAssociation {..}
     = ResourceProperties
         {awsType = "AWS::Wisdom::AssistantAssociation",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AssistantId" JSON..= assistantId,

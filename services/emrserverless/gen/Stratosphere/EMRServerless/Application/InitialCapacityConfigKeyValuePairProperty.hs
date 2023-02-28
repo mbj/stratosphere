@@ -22,6 +22,7 @@ instance ToResourceProperties InitialCapacityConfigKeyValuePairProperty where
   toResourceProperties InitialCapacityConfigKeyValuePairProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMRServerless::Application.InitialCapacityConfigKeyValuePair",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON InitialCapacityConfigKeyValuePairProperty where
   toJSON InitialCapacityConfigKeyValuePairProperty {..}

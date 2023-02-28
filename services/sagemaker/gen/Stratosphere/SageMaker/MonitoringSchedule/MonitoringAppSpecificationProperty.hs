@@ -25,6 +25,7 @@ instance ToResourceProperties MonitoringAppSpecificationProperty where
   toResourceProperties MonitoringAppSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule.MonitoringAppSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ImageUri" JSON..= imageUri]

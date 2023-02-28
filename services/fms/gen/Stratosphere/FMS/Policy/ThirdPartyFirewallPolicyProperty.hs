@@ -18,6 +18,7 @@ instance ToResourceProperties ThirdPartyFirewallPolicyProperty where
   toResourceProperties ThirdPartyFirewallPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::FMS::Policy.ThirdPartyFirewallPolicy",
+         supportsTags = Prelude.False,
          properties = ["FirewallDeploymentModel"
                          JSON..= firewallDeploymentModel]}
 instance JSON.ToJSON ThirdPartyFirewallPolicyProperty where

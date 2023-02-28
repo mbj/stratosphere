@@ -15,6 +15,7 @@ instance ToResourceProperties CustomEventsProperty where
   toResourceProperties CustomEventsProperty {..}
     = ResourceProperties
         {awsType = "AWS::RUM::AppMonitor.CustomEvents",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Status" Prelude.<$> status])}
 instance JSON.ToJSON CustomEventsProperty where

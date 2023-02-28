@@ -27,7 +27,7 @@ mkProject datasetName name recipeName roleArn
 instance ToResourceProperties Project where
   toResourceProperties Project {..}
     = ResourceProperties
-        {awsType = "AWS::DataBrew::Project",
+        {awsType = "AWS::DataBrew::Project", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DatasetName" JSON..= datasetName, "Name" JSON..= name,

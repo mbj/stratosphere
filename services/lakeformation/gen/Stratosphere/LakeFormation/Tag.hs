@@ -18,7 +18,7 @@ mkTag tagKey tagValues
 instance ToResourceProperties Tag where
   toResourceProperties Tag {..}
     = ResourceProperties
-        {awsType = "AWS::LakeFormation::Tag",
+        {awsType = "AWS::LakeFormation::Tag", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TagKey" JSON..= tagKey, "TagValues" JSON..= tagValues]

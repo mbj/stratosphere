@@ -20,6 +20,7 @@ instance ToResourceProperties RuntimeManagementConfigProperty where
   toResourceProperties RuntimeManagementConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.RuntimeManagementConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["UpdateRuntimeOn" JSON..= updateRuntimeOn]

@@ -18,6 +18,7 @@ instance ToResourceProperties ObjectTypeKeyProperty where
   toResourceProperties ObjectTypeKeyProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::ObjectType.ObjectTypeKey",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FieldNames" Prelude.<$> fieldNames,

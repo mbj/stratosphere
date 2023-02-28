@@ -23,6 +23,7 @@ instance ToResourceProperties ImageRepositoryProperty where
   toResourceProperties ImageRepositoryProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.ImageRepository",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ImageIdentifier" JSON..= imageIdentifier,

@@ -18,6 +18,7 @@ instance ToResourceProperties DeploymentReadyOptionProperty where
   toResourceProperties DeploymentReadyOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.DeploymentReadyOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ActionOnTimeout" Prelude.<$> actionOnTimeout,

@@ -20,6 +20,7 @@ instance ToResourceProperties StandardHlsSettingsProperty where
   toResourceProperties StandardHlsSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.StandardHlsSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioRenditionSets" Prelude.<$> audioRenditionSets,

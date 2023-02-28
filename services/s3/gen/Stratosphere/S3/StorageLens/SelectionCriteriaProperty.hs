@@ -19,6 +19,7 @@ instance ToResourceProperties SelectionCriteriaProperty where
   toResourceProperties SelectionCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.SelectionCriteria",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Delimiter" Prelude.<$> delimiter,

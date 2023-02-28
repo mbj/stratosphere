@@ -30,6 +30,7 @@ instance ToResourceProperties ProvisioningPreferencesProperty where
   toResourceProperties ProvisioningPreferencesProperty {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::CloudFormationProvisionedProduct.ProvisioningPreferences",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "StackSetAccounts" Prelude.<$> stackSetAccounts,

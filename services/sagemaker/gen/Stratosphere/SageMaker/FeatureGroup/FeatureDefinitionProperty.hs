@@ -19,6 +19,7 @@ instance ToResourceProperties FeatureDefinitionProperty where
   toResourceProperties FeatureDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::FeatureGroup.FeatureDefinition",
+         supportsTags = Prelude.False,
          properties = ["FeatureName" JSON..= featureName,
                        "FeatureType" JSON..= featureType]}
 instance JSON.ToJSON FeatureDefinitionProperty where

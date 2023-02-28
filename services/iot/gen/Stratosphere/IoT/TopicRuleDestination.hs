@@ -21,6 +21,7 @@ instance ToResourceProperties TopicRuleDestination where
   toResourceProperties TopicRuleDestination {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRuleDestination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HttpUrlProperties" Prelude.<$> httpUrlProperties,

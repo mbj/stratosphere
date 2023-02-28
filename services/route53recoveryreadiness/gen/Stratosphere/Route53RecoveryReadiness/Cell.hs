@@ -20,6 +20,7 @@ instance ToResourceProperties Cell where
   toResourceProperties Cell {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryReadiness::Cell",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CellName" Prelude.<$> cellName,

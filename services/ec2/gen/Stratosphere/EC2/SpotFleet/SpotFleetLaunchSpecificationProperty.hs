@@ -53,6 +53,7 @@ instance ToResourceProperties SpotFleetLaunchSpecificationProperty where
   toResourceProperties SpotFleetLaunchSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.SpotFleetLaunchSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ImageId" JSON..= imageId]

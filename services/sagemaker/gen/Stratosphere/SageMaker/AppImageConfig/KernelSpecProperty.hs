@@ -16,6 +16,7 @@ instance ToResourceProperties KernelSpecProperty where
   toResourceProperties KernelSpecProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::AppImageConfig.KernelSpec",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

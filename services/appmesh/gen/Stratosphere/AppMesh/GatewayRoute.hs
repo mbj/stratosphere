@@ -28,6 +28,7 @@ instance ToResourceProperties GatewayRoute where
   toResourceProperties GatewayRoute {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MeshName" JSON..= meshName, "Spec" JSON..= spec,

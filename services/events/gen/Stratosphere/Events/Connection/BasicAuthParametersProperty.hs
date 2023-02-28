@@ -19,6 +19,7 @@ instance ToResourceProperties BasicAuthParametersProperty where
   toResourceProperties BasicAuthParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Connection.BasicAuthParameters",
+         supportsTags = Prelude.False,
          properties = ["Password" JSON..= password,
                        "Username" JSON..= username]}
 instance JSON.ToJSON BasicAuthParametersProperty where

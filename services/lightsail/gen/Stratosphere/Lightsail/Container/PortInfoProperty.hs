@@ -17,6 +17,7 @@ instance ToResourceProperties PortInfoProperty where
   toResourceProperties PortInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Container.PortInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Port" Prelude.<$> port,

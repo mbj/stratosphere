@@ -2,6 +2,7 @@ module Stratosphere.Events.Endpoint.RoutingConfigProperty (
         module Exports, RoutingConfigProperty(..), mkRoutingConfigProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Endpoint.FailoverConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -15,6 +16,7 @@ instance ToResourceProperties RoutingConfigProperty where
   toResourceProperties RoutingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Endpoint.RoutingConfig",
+         supportsTags = Prelude.False,
          properties = ["FailoverConfig" JSON..= failoverConfig]}
 instance JSON.ToJSON RoutingConfigProperty where
   toJSON RoutingConfigProperty {..}

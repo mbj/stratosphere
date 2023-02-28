@@ -20,6 +20,7 @@ instance ToResourceProperties ResolverRuleAssociation where
   toResourceProperties ResolverRuleAssociation {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::ResolverRuleAssociation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResolverRuleId" JSON..= resolverRuleId, "VPCId" JSON..= vPCId]

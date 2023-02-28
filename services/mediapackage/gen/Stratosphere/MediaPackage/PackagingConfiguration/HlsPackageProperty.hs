@@ -25,6 +25,7 @@ instance ToResourceProperties HlsPackageProperty where
   toResourceProperties HlsPackageProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingConfiguration.HlsPackage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["HlsManifests" JSON..= hlsManifests]

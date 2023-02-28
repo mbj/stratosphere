@@ -26,6 +26,7 @@ instance ToResourceProperties CertificateAuthorityActivation where
   toResourceProperties CertificateAuthorityActivation {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthorityActivation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Certificate" JSON..= certificate,

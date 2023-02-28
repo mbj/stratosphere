@@ -17,6 +17,7 @@ instance ToResourceProperties CustomSMSSenderProperty where
   toResourceProperties CustomSMSSenderProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.CustomSMSSender",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LambdaArn" Prelude.<$> lambdaArn,

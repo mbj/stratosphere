@@ -16,6 +16,7 @@ instance ToResourceProperties TagsProperty where
   toResourceProperties TagsProperty {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::ConfigurationSet.Tags",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

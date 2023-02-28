@@ -21,6 +21,7 @@ instance ToResourceProperties FormCTAProperty where
   toResourceProperties FormCTAProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.FormCTA",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Cancel" Prelude.<$> cancel,

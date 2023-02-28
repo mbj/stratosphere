@@ -59,6 +59,7 @@ instance ToResourceProperties CacheBehaviorProperty where
   toResourceProperties CacheBehaviorProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.CacheBehavior",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PathPattern" JSON..= pathPattern,

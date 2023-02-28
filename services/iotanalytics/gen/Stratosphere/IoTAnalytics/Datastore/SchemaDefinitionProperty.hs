@@ -16,6 +16,7 @@ instance ToResourceProperties SchemaDefinitionProperty where
   toResourceProperties SchemaDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore.SchemaDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Columns" Prelude.<$> columns])}
 instance JSON.ToJSON SchemaDefinitionProperty where

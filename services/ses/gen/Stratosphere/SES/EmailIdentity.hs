@@ -30,7 +30,7 @@ mkEmailIdentity emailIdentity
 instance ToResourceProperties EmailIdentity where
   toResourceProperties EmailIdentity {..}
     = ResourceProperties
-        {awsType = "AWS::SES::EmailIdentity",
+        {awsType = "AWS::SES::EmailIdentity", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EmailIdentity" JSON..= emailIdentity]

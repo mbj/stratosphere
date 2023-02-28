@@ -22,6 +22,7 @@ instance ToResourceProperties IntegrationAssociation where
   toResourceProperties IntegrationAssociation {..}
     = ResourceProperties
         {awsType = "AWS::Connect::IntegrationAssociation",
+         supportsTags = Prelude.False,
          properties = ["InstanceId" JSON..= instanceId,
                        "IntegrationArn" JSON..= integrationArn,
                        "IntegrationType" JSON..= integrationType]}

@@ -17,6 +17,7 @@ instance ToResourceProperties MaintenanceStrategiesProperty where
   toResourceProperties MaintenanceStrategiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EC2Fleet.MaintenanceStrategies",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CapacityRebalance" Prelude.<$> capacityRebalance])}

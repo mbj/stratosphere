@@ -33,6 +33,7 @@ instance ToResourceProperties SlotValueElicitationSettingProperty where
   toResourceProperties SlotValueElicitationSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SlotValueElicitationSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SlotConstraint" JSON..= slotConstraint]

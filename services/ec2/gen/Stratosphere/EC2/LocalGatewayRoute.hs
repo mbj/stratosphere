@@ -23,6 +23,7 @@ instance ToResourceProperties LocalGatewayRoute where
   toResourceProperties LocalGatewayRoute {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LocalGatewayRoute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationCidrBlock" JSON..= destinationCidrBlock,

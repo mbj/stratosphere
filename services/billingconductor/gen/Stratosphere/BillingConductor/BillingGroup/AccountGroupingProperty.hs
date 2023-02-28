@@ -16,6 +16,7 @@ instance ToResourceProperties AccountGroupingProperty where
   toResourceProperties AccountGroupingProperty {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::BillingGroup.AccountGrouping",
+         supportsTags = Prelude.False,
          properties = ["LinkedAccountIds" JSON..= linkedAccountIds]}
 instance JSON.ToJSON AccountGroupingProperty where
   toJSON AccountGroupingProperty {..}

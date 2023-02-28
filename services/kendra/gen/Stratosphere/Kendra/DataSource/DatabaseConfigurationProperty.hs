@@ -38,6 +38,7 @@ instance ToResourceProperties DatabaseConfigurationProperty where
   toResourceProperties DatabaseConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.DatabaseConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ColumnConfiguration" JSON..= columnConfiguration,

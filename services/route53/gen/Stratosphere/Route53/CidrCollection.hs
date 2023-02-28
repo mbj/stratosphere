@@ -17,6 +17,7 @@ instance ToResourceProperties CidrCollection where
   toResourceProperties CidrCollection {..}
     = ResourceProperties
         {awsType = "AWS::Route53::CidrCollection",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

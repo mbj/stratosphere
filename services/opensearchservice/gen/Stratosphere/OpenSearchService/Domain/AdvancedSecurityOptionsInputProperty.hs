@@ -28,6 +28,7 @@ instance ToResourceProperties AdvancedSecurityOptionsInputProperty where
   toResourceProperties AdvancedSecurityOptionsInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.AdvancedSecurityOptionsInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AnonymousAuthDisableDate"

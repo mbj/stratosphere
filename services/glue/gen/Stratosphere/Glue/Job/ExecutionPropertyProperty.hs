@@ -15,6 +15,7 @@ instance ToResourceProperties ExecutionPropertyProperty where
   toResourceProperties ExecutionPropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Job.ExecutionProperty",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxConcurrentRuns" Prelude.<$> maxConcurrentRuns])}

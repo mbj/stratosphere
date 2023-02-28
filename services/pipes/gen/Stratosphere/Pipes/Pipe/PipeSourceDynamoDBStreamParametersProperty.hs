@@ -33,6 +33,7 @@ instance ToResourceProperties PipeSourceDynamoDBStreamParametersProperty where
     PipeSourceDynamoDBStreamParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeSourceDynamoDBStreamParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StartingPosition" JSON..= startingPosition]

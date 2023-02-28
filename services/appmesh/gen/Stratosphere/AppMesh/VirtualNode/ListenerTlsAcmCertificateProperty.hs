@@ -18,6 +18,7 @@ instance ToResourceProperties ListenerTlsAcmCertificateProperty where
   toResourceProperties ListenerTlsAcmCertificateProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.ListenerTlsAcmCertificate",
+         supportsTags = Prelude.False,
          properties = ["CertificateArn" JSON..= certificateArn]}
 instance JSON.ToJSON ListenerTlsAcmCertificateProperty where
   toJSON ListenerTlsAcmCertificateProperty {..}

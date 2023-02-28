@@ -24,6 +24,7 @@ instance ToResourceProperties VirtualRouter where
   toResourceProperties VirtualRouter {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualRouter",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MeshName" JSON..= meshName, "Spec" JSON..= spec]

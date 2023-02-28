@@ -33,6 +33,7 @@ instance ToResourceProperties EndpointConfig where
   toResourceProperties EndpointConfig {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ProductionVariants" JSON..= productionVariants]

@@ -17,6 +17,7 @@ instance ToResourceProperties ColumnProperty where
   toResourceProperties ColumnProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Datastore.Column",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Type" JSON..= type']}
 instance JSON.ToJSON ColumnProperty where
   toJSON ColumnProperty {..}

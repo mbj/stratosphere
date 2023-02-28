@@ -24,6 +24,7 @@ instance ToResourceProperties LoggerProperty where
   toResourceProperties LoggerProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::LoggerDefinition.Logger",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Component" JSON..= component, "Id" JSON..= id,

@@ -18,6 +18,7 @@ instance ToResourceProperties DefaultActionProperty where
   toResourceProperties DefaultActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.DefaultAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Allow" Prelude.<$> allow,

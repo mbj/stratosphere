@@ -18,6 +18,7 @@ instance ToResourceProperties ParameterProperty where
   toResourceProperties ParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::ClusterParameterGroup.Parameter",
+         supportsTags = Prelude.False,
          properties = ["ParameterName" JSON..= parameterName,
                        "ParameterValue" JSON..= parameterValue]}
 instance JSON.ToJSON ParameterProperty where

@@ -22,6 +22,7 @@ instance ToResourceProperties RedirectRuleProperty where
   toResourceProperties RedirectRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.RedirectRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HostName" Prelude.<$> hostName,

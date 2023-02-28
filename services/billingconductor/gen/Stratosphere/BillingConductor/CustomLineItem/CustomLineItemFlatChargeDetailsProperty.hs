@@ -18,6 +18,7 @@ instance ToResourceProperties CustomLineItemFlatChargeDetailsProperty where
   toResourceProperties CustomLineItemFlatChargeDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::CustomLineItem.CustomLineItemFlatChargeDetails",
+         supportsTags = Prelude.False,
          properties = ["ChargeValue" JSON..= chargeValue]}
 instance JSON.ToJSON CustomLineItemFlatChargeDetailsProperty where
   toJSON CustomLineItemFlatChargeDetailsProperty {..}

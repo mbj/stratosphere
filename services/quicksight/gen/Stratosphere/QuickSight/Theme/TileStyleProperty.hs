@@ -14,6 +14,7 @@ instance ToResourceProperties TileStyleProperty where
   toResourceProperties TileStyleProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.TileStyle",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Border" Prelude.<$> border])}
 instance JSON.ToJSON TileStyleProperty where

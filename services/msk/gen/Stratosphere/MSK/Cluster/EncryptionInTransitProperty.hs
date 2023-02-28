@@ -17,6 +17,7 @@ instance ToResourceProperties EncryptionInTransitProperty where
   toResourceProperties EncryptionInTransitProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.EncryptionInTransit",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClientBroker" Prelude.<$> clientBroker,

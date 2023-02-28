@@ -18,6 +18,7 @@ instance ToResourceProperties ExpiryEventsConfigurationProperty where
   toResourceProperties ExpiryEventsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CertificateManager::Account.ExpiryEventsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DaysBeforeExpiry" Prelude.<$> daysBeforeExpiry])}

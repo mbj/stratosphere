@@ -17,6 +17,7 @@ instance ToResourceProperties DestinationProperty where
   toResourceProperties DestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudTrail::Channel.Destination",
+         supportsTags = Prelude.False,
          properties = ["Location" JSON..= location, "Type" JSON..= type']}
 instance JSON.ToJSON DestinationProperty where
   toJSON DestinationProperty {..}

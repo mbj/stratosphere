@@ -25,6 +25,7 @@ instance ToResourceProperties LocationNFS where
   toResourceProperties LocationNFS {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationNFS",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["OnPremConfig" JSON..= onPremConfig]

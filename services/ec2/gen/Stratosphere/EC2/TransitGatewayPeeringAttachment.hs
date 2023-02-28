@@ -32,6 +32,7 @@ instance ToResourceProperties TransitGatewayPeeringAttachment where
   toResourceProperties TransitGatewayPeeringAttachment {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TransitGatewayPeeringAttachment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PeerAccountId" JSON..= peerAccountId,

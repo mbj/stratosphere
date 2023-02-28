@@ -20,6 +20,7 @@ instance ToResourceProperties TagPropertyProperty where
   toResourceProperties TagPropertyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.TagProperty",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key,
                        "PropagateAtLaunch" JSON..= propagateAtLaunch,
                        "Value" JSON..= value]}

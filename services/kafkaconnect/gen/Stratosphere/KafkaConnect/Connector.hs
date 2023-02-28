@@ -60,6 +60,7 @@ instance ToResourceProperties Connector where
   toResourceProperties Connector {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Capacity" JSON..= capacity,

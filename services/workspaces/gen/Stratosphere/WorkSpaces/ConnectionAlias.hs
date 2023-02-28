@@ -18,6 +18,7 @@ instance ToResourceProperties ConnectionAlias where
   toResourceProperties ConnectionAlias {..}
     = ResourceProperties
         {awsType = "AWS::WorkSpaces::ConnectionAlias",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectionString" JSON..= connectionString]

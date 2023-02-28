@@ -19,7 +19,7 @@ mkIPAMScope ipamId
 instance ToResourceProperties IPAMScope where
   toResourceProperties IPAMScope {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::IPAMScope",
+        {awsType = "AWS::EC2::IPAMScope", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IpamId" JSON..= ipamId]

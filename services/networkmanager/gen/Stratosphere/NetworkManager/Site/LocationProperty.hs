@@ -19,6 +19,7 @@ instance ToResourceProperties LocationProperty where
   toResourceProperties LocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::Site.Location",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Address" Prelude.<$> address,

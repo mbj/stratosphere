@@ -21,6 +21,7 @@ instance ToResourceProperties FilterExpressionProperty where
   toResourceProperties FilterExpressionProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.FilterExpression",
+         supportsTags = Prelude.False,
          properties = ["Expression" JSON..= expression,
                        "ValuesMap" JSON..= valuesMap]}
 instance JSON.ToJSON FilterExpressionProperty where

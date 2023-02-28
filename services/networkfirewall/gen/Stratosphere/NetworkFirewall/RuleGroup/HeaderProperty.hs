@@ -34,6 +34,7 @@ instance ToResourceProperties HeaderProperty where
   toResourceProperties HeaderProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.Header",
+         supportsTags = Prelude.False,
          properties = ["Destination" JSON..= destination,
                        "DestinationPort" JSON..= destinationPort,
                        "Direction" JSON..= direction, "Protocol" JSON..= protocol,

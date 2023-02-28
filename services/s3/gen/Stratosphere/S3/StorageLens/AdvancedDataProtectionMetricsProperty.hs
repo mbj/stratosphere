@@ -18,6 +18,7 @@ instance ToResourceProperties AdvancedDataProtectionMetricsProperty where
   toResourceProperties AdvancedDataProtectionMetricsProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.AdvancedDataProtectionMetrics",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "IsEnabled" Prelude.<$> isEnabled])}
 instance JSON.ToJSON AdvancedDataProtectionMetricsProperty where

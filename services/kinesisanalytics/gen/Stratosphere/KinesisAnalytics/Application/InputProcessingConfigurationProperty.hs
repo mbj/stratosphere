@@ -18,6 +18,7 @@ instance ToResourceProperties InputProcessingConfigurationProperty where
   toResourceProperties InputProcessingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::Application.InputProcessingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InputLambdaProcessor"

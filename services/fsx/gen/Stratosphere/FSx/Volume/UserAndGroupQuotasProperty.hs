@@ -22,6 +22,7 @@ instance ToResourceProperties UserAndGroupQuotasProperty where
   toResourceProperties UserAndGroupQuotasProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::Volume.UserAndGroupQuotas",
+         supportsTags = Prelude.False,
          properties = ["Id" JSON..= id,
                        "StorageCapacityQuotaGiB" JSON..= storageCapacityQuotaGiB,
                        "Type" JSON..= type']}

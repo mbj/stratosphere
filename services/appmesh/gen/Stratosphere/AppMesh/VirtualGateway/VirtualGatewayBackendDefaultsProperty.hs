@@ -18,6 +18,7 @@ instance ToResourceProperties VirtualGatewayBackendDefaultsProperty where
   toResourceProperties VirtualGatewayBackendDefaultsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayBackendDefaults",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClientPolicy" Prelude.<$> clientPolicy])}

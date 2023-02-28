@@ -16,6 +16,7 @@ instance ToResourceProperties ParameterConstraintsProperty where
   toResourceProperties ParameterConstraintsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Route.ParameterConstraints",
+         supportsTags = Prelude.False,
          properties = ["Required" JSON..= required]}
 instance JSON.ToJSON ParameterConstraintsProperty where
   toJSON ParameterConstraintsProperty {..}

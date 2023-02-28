@@ -18,6 +18,7 @@ instance ToResourceProperties ValidityDateFormatProperty where
   toResourceProperties ValidityDateFormatProperty {..}
     = ResourceProperties
         {awsType = "AWS::LicenseManager::License.ValidityDateFormat",
+         supportsTags = Prelude.False,
          properties = ["Begin" JSON..= begin, "End" JSON..= end]}
 instance JSON.ToJSON ValidityDateFormatProperty where
   toJSON ValidityDateFormatProperty {..}

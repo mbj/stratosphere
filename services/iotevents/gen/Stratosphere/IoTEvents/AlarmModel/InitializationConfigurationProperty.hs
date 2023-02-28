@@ -18,6 +18,7 @@ instance ToResourceProperties InitializationConfigurationProperty where
   toResourceProperties InitializationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.InitializationConfiguration",
+         supportsTags = Prelude.False,
          properties = ["DisabledOnInitialization"
                          JSON..= disabledOnInitialization]}
 instance JSON.ToJSON InitializationConfigurationProperty where

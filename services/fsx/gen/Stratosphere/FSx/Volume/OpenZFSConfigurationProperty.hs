@@ -39,6 +39,7 @@ instance ToResourceProperties OpenZFSConfigurationProperty where
   toResourceProperties OpenZFSConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::FSx::Volume.OpenZFSConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ParentVolumeId" JSON..= parentVolumeId]

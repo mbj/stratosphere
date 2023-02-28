@@ -3,6 +3,7 @@ module Stratosphere.Lex.Bot.CodeHookSpecificationProperty (
         mkCodeHookSpecificationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.LambdaCodeHookProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties CodeHookSpecificationProperty where
   toResourceProperties CodeHookSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.CodeHookSpecification",
+         supportsTags = Prelude.False,
          properties = ["LambdaCodeHook" JSON..= lambdaCodeHook]}
 instance JSON.ToJSON CodeHookSpecificationProperty where
   toJSON CodeHookSpecificationProperty {..}

@@ -22,6 +22,7 @@ instance ToResourceProperties IotSiteWiseActionProperty where
   toResourceProperties IotSiteWiseActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.IotSiteWiseAction",
+         supportsTags = Prelude.False,
          properties = ["PutAssetPropertyValueEntries"
                          JSON..= putAssetPropertyValueEntries,
                        "RoleArn" JSON..= roleArn]}

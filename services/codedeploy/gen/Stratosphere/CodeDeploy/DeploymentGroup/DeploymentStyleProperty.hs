@@ -18,6 +18,7 @@ instance ToResourceProperties DeploymentStyleProperty where
   toResourceProperties DeploymentStyleProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.DeploymentStyle",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeploymentOption" Prelude.<$> deploymentOption,

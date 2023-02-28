@@ -16,7 +16,7 @@ instance ToResourceProperties AccelerationSettingsProperty where
   toResourceProperties AccelerationSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaConvert::JobTemplate.AccelerationSettings",
-         properties = ["Mode" JSON..= mode]}
+         supportsTags = Prelude.False, properties = ["Mode" JSON..= mode]}
 instance JSON.ToJSON AccelerationSettingsProperty where
   toJSON AccelerationSettingsProperty {..}
     = JSON.object ["Mode" JSON..= mode]

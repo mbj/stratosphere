@@ -14,6 +14,7 @@ instance ToResourceProperties AudioTrackProperty where
   toResourceProperties AudioTrackProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AudioTrack",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Track" Prelude.<$> track])}
 instance JSON.ToJSON AudioTrackProperty where

@@ -16,6 +16,7 @@ instance ToResourceProperties OnPremisesTagSetProperty where
   toResourceProperties OnPremisesTagSetProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.OnPremisesTagSet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OnPremisesTagSetList"

@@ -17,6 +17,7 @@ instance ToResourceProperties TargetGroupTupleProperty where
   toResourceProperties TargetGroupTupleProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::Listener.TargetGroupTuple",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "TargetGroupArn" Prelude.<$> targetGroupArn,

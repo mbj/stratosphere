@@ -21,6 +21,7 @@ instance ToResourceProperties IntegerHyperParameterRangeProperty where
   toResourceProperties IntegerHyperParameterRangeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Solution.IntegerHyperParameterRange",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxValue" Prelude.<$> maxValue,

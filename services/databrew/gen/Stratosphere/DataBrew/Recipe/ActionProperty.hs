@@ -18,6 +18,7 @@ instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Recipe.Action",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Operation" JSON..= operation]

@@ -19,6 +19,7 @@ instance ToResourceProperties AudioLanguageSelectionProperty where
   toResourceProperties AudioLanguageSelectionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AudioLanguageSelection",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LanguageCode" Prelude.<$> languageCode,

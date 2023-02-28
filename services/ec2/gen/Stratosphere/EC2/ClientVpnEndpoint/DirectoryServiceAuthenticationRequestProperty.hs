@@ -19,6 +19,7 @@ instance ToResourceProperties DirectoryServiceAuthenticationRequestProperty wher
     DirectoryServiceAuthenticationRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::ClientVpnEndpoint.DirectoryServiceAuthenticationRequest",
+         supportsTags = Prelude.False,
          properties = ["DirectoryId" JSON..= directoryId]}
 instance JSON.ToJSON DirectoryServiceAuthenticationRequestProperty where
   toJSON DirectoryServiceAuthenticationRequestProperty {..}

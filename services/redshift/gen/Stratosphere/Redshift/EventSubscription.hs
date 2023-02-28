@@ -27,6 +27,7 @@ instance ToResourceProperties EventSubscription where
   toResourceProperties EventSubscription {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::EventSubscription",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SubscriptionName" JSON..= subscriptionName]

@@ -15,6 +15,7 @@ instance ToResourceProperties AlarmRuleProperty where
   toResourceProperties AlarmRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.AlarmRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SimpleRule" Prelude.<$> simpleRule])}

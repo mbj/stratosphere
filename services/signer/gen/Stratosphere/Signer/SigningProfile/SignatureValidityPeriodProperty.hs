@@ -19,6 +19,7 @@ instance ToResourceProperties SignatureValidityPeriodProperty where
   toResourceProperties SignatureValidityPeriodProperty {..}
     = ResourceProperties
         {awsType = "AWS::Signer::SigningProfile.SignatureValidityPeriod",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Type" Prelude.<$> type',

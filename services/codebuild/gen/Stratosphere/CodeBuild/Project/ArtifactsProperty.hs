@@ -28,6 +28,7 @@ instance ToResourceProperties ArtifactsProperty where
   toResourceProperties ArtifactsProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.Artifacts",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

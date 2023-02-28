@@ -18,6 +18,7 @@ instance ToResourceProperties Ec2ConfigProperty where
   toResourceProperties Ec2ConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationEFS.Ec2Config",
+         supportsTags = Prelude.False,
          properties = ["SecurityGroupArns" JSON..= securityGroupArns,
                        "SubnetArn" JSON..= subnetArn]}
 instance JSON.ToJSON Ec2ConfigProperty where

@@ -17,6 +17,7 @@ instance ToResourceProperties MongoDBTargetProperty where
   toResourceProperties MongoDBTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Crawler.MongoDBTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectionName" Prelude.<$> connectionName,

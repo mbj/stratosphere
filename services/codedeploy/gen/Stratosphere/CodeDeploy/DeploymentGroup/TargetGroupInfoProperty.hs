@@ -15,6 +15,7 @@ instance ToResourceProperties TargetGroupInfoProperty where
   toResourceProperties TargetGroupInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.TargetGroupInfo",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name])}
 instance JSON.ToJSON TargetGroupInfoProperty where

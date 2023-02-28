@@ -41,7 +41,7 @@ mkRecordSet name type'
 instance ToResourceProperties RecordSet where
   toResourceProperties RecordSet {..}
     = ResourceProperties
-        {awsType = "AWS::Route53::RecordSet",
+        {awsType = "AWS::Route53::RecordSet", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Type" JSON..= type']

@@ -18,6 +18,7 @@ instance ToResourceProperties InsightsConfigurationProperty where
   toResourceProperties InsightsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::XRay::Group.InsightsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InsightsEnabled" Prelude.<$> insightsEnabled,

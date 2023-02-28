@@ -15,6 +15,7 @@ instance ToResourceProperties AllowActionProperty where
   toResourceProperties AllowActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::RuleGroup.AllowAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomRequestHandling"

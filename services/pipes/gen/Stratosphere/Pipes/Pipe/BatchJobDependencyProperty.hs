@@ -17,6 +17,7 @@ instance ToResourceProperties BatchJobDependencyProperty where
   toResourceProperties BatchJobDependencyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.BatchJobDependency",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "JobId" Prelude.<$> jobId,

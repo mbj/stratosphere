@@ -21,6 +21,7 @@ instance ToResourceProperties S3ConfigurationProperty where
   toResourceProperties S3ConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::Table.S3Configuration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName,

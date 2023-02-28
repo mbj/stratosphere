@@ -27,7 +27,7 @@ mkOptionGroup engineName majorEngineVersion optionGroupDescription
 instance ToResourceProperties OptionGroup where
   toResourceProperties OptionGroup {..}
     = ResourceProperties
-        {awsType = "AWS::RDS::OptionGroup",
+        {awsType = "AWS::RDS::OptionGroup", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EngineName" JSON..= engineName,

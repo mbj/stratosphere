@@ -23,6 +23,7 @@ instance ToResourceProperties Domain where
   toResourceProperties Domain {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Domain",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName]

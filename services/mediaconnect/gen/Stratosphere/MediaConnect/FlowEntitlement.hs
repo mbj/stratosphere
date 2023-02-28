@@ -29,6 +29,7 @@ instance ToResourceProperties FlowEntitlement where
   toResourceProperties FlowEntitlement {..}
     = ResourceProperties
         {awsType = "AWS::MediaConnect::FlowEntitlement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description, "FlowArn" JSON..= flowArn,

@@ -16,6 +16,7 @@ instance ToResourceProperties ExecutionControlsProperty where
   toResourceProperties ExecutionControlsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::RemediationConfiguration.ExecutionControls",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SsmControls" Prelude.<$> ssmControls])}

@@ -49,6 +49,7 @@ instance ToResourceProperties License where
   toResourceProperties License {..}
     = ResourceProperties
         {awsType = "AWS::LicenseManager::License",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConsumptionConfiguration" JSON..= consumptionConfiguration,

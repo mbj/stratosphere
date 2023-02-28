@@ -17,6 +17,7 @@ instance ToResourceProperties RepositoryAuthConfigProperty where
   toResourceProperties RepositoryAuthConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Model.RepositoryAuthConfig",
+         supportsTags = Prelude.False,
          properties = ["RepositoryCredentialsProviderArn"
                          JSON..= repositoryCredentialsProviderArn]}
 instance JSON.ToJSON RepositoryAuthConfigProperty where

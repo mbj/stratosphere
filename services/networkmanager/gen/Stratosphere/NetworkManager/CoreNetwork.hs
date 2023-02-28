@@ -21,6 +21,7 @@ instance ToResourceProperties CoreNetwork where
   toResourceProperties CoreNetwork {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::CoreNetwork",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GlobalNetworkId" JSON..= globalNetworkId]

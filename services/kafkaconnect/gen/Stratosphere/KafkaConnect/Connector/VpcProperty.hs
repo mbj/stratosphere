@@ -17,6 +17,7 @@ instance ToResourceProperties VpcProperty where
   toResourceProperties VpcProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.Vpc",
+         supportsTags = Prelude.False,
          properties = ["SecurityGroups" JSON..= securityGroups,
                        "Subnets" JSON..= subnets]}
 instance JSON.ToJSON VpcProperty where

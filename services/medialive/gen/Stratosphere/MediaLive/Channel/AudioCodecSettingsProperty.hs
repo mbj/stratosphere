@@ -30,6 +30,7 @@ instance ToResourceProperties AudioCodecSettingsProperty where
   toResourceProperties AudioCodecSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AudioCodecSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AacSettings" Prelude.<$> aacSettings,

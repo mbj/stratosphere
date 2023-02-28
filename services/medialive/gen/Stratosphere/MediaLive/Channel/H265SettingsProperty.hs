@@ -64,6 +64,7 @@ instance ToResourceProperties H265SettingsProperty where
   toResourceProperties H265SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.H265Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdaptiveQuantization" Prelude.<$> adaptiveQuantization,

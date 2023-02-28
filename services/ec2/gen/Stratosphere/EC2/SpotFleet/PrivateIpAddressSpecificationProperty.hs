@@ -19,6 +19,7 @@ instance ToResourceProperties PrivateIpAddressSpecificationProperty where
   toResourceProperties PrivateIpAddressSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.PrivateIpAddressSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PrivateIpAddress" JSON..= privateIpAddress]

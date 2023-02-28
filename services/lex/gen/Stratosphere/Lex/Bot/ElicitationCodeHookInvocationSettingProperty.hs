@@ -22,6 +22,7 @@ instance ToResourceProperties ElicitationCodeHookInvocationSettingProperty where
     ElicitationCodeHookInvocationSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.ElicitationCodeHookInvocationSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EnableCodeHookInvocation" JSON..= enableCodeHookInvocation]

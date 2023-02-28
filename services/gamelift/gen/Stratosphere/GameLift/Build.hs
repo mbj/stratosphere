@@ -20,7 +20,7 @@ mkBuild
 instance ToResourceProperties Build where
   toResourceProperties Build {..}
     = ResourceProperties
-        {awsType = "AWS::GameLift::Build",
+        {awsType = "AWS::GameLift::Build", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

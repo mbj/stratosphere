@@ -17,6 +17,7 @@ instance ToResourceProperties ScheduleConfigurationProperty where
   toResourceProperties ScheduleConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::ScheduledQuery.ScheduleConfiguration",
+         supportsTags = Prelude.False,
          properties = ["ScheduleExpression" JSON..= scheduleExpression]}
 instance JSON.ToJSON ScheduleConfigurationProperty where
   toJSON ScheduleConfigurationProperty {..}

@@ -18,6 +18,7 @@ instance ToResourceProperties EncryptionAtRestProperty where
   toResourceProperties EncryptionAtRestProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::DataCatalogEncryptionSettings.EncryptionAtRest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CatalogEncryptionMode"

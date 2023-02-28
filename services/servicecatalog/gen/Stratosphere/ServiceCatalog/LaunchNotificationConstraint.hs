@@ -28,6 +28,7 @@ instance ToResourceProperties LaunchNotificationConstraint where
   toResourceProperties LaunchNotificationConstraint {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::LaunchNotificationConstraint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["NotificationArns" JSON..= notificationArns,

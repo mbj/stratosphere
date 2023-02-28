@@ -16,6 +16,7 @@ instance ToResourceProperties CloudWatchLogsLogGroupProperty where
   toResourceProperties CloudWatchLogsLogGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::StepFunctions::StateMachine.CloudWatchLogsLogGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LogGroupArn" Prelude.<$> logGroupArn])}

@@ -14,7 +14,7 @@ instance ToResourceProperties SSEKMSProperty where
   toResourceProperties SSEKMSProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.SSEKMS",
-         properties = ["KeyId" JSON..= keyId]}
+         supportsTags = Prelude.False, properties = ["KeyId" JSON..= keyId]}
 instance JSON.ToJSON SSEKMSProperty where
   toJSON SSEKMSProperty {..} = JSON.object ["KeyId" JSON..= keyId]
 instance Property "KeyId" SSEKMSProperty where

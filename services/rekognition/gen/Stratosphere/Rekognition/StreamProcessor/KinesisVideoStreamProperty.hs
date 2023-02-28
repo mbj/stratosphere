@@ -16,7 +16,7 @@ instance ToResourceProperties KinesisVideoStreamProperty where
   toResourceProperties KinesisVideoStreamProperty {..}
     = ResourceProperties
         {awsType = "AWS::Rekognition::StreamProcessor.KinesisVideoStream",
-         properties = ["Arn" JSON..= arn]}
+         supportsTags = Prelude.False, properties = ["Arn" JSON..= arn]}
 instance JSON.ToJSON KinesisVideoStreamProperty where
   toJSON KinesisVideoStreamProperty {..}
     = JSON.object ["Arn" JSON..= arn]

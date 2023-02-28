@@ -17,6 +17,7 @@ instance ToResourceProperties FrequencyBandwidthProperty where
   toResourceProperties FrequencyBandwidthProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.FrequencyBandwidth",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Units" Prelude.<$> units,

@@ -18,6 +18,7 @@ instance ToResourceProperties PayloadProperty where
   toResourceProperties PayloadProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.Payload",
+         supportsTags = Prelude.False,
          properties = ["ContentExpression" JSON..= contentExpression,
                        "Type" JSON..= type']}
 instance JSON.ToJSON PayloadProperty where

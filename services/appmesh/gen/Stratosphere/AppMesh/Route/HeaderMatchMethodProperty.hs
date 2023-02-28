@@ -24,6 +24,7 @@ instance ToResourceProperties HeaderMatchMethodProperty where
   toResourceProperties HeaderMatchMethodProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.HeaderMatchMethod",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Exact" Prelude.<$> exact,

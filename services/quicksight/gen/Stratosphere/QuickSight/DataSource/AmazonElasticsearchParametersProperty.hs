@@ -17,6 +17,7 @@ instance ToResourceProperties AmazonElasticsearchParametersProperty where
   toResourceProperties AmazonElasticsearchParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.AmazonElasticsearchParameters",
+         supportsTags = Prelude.False,
          properties = ["Domain" JSON..= domain]}
 instance JSON.ToJSON AmazonElasticsearchParametersProperty where
   toJSON AmazonElasticsearchParametersProperty {..}

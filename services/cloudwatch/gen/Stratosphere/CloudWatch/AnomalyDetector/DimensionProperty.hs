@@ -17,6 +17,7 @@ instance ToResourceProperties DimensionProperty where
   toResourceProperties DimensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::AnomalyDetector.Dimension",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON DimensionProperty where
   toJSON DimensionProperty {..}

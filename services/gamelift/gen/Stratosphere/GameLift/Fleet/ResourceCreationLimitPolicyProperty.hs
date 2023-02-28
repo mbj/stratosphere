@@ -20,6 +20,7 @@ instance ToResourceProperties ResourceCreationLimitPolicyProperty where
   toResourceProperties ResourceCreationLimitPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::Fleet.ResourceCreationLimitPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NewGameSessionsPerCreator"

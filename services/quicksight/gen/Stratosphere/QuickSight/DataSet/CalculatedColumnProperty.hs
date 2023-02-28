@@ -22,6 +22,7 @@ instance ToResourceProperties CalculatedColumnProperty where
   toResourceProperties CalculatedColumnProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.CalculatedColumn",
+         supportsTags = Prelude.False,
          properties = ["ColumnId" JSON..= columnId,
                        "ColumnName" JSON..= columnName, "Expression" JSON..= expression]}
 instance JSON.ToJSON CalculatedColumnProperty where

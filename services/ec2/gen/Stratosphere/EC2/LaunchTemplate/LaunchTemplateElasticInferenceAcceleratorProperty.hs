@@ -20,6 +20,7 @@ instance ToResourceProperties LaunchTemplateElasticInferenceAcceleratorProperty 
     LaunchTemplateElasticInferenceAcceleratorProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.LaunchTemplateElasticInferenceAccelerator",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Count" Prelude.<$> count,

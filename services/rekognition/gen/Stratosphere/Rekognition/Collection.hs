@@ -17,6 +17,7 @@ instance ToResourceProperties Collection where
   toResourceProperties Collection {..}
     = ResourceProperties
         {awsType = "AWS::Rekognition::Collection",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CollectionId" JSON..= collectionId]

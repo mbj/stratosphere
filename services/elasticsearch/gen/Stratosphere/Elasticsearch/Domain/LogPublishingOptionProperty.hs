@@ -18,6 +18,7 @@ instance ToResourceProperties LogPublishingOptionProperty where
   toResourceProperties LogPublishingOptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Elasticsearch::Domain.LogPublishingOption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchLogsLogGroupArn"

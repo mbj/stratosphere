@@ -28,7 +28,7 @@ mkUser
 instance ToResourceProperties User where
   toResourceProperties User {..}
     = ResourceProperties
-        {awsType = "AWS::IAM::User",
+        {awsType = "AWS::IAM::User", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Groups" Prelude.<$> groups,

@@ -19,6 +19,7 @@ instance ToResourceProperties GatewayRouteRangeMatchProperty where
   toResourceProperties GatewayRouteRangeMatchProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.GatewayRouteRangeMatch",
+         supportsTags = Prelude.False,
          properties = ["End" JSON..= end, "Start" JSON..= start]}
 instance JSON.ToJSON GatewayRouteRangeMatchProperty where
   toJSON GatewayRouteRangeMatchProperty {..}

@@ -16,6 +16,7 @@ instance ToResourceProperties TraceConfigurationProperty where
   toResourceProperties TraceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::ObservabilityConfiguration.TraceConfiguration",
+         supportsTags = Prelude.False,
          properties = ["Vendor" JSON..= vendor]}
 instance JSON.ToJSON TraceConfigurationProperty where
   toJSON TraceConfigurationProperty {..}

@@ -16,6 +16,7 @@ instance ToResourceProperties GroupIdentifierProperty where
   toResourceProperties GroupIdentifierProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.GroupIdentifier",
+         supportsTags = Prelude.False,
          properties = ["GroupId" JSON..= groupId]}
 instance JSON.ToJSON GroupIdentifierProperty where
   toJSON GroupIdentifierProperty {..}

@@ -18,6 +18,7 @@ instance ToResourceProperties CloudFrontOriginAccessIdentityConfigProperty where
     CloudFrontOriginAccessIdentityConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfig",
+         supportsTags = Prelude.False,
          properties = ["Comment" JSON..= comment]}
 instance JSON.ToJSON CloudFrontOriginAccessIdentityConfigProperty where
   toJSON CloudFrontOriginAccessIdentityConfigProperty {..}

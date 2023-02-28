@@ -19,6 +19,7 @@ instance ToResourceProperties EncryptionConfigProperty where
   toResourceProperties EncryptionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::InstanceStorageConfig.EncryptionConfig",
+         supportsTags = Prelude.False,
          properties = ["EncryptionType" JSON..= encryptionType,
                        "KeyId" JSON..= keyId]}
 instance JSON.ToJSON EncryptionConfigProperty where

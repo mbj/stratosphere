@@ -17,6 +17,7 @@ instance ToResourceProperties Hdr10SettingsProperty where
   toResourceProperties Hdr10SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.Hdr10Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxCll" Prelude.<$> maxCll,

@@ -23,6 +23,7 @@ instance ToResourceProperties IbmDb2SettingsProperty where
   toResourceProperties IbmDb2SettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.IbmDb2Settings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CurrentLsn" Prelude.<$> currentLsn,

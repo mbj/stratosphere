@@ -15,6 +15,7 @@ instance ToResourceProperties SpotFleetMonitoringProperty where
   toResourceProperties SpotFleetMonitoringProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.SpotFleetMonitoring",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled])}
 instance JSON.ToJSON SpotFleetMonitoringProperty where

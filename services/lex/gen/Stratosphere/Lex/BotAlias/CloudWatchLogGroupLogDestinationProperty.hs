@@ -23,6 +23,7 @@ instance ToResourceProperties CloudWatchLogGroupLogDestinationProperty where
   toResourceProperties CloudWatchLogGroupLogDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::BotAlias.CloudWatchLogGroupLogDestination",
+         supportsTags = Prelude.False,
          properties = ["CloudWatchLogGroupArn"
                          JSON..= cloudWatchLogGroupArn,
                        "LogPrefix" JSON..= logPrefix]}

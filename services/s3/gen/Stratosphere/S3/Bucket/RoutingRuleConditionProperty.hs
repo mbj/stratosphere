@@ -18,6 +18,7 @@ instance ToResourceProperties RoutingRuleConditionProperty where
   toResourceProperties RoutingRuleConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.RoutingRuleCondition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "HttpErrorCodeReturnedEquals"

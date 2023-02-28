@@ -16,6 +16,7 @@ instance ToResourceProperties GuardianAttributesProperty where
   toResourceProperties GuardianAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::VdmAttributes.GuardianAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "OptimizedSharedDelivery"

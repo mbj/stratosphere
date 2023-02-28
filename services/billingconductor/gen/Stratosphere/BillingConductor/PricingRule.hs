@@ -34,6 +34,7 @@ instance ToResourceProperties PricingRule where
   toResourceProperties PricingRule {..}
     = ResourceProperties
         {awsType = "AWS::BillingConductor::PricingRule",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Scope" JSON..= scope, "Type" JSON..= type']

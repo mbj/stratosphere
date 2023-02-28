@@ -21,6 +21,7 @@ instance ToResourceProperties IamActionDefinitionProperty where
   toResourceProperties IamActionDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::BudgetsAction.IamActionDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PolicyArn" JSON..= policyArn]

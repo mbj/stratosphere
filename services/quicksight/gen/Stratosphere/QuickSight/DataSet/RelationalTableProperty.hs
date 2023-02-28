@@ -26,6 +26,7 @@ instance ToResourceProperties RelationalTableProperty where
   toResourceProperties RelationalTableProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.RelationalTable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataSourceArn" JSON..= dataSourceArn,

@@ -19,6 +19,7 @@ instance ToResourceProperties UserContextProperty where
   toResourceProperties UserContextProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.UserContext",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DomainId" Prelude.<$> domainId,

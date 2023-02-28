@@ -20,6 +20,7 @@ instance ToResourceProperties DeviceDefinitionVersion where
   toResourceProperties DeviceDefinitionVersion {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::DeviceDefinitionVersion",
+         supportsTags = Prelude.False,
          properties = ["DeviceDefinitionId" JSON..= deviceDefinitionId,
                        "Devices" JSON..= devices]}
 instance JSON.ToJSON DeviceDefinitionVersion where

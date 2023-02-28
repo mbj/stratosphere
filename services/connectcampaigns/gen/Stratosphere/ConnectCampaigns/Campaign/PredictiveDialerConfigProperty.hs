@@ -18,6 +18,7 @@ instance ToResourceProperties PredictiveDialerConfigProperty where
   toResourceProperties PredictiveDialerConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ConnectCampaigns::Campaign.PredictiveDialerConfig",
+         supportsTags = Prelude.False,
          properties = ["BandwidthAllocation" JSON..= bandwidthAllocation]}
 instance JSON.ToJSON PredictiveDialerConfigProperty where
   toJSON PredictiveDialerConfigProperty {..}

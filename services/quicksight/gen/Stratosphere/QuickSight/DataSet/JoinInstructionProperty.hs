@@ -30,6 +30,7 @@ instance ToResourceProperties JoinInstructionProperty where
   toResourceProperties JoinInstructionProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.JoinInstruction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LeftOperand" JSON..= leftOperand, "OnClause" JSON..= onClause,

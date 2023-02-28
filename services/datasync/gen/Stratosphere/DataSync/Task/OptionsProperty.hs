@@ -39,6 +39,7 @@ instance ToResourceProperties OptionsProperty where
   toResourceProperties OptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::Task.Options",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Atime" Prelude.<$> atime,

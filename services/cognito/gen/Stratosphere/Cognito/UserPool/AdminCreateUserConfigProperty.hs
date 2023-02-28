@@ -22,6 +22,7 @@ instance ToResourceProperties AdminCreateUserConfigProperty where
   toResourceProperties AdminCreateUserConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPool.AdminCreateUserConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowAdminCreateUserOnly"

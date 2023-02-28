@@ -16,6 +16,7 @@ instance ToResourceProperties AnalysisSourceEntityProperty where
   toResourceProperties AnalysisSourceEntityProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Analysis.AnalysisSourceEntity",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SourceTemplate" Prelude.<$> sourceTemplate])}

@@ -17,6 +17,7 @@ instance ToResourceProperties ThrottleSettingsProperty where
   toResourceProperties ThrottleSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::UsagePlan.ThrottleSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BurstLimit" Prelude.<$> burstLimit,

@@ -15,6 +15,7 @@ instance ToResourceProperties MountOptionsProperty where
   toResourceProperties MountOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationSMB.MountOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Version" Prelude.<$> version])}
 instance JSON.ToJSON MountOptionsProperty where

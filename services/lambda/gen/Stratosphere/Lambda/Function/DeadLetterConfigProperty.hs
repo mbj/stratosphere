@@ -15,6 +15,7 @@ instance ToResourceProperties DeadLetterConfigProperty where
   toResourceProperties DeadLetterConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.DeadLetterConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "TargetArn" Prelude.<$> targetArn])}
 instance JSON.ToJSON DeadLetterConfigProperty where

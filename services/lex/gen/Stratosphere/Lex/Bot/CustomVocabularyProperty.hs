@@ -3,6 +3,7 @@ module Stratosphere.Lex.Bot.CustomVocabularyProperty (
         mkCustomVocabularyProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.CustomVocabularyItemProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties CustomVocabularyProperty where
   toResourceProperties CustomVocabularyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.CustomVocabulary",
+         supportsTags = Prelude.False,
          properties = ["CustomVocabularyItems"
                          JSON..= customVocabularyItems]}
 instance JSON.ToJSON CustomVocabularyProperty where

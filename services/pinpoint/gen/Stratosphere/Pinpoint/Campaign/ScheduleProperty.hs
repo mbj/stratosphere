@@ -27,6 +27,7 @@ instance ToResourceProperties ScheduleProperty where
   toResourceProperties ScheduleProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.Schedule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EndTime" Prelude.<$> endTime,

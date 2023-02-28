@@ -22,6 +22,7 @@ instance ToResourceProperties BotAliasLocaleSettingsItemProperty where
   toResourceProperties BotAliasLocaleSettingsItemProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::BotAlias.BotAliasLocaleSettingsItem",
+         supportsTags = Prelude.False,
          properties = ["BotAliasLocaleSetting"
                          JSON..= botAliasLocaleSetting,
                        "LocaleId" JSON..= localeId]}

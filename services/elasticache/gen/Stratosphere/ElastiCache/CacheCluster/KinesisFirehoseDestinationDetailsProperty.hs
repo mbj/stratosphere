@@ -18,6 +18,7 @@ instance ToResourceProperties KinesisFirehoseDestinationDetailsProperty where
   toResourceProperties KinesisFirehoseDestinationDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::CacheCluster.KinesisFirehoseDestinationDetails",
+         supportsTags = Prelude.False,
          properties = ["DeliveryStream" JSON..= deliveryStream]}
 instance JSON.ToJSON KinesisFirehoseDestinationDetailsProperty where
   toJSON KinesisFirehoseDestinationDetailsProperty {..}

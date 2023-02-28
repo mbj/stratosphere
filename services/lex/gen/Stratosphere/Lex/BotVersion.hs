@@ -22,7 +22,7 @@ mkBotVersion botId botVersionLocaleSpecification
 instance ToResourceProperties BotVersion where
   toResourceProperties BotVersion {..}
     = ResourceProperties
-        {awsType = "AWS::Lex::BotVersion",
+        {awsType = "AWS::Lex::BotVersion", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BotId" JSON..= botId,

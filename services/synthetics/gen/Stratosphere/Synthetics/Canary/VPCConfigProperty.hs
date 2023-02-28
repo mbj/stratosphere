@@ -21,6 +21,7 @@ instance ToResourceProperties VPCConfigProperty where
   toResourceProperties VPCConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Synthetics::Canary.VPCConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SecurityGroupIds" JSON..= securityGroupIds,

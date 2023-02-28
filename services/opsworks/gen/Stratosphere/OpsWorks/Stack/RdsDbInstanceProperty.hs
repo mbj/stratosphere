@@ -22,6 +22,7 @@ instance ToResourceProperties RdsDbInstanceProperty where
   toResourceProperties RdsDbInstanceProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Stack.RdsDbInstance",
+         supportsTags = Prelude.False,
          properties = ["DbPassword" JSON..= dbPassword,
                        "DbUser" JSON..= dbUser,
                        "RdsDbInstanceArn" JSON..= rdsDbInstanceArn]}

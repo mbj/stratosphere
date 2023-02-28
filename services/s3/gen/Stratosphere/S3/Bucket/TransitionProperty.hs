@@ -19,6 +19,7 @@ instance ToResourceProperties TransitionProperty where
   toResourceProperties TransitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.Transition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StorageClass" JSON..= storageClass]

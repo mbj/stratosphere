@@ -22,6 +22,7 @@ instance ToResourceProperties MathProperty where
   toResourceProperties MathProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline.Math",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Attribute" JSON..= attribute, "Math" JSON..= math,

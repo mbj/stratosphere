@@ -35,6 +35,7 @@ instance ToResourceProperties Analysis where
   toResourceProperties Analysis {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Analysis",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AnalysisId" JSON..= analysisId,

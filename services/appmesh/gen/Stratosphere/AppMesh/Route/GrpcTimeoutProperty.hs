@@ -17,6 +17,7 @@ instance ToResourceProperties GrpcTimeoutProperty where
   toResourceProperties GrpcTimeoutProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.GrpcTimeout",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Idle" Prelude.<$> idle,

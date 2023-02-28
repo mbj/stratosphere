@@ -41,7 +41,7 @@ mkRestApi
 instance ToResourceProperties RestApi where
   toResourceProperties RestApi {..}
     = ResourceProperties
-        {awsType = "AWS::ApiGateway::RestApi",
+        {awsType = "AWS::ApiGateway::RestApi", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ApiKeySourceType" Prelude.<$> apiKeySourceType,

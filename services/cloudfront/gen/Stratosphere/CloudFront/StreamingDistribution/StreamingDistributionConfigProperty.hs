@@ -36,6 +36,7 @@ instance ToResourceProperties StreamingDistributionConfigProperty where
   toResourceProperties StreamingDistributionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::StreamingDistribution.StreamingDistributionConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Comment" JSON..= comment, "Enabled" JSON..= enabled,

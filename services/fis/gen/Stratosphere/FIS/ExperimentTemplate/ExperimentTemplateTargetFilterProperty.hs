@@ -20,6 +20,7 @@ instance ToResourceProperties ExperimentTemplateTargetFilterProperty where
   toResourceProperties ExperimentTemplateTargetFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::FIS::ExperimentTemplate.ExperimentTemplateTargetFilter",
+         supportsTags = Prelude.False,
          properties = ["Path" JSON..= path, "Values" JSON..= values]}
 instance JSON.ToJSON ExperimentTemplateTargetFilterProperty where
   toJSON ExperimentTemplateTargetFilterProperty {..}

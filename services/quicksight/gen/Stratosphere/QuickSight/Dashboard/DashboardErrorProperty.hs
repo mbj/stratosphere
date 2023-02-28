@@ -17,6 +17,7 @@ instance ToResourceProperties DashboardErrorProperty where
   toResourceProperties DashboardErrorProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.DashboardError",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Message" Prelude.<$> message,

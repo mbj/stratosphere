@@ -14,7 +14,7 @@ mkTag = Tag {key = Prelude.Nothing, value = Prelude.Nothing}
 instance ToResourceProperties Tag where
   toResourceProperties Tag {..}
     = ResourceProperties
-        {awsType = "AWS::Events::Rule.Tag",
+        {awsType = "AWS::Events::Rule.Tag", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Key" Prelude.<$> key,

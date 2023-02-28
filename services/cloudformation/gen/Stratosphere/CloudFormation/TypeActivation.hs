@@ -30,6 +30,7 @@ instance ToResourceProperties TypeActivation where
   toResourceProperties TypeActivation {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::TypeActivation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutoUpdate" Prelude.<$> autoUpdate,

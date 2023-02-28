@@ -42,6 +42,7 @@ instance ToResourceProperties BatchTransformInputProperty where
   toResourceProperties BatchTransformInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelBiasJobDefinition.BatchTransformInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataCapturedDestinationS3Uri"

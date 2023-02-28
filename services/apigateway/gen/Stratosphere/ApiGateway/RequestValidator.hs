@@ -21,6 +21,7 @@ instance ToResourceProperties RequestValidator where
   toResourceProperties RequestValidator {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::RequestValidator",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RestApiId" JSON..= restApiId]

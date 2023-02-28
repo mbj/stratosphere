@@ -29,6 +29,7 @@ instance ToResourceProperties Configuration where
   toResourceProperties Configuration {..}
     = ResourceProperties
         {awsType = "AWS::AmazonMQ::Configuration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Data" JSON..= data', "EngineType" JSON..= engineType,

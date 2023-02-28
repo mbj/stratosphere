@@ -15,6 +15,7 @@ instance ToResourceProperties RecrawlPolicyProperty where
   toResourceProperties RecrawlPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Crawler.RecrawlPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RecrawlBehavior" Prelude.<$> recrawlBehavior])}

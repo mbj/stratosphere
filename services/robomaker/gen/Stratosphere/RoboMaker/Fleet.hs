@@ -14,7 +14,7 @@ mkFleet = Fleet {name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Fleet where
   toResourceProperties Fleet {..}
     = ResourceProperties
-        {awsType = "AWS::RoboMaker::Fleet",
+        {awsType = "AWS::RoboMaker::Fleet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

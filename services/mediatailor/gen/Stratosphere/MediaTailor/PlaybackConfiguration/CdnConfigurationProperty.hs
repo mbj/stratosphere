@@ -18,6 +18,7 @@ instance ToResourceProperties CdnConfigurationProperty where
   toResourceProperties CdnConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaTailor::PlaybackConfiguration.CdnConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdSegmentUrlPrefix" Prelude.<$> adSegmentUrlPrefix,

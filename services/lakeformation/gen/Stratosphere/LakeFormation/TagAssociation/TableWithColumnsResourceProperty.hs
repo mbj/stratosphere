@@ -29,6 +29,7 @@ instance ToResourceProperties TableWithColumnsResourceProperty where
   toResourceProperties TableWithColumnsResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::TagAssociation.TableWithColumnsResource",
+         supportsTags = Prelude.False,
          properties = ["CatalogId" JSON..= catalogId,
                        "ColumnNames" JSON..= columnNames,
                        "DatabaseName" JSON..= databaseName, "Name" JSON..= name]}

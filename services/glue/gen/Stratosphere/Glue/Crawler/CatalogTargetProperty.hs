@@ -17,6 +17,7 @@ instance ToResourceProperties CatalogTargetProperty where
   toResourceProperties CatalogTargetProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Crawler.CatalogTarget",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DatabaseName" Prelude.<$> databaseName,

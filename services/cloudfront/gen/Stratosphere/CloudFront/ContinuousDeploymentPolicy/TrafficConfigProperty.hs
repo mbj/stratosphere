@@ -22,6 +22,7 @@ instance ToResourceProperties TrafficConfigProperty where
   toResourceProperties TrafficConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ContinuousDeploymentPolicy.TrafficConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

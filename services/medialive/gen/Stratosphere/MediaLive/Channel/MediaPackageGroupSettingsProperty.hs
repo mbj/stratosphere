@@ -17,6 +17,7 @@ instance ToResourceProperties MediaPackageGroupSettingsProperty where
   toResourceProperties MediaPackageGroupSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.MediaPackageGroupSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Destination" Prelude.<$> destination])}

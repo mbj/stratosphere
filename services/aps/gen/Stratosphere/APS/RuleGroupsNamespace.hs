@@ -23,6 +23,7 @@ instance ToResourceProperties RuleGroupsNamespace where
   toResourceProperties RuleGroupsNamespace {..}
     = ResourceProperties
         {awsType = "AWS::APS::RuleGroupsNamespace",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Data" JSON..= data', "Name" JSON..= name,

@@ -32,6 +32,7 @@ instance ToResourceProperties ColumnConfigurationProperty where
   toResourceProperties ColumnConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ColumnConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ChangeDetectingColumns" JSON..= changeDetectingColumns,

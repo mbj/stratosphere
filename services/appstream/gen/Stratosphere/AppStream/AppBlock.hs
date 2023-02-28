@@ -27,7 +27,7 @@ mkAppBlock name setupScriptDetails sourceS3Location
 instance ToResourceProperties AppBlock where
   toResourceProperties AppBlock {..}
     = ResourceProperties
-        {awsType = "AWS::AppStream::AppBlock",
+        {awsType = "AWS::AppStream::AppBlock", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name,

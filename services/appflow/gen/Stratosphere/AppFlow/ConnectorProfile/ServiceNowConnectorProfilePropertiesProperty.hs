@@ -19,6 +19,7 @@ instance ToResourceProperties ServiceNowConnectorProfilePropertiesProperty where
     ServiceNowConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.ServiceNowConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = ["InstanceUrl" JSON..= instanceUrl]}
 instance JSON.ToJSON ServiceNowConnectorProfilePropertiesProperty where
   toJSON ServiceNowConnectorProfilePropertiesProperty {..}

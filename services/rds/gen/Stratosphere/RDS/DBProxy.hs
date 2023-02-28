@@ -34,7 +34,7 @@ mkDBProxy auth dBProxyName engineFamily roleArn vpcSubnetIds
 instance ToResourceProperties DBProxy where
   toResourceProperties DBProxy {..}
     = ResourceProperties
-        {awsType = "AWS::RDS::DBProxy",
+        {awsType = "AWS::RDS::DBProxy", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Auth" JSON..= auth, "DBProxyName" JSON..= dBProxyName,

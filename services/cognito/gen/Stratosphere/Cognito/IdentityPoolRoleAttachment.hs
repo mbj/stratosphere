@@ -20,6 +20,7 @@ instance ToResourceProperties IdentityPoolRoleAttachment where
   toResourceProperties IdentityPoolRoleAttachment {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::IdentityPoolRoleAttachment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IdentityPoolId" JSON..= identityPoolId]

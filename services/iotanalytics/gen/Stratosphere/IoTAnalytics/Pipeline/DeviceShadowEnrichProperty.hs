@@ -25,6 +25,7 @@ instance ToResourceProperties DeviceShadowEnrichProperty where
   toResourceProperties DeviceShadowEnrichProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Pipeline.DeviceShadowEnrich",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Attribute" JSON..= attribute, "Name" JSON..= name,

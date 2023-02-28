@@ -15,6 +15,7 @@ instance ToResourceProperties S3InputFormatConfigProperty where
   toResourceProperties S3InputFormatConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.S3InputFormatConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "S3InputFileType" Prelude.<$> s3InputFileType])}

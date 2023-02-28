@@ -19,7 +19,7 @@ mkEventBus name
 instance ToResourceProperties EventBus where
   toResourceProperties EventBus {..}
     = ResourceProperties
-        {awsType = "AWS::Events::EventBus",
+        {awsType = "AWS::Events::EventBus", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -24,6 +24,7 @@ instance ToResourceProperties ParquetSerDeProperty where
   toResourceProperties ParquetSerDeProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.ParquetSerDe",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BlockSizeBytes" Prelude.<$> blockSizeBytes,

@@ -51,6 +51,7 @@ instance ToResourceProperties ElasticsearchDestinationConfigurationProperty wher
     ElasticsearchDestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.ElasticsearchDestinationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IndexName" JSON..= indexName, "RoleARN" JSON..= roleARN,

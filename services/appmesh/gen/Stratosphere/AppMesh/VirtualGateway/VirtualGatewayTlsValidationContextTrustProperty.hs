@@ -25,6 +25,7 @@ instance ToResourceProperties VirtualGatewayTlsValidationContextTrustProperty wh
     VirtualGatewayTlsValidationContextTrustProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayTlsValidationContextTrust",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ACM" Prelude.<$> aCM,

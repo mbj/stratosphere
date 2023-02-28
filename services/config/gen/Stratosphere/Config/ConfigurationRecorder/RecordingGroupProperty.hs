@@ -20,6 +20,7 @@ instance ToResourceProperties RecordingGroupProperty where
   toResourceProperties RecordingGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConfigurationRecorder.RecordingGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllSupported" Prelude.<$> allSupported,

@@ -26,6 +26,7 @@ instance ToResourceProperties EventSubscription where
   toResourceProperties EventSubscription {..}
     = ResourceProperties
         {awsType = "AWS::DMS::EventSubscription",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SnsTopicArn" JSON..= snsTopicArn]

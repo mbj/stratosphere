@@ -15,6 +15,7 @@ instance ToResourceProperties ColumnDescriptionProperty where
   toResourceProperties ColumnDescriptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.ColumnDescription",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Text" Prelude.<$> text])}
 instance JSON.ToJSON ColumnDescriptionProperty where

@@ -23,6 +23,7 @@ instance ToResourceProperties VirtualGatewaySpecProperty where
   toResourceProperties VirtualGatewaySpecProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewaySpec",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Listeners" JSON..= listeners]

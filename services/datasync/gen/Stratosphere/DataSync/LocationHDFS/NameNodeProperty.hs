@@ -17,6 +17,7 @@ instance ToResourceProperties NameNodeProperty where
   toResourceProperties NameNodeProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataSync::LocationHDFS.NameNode",
+         supportsTags = Prelude.False,
          properties = ["Hostname" JSON..= hostname, "Port" JSON..= port]}
 instance JSON.ToJSON NameNodeProperty where
   toJSON NameNodeProperty {..}

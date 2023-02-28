@@ -15,6 +15,7 @@ instance ToResourceProperties DecodeConfigProperty where
   toResourceProperties DecodeConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.DecodeConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "UnvalidatedJSON" Prelude.<$> unvalidatedJSON])}

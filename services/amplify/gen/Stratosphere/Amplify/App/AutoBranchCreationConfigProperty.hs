@@ -39,6 +39,7 @@ instance ToResourceProperties AutoBranchCreationConfigProperty where
   toResourceProperties AutoBranchCreationConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Amplify::App.AutoBranchCreationConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutoBranchCreationPatterns"

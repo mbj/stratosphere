@@ -18,6 +18,7 @@ instance ToResourceProperties CertificateConfigurationProperty where
   toResourceProperties CertificateConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::Fleet.CertificateConfiguration",
+         supportsTags = Prelude.False,
          properties = ["CertificateType" JSON..= certificateType]}
 instance JSON.ToJSON CertificateConfigurationProperty where
   toJSON CertificateConfigurationProperty {..}

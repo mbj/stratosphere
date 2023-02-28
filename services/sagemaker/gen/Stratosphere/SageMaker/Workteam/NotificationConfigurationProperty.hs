@@ -18,6 +18,7 @@ instance ToResourceProperties NotificationConfigurationProperty where
   toResourceProperties NotificationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Workteam.NotificationConfiguration",
+         supportsTags = Prelude.False,
          properties = ["NotificationTopicArn" JSON..= notificationTopicArn]}
 instance JSON.ToJSON NotificationConfigurationProperty where
   toJSON NotificationConfigurationProperty {..}

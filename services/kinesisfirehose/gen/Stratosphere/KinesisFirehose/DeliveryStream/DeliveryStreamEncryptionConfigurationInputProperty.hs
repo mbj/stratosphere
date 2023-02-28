@@ -21,6 +21,7 @@ instance ToResourceProperties DeliveryStreamEncryptionConfigurationInputProperty
     DeliveryStreamEncryptionConfigurationInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.DeliveryStreamEncryptionConfigurationInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KeyType" JSON..= keyType]

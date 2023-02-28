@@ -31,6 +31,7 @@ instance ToResourceProperties EventDestinationProperty where
   toResourceProperties EventDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::ConfigurationSetEventDestination.EventDestination",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MatchingEventTypes" JSON..= matchingEventTypes]

@@ -34,6 +34,7 @@ instance ToResourceProperties PipeSourceKinesisStreamParametersProperty where
   toResourceProperties PipeSourceKinesisStreamParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeSourceKinesisStreamParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["StartingPosition" JSON..= startingPosition]

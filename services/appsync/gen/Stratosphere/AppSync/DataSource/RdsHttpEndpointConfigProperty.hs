@@ -28,6 +28,7 @@ instance ToResourceProperties RdsHttpEndpointConfigProperty where
   toResourceProperties RdsHttpEndpointConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::DataSource.RdsHttpEndpointConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AwsRegion" JSON..= awsRegion,

@@ -19,6 +19,7 @@ instance ToResourceProperties ConfigurationItemProperty where
   toResourceProperties ConfigurationItemProperty {..}
     = ResourceProperties
         {awsType = "AWS::ResourceGroups::Group.ConfigurationItem",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Parameters" Prelude.<$> parameters,

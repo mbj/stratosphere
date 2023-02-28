@@ -30,6 +30,7 @@ instance ToResourceProperties Device where
   toResourceProperties Device {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::Device",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GlobalNetworkId" JSON..= globalNetworkId]

@@ -16,6 +16,7 @@ instance ToResourceProperties ComputeCapacityProperty where
   toResourceProperties ComputeCapacityProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::Fleet.ComputeCapacity",
+         supportsTags = Prelude.False,
          properties = ["DesiredInstances" JSON..= desiredInstances]}
 instance JSON.ToJSON ComputeCapacityProperty where
   toJSON ComputeCapacityProperty {..}

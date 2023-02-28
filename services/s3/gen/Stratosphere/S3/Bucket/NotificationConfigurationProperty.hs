@@ -27,6 +27,7 @@ instance ToResourceProperties NotificationConfigurationProperty where
   toResourceProperties NotificationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.NotificationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EventBridgeConfiguration"

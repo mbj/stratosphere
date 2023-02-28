@@ -18,6 +18,7 @@ instance ToResourceProperties RuleVariablesProperty where
   toResourceProperties RuleVariablesProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.RuleVariables",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IPSets" Prelude.<$> iPSets,

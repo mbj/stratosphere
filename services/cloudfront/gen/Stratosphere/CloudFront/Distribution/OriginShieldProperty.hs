@@ -17,6 +17,7 @@ instance ToResourceProperties OriginShieldProperty where
   toResourceProperties OriginShieldProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.OriginShield",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

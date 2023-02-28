@@ -15,6 +15,7 @@ instance ToResourceProperties ResourceValueProperty where
   toResourceProperties ResourceValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::RemediationConfiguration.ResourceValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Value" Prelude.<$> value])}
 instance JSON.ToJSON ResourceValueProperty where

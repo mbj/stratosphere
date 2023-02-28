@@ -19,6 +19,7 @@ instance ToResourceProperties DialerConfigProperty where
   toResourceProperties DialerConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ConnectCampaigns::Campaign.DialerConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PredictiveDialerConfig"

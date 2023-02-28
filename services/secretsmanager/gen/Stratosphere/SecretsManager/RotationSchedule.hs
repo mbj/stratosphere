@@ -25,6 +25,7 @@ instance ToResourceProperties RotationSchedule where
   toResourceProperties RotationSchedule {..}
     = ResourceProperties
         {awsType = "AWS::SecretsManager::RotationSchedule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SecretId" JSON..= secretId]

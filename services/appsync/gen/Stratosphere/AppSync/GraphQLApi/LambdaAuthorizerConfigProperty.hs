@@ -21,6 +21,7 @@ instance ToResourceProperties LambdaAuthorizerConfigProperty where
   toResourceProperties LambdaAuthorizerConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::GraphQLApi.LambdaAuthorizerConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AuthorizerResultTtlInSeconds"

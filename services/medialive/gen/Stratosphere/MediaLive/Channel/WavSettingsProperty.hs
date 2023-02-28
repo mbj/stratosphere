@@ -19,6 +19,7 @@ instance ToResourceProperties WavSettingsProperty where
   toResourceProperties WavSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.WavSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BitDepth" Prelude.<$> bitDepth,

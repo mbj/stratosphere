@@ -20,6 +20,7 @@ instance ToResourceProperties XssMatchTupleProperty where
   toResourceProperties XssMatchTupleProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAF::XssMatchSet.XssMatchTuple",
+         supportsTags = Prelude.False,
          properties = ["FieldToMatch" JSON..= fieldToMatch,
                        "TextTransformation" JSON..= textTransformation]}
 instance JSON.ToJSON XssMatchTupleProperty where

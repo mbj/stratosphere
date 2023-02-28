@@ -20,6 +20,7 @@ instance ToResourceProperties LoggerDefinition where
   toResourceProperties LoggerDefinition {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::LoggerDefinition",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

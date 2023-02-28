@@ -16,6 +16,7 @@ instance ToResourceProperties VCpuCountProperty where
   toResourceProperties VCpuCountProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.VCpuCount",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

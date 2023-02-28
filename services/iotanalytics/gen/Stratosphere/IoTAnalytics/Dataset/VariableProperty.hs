@@ -26,6 +26,7 @@ instance ToResourceProperties VariableProperty where
   toResourceProperties VariableProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.Variable",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["VariableName" JSON..= variableName]

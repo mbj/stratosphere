@@ -20,6 +20,7 @@ instance ToResourceProperties PipeTargetCloudWatchLogsParametersProperty where
     PipeTargetCloudWatchLogsParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeTargetCloudWatchLogsParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LogStreamName" Prelude.<$> logStreamName,

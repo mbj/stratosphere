@@ -16,6 +16,7 @@ instance ToResourceProperties SampleProperty where
   toResourceProperties SampleProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Project.Sample",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

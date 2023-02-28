@@ -25,6 +25,7 @@ instance ToResourceProperties DBParameterGroup where
   toResourceProperties DBParameterGroup {..}
     = ResourceProperties
         {awsType = "AWS::Neptune::DBParameterGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Description" JSON..= description, "Family" JSON..= family,

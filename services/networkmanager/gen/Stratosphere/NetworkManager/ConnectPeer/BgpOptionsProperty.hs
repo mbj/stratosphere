@@ -15,6 +15,7 @@ instance ToResourceProperties BgpOptionsProperty where
   toResourceProperties BgpOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::ConnectPeer.BgpOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "PeerAsn" Prelude.<$> peerAsn])}
 instance JSON.ToJSON BgpOptionsProperty where

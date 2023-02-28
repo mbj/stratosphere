@@ -22,6 +22,7 @@ instance ToResourceProperties HealthCheckProperty where
   toResourceProperties HealthCheckProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.HealthCheck",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Command" Prelude.<$> command,

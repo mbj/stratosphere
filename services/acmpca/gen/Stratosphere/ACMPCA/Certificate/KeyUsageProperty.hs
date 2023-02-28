@@ -28,6 +28,7 @@ instance ToResourceProperties KeyUsageProperty where
   toResourceProperties KeyUsageProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::Certificate.KeyUsage",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CRLSign" Prelude.<$> cRLSign,

@@ -16,7 +16,7 @@ instance ToResourceProperties LambdaEndpointInputProperty where
   toResourceProperties LambdaEndpointInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::RefactorSpaces::Service.LambdaEndpointInput",
-         properties = ["Arn" JSON..= arn]}
+         supportsTags = Prelude.False, properties = ["Arn" JSON..= arn]}
 instance JSON.ToJSON LambdaEndpointInputProperty where
   toJSON LambdaEndpointInputProperty {..}
     = JSON.object ["Arn" JSON..= arn]

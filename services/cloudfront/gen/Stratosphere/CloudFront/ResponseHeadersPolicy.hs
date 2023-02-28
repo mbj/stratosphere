@@ -2,6 +2,7 @@ module Stratosphere.CloudFront.ResponseHeadersPolicy (
         module Exports, ResponseHeadersPolicy(..), mkResponseHeadersPolicy
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties ResponseHeadersPolicy where
   toResourceProperties ResponseHeadersPolicy {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy",
+         supportsTags = Prelude.False,
          properties = ["ResponseHeadersPolicyConfig"
                          JSON..= responseHeadersPolicyConfig]}
 instance JSON.ToJSON ResponseHeadersPolicy where

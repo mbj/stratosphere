@@ -17,6 +17,7 @@ instance ToResourceProperties HistoricalOptionsProperty where
   toResourceProperties HistoricalOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Budgets::Budget.HistoricalOptions",
+         supportsTags = Prelude.False,
          properties = ["BudgetAdjustmentPeriod"
                          JSON..= budgetAdjustmentPeriod]}
 instance JSON.ToJSON HistoricalOptionsProperty where

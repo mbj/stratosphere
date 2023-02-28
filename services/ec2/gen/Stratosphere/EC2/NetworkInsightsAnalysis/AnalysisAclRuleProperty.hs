@@ -25,6 +25,7 @@ instance ToResourceProperties AnalysisAclRuleProperty where
   toResourceProperties AnalysisAclRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.AnalysisAclRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Cidr" Prelude.<$> cidr,

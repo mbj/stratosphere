@@ -17,6 +17,7 @@ instance ToResourceProperties SchemaVersionProperty where
   toResourceProperties SchemaVersionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Schema.SchemaVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IsLatest" Prelude.<$> isLatest,

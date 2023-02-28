@@ -26,6 +26,7 @@ instance ToResourceProperties Schema where
   toResourceProperties Schema {..}
     = ResourceProperties
         {awsType = "AWS::EventSchemas::Schema",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Content" JSON..= content, "RegistryName" JSON..= registryName,

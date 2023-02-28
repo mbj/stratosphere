@@ -17,6 +17,7 @@ instance ToResourceProperties InputChannelLevelProperty where
   toResourceProperties InputChannelLevelProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.InputChannelLevel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Gain" Prelude.<$> gain,

@@ -19,6 +19,7 @@ instance ToResourceProperties ResolverConfig where
   toResourceProperties ResolverConfig {..}
     = ResourceProperties
         {awsType = "AWS::Route53Resolver::ResolverConfig",
+         supportsTags = Prelude.False,
          properties = ["AutodefinedReverseFlag"
                          JSON..= autodefinedReverseFlag,
                        "ResourceId" JSON..= resourceId]}

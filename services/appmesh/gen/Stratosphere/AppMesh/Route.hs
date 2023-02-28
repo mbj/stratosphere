@@ -26,7 +26,7 @@ mkRoute meshName spec virtualRouterName
 instance ToResourceProperties Route where
   toResourceProperties Route {..}
     = ResourceProperties
-        {awsType = "AWS::AppMesh::Route",
+        {awsType = "AWS::AppMesh::Route", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MeshName" JSON..= meshName, "Spec" JSON..= spec,

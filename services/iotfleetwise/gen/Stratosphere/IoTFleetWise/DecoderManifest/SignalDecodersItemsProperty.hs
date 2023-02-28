@@ -28,6 +28,7 @@ instance ToResourceProperties SignalDecodersItemsProperty where
   toResourceProperties SignalDecodersItemsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::DecoderManifest.SignalDecodersItems",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FullyQualifiedName" JSON..= fullyQualifiedName,

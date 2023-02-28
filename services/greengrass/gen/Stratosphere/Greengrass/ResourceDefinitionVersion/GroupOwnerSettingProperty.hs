@@ -19,6 +19,7 @@ instance ToResourceProperties GroupOwnerSettingProperty where
   toResourceProperties GroupOwnerSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Greengrass::ResourceDefinitionVersion.GroupOwnerSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AutoAddGroupOwner" JSON..= autoAddGroupOwner]

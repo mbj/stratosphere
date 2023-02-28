@@ -29,6 +29,7 @@ instance ToResourceProperties DecoderManifest where
   toResourceProperties DecoderManifest {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::DecoderManifest",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ModelManifestArn" JSON..= modelManifestArn, "Name" JSON..= name]

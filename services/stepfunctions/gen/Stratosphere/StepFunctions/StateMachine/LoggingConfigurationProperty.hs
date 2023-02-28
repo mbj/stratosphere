@@ -21,6 +21,7 @@ instance ToResourceProperties LoggingConfigurationProperty where
   toResourceProperties LoggingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::StepFunctions::StateMachine.LoggingConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Destinations" Prelude.<$> destinations,

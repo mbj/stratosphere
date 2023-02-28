@@ -17,6 +17,7 @@ instance ToResourceProperties FunctionAssociationProperty where
   toResourceProperties FunctionAssociationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.FunctionAssociation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EventType" Prelude.<$> eventType,

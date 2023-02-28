@@ -97,7 +97,7 @@ mkInstance
 instance ToResourceProperties Instance where
   toResourceProperties Instance {..}
     = ResourceProperties
-        {awsType = "AWS::EC2::Instance",
+        {awsType = "AWS::EC2::Instance", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AdditionalInfo" Prelude.<$> additionalInfo,

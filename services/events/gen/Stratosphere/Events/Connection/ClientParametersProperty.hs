@@ -19,6 +19,7 @@ instance ToResourceProperties ClientParametersProperty where
   toResourceProperties ClientParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Connection.ClientParameters",
+         supportsTags = Prelude.False,
          properties = ["ClientID" JSON..= clientID,
                        "ClientSecret" JSON..= clientSecret]}
 instance JSON.ToJSON ClientParametersProperty where

@@ -19,6 +19,7 @@ instance ToResourceProperties DvbNitSettingsProperty where
   toResourceProperties DvbNitSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.DvbNitSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NetworkId" Prelude.<$> networkId,

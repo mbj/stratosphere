@@ -16,7 +16,7 @@ mkTopicPolicy policyDocument topics
 instance ToResourceProperties TopicPolicy where
   toResourceProperties TopicPolicy {..}
     = ResourceProperties
-        {awsType = "AWS::SNS::TopicPolicy",
+        {awsType = "AWS::SNS::TopicPolicy", supportsTags = Prelude.False,
          properties = ["PolicyDocument" JSON..= policyDocument,
                        "Topics" JSON..= topics]}
 instance JSON.ToJSON TopicPolicy where

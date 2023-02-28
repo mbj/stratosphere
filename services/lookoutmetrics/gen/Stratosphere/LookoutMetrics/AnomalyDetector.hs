@@ -27,6 +27,7 @@ instance ToResourceProperties AnomalyDetector where
   toResourceProperties AnomalyDetector {..}
     = ResourceProperties
         {awsType = "AWS::LookoutMetrics::AnomalyDetector",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AnomalyDetectorConfig" JSON..= anomalyDetectorConfig,

@@ -17,6 +17,7 @@ instance ToResourceProperties LogListProperty where
   toResourceProperties LogListProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmazonMQ::Broker.LogList",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Audit" Prelude.<$> audit,

@@ -18,6 +18,7 @@ instance ToResourceProperties JobExecutionsRetryConfigProperty where
   toResourceProperties JobExecutionsRetryConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::JobTemplate.JobExecutionsRetryConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RetryCriteriaList" Prelude.<$> retryCriteriaList])}

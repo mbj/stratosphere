@@ -28,6 +28,7 @@ instance ToResourceProperties SourceConnectorPropertiesProperty where
   toResourceProperties SourceConnectorPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.SourceConnectorProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Marketo" Prelude.<$> marketo,

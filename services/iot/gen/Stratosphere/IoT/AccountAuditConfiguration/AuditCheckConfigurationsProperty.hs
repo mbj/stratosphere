@@ -48,6 +48,7 @@ instance ToResourceProperties AuditCheckConfigurationsProperty where
   toResourceProperties AuditCheckConfigurationsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::AccountAuditConfiguration.AuditCheckConfigurations",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AuthenticatedCognitoRoleOverlyPermissiveCheck"

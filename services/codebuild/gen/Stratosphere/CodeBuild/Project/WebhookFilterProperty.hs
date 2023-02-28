@@ -20,6 +20,7 @@ instance ToResourceProperties WebhookFilterProperty where
   toResourceProperties WebhookFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeBuild::Project.WebhookFilter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Pattern" JSON..= pattern, "Type" JSON..= type']

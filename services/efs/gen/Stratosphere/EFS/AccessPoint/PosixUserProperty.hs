@@ -19,6 +19,7 @@ instance ToResourceProperties PosixUserProperty where
   toResourceProperties PosixUserProperty {..}
     = ResourceProperties
         {awsType = "AWS::EFS::AccessPoint.PosixUser",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Gid" JSON..= gid, "Uid" JSON..= uid]

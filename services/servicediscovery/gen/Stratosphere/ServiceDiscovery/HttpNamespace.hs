@@ -20,6 +20,7 @@ instance ToResourceProperties HttpNamespace where
   toResourceProperties HttpNamespace {..}
     = ResourceProperties
         {awsType = "AWS::ServiceDiscovery::HttpNamespace",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

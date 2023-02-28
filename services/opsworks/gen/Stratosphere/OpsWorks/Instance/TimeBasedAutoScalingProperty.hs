@@ -25,6 +25,7 @@ instance ToResourceProperties TimeBasedAutoScalingProperty where
   toResourceProperties TimeBasedAutoScalingProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Instance.TimeBasedAutoScaling",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Friday" Prelude.<$> friday,

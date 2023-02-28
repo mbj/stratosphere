@@ -23,6 +23,7 @@ instance ToResourceProperties TrafficRoutingConfigProperty where
   toResourceProperties TrafficRoutingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentConfig.TrafficRoutingConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

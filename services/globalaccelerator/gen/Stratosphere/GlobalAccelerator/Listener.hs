@@ -23,6 +23,7 @@ instance ToResourceProperties Listener where
   toResourceProperties Listener {..}
     = ResourceProperties
         {awsType = "AWS::GlobalAccelerator::Listener",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AcceleratorArn" JSON..= acceleratorArn,

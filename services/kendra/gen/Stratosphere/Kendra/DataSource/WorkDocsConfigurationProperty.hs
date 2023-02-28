@@ -28,6 +28,7 @@ instance ToResourceProperties WorkDocsConfigurationProperty where
   toResourceProperties WorkDocsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.WorkDocsConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["OrganizationId" JSON..= organizationId]

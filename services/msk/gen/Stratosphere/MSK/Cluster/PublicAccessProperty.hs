@@ -15,6 +15,7 @@ instance ToResourceProperties PublicAccessProperty where
   toResourceProperties PublicAccessProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.PublicAccess",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Type" Prelude.<$> type'])}
 instance JSON.ToJSON PublicAccessProperty where

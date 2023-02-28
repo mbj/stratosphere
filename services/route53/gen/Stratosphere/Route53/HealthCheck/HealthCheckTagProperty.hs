@@ -17,6 +17,7 @@ instance ToResourceProperties HealthCheckTagProperty where
   toResourceProperties HealthCheckTagProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::HealthCheck.HealthCheckTag",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON HealthCheckTagProperty where
   toJSON HealthCheckTagProperty {..}

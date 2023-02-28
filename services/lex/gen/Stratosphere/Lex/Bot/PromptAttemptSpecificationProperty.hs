@@ -27,6 +27,7 @@ instance ToResourceProperties PromptAttemptSpecificationProperty where
   toResourceProperties PromptAttemptSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.PromptAttemptSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AllowedInputTypes" JSON..= allowedInputTypes]

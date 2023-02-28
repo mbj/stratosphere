@@ -23,6 +23,7 @@ instance ToResourceProperties DBSubnetGroup where
   toResourceProperties DBSubnetGroup {..}
     = ResourceProperties
         {awsType = "AWS::DocDB::DBSubnetGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DBSubnetGroupDescription" JSON..= dBSubnetGroupDescription,

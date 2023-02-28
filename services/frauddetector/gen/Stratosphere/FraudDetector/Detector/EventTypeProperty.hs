@@ -33,6 +33,7 @@ instance ToResourceProperties EventTypeProperty where
   toResourceProperties EventTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::FraudDetector::Detector.EventType",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn,

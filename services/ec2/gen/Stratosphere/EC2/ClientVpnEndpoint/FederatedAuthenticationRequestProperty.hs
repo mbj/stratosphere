@@ -20,6 +20,7 @@ instance ToResourceProperties FederatedAuthenticationRequestProperty where
   toResourceProperties FederatedAuthenticationRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::ClientVpnEndpoint.FederatedAuthenticationRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SAMLProviderArn" JSON..= sAMLProviderArn]

@@ -26,6 +26,7 @@ instance ToResourceProperties LaunchTemplateOverridesProperty where
   toResourceProperties LaunchTemplateOverridesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.LaunchTemplateOverrides",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InstanceRequirements" Prelude.<$> instanceRequirements,

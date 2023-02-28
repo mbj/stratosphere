@@ -14,6 +14,7 @@ instance ToResourceProperties SnapStartProperty where
   toResourceProperties SnapStartProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.SnapStart",
+         supportsTags = Prelude.False,
          properties = ["ApplyOn" JSON..= applyOn]}
 instance JSON.ToJSON SnapStartProperty where
   toJSON SnapStartProperty {..}

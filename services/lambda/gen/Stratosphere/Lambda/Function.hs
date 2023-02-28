@@ -63,7 +63,7 @@ mkFunction code role
 instance ToResourceProperties Function where
   toResourceProperties Function {..}
     = ResourceProperties
-        {awsType = "AWS::Lambda::Function",
+        {awsType = "AWS::Lambda::Function", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Code" JSON..= code, "Role" JSON..= role]

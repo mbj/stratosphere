@@ -29,6 +29,7 @@ instance ToResourceProperties Pipeline where
   toResourceProperties Pipeline {..}
     = ResourceProperties
         {awsType = "AWS::DataPipeline::Pipeline",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

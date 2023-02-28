@@ -19,6 +19,7 @@ instance ToResourceProperties ObjectiveFunctionProperty where
   toResourceProperties ObjectiveFunctionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.ObjectiveFunction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Function" Prelude.<$> function,

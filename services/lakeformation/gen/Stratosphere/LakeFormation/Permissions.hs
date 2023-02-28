@@ -24,6 +24,7 @@ instance ToResourceProperties Permissions where
   toResourceProperties Permissions {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::Permissions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataLakePrincipal" JSON..= dataLakePrincipal,

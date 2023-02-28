@@ -20,6 +20,7 @@ instance ToResourceProperties DkimSigningAttributesProperty where
   toResourceProperties DkimSigningAttributesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::EmailIdentity.DkimSigningAttributes",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DomainSigningPrivateKey"

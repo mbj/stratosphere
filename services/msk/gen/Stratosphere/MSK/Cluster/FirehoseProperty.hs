@@ -17,6 +17,7 @@ instance ToResourceProperties FirehoseProperty where
   toResourceProperties FirehoseProperty {..}
     = ResourceProperties
         {awsType = "AWS::MSK::Cluster.Firehose",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

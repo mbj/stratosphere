@@ -33,6 +33,7 @@ instance ToResourceProperties DefinitionProperty where
   toResourceProperties DefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTTwinMaker::Entity.Definition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Configuration" Prelude.<$> configuration,

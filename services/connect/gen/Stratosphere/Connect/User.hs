@@ -42,7 +42,7 @@ mkUser
 instance ToResourceProperties User where
   toResourceProperties User {..}
     = ResourceProperties
-        {awsType = "AWS::Connect::User",
+        {awsType = "AWS::Connect::User", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceArn" JSON..= instanceArn,

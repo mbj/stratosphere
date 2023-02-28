@@ -15,6 +15,7 @@ instance ToResourceProperties ChatChannelProperty where
   toResourceProperties ChatChannelProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ResponsePlan.ChatChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ChatbotSns" Prelude.<$> chatbotSns])}

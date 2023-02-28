@@ -17,6 +17,7 @@ instance ToResourceProperties FilterOperationProperty where
   toResourceProperties FilterOperationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.FilterOperation",
+         supportsTags = Prelude.False,
          properties = ["ConditionExpression" JSON..= conditionExpression]}
 instance JSON.ToJSON FilterOperationProperty where
   toJSON FilterOperationProperty {..}

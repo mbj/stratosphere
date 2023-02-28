@@ -22,6 +22,7 @@ instance ToResourceProperties ConditionProperty where
   toResourceProperties ConditionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Trigger.Condition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CrawlState" Prelude.<$> crawlState,

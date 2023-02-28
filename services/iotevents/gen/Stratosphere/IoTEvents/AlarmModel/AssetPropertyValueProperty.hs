@@ -23,6 +23,7 @@ instance ToResourceProperties AssetPropertyValueProperty where
   toResourceProperties AssetPropertyValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::AlarmModel.AssetPropertyValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Value" JSON..= value]

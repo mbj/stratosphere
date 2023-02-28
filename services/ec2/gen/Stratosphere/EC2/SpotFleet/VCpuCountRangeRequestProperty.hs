@@ -17,6 +17,7 @@ instance ToResourceProperties VCpuCountRangeRequestProperty where
   toResourceProperties VCpuCountRangeRequestProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.VCpuCountRangeRequest",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Max" Prelude.<$> max,

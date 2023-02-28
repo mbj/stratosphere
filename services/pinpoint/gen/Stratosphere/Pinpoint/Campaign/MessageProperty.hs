@@ -33,6 +33,7 @@ instance ToResourceProperties MessageProperty where
   toResourceProperties MessageProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.Message",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Action" Prelude.<$> action,

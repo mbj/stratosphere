@@ -17,6 +17,7 @@ instance ToResourceProperties ResumeClusterMessageProperty where
   toResourceProperties ResumeClusterMessageProperty {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::ScheduledAction.ResumeClusterMessage",
+         supportsTags = Prelude.False,
          properties = ["ClusterIdentifier" JSON..= clusterIdentifier]}
 instance JSON.ToJSON ResumeClusterMessageProperty where
   toJSON ResumeClusterMessageProperty {..}

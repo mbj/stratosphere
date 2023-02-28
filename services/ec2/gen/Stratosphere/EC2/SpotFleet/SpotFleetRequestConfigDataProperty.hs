@@ -64,6 +64,7 @@ instance ToResourceProperties SpotFleetRequestConfigDataProperty where
   toResourceProperties SpotFleetRequestConfigDataProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.SpotFleetRequestConfigData",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IamFleetRole" JSON..= iamFleetRole,

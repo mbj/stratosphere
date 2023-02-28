@@ -20,6 +20,7 @@ instance ToResourceProperties DestinationDetailsProperty where
   toResourceProperties DestinationDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::ReplicationGroup.DestinationDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CloudWatchLogsDetails"

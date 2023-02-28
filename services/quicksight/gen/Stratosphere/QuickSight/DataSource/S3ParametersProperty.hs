@@ -2,6 +2,7 @@ module Stratosphere.QuickSight.DataSource.S3ParametersProperty (
         module Exports, S3ParametersProperty(..), mkS3ParametersProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.ManifestFileLocationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties S3ParametersProperty where
   toResourceProperties S3ParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.S3Parameters",
+         supportsTags = Prelude.False,
          properties = ["ManifestFileLocation" JSON..= manifestFileLocation]}
 instance JSON.ToJSON S3ParametersProperty where
   toJSON S3ParametersProperty {..}

@@ -21,6 +21,7 @@ instance ToResourceProperties LoadBasedAutoScalingProperty where
   toResourceProperties LoadBasedAutoScalingProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpsWorks::Layer.LoadBasedAutoScaling",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DownScaling" Prelude.<$> downScaling,

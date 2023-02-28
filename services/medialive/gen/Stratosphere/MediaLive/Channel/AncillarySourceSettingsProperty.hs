@@ -18,6 +18,7 @@ instance ToResourceProperties AncillarySourceSettingsProperty where
   toResourceProperties AncillarySourceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AncillarySourceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SourceAncillaryChannelNumber"

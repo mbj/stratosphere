@@ -16,6 +16,7 @@ instance ToResourceProperties NotificationTargetItemProperty where
   toResourceProperties NotificationTargetItemProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMIncidents::ResponsePlan.NotificationTargetItem",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SnsTopicArn" Prelude.<$> snsTopicArn])}

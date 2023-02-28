@@ -57,7 +57,7 @@ mkCluster aCLName clusterName nodeType
 instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
-        {awsType = "AWS::MemoryDB::Cluster",
+        {awsType = "AWS::MemoryDB::Cluster", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ACLName" JSON..= aCLName, "ClusterName" JSON..= clusterName,

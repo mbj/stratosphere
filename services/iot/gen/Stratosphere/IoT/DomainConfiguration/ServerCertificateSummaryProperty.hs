@@ -22,6 +22,7 @@ instance ToResourceProperties ServerCertificateSummaryProperty where
   toResourceProperties ServerCertificateSummaryProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::DomainConfiguration.ServerCertificateSummary",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ServerCertificateArn" Prelude.<$> serverCertificateArn,

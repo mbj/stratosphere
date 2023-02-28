@@ -23,6 +23,7 @@ instance ToResourceProperties MetricProperty where
   toResourceProperties MetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AssetModel.Metric",
+         supportsTags = Prelude.False,
          properties = ["Expression" JSON..= expression,
                        "Variables" JSON..= variables, "Window" JSON..= window]}
 instance JSON.ToJSON MetricProperty where

@@ -23,6 +23,7 @@ instance ToResourceProperties SalesforceSourcePropertiesProperty where
   toResourceProperties SalesforceSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.SalesforceSourceProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Object" JSON..= object]

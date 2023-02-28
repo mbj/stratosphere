@@ -15,6 +15,7 @@ instance ToResourceProperties HostedZoneConfigProperty where
   toResourceProperties HostedZoneConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Route53::HostedZone.HostedZoneConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Comment" Prelude.<$> comment])}
 instance JSON.ToJSON HostedZoneConfigProperty where

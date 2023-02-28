@@ -33,6 +33,7 @@ instance ToResourceProperties Authorizer where
   toResourceProperties Authorizer {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Authorizer",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "RestApiId" JSON..= restApiId,

@@ -16,6 +16,7 @@ instance ToResourceProperties ArchiveCdnSettingsProperty where
   toResourceProperties ArchiveCdnSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.ArchiveCdnSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ArchiveS3Settings" Prelude.<$> archiveS3Settings])}

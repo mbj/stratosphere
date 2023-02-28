@@ -22,6 +22,7 @@ instance ToResourceProperties RulesSourceListProperty where
   toResourceProperties RulesSourceListProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::RuleGroup.RulesSourceList",
+         supportsTags = Prelude.False,
          properties = ["GeneratedRulesType" JSON..= generatedRulesType,
                        "TargetTypes" JSON..= targetTypes, "Targets" JSON..= targets]}
 instance JSON.ToJSON RulesSourceListProperty where

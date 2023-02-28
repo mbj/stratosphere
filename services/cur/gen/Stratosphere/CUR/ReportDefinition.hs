@@ -50,6 +50,7 @@ instance ToResourceProperties ReportDefinition where
   toResourceProperties ReportDefinition {..}
     = ResourceProperties
         {awsType = "AWS::CUR::ReportDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Compression" JSON..= compression, "Format" JSON..= format,

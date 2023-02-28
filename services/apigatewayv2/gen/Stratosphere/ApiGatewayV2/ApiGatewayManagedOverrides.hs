@@ -25,6 +25,7 @@ instance ToResourceProperties ApiGatewayManagedOverrides where
   toResourceProperties ApiGatewayManagedOverrides {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::ApiGatewayManagedOverrides",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiId" JSON..= apiId]

@@ -25,6 +25,7 @@ instance ToResourceProperties Environment where
   toResourceProperties Environment {..}
     = ResourceProperties
         {awsType = "AWS::AppConfig::Environment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId, "Name" JSON..= name]

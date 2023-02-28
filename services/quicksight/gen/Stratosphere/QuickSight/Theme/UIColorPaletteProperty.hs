@@ -40,6 +40,7 @@ instance ToResourceProperties UIColorPaletteProperty where
   toResourceProperties UIColorPaletteProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme.UIColorPalette",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Accent" Prelude.<$> accent,

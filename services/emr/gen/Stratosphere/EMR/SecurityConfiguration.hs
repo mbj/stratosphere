@@ -18,6 +18,7 @@ instance ToResourceProperties SecurityConfiguration where
   toResourceProperties SecurityConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::EMR::SecurityConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SecurityConfiguration" JSON..= securityConfiguration]

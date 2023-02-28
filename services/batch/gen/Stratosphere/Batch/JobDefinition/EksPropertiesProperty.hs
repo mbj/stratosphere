@@ -15,6 +15,7 @@ instance ToResourceProperties EksPropertiesProperty where
   toResourceProperties EksPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.EksProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PodProperties" Prelude.<$> podProperties])}

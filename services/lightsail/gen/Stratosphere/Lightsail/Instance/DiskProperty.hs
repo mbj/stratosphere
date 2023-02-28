@@ -25,6 +25,7 @@ instance ToResourceProperties DiskProperty where
   toResourceProperties DiskProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Instance.Disk",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DiskName" JSON..= diskName, "Path" JSON..= path]

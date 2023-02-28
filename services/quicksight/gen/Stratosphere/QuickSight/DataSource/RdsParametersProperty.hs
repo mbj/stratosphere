@@ -18,6 +18,7 @@ instance ToResourceProperties RdsParametersProperty where
   toResourceProperties RdsParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.RdsParameters",
+         supportsTags = Prelude.False,
          properties = ["Database" JSON..= database,
                        "InstanceId" JSON..= instanceId]}
 instance JSON.ToJSON RdsParametersProperty where

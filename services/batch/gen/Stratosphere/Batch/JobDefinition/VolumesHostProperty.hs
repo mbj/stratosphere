@@ -15,6 +15,7 @@ instance ToResourceProperties VolumesHostProperty where
   toResourceProperties VolumesHostProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.VolumesHost",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SourcePath" Prelude.<$> sourcePath])}

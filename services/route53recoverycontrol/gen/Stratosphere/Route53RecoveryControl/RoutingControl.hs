@@ -19,6 +19,7 @@ instance ToResourceProperties RoutingControl where
   toResourceProperties RoutingControl {..}
     = ResourceProperties
         {awsType = "AWS::Route53RecoveryControl::RoutingControl",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

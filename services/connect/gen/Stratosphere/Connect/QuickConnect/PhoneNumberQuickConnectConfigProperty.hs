@@ -17,6 +17,7 @@ instance ToResourceProperties PhoneNumberQuickConnectConfigProperty where
   toResourceProperties PhoneNumberQuickConnectConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::QuickConnect.PhoneNumberQuickConnectConfig",
+         supportsTags = Prelude.False,
          properties = ["PhoneNumber" JSON..= phoneNumber]}
 instance JSON.ToJSON PhoneNumberQuickConnectConfigProperty where
   toJSON PhoneNumberQuickConnectConfigProperty {..}

@@ -34,6 +34,7 @@ instance ToResourceProperties AutoScalingProperty where
   toResourceProperties AutoScalingProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.AutoScaling",
+         supportsTags = Prelude.False,
          properties = ["MaxWorkerCount" JSON..= maxWorkerCount,
                        "McuCount" JSON..= mcuCount,
                        "MinWorkerCount" JSON..= minWorkerCount,

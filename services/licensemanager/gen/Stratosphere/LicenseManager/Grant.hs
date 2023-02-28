@@ -23,6 +23,7 @@ instance ToResourceProperties Grant where
   toResourceProperties Grant {..}
     = ResourceProperties
         {awsType = "AWS::LicenseManager::Grant",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowedOperations" Prelude.<$> allowedOperations,

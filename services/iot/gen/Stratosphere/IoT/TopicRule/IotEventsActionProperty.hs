@@ -21,6 +21,7 @@ instance ToResourceProperties IotEventsActionProperty where
   toResourceProperties IotEventsActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.IotEventsAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InputName" JSON..= inputName, "RoleArn" JSON..= roleArn]

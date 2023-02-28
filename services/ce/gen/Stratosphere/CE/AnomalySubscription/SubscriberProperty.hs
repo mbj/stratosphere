@@ -19,6 +19,7 @@ instance ToResourceProperties SubscriberProperty where
   toResourceProperties SubscriberProperty {..}
     = ResourceProperties
         {awsType = "AWS::CE::AnomalySubscription.Subscriber",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Address" JSON..= address, "Type" JSON..= type']

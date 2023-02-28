@@ -33,6 +33,7 @@ instance ToResourceProperties RuleProperty where
   toResourceProperties RuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::FraudDetector::Detector.Rule",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn,

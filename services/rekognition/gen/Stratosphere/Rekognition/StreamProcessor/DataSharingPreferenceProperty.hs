@@ -16,7 +16,7 @@ instance ToResourceProperties DataSharingPreferenceProperty where
   toResourceProperties DataSharingPreferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::Rekognition::StreamProcessor.DataSharingPreference",
-         properties = ["OptIn" JSON..= optIn]}
+         supportsTags = Prelude.False, properties = ["OptIn" JSON..= optIn]}
 instance JSON.ToJSON DataSharingPreferenceProperty where
   toJSON DataSharingPreferenceProperty {..}
     = JSON.object ["OptIn" JSON..= optIn]

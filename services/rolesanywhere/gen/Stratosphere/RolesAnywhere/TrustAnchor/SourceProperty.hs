@@ -18,6 +18,7 @@ instance ToResourceProperties SourceProperty where
   toResourceProperties SourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::RolesAnywhere::TrustAnchor.Source",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SourceData" Prelude.<$> sourceData,

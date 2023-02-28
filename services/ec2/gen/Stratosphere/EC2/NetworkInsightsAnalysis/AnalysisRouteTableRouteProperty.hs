@@ -35,6 +35,7 @@ instance ToResourceProperties AnalysisRouteTableRouteProperty where
   toResourceProperties AnalysisRouteTableRouteProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.AnalysisRouteTableRoute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "NatGatewayId" Prelude.<$> natGatewayId,

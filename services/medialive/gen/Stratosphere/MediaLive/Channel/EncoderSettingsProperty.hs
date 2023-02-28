@@ -49,6 +49,7 @@ instance ToResourceProperties EncoderSettingsProperty where
   toResourceProperties EncoderSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.EncoderSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioDescriptions" Prelude.<$> audioDescriptions,

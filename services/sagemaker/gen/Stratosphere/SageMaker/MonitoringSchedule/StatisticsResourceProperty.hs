@@ -15,6 +15,7 @@ instance ToResourceProperties StatisticsResourceProperty where
   toResourceProperties StatisticsResourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::MonitoringSchedule.StatisticsResource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "S3Uri" Prelude.<$> s3Uri])}
 instance JSON.ToJSON StatisticsResourceProperty where

@@ -20,6 +20,7 @@ instance ToResourceProperties PrimaryTaskSet where
   toResourceProperties PrimaryTaskSet {..}
     = ResourceProperties
         {awsType = "AWS::ECS::PrimaryTaskSet",
+         supportsTags = Prelude.False,
          properties = ["Cluster" JSON..= cluster, "Service" JSON..= service,
                        "TaskSetId" JSON..= taskSetId]}
 instance JSON.ToJSON PrimaryTaskSet where

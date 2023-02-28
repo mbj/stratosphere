@@ -24,6 +24,7 @@ instance ToResourceProperties ZendeskDestinationPropertiesProperty where
   toResourceProperties ZendeskDestinationPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.ZendeskDestinationProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Object" JSON..= object]

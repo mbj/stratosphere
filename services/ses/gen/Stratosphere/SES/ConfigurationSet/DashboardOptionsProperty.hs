@@ -16,6 +16,7 @@ instance ToResourceProperties DashboardOptionsProperty where
   toResourceProperties DashboardOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ConfigurationSet.DashboardOptions",
+         supportsTags = Prelude.False,
          properties = ["EngagementMetrics" JSON..= engagementMetrics]}
 instance JSON.ToJSON DashboardOptionsProperty where
   toJSON DashboardOptionsProperty {..}

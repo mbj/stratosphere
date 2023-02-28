@@ -17,6 +17,7 @@ instance ToResourceProperties AttributeDimensionProperty where
   toResourceProperties AttributeDimensionProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.AttributeDimension",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AttributeType" Prelude.<$> attributeType,

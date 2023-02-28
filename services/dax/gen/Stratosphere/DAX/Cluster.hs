@@ -41,7 +41,7 @@ mkCluster iAMRoleARN nodeType replicationFactor
 instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
-        {awsType = "AWS::DAX::Cluster",
+        {awsType = "AWS::DAX::Cluster", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IAMRoleARN" JSON..= iAMRoleARN, "NodeType" JSON..= nodeType,

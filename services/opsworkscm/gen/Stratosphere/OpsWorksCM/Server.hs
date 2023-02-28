@@ -50,7 +50,7 @@ mkServer instanceProfileArn instanceType serviceRoleArn
 instance ToResourceProperties Server where
   toResourceProperties Server {..}
     = ResourceProperties
-        {awsType = "AWS::OpsWorksCM::Server",
+        {awsType = "AWS::OpsWorksCM::Server", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InstanceProfileArn" JSON..= instanceProfileArn,

@@ -20,6 +20,7 @@ instance ToResourceProperties SecurityPolicy where
   toResourceProperties SecurityPolicy {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchServerless::SecurityPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Policy" JSON..= policy]

@@ -27,7 +27,7 @@ mkUser engine userId userName
 instance ToResourceProperties User where
   toResourceProperties User {..}
     = ResourceProperties
-        {awsType = "AWS::ElastiCache::User",
+        {awsType = "AWS::ElastiCache::User", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Engine" JSON..= engine, "UserId" JSON..= userId,

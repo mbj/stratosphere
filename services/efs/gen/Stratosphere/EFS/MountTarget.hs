@@ -21,7 +21,7 @@ mkMountTarget fileSystemId securityGroups subnetId
 instance ToResourceProperties MountTarget where
   toResourceProperties MountTarget {..}
     = ResourceProperties
-        {awsType = "AWS::EFS::MountTarget",
+        {awsType = "AWS::EFS::MountTarget", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FileSystemId" JSON..= fileSystemId,

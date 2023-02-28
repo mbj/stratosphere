@@ -20,7 +20,7 @@ mkOIDCProvider thumbprintList
 instance ToResourceProperties OIDCProvider where
   toResourceProperties OIDCProvider {..}
     = ResourceProperties
-        {awsType = "AWS::IAM::OIDCProvider",
+        {awsType = "AWS::IAM::OIDCProvider", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ThumbprintList" JSON..= thumbprintList]

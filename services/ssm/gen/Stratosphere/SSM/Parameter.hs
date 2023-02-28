@@ -27,7 +27,7 @@ mkParameter type' value
 instance ToResourceProperties Parameter where
   toResourceProperties Parameter {..}
     = ResourceProperties
-        {awsType = "AWS::SSM::Parameter",
+        {awsType = "AWS::SSM::Parameter", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type', "Value" JSON..= value]

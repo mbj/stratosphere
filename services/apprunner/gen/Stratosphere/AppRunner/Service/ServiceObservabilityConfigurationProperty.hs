@@ -20,6 +20,7 @@ instance ToResourceProperties ServiceObservabilityConfigurationProperty where
   toResourceProperties ServiceObservabilityConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::Service.ServiceObservabilityConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ObservabilityEnabled" JSON..= observabilityEnabled]

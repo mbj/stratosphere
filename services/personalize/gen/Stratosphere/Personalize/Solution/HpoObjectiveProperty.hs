@@ -19,6 +19,7 @@ instance ToResourceProperties HpoObjectiveProperty where
   toResourceProperties HpoObjectiveProperty {..}
     = ResourceProperties
         {awsType = "AWS::Personalize::Solution.HpoObjective",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MetricName" Prelude.<$> metricName,

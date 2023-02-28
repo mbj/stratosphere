@@ -20,6 +20,7 @@ instance ToResourceProperties TimeBasedLinearProperty where
   toResourceProperties TimeBasedLinearProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentConfig.TimeBasedLinear",
+         supportsTags = Prelude.False,
          properties = ["LinearInterval" JSON..= linearInterval,
                        "LinearPercentage" JSON..= linearPercentage]}
 instance JSON.ToJSON TimeBasedLinearProperty where

@@ -19,6 +19,7 @@ instance ToResourceProperties CognitoUserPoolConfigProperty where
   toResourceProperties CognitoUserPoolConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::GraphQLApi.CognitoUserPoolConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AppIdClientRegex" Prelude.<$> appIdClientRegex,

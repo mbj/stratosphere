@@ -36,7 +36,7 @@ mkRuleProperty name priority statement visibilityConfig
 instance ToResourceProperties RuleProperty where
   toResourceProperties RuleProperty {..}
     = ResourceProperties
-        {awsType = "AWS::WAFv2::WebACL.Rule",
+        {awsType = "AWS::WAFv2::WebACL.Rule", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Priority" JSON..= priority,

@@ -26,7 +26,7 @@ mkWorkflow
 instance ToResourceProperties Workflow where
   toResourceProperties Workflow {..}
     = ResourceProperties
-        {awsType = "AWS::Omics::Workflow",
+        {awsType = "AWS::Omics::Workflow", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefinitionUri" Prelude.<$> definitionUri,

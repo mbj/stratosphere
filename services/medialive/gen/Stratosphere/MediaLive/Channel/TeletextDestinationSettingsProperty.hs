@@ -3,6 +3,7 @@ module Stratosphere.MediaLive.Channel.TeletextDestinationSettingsProperty (
         mkTeletextDestinationSettingsProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TeletextDestinationSettingsProperty
   = TeletextDestinationSettingsProperty {}
@@ -14,6 +15,6 @@ instance ToResourceProperties TeletextDestinationSettingsProperty where
   toResourceProperties TeletextDestinationSettingsProperty {}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.TeletextDestinationSettings",
-         properties = []}
+         supportsTags = Prelude.False, properties = []}
 instance JSON.ToJSON TeletextDestinationSettingsProperty where
   toJSON TeletextDestinationSettingsProperty {} = JSON.object []

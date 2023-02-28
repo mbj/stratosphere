@@ -24,6 +24,7 @@ instance ToResourceProperties CustomerGateway where
   toResourceProperties CustomerGateway {..}
     = ResourceProperties
         {awsType = "AWS::EC2::CustomerGateway",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BgpAsn" JSON..= bgpAsn, "IpAddress" JSON..= ipAddress,

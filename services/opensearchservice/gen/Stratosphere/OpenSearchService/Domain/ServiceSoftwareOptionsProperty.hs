@@ -28,6 +28,7 @@ instance ToResourceProperties ServiceSoftwareOptionsProperty where
   toResourceProperties ServiceSoftwareOptionsProperty {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchService::Domain.ServiceSoftwareOptions",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutomatedUpdateDate" Prelude.<$> automatedUpdateDate,

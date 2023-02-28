@@ -28,6 +28,7 @@ instance ToResourceProperties ConnectPeer where
   toResourceProperties ConnectPeer {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::ConnectPeer",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectAttachmentId" JSON..= connectAttachmentId,

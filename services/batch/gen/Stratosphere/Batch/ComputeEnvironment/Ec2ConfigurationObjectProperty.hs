@@ -21,6 +21,7 @@ instance ToResourceProperties Ec2ConfigurationObjectProperty where
   toResourceProperties Ec2ConfigurationObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::ComputeEnvironment.Ec2ConfigurationObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ImageType" JSON..= imageType]

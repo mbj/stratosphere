@@ -25,6 +25,7 @@ instance ToResourceProperties NetworkInterfacesItemsProperty where
   toResourceProperties NetworkInterfacesItemsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::DecoderManifest.NetworkInterfacesItems",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["InterfaceId" JSON..= interfaceId, "Type" JSON..= type']

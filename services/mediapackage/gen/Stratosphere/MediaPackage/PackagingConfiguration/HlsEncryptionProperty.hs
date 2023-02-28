@@ -22,6 +22,7 @@ instance ToResourceProperties HlsEncryptionProperty where
   toResourceProperties HlsEncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::PackagingConfiguration.HlsEncryption",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SpekeKeyProvider" JSON..= spekeKeyProvider]

@@ -22,6 +22,7 @@ instance ToResourceProperties IdentityProviderDetailsProperty where
   toResourceProperties IdentityProviderDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Server.IdentityProviderDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DirectoryId" Prelude.<$> directoryId,

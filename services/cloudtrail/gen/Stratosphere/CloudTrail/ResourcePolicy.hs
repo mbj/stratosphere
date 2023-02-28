@@ -18,6 +18,7 @@ instance ToResourceProperties ResourcePolicy where
   toResourceProperties ResourcePolicy {..}
     = ResourceProperties
         {awsType = "AWS::CloudTrail::ResourcePolicy",
+         supportsTags = Prelude.False,
          properties = ["ResourceArn" JSON..= resourceArn,
                        "ResourcePolicy" JSON..= resourcePolicy]}
 instance JSON.ToJSON ResourcePolicy where

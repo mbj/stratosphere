@@ -19,6 +19,7 @@ instance ToResourceProperties EncryptionConfigurationProperty where
   toResourceProperties EncryptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DLM::LifecyclePolicy.EncryptionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Encrypted" JSON..= encrypted]

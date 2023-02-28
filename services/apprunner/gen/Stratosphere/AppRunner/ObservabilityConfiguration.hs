@@ -22,6 +22,7 @@ instance ToResourceProperties ObservabilityConfiguration where
   toResourceProperties ObservabilityConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::AppRunner::ObservabilityConfiguration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ObservabilityConfigurationName"

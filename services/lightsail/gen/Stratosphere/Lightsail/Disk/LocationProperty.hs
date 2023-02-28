@@ -17,6 +17,7 @@ instance ToResourceProperties LocationProperty where
   toResourceProperties LocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Disk.Location",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,

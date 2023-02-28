@@ -15,6 +15,7 @@ instance ToResourceProperties TracingConfigProperty where
   toResourceProperties TracingConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Function.TracingConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Mode" Prelude.<$> mode])}
 instance JSON.ToJSON TracingConfigProperty where

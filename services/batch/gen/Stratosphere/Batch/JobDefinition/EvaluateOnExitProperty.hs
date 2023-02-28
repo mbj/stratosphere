@@ -21,6 +21,7 @@ instance ToResourceProperties EvaluateOnExitProperty where
   toResourceProperties EvaluateOnExitProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.EvaluateOnExit",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Action" JSON..= action]

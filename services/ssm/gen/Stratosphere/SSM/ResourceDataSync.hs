@@ -30,6 +30,7 @@ instance ToResourceProperties ResourceDataSync where
   toResourceProperties ResourceDataSync {..}
     = ResourceProperties
         {awsType = "AWS::SSM::ResourceDataSync",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SyncName" JSON..= syncName]

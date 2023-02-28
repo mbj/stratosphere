@@ -3,6 +3,7 @@ module Stratosphere.S3.Bucket.NotificationFilterProperty (
         mkNotificationFilterProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.Bucket.S3KeyFilterProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,7 +17,7 @@ instance ToResourceProperties NotificationFilterProperty where
   toResourceProperties NotificationFilterProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.NotificationFilter",
-         properties = ["S3Key" JSON..= s3Key]}
+         supportsTags = Prelude.False, properties = ["S3Key" JSON..= s3Key]}
 instance JSON.ToJSON NotificationFilterProperty where
   toJSON NotificationFilterProperty {..}
     = JSON.object ["S3Key" JSON..= s3Key]

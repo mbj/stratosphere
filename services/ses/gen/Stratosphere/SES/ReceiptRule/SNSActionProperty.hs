@@ -17,6 +17,7 @@ instance ToResourceProperties SNSActionProperty where
   toResourceProperties SNSActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ReceiptRule.SNSAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Encoding" Prelude.<$> encoding,

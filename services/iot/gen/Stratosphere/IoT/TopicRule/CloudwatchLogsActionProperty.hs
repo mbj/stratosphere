@@ -21,6 +21,7 @@ instance ToResourceProperties CloudwatchLogsActionProperty where
   toResourceProperties CloudwatchLogsActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.CloudwatchLogsAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LogGroupName" JSON..= logGroupName, "RoleArn" JSON..= roleArn]

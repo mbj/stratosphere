@@ -20,6 +20,7 @@ instance ToResourceProperties HardwareProperty where
   toResourceProperties HardwareProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lightsail::Instance.Hardware",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CpuCount" Prelude.<$> cpuCount,

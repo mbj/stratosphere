@@ -22,6 +22,7 @@ instance ToResourceProperties InAppMessageButtonProperty where
   toResourceProperties InAppMessageButtonProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.InAppMessageButton",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Android" Prelude.<$> android,

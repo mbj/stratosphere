@@ -23,6 +23,7 @@ instance ToResourceProperties ListenerTimeoutProperty where
   toResourceProperties ListenerTimeoutProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualNode.ListenerTimeout",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "GRPC" Prelude.<$> gRPC,

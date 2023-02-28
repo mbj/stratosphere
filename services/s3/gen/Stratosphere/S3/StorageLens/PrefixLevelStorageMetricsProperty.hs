@@ -20,6 +20,7 @@ instance ToResourceProperties PrefixLevelStorageMetricsProperty where
   toResourceProperties PrefixLevelStorageMetricsProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.PrefixLevelStorageMetrics",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IsEnabled" Prelude.<$> isEnabled,

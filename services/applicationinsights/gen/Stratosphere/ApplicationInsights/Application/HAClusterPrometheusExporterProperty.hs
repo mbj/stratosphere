@@ -18,6 +18,7 @@ instance ToResourceProperties HAClusterPrometheusExporterProperty where
   toResourceProperties HAClusterPrometheusExporterProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationInsights::Application.HAClusterPrometheusExporter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PrometheusPort" Prelude.<$> prometheusPort])}

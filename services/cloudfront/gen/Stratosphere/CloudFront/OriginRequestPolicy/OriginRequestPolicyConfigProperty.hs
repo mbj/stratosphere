@@ -34,6 +34,7 @@ instance ToResourceProperties OriginRequestPolicyConfigProperty where
   toResourceProperties OriginRequestPolicyConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CookiesConfig" JSON..= cookiesConfig,

@@ -19,6 +19,7 @@ instance ToResourceProperties TargetsProperty where
   toResourceProperties TargetsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSMContacts::Contact.Targets",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ChannelTargetInfo" Prelude.<$> channelTargetInfo,

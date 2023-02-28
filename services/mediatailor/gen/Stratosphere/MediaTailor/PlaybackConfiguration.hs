@@ -55,6 +55,7 @@ instance ToResourceProperties PlaybackConfiguration where
   toResourceProperties PlaybackConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::MediaTailor::PlaybackConfiguration",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AdDecisionServerUrl" JSON..= adDecisionServerUrl,

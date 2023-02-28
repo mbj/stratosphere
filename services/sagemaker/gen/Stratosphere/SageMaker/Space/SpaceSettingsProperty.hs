@@ -19,6 +19,7 @@ instance ToResourceProperties SpaceSettingsProperty where
   toResourceProperties SpaceSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Space.SpaceSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "JupyterServerAppSettings"

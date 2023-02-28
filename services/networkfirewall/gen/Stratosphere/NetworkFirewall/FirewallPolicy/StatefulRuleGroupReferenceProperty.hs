@@ -22,6 +22,7 @@ instance ToResourceProperties StatefulRuleGroupReferenceProperty where
   toResourceProperties StatefulRuleGroupReferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::FirewallPolicy.StatefulRuleGroupReference",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ResourceArn" JSON..= resourceArn]

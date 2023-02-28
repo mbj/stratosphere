@@ -19,6 +19,7 @@ instance ToResourceProperties FileSourceProperty where
   toResourceProperties FileSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.FileSource",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["S3Uri" JSON..= s3Uri]

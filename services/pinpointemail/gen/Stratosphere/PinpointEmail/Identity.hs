@@ -24,6 +24,7 @@ instance ToResourceProperties Identity where
   toResourceProperties Identity {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::Identity",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

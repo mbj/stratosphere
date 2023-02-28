@@ -18,6 +18,7 @@ instance ToResourceProperties ParameterProperty where
   toResourceProperties ParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::StackSet.Parameter",
+         supportsTags = Prelude.False,
          properties = ["ParameterKey" JSON..= parameterKey,
                        "ParameterValue" JSON..= parameterValue]}
 instance JSON.ToJSON ParameterProperty where

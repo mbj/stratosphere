@@ -17,6 +17,7 @@ instance ToResourceProperties S3LocationProperty where
   toResourceProperties S3LocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::AppBlock.S3Location",
+         supportsTags = Prelude.False,
          properties = ["S3Bucket" JSON..= s3Bucket, "S3Key" JSON..= s3Key]}
 instance JSON.ToJSON S3LocationProperty where
   toJSON S3LocationProperty {..}

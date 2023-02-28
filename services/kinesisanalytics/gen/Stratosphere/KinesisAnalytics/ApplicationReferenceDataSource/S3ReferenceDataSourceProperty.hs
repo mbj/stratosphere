@@ -22,6 +22,7 @@ instance ToResourceProperties S3ReferenceDataSourceProperty where
   toResourceProperties S3ReferenceDataSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalytics::ApplicationReferenceDataSource.S3ReferenceDataSource",
+         supportsTags = Prelude.False,
          properties = ["BucketARN" JSON..= bucketARN,
                        "FileKey" JSON..= fileKey,
                        "ReferenceRoleARN" JSON..= referenceRoleARN]}

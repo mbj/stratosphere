@@ -15,6 +15,7 @@ instance ToResourceProperties StatisticalThresholdProperty where
   toResourceProperties StatisticalThresholdProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::SecurityProfile.StatisticalThreshold",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Statistic" Prelude.<$> statistic])}
 instance JSON.ToJSON StatisticalThresholdProperty where

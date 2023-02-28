@@ -17,6 +17,7 @@ instance ToResourceProperties IamInstanceProfileSpecificationProperty where
   toResourceProperties IamInstanceProfileSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.IamInstanceProfileSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Arn" Prelude.<$> arn])}
 instance JSON.ToJSON IamInstanceProfileSpecificationProperty where

@@ -39,7 +39,7 @@ mkInstance blueprintId bundleId instanceName
 instance ToResourceProperties Instance where
   toResourceProperties Instance {..}
     = ResourceProperties
-        {awsType = "AWS::Lightsail::Instance",
+        {awsType = "AWS::Lightsail::Instance", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BlueprintId" JSON..= blueprintId, "BundleId" JSON..= bundleId,

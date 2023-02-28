@@ -23,6 +23,7 @@ instance ToResourceProperties PortMappingProperty where
   toResourceProperties PortMappingProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::TaskDefinition.PortMapping",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AppProtocol" Prelude.<$> appProtocol,

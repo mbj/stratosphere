@@ -26,6 +26,7 @@ instance ToResourceProperties EventIntegrationAssociationProperty where
   toResourceProperties EventIntegrationAssociationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppIntegrations::EventIntegration.EventIntegrationAssociation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClientAssociationMetadata"

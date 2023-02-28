@@ -13,7 +13,7 @@ mkFilterProperty = FilterProperty {pattern = Prelude.Nothing}
 instance ToResourceProperties FilterProperty where
   toResourceProperties FilterProperty {..}
     = ResourceProperties
-        {awsType = "AWS::Pipes::Pipe.Filter",
+        {awsType = "AWS::Pipes::Pipe.Filter", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Pattern" Prelude.<$> pattern])}
 instance JSON.ToJSON FilterProperty where

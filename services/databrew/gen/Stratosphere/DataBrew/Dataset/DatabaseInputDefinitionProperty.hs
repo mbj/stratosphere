@@ -24,6 +24,7 @@ instance ToResourceProperties DatabaseInputDefinitionProperty where
   toResourceProperties DatabaseInputDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.DatabaseInputDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["GlueConnectionName" JSON..= glueConnectionName]

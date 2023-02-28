@@ -25,6 +25,7 @@ instance ToResourceProperties PipeTargetEventBridgeEventBusParametersProperty wh
     PipeTargetEventBridgeEventBusParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeTargetEventBridgeEventBusParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DetailType" Prelude.<$> detailType,

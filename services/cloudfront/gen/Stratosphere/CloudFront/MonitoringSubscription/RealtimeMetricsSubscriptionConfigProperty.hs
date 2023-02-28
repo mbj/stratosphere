@@ -19,6 +19,7 @@ instance ToResourceProperties RealtimeMetricsSubscriptionConfigProperty where
   toResourceProperties RealtimeMetricsSubscriptionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::MonitoringSubscription.RealtimeMetricsSubscriptionConfig",
+         supportsTags = Prelude.False,
          properties = ["RealtimeMetricsSubscriptionStatus"
                          JSON..= realtimeMetricsSubscriptionStatus]}
 instance JSON.ToJSON RealtimeMetricsSubscriptionConfigProperty where

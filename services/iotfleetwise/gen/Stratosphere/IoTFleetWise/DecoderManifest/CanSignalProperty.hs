@@ -38,6 +38,7 @@ instance ToResourceProperties CanSignalProperty where
   toResourceProperties CanSignalProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::DecoderManifest.CanSignal",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Factor" JSON..= factor, "IsBigEndian" JSON..= isBigEndian,

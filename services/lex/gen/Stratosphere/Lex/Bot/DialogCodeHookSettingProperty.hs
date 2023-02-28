@@ -16,6 +16,7 @@ instance ToResourceProperties DialogCodeHookSettingProperty where
   toResourceProperties DialogCodeHookSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.DialogCodeHookSetting",
+         supportsTags = Prelude.False,
          properties = ["Enabled" JSON..= enabled]}
 instance JSON.ToJSON DialogCodeHookSettingProperty where
   toJSON DialogCodeHookSettingProperty {..}

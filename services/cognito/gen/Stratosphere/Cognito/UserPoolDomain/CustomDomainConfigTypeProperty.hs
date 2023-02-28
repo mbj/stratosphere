@@ -16,6 +16,7 @@ instance ToResourceProperties CustomDomainConfigTypeProperty where
   toResourceProperties CustomDomainConfigTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cognito::UserPoolDomain.CustomDomainConfigType",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateArn" Prelude.<$> certificateArn])}

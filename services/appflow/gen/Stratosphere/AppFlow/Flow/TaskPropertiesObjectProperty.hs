@@ -18,6 +18,7 @@ instance ToResourceProperties TaskPropertiesObjectProperty where
   toResourceProperties TaskPropertiesObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.TaskPropertiesObject",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON TaskPropertiesObjectProperty where
   toJSON TaskPropertiesObjectProperty {..}

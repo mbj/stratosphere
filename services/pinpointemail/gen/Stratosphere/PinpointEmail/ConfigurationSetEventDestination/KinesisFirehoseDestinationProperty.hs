@@ -20,6 +20,7 @@ instance ToResourceProperties KinesisFirehoseDestinationProperty where
   toResourceProperties KinesisFirehoseDestinationProperty {..}
     = ResourceProperties
         {awsType = "AWS::PinpointEmail::ConfigurationSetEventDestination.KinesisFirehoseDestination",
+         supportsTags = Prelude.False,
          properties = ["DeliveryStreamArn" JSON..= deliveryStreamArn,
                        "IamRoleArn" JSON..= iamRoleArn]}
 instance JSON.ToJSON KinesisFirehoseDestinationProperty where

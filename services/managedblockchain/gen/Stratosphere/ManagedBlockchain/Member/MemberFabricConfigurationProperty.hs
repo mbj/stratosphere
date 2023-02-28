@@ -20,6 +20,7 @@ instance ToResourceProperties MemberFabricConfigurationProperty where
   toResourceProperties MemberFabricConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ManagedBlockchain::Member.MemberFabricConfiguration",
+         supportsTags = Prelude.False,
          properties = ["AdminPassword" JSON..= adminPassword,
                        "AdminUsername" JSON..= adminUsername]}
 instance JSON.ToJSON MemberFabricConfigurationProperty where

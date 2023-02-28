@@ -15,6 +15,7 @@ instance ToResourceProperties EksInfoProperty where
   toResourceProperties EksInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::EMRContainers::VirtualCluster.EksInfo",
+         supportsTags = Prelude.False,
          properties = ["Namespace" JSON..= namespace]}
 instance JSON.ToJSON EksInfoProperty where
   toJSON EksInfoProperty {..}

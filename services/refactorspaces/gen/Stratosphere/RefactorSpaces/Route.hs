@@ -34,6 +34,7 @@ instance ToResourceProperties Route where
   toResourceProperties Route {..}
     = ResourceProperties
         {awsType = "AWS::RefactorSpaces::Route",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationIdentifier" JSON..= applicationIdentifier,

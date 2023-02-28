@@ -27,6 +27,7 @@ instance ToResourceProperties InAppMessageContentProperty where
   toResourceProperties InAppMessageContentProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.InAppMessageContent",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BackgroundColor" Prelude.<$> backgroundColor,

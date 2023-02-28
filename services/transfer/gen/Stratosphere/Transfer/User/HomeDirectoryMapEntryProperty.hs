@@ -18,6 +18,7 @@ instance ToResourceProperties HomeDirectoryMapEntryProperty where
   toResourceProperties HomeDirectoryMapEntryProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::User.HomeDirectoryMapEntry",
+         supportsTags = Prelude.False,
          properties = ["Entry" JSON..= entry, "Target" JSON..= target]}
 instance JSON.ToJSON HomeDirectoryMapEntryProperty where
   toJSON HomeDirectoryMapEntryProperty {..}

@@ -93,6 +93,7 @@ instance ToResourceProperties M2tsSettingsProperty where
   toResourceProperties M2tsSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.M2tsSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AbsentInputAudioBehavior"

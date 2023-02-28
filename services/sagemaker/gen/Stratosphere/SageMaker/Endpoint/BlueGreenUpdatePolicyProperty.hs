@@ -23,6 +23,7 @@ instance ToResourceProperties BlueGreenUpdatePolicyProperty where
   toResourceProperties BlueGreenUpdatePolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Endpoint.BlueGreenUpdatePolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TrafficRoutingConfiguration" JSON..= trafficRoutingConfiguration]

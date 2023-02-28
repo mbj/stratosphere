@@ -17,6 +17,7 @@ instance ToResourceProperties SidewalkAccountInfoProperty where
   toResourceProperties SidewalkAccountInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::PartnerAccount.SidewalkAccountInfo",
+         supportsTags = Prelude.False,
          properties = ["AppServerPrivateKey" JSON..= appServerPrivateKey]}
 instance JSON.ToJSON SidewalkAccountInfoProperty where
   toJSON SidewalkAccountInfoProperty {..}

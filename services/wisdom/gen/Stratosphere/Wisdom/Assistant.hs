@@ -24,7 +24,7 @@ mkAssistant name type'
 instance ToResourceProperties Assistant where
   toResourceProperties Assistant {..}
     = ResourceProperties
-        {awsType = "AWS::Wisdom::Assistant",
+        {awsType = "AWS::Wisdom::Assistant", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Type" JSON..= type']

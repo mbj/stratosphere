@@ -73,6 +73,7 @@ instance ToResourceProperties AutoScalingGroup where
   toResourceProperties AutoScalingGroup {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MaxSize" JSON..= maxSize, "MinSize" JSON..= minSize]

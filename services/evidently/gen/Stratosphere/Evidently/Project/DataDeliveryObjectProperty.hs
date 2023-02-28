@@ -19,6 +19,7 @@ instance ToResourceProperties DataDeliveryObjectProperty where
   toResourceProperties DataDeliveryObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Project.DataDeliveryObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "LogGroup" Prelude.<$> logGroup,

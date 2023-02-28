@@ -25,6 +25,7 @@ instance ToResourceProperties BlockDeviceProperty where
   toResourceProperties BlockDeviceProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::LaunchConfiguration.BlockDevice",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,

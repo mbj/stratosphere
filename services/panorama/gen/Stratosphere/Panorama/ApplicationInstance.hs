@@ -36,6 +36,7 @@ instance ToResourceProperties ApplicationInstance where
   toResourceProperties ApplicationInstance {..}
     = ResourceProperties
         {awsType = "AWS::Panorama::ApplicationInstance",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DefaultRuntimeContextDevice" JSON..= defaultRuntimeContextDevice,

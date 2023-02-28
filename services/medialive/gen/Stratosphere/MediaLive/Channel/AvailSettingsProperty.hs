@@ -19,6 +19,7 @@ instance ToResourceProperties AvailSettingsProperty where
   toResourceProperties AvailSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AvailSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Scte35SpliceInsert" Prelude.<$> scte35SpliceInsert,

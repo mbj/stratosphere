@@ -18,6 +18,7 @@ instance ToResourceProperties SegmentGroupsProperty where
   toResourceProperties SegmentGroupsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Segment.SegmentGroups",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Groups" Prelude.<$> groups,

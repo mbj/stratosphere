@@ -18,6 +18,7 @@ instance ToResourceProperties CapacityRebalanceProperty where
   toResourceProperties CapacityRebalanceProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::EC2Fleet.CapacityRebalance",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ReplacementStrategy" Prelude.<$> replacementStrategy,

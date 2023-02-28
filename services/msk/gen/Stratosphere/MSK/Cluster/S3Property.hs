@@ -18,7 +18,7 @@ mkS3Property enabled
 instance ToResourceProperties S3Property where
   toResourceProperties S3Property {..}
     = ResourceProperties
-        {awsType = "AWS::MSK::Cluster.S3",
+        {awsType = "AWS::MSK::Cluster.S3", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

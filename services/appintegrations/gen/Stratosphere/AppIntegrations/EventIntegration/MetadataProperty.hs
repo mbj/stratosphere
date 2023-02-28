@@ -17,6 +17,7 @@ instance ToResourceProperties MetadataProperty where
   toResourceProperties MetadataProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppIntegrations::EventIntegration.Metadata",
+         supportsTags = Prelude.False,
          properties = ["Key" JSON..= key, "Value" JSON..= value]}
 instance JSON.ToJSON MetadataProperty where
   toJSON MetadataProperty {..}

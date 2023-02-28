@@ -20,6 +20,7 @@ instance ToResourceProperties IPAMAllocation where
   toResourceProperties IPAMAllocation {..}
     = ResourceProperties
         {awsType = "AWS::EC2::IPAMAllocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IpamPoolId" JSON..= ipamPoolId]

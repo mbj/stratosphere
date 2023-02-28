@@ -17,6 +17,7 @@ instance ToResourceProperties ProvisioningHookProperty where
   toResourceProperties ProvisioningHookProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::ProvisioningTemplate.ProvisioningHook",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PayloadVersion" Prelude.<$> payloadVersion,

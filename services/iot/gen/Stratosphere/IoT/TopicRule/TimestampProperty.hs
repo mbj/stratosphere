@@ -16,6 +16,7 @@ instance ToResourceProperties TimestampProperty where
   toResourceProperties TimestampProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.Timestamp",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Value" JSON..= value]

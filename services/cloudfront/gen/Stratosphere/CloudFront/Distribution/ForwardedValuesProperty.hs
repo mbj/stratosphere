@@ -23,6 +23,7 @@ instance ToResourceProperties ForwardedValuesProperty where
   toResourceProperties ForwardedValuesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.ForwardedValues",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["QueryString" JSON..= queryString]

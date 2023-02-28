@@ -15,6 +15,7 @@ instance ToResourceProperties ControlPlanePlacementProperty where
   toResourceProperties ControlPlanePlacementProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Cluster.ControlPlanePlacement",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "GroupName" Prelude.<$> groupName])}
 instance JSON.ToJSON ControlPlanePlacementProperty where

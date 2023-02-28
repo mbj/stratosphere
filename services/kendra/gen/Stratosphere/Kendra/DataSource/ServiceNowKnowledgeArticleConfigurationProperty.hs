@@ -34,6 +34,7 @@ instance ToResourceProperties ServiceNowKnowledgeArticleConfigurationProperty wh
     ServiceNowKnowledgeArticleConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.ServiceNowKnowledgeArticleConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DocumentDataFieldName" JSON..= documentDataFieldName]

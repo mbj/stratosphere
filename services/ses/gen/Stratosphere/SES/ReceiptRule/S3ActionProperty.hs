@@ -20,6 +20,7 @@ instance ToResourceProperties S3ActionProperty where
   toResourceProperties S3ActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SES::ReceiptRule.S3Action",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName]

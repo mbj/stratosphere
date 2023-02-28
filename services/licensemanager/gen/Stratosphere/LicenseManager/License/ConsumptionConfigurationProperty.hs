@@ -24,6 +24,7 @@ instance ToResourceProperties ConsumptionConfigurationProperty where
   toResourceProperties ConsumptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::LicenseManager::License.ConsumptionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BorrowConfiguration" Prelude.<$> borrowConfiguration,

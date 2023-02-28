@@ -37,7 +37,7 @@ mkTable keyspaceName partitionKeyColumns
 instance ToResourceProperties Table where
   toResourceProperties Table {..}
     = ResourceProperties
-        {awsType = "AWS::Cassandra::Table",
+        {awsType = "AWS::Cassandra::Table", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KeyspaceName" JSON..= keyspaceName,

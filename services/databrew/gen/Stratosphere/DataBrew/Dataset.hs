@@ -26,7 +26,7 @@ mkDataset input name
 instance ToResourceProperties Dataset where
   toResourceProperties Dataset {..}
     = ResourceProperties
-        {awsType = "AWS::DataBrew::Dataset",
+        {awsType = "AWS::DataBrew::Dataset", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Input" JSON..= input, "Name" JSON..= name]

@@ -19,6 +19,7 @@ instance ToResourceProperties HttpGatewayRoutePrefixRewriteProperty where
   toResourceProperties HttpGatewayRoutePrefixRewriteProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::GatewayRoute.HttpGatewayRoutePrefixRewrite",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DefaultPrefix" Prelude.<$> defaultPrefix,

@@ -35,7 +35,7 @@ mkLaunch groups name project scheduledSplitsConfig
 instance ToResourceProperties Launch where
   toResourceProperties Launch {..}
     = ResourceProperties
-        {awsType = "AWS::Evidently::Launch",
+        {awsType = "AWS::Evidently::Launch", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Groups" JSON..= groups, "Name" JSON..= name,

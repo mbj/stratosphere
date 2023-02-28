@@ -22,6 +22,7 @@ instance ToResourceProperties OutpostConfigProperty where
   toResourceProperties OutpostConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Cluster.OutpostConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ControlPlaneInstanceType" JSON..= controlPlaneInstanceType,

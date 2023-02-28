@@ -19,6 +19,7 @@ instance ToResourceProperties AttributeGroupAssociation where
   toResourceProperties AttributeGroupAssociation {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation",
+         supportsTags = Prelude.False,
          properties = ["Application" JSON..= application,
                        "AttributeGroup" JSON..= attributeGroup]}
 instance JSON.ToJSON AttributeGroupAssociation where

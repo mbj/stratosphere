@@ -3,6 +3,7 @@ module Stratosphere.EC2.SpotFleet.TargetGroupsConfigProperty (
         mkTargetGroupsConfigProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.TargetGroupProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties TargetGroupsConfigProperty where
   toResourceProperties TargetGroupsConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SpotFleet.TargetGroupsConfig",
+         supportsTags = Prelude.False,
          properties = ["TargetGroups" JSON..= targetGroups]}
 instance JSON.ToJSON TargetGroupsConfigProperty where
   toJSON TargetGroupsConfigProperty {..}

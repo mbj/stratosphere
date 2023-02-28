@@ -22,6 +22,7 @@ instance ToResourceProperties PredicateProperty where
   toResourceProperties PredicateProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component.Predicate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "And" Prelude.<$> and,

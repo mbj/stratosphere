@@ -31,6 +31,7 @@ instance ToResourceProperties MetricGoalObjectProperty where
   toResourceProperties MetricGoalObjectProperty {..}
     = ResourceProperties
         {awsType = "AWS::Evidently::Experiment.MetricGoalObject",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DesiredChange" JSON..= desiredChange,

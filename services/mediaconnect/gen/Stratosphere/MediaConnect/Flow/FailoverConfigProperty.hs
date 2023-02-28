@@ -22,6 +22,7 @@ instance ToResourceProperties FailoverConfigProperty where
   toResourceProperties FailoverConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaConnect::Flow.FailoverConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "FailoverMode" Prelude.<$> failoverMode,

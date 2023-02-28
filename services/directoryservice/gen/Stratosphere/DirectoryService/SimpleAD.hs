@@ -29,6 +29,7 @@ instance ToResourceProperties SimpleAD where
   toResourceProperties SimpleAD {..}
     = ResourceProperties
         {awsType = "AWS::DirectoryService::SimpleAD",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Size" JSON..= size,

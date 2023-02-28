@@ -20,6 +20,7 @@ instance ToResourceProperties BusinessDetailsProperty where
   toResourceProperties BusinessDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelCard.BusinessDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BusinessProblem" Prelude.<$> businessProblem,

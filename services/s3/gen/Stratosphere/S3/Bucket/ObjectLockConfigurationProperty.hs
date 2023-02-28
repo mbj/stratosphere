@@ -20,6 +20,7 @@ instance ToResourceProperties ObjectLockConfigurationProperty where
   toResourceProperties ObjectLockConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.ObjectLockConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ObjectLockEnabled" Prelude.<$> objectLockEnabled,

@@ -34,6 +34,7 @@ instance ToResourceProperties DataCaptureConfigProperty where
   toResourceProperties DataCaptureConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.DataCaptureConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CaptureOptions" JSON..= captureOptions,

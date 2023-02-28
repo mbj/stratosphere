@@ -21,6 +21,7 @@ instance ToResourceProperties MaintenanceWindowLambdaParametersProperty where
   toResourceProperties MaintenanceWindowLambdaParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTask.MaintenanceWindowLambdaParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ClientContext" Prelude.<$> clientContext,

@@ -40,6 +40,7 @@ instance ToResourceProperties ObdSignalProperty where
   toResourceProperties ObdSignalProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTFleetWise::DecoderManifest.ObdSignal",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ByteLength" JSON..= byteLength, "Offset" JSON..= offset,

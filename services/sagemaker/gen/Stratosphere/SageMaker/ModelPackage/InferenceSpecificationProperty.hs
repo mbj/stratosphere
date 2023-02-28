@@ -32,6 +32,7 @@ instance ToResourceProperties InferenceSpecificationProperty where
   toResourceProperties InferenceSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.InferenceSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Containers" JSON..= containers,

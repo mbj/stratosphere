@@ -2,6 +2,7 @@ module Stratosphere.MediaPackage.OriginEndpoint.MssEncryptionProperty (
         module Exports, MssEncryptionProperty(..), mkMssEncryptionProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaPackage.OriginEndpoint.SpekeKeyProviderProperty as Exports
 import Stratosphere.ResourceProperties
@@ -15,6 +16,7 @@ instance ToResourceProperties MssEncryptionProperty where
   toResourceProperties MssEncryptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaPackage::OriginEndpoint.MssEncryption",
+         supportsTags = Prelude.False,
          properties = ["SpekeKeyProvider" JSON..= spekeKeyProvider]}
 instance JSON.ToJSON MssEncryptionProperty where
   toJSON MssEncryptionProperty {..}

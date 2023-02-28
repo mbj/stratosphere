@@ -20,6 +20,7 @@ instance ToResourceProperties NotificationObjectTypeProperty where
   toResourceProperties NotificationObjectTypeProperty {..}
     = ResourceProperties
         {awsType = "AWS::Backup::BackupVault.NotificationObjectType",
+         supportsTags = Prelude.False,
          properties = ["BackupVaultEvents" JSON..= backupVaultEvents,
                        "SNSTopicArn" JSON..= sNSTopicArn]}
 instance JSON.ToJSON NotificationObjectTypeProperty where

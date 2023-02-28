@@ -30,6 +30,7 @@ instance ToResourceProperties Template where
   toResourceProperties Template {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Template",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AwsAccountId" JSON..= awsAccountId,

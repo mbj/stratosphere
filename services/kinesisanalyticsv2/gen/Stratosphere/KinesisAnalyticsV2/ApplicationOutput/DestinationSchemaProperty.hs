@@ -15,6 +15,7 @@ instance ToResourceProperties DestinationSchemaProperty where
   toResourceProperties DestinationSchemaProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::ApplicationOutput.DestinationSchema",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RecordFormatType" Prelude.<$> recordFormatType])}

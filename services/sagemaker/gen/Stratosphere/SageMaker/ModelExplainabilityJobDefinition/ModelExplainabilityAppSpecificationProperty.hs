@@ -24,6 +24,7 @@ instance ToResourceProperties ModelExplainabilityAppSpecificationProperty where
     ModelExplainabilityAppSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityAppSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConfigUri" JSON..= configUri, "ImageUri" JSON..= imageUri]

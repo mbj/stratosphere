@@ -16,6 +16,7 @@ instance ToResourceProperties ServiceConnectDefaultsProperty where
   toResourceProperties ServiceConnectDefaultsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Cluster.ServiceConnectDefaults",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Namespace" Prelude.<$> namespace])}
 instance JSON.ToJSON ServiceConnectDefaultsProperty where

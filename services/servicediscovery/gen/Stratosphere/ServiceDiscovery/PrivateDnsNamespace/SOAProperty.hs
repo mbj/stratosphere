@@ -14,6 +14,7 @@ instance ToResourceProperties SOAProperty where
   toResourceProperties SOAProperty {..}
     = ResourceProperties
         {awsType = "AWS::ServiceDiscovery::PrivateDnsNamespace.SOA",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "TTL" Prelude.<$> tTL])}
 instance JSON.ToJSON SOAProperty where

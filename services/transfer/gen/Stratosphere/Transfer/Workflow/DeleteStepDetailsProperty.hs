@@ -17,6 +17,7 @@ instance ToResourceProperties DeleteStepDetailsProperty where
   toResourceProperties DeleteStepDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Workflow.DeleteStepDetails",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

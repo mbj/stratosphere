@@ -19,6 +19,7 @@ instance ToResourceProperties SlotValueOverrideMapProperty where
   toResourceProperties SlotValueOverrideMapProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.SlotValueOverrideMap",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SlotName" Prelude.<$> slotName,

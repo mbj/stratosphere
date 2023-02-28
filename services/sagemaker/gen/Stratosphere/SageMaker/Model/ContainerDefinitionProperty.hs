@@ -33,6 +33,7 @@ instance ToResourceProperties ContainerDefinitionProperty where
   toResourceProperties ContainerDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Model.ContainerDefinition",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerHostname" Prelude.<$> containerHostname,

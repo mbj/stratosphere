@@ -19,6 +19,7 @@ instance ToResourceProperties StudioEncryptionConfigurationProperty where
   toResourceProperties StudioEncryptionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::Studio.StudioEncryptionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["KeyType" JSON..= keyType]

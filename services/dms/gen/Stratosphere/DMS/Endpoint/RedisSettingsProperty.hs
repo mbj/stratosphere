@@ -26,6 +26,7 @@ instance ToResourceProperties RedisSettingsProperty where
   toResourceProperties RedisSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.RedisSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AuthPassword" Prelude.<$> authPassword,

@@ -3,6 +3,7 @@ module Stratosphere.NetworkFirewall.LoggingConfiguration.LoggingConfigurationPro
         mkLoggingConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.LoggingConfiguration.LogDestinationConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -17,6 +18,7 @@ instance ToResourceProperties LoggingConfigurationProperty where
   toResourceProperties LoggingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::NetworkFirewall::LoggingConfiguration.LoggingConfiguration",
+         supportsTags = Prelude.False,
          properties = ["LogDestinationConfigs"
                          JSON..= logDestinationConfigs]}
 instance JSON.ToJSON LoggingConfigurationProperty where

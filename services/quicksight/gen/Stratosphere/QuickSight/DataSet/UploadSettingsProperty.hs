@@ -22,6 +22,7 @@ instance ToResourceProperties UploadSettingsProperty where
   toResourceProperties UploadSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.UploadSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContainsHeader" Prelude.<$> containsHeader,

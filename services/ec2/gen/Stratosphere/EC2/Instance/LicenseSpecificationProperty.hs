@@ -17,6 +17,7 @@ instance ToResourceProperties LicenseSpecificationProperty where
   toResourceProperties LicenseSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::Instance.LicenseSpecification",
+         supportsTags = Prelude.False,
          properties = ["LicenseConfigurationArn"
                          JSON..= licenseConfigurationArn]}
 instance JSON.ToJSON LicenseSpecificationProperty where

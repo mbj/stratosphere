@@ -35,6 +35,7 @@ instance ToResourceProperties GameSessionQueue where
   toResourceProperties GameSessionQueue {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::GameSessionQueue",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]

@@ -26,6 +26,7 @@ instance ToResourceProperties CustomerGatewayAssociation where
   toResourceProperties CustomerGatewayAssociation {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::CustomerGatewayAssociation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CustomerGatewayArn" JSON..= customerGatewayArn,

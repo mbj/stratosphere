@@ -22,6 +22,7 @@ instance ToResourceProperties FieldValidationConfigurationProperty where
   toResourceProperties FieldValidationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Form.FieldValidationConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

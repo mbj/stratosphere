@@ -30,6 +30,7 @@ instance ToResourceProperties OAuthParametersProperty where
   toResourceProperties OAuthParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Events::Connection.OAuthParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthorizationEndpoint" JSON..= authorizationEndpoint,

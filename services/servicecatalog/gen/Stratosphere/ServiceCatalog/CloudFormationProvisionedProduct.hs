@@ -40,6 +40,7 @@ instance ToResourceProperties CloudFormationProvisionedProduct where
   toResourceProperties CloudFormationProvisionedProduct {..}
     = ResourceProperties
         {awsType = "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AcceptLanguage" Prelude.<$> acceptLanguage,

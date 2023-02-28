@@ -24,6 +24,7 @@ instance ToResourceProperties NodePropertiesProperty where
   toResourceProperties NodePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Batch::JobDefinition.NodeProperties",
+         supportsTags = Prelude.False,
          properties = ["MainNode" JSON..= mainNode,
                        "NodeRangeProperties" JSON..= nodeRangeProperties,
                        "NumNodes" JSON..= numNodes]}

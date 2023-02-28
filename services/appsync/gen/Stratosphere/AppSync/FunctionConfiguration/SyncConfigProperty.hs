@@ -21,6 +21,7 @@ instance ToResourceProperties SyncConfigProperty where
   toResourceProperties SyncConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppSync::FunctionConfiguration.SyncConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConflictDetection" JSON..= conflictDetection]

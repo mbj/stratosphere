@@ -17,6 +17,7 @@ instance ToResourceProperties VpcSecurityGroupProperty where
   toResourceProperties VpcSecurityGroupProperty {..}
     = ResourceProperties
         {awsType = "AWS::Redshift::EndpointAccess.VpcSecurityGroup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Status" Prelude.<$> status,

@@ -29,6 +29,7 @@ instance ToResourceProperties ObjectLambdaConfigurationProperty where
   toResourceProperties ObjectLambdaConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3ObjectLambda::AccessPoint.ObjectLambdaConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SupportingAccessPoint" JSON..= supportingAccessPoint,

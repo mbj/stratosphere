@@ -46,6 +46,7 @@ instance ToResourceProperties AuthenticateOidcConfigProperty where
   toResourceProperties AuthenticateOidcConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::Listener.AuthenticateOidcConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthorizationEndpoint" JSON..= authorizationEndpoint,

@@ -19,6 +19,7 @@ instance ToResourceProperties TaintProperty where
   toResourceProperties TaintProperty {..}
     = ResourceProperties
         {awsType = "AWS::EKS::Nodegroup.Taint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Effect" Prelude.<$> effect,

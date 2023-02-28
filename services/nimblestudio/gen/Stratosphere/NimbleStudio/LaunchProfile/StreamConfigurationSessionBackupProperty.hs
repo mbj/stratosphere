@@ -19,6 +19,7 @@ instance ToResourceProperties StreamConfigurationSessionBackupProperty where
   toResourceProperties StreamConfigurationSessionBackupProperty {..}
     = ResourceProperties
         {awsType = "AWS::NimbleStudio::LaunchProfile.StreamConfigurationSessionBackup",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxBackupsToRetain" Prelude.<$> maxBackupsToRetain,

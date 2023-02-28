@@ -21,6 +21,7 @@ instance ToResourceProperties ModelPackageStatusItemProperty where
   toResourceProperties ModelPackageStatusItemProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.ModelPackageStatusItem",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Status" JSON..= status]

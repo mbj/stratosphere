@@ -19,6 +19,7 @@ instance ToResourceProperties FailurePolicyProperty where
   toResourceProperties FailurePolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::ResilienceHub::ResiliencyPolicy.FailurePolicy",
+         supportsTags = Prelude.False,
          properties = ["RpoInSecs" JSON..= rpoInSecs,
                        "RtoInSecs" JSON..= rtoInSecs]}
 instance JSON.ToJSON FailurePolicyProperty where

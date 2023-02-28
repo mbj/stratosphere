@@ -18,6 +18,7 @@ instance ToResourceProperties S3SourcePropertiesProperty where
   toResourceProperties S3SourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::CustomerProfiles::Integration.S3SourceProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BucketName" JSON..= bucketName]

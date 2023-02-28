@@ -24,7 +24,7 @@ mkAccessPoint fileSystemId
 instance ToResourceProperties AccessPoint where
   toResourceProperties AccessPoint {..}
     = ResourceProperties
-        {awsType = "AWS::EFS::AccessPoint",
+        {awsType = "AWS::EFS::AccessPoint", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FileSystemId" JSON..= fileSystemId]

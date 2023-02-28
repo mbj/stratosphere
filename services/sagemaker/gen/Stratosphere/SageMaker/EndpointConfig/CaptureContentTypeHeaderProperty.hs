@@ -20,6 +20,7 @@ instance ToResourceProperties CaptureContentTypeHeaderProperty where
   toResourceProperties CaptureContentTypeHeaderProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.CaptureContentTypeHeader",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CsvContentTypes" Prelude.<$> csvContentTypes,

@@ -25,7 +25,7 @@ mkApplication definition engineType name
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
-        {awsType = "AWS::M2::Application",
+        {awsType = "AWS::M2::Application", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Definition" JSON..= definition, "EngineType" JSON..= engineType,

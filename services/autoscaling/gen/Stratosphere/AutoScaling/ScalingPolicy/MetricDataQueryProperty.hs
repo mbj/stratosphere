@@ -24,6 +24,7 @@ instance ToResourceProperties MetricDataQueryProperty where
   toResourceProperties MetricDataQueryProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::ScalingPolicy.MetricDataQuery",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Id" JSON..= id]

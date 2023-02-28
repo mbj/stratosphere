@@ -17,6 +17,7 @@ instance ToResourceProperties SubscriptionProperty where
   toResourceProperties SubscriptionProperty {..}
     = ResourceProperties
         {awsType = "AWS::SNS::Topic.Subscription",
+         supportsTags = Prelude.False,
          properties = ["Endpoint" JSON..= endpoint,
                        "Protocol" JSON..= protocol]}
 instance JSON.ToJSON SubscriptionProperty where

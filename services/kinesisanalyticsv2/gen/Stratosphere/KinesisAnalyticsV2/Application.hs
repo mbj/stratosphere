@@ -36,6 +36,7 @@ instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
         {awsType = "AWS::KinesisAnalyticsV2::Application",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["RuntimeEnvironment" JSON..= runtimeEnvironment,

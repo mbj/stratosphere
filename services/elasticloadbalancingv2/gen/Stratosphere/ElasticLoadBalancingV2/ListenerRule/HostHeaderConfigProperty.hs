@@ -15,6 +15,7 @@ instance ToResourceProperties HostHeaderConfigProperty where
   toResourceProperties HostHeaderConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule.HostHeaderConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values])}
 instance JSON.ToJSON HostHeaderConfigProperty where

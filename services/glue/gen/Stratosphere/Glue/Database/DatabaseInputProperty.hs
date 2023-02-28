@@ -26,6 +26,7 @@ instance ToResourceProperties DatabaseInputProperty where
   toResourceProperties DatabaseInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::Glue::Database.DatabaseInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CreateTableDefaultPermissions"

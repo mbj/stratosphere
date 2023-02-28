@@ -20,6 +20,7 @@ instance ToResourceProperties AudioSilenceFailoverSettingsProperty where
   toResourceProperties AudioSilenceFailoverSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.AudioSilenceFailoverSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AudioSelectorName" Prelude.<$> audioSelectorName,

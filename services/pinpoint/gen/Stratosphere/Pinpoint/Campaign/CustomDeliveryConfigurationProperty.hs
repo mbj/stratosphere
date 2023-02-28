@@ -19,6 +19,7 @@ instance ToResourceProperties CustomDeliveryConfigurationProperty where
   toResourceProperties CustomDeliveryConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::Campaign.CustomDeliveryConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DeliveryUri" Prelude.<$> deliveryUri,

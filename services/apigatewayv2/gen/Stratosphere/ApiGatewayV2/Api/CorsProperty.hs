@@ -24,6 +24,7 @@ instance ToResourceProperties CorsProperty where
   toResourceProperties CorsProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGatewayV2::Api.Cors",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowCredentials" Prelude.<$> allowCredentials,

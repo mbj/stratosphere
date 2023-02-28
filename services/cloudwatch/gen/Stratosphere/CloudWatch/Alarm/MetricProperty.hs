@@ -20,6 +20,7 @@ instance ToResourceProperties MetricProperty where
   toResourceProperties MetricProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::Alarm.Metric",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Dimensions" Prelude.<$> dimensions,

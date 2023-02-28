@@ -23,6 +23,7 @@ instance ToResourceProperties HlsMediaStoreSettingsProperty where
   toResourceProperties HlsMediaStoreSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.HlsMediaStoreSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectionRetryInterval"

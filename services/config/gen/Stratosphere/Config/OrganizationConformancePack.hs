@@ -30,6 +30,7 @@ instance ToResourceProperties OrganizationConformancePack where
   toResourceProperties OrganizationConformancePack {..}
     = ResourceProperties
         {awsType = "AWS::Config::OrganizationConformancePack",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["OrganizationConformancePackName"

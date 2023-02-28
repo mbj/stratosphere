@@ -2,6 +2,7 @@ module Stratosphere.CertificateManager.Account (
         module Exports, Account(..), mkAccount
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CertificateManager.Account.ExpiryEventsConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,7 @@ instance ToResourceProperties Account where
   toResourceProperties Account {..}
     = ResourceProperties
         {awsType = "AWS::CertificateManager::Account",
+         supportsTags = Prelude.False,
          properties = ["ExpiryEventsConfiguration"
                          JSON..= expiryEventsConfiguration]}
 instance JSON.ToJSON Account where

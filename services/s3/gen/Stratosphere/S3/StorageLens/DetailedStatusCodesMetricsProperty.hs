@@ -17,6 +17,7 @@ instance ToResourceProperties DetailedStatusCodesMetricsProperty where
   toResourceProperties DetailedStatusCodesMetricsProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.DetailedStatusCodesMetrics",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "IsEnabled" Prelude.<$> isEnabled])}
 instance JSON.ToJSON DetailedStatusCodesMetricsProperty where

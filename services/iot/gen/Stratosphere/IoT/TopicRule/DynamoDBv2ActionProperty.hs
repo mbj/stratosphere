@@ -19,6 +19,7 @@ instance ToResourceProperties DynamoDBv2ActionProperty where
   toResourceProperties DynamoDBv2ActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.DynamoDBv2Action",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PutItem" Prelude.<$> putItem,

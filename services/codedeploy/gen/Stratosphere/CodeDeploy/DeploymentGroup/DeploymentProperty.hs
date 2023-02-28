@@ -21,6 +21,7 @@ instance ToResourceProperties DeploymentProperty where
   toResourceProperties DeploymentProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.Deployment",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Revision" JSON..= revision]

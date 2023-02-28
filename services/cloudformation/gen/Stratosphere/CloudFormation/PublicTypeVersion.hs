@@ -22,6 +22,7 @@ instance ToResourceProperties PublicTypeVersion where
   toResourceProperties PublicTypeVersion {..}
     = ResourceProperties
         {awsType = "AWS::CloudFormation::PublicTypeVersion",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Arn" Prelude.<$> arn,

@@ -36,6 +36,7 @@ instance ToResourceProperties ClarifyInferenceConfigProperty where
   toResourceProperties ClarifyInferenceConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.ClarifyInferenceConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ContentTemplate" Prelude.<$> contentTemplate,

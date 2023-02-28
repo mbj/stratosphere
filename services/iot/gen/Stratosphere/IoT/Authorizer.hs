@@ -28,7 +28,7 @@ mkAuthorizer authorizerFunctionArn
 instance ToResourceProperties Authorizer where
   toResourceProperties Authorizer {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::Authorizer",
+        {awsType = "AWS::IoT::Authorizer", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthorizerFunctionArn" JSON..= authorizerFunctionArn]

@@ -20,7 +20,7 @@ mkSchedule cronExpression name
 instance ToResourceProperties Schedule where
   toResourceProperties Schedule {..}
     = ResourceProperties
-        {awsType = "AWS::DataBrew::Schedule",
+        {awsType = "AWS::DataBrew::Schedule", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CronExpression" JSON..= cronExpression, "Name" JSON..= name]

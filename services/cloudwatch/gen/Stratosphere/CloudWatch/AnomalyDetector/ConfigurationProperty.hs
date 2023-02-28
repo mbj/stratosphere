@@ -19,6 +19,7 @@ instance ToResourceProperties ConfigurationProperty where
   toResourceProperties ConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::AnomalyDetector.Configuration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ExcludedTimeRanges" Prelude.<$> excludedTimeRanges,

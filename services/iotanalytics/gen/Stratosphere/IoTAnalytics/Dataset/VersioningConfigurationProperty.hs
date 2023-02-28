@@ -19,6 +19,7 @@ instance ToResourceProperties VersioningConfigurationProperty where
   toResourceProperties VersioningConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.VersioningConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MaxVersions" Prelude.<$> maxVersions,

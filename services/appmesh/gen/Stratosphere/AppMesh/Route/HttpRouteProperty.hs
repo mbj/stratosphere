@@ -25,6 +25,7 @@ instance ToResourceProperties HttpRouteProperty where
   toResourceProperties HttpRouteProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.HttpRoute",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Action" JSON..= action, "Match" JSON..= match]

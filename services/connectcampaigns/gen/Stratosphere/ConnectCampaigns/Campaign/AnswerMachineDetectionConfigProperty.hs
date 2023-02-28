@@ -18,6 +18,7 @@ instance ToResourceProperties AnswerMachineDetectionConfigProperty where
   toResourceProperties AnswerMachineDetectionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ConnectCampaigns::Campaign.AnswerMachineDetectionConfig",
+         supportsTags = Prelude.False,
          properties = ["EnableAnswerMachineDetection"
                          JSON..= enableAnswerMachineDetection]}
 instance JSON.ToJSON AnswerMachineDetectionConfigProperty where

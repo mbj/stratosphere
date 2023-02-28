@@ -27,6 +27,7 @@ instance ToResourceProperties GrpcRetryPolicyProperty where
   toResourceProperties GrpcRetryPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::Route.GrpcRetryPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MaxRetries" JSON..= maxRetries,

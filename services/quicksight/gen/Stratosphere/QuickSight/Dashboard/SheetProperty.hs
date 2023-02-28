@@ -16,6 +16,7 @@ instance ToResourceProperties SheetProperty where
   toResourceProperties SheetProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.Sheet",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

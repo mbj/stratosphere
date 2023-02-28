@@ -22,6 +22,7 @@ instance ToResourceProperties WebCrawlerBasicAuthenticationProperty where
   toResourceProperties WebCrawlerBasicAuthenticationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.WebCrawlerBasicAuthentication",
+         supportsTags = Prelude.False,
          properties = ["Credentials" JSON..= credentials,
                        "Host" JSON..= host, "Port" JSON..= port]}
 instance JSON.ToJSON WebCrawlerBasicAuthenticationProperty where

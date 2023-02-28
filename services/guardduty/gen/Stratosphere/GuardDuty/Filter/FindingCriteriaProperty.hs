@@ -18,6 +18,7 @@ instance ToResourceProperties FindingCriteriaProperty where
   toResourceProperties FindingCriteriaProperty {..}
     = ResourceProperties
         {awsType = "AWS::GuardDuty::Filter.FindingCriteria",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Criterion" Prelude.<$> criterion,

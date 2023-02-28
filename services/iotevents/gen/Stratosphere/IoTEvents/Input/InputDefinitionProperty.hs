@@ -3,6 +3,7 @@ module Stratosphere.IoTEvents.Input.InputDefinitionProperty (
         mkInputDefinitionProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTEvents.Input.AttributeProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ instance ToResourceProperties InputDefinitionProperty where
   toResourceProperties InputDefinitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTEvents::Input.InputDefinition",
+         supportsTags = Prelude.False,
          properties = ["Attributes" JSON..= attributes]}
 instance JSON.ToJSON InputDefinitionProperty where
   toJSON InputDefinitionProperty {..}

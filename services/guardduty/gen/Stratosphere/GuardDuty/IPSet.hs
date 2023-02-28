@@ -26,7 +26,7 @@ mkIPSet activate detectorId format location
 instance ToResourceProperties IPSet where
   toResourceProperties IPSet {..}
     = ResourceProperties
-        {awsType = "AWS::GuardDuty::IPSet",
+        {awsType = "AWS::GuardDuty::IPSet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Activate" JSON..= activate, "DetectorId" JSON..= detectorId,

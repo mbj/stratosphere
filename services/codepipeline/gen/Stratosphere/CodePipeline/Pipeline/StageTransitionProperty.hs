@@ -17,6 +17,7 @@ instance ToResourceProperties StageTransitionProperty where
   toResourceProperties StageTransitionProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Pipeline.StageTransition",
+         supportsTags = Prelude.False,
          properties = ["Reason" JSON..= reason,
                        "StageName" JSON..= stageName]}
 instance JSON.ToJSON StageTransitionProperty where

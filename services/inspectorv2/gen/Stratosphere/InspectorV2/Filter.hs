@@ -23,6 +23,7 @@ instance ToResourceProperties Filter where
   toResourceProperties Filter {..}
     = ResourceProperties
         {awsType = "AWS::InspectorV2::Filter",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FilterAction" JSON..= filterAction,

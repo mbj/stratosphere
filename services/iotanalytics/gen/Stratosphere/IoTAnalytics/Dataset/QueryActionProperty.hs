@@ -18,6 +18,7 @@ instance ToResourceProperties QueryActionProperty where
   toResourceProperties QueryActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTAnalytics::Dataset.QueryAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SqlQuery" JSON..= sqlQuery]

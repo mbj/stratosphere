@@ -23,6 +23,7 @@ instance ToResourceProperties ComponentDeploymentSpecificationProperty where
   toResourceProperties ComponentDeploymentSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GreengrassV2::Deployment.ComponentDeploymentSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComponentVersion" Prelude.<$> componentVersion,

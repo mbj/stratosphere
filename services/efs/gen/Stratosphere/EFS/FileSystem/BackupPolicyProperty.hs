@@ -16,6 +16,7 @@ instance ToResourceProperties BackupPolicyProperty where
   toResourceProperties BackupPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::EFS::FileSystem.BackupPolicy",
+         supportsTags = Prelude.False,
          properties = ["Status" JSON..= status]}
 instance JSON.ToJSON BackupPolicyProperty where
   toJSON BackupPolicyProperty {..}

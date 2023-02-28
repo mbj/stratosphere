@@ -22,6 +22,7 @@ instance ToResourceProperties ProvisionedThroughputProperty where
   toResourceProperties ProvisionedThroughputProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.ProvisionedThroughput",
+         supportsTags = Prelude.False,
          properties = ["ReadCapacityUnits" JSON..= readCapacityUnits,
                        "WriteCapacityUnits" JSON..= writeCapacityUnits]}
 instance JSON.ToJSON ProvisionedThroughputProperty where

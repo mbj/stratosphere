@@ -19,6 +19,7 @@ instance ToResourceProperties S3Property where
   toResourceProperties S3Property {..}
     = ResourceProperties
         {awsType = "AWS::CodeStar::GitHubRepository.S3",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket, "Key" JSON..= key]

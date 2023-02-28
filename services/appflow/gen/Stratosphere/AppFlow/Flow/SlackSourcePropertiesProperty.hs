@@ -16,6 +16,7 @@ instance ToResourceProperties SlackSourcePropertiesProperty where
   toResourceProperties SlackSourcePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::Flow.SlackSourceProperties",
+         supportsTags = Prelude.False,
          properties = ["Object" JSON..= object]}
 instance JSON.ToJSON SlackSourcePropertiesProperty where
   toJSON SlackSourcePropertiesProperty {..}

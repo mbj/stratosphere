@@ -25,6 +25,7 @@ instance ToResourceProperties BatchContainerOverridesProperty where
   toResourceProperties BatchContainerOverridesProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.BatchContainerOverrides",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Command" Prelude.<$> command,

@@ -30,7 +30,7 @@ mkFleetMetric metricName
 instance ToResourceProperties FleetMetric where
   toResourceProperties FleetMetric {..}
     = ResourceProperties
-        {awsType = "AWS::IoT::FleetMetric",
+        {awsType = "AWS::IoT::FleetMetric", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["MetricName" JSON..= metricName]

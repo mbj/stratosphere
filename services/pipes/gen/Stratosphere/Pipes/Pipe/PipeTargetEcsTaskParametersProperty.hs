@@ -49,6 +49,7 @@ instance ToResourceProperties PipeTargetEcsTaskParametersProperty where
   toResourceProperties PipeTargetEcsTaskParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Pipes::Pipe.PipeTargetEcsTaskParameters",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["TaskDefinitionArn" JSON..= taskDefinitionArn]

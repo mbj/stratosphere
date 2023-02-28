@@ -20,6 +20,7 @@ instance ToResourceProperties CustomHeaderProperty where
   toResourceProperties CustomHeaderProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.CustomHeader",
+         supportsTags = Prelude.False,
          properties = ["Header" JSON..= header, "Override" JSON..= override,
                        "Value" JSON..= value]}
 instance JSON.ToJSON CustomHeaderProperty where

@@ -27,6 +27,7 @@ instance ToResourceProperties EgressProperty where
   toResourceProperties EgressProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::SecurityGroup.Egress",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IpProtocol" JSON..= ipProtocol]

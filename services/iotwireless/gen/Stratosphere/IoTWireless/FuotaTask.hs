@@ -36,6 +36,7 @@ instance ToResourceProperties FuotaTask where
   toResourceProperties FuotaTask {..}
     = ResourceProperties
         {awsType = "AWS::IoTWireless::FuotaTask",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FirmwareUpdateImage" JSON..= firmwareUpdateImage,

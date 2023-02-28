@@ -18,6 +18,7 @@ instance ToResourceProperties InstanceAssociationOutputLocationProperty where
   toResourceProperties InstanceAssociationOutputLocationProperty {..}
     = ResourceProperties
         {awsType = "AWS::SSM::Association.InstanceAssociationOutputLocation",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "S3Location" Prelude.<$> s3Location])}

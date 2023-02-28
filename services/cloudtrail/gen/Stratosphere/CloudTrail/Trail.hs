@@ -42,7 +42,7 @@ mkTrail isLogging s3BucketName
 instance ToResourceProperties Trail where
   toResourceProperties Trail {..}
     = ResourceProperties
-        {awsType = "AWS::CloudTrail::Trail",
+        {awsType = "AWS::CloudTrail::Trail", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IsLogging" JSON..= isLogging,

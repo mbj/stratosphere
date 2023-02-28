@@ -18,6 +18,7 @@ instance ToResourceProperties LoginProfileProperty where
   toResourceProperties LoginProfileProperty {..}
     = ResourceProperties
         {awsType = "AWS::IAM::User.LoginProfile",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Password" JSON..= password]

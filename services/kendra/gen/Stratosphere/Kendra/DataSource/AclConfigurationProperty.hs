@@ -17,6 +17,7 @@ instance ToResourceProperties AclConfigurationProperty where
   toResourceProperties AclConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.AclConfiguration",
+         supportsTags = Prelude.False,
          properties = ["AllowedGroupsColumnName"
                          JSON..= allowedGroupsColumnName]}
 instance JSON.ToJSON AclConfigurationProperty where

@@ -20,6 +20,7 @@ instance ToResourceProperties ExpressionVariableProperty where
   toResourceProperties ExpressionVariableProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoTSiteWise::AssetModel.ExpressionVariable",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Value" JSON..= value]}
 instance JSON.ToJSON ExpressionVariableProperty where
   toJSON ExpressionVariableProperty {..}

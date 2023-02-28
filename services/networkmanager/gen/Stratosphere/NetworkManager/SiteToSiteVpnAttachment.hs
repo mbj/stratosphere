@@ -21,6 +21,7 @@ instance ToResourceProperties SiteToSiteVpnAttachment where
   toResourceProperties SiteToSiteVpnAttachment {..}
     = ResourceProperties
         {awsType = "AWS::NetworkManager::SiteToSiteVpnAttachment",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CoreNetworkId" JSON..= coreNetworkId,

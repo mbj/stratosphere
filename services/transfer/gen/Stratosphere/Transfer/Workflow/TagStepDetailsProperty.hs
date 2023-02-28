@@ -21,6 +21,7 @@ instance ToResourceProperties TagStepDetailsProperty where
   toResourceProperties TagStepDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Workflow.TagStepDetails",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,

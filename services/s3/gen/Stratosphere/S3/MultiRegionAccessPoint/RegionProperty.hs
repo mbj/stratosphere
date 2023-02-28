@@ -14,6 +14,7 @@ instance ToResourceProperties RegionProperty where
   toResourceProperties RegionProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::MultiRegionAccessPoint.Region",
+         supportsTags = Prelude.False,
          properties = ["Bucket" JSON..= bucket]}
 instance JSON.ToJSON RegionProperty where
   toJSON RegionProperty {..} = JSON.object ["Bucket" JSON..= bucket]

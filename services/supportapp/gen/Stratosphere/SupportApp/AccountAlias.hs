@@ -15,6 +15,7 @@ instance ToResourceProperties AccountAlias where
   toResourceProperties AccountAlias {..}
     = ResourceProperties
         {awsType = "AWS::SupportApp::AccountAlias",
+         supportsTags = Prelude.False,
          properties = ["AccountAlias" JSON..= accountAlias]}
 instance JSON.ToJSON AccountAlias where
   toJSON AccountAlias {..}

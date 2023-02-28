@@ -17,6 +17,7 @@ instance ToResourceProperties IPSetDescriptorProperty where
   toResourceProperties IPSetDescriptorProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAF::IPSet.IPSetDescriptor",
+         supportsTags = Prelude.False,
          properties = ["Type" JSON..= type', "Value" JSON..= value]}
 instance JSON.ToJSON IPSetDescriptorProperty where
   toJSON IPSetDescriptorProperty {..}

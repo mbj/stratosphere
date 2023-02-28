@@ -27,6 +27,7 @@ instance ToResourceProperties DataFormatConversionConfigurationProperty where
   toResourceProperties DataFormatConversionConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.DataFormatConversionConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

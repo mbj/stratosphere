@@ -15,6 +15,7 @@ instance ToResourceProperties SqsParametersProperty where
   toResourceProperties SqsParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::Scheduler::Schedule.SqsParameters",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "MessageGroupId" Prelude.<$> messageGroupId])}

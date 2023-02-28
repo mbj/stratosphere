@@ -20,6 +20,7 @@ instance ToResourceProperties AccessPolicy where
   toResourceProperties AccessPolicy {..}
     = ResourceProperties
         {awsType = "AWS::OpenSearchServerless::AccessPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,

@@ -19,6 +19,7 @@ instance ToResourceProperties CloudWatchLogsLogDeliveryProperty where
   toResourceProperties CloudWatchLogsLogDeliveryProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.CloudWatchLogsLogDelivery",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Enabled" JSON..= enabled]

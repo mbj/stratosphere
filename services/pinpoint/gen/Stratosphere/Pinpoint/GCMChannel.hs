@@ -20,6 +20,7 @@ instance ToResourceProperties GCMChannel where
   toResourceProperties GCMChannel {..}
     = ResourceProperties
         {awsType = "AWS::Pinpoint::GCMChannel",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApiKey" JSON..= apiKey, "ApplicationId" JSON..= applicationId]

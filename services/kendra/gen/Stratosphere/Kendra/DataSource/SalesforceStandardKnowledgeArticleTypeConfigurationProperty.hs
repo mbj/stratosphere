@@ -27,6 +27,7 @@ instance ToResourceProperties SalesforceStandardKnowledgeArticleTypeConfiguratio
     SalesforceStandardKnowledgeArticleTypeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Kendra::DataSource.SalesforceStandardKnowledgeArticleTypeConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DocumentDataFieldName" JSON..= documentDataFieldName]

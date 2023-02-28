@@ -18,6 +18,7 @@ instance ToResourceProperties RepositoryProperty where
   toResourceProperties RepositoryProperty {..}
     = ResourceProperties
         {awsType = "AWS::Cloud9::EnvironmentEC2.Repository",
+         supportsTags = Prelude.False,
          properties = ["PathComponent" JSON..= pathComponent,
                        "RepositoryUrl" JSON..= repositoryUrl]}
 instance JSON.ToJSON RepositoryProperty where

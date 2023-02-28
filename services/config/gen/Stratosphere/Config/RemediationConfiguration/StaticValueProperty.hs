@@ -15,6 +15,7 @@ instance ToResourceProperties StaticValueProperty where
   toResourceProperties StaticValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::RemediationConfiguration.StaticValue",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Values" Prelude.<$> values])}
 instance JSON.ToJSON StaticValueProperty where

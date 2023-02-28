@@ -17,6 +17,7 @@ instance ToResourceProperties AlternatePathHintProperty where
   toResourceProperties AlternatePathHintProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkInsightsAnalysis.AlternatePathHint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ComponentArn" Prelude.<$> componentArn,

@@ -17,6 +17,7 @@ instance ToResourceProperties DeviceTemplateProperty where
   toResourceProperties DeviceTemplateProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT1Click::Project.DeviceTemplate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CallbackOverrides" Prelude.<$> callbackOverrides,

@@ -21,6 +21,7 @@ instance ToResourceProperties FirehoseActionProperty where
   toResourceProperties FirehoseActionProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::TopicRule.FirehoseAction",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DeliveryStreamName" JSON..= deliveryStreamName,

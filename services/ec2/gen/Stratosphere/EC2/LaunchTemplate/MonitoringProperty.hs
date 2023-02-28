@@ -15,6 +15,7 @@ instance ToResourceProperties MonitoringProperty where
   toResourceProperties MonitoringProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::LaunchTemplate.Monitoring",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Enabled" Prelude.<$> enabled])}
 instance JSON.ToJSON MonitoringProperty where

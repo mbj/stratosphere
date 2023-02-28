@@ -18,6 +18,7 @@ instance ToResourceProperties FilterValueProperty where
   toResourceProperties FilterValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Dataset.FilterValue",
+         supportsTags = Prelude.False,
          properties = ["Value" JSON..= value,
                        "ValueReference" JSON..= valueReference]}
 instance JSON.ToJSON FilterValueProperty where

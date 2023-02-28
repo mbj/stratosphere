@@ -22,6 +22,7 @@ instance ToResourceProperties CorsRuleProperty where
   toResourceProperties CorsRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaStore::Container.CorsRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AllowedHeaders" Prelude.<$> allowedHeaders,

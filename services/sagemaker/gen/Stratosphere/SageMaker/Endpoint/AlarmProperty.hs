@@ -14,6 +14,7 @@ instance ToResourceProperties AlarmProperty where
   toResourceProperties AlarmProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Endpoint.Alarm",
+         supportsTags = Prelude.False,
          properties = ["AlarmName" JSON..= alarmName]}
 instance JSON.ToJSON AlarmProperty where
   toJSON AlarmProperty {..}

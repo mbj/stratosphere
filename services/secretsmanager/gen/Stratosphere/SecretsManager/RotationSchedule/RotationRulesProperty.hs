@@ -19,6 +19,7 @@ instance ToResourceProperties RotationRulesProperty where
   toResourceProperties RotationRulesProperty {..}
     = ResourceProperties
         {awsType = "AWS::SecretsManager::RotationSchedule.RotationRules",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AutomaticallyAfterDays"

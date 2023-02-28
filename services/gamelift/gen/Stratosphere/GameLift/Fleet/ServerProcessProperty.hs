@@ -21,6 +21,7 @@ instance ToResourceProperties ServerProcessProperty where
   toResourceProperties ServerProcessProperty {..}
     = ResourceProperties
         {awsType = "AWS::GameLift::Fleet.ServerProcess",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConcurrentExecutions" JSON..= concurrentExecutions,

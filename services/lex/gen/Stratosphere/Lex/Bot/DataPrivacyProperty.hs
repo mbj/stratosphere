@@ -15,6 +15,7 @@ instance ToResourceProperties DataPrivacyProperty where
   toResourceProperties DataPrivacyProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.DataPrivacy",
+         supportsTags = Prelude.False,
          properties = ["ChildDirected" JSON..= childDirected]}
 instance JSON.ToJSON DataPrivacyProperty where
   toJSON DataPrivacyProperty {..}

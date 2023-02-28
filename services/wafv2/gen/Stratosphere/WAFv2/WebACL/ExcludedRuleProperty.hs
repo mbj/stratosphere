@@ -15,7 +15,7 @@ instance ToResourceProperties ExcludedRuleProperty where
   toResourceProperties ExcludedRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::WAFv2::WebACL.ExcludedRule",
-         properties = ["Name" JSON..= name]}
+         supportsTags = Prelude.False, properties = ["Name" JSON..= name]}
 instance JSON.ToJSON ExcludedRuleProperty where
   toJSON ExcludedRuleProperty {..}
     = JSON.object ["Name" JSON..= name]

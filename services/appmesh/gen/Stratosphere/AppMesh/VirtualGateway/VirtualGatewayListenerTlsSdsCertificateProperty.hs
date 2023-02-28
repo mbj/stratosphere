@@ -20,6 +20,7 @@ instance ToResourceProperties VirtualGatewayListenerTlsSdsCertificateProperty wh
     VirtualGatewayListenerTlsSdsCertificateProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTlsSdsCertificate",
+         supportsTags = Prelude.False,
          properties = ["SecretName" JSON..= secretName]}
 instance JSON.ToJSON VirtualGatewayListenerTlsSdsCertificateProperty where
   toJSON VirtualGatewayListenerTlsSdsCertificateProperty {..}

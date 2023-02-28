@@ -16,6 +16,7 @@ instance ToResourceProperties CloudWatchMetricsProperty where
   toResourceProperties CloudWatchMetricsProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::StorageLens.CloudWatchMetrics",
+         supportsTags = Prelude.False,
          properties = ["IsEnabled" JSON..= isEnabled]}
 instance JSON.ToJSON CloudWatchMetricsProperty where
   toJSON CloudWatchMetricsProperty {..}

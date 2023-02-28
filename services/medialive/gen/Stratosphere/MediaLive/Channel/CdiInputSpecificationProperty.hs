@@ -15,6 +15,7 @@ instance ToResourceProperties CdiInputSpecificationProperty where
   toResourceProperties CdiInputSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaLive::Channel.CdiInputSpecification",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Resolution" Prelude.<$> resolution])}

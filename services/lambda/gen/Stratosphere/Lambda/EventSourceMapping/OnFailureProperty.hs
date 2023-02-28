@@ -15,6 +15,7 @@ instance ToResourceProperties OnFailureProperty where
   toResourceProperties OnFailureProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventSourceMapping.OnFailure",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Destination" Prelude.<$> destination])}

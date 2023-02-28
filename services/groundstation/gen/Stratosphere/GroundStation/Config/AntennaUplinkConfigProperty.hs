@@ -22,6 +22,7 @@ instance ToResourceProperties AntennaUplinkConfigProperty where
   toResourceProperties AntennaUplinkConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::GroundStation::Config.AntennaUplinkConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "SpectrumConfig" Prelude.<$> spectrumConfig,

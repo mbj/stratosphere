@@ -16,6 +16,7 @@ instance ToResourceProperties GrammarSlotTypeSettingProperty where
   toResourceProperties GrammarSlotTypeSettingProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lex::Bot.GrammarSlotTypeSetting",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes [(JSON..=) "Source" Prelude.<$> source])}
 instance JSON.ToJSON GrammarSlotTypeSettingProperty where

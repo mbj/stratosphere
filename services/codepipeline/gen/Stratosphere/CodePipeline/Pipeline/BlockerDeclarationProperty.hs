@@ -18,6 +18,7 @@ instance ToResourceProperties BlockerDeclarationProperty where
   toResourceProperties BlockerDeclarationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodePipeline::Pipeline.BlockerDeclaration",
+         supportsTags = Prelude.False,
          properties = ["Name" JSON..= name, "Type" JSON..= type']}
 instance JSON.ToJSON BlockerDeclarationProperty where
   toJSON BlockerDeclarationProperty {..}

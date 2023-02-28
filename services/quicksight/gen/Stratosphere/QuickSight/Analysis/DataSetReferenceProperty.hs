@@ -19,6 +19,7 @@ instance ToResourceProperties DataSetReferenceProperty where
   toResourceProperties DataSetReferenceProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Analysis.DataSetReference",
+         supportsTags = Prelude.False,
          properties = ["DataSetArn" JSON..= dataSetArn,
                        "DataSetPlaceholder" JSON..= dataSetPlaceholder]}
 instance JSON.ToJSON DataSetReferenceProperty where

@@ -25,6 +25,7 @@ instance ToResourceProperties ServerCertificate where
   toResourceProperties ServerCertificate {..}
     = ResourceProperties
         {awsType = "AWS::IAM::ServerCertificate",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CertificateBody" Prelude.<$> certificateBody,

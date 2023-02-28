@@ -19,6 +19,7 @@ instance ToResourceProperties ColumnLevelPermissionRuleProperty where
   toResourceProperties ColumnLevelPermissionRuleProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.ColumnLevelPermissionRule",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ColumnNames" Prelude.<$> columnNames,

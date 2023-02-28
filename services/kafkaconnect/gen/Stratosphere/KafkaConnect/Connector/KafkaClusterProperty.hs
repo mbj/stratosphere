@@ -2,6 +2,7 @@ module Stratosphere.KafkaConnect.Connector.KafkaClusterProperty (
         module Exports, KafkaClusterProperty(..), mkKafkaClusterProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.ApacheKafkaClusterProperty as Exports
 import Stratosphere.ResourceProperties
@@ -15,6 +16,7 @@ instance ToResourceProperties KafkaClusterProperty where
   toResourceProperties KafkaClusterProperty {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector.KafkaCluster",
+         supportsTags = Prelude.False,
          properties = ["ApacheKafkaCluster" JSON..= apacheKafkaCluster]}
 instance JSON.ToJSON KafkaClusterProperty where
   toJSON KafkaClusterProperty {..}

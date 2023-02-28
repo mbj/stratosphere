@@ -16,6 +16,7 @@ instance ToResourceProperties IcmpProperty where
   toResourceProperties IcmpProperty {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NetworkAclEntry.Icmp",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Code" Prelude.<$> code,

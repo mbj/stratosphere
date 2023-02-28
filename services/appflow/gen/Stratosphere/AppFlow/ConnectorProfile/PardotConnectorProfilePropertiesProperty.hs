@@ -21,6 +21,7 @@ instance ToResourceProperties PardotConnectorProfilePropertiesProperty where
   toResourceProperties PardotConnectorProfilePropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.PardotConnectorProfileProperties",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["BusinessUnitId" JSON..= businessUnitId]

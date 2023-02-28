@@ -22,6 +22,7 @@ instance ToResourceProperties ConformancePackInputParameterProperty where
   toResourceProperties ConformancePackInputParameterProperty {..}
     = ResourceProperties
         {awsType = "AWS::Config::ConformancePack.ConformancePackInputParameter",
+         supportsTags = Prelude.False,
          properties = ["ParameterName" JSON..= parameterName,
                        "ParameterValue" JSON..= parameterValue]}
 instance JSON.ToJSON ConformancePackInputParameterProperty where

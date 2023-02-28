@@ -31,6 +31,7 @@ instance ToResourceProperties ActionParamsProperty where
   toResourceProperties ActionParamsProperty {..}
     = ResourceProperties
         {awsType = "AWS::IoT::MitigationAction.ActionParams",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AddThingsToThingGroupParams"

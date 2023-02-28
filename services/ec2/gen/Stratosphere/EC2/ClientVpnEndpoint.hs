@@ -56,6 +56,7 @@ instance ToResourceProperties ClientVpnEndpoint where
   toResourceProperties ClientVpnEndpoint {..}
     = ResourceProperties
         {awsType = "AWS::EC2::ClientVpnEndpoint",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AuthenticationOptions" JSON..= authenticationOptions,

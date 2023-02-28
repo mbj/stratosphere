@@ -27,7 +27,7 @@ mkAppMonitor domain name
 instance ToResourceProperties AppMonitor where
   toResourceProperties AppMonitor {..}
     = ResourceProperties
-        {awsType = "AWS::RUM::AppMonitor",
+        {awsType = "AWS::RUM::AppMonitor", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Domain" JSON..= domain, "Name" JSON..= name]

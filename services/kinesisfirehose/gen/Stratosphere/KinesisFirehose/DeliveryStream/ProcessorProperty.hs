@@ -17,6 +17,7 @@ instance ToResourceProperties ProcessorProperty where
   toResourceProperties ProcessorProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.Processor",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Type" JSON..= type']

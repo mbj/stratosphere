@@ -21,6 +21,7 @@ instance ToResourceProperties MixedInstancesPolicyProperty where
   toResourceProperties MixedInstancesPolicyProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.MixedInstancesPolicy",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["LaunchTemplate" JSON..= launchTemplate]

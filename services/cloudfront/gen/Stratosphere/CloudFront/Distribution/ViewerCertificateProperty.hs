@@ -24,6 +24,7 @@ instance ToResourceProperties ViewerCertificateProperty where
   toResourceProperties ViewerCertificateProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Distribution.ViewerCertificate",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AcmCertificateArn" Prelude.<$> acmCertificateArn,

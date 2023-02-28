@@ -19,6 +19,7 @@ instance ToResourceProperties TargetContainerRepositoryProperty where
   toResourceProperties TargetContainerRepositoryProperty {..}
     = ResourceProperties
         {awsType = "AWS::ImageBuilder::ContainerRecipe.TargetContainerRepository",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "RepositoryName" Prelude.<$> repositoryName,

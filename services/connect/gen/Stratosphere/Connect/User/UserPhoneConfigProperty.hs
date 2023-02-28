@@ -22,6 +22,7 @@ instance ToResourceProperties UserPhoneConfigProperty where
   toResourceProperties UserPhoneConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::User.UserPhoneConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["PhoneType" JSON..= phoneType]

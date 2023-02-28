@@ -22,6 +22,7 @@ instance ToResourceProperties ElasticsearchSettingsProperty where
   toResourceProperties ElasticsearchSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::Endpoint.ElasticsearchSettings",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EndpointUri" Prelude.<$> endpointUri,

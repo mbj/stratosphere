@@ -43,6 +43,7 @@ instance ToResourceProperties MaintenanceWindowTask where
   toResourceProperties MaintenanceWindowTask {..}
     = ResourceProperties
         {awsType = "AWS::SSM::MaintenanceWindowTask",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Priority" JSON..= priority, "TaskArn" JSON..= taskArn,

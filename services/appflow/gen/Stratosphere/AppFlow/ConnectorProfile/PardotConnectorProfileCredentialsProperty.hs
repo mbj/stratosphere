@@ -25,6 +25,7 @@ instance ToResourceProperties PardotConnectorProfileCredentialsProperty where
   toResourceProperties PardotConnectorProfileCredentialsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppFlow::ConnectorProfile.PardotConnectorProfileCredentials",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AccessToken" Prelude.<$> accessToken,

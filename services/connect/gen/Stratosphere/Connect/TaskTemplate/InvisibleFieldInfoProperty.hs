@@ -3,6 +3,7 @@ module Stratosphere.Connect.TaskTemplate.InvisibleFieldInfoProperty (
         mkInvisibleFieldInfoProperty
     ) where
 import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,7 +17,7 @@ instance ToResourceProperties InvisibleFieldInfoProperty where
   toResourceProperties InvisibleFieldInfoProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::TaskTemplate.InvisibleFieldInfo",
-         properties = ["Id" JSON..= id]}
+         supportsTags = Prelude.False, properties = ["Id" JSON..= id]}
 instance JSON.ToJSON InvisibleFieldInfoProperty where
   toJSON InvisibleFieldInfoProperty {..}
     = JSON.object ["Id" JSON..= id]

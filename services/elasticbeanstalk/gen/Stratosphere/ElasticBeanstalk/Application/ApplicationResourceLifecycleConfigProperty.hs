@@ -22,6 +22,7 @@ instance ToResourceProperties ApplicationResourceLifecycleConfigProperty where
     ApplicationResourceLifecycleConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElasticBeanstalk::Application.ApplicationResourceLifecycleConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ServiceRole" Prelude.<$> serviceRole,

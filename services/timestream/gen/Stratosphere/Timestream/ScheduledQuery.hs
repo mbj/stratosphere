@@ -47,6 +47,7 @@ instance ToResourceProperties ScheduledQuery where
   toResourceProperties ScheduledQuery {..}
     = ResourceProperties
         {awsType = "AWS::Timestream::ScheduledQuery",
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ErrorReportConfiguration" JSON..= errorReportConfiguration,

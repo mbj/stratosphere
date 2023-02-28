@@ -20,6 +20,7 @@ instance ToResourceProperties SecondaryInputProperty where
   toResourceProperties SecondaryInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::DataBrew::Recipe.SecondaryInput",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "DataCatalogInputDefinition"

@@ -42,6 +42,7 @@ instance ToResourceProperties CorsConfigProperty where
   toResourceProperties CorsConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::ResponseHeadersPolicy.CorsConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccessControlAllowCredentials"

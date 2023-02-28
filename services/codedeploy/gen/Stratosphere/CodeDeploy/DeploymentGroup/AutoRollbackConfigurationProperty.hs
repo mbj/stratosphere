@@ -19,6 +19,7 @@ instance ToResourceProperties AutoRollbackConfigurationProperty where
   toResourceProperties AutoRollbackConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::CodeDeploy::DeploymentGroup.AutoRollbackConfiguration",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Enabled" Prelude.<$> enabled,

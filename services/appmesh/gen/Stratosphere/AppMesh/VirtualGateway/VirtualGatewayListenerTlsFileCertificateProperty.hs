@@ -24,6 +24,7 @@ instance ToResourceProperties VirtualGatewayListenerTlsFileCertificateProperty w
     VirtualGatewayListenerTlsFileCertificateProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppMesh::VirtualGateway.VirtualGatewayListenerTlsFileCertificate",
+         supportsTags = Prelude.False,
          properties = ["CertificateChain" JSON..= certificateChain,
                        "PrivateKey" JSON..= privateKey]}
 instance JSON.ToJSON VirtualGatewayListenerTlsFileCertificateProperty where

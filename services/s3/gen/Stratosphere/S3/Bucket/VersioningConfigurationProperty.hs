@@ -17,6 +17,7 @@ instance ToResourceProperties VersioningConfigurationProperty where
   toResourceProperties VersioningConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.VersioningConfiguration",
+         supportsTags = Prelude.False,
          properties = ["Status" JSON..= status]}
 instance JSON.ToJSON VersioningConfigurationProperty where
   toJSON VersioningConfigurationProperty {..}

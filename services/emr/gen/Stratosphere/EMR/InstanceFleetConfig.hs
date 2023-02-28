@@ -29,6 +29,7 @@ instance ToResourceProperties InstanceFleetConfig where
   toResourceProperties InstanceFleetConfig {..}
     = ResourceProperties
         {awsType = "AWS::EMR::InstanceFleetConfig",
+         supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterId" JSON..= clusterId,
