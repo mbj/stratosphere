@@ -17,21 +17,46 @@ module Stratosphere
     -- $usage
 
     module Exports
+    , awsAccountId
+    , awsNoValue
+    , awsRegion
+    , awsStackId
+    , awsStackName
   )
 where
 
 import Data.Function                   as Exports ((&), (.), ($))
 import Data.Text                       as Exports (Text)
 import Stratosphere.Check              as Exports
+import Stratosphere.NamedItem          as Exports
 import Stratosphere.Output             as Exports
 import Stratosphere.Parameter          as Exports
 import Stratosphere.Property           as Exports
-import Stratosphere.NamedItem          as Exports
 import Stratosphere.Resource           as Exports
 import Stratosphere.ResourceProperties as Exports
 import Stratosphere.Tag                as Exports
 import Stratosphere.Template           as Exports
 import Stratosphere.Value              as Exports
+
+-- | See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html
+awsAccountId :: Value Text
+awsAccountId = Ref "AWS::AccountId"
+
+-- | See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html
+awsRegion :: Value Text
+awsRegion = Ref "AWS::Region"
+
+-- | See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html
+awsStackId :: Value Text
+awsStackId = Ref "AWS::StackId"
+
+-- | See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html
+awsStackName :: Value Text
+awsStackName = Ref "AWS::StackName"
+
+-- | See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html
+awsNoValue :: Value Text
+awsNoValue = Ref "AWS::NoValue"
 
 -- $intro
 --
