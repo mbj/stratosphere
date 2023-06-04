@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.KPIConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KPIConfigurationProperty :: Prelude.Type
+instance ToResourceProperties KPIConfigurationProperty
+instance JSON.ToJSON KPIConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.DateDimensionFieldProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DateDimensionFieldProperty :: Prelude.Type
+instance ToResourceProperties DateDimensionFieldProperty
+instance JSON.ToJSON DateDimensionFieldProperty

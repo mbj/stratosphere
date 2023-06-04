@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.RefreshSchedule.RefreshScheduleMapProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RefreshScheduleMapProperty :: Prelude.Type
+instance ToResourceProperties RefreshScheduleMapProperty
+instance JSON.ToJSON RefreshScheduleMapProperty

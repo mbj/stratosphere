@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Topic.TopicNumericEqualityFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TopicNumericEqualityFilterProperty :: Prelude.Type
+instance ToResourceProperties TopicNumericEqualityFilterProperty
+instance JSON.ToJSON TopicNumericEqualityFilterProperty

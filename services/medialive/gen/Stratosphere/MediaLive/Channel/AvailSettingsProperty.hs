@@ -4,16 +4,18 @@ module Stratosphere.MediaLive.Channel.AvailSettingsProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.EsamProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Scte35SpliceInsertProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Scte35TimeSignalAposProperty as Exports
 import Stratosphere.ResourceProperties
 data AvailSettingsProperty
-  = AvailSettingsProperty {scte35SpliceInsert :: (Prelude.Maybe Scte35SpliceInsertProperty),
+  = AvailSettingsProperty {esam :: (Prelude.Maybe EsamProperty),
+                           scte35SpliceInsert :: (Prelude.Maybe Scte35SpliceInsertProperty),
                            scte35TimeSignalApos :: (Prelude.Maybe Scte35TimeSignalAposProperty)}
 mkAvailSettingsProperty :: AvailSettingsProperty
 mkAvailSettingsProperty
   = AvailSettingsProperty
-      {scte35SpliceInsert = Prelude.Nothing,
+      {esam = Prelude.Nothing, scte35SpliceInsert = Prelude.Nothing,
        scte35TimeSignalApos = Prelude.Nothing}
 instance ToResourceProperties AvailSettingsProperty where
   toResourceProperties AvailSettingsProperty {..}
@@ -22,7 +24,8 @@ instance ToResourceProperties AvailSettingsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Scte35SpliceInsert" Prelude.<$> scte35SpliceInsert,
+                           [(JSON..=) "Esam" Prelude.<$> esam,
+                            (JSON..=) "Scte35SpliceInsert" Prelude.<$> scte35SpliceInsert,
                             (JSON..=) "Scte35TimeSignalApos"
                               Prelude.<$> scte35TimeSignalApos])}
 instance JSON.ToJSON AvailSettingsProperty where
@@ -30,9 +33,14 @@ instance JSON.ToJSON AvailSettingsProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Scte35SpliceInsert" Prelude.<$> scte35SpliceInsert,
+              [(JSON..=) "Esam" Prelude.<$> esam,
+               (JSON..=) "Scte35SpliceInsert" Prelude.<$> scte35SpliceInsert,
                (JSON..=) "Scte35TimeSignalApos"
                  Prelude.<$> scte35TimeSignalApos]))
+instance Property "Esam" AvailSettingsProperty where
+  type PropertyType "Esam" AvailSettingsProperty = EsamProperty
+  set newValue AvailSettingsProperty {..}
+    = AvailSettingsProperty {esam = Prelude.pure newValue, ..}
 instance Property "Scte35SpliceInsert" AvailSettingsProperty where
   type PropertyType "Scte35SpliceInsert" AvailSettingsProperty = Scte35SpliceInsertProperty
   set newValue AvailSettingsProperty {..}

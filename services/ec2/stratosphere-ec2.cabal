@@ -175,6 +175,8 @@ library
       Stratosphere.EC2.NetworkInsightsAnalysis.PortRangeProperty
       Stratosphere.EC2.NetworkInsightsAnalysis.TransitGatewayRouteTableRouteProperty
       Stratosphere.EC2.NetworkInsightsPath
+      Stratosphere.EC2.NetworkInsightsPath.FilterPortRangeProperty
+      Stratosphere.EC2.NetworkInsightsPath.PathFilterProperty
       Stratosphere.EC2.NetworkInterface
       Stratosphere.EC2.NetworkInterface.InstanceIpv6AddressProperty
       Stratosphere.EC2.NetworkInterface.PrivateIpAddressSpecificationProperty
@@ -252,6 +254,19 @@ library
       Stratosphere.EC2.TransitGatewayRouteTablePropagation
       Stratosphere.EC2.TransitGatewayVpcAttachment
       Stratosphere.EC2.TransitGatewayVpcAttachment.OptionsProperty
+      Stratosphere.EC2.VerifiedAccessEndpoint
+      Stratosphere.EC2.VerifiedAccessEndpoint.LoadBalancerOptionsProperty
+      Stratosphere.EC2.VerifiedAccessEndpoint.NetworkInterfaceOptionsProperty
+      Stratosphere.EC2.VerifiedAccessGroup
+      Stratosphere.EC2.VerifiedAccessInstance
+      Stratosphere.EC2.VerifiedAccessInstance.CloudWatchLogsProperty
+      Stratosphere.EC2.VerifiedAccessInstance.KinesisDataFirehoseProperty
+      Stratosphere.EC2.VerifiedAccessInstance.S3Property
+      Stratosphere.EC2.VerifiedAccessInstance.VerifiedAccessLogsProperty
+      Stratosphere.EC2.VerifiedAccessInstance.VerifiedAccessTrustProviderProperty
+      Stratosphere.EC2.VerifiedAccessTrustProvider
+      Stratosphere.EC2.VerifiedAccessTrustProvider.DeviceOptionsProperty
+      Stratosphere.EC2.VerifiedAccessTrustProvider.OidcOptionsProperty
       Stratosphere.EC2.Volume
       Stratosphere.EC2.VolumeAttachment
       Stratosphere.EC2.VPC

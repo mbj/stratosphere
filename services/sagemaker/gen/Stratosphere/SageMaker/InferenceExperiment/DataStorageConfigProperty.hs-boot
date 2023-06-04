@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.InferenceExperiment.DataStorageConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataStorageConfigProperty :: Prelude.Type
+instance ToResourceProperties DataStorageConfigProperty
+instance JSON.ToJSON DataStorageConfigProperty

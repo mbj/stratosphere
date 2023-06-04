@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.DynamicDefaultValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DynamicDefaultValueProperty :: Prelude.Type
+instance ToResourceProperties DynamicDefaultValueProperty
+instance JSON.ToJSON DynamicDefaultValueProperty

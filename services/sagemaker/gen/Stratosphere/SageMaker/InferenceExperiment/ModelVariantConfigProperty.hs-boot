@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.InferenceExperiment.ModelVariantConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ModelVariantConfigProperty :: Prelude.Type
+instance ToResourceProperties ModelVariantConfigProperty
+instance JSON.ToJSON ModelVariantConfigProperty

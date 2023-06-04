@@ -1,16 +1,17 @@
 module Stratosphere.ApiGatewayV2.RouteResponse (
-        RouteResponse(..), mkRouteResponse
+        module Exports, RouteResponse(..), mkRouteResponse
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ApiGatewayV2.RouteResponse.ParameterConstraintsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RouteResponse
   = RouteResponse {apiId :: (Value Prelude.Text),
                    modelSelectionExpression :: (Prelude.Maybe (Value Prelude.Text)),
                    responseModels :: (Prelude.Maybe JSON.Object),
-                   responseParameters :: (Prelude.Maybe JSON.Object),
+                   responseParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text ParameterConstraintsProperty)),
                    routeId :: (Value Prelude.Text),
                    routeResponseKey :: (Value Prelude.Text)}
 mkRouteResponse ::
@@ -63,7 +64,7 @@ instance Property "ResponseModels" RouteResponse where
   set newValue RouteResponse {..}
     = RouteResponse {responseModels = Prelude.pure newValue, ..}
 instance Property "ResponseParameters" RouteResponse where
-  type PropertyType "ResponseParameters" RouteResponse = JSON.Object
+  type PropertyType "ResponseParameters" RouteResponse = Prelude.Map Prelude.Text ParameterConstraintsProperty
   set newValue RouteResponse {..}
     = RouteResponse {responseParameters = Prelude.pure newValue, ..}
 instance Property "RouteId" RouteResponse where

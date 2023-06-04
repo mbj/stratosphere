@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.DomainConfiguration.AuthorizerConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoT.DomainConfiguration.TlsConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -16,6 +17,7 @@ data DomainConfiguration
                          serverCertificateArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                          serviceType :: (Prelude.Maybe (Value Prelude.Text)),
                          tags :: (Prelude.Maybe [Tag]),
+                         tlsConfig :: (Prelude.Maybe TlsConfigProperty),
                          validationCertificateArn :: (Prelude.Maybe (Value Prelude.Text))}
 mkDomainConfiguration :: DomainConfiguration
 mkDomainConfiguration
@@ -26,6 +28,7 @@ mkDomainConfiguration
        domainName = Prelude.Nothing,
        serverCertificateArns = Prelude.Nothing,
        serviceType = Prelude.Nothing, tags = Prelude.Nothing,
+       tlsConfig = Prelude.Nothing,
        validationCertificateArn = Prelude.Nothing}
 instance ToResourceProperties DomainConfiguration where
   toResourceProperties DomainConfiguration {..}
@@ -44,6 +47,7 @@ instance ToResourceProperties DomainConfiguration where
                               Prelude.<$> serverCertificateArns,
                             (JSON..=) "ServiceType" Prelude.<$> serviceType,
                             (JSON..=) "Tags" Prelude.<$> tags,
+                            (JSON..=) "TlsConfig" Prelude.<$> tlsConfig,
                             (JSON..=) "ValidationCertificateArn"
                               Prelude.<$> validationCertificateArn])}
 instance JSON.ToJSON DomainConfiguration where
@@ -61,6 +65,7 @@ instance JSON.ToJSON DomainConfiguration where
                  Prelude.<$> serverCertificateArns,
                (JSON..=) "ServiceType" Prelude.<$> serviceType,
                (JSON..=) "Tags" Prelude.<$> tags,
+               (JSON..=) "TlsConfig" Prelude.<$> tlsConfig,
                (JSON..=) "ValidationCertificateArn"
                  Prelude.<$> validationCertificateArn]))
 instance Property "AuthorizerConfig" DomainConfiguration where
@@ -95,6 +100,10 @@ instance Property "Tags" DomainConfiguration where
   type PropertyType "Tags" DomainConfiguration = [Tag]
   set newValue DomainConfiguration {..}
     = DomainConfiguration {tags = Prelude.pure newValue, ..}
+instance Property "TlsConfig" DomainConfiguration where
+  type PropertyType "TlsConfig" DomainConfiguration = TlsConfigProperty
+  set newValue DomainConfiguration {..}
+    = DomainConfiguration {tlsConfig = Prelude.pure newValue, ..}
 instance Property "ValidationCertificateArn" DomainConfiguration where
   type PropertyType "ValidationCertificateArn" DomainConfiguration = Value Prelude.Text
   set newValue DomainConfiguration {..}

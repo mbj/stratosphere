@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.CollectionSchemeProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.DataDestinationConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTFleetWise.Campaign.SignalInformationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -13,6 +14,7 @@ data Campaign
   = Campaign {action :: (Value Prelude.Text),
               collectionScheme :: CollectionSchemeProperty,
               compression :: (Prelude.Maybe (Value Prelude.Text)),
+              dataDestinationConfigs :: (Prelude.Maybe [DataDestinationConfigProperty]),
               dataExtraDimensions :: (Prelude.Maybe (ValueList Prelude.Text)),
               description :: (Prelude.Maybe (Value Prelude.Text)),
               diagnosticsMode :: (Prelude.Maybe (Value Prelude.Text)),
@@ -36,6 +38,7 @@ mkCampaign action collectionScheme name signalCatalogArn targetArn
       {action = action, collectionScheme = collectionScheme, name = name,
        signalCatalogArn = signalCatalogArn, targetArn = targetArn,
        compression = Prelude.Nothing,
+       dataDestinationConfigs = Prelude.Nothing,
        dataExtraDimensions = Prelude.Nothing,
        description = Prelude.Nothing, diagnosticsMode = Prelude.Nothing,
        expiryTime = Prelude.Nothing,
@@ -56,6 +59,8 @@ instance ToResourceProperties Campaign where
                             "TargetArn" JSON..= targetArn]
                            (Prelude.catMaybes
                               [(JSON..=) "Compression" Prelude.<$> compression,
+                               (JSON..=) "DataDestinationConfigs"
+                                 Prelude.<$> dataDestinationConfigs,
                                (JSON..=) "DataExtraDimensions" Prelude.<$> dataExtraDimensions,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "DiagnosticsMode" Prelude.<$> diagnosticsMode,
@@ -78,6 +83,8 @@ instance JSON.ToJSON Campaign where
                "TargetArn" JSON..= targetArn]
               (Prelude.catMaybes
                  [(JSON..=) "Compression" Prelude.<$> compression,
+                  (JSON..=) "DataDestinationConfigs"
+                    Prelude.<$> dataDestinationConfigs,
                   (JSON..=) "DataExtraDimensions" Prelude.<$> dataExtraDimensions,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "DiagnosticsMode" Prelude.<$> diagnosticsMode,
@@ -100,6 +107,10 @@ instance Property "Compression" Campaign where
   type PropertyType "Compression" Campaign = Value Prelude.Text
   set newValue Campaign {..}
     = Campaign {compression = Prelude.pure newValue, ..}
+instance Property "DataDestinationConfigs" Campaign where
+  type PropertyType "DataDestinationConfigs" Campaign = [DataDestinationConfigProperty]
+  set newValue Campaign {..}
+    = Campaign {dataDestinationConfigs = Prelude.pure newValue, ..}
 instance Property "DataExtraDimensions" Campaign where
   type PropertyType "DataExtraDimensions" Campaign = ValueList Prelude.Text
   set newValue Campaign {..}

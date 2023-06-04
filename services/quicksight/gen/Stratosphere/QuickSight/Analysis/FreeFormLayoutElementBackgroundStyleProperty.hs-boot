@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.FreeFormLayoutElementBackgroundStyleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FreeFormLayoutElementBackgroundStyleProperty :: Prelude.Type
+instance ToResourceProperties FreeFormLayoutElementBackgroundStyleProperty
+instance JSON.ToJSON FreeFormLayoutElementBackgroundStyleProperty

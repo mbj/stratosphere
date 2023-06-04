@@ -1,0 +1,7 @@
+module Stratosphere.GuardDuty.Detector.FeatureAdditionalConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FeatureAdditionalConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FeatureAdditionalConfigurationProperty
+instance JSON.ToJSON FeatureAdditionalConfigurationProperty

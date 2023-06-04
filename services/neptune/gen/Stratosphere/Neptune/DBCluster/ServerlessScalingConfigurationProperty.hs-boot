@@ -1,0 +1,7 @@
+module Stratosphere.Neptune.DBCluster.ServerlessScalingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServerlessScalingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ServerlessScalingConfigurationProperty
+instance JSON.ToJSON ServerlessScalingConfigurationProperty

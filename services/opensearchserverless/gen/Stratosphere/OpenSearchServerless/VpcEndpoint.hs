@@ -9,14 +9,15 @@ import Stratosphere.Value
 data VpcEndpoint
   = VpcEndpoint {name :: (Value Prelude.Text),
                  securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
-                 subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 subnetIds :: (ValueList Prelude.Text),
                  vpcId :: (Value Prelude.Text)}
 mkVpcEndpoint ::
-  Value Prelude.Text -> Value Prelude.Text -> VpcEndpoint
-mkVpcEndpoint name vpcId
+  Value Prelude.Text
+  -> ValueList Prelude.Text -> Value Prelude.Text -> VpcEndpoint
+mkVpcEndpoint name subnetIds vpcId
   = VpcEndpoint
-      {name = name, vpcId = vpcId, securityGroupIds = Prelude.Nothing,
-       subnetIds = Prelude.Nothing}
+      {name = name, subnetIds = subnetIds, vpcId = vpcId,
+       securityGroupIds = Prelude.Nothing}
 instance ToResourceProperties VpcEndpoint where
   toResourceProperties VpcEndpoint {..}
     = ResourceProperties
@@ -24,19 +25,19 @@ instance ToResourceProperties VpcEndpoint where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Name" JSON..= name, "VpcId" JSON..= vpcId]
+                           ["Name" JSON..= name, "SubnetIds" JSON..= subnetIds,
+                            "VpcId" JSON..= vpcId]
                            (Prelude.catMaybes
-                              [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
-                               (JSON..=) "SubnetIds" Prelude.<$> subnetIds]))}
+                              [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds]))}
 instance JSON.ToJSON VpcEndpoint where
   toJSON VpcEndpoint {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Name" JSON..= name, "VpcId" JSON..= vpcId]
+              ["Name" JSON..= name, "SubnetIds" JSON..= subnetIds,
+               "VpcId" JSON..= vpcId]
               (Prelude.catMaybes
-                 [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
-                  (JSON..=) "SubnetIds" Prelude.<$> subnetIds])))
+                 [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds])))
 instance Property "Name" VpcEndpoint where
   type PropertyType "Name" VpcEndpoint = Value Prelude.Text
   set newValue VpcEndpoint {..} = VpcEndpoint {name = newValue, ..}
@@ -47,7 +48,7 @@ instance Property "SecurityGroupIds" VpcEndpoint where
 instance Property "SubnetIds" VpcEndpoint where
   type PropertyType "SubnetIds" VpcEndpoint = ValueList Prelude.Text
   set newValue VpcEndpoint {..}
-    = VpcEndpoint {subnetIds = Prelude.pure newValue, ..}
+    = VpcEndpoint {subnetIds = newValue, ..}
 instance Property "VpcId" VpcEndpoint where
   type PropertyType "VpcId" VpcEndpoint = Value Prelude.Text
   set newValue VpcEndpoint {..} = VpcEndpoint {vpcId = newValue, ..}

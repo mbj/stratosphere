@@ -9,7 +9,8 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.CaptionDestinationSettingsP
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CaptionDescriptionProperty
-  = CaptionDescriptionProperty {captionSelectorName :: (Prelude.Maybe (Value Prelude.Text)),
+  = CaptionDescriptionProperty {accessibility :: (Prelude.Maybe (Value Prelude.Text)),
+                                captionSelectorName :: (Prelude.Maybe (Value Prelude.Text)),
                                 destinationSettings :: (Prelude.Maybe CaptionDestinationSettingsProperty),
                                 languageCode :: (Prelude.Maybe (Value Prelude.Text)),
                                 languageDescription :: (Prelude.Maybe (Value Prelude.Text)),
@@ -17,7 +18,8 @@ data CaptionDescriptionProperty
 mkCaptionDescriptionProperty :: CaptionDescriptionProperty
 mkCaptionDescriptionProperty
   = CaptionDescriptionProperty
-      {captionSelectorName = Prelude.Nothing,
+      {accessibility = Prelude.Nothing,
+       captionSelectorName = Prelude.Nothing,
        destinationSettings = Prelude.Nothing,
        languageCode = Prelude.Nothing,
        languageDescription = Prelude.Nothing, name = Prelude.Nothing}
@@ -28,7 +30,8 @@ instance ToResourceProperties CaptionDescriptionProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "CaptionSelectorName" Prelude.<$> captionSelectorName,
+                           [(JSON..=) "Accessibility" Prelude.<$> accessibility,
+                            (JSON..=) "CaptionSelectorName" Prelude.<$> captionSelectorName,
                             (JSON..=) "DestinationSettings" Prelude.<$> destinationSettings,
                             (JSON..=) "LanguageCode" Prelude.<$> languageCode,
                             (JSON..=) "LanguageDescription" Prelude.<$> languageDescription,
@@ -38,11 +41,17 @@ instance JSON.ToJSON CaptionDescriptionProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "CaptionSelectorName" Prelude.<$> captionSelectorName,
+              [(JSON..=) "Accessibility" Prelude.<$> accessibility,
+               (JSON..=) "CaptionSelectorName" Prelude.<$> captionSelectorName,
                (JSON..=) "DestinationSettings" Prelude.<$> destinationSettings,
                (JSON..=) "LanguageCode" Prelude.<$> languageCode,
                (JSON..=) "LanguageDescription" Prelude.<$> languageDescription,
                (JSON..=) "Name" Prelude.<$> name]))
+instance Property "Accessibility" CaptionDescriptionProperty where
+  type PropertyType "Accessibility" CaptionDescriptionProperty = Value Prelude.Text
+  set newValue CaptionDescriptionProperty {..}
+    = CaptionDescriptionProperty
+        {accessibility = Prelude.pure newValue, ..}
 instance Property "CaptionSelectorName" CaptionDescriptionProperty where
   type PropertyType "CaptionSelectorName" CaptionDescriptionProperty = Value Prelude.Text
   set newValue CaptionDescriptionProperty {..}

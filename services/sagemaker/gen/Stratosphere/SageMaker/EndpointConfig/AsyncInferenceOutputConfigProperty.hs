@@ -11,33 +11,34 @@ import Stratosphere.Value
 data AsyncInferenceOutputConfigProperty
   = AsyncInferenceOutputConfigProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                                         notificationConfig :: (Prelude.Maybe AsyncInferenceNotificationConfigProperty),
-                                        s3OutputPath :: (Value Prelude.Text)}
+                                        s3FailurePath :: (Prelude.Maybe (Value Prelude.Text)),
+                                        s3OutputPath :: (Prelude.Maybe (Value Prelude.Text))}
 mkAsyncInferenceOutputConfigProperty ::
-  Value Prelude.Text -> AsyncInferenceOutputConfigProperty
-mkAsyncInferenceOutputConfigProperty s3OutputPath
+  AsyncInferenceOutputConfigProperty
+mkAsyncInferenceOutputConfigProperty
   = AsyncInferenceOutputConfigProperty
-      {s3OutputPath = s3OutputPath, kmsKeyId = Prelude.Nothing,
-       notificationConfig = Prelude.Nothing}
+      {kmsKeyId = Prelude.Nothing, notificationConfig = Prelude.Nothing,
+       s3FailurePath = Prelude.Nothing, s3OutputPath = Prelude.Nothing}
 instance ToResourceProperties AsyncInferenceOutputConfigProperty where
   toResourceProperties AsyncInferenceOutputConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.AsyncInferenceOutputConfig",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["S3OutputPath" JSON..= s3OutputPath]
-                           (Prelude.catMaybes
-                              [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
-                               (JSON..=) "NotificationConfig" Prelude.<$> notificationConfig]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                            (JSON..=) "NotificationConfig" Prelude.<$> notificationConfig,
+                            (JSON..=) "S3FailurePath" Prelude.<$> s3FailurePath,
+                            (JSON..=) "S3OutputPath" Prelude.<$> s3OutputPath])}
 instance JSON.ToJSON AsyncInferenceOutputConfigProperty where
   toJSON AsyncInferenceOutputConfigProperty {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["S3OutputPath" JSON..= s3OutputPath]
-              (Prelude.catMaybes
-                 [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
-                  (JSON..=) "NotificationConfig" Prelude.<$> notificationConfig])))
+           (Prelude.catMaybes
+              [(JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+               (JSON..=) "NotificationConfig" Prelude.<$> notificationConfig,
+               (JSON..=) "S3FailurePath" Prelude.<$> s3FailurePath,
+               (JSON..=) "S3OutputPath" Prelude.<$> s3OutputPath]))
 instance Property "KmsKeyId" AsyncInferenceOutputConfigProperty where
   type PropertyType "KmsKeyId" AsyncInferenceOutputConfigProperty = Value Prelude.Text
   set newValue AsyncInferenceOutputConfigProperty {..}
@@ -48,7 +49,13 @@ instance Property "NotificationConfig" AsyncInferenceOutputConfigProperty where
   set newValue AsyncInferenceOutputConfigProperty {..}
     = AsyncInferenceOutputConfigProperty
         {notificationConfig = Prelude.pure newValue, ..}
+instance Property "S3FailurePath" AsyncInferenceOutputConfigProperty where
+  type PropertyType "S3FailurePath" AsyncInferenceOutputConfigProperty = Value Prelude.Text
+  set newValue AsyncInferenceOutputConfigProperty {..}
+    = AsyncInferenceOutputConfigProperty
+        {s3FailurePath = Prelude.pure newValue, ..}
 instance Property "S3OutputPath" AsyncInferenceOutputConfigProperty where
   type PropertyType "S3OutputPath" AsyncInferenceOutputConfigProperty = Value Prelude.Text
   set newValue AsyncInferenceOutputConfigProperty {..}
-    = AsyncInferenceOutputConfigProperty {s3OutputPath = newValue, ..}
+    = AsyncInferenceOutputConfigProperty
+        {s3OutputPath = Prelude.pure newValue, ..}

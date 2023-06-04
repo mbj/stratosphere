@@ -1,0 +1,7 @@
+module Stratosphere.VpcLattice.TargetGroup.HealthCheckConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HealthCheckConfigProperty :: Prelude.Type
+instance ToResourceProperties HealthCheckConfigProperty
+instance JSON.ToJSON HealthCheckConfigProperty

@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.RowLevelPermissionTagConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RowLevelPermissionTagConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RowLevelPermissionTagConfigurationProperty
+instance JSON.ToJSON RowLevelPermissionTagConfigurationProperty

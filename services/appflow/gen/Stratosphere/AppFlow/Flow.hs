@@ -16,6 +16,7 @@ data Flow
   = Flow {description :: (Prelude.Maybe (Value Prelude.Text)),
           destinationFlowConfigList :: [DestinationFlowConfigProperty],
           flowName :: (Value Prelude.Text),
+          flowStatus :: (Prelude.Maybe (Value Prelude.Text)),
           kMSArn :: (Prelude.Maybe (Value Prelude.Text)),
           metadataCatalogConfig :: (Prelude.Maybe MetadataCatalogConfigProperty),
           sourceFlowConfig :: SourceFlowConfigProperty,
@@ -37,8 +38,9 @@ mkFlow
       {destinationFlowConfigList = destinationFlowConfigList,
        flowName = flowName, sourceFlowConfig = sourceFlowConfig,
        tasks = tasks, triggerConfig = triggerConfig,
-       description = Prelude.Nothing, kMSArn = Prelude.Nothing,
-       metadataCatalogConfig = Prelude.Nothing, tags = Prelude.Nothing}
+       description = Prelude.Nothing, flowStatus = Prelude.Nothing,
+       kMSArn = Prelude.Nothing, metadataCatalogConfig = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Flow where
   toResourceProperties Flow {..}
     = ResourceProperties
@@ -51,6 +53,7 @@ instance ToResourceProperties Flow where
                             "TriggerConfig" JSON..= triggerConfig]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "FlowStatus" Prelude.<$> flowStatus,
                                (JSON..=) "KMSArn" Prelude.<$> kMSArn,
                                (JSON..=) "MetadataCatalogConfig"
                                  Prelude.<$> metadataCatalogConfig,
@@ -66,6 +69,7 @@ instance JSON.ToJSON Flow where
                "TriggerConfig" JSON..= triggerConfig]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "FlowStatus" Prelude.<$> flowStatus,
                   (JSON..=) "KMSArn" Prelude.<$> kMSArn,
                   (JSON..=) "MetadataCatalogConfig"
                     Prelude.<$> metadataCatalogConfig,
@@ -81,6 +85,10 @@ instance Property "DestinationFlowConfigList" Flow where
 instance Property "FlowName" Flow where
   type PropertyType "FlowName" Flow = Value Prelude.Text
   set newValue Flow {..} = Flow {flowName = newValue, ..}
+instance Property "FlowStatus" Flow where
+  type PropertyType "FlowStatus" Flow = Value Prelude.Text
+  set newValue Flow {..}
+    = Flow {flowStatus = Prelude.pure newValue, ..}
 instance Property "KMSArn" Flow where
   type PropertyType "KMSArn" Flow = Value Prelude.Text
   set newValue Flow {..} = Flow {kMSArn = Prelude.pure newValue, ..}

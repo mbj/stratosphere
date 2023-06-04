@@ -1,0 +1,7 @@
+module Stratosphere.Batch.JobDefinition.EksContainerResourceRequirementsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EksContainerResourceRequirementsProperty :: Prelude.Type
+instance ToResourceProperties EksContainerResourceRequirementsProperty
+instance JSON.ToJSON EksContainerResourceRequirementsProperty

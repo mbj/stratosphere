@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.FilterSelectableValuesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FilterSelectableValuesProperty :: Prelude.Type
+instance ToResourceProperties FilterSelectableValuesProperty
+instance JSON.ToJSON FilterSelectableValuesProperty

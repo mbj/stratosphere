@@ -59,6 +59,8 @@ library
       Stratosphere.AppSync.Resolver.LambdaConflictHandlerConfigProperty
       Stratosphere.AppSync.Resolver.PipelineConfigProperty
       Stratosphere.AppSync.Resolver.SyncConfigProperty
+      Stratosphere.AppSync.SourceApiAssociation
+      Stratosphere.AppSync.SourceApiAssociation.SourceApiAssociationConfigProperty
   other-modules:
       Paths_stratosphere_appsync
   hs-source-dirs:

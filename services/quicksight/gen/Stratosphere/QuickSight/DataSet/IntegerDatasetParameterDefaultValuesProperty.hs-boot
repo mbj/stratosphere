@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.IntegerDatasetParameterDefaultValuesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IntegerDatasetParameterDefaultValuesProperty :: Prelude.Type
+instance ToResourceProperties IntegerDatasetParameterDefaultValuesProperty
+instance JSON.ToJSON IntegerDatasetParameterDefaultValuesProperty

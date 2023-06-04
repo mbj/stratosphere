@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Mpeg2FilterSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TimecodeBurninSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Mpeg2SettingsProperty
@@ -23,6 +24,7 @@ data Mpeg2SettingsProperty
                            gopSizeUnits :: (Prelude.Maybe (Value Prelude.Text)),
                            scanType :: (Prelude.Maybe (Value Prelude.Text)),
                            subgopLength :: (Prelude.Maybe (Value Prelude.Text)),
+                           timecodeBurninSettings :: (Prelude.Maybe TimecodeBurninSettingsProperty),
                            timecodeInsertion :: (Prelude.Maybe (Value Prelude.Text))}
 mkMpeg2SettingsProperty :: Mpeg2SettingsProperty
 mkMpeg2SettingsProperty
@@ -37,6 +39,7 @@ mkMpeg2SettingsProperty
        gopNumBFrames = Prelude.Nothing, gopSize = Prelude.Nothing,
        gopSizeUnits = Prelude.Nothing, scanType = Prelude.Nothing,
        subgopLength = Prelude.Nothing,
+       timecodeBurninSettings = Prelude.Nothing,
        timecodeInsertion = Prelude.Nothing}
 instance ToResourceProperties Mpeg2SettingsProperty where
   toResourceProperties Mpeg2SettingsProperty {..}
@@ -60,6 +63,8 @@ instance ToResourceProperties Mpeg2SettingsProperty where
                             (JSON..=) "GopSizeUnits" Prelude.<$> gopSizeUnits,
                             (JSON..=) "ScanType" Prelude.<$> scanType,
                             (JSON..=) "SubgopLength" Prelude.<$> subgopLength,
+                            (JSON..=) "TimecodeBurninSettings"
+                              Prelude.<$> timecodeBurninSettings,
                             (JSON..=) "TimecodeInsertion" Prelude.<$> timecodeInsertion])}
 instance JSON.ToJSON Mpeg2SettingsProperty where
   toJSON Mpeg2SettingsProperty {..}
@@ -81,6 +86,8 @@ instance JSON.ToJSON Mpeg2SettingsProperty where
                (JSON..=) "GopSizeUnits" Prelude.<$> gopSizeUnits,
                (JSON..=) "ScanType" Prelude.<$> scanType,
                (JSON..=) "SubgopLength" Prelude.<$> subgopLength,
+               (JSON..=) "TimecodeBurninSettings"
+                 Prelude.<$> timecodeBurninSettings,
                (JSON..=) "TimecodeInsertion" Prelude.<$> timecodeInsertion]))
 instance Property "AdaptiveQuantization" Mpeg2SettingsProperty where
   type PropertyType "AdaptiveQuantization" Mpeg2SettingsProperty = Value Prelude.Text
@@ -148,6 +155,11 @@ instance Property "SubgopLength" Mpeg2SettingsProperty where
   type PropertyType "SubgopLength" Mpeg2SettingsProperty = Value Prelude.Text
   set newValue Mpeg2SettingsProperty {..}
     = Mpeg2SettingsProperty {subgopLength = Prelude.pure newValue, ..}
+instance Property "TimecodeBurninSettings" Mpeg2SettingsProperty where
+  type PropertyType "TimecodeBurninSettings" Mpeg2SettingsProperty = TimecodeBurninSettingsProperty
+  set newValue Mpeg2SettingsProperty {..}
+    = Mpeg2SettingsProperty
+        {timecodeBurninSettings = Prelude.pure newValue, ..}
 instance Property "TimecodeInsertion" Mpeg2SettingsProperty where
   type PropertyType "TimecodeInsertion" Mpeg2SettingsProperty = Value Prelude.Text
   set newValue Mpeg2SettingsProperty {..}

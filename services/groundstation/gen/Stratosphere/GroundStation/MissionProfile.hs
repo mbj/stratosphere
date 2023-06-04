@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.GroundStation.MissionProfile.DataflowEdgeProperty as Exports
+import {-# SOURCE #-} Stratosphere.GroundStation.MissionProfile.StreamsKmsKeyProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -14,6 +15,8 @@ data MissionProfile
                     dataflowEdges :: [DataflowEdgeProperty],
                     minimumViableContactDurationSeconds :: (Value Prelude.Integer),
                     name :: (Value Prelude.Text),
+                    streamsKmsKey :: (Prelude.Maybe StreamsKmsKeyProperty),
+                    streamsKmsRole :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag]),
                     trackingConfigArn :: (Value Prelude.Text)}
 mkMissionProfile ::
@@ -31,6 +34,7 @@ mkMissionProfile
        name = name, trackingConfigArn = trackingConfigArn,
        contactPostPassDurationSeconds = Prelude.Nothing,
        contactPrePassDurationSeconds = Prelude.Nothing,
+       streamsKmsKey = Prelude.Nothing, streamsKmsRole = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties MissionProfile where
   toResourceProperties MissionProfile {..}
@@ -48,6 +52,8 @@ instance ToResourceProperties MissionProfile where
                                  Prelude.<$> contactPostPassDurationSeconds,
                                (JSON..=) "ContactPrePassDurationSeconds"
                                  Prelude.<$> contactPrePassDurationSeconds,
+                               (JSON..=) "StreamsKmsKey" Prelude.<$> streamsKmsKey,
+                               (JSON..=) "StreamsKmsRole" Prelude.<$> streamsKmsRole,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON MissionProfile where
   toJSON MissionProfile {..}
@@ -63,6 +69,8 @@ instance JSON.ToJSON MissionProfile where
                     Prelude.<$> contactPostPassDurationSeconds,
                   (JSON..=) "ContactPrePassDurationSeconds"
                     Prelude.<$> contactPrePassDurationSeconds,
+                  (JSON..=) "StreamsKmsKey" Prelude.<$> streamsKmsKey,
+                  (JSON..=) "StreamsKmsRole" Prelude.<$> streamsKmsRole,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ContactPostPassDurationSeconds" MissionProfile where
   type PropertyType "ContactPostPassDurationSeconds" MissionProfile = Value Prelude.Integer
@@ -87,6 +95,14 @@ instance Property "Name" MissionProfile where
   type PropertyType "Name" MissionProfile = Value Prelude.Text
   set newValue MissionProfile {..}
     = MissionProfile {name = newValue, ..}
+instance Property "StreamsKmsKey" MissionProfile where
+  type PropertyType "StreamsKmsKey" MissionProfile = StreamsKmsKeyProperty
+  set newValue MissionProfile {..}
+    = MissionProfile {streamsKmsKey = Prelude.pure newValue, ..}
+instance Property "StreamsKmsRole" MissionProfile where
+  type PropertyType "StreamsKmsRole" MissionProfile = Value Prelude.Text
+  set newValue MissionProfile {..}
+    = MissionProfile {streamsKmsRole = Prelude.pure newValue, ..}
 instance Property "Tags" MissionProfile where
   type PropertyType "Tags" MissionProfile = [Tag]
   set newValue MissionProfile {..}

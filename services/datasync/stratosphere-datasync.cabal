@@ -51,6 +51,9 @@ library
       Stratosphere.DataSync.LocationS3.S3ConfigProperty
       Stratosphere.DataSync.LocationSMB
       Stratosphere.DataSync.LocationSMB.MountOptionsProperty
+      Stratosphere.DataSync.StorageSystem
+      Stratosphere.DataSync.StorageSystem.ServerConfigurationProperty
+      Stratosphere.DataSync.StorageSystem.ServerCredentialsProperty
       Stratosphere.DataSync.Task
       Stratosphere.DataSync.Task.FilterRuleProperty
       Stratosphere.DataSync.Task.OptionsProperty

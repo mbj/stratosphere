@@ -9,12 +9,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AsyncInferenceNotificationConfigProperty
   = AsyncInferenceNotificationConfigProperty {errorTopic :: (Prelude.Maybe (Value Prelude.Text)),
+                                              includeInferenceResponseIn :: (Prelude.Maybe (ValueList Prelude.Text)),
                                               successTopic :: (Prelude.Maybe (Value Prelude.Text))}
 mkAsyncInferenceNotificationConfigProperty ::
   AsyncInferenceNotificationConfigProperty
 mkAsyncInferenceNotificationConfigProperty
   = AsyncInferenceNotificationConfigProperty
-      {errorTopic = Prelude.Nothing, successTopic = Prelude.Nothing}
+      {errorTopic = Prelude.Nothing,
+       includeInferenceResponseIn = Prelude.Nothing,
+       successTopic = Prelude.Nothing}
 instance ToResourceProperties AsyncInferenceNotificationConfigProperty where
   toResourceProperties AsyncInferenceNotificationConfigProperty {..}
     = ResourceProperties
@@ -23,6 +26,8 @@ instance ToResourceProperties AsyncInferenceNotificationConfigProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ErrorTopic" Prelude.<$> errorTopic,
+                            (JSON..=) "IncludeInferenceResponseIn"
+                              Prelude.<$> includeInferenceResponseIn,
                             (JSON..=) "SuccessTopic" Prelude.<$> successTopic])}
 instance JSON.ToJSON AsyncInferenceNotificationConfigProperty where
   toJSON AsyncInferenceNotificationConfigProperty {..}
@@ -30,12 +35,19 @@ instance JSON.ToJSON AsyncInferenceNotificationConfigProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "ErrorTopic" Prelude.<$> errorTopic,
+               (JSON..=) "IncludeInferenceResponseIn"
+                 Prelude.<$> includeInferenceResponseIn,
                (JSON..=) "SuccessTopic" Prelude.<$> successTopic]))
 instance Property "ErrorTopic" AsyncInferenceNotificationConfigProperty where
   type PropertyType "ErrorTopic" AsyncInferenceNotificationConfigProperty = Value Prelude.Text
   set newValue AsyncInferenceNotificationConfigProperty {..}
     = AsyncInferenceNotificationConfigProperty
         {errorTopic = Prelude.pure newValue, ..}
+instance Property "IncludeInferenceResponseIn" AsyncInferenceNotificationConfigProperty where
+  type PropertyType "IncludeInferenceResponseIn" AsyncInferenceNotificationConfigProperty = ValueList Prelude.Text
+  set newValue AsyncInferenceNotificationConfigProperty {..}
+    = AsyncInferenceNotificationConfigProperty
+        {includeInferenceResponseIn = Prelude.pure newValue, ..}
 instance Property "SuccessTopic" AsyncInferenceNotificationConfigProperty where
   type PropertyType "SuccessTopic" AsyncInferenceNotificationConfigProperty = Value Prelude.Text
   set newValue AsyncInferenceNotificationConfigProperty {..}

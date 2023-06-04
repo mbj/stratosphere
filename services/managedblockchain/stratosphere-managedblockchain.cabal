@@ -25,6 +25,7 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.ManagedBlockchain.Accessor
       Stratosphere.ManagedBlockchain.Member
       Stratosphere.ManagedBlockchain.Member.ApprovalThresholdPolicyProperty
       Stratosphere.ManagedBlockchain.Member.MemberConfigurationProperty

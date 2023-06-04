@@ -1,0 +1,7 @@
+module Stratosphere.Connect.EvaluationForm.NumericQuestionPropertyValueAutomationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NumericQuestionPropertyValueAutomationProperty :: Prelude.Type
+instance ToResourceProperties NumericQuestionPropertyValueAutomationProperty
+instance JSON.ToJSON NumericQuestionPropertyValueAutomationProperty

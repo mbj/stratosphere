@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.TimeRangeFilterValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TimeRangeFilterValueProperty :: Prelude.Type
+instance ToResourceProperties TimeRangeFilterValueProperty
+instance JSON.ToJSON TimeRangeFilterValueProperty

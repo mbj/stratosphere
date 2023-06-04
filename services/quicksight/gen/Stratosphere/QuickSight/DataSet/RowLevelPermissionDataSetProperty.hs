@@ -11,14 +11,16 @@ data RowLevelPermissionDataSetProperty
   = RowLevelPermissionDataSetProperty {arn :: (Value Prelude.Text),
                                        formatVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                        namespace :: (Prelude.Maybe (Value Prelude.Text)),
-                                       permissionPolicy :: (Value Prelude.Text)}
+                                       permissionPolicy :: (Value Prelude.Text),
+                                       status :: (Prelude.Maybe (Value Prelude.Text))}
 mkRowLevelPermissionDataSetProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> RowLevelPermissionDataSetProperty
 mkRowLevelPermissionDataSetProperty arn permissionPolicy
   = RowLevelPermissionDataSetProperty
       {arn = arn, permissionPolicy = permissionPolicy,
-       formatVersion = Prelude.Nothing, namespace = Prelude.Nothing}
+       formatVersion = Prelude.Nothing, namespace = Prelude.Nothing,
+       status = Prelude.Nothing}
 instance ToResourceProperties RowLevelPermissionDataSetProperty where
   toResourceProperties RowLevelPermissionDataSetProperty {..}
     = ResourceProperties
@@ -29,7 +31,8 @@ instance ToResourceProperties RowLevelPermissionDataSetProperty where
                            ["Arn" JSON..= arn, "PermissionPolicy" JSON..= permissionPolicy]
                            (Prelude.catMaybes
                               [(JSON..=) "FormatVersion" Prelude.<$> formatVersion,
-                               (JSON..=) "Namespace" Prelude.<$> namespace]))}
+                               (JSON..=) "Namespace" Prelude.<$> namespace,
+                               (JSON..=) "Status" Prelude.<$> status]))}
 instance JSON.ToJSON RowLevelPermissionDataSetProperty where
   toJSON RowLevelPermissionDataSetProperty {..}
     = JSON.object
@@ -38,7 +41,8 @@ instance JSON.ToJSON RowLevelPermissionDataSetProperty where
               ["Arn" JSON..= arn, "PermissionPolicy" JSON..= permissionPolicy]
               (Prelude.catMaybes
                  [(JSON..=) "FormatVersion" Prelude.<$> formatVersion,
-                  (JSON..=) "Namespace" Prelude.<$> namespace])))
+                  (JSON..=) "Namespace" Prelude.<$> namespace,
+                  (JSON..=) "Status" Prelude.<$> status])))
 instance Property "Arn" RowLevelPermissionDataSetProperty where
   type PropertyType "Arn" RowLevelPermissionDataSetProperty = Value Prelude.Text
   set newValue RowLevelPermissionDataSetProperty {..}
@@ -58,3 +62,8 @@ instance Property "PermissionPolicy" RowLevelPermissionDataSetProperty where
   set newValue RowLevelPermissionDataSetProperty {..}
     = RowLevelPermissionDataSetProperty
         {permissionPolicy = newValue, ..}
+instance Property "Status" RowLevelPermissionDataSetProperty where
+  type PropertyType "Status" RowLevelPermissionDataSetProperty = Value Prelude.Text
+  set newValue RowLevelPermissionDataSetProperty {..}
+    = RowLevelPermissionDataSetProperty
+        {status = Prelude.pure newValue, ..}

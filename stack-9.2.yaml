@@ -49,6 +49,8 @@ flags:
     development: true
   stratosphere-backup:
     development: true
+  stratosphere-backupgateway:
+    development: true
   stratosphere-batch:
     development: true
   stratosphere-billingconductor:
@@ -94,6 +96,8 @@ flags:
   stratosphere-codestarnotifications:
     development: true
   stratosphere-cognito:
+    development: true
+  stratosphere-comprehend:
     development: true
   stratosphere-config:
     development: true
@@ -203,6 +207,8 @@ flags:
     development: true
   stratosphere-inspectorv2:
     development: true
+  stratosphere-internetmonitor:
+    development: true
   stratosphere-iot:
     development: true
   stratosphere-iot1click:
@@ -226,6 +232,8 @@ flags:
   stratosphere-iotwireless:
     development: true
   stratosphere-ivs:
+    development: true
+  stratosphere-ivschat:
     development: true
   stratosphere-kafkaconnect:
     development: true
@@ -299,6 +307,8 @@ flags:
     development: true
   stratosphere-oam:
     development: true
+  stratosphere-omics:
+    development: true
   stratosphere-opensearchserverless:
     development: true
   stratosphere-opensearchservice:
@@ -309,6 +319,8 @@ flags:
     development: true
   stratosphere-organizations:
     development: true
+  stratosphere-osis:
+    development: true
   stratosphere-panorama:
     development: true
   stratosphere-personalize:
@@ -318,6 +330,8 @@ flags:
   stratosphere-pinpointemail:
     development: true
   stratosphere-pipes:
+    development: true
+  stratosphere-proton:
     development: true
   stratosphere-qldb:
     development: true
@@ -379,7 +393,11 @@ flags:
     development: true
   stratosphere-ses:
     development: true
+  stratosphere-shield:
+    development: true
   stratosphere-signer:
+    development: true
+  stratosphere-simspaceweaver:
     development: true
   stratosphere-sns:
     development: true
@@ -399,11 +417,15 @@ flags:
     development: true
   stratosphere-synthetics:
     development: true
+  stratosphere-systemsmanagersap:
+    development: true
   stratosphere-timestream:
     development: true
   stratosphere-transfer:
     development: true
   stratosphere-voiceid:
+    development: true
+  stratosphere-vpclattice:
     development: true
   stratosphere-waf:
     development: true
@@ -444,6 +466,7 @@ packages:
 - services/autoscaling
 - services/autoscalingplans
 - services/backup
+- services/backupgateway
 - services/batch
 - services/billingconductor
 - services/budgets
@@ -467,6 +490,7 @@ packages:
 - services/codestarconnections
 - services/codestarnotifications
 - services/cognito
+- services/comprehend
 - services/config
 - services/connect
 - services/connectcampaigns
@@ -521,6 +545,7 @@ packages:
 - services/imagebuilder
 - services/inspector
 - services/inspectorv2
+- services/internetmonitor
 - services/iot
 - services/iot1click
 - services/iotanalytics
@@ -533,6 +558,7 @@ packages:
 - services/iottwinmaker
 - services/iotwireless
 - services/ivs
+- services/ivschat
 - services/kafkaconnect
 - services/kendra
 - services/kendraranking
@@ -569,16 +595,19 @@ packages:
 - services/networkmanager
 - services/nimblestudio
 - services/oam
+- services/omics
 - services/opensearchserverless
 - services/opensearchservice
 - services/opsworks
 - services/opsworkscm
 - services/organizations
+- services/osis
 - services/panorama
 - services/personalize
 - services/pinpoint
 - services/pinpointemail
 - services/pipes
+- services/proton
 - services/qldb
 - services/quicksight
 - services/ram
@@ -609,7 +638,9 @@ packages:
 - services/servicecatalogappregistry
 - services/servicediscovery
 - services/ses
+- services/shield
 - services/signer
+- services/simspaceweaver
 - services/sns
 - services/sqs
 - services/ssm
@@ -619,9 +650,11 @@ packages:
 - services/stepfunctions
 - services/supportapp
 - services/synthetics
+- services/systemsmanagersap
 - services/timestream
 - services/transfer
 - services/voiceid
+- services/vpclattice
 - services/waf
 - services/wafregional
 - services/wafv2

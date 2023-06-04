@@ -1,0 +1,7 @@
+module Stratosphere.EC2.VerifiedAccessTrustProvider.DeviceOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeviceOptionsProperty :: Prelude.Type
+instance ToResourceProperties DeviceOptionsProperty
+instance JSON.ToJSON DeviceOptionsProperty

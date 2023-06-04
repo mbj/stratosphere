@@ -1,0 +1,7 @@
+module Stratosphere.Comprehend.Flywheel.DataSecurityConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataSecurityConfigProperty :: Prelude.Type
+instance ToResourceProperties DataSecurityConfigProperty
+instance JSON.ToJSON DataSecurityConfigProperty

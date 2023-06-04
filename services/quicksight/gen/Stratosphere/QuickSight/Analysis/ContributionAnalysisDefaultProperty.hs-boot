@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.ContributionAnalysisDefaultProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContributionAnalysisDefaultProperty :: Prelude.Type
+instance ToResourceProperties ContributionAnalysisDefaultProperty
+instance JSON.ToJSON ContributionAnalysisDefaultProperty

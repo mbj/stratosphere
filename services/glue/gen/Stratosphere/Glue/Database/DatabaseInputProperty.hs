@@ -5,12 +5,14 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Glue.Database.DatabaseIdentifierProperty as Exports
+import {-# SOURCE #-} Stratosphere.Glue.Database.FederatedDatabaseProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Database.PrincipalPrivilegesProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatabaseInputProperty
   = DatabaseInputProperty {createTableDefaultPermissions :: (Prelude.Maybe [PrincipalPrivilegesProperty]),
                            description :: (Prelude.Maybe (Value Prelude.Text)),
+                           federatedDatabase :: (Prelude.Maybe FederatedDatabaseProperty),
                            locationUri :: (Prelude.Maybe (Value Prelude.Text)),
                            name :: (Prelude.Maybe (Value Prelude.Text)),
                            parameters :: (Prelude.Maybe JSON.Object),
@@ -19,9 +21,9 @@ mkDatabaseInputProperty :: DatabaseInputProperty
 mkDatabaseInputProperty
   = DatabaseInputProperty
       {createTableDefaultPermissions = Prelude.Nothing,
-       description = Prelude.Nothing, locationUri = Prelude.Nothing,
-       name = Prelude.Nothing, parameters = Prelude.Nothing,
-       targetDatabase = Prelude.Nothing}
+       description = Prelude.Nothing, federatedDatabase = Prelude.Nothing,
+       locationUri = Prelude.Nothing, name = Prelude.Nothing,
+       parameters = Prelude.Nothing, targetDatabase = Prelude.Nothing}
 instance ToResourceProperties DatabaseInputProperty where
   toResourceProperties DatabaseInputProperty {..}
     = ResourceProperties
@@ -32,6 +34,7 @@ instance ToResourceProperties DatabaseInputProperty where
                            [(JSON..=) "CreateTableDefaultPermissions"
                               Prelude.<$> createTableDefaultPermissions,
                             (JSON..=) "Description" Prelude.<$> description,
+                            (JSON..=) "FederatedDatabase" Prelude.<$> federatedDatabase,
                             (JSON..=) "LocationUri" Prelude.<$> locationUri,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "Parameters" Prelude.<$> parameters,
@@ -44,6 +47,7 @@ instance JSON.ToJSON DatabaseInputProperty where
               [(JSON..=) "CreateTableDefaultPermissions"
                  Prelude.<$> createTableDefaultPermissions,
                (JSON..=) "Description" Prelude.<$> description,
+               (JSON..=) "FederatedDatabase" Prelude.<$> federatedDatabase,
                (JSON..=) "LocationUri" Prelude.<$> locationUri,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "Parameters" Prelude.<$> parameters,
@@ -57,6 +61,11 @@ instance Property "Description" DatabaseInputProperty where
   type PropertyType "Description" DatabaseInputProperty = Value Prelude.Text
   set newValue DatabaseInputProperty {..}
     = DatabaseInputProperty {description = Prelude.pure newValue, ..}
+instance Property "FederatedDatabase" DatabaseInputProperty where
+  type PropertyType "FederatedDatabase" DatabaseInputProperty = FederatedDatabaseProperty
+  set newValue DatabaseInputProperty {..}
+    = DatabaseInputProperty
+        {federatedDatabase = Prelude.pure newValue, ..}
 instance Property "LocationUri" DatabaseInputProperty where
   type PropertyType "LocationUri" DatabaseInputProperty = Value Prelude.Text
   set newValue DatabaseInputProperty {..}

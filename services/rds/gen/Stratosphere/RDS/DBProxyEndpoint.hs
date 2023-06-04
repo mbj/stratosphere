@@ -11,6 +11,7 @@ data DBProxyEndpoint
   = DBProxyEndpoint {dBProxyEndpointName :: (Value Prelude.Text),
                      dBProxyName :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [TagFormatProperty]),
+                     targetRole :: (Prelude.Maybe (Value Prelude.Text)),
                      vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                      vpcSubnetIds :: (ValueList Prelude.Text)}
 mkDBProxyEndpoint ::
@@ -20,7 +21,8 @@ mkDBProxyEndpoint dBProxyEndpointName dBProxyName vpcSubnetIds
   = DBProxyEndpoint
       {dBProxyEndpointName = dBProxyEndpointName,
        dBProxyName = dBProxyName, vpcSubnetIds = vpcSubnetIds,
-       tags = Prelude.Nothing, vpcSecurityGroupIds = Prelude.Nothing}
+       tags = Prelude.Nothing, targetRole = Prelude.Nothing,
+       vpcSecurityGroupIds = Prelude.Nothing}
 instance ToResourceProperties DBProxyEndpoint where
   toResourceProperties DBProxyEndpoint {..}
     = ResourceProperties
@@ -33,6 +35,7 @@ instance ToResourceProperties DBProxyEndpoint where
                             "VpcSubnetIds" JSON..= vpcSubnetIds]
                            (Prelude.catMaybes
                               [(JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "TargetRole" Prelude.<$> targetRole,
                                (JSON..=) "VpcSecurityGroupIds" Prelude.<$> vpcSecurityGroupIds]))}
 instance JSON.ToJSON DBProxyEndpoint where
   toJSON DBProxyEndpoint {..}
@@ -44,6 +47,7 @@ instance JSON.ToJSON DBProxyEndpoint where
                "VpcSubnetIds" JSON..= vpcSubnetIds]
               (Prelude.catMaybes
                  [(JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "TargetRole" Prelude.<$> targetRole,
                   (JSON..=) "VpcSecurityGroupIds" Prelude.<$> vpcSecurityGroupIds])))
 instance Property "DBProxyEndpointName" DBProxyEndpoint where
   type PropertyType "DBProxyEndpointName" DBProxyEndpoint = Value Prelude.Text
@@ -57,6 +61,10 @@ instance Property "Tags" DBProxyEndpoint where
   type PropertyType "Tags" DBProxyEndpoint = [TagFormatProperty]
   set newValue DBProxyEndpoint {..}
     = DBProxyEndpoint {tags = Prelude.pure newValue, ..}
+instance Property "TargetRole" DBProxyEndpoint where
+  type PropertyType "TargetRole" DBProxyEndpoint = Value Prelude.Text
+  set newValue DBProxyEndpoint {..}
+    = DBProxyEndpoint {targetRole = Prelude.pure newValue, ..}
 instance Property "VpcSecurityGroupIds" DBProxyEndpoint where
   type PropertyType "VpcSecurityGroupIds" DBProxyEndpoint = ValueList Prelude.Text
   set newValue DBProxyEndpoint {..}

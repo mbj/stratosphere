@@ -4,13 +4,15 @@ module Stratosphere.CloudTrail.Trail (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.CloudTrail.Trail.AdvancedEventSelectorProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudTrail.Trail.EventSelectorProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudTrail.Trail.InsightSelectorProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Trail
-  = Trail {cloudWatchLogsLogGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = Trail {advancedEventSelectors :: (Prelude.Maybe [AdvancedEventSelectorProperty]),
+           cloudWatchLogsLogGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
            cloudWatchLogsRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
            enableLogFileValidation :: (Prelude.Maybe (Value Prelude.Bool)),
            eventSelectors :: (Prelude.Maybe [EventSelectorProperty]),
@@ -29,6 +31,7 @@ mkTrail :: Value Prelude.Bool -> Value Prelude.Text -> Trail
 mkTrail isLogging s3BucketName
   = Trail
       {isLogging = isLogging, s3BucketName = s3BucketName,
+       advancedEventSelectors = Prelude.Nothing,
        cloudWatchLogsLogGroupArn = Prelude.Nothing,
        cloudWatchLogsRoleArn = Prelude.Nothing,
        enableLogFileValidation = Prelude.Nothing,
@@ -48,7 +51,9 @@ instance ToResourceProperties Trail where
                            ["IsLogging" JSON..= isLogging,
                             "S3BucketName" JSON..= s3BucketName]
                            (Prelude.catMaybes
-                              [(JSON..=) "CloudWatchLogsLogGroupArn"
+                              [(JSON..=) "AdvancedEventSelectors"
+                                 Prelude.<$> advancedEventSelectors,
+                               (JSON..=) "CloudWatchLogsLogGroupArn"
                                  Prelude.<$> cloudWatchLogsLogGroupArn,
                                (JSON..=) "CloudWatchLogsRoleArn"
                                  Prelude.<$> cloudWatchLogsRoleArn,
@@ -73,7 +78,9 @@ instance JSON.ToJSON Trail where
               ["IsLogging" JSON..= isLogging,
                "S3BucketName" JSON..= s3BucketName]
               (Prelude.catMaybes
-                 [(JSON..=) "CloudWatchLogsLogGroupArn"
+                 [(JSON..=) "AdvancedEventSelectors"
+                    Prelude.<$> advancedEventSelectors,
+                  (JSON..=) "CloudWatchLogsLogGroupArn"
                     Prelude.<$> cloudWatchLogsLogGroupArn,
                   (JSON..=) "CloudWatchLogsRoleArn"
                     Prelude.<$> cloudWatchLogsRoleArn,
@@ -90,6 +97,10 @@ instance JSON.ToJSON Trail where
                   (JSON..=) "SnsTopicName" Prelude.<$> snsTopicName,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TrailName" Prelude.<$> trailName])))
+instance Property "AdvancedEventSelectors" Trail where
+  type PropertyType "AdvancedEventSelectors" Trail = [AdvancedEventSelectorProperty]
+  set newValue Trail {..}
+    = Trail {advancedEventSelectors = Prelude.pure newValue, ..}
 instance Property "CloudWatchLogsLogGroupArn" Trail where
   type PropertyType "CloudWatchLogsLogGroupArn" Trail = Value Prelude.Text
   set newValue Trail {..}

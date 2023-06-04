@@ -5,52 +5,53 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.XRay.Group.InsightsConfigurationProperty as Exports
-import {-# SOURCE #-} Stratosphere.XRay.Group.TagsItemsProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data Group
   = Group {filterExpression :: (Prelude.Maybe (Value Prelude.Text)),
-           groupName :: (Prelude.Maybe (Value Prelude.Text)),
+           groupName :: (Value Prelude.Text),
            insightsConfiguration :: (Prelude.Maybe InsightsConfigurationProperty),
-           tags :: (Prelude.Maybe [TagsItemsProperty])}
-mkGroup :: Group
-mkGroup
+           tags :: (Prelude.Maybe [Tag])}
+mkGroup :: Value Prelude.Text -> Group
+mkGroup groupName
   = Group
-      {filterExpression = Prelude.Nothing, groupName = Prelude.Nothing,
+      {groupName = groupName, filterExpression = Prelude.Nothing,
        insightsConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Group where
   toResourceProperties Group {..}
     = ResourceProperties
         {awsType = "AWS::XRay::Group", supportsTags = Prelude.True,
          properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "FilterExpression" Prelude.<$> filterExpression,
-                            (JSON..=) "GroupName" Prelude.<$> groupName,
-                            (JSON..=) "InsightsConfiguration"
-                              Prelude.<$> insightsConfiguration,
-                            (JSON..=) "Tags" Prelude.<$> tags])}
+                        ((Prelude.<>)
+                           ["GroupName" JSON..= groupName]
+                           (Prelude.catMaybes
+                              [(JSON..=) "FilterExpression" Prelude.<$> filterExpression,
+                               (JSON..=) "InsightsConfiguration"
+                                 Prelude.<$> insightsConfiguration,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Group where
   toJSON Group {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "FilterExpression" Prelude.<$> filterExpression,
-               (JSON..=) "GroupName" Prelude.<$> groupName,
-               (JSON..=) "InsightsConfiguration"
-                 Prelude.<$> insightsConfiguration,
-               (JSON..=) "Tags" Prelude.<$> tags]))
+           ((Prelude.<>)
+              ["GroupName" JSON..= groupName]
+              (Prelude.catMaybes
+                 [(JSON..=) "FilterExpression" Prelude.<$> filterExpression,
+                  (JSON..=) "InsightsConfiguration"
+                    Prelude.<$> insightsConfiguration,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "FilterExpression" Group where
   type PropertyType "FilterExpression" Group = Value Prelude.Text
   set newValue Group {..}
     = Group {filterExpression = Prelude.pure newValue, ..}
 instance Property "GroupName" Group where
   type PropertyType "GroupName" Group = Value Prelude.Text
-  set newValue Group {..}
-    = Group {groupName = Prelude.pure newValue, ..}
+  set newValue Group {..} = Group {groupName = newValue, ..}
 instance Property "InsightsConfiguration" Group where
   type PropertyType "InsightsConfiguration" Group = InsightsConfigurationProperty
   set newValue Group {..}
     = Group {insightsConfiguration = Prelude.pure newValue, ..}
 instance Property "Tags" Group where
-  type PropertyType "Tags" Group = [TagsItemsProperty]
+  type PropertyType "Tags" Group = [Tag]
   set newValue Group {..} = Group {tags = Prelude.pure newValue, ..}

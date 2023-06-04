@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UriPathRouteInputProperty
   = UriPathRouteInputProperty {activationState :: (Value Prelude.Text),
+                               appendSourcePath :: (Prelude.Maybe (Value Prelude.Bool)),
                                includeChildPaths :: (Prelude.Maybe (Value Prelude.Bool)),
                                methods :: (Prelude.Maybe (ValueList Prelude.Text)),
                                sourcePath :: (Prelude.Maybe (Value Prelude.Text))}
@@ -16,6 +17,7 @@ mkUriPathRouteInputProperty ::
 mkUriPathRouteInputProperty activationState
   = UriPathRouteInputProperty
       {activationState = activationState,
+       appendSourcePath = Prelude.Nothing,
        includeChildPaths = Prelude.Nothing, methods = Prelude.Nothing,
        sourcePath = Prelude.Nothing}
 instance ToResourceProperties UriPathRouteInputProperty where
@@ -27,7 +29,8 @@ instance ToResourceProperties UriPathRouteInputProperty where
                         ((Prelude.<>)
                            ["ActivationState" JSON..= activationState]
                            (Prelude.catMaybes
-                              [(JSON..=) "IncludeChildPaths" Prelude.<$> includeChildPaths,
+                              [(JSON..=) "AppendSourcePath" Prelude.<$> appendSourcePath,
+                               (JSON..=) "IncludeChildPaths" Prelude.<$> includeChildPaths,
                                (JSON..=) "Methods" Prelude.<$> methods,
                                (JSON..=) "SourcePath" Prelude.<$> sourcePath]))}
 instance JSON.ToJSON UriPathRouteInputProperty where
@@ -37,13 +40,19 @@ instance JSON.ToJSON UriPathRouteInputProperty where
            ((Prelude.<>)
               ["ActivationState" JSON..= activationState]
               (Prelude.catMaybes
-                 [(JSON..=) "IncludeChildPaths" Prelude.<$> includeChildPaths,
+                 [(JSON..=) "AppendSourcePath" Prelude.<$> appendSourcePath,
+                  (JSON..=) "IncludeChildPaths" Prelude.<$> includeChildPaths,
                   (JSON..=) "Methods" Prelude.<$> methods,
                   (JSON..=) "SourcePath" Prelude.<$> sourcePath])))
 instance Property "ActivationState" UriPathRouteInputProperty where
   type PropertyType "ActivationState" UriPathRouteInputProperty = Value Prelude.Text
   set newValue UriPathRouteInputProperty {..}
     = UriPathRouteInputProperty {activationState = newValue, ..}
+instance Property "AppendSourcePath" UriPathRouteInputProperty where
+  type PropertyType "AppendSourcePath" UriPathRouteInputProperty = Value Prelude.Bool
+  set newValue UriPathRouteInputProperty {..}
+    = UriPathRouteInputProperty
+        {appendSourcePath = Prelude.pure newValue, ..}
 instance Property "IncludeChildPaths" UriPathRouteInputProperty where
   type PropertyType "IncludeChildPaths" UriPathRouteInputProperty = Value Prelude.Bool
   set newValue UriPathRouteInputProperty {..}

@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AacSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Ac3SettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Eac3AtmosSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Eac3SettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Mp2SettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.PassThroughSettingsProperty as Exports
@@ -15,6 +16,7 @@ import Stratosphere.ResourceProperties
 data AudioCodecSettingsProperty
   = AudioCodecSettingsProperty {aacSettings :: (Prelude.Maybe AacSettingsProperty),
                                 ac3Settings :: (Prelude.Maybe Ac3SettingsProperty),
+                                eac3AtmosSettings :: (Prelude.Maybe Eac3AtmosSettingsProperty),
                                 eac3Settings :: (Prelude.Maybe Eac3SettingsProperty),
                                 mp2Settings :: (Prelude.Maybe Mp2SettingsProperty),
                                 passThroughSettings :: (Prelude.Maybe PassThroughSettingsProperty),
@@ -23,6 +25,7 @@ mkAudioCodecSettingsProperty :: AudioCodecSettingsProperty
 mkAudioCodecSettingsProperty
   = AudioCodecSettingsProperty
       {aacSettings = Prelude.Nothing, ac3Settings = Prelude.Nothing,
+       eac3AtmosSettings = Prelude.Nothing,
        eac3Settings = Prelude.Nothing, mp2Settings = Prelude.Nothing,
        passThroughSettings = Prelude.Nothing,
        wavSettings = Prelude.Nothing}
@@ -35,6 +38,7 @@ instance ToResourceProperties AudioCodecSettingsProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "AacSettings" Prelude.<$> aacSettings,
                             (JSON..=) "Ac3Settings" Prelude.<$> ac3Settings,
+                            (JSON..=) "Eac3AtmosSettings" Prelude.<$> eac3AtmosSettings,
                             (JSON..=) "Eac3Settings" Prelude.<$> eac3Settings,
                             (JSON..=) "Mp2Settings" Prelude.<$> mp2Settings,
                             (JSON..=) "PassThroughSettings" Prelude.<$> passThroughSettings,
@@ -46,6 +50,7 @@ instance JSON.ToJSON AudioCodecSettingsProperty where
            (Prelude.catMaybes
               [(JSON..=) "AacSettings" Prelude.<$> aacSettings,
                (JSON..=) "Ac3Settings" Prelude.<$> ac3Settings,
+               (JSON..=) "Eac3AtmosSettings" Prelude.<$> eac3AtmosSettings,
                (JSON..=) "Eac3Settings" Prelude.<$> eac3Settings,
                (JSON..=) "Mp2Settings" Prelude.<$> mp2Settings,
                (JSON..=) "PassThroughSettings" Prelude.<$> passThroughSettings,
@@ -60,6 +65,11 @@ instance Property "Ac3Settings" AudioCodecSettingsProperty where
   set newValue AudioCodecSettingsProperty {..}
     = AudioCodecSettingsProperty
         {ac3Settings = Prelude.pure newValue, ..}
+instance Property "Eac3AtmosSettings" AudioCodecSettingsProperty where
+  type PropertyType "Eac3AtmosSettings" AudioCodecSettingsProperty = Eac3AtmosSettingsProperty
+  set newValue AudioCodecSettingsProperty {..}
+    = AudioCodecSettingsProperty
+        {eac3AtmosSettings = Prelude.pure newValue, ..}
 instance Property "Eac3Settings" AudioCodecSettingsProperty where
   type PropertyType "Eac3Settings" AudioCodecSettingsProperty = Eac3SettingsProperty
   set newValue AudioCodecSettingsProperty {..}

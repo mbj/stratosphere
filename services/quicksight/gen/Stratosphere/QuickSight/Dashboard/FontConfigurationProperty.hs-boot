@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.FontConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FontConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FontConfigurationProperty
+instance JSON.ToJSON FontConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Topic.NamedEntityDefinitionMetricProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NamedEntityDefinitionMetricProperty :: Prelude.Type
+instance ToResourceProperties NamedEntityDefinitionMetricProperty
+instance JSON.ToJSON NamedEntityDefinitionMetricProperty

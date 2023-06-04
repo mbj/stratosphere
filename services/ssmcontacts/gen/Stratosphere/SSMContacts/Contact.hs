@@ -10,29 +10,33 @@ import Stratosphere.Value
 data Contact
   = Contact {alias :: (Value Prelude.Text),
              displayName :: (Value Prelude.Text),
-             plan :: [StageProperty],
+             plan :: (Prelude.Maybe [StageProperty]),
              type' :: (Value Prelude.Text)}
 mkContact ::
   Value Prelude.Text
-  -> Value Prelude.Text
-     -> [StageProperty] -> Value Prelude.Text -> Contact
-mkContact alias displayName plan type'
+  -> Value Prelude.Text -> Value Prelude.Text -> Contact
+mkContact alias displayName type'
   = Contact
-      {alias = alias, displayName = displayName, plan = plan,
-       type' = type'}
+      {alias = alias, displayName = displayName, type' = type',
+       plan = Prelude.Nothing}
 instance ToResourceProperties Contact where
   toResourceProperties Contact {..}
     = ResourceProperties
         {awsType = "AWS::SSMContacts::Contact",
          supportsTags = Prelude.False,
-         properties = ["Alias" JSON..= alias,
-                       "DisplayName" JSON..= displayName, "Plan" JSON..= plan,
-                       "Type" JSON..= type']}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Alias" JSON..= alias, "DisplayName" JSON..= displayName,
+                            "Type" JSON..= type']
+                           (Prelude.catMaybes [(JSON..=) "Plan" Prelude.<$> plan]))}
 instance JSON.ToJSON Contact where
   toJSON Contact {..}
     = JSON.object
-        ["Alias" JSON..= alias, "DisplayName" JSON..= displayName,
-         "Plan" JSON..= plan, "Type" JSON..= type']
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Alias" JSON..= alias, "DisplayName" JSON..= displayName,
+               "Type" JSON..= type']
+              (Prelude.catMaybes [(JSON..=) "Plan" Prelude.<$> plan])))
 instance Property "Alias" Contact where
   type PropertyType "Alias" Contact = Value Prelude.Text
   set newValue Contact {..} = Contact {alias = newValue, ..}
@@ -41,7 +45,8 @@ instance Property "DisplayName" Contact where
   set newValue Contact {..} = Contact {displayName = newValue, ..}
 instance Property "Plan" Contact where
   type PropertyType "Plan" Contact = [StageProperty]
-  set newValue Contact {..} = Contact {plan = newValue, ..}
+  set newValue Contact {..}
+    = Contact {plan = Prelude.pure newValue, ..}
 instance Property "Type" Contact where
   type PropertyType "Type" Contact = Value Prelude.Text
   set newValue Contact {..} = Contact {type' = newValue, ..}

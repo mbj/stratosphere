@@ -5,9 +5,9 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksContainerEnvironmentVariableProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksContainerResourceRequirementsProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksContainerSecurityContextProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksContainerVolumeMountProperty as Exports
-import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.ResourcesProperty as Exports
-import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.SecurityContextProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksContainerProperty
@@ -17,8 +17,8 @@ data EksContainerProperty
                           image :: (Value Prelude.Text),
                           imagePullPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                           name :: (Prelude.Maybe (Value Prelude.Text)),
-                          resources :: (Prelude.Maybe ResourcesProperty),
-                          securityContext :: (Prelude.Maybe SecurityContextProperty),
+                          resources :: (Prelude.Maybe EksContainerResourceRequirementsProperty),
+                          securityContext :: (Prelude.Maybe EksContainerSecurityContextProperty),
                           volumeMounts :: (Prelude.Maybe [EksContainerVolumeMountProperty])}
 mkEksContainerProperty ::
   Value Prelude.Text -> EksContainerProperty
@@ -86,11 +86,11 @@ instance Property "Name" EksContainerProperty where
   set newValue EksContainerProperty {..}
     = EksContainerProperty {name = Prelude.pure newValue, ..}
 instance Property "Resources" EksContainerProperty where
-  type PropertyType "Resources" EksContainerProperty = ResourcesProperty
+  type PropertyType "Resources" EksContainerProperty = EksContainerResourceRequirementsProperty
   set newValue EksContainerProperty {..}
     = EksContainerProperty {resources = Prelude.pure newValue, ..}
 instance Property "SecurityContext" EksContainerProperty where
-  type PropertyType "SecurityContext" EksContainerProperty = SecurityContextProperty
+  type PropertyType "SecurityContext" EksContainerProperty = EksContainerSecurityContextProperty
   set newValue EksContainerProperty {..}
     = EksContainerProperty
         {securityContext = Prelude.pure newValue, ..}

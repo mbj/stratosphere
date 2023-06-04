@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Topic.SemanticEntityTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SemanticEntityTypeProperty :: Prelude.Type
+instance ToResourceProperties SemanticEntityTypeProperty
+instance JSON.ToJSON SemanticEntityTypeProperty

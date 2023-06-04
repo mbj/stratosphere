@@ -25,6 +25,7 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.DevOpsGuru.LogAnomalyDetectionIntegration
       Stratosphere.DevOpsGuru.NotificationChannel
       Stratosphere.DevOpsGuru.NotificationChannel.NotificationChannelConfigProperty
       Stratosphere.DevOpsGuru.NotificationChannel.NotificationFilterConfigProperty

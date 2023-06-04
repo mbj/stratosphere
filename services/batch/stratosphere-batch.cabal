@@ -38,26 +38,29 @@ library
       Stratosphere.Batch.JobDefinition.EfsVolumeConfigurationProperty
       Stratosphere.Batch.JobDefinition.EksContainerEnvironmentVariableProperty
       Stratosphere.Batch.JobDefinition.EksContainerProperty
+      Stratosphere.Batch.JobDefinition.EksContainerResourceRequirementsProperty
+      Stratosphere.Batch.JobDefinition.EksContainerSecurityContextProperty
       Stratosphere.Batch.JobDefinition.EksContainerVolumeMountProperty
+      Stratosphere.Batch.JobDefinition.EksEmptyDirProperty
+      Stratosphere.Batch.JobDefinition.EksHostPathProperty
       Stratosphere.Batch.JobDefinition.EksPropertiesProperty
+      Stratosphere.Batch.JobDefinition.EksSecretProperty
       Stratosphere.Batch.JobDefinition.EksVolumeProperty
-      Stratosphere.Batch.JobDefinition.EmptyDirProperty
       Stratosphere.Batch.JobDefinition.EnvironmentProperty
+      Stratosphere.Batch.JobDefinition.EphemeralStorageProperty
       Stratosphere.Batch.JobDefinition.EvaluateOnExitProperty
       Stratosphere.Batch.JobDefinition.FargatePlatformConfigurationProperty
-      Stratosphere.Batch.JobDefinition.HostPathProperty
       Stratosphere.Batch.JobDefinition.LinuxParametersProperty
       Stratosphere.Batch.JobDefinition.LogConfigurationProperty
+      Stratosphere.Batch.JobDefinition.MetadataProperty
       Stratosphere.Batch.JobDefinition.MountPointsProperty
       Stratosphere.Batch.JobDefinition.NetworkConfigurationProperty
       Stratosphere.Batch.JobDefinition.NodePropertiesProperty
       Stratosphere.Batch.JobDefinition.NodeRangePropertyProperty
       Stratosphere.Batch.JobDefinition.PodPropertiesProperty
       Stratosphere.Batch.JobDefinition.ResourceRequirementProperty
-      Stratosphere.Batch.JobDefinition.ResourcesProperty
       Stratosphere.Batch.JobDefinition.RetryStrategyProperty
       Stratosphere.Batch.JobDefinition.SecretProperty
-      Stratosphere.Batch.JobDefinition.SecurityContextProperty
       Stratosphere.Batch.JobDefinition.TimeoutProperty
       Stratosphere.Batch.JobDefinition.TmpfsProperty
       Stratosphere.Batch.JobDefinition.UlimitProperty

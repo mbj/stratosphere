@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.CloudWatchLoggingOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.DocumentIdOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchBufferingHintsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchRetryOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ProcessingConfigurationProperty as Exports
@@ -17,6 +18,7 @@ data ElasticsearchDestinationConfigurationProperty
   = ElasticsearchDestinationConfigurationProperty {bufferingHints :: (Prelude.Maybe ElasticsearchBufferingHintsProperty),
                                                    cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
                                                    clusterEndpoint :: (Prelude.Maybe (Value Prelude.Text)),
+                                                   documentIdOptions :: (Prelude.Maybe DocumentIdOptionsProperty),
                                                    domainARN :: (Prelude.Maybe (Value Prelude.Text)),
                                                    indexName :: (Value Prelude.Text),
                                                    indexRotationPeriod :: (Prelude.Maybe (Value Prelude.Text)),
@@ -41,7 +43,8 @@ mkElasticsearchDestinationConfigurationProperty
        s3Configuration = s3Configuration,
        bufferingHints = Prelude.Nothing,
        cloudWatchLoggingOptions = Prelude.Nothing,
-       clusterEndpoint = Prelude.Nothing, domainARN = Prelude.Nothing,
+       clusterEndpoint = Prelude.Nothing,
+       documentIdOptions = Prelude.Nothing, domainARN = Prelude.Nothing,
        indexRotationPeriod = Prelude.Nothing,
        processingConfiguration = Prelude.Nothing,
        retryOptions = Prelude.Nothing, s3BackupMode = Prelude.Nothing,
@@ -61,6 +64,7 @@ instance ToResourceProperties ElasticsearchDestinationConfigurationProperty wher
                                (JSON..=) "CloudWatchLoggingOptions"
                                  Prelude.<$> cloudWatchLoggingOptions,
                                (JSON..=) "ClusterEndpoint" Prelude.<$> clusterEndpoint,
+                               (JSON..=) "DocumentIdOptions" Prelude.<$> documentIdOptions,
                                (JSON..=) "DomainARN" Prelude.<$> domainARN,
                                (JSON..=) "IndexRotationPeriod" Prelude.<$> indexRotationPeriod,
                                (JSON..=) "ProcessingConfiguration"
@@ -81,6 +85,7 @@ instance JSON.ToJSON ElasticsearchDestinationConfigurationProperty where
                   (JSON..=) "CloudWatchLoggingOptions"
                     Prelude.<$> cloudWatchLoggingOptions,
                   (JSON..=) "ClusterEndpoint" Prelude.<$> clusterEndpoint,
+                  (JSON..=) "DocumentIdOptions" Prelude.<$> documentIdOptions,
                   (JSON..=) "DomainARN" Prelude.<$> domainARN,
                   (JSON..=) "IndexRotationPeriod" Prelude.<$> indexRotationPeriod,
                   (JSON..=) "ProcessingConfiguration"
@@ -104,6 +109,11 @@ instance Property "ClusterEndpoint" ElasticsearchDestinationConfigurationPropert
   set newValue ElasticsearchDestinationConfigurationProperty {..}
     = ElasticsearchDestinationConfigurationProperty
         {clusterEndpoint = Prelude.pure newValue, ..}
+instance Property "DocumentIdOptions" ElasticsearchDestinationConfigurationProperty where
+  type PropertyType "DocumentIdOptions" ElasticsearchDestinationConfigurationProperty = DocumentIdOptionsProperty
+  set newValue ElasticsearchDestinationConfigurationProperty {..}
+    = ElasticsearchDestinationConfigurationProperty
+        {documentIdOptions = Prelude.pure newValue, ..}
 instance Property "DomainARN" ElasticsearchDestinationConfigurationProperty where
   type PropertyType "DomainARN" ElasticsearchDestinationConfigurationProperty = Value Prelude.Text
   set newValue ElasticsearchDestinationConfigurationProperty {..}

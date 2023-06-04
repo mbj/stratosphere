@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.ClusterMarkerConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClusterMarkerConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ClusterMarkerConfigurationProperty
+instance JSON.ToJSON ClusterMarkerConfigurationProperty

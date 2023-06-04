@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.CdiInputSpecificationProper
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.EncoderSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputAttachmentProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputSpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MaintenanceCreateSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputDestinationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VpcOutputSettingsProperty as Exports
 import Stratosphere.ResourceProperties
@@ -20,6 +21,7 @@ data Channel
              inputAttachments :: (Prelude.Maybe [InputAttachmentProperty]),
              inputSpecification :: (Prelude.Maybe InputSpecificationProperty),
              logLevel :: (Prelude.Maybe (Value Prelude.Text)),
+             maintenance :: (Prelude.Maybe MaintenanceCreateSettingsProperty),
              name :: (Prelude.Maybe (Value Prelude.Text)),
              roleArn :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe JSON.Object),
@@ -32,8 +34,9 @@ mkChannel
        encoderSettings = Prelude.Nothing,
        inputAttachments = Prelude.Nothing,
        inputSpecification = Prelude.Nothing, logLevel = Prelude.Nothing,
-       name = Prelude.Nothing, roleArn = Prelude.Nothing,
-       tags = Prelude.Nothing, vpc = Prelude.Nothing}
+       maintenance = Prelude.Nothing, name = Prelude.Nothing,
+       roleArn = Prelude.Nothing, tags = Prelude.Nothing,
+       vpc = Prelude.Nothing}
 instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties
@@ -48,6 +51,7 @@ instance ToResourceProperties Channel where
                             (JSON..=) "InputAttachments" Prelude.<$> inputAttachments,
                             (JSON..=) "InputSpecification" Prelude.<$> inputSpecification,
                             (JSON..=) "LogLevel" Prelude.<$> logLevel,
+                            (JSON..=) "Maintenance" Prelude.<$> maintenance,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "RoleArn" Prelude.<$> roleArn,
                             (JSON..=) "Tags" Prelude.<$> tags,
@@ -65,6 +69,7 @@ instance JSON.ToJSON Channel where
                (JSON..=) "InputAttachments" Prelude.<$> inputAttachments,
                (JSON..=) "InputSpecification" Prelude.<$> inputSpecification,
                (JSON..=) "LogLevel" Prelude.<$> logLevel,
+               (JSON..=) "Maintenance" Prelude.<$> maintenance,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "RoleArn" Prelude.<$> roleArn,
                (JSON..=) "Tags" Prelude.<$> tags,
@@ -97,6 +102,10 @@ instance Property "LogLevel" Channel where
   type PropertyType "LogLevel" Channel = Value Prelude.Text
   set newValue Channel {..}
     = Channel {logLevel = Prelude.pure newValue, ..}
+instance Property "Maintenance" Channel where
+  type PropertyType "Maintenance" Channel = MaintenanceCreateSettingsProperty
+  set newValue Channel {..}
+    = Channel {maintenance = Prelude.pure newValue, ..}
 instance Property "Name" Channel where
   type PropertyType "Name" Channel = Value Prelude.Text
   set newValue Channel {..}

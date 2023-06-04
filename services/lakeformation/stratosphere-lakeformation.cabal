@@ -30,7 +30,12 @@ library
       Stratosphere.LakeFormation.DataCellsFilter.RowFilterProperty
       Stratosphere.LakeFormation.DataLakeSettings
       Stratosphere.LakeFormation.DataLakeSettings.AdminsProperty
+      Stratosphere.LakeFormation.DataLakeSettings.CreateDatabaseDefaultPermissionsProperty
+      Stratosphere.LakeFormation.DataLakeSettings.CreateTableDefaultPermissionsProperty
       Stratosphere.LakeFormation.DataLakeSettings.DataLakePrincipalProperty
+      Stratosphere.LakeFormation.DataLakeSettings.ExternalDataFilteringAllowListProperty
+      Stratosphere.LakeFormation.DataLakeSettings.PermissionsProperty
+      Stratosphere.LakeFormation.DataLakeSettings.PrincipalPermissionsProperty
       Stratosphere.LakeFormation.Permissions
       Stratosphere.LakeFormation.Permissions.ColumnWildcardProperty
       Stratosphere.LakeFormation.Permissions.DatabaseResourceProperty

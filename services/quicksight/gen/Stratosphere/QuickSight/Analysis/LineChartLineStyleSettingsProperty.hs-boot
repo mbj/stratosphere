@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.LineChartLineStyleSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LineChartLineStyleSettingsProperty :: Prelude.Type
+instance ToResourceProperties LineChartLineStyleSettingsProperty
+instance JSON.ToJSON LineChartLineStyleSettingsProperty

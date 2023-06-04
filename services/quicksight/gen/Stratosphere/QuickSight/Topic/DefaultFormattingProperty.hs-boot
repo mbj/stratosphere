@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Topic.DefaultFormattingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultFormattingProperty :: Prelude.Type
+instance ToResourceProperties DefaultFormattingProperty
+instance JSON.ToJSON DefaultFormattingProperty

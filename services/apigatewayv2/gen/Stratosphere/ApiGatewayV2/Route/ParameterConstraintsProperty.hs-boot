@@ -1,7 +1,0 @@
-module Stratosphere.ApiGatewayV2.Route.ParameterConstraintsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data ParameterConstraintsProperty :: Prelude.Type
-instance ToResourceProperties ParameterConstraintsProperty
-instance JSON.ToJSON ParameterConstraintsProperty

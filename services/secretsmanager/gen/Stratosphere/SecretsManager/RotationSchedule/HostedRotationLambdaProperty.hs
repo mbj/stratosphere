@@ -13,6 +13,7 @@ data HostedRotationLambdaProperty
                                   masterSecretKmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                                   rotationLambdaName :: (Prelude.Maybe (Value Prelude.Text)),
                                   rotationType :: (Value Prelude.Text),
+                                  runtime :: (Prelude.Maybe (Value Prelude.Text)),
                                   superuserSecretArn :: (Prelude.Maybe (Value Prelude.Text)),
                                   superuserSecretKmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                                   vpcSecurityGroupIds :: (Prelude.Maybe (Value Prelude.Text)),
@@ -24,7 +25,7 @@ mkHostedRotationLambdaProperty rotationType
       {rotationType = rotationType, excludeCharacters = Prelude.Nothing,
        kmsKeyArn = Prelude.Nothing, masterSecretArn = Prelude.Nothing,
        masterSecretKmsKeyArn = Prelude.Nothing,
-       rotationLambdaName = Prelude.Nothing,
+       rotationLambdaName = Prelude.Nothing, runtime = Prelude.Nothing,
        superuserSecretArn = Prelude.Nothing,
        superuserSecretKmsKeyArn = Prelude.Nothing,
        vpcSecurityGroupIds = Prelude.Nothing,
@@ -44,6 +45,7 @@ instance ToResourceProperties HostedRotationLambdaProperty where
                                (JSON..=) "MasterSecretKmsKeyArn"
                                  Prelude.<$> masterSecretKmsKeyArn,
                                (JSON..=) "RotationLambdaName" Prelude.<$> rotationLambdaName,
+                               (JSON..=) "Runtime" Prelude.<$> runtime,
                                (JSON..=) "SuperuserSecretArn" Prelude.<$> superuserSecretArn,
                                (JSON..=) "SuperuserSecretKmsKeyArn"
                                  Prelude.<$> superuserSecretKmsKeyArn,
@@ -62,6 +64,7 @@ instance JSON.ToJSON HostedRotationLambdaProperty where
                   (JSON..=) "MasterSecretKmsKeyArn"
                     Prelude.<$> masterSecretKmsKeyArn,
                   (JSON..=) "RotationLambdaName" Prelude.<$> rotationLambdaName,
+                  (JSON..=) "Runtime" Prelude.<$> runtime,
                   (JSON..=) "SuperuserSecretArn" Prelude.<$> superuserSecretArn,
                   (JSON..=) "SuperuserSecretKmsKeyArn"
                     Prelude.<$> superuserSecretKmsKeyArn,
@@ -96,6 +99,11 @@ instance Property "RotationType" HostedRotationLambdaProperty where
   type PropertyType "RotationType" HostedRotationLambdaProperty = Value Prelude.Text
   set newValue HostedRotationLambdaProperty {..}
     = HostedRotationLambdaProperty {rotationType = newValue, ..}
+instance Property "Runtime" HostedRotationLambdaProperty where
+  type PropertyType "Runtime" HostedRotationLambdaProperty = Value Prelude.Text
+  set newValue HostedRotationLambdaProperty {..}
+    = HostedRotationLambdaProperty
+        {runtime = Prelude.pure newValue, ..}
 instance Property "SuperuserSecretArn" HostedRotationLambdaProperty where
   type PropertyType "SuperuserSecretArn" HostedRotationLambdaProperty = Value Prelude.Text
   set newValue HostedRotationLambdaProperty {..}

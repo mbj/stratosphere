@@ -37,6 +37,9 @@ library
       Stratosphere.AppConfig.Environment
       Stratosphere.AppConfig.Environment.MonitorsProperty
       Stratosphere.AppConfig.Environment.TagsProperty
+      Stratosphere.AppConfig.Extension
+      Stratosphere.AppConfig.Extension.ParameterProperty
+      Stratosphere.AppConfig.ExtensionAssociation
       Stratosphere.AppConfig.HostedConfigurationVersion
   other-modules:
       Paths_stratosphere_appconfig

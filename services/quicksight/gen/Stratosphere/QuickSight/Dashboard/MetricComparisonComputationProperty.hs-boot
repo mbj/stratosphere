@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.MetricComparisonComputationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetricComparisonComputationProperty :: Prelude.Type
+instance ToResourceProperties MetricComparisonComputationProperty
+instance JSON.ToJSON MetricComparisonComputationProperty

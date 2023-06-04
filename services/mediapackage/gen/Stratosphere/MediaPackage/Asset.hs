@@ -1,14 +1,16 @@
 module Stratosphere.MediaPackage.Asset (
-        Asset(..), mkAsset
+        module Exports, Asset(..), mkAsset
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.MediaPackage.Asset.EgressEndpointProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Asset
-  = Asset {id :: (Value Prelude.Text),
+  = Asset {egressEndpoints :: (Prelude.Maybe [EgressEndpointProperty]),
+           id :: (Value Prelude.Text),
            packagingGroupId :: (Value Prelude.Text),
            resourceId :: (Prelude.Maybe (Value Prelude.Text)),
            sourceArn :: (Value Prelude.Text),
@@ -22,7 +24,8 @@ mkAsset id packagingGroupId sourceArn sourceRoleArn
   = Asset
       {id = id, packagingGroupId = packagingGroupId,
        sourceArn = sourceArn, sourceRoleArn = sourceRoleArn,
-       resourceId = Prelude.Nothing, tags = Prelude.Nothing}
+       egressEndpoints = Prelude.Nothing, resourceId = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Asset where
   toResourceProperties Asset {..}
     = ResourceProperties
@@ -33,7 +36,8 @@ instance ToResourceProperties Asset where
                             "SourceArn" JSON..= sourceArn,
                             "SourceRoleArn" JSON..= sourceRoleArn]
                            (Prelude.catMaybes
-                              [(JSON..=) "ResourceId" Prelude.<$> resourceId,
+                              [(JSON..=) "EgressEndpoints" Prelude.<$> egressEndpoints,
+                               (JSON..=) "ResourceId" Prelude.<$> resourceId,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Asset where
   toJSON Asset {..}
@@ -44,8 +48,13 @@ instance JSON.ToJSON Asset where
                "SourceArn" JSON..= sourceArn,
                "SourceRoleArn" JSON..= sourceRoleArn]
               (Prelude.catMaybes
-                 [(JSON..=) "ResourceId" Prelude.<$> resourceId,
+                 [(JSON..=) "EgressEndpoints" Prelude.<$> egressEndpoints,
+                  (JSON..=) "ResourceId" Prelude.<$> resourceId,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "EgressEndpoints" Asset where
+  type PropertyType "EgressEndpoints" Asset = [EgressEndpointProperty]
+  set newValue Asset {..}
+    = Asset {egressEndpoints = Prelude.pure newValue, ..}
 instance Property "Id" Asset where
   type PropertyType "Id" Asset = Value Prelude.Text
   set newValue Asset {..} = Asset {id = newValue, ..}

@@ -39,6 +39,7 @@ library
       Stratosphere.FraudDetector.EventType.EventVariableProperty
       Stratosphere.FraudDetector.EventType.LabelProperty
       Stratosphere.FraudDetector.Label
+      Stratosphere.FraudDetector.List
       Stratosphere.FraudDetector.Outcome
       Stratosphere.FraudDetector.Variable
   other-modules:

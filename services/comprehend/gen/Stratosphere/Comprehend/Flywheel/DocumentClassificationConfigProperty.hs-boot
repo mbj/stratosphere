@@ -1,0 +1,7 @@
+module Stratosphere.Comprehend.Flywheel.DocumentClassificationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DocumentClassificationConfigProperty :: Prelude.Type
+instance ToResourceProperties DocumentClassificationConfigProperty
+instance JSON.ToJSON DocumentClassificationConfigProperty

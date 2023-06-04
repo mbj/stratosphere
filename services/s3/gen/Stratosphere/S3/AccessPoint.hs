@@ -4,7 +4,6 @@ module Stratosphere.S3.AccessPoint (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.S3.AccessPoint.PolicyStatusProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.AccessPoint.PublicAccessBlockConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.AccessPoint.VpcConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,7 +13,6 @@ data AccessPoint
                  bucketAccountId :: (Prelude.Maybe (Value Prelude.Text)),
                  name :: (Prelude.Maybe (Value Prelude.Text)),
                  policy :: (Prelude.Maybe JSON.Object),
-                 policyStatus :: (Prelude.Maybe PolicyStatusProperty),
                  publicAccessBlockConfiguration :: (Prelude.Maybe PublicAccessBlockConfigurationProperty),
                  vpcConfiguration :: (Prelude.Maybe VpcConfigurationProperty)}
 mkAccessPoint :: Value Prelude.Text -> AccessPoint
@@ -22,7 +20,6 @@ mkAccessPoint bucket
   = AccessPoint
       {bucket = bucket, bucketAccountId = Prelude.Nothing,
        name = Prelude.Nothing, policy = Prelude.Nothing,
-       policyStatus = Prelude.Nothing,
        publicAccessBlockConfiguration = Prelude.Nothing,
        vpcConfiguration = Prelude.Nothing}
 instance ToResourceProperties AccessPoint where
@@ -36,7 +33,6 @@ instance ToResourceProperties AccessPoint where
                               [(JSON..=) "BucketAccountId" Prelude.<$> bucketAccountId,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "Policy" Prelude.<$> policy,
-                               (JSON..=) "PolicyStatus" Prelude.<$> policyStatus,
                                (JSON..=) "PublicAccessBlockConfiguration"
                                  Prelude.<$> publicAccessBlockConfiguration,
                                (JSON..=) "VpcConfiguration" Prelude.<$> vpcConfiguration]))}
@@ -50,7 +46,6 @@ instance JSON.ToJSON AccessPoint where
                  [(JSON..=) "BucketAccountId" Prelude.<$> bucketAccountId,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "Policy" Prelude.<$> policy,
-                  (JSON..=) "PolicyStatus" Prelude.<$> policyStatus,
                   (JSON..=) "PublicAccessBlockConfiguration"
                     Prelude.<$> publicAccessBlockConfiguration,
                   (JSON..=) "VpcConfiguration" Prelude.<$> vpcConfiguration])))
@@ -69,10 +64,6 @@ instance Property "Policy" AccessPoint where
   type PropertyType "Policy" AccessPoint = JSON.Object
   set newValue AccessPoint {..}
     = AccessPoint {policy = Prelude.pure newValue, ..}
-instance Property "PolicyStatus" AccessPoint where
-  type PropertyType "PolicyStatus" AccessPoint = PolicyStatusProperty
-  set newValue AccessPoint {..}
-    = AccessPoint {policyStatus = Prelude.pure newValue, ..}
 instance Property "PublicAccessBlockConfiguration" AccessPoint where
   type PropertyType "PublicAccessBlockConfiguration" AccessPoint = PublicAccessBlockConfigurationProperty
   set newValue AccessPoint {..}

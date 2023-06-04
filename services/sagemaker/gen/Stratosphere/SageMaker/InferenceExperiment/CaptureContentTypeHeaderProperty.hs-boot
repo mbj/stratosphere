@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.InferenceExperiment.CaptureContentTypeHeaderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CaptureContentTypeHeaderProperty :: Prelude.Type
+instance ToResourceProperties CaptureContentTypeHeaderProperty
+instance JSON.ToJSON CaptureContentTypeHeaderProperty

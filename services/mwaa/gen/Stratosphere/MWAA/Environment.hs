@@ -26,6 +26,8 @@ data Environment
                  requirementsS3Path :: (Prelude.Maybe (Value Prelude.Text)),
                  schedulers :: (Prelude.Maybe (Value Prelude.Integer)),
                  sourceBucketArn :: (Prelude.Maybe (Value Prelude.Text)),
+                 startupScriptS3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                 startupScriptS3Path :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe JSON.Object),
                  webserverAccessMode :: (Prelude.Maybe (Value Prelude.Text)),
                  weeklyMaintenanceWindowStart :: (Prelude.Maybe (Value Prelude.Text))}
@@ -43,7 +45,9 @@ mkEnvironment name
        pluginsS3Path = Prelude.Nothing,
        requirementsS3ObjectVersion = Prelude.Nothing,
        requirementsS3Path = Prelude.Nothing, schedulers = Prelude.Nothing,
-       sourceBucketArn = Prelude.Nothing, tags = Prelude.Nothing,
+       sourceBucketArn = Prelude.Nothing,
+       startupScriptS3ObjectVersion = Prelude.Nothing,
+       startupScriptS3Path = Prelude.Nothing, tags = Prelude.Nothing,
        webserverAccessMode = Prelude.Nothing,
        weeklyMaintenanceWindowStart = Prelude.Nothing}
 instance ToResourceProperties Environment where
@@ -73,6 +77,9 @@ instance ToResourceProperties Environment where
                                (JSON..=) "RequirementsS3Path" Prelude.<$> requirementsS3Path,
                                (JSON..=) "Schedulers" Prelude.<$> schedulers,
                                (JSON..=) "SourceBucketArn" Prelude.<$> sourceBucketArn,
+                               (JSON..=) "StartupScriptS3ObjectVersion"
+                                 Prelude.<$> startupScriptS3ObjectVersion,
+                               (JSON..=) "StartupScriptS3Path" Prelude.<$> startupScriptS3Path,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "WebserverAccessMode" Prelude.<$> webserverAccessMode,
                                (JSON..=) "WeeklyMaintenanceWindowStart"
@@ -103,6 +110,9 @@ instance JSON.ToJSON Environment where
                   (JSON..=) "RequirementsS3Path" Prelude.<$> requirementsS3Path,
                   (JSON..=) "Schedulers" Prelude.<$> schedulers,
                   (JSON..=) "SourceBucketArn" Prelude.<$> sourceBucketArn,
+                  (JSON..=) "StartupScriptS3ObjectVersion"
+                    Prelude.<$> startupScriptS3ObjectVersion,
+                  (JSON..=) "StartupScriptS3Path" Prelude.<$> startupScriptS3Path,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "WebserverAccessMode" Prelude.<$> webserverAccessMode,
                   (JSON..=) "WeeklyMaintenanceWindowStart"
@@ -176,6 +186,15 @@ instance Property "SourceBucketArn" Environment where
   type PropertyType "SourceBucketArn" Environment = Value Prelude.Text
   set newValue Environment {..}
     = Environment {sourceBucketArn = Prelude.pure newValue, ..}
+instance Property "StartupScriptS3ObjectVersion" Environment where
+  type PropertyType "StartupScriptS3ObjectVersion" Environment = Value Prelude.Text
+  set newValue Environment {..}
+    = Environment
+        {startupScriptS3ObjectVersion = Prelude.pure newValue, ..}
+instance Property "StartupScriptS3Path" Environment where
+  type PropertyType "StartupScriptS3Path" Environment = Value Prelude.Text
+  set newValue Environment {..}
+    = Environment {startupScriptS3Path = Prelude.pure newValue, ..}
 instance Property "Tags" Environment where
   type PropertyType "Tags" Environment = JSON.Object
   set newValue Environment {..}

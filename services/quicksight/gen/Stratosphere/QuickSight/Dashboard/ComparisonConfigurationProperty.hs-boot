@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.ComparisonConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComparisonConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ComparisonConfigurationProperty
+instance JSON.ToJSON ComparisonConfigurationProperty

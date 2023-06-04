@@ -48,8 +48,8 @@ library
       Stratosphere.ApiGatewayV2.IntegrationResponse
       Stratosphere.ApiGatewayV2.Model
       Stratosphere.ApiGatewayV2.Route
-      Stratosphere.ApiGatewayV2.Route.ParameterConstraintsProperty
       Stratosphere.ApiGatewayV2.RouteResponse
+      Stratosphere.ApiGatewayV2.RouteResponse.ParameterConstraintsProperty
       Stratosphere.ApiGatewayV2.Stage
       Stratosphere.ApiGatewayV2.Stage.AccessLogSettingsProperty
       Stratosphere.ApiGatewayV2.Stage.RouteSettingsProperty

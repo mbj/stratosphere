@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Topic.TopicCategoryFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TopicCategoryFilterProperty :: Prelude.Type
+instance ToResourceProperties TopicCategoryFilterProperty
+instance JSON.ToJSON TopicCategoryFilterProperty

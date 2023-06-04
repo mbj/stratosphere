@@ -1,0 +1,7 @@
+module Stratosphere.Grafana.Workspace.NetworkAccessControlProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkAccessControlProperty :: Prelude.Type
+instance ToResourceProperties NetworkAccessControlProperty
+instance JSON.ToJSON NetworkAccessControlProperty

@@ -8,25 +8,37 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerlessConfigProperty
   = ServerlessConfigProperty {maxConcurrency :: (Value Prelude.Integer),
-                              memorySizeInMB :: (Value Prelude.Integer)}
+                              memorySizeInMB :: (Value Prelude.Integer),
+                              provisionedConcurrency :: (Prelude.Maybe (Value Prelude.Integer))}
 mkServerlessConfigProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> ServerlessConfigProperty
 mkServerlessConfigProperty maxConcurrency memorySizeInMB
   = ServerlessConfigProperty
-      {maxConcurrency = maxConcurrency, memorySizeInMB = memorySizeInMB}
+      {maxConcurrency = maxConcurrency, memorySizeInMB = memorySizeInMB,
+       provisionedConcurrency = Prelude.Nothing}
 instance ToResourceProperties ServerlessConfigProperty where
   toResourceProperties ServerlessConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::EndpointConfig.ServerlessConfig",
          supportsTags = Prelude.False,
-         properties = ["MaxConcurrency" JSON..= maxConcurrency,
-                       "MemorySizeInMB" JSON..= memorySizeInMB]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["MaxConcurrency" JSON..= maxConcurrency,
+                            "MemorySizeInMB" JSON..= memorySizeInMB]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ProvisionedConcurrency"
+                                 Prelude.<$> provisionedConcurrency]))}
 instance JSON.ToJSON ServerlessConfigProperty where
   toJSON ServerlessConfigProperty {..}
     = JSON.object
-        ["MaxConcurrency" JSON..= maxConcurrency,
-         "MemorySizeInMB" JSON..= memorySizeInMB]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["MaxConcurrency" JSON..= maxConcurrency,
+               "MemorySizeInMB" JSON..= memorySizeInMB]
+              (Prelude.catMaybes
+                 [(JSON..=) "ProvisionedConcurrency"
+                    Prelude.<$> provisionedConcurrency])))
 instance Property "MaxConcurrency" ServerlessConfigProperty where
   type PropertyType "MaxConcurrency" ServerlessConfigProperty = Value Prelude.Integer
   set newValue ServerlessConfigProperty {..}
@@ -35,3 +47,8 @@ instance Property "MemorySizeInMB" ServerlessConfigProperty where
   type PropertyType "MemorySizeInMB" ServerlessConfigProperty = Value Prelude.Integer
   set newValue ServerlessConfigProperty {..}
     = ServerlessConfigProperty {memorySizeInMB = newValue, ..}
+instance Property "ProvisionedConcurrency" ServerlessConfigProperty where
+  type PropertyType "ProvisionedConcurrency" ServerlessConfigProperty = Value Prelude.Integer
+  set newValue ServerlessConfigProperty {..}
+    = ServerlessConfigProperty
+        {provisionedConcurrency = Prelude.pure newValue, ..}

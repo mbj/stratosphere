@@ -31,6 +31,8 @@ library
       Stratosphere.IoT.AccountAuditConfiguration.AuditNotificationTargetConfigurationsProperty
       Stratosphere.IoT.AccountAuditConfiguration.AuditNotificationTargetProperty
       Stratosphere.IoT.Authorizer
+      Stratosphere.IoT.BillingGroup
+      Stratosphere.IoT.BillingGroup.BillingGroupPropertiesProperty
       Stratosphere.IoT.CACertificate
       Stratosphere.IoT.CACertificate.RegistrationConfigProperty
       Stratosphere.IoT.Certificate
@@ -39,6 +41,7 @@ library
       Stratosphere.IoT.DomainConfiguration
       Stratosphere.IoT.DomainConfiguration.AuthorizerConfigProperty
       Stratosphere.IoT.DomainConfiguration.ServerCertificateSummaryProperty
+      Stratosphere.IoT.DomainConfiguration.TlsConfigProperty
       Stratosphere.IoT.FleetMetric
       Stratosphere.IoT.FleetMetric.AggregationTypeProperty
       Stratosphere.IoT.JobTemplate
@@ -47,6 +50,7 @@ library
       Stratosphere.IoT.JobTemplate.ExponentialRolloutRateProperty
       Stratosphere.IoT.JobTemplate.JobExecutionsRetryConfigProperty
       Stratosphere.IoT.JobTemplate.JobExecutionsRolloutConfigProperty
+      Stratosphere.IoT.JobTemplate.MaintenanceWindowProperty
       Stratosphere.IoT.JobTemplate.PresignedUrlConfigProperty
       Stratosphere.IoT.JobTemplate.RateIncreaseCriteriaProperty
       Stratosphere.IoT.JobTemplate.RetryCriteriaProperty
@@ -78,7 +82,12 @@ library
       Stratosphere.IoT.SecurityProfile.StatisticalThresholdProperty
       Stratosphere.IoT.Thing
       Stratosphere.IoT.Thing.AttributePayloadProperty
+      Stratosphere.IoT.ThingGroup
+      Stratosphere.IoT.ThingGroup.AttributePayloadProperty
+      Stratosphere.IoT.ThingGroup.ThingGroupPropertiesProperty
       Stratosphere.IoT.ThingPrincipalAttachment
+      Stratosphere.IoT.ThingType
+      Stratosphere.IoT.ThingType.ThingTypePropertiesProperty
       Stratosphere.IoT.TopicRule
       Stratosphere.IoT.TopicRule.ActionProperty
       Stratosphere.IoT.TopicRule.AssetPropertyTimestampProperty

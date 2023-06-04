@@ -32,7 +32,6 @@ library
       Stratosphere.Macie.FindingsFilter
       Stratosphere.Macie.FindingsFilter.CriterionAdditionalPropertiesProperty
       Stratosphere.Macie.FindingsFilter.FindingCriteriaProperty
-      Stratosphere.Macie.FindingsFilter.FindingsFilterListItemProperty
       Stratosphere.Macie.Session
   other-modules:
       Paths_stratosphere_macie

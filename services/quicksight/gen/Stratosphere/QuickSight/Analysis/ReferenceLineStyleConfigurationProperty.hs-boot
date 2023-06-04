@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.ReferenceLineStyleConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReferenceLineStyleConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ReferenceLineStyleConfigurationProperty
+instance JSON.ToJSON ReferenceLineStyleConfigurationProperty

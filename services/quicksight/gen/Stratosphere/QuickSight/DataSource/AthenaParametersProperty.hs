@@ -7,23 +7,33 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AthenaParametersProperty
-  = AthenaParametersProperty {workGroup :: (Prelude.Maybe (Value Prelude.Text))}
+  = AthenaParametersProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                              workGroup :: (Prelude.Maybe (Value Prelude.Text))}
 mkAthenaParametersProperty :: AthenaParametersProperty
 mkAthenaParametersProperty
-  = AthenaParametersProperty {workGroup = Prelude.Nothing}
+  = AthenaParametersProperty
+      {roleArn = Prelude.Nothing, workGroup = Prelude.Nothing}
 instance ToResourceProperties AthenaParametersProperty where
   toResourceProperties AthenaParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.AthenaParameters",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        (Prelude.catMaybes [(JSON..=) "WorkGroup" Prelude.<$> workGroup])}
+                        (Prelude.catMaybes
+                           [(JSON..=) "RoleArn" Prelude.<$> roleArn,
+                            (JSON..=) "WorkGroup" Prelude.<$> workGroup])}
 instance JSON.ToJSON AthenaParametersProperty where
   toJSON AthenaParametersProperty {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes [(JSON..=) "WorkGroup" Prelude.<$> workGroup]))
+           (Prelude.catMaybes
+              [(JSON..=) "RoleArn" Prelude.<$> roleArn,
+               (JSON..=) "WorkGroup" Prelude.<$> workGroup]))
+instance Property "RoleArn" AthenaParametersProperty where
+  type PropertyType "RoleArn" AthenaParametersProperty = Value Prelude.Text
+  set newValue AthenaParametersProperty {..}
+    = AthenaParametersProperty {roleArn = Prelude.pure newValue, ..}
 instance Property "WorkGroup" AthenaParametersProperty where
   type PropertyType "WorkGroup" AthenaParametersProperty = Value Prelude.Text
-  set newValue AthenaParametersProperty {}
+  set newValue AthenaParametersProperty {..}
     = AthenaParametersProperty {workGroup = Prelude.pure newValue, ..}

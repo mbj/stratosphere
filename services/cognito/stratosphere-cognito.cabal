@@ -29,6 +29,7 @@ library
       Stratosphere.Cognito.IdentityPool.CognitoIdentityProviderProperty
       Stratosphere.Cognito.IdentityPool.CognitoStreamsProperty
       Stratosphere.Cognito.IdentityPool.PushSyncProperty
+      Stratosphere.Cognito.IdentityPoolPrincipalTag
       Stratosphere.Cognito.IdentityPoolRoleAttachment
       Stratosphere.Cognito.IdentityPoolRoleAttachment.MappingRuleProperty
       Stratosphere.Cognito.IdentityPoolRoleAttachment.RoleMappingProperty

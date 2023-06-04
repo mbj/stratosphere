@@ -45,6 +45,7 @@ library
       Stratosphere.AmplifyUIBuilder.Form.FieldInputConfigProperty
       Stratosphere.AmplifyUIBuilder.Form.FieldPositionProperty
       Stratosphere.AmplifyUIBuilder.Form.FieldValidationConfigurationProperty
+      Stratosphere.AmplifyUIBuilder.Form.FileUploaderFieldConfigProperty
       Stratosphere.AmplifyUIBuilder.Form.FormButtonProperty
       Stratosphere.AmplifyUIBuilder.Form.FormCTAProperty
       Stratosphere.AmplifyUIBuilder.Form.FormDataTypeConfigProperty

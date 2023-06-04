@@ -36,10 +36,14 @@ library
       Stratosphere.OpenSearchService.Domain.LogPublishingOptionProperty
       Stratosphere.OpenSearchService.Domain.MasterUserOptionsProperty
       Stratosphere.OpenSearchService.Domain.NodeToNodeEncryptionOptionsProperty
+      Stratosphere.OpenSearchService.Domain.OffPeakWindowOptionsProperty
+      Stratosphere.OpenSearchService.Domain.OffPeakWindowProperty
       Stratosphere.OpenSearchService.Domain.SAMLOptionsProperty
       Stratosphere.OpenSearchService.Domain.ServiceSoftwareOptionsProperty
       Stratosphere.OpenSearchService.Domain.SnapshotOptionsProperty
+      Stratosphere.OpenSearchService.Domain.SoftwareUpdateOptionsProperty
       Stratosphere.OpenSearchService.Domain.VPCOptionsProperty
+      Stratosphere.OpenSearchService.Domain.WindowStartTimeProperty
       Stratosphere.OpenSearchService.Domain.ZoneAwarenessConfigProperty
   other-modules:
       Paths_stratosphere_opensearchservice

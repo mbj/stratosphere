@@ -27,6 +27,7 @@ library
   exposed-modules:
       Stratosphere.Neptune.DBCluster
       Stratosphere.Neptune.DBCluster.DBClusterRoleProperty
+      Stratosphere.Neptune.DBCluster.ServerlessScalingConfigurationProperty
       Stratosphere.Neptune.DBClusterParameterGroup
       Stratosphere.Neptune.DBInstance
       Stratosphere.Neptune.DBParameterGroup

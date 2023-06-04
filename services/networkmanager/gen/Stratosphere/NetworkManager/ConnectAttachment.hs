@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkManager.ConnectAttachment.ConnectAttachmentOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.NetworkManager.ConnectAttachment.ProposedSegmentChangeProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -12,6 +13,7 @@ data ConnectAttachment
   = ConnectAttachment {coreNetworkId :: (Value Prelude.Text),
                        edgeLocation :: (Value Prelude.Text),
                        options :: ConnectAttachmentOptionsProperty,
+                       proposedSegmentChange :: (Prelude.Maybe ProposedSegmentChangeProperty),
                        tags :: (Prelude.Maybe [Tag]),
                        transportAttachmentId :: (Value Prelude.Text)}
 mkConnectAttachment ::
@@ -27,7 +29,7 @@ mkConnectAttachment
   = ConnectAttachment
       {coreNetworkId = coreNetworkId, edgeLocation = edgeLocation,
        options = options, transportAttachmentId = transportAttachmentId,
-       tags = Prelude.Nothing}
+       proposedSegmentChange = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ConnectAttachment where
   toResourceProperties ConnectAttachment {..}
     = ResourceProperties
@@ -38,7 +40,10 @@ instance ToResourceProperties ConnectAttachment where
                            ["CoreNetworkId" JSON..= coreNetworkId,
                             "EdgeLocation" JSON..= edgeLocation, "Options" JSON..= options,
                             "TransportAttachmentId" JSON..= transportAttachmentId]
-                           (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "ProposedSegmentChange"
+                                 Prelude.<$> proposedSegmentChange,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON ConnectAttachment where
   toJSON ConnectAttachment {..}
     = JSON.object
@@ -47,7 +52,10 @@ instance JSON.ToJSON ConnectAttachment where
               ["CoreNetworkId" JSON..= coreNetworkId,
                "EdgeLocation" JSON..= edgeLocation, "Options" JSON..= options,
                "TransportAttachmentId" JSON..= transportAttachmentId]
-              (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])))
+              (Prelude.catMaybes
+                 [(JSON..=) "ProposedSegmentChange"
+                    Prelude.<$> proposedSegmentChange,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "CoreNetworkId" ConnectAttachment where
   type PropertyType "CoreNetworkId" ConnectAttachment = Value Prelude.Text
   set newValue ConnectAttachment {..}
@@ -60,6 +68,11 @@ instance Property "Options" ConnectAttachment where
   type PropertyType "Options" ConnectAttachment = ConnectAttachmentOptionsProperty
   set newValue ConnectAttachment {..}
     = ConnectAttachment {options = newValue, ..}
+instance Property "ProposedSegmentChange" ConnectAttachment where
+  type PropertyType "ProposedSegmentChange" ConnectAttachment = ProposedSegmentChangeProperty
+  set newValue ConnectAttachment {..}
+    = ConnectAttachment
+        {proposedSegmentChange = Prelude.pure newValue, ..}
 instance Property "Tags" ConnectAttachment where
   type PropertyType "Tags" ConnectAttachment = [Tag]
   set newValue ConnectAttachment {..}

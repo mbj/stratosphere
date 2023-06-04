@@ -39,6 +39,7 @@ library
       Stratosphere.Lambda.EventSourceMapping
       Stratosphere.Lambda.EventSourceMapping.AmazonManagedKafkaEventSourceConfigProperty
       Stratosphere.Lambda.EventSourceMapping.DestinationConfigProperty
+      Stratosphere.Lambda.EventSourceMapping.DocumentDBEventSourceConfigProperty
       Stratosphere.Lambda.EventSourceMapping.EndpointsProperty
       Stratosphere.Lambda.EventSourceMapping.FilterCriteriaProperty
       Stratosphere.Lambda.EventSourceMapping.FilterProperty

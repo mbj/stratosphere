@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.PercentVisibleRangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PercentVisibleRangeProperty :: Prelude.Type
+instance ToResourceProperties PercentVisibleRangeProperty
+instance JSON.ToJSON PercentVisibleRangeProperty

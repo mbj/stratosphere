@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.DateTimeHierarchyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DateTimeHierarchyProperty :: Prelude.Type
+instance ToResourceProperties DateTimeHierarchyProperty
+instance JSON.ToJSON DateTimeHierarchyProperty

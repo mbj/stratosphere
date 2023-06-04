@@ -26,6 +26,7 @@ flag development
 library
   exposed-modules:
       Stratosphere.FinSpace.Environment
+      Stratosphere.FinSpace.Environment.AttributeMapItemsProperty
       Stratosphere.FinSpace.Environment.FederationParametersProperty
       Stratosphere.FinSpace.Environment.SuperuserParametersProperty
   other-modules:

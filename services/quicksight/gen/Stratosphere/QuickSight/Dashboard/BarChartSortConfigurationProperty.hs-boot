@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.BarChartSortConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BarChartSortConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BarChartSortConfigurationProperty
+instance JSON.ToJSON BarChartSortConfigurationProperty

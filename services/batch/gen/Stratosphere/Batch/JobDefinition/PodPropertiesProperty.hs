@@ -6,19 +6,21 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksContainerProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksVolumeProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.MetadataProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PodPropertiesProperty
   = PodPropertiesProperty {containers :: (Prelude.Maybe [EksContainerProperty]),
                            dnsPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                            hostNetwork :: (Prelude.Maybe (Value Prelude.Bool)),
+                           metadata :: (Prelude.Maybe MetadataProperty),
                            serviceAccountName :: (Prelude.Maybe (Value Prelude.Text)),
                            volumes :: (Prelude.Maybe [EksVolumeProperty])}
 mkPodPropertiesProperty :: PodPropertiesProperty
 mkPodPropertiesProperty
   = PodPropertiesProperty
       {containers = Prelude.Nothing, dnsPolicy = Prelude.Nothing,
-       hostNetwork = Prelude.Nothing,
+       hostNetwork = Prelude.Nothing, metadata = Prelude.Nothing,
        serviceAccountName = Prelude.Nothing, volumes = Prelude.Nothing}
 instance ToResourceProperties PodPropertiesProperty where
   toResourceProperties PodPropertiesProperty {..}
@@ -30,6 +32,7 @@ instance ToResourceProperties PodPropertiesProperty where
                            [(JSON..=) "Containers" Prelude.<$> containers,
                             (JSON..=) "DnsPolicy" Prelude.<$> dnsPolicy,
                             (JSON..=) "HostNetwork" Prelude.<$> hostNetwork,
+                            (JSON..=) "Metadata" Prelude.<$> metadata,
                             (JSON..=) "ServiceAccountName" Prelude.<$> serviceAccountName,
                             (JSON..=) "Volumes" Prelude.<$> volumes])}
 instance JSON.ToJSON PodPropertiesProperty where
@@ -40,6 +43,7 @@ instance JSON.ToJSON PodPropertiesProperty where
               [(JSON..=) "Containers" Prelude.<$> containers,
                (JSON..=) "DnsPolicy" Prelude.<$> dnsPolicy,
                (JSON..=) "HostNetwork" Prelude.<$> hostNetwork,
+               (JSON..=) "Metadata" Prelude.<$> metadata,
                (JSON..=) "ServiceAccountName" Prelude.<$> serviceAccountName,
                (JSON..=) "Volumes" Prelude.<$> volumes]))
 instance Property "Containers" PodPropertiesProperty where
@@ -54,6 +58,10 @@ instance Property "HostNetwork" PodPropertiesProperty where
   type PropertyType "HostNetwork" PodPropertiesProperty = Value Prelude.Bool
   set newValue PodPropertiesProperty {..}
     = PodPropertiesProperty {hostNetwork = Prelude.pure newValue, ..}
+instance Property "Metadata" PodPropertiesProperty where
+  type PropertyType "Metadata" PodPropertiesProperty = MetadataProperty
+  set newValue PodPropertiesProperty {..}
+    = PodPropertiesProperty {metadata = Prelude.pure newValue, ..}
 instance Property "ServiceAccountName" PodPropertiesProperty where
   type PropertyType "ServiceAccountName" PodPropertiesProperty = Value Prelude.Text
   set newValue PodPropertiesProperty {..}

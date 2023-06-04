@@ -53,6 +53,8 @@ library
       Stratosphere.IoTWireless.WirelessDevice.OtaaV11Property
       Stratosphere.IoTWireless.WirelessDevice.SessionKeysAbpV10xProperty
       Stratosphere.IoTWireless.WirelessDevice.SessionKeysAbpV11Property
+      Stratosphere.IoTWireless.WirelessDeviceImportTask
+      Stratosphere.IoTWireless.WirelessDeviceImportTask.SidewalkProperty
       Stratosphere.IoTWireless.WirelessGateway
       Stratosphere.IoTWireless.WirelessGateway.LoRaWANGatewayProperty
   other-modules:

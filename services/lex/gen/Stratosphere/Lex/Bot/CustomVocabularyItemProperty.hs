@@ -7,13 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomVocabularyItemProperty
-  = CustomVocabularyItemProperty {phrase :: (Value Prelude.Text),
+  = CustomVocabularyItemProperty {displayAs :: (Prelude.Maybe (Value Prelude.Text)),
+                                  phrase :: (Value Prelude.Text),
                                   weight :: (Prelude.Maybe (Value Prelude.Integer))}
 mkCustomVocabularyItemProperty ::
   Value Prelude.Text -> CustomVocabularyItemProperty
 mkCustomVocabularyItemProperty phrase
   = CustomVocabularyItemProperty
-      {phrase = phrase, weight = Prelude.Nothing}
+      {phrase = phrase, displayAs = Prelude.Nothing,
+       weight = Prelude.Nothing}
 instance ToResourceProperties CustomVocabularyItemProperty where
   toResourceProperties CustomVocabularyItemProperty {..}
     = ResourceProperties
@@ -22,14 +24,23 @@ instance ToResourceProperties CustomVocabularyItemProperty where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Phrase" JSON..= phrase]
-                           (Prelude.catMaybes [(JSON..=) "Weight" Prelude.<$> weight]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "DisplayAs" Prelude.<$> displayAs,
+                               (JSON..=) "Weight" Prelude.<$> weight]))}
 instance JSON.ToJSON CustomVocabularyItemProperty where
   toJSON CustomVocabularyItemProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
               ["Phrase" JSON..= phrase]
-              (Prelude.catMaybes [(JSON..=) "Weight" Prelude.<$> weight])))
+              (Prelude.catMaybes
+                 [(JSON..=) "DisplayAs" Prelude.<$> displayAs,
+                  (JSON..=) "Weight" Prelude.<$> weight])))
+instance Property "DisplayAs" CustomVocabularyItemProperty where
+  type PropertyType "DisplayAs" CustomVocabularyItemProperty = Value Prelude.Text
+  set newValue CustomVocabularyItemProperty {..}
+    = CustomVocabularyItemProperty
+        {displayAs = Prelude.pure newValue, ..}
 instance Property "Phrase" CustomVocabularyItemProperty where
   type PropertyType "Phrase" CustomVocabularyItemProperty = Value Prelude.Text
   set newValue CustomVocabularyItemProperty {..}

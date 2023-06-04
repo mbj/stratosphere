@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.CustomActionNavigationOperationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomActionNavigationOperationProperty :: Prelude.Type
+instance ToResourceProperties CustomActionNavigationOperationProperty
+instance JSON.ToJSON CustomActionNavigationOperationProperty

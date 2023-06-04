@@ -12,7 +12,8 @@ data HostedConfigurationVersion
                                 content :: (Value Prelude.Text),
                                 contentType :: (Value Prelude.Text),
                                 description :: (Prelude.Maybe (Value Prelude.Text)),
-                                latestVersionNumber :: (Prelude.Maybe (Value Prelude.Double))}
+                                latestVersionNumber :: (Prelude.Maybe (Value Prelude.Double)),
+                                versionLabel :: (Prelude.Maybe (Value Prelude.Text))}
 mkHostedConfigurationVersion ::
   Value Prelude.Text
   -> Value Prelude.Text
@@ -27,7 +28,8 @@ mkHostedConfigurationVersion
       {applicationId = applicationId,
        configurationProfileId = configurationProfileId, content = content,
        contentType = contentType, description = Prelude.Nothing,
-       latestVersionNumber = Prelude.Nothing}
+       latestVersionNumber = Prelude.Nothing,
+       versionLabel = Prelude.Nothing}
 instance ToResourceProperties HostedConfigurationVersion where
   toResourceProperties HostedConfigurationVersion {..}
     = ResourceProperties
@@ -40,7 +42,8 @@ instance ToResourceProperties HostedConfigurationVersion where
                             "Content" JSON..= content, "ContentType" JSON..= contentType]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
-                               (JSON..=) "LatestVersionNumber" Prelude.<$> latestVersionNumber]))}
+                               (JSON..=) "LatestVersionNumber" Prelude.<$> latestVersionNumber,
+                               (JSON..=) "VersionLabel" Prelude.<$> versionLabel]))}
 instance JSON.ToJSON HostedConfigurationVersion where
   toJSON HostedConfigurationVersion {..}
     = JSON.object
@@ -51,7 +54,8 @@ instance JSON.ToJSON HostedConfigurationVersion where
                "Content" JSON..= content, "ContentType" JSON..= contentType]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
-                  (JSON..=) "LatestVersionNumber" Prelude.<$> latestVersionNumber])))
+                  (JSON..=) "LatestVersionNumber" Prelude.<$> latestVersionNumber,
+                  (JSON..=) "VersionLabel" Prelude.<$> versionLabel])))
 instance Property "ApplicationId" HostedConfigurationVersion where
   type PropertyType "ApplicationId" HostedConfigurationVersion = Value Prelude.Text
   set newValue HostedConfigurationVersion {..}
@@ -79,3 +83,8 @@ instance Property "LatestVersionNumber" HostedConfigurationVersion where
   set newValue HostedConfigurationVersion {..}
     = HostedConfigurationVersion
         {latestVersionNumber = Prelude.pure newValue, ..}
+instance Property "VersionLabel" HostedConfigurationVersion where
+  type PropertyType "VersionLabel" HostedConfigurationVersion = Value Prelude.Text
+  set newValue HostedConfigurationVersion {..}
+    = HostedConfigurationVersion
+        {versionLabel = Prelude.pure newValue, ..}

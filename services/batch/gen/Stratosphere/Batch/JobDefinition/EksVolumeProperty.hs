@@ -4,16 +4,16 @@ module Stratosphere.Batch.JobDefinition.EksVolumeProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EmptyDirProperty as Exports
-import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.HostPathProperty as Exports
-import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.SecretProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksEmptyDirProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksHostPathProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksSecretProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksVolumeProperty
-  = EksVolumeProperty {emptyDir :: (Prelude.Maybe EmptyDirProperty),
-                       hostPath :: (Prelude.Maybe HostPathProperty),
+  = EksVolumeProperty {emptyDir :: (Prelude.Maybe EksEmptyDirProperty),
+                       hostPath :: (Prelude.Maybe EksHostPathProperty),
                        name :: (Value Prelude.Text),
-                       secret :: (Prelude.Maybe SecretProperty)}
+                       secret :: (Prelude.Maybe EksSecretProperty)}
 mkEksVolumeProperty :: Value Prelude.Text -> EksVolumeProperty
 mkEksVolumeProperty name
   = EksVolumeProperty
@@ -42,11 +42,11 @@ instance JSON.ToJSON EksVolumeProperty where
                   (JSON..=) "HostPath" Prelude.<$> hostPath,
                   (JSON..=) "Secret" Prelude.<$> secret])))
 instance Property "EmptyDir" EksVolumeProperty where
-  type PropertyType "EmptyDir" EksVolumeProperty = EmptyDirProperty
+  type PropertyType "EmptyDir" EksVolumeProperty = EksEmptyDirProperty
   set newValue EksVolumeProperty {..}
     = EksVolumeProperty {emptyDir = Prelude.pure newValue, ..}
 instance Property "HostPath" EksVolumeProperty where
-  type PropertyType "HostPath" EksVolumeProperty = HostPathProperty
+  type PropertyType "HostPath" EksVolumeProperty = EksHostPathProperty
   set newValue EksVolumeProperty {..}
     = EksVolumeProperty {hostPath = Prelude.pure newValue, ..}
 instance Property "Name" EksVolumeProperty where
@@ -54,6 +54,6 @@ instance Property "Name" EksVolumeProperty where
   set newValue EksVolumeProperty {..}
     = EksVolumeProperty {name = newValue, ..}
 instance Property "Secret" EksVolumeProperty where
-  type PropertyType "Secret" EksVolumeProperty = SecretProperty
+  type PropertyType "Secret" EksVolumeProperty = EksSecretProperty
   set newValue EksVolumeProperty {..}
     = EksVolumeProperty {secret = Prelude.pure newValue, ..}

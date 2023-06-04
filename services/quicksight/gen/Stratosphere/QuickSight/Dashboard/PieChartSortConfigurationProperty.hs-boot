@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.PieChartSortConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PieChartSortConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PieChartSortConfigurationProperty
+instance JSON.ToJSON PieChartSortConfigurationProperty

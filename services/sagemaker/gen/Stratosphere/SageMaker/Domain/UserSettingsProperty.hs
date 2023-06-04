@@ -12,17 +12,18 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Domain.SharingSettingsProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserSettingsProperty
-  = UserSettingsProperty {executionRole :: (Prelude.Maybe (Value Prelude.Text)),
+  = UserSettingsProperty {executionRole :: (Value Prelude.Text),
                           jupyterServerAppSettings :: (Prelude.Maybe JupyterServerAppSettingsProperty),
                           kernelGatewayAppSettings :: (Prelude.Maybe KernelGatewayAppSettingsProperty),
                           rSessionAppSettings :: (Prelude.Maybe RSessionAppSettingsProperty),
                           rStudioServerProAppSettings :: (Prelude.Maybe RStudioServerProAppSettingsProperty),
                           securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                           sharingSettings :: (Prelude.Maybe SharingSettingsProperty)}
-mkUserSettingsProperty :: UserSettingsProperty
-mkUserSettingsProperty
+mkUserSettingsProperty ::
+  Value Prelude.Text -> UserSettingsProperty
+mkUserSettingsProperty executionRole
   = UserSettingsProperty
-      {executionRole = Prelude.Nothing,
+      {executionRole = executionRole,
        jupyterServerAppSettings = Prelude.Nothing,
        kernelGatewayAppSettings = Prelude.Nothing,
        rSessionAppSettings = Prelude.Nothing,
@@ -35,36 +36,38 @@ instance ToResourceProperties UserSettingsProperty where
         {awsType = "AWS::SageMaker::Domain.UserSettings",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "ExecutionRole" Prelude.<$> executionRole,
-                            (JSON..=) "JupyterServerAppSettings"
-                              Prelude.<$> jupyterServerAppSettings,
-                            (JSON..=) "KernelGatewayAppSettings"
-                              Prelude.<$> kernelGatewayAppSettings,
-                            (JSON..=) "RSessionAppSettings" Prelude.<$> rSessionAppSettings,
-                            (JSON..=) "RStudioServerProAppSettings"
-                              Prelude.<$> rStudioServerProAppSettings,
-                            (JSON..=) "SecurityGroups" Prelude.<$> securityGroups,
-                            (JSON..=) "SharingSettings" Prelude.<$> sharingSettings])}
+                        ((Prelude.<>)
+                           ["ExecutionRole" JSON..= executionRole]
+                           (Prelude.catMaybes
+                              [(JSON..=) "JupyterServerAppSettings"
+                                 Prelude.<$> jupyterServerAppSettings,
+                               (JSON..=) "KernelGatewayAppSettings"
+                                 Prelude.<$> kernelGatewayAppSettings,
+                               (JSON..=) "RSessionAppSettings" Prelude.<$> rSessionAppSettings,
+                               (JSON..=) "RStudioServerProAppSettings"
+                                 Prelude.<$> rStudioServerProAppSettings,
+                               (JSON..=) "SecurityGroups" Prelude.<$> securityGroups,
+                               (JSON..=) "SharingSettings" Prelude.<$> sharingSettings]))}
 instance JSON.ToJSON UserSettingsProperty where
   toJSON UserSettingsProperty {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "ExecutionRole" Prelude.<$> executionRole,
-               (JSON..=) "JupyterServerAppSettings"
-                 Prelude.<$> jupyterServerAppSettings,
-               (JSON..=) "KernelGatewayAppSettings"
-                 Prelude.<$> kernelGatewayAppSettings,
-               (JSON..=) "RSessionAppSettings" Prelude.<$> rSessionAppSettings,
-               (JSON..=) "RStudioServerProAppSettings"
-                 Prelude.<$> rStudioServerProAppSettings,
-               (JSON..=) "SecurityGroups" Prelude.<$> securityGroups,
-               (JSON..=) "SharingSettings" Prelude.<$> sharingSettings]))
+           ((Prelude.<>)
+              ["ExecutionRole" JSON..= executionRole]
+              (Prelude.catMaybes
+                 [(JSON..=) "JupyterServerAppSettings"
+                    Prelude.<$> jupyterServerAppSettings,
+                  (JSON..=) "KernelGatewayAppSettings"
+                    Prelude.<$> kernelGatewayAppSettings,
+                  (JSON..=) "RSessionAppSettings" Prelude.<$> rSessionAppSettings,
+                  (JSON..=) "RStudioServerProAppSettings"
+                    Prelude.<$> rStudioServerProAppSettings,
+                  (JSON..=) "SecurityGroups" Prelude.<$> securityGroups,
+                  (JSON..=) "SharingSettings" Prelude.<$> sharingSettings])))
 instance Property "ExecutionRole" UserSettingsProperty where
   type PropertyType "ExecutionRole" UserSettingsProperty = Value Prelude.Text
   set newValue UserSettingsProperty {..}
-    = UserSettingsProperty {executionRole = Prelude.pure newValue, ..}
+    = UserSettingsProperty {executionRole = newValue, ..}
 instance Property "JupyterServerAppSettings" UserSettingsProperty where
   type PropertyType "JupyterServerAppSettings" UserSettingsProperty = JupyterServerAppSettingsProperty
   set newValue UserSettingsProperty {..}

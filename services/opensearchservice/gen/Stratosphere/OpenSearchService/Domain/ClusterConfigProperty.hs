@@ -13,6 +13,7 @@ data ClusterConfigProperty
                            dedicatedMasterType :: (Prelude.Maybe (Value Prelude.Text)),
                            instanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
                            instanceType :: (Prelude.Maybe (Value Prelude.Text)),
+                           multiAZWithStandbyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                            warmCount :: (Prelude.Maybe (Value Prelude.Integer)),
                            warmEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                            warmType :: (Prelude.Maybe (Value Prelude.Text)),
@@ -25,6 +26,7 @@ mkClusterConfigProperty
        dedicatedMasterEnabled = Prelude.Nothing,
        dedicatedMasterType = Prelude.Nothing,
        instanceCount = Prelude.Nothing, instanceType = Prelude.Nothing,
+       multiAZWithStandbyEnabled = Prelude.Nothing,
        warmCount = Prelude.Nothing, warmEnabled = Prelude.Nothing,
        warmType = Prelude.Nothing, zoneAwarenessConfig = Prelude.Nothing,
        zoneAwarenessEnabled = Prelude.Nothing}
@@ -41,6 +43,8 @@ instance ToResourceProperties ClusterConfigProperty where
                             (JSON..=) "DedicatedMasterType" Prelude.<$> dedicatedMasterType,
                             (JSON..=) "InstanceCount" Prelude.<$> instanceCount,
                             (JSON..=) "InstanceType" Prelude.<$> instanceType,
+                            (JSON..=) "MultiAZWithStandbyEnabled"
+                              Prelude.<$> multiAZWithStandbyEnabled,
                             (JSON..=) "WarmCount" Prelude.<$> warmCount,
                             (JSON..=) "WarmEnabled" Prelude.<$> warmEnabled,
                             (JSON..=) "WarmType" Prelude.<$> warmType,
@@ -58,6 +62,8 @@ instance JSON.ToJSON ClusterConfigProperty where
                (JSON..=) "DedicatedMasterType" Prelude.<$> dedicatedMasterType,
                (JSON..=) "InstanceCount" Prelude.<$> instanceCount,
                (JSON..=) "InstanceType" Prelude.<$> instanceType,
+               (JSON..=) "MultiAZWithStandbyEnabled"
+                 Prelude.<$> multiAZWithStandbyEnabled,
                (JSON..=) "WarmCount" Prelude.<$> warmCount,
                (JSON..=) "WarmEnabled" Prelude.<$> warmEnabled,
                (JSON..=) "WarmType" Prelude.<$> warmType,
@@ -87,6 +93,11 @@ instance Property "InstanceType" ClusterConfigProperty where
   type PropertyType "InstanceType" ClusterConfigProperty = Value Prelude.Text
   set newValue ClusterConfigProperty {..}
     = ClusterConfigProperty {instanceType = Prelude.pure newValue, ..}
+instance Property "MultiAZWithStandbyEnabled" ClusterConfigProperty where
+  type PropertyType "MultiAZWithStandbyEnabled" ClusterConfigProperty = Value Prelude.Bool
+  set newValue ClusterConfigProperty {..}
+    = ClusterConfigProperty
+        {multiAZWithStandbyEnabled = Prelude.pure newValue, ..}
 instance Property "WarmCount" ClusterConfigProperty where
   type PropertyType "WarmCount" ClusterConfigProperty = Value Prelude.Integer
   set newValue ClusterConfigProperty {..}

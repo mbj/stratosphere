@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.SheetControlLayoutConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SheetControlLayoutConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SheetControlLayoutConfigurationProperty
+instance JSON.ToJSON SheetControlLayoutConfigurationProperty

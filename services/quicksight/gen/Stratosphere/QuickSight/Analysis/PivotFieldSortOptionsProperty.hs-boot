@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.PivotFieldSortOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PivotFieldSortOptionsProperty :: Prelude.Type
+instance ToResourceProperties PivotFieldSortOptionsProperty
+instance JSON.ToJSON PivotFieldSortOptionsProperty

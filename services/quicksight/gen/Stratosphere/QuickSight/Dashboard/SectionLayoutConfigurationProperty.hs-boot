@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.SectionLayoutConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SectionLayoutConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SectionLayoutConfigurationProperty
+instance JSON.ToJSON SectionLayoutConfigurationProperty

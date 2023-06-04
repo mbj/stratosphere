@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Topic.TopicNumericRangeFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TopicNumericRangeFilterProperty :: Prelude.Type
+instance ToResourceProperties TopicNumericRangeFilterProperty
+instance JSON.ToJSON TopicNumericRangeFilterProperty

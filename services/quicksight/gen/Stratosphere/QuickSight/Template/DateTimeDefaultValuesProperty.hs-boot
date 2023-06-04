@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.DateTimeDefaultValuesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DateTimeDefaultValuesProperty :: Prelude.Type
+instance ToResourceProperties DateTimeDefaultValuesProperty
+instance JSON.ToJSON DateTimeDefaultValuesProperty

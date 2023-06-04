@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.ConditionalFormattingSolidColorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConditionalFormattingSolidColorProperty :: Prelude.Type
+instance ToResourceProperties ConditionalFormattingSolidColorProperty
+instance JSON.ToJSON ConditionalFormattingSolidColorProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Comprehend.Flywheel.EntityTypesListItemProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EntityTypesListItemProperty :: Prelude.Type
+instance ToResourceProperties EntityTypesListItemProperty
+instance JSON.ToJSON EntityTypesListItemProperty

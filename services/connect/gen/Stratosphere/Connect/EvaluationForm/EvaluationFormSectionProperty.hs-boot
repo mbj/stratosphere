@@ -1,0 +1,7 @@
+module Stratosphere.Connect.EvaluationForm.EvaluationFormSectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EvaluationFormSectionProperty :: Prelude.Type
+instance ToResourceProperties EvaluationFormSectionProperty
+instance JSON.ToJSON EvaluationFormSectionProperty

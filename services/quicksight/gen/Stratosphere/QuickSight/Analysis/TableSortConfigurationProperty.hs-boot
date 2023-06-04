@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.TableSortConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TableSortConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TableSortConfigurationProperty
+instance JSON.ToJSON TableSortConfigurationProperty

@@ -1,7 +1,0 @@
-module Stratosphere.Macie.FindingsFilter.FindingsFilterListItemProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data FindingsFilterListItemProperty :: Prelude.Type
-instance ToResourceProperties FindingsFilterListItemProperty
-instance JSON.ToJSON FindingsFilterListItemProperty

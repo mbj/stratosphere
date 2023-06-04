@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.FilledMapFieldWellsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FilledMapFieldWellsProperty :: Prelude.Type
+instance ToResourceProperties FilledMapFieldWellsProperty
+instance JSON.ToJSON FilledMapFieldWellsProperty

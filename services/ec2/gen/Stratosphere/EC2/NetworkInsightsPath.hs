@@ -1,9 +1,10 @@
 module Stratosphere.EC2.NetworkInsightsPath (
-        NetworkInsightsPath(..), mkNetworkInsightsPath
+        module Exports, NetworkInsightsPath(..), mkNetworkInsightsPath
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsPath.PathFilterProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -11,6 +12,8 @@ data NetworkInsightsPath
   = NetworkInsightsPath {destination :: (Prelude.Maybe (Value Prelude.Text)),
                          destinationIp :: (Prelude.Maybe (Value Prelude.Text)),
                          destinationPort :: (Prelude.Maybe (Value Prelude.Integer)),
+                         filterAtDestination :: (Prelude.Maybe PathFilterProperty),
+                         filterAtSource :: (Prelude.Maybe PathFilterProperty),
                          protocol :: (Value Prelude.Text),
                          source :: (Value Prelude.Text),
                          sourceIp :: (Prelude.Maybe (Value Prelude.Text)),
@@ -21,7 +24,9 @@ mkNetworkInsightsPath protocol source
   = NetworkInsightsPath
       {protocol = protocol, source = source,
        destination = Prelude.Nothing, destinationIp = Prelude.Nothing,
-       destinationPort = Prelude.Nothing, sourceIp = Prelude.Nothing,
+       destinationPort = Prelude.Nothing,
+       filterAtDestination = Prelude.Nothing,
+       filterAtSource = Prelude.Nothing, sourceIp = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties NetworkInsightsPath where
   toResourceProperties NetworkInsightsPath {..}
@@ -35,6 +40,8 @@ instance ToResourceProperties NetworkInsightsPath where
                               [(JSON..=) "Destination" Prelude.<$> destination,
                                (JSON..=) "DestinationIp" Prelude.<$> destinationIp,
                                (JSON..=) "DestinationPort" Prelude.<$> destinationPort,
+                               (JSON..=) "FilterAtDestination" Prelude.<$> filterAtDestination,
+                               (JSON..=) "FilterAtSource" Prelude.<$> filterAtSource,
                                (JSON..=) "SourceIp" Prelude.<$> sourceIp,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON NetworkInsightsPath where
@@ -47,6 +54,8 @@ instance JSON.ToJSON NetworkInsightsPath where
                  [(JSON..=) "Destination" Prelude.<$> destination,
                   (JSON..=) "DestinationIp" Prelude.<$> destinationIp,
                   (JSON..=) "DestinationPort" Prelude.<$> destinationPort,
+                  (JSON..=) "FilterAtDestination" Prelude.<$> filterAtDestination,
+                  (JSON..=) "FilterAtSource" Prelude.<$> filterAtSource,
                   (JSON..=) "SourceIp" Prelude.<$> sourceIp,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Destination" NetworkInsightsPath where
@@ -61,6 +70,15 @@ instance Property "DestinationPort" NetworkInsightsPath where
   type PropertyType "DestinationPort" NetworkInsightsPath = Value Prelude.Integer
   set newValue NetworkInsightsPath {..}
     = NetworkInsightsPath {destinationPort = Prelude.pure newValue, ..}
+instance Property "FilterAtDestination" NetworkInsightsPath where
+  type PropertyType "FilterAtDestination" NetworkInsightsPath = PathFilterProperty
+  set newValue NetworkInsightsPath {..}
+    = NetworkInsightsPath
+        {filterAtDestination = Prelude.pure newValue, ..}
+instance Property "FilterAtSource" NetworkInsightsPath where
+  type PropertyType "FilterAtSource" NetworkInsightsPath = PathFilterProperty
+  set newValue NetworkInsightsPath {..}
+    = NetworkInsightsPath {filterAtSource = Prelude.pure newValue, ..}
 instance Property "Protocol" NetworkInsightsPath where
   type PropertyType "Protocol" NetworkInsightsPath = Value Prelude.Text
   set newValue NetworkInsightsPath {..}

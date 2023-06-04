@@ -15,6 +15,7 @@ data PostgreSqlSettingsProperty
                                 heartbeatEnable :: (Prelude.Maybe (Value Prelude.Bool)),
                                 heartbeatFrequency :: (Prelude.Maybe (Value Prelude.Integer)),
                                 heartbeatSchema :: (Prelude.Maybe (Value Prelude.Text)),
+                                mapBooleanAsBoolean :: (Prelude.Maybe (Value Prelude.Bool)),
                                 maxFileSize :: (Prelude.Maybe (Value Prelude.Integer)),
                                 pluginName :: (Prelude.Maybe (Value Prelude.Text)),
                                 secretsManagerAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -30,8 +31,9 @@ mkPostgreSqlSettingsProperty
        failTasksOnLobTruncation = Prelude.Nothing,
        heartbeatEnable = Prelude.Nothing,
        heartbeatFrequency = Prelude.Nothing,
-       heartbeatSchema = Prelude.Nothing, maxFileSize = Prelude.Nothing,
-       pluginName = Prelude.Nothing,
+       heartbeatSchema = Prelude.Nothing,
+       mapBooleanAsBoolean = Prelude.Nothing,
+       maxFileSize = Prelude.Nothing, pluginName = Prelude.Nothing,
        secretsManagerAccessRoleArn = Prelude.Nothing,
        secretsManagerSecretId = Prelude.Nothing,
        slotName = Prelude.Nothing}
@@ -51,6 +53,7 @@ instance ToResourceProperties PostgreSqlSettingsProperty where
                             (JSON..=) "HeartbeatEnable" Prelude.<$> heartbeatEnable,
                             (JSON..=) "HeartbeatFrequency" Prelude.<$> heartbeatFrequency,
                             (JSON..=) "HeartbeatSchema" Prelude.<$> heartbeatSchema,
+                            (JSON..=) "MapBooleanAsBoolean" Prelude.<$> mapBooleanAsBoolean,
                             (JSON..=) "MaxFileSize" Prelude.<$> maxFileSize,
                             (JSON..=) "PluginName" Prelude.<$> pluginName,
                             (JSON..=) "SecretsManagerAccessRoleArn"
@@ -72,6 +75,7 @@ instance JSON.ToJSON PostgreSqlSettingsProperty where
                (JSON..=) "HeartbeatEnable" Prelude.<$> heartbeatEnable,
                (JSON..=) "HeartbeatFrequency" Prelude.<$> heartbeatFrequency,
                (JSON..=) "HeartbeatSchema" Prelude.<$> heartbeatSchema,
+               (JSON..=) "MapBooleanAsBoolean" Prelude.<$> mapBooleanAsBoolean,
                (JSON..=) "MaxFileSize" Prelude.<$> maxFileSize,
                (JSON..=) "PluginName" Prelude.<$> pluginName,
                (JSON..=) "SecretsManagerAccessRoleArn"
@@ -119,6 +123,11 @@ instance Property "HeartbeatSchema" PostgreSqlSettingsProperty where
   set newValue PostgreSqlSettingsProperty {..}
     = PostgreSqlSettingsProperty
         {heartbeatSchema = Prelude.pure newValue, ..}
+instance Property "MapBooleanAsBoolean" PostgreSqlSettingsProperty where
+  type PropertyType "MapBooleanAsBoolean" PostgreSqlSettingsProperty = Value Prelude.Bool
+  set newValue PostgreSqlSettingsProperty {..}
+    = PostgreSqlSettingsProperty
+        {mapBooleanAsBoolean = Prelude.pure newValue, ..}
 instance Property "MaxFileSize" PostgreSqlSettingsProperty where
   type PropertyType "MaxFileSize" PostgreSqlSettingsProperty = Value Prelude.Integer
   set newValue PostgreSqlSettingsProperty {..}

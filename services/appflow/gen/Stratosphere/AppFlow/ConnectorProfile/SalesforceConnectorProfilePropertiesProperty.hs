@@ -9,13 +9,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SalesforceConnectorProfilePropertiesProperty
   = SalesforceConnectorProfilePropertiesProperty {instanceUrl :: (Prelude.Maybe (Value Prelude.Text)),
-                                                  isSandboxEnvironment :: (Prelude.Maybe (Value Prelude.Bool))}
+                                                  isSandboxEnvironment :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                  usePrivateLinkForMetadataAndAuthorization :: (Prelude.Maybe (Value Prelude.Bool))}
 mkSalesforceConnectorProfilePropertiesProperty ::
   SalesforceConnectorProfilePropertiesProperty
 mkSalesforceConnectorProfilePropertiesProperty
   = SalesforceConnectorProfilePropertiesProperty
       {instanceUrl = Prelude.Nothing,
-       isSandboxEnvironment = Prelude.Nothing}
+       isSandboxEnvironment = Prelude.Nothing,
+       usePrivateLinkForMetadataAndAuthorization = Prelude.Nothing}
 instance ToResourceProperties SalesforceConnectorProfilePropertiesProperty where
   toResourceProperties
     SalesforceConnectorProfilePropertiesProperty {..}
@@ -25,16 +27,18 @@ instance ToResourceProperties SalesforceConnectorProfilePropertiesProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "InstanceUrl" Prelude.<$> instanceUrl,
-                            (JSON..=) "isSandboxEnvironment"
-                              Prelude.<$> isSandboxEnvironment])}
+                            (JSON..=) "isSandboxEnvironment" Prelude.<$> isSandboxEnvironment,
+                            (JSON..=) "usePrivateLinkForMetadataAndAuthorization"
+                              Prelude.<$> usePrivateLinkForMetadataAndAuthorization])}
 instance JSON.ToJSON SalesforceConnectorProfilePropertiesProperty where
   toJSON SalesforceConnectorProfilePropertiesProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "InstanceUrl" Prelude.<$> instanceUrl,
-               (JSON..=) "isSandboxEnvironment"
-                 Prelude.<$> isSandboxEnvironment]))
+               (JSON..=) "isSandboxEnvironment" Prelude.<$> isSandboxEnvironment,
+               (JSON..=) "usePrivateLinkForMetadataAndAuthorization"
+                 Prelude.<$> usePrivateLinkForMetadataAndAuthorization]))
 instance Property "InstanceUrl" SalesforceConnectorProfilePropertiesProperty where
   type PropertyType "InstanceUrl" SalesforceConnectorProfilePropertiesProperty = Value Prelude.Text
   set newValue SalesforceConnectorProfilePropertiesProperty {..}
@@ -45,3 +49,9 @@ instance Property "isSandboxEnvironment" SalesforceConnectorProfilePropertiesPro
   set newValue SalesforceConnectorProfilePropertiesProperty {..}
     = SalesforceConnectorProfilePropertiesProperty
         {isSandboxEnvironment = Prelude.pure newValue, ..}
+instance Property "usePrivateLinkForMetadataAndAuthorization" SalesforceConnectorProfilePropertiesProperty where
+  type PropertyType "usePrivateLinkForMetadataAndAuthorization" SalesforceConnectorProfilePropertiesProperty = Value Prelude.Bool
+  set newValue SalesforceConnectorProfilePropertiesProperty {..}
+    = SalesforceConnectorProfilePropertiesProperty
+        {usePrivateLinkForMetadataAndAuthorization = Prelude.pure newValue,
+         ..}

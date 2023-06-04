@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.ExplicitHierarchyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExplicitHierarchyProperty :: Prelude.Type
+instance ToResourceProperties ExplicitHierarchyProperty
+instance JSON.ToJSON ExplicitHierarchyProperty

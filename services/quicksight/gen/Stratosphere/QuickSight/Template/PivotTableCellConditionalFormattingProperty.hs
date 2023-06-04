@@ -1,0 +1,57 @@
+module Stratosphere.QuickSight.Template.PivotTableCellConditionalFormattingProperty (
+        module Exports, PivotTableCellConditionalFormattingProperty(..),
+        mkPivotTableCellConditionalFormattingProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.PivotTableConditionalFormattingScopeProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.TextConditionalFormatProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data PivotTableCellConditionalFormattingProperty
+  = PivotTableCellConditionalFormattingProperty {fieldId :: (Value Prelude.Text),
+                                                 scope :: (Prelude.Maybe PivotTableConditionalFormattingScopeProperty),
+                                                 textFormat :: (Prelude.Maybe TextConditionalFormatProperty)}
+mkPivotTableCellConditionalFormattingProperty ::
+  Value Prelude.Text -> PivotTableCellConditionalFormattingProperty
+mkPivotTableCellConditionalFormattingProperty fieldId
+  = PivotTableCellConditionalFormattingProperty
+      {fieldId = fieldId, scope = Prelude.Nothing,
+       textFormat = Prelude.Nothing}
+instance ToResourceProperties PivotTableCellConditionalFormattingProperty where
+  toResourceProperties
+    PivotTableCellConditionalFormattingProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Template.PivotTableCellConditionalFormatting",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["FieldId" JSON..= fieldId]
+                           (Prelude.catMaybes
+                              [(JSON..=) "Scope" Prelude.<$> scope,
+                               (JSON..=) "TextFormat" Prelude.<$> textFormat]))}
+instance JSON.ToJSON PivotTableCellConditionalFormattingProperty where
+  toJSON PivotTableCellConditionalFormattingProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["FieldId" JSON..= fieldId]
+              (Prelude.catMaybes
+                 [(JSON..=) "Scope" Prelude.<$> scope,
+                  (JSON..=) "TextFormat" Prelude.<$> textFormat])))
+instance Property "FieldId" PivotTableCellConditionalFormattingProperty where
+  type PropertyType "FieldId" PivotTableCellConditionalFormattingProperty = Value Prelude.Text
+  set newValue PivotTableCellConditionalFormattingProperty {..}
+    = PivotTableCellConditionalFormattingProperty
+        {fieldId = newValue, ..}
+instance Property "Scope" PivotTableCellConditionalFormattingProperty where
+  type PropertyType "Scope" PivotTableCellConditionalFormattingProperty = PivotTableConditionalFormattingScopeProperty
+  set newValue PivotTableCellConditionalFormattingProperty {..}
+    = PivotTableCellConditionalFormattingProperty
+        {scope = Prelude.pure newValue, ..}
+instance Property "TextFormat" PivotTableCellConditionalFormattingProperty where
+  type PropertyType "TextFormat" PivotTableCellConditionalFormattingProperty = TextConditionalFormatProperty
+  set newValue PivotTableCellConditionalFormattingProperty {..}
+    = PivotTableCellConditionalFormattingProperty
+        {textFormat = Prelude.pure newValue, ..}
