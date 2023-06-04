@@ -32,6 +32,8 @@ library
       Stratosphere.GuardDuty.Detector.CFNMalwareProtectionConfigurationProperty
       Stratosphere.GuardDuty.Detector.CFNS3LogsConfigurationProperty
       Stratosphere.GuardDuty.Detector.CFNScanEc2InstanceWithFindingsConfigurationProperty
+      Stratosphere.GuardDuty.Detector.FeatureAdditionalConfigurationProperty
+      Stratosphere.GuardDuty.Detector.FeatureConfigurationsProperty
       Stratosphere.GuardDuty.Filter
       Stratosphere.GuardDuty.Filter.ConditionProperty
       Stratosphere.GuardDuty.Filter.FindingCriteriaProperty

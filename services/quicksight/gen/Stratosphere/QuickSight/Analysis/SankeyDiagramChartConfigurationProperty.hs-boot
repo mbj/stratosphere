@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.SankeyDiagramChartConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SankeyDiagramChartConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SankeyDiagramChartConfigurationProperty
+instance JSON.ToJSON SankeyDiagramChartConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Shield.Protection.ApplicationLayerAutomaticResponseConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ApplicationLayerAutomaticResponseConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ApplicationLayerAutomaticResponseConfigurationProperty
+instance JSON.ToJSON ApplicationLayerAutomaticResponseConfigurationProperty

@@ -11,13 +11,14 @@ data CodeProperty
                   s3Bucket :: (Prelude.Maybe (Value Prelude.Text)),
                   s3Key :: (Prelude.Maybe (Value Prelude.Text)),
                   s3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text)),
-                  script :: (Prelude.Maybe (Value Prelude.Text))}
+                  script :: (Prelude.Maybe (Value Prelude.Text)),
+                  sourceLocationArn :: (Prelude.Maybe (Value Prelude.Text))}
 mkCodeProperty :: Value Prelude.Text -> CodeProperty
 mkCodeProperty handler
   = CodeProperty
       {handler = handler, s3Bucket = Prelude.Nothing,
        s3Key = Prelude.Nothing, s3ObjectVersion = Prelude.Nothing,
-       script = Prelude.Nothing}
+       script = Prelude.Nothing, sourceLocationArn = Prelude.Nothing}
 instance ToResourceProperties CodeProperty where
   toResourceProperties CodeProperty {..}
     = ResourceProperties
@@ -30,7 +31,8 @@ instance ToResourceProperties CodeProperty where
                               [(JSON..=) "S3Bucket" Prelude.<$> s3Bucket,
                                (JSON..=) "S3Key" Prelude.<$> s3Key,
                                (JSON..=) "S3ObjectVersion" Prelude.<$> s3ObjectVersion,
-                               (JSON..=) "Script" Prelude.<$> script]))}
+                               (JSON..=) "Script" Prelude.<$> script,
+                               (JSON..=) "SourceLocationArn" Prelude.<$> sourceLocationArn]))}
 instance JSON.ToJSON CodeProperty where
   toJSON CodeProperty {..}
     = JSON.object
@@ -41,7 +43,8 @@ instance JSON.ToJSON CodeProperty where
                  [(JSON..=) "S3Bucket" Prelude.<$> s3Bucket,
                   (JSON..=) "S3Key" Prelude.<$> s3Key,
                   (JSON..=) "S3ObjectVersion" Prelude.<$> s3ObjectVersion,
-                  (JSON..=) "Script" Prelude.<$> script])))
+                  (JSON..=) "Script" Prelude.<$> script,
+                  (JSON..=) "SourceLocationArn" Prelude.<$> sourceLocationArn])))
 instance Property "Handler" CodeProperty where
   type PropertyType "Handler" CodeProperty = Value Prelude.Text
   set newValue CodeProperty {..}
@@ -62,3 +65,7 @@ instance Property "Script" CodeProperty where
   type PropertyType "Script" CodeProperty = Value Prelude.Text
   set newValue CodeProperty {..}
     = CodeProperty {script = Prelude.pure newValue, ..}
+instance Property "SourceLocationArn" CodeProperty where
+  type PropertyType "SourceLocationArn" CodeProperty = Value Prelude.Text
+  set newValue CodeProperty {..}
+    = CodeProperty {sourceLocationArn = Prelude.pure newValue, ..}

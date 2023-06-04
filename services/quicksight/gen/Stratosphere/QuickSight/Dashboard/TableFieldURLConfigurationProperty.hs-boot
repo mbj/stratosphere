@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.TableFieldURLConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TableFieldURLConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TableFieldURLConfigurationProperty
+instance JSON.ToJSON TableFieldURLConfigurationProperty

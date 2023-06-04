@@ -1,0 +1,7 @@
+module Stratosphere.LakeFormation.DataLakeSettings.PrincipalPermissionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PrincipalPermissionsProperty :: Prelude.Type
+instance ToResourceProperties PrincipalPermissionsProperty
+instance JSON.ToJSON PrincipalPermissionsProperty

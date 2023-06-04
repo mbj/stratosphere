@@ -1,0 +1,7 @@
+module Stratosphere.IVSChat.Room.MessageReviewHandlerProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MessageReviewHandlerProperty :: Prelude.Type
+instance ToResourceProperties MessageReviewHandlerProperty
+instance JSON.ToJSON MessageReviewHandlerProperty

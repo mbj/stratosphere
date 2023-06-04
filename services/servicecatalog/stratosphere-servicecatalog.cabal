@@ -27,7 +27,10 @@ library
   exposed-modules:
       Stratosphere.ServiceCatalog.AcceptedPortfolioShare
       Stratosphere.ServiceCatalog.CloudFormationProduct
+      Stratosphere.ServiceCatalog.CloudFormationProduct.CodeStarParametersProperty
+      Stratosphere.ServiceCatalog.CloudFormationProduct.ConnectionParametersProperty
       Stratosphere.ServiceCatalog.CloudFormationProduct.ProvisioningArtifactPropertiesProperty
+      Stratosphere.ServiceCatalog.CloudFormationProduct.SourceConnectionProperty
       Stratosphere.ServiceCatalog.CloudFormationProvisionedProduct
       Stratosphere.ServiceCatalog.CloudFormationProvisionedProduct.ProvisioningParameterProperty
       Stratosphere.ServiceCatalog.CloudFormationProvisionedProduct.ProvisioningPreferencesProperty

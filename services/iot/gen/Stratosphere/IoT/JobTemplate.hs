@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.AbortConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.JobExecutionsRetryConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.JobExecutionsRolloutConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.MaintenanceWindowProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.PresignedUrlConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.TimeoutConfigProperty as Exports
 import Stratosphere.ResourceProperties
@@ -21,6 +22,7 @@ data JobTemplate
                  jobExecutionsRetryConfig :: (Prelude.Maybe JobExecutionsRetryConfigProperty),
                  jobExecutionsRolloutConfig :: (Prelude.Maybe JobExecutionsRolloutConfigProperty),
                  jobTemplateId :: (Value Prelude.Text),
+                 maintenanceWindows :: (Prelude.Maybe [MaintenanceWindowProperty]),
                  presignedUrlConfig :: (Prelude.Maybe PresignedUrlConfigProperty),
                  tags :: (Prelude.Maybe [Tag]),
                  timeoutConfig :: (Prelude.Maybe TimeoutConfigProperty)}
@@ -33,6 +35,7 @@ mkJobTemplate description jobTemplateId
        documentSource = Prelude.Nothing, jobArn = Prelude.Nothing,
        jobExecutionsRetryConfig = Prelude.Nothing,
        jobExecutionsRolloutConfig = Prelude.Nothing,
+       maintenanceWindows = Prelude.Nothing,
        presignedUrlConfig = Prelude.Nothing, tags = Prelude.Nothing,
        timeoutConfig = Prelude.Nothing}
 instance ToResourceProperties JobTemplate where
@@ -52,6 +55,7 @@ instance ToResourceProperties JobTemplate where
                                  Prelude.<$> jobExecutionsRetryConfig,
                                (JSON..=) "JobExecutionsRolloutConfig"
                                  Prelude.<$> jobExecutionsRolloutConfig,
+                               (JSON..=) "MaintenanceWindows" Prelude.<$> maintenanceWindows,
                                (JSON..=) "PresignedUrlConfig" Prelude.<$> presignedUrlConfig,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "TimeoutConfig" Prelude.<$> timeoutConfig]))}
@@ -71,6 +75,7 @@ instance JSON.ToJSON JobTemplate where
                     Prelude.<$> jobExecutionsRetryConfig,
                   (JSON..=) "JobExecutionsRolloutConfig"
                     Prelude.<$> jobExecutionsRolloutConfig,
+                  (JSON..=) "MaintenanceWindows" Prelude.<$> maintenanceWindows,
                   (JSON..=) "PresignedUrlConfig" Prelude.<$> presignedUrlConfig,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TimeoutConfig" Prelude.<$> timeoutConfig])))
@@ -108,6 +113,10 @@ instance Property "JobTemplateId" JobTemplate where
   type PropertyType "JobTemplateId" JobTemplate = Value Prelude.Text
   set newValue JobTemplate {..}
     = JobTemplate {jobTemplateId = newValue, ..}
+instance Property "MaintenanceWindows" JobTemplate where
+  type PropertyType "MaintenanceWindows" JobTemplate = [MaintenanceWindowProperty]
+  set newValue JobTemplate {..}
+    = JobTemplate {maintenanceWindows = Prelude.pure newValue, ..}
 instance Property "PresignedUrlConfig" JobTemplate where
   type PropertyType "PresignedUrlConfig" JobTemplate = PresignedUrlConfigProperty
   set newValue JobTemplate {..}

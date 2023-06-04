@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.DefaultGridLayoutConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultGridLayoutConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DefaultGridLayoutConfigurationProperty
+instance JSON.ToJSON DefaultGridLayoutConfigurationProperty

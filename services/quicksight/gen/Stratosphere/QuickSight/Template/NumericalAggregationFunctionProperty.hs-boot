@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.NumericalAggregationFunctionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NumericalAggregationFunctionProperty :: Prelude.Type
+instance ToResourceProperties NumericalAggregationFunctionProperty
+instance JSON.ToJSON NumericalAggregationFunctionProperty

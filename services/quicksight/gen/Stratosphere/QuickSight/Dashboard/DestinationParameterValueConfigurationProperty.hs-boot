@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.DestinationParameterValueConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DestinationParameterValueConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DestinationParameterValueConfigurationProperty
+instance JSON.ToJSON DestinationParameterValueConfigurationProperty

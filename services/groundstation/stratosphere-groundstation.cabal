@@ -42,12 +42,18 @@ library
       Stratosphere.GroundStation.Config.UplinkEchoConfigProperty
       Stratosphere.GroundStation.Config.UplinkSpectrumConfigProperty
       Stratosphere.GroundStation.DataflowEndpointGroup
+      Stratosphere.GroundStation.DataflowEndpointGroup.AwsGroundStationAgentEndpointProperty
+      Stratosphere.GroundStation.DataflowEndpointGroup.ConnectionDetailsProperty
       Stratosphere.GroundStation.DataflowEndpointGroup.DataflowEndpointProperty
       Stratosphere.GroundStation.DataflowEndpointGroup.EndpointDetailsProperty
+      Stratosphere.GroundStation.DataflowEndpointGroup.IntegerRangeProperty
+      Stratosphere.GroundStation.DataflowEndpointGroup.RangedConnectionDetailsProperty
+      Stratosphere.GroundStation.DataflowEndpointGroup.RangedSocketAddressProperty
       Stratosphere.GroundStation.DataflowEndpointGroup.SecurityDetailsProperty
       Stratosphere.GroundStation.DataflowEndpointGroup.SocketAddressProperty
       Stratosphere.GroundStation.MissionProfile
       Stratosphere.GroundStation.MissionProfile.DataflowEdgeProperty
+      Stratosphere.GroundStation.MissionProfile.StreamsKmsKeyProperty
   other-modules:
       Paths_stratosphere_groundstation
   hs-source-dirs:

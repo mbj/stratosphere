@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.TreeMapSortConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TreeMapSortConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TreeMapSortConfigurationProperty
+instance JSON.ToJSON TreeMapSortConfigurationProperty

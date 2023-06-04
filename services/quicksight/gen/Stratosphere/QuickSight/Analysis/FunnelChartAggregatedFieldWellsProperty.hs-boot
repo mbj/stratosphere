@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.FunnelChartAggregatedFieldWellsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FunnelChartAggregatedFieldWellsProperty :: Prelude.Type
+instance ToResourceProperties FunnelChartAggregatedFieldWellsProperty
+instance JSON.ToJSON FunnelChartAggregatedFieldWellsProperty

@@ -7,7 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionProperty
-  = EncryptionProperty {algorithm :: (Value Prelude.Text),
+  = EncryptionProperty {algorithm :: (Prelude.Maybe (Value Prelude.Text)),
                         constantInitializationVector :: (Prelude.Maybe (Value Prelude.Text)),
                         deviceId :: (Prelude.Maybe (Value Prelude.Text)),
                         keyType :: (Prelude.Maybe (Value Prelude.Text)),
@@ -16,11 +16,10 @@ data EncryptionProperty
                         roleArn :: (Value Prelude.Text),
                         secretArn :: (Prelude.Maybe (Value Prelude.Text)),
                         url :: (Prelude.Maybe (Value Prelude.Text))}
-mkEncryptionProperty ::
-  Value Prelude.Text -> Value Prelude.Text -> EncryptionProperty
-mkEncryptionProperty algorithm roleArn
+mkEncryptionProperty :: Value Prelude.Text -> EncryptionProperty
+mkEncryptionProperty roleArn
   = EncryptionProperty
-      {algorithm = algorithm, roleArn = roleArn,
+      {roleArn = roleArn, algorithm = Prelude.Nothing,
        constantInitializationVector = Prelude.Nothing,
        deviceId = Prelude.Nothing, keyType = Prelude.Nothing,
        region = Prelude.Nothing, resourceId = Prelude.Nothing,
@@ -32,9 +31,10 @@ instance ToResourceProperties EncryptionProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Algorithm" JSON..= algorithm, "RoleArn" JSON..= roleArn]
+                           ["RoleArn" JSON..= roleArn]
                            (Prelude.catMaybes
-                              [(JSON..=) "ConstantInitializationVector"
+                              [(JSON..=) "Algorithm" Prelude.<$> algorithm,
+                               (JSON..=) "ConstantInitializationVector"
                                  Prelude.<$> constantInitializationVector,
                                (JSON..=) "DeviceId" Prelude.<$> deviceId,
                                (JSON..=) "KeyType" Prelude.<$> keyType,
@@ -47,9 +47,10 @@ instance JSON.ToJSON EncryptionProperty where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Algorithm" JSON..= algorithm, "RoleArn" JSON..= roleArn]
+              ["RoleArn" JSON..= roleArn]
               (Prelude.catMaybes
-                 [(JSON..=) "ConstantInitializationVector"
+                 [(JSON..=) "Algorithm" Prelude.<$> algorithm,
+                  (JSON..=) "ConstantInitializationVector"
                     Prelude.<$> constantInitializationVector,
                   (JSON..=) "DeviceId" Prelude.<$> deviceId,
                   (JSON..=) "KeyType" Prelude.<$> keyType,
@@ -60,7 +61,7 @@ instance JSON.ToJSON EncryptionProperty where
 instance Property "Algorithm" EncryptionProperty where
   type PropertyType "Algorithm" EncryptionProperty = Value Prelude.Text
   set newValue EncryptionProperty {..}
-    = EncryptionProperty {algorithm = newValue, ..}
+    = EncryptionProperty {algorithm = Prelude.pure newValue, ..}
 instance Property "ConstantInitializationVector" EncryptionProperty where
   type PropertyType "ConstantInitializationVector" EncryptionProperty = Value Prelude.Text
   set newValue EncryptionProperty {..}

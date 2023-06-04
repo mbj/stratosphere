@@ -13,6 +13,7 @@ data Application
                  engineType :: (Value Prelude.Text),
                  kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                  name :: (Value Prelude.Text),
+                 roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
 mkApplication ::
   DefinitionProperty
@@ -21,7 +22,7 @@ mkApplication definition engineType name
   = Application
       {definition = definition, engineType = engineType, name = name,
        description = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       roleArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
@@ -33,6 +34,7 @@ instance ToResourceProperties Application where
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                               (JSON..=) "RoleArn" Prelude.<$> roleArn,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Application where
   toJSON Application {..}
@@ -44,6 +46,7 @@ instance JSON.ToJSON Application where
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                  (JSON..=) "RoleArn" Prelude.<$> roleArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Definition" Application where
   type PropertyType "Definition" Application = DefinitionProperty
@@ -64,6 +67,10 @@ instance Property "KmsKeyId" Application where
 instance Property "Name" Application where
   type PropertyType "Name" Application = Value Prelude.Text
   set newValue Application {..} = Application {name = newValue, ..}
+instance Property "RoleArn" Application where
+  type PropertyType "RoleArn" Application = Value Prelude.Text
+  set newValue Application {..}
+    = Application {roleArn = Prelude.pure newValue, ..}
 instance Property "Tags" Application where
   type PropertyType "Tags" Application = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue Application {..}

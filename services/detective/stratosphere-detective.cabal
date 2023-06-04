@@ -27,6 +27,7 @@ library
   exposed-modules:
       Stratosphere.Detective.Graph
       Stratosphere.Detective.MemberInvitation
+      Stratosphere.Detective.OrganizationAdmin
   other-modules:
       Paths_stratosphere_detective
   hs-source-dirs:

@@ -1,0 +1,7 @@
+module Stratosphere.GroundStation.DataflowEndpointGroup.IntegerRangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IntegerRangeProperty :: Prelude.Type
+instance ToResourceProperties IntegerRangeProperty
+instance JSON.ToJSON IntegerRangeProperty

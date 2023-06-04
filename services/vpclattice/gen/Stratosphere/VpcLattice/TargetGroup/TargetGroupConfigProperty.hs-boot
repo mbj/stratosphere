@@ -1,0 +1,7 @@
+module Stratosphere.VpcLattice.TargetGroup.TargetGroupConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetGroupConfigProperty :: Prelude.Type
+instance ToResourceProperties TargetGroupConfigProperty
+instance JSON.ToJSON TargetGroupConfigProperty

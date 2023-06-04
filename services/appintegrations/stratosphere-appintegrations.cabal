@@ -26,11 +26,10 @@ flag development
 library
   exposed-modules:
       Stratosphere.AppIntegrations.DataIntegration
+      Stratosphere.AppIntegrations.DataIntegration.FileConfigurationProperty
       Stratosphere.AppIntegrations.DataIntegration.ScheduleConfigProperty
       Stratosphere.AppIntegrations.EventIntegration
       Stratosphere.AppIntegrations.EventIntegration.EventFilterProperty
-      Stratosphere.AppIntegrations.EventIntegration.EventIntegrationAssociationProperty
-      Stratosphere.AppIntegrations.EventIntegration.MetadataProperty
   other-modules:
       Paths_stratosphere_appintegrations
   hs-source-dirs:

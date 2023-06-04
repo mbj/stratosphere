@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ClusterParameterGroup
   = ClusterParameterGroup {description :: (Value Prelude.Text),
                            parameterGroupFamily :: (Value Prelude.Text),
+                           parameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                            parameters :: (Prelude.Maybe [ParameterProperty]),
                            tags :: (Prelude.Maybe [Tag])}
 mkClusterParameterGroup ::
@@ -19,7 +20,8 @@ mkClusterParameterGroup description parameterGroupFamily
   = ClusterParameterGroup
       {description = description,
        parameterGroupFamily = parameterGroupFamily,
-       parameters = Prelude.Nothing, tags = Prelude.Nothing}
+       parameterGroupName = Prelude.Nothing, parameters = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties ClusterParameterGroup where
   toResourceProperties ClusterParameterGroup {..}
     = ResourceProperties
@@ -30,7 +32,8 @@ instance ToResourceProperties ClusterParameterGroup where
                            ["Description" JSON..= description,
                             "ParameterGroupFamily" JSON..= parameterGroupFamily]
                            (Prelude.catMaybes
-                              [(JSON..=) "Parameters" Prelude.<$> parameters,
+                              [(JSON..=) "ParameterGroupName" Prelude.<$> parameterGroupName,
+                               (JSON..=) "Parameters" Prelude.<$> parameters,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON ClusterParameterGroup where
   toJSON ClusterParameterGroup {..}
@@ -40,7 +43,8 @@ instance JSON.ToJSON ClusterParameterGroup where
               ["Description" JSON..= description,
                "ParameterGroupFamily" JSON..= parameterGroupFamily]
               (Prelude.catMaybes
-                 [(JSON..=) "Parameters" Prelude.<$> parameters,
+                 [(JSON..=) "ParameterGroupName" Prelude.<$> parameterGroupName,
+                  (JSON..=) "Parameters" Prelude.<$> parameters,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" ClusterParameterGroup where
   type PropertyType "Description" ClusterParameterGroup = Value Prelude.Text
@@ -50,6 +54,11 @@ instance Property "ParameterGroupFamily" ClusterParameterGroup where
   type PropertyType "ParameterGroupFamily" ClusterParameterGroup = Value Prelude.Text
   set newValue ClusterParameterGroup {..}
     = ClusterParameterGroup {parameterGroupFamily = newValue, ..}
+instance Property "ParameterGroupName" ClusterParameterGroup where
+  type PropertyType "ParameterGroupName" ClusterParameterGroup = Value Prelude.Text
+  set newValue ClusterParameterGroup {..}
+    = ClusterParameterGroup
+        {parameterGroupName = Prelude.pure newValue, ..}
 instance Property "Parameters" ClusterParameterGroup where
   type PropertyType "Parameters" ClusterParameterGroup = [ParameterProperty]
   set newValue ClusterParameterGroup {..}

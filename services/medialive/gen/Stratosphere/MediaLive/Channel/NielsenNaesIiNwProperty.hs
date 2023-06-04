@@ -8,11 +8,13 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NielsenNaesIiNwProperty
   = NielsenNaesIiNwProperty {checkDigitString :: (Prelude.Maybe (Value Prelude.Text)),
-                             sid :: (Prelude.Maybe (Value Prelude.Double))}
+                             sid :: (Prelude.Maybe (Value Prelude.Double)),
+                             timezone :: (Prelude.Maybe (Value Prelude.Text))}
 mkNielsenNaesIiNwProperty :: NielsenNaesIiNwProperty
 mkNielsenNaesIiNwProperty
   = NielsenNaesIiNwProperty
-      {checkDigitString = Prelude.Nothing, sid = Prelude.Nothing}
+      {checkDigitString = Prelude.Nothing, sid = Prelude.Nothing,
+       timezone = Prelude.Nothing}
 instance ToResourceProperties NielsenNaesIiNwProperty where
   toResourceProperties NielsenNaesIiNwProperty {..}
     = ResourceProperties
@@ -21,14 +23,16 @@ instance ToResourceProperties NielsenNaesIiNwProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CheckDigitString" Prelude.<$> checkDigitString,
-                            (JSON..=) "Sid" Prelude.<$> sid])}
+                            (JSON..=) "Sid" Prelude.<$> sid,
+                            (JSON..=) "Timezone" Prelude.<$> timezone])}
 instance JSON.ToJSON NielsenNaesIiNwProperty where
   toJSON NielsenNaesIiNwProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "CheckDigitString" Prelude.<$> checkDigitString,
-               (JSON..=) "Sid" Prelude.<$> sid]))
+               (JSON..=) "Sid" Prelude.<$> sid,
+               (JSON..=) "Timezone" Prelude.<$> timezone]))
 instance Property "CheckDigitString" NielsenNaesIiNwProperty where
   type PropertyType "CheckDigitString" NielsenNaesIiNwProperty = Value Prelude.Text
   set newValue NielsenNaesIiNwProperty {..}
@@ -38,3 +42,7 @@ instance Property "Sid" NielsenNaesIiNwProperty where
   type PropertyType "Sid" NielsenNaesIiNwProperty = Value Prelude.Double
   set newValue NielsenNaesIiNwProperty {..}
     = NielsenNaesIiNwProperty {sid = Prelude.pure newValue, ..}
+instance Property "Timezone" NielsenNaesIiNwProperty where
+  type PropertyType "Timezone" NielsenNaesIiNwProperty = Value Prelude.Text
+  set newValue NielsenNaesIiNwProperty {..}
+    = NielsenNaesIiNwProperty {timezone = Prelude.pure newValue, ..}

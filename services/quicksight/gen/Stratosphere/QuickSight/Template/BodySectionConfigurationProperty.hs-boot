@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.BodySectionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BodySectionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BodySectionConfigurationProperty
+instance JSON.ToJSON BodySectionConfigurationProperty

@@ -32,6 +32,8 @@ library
       Stratosphere.NetworkFirewall.FirewallPolicy.CustomActionProperty
       Stratosphere.NetworkFirewall.FirewallPolicy.DimensionProperty
       Stratosphere.NetworkFirewall.FirewallPolicy.FirewallPolicyProperty
+      Stratosphere.NetworkFirewall.FirewallPolicy.IPSetProperty
+      Stratosphere.NetworkFirewall.FirewallPolicy.PolicyVariablesProperty
       Stratosphere.NetworkFirewall.FirewallPolicy.PublishMetricActionProperty
       Stratosphere.NetworkFirewall.FirewallPolicy.StatefulEngineOptionsProperty
       Stratosphere.NetworkFirewall.FirewallPolicy.StatefulRuleGroupOverrideProperty

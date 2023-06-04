@@ -1,0 +1,7 @@
+module Stratosphere.GroundStation.DataflowEndpointGroup.ConnectionDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectionDetailsProperty :: Prelude.Type
+instance ToResourceProperties ConnectionDetailsProperty
+instance JSON.ToJSON ConnectionDetailsProperty

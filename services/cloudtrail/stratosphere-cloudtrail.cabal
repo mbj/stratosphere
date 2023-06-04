@@ -32,6 +32,8 @@ library
       Stratosphere.CloudTrail.EventDataStore.AdvancedFieldSelectorProperty
       Stratosphere.CloudTrail.ResourcePolicy
       Stratosphere.CloudTrail.Trail
+      Stratosphere.CloudTrail.Trail.AdvancedEventSelectorProperty
+      Stratosphere.CloudTrail.Trail.AdvancedFieldSelectorProperty
       Stratosphere.CloudTrail.Trail.DataResourceProperty
       Stratosphere.CloudTrail.Trail.EventSelectorProperty
       Stratosphere.CloudTrail.Trail.InsightSelectorProperty

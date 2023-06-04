@@ -14,6 +14,7 @@ data Deployment
                 deploymentName :: (Prelude.Maybe (Value Prelude.Text)),
                 deploymentPolicies :: (Prelude.Maybe DeploymentPoliciesProperty),
                 iotJobConfiguration :: (Prelude.Maybe DeploymentIoTJobConfigurationProperty),
+                parentTargetArn :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                 targetArn :: (Value Prelude.Text)}
 mkDeployment :: Value Prelude.Text -> Deployment
@@ -22,7 +23,8 @@ mkDeployment targetArn
       {targetArn = targetArn, components = Prelude.Nothing,
        deploymentName = Prelude.Nothing,
        deploymentPolicies = Prelude.Nothing,
-       iotJobConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
+       iotJobConfiguration = Prelude.Nothing,
+       parentTargetArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Deployment where
   toResourceProperties Deployment {..}
     = ResourceProperties
@@ -36,6 +38,7 @@ instance ToResourceProperties Deployment where
                                (JSON..=) "DeploymentName" Prelude.<$> deploymentName,
                                (JSON..=) "DeploymentPolicies" Prelude.<$> deploymentPolicies,
                                (JSON..=) "IotJobConfiguration" Prelude.<$> iotJobConfiguration,
+                               (JSON..=) "ParentTargetArn" Prelude.<$> parentTargetArn,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Deployment where
   toJSON Deployment {..}
@@ -48,6 +51,7 @@ instance JSON.ToJSON Deployment where
                   (JSON..=) "DeploymentName" Prelude.<$> deploymentName,
                   (JSON..=) "DeploymentPolicies" Prelude.<$> deploymentPolicies,
                   (JSON..=) "IotJobConfiguration" Prelude.<$> iotJobConfiguration,
+                  (JSON..=) "ParentTargetArn" Prelude.<$> parentTargetArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Components" Deployment where
   type PropertyType "Components" Deployment = Prelude.Map Prelude.Text ComponentDeploymentSpecificationProperty
@@ -65,6 +69,10 @@ instance Property "IotJobConfiguration" Deployment where
   type PropertyType "IotJobConfiguration" Deployment = DeploymentIoTJobConfigurationProperty
   set newValue Deployment {..}
     = Deployment {iotJobConfiguration = Prelude.pure newValue, ..}
+instance Property "ParentTargetArn" Deployment where
+  type PropertyType "ParentTargetArn" Deployment = Value Prelude.Text
+  set newValue Deployment {..}
+    = Deployment {parentTargetArn = Prelude.pure newValue, ..}
 instance Property "Tags" Deployment where
   type PropertyType "Tags" Deployment = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue Deployment {..}

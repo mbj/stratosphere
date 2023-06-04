@@ -23,6 +23,7 @@ data Table
   = Table {attributeDefinitions :: (Prelude.Maybe [AttributeDefinitionProperty]),
            billingMode :: (Prelude.Maybe (Value Prelude.Text)),
            contributorInsightsSpecification :: (Prelude.Maybe ContributorInsightsSpecificationProperty),
+           deletionProtectionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
            globalSecondaryIndexes :: (Prelude.Maybe [GlobalSecondaryIndexProperty]),
            importSourceSpecification :: (Prelude.Maybe ImportSourceSpecificationProperty),
            keySchema :: [KeySchemaProperty],
@@ -42,6 +43,7 @@ mkTable keySchema
       {keySchema = keySchema, attributeDefinitions = Prelude.Nothing,
        billingMode = Prelude.Nothing,
        contributorInsightsSpecification = Prelude.Nothing,
+       deletionProtectionEnabled = Prelude.Nothing,
        globalSecondaryIndexes = Prelude.Nothing,
        importSourceSpecification = Prelude.Nothing,
        kinesisStreamSpecification = Prelude.Nothing,
@@ -64,6 +66,8 @@ instance ToResourceProperties Table where
                                (JSON..=) "BillingMode" Prelude.<$> billingMode,
                                (JSON..=) "ContributorInsightsSpecification"
                                  Prelude.<$> contributorInsightsSpecification,
+                               (JSON..=) "DeletionProtectionEnabled"
+                                 Prelude.<$> deletionProtectionEnabled,
                                (JSON..=) "GlobalSecondaryIndexes"
                                  Prelude.<$> globalSecondaryIndexes,
                                (JSON..=) "ImportSourceSpecification"
@@ -94,6 +98,8 @@ instance JSON.ToJSON Table where
                   (JSON..=) "BillingMode" Prelude.<$> billingMode,
                   (JSON..=) "ContributorInsightsSpecification"
                     Prelude.<$> contributorInsightsSpecification,
+                  (JSON..=) "DeletionProtectionEnabled"
+                    Prelude.<$> deletionProtectionEnabled,
                   (JSON..=) "GlobalSecondaryIndexes"
                     Prelude.<$> globalSecondaryIndexes,
                   (JSON..=) "ImportSourceSpecification"
@@ -126,6 +132,10 @@ instance Property "ContributorInsightsSpecification" Table where
   set newValue Table {..}
     = Table
         {contributorInsightsSpecification = Prelude.pure newValue, ..}
+instance Property "DeletionProtectionEnabled" Table where
+  type PropertyType "DeletionProtectionEnabled" Table = Value Prelude.Bool
+  set newValue Table {..}
+    = Table {deletionProtectionEnabled = Prelude.pure newValue, ..}
 instance Property "GlobalSecondaryIndexes" Table where
   type PropertyType "GlobalSecondaryIndexes" Table = [GlobalSecondaryIndexProperty]
   set newValue Table {..}

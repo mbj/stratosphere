@@ -1,5 +1,444 @@
 ---
-resolver: nightly-2023-05-12
+resolver: nightly-2023-06-04
+flags:
+  stratosphere:
+    development: true
+  stratosphere-accessanalyzer:
+    development: true
+  stratosphere-acmpca:
+    development: true
+  stratosphere-amazonmq:
+    development: true
+  stratosphere-amplify:
+    development: true
+  stratosphere-amplifyuibuilder:
+    development: true
+  stratosphere-apigateway:
+    development: true
+  stratosphere-apigatewayv2:
+    development: true
+  stratosphere-appconfig:
+    development: true
+  stratosphere-appflow:
+    development: true
+  stratosphere-appintegrations:
+    development: true
+  stratosphere-applicationautoscaling:
+    development: true
+  stratosphere-applicationinsights:
+    development: true
+  stratosphere-appmesh:
+    development: true
+  stratosphere-apprunner:
+    development: true
+  stratosphere-appstream:
+    development: true
+  stratosphere-appsync:
+    development: true
+  stratosphere-aps:
+    development: true
+  stratosphere-ask:
+    development: true
+  stratosphere-athena:
+    development: true
+  stratosphere-auditmanager:
+    development: true
+  stratosphere-autoscaling:
+    development: true
+  stratosphere-autoscalingplans:
+    development: true
+  stratosphere-backup:
+    development: true
+  stratosphere-backupgateway:
+    development: true
+  stratosphere-batch:
+    development: true
+  stratosphere-billingconductor:
+    development: true
+  stratosphere-budgets:
+    development: true
+  stratosphere-cassandra:
+    development: true
+  stratosphere-ce:
+    development: true
+  stratosphere-certificatemanager:
+    development: true
+  stratosphere-chatbot:
+    development: true
+  stratosphere-cloud9:
+    development: true
+  stratosphere-cloudformation:
+    development: true
+  stratosphere-cloudfront:
+    development: true
+  stratosphere-cloudtrail:
+    development: true
+  stratosphere-cloudwatch:
+    development: true
+  stratosphere-codeartifact:
+    development: true
+  stratosphere-codebuild:
+    development: true
+  stratosphere-codecommit:
+    development: true
+  stratosphere-codedeploy:
+    development: true
+  stratosphere-codeguruprofiler:
+    development: true
+  stratosphere-codegurureviewer:
+    development: true
+  stratosphere-codepipeline:
+    development: true
+  stratosphere-codestar:
+    development: true
+  stratosphere-codestarconnections:
+    development: true
+  stratosphere-codestarnotifications:
+    development: true
+  stratosphere-cognito:
+    development: true
+  stratosphere-comprehend:
+    development: true
+  stratosphere-config:
+    development: true
+  stratosphere-connect:
+    development: true
+  stratosphere-connectcampaigns:
+    development: true
+  stratosphere-controltower:
+    development: true
+  stratosphere-cur:
+    development: true
+  stratosphere-customerprofiles:
+    development: true
+  stratosphere-databrew:
+    development: true
+  stratosphere-datapipeline:
+    development: true
+  stratosphere-datasync:
+    development: true
+  stratosphere-dax:
+    development: true
+  stratosphere-detective:
+    development: true
+  stratosphere-devopsguru:
+    development: true
+  stratosphere-directoryservice:
+    development: true
+  stratosphere-dlm:
+    development: true
+  stratosphere-dms:
+    development: true
+  stratosphere-docdb:
+    development: true
+  stratosphere-docdbelastic:
+    development: true
+  stratosphere-dynamodb:
+    development: true
+  stratosphere-ec2:
+    development: true
+  stratosphere-ecr:
+    development: true
+  stratosphere-ecs:
+    development: true
+  stratosphere-efs:
+    development: true
+  stratosphere-eks:
+    development: true
+  stratosphere-elasticache:
+    development: true
+  stratosphere-elasticbeanstalk:
+    development: true
+  stratosphere-elasticloadbalancing:
+    development: true
+  stratosphere-elasticloadbalancingv2:
+    development: true
+  stratosphere-elasticsearch:
+    development: true
+  stratosphere-emr:
+    development: true
+  stratosphere-emrcontainers:
+    development: true
+  stratosphere-emrserverless:
+    development: true
+  stratosphere-events:
+    development: true
+  stratosphere-eventschemas:
+    development: true
+  stratosphere-evidently:
+    development: true
+  stratosphere-finspace:
+    development: true
+  stratosphere-fis:
+    development: true
+  stratosphere-fms:
+    development: true
+  stratosphere-forecast:
+    development: true
+  stratosphere-frauddetector:
+    development: true
+  stratosphere-fsx:
+    development: true
+  stratosphere-gamelift:
+    development: true
+  stratosphere-globalaccelerator:
+    development: true
+  stratosphere-glue:
+    development: true
+  stratosphere-grafana:
+    development: true
+  stratosphere-greengrass:
+    development: true
+  stratosphere-greengrassv2:
+    development: true
+  stratosphere-groundstation:
+    development: true
+  stratosphere-guardduty:
+    development: true
+  stratosphere-healthlake:
+    development: true
+  stratosphere-iam:
+    development: true
+  stratosphere-identitystore:
+    development: true
+  stratosphere-imagebuilder:
+    development: true
+  stratosphere-inspector:
+    development: true
+  stratosphere-inspectorv2:
+    development: true
+  stratosphere-internetmonitor:
+    development: true
+  stratosphere-iot:
+    development: true
+  stratosphere-iot1click:
+    development: true
+  stratosphere-iotanalytics:
+    development: true
+  stratosphere-iotcoredeviceadvisor:
+    development: true
+  stratosphere-iotevents:
+    development: true
+  stratosphere-iotfleethub:
+    development: true
+  stratosphere-iotfleetwise:
+    development: true
+  stratosphere-iotsitewise:
+    development: true
+  stratosphere-iotthingsgraph:
+    development: true
+  stratosphere-iottwinmaker:
+    development: true
+  stratosphere-iotwireless:
+    development: true
+  stratosphere-ivs:
+    development: true
+  stratosphere-ivschat:
+    development: true
+  stratosphere-kafkaconnect:
+    development: true
+  stratosphere-kendra:
+    development: true
+  stratosphere-kendraranking:
+    development: true
+  stratosphere-kinesis:
+    development: true
+  stratosphere-kinesisanalytics:
+    development: true
+  stratosphere-kinesisanalyticsv2:
+    development: true
+  stratosphere-kinesisfirehose:
+    development: true
+  stratosphere-kinesisvideo:
+    development: true
+  stratosphere-kms:
+    development: true
+  stratosphere-lakeformation:
+    development: true
+  stratosphere-lambda:
+    development: true
+  stratosphere-lex:
+    development: true
+  stratosphere-licensemanager:
+    development: true
+  stratosphere-lightsail:
+    development: true
+  stratosphere-location:
+    development: true
+  stratosphere-logs:
+    development: true
+  stratosphere-lookoutequipment:
+    development: true
+  stratosphere-lookoutmetrics:
+    development: true
+  stratosphere-lookoutvision:
+    development: true
+  stratosphere-m2:
+    development: true
+  stratosphere-macie:
+    development: true
+  stratosphere-managedblockchain:
+    development: true
+  stratosphere-mediaconnect:
+    development: true
+  stratosphere-mediaconvert:
+    development: true
+  stratosphere-medialive:
+    development: true
+  stratosphere-mediapackage:
+    development: true
+  stratosphere-mediastore:
+    development: true
+  stratosphere-mediatailor:
+    development: true
+  stratosphere-memorydb:
+    development: true
+  stratosphere-msk:
+    development: true
+  stratosphere-mwaa:
+    development: true
+  stratosphere-neptune:
+    development: true
+  stratosphere-networkfirewall:
+    development: true
+  stratosphere-networkmanager:
+    development: true
+  stratosphere-nimblestudio:
+    development: true
+  stratosphere-oam:
+    development: true
+  stratosphere-omics:
+    development: true
+  stratosphere-opensearchserverless:
+    development: true
+  stratosphere-opensearchservice:
+    development: true
+  stratosphere-opsworks:
+    development: true
+  stratosphere-opsworkscm:
+    development: true
+  stratosphere-organizations:
+    development: true
+  stratosphere-osis:
+    development: true
+  stratosphere-panorama:
+    development: true
+  stratosphere-personalize:
+    development: true
+  stratosphere-pinpoint:
+    development: true
+  stratosphere-pinpointemail:
+    development: true
+  stratosphere-pipes:
+    development: true
+  stratosphere-proton:
+    development: true
+  stratosphere-qldb:
+    development: true
+  stratosphere-quicksight:
+    development: true
+  stratosphere-ram:
+    development: true
+  stratosphere-rds:
+    development: true
+  stratosphere-redshift:
+    development: true
+  stratosphere-redshiftserverless:
+    development: true
+  stratosphere-refactorspaces:
+    development: true
+  stratosphere-rekognition:
+    development: true
+  stratosphere-resiliencehub:
+    development: true
+  stratosphere-resourceexplorer2:
+    development: true
+  stratosphere-resourcegroups:
+    development: true
+  stratosphere-robomaker:
+    development: true
+  stratosphere-rolesanywhere:
+    development: true
+  stratosphere-route53:
+    development: true
+  stratosphere-route53recoverycontrol:
+    development: true
+  stratosphere-route53recoveryreadiness:
+    development: true
+  stratosphere-route53resolver:
+    development: true
+  stratosphere-rum:
+    development: true
+  stratosphere-s3:
+    development: true
+  stratosphere-s3objectlambda:
+    development: true
+  stratosphere-s3outposts:
+    development: true
+  stratosphere-sagemaker:
+    development: true
+  stratosphere-scheduler:
+    development: true
+  stratosphere-sdb:
+    development: true
+  stratosphere-secretsmanager:
+    development: true
+  stratosphere-securityhub:
+    development: true
+  stratosphere-servicecatalog:
+    development: true
+  stratosphere-servicecatalogappregistry:
+    development: true
+  stratosphere-servicediscovery:
+    development: true
+  stratosphere-ses:
+    development: true
+  stratosphere-shield:
+    development: true
+  stratosphere-signer:
+    development: true
+  stratosphere-simspaceweaver:
+    development: true
+  stratosphere-sns:
+    development: true
+  stratosphere-sqs:
+    development: true
+  stratosphere-ssm:
+    development: true
+  stratosphere-ssmcontacts:
+    development: true
+  stratosphere-ssmincidents:
+    development: true
+  stratosphere-sso:
+    development: true
+  stratosphere-stepfunctions:
+    development: true
+  stratosphere-supportapp:
+    development: true
+  stratosphere-synthetics:
+    development: true
+  stratosphere-systemsmanagersap:
+    development: true
+  stratosphere-timestream:
+    development: true
+  stratosphere-transfer:
+    development: true
+  stratosphere-voiceid:
+    development: true
+  stratosphere-vpclattice:
+    development: true
+  stratosphere-waf:
+    development: true
+  stratosphere-wafregional:
+    development: true
+  stratosphere-wafv2:
+    development: true
+  stratosphere-wisdom:
+    development: true
+  stratosphere-workspaces:
+    development: true
+  stratosphere-xray:
+    development: true
 packages:
 # - generator, no ghc-source-gen release for 9.4 ATM
 - .
@@ -27,6 +466,7 @@ packages:
 - services/autoscaling
 - services/autoscalingplans
 - services/backup
+- services/backupgateway
 - services/batch
 - services/billingconductor
 - services/budgets
@@ -50,6 +490,7 @@ packages:
 - services/codestarconnections
 - services/codestarnotifications
 - services/cognito
+- services/comprehend
 - services/config
 - services/connect
 - services/connectcampaigns
@@ -104,6 +545,7 @@ packages:
 - services/imagebuilder
 - services/inspector
 - services/inspectorv2
+- services/internetmonitor
 - services/iot
 - services/iot1click
 - services/iotanalytics
@@ -116,6 +558,7 @@ packages:
 - services/iottwinmaker
 - services/iotwireless
 - services/ivs
+- services/ivschat
 - services/kafkaconnect
 - services/kendra
 - services/kendraranking
@@ -152,16 +595,19 @@ packages:
 - services/networkmanager
 - services/nimblestudio
 - services/oam
+- services/omics
 - services/opensearchserverless
 - services/opensearchservice
 - services/opsworks
 - services/opsworkscm
 - services/organizations
+- services/osis
 - services/panorama
 - services/personalize
 - services/pinpoint
 - services/pinpointemail
 - services/pipes
+- services/proton
 - services/qldb
 - services/quicksight
 - services/ram
@@ -192,7 +638,9 @@ packages:
 - services/servicecatalogappregistry
 - services/servicediscovery
 - services/ses
+- services/shield
 - services/signer
+- services/simspaceweaver
 - services/sns
 - services/sqs
 - services/ssm
@@ -202,9 +650,11 @@ packages:
 - services/stepfunctions
 - services/supportapp
 - services/synthetics
+- services/systemsmanagersap
 - services/timestream
 - services/transfer
 - services/voiceid
+- services/vpclattice
 - services/waf
 - services/wafregional
 - services/wafv2

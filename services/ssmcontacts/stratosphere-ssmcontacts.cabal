@@ -31,6 +31,17 @@ library
       Stratosphere.SSMContacts.Contact.StageProperty
       Stratosphere.SSMContacts.Contact.TargetsProperty
       Stratosphere.SSMContacts.ContactChannel
+      Stratosphere.SSMContacts.Plan
+      Stratosphere.SSMContacts.Plan.ChannelTargetInfoProperty
+      Stratosphere.SSMContacts.Plan.ContactTargetInfoProperty
+      Stratosphere.SSMContacts.Plan.StageProperty
+      Stratosphere.SSMContacts.Plan.TargetsProperty
+      Stratosphere.SSMContacts.Rotation
+      Stratosphere.SSMContacts.Rotation.CoverageTimeProperty
+      Stratosphere.SSMContacts.Rotation.MonthlySettingProperty
+      Stratosphere.SSMContacts.Rotation.RecurrenceSettingsProperty
+      Stratosphere.SSMContacts.Rotation.ShiftCoverageProperty
+      Stratosphere.SSMContacts.Rotation.WeeklySettingProperty
   other-modules:
       Paths_stratosphere_ssmcontacts
   hs-source-dirs:

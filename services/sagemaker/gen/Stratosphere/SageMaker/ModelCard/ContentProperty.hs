@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.BusinessDetailsProperty a
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.EvaluationDetailProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.IntendedUsesProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.ModelOverviewProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.ModelPackageDetailsProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.TrainingDetailsProperty as Exports
 import Stratosphere.ResourceProperties
 data ContentProperty
@@ -17,6 +18,7 @@ data ContentProperty
                      evaluationDetails :: (Prelude.Maybe [EvaluationDetailProperty]),
                      intendedUses :: (Prelude.Maybe IntendedUsesProperty),
                      modelOverview :: (Prelude.Maybe ModelOverviewProperty),
+                     modelPackageDetails :: (Prelude.Maybe ModelPackageDetailsProperty),
                      trainingDetails :: (Prelude.Maybe TrainingDetailsProperty)}
 mkContentProperty :: ContentProperty
 mkContentProperty
@@ -25,6 +27,7 @@ mkContentProperty
        businessDetails = Prelude.Nothing,
        evaluationDetails = Prelude.Nothing,
        intendedUses = Prelude.Nothing, modelOverview = Prelude.Nothing,
+       modelPackageDetails = Prelude.Nothing,
        trainingDetails = Prelude.Nothing}
 instance ToResourceProperties ContentProperty where
   toResourceProperties ContentProperty {..}
@@ -39,6 +42,7 @@ instance ToResourceProperties ContentProperty where
                             (JSON..=) "EvaluationDetails" Prelude.<$> evaluationDetails,
                             (JSON..=) "IntendedUses" Prelude.<$> intendedUses,
                             (JSON..=) "ModelOverview" Prelude.<$> modelOverview,
+                            (JSON..=) "ModelPackageDetails" Prelude.<$> modelPackageDetails,
                             (JSON..=) "TrainingDetails" Prelude.<$> trainingDetails])}
 instance JSON.ToJSON ContentProperty where
   toJSON ContentProperty {..}
@@ -51,6 +55,7 @@ instance JSON.ToJSON ContentProperty where
                (JSON..=) "EvaluationDetails" Prelude.<$> evaluationDetails,
                (JSON..=) "IntendedUses" Prelude.<$> intendedUses,
                (JSON..=) "ModelOverview" Prelude.<$> modelOverview,
+               (JSON..=) "ModelPackageDetails" Prelude.<$> modelPackageDetails,
                (JSON..=) "TrainingDetails" Prelude.<$> trainingDetails]))
 instance Property "AdditionalInformation" ContentProperty where
   type PropertyType "AdditionalInformation" ContentProperty = AdditionalInformationProperty
@@ -73,6 +78,10 @@ instance Property "ModelOverview" ContentProperty where
   type PropertyType "ModelOverview" ContentProperty = ModelOverviewProperty
   set newValue ContentProperty {..}
     = ContentProperty {modelOverview = Prelude.pure newValue, ..}
+instance Property "ModelPackageDetails" ContentProperty where
+  type PropertyType "ModelPackageDetails" ContentProperty = ModelPackageDetailsProperty
+  set newValue ContentProperty {..}
+    = ContentProperty {modelPackageDetails = Prelude.pure newValue, ..}
 instance Property "TrainingDetails" ContentProperty where
   type PropertyType "TrainingDetails" ContentProperty = TrainingDetailsProperty
   set newValue ContentProperty {..}

@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EnvironmentProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EphemeralStorageProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.FargatePlatformConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.LinuxParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.LogConfigurationProperty as Exports
@@ -20,6 +21,7 @@ import Stratosphere.Value
 data ContainerPropertiesProperty
   = ContainerPropertiesProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  environment :: (Prelude.Maybe [EnvironmentProperty]),
+                                 ephemeralStorage :: (Prelude.Maybe EphemeralStorageProperty),
                                  executionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                  fargatePlatformConfiguration :: (Prelude.Maybe FargatePlatformConfigurationProperty),
                                  image :: (Value Prelude.Text),
@@ -43,7 +45,8 @@ mkContainerPropertiesProperty ::
 mkContainerPropertiesProperty image
   = ContainerPropertiesProperty
       {image = image, command = Prelude.Nothing,
-       environment = Prelude.Nothing, executionRoleArn = Prelude.Nothing,
+       environment = Prelude.Nothing, ephemeralStorage = Prelude.Nothing,
+       executionRoleArn = Prelude.Nothing,
        fargatePlatformConfiguration = Prelude.Nothing,
        instanceType = Prelude.Nothing, jobRoleArn = Prelude.Nothing,
        linuxParameters = Prelude.Nothing,
@@ -66,6 +69,7 @@ instance ToResourceProperties ContainerPropertiesProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "Command" Prelude.<$> command,
                                (JSON..=) "Environment" Prelude.<$> environment,
+                               (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
                                (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                                (JSON..=) "FargatePlatformConfiguration"
                                  Prelude.<$> fargatePlatformConfiguration,
@@ -94,6 +98,7 @@ instance JSON.ToJSON ContainerPropertiesProperty where
               (Prelude.catMaybes
                  [(JSON..=) "Command" Prelude.<$> command,
                   (JSON..=) "Environment" Prelude.<$> environment,
+                  (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
                   (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                   (JSON..=) "FargatePlatformConfiguration"
                     Prelude.<$> fargatePlatformConfiguration,
@@ -122,6 +127,11 @@ instance Property "Environment" ContainerPropertiesProperty where
   set newValue ContainerPropertiesProperty {..}
     = ContainerPropertiesProperty
         {environment = Prelude.pure newValue, ..}
+instance Property "EphemeralStorage" ContainerPropertiesProperty where
+  type PropertyType "EphemeralStorage" ContainerPropertiesProperty = EphemeralStorageProperty
+  set newValue ContainerPropertiesProperty {..}
+    = ContainerPropertiesProperty
+        {ephemeralStorage = Prelude.pure newValue, ..}
 instance Property "ExecutionRoleArn" ContainerPropertiesProperty where
   type PropertyType "ExecutionRoleArn" ContainerPropertiesProperty = Value Prelude.Text
   set newValue ContainerPropertiesProperty {..}

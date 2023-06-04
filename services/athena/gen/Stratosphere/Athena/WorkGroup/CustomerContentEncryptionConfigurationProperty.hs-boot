@@ -1,0 +1,7 @@
+module Stratosphere.Athena.WorkGroup.CustomerContentEncryptionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomerContentEncryptionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CustomerContentEncryptionConfigurationProperty
+instance JSON.ToJSON CustomerContentEncryptionConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.DecimalDatasetParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DecimalDatasetParameterProperty :: Prelude.Type
+instance ToResourceProperties DecimalDatasetParameterProperty
+instance JSON.ToJSON DecimalDatasetParameterProperty

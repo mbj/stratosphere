@@ -4,14 +4,17 @@ module Stratosphere.AppIntegrations.DataIntegration (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AppIntegrations.DataIntegration.FileConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppIntegrations.DataIntegration.ScheduleConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DataIntegration
   = DataIntegration {description :: (Prelude.Maybe (Value Prelude.Text)),
+                     fileConfiguration :: (Prelude.Maybe FileConfigurationProperty),
                      kmsKey :: (Value Prelude.Text),
                      name :: (Value Prelude.Text),
+                     objectConfiguration :: (Prelude.Maybe JSON.Object),
                      scheduleConfig :: ScheduleConfigProperty,
                      sourceURI :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag])}
@@ -23,7 +26,8 @@ mkDataIntegration kmsKey name scheduleConfig sourceURI
   = DataIntegration
       {kmsKey = kmsKey, name = name, scheduleConfig = scheduleConfig,
        sourceURI = sourceURI, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       fileConfiguration = Prelude.Nothing,
+       objectConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DataIntegration where
   toResourceProperties DataIntegration {..}
     = ResourceProperties
@@ -36,6 +40,8 @@ instance ToResourceProperties DataIntegration where
                             "SourceURI" JSON..= sourceURI]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "FileConfiguration" Prelude.<$> fileConfiguration,
+                               (JSON..=) "ObjectConfiguration" Prelude.<$> objectConfiguration,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON DataIntegration where
   toJSON DataIntegration {..}
@@ -47,11 +53,17 @@ instance JSON.ToJSON DataIntegration where
                "SourceURI" JSON..= sourceURI]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "FileConfiguration" Prelude.<$> fileConfiguration,
+                  (JSON..=) "ObjectConfiguration" Prelude.<$> objectConfiguration,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" DataIntegration where
   type PropertyType "Description" DataIntegration = Value Prelude.Text
   set newValue DataIntegration {..}
     = DataIntegration {description = Prelude.pure newValue, ..}
+instance Property "FileConfiguration" DataIntegration where
+  type PropertyType "FileConfiguration" DataIntegration = FileConfigurationProperty
+  set newValue DataIntegration {..}
+    = DataIntegration {fileConfiguration = Prelude.pure newValue, ..}
 instance Property "KmsKey" DataIntegration where
   type PropertyType "KmsKey" DataIntegration = Value Prelude.Text
   set newValue DataIntegration {..}
@@ -60,6 +72,10 @@ instance Property "Name" DataIntegration where
   type PropertyType "Name" DataIntegration = Value Prelude.Text
   set newValue DataIntegration {..}
     = DataIntegration {name = newValue, ..}
+instance Property "ObjectConfiguration" DataIntegration where
+  type PropertyType "ObjectConfiguration" DataIntegration = JSON.Object
+  set newValue DataIntegration {..}
+    = DataIntegration {objectConfiguration = Prelude.pure newValue, ..}
 instance Property "ScheduleConfig" DataIntegration where
   type PropertyType "ScheduleConfig" DataIntegration = ScheduleConfigProperty
   set newValue DataIntegration {..}

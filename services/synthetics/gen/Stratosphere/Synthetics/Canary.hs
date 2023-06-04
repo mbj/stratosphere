@@ -17,14 +17,13 @@ data Canary
   = Canary {artifactConfig :: (Prelude.Maybe ArtifactConfigProperty),
             artifactS3Location :: (Value Prelude.Text),
             code :: CodeProperty,
-            deleteLambdaResourcesOnCanaryDeletion :: (Prelude.Maybe (Value Prelude.Bool)),
             executionRoleArn :: (Value Prelude.Text),
             failureRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
             name :: (Value Prelude.Text),
             runConfig :: (Prelude.Maybe RunConfigProperty),
             runtimeVersion :: (Value Prelude.Text),
             schedule :: ScheduleProperty,
-            startCanaryAfterCreation :: (Value Prelude.Bool),
+            startCanaryAfterCreation :: (Prelude.Maybe (Value Prelude.Bool)),
             successRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
             tags :: (Prelude.Maybe [Tag]),
             vPCConfig :: (Prelude.Maybe VPCConfigProperty),
@@ -34,8 +33,7 @@ mkCanary ::
   -> CodeProperty
      -> Value Prelude.Text
         -> Value Prelude.Text
-           -> Value Prelude.Text
-              -> ScheduleProperty -> Value Prelude.Bool -> Canary
+           -> Value Prelude.Text -> ScheduleProperty -> Canary
 mkCanary
   artifactS3Location
   code
@@ -43,16 +41,14 @@ mkCanary
   name
   runtimeVersion
   schedule
-  startCanaryAfterCreation
   = Canary
       {artifactS3Location = artifactS3Location, code = code,
        executionRoleArn = executionRoleArn, name = name,
        runtimeVersion = runtimeVersion, schedule = schedule,
-       startCanaryAfterCreation = startCanaryAfterCreation,
        artifactConfig = Prelude.Nothing,
-       deleteLambdaResourcesOnCanaryDeletion = Prelude.Nothing,
        failureRetentionPeriod = Prelude.Nothing,
        runConfig = Prelude.Nothing,
+       startCanaryAfterCreation = Prelude.Nothing,
        successRetentionPeriod = Prelude.Nothing, tags = Prelude.Nothing,
        vPCConfig = Prelude.Nothing, visualReference = Prelude.Nothing}
 instance ToResourceProperties Canary where
@@ -64,15 +60,14 @@ instance ToResourceProperties Canary where
                            ["ArtifactS3Location" JSON..= artifactS3Location,
                             "Code" JSON..= code, "ExecutionRoleArn" JSON..= executionRoleArn,
                             "Name" JSON..= name, "RuntimeVersion" JSON..= runtimeVersion,
-                            "Schedule" JSON..= schedule,
-                            "StartCanaryAfterCreation" JSON..= startCanaryAfterCreation]
+                            "Schedule" JSON..= schedule]
                            (Prelude.catMaybes
                               [(JSON..=) "ArtifactConfig" Prelude.<$> artifactConfig,
-                               (JSON..=) "DeleteLambdaResourcesOnCanaryDeletion"
-                                 Prelude.<$> deleteLambdaResourcesOnCanaryDeletion,
                                (JSON..=) "FailureRetentionPeriod"
                                  Prelude.<$> failureRetentionPeriod,
                                (JSON..=) "RunConfig" Prelude.<$> runConfig,
+                               (JSON..=) "StartCanaryAfterCreation"
+                                 Prelude.<$> startCanaryAfterCreation,
                                (JSON..=) "SuccessRetentionPeriod"
                                  Prelude.<$> successRetentionPeriod,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -86,15 +81,14 @@ instance JSON.ToJSON Canary where
               ["ArtifactS3Location" JSON..= artifactS3Location,
                "Code" JSON..= code, "ExecutionRoleArn" JSON..= executionRoleArn,
                "Name" JSON..= name, "RuntimeVersion" JSON..= runtimeVersion,
-               "Schedule" JSON..= schedule,
-               "StartCanaryAfterCreation" JSON..= startCanaryAfterCreation]
+               "Schedule" JSON..= schedule]
               (Prelude.catMaybes
                  [(JSON..=) "ArtifactConfig" Prelude.<$> artifactConfig,
-                  (JSON..=) "DeleteLambdaResourcesOnCanaryDeletion"
-                    Prelude.<$> deleteLambdaResourcesOnCanaryDeletion,
                   (JSON..=) "FailureRetentionPeriod"
                     Prelude.<$> failureRetentionPeriod,
                   (JSON..=) "RunConfig" Prelude.<$> runConfig,
+                  (JSON..=) "StartCanaryAfterCreation"
+                    Prelude.<$> startCanaryAfterCreation,
                   (JSON..=) "SuccessRetentionPeriod"
                     Prelude.<$> successRetentionPeriod,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -111,11 +105,6 @@ instance Property "ArtifactS3Location" Canary where
 instance Property "Code" Canary where
   type PropertyType "Code" Canary = CodeProperty
   set newValue Canary {..} = Canary {code = newValue, ..}
-instance Property "DeleteLambdaResourcesOnCanaryDeletion" Canary where
-  type PropertyType "DeleteLambdaResourcesOnCanaryDeletion" Canary = Value Prelude.Bool
-  set newValue Canary {..}
-    = Canary
-        {deleteLambdaResourcesOnCanaryDeletion = Prelude.pure newValue, ..}
 instance Property "ExecutionRoleArn" Canary where
   type PropertyType "ExecutionRoleArn" Canary = Value Prelude.Text
   set newValue Canary {..} = Canary {executionRoleArn = newValue, ..}
@@ -139,7 +128,7 @@ instance Property "Schedule" Canary where
 instance Property "StartCanaryAfterCreation" Canary where
   type PropertyType "StartCanaryAfterCreation" Canary = Value Prelude.Bool
   set newValue Canary {..}
-    = Canary {startCanaryAfterCreation = newValue, ..}
+    = Canary {startCanaryAfterCreation = Prelude.pure newValue, ..}
 instance Property "SuccessRetentionPeriod" Canary where
   type PropertyType "SuccessRetentionPeriod" Canary = Value Prelude.Integer
   set newValue Canary {..}

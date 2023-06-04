@@ -6,13 +6,15 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.CustomActionProperty as Exports
+import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.PolicyVariablesProperty as Exports
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.StatefulEngineOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.StatefulRuleGroupReferenceProperty as Exports
 import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.StatelessRuleGroupReferenceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirewallPolicyProperty
-  = FirewallPolicyProperty {statefulDefaultActions :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = FirewallPolicyProperty {policyVariables :: (Prelude.Maybe PolicyVariablesProperty),
+                            statefulDefaultActions :: (Prelude.Maybe (ValueList Prelude.Text)),
                             statefulEngineOptions :: (Prelude.Maybe StatefulEngineOptionsProperty),
                             statefulRuleGroupReferences :: (Prelude.Maybe [StatefulRuleGroupReferenceProperty]),
                             statelessCustomActions :: (Prelude.Maybe [CustomActionProperty]),
@@ -28,6 +30,7 @@ mkFirewallPolicyProperty
   = FirewallPolicyProperty
       {statelessDefaultActions = statelessDefaultActions,
        statelessFragmentDefaultActions = statelessFragmentDefaultActions,
+       policyVariables = Prelude.Nothing,
        statefulDefaultActions = Prelude.Nothing,
        statefulEngineOptions = Prelude.Nothing,
        statefulRuleGroupReferences = Prelude.Nothing,
@@ -44,7 +47,8 @@ instance ToResourceProperties FirewallPolicyProperty where
                             "StatelessFragmentDefaultActions"
                               JSON..= statelessFragmentDefaultActions]
                            (Prelude.catMaybes
-                              [(JSON..=) "StatefulDefaultActions"
+                              [(JSON..=) "PolicyVariables" Prelude.<$> policyVariables,
+                               (JSON..=) "StatefulDefaultActions"
                                  Prelude.<$> statefulDefaultActions,
                                (JSON..=) "StatefulEngineOptions"
                                  Prelude.<$> statefulEngineOptions,
@@ -63,7 +67,8 @@ instance JSON.ToJSON FirewallPolicyProperty where
                "StatelessFragmentDefaultActions"
                  JSON..= statelessFragmentDefaultActions]
               (Prelude.catMaybes
-                 [(JSON..=) "StatefulDefaultActions"
+                 [(JSON..=) "PolicyVariables" Prelude.<$> policyVariables,
+                  (JSON..=) "StatefulDefaultActions"
                     Prelude.<$> statefulDefaultActions,
                   (JSON..=) "StatefulEngineOptions"
                     Prelude.<$> statefulEngineOptions,
@@ -73,6 +78,11 @@ instance JSON.ToJSON FirewallPolicyProperty where
                     Prelude.<$> statelessCustomActions,
                   (JSON..=) "StatelessRuleGroupReferences"
                     Prelude.<$> statelessRuleGroupReferences])))
+instance Property "PolicyVariables" FirewallPolicyProperty where
+  type PropertyType "PolicyVariables" FirewallPolicyProperty = PolicyVariablesProperty
+  set newValue FirewallPolicyProperty {..}
+    = FirewallPolicyProperty
+        {policyVariables = Prelude.pure newValue, ..}
 instance Property "StatefulDefaultActions" FirewallPolicyProperty where
   type PropertyType "StatefulDefaultActions" FirewallPolicyProperty = ValueList Prelude.Text
   set newValue FirewallPolicyProperty {..}

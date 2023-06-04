@@ -8,15 +8,14 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Policy
-  = Policy {content :: (Value Prelude.Text),
+  = Policy {content :: JSON.Object,
             description :: (Prelude.Maybe (Value Prelude.Text)),
             name :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag]),
             targetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
             type' :: (Value Prelude.Text)}
 mkPolicy ::
-  Value Prelude.Text
-  -> Value Prelude.Text -> Value Prelude.Text -> Policy
+  JSON.Object -> Value Prelude.Text -> Value Prelude.Text -> Policy
 mkPolicy content name type'
   = Policy
       {content = content, name = name, type' = type',
@@ -47,7 +46,7 @@ instance JSON.ToJSON Policy where
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TargetIds" Prelude.<$> targetIds])))
 instance Property "Content" Policy where
-  type PropertyType "Content" Policy = Value Prelude.Text
+  type PropertyType "Content" Policy = JSON.Object
   set newValue Policy {..} = Policy {content = newValue, ..}
 instance Property "Description" Policy where
   type PropertyType "Description" Policy = Value Prelude.Text

@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.H264ColorSpaceSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.H264FilterSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TimecodeBurninSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data H264SettingsProperty
@@ -49,6 +50,7 @@ data H264SettingsProperty
                           subgopLength :: (Prelude.Maybe (Value Prelude.Text)),
                           syntax :: (Prelude.Maybe (Value Prelude.Text)),
                           temporalAq :: (Prelude.Maybe (Value Prelude.Text)),
+                          timecodeBurninSettings :: (Prelude.Maybe TimecodeBurninSettingsProperty),
                           timecodeInsertion :: (Prelude.Maybe (Value Prelude.Text))}
 mkH264SettingsProperty :: H264SettingsProperty
 mkH264SettingsProperty
@@ -78,7 +80,9 @@ mkH264SettingsProperty
        sceneChangeDetect = Prelude.Nothing, slices = Prelude.Nothing,
        softness = Prelude.Nothing, spatialAq = Prelude.Nothing,
        subgopLength = Prelude.Nothing, syntax = Prelude.Nothing,
-       temporalAq = Prelude.Nothing, timecodeInsertion = Prelude.Nothing}
+       temporalAq = Prelude.Nothing,
+       timecodeBurninSettings = Prelude.Nothing,
+       timecodeInsertion = Prelude.Nothing}
 instance ToResourceProperties H264SettingsProperty where
   toResourceProperties H264SettingsProperty {..}
     = ResourceProperties
@@ -126,6 +130,8 @@ instance ToResourceProperties H264SettingsProperty where
                             (JSON..=) "SubgopLength" Prelude.<$> subgopLength,
                             (JSON..=) "Syntax" Prelude.<$> syntax,
                             (JSON..=) "TemporalAq" Prelude.<$> temporalAq,
+                            (JSON..=) "TimecodeBurninSettings"
+                              Prelude.<$> timecodeBurninSettings,
                             (JSON..=) "TimecodeInsertion" Prelude.<$> timecodeInsertion])}
 instance JSON.ToJSON H264SettingsProperty where
   toJSON H264SettingsProperty {..}
@@ -172,6 +178,8 @@ instance JSON.ToJSON H264SettingsProperty where
                (JSON..=) "SubgopLength" Prelude.<$> subgopLength,
                (JSON..=) "Syntax" Prelude.<$> syntax,
                (JSON..=) "TemporalAq" Prelude.<$> temporalAq,
+               (JSON..=) "TimecodeBurninSettings"
+                 Prelude.<$> timecodeBurninSettings,
                (JSON..=) "TimecodeInsertion" Prelude.<$> timecodeInsertion]))
 instance Property "AdaptiveQuantization" H264SettingsProperty where
   type PropertyType "AdaptiveQuantization" H264SettingsProperty = Value Prelude.Text
@@ -345,6 +353,11 @@ instance Property "TemporalAq" H264SettingsProperty where
   type PropertyType "TemporalAq" H264SettingsProperty = Value Prelude.Text
   set newValue H264SettingsProperty {..}
     = H264SettingsProperty {temporalAq = Prelude.pure newValue, ..}
+instance Property "TimecodeBurninSettings" H264SettingsProperty where
+  type PropertyType "TimecodeBurninSettings" H264SettingsProperty = TimecodeBurninSettingsProperty
+  set newValue H264SettingsProperty {..}
+    = H264SettingsProperty
+        {timecodeBurninSettings = Prelude.pure newValue, ..}
 instance Property "TimecodeInsertion" H264SettingsProperty where
   type PropertyType "TimecodeInsertion" H264SettingsProperty = Value Prelude.Text
   set newValue H264SettingsProperty {..}

@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.GaugeChartVisualProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GaugeChartVisualProperty :: Prelude.Type
+instance ToResourceProperties GaugeChartVisualProperty
+instance JSON.ToJSON GaugeChartVisualProperty

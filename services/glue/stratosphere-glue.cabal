@@ -35,6 +35,7 @@ library
       Stratosphere.Glue.Connection.PhysicalConnectionRequirementsProperty
       Stratosphere.Glue.Crawler
       Stratosphere.Glue.Crawler.CatalogTargetProperty
+      Stratosphere.Glue.Crawler.DeltaTargetProperty
       Stratosphere.Glue.Crawler.DynamoDBTargetProperty
       Stratosphere.Glue.Crawler.JdbcTargetProperty
       Stratosphere.Glue.Crawler.MongoDBTargetProperty
@@ -47,6 +48,7 @@ library
       Stratosphere.Glue.Database.DatabaseIdentifierProperty
       Stratosphere.Glue.Database.DatabaseInputProperty
       Stratosphere.Glue.Database.DataLakePrincipalProperty
+      Stratosphere.Glue.Database.FederatedDatabaseProperty
       Stratosphere.Glue.Database.PrincipalPrivilegesProperty
       Stratosphere.Glue.DataCatalogEncryptionSettings
       Stratosphere.Glue.DataCatalogEncryptionSettings.ConnectionPasswordEncryptionProperty

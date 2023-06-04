@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.TemplateVersionDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TemplateVersionDefinitionProperty :: Prelude.Type
+instance ToResourceProperties TemplateVersionDefinitionProperty
+instance JSON.ToJSON TemplateVersionDefinitionProperty

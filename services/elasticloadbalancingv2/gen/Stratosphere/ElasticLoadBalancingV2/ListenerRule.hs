@@ -11,29 +11,35 @@ import Stratosphere.Value
 data ListenerRule
   = ListenerRule {actions :: [ActionProperty],
                   conditions :: [RuleConditionProperty],
-                  listenerArn :: (Value Prelude.Text),
+                  listenerArn :: (Prelude.Maybe (Value Prelude.Text)),
                   priority :: (Value Prelude.Integer)}
 mkListenerRule ::
   [ActionProperty]
-  -> [RuleConditionProperty]
-     -> Value Prelude.Text -> Value Prelude.Integer -> ListenerRule
-mkListenerRule actions conditions listenerArn priority
+  -> [RuleConditionProperty] -> Value Prelude.Integer -> ListenerRule
+mkListenerRule actions conditions priority
   = ListenerRule
-      {actions = actions, conditions = conditions,
-       listenerArn = listenerArn, priority = priority}
+      {actions = actions, conditions = conditions, priority = priority,
+       listenerArn = Prelude.Nothing}
 instance ToResourceProperties ListenerRule where
   toResourceProperties ListenerRule {..}
     = ResourceProperties
         {awsType = "AWS::ElasticLoadBalancingV2::ListenerRule",
          supportsTags = Prelude.False,
-         properties = ["Actions" JSON..= actions,
-                       "Conditions" JSON..= conditions, "ListenerArn" JSON..= listenerArn,
-                       "Priority" JSON..= priority]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Actions" JSON..= actions, "Conditions" JSON..= conditions,
+                            "Priority" JSON..= priority]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ListenerArn" Prelude.<$> listenerArn]))}
 instance JSON.ToJSON ListenerRule where
   toJSON ListenerRule {..}
     = JSON.object
-        ["Actions" JSON..= actions, "Conditions" JSON..= conditions,
-         "ListenerArn" JSON..= listenerArn, "Priority" JSON..= priority]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Actions" JSON..= actions, "Conditions" JSON..= conditions,
+               "Priority" JSON..= priority]
+              (Prelude.catMaybes
+                 [(JSON..=) "ListenerArn" Prelude.<$> listenerArn])))
 instance Property "Actions" ListenerRule where
   type PropertyType "Actions" ListenerRule = [ActionProperty]
   set newValue ListenerRule {..}
@@ -45,7 +51,7 @@ instance Property "Conditions" ListenerRule where
 instance Property "ListenerArn" ListenerRule where
   type PropertyType "ListenerArn" ListenerRule = Value Prelude.Text
   set newValue ListenerRule {..}
-    = ListenerRule {listenerArn = newValue, ..}
+    = ListenerRule {listenerArn = Prelude.pure newValue, ..}
 instance Property "Priority" ListenerRule where
   type PropertyType "Priority" ListenerRule = Value Prelude.Integer
   set newValue ListenerRule {..}

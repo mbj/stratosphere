@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.FilterOperationTargetVisualsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FilterOperationTargetVisualsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FilterOperationTargetVisualsConfigurationProperty
+instance JSON.ToJSON FilterOperationTargetVisualsConfigurationProperty

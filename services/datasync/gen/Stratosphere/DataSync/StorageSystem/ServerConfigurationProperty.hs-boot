@@ -1,0 +1,7 @@
+module Stratosphere.DataSync.StorageSystem.ServerConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServerConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ServerConfigurationProperty
+instance JSON.ToJSON ServerConfigurationProperty

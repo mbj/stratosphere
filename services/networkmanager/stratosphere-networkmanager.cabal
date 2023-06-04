@@ -48,6 +48,8 @@ library
       Stratosphere.NetworkManager.SiteToSiteVpnAttachment.ProposedSegmentChangeProperty
       Stratosphere.NetworkManager.TransitGatewayPeering
       Stratosphere.NetworkManager.TransitGatewayRegistration
+      Stratosphere.NetworkManager.TransitGatewayRouteTableAttachment
+      Stratosphere.NetworkManager.TransitGatewayRouteTableAttachment.ProposedSegmentChangeProperty
       Stratosphere.NetworkManager.VpcAttachment
       Stratosphere.NetworkManager.VpcAttachment.ProposedSegmentChangeProperty
       Stratosphere.NetworkManager.VpcAttachment.VpcOptionsProperty

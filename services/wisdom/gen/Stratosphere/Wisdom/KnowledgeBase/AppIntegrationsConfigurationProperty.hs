@@ -9,28 +9,31 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AppIntegrationsConfigurationProperty
   = AppIntegrationsConfigurationProperty {appIntegrationArn :: (Value Prelude.Text),
-                                          objectFields :: (ValueList Prelude.Text)}
+                                          objectFields :: (Prelude.Maybe (ValueList Prelude.Text))}
 mkAppIntegrationsConfigurationProperty ::
-  Value Prelude.Text
-  -> ValueList Prelude.Text -> AppIntegrationsConfigurationProperty
-mkAppIntegrationsConfigurationProperty
-  appIntegrationArn
-  objectFields
+  Value Prelude.Text -> AppIntegrationsConfigurationProperty
+mkAppIntegrationsConfigurationProperty appIntegrationArn
   = AppIntegrationsConfigurationProperty
       {appIntegrationArn = appIntegrationArn,
-       objectFields = objectFields}
+       objectFields = Prelude.Nothing}
 instance ToResourceProperties AppIntegrationsConfigurationProperty where
   toResourceProperties AppIntegrationsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Wisdom::KnowledgeBase.AppIntegrationsConfiguration",
          supportsTags = Prelude.False,
-         properties = ["AppIntegrationArn" JSON..= appIntegrationArn,
-                       "ObjectFields" JSON..= objectFields]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["AppIntegrationArn" JSON..= appIntegrationArn]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ObjectFields" Prelude.<$> objectFields]))}
 instance JSON.ToJSON AppIntegrationsConfigurationProperty where
   toJSON AppIntegrationsConfigurationProperty {..}
     = JSON.object
-        ["AppIntegrationArn" JSON..= appIntegrationArn,
-         "ObjectFields" JSON..= objectFields]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["AppIntegrationArn" JSON..= appIntegrationArn]
+              (Prelude.catMaybes
+                 [(JSON..=) "ObjectFields" Prelude.<$> objectFields])))
 instance Property "AppIntegrationArn" AppIntegrationsConfigurationProperty where
   type PropertyType "AppIntegrationArn" AppIntegrationsConfigurationProperty = Value Prelude.Text
   set newValue AppIntegrationsConfigurationProperty {..}
@@ -40,4 +43,4 @@ instance Property "ObjectFields" AppIntegrationsConfigurationProperty where
   type PropertyType "ObjectFields" AppIntegrationsConfigurationProperty = ValueList Prelude.Text
   set newValue AppIntegrationsConfigurationProperty {..}
     = AppIntegrationsConfigurationProperty
-        {objectFields = newValue, ..}
+        {objectFields = Prelude.pure newValue, ..}

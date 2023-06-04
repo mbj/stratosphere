@@ -50,6 +50,7 @@ data M2tsSettingsProperty
                           scte27Pids :: (Prelude.Maybe (Value Prelude.Text)),
                           scte35Control :: (Prelude.Maybe (Value Prelude.Text)),
                           scte35Pid :: (Prelude.Maybe (Value Prelude.Text)),
+                          scte35PrerollPullupMilliseconds :: (Prelude.Maybe (Value Prelude.Double)),
                           segmentationMarkers :: (Prelude.Maybe (Value Prelude.Text)),
                           segmentationStyle :: (Prelude.Maybe (Value Prelude.Text)),
                           segmentationTime :: (Prelude.Maybe (Value Prelude.Double)),
@@ -83,6 +84,7 @@ mkM2tsSettingsProperty
        pmtPid = Prelude.Nothing, programNum = Prelude.Nothing,
        rateMode = Prelude.Nothing, scte27Pids = Prelude.Nothing,
        scte35Control = Prelude.Nothing, scte35Pid = Prelude.Nothing,
+       scte35PrerollPullupMilliseconds = Prelude.Nothing,
        segmentationMarkers = Prelude.Nothing,
        segmentationStyle = Prelude.Nothing,
        segmentationTime = Prelude.Nothing,
@@ -138,6 +140,8 @@ instance ToResourceProperties M2tsSettingsProperty where
                             (JSON..=) "Scte27Pids" Prelude.<$> scte27Pids,
                             (JSON..=) "Scte35Control" Prelude.<$> scte35Control,
                             (JSON..=) "Scte35Pid" Prelude.<$> scte35Pid,
+                            (JSON..=) "Scte35PrerollPullupMilliseconds"
+                              Prelude.<$> scte35PrerollPullupMilliseconds,
                             (JSON..=) "SegmentationMarkers" Prelude.<$> segmentationMarkers,
                             (JSON..=) "SegmentationStyle" Prelude.<$> segmentationStyle,
                             (JSON..=) "SegmentationTime" Prelude.<$> segmentationTime,
@@ -193,6 +197,8 @@ instance JSON.ToJSON M2tsSettingsProperty where
                (JSON..=) "Scte27Pids" Prelude.<$> scte27Pids,
                (JSON..=) "Scte35Control" Prelude.<$> scte35Control,
                (JSON..=) "Scte35Pid" Prelude.<$> scte35Pid,
+               (JSON..=) "Scte35PrerollPullupMilliseconds"
+                 Prelude.<$> scte35PrerollPullupMilliseconds,
                (JSON..=) "SegmentationMarkers" Prelude.<$> segmentationMarkers,
                (JSON..=) "SegmentationStyle" Prelude.<$> segmentationStyle,
                (JSON..=) "SegmentationTime" Prelude.<$> segmentationTime,
@@ -370,6 +376,11 @@ instance Property "Scte35Pid" M2tsSettingsProperty where
   type PropertyType "Scte35Pid" M2tsSettingsProperty = Value Prelude.Text
   set newValue M2tsSettingsProperty {..}
     = M2tsSettingsProperty {scte35Pid = Prelude.pure newValue, ..}
+instance Property "Scte35PrerollPullupMilliseconds" M2tsSettingsProperty where
+  type PropertyType "Scte35PrerollPullupMilliseconds" M2tsSettingsProperty = Value Prelude.Double
+  set newValue M2tsSettingsProperty {..}
+    = M2tsSettingsProperty
+        {scte35PrerollPullupMilliseconds = Prelude.pure newValue, ..}
 instance Property "SegmentationMarkers" M2tsSettingsProperty where
   type PropertyType "SegmentationMarkers" M2tsSettingsProperty = Value Prelude.Text
   set newValue M2tsSettingsProperty {..}

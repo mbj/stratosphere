@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.DecimalValueWhenUnsetConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DecimalValueWhenUnsetConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DecimalValueWhenUnsetConfigurationProperty
+instance JSON.ToJSON DecimalValueWhenUnsetConfigurationProperty

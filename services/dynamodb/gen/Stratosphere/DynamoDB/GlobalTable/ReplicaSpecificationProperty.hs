@@ -16,6 +16,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data ReplicaSpecificationProperty
   = ReplicaSpecificationProperty {contributorInsightsSpecification :: (Prelude.Maybe ContributorInsightsSpecificationProperty),
+                                  deletionProtectionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                   globalSecondaryIndexes :: (Prelude.Maybe [ReplicaGlobalSecondaryIndexSpecificationProperty]),
                                   kinesisStreamSpecification :: (Prelude.Maybe KinesisStreamSpecificationProperty),
                                   pointInTimeRecoverySpecification :: (Prelude.Maybe PointInTimeRecoverySpecificationProperty),
@@ -30,6 +31,7 @@ mkReplicaSpecificationProperty region
   = ReplicaSpecificationProperty
       {region = region,
        contributorInsightsSpecification = Prelude.Nothing,
+       deletionProtectionEnabled = Prelude.Nothing,
        globalSecondaryIndexes = Prelude.Nothing,
        kinesisStreamSpecification = Prelude.Nothing,
        pointInTimeRecoverySpecification = Prelude.Nothing,
@@ -47,6 +49,8 @@ instance ToResourceProperties ReplicaSpecificationProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "ContributorInsightsSpecification"
                                  Prelude.<$> contributorInsightsSpecification,
+                               (JSON..=) "DeletionProtectionEnabled"
+                                 Prelude.<$> deletionProtectionEnabled,
                                (JSON..=) "GlobalSecondaryIndexes"
                                  Prelude.<$> globalSecondaryIndexes,
                                (JSON..=) "KinesisStreamSpecification"
@@ -67,6 +71,8 @@ instance JSON.ToJSON ReplicaSpecificationProperty where
               (Prelude.catMaybes
                  [(JSON..=) "ContributorInsightsSpecification"
                     Prelude.<$> contributorInsightsSpecification,
+                  (JSON..=) "DeletionProtectionEnabled"
+                    Prelude.<$> deletionProtectionEnabled,
                   (JSON..=) "GlobalSecondaryIndexes"
                     Prelude.<$> globalSecondaryIndexes,
                   (JSON..=) "KinesisStreamSpecification"
@@ -83,6 +89,11 @@ instance Property "ContributorInsightsSpecification" ReplicaSpecificationPropert
   set newValue ReplicaSpecificationProperty {..}
     = ReplicaSpecificationProperty
         {contributorInsightsSpecification = Prelude.pure newValue, ..}
+instance Property "DeletionProtectionEnabled" ReplicaSpecificationProperty where
+  type PropertyType "DeletionProtectionEnabled" ReplicaSpecificationProperty = Value Prelude.Bool
+  set newValue ReplicaSpecificationProperty {..}
+    = ReplicaSpecificationProperty
+        {deletionProtectionEnabled = Prelude.pure newValue, ..}
 instance Property "GlobalSecondaryIndexes" ReplicaSpecificationProperty where
   type PropertyType "GlobalSecondaryIndexes" ReplicaSpecificationProperty = [ReplicaGlobalSecondaryIndexSpecificationProperty]
   set newValue ReplicaSpecificationProperty {..}

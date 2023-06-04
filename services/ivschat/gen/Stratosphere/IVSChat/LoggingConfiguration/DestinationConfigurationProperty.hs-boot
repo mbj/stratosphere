@@ -1,0 +1,7 @@
+module Stratosphere.IVSChat.LoggingConfiguration.DestinationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DestinationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DestinationConfigurationProperty
+instance JSON.ToJSON DestinationConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EC2.NetworkInsightsPath.FilterPortRangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FilterPortRangeProperty :: Prelude.Type
+instance ToResourceProperties FilterPortRangeProperty
+instance JSON.ToJSON FilterPortRangeProperty

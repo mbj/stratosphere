@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.ReferenceLineCustomLabelConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReferenceLineCustomLabelConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ReferenceLineCustomLabelConfigurationProperty
+instance JSON.ToJSON ReferenceLineCustomLabelConfigurationProperty

@@ -28,6 +28,7 @@ library
       Stratosphere.Grafana.Workspace
       Stratosphere.Grafana.Workspace.AssertionAttributesProperty
       Stratosphere.Grafana.Workspace.IdpMetadataProperty
+      Stratosphere.Grafana.Workspace.NetworkAccessControlProperty
       Stratosphere.Grafana.Workspace.RoleValuesProperty
       Stratosphere.Grafana.Workspace.SamlConfigurationProperty
       Stratosphere.Grafana.Workspace.VpcConfigurationProperty

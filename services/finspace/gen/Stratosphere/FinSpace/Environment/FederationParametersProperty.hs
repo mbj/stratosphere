@@ -1,14 +1,16 @@
 module Stratosphere.FinSpace.Environment.FederationParametersProperty (
-        FederationParametersProperty(..), mkFederationParametersProperty
+        module Exports, FederationParametersProperty(..),
+        mkFederationParametersProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.FinSpace.Environment.AttributeMapItemsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FederationParametersProperty
   = FederationParametersProperty {applicationCallBackURL :: (Prelude.Maybe (Value Prelude.Text)),
-                                  attributeMap :: (Prelude.Maybe JSON.Object),
+                                  attributeMap :: (Prelude.Maybe [AttributeMapItemsProperty]),
                                   federationProviderName :: (Prelude.Maybe (Value Prelude.Text)),
                                   federationURN :: (Prelude.Maybe (Value Prelude.Text)),
                                   samlMetadataDocument :: (Prelude.Maybe (Value Prelude.Text)),
@@ -56,7 +58,7 @@ instance Property "ApplicationCallBackURL" FederationParametersProperty where
     = FederationParametersProperty
         {applicationCallBackURL = Prelude.pure newValue, ..}
 instance Property "AttributeMap" FederationParametersProperty where
-  type PropertyType "AttributeMap" FederationParametersProperty = JSON.Object
+  type PropertyType "AttributeMap" FederationParametersProperty = [AttributeMapItemsProperty]
   set newValue FederationParametersProperty {..}
     = FederationParametersProperty
         {attributeMap = Prelude.pure newValue, ..}

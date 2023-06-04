@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.ConditionalFormattingIconDisplayConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConditionalFormattingIconDisplayConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ConditionalFormattingIconDisplayConfigurationProperty
+instance JSON.ToJSON ConditionalFormattingIconDisplayConfigurationProperty

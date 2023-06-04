@@ -10,6 +10,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data EventDataStore
   = EventDataStore {advancedEventSelectors :: (Prelude.Maybe [AdvancedEventSelectorProperty]),
+                    ingestionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                     kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                     multiRegionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                     name :: (Prelude.Maybe (Value Prelude.Text)),
@@ -21,8 +22,9 @@ mkEventDataStore :: EventDataStore
 mkEventDataStore
   = EventDataStore
       {advancedEventSelectors = Prelude.Nothing,
-       kmsKeyId = Prelude.Nothing, multiRegionEnabled = Prelude.Nothing,
-       name = Prelude.Nothing, organizationEnabled = Prelude.Nothing,
+       ingestionEnabled = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
+       multiRegionEnabled = Prelude.Nothing, name = Prelude.Nothing,
+       organizationEnabled = Prelude.Nothing,
        retentionPeriod = Prelude.Nothing, tags = Prelude.Nothing,
        terminationProtectionEnabled = Prelude.Nothing}
 instance ToResourceProperties EventDataStore where
@@ -34,6 +36,7 @@ instance ToResourceProperties EventDataStore where
                         (Prelude.catMaybes
                            [(JSON..=) "AdvancedEventSelectors"
                               Prelude.<$> advancedEventSelectors,
+                            (JSON..=) "IngestionEnabled" Prelude.<$> ingestionEnabled,
                             (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                             (JSON..=) "MultiRegionEnabled" Prelude.<$> multiRegionEnabled,
                             (JSON..=) "Name" Prelude.<$> name,
@@ -49,6 +52,7 @@ instance JSON.ToJSON EventDataStore where
            (Prelude.catMaybes
               [(JSON..=) "AdvancedEventSelectors"
                  Prelude.<$> advancedEventSelectors,
+               (JSON..=) "IngestionEnabled" Prelude.<$> ingestionEnabled,
                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                (JSON..=) "MultiRegionEnabled" Prelude.<$> multiRegionEnabled,
                (JSON..=) "Name" Prelude.<$> name,
@@ -62,6 +66,10 @@ instance Property "AdvancedEventSelectors" EventDataStore where
   set newValue EventDataStore {..}
     = EventDataStore
         {advancedEventSelectors = Prelude.pure newValue, ..}
+instance Property "IngestionEnabled" EventDataStore where
+  type PropertyType "IngestionEnabled" EventDataStore = Value Prelude.Bool
+  set newValue EventDataStore {..}
+    = EventDataStore {ingestionEnabled = Prelude.pure newValue, ..}
 instance Property "KmsKeyId" EventDataStore where
   type PropertyType "KmsKeyId" EventDataStore = Value Prelude.Text
   set newValue EventDataStore {..}

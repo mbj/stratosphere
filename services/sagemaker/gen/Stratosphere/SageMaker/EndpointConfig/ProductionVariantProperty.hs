@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ProductionVariantProperty
   = ProductionVariantProperty {acceleratorType :: (Prelude.Maybe (Value Prelude.Text)),
                                containerStartupHealthCheckTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                               enableSSMAccess :: (Prelude.Maybe (Value Prelude.Bool)),
                                initialInstanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                initialVariantWeight :: (Value Prelude.Double),
                                instanceType :: (Prelude.Maybe (Value Prelude.Text)),
@@ -32,6 +33,7 @@ mkProductionVariantProperty
        modelName = modelName, variantName = variantName,
        acceleratorType = Prelude.Nothing,
        containerStartupHealthCheckTimeoutInSeconds = Prelude.Nothing,
+       enableSSMAccess = Prelude.Nothing,
        initialInstanceCount = Prelude.Nothing,
        instanceType = Prelude.Nothing,
        modelDataDownloadTimeoutInSeconds = Prelude.Nothing,
@@ -50,6 +52,7 @@ instance ToResourceProperties ProductionVariantProperty where
                               [(JSON..=) "AcceleratorType" Prelude.<$> acceleratorType,
                                (JSON..=) "ContainerStartupHealthCheckTimeoutInSeconds"
                                  Prelude.<$> containerStartupHealthCheckTimeoutInSeconds,
+                               (JSON..=) "EnableSSMAccess" Prelude.<$> enableSSMAccess,
                                (JSON..=) "InitialInstanceCount" Prelude.<$> initialInstanceCount,
                                (JSON..=) "InstanceType" Prelude.<$> instanceType,
                                (JSON..=) "ModelDataDownloadTimeoutInSeconds"
@@ -67,6 +70,7 @@ instance JSON.ToJSON ProductionVariantProperty where
                  [(JSON..=) "AcceleratorType" Prelude.<$> acceleratorType,
                   (JSON..=) "ContainerStartupHealthCheckTimeoutInSeconds"
                     Prelude.<$> containerStartupHealthCheckTimeoutInSeconds,
+                  (JSON..=) "EnableSSMAccess" Prelude.<$> enableSSMAccess,
                   (JSON..=) "InitialInstanceCount" Prelude.<$> initialInstanceCount,
                   (JSON..=) "InstanceType" Prelude.<$> instanceType,
                   (JSON..=) "ModelDataDownloadTimeoutInSeconds"
@@ -85,6 +89,11 @@ instance Property "ContainerStartupHealthCheckTimeoutInSeconds" ProductionVarian
         {containerStartupHealthCheckTimeoutInSeconds = Prelude.pure
                                                          newValue,
          ..}
+instance Property "EnableSSMAccess" ProductionVariantProperty where
+  type PropertyType "EnableSSMAccess" ProductionVariantProperty = Value Prelude.Bool
+  set newValue ProductionVariantProperty {..}
+    = ProductionVariantProperty
+        {enableSSMAccess = Prelude.pure newValue, ..}
 instance Property "InitialInstanceCount" ProductionVariantProperty where
   type PropertyType "InitialInstanceCount" ProductionVariantProperty = Value Prelude.Integer
   set newValue ProductionVariantProperty {..}

@@ -10,12 +10,14 @@ import Stratosphere.Value
 data Build
   = Build {name :: (Prelude.Maybe (Value Prelude.Text)),
            operatingSystem :: (Prelude.Maybe (Value Prelude.Text)),
+           serverSdkVersion :: (Prelude.Maybe (Value Prelude.Text)),
            storageLocation :: (Prelude.Maybe StorageLocationProperty),
            version :: (Prelude.Maybe (Value Prelude.Text))}
 mkBuild :: Build
 mkBuild
   = Build
       {name = Prelude.Nothing, operatingSystem = Prelude.Nothing,
+       serverSdkVersion = Prelude.Nothing,
        storageLocation = Prelude.Nothing, version = Prelude.Nothing}
 instance ToResourceProperties Build where
   toResourceProperties Build {..}
@@ -25,6 +27,7 @@ instance ToResourceProperties Build where
                         (Prelude.catMaybes
                            [(JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "OperatingSystem" Prelude.<$> operatingSystem,
+                            (JSON..=) "ServerSdkVersion" Prelude.<$> serverSdkVersion,
                             (JSON..=) "StorageLocation" Prelude.<$> storageLocation,
                             (JSON..=) "Version" Prelude.<$> version])}
 instance JSON.ToJSON Build where
@@ -34,6 +37,7 @@ instance JSON.ToJSON Build where
            (Prelude.catMaybes
               [(JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "OperatingSystem" Prelude.<$> operatingSystem,
+               (JSON..=) "ServerSdkVersion" Prelude.<$> serverSdkVersion,
                (JSON..=) "StorageLocation" Prelude.<$> storageLocation,
                (JSON..=) "Version" Prelude.<$> version]))
 instance Property "Name" Build where
@@ -43,6 +47,10 @@ instance Property "OperatingSystem" Build where
   type PropertyType "OperatingSystem" Build = Value Prelude.Text
   set newValue Build {..}
     = Build {operatingSystem = Prelude.pure newValue, ..}
+instance Property "ServerSdkVersion" Build where
+  type PropertyType "ServerSdkVersion" Build = Value Prelude.Text
+  set newValue Build {..}
+    = Build {serverSdkVersion = Prelude.pure newValue, ..}
 instance Property "StorageLocation" Build where
   type PropertyType "StorageLocation" Build = StorageLocationProperty
   set newValue Build {..}

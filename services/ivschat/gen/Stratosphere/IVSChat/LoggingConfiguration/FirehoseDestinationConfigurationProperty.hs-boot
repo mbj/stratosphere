@@ -1,0 +1,7 @@
+module Stratosphere.IVSChat.LoggingConfiguration.FirehoseDestinationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FirehoseDestinationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FirehoseDestinationConfigurationProperty
+instance JSON.ToJSON FirehoseDestinationConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.RefreshConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RefreshConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RefreshConfigurationProperty
+instance JSON.ToJSON RefreshConfigurationProperty

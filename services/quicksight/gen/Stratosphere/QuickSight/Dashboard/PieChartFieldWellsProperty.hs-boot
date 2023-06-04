@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.PieChartFieldWellsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PieChartFieldWellsProperty :: Prelude.Type
+instance ToResourceProperties PieChartFieldWellsProperty
+instance JSON.ToJSON PieChartFieldWellsProperty

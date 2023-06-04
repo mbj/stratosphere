@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ElastiCache.User.AuthenticationModeProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data User
   = User {accessString :: (Prelude.Maybe (Value Prelude.Text)),
@@ -13,6 +14,7 @@ data User
           engine :: (Value Prelude.Text),
           noPasswordRequired :: (Prelude.Maybe (Value Prelude.Bool)),
           passwords :: (Prelude.Maybe (ValueList Prelude.Text)),
+          tags :: (Prelude.Maybe [Tag]),
           userId :: (Value Prelude.Text),
           userName :: (Value Prelude.Text)}
 mkUser ::
@@ -23,11 +25,12 @@ mkUser engine userId userName
       {engine = engine, userId = userId, userName = userName,
        accessString = Prelude.Nothing,
        authenticationMode = Prelude.Nothing,
-       noPasswordRequired = Prelude.Nothing, passwords = Prelude.Nothing}
+       noPasswordRequired = Prelude.Nothing, passwords = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties User where
   toResourceProperties User {..}
     = ResourceProperties
-        {awsType = "AWS::ElastiCache::User", supportsTags = Prelude.False,
+        {awsType = "AWS::ElastiCache::User", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Engine" JSON..= engine, "UserId" JSON..= userId,
@@ -36,7 +39,8 @@ instance ToResourceProperties User where
                               [(JSON..=) "AccessString" Prelude.<$> accessString,
                                (JSON..=) "AuthenticationMode" Prelude.<$> authenticationMode,
                                (JSON..=) "NoPasswordRequired" Prelude.<$> noPasswordRequired,
-                               (JSON..=) "Passwords" Prelude.<$> passwords]))}
+                               (JSON..=) "Passwords" Prelude.<$> passwords,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON User where
   toJSON User {..}
     = JSON.object
@@ -48,7 +52,8 @@ instance JSON.ToJSON User where
                  [(JSON..=) "AccessString" Prelude.<$> accessString,
                   (JSON..=) "AuthenticationMode" Prelude.<$> authenticationMode,
                   (JSON..=) "NoPasswordRequired" Prelude.<$> noPasswordRequired,
-                  (JSON..=) "Passwords" Prelude.<$> passwords])))
+                  (JSON..=) "Passwords" Prelude.<$> passwords,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AccessString" User where
   type PropertyType "AccessString" User = Value Prelude.Text
   set newValue User {..}
@@ -68,6 +73,9 @@ instance Property "Passwords" User where
   type PropertyType "Passwords" User = ValueList Prelude.Text
   set newValue User {..}
     = User {passwords = Prelude.pure newValue, ..}
+instance Property "Tags" User where
+  type PropertyType "Tags" User = [Tag]
+  set newValue User {..} = User {tags = Prelude.pure newValue, ..}
 instance Property "UserId" User where
   type PropertyType "UserId" User = Value Prelude.Text
   set newValue User {..} = User {userId = newValue, ..}

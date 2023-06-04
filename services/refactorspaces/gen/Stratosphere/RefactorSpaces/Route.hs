@@ -13,23 +13,25 @@ data Route
   = Route {applicationIdentifier :: (Value Prelude.Text),
            defaultRoute :: (Prelude.Maybe DefaultRouteInputProperty),
            environmentIdentifier :: (Value Prelude.Text),
-           routeType :: (Prelude.Maybe (Value Prelude.Text)),
+           routeType :: (Value Prelude.Text),
            serviceIdentifier :: (Value Prelude.Text),
            tags :: (Prelude.Maybe [Tag]),
            uriPathRoute :: (Prelude.Maybe UriPathRouteInputProperty)}
 mkRoute ::
   Value Prelude.Text
-  -> Value Prelude.Text -> Value Prelude.Text -> Route
+  -> Value Prelude.Text
+     -> Value Prelude.Text -> Value Prelude.Text -> Route
 mkRoute
   applicationIdentifier
   environmentIdentifier
+  routeType
   serviceIdentifier
   = Route
       {applicationIdentifier = applicationIdentifier,
        environmentIdentifier = environmentIdentifier,
-       serviceIdentifier = serviceIdentifier,
-       defaultRoute = Prelude.Nothing, routeType = Prelude.Nothing,
-       tags = Prelude.Nothing, uriPathRoute = Prelude.Nothing}
+       routeType = routeType, serviceIdentifier = serviceIdentifier,
+       defaultRoute = Prelude.Nothing, tags = Prelude.Nothing,
+       uriPathRoute = Prelude.Nothing}
 instance ToResourceProperties Route where
   toResourceProperties Route {..}
     = ResourceProperties
@@ -39,10 +41,10 @@ instance ToResourceProperties Route where
                         ((Prelude.<>)
                            ["ApplicationIdentifier" JSON..= applicationIdentifier,
                             "EnvironmentIdentifier" JSON..= environmentIdentifier,
+                            "RouteType" JSON..= routeType,
                             "ServiceIdentifier" JSON..= serviceIdentifier]
                            (Prelude.catMaybes
                               [(JSON..=) "DefaultRoute" Prelude.<$> defaultRoute,
-                               (JSON..=) "RouteType" Prelude.<$> routeType,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "UriPathRoute" Prelude.<$> uriPathRoute]))}
 instance JSON.ToJSON Route where
@@ -52,10 +54,10 @@ instance JSON.ToJSON Route where
            ((Prelude.<>)
               ["ApplicationIdentifier" JSON..= applicationIdentifier,
                "EnvironmentIdentifier" JSON..= environmentIdentifier,
+               "RouteType" JSON..= routeType,
                "ServiceIdentifier" JSON..= serviceIdentifier]
               (Prelude.catMaybes
                  [(JSON..=) "DefaultRoute" Prelude.<$> defaultRoute,
-                  (JSON..=) "RouteType" Prelude.<$> routeType,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "UriPathRoute" Prelude.<$> uriPathRoute])))
 instance Property "ApplicationIdentifier" Route where
@@ -72,8 +74,7 @@ instance Property "EnvironmentIdentifier" Route where
     = Route {environmentIdentifier = newValue, ..}
 instance Property "RouteType" Route where
   type PropertyType "RouteType" Route = Value Prelude.Text
-  set newValue Route {..}
-    = Route {routeType = Prelude.pure newValue, ..}
+  set newValue Route {..} = Route {routeType = newValue, ..}
 instance Property "ServiceIdentifier" Route where
   type PropertyType "ServiceIdentifier" Route = Value Prelude.Text
   set newValue Route {..} = Route {serviceIdentifier = newValue, ..}

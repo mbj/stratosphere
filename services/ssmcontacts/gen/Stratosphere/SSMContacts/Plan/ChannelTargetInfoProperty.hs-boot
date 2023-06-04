@@ -1,0 +1,7 @@
+module Stratosphere.SSMContacts.Plan.ChannelTargetInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ChannelTargetInfoProperty :: Prelude.Type
+instance ToResourceProperties ChannelTargetInfoProperty
+instance JSON.ToJSON ChannelTargetInfoProperty

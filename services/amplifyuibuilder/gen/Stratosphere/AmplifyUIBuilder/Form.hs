@@ -18,6 +18,7 @@ data Form
           environmentName :: (Prelude.Maybe (Value Prelude.Text)),
           fields :: (Prelude.Map Prelude.Text FieldConfigProperty),
           formActionType :: (Value Prelude.Text),
+          labelDecorator :: (Prelude.Maybe (Value Prelude.Text)),
           name :: (Value Prelude.Text),
           schemaVersion :: (Value Prelude.Text),
           sectionalElements :: (Prelude.Map Prelude.Text SectionalElementProperty),
@@ -45,7 +46,8 @@ mkForm
        schemaVersion = schemaVersion,
        sectionalElements = sectionalElements, style = style,
        appId = Prelude.Nothing, cta = Prelude.Nothing,
-       environmentName = Prelude.Nothing, tags = Prelude.Nothing}
+       environmentName = Prelude.Nothing,
+       labelDecorator = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Form where
   toResourceProperties Form {..}
     = ResourceProperties
@@ -62,6 +64,7 @@ instance ToResourceProperties Form where
                               [(JSON..=) "AppId" Prelude.<$> appId,
                                (JSON..=) "Cta" Prelude.<$> cta,
                                (JSON..=) "EnvironmentName" Prelude.<$> environmentName,
+                               (JSON..=) "LabelDecorator" Prelude.<$> labelDecorator,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Form where
   toJSON Form {..}
@@ -77,6 +80,7 @@ instance JSON.ToJSON Form where
                  [(JSON..=) "AppId" Prelude.<$> appId,
                   (JSON..=) "Cta" Prelude.<$> cta,
                   (JSON..=) "EnvironmentName" Prelude.<$> environmentName,
+                  (JSON..=) "LabelDecorator" Prelude.<$> labelDecorator,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AppId" Form where
   type PropertyType "AppId" Form = Value Prelude.Text
@@ -97,6 +101,10 @@ instance Property "Fields" Form where
 instance Property "FormActionType" Form where
   type PropertyType "FormActionType" Form = Value Prelude.Text
   set newValue Form {..} = Form {formActionType = newValue, ..}
+instance Property "LabelDecorator" Form where
+  type PropertyType "LabelDecorator" Form = Value Prelude.Text
+  set newValue Form {..}
+    = Form {labelDecorator = Prelude.pure newValue, ..}
 instance Property "Name" Form where
   type PropertyType "Name" Form = Value Prelude.Text
   set newValue Form {..} = Form {name = newValue, ..}

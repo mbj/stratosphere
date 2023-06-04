@@ -18,6 +18,7 @@ data ReplicationGroup
                       cacheParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                       cacheSecurityGroupNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                       cacheSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                      clusterMode :: (Prelude.Maybe (Value Prelude.Text)),
                       dataTieringEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                       engine :: (Prelude.Maybe (Value Prelude.Text)),
                       engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
@@ -60,6 +61,7 @@ mkReplicationGroup replicationGroupDescription
        cacheParameterGroupName = Prelude.Nothing,
        cacheSecurityGroupNames = Prelude.Nothing,
        cacheSubnetGroupName = Prelude.Nothing,
+       clusterMode = Prelude.Nothing,
        dataTieringEnabled = Prelude.Nothing, engine = Prelude.Nothing,
        engineVersion = Prelude.Nothing,
        globalReplicationGroupId = Prelude.Nothing,
@@ -105,6 +107,7 @@ instance ToResourceProperties ReplicationGroup where
                                (JSON..=) "CacheSecurityGroupNames"
                                  Prelude.<$> cacheSecurityGroupNames,
                                (JSON..=) "CacheSubnetGroupName" Prelude.<$> cacheSubnetGroupName,
+                               (JSON..=) "ClusterMode" Prelude.<$> clusterMode,
                                (JSON..=) "DataTieringEnabled" Prelude.<$> dataTieringEnabled,
                                (JSON..=) "Engine" Prelude.<$> engine,
                                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
@@ -163,6 +166,7 @@ instance JSON.ToJSON ReplicationGroup where
                   (JSON..=) "CacheSecurityGroupNames"
                     Prelude.<$> cacheSecurityGroupNames,
                   (JSON..=) "CacheSubnetGroupName" Prelude.<$> cacheSubnetGroupName,
+                  (JSON..=) "ClusterMode" Prelude.<$> clusterMode,
                   (JSON..=) "DataTieringEnabled" Prelude.<$> dataTieringEnabled,
                   (JSON..=) "Engine" Prelude.<$> engine,
                   (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
@@ -239,6 +243,10 @@ instance Property "CacheSubnetGroupName" ReplicationGroup where
   set newValue ReplicationGroup {..}
     = ReplicationGroup
         {cacheSubnetGroupName = Prelude.pure newValue, ..}
+instance Property "ClusterMode" ReplicationGroup where
+  type PropertyType "ClusterMode" ReplicationGroup = Value Prelude.Text
+  set newValue ReplicationGroup {..}
+    = ReplicationGroup {clusterMode = Prelude.pure newValue, ..}
 instance Property "DataTieringEnabled" ReplicationGroup where
   type PropertyType "DataTieringEnabled" ReplicationGroup = Value Prelude.Bool
   set newValue ReplicationGroup {..}

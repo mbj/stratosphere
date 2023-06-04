@@ -25,6 +25,7 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.RAM.Permission
       Stratosphere.RAM.ResourceShare
   other-modules:
       Paths_stratosphere_ram

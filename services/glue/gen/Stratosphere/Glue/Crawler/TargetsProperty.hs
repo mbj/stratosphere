@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.CatalogTargetProperty as Exports
+import {-# SOURCE #-} Stratosphere.Glue.Crawler.DeltaTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.DynamoDBTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.JdbcTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.MongoDBTargetProperty as Exports
@@ -12,6 +13,7 @@ import {-# SOURCE #-} Stratosphere.Glue.Crawler.S3TargetProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetsProperty
   = TargetsProperty {catalogTargets :: (Prelude.Maybe [CatalogTargetProperty]),
+                     deltaTargets :: (Prelude.Maybe [DeltaTargetProperty]),
                      dynamoDBTargets :: (Prelude.Maybe [DynamoDBTargetProperty]),
                      jdbcTargets :: (Prelude.Maybe [JdbcTargetProperty]),
                      mongoDBTargets :: (Prelude.Maybe [MongoDBTargetProperty]),
@@ -19,7 +21,7 @@ data TargetsProperty
 mkTargetsProperty :: TargetsProperty
 mkTargetsProperty
   = TargetsProperty
-      {catalogTargets = Prelude.Nothing,
+      {catalogTargets = Prelude.Nothing, deltaTargets = Prelude.Nothing,
        dynamoDBTargets = Prelude.Nothing, jdbcTargets = Prelude.Nothing,
        mongoDBTargets = Prelude.Nothing, s3Targets = Prelude.Nothing}
 instance ToResourceProperties TargetsProperty where
@@ -30,6 +32,7 @@ instance ToResourceProperties TargetsProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CatalogTargets" Prelude.<$> catalogTargets,
+                            (JSON..=) "DeltaTargets" Prelude.<$> deltaTargets,
                             (JSON..=) "DynamoDBTargets" Prelude.<$> dynamoDBTargets,
                             (JSON..=) "JdbcTargets" Prelude.<$> jdbcTargets,
                             (JSON..=) "MongoDBTargets" Prelude.<$> mongoDBTargets,
@@ -40,6 +43,7 @@ instance JSON.ToJSON TargetsProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "CatalogTargets" Prelude.<$> catalogTargets,
+               (JSON..=) "DeltaTargets" Prelude.<$> deltaTargets,
                (JSON..=) "DynamoDBTargets" Prelude.<$> dynamoDBTargets,
                (JSON..=) "JdbcTargets" Prelude.<$> jdbcTargets,
                (JSON..=) "MongoDBTargets" Prelude.<$> mongoDBTargets,
@@ -48,6 +52,10 @@ instance Property "CatalogTargets" TargetsProperty where
   type PropertyType "CatalogTargets" TargetsProperty = [CatalogTargetProperty]
   set newValue TargetsProperty {..}
     = TargetsProperty {catalogTargets = Prelude.pure newValue, ..}
+instance Property "DeltaTargets" TargetsProperty where
+  type PropertyType "DeltaTargets" TargetsProperty = [DeltaTargetProperty]
+  set newValue TargetsProperty {..}
+    = TargetsProperty {deltaTargets = Prelude.pure newValue, ..}
 instance Property "DynamoDBTargets" TargetsProperty where
   type PropertyType "DynamoDBTargets" TargetsProperty = [DynamoDBTargetProperty]
   set newValue TargetsProperty {..}

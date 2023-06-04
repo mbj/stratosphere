@@ -1,0 +1,7 @@
+module Stratosphere.VpcLattice.Rule.WeightedTargetGroupProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WeightedTargetGroupProperty :: Prelude.Type
+instance ToResourceProperties WeightedTargetGroupProperty
+instance JSON.ToJSON WeightedTargetGroupProperty

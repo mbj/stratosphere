@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.AmazonManagedKafkaEventSourceConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.DestinationConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.DocumentDBEventSourceConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.FilterCriteriaProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.ScalingConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.SelfManagedEventSourceProperty as Exports
@@ -18,6 +19,7 @@ data EventSourceMapping
                         batchSize :: (Prelude.Maybe (Value Prelude.Integer)),
                         bisectBatchOnFunctionError :: (Prelude.Maybe (Value Prelude.Bool)),
                         destinationConfig :: (Prelude.Maybe DestinationConfigProperty),
+                        documentDBEventSourceConfig :: (Prelude.Maybe DocumentDBEventSourceConfigProperty),
                         enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                         eventSourceArn :: (Prelude.Maybe (Value Prelude.Text)),
                         filterCriteria :: (Prelude.Maybe FilterCriteriaProperty),
@@ -43,8 +45,10 @@ mkEventSourceMapping functionName
        amazonManagedKafkaEventSourceConfig = Prelude.Nothing,
        batchSize = Prelude.Nothing,
        bisectBatchOnFunctionError = Prelude.Nothing,
-       destinationConfig = Prelude.Nothing, enabled = Prelude.Nothing,
-       eventSourceArn = Prelude.Nothing, filterCriteria = Prelude.Nothing,
+       destinationConfig = Prelude.Nothing,
+       documentDBEventSourceConfig = Prelude.Nothing,
+       enabled = Prelude.Nothing, eventSourceArn = Prelude.Nothing,
+       filterCriteria = Prelude.Nothing,
        functionResponseTypes = Prelude.Nothing,
        maximumBatchingWindowInSeconds = Prelude.Nothing,
        maximumRecordAgeInSeconds = Prelude.Nothing,
@@ -73,6 +77,8 @@ instance ToResourceProperties EventSourceMapping where
                                (JSON..=) "BisectBatchOnFunctionError"
                                  Prelude.<$> bisectBatchOnFunctionError,
                                (JSON..=) "DestinationConfig" Prelude.<$> destinationConfig,
+                               (JSON..=) "DocumentDBEventSourceConfig"
+                                 Prelude.<$> documentDBEventSourceConfig,
                                (JSON..=) "Enabled" Prelude.<$> enabled,
                                (JSON..=) "EventSourceArn" Prelude.<$> eventSourceArn,
                                (JSON..=) "FilterCriteria" Prelude.<$> filterCriteria,
@@ -112,6 +118,8 @@ instance JSON.ToJSON EventSourceMapping where
                   (JSON..=) "BisectBatchOnFunctionError"
                     Prelude.<$> bisectBatchOnFunctionError,
                   (JSON..=) "DestinationConfig" Prelude.<$> destinationConfig,
+                  (JSON..=) "DocumentDBEventSourceConfig"
+                    Prelude.<$> documentDBEventSourceConfig,
                   (JSON..=) "Enabled" Prelude.<$> enabled,
                   (JSON..=) "EventSourceArn" Prelude.<$> eventSourceArn,
                   (JSON..=) "FilterCriteria" Prelude.<$> filterCriteria,
@@ -157,6 +165,11 @@ instance Property "DestinationConfig" EventSourceMapping where
   set newValue EventSourceMapping {..}
     = EventSourceMapping
         {destinationConfig = Prelude.pure newValue, ..}
+instance Property "DocumentDBEventSourceConfig" EventSourceMapping where
+  type PropertyType "DocumentDBEventSourceConfig" EventSourceMapping = DocumentDBEventSourceConfigProperty
+  set newValue EventSourceMapping {..}
+    = EventSourceMapping
+        {documentDBEventSourceConfig = Prelude.pure newValue, ..}
 instance Property "Enabled" EventSourceMapping where
   type PropertyType "Enabled" EventSourceMapping = Value Prelude.Bool
   set newValue EventSourceMapping {..}

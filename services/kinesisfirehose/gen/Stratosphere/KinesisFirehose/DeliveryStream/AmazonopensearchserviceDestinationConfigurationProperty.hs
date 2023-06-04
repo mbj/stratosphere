@@ -9,6 +9,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceBufferingHintsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceRetryOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.CloudWatchLoggingOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.DocumentIdOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ProcessingConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.VpcConfigurationProperty as Exports
@@ -18,6 +19,7 @@ data AmazonopensearchserviceDestinationConfigurationProperty
   = AmazonopensearchserviceDestinationConfigurationProperty {bufferingHints :: (Prelude.Maybe AmazonopensearchserviceBufferingHintsProperty),
                                                              cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
                                                              clusterEndpoint :: (Prelude.Maybe (Value Prelude.Text)),
+                                                             documentIdOptions :: (Prelude.Maybe DocumentIdOptionsProperty),
                                                              domainARN :: (Prelude.Maybe (Value Prelude.Text)),
                                                              indexName :: (Value Prelude.Text),
                                                              indexRotationPeriod :: (Prelude.Maybe (Value Prelude.Text)),
@@ -42,7 +44,8 @@ mkAmazonopensearchserviceDestinationConfigurationProperty
        s3Configuration = s3Configuration,
        bufferingHints = Prelude.Nothing,
        cloudWatchLoggingOptions = Prelude.Nothing,
-       clusterEndpoint = Prelude.Nothing, domainARN = Prelude.Nothing,
+       clusterEndpoint = Prelude.Nothing,
+       documentIdOptions = Prelude.Nothing, domainARN = Prelude.Nothing,
        indexRotationPeriod = Prelude.Nothing,
        processingConfiguration = Prelude.Nothing,
        retryOptions = Prelude.Nothing, s3BackupMode = Prelude.Nothing,
@@ -62,6 +65,7 @@ instance ToResourceProperties AmazonopensearchserviceDestinationConfigurationPro
                                (JSON..=) "CloudWatchLoggingOptions"
                                  Prelude.<$> cloudWatchLoggingOptions,
                                (JSON..=) "ClusterEndpoint" Prelude.<$> clusterEndpoint,
+                               (JSON..=) "DocumentIdOptions" Prelude.<$> documentIdOptions,
                                (JSON..=) "DomainARN" Prelude.<$> domainARN,
                                (JSON..=) "IndexRotationPeriod" Prelude.<$> indexRotationPeriod,
                                (JSON..=) "ProcessingConfiguration"
@@ -82,6 +86,7 @@ instance JSON.ToJSON AmazonopensearchserviceDestinationConfigurationProperty whe
                   (JSON..=) "CloudWatchLoggingOptions"
                     Prelude.<$> cloudWatchLoggingOptions,
                   (JSON..=) "ClusterEndpoint" Prelude.<$> clusterEndpoint,
+                  (JSON..=) "DocumentIdOptions" Prelude.<$> documentIdOptions,
                   (JSON..=) "DomainARN" Prelude.<$> domainARN,
                   (JSON..=) "IndexRotationPeriod" Prelude.<$> indexRotationPeriod,
                   (JSON..=) "ProcessingConfiguration"
@@ -111,6 +116,13 @@ instance Property "ClusterEndpoint" AmazonopensearchserviceDestinationConfigurat
     AmazonopensearchserviceDestinationConfigurationProperty {..}
     = AmazonopensearchserviceDestinationConfigurationProperty
         {clusterEndpoint = Prelude.pure newValue, ..}
+instance Property "DocumentIdOptions" AmazonopensearchserviceDestinationConfigurationProperty where
+  type PropertyType "DocumentIdOptions" AmazonopensearchserviceDestinationConfigurationProperty = DocumentIdOptionsProperty
+  set
+    newValue
+    AmazonopensearchserviceDestinationConfigurationProperty {..}
+    = AmazonopensearchserviceDestinationConfigurationProperty
+        {documentIdOptions = Prelude.pure newValue, ..}
 instance Property "DomainARN" AmazonopensearchserviceDestinationConfigurationProperty where
   type PropertyType "DomainARN" AmazonopensearchserviceDestinationConfigurationProperty = Value Prelude.Text
   set

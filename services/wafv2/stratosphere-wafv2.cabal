@@ -85,6 +85,7 @@ library
       Stratosphere.WAFv2.WebACL
       Stratosphere.WAFv2.WebACL.AllowActionProperty
       Stratosphere.WAFv2.WebACL.AndStatementProperty
+      Stratosphere.WAFv2.WebACL.AWSManagedRulesATPRuleSetProperty
       Stratosphere.WAFv2.WebACL.AWSManagedRulesBotControlRuleSetProperty
       Stratosphere.WAFv2.WebACL.BlockActionProperty
       Stratosphere.WAFv2.WebACL.BodyProperty
@@ -123,6 +124,12 @@ library
       Stratosphere.WAFv2.WebACL.RateBasedStatementProperty
       Stratosphere.WAFv2.WebACL.RegexMatchStatementProperty
       Stratosphere.WAFv2.WebACL.RegexPatternSetReferenceStatementProperty
+      Stratosphere.WAFv2.WebACL.RequestInspectionProperty
+      Stratosphere.WAFv2.WebACL.ResponseInspectionBodyContainsProperty
+      Stratosphere.WAFv2.WebACL.ResponseInspectionHeaderProperty
+      Stratosphere.WAFv2.WebACL.ResponseInspectionJsonProperty
+      Stratosphere.WAFv2.WebACL.ResponseInspectionProperty
+      Stratosphere.WAFv2.WebACL.ResponseInspectionStatusCodeProperty
       Stratosphere.WAFv2.WebACL.RuleActionOverrideProperty
       Stratosphere.WAFv2.WebACL.RuleActionProperty
       Stratosphere.WAFv2.WebACL.RuleGroupReferenceStatementProperty

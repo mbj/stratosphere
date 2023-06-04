@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.FunnelChartConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FunnelChartConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FunnelChartConfigurationProperty
+instance JSON.ToJSON FunnelChartConfigurationProperty

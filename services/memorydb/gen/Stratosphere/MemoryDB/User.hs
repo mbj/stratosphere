@@ -9,43 +9,44 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data User
-  = User {accessString :: (Value Prelude.Text),
-          authenticationMode :: AuthenticationModeProperty,
+  = User {accessString :: (Prelude.Maybe (Value Prelude.Text)),
+          authenticationMode :: (Prelude.Maybe AuthenticationModeProperty),
           tags :: (Prelude.Maybe [Tag]),
           userName :: (Value Prelude.Text)}
-mkUser ::
-  Value Prelude.Text
-  -> AuthenticationModeProperty -> Value Prelude.Text -> User
-mkUser accessString authenticationMode userName
+mkUser :: Value Prelude.Text -> User
+mkUser userName
   = User
-      {accessString = accessString,
-       authenticationMode = authenticationMode, userName = userName,
-       tags = Prelude.Nothing}
+      {userName = userName, accessString = Prelude.Nothing,
+       authenticationMode = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties User where
   toResourceProperties User {..}
     = ResourceProperties
         {awsType = "AWS::MemoryDB::User", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["AccessString" JSON..= accessString,
-                            "AuthenticationMode" JSON..= authenticationMode,
-                            "UserName" JSON..= userName]
-                           (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags]))}
+                           ["UserName" JSON..= userName]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AccessString" Prelude.<$> accessString,
+                               (JSON..=) "AuthenticationMode" Prelude.<$> authenticationMode,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON User where
   toJSON User {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["AccessString" JSON..= accessString,
-               "AuthenticationMode" JSON..= authenticationMode,
-               "UserName" JSON..= userName]
-              (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])))
+              ["UserName" JSON..= userName]
+              (Prelude.catMaybes
+                 [(JSON..=) "AccessString" Prelude.<$> accessString,
+                  (JSON..=) "AuthenticationMode" Prelude.<$> authenticationMode,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AccessString" User where
   type PropertyType "AccessString" User = Value Prelude.Text
-  set newValue User {..} = User {accessString = newValue, ..}
+  set newValue User {..}
+    = User {accessString = Prelude.pure newValue, ..}
 instance Property "AuthenticationMode" User where
   type PropertyType "AuthenticationMode" User = AuthenticationModeProperty
-  set newValue User {..} = User {authenticationMode = newValue, ..}
+  set newValue User {..}
+    = User {authenticationMode = Prelude.pure newValue, ..}
 instance Property "Tags" User where
   type PropertyType "Tags" User = [Tag]
   set newValue User {..} = User {tags = Prelude.pure newValue, ..}

@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.ChartAxisLabelOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ChartAxisLabelOptionsProperty :: Prelude.Type
+instance ToResourceProperties ChartAxisLabelOptionsProperty
+instance JSON.ToJSON ChartAxisLabelOptionsProperty

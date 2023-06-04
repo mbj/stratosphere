@@ -26,6 +26,7 @@ flag development
 library
   exposed-modules:
       Stratosphere.S3ObjectLambda.AccessPoint
+      Stratosphere.S3ObjectLambda.AccessPoint.AliasProperty
       Stratosphere.S3ObjectLambda.AccessPoint.AwsLambdaProperty
       Stratosphere.S3ObjectLambda.AccessPoint.ContentTransformationProperty
       Stratosphere.S3ObjectLambda.AccessPoint.ObjectLambdaConfigurationProperty

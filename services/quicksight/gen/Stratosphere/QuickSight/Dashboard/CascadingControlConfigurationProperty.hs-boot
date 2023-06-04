@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.CascadingControlConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CascadingControlConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CascadingControlConfigurationProperty
+instance JSON.ToJSON CascadingControlConfigurationProperty

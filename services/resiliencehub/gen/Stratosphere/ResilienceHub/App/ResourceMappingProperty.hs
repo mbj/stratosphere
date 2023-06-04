@@ -9,7 +9,8 @@ import {-# SOURCE #-} Stratosphere.ResilienceHub.App.PhysicalResourceIdProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResourceMappingProperty
-  = ResourceMappingProperty {logicalStackName :: (Prelude.Maybe (Value Prelude.Text)),
+  = ResourceMappingProperty {eksSourceName :: (Prelude.Maybe (Value Prelude.Text)),
+                             logicalStackName :: (Prelude.Maybe (Value Prelude.Text)),
                              mappingType :: (Value Prelude.Text),
                              physicalResourceId :: PhysicalResourceIdProperty,
                              resourceName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -21,6 +22,7 @@ mkResourceMappingProperty mappingType physicalResourceId
   = ResourceMappingProperty
       {mappingType = mappingType,
        physicalResourceId = physicalResourceId,
+       eksSourceName = Prelude.Nothing,
        logicalStackName = Prelude.Nothing, resourceName = Prelude.Nothing,
        terraformSourceName = Prelude.Nothing}
 instance ToResourceProperties ResourceMappingProperty where
@@ -33,7 +35,8 @@ instance ToResourceProperties ResourceMappingProperty where
                            ["MappingType" JSON..= mappingType,
                             "PhysicalResourceId" JSON..= physicalResourceId]
                            (Prelude.catMaybes
-                              [(JSON..=) "LogicalStackName" Prelude.<$> logicalStackName,
+                              [(JSON..=) "EksSourceName" Prelude.<$> eksSourceName,
+                               (JSON..=) "LogicalStackName" Prelude.<$> logicalStackName,
                                (JSON..=) "ResourceName" Prelude.<$> resourceName,
                                (JSON..=) "TerraformSourceName" Prelude.<$> terraformSourceName]))}
 instance JSON.ToJSON ResourceMappingProperty where
@@ -44,9 +47,15 @@ instance JSON.ToJSON ResourceMappingProperty where
               ["MappingType" JSON..= mappingType,
                "PhysicalResourceId" JSON..= physicalResourceId]
               (Prelude.catMaybes
-                 [(JSON..=) "LogicalStackName" Prelude.<$> logicalStackName,
+                 [(JSON..=) "EksSourceName" Prelude.<$> eksSourceName,
+                  (JSON..=) "LogicalStackName" Prelude.<$> logicalStackName,
                   (JSON..=) "ResourceName" Prelude.<$> resourceName,
                   (JSON..=) "TerraformSourceName" Prelude.<$> terraformSourceName])))
+instance Property "EksSourceName" ResourceMappingProperty where
+  type PropertyType "EksSourceName" ResourceMappingProperty = Value Prelude.Text
+  set newValue ResourceMappingProperty {..}
+    = ResourceMappingProperty
+        {eksSourceName = Prelude.pure newValue, ..}
 instance Property "LogicalStackName" ResourceMappingProperty where
   type PropertyType "LogicalStackName" ResourceMappingProperty = Value Prelude.Text
   set newValue ResourceMappingProperty {..}

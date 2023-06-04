@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.GeospatialMapConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialMapConfigurationProperty :: Prelude.Type
+instance ToResourceProperties GeospatialMapConfigurationProperty
+instance JSON.ToJSON GeospatialMapConfigurationProperty

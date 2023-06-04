@@ -20,6 +20,7 @@ data RedshiftSettingsProperty
                               explicitIds :: (Prelude.Maybe (Value Prelude.Bool)),
                               fileTransferUploadStreams :: (Prelude.Maybe (Value Prelude.Integer)),
                               loadTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
+                              mapBooleanAsBoolean :: (Prelude.Maybe (Value Prelude.Bool)),
                               maxFileSize :: (Prelude.Maybe (Value Prelude.Integer)),
                               removeQuotes :: (Prelude.Maybe (Value Prelude.Bool)),
                               replaceChars :: (Prelude.Maybe (Value Prelude.Text)),
@@ -43,8 +44,10 @@ mkRedshiftSettingsProperty
        emptyAsNull = Prelude.Nothing, encryptionMode = Prelude.Nothing,
        explicitIds = Prelude.Nothing,
        fileTransferUploadStreams = Prelude.Nothing,
-       loadTimeout = Prelude.Nothing, maxFileSize = Prelude.Nothing,
-       removeQuotes = Prelude.Nothing, replaceChars = Prelude.Nothing,
+       loadTimeout = Prelude.Nothing,
+       mapBooleanAsBoolean = Prelude.Nothing,
+       maxFileSize = Prelude.Nothing, removeQuotes = Prelude.Nothing,
+       replaceChars = Prelude.Nothing,
        replaceInvalidChars = Prelude.Nothing,
        secretsManagerAccessRoleArn = Prelude.Nothing,
        secretsManagerSecretId = Prelude.Nothing,
@@ -74,6 +77,7 @@ instance ToResourceProperties RedshiftSettingsProperty where
                             (JSON..=) "FileTransferUploadStreams"
                               Prelude.<$> fileTransferUploadStreams,
                             (JSON..=) "LoadTimeout" Prelude.<$> loadTimeout,
+                            (JSON..=) "MapBooleanAsBoolean" Prelude.<$> mapBooleanAsBoolean,
                             (JSON..=) "MaxFileSize" Prelude.<$> maxFileSize,
                             (JSON..=) "RemoveQuotes" Prelude.<$> removeQuotes,
                             (JSON..=) "ReplaceChars" Prelude.<$> replaceChars,
@@ -108,6 +112,7 @@ instance JSON.ToJSON RedshiftSettingsProperty where
                (JSON..=) "FileTransferUploadStreams"
                  Prelude.<$> fileTransferUploadStreams,
                (JSON..=) "LoadTimeout" Prelude.<$> loadTimeout,
+               (JSON..=) "MapBooleanAsBoolean" Prelude.<$> mapBooleanAsBoolean,
                (JSON..=) "MaxFileSize" Prelude.<$> maxFileSize,
                (JSON..=) "RemoveQuotes" Prelude.<$> removeQuotes,
                (JSON..=) "ReplaceChars" Prelude.<$> replaceChars,
@@ -185,6 +190,11 @@ instance Property "LoadTimeout" RedshiftSettingsProperty where
   set newValue RedshiftSettingsProperty {..}
     = RedshiftSettingsProperty
         {loadTimeout = Prelude.pure newValue, ..}
+instance Property "MapBooleanAsBoolean" RedshiftSettingsProperty where
+  type PropertyType "MapBooleanAsBoolean" RedshiftSettingsProperty = Value Prelude.Bool
+  set newValue RedshiftSettingsProperty {..}
+    = RedshiftSettingsProperty
+        {mapBooleanAsBoolean = Prelude.pure newValue, ..}
 instance Property "MaxFileSize" RedshiftSettingsProperty where
   type PropertyType "MaxFileSize" RedshiftSettingsProperty = Value Prelude.Integer
   set newValue RedshiftSettingsProperty {..}

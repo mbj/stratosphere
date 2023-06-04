@@ -17,7 +17,7 @@ data GameServerGroup
                      gameServerGroupName :: (Value Prelude.Text),
                      gameServerProtectionPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                      instanceDefinitions :: [InstanceDefinitionProperty],
-                     launchTemplate :: LaunchTemplateProperty,
+                     launchTemplate :: (Prelude.Maybe LaunchTemplateProperty),
                      maxSize :: (Prelude.Maybe (Value Prelude.Double)),
                      minSize :: (Prelude.Maybe (Value Prelude.Double)),
                      roleArn :: (Value Prelude.Text),
@@ -26,22 +26,18 @@ data GameServerGroup
 mkGameServerGroup ::
   Value Prelude.Text
   -> [InstanceDefinitionProperty]
-     -> LaunchTemplateProperty -> Value Prelude.Text -> GameServerGroup
-mkGameServerGroup
-  gameServerGroupName
-  instanceDefinitions
-  launchTemplate
-  roleArn
+     -> Value Prelude.Text -> GameServerGroup
+mkGameServerGroup gameServerGroupName instanceDefinitions roleArn
   = GameServerGroup
       {gameServerGroupName = gameServerGroupName,
-       instanceDefinitions = instanceDefinitions,
-       launchTemplate = launchTemplate, roleArn = roleArn,
+       instanceDefinitions = instanceDefinitions, roleArn = roleArn,
        autoScalingPolicy = Prelude.Nothing,
        balancingStrategy = Prelude.Nothing,
        deleteOption = Prelude.Nothing,
        gameServerProtectionPolicy = Prelude.Nothing,
-       maxSize = Prelude.Nothing, minSize = Prelude.Nothing,
-       tags = Prelude.Nothing, vpcSubnets = Prelude.Nothing}
+       launchTemplate = Prelude.Nothing, maxSize = Prelude.Nothing,
+       minSize = Prelude.Nothing, tags = Prelude.Nothing,
+       vpcSubnets = Prelude.Nothing}
 instance ToResourceProperties GameServerGroup where
   toResourceProperties GameServerGroup {..}
     = ResourceProperties
@@ -51,13 +47,14 @@ instance ToResourceProperties GameServerGroup where
                         ((Prelude.<>)
                            ["GameServerGroupName" JSON..= gameServerGroupName,
                             "InstanceDefinitions" JSON..= instanceDefinitions,
-                            "LaunchTemplate" JSON..= launchTemplate, "RoleArn" JSON..= roleArn]
+                            "RoleArn" JSON..= roleArn]
                            (Prelude.catMaybes
                               [(JSON..=) "AutoScalingPolicy" Prelude.<$> autoScalingPolicy,
                                (JSON..=) "BalancingStrategy" Prelude.<$> balancingStrategy,
                                (JSON..=) "DeleteOption" Prelude.<$> deleteOption,
                                (JSON..=) "GameServerProtectionPolicy"
                                  Prelude.<$> gameServerProtectionPolicy,
+                               (JSON..=) "LaunchTemplate" Prelude.<$> launchTemplate,
                                (JSON..=) "MaxSize" Prelude.<$> maxSize,
                                (JSON..=) "MinSize" Prelude.<$> minSize,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -69,13 +66,14 @@ instance JSON.ToJSON GameServerGroup where
            ((Prelude.<>)
               ["GameServerGroupName" JSON..= gameServerGroupName,
                "InstanceDefinitions" JSON..= instanceDefinitions,
-               "LaunchTemplate" JSON..= launchTemplate, "RoleArn" JSON..= roleArn]
+               "RoleArn" JSON..= roleArn]
               (Prelude.catMaybes
                  [(JSON..=) "AutoScalingPolicy" Prelude.<$> autoScalingPolicy,
                   (JSON..=) "BalancingStrategy" Prelude.<$> balancingStrategy,
                   (JSON..=) "DeleteOption" Prelude.<$> deleteOption,
                   (JSON..=) "GameServerProtectionPolicy"
                     Prelude.<$> gameServerProtectionPolicy,
+                  (JSON..=) "LaunchTemplate" Prelude.<$> launchTemplate,
                   (JSON..=) "MaxSize" Prelude.<$> maxSize,
                   (JSON..=) "MinSize" Prelude.<$> minSize,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -108,7 +106,7 @@ instance Property "InstanceDefinitions" GameServerGroup where
 instance Property "LaunchTemplate" GameServerGroup where
   type PropertyType "LaunchTemplate" GameServerGroup = LaunchTemplateProperty
   set newValue GameServerGroup {..}
-    = GameServerGroup {launchTemplate = newValue, ..}
+    = GameServerGroup {launchTemplate = Prelude.pure newValue, ..}
 instance Property "MaxSize" GameServerGroup where
   type PropertyType "MaxSize" GameServerGroup = Value Prelude.Double
   set newValue GameServerGroup {..}

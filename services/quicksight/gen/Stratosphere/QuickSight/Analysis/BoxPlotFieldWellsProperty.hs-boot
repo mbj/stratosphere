@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.BoxPlotFieldWellsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BoxPlotFieldWellsProperty :: Prelude.Type
+instance ToResourceProperties BoxPlotFieldWellsProperty
+instance JSON.ToJSON BoxPlotFieldWellsProperty

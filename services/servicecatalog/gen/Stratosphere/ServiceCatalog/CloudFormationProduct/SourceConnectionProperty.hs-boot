@@ -1,0 +1,7 @@
+module Stratosphere.ServiceCatalog.CloudFormationProduct.SourceConnectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SourceConnectionProperty :: Prelude.Type
+instance ToResourceProperties SourceConnectionProperty
+instance JSON.ToJSON SourceConnectionProperty

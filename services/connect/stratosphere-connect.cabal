@@ -28,6 +28,22 @@ library
       Stratosphere.Connect.ApprovedOrigin
       Stratosphere.Connect.ContactFlow
       Stratosphere.Connect.ContactFlowModule
+      Stratosphere.Connect.EvaluationForm
+      Stratosphere.Connect.EvaluationForm.EvaluationFormBaseItemProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQuestionAutomationProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQuestionOptionProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQuestionPropertiesProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionTypePropertiesProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormSectionProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionAutomationOptionProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionAutomationProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionOptionProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionPropertiesProperty
+      Stratosphere.Connect.EvaluationForm.NumericQuestionPropertyValueAutomationProperty
+      Stratosphere.Connect.EvaluationForm.ScoringStrategyProperty
+      Stratosphere.Connect.EvaluationForm.SingleSelectQuestionRuleCategoryAutomationProperty
       Stratosphere.Connect.HoursOfOperation
       Stratosphere.Connect.HoursOfOperation.HoursOfOperationConfigProperty
       Stratosphere.Connect.HoursOfOperation.HoursOfOperationTimeSliceProperty
@@ -41,6 +57,7 @@ library
       Stratosphere.Connect.InstanceStorageConfig.S3ConfigProperty
       Stratosphere.Connect.IntegrationAssociation
       Stratosphere.Connect.PhoneNumber
+      Stratosphere.Connect.Prompt
       Stratosphere.Connect.QuickConnect
       Stratosphere.Connect.QuickConnect.PhoneNumberQuickConnectConfigProperty
       Stratosphere.Connect.QuickConnect.QueueQuickConnectConfigProperty

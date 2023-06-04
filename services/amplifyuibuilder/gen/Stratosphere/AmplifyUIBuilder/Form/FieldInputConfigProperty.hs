@@ -5,6 +5,7 @@ module Stratosphere.AmplifyUIBuilder.Form.FieldInputConfigProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.FileUploaderFieldConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.ValueMappingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -13,6 +14,7 @@ data FieldInputConfigProperty
                               defaultCountryCode :: (Prelude.Maybe (Value Prelude.Text)),
                               defaultValue :: (Prelude.Maybe (Value Prelude.Text)),
                               descriptiveText :: (Prelude.Maybe (Value Prelude.Text)),
+                              fileUploaderConfig :: (Prelude.Maybe FileUploaderFieldConfigProperty),
                               isArray :: (Prelude.Maybe (Value Prelude.Bool)),
                               maxValue :: (Prelude.Maybe (Value Prelude.Double)),
                               minValue :: (Prelude.Maybe (Value Prelude.Double)),
@@ -31,11 +33,12 @@ mkFieldInputConfigProperty type'
       {type' = type', defaultChecked = Prelude.Nothing,
        defaultCountryCode = Prelude.Nothing,
        defaultValue = Prelude.Nothing, descriptiveText = Prelude.Nothing,
-       isArray = Prelude.Nothing, maxValue = Prelude.Nothing,
-       minValue = Prelude.Nothing, name = Prelude.Nothing,
-       placeholder = Prelude.Nothing, readOnly = Prelude.Nothing,
-       required = Prelude.Nothing, step = Prelude.Nothing,
-       value = Prelude.Nothing, valueMappings = Prelude.Nothing}
+       fileUploaderConfig = Prelude.Nothing, isArray = Prelude.Nothing,
+       maxValue = Prelude.Nothing, minValue = Prelude.Nothing,
+       name = Prelude.Nothing, placeholder = Prelude.Nothing,
+       readOnly = Prelude.Nothing, required = Prelude.Nothing,
+       step = Prelude.Nothing, value = Prelude.Nothing,
+       valueMappings = Prelude.Nothing}
 instance ToResourceProperties FieldInputConfigProperty where
   toResourceProperties FieldInputConfigProperty {..}
     = ResourceProperties
@@ -49,6 +52,7 @@ instance ToResourceProperties FieldInputConfigProperty where
                                (JSON..=) "DefaultCountryCode" Prelude.<$> defaultCountryCode,
                                (JSON..=) "DefaultValue" Prelude.<$> defaultValue,
                                (JSON..=) "DescriptiveText" Prelude.<$> descriptiveText,
+                               (JSON..=) "FileUploaderConfig" Prelude.<$> fileUploaderConfig,
                                (JSON..=) "IsArray" Prelude.<$> isArray,
                                (JSON..=) "MaxValue" Prelude.<$> maxValue,
                                (JSON..=) "MinValue" Prelude.<$> minValue,
@@ -70,6 +74,7 @@ instance JSON.ToJSON FieldInputConfigProperty where
                   (JSON..=) "DefaultCountryCode" Prelude.<$> defaultCountryCode,
                   (JSON..=) "DefaultValue" Prelude.<$> defaultValue,
                   (JSON..=) "DescriptiveText" Prelude.<$> descriptiveText,
+                  (JSON..=) "FileUploaderConfig" Prelude.<$> fileUploaderConfig,
                   (JSON..=) "IsArray" Prelude.<$> isArray,
                   (JSON..=) "MaxValue" Prelude.<$> maxValue,
                   (JSON..=) "MinValue" Prelude.<$> minValue,
@@ -100,6 +105,11 @@ instance Property "DescriptiveText" FieldInputConfigProperty where
   set newValue FieldInputConfigProperty {..}
     = FieldInputConfigProperty
         {descriptiveText = Prelude.pure newValue, ..}
+instance Property "FileUploaderConfig" FieldInputConfigProperty where
+  type PropertyType "FileUploaderConfig" FieldInputConfigProperty = FileUploaderFieldConfigProperty
+  set newValue FieldInputConfigProperty {..}
+    = FieldInputConfigProperty
+        {fileUploaderConfig = Prelude.pure newValue, ..}
 instance Property "IsArray" FieldInputConfigProperty where
   type PropertyType "IsArray" FieldInputConfigProperty = Value Prelude.Bool
   set newValue FieldInputConfigProperty {..}

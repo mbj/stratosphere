@@ -15,7 +15,7 @@ data NotificationRule
                       name :: (Value Prelude.Text),
                       resource :: (Value Prelude.Text),
                       status :: (Prelude.Maybe (Value Prelude.Text)),
-                      tags :: (Prelude.Maybe JSON.Object),
+                      tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                       targetAddress :: (Prelude.Maybe (Value Prelude.Text)),
                       targets :: [TargetProperty]}
 mkNotificationRule ::
@@ -89,7 +89,7 @@ instance Property "Status" NotificationRule where
   set newValue NotificationRule {..}
     = NotificationRule {status = Prelude.pure newValue, ..}
 instance Property "Tags" NotificationRule where
-  type PropertyType "Tags" NotificationRule = JSON.Object
+  type PropertyType "Tags" NotificationRule = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue NotificationRule {..}
     = NotificationRule {tags = Prelude.pure newValue, ..}
 instance Property "TargetAddress" NotificationRule where

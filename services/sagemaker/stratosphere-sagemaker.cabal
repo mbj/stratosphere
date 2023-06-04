@@ -103,6 +103,16 @@ library
       Stratosphere.SageMaker.FeatureGroup.S3StorageConfigProperty
       Stratosphere.SageMaker.Image
       Stratosphere.SageMaker.ImageVersion
+      Stratosphere.SageMaker.InferenceExperiment
+      Stratosphere.SageMaker.InferenceExperiment.CaptureContentTypeHeaderProperty
+      Stratosphere.SageMaker.InferenceExperiment.DataStorageConfigProperty
+      Stratosphere.SageMaker.InferenceExperiment.EndpointMetadataProperty
+      Stratosphere.SageMaker.InferenceExperiment.InferenceExperimentScheduleProperty
+      Stratosphere.SageMaker.InferenceExperiment.ModelInfrastructureConfigProperty
+      Stratosphere.SageMaker.InferenceExperiment.ModelVariantConfigProperty
+      Stratosphere.SageMaker.InferenceExperiment.RealTimeInferenceConfigProperty
+      Stratosphere.SageMaker.InferenceExperiment.ShadowModeConfigProperty
+      Stratosphere.SageMaker.InferenceExperiment.ShadowModelVariantConfigProperty
       Stratosphere.SageMaker.Model
       Stratosphere.SageMaker.Model.ContainerDefinitionProperty
       Stratosphere.SageMaker.Model.ImageConfigProperty
@@ -132,16 +142,21 @@ library
       Stratosphere.SageMaker.ModelCard
       Stratosphere.SageMaker.ModelCard.AdditionalInformationProperty
       Stratosphere.SageMaker.ModelCard.BusinessDetailsProperty
+      Stratosphere.SageMaker.ModelCard.ContainerProperty
       Stratosphere.SageMaker.ModelCard.ContentProperty
       Stratosphere.SageMaker.ModelCard.EvaluationDetailProperty
       Stratosphere.SageMaker.ModelCard.FunctionProperty
       Stratosphere.SageMaker.ModelCard.InferenceEnvironmentProperty
+      Stratosphere.SageMaker.ModelCard.InferenceSpecificationProperty
       Stratosphere.SageMaker.ModelCard.IntendedUsesProperty
       Stratosphere.SageMaker.ModelCard.MetricDataItemsProperty
       Stratosphere.SageMaker.ModelCard.MetricGroupProperty
       Stratosphere.SageMaker.ModelCard.ModelOverviewProperty
+      Stratosphere.SageMaker.ModelCard.ModelPackageCreatorProperty
+      Stratosphere.SageMaker.ModelCard.ModelPackageDetailsProperty
       Stratosphere.SageMaker.ModelCard.ObjectiveFunctionProperty
       Stratosphere.SageMaker.ModelCard.SecurityConfigProperty
+      Stratosphere.SageMaker.ModelCard.SourceAlgorithmProperty
       Stratosphere.SageMaker.ModelCard.TrainingDetailsProperty
       Stratosphere.SageMaker.ModelCard.TrainingEnvironmentProperty
       Stratosphere.SageMaker.ModelCard.TrainingHyperParameterProperty

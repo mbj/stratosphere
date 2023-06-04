@@ -25,6 +25,7 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.Chatbot.MicrosoftTeamsChannelConfiguration
       Stratosphere.Chatbot.SlackChannelConfiguration
   other-modules:
       Paths_stratosphere_chatbot

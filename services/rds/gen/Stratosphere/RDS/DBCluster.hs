@@ -53,6 +53,7 @@ data DBCluster
                preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
                publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
                replicationSourceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+               restoreToTime :: (Prelude.Maybe (Value Prelude.Text)),
                restoreType :: (Prelude.Maybe (Value Prelude.Text)),
                scalingConfiguration :: (Prelude.Maybe ScalingConfigurationProperty),
                serverlessV2ScalingConfiguration :: (Prelude.Maybe ServerlessV2ScalingConfigurationProperty),
@@ -102,7 +103,7 @@ mkDBCluster
        preferredMaintenanceWindow = Prelude.Nothing,
        publiclyAccessible = Prelude.Nothing,
        replicationSourceIdentifier = Prelude.Nothing,
-       restoreType = Prelude.Nothing,
+       restoreToTime = Prelude.Nothing, restoreType = Prelude.Nothing,
        scalingConfiguration = Prelude.Nothing,
        serverlessV2ScalingConfiguration = Prelude.Nothing,
        snapshotIdentifier = Prelude.Nothing,
@@ -173,6 +174,7 @@ instance ToResourceProperties DBCluster where
                             (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
                             (JSON..=) "ReplicationSourceIdentifier"
                               Prelude.<$> replicationSourceIdentifier,
+                            (JSON..=) "RestoreToTime" Prelude.<$> restoreToTime,
                             (JSON..=) "RestoreType" Prelude.<$> restoreType,
                             (JSON..=) "ScalingConfiguration" Prelude.<$> scalingConfiguration,
                             (JSON..=) "ServerlessV2ScalingConfiguration"
@@ -248,6 +250,7 @@ instance JSON.ToJSON DBCluster where
                (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
                (JSON..=) "ReplicationSourceIdentifier"
                  Prelude.<$> replicationSourceIdentifier,
+               (JSON..=) "RestoreToTime" Prelude.<$> restoreToTime,
                (JSON..=) "RestoreType" Prelude.<$> restoreType,
                (JSON..=) "ScalingConfiguration" Prelude.<$> scalingConfiguration,
                (JSON..=) "ServerlessV2ScalingConfiguration"
@@ -435,6 +438,10 @@ instance Property "ReplicationSourceIdentifier" DBCluster where
   set newValue DBCluster {..}
     = DBCluster
         {replicationSourceIdentifier = Prelude.pure newValue, ..}
+instance Property "RestoreToTime" DBCluster where
+  type PropertyType "RestoreToTime" DBCluster = Value Prelude.Text
+  set newValue DBCluster {..}
+    = DBCluster {restoreToTime = Prelude.pure newValue, ..}
 instance Property "RestoreType" DBCluster where
   type PropertyType "RestoreType" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}

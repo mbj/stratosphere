@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Topic.TopicSingularFilterConstantProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TopicSingularFilterConstantProperty :: Prelude.Type
+instance ToResourceProperties TopicSingularFilterConstantProperty
+instance JSON.ToJSON TopicSingularFilterConstantProperty

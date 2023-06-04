@@ -124,13 +124,14 @@ instance JSON.FromJSON PrimitiveType where
     other       -> fail $ "Unsupported primitive type: " <> Text.unpack other
 
 data PropertyType = PropertyType
-  { propertyTypeDocumentation :: Text
-  , propertyTypeItemType      :: Maybe PropertyName
-  , propertyTypePrimitiveType :: Maybe PrimitiveType
-  , propertyTypeProperties    :: Maybe (Map PropertyName Property)
-  , propertyTypeRequired      :: Maybe Bool
-  , propertyTypeType          :: Maybe ComposedType
-  , propertyTypeUpdateType    :: Maybe Text
+  { propertyTypeDocumentation     :: Text
+  , propertyTypeItemType          :: Maybe PropertyName
+  , propertyTypePrimitiveType     :: Maybe PrimitiveType
+  , propertyTypePrimitiveItemType :: Maybe PrimitiveType
+  , propertyTypeProperties        :: Maybe (Map PropertyName Property)
+  , propertyTypeRequired          :: Maybe Bool
+  , propertyTypeType              :: Maybe ComposedType
+  , propertyTypeUpdateType        :: Maybe Text
   }
   deriving (Show, Eq, Generic)
 

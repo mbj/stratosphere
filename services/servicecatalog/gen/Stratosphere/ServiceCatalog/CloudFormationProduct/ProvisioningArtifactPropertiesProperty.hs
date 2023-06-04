@@ -11,14 +11,15 @@ data ProvisioningArtifactPropertiesProperty
   = ProvisioningArtifactPropertiesProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
                                             disableTemplateValidation :: (Prelude.Maybe (Value Prelude.Bool)),
                                             info :: JSON.Object,
-                                            name :: (Prelude.Maybe (Value Prelude.Text))}
+                                            name :: (Prelude.Maybe (Value Prelude.Text)),
+                                            type' :: (Prelude.Maybe (Value Prelude.Text))}
 mkProvisioningArtifactPropertiesProperty ::
   JSON.Object -> ProvisioningArtifactPropertiesProperty
 mkProvisioningArtifactPropertiesProperty info
   = ProvisioningArtifactPropertiesProperty
       {info = info, description = Prelude.Nothing,
        disableTemplateValidation = Prelude.Nothing,
-       name = Prelude.Nothing}
+       name = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties ProvisioningArtifactPropertiesProperty where
   toResourceProperties ProvisioningArtifactPropertiesProperty {..}
     = ResourceProperties
@@ -31,7 +32,8 @@ instance ToResourceProperties ProvisioningArtifactPropertiesProperty where
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "DisableTemplateValidation"
                                  Prelude.<$> disableTemplateValidation,
-                               (JSON..=) "Name" Prelude.<$> name]))}
+                               (JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "Type" Prelude.<$> type']))}
 instance JSON.ToJSON ProvisioningArtifactPropertiesProperty where
   toJSON ProvisioningArtifactPropertiesProperty {..}
     = JSON.object
@@ -42,7 +44,8 @@ instance JSON.ToJSON ProvisioningArtifactPropertiesProperty where
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "DisableTemplateValidation"
                     Prelude.<$> disableTemplateValidation,
-                  (JSON..=) "Name" Prelude.<$> name])))
+                  (JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "Type" Prelude.<$> type'])))
 instance Property "Description" ProvisioningArtifactPropertiesProperty where
   type PropertyType "Description" ProvisioningArtifactPropertiesProperty = Value Prelude.Text
   set newValue ProvisioningArtifactPropertiesProperty {..}
@@ -62,3 +65,8 @@ instance Property "Name" ProvisioningArtifactPropertiesProperty where
   set newValue ProvisioningArtifactPropertiesProperty {..}
     = ProvisioningArtifactPropertiesProperty
         {name = Prelude.pure newValue, ..}
+instance Property "Type" ProvisioningArtifactPropertiesProperty where
+  type PropertyType "Type" ProvisioningArtifactPropertiesProperty = Value Prelude.Text
+  set newValue ProvisioningArtifactPropertiesProperty {..}
+    = ProvisioningArtifactPropertiesProperty
+        {type' = Prelude.pure newValue, ..}

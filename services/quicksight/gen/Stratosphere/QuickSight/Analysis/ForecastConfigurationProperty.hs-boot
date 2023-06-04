@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.ForecastConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ForecastConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ForecastConfigurationProperty
+instance JSON.ToJSON ForecastConfigurationProperty

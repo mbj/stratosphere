@@ -27,13 +27,9 @@ library
   exposed-modules:
       Stratosphere.XRay.Group
       Stratosphere.XRay.Group.InsightsConfigurationProperty
-      Stratosphere.XRay.Group.TagsItemsProperty
       Stratosphere.XRay.ResourcePolicy
       Stratosphere.XRay.SamplingRule
       Stratosphere.XRay.SamplingRule.SamplingRuleProperty
-      Stratosphere.XRay.SamplingRule.SamplingRuleRecordProperty
-      Stratosphere.XRay.SamplingRule.SamplingRuleUpdateProperty
-      Stratosphere.XRay.SamplingRule.TagsItemsProperty
   other-modules:
       Paths_stratosphere_xray
   hs-source-dirs:

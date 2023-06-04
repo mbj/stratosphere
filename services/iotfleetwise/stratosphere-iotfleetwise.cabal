@@ -28,8 +28,11 @@ library
       Stratosphere.IoTFleetWise.Campaign
       Stratosphere.IoTFleetWise.Campaign.CollectionSchemeProperty
       Stratosphere.IoTFleetWise.Campaign.ConditionBasedCollectionSchemeProperty
+      Stratosphere.IoTFleetWise.Campaign.DataDestinationConfigProperty
+      Stratosphere.IoTFleetWise.Campaign.S3ConfigProperty
       Stratosphere.IoTFleetWise.Campaign.SignalInformationProperty
       Stratosphere.IoTFleetWise.Campaign.TimeBasedCollectionSchemeProperty
+      Stratosphere.IoTFleetWise.Campaign.TimestreamConfigProperty
       Stratosphere.IoTFleetWise.DecoderManifest
       Stratosphere.IoTFleetWise.DecoderManifest.CanInterfaceProperty
       Stratosphere.IoTFleetWise.DecoderManifest.CanSignalProperty

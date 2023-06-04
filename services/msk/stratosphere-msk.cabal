@@ -58,12 +58,14 @@ library
       Stratosphere.MSK.Cluster.VpcConnectivitySaslProperty
       Stratosphere.MSK.Cluster.VpcConnectivityScramProperty
       Stratosphere.MSK.Cluster.VpcConnectivityTlsProperty
+      Stratosphere.MSK.ClusterPolicy
       Stratosphere.MSK.Configuration
       Stratosphere.MSK.ServerlessCluster
       Stratosphere.MSK.ServerlessCluster.ClientAuthenticationProperty
       Stratosphere.MSK.ServerlessCluster.IamProperty
       Stratosphere.MSK.ServerlessCluster.SaslProperty
       Stratosphere.MSK.ServerlessCluster.VpcConfigProperty
+      Stratosphere.MSK.VpcConnection
   other-modules:
       Paths_stratosphere_msk
   hs-source-dirs:

@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.PivotTableConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PivotTableConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PivotTableConfigurationProperty
+instance JSON.ToJSON PivotTableConfigurationProperty

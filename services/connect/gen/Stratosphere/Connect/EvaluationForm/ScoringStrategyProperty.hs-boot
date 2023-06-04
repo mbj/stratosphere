@@ -1,0 +1,7 @@
+module Stratosphere.Connect.EvaluationForm.ScoringStrategyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScoringStrategyProperty :: Prelude.Type
+instance ToResourceProperties ScoringStrategyProperty
+instance JSON.ToJSON ScoringStrategyProperty

@@ -11,13 +11,15 @@ data IdentityProviderDetailsProperty
   = IdentityProviderDetailsProperty {directoryId :: (Prelude.Maybe (Value Prelude.Text)),
                                      function :: (Prelude.Maybe (Value Prelude.Text)),
                                      invocationRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                     sftpAuthenticationMethods :: (Prelude.Maybe (Value Prelude.Text)),
                                      url :: (Prelude.Maybe (Value Prelude.Text))}
 mkIdentityProviderDetailsProperty ::
   IdentityProviderDetailsProperty
 mkIdentityProviderDetailsProperty
   = IdentityProviderDetailsProperty
       {directoryId = Prelude.Nothing, function = Prelude.Nothing,
-       invocationRole = Prelude.Nothing, url = Prelude.Nothing}
+       invocationRole = Prelude.Nothing,
+       sftpAuthenticationMethods = Prelude.Nothing, url = Prelude.Nothing}
 instance ToResourceProperties IdentityProviderDetailsProperty where
   toResourceProperties IdentityProviderDetailsProperty {..}
     = ResourceProperties
@@ -28,6 +30,8 @@ instance ToResourceProperties IdentityProviderDetailsProperty where
                            [(JSON..=) "DirectoryId" Prelude.<$> directoryId,
                             (JSON..=) "Function" Prelude.<$> function,
                             (JSON..=) "InvocationRole" Prelude.<$> invocationRole,
+                            (JSON..=) "SftpAuthenticationMethods"
+                              Prelude.<$> sftpAuthenticationMethods,
                             (JSON..=) "Url" Prelude.<$> url])}
 instance JSON.ToJSON IdentityProviderDetailsProperty where
   toJSON IdentityProviderDetailsProperty {..}
@@ -37,6 +41,8 @@ instance JSON.ToJSON IdentityProviderDetailsProperty where
               [(JSON..=) "DirectoryId" Prelude.<$> directoryId,
                (JSON..=) "Function" Prelude.<$> function,
                (JSON..=) "InvocationRole" Prelude.<$> invocationRole,
+               (JSON..=) "SftpAuthenticationMethods"
+                 Prelude.<$> sftpAuthenticationMethods,
                (JSON..=) "Url" Prelude.<$> url]))
 instance Property "DirectoryId" IdentityProviderDetailsProperty where
   type PropertyType "DirectoryId" IdentityProviderDetailsProperty = Value Prelude.Text
@@ -53,6 +59,11 @@ instance Property "InvocationRole" IdentityProviderDetailsProperty where
   set newValue IdentityProviderDetailsProperty {..}
     = IdentityProviderDetailsProperty
         {invocationRole = Prelude.pure newValue, ..}
+instance Property "SftpAuthenticationMethods" IdentityProviderDetailsProperty where
+  type PropertyType "SftpAuthenticationMethods" IdentityProviderDetailsProperty = Value Prelude.Text
+  set newValue IdentityProviderDetailsProperty {..}
+    = IdentityProviderDetailsProperty
+        {sftpAuthenticationMethods = Prelude.pure newValue, ..}
 instance Property "Url" IdentityProviderDetailsProperty where
   type PropertyType "Url" IdentityProviderDetailsProperty = Value Prelude.Text
   set newValue IdentityProviderDetailsProperty {..}

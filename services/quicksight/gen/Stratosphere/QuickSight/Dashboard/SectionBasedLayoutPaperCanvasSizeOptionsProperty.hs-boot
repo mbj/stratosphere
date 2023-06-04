@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.SectionBasedLayoutPaperCanvasSizeOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SectionBasedLayoutPaperCanvasSizeOptionsProperty :: Prelude.Type
+instance ToResourceProperties SectionBasedLayoutPaperCanvasSizeOptionsProperty
+instance JSON.ToJSON SectionBasedLayoutPaperCanvasSizeOptionsProperty

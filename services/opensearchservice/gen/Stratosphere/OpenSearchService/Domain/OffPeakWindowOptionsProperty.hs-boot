@@ -1,0 +1,7 @@
+module Stratosphere.OpenSearchService.Domain.OffPeakWindowOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OffPeakWindowOptionsProperty :: Prelude.Type
+instance ToResourceProperties OffPeakWindowOptionsProperty
+instance JSON.ToJSON OffPeakWindowOptionsProperty

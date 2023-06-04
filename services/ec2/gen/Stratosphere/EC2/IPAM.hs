@@ -13,7 +13,6 @@ data IPAM
           defaultResourceDiscoveryId :: (Prelude.Maybe (Value Prelude.Text)),
           description :: (Prelude.Maybe (Value Prelude.Text)),
           operatingRegions :: (Prelude.Maybe [IpamOperatingRegionProperty]),
-          resourceDiscoveryAssociationCount :: (Prelude.Maybe (Value Prelude.Integer)),
           tags :: (Prelude.Maybe [Tag])}
 mkIPAM :: IPAM
 mkIPAM
@@ -21,7 +20,6 @@ mkIPAM
       {defaultResourceDiscoveryAssociationId = Prelude.Nothing,
        defaultResourceDiscoveryId = Prelude.Nothing,
        description = Prelude.Nothing, operatingRegions = Prelude.Nothing,
-       resourceDiscoveryAssociationCount = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties IPAM where
   toResourceProperties IPAM {..}
@@ -35,8 +33,6 @@ instance ToResourceProperties IPAM where
                               Prelude.<$> defaultResourceDiscoveryId,
                             (JSON..=) "Description" Prelude.<$> description,
                             (JSON..=) "OperatingRegions" Prelude.<$> operatingRegions,
-                            (JSON..=) "ResourceDiscoveryAssociationCount"
-                              Prelude.<$> resourceDiscoveryAssociationCount,
                             (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON IPAM where
   toJSON IPAM {..}
@@ -49,8 +45,6 @@ instance JSON.ToJSON IPAM where
                  Prelude.<$> defaultResourceDiscoveryId,
                (JSON..=) "Description" Prelude.<$> description,
                (JSON..=) "OperatingRegions" Prelude.<$> operatingRegions,
-               (JSON..=) "ResourceDiscoveryAssociationCount"
-                 Prelude.<$> resourceDiscoveryAssociationCount,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "DefaultResourceDiscoveryAssociationId" IPAM where
   type PropertyType "DefaultResourceDiscoveryAssociationId" IPAM = Value Prelude.Text
@@ -69,11 +63,6 @@ instance Property "OperatingRegions" IPAM where
   type PropertyType "OperatingRegions" IPAM = [IpamOperatingRegionProperty]
   set newValue IPAM {..}
     = IPAM {operatingRegions = Prelude.pure newValue, ..}
-instance Property "ResourceDiscoveryAssociationCount" IPAM where
-  type PropertyType "ResourceDiscoveryAssociationCount" IPAM = Value Prelude.Integer
-  set newValue IPAM {..}
-    = IPAM
-        {resourceDiscoveryAssociationCount = Prelude.pure newValue, ..}
 instance Property "Tags" IPAM where
   type PropertyType "Tags" IPAM = [Tag]
   set newValue IPAM {..} = IPAM {tags = Prelude.pure newValue, ..}

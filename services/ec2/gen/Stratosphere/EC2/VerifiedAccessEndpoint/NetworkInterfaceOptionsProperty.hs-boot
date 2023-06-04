@@ -1,0 +1,7 @@
+module Stratosphere.EC2.VerifiedAccessEndpoint.NetworkInterfaceOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkInterfaceOptionsProperty :: Prelude.Type
+instance ToResourceProperties NetworkInterfaceOptionsProperty
+instance JSON.ToJSON NetworkInterfaceOptionsProperty

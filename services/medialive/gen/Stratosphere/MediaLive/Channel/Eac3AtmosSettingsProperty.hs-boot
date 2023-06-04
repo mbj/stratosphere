@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.Eac3AtmosSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Eac3AtmosSettingsProperty :: Prelude.Type
+instance ToResourceProperties Eac3AtmosSettingsProperty
+instance JSON.ToJSON Eac3AtmosSettingsProperty

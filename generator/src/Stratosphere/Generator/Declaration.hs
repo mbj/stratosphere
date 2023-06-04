@@ -88,7 +88,7 @@ genTypeAlias propertyTypeName Raw.PropertyType{..} = runGen $ do
     { propertyType              = propertyTypeType
     , propertyPrimitiveType     = propertyTypePrimitiveType
     , propertyItemType          = propertyTypeItemType
-    , propertyPrimitiveItemType = Nothing
+    , propertyPrimitiveItemType = propertyTypePrimitiveItemType
     , ..
     }
 

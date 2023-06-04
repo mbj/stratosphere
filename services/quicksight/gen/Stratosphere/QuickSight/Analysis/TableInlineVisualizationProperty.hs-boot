@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.TableInlineVisualizationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TableInlineVisualizationProperty :: Prelude.Type
+instance ToResourceProperties TableInlineVisualizationProperty
+instance JSON.ToJSON TableInlineVisualizationProperty

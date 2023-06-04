@@ -26,7 +26,6 @@ flag development
 library
   exposed-modules:
       Stratosphere.S3.AccessPoint
-      Stratosphere.S3.AccessPoint.PolicyStatusProperty
       Stratosphere.S3.AccessPoint.PublicAccessBlockConfigurationProperty
       Stratosphere.S3.AccessPoint.VpcConfigurationProperty
       Stratosphere.S3.Bucket

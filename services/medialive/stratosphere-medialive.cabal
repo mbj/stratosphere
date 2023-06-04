@@ -39,6 +39,7 @@ library
       Stratosphere.MediaLive.Channel.AudioChannelMappingProperty
       Stratosphere.MediaLive.Channel.AudioCodecSettingsProperty
       Stratosphere.MediaLive.Channel.AudioDescriptionProperty
+      Stratosphere.MediaLive.Channel.AudioDolbyEDecodeProperty
       Stratosphere.MediaLive.Channel.AudioHlsRenditionSelectionProperty
       Stratosphere.MediaLive.Channel.AudioLanguageSelectionProperty
       Stratosphere.MediaLive.Channel.AudioNormalizationSettingsProperty
@@ -64,17 +65,20 @@ library
       Stratosphere.MediaLive.Channel.CaptionSelectorSettingsProperty
       Stratosphere.MediaLive.Channel.CdiInputSpecificationProperty
       Stratosphere.MediaLive.Channel.ColorSpacePassthroughSettingsProperty
+      Stratosphere.MediaLive.Channel.DolbyVision81SettingsProperty
       Stratosphere.MediaLive.Channel.DvbNitSettingsProperty
       Stratosphere.MediaLive.Channel.DvbSdtSettingsProperty
       Stratosphere.MediaLive.Channel.DvbSubDestinationSettingsProperty
       Stratosphere.MediaLive.Channel.DvbSubSourceSettingsProperty
       Stratosphere.MediaLive.Channel.DvbTdtSettingsProperty
+      Stratosphere.MediaLive.Channel.Eac3AtmosSettingsProperty
       Stratosphere.MediaLive.Channel.Eac3SettingsProperty
       Stratosphere.MediaLive.Channel.EbuTtDDestinationSettingsProperty
       Stratosphere.MediaLive.Channel.EmbeddedDestinationSettingsProperty
       Stratosphere.MediaLive.Channel.EmbeddedPlusScte20DestinationSettingsProperty
       Stratosphere.MediaLive.Channel.EmbeddedSourceSettingsProperty
       Stratosphere.MediaLive.Channel.EncoderSettingsProperty
+      Stratosphere.MediaLive.Channel.EsamProperty
       Stratosphere.MediaLive.Channel.FailoverConditionProperty
       Stratosphere.MediaLive.Channel.FailoverConditionSettingsProperty
       Stratosphere.MediaLive.Channel.FeatureActivationsProperty
@@ -115,6 +119,8 @@ library
       Stratosphere.MediaLive.Channel.KeyProviderSettingsProperty
       Stratosphere.MediaLive.Channel.M2tsSettingsProperty
       Stratosphere.MediaLive.Channel.M3u8SettingsProperty
+      Stratosphere.MediaLive.Channel.MaintenanceCreateSettingsProperty
+      Stratosphere.MediaLive.Channel.MaintenanceUpdateSettingsProperty
       Stratosphere.MediaLive.Channel.MediaPackageGroupSettingsProperty
       Stratosphere.MediaLive.Channel.MediaPackageOutputDestinationSettingsProperty
       Stratosphere.MediaLive.Channel.MediaPackageOutputSettingsProperty
@@ -160,6 +166,7 @@ library
       Stratosphere.MediaLive.Channel.TeletextDestinationSettingsProperty
       Stratosphere.MediaLive.Channel.TeletextSourceSettingsProperty
       Stratosphere.MediaLive.Channel.TemporalFilterSettingsProperty
+      Stratosphere.MediaLive.Channel.TimecodeBurninSettingsProperty
       Stratosphere.MediaLive.Channel.TimecodeConfigProperty
       Stratosphere.MediaLive.Channel.TtmlDestinationSettingsProperty
       Stratosphere.MediaLive.Channel.UdpContainerSettingsProperty

@@ -68,6 +68,7 @@ data DBInstance
                 publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
                 replicaMode :: (Prelude.Maybe (Value Prelude.Text)),
                 restoreTime :: (Prelude.Maybe (Value Prelude.Text)),
+                sourceDBClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 sourceDBInstanceAutomatedBackupsArn :: (Prelude.Maybe (Value Prelude.Text)),
                 sourceDBInstanceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 sourceDbiResourceId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -129,6 +130,7 @@ mkDBInstance
        promotionTier = Prelude.Nothing,
        publiclyAccessible = Prelude.Nothing,
        replicaMode = Prelude.Nothing, restoreTime = Prelude.Nothing,
+       sourceDBClusterIdentifier = Prelude.Nothing,
        sourceDBInstanceAutomatedBackupsArn = Prelude.Nothing,
        sourceDBInstanceIdentifier = Prelude.Nothing,
        sourceDbiResourceId = Prelude.Nothing,
@@ -216,6 +218,8 @@ instance ToResourceProperties DBInstance where
                             (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
                             (JSON..=) "ReplicaMode" Prelude.<$> replicaMode,
                             (JSON..=) "RestoreTime" Prelude.<$> restoreTime,
+                            (JSON..=) "SourceDBClusterIdentifier"
+                              Prelude.<$> sourceDBClusterIdentifier,
                             (JSON..=) "SourceDBInstanceAutomatedBackupsArn"
                               Prelude.<$> sourceDBInstanceAutomatedBackupsArn,
                             (JSON..=) "SourceDBInstanceIdentifier"
@@ -309,6 +313,8 @@ instance JSON.ToJSON DBInstance where
                (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
                (JSON..=) "ReplicaMode" Prelude.<$> replicaMode,
                (JSON..=) "RestoreTime" Prelude.<$> restoreTime,
+               (JSON..=) "SourceDBClusterIdentifier"
+                 Prelude.<$> sourceDBClusterIdentifier,
                (JSON..=) "SourceDBInstanceAutomatedBackupsArn"
                  Prelude.<$> sourceDBInstanceAutomatedBackupsArn,
                (JSON..=) "SourceDBInstanceIdentifier"
@@ -553,6 +559,11 @@ instance Property "RestoreTime" DBInstance where
   type PropertyType "RestoreTime" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {restoreTime = Prelude.pure newValue, ..}
+instance Property "SourceDBClusterIdentifier" DBInstance where
+  type PropertyType "SourceDBClusterIdentifier" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance
+        {sourceDBClusterIdentifier = Prelude.pure newValue, ..}
 instance Property "SourceDBInstanceAutomatedBackupsArn" DBInstance where
   type PropertyType "SourceDBInstanceAutomatedBackupsArn" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}

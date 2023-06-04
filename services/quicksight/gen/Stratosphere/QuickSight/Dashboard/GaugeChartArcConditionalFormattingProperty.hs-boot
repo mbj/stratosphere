@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.GaugeChartArcConditionalFormattingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GaugeChartArcConditionalFormattingProperty :: Prelude.Type
+instance ToResourceProperties GaugeChartArcConditionalFormattingProperty
+instance JSON.ToJSON GaugeChartArcConditionalFormattingProperty

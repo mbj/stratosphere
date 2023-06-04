@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.ListControlDisplayOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ListControlDisplayOptionsProperty :: Prelude.Type
+instance ToResourceProperties ListControlDisplayOptionsProperty
+instance JSON.ToJSON ListControlDisplayOptionsProperty

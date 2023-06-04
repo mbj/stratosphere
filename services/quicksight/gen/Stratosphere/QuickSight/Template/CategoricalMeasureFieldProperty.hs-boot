@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.CategoricalMeasureFieldProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CategoricalMeasureFieldProperty :: Prelude.Type
+instance ToResourceProperties CategoricalMeasureFieldProperty
+instance JSON.ToJSON CategoricalMeasureFieldProperty

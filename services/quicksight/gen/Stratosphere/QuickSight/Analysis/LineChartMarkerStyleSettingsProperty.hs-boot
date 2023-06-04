@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Analysis.LineChartMarkerStyleSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LineChartMarkerStyleSettingsProperty :: Prelude.Type
+instance ToResourceProperties LineChartMarkerStyleSettingsProperty
+instance JSON.ToJSON LineChartMarkerStyleSettingsProperty

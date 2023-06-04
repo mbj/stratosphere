@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.WebACL.ResponseInspectionHeaderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResponseInspectionHeaderProperty :: Prelude.Type
+instance ToResourceProperties ResponseInspectionHeaderProperty
+instance JSON.ToJSON ResponseInspectionHeaderProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AudioDolbyEDecodeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioDolbyEDecodeProperty :: Prelude.Type
+instance ToResourceProperties AudioDolbyEDecodeProperty
+instance JSON.ToJSON AudioDolbyEDecodeProperty

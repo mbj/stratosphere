@@ -1,0 +1,7 @@
+module Stratosphere.EC2.VerifiedAccessInstance.VerifiedAccessTrustProviderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VerifiedAccessTrustProviderProperty :: Prelude.Type
+instance ToResourceProperties VerifiedAccessTrustProviderProperty
+instance JSON.ToJSON VerifiedAccessTrustProviderProperty

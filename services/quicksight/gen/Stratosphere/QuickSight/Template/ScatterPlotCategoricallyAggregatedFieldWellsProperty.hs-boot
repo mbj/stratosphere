@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.ScatterPlotCategoricallyAggregatedFieldWellsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScatterPlotCategoricallyAggregatedFieldWellsProperty :: Prelude.Type
+instance ToResourceProperties ScatterPlotCategoricallyAggregatedFieldWellsProperty
+instance JSON.ToJSON ScatterPlotCategoricallyAggregatedFieldWellsProperty

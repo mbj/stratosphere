@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.DataSetIdentifierDeclarationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataSetIdentifierDeclarationProperty :: Prelude.Type
+instance ToResourceProperties DataSetIdentifierDeclarationProperty
+instance JSON.ToJSON DataSetIdentifierDeclarationProperty

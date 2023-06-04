@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.ProgressBarOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProgressBarOptionsProperty :: Prelude.Type
+instance ToResourceProperties ProgressBarOptionsProperty
+instance JSON.ToJSON ProgressBarOptionsProperty

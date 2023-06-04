@@ -12,17 +12,16 @@ import Stratosphere.Value
 data Endpoint
   = Endpoint {description :: (Prelude.Maybe (Value Prelude.Text)),
               eventBuses :: [EndpointEventBusProperty],
-              name :: (Value Prelude.Text),
+              name :: (Prelude.Maybe (Value Prelude.Text)),
               replicationConfig :: (Prelude.Maybe ReplicationConfigProperty),
               roleArn :: (Prelude.Maybe (Value Prelude.Text)),
               routingConfig :: RoutingConfigProperty}
 mkEndpoint ::
-  [EndpointEventBusProperty]
-  -> Value Prelude.Text -> RoutingConfigProperty -> Endpoint
-mkEndpoint eventBuses name routingConfig
+  [EndpointEventBusProperty] -> RoutingConfigProperty -> Endpoint
+mkEndpoint eventBuses routingConfig
   = Endpoint
-      {eventBuses = eventBuses, name = name,
-       routingConfig = routingConfig, description = Prelude.Nothing,
+      {eventBuses = eventBuses, routingConfig = routingConfig,
+       description = Prelude.Nothing, name = Prelude.Nothing,
        replicationConfig = Prelude.Nothing, roleArn = Prelude.Nothing}
 instance ToResourceProperties Endpoint where
   toResourceProperties Endpoint {..}
@@ -30,10 +29,11 @@ instance ToResourceProperties Endpoint where
         {awsType = "AWS::Events::Endpoint", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["EventBuses" JSON..= eventBuses, "Name" JSON..= name,
+                           ["EventBuses" JSON..= eventBuses,
                             "RoutingConfig" JSON..= routingConfig]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "ReplicationConfig" Prelude.<$> replicationConfig,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn]))}
 instance JSON.ToJSON Endpoint where
@@ -41,10 +41,11 @@ instance JSON.ToJSON Endpoint where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["EventBuses" JSON..= eventBuses, "Name" JSON..= name,
+              ["EventBuses" JSON..= eventBuses,
                "RoutingConfig" JSON..= routingConfig]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "ReplicationConfig" Prelude.<$> replicationConfig,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn])))
 instance Property "Description" Endpoint where
@@ -56,7 +57,8 @@ instance Property "EventBuses" Endpoint where
   set newValue Endpoint {..} = Endpoint {eventBuses = newValue, ..}
 instance Property "Name" Endpoint where
   type PropertyType "Name" Endpoint = Value Prelude.Text
-  set newValue Endpoint {..} = Endpoint {name = newValue, ..}
+  set newValue Endpoint {..}
+    = Endpoint {name = Prelude.pure newValue, ..}
 instance Property "ReplicationConfig" Endpoint where
   type PropertyType "ReplicationConfig" Endpoint = ReplicationConfigProperty
   set newValue Endpoint {..}

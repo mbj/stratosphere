@@ -38,6 +38,7 @@ library
       Stratosphere.KinesisFirehose.DeliveryStream.DataFormatConversionConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DeserializerProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DocumentIdOptionsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DynamicPartitioningConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchBufferingHintsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchDestinationConfigurationProperty

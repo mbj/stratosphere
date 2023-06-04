@@ -10,6 +10,7 @@ data MetricDefinitionProperty
   = MetricDefinitionProperty {dimensionKeys :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                               eventPattern :: (Prelude.Maybe (Value Prelude.Text)),
                               name :: (Value Prelude.Text),
+                              namespace :: (Prelude.Maybe (Value Prelude.Text)),
                               unitLabel :: (Prelude.Maybe (Value Prelude.Text)),
                               valueKey :: (Prelude.Maybe (Value Prelude.Text))}
 mkMetricDefinitionProperty ::
@@ -17,8 +18,8 @@ mkMetricDefinitionProperty ::
 mkMetricDefinitionProperty name
   = MetricDefinitionProperty
       {name = name, dimensionKeys = Prelude.Nothing,
-       eventPattern = Prelude.Nothing, unitLabel = Prelude.Nothing,
-       valueKey = Prelude.Nothing}
+       eventPattern = Prelude.Nothing, namespace = Prelude.Nothing,
+       unitLabel = Prelude.Nothing, valueKey = Prelude.Nothing}
 instance ToResourceProperties MetricDefinitionProperty where
   toResourceProperties MetricDefinitionProperty {..}
     = ResourceProperties
@@ -30,6 +31,7 @@ instance ToResourceProperties MetricDefinitionProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "DimensionKeys" Prelude.<$> dimensionKeys,
                                (JSON..=) "EventPattern" Prelude.<$> eventPattern,
+                               (JSON..=) "Namespace" Prelude.<$> namespace,
                                (JSON..=) "UnitLabel" Prelude.<$> unitLabel,
                                (JSON..=) "ValueKey" Prelude.<$> valueKey]))}
 instance JSON.ToJSON MetricDefinitionProperty where
@@ -41,6 +43,7 @@ instance JSON.ToJSON MetricDefinitionProperty where
               (Prelude.catMaybes
                  [(JSON..=) "DimensionKeys" Prelude.<$> dimensionKeys,
                   (JSON..=) "EventPattern" Prelude.<$> eventPattern,
+                  (JSON..=) "Namespace" Prelude.<$> namespace,
                   (JSON..=) "UnitLabel" Prelude.<$> unitLabel,
                   (JSON..=) "ValueKey" Prelude.<$> valueKey])))
 instance Property "DimensionKeys" MetricDefinitionProperty where
@@ -57,6 +60,10 @@ instance Property "Name" MetricDefinitionProperty where
   type PropertyType "Name" MetricDefinitionProperty = Value Prelude.Text
   set newValue MetricDefinitionProperty {..}
     = MetricDefinitionProperty {name = newValue, ..}
+instance Property "Namespace" MetricDefinitionProperty where
+  type PropertyType "Namespace" MetricDefinitionProperty = Value Prelude.Text
+  set newValue MetricDefinitionProperty {..}
+    = MetricDefinitionProperty {namespace = Prelude.pure newValue, ..}
 instance Property "UnitLabel" MetricDefinitionProperty where
   type PropertyType "UnitLabel" MetricDefinitionProperty = Value Prelude.Text
   set newValue MetricDefinitionProperty {..}

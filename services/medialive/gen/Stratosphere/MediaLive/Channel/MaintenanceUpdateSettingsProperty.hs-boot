@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.MaintenanceUpdateSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MaintenanceUpdateSettingsProperty :: Prelude.Type
+instance ToResourceProperties MaintenanceUpdateSettingsProperty
+instance JSON.ToJSON MaintenanceUpdateSettingsProperty

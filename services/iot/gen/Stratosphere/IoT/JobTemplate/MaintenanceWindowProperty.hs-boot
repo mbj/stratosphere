@@ -1,0 +1,7 @@
+module Stratosphere.IoT.JobTemplate.MaintenanceWindowProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MaintenanceWindowProperty :: Prelude.Type
+instance ToResourceProperties MaintenanceWindowProperty
+instance JSON.ToJSON MaintenanceWindowProperty

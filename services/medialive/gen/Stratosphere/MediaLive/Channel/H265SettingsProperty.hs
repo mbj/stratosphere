@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.H265ColorSpaceSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.H265FilterSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TimecodeBurninSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data H265SettingsProperty
@@ -37,6 +38,7 @@ data H265SettingsProperty
                           sceneChangeDetect :: (Prelude.Maybe (Value Prelude.Text)),
                           slices :: (Prelude.Maybe (Value Prelude.Integer)),
                           tier :: (Prelude.Maybe (Value Prelude.Text)),
+                          timecodeBurninSettings :: (Prelude.Maybe TimecodeBurninSettingsProperty),
                           timecodeInsertion :: (Prelude.Maybe (Value Prelude.Text))}
 mkH265SettingsProperty :: H265SettingsProperty
 mkH265SettingsProperty
@@ -59,7 +61,8 @@ mkH265SettingsProperty
        profile = Prelude.Nothing, qvbrQualityLevel = Prelude.Nothing,
        rateControlMode = Prelude.Nothing, scanType = Prelude.Nothing,
        sceneChangeDetect = Prelude.Nothing, slices = Prelude.Nothing,
-       tier = Prelude.Nothing, timecodeInsertion = Prelude.Nothing}
+       tier = Prelude.Nothing, timecodeBurninSettings = Prelude.Nothing,
+       timecodeInsertion = Prelude.Nothing}
 instance ToResourceProperties H265SettingsProperty where
   toResourceProperties H265SettingsProperty {..}
     = ResourceProperties
@@ -96,6 +99,8 @@ instance ToResourceProperties H265SettingsProperty where
                             (JSON..=) "SceneChangeDetect" Prelude.<$> sceneChangeDetect,
                             (JSON..=) "Slices" Prelude.<$> slices,
                             (JSON..=) "Tier" Prelude.<$> tier,
+                            (JSON..=) "TimecodeBurninSettings"
+                              Prelude.<$> timecodeBurninSettings,
                             (JSON..=) "TimecodeInsertion" Prelude.<$> timecodeInsertion])}
 instance JSON.ToJSON H265SettingsProperty where
   toJSON H265SettingsProperty {..}
@@ -131,6 +136,8 @@ instance JSON.ToJSON H265SettingsProperty where
                (JSON..=) "SceneChangeDetect" Prelude.<$> sceneChangeDetect,
                (JSON..=) "Slices" Prelude.<$> slices,
                (JSON..=) "Tier" Prelude.<$> tier,
+               (JSON..=) "TimecodeBurninSettings"
+                 Prelude.<$> timecodeBurninSettings,
                (JSON..=) "TimecodeInsertion" Prelude.<$> timecodeInsertion]))
 instance Property "AdaptiveQuantization" H265SettingsProperty where
   type PropertyType "AdaptiveQuantization" H265SettingsProperty = Value Prelude.Text
@@ -254,6 +261,11 @@ instance Property "Tier" H265SettingsProperty where
   type PropertyType "Tier" H265SettingsProperty = Value Prelude.Text
   set newValue H265SettingsProperty {..}
     = H265SettingsProperty {tier = Prelude.pure newValue, ..}
+instance Property "TimecodeBurninSettings" H265SettingsProperty where
+  type PropertyType "TimecodeBurninSettings" H265SettingsProperty = TimecodeBurninSettingsProperty
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty
+        {timecodeBurninSettings = Prelude.pure newValue, ..}
 instance Property "TimecodeInsertion" H265SettingsProperty where
   type PropertyType "TimecodeInsertion" H265SettingsProperty = Value Prelude.Text
   set newValue H265SettingsProperty {..}

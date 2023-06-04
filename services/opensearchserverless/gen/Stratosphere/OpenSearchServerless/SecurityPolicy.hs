@@ -8,14 +8,16 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecurityPolicy
   = SecurityPolicy {description :: (Prelude.Maybe (Value Prelude.Text)),
-                    name :: (Prelude.Maybe (Value Prelude.Text)),
+                    name :: (Value Prelude.Text),
                     policy :: (Value Prelude.Text),
-                    type' :: (Prelude.Maybe (Value Prelude.Text))}
-mkSecurityPolicy :: Value Prelude.Text -> SecurityPolicy
-mkSecurityPolicy policy
+                    type' :: (Value Prelude.Text)}
+mkSecurityPolicy ::
+  Value Prelude.Text
+  -> Value Prelude.Text -> Value Prelude.Text -> SecurityPolicy
+mkSecurityPolicy name policy type'
   = SecurityPolicy
-      {policy = policy, description = Prelude.Nothing,
-       name = Prelude.Nothing, type' = Prelude.Nothing}
+      {name = name, policy = policy, type' = type',
+       description = Prelude.Nothing}
 instance ToResourceProperties SecurityPolicy where
   toResourceProperties SecurityPolicy {..}
     = ResourceProperties
@@ -23,21 +25,19 @@ instance ToResourceProperties SecurityPolicy where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Policy" JSON..= policy]
+                           ["Name" JSON..= name, "Policy" JSON..= policy,
+                            "Type" JSON..= type']
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
-                               (JSON..=) "Name" Prelude.<$> name,
-                               (JSON..=) "Type" Prelude.<$> type']))}
+                              [(JSON..=) "Description" Prelude.<$> description]))}
 instance JSON.ToJSON SecurityPolicy where
   toJSON SecurityPolicy {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Policy" JSON..= policy]
+              ["Name" JSON..= name, "Policy" JSON..= policy,
+               "Type" JSON..= type']
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
-                  (JSON..=) "Name" Prelude.<$> name,
-                  (JSON..=) "Type" Prelude.<$> type'])))
+                 [(JSON..=) "Description" Prelude.<$> description])))
 instance Property "Description" SecurityPolicy where
   type PropertyType "Description" SecurityPolicy = Value Prelude.Text
   set newValue SecurityPolicy {..}
@@ -45,7 +45,7 @@ instance Property "Description" SecurityPolicy where
 instance Property "Name" SecurityPolicy where
   type PropertyType "Name" SecurityPolicy = Value Prelude.Text
   set newValue SecurityPolicy {..}
-    = SecurityPolicy {name = Prelude.pure newValue, ..}
+    = SecurityPolicy {name = newValue, ..}
 instance Property "Policy" SecurityPolicy where
   type PropertyType "Policy" SecurityPolicy = Value Prelude.Text
   set newValue SecurityPolicy {..}
@@ -53,4 +53,4 @@ instance Property "Policy" SecurityPolicy where
 instance Property "Type" SecurityPolicy where
   type PropertyType "Type" SecurityPolicy = Value Prelude.Text
   set newValue SecurityPolicy {..}
-    = SecurityPolicy {type' = Prelude.pure newValue, ..}
+    = SecurityPolicy {type' = newValue, ..}

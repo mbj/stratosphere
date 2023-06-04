@@ -12,7 +12,9 @@ import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.EBSOptionsProperty a
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.EncryptionAtRestOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.LogPublishingOptionProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.NodeToNodeEncryptionOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.OffPeakWindowOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.SnapshotOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.SoftwareUpdateOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.VPCOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -30,7 +32,9 @@ data Domain
             engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
             logPublishingOptions :: (Prelude.Maybe (Prelude.Map Prelude.Text LogPublishingOptionProperty)),
             nodeToNodeEncryptionOptions :: (Prelude.Maybe NodeToNodeEncryptionOptionsProperty),
+            offPeakWindowOptions :: (Prelude.Maybe OffPeakWindowOptionsProperty),
             snapshotOptions :: (Prelude.Maybe SnapshotOptionsProperty),
+            softwareUpdateOptions :: (Prelude.Maybe SoftwareUpdateOptionsProperty),
             tags :: (Prelude.Maybe [Tag]),
             vPCOptions :: (Prelude.Maybe VPCOptionsProperty)}
 mkDomain :: Domain
@@ -46,7 +50,9 @@ mkDomain
        engineVersion = Prelude.Nothing,
        logPublishingOptions = Prelude.Nothing,
        nodeToNodeEncryptionOptions = Prelude.Nothing,
-       snapshotOptions = Prelude.Nothing, tags = Prelude.Nothing,
+       offPeakWindowOptions = Prelude.Nothing,
+       snapshotOptions = Prelude.Nothing,
+       softwareUpdateOptions = Prelude.Nothing, tags = Prelude.Nothing,
        vPCOptions = Prelude.Nothing}
 instance ToResourceProperties Domain where
   toResourceProperties Domain {..}
@@ -71,7 +77,10 @@ instance ToResourceProperties Domain where
                             (JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
                             (JSON..=) "NodeToNodeEncryptionOptions"
                               Prelude.<$> nodeToNodeEncryptionOptions,
+                            (JSON..=) "OffPeakWindowOptions" Prelude.<$> offPeakWindowOptions,
                             (JSON..=) "SnapshotOptions" Prelude.<$> snapshotOptions,
+                            (JSON..=) "SoftwareUpdateOptions"
+                              Prelude.<$> softwareUpdateOptions,
                             (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "VPCOptions" Prelude.<$> vPCOptions])}
 instance JSON.ToJSON Domain where
@@ -95,7 +104,10 @@ instance JSON.ToJSON Domain where
                (JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
                (JSON..=) "NodeToNodeEncryptionOptions"
                  Prelude.<$> nodeToNodeEncryptionOptions,
+               (JSON..=) "OffPeakWindowOptions" Prelude.<$> offPeakWindowOptions,
                (JSON..=) "SnapshotOptions" Prelude.<$> snapshotOptions,
+               (JSON..=) "SoftwareUpdateOptions"
+                 Prelude.<$> softwareUpdateOptions,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "VPCOptions" Prelude.<$> vPCOptions]))
 instance Property "AccessPolicies" Domain where
@@ -146,10 +158,18 @@ instance Property "NodeToNodeEncryptionOptions" Domain where
   type PropertyType "NodeToNodeEncryptionOptions" Domain = NodeToNodeEncryptionOptionsProperty
   set newValue Domain {..}
     = Domain {nodeToNodeEncryptionOptions = Prelude.pure newValue, ..}
+instance Property "OffPeakWindowOptions" Domain where
+  type PropertyType "OffPeakWindowOptions" Domain = OffPeakWindowOptionsProperty
+  set newValue Domain {..}
+    = Domain {offPeakWindowOptions = Prelude.pure newValue, ..}
 instance Property "SnapshotOptions" Domain where
   type PropertyType "SnapshotOptions" Domain = SnapshotOptionsProperty
   set newValue Domain {..}
     = Domain {snapshotOptions = Prelude.pure newValue, ..}
+instance Property "SoftwareUpdateOptions" Domain where
+  type PropertyType "SoftwareUpdateOptions" Domain = SoftwareUpdateOptionsProperty
+  set newValue Domain {..}
+    = Domain {softwareUpdateOptions = Prelude.pure newValue, ..}
 instance Property "Tags" Domain where
   type PropertyType "Tags" Domain = [Tag]
   set newValue Domain {..}

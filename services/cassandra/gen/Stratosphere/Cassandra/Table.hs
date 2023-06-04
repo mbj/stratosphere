@@ -13,6 +13,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Table
   = Table {billingMode :: (Prelude.Maybe BillingModeProperty),
+           clientSideTimestampsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
            clusteringKeyColumns :: (Prelude.Maybe [ClusteringKeyColumnProperty]),
            defaultTimeToLive :: (Prelude.Maybe (Value Prelude.Integer)),
            encryptionSpecification :: (Prelude.Maybe EncryptionSpecificationProperty),
@@ -28,6 +29,7 @@ mkTable keyspaceName partitionKeyColumns
       {keyspaceName = keyspaceName,
        partitionKeyColumns = partitionKeyColumns,
        billingMode = Prelude.Nothing,
+       clientSideTimestampsEnabled = Prelude.Nothing,
        clusteringKeyColumns = Prelude.Nothing,
        defaultTimeToLive = Prelude.Nothing,
        encryptionSpecification = Prelude.Nothing,
@@ -44,6 +46,8 @@ instance ToResourceProperties Table where
                             "PartitionKeyColumns" JSON..= partitionKeyColumns]
                            (Prelude.catMaybes
                               [(JSON..=) "BillingMode" Prelude.<$> billingMode,
+                               (JSON..=) "ClientSideTimestampsEnabled"
+                                 Prelude.<$> clientSideTimestampsEnabled,
                                (JSON..=) "ClusteringKeyColumns" Prelude.<$> clusteringKeyColumns,
                                (JSON..=) "DefaultTimeToLive" Prelude.<$> defaultTimeToLive,
                                (JSON..=) "EncryptionSpecification"
@@ -62,6 +66,8 @@ instance JSON.ToJSON Table where
                "PartitionKeyColumns" JSON..= partitionKeyColumns]
               (Prelude.catMaybes
                  [(JSON..=) "BillingMode" Prelude.<$> billingMode,
+                  (JSON..=) "ClientSideTimestampsEnabled"
+                    Prelude.<$> clientSideTimestampsEnabled,
                   (JSON..=) "ClusteringKeyColumns" Prelude.<$> clusteringKeyColumns,
                   (JSON..=) "DefaultTimeToLive" Prelude.<$> defaultTimeToLive,
                   (JSON..=) "EncryptionSpecification"
@@ -75,6 +81,10 @@ instance Property "BillingMode" Table where
   type PropertyType "BillingMode" Table = BillingModeProperty
   set newValue Table {..}
     = Table {billingMode = Prelude.pure newValue, ..}
+instance Property "ClientSideTimestampsEnabled" Table where
+  type PropertyType "ClientSideTimestampsEnabled" Table = Value Prelude.Bool
+  set newValue Table {..}
+    = Table {clientSideTimestampsEnabled = Prelude.pure newValue, ..}
 instance Property "ClusteringKeyColumns" Table where
   type PropertyType "ClusteringKeyColumns" Table = [ClusteringKeyColumnProperty]
   set newValue Table {..}

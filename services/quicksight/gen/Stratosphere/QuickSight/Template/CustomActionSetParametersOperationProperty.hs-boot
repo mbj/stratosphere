@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Template.CustomActionSetParametersOperationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomActionSetParametersOperationProperty :: Prelude.Type
+instance ToResourceProperties CustomActionSetParametersOperationProperty
+instance JSON.ToJSON CustomActionSetParametersOperationProperty

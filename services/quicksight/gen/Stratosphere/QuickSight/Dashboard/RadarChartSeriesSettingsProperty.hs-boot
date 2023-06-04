@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.Dashboard.RadarChartSeriesSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RadarChartSeriesSettingsProperty :: Prelude.Type
+instance ToResourceProperties RadarChartSeriesSettingsProperty
+instance JSON.ToJSON RadarChartSeriesSettingsProperty

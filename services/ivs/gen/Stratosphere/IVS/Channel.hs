@@ -9,6 +9,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Channel
   = Channel {authorized :: (Prelude.Maybe (Value Prelude.Bool)),
+             insecureIngest :: (Prelude.Maybe (Value Prelude.Bool)),
              latencyMode :: (Prelude.Maybe (Value Prelude.Text)),
              name :: (Prelude.Maybe (Value Prelude.Text)),
              recordingConfigurationArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -17,8 +18,8 @@ data Channel
 mkChannel :: Channel
 mkChannel
   = Channel
-      {authorized = Prelude.Nothing, latencyMode = Prelude.Nothing,
-       name = Prelude.Nothing,
+      {authorized = Prelude.Nothing, insecureIngest = Prelude.Nothing,
+       latencyMode = Prelude.Nothing, name = Prelude.Nothing,
        recordingConfigurationArn = Prelude.Nothing,
        tags = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties Channel where
@@ -28,6 +29,7 @@ instance ToResourceProperties Channel where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Authorized" Prelude.<$> authorized,
+                            (JSON..=) "InsecureIngest" Prelude.<$> insecureIngest,
                             (JSON..=) "LatencyMode" Prelude.<$> latencyMode,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "RecordingConfigurationArn"
@@ -40,6 +42,7 @@ instance JSON.ToJSON Channel where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "Authorized" Prelude.<$> authorized,
+               (JSON..=) "InsecureIngest" Prelude.<$> insecureIngest,
                (JSON..=) "LatencyMode" Prelude.<$> latencyMode,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "RecordingConfigurationArn"
@@ -50,6 +53,10 @@ instance Property "Authorized" Channel where
   type PropertyType "Authorized" Channel = Value Prelude.Bool
   set newValue Channel {..}
     = Channel {authorized = Prelude.pure newValue, ..}
+instance Property "InsecureIngest" Channel where
+  type PropertyType "InsecureIngest" Channel = Value Prelude.Bool
+  set newValue Channel {..}
+    = Channel {insecureIngest = Prelude.pure newValue, ..}
 instance Property "LatencyMode" Channel where
   type PropertyType "LatencyMode" Channel = Value Prelude.Text
   set newValue Channel {..}
