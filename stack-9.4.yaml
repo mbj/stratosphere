@@ -1,5 +1,5 @@
 ---
-resolver: nightly-2023-05-12
+resolver: nightly-2023-06-04
 packages:
 # - generator, no ghc-source-gen release for 9.4 ATM
 - .

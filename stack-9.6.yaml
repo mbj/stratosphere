@@ -1,6 +1,6 @@
 ---
-resolver: nightly-2023-05-12
-compiler: ghc-9.6.1
+resolver: nightly-2023-06-04
+compiler: ghc-9.6.2
 packages:
 # - generator, no ghc-source-gen release for 9.6 ATM
 - .
