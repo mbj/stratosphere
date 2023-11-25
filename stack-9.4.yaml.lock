@@ -3,7 +3,18 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    name: ghc-source-gen
+    pantry-tree:
+      sha256: 4ba36ca22269ea5c9f56921182785817c23a4f4bc3811a39edd584f6876d4555
+      size: 3952
+    sha256: 36eea7c307917e9c76cdb695b2880d43eaa952db476b7cb762ddfed2340d912e
+    size: 37067
+    url: https://github.com/google/ghc-source-gen/archive/7527305ed59a47140053cf7bc87432fe1f8804d0.tar.gz
+    version: 0.4.3.0
+  original:
+    url: https://github.com/google/ghc-source-gen/archive/7527305ed59a47140053cf7bc87432fe1f8804d0.tar.gz
 snapshots:
 - completed:
     sha256: afd5ba64ab602cabc2d3942d3d7e7dd6311bc626dcb415b901eaf576cb62f0ea
