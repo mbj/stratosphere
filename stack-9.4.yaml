@@ -442,6 +442,7 @@ flags:
 packages:
 # - generator, no ghc-source-gen release for 9.4 ATM
 - .
+- generator
 - examples
 - services/accessanalyzer
 - services/acmpca
@@ -661,3 +662,6 @@ packages:
 - services/wisdom
 - services/workspaces
 - services/xray
+extra-deps:
+- github: google/ghc-source-gen
+  commit: 7527305ed59a47140053cf7bc87432fe1f8804d0

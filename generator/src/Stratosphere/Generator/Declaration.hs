@@ -252,8 +252,8 @@ genRecord Record{..} = runGen $ do
 
         recordConstructor :: GHC.HsExpr'
         recordConstructor = GHC.RecordCon
-          { rcon_ext = GHC.EpAnnNotUsed
-          , rcon_con = mkLocated $ GHC.mkRdrUnqual $ GHC.mkDataOcc recordName
+          { rcon_ext  = GHC.EpAnnNotUsed
+          , rcon_con  = mkLocated $ GHC.mkRdrUnqual $ GHC.mkDataOcc recordName
           , rcon_flds = GHC.HsRecFields [newValueField] (Just (GHC.L (GHC.UnhelpfulSpan GHC.UnhelpfulGenerated) 1))
           }
 
@@ -265,11 +265,11 @@ genRecord Record{..} = runGen $ do
         newValueField :: GHC.LHsRecField GHC.GhcPs (GHC.LHsExpr GHC.GhcPs)
         newValueField
           = mkGenLocated
-          $ GHC.HsRecField
-          { hsRecFieldLbl = GHC.L (GHC.UnhelpfulSpan GHC.UnhelpfulGenerated) $ GHC.FieldOcc GHC.NoExtField (mkLocated $ GHC.mkRdrUnqual $ GHC.mkDataOcc fieldName)
-          , hsRecFieldArg = mkLocated . mkPure $ GHC.var "newValue"
-          , hsRecPun      = False
-          , hsRecFieldAnn = GHC.EpAnnNotUsed
+          $ GHC.HsFieldBind
+          { hfbAnn = GHC.EpAnnNotUsed
+          , hfbPun = False
+          , hfbLHS = mkLocated $ GHC.FieldOcc { foExt = GHC.NoExtField, foLabel = mkLocated $ GHC.mkRdrUnqual $ GHC.mkDataOcc fieldName }
+          , hfbRHS = mkLocated . mkPure $ GHC.var "newValue"
           }
 
         mkGenLocated :: a -> GHC.GenLocated (GHC.SrcSpanAnn' (GHC.EpAnn ann)) a
