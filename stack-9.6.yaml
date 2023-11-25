@@ -1,5 +1,5 @@
 ---
-resolver: nightly-2023-08-28
+resolver: nightly-2023-11-23
 flags:
   stratosphere:
     development: true

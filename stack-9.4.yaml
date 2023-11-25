@@ -1,5 +1,5 @@
 ---
-resolver: lts-21.9
+resolver: lts-21.22
 flags:
   stratosphere:
     development: true
