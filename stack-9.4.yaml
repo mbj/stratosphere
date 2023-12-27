@@ -1,5 +1,5 @@
 ---
-resolver: lts-21.22
+resolver: lts-21.25
 flags:
   stratosphere:
     development: true
@@ -440,7 +440,6 @@ flags:
   stratosphere-xray:
     development: true
 packages:
-# - generator, no ghc-source-gen release for 9.4 ATM
 - .
 - generator
 - examples
