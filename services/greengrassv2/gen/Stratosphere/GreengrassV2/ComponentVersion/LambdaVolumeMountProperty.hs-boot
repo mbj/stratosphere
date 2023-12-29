@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LambdaVolumeMountProperty :: Prelude.Type
 instance ToResourceProperties LambdaVolumeMountProperty
+instance Prelude.Eq LambdaVolumeMountProperty
+instance Prelude.Show LambdaVolumeMountProperty
 instance JSON.ToJSON LambdaVolumeMountProperty

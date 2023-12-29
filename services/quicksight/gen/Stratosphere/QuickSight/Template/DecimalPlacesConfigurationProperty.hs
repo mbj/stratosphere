@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DecimalPlacesConfigurationProperty
   = DecimalPlacesConfigurationProperty {decimalPlaces :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDecimalPlacesConfigurationProperty ::
   Value Prelude.Double -> DecimalPlacesConfigurationProperty
 mkDecimalPlacesConfigurationProperty decimalPlaces

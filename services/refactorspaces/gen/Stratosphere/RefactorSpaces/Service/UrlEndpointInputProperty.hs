@@ -9,6 +9,7 @@ import Stratosphere.Value
 data UrlEndpointInputProperty
   = UrlEndpointInputProperty {healthUrl :: (Prelude.Maybe (Value Prelude.Text)),
                               url :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUrlEndpointInputProperty ::
   Value Prelude.Text -> UrlEndpointInputProperty
 mkUrlEndpointInputProperty url

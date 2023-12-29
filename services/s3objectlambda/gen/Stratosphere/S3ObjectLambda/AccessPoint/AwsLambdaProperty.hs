@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AwsLambdaProperty
   = AwsLambdaProperty {functionArn :: (Value Prelude.Text),
                        functionPayload :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsLambdaProperty :: Value Prelude.Text -> AwsLambdaProperty
 mkAwsLambdaProperty functionArn
   = AwsLambdaProperty

@@ -12,6 +12,7 @@ data DocumentAttributeTargetProperty
   = DocumentAttributeTargetProperty {targetDocumentAttributeKey :: (Value Prelude.Text),
                                      targetDocumentAttributeValue :: (Prelude.Maybe DocumentAttributeValueProperty),
                                      targetDocumentAttributeValueDeletion :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentAttributeTargetProperty ::
   Value Prelude.Text -> DocumentAttributeTargetProperty
 mkDocumentAttributeTargetProperty targetDocumentAttributeKey

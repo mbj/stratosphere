@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipeTargetEventBridgeEventBusParametersProperty :: Prelude.Type
 instance ToResourceProperties PipeTargetEventBridgeEventBusParametersProperty
+instance Prelude.Eq PipeTargetEventBridgeEventBusParametersProperty
+instance Prelude.Show PipeTargetEventBridgeEventBusParametersProperty
 instance JSON.ToJSON PipeTargetEventBridgeEventBusParametersProperty

@@ -13,6 +13,7 @@ data Portfolio
                displayName :: (Value Prelude.Text),
                providerName :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortfolio ::
   Value Prelude.Text -> Value Prelude.Text -> Portfolio
 mkPortfolio displayName providerName

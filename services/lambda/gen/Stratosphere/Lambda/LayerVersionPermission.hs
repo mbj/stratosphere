@@ -11,6 +11,7 @@ data LayerVersionPermission
                             layerVersionArn :: (Value Prelude.Text),
                             organizationId :: (Prelude.Maybe (Value Prelude.Text)),
                             principal :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLayerVersionPermission ::
   Value Prelude.Text
   -> Value Prelude.Text

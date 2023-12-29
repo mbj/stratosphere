@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LaunchTemplateDataProperty :: Prelude.Type
 instance ToResourceProperties LaunchTemplateDataProperty
+instance Prelude.Eq LaunchTemplateDataProperty
+instance Prelude.Show LaunchTemplateDataProperty
 instance JSON.ToJSON LaunchTemplateDataProperty

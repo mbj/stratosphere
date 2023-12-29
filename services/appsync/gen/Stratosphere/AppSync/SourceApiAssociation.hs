@@ -12,6 +12,7 @@ data SourceApiAssociation
                           mergedApiIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                           sourceApiAssociationConfig :: (Prelude.Maybe SourceApiAssociationConfigProperty),
                           sourceApiIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceApiAssociation :: SourceApiAssociation
 mkSourceApiAssociation
   = SourceApiAssociation

@@ -26,6 +26,7 @@ data GraphQLApi
                 userPoolConfig :: (Prelude.Maybe UserPoolConfigProperty),
                 visibility :: (Prelude.Maybe (Value Prelude.Text)),
                 xrayEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGraphQLApi ::
   Value Prelude.Text -> Value Prelude.Text -> GraphQLApi
 mkGraphQLApi authenticationType name

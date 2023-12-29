@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WhatIfPointScenarioProperty
   = WhatIfPointScenarioProperty {date :: (Value Prelude.Text),
                                  value :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWhatIfPointScenarioProperty ::
   Value Prelude.Text
   -> Value Prelude.Double -> WhatIfPointScenarioProperty

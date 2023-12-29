@@ -13,6 +13,7 @@ data AnomalyMonitor
                     monitorSpecification :: (Prelude.Maybe (Value Prelude.Text)),
                     monitorType :: (Value Prelude.Text),
                     resourceTags :: (Prelude.Maybe [ResourceTagProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnomalyMonitor ::
   Value Prelude.Text -> Value Prelude.Text -> AnomalyMonitor
 mkAnomalyMonitor monitorName monitorType

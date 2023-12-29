@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.LookbackWindowProperty as 
 import Stratosphere.ResourceProperties
 data IncrementalRefreshProperty
   = IncrementalRefreshProperty {lookbackWindow :: (Prelude.Maybe LookbackWindowProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIncrementalRefreshProperty :: IncrementalRefreshProperty
 mkIncrementalRefreshProperty
   = IncrementalRefreshProperty {lookbackWindow = Prelude.Nothing}

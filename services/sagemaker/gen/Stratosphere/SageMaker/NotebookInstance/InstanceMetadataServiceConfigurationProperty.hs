@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceMetadataServiceConfigurationProperty
   = InstanceMetadataServiceConfigurationProperty {minimumInstanceMetadataServiceVersion :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceMetadataServiceConfigurationProperty ::
   Value Prelude.Text -> InstanceMetadataServiceConfigurationProperty
 mkInstanceMetadataServiceConfigurationProperty

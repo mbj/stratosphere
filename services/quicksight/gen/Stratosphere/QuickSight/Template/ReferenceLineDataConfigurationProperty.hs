@@ -13,6 +13,7 @@ data ReferenceLineDataConfigurationProperty
   = ReferenceLineDataConfigurationProperty {axisBinding :: (Prelude.Maybe (Value Prelude.Text)),
                                             dynamicConfiguration :: (Prelude.Maybe ReferenceLineDynamicDataConfigurationProperty),
                                             staticConfiguration :: (Prelude.Maybe ReferenceLineStaticDataConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceLineDataConfigurationProperty ::
   ReferenceLineDataConfigurationProperty
 mkReferenceLineDataConfigurationProperty

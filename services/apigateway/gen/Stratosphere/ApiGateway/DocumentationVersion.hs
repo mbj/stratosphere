@@ -10,6 +10,7 @@ data DocumentationVersion
   = DocumentationVersion {description :: (Prelude.Maybe (Value Prelude.Text)),
                           documentationVersion :: (Value Prelude.Text),
                           restApiId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentationVersion ::
   Value Prelude.Text -> Value Prelude.Text -> DocumentationVersion
 mkDocumentationVersion documentationVersion restApiId

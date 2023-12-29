@@ -12,6 +12,7 @@ data ServiceNetworkVpcAssociation
                                   serviceNetworkIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                                   tags :: (Prelude.Maybe [Tag]),
                                   vpcIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNetworkVpcAssociation :: ServiceNetworkVpcAssociation
 mkServiceNetworkVpcAssociation
   = ServiceNetworkVpcAssociation

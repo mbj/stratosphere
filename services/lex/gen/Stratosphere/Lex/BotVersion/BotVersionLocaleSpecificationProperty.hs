@@ -11,6 +11,7 @@ import Stratosphere.Value
 data BotVersionLocaleSpecificationProperty
   = BotVersionLocaleSpecificationProperty {botVersionLocaleDetails :: BotVersionLocaleDetailsProperty,
                                            localeId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBotVersionLocaleSpecificationProperty ::
   BotVersionLocaleDetailsProperty
   -> Value Prelude.Text -> BotVersionLocaleSpecificationProperty

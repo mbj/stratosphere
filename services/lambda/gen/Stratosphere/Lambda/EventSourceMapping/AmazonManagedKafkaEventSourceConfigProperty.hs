@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmazonManagedKafkaEventSourceConfigProperty
   = AmazonManagedKafkaEventSourceConfigProperty {consumerGroupId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonManagedKafkaEventSourceConfigProperty ::
   AmazonManagedKafkaEventSourceConfigProperty
 mkAmazonManagedKafkaEventSourceConfigProperty

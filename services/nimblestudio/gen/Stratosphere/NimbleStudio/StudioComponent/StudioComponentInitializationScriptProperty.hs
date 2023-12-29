@@ -12,6 +12,7 @@ data StudioComponentInitializationScriptProperty
                                                  platform :: (Prelude.Maybe (Value Prelude.Text)),
                                                  runContext :: (Prelude.Maybe (Value Prelude.Text)),
                                                  script :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStudioComponentInitializationScriptProperty ::
   StudioComponentInitializationScriptProperty
 mkStudioComponentInitializationScriptProperty

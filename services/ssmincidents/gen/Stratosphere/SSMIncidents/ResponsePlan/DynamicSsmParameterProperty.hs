@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DynamicSsmParameterProperty
   = DynamicSsmParameterProperty {key :: (Value Prelude.Text),
                                  value :: DynamicSsmParameterValueProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamicSsmParameterProperty ::
   Value Prelude.Text
   -> DynamicSsmParameterValueProperty -> DynamicSsmParameterProperty

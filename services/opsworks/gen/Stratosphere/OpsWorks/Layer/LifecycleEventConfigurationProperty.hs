@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.OpsWorks.Layer.ShutdownEventConfigurationProp
 import Stratosphere.ResourceProperties
 data LifecycleEventConfigurationProperty
   = LifecycleEventConfigurationProperty {shutdownEventConfiguration :: (Prelude.Maybe ShutdownEventConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecycleEventConfigurationProperty ::
   LifecycleEventConfigurationProperty
 mkLifecycleEventConfigurationProperty

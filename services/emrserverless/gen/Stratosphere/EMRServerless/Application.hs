@@ -27,6 +27,7 @@ data Application
                  tags :: (Prelude.Maybe [Tag]),
                  type' :: (Value Prelude.Text),
                  workerTypeSpecifications :: (Prelude.Maybe (Prelude.Map Prelude.Text WorkerTypeSpecificationInputProperty))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication ::
   Value Prelude.Text -> Value Prelude.Text -> Application
 mkApplication releaseLabel type'

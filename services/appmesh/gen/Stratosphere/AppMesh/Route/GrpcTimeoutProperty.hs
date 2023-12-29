@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 data GrpcTimeoutProperty
   = GrpcTimeoutProperty {idle :: (Prelude.Maybe DurationProperty),
                          perRequest :: (Prelude.Maybe DurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcTimeoutProperty :: GrpcTimeoutProperty
 mkGrpcTimeoutProperty
   = GrpcTimeoutProperty

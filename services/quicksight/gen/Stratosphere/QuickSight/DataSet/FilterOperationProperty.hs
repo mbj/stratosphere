@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterOperationProperty
   = FilterOperationProperty {conditionExpression :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterOperationProperty ::
   Value Prelude.Text -> FilterOperationProperty
 mkFilterOperationProperty conditionExpression

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SecurityConfiguration
   = SecurityConfiguration {name :: (Prelude.Maybe (Value Prelude.Text)),
                            securityConfiguration :: JSON.Object}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityConfiguration :: JSON.Object -> SecurityConfiguration
 mkSecurityConfiguration securityConfiguration
   = SecurityConfiguration

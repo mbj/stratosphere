@@ -15,6 +15,7 @@ data AuthParametersProperty
                             basicAuthParameters :: (Prelude.Maybe BasicAuthParametersProperty),
                             invocationHttpParameters :: (Prelude.Maybe ConnectionHttpParametersProperty),
                             oAuthParameters :: (Prelude.Maybe OAuthParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthParametersProperty :: AuthParametersProperty
 mkAuthParametersProperty
   = AuthParametersProperty

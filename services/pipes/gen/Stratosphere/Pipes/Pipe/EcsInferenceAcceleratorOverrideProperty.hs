@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EcsInferenceAcceleratorOverrideProperty
   = EcsInferenceAcceleratorOverrideProperty {deviceName :: (Prelude.Maybe (Value Prelude.Text)),
                                              deviceType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsInferenceAcceleratorOverrideProperty ::
   EcsInferenceAcceleratorOverrideProperty
 mkEcsInferenceAcceleratorOverrideProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RootDirectoryProperty
   = RootDirectoryProperty {creationInfo :: (Prelude.Maybe CreationInfoProperty),
                            path :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRootDirectoryProperty :: RootDirectoryProperty
 mkRootDirectoryProperty
   = RootDirectoryProperty

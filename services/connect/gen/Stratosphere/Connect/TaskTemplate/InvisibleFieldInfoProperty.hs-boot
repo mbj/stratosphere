@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InvisibleFieldInfoProperty :: Prelude.Type
 instance ToResourceProperties InvisibleFieldInfoProperty
+instance Prelude.Eq InvisibleFieldInfoProperty
+instance Prelude.Show InvisibleFieldInfoProperty
 instance JSON.ToJSON InvisibleFieldInfoProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AssertionRuleProperty
   = AssertionRuleProperty {assertedControls :: (ValueList Prelude.Text),
                            waitPeriodMs :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssertionRuleProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Integer -> AssertionRuleProperty

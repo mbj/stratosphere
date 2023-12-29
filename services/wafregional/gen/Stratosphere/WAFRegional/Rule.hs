@@ -11,6 +11,7 @@ data Rule
   = Rule {metricName :: (Value Prelude.Text),
           name :: (Value Prelude.Text),
           predicates :: (Prelude.Maybe [PredicateProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRule :: Value Prelude.Text -> Value Prelude.Text -> Rule
 mkRule metricName name
   = Rule

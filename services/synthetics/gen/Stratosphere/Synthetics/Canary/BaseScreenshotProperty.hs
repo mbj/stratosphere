@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BaseScreenshotProperty
   = BaseScreenshotProperty {ignoreCoordinates :: (Prelude.Maybe (ValueList Prelude.Text)),
                             screenshotName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBaseScreenshotProperty ::
   Value Prelude.Text -> BaseScreenshotProperty
 mkBaseScreenshotProperty screenshotName

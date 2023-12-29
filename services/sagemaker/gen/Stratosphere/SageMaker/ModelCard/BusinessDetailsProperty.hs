@@ -10,6 +10,7 @@ data BusinessDetailsProperty
   = BusinessDetailsProperty {businessProblem :: (Prelude.Maybe (Value Prelude.Text)),
                              businessStakeholders :: (Prelude.Maybe (Value Prelude.Text)),
                              lineOfBusiness :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBusinessDetailsProperty :: BusinessDetailsProperty
 mkBusinessDetailsProperty
   = BusinessDetailsProperty

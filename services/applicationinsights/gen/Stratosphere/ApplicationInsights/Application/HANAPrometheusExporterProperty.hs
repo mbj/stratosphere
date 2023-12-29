@@ -13,6 +13,7 @@ data HANAPrometheusExporterProperty
                                     hANASID :: (Value Prelude.Text),
                                     hANASecretName :: (Value Prelude.Text),
                                     prometheusPort :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHANAPrometheusExporterProperty ::
   Value Prelude.Bool
   -> Value Prelude.Text

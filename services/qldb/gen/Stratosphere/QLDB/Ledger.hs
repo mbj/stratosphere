@@ -13,6 +13,7 @@ data Ledger
             name :: (Prelude.Maybe (Value Prelude.Text)),
             permissionsMode :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLedger :: Value Prelude.Text -> Ledger
 mkLedger permissionsMode
   = Ledger

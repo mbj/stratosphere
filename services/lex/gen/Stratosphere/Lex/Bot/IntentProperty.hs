@@ -32,6 +32,7 @@ data IntentProperty
                     sampleUtterances :: (Prelude.Maybe [SampleUtteranceProperty]),
                     slotPriorities :: (Prelude.Maybe [SlotPriorityProperty]),
                     slots :: (Prelude.Maybe [SlotProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntentProperty :: Value Prelude.Text -> IntentProperty
 mkIntentProperty name
   = IntentProperty

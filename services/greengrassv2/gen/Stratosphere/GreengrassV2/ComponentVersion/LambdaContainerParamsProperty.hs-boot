@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LambdaContainerParamsProperty :: Prelude.Type
 instance ToResourceProperties LambdaContainerParamsProperty
+instance Prelude.Eq LambdaContainerParamsProperty
+instance Prelude.Show LambdaContainerParamsProperty
 instance JSON.ToJSON LambdaContainerParamsProperty

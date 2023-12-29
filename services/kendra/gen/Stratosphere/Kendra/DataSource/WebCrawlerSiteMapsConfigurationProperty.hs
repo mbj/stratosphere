@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WebCrawlerSiteMapsConfigurationProperty
   = WebCrawlerSiteMapsConfigurationProperty {siteMaps :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerSiteMapsConfigurationProperty ::
   ValueList Prelude.Text -> WebCrawlerSiteMapsConfigurationProperty
 mkWebCrawlerSiteMapsConfigurationProperty siteMaps

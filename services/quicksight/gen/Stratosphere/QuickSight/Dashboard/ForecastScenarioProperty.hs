@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ForecastScenarioProperty
   = ForecastScenarioProperty {whatIfPointScenario :: (Prelude.Maybe WhatIfPointScenarioProperty),
                               whatIfRangeScenario :: (Prelude.Maybe WhatIfRangeScenarioProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkForecastScenarioProperty :: ForecastScenarioProperty
 mkForecastScenarioProperty
   = ForecastScenarioProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TagSpecificationProperty
   = TagSpecificationProperty {resourceType :: (Value Prelude.Text),
                               tags :: [Tag]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTagSpecificationProperty ::
   Value Prelude.Text -> [Tag] -> TagSpecificationProperty
 mkTagSpecificationProperty resourceType tags

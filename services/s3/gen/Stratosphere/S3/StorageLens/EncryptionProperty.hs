@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 data EncryptionProperty
   = EncryptionProperty {sSEKMS :: (Prelude.Maybe SSEKMSProperty),
                         sSES3 :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionProperty :: EncryptionProperty
 mkEncryptionProperty
   = EncryptionProperty

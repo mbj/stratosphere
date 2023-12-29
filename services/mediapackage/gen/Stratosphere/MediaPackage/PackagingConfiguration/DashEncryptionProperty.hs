@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.SpekeKeyP
 import Stratosphere.ResourceProperties
 data DashEncryptionProperty
   = DashEncryptionProperty {spekeKeyProvider :: SpekeKeyProviderProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashEncryptionProperty ::
   SpekeKeyProviderProperty -> DashEncryptionProperty
 mkDashEncryptionProperty spekeKeyProvider

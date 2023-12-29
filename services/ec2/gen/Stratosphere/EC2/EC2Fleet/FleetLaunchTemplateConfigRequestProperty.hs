@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data FleetLaunchTemplateConfigRequestProperty
   = FleetLaunchTemplateConfigRequestProperty {launchTemplateSpecification :: (Prelude.Maybe FleetLaunchTemplateSpecificationRequestProperty),
                                               overrides :: (Prelude.Maybe [FleetLaunchTemplateOverridesRequestProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetLaunchTemplateConfigRequestProperty ::
   FleetLaunchTemplateConfigRequestProperty
 mkFleetLaunchTemplateConfigRequestProperty

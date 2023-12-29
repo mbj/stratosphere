@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BootstrapActionConfigProperty :: Prelude.Type
 instance ToResourceProperties BootstrapActionConfigProperty
+instance Prelude.Eq BootstrapActionConfigProperty
+instance Prelude.Show BootstrapActionConfigProperty
 instance JSON.ToJSON BootstrapActionConfigProperty

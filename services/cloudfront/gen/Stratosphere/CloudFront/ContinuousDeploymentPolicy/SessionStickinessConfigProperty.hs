@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SessionStickinessConfigProperty
   = SessionStickinessConfigProperty {idleTTL :: (Value Prelude.Integer),
                                      maximumTTL :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSessionStickinessConfigProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> SessionStickinessConfigProperty

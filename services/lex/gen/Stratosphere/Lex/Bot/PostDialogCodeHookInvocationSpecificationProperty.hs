@@ -20,6 +20,7 @@ data PostDialogCodeHookInvocationSpecificationProperty
                                                        timeoutConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
                                                        timeoutNextStep :: (Prelude.Maybe DialogStateProperty),
                                                        timeoutResponse :: (Prelude.Maybe ResponseSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPostDialogCodeHookInvocationSpecificationProperty ::
   PostDialogCodeHookInvocationSpecificationProperty
 mkPostDialogCodeHookInvocationSpecificationProperty

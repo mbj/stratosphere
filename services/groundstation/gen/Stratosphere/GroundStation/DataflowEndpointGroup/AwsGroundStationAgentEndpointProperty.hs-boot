@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AwsGroundStationAgentEndpointProperty :: Prelude.Type
 instance ToResourceProperties AwsGroundStationAgentEndpointProperty
+instance Prelude.Eq AwsGroundStationAgentEndpointProperty
+instance Prelude.Show AwsGroundStationAgentEndpointProperty
 instance JSON.ToJSON AwsGroundStationAgentEndpointProperty

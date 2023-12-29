@@ -11,6 +11,7 @@ data DeviceDefinition
   = DeviceDefinition {initialVersion :: (Prelude.Maybe DeviceDefinitionVersionProperty),
                       name :: (Value Prelude.Text),
                       tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceDefinition :: Value Prelude.Text -> DeviceDefinition
 mkDeviceDefinition name
   = DeviceDefinition

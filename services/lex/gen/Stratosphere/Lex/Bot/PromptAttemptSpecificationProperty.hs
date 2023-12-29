@@ -15,6 +15,7 @@ data PromptAttemptSpecificationProperty
                                         allowedInputTypes :: AllowedInputTypesProperty,
                                         audioAndDTMFInputSpecification :: (Prelude.Maybe AudioAndDTMFInputSpecificationProperty),
                                         textInputSpecification :: (Prelude.Maybe TextInputSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptAttemptSpecificationProperty ::
   AllowedInputTypesProperty -> PromptAttemptSpecificationProperty
 mkPromptAttemptSpecificationProperty allowedInputTypes

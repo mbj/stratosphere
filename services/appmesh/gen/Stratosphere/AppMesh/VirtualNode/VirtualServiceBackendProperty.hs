@@ -11,6 +11,7 @@ import Stratosphere.Value
 data VirtualServiceBackendProperty
   = VirtualServiceBackendProperty {clientPolicy :: (Prelude.Maybe ClientPolicyProperty),
                                    virtualServiceName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualServiceBackendProperty ::
   Value Prelude.Text -> VirtualServiceBackendProperty
 mkVirtualServiceBackendProperty virtualServiceName

@@ -14,6 +14,7 @@ data SiteToSiteVpnAttachment
                              proposedSegmentChange :: (Prelude.Maybe ProposedSegmentChangeProperty),
                              tags :: (Prelude.Maybe [Tag]),
                              vpnConnectionArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSiteToSiteVpnAttachment ::
   Value Prelude.Text -> Value Prelude.Text -> SiteToSiteVpnAttachment
 mkSiteToSiteVpnAttachment coreNetworkId vpnConnectionArn

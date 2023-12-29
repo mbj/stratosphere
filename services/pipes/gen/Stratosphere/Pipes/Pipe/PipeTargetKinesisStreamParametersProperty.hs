@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetKinesisStreamParametersProperty
   = PipeTargetKinesisStreamParametersProperty {partitionKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetKinesisStreamParametersProperty ::
   Value Prelude.Text -> PipeTargetKinesisStreamParametersProperty
 mkPipeTargetKinesisStreamParametersProperty partitionKey

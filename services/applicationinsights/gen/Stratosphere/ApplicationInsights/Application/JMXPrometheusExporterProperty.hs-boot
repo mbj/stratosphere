@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data JMXPrometheusExporterProperty :: Prelude.Type
 instance ToResourceProperties JMXPrometheusExporterProperty
+instance Prelude.Eq JMXPrometheusExporterProperty
+instance Prelude.Show JMXPrometheusExporterProperty
 instance JSON.ToJSON JMXPrometheusExporterProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data IntegerParameterProperty
   = IntegerParameterProperty {name :: (Value Prelude.Text),
                               values :: (ValueList Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegerParameterProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Double -> IntegerParameterProperty

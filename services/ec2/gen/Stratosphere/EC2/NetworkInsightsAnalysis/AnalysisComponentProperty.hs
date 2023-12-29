@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AnalysisComponentProperty
   = AnalysisComponentProperty {arn :: (Prelude.Maybe (Value Prelude.Text)),
                                id :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisComponentProperty :: AnalysisComponentProperty
 mkAnalysisComponentProperty
   = AnalysisComponentProperty

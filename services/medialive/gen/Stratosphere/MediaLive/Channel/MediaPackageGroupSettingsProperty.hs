@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLocationRefProperty a
 import Stratosphere.ResourceProperties
 data MediaPackageGroupSettingsProperty
   = MediaPackageGroupSettingsProperty {destination :: (Prelude.Maybe OutputLocationRefProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaPackageGroupSettingsProperty ::
   MediaPackageGroupSettingsProperty
 mkMediaPackageGroupSettingsProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultViewAssociation
   = DefaultViewAssociation {viewArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultViewAssociation ::
   Value Prelude.Text -> DefaultViewAssociation
 mkDefaultViewAssociation viewArn

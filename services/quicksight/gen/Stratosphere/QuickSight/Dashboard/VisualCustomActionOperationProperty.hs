@@ -15,6 +15,7 @@ data VisualCustomActionOperationProperty
                                          navigationOperation :: (Prelude.Maybe CustomActionNavigationOperationProperty),
                                          setParametersOperation :: (Prelude.Maybe CustomActionSetParametersOperationProperty),
                                          uRLOperation :: (Prelude.Maybe CustomActionURLOperationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVisualCustomActionOperationProperty ::
   VisualCustomActionOperationProperty
 mkVisualCustomActionOperationProperty

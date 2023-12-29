@@ -12,6 +12,7 @@ data BillingGroup
   = BillingGroup {billingGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                   billingGroupProperties :: (Prelude.Maybe BillingGroupPropertiesProperty),
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBillingGroup :: BillingGroup
 mkBillingGroup
   = BillingGroup

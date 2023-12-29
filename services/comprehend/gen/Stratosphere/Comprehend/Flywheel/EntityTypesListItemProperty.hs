@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EntityTypesListItemProperty
   = EntityTypesListItemProperty {type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityTypesListItemProperty ::
   Value Prelude.Text -> EntityTypesListItemProperty
 mkEntityTypesListItemProperty type'

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.InternetMonitor.Monitor.S3ConfigProperty as E
 import Stratosphere.ResourceProperties
 data InternetMeasurementsLogDeliveryProperty
   = InternetMeasurementsLogDeliveryProperty {s3Config :: (Prelude.Maybe S3ConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInternetMeasurementsLogDeliveryProperty ::
   InternetMeasurementsLogDeliveryProperty
 mkInternetMeasurementsLogDeliveryProperty

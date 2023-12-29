@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data QueryStringKeyValueProperty :: Prelude.Type
 instance ToResourceProperties QueryStringKeyValueProperty
+instance Prelude.Eq QueryStringKeyValueProperty
+instance Prelude.Show QueryStringKeyValueProperty
 instance JSON.ToJSON QueryStringKeyValueProperty

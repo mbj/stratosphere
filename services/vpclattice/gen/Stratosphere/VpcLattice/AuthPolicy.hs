@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AuthPolicy
   = AuthPolicy {policy :: JSON.Object,
                 resourceIdentifier :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthPolicy :: JSON.Object -> Value Prelude.Text -> AuthPolicy
 mkAuthPolicy policy resourceIdentifier
   = AuthPolicy

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.StatementProperty as Exports
 import Stratosphere.ResourceProperties
 data OrStatementProperty
   = OrStatementProperty {statements :: [StatementProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrStatementProperty :: [StatementProperty] -> OrStatementProperty
 mkOrStatementProperty statements
   = OrStatementProperty {statements = statements}

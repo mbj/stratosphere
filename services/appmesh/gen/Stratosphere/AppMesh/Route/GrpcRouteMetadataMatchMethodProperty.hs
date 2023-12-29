@@ -14,6 +14,7 @@ data GrpcRouteMetadataMatchMethodProperty
                                           range :: (Prelude.Maybe MatchRangeProperty),
                                           regex :: (Prelude.Maybe (Value Prelude.Text)),
                                           suffix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteMetadataMatchMethodProperty ::
   GrpcRouteMetadataMatchMethodProperty
 mkGrpcRouteMetadataMatchMethodProperty

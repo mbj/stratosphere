@@ -11,6 +11,7 @@ data RuleProperty
   = RuleProperty {action :: ActionProperty,
                   priority :: (Value Prelude.Integer),
                   ruleId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty ::
   ActionProperty
   -> Value Prelude.Integer -> Value Prelude.Text -> RuleProperty

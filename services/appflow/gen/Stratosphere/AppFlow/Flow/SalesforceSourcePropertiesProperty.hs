@@ -12,6 +12,7 @@ data SalesforceSourcePropertiesProperty
                                         enableDynamicFieldUpdate :: (Prelude.Maybe (Value Prelude.Bool)),
                                         includeDeletedRecords :: (Prelude.Maybe (Value Prelude.Bool)),
                                         object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceSourcePropertiesProperty ::
   Value Prelude.Text -> SalesforceSourcePropertiesProperty
 mkSalesforceSourcePropertiesProperty object

@@ -12,6 +12,7 @@ data Step
           hadoopJarStep :: HadoopJarStepConfigProperty,
           jobFlowId :: (Value Prelude.Text),
           name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStep ::
   Value Prelude.Text
   -> HadoopJarStepConfigProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.VpcConnectivityClientAuthenticati
 import Stratosphere.ResourceProperties
 data VpcConnectivityProperty
   = VpcConnectivityProperty {clientAuthentication :: (Prelude.Maybe VpcConnectivityClientAuthenticationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnectivityProperty :: VpcConnectivityProperty
 mkVpcConnectivityProperty
   = VpcConnectivityProperty {clientAuthentication = Prelude.Nothing}

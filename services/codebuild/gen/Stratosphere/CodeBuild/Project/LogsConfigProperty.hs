@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data LogsConfigProperty
   = LogsConfigProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsConfigProperty),
                         s3Logs :: (Prelude.Maybe S3LogsConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogsConfigProperty :: LogsConfigProperty
 mkLogsConfigProperty
   = LogsConfigProperty

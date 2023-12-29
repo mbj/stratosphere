@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CertificateBasedAuthPropertiesProperty
   = CertificateBasedAuthPropertiesProperty {certificateAuthorityArn :: (Prelude.Maybe (Value Prelude.Text)),
                                             status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateBasedAuthPropertiesProperty ::
   CertificateBasedAuthPropertiesProperty
 mkCertificateBasedAuthPropertiesProperty

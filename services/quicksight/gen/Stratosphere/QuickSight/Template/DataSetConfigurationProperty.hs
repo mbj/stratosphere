@@ -13,6 +13,7 @@ data DataSetConfigurationProperty
   = DataSetConfigurationProperty {columnGroupSchemaList :: (Prelude.Maybe [ColumnGroupSchemaProperty]),
                                   dataSetSchema :: (Prelude.Maybe DataSetSchemaProperty),
                                   placeholder :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSetConfigurationProperty :: DataSetConfigurationProperty
 mkDataSetConfigurationProperty
   = DataSetConfigurationProperty

@@ -10,6 +10,7 @@ data Tag
   = Tag {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
          tagKey :: (Value Prelude.Text),
          tagValues :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTag :: Value Prelude.Text -> ValueList Prelude.Text -> Tag
 mkTag tagKey tagValues
   = Tag

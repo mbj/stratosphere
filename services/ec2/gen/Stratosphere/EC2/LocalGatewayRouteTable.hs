@@ -11,6 +11,7 @@ data LocalGatewayRouteTable
   = LocalGatewayRouteTable {localGatewayId :: (Value Prelude.Text),
                             mode :: (Prelude.Maybe (Value Prelude.Text)),
                             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalGatewayRouteTable ::
   Value Prelude.Text -> LocalGatewayRouteTable
 mkLocalGatewayRouteTable localGatewayId

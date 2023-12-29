@@ -13,6 +13,7 @@ data AdditionalDetailProperty
                               component :: (Prelude.Maybe AnalysisComponentProperty),
                               loadBalancers :: (Prelude.Maybe [AnalysisComponentProperty]),
                               serviceName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdditionalDetailProperty :: AdditionalDetailProperty
 mkAdditionalDetailProperty
   = AdditionalDetailProperty

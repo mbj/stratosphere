@@ -12,6 +12,7 @@ data Instance
               directoryId :: (Prelude.Maybe (Value Prelude.Text)),
               identityManagementType :: (Value Prelude.Text),
               instanceAlias :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstance :: AttributesProperty -> Value Prelude.Text -> Instance
 mkInstance attributes identityManagementType
   = Instance

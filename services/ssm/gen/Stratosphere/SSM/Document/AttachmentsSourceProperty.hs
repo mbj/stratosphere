@@ -10,6 +10,7 @@ data AttachmentsSourceProperty
   = AttachmentsSourceProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
                                name :: (Prelude.Maybe (Value Prelude.Text)),
                                values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAttachmentsSourceProperty :: AttachmentsSourceProperty
 mkAttachmentsSourceProperty
   = AttachmentsSourceProperty

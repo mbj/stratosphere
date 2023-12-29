@@ -9,6 +9,7 @@ import Stratosphere.Value
 data QueryStringObjectProperty
   = QueryStringObjectProperty {option :: (Prelude.Maybe (Value Prelude.Bool)),
                                queryStringsAllowList :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryStringObjectProperty :: QueryStringObjectProperty
 mkQueryStringObjectProperty
   = QueryStringObjectProperty

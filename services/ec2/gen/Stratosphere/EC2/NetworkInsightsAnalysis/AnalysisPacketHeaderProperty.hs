@@ -14,6 +14,7 @@ data AnalysisPacketHeaderProperty
                                   protocol :: (Prelude.Maybe (Value Prelude.Text)),
                                   sourceAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   sourcePortRanges :: (Prelude.Maybe [PortRangeProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisPacketHeaderProperty :: AnalysisPacketHeaderProperty
 mkAnalysisPacketHeaderProperty
   = AnalysisPacketHeaderProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ClientConnectOptionsProperty :: Prelude.Type
 instance ToResourceProperties ClientConnectOptionsProperty
+instance Prelude.Eq ClientConnectOptionsProperty
+instance Prelude.Show ClientConnectOptionsProperty
 instance JSON.ToJSON ClientConnectOptionsProperty

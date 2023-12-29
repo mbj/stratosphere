@@ -11,6 +11,7 @@ data EventDimensionsProperty
   = EventDimensionsProperty {attributes :: (Prelude.Maybe JSON.Object),
                              eventType :: (Prelude.Maybe SetDimensionProperty),
                              metrics :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventDimensionsProperty :: EventDimensionsProperty
 mkEventDimensionsProperty
   = EventDimensionsProperty

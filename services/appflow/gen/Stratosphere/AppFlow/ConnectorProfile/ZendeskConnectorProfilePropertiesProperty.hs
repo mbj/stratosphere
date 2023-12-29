@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZendeskConnectorProfilePropertiesProperty
   = ZendeskConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkZendeskConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> ZendeskConnectorProfilePropertiesProperty
 mkZendeskConnectorProfilePropertiesProperty instanceUrl

@@ -10,6 +10,7 @@ data ConfigurationProperty
   = ConfigurationProperty {classification :: (Prelude.Maybe (Value Prelude.Text)),
                            configurationProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                            configurations :: (Prelude.Maybe [ConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationProperty :: ConfigurationProperty
 mkConfigurationProperty
   = ConfigurationProperty

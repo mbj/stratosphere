@@ -18,6 +18,7 @@ data DomainName
                 regionalCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
                 securityPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainName :: DomainName
 mkDomainName
   = DomainName

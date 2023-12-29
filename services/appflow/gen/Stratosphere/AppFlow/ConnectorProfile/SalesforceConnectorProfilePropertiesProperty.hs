@@ -11,6 +11,7 @@ data SalesforceConnectorProfilePropertiesProperty
   = SalesforceConnectorProfilePropertiesProperty {instanceUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                                   isSandboxEnvironment :: (Prelude.Maybe (Value Prelude.Bool)),
                                                   usePrivateLinkForMetadataAndAuthorization :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceConnectorProfilePropertiesProperty ::
   SalesforceConnectorProfilePropertiesProperty
 mkSalesforceConnectorProfilePropertiesProperty

@@ -11,6 +11,7 @@ data RedshiftParametersProperty
                                 database :: (Value Prelude.Text),
                                 host :: (Prelude.Maybe (Value Prelude.Text)),
                                 port :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftParametersProperty ::
   Value Prelude.Text -> RedshiftParametersProperty
 mkRedshiftParametersProperty database

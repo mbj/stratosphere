@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FreeFormSectionLayoutConfigurationProperty :: Prelude.Type
 instance ToResourceProperties FreeFormSectionLayoutConfigurationProperty
+instance Prelude.Eq FreeFormSectionLayoutConfigurationProperty
+instance Prelude.Show FreeFormSectionLayoutConfigurationProperty
 instance JSON.ToJSON FreeFormSectionLayoutConfigurationProperty

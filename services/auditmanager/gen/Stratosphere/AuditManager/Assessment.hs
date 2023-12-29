@@ -23,6 +23,7 @@ data Assessment
                 scope :: (Prelude.Maybe ScopeProperty),
                 status :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssessment :: Assessment
 mkAssessment
   = Assessment

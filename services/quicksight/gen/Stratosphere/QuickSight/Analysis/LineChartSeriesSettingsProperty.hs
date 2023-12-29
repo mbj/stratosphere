@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data LineChartSeriesSettingsProperty
   = LineChartSeriesSettingsProperty {lineStyleSettings :: (Prelude.Maybe LineChartLineStyleSettingsProperty),
                                      markerStyleSettings :: (Prelude.Maybe LineChartMarkerStyleSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLineChartSeriesSettingsProperty ::
   LineChartSeriesSettingsProperty
 mkLineChartSeriesSettingsProperty

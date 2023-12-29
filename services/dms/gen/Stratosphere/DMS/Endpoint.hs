@@ -56,6 +56,7 @@ data Endpoint
               sybaseSettings :: (Prelude.Maybe SybaseSettingsProperty),
               tags :: (Prelude.Maybe [Tag]),
               username :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpoint :: Value Prelude.Text -> Value Prelude.Text -> Endpoint
 mkEndpoint endpointType engineName
   = Endpoint

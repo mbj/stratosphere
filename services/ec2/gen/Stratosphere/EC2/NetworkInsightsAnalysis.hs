@@ -12,6 +12,7 @@ data NetworkInsightsAnalysis
                              filterInArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                              networkInsightsPathId :: (Value Prelude.Text),
                              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInsightsAnalysis ::
   Value Prelude.Text -> NetworkInsightsAnalysis
 mkNetworkInsightsAnalysis networkInsightsPathId

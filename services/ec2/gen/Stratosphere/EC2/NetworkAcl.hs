@@ -10,6 +10,7 @@ import Stratosphere.Value
 data NetworkAcl
   = NetworkAcl {tags :: (Prelude.Maybe [Tag]),
                 vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAcl :: Value Prelude.Text -> NetworkAcl
 mkNetworkAcl vpcId
   = NetworkAcl {vpcId = vpcId, tags = Prelude.Nothing}

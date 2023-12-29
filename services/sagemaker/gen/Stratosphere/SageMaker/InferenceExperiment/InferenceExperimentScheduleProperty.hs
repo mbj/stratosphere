@@ -10,6 +10,7 @@ import Stratosphere.Value
 data InferenceExperimentScheduleProperty
   = InferenceExperimentScheduleProperty {endTime :: (Prelude.Maybe (Value Prelude.Text)),
                                          startTime :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceExperimentScheduleProperty ::
   InferenceExperimentScheduleProperty
 mkInferenceExperimentScheduleProperty

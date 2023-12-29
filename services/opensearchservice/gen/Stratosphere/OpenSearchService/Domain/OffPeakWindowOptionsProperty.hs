@@ -11,6 +11,7 @@ import Stratosphere.Value
 data OffPeakWindowOptionsProperty
   = OffPeakWindowOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                   offPeakWindow :: (Prelude.Maybe OffPeakWindowProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOffPeakWindowOptionsProperty :: OffPeakWindowOptionsProperty
 mkOffPeakWindowOptionsProperty
   = OffPeakWindowOptionsProperty

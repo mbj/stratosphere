@@ -13,6 +13,7 @@ data CrossRegionCopyActionProperty
   = CrossRegionCopyActionProperty {encryptionConfiguration :: EncryptionConfigurationProperty,
                                    retainRule :: (Prelude.Maybe CrossRegionCopyRetainRuleProperty),
                                    target :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCrossRegionCopyActionProperty ::
   EncryptionConfigurationProperty
   -> Value Prelude.Text -> CrossRegionCopyActionProperty

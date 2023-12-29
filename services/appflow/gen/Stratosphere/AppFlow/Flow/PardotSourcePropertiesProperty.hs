@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PardotSourcePropertiesProperty
   = PardotSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPardotSourcePropertiesProperty ::
   Value Prelude.Text -> PardotSourcePropertiesProperty
 mkPardotSourcePropertiesProperty object

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GeospatialMapConfigurationProperty :: Prelude.Type
 instance ToResourceProperties GeospatialMapConfigurationProperty
+instance Prelude.Eq GeospatialMapConfigurationProperty
+instance Prelude.Show GeospatialMapConfigurationProperty
 instance JSON.ToJSON GeospatialMapConfigurationProperty

@@ -20,6 +20,7 @@ data EndpointConfig
                     productionVariants :: [ProductionVariantProperty],
                     shadowProductionVariants :: (Prelude.Maybe [ProductionVariantProperty]),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointConfig :: [ProductionVariantProperty] -> EndpointConfig
 mkEndpointConfig productionVariants
   = EndpointConfig

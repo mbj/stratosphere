@@ -12,6 +12,7 @@ data ExponentialRolloutRateProperty
   = ExponentialRolloutRateProperty {baseRatePerMinute :: (Value Prelude.Integer),
                                     incrementFactor :: (Value Prelude.Double),
                                     rateIncreaseCriteria :: RateIncreaseCriteriaProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExponentialRolloutRateProperty ::
   Value Prelude.Integer
   -> Value Prelude.Double

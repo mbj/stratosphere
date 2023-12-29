@@ -20,6 +20,7 @@ data Task
           schedule :: (Prelude.Maybe TaskScheduleProperty),
           sourceLocationArn :: (Value Prelude.Text),
           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTask :: Value Prelude.Text -> Value Prelude.Text -> Task
 mkTask destinationLocationArn sourceLocationArn
   = Task

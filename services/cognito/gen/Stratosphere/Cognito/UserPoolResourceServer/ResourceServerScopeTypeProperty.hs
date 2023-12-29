@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ResourceServerScopeTypeProperty
   = ResourceServerScopeTypeProperty {scopeDescription :: (Value Prelude.Text),
                                      scopeName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceServerScopeTypeProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ResourceServerScopeTypeProperty

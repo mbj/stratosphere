@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data APNSPushNotificationTemplateProperty :: Prelude.Type
 instance ToResourceProperties APNSPushNotificationTemplateProperty
+instance Prelude.Eq APNSPushNotificationTemplateProperty
+instance Prelude.Show APNSPushNotificationTemplateProperty
 instance JSON.ToJSON APNSPushNotificationTemplateProperty

@@ -14,6 +14,7 @@ data LineChartSortConfigurationProperty
                                         colorItemsLimitConfiguration :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                         smallMultiplesLimitConfiguration :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                         smallMultiplesSort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLineChartSortConfigurationProperty ::
   LineChartSortConfigurationProperty
 mkLineChartSortConfigurationProperty

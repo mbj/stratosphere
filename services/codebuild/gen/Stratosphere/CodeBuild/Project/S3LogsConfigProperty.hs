@@ -10,6 +10,7 @@ data S3LogsConfigProperty
   = S3LogsConfigProperty {encryptionDisabled :: (Prelude.Maybe (Value Prelude.Bool)),
                           location :: (Prelude.Maybe (Value Prelude.Text)),
                           status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LogsConfigProperty ::
   Value Prelude.Text -> S3LogsConfigProperty
 mkS3LogsConfigProperty status

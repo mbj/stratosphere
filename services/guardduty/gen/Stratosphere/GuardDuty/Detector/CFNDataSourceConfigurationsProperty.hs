@@ -13,6 +13,7 @@ data CFNDataSourceConfigurationsProperty
   = CFNDataSourceConfigurationsProperty {kubernetes :: (Prelude.Maybe CFNKubernetesConfigurationProperty),
                                          malwareProtection :: (Prelude.Maybe CFNMalwareProtectionConfigurationProperty),
                                          s3Logs :: (Prelude.Maybe CFNS3LogsConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNDataSourceConfigurationsProperty ::
   CFNDataSourceConfigurationsProperty
 mkCFNDataSourceConfigurationsProperty

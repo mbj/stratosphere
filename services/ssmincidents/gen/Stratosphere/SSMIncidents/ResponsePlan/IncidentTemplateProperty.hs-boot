@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IncidentTemplateProperty :: Prelude.Type
 instance ToResourceProperties IncidentTemplateProperty
+instance Prelude.Eq IncidentTemplateProperty
+instance Prelude.Show IncidentTemplateProperty
 instance JSON.ToJSON IncidentTemplateProperty

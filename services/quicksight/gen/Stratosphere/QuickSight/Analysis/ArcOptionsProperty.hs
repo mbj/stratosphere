@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ArcOptionsProperty
   = ArcOptionsProperty {arcThickness :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArcOptionsProperty :: ArcOptionsProperty
 mkArcOptionsProperty
   = ArcOptionsProperty {arcThickness = Prelude.Nothing}

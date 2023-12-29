@@ -14,6 +14,7 @@ data JobQueue
               schedulingPolicyArn :: (Prelude.Maybe (Value Prelude.Text)),
               state :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJobQueue ::
   [ComputeEnvironmentOrderProperty]
   -> Value Prelude.Integer -> JobQueue

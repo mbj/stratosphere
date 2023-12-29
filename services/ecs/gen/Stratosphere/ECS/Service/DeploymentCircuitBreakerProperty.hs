@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DeploymentCircuitBreakerProperty
   = DeploymentCircuitBreakerProperty {enable :: (Value Prelude.Bool),
                                       rollback :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentCircuitBreakerProperty ::
   Value Prelude.Bool
   -> Value Prelude.Bool -> DeploymentCircuitBreakerProperty

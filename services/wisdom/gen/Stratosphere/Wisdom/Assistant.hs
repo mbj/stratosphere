@@ -14,6 +14,7 @@ data Assistant
                serverSideEncryptionConfiguration :: (Prelude.Maybe ServerSideEncryptionConfigurationProperty),
                tags :: (Prelude.Maybe [Tag]),
                type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssistant ::
   Value Prelude.Text -> Value Prelude.Text -> Assistant
 mkAssistant name type'

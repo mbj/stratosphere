@@ -15,6 +15,7 @@ data MulticastGroup
                     loRaWAN :: LoRaWANProperty,
                     name :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMulticastGroup :: LoRaWANProperty -> MulticastGroup
 mkMulticastGroup loRaWAN
   = MulticastGroup

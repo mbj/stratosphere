@@ -24,6 +24,7 @@ data Form
           sectionalElements :: (Prelude.Map Prelude.Text SectionalElementProperty),
           style :: FormStyleProperty,
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkForm ::
   FormDataTypeConfigProperty
   -> Prelude.Map Prelude.Text FieldConfigProperty

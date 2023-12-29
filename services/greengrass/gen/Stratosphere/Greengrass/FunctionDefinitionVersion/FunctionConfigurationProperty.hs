@@ -16,6 +16,7 @@ data FunctionConfigurationProperty
                                    memorySize :: (Prelude.Maybe (Value Prelude.Integer)),
                                    pinned :: (Prelude.Maybe (Value Prelude.Bool)),
                                    timeout :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionConfigurationProperty :: FunctionConfigurationProperty
 mkFunctionConfigurationProperty
   = FunctionConfigurationProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NodeExporterProperty
   = NodeExporterProperty {enabledInBroker :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeExporterProperty ::
   Value Prelude.Bool -> NodeExporterProperty
 mkNodeExporterProperty enabledInBroker

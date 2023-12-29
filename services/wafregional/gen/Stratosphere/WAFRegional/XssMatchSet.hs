@@ -10,6 +10,7 @@ import Stratosphere.Value
 data XssMatchSet
   = XssMatchSet {name :: (Value Prelude.Text),
                  xssMatchTuples :: (Prelude.Maybe [XssMatchTupleProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkXssMatchSet :: Value Prelude.Text -> XssMatchSet
 mkXssMatchSet name
   = XssMatchSet {name = name, xssMatchTuples = Prelude.Nothing}

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SmbMountOptionsProperty
   = SmbMountOptionsProperty {version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSmbMountOptionsProperty :: SmbMountOptionsProperty
 mkSmbMountOptionsProperty
   = SmbMountOptionsProperty {version = Prelude.Nothing}

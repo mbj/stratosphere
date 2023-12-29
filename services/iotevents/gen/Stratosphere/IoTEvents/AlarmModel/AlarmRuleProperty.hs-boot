@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AlarmRuleProperty :: Prelude.Type
 instance ToResourceProperties AlarmRuleProperty
+instance Prelude.Eq AlarmRuleProperty
+instance Prelude.Show AlarmRuleProperty
 instance JSON.ToJSON AlarmRuleProperty

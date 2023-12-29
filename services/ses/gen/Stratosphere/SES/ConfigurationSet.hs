@@ -20,6 +20,7 @@ data ConfigurationSet
                       suppressionOptions :: (Prelude.Maybe SuppressionOptionsProperty),
                       trackingOptions :: (Prelude.Maybe TrackingOptionsProperty),
                       vdmOptions :: (Prelude.Maybe VdmOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationSet :: ConfigurationSet
 mkConfigurationSet
   = ConfigurationSet

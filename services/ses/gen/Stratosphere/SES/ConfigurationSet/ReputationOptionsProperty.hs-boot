@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReputationOptionsProperty :: Prelude.Type
 instance ToResourceProperties ReputationOptionsProperty
+instance Prelude.Eq ReputationOptionsProperty
+instance Prelude.Show ReputationOptionsProperty
 instance JSON.ToJSON ReputationOptionsProperty

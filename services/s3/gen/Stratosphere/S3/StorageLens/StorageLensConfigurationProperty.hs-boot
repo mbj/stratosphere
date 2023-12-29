@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StorageLensConfigurationProperty :: Prelude.Type
 instance ToResourceProperties StorageLensConfigurationProperty
+instance Prelude.Eq StorageLensConfigurationProperty
+instance Prelude.Show StorageLensConfigurationProperty
 instance JSON.ToJSON StorageLensConfigurationProperty

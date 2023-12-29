@@ -11,6 +11,7 @@ data ApplicationProperty
                          args :: (Prelude.Maybe (ValueList Prelude.Text)),
                          name :: (Prelude.Maybe (Value Prelude.Text)),
                          version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationProperty :: ApplicationProperty
 mkApplicationProperty
   = ApplicationProperty

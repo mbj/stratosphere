@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AmazonElasticsearchParametersProperty :: Prelude.Type
 instance ToResourceProperties AmazonElasticsearchParametersProperty
+instance Prelude.Eq AmazonElasticsearchParametersProperty
+instance Prelude.Show AmazonElasticsearchParametersProperty
 instance JSON.ToJSON AmazonElasticsearchParametersProperty

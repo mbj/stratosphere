@@ -12,6 +12,7 @@ data DataflowEndpointProperty
   = DataflowEndpointProperty {address :: (Prelude.Maybe SocketAddressProperty),
                               mtu :: (Prelude.Maybe (Value Prelude.Integer)),
                               name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataflowEndpointProperty :: DataflowEndpointProperty
 mkDataflowEndpointProperty
   = DataflowEndpointProperty

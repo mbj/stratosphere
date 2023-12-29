@@ -11,6 +11,7 @@ data SidewalkProperty
                       deviceCreationFileList :: (Prelude.Maybe (ValueList Prelude.Text)),
                       role :: (Prelude.Maybe (Value Prelude.Text)),
                       sidewalkManufacturingSn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSidewalkProperty :: SidewalkProperty
 mkSidewalkProperty
   = SidewalkProperty

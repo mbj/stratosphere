@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ReadProvisionedThroughputSettingsProperty
   = ReadProvisionedThroughputSettingsProperty {readCapacityAutoScalingSettings :: (Prelude.Maybe CapacityAutoScalingSettingsProperty),
                                                readCapacityUnits :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReadProvisionedThroughputSettingsProperty ::
   ReadProvisionedThroughputSettingsProperty
 mkReadProvisionedThroughputSettingsProperty

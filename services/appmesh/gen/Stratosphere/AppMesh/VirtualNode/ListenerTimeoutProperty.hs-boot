@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ListenerTimeoutProperty :: Prelude.Type
 instance ToResourceProperties ListenerTimeoutProperty
+instance Prelude.Eq ListenerTimeoutProperty
+instance Prelude.Show ListenerTimeoutProperty
 instance JSON.ToJSON ListenerTimeoutProperty

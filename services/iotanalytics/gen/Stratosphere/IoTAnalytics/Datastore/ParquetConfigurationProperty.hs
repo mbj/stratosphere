@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.SchemaDefinitionProper
 import Stratosphere.ResourceProperties
 data ParquetConfigurationProperty
   = ParquetConfigurationProperty {schemaDefinition :: (Prelude.Maybe SchemaDefinitionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParquetConfigurationProperty :: ParquetConfigurationProperty
 mkParquetConfigurationProperty
   = ParquetConfigurationProperty {schemaDefinition = Prelude.Nothing}

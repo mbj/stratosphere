@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleQueryArgumentProperty
   = SingleQueryArgumentProperty {name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleQueryArgumentProperty ::
   Value Prelude.Text -> SingleQueryArgumentProperty
 mkSingleQueryArgumentProperty name

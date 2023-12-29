@@ -13,6 +13,7 @@ data DestinationFlowConfigProperty
                                    connectorProfileName :: (Prelude.Maybe (Value Prelude.Text)),
                                    connectorType :: (Value Prelude.Text),
                                    destinationConnectorProperties :: DestinationConnectorPropertiesProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationFlowConfigProperty ::
   Value Prelude.Text
   -> DestinationConnectorPropertiesProperty

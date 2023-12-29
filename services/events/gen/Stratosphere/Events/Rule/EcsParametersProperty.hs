@@ -26,6 +26,7 @@ data EcsParametersProperty
                            tagList :: (Prelude.Maybe [Tag]),
                            taskCount :: (Prelude.Maybe (Value Prelude.Integer)),
                            taskDefinitionArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsParametersProperty ::
   Value Prelude.Text -> EcsParametersProperty
 mkEcsParametersProperty taskDefinitionArn

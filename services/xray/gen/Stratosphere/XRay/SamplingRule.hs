@@ -10,6 +10,7 @@ import Stratosphere.Tag
 data SamplingRule
   = SamplingRule {samplingRule :: (Prelude.Maybe SamplingRuleProperty),
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSamplingRule :: SamplingRule
 mkSamplingRule
   = SamplingRule

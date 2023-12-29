@@ -12,6 +12,7 @@ data ComponentRunWithProperty
   = ComponentRunWithProperty {posixUser :: (Prelude.Maybe (Value Prelude.Text)),
                               systemResourceLimits :: (Prelude.Maybe SystemResourceLimitsProperty),
                               windowsUser :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentRunWithProperty :: ComponentRunWithProperty
 mkComponentRunWithProperty
   = ComponentRunWithProperty

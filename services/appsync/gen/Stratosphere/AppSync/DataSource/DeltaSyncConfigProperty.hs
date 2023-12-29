@@ -10,6 +10,7 @@ data DeltaSyncConfigProperty
   = DeltaSyncConfigProperty {baseTableTTL :: (Value Prelude.Text),
                              deltaSyncTableName :: (Value Prelude.Text),
                              deltaSyncTableTTL :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeltaSyncConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

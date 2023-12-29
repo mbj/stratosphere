@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReplicaGlobalSecondaryIndexSpecificationProperty :: Prelude.Type
 instance ToResourceProperties ReplicaGlobalSecondaryIndexSpecificationProperty
+instance Prelude.Eq ReplicaGlobalSecondaryIndexSpecificationProperty
+instance Prelude.Show ReplicaGlobalSecondaryIndexSpecificationProperty
 instance JSON.ToJSON ReplicaGlobalSecondaryIndexSpecificationProperty

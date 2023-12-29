@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FlexibleTimeWindowProperty
   = FlexibleTimeWindowProperty {maximumWindowInMinutes :: (Prelude.Maybe (Value Prelude.Double)),
                                 mode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlexibleTimeWindowProperty ::
   Value Prelude.Text -> FlexibleTimeWindowProperty
 mkFlexibleTimeWindowProperty mode

@@ -17,6 +17,7 @@ data ApiKey
             stageKeys :: (Prelude.Maybe [StageKeyProperty]),
             tags :: (Prelude.Maybe [Tag]),
             value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApiKey :: ApiKey
 mkApiKey
   = ApiKey

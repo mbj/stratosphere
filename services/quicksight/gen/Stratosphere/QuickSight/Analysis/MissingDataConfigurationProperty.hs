@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MissingDataConfigurationProperty
   = MissingDataConfigurationProperty {treatmentOption :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMissingDataConfigurationProperty ::
   MissingDataConfigurationProperty
 mkMissingDataConfigurationProperty

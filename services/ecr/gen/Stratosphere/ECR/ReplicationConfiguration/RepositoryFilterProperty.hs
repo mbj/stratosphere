@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RepositoryFilterProperty
   = RepositoryFilterProperty {filter :: (Value Prelude.Text),
                               filterType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRepositoryFilterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> RepositoryFilterProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ConnectionDrainingPolicyProperty
   = ConnectionDrainingPolicyProperty {enabled :: (Value Prelude.Bool),
                                       timeout :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionDrainingPolicyProperty ::
   Value Prelude.Bool -> ConnectionDrainingPolicyProperty
 mkConnectionDrainingPolicyProperty enabled

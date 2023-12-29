@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PlainTextMessageProperty :: Prelude.Type
 instance ToResourceProperties PlainTextMessageProperty
+instance Prelude.Eq PlainTextMessageProperty
+instance Prelude.Show PlainTextMessageProperty
 instance JSON.ToJSON PlainTextMessageProperty

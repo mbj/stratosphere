@@ -12,6 +12,7 @@ data LoggingConfigurationProperty
   = LoggingConfigurationProperty {destinations :: (Prelude.Maybe [LogDestinationProperty]),
                                   includeExecutionData :: (Prelude.Maybe (Value Prelude.Bool)),
                                   level :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigurationProperty :: LoggingConfigurationProperty
 mkLoggingConfigurationProperty
   = LoggingConfigurationProperty

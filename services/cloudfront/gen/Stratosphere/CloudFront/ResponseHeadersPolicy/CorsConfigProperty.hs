@@ -18,6 +18,7 @@ data CorsConfigProperty
                         accessControlExposeHeaders :: (Prelude.Maybe AccessControlExposeHeadersProperty),
                         accessControlMaxAgeSec :: (Prelude.Maybe (Value Prelude.Integer)),
                         originOverride :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCorsConfigProperty ::
   Value Prelude.Bool
   -> AccessControlAllowHeadersProperty

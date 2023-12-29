@@ -12,6 +12,7 @@ data Config
   = Config {configData :: ConfigDataProperty,
             name :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfig :: ConfigDataProperty -> Value Prelude.Text -> Config
 mkConfig configData name
   = Config

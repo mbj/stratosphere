@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CellValueSynonymProperty
   = CellValueSynonymProperty {cellValue :: (Prelude.Maybe (Value Prelude.Text)),
                               synonyms :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCellValueSynonymProperty :: CellValueSynonymProperty
 mkCellValueSynonymProperty
   = CellValueSynonymProperty

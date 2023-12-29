@@ -15,6 +15,7 @@ data IntelligentTieringConfigurationProperty
                                              status :: (Value Prelude.Text),
                                              tagFilters :: (Prelude.Maybe [TagFilterProperty]),
                                              tierings :: [TieringProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntelligentTieringConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

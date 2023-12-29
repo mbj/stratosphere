@@ -12,6 +12,7 @@ data InsightRule
                  ruleName :: (Value Prelude.Text),
                  ruleState :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe TagsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInsightRule ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> InsightRule

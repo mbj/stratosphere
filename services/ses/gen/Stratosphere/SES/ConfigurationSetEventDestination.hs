@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ConfigurationSetEventDestination
   = ConfigurationSetEventDestination {configurationSetName :: (Value Prelude.Text),
                                       eventDestination :: EventDestinationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationSetEventDestination ::
   Value Prelude.Text
   -> EventDestinationProperty -> ConfigurationSetEventDestination

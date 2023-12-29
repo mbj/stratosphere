@@ -16,6 +16,7 @@ data SAPODataConnectorProfilePropertiesProperty
                                                 oAuthProperties :: (Prelude.Maybe OAuthPropertiesProperty),
                                                 portNumber :: (Prelude.Maybe (Value Prelude.Integer)),
                                                 privateLinkServiceName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataConnectorProfilePropertiesProperty ::
   SAPODataConnectorProfilePropertiesProperty
 mkSAPODataConnectorProfilePropertiesProperty

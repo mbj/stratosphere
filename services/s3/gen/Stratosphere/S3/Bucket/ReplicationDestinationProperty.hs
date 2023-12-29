@@ -19,6 +19,7 @@ data ReplicationDestinationProperty
                                     metrics :: (Prelude.Maybe MetricsProperty),
                                     replicationTime :: (Prelude.Maybe ReplicationTimeProperty),
                                     storageClass :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationDestinationProperty ::
   Value Prelude.Text -> ReplicationDestinationProperty
 mkReplicationDestinationProperty bucket

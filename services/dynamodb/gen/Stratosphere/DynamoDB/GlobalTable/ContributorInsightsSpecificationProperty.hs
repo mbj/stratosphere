@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContributorInsightsSpecificationProperty
   = ContributorInsightsSpecificationProperty {enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContributorInsightsSpecificationProperty ::
   Value Prelude.Bool -> ContributorInsightsSpecificationProperty
 mkContributorInsightsSpecificationProperty enabled

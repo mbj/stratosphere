@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ProactiveEngagement
   = ProactiveEngagement {emergencyContactList :: [EmergencyContactProperty],
                          proactiveEngagementStatus :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProactiveEngagement ::
   [EmergencyContactProperty]
   -> Value Prelude.Text -> ProactiveEngagement

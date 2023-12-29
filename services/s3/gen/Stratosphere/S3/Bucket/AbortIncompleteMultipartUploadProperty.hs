@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AbortIncompleteMultipartUploadProperty
   = AbortIncompleteMultipartUploadProperty {daysAfterInitiation :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAbortIncompleteMultipartUploadProperty ::
   Value Prelude.Integer -> AbortIncompleteMultipartUploadProperty
 mkAbortIncompleteMultipartUploadProperty daysAfterInitiation

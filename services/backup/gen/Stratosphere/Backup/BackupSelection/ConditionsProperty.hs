@@ -11,6 +11,7 @@ data ConditionsProperty
                         stringLike :: (Prelude.Maybe [ConditionParameterProperty]),
                         stringNotEquals :: (Prelude.Maybe [ConditionParameterProperty]),
                         stringNotLike :: (Prelude.Maybe [ConditionParameterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionsProperty :: ConditionsProperty
 mkConditionsProperty
   = ConditionsProperty

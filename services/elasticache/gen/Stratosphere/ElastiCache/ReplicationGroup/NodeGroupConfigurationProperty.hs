@@ -13,6 +13,7 @@ data NodeGroupConfigurationProperty
                                     replicaAvailabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
                                     replicaCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                     slots :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeGroupConfigurationProperty :: NodeGroupConfigurationProperty
 mkNodeGroupConfigurationProperty
   = NodeGroupConfigurationProperty

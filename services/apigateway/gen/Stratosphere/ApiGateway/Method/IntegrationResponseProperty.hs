@@ -12,6 +12,7 @@ data IntegrationResponseProperty
                                  responseTemplates :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                  selectionPattern :: (Prelude.Maybe (Value Prelude.Text)),
                                  statusCode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegrationResponseProperty ::
   Value Prelude.Text -> IntegrationResponseProperty
 mkIntegrationResponseProperty statusCode

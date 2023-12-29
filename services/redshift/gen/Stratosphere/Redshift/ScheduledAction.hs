@@ -16,6 +16,7 @@ data ScheduledAction
                      scheduledActionName :: (Value Prelude.Text),
                      startTime :: (Prelude.Maybe (Value Prelude.Text)),
                      targetAction :: (Prelude.Maybe ScheduledActionTypeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledAction :: Value Prelude.Text -> ScheduledAction
 mkScheduledAction scheduledActionName
   = ScheduledAction

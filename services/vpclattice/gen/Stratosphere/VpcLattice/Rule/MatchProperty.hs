@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.VpcLattice.Rule.HttpMatchProperty as Exports
 import Stratosphere.ResourceProperties
-data MatchProperty = MatchProperty {httpMatch :: HttpMatchProperty}
+data MatchProperty
+  = MatchProperty {httpMatch :: HttpMatchProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchProperty :: HttpMatchProperty -> MatchProperty
 mkMatchProperty httpMatch = MatchProperty {httpMatch = httpMatch}
 instance ToResourceProperties MatchProperty where

@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data DonutOptionsProperty
   = DonutOptionsProperty {arcOptions :: (Prelude.Maybe ArcOptionsProperty),
                           donutCenterOptions :: (Prelude.Maybe DonutCenterOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDonutOptionsProperty :: DonutOptionsProperty
 mkDonutOptionsProperty
   = DonutOptionsProperty

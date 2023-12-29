@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HiveJsonSerDeProperty :: Prelude.Type
 instance ToResourceProperties HiveJsonSerDeProperty
+instance Prelude.Eq HiveJsonSerDeProperty
+instance Prelude.Show HiveJsonSerDeProperty
 instance JSON.ToJSON HiveJsonSerDeProperty

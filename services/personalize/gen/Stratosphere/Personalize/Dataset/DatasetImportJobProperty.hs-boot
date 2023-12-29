@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DatasetImportJobProperty :: Prelude.Type
 instance ToResourceProperties DatasetImportJobProperty
+instance Prelude.Eq DatasetImportJobProperty
+instance Prelude.Show DatasetImportJobProperty
 instance JSON.ToJSON DatasetImportJobProperty

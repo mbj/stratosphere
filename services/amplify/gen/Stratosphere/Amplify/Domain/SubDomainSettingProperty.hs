@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SubDomainSettingProperty
   = SubDomainSettingProperty {branchName :: (Value Prelude.Text),
                               prefix :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubDomainSettingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SubDomainSettingProperty

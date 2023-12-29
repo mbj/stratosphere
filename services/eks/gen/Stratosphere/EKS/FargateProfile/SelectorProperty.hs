@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SelectorProperty
   = SelectorProperty {labels :: (Prelude.Maybe [LabelProperty]),
                       namespace :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSelectorProperty :: Value Prelude.Text -> SelectorProperty
 mkSelectorProperty namespace
   = SelectorProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SlotValueElicitationSettingProperty :: Prelude.Type
 instance ToResourceProperties SlotValueElicitationSettingProperty
+instance Prelude.Eq SlotValueElicitationSettingProperty
+instance Prelude.Show SlotValueElicitationSettingProperty
 instance JSON.ToJSON SlotValueElicitationSettingProperty

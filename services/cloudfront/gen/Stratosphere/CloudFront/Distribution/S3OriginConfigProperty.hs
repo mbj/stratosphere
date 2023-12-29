@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3OriginConfigProperty
   = S3OriginConfigProperty {originAccessIdentity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3OriginConfigProperty :: S3OriginConfigProperty
 mkS3OriginConfigProperty
   = S3OriginConfigProperty {originAccessIdentity = Prelude.Nothing}

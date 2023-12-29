@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ComponentBindingPropertiesValuePropertiesProperty :: Prelude.Type
 instance ToResourceProperties ComponentBindingPropertiesValuePropertiesProperty
+instance Prelude.Eq ComponentBindingPropertiesValuePropertiesProperty
+instance Prelude.Show ComponentBindingPropertiesValuePropertiesProperty
 instance JSON.ToJSON ComponentBindingPropertiesValuePropertiesProperty

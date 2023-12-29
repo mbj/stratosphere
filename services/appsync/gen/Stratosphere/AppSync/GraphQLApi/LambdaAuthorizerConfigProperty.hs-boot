@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LambdaAuthorizerConfigProperty :: Prelude.Type
 instance ToResourceProperties LambdaAuthorizerConfigProperty
+instance Prelude.Eq LambdaAuthorizerConfigProperty
+instance Prelude.Show LambdaAuthorizerConfigProperty
 instance JSON.ToJSON LambdaAuthorizerConfigProperty

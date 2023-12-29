@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CsvProperty
   = CsvProperty {delimiter :: (Prelude.Maybe (Value Prelude.Text)),
                  headerList :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCsvProperty :: CsvProperty
 mkCsvProperty
   = CsvProperty

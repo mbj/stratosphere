@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DestinationProperty
   = DestinationProperty {location :: (Value Prelude.Text),
                          type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DestinationProperty
 mkDestinationProperty location type'

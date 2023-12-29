@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Scte20PlusEmbeddedDestinationSettingsProperty :: Prelude.Type
 instance ToResourceProperties Scte20PlusEmbeddedDestinationSettingsProperty
+instance Prelude.Eq Scte20PlusEmbeddedDestinationSettingsProperty
+instance Prelude.Show Scte20PlusEmbeddedDestinationSettingsProperty
 instance JSON.ToJSON Scte20PlusEmbeddedDestinationSettingsProperty

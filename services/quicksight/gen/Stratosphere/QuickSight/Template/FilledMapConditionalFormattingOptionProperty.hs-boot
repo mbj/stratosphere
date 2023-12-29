@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FilledMapConditionalFormattingOptionProperty :: Prelude.Type
 instance ToResourceProperties FilledMapConditionalFormattingOptionProperty
+instance Prelude.Eq FilledMapConditionalFormattingOptionProperty
+instance Prelude.Show FilledMapConditionalFormattingOptionProperty
 instance JSON.ToJSON FilledMapConditionalFormattingOptionProperty

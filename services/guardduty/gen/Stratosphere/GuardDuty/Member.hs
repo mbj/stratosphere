@@ -13,6 +13,7 @@ data Member
             memberId :: (Value Prelude.Text),
             message :: (Prelude.Maybe (Value Prelude.Text)),
             status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMember ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Member

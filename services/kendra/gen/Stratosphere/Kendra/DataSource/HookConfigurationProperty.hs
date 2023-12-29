@@ -12,6 +12,7 @@ data HookConfigurationProperty
   = HookConfigurationProperty {invocationCondition :: (Prelude.Maybe DocumentAttributeConditionProperty),
                                lambdaArn :: (Value Prelude.Text),
                                s3Bucket :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHookConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> HookConfigurationProperty

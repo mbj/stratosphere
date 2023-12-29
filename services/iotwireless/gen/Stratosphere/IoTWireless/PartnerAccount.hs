@@ -18,6 +18,7 @@ data PartnerAccount
                     sidewalkResponse :: (Prelude.Maybe SidewalkAccountInfoWithFingerprintProperty),
                     sidewalkUpdate :: (Prelude.Maybe SidewalkUpdateAccountProperty),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPartnerAccount :: PartnerAccount
 mkPartnerAccount
   = PartnerAccount

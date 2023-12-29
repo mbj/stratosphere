@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RegexPatternSet
   = RegexPatternSet {name :: (Value Prelude.Text),
                      regexPatternStrings :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegexPatternSet ::
   Value Prelude.Text -> ValueList Prelude.Text -> RegexPatternSet
 mkRegexPatternSet name regexPatternStrings

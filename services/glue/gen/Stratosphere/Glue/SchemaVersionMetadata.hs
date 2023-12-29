@@ -10,6 +10,7 @@ data SchemaVersionMetadata
   = SchemaVersionMetadata {key :: (Value Prelude.Text),
                            schemaVersionId :: (Value Prelude.Text),
                            value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaVersionMetadata ::
   Value Prelude.Text
   -> Value Prelude.Text

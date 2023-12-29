@@ -12,6 +12,7 @@ data LogProperty
                  logPath :: (Prelude.Maybe (Value Prelude.Text)),
                  logType :: (Value Prelude.Text),
                  patternSet :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogProperty :: Value Prelude.Text -> LogProperty
 mkLogProperty logType
   = LogProperty

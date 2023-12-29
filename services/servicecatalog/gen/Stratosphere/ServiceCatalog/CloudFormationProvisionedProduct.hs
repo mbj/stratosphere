@@ -23,6 +23,7 @@ data CloudFormationProvisionedProduct
                                       provisioningParameters :: (Prelude.Maybe [ProvisioningParameterProperty]),
                                       provisioningPreferences :: (Prelude.Maybe ProvisioningPreferencesProperty),
                                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudFormationProvisionedProduct ::
   CloudFormationProvisionedProduct
 mkCloudFormationProvisionedProduct

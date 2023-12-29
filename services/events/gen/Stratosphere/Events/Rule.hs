@@ -16,6 +16,7 @@ data Rule
           scheduleExpression :: (Prelude.Maybe (Value Prelude.Text)),
           state :: (Prelude.Maybe (Value Prelude.Text)),
           targets :: (Prelude.Maybe [TargetProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRule :: Rule
 mkRule
   = Rule

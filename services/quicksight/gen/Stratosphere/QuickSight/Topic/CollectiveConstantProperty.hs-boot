@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CollectiveConstantProperty :: Prelude.Type
 instance ToResourceProperties CollectiveConstantProperty
+instance Prelude.Eq CollectiveConstantProperty
+instance Prelude.Show CollectiveConstantProperty
 instance JSON.ToJSON CollectiveConstantProperty

@@ -11,6 +11,7 @@ data FunctionProperty
   = FunctionProperty {implementedBy :: (Prelude.Maybe DataConnectorProperty),
                       requiredProperties :: (Prelude.Maybe (ValueList Prelude.Text)),
                       scope :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionProperty :: FunctionProperty
 mkFunctionProperty
   = FunctionProperty

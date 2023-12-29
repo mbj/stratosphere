@@ -11,6 +11,7 @@ data BaiduChannel
                   applicationId :: (Value Prelude.Text),
                   enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                   secretKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBaiduChannel ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> BaiduChannel

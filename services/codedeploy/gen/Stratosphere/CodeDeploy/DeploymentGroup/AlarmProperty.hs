@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlarmProperty
   = AlarmProperty {name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmProperty :: AlarmProperty
 mkAlarmProperty = AlarmProperty {name = Prelude.Nothing}
 instance ToResourceProperties AlarmProperty where

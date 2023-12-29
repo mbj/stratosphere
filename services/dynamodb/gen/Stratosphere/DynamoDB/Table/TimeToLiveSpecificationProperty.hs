@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TimeToLiveSpecificationProperty
   = TimeToLiveSpecificationProperty {attributeName :: (Value Prelude.Text),
                                      enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeToLiveSpecificationProperty ::
   Value Prelude.Text
   -> Value Prelude.Bool -> TimeToLiveSpecificationProperty

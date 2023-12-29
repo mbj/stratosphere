@@ -11,6 +11,7 @@ data ConfluenceAttachmentToIndexFieldMappingProperty
   = ConfluenceAttachmentToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
                                                      dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
                                                      indexFieldName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceAttachmentToIndexFieldMappingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

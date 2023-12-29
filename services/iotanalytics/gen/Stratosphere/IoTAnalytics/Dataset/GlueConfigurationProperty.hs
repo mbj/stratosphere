@@ -9,6 +9,7 @@ import Stratosphere.Value
 data GlueConfigurationProperty
   = GlueConfigurationProperty {databaseName :: (Value Prelude.Text),
                                tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> GlueConfigurationProperty

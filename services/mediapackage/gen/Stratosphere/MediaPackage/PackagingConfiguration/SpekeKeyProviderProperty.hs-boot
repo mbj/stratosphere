@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SpekeKeyProviderProperty :: Prelude.Type
 instance ToResourceProperties SpekeKeyProviderProperty
+instance Prelude.Eq SpekeKeyProviderProperty
+instance Prelude.Show SpekeKeyProviderProperty
 instance JSON.ToJSON SpekeKeyProviderProperty

@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data ModelPackageStatusDetailsProperty
   = ModelPackageStatusDetailsProperty {imageScanStatuses :: (Prelude.Maybe [ModelPackageStatusItemProperty]),
                                        validationStatuses :: [ModelPackageStatusItemProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageStatusDetailsProperty ::
   [ModelPackageStatusItemProperty]
   -> ModelPackageStatusDetailsProperty

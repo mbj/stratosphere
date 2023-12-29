@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RunAsProperty
   = RunAsProperty {gid :: (Prelude.Maybe (Value Prelude.Integer)),
                    uid :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRunAsProperty :: RunAsProperty
 mkRunAsProperty
   = RunAsProperty {gid = Prelude.Nothing, uid = Prelude.Nothing}

@@ -12,6 +12,7 @@ data ActionProperty
   = ActionProperty {actionName :: (Value Prelude.Text),
                     containerAction :: (Prelude.Maybe ContainerActionProperty),
                     queryAction :: (Prelude.Maybe QueryActionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: Value Prelude.Text -> ActionProperty
 mkActionProperty actionName
   = ActionProperty

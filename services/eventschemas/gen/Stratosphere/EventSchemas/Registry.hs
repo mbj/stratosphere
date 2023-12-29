@@ -11,6 +11,7 @@ data Registry
   = Registry {description :: (Prelude.Maybe (Value Prelude.Text)),
               registryName :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe [TagsEntryProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegistry :: Registry
 mkRegistry
   = Registry

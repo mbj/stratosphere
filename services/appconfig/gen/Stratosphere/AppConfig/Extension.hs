@@ -15,6 +15,7 @@ data Extension
                name :: (Value Prelude.Text),
                parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text ParameterProperty)),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExtension :: JSON.Object -> Value Prelude.Text -> Extension
 mkExtension actions name
   = Extension

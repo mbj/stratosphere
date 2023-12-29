@@ -11,6 +11,7 @@ data ActionTypeIdProperty
                           owner :: (Value Prelude.Text),
                           provider :: (Value Prelude.Text),
                           version :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionTypeIdProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

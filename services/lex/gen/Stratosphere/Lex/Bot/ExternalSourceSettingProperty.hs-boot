@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExternalSourceSettingProperty :: Prelude.Type
 instance ToResourceProperties ExternalSourceSettingProperty
+instance Prelude.Eq ExternalSourceSettingProperty
+instance Prelude.Show ExternalSourceSettingProperty
 instance JSON.ToJSON ExternalSourceSettingProperty

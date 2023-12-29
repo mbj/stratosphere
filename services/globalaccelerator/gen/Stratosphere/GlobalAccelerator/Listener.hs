@@ -12,6 +12,7 @@ data Listener
               clientAffinity :: (Prelude.Maybe (Value Prelude.Text)),
               portRanges :: [PortRangeProperty],
               protocol :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListener ::
   Value Prelude.Text
   -> [PortRangeProperty] -> Value Prelude.Text -> Listener

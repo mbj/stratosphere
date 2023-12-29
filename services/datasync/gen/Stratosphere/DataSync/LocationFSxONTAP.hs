@@ -14,6 +14,7 @@ data LocationFSxONTAP
                       storageVirtualMachineArn :: (Value Prelude.Text),
                       subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationFSxONTAP ::
   ValueList Prelude.Text -> Value Prelude.Text -> LocationFSxONTAP
 mkLocationFSxONTAP securityGroupArns storageVirtualMachineArn

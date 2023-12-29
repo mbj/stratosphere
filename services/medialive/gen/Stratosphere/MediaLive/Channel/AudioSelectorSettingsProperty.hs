@@ -15,6 +15,7 @@ data AudioSelectorSettingsProperty
                                    audioLanguageSelection :: (Prelude.Maybe AudioLanguageSelectionProperty),
                                    audioPidSelection :: (Prelude.Maybe AudioPidSelectionProperty),
                                    audioTrackSelection :: (Prelude.Maybe AudioTrackSelectionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioSelectorSettingsProperty :: AudioSelectorSettingsProperty
 mkAudioSelectorSettingsProperty
   = AudioSelectorSettingsProperty

@@ -17,6 +17,7 @@ data VirtualNodeSpecProperty
                              listeners :: (Prelude.Maybe [ListenerProperty]),
                              logging :: (Prelude.Maybe LoggingProperty),
                              serviceDiscovery :: (Prelude.Maybe ServiceDiscoveryProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNodeSpecProperty :: VirtualNodeSpecProperty
 mkVirtualNodeSpecProperty
   = VirtualNodeSpecProperty

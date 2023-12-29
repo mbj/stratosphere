@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VirtualGatewayHealthCheckPolicyProperty :: Prelude.Type
 instance ToResourceProperties VirtualGatewayHealthCheckPolicyProperty
+instance Prelude.Eq VirtualGatewayHealthCheckPolicyProperty
+instance Prelude.Show VirtualGatewayHealthCheckPolicyProperty
 instance JSON.ToJSON VirtualGatewayHealthCheckPolicyProperty

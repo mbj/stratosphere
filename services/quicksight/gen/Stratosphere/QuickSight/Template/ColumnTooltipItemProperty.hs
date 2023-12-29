@@ -14,6 +14,7 @@ data ColumnTooltipItemProperty
                                column :: ColumnIdentifierProperty,
                                label :: (Prelude.Maybe (Value Prelude.Text)),
                                visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnTooltipItemProperty ::
   ColumnIdentifierProperty -> ColumnTooltipItemProperty
 mkColumnTooltipItemProperty column

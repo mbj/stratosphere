@@ -81,6 +81,7 @@ data DBInstance
                 useDefaultProcessorFeatures :: (Prelude.Maybe (Value Prelude.Bool)),
                 useLatestRestorableTime :: (Prelude.Maybe (Value Prelude.Bool)),
                 vPCSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDBInstance :: DBInstance
 mkDBInstance
   = DBInstance

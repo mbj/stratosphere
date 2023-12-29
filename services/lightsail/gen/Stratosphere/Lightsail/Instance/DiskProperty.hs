@@ -14,6 +14,7 @@ data DiskProperty
                   isSystemDisk :: (Prelude.Maybe (Value Prelude.Bool)),
                   path :: (Value Prelude.Text),
                   sizeInGb :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDiskProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DiskProperty
 mkDiskProperty diskName path

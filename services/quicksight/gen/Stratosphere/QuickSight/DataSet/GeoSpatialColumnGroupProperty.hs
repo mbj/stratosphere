@@ -10,6 +10,7 @@ data GeoSpatialColumnGroupProperty
   = GeoSpatialColumnGroupProperty {columns :: (ValueList Prelude.Text),
                                    countryCode :: (Prelude.Maybe (Value Prelude.Text)),
                                    name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeoSpatialColumnGroupProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> GeoSpatialColumnGroupProperty

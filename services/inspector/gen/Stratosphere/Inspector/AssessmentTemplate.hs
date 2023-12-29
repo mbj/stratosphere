@@ -13,6 +13,7 @@ data AssessmentTemplate
                         durationInSeconds :: (Value Prelude.Integer),
                         rulesPackageArns :: (ValueList Prelude.Text),
                         userAttributesForFindings :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssessmentTemplate ::
   Value Prelude.Text
   -> Value Prelude.Integer

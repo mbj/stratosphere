@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FirelensConfigurationProperty
   = FirelensConfigurationProperty {options :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                    type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirelensConfigurationProperty :: FirelensConfigurationProperty
 mkFirelensConfigurationProperty
   = FirelensConfigurationProperty

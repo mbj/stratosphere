@@ -15,6 +15,7 @@ data AnalysisSecurityGroupRuleProperty
                                        prefixListId :: (Prelude.Maybe (Value Prelude.Text)),
                                        protocol :: (Prelude.Maybe (Value Prelude.Text)),
                                        securityGroupId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisSecurityGroupRuleProperty ::
   AnalysisSecurityGroupRuleProperty
 mkAnalysisSecurityGroupRuleProperty

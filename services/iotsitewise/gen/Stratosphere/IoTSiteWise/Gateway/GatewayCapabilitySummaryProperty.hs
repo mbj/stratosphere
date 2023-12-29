@@ -10,6 +10,7 @@ import Stratosphere.Value
 data GatewayCapabilitySummaryProperty
   = GatewayCapabilitySummaryProperty {capabilityConfiguration :: (Prelude.Maybe (Value Prelude.Text)),
                                       capabilityNamespace :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayCapabilitySummaryProperty ::
   Value Prelude.Text -> GatewayCapabilitySummaryProperty
 mkGatewayCapabilitySummaryProperty capabilityNamespace

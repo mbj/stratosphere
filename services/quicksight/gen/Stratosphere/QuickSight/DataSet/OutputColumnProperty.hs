@@ -10,6 +10,7 @@ data OutputColumnProperty
   = OutputColumnProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
                           name :: (Prelude.Maybe (Value Prelude.Text)),
                           type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputColumnProperty :: OutputColumnProperty
 mkOutputColumnProperty
   = OutputColumnProperty

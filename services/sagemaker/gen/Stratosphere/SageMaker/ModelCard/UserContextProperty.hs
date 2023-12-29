@@ -10,6 +10,7 @@ data UserContextProperty
   = UserContextProperty {domainId :: (Prelude.Maybe (Value Prelude.Text)),
                          userProfileArn :: (Prelude.Maybe (Value Prelude.Text)),
                          userProfileName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserContextProperty :: UserContextProperty
 mkUserContextProperty
   = UserContextProperty

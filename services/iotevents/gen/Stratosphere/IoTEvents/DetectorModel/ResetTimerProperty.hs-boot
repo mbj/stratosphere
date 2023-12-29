@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ResetTimerProperty :: Prelude.Type
 instance ToResourceProperties ResetTimerProperty
+instance Prelude.Eq ResetTimerProperty
+instance Prelude.Show ResetTimerProperty
 instance JSON.ToJSON ResetTimerProperty

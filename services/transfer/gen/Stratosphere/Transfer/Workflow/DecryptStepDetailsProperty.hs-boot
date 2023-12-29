@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DecryptStepDetailsProperty :: Prelude.Type
 instance ToResourceProperties DecryptStepDetailsProperty
+instance Prelude.Eq DecryptStepDetailsProperty
+instance Prelude.Show DecryptStepDetailsProperty
 instance JSON.ToJSON DecryptStepDetailsProperty

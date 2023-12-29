@@ -10,6 +10,7 @@ data S3ConfigProperty
   = S3ConfigProperty {bucketName :: (Prelude.Maybe (Value Prelude.Text)),
                       bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                       logDeliveryStatus :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigProperty :: S3ConfigProperty
 mkS3ConfigProperty
   = S3ConfigProperty

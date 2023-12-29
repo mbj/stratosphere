@@ -11,6 +11,7 @@ data CastColumnTypeOperationProperty
   = CastColumnTypeOperationProperty {columnName :: (Value Prelude.Text),
                                      format :: (Prelude.Maybe (Value Prelude.Text)),
                                      newColumnType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCastColumnTypeOperationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> CastColumnTypeOperationProperty

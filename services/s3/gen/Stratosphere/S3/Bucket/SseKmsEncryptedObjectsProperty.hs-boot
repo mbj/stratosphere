@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SseKmsEncryptedObjectsProperty :: Prelude.Type
 instance ToResourceProperties SseKmsEncryptedObjectsProperty
+instance Prelude.Eq SseKmsEncryptedObjectsProperty
+instance Prelude.Show SseKmsEncryptedObjectsProperty
 instance JSON.ToJSON SseKmsEncryptedObjectsProperty

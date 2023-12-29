@@ -13,6 +13,7 @@ data Project
              projectDescription :: (Prelude.Maybe (Value Prelude.Text)),
              projectName :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProject :: Value Prelude.Text -> Value Prelude.Text -> Project
 mkProject portalId projectName
   = Project

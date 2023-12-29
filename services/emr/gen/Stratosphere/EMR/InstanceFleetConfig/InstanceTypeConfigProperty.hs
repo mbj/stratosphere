@@ -17,6 +17,7 @@ data InstanceTypeConfigProperty
                                 ebsConfiguration :: (Prelude.Maybe EbsConfigurationProperty),
                                 instanceType :: (Value Prelude.Text),
                                 weightedCapacity :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceTypeConfigProperty ::
   Value Prelude.Text -> InstanceTypeConfigProperty
 mkInstanceTypeConfigProperty instanceType

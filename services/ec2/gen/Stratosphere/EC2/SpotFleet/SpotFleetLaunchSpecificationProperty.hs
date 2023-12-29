@@ -34,6 +34,7 @@ data SpotFleetLaunchSpecificationProperty
                                           tagSpecifications :: (Prelude.Maybe [SpotFleetTagSpecificationProperty]),
                                           userData :: (Prelude.Maybe (Value Prelude.Text)),
                                           weightedCapacity :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotFleetLaunchSpecificationProperty ::
   Value Prelude.Text -> SpotFleetLaunchSpecificationProperty
 mkSpotFleetLaunchSpecificationProperty imageId

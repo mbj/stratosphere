@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StringValueWhenUnsetConfigurationProperty
   = StringValueWhenUnsetConfigurationProperty {customValue :: (Prelude.Maybe (Value Prelude.Text)),
                                                valueWhenUnsetOption :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStringValueWhenUnsetConfigurationProperty ::
   StringValueWhenUnsetConfigurationProperty
 mkStringValueWhenUnsetConfigurationProperty

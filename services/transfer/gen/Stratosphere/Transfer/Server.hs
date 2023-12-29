@@ -27,6 +27,7 @@ data Server
             securityPolicyName :: (Prelude.Maybe (Value Prelude.Text)),
             tags :: (Prelude.Maybe [Tag]),
             workflowDetails :: (Prelude.Maybe WorkflowDetailsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServer :: Server
 mkServer
   = Server

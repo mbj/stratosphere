@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UniqueValuesComputationProperty :: Prelude.Type
 instance ToResourceProperties UniqueValuesComputationProperty
+instance Prelude.Eq UniqueValuesComputationProperty
+instance Prelude.Show UniqueValuesComputationProperty
 instance JSON.ToJSON UniqueValuesComputationProperty

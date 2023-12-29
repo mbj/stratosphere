@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ImageVersion
   = ImageVersion {baseImage :: (Value Prelude.Text),
                   imageName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImageVersion ::
   Value Prelude.Text -> Value Prelude.Text -> ImageVersion
 mkImageVersion baseImage imageName

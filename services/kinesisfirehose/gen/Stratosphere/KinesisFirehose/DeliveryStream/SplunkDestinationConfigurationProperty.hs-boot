@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SplunkDestinationConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SplunkDestinationConfigurationProperty
+instance Prelude.Eq SplunkDestinationConfigurationProperty
+instance Prelude.Show SplunkDestinationConfigurationProperty
 instance JSON.ToJSON SplunkDestinationConfigurationProperty

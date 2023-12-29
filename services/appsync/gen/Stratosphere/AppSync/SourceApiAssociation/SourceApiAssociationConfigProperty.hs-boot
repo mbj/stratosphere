@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SourceApiAssociationConfigProperty :: Prelude.Type
 instance ToResourceProperties SourceApiAssociationConfigProperty
+instance Prelude.Eq SourceApiAssociationConfigProperty
+instance Prelude.Show SourceApiAssociationConfigProperty
 instance JSON.ToJSON SourceApiAssociationConfigProperty

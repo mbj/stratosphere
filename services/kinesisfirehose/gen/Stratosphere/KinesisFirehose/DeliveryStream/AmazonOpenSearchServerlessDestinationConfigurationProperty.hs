@@ -25,6 +25,7 @@ data AmazonOpenSearchServerlessDestinationConfigurationProperty
                                                                 s3BackupMode :: (Prelude.Maybe (Value Prelude.Text)),
                                                                 s3Configuration :: S3DestinationConfigurationProperty,
                                                                 vpcConfiguration :: (Prelude.Maybe VpcConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonOpenSearchServerlessDestinationConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

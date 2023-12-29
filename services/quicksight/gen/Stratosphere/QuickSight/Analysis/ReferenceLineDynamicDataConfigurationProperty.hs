@@ -13,6 +13,7 @@ data ReferenceLineDynamicDataConfigurationProperty
   = ReferenceLineDynamicDataConfigurationProperty {calculation :: NumericalAggregationFunctionProperty,
                                                    column :: ColumnIdentifierProperty,
                                                    measureAggregationFunction :: AggregationFunctionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceLineDynamicDataConfigurationProperty ::
   NumericalAggregationFunctionProperty
   -> ColumnIdentifierProperty

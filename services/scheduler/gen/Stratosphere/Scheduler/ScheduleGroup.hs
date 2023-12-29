@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ScheduleGroup
   = ScheduleGroup {name :: (Prelude.Maybe (Value Prelude.Text)),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleGroup :: ScheduleGroup
 mkScheduleGroup
   = ScheduleGroup {name = Prelude.Nothing, tags = Prelude.Nothing}

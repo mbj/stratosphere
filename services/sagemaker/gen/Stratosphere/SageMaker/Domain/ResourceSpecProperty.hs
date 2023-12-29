@@ -11,6 +11,7 @@ data ResourceSpecProperty
                           lifecycleConfigArn :: (Prelude.Maybe (Value Prelude.Text)),
                           sageMakerImageArn :: (Prelude.Maybe (Value Prelude.Text)),
                           sageMakerImageVersionArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceSpecProperty :: ResourceSpecProperty
 mkResourceSpecProperty
   = ResourceSpecProperty

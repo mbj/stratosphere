@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TableCellStyleProperty :: Prelude.Type
 instance ToResourceProperties TableCellStyleProperty
+instance Prelude.Eq TableCellStyleProperty
+instance Prelude.Show TableCellStyleProperty
 instance JSON.ToJSON TableCellStyleProperty

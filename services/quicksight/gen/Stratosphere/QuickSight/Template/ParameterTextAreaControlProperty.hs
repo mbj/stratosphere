@@ -14,6 +14,7 @@ data ParameterTextAreaControlProperty
                                       parameterControlId :: (Value Prelude.Text),
                                       sourceParameterName :: (Value Prelude.Text),
                                       title :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterTextAreaControlProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

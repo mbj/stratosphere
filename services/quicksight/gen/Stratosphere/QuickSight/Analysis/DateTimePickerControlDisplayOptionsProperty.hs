@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DateTimePickerControlDisplayOptionsProperty
   = DateTimePickerControlDisplayOptionsProperty {dateTimeFormat :: (Prelude.Maybe (Value Prelude.Text)),
                                                  titleOptions :: (Prelude.Maybe LabelOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimePickerControlDisplayOptionsProperty ::
   DateTimePickerControlDisplayOptionsProperty
 mkDateTimePickerControlDisplayOptionsProperty

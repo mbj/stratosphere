@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ChannelTargetInfoProperty :: Prelude.Type
 instance ToResourceProperties ChannelTargetInfoProperty
+instance Prelude.Eq ChannelTargetInfoProperty
+instance Prelude.Show ChannelTargetInfoProperty
 instance JSON.ToJSON ChannelTargetInfoProperty

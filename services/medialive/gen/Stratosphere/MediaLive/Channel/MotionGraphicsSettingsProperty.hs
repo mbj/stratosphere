@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.HtmlMotionGraphicsSettingsP
 import Stratosphere.ResourceProperties
 data MotionGraphicsSettingsProperty
   = MotionGraphicsSettingsProperty {htmlMotionGraphicsSettings :: (Prelude.Maybe HtmlMotionGraphicsSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMotionGraphicsSettingsProperty :: MotionGraphicsSettingsProperty
 mkMotionGraphicsSettingsProperty
   = MotionGraphicsSettingsProperty

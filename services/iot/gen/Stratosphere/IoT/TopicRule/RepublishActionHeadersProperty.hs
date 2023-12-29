@@ -15,6 +15,7 @@ data RepublishActionHeadersProperty
                                     payloadFormatIndicator :: (Prelude.Maybe (Value Prelude.Text)),
                                     responseTopic :: (Prelude.Maybe (Value Prelude.Text)),
                                     userProperties :: (Prelude.Maybe [UserPropertyProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRepublishActionHeadersProperty :: RepublishActionHeadersProperty
 mkRepublishActionHeadersProperty
   = RepublishActionHeadersProperty

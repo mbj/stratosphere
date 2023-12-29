@@ -10,6 +10,7 @@ data SkewedInfoProperty
   = SkewedInfoProperty {skewedColumnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                         skewedColumnValueLocationMaps :: (Prelude.Maybe JSON.Object),
                         skewedColumnValues :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSkewedInfoProperty :: SkewedInfoProperty
 mkSkewedInfoProperty
   = SkewedInfoProperty

@@ -10,6 +10,7 @@ data ResourceDefaultVersion
   = ResourceDefaultVersion {typeName :: (Prelude.Maybe (Value Prelude.Text)),
                             typeVersionArn :: (Prelude.Maybe (Value Prelude.Text)),
                             versionId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDefaultVersion :: ResourceDefaultVersion
 mkResourceDefaultVersion
   = ResourceDefaultVersion

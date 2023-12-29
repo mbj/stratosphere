@@ -17,6 +17,7 @@ data Subscription
                   region :: (Prelude.Maybe (Value Prelude.Text)),
                   subscriptionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                   topicArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscription ::
   Value Prelude.Text -> Value Prelude.Text -> Subscription
 mkSubscription protocol topicArn

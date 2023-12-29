@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EncryptionConfigProperty
   = EncryptionConfigProperty {encryptionType :: (Value Prelude.Text),
                               keyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EncryptionConfigProperty

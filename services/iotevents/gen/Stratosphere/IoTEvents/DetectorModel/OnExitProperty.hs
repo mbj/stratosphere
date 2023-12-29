@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.EventProperty as Expo
 import Stratosphere.ResourceProperties
 data OnExitProperty
   = OnExitProperty {events :: (Prelude.Maybe [EventProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOnExitProperty :: OnExitProperty
 mkOnExitProperty = OnExitProperty {events = Prelude.Nothing}
 instance ToResourceProperties OnExitProperty where

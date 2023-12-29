@@ -13,6 +13,7 @@ data PredefinedHierarchyProperty
   = PredefinedHierarchyProperty {columns :: [ColumnIdentifierProperty],
                                  drillDownFilters :: (Prelude.Maybe [DrillDownFilterProperty]),
                                  hierarchyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredefinedHierarchyProperty ::
   [ColumnIdentifierProperty]
   -> Value Prelude.Text -> PredefinedHierarchyProperty

@@ -15,6 +15,7 @@ data TargetGroupConfigProperty
                                protocol :: (Value Prelude.Text),
                                protocolVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                vpcIdentifier :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupConfigProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text

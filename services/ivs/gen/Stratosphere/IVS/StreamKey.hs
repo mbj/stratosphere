@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StreamKey
   = StreamKey {channelArn :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamKey :: Value Prelude.Text -> StreamKey
 mkStreamKey channelArn
   = StreamKey {channelArn = channelArn, tags = Prelude.Nothing}

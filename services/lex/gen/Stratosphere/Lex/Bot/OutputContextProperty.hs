@@ -10,6 +10,7 @@ data OutputContextProperty
   = OutputContextProperty {name :: (Value Prelude.Text),
                            timeToLiveInSeconds :: (Value Prelude.Integer),
                            turnsToLive :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputContextProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer

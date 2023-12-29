@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EncryptionAtRestOptionsProperty
   = EncryptionAtRestOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                      kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionAtRestOptionsProperty ::
   EncryptionAtRestOptionsProperty
 mkEncryptionAtRestOptionsProperty

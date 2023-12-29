@@ -13,6 +13,7 @@ data ServerlessCluster
                        clusterName :: (Value Prelude.Text),
                        tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                        vpcConfigs :: [VpcConfigProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerlessCluster ::
   ClientAuthenticationProperty
   -> Value Prelude.Text -> [VpcConfigProperty] -> ServerlessCluster

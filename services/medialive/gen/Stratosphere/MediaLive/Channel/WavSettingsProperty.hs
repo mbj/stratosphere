@@ -10,6 +10,7 @@ data WavSettingsProperty
   = WavSettingsProperty {bitDepth :: (Prelude.Maybe (Value Prelude.Double)),
                          codingMode :: (Prelude.Maybe (Value Prelude.Text)),
                          sampleRate :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWavSettingsProperty :: WavSettingsProperty
 mkWavSettingsProperty
   = WavSettingsProperty

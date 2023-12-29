@@ -19,6 +19,7 @@ data Topic
            tags :: (Prelude.Maybe [Tag]),
            topicName :: (Prelude.Maybe (Value Prelude.Text)),
            tracingConfig :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopic :: Topic
 mkTopic
   = Topic

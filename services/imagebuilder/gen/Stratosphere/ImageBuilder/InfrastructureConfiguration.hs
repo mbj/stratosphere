@@ -23,6 +23,7 @@ data InfrastructureConfiguration
                                  subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                                  tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                  terminateInstanceOnFailure :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInfrastructureConfiguration ::
   Value Prelude.Text
   -> Value Prelude.Text -> InfrastructureConfiguration

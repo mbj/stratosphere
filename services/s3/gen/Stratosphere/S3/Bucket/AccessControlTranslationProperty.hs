@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlTranslationProperty
   = AccessControlTranslationProperty {owner :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlTranslationProperty ::
   Value Prelude.Text -> AccessControlTranslationProperty
 mkAccessControlTranslationProperty owner

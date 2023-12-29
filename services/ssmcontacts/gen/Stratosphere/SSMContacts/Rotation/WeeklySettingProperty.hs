@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WeeklySettingProperty
   = WeeklySettingProperty {dayOfWeek :: (Value Prelude.Text),
                            handOffTime :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWeeklySettingProperty ::
   Value Prelude.Text -> Value Prelude.Text -> WeeklySettingProperty
 mkWeeklySettingProperty dayOfWeek handOffTime

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FrameCaptureS3SettingsProperty
   = FrameCaptureS3SettingsProperty {cannedAcl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameCaptureS3SettingsProperty :: FrameCaptureS3SettingsProperty
 mkFrameCaptureS3SettingsProperty
   = FrameCaptureS3SettingsProperty {cannedAcl = Prelude.Nothing}

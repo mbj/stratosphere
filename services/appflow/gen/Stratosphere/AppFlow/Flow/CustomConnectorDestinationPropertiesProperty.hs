@@ -14,6 +14,7 @@ data CustomConnectorDestinationPropertiesProperty
                                                   errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
                                                   idFieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                   writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomConnectorDestinationPropertiesProperty ::
   Value Prelude.Text -> CustomConnectorDestinationPropertiesProperty
 mkCustomConnectorDestinationPropertiesProperty entityName

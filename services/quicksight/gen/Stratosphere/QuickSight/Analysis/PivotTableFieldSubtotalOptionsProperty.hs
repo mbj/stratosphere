@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PivotTableFieldSubtotalOptionsProperty
   = PivotTableFieldSubtotalOptionsProperty {fieldId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableFieldSubtotalOptionsProperty ::
   PivotTableFieldSubtotalOptionsProperty
 mkPivotTableFieldSubtotalOptionsProperty

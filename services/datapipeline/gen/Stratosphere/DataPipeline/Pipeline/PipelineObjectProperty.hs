@@ -12,6 +12,7 @@ data PipelineObjectProperty
   = PipelineObjectProperty {fields :: [FieldProperty],
                             id :: (Value Prelude.Text),
                             name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipelineObjectProperty ::
   [FieldProperty]
   -> Value Prelude.Text

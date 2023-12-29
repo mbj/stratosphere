@@ -16,6 +16,7 @@ data ScheduleProperty
                       quietTime :: (Prelude.Maybe QuietTimeProperty),
                       startTime :: (Prelude.Maybe (Value Prelude.Text)),
                       timeZone :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleProperty :: ScheduleProperty
 mkScheduleProperty
   = ScheduleProperty

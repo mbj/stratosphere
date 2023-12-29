@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConnectorOperatorProperty :: Prelude.Type
 instance ToResourceProperties ConnectorOperatorProperty
+instance Prelude.Eq ConnectorOperatorProperty
+instance Prelude.Show ConnectorOperatorProperty
 instance JSON.ToJSON ConnectorOperatorProperty

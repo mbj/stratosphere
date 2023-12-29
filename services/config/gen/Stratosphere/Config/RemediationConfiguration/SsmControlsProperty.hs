@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SsmControlsProperty
   = SsmControlsProperty {concurrentExecutionRatePercentage :: (Prelude.Maybe (Value Prelude.Integer)),
                          errorPercentage :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSsmControlsProperty :: SsmControlsProperty
 mkSsmControlsProperty
   = SsmControlsProperty

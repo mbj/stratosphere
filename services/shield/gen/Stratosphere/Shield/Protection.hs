@@ -14,6 +14,7 @@ data Protection
                 name :: (Value Prelude.Text),
                 resourceArn :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProtection ::
   Value Prelude.Text -> Value Prelude.Text -> Protection
 mkProtection name resourceArn

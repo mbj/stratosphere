@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data FileFormatDescriptorProperty
   = FileFormatDescriptorProperty {csvFormatDescriptor :: (Prelude.Maybe CsvFormatDescriptorProperty),
                                   jsonFormatDescriptor :: (Prelude.Maybe JsonFormatDescriptorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFileFormatDescriptorProperty :: FileFormatDescriptorProperty
 mkFileFormatDescriptorProperty
   = FileFormatDescriptorProperty

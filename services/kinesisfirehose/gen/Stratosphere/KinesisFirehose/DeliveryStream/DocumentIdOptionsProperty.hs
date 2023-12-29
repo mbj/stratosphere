@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentIdOptionsProperty
   = DocumentIdOptionsProperty {defaultDocumentIdFormat :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentIdOptionsProperty ::
   Value Prelude.Text -> DocumentIdOptionsProperty
 mkDocumentIdOptionsProperty defaultDocumentIdFormat

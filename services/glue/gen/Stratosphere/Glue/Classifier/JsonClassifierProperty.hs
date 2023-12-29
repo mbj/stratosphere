@@ -9,6 +9,7 @@ import Stratosphere.Value
 data JsonClassifierProperty
   = JsonClassifierProperty {jsonPath :: (Value Prelude.Text),
                             name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonClassifierProperty ::
   Value Prelude.Text -> JsonClassifierProperty
 mkJsonClassifierProperty jsonPath

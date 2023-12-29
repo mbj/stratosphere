@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SelfManagedKafkaAccessConfigurationVpcProperty :: Prelude.Type
 instance ToResourceProperties SelfManagedKafkaAccessConfigurationVpcProperty
+instance Prelude.Eq SelfManagedKafkaAccessConfigurationVpcProperty
+instance Prelude.Show SelfManagedKafkaAccessConfigurationVpcProperty
 instance JSON.ToJSON SelfManagedKafkaAccessConfigurationVpcProperty

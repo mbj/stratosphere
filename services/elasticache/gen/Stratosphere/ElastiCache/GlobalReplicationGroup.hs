@@ -19,6 +19,7 @@ data GlobalReplicationGroup
                             globalReplicationGroupIdSuffix :: (Prelude.Maybe (Value Prelude.Text)),
                             members :: [GlobalReplicationGroupMemberProperty],
                             regionalConfigurations :: (Prelude.Maybe [RegionalConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalReplicationGroup ::
   [GlobalReplicationGroupMemberProperty] -> GlobalReplicationGroup
 mkGlobalReplicationGroup members

@@ -11,6 +11,7 @@ data Application
   = Application {description :: (Prelude.Maybe (Value Prelude.Text)),
                  name :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [TagsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication :: Value Prelude.Text -> Application
 mkApplication name
   = Application

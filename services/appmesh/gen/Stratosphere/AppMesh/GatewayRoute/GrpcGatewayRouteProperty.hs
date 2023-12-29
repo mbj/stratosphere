@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data GrpcGatewayRouteProperty
   = GrpcGatewayRouteProperty {action :: GrpcGatewayRouteActionProperty,
                               match :: GrpcGatewayRouteMatchProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcGatewayRouteProperty ::
   GrpcGatewayRouteActionProperty
   -> GrpcGatewayRouteMatchProperty -> GrpcGatewayRouteProperty

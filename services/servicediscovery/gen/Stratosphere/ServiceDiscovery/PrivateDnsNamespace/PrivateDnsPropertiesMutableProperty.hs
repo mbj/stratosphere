@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.ServiceDiscovery.PrivateDnsNamespace.SOAPrope
 import Stratosphere.ResourceProperties
 data PrivateDnsPropertiesMutableProperty
   = PrivateDnsPropertiesMutableProperty {sOA :: (Prelude.Maybe SOAProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateDnsPropertiesMutableProperty ::
   PrivateDnsPropertiesMutableProperty
 mkPrivateDnsPropertiesMutableProperty

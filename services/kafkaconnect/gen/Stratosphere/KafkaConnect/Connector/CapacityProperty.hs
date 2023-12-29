@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data CapacityProperty
   = CapacityProperty {autoScaling :: (Prelude.Maybe AutoScalingProperty),
                       provisionedCapacity :: (Prelude.Maybe ProvisionedCapacityProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityProperty :: CapacityProperty
 mkCapacityProperty
   = CapacityProperty

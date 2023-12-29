@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SecretProperty
   = SecretProperty {name :: (Value Prelude.Text),
                     valueFrom :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecretProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SecretProperty
 mkSecretProperty name valueFrom

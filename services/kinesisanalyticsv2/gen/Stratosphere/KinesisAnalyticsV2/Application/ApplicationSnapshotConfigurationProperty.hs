@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationSnapshotConfigurationProperty
   = ApplicationSnapshotConfigurationProperty {snapshotsEnabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationSnapshotConfigurationProperty ::
   Value Prelude.Bool -> ApplicationSnapshotConfigurationProperty
 mkApplicationSnapshotConfigurationProperty snapshotsEnabled

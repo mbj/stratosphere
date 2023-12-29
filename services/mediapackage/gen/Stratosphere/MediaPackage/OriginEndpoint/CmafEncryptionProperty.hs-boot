@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CmafEncryptionProperty :: Prelude.Type
 instance ToResourceProperties CmafEncryptionProperty
+instance Prelude.Eq CmafEncryptionProperty
+instance Prelude.Show CmafEncryptionProperty
 instance JSON.ToJSON CmafEncryptionProperty

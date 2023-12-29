@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DynamoDBConfigProperty :: Prelude.Type
 instance ToResourceProperties DynamoDBConfigProperty
+instance Prelude.Eq DynamoDBConfigProperty
+instance Prelude.Show DynamoDBConfigProperty
 instance JSON.ToJSON DynamoDBConfigProperty

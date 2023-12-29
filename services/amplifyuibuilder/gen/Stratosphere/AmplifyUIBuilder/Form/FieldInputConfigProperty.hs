@@ -26,6 +26,7 @@ data FieldInputConfigProperty
                               type' :: (Value Prelude.Text),
                               value :: (Prelude.Maybe (Value Prelude.Text)),
                               valueMappings :: (Prelude.Maybe ValueMappingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldInputConfigProperty ::
   Value Prelude.Text -> FieldInputConfigProperty
 mkFieldInputConfigProperty type'

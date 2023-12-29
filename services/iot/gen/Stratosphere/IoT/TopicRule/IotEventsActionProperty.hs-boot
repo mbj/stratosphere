@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IotEventsActionProperty :: Prelude.Type
 instance ToResourceProperties IotEventsActionProperty
+instance Prelude.Eq IotEventsActionProperty
+instance Prelude.Show IotEventsActionProperty
 instance JSON.ToJSON IotEventsActionProperty

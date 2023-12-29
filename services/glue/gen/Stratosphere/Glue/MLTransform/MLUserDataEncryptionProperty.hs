@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MLUserDataEncryptionProperty
   = MLUserDataEncryptionProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                                   mLUserDataEncryptionMode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMLUserDataEncryptionProperty ::
   Value Prelude.Text -> MLUserDataEncryptionProperty
 mkMLUserDataEncryptionProperty mLUserDataEncryptionMode

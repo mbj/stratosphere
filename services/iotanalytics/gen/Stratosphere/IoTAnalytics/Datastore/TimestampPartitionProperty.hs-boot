@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TimestampPartitionProperty :: Prelude.Type
 instance ToResourceProperties TimestampPartitionProperty
+instance Prelude.Eq TimestampPartitionProperty
+instance Prelude.Show TimestampPartitionProperty
 instance JSON.ToJSON TimestampPartitionProperty

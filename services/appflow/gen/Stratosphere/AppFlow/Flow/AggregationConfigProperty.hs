@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AggregationConfigProperty
   = AggregationConfigProperty {aggregationType :: (Prelude.Maybe (Value Prelude.Text)),
                                targetFileSize :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAggregationConfigProperty :: AggregationConfigProperty
 mkAggregationConfigProperty
   = AggregationConfigProperty

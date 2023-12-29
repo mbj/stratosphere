@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PlacementStrategyProperty :: Prelude.Type
 instance ToResourceProperties PlacementStrategyProperty
+instance Prelude.Eq PlacementStrategyProperty
+instance Prelude.Show PlacementStrategyProperty
 instance JSON.ToJSON PlacementStrategyProperty

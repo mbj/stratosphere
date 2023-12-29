@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AssertionAttributesProperty :: Prelude.Type
 instance ToResourceProperties AssertionAttributesProperty
+instance Prelude.Eq AssertionAttributesProperty
+instance Prelude.Show AssertionAttributesProperty
 instance JSON.ToJSON AssertionAttributesProperty

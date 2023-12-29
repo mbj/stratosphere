@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KMSEncryptionConfigProperty
   = KMSEncryptionConfigProperty {aWSKMSKeyARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKMSEncryptionConfigProperty ::
   Value Prelude.Text -> KMSEncryptionConfigProperty
 mkKMSEncryptionConfigProperty aWSKMSKeyARN

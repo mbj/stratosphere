@@ -32,6 +32,7 @@ data ActionProperty
                     setVariable :: (Prelude.Maybe SetVariableProperty),
                     sns :: (Prelude.Maybe SnsProperty),
                     sqs :: (Prelude.Maybe SqsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty

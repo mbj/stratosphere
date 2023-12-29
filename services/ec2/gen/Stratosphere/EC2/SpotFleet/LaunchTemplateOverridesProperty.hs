@@ -16,6 +16,7 @@ data LaunchTemplateOverridesProperty
                                      spotPrice :: (Prelude.Maybe (Value Prelude.Text)),
                                      subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                                      weightedCapacity :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateOverridesProperty ::
   LaunchTemplateOverridesProperty
 mkLaunchTemplateOverridesProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AxisLabelOptionsProperty :: Prelude.Type
 instance ToResourceProperties AxisLabelOptionsProperty
+instance Prelude.Eq AxisLabelOptionsProperty
+instance Prelude.Show AxisLabelOptionsProperty
 instance JSON.ToJSON AxisLabelOptionsProperty

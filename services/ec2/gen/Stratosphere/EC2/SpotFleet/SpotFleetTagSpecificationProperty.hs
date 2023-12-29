@@ -11,6 +11,7 @@ import Stratosphere.Value
 data SpotFleetTagSpecificationProperty
   = SpotFleetTagSpecificationProperty {resourceType :: (Prelude.Maybe (Value Prelude.Text)),
                                        tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotFleetTagSpecificationProperty ::
   SpotFleetTagSpecificationProperty
 mkSpotFleetTagSpecificationProperty

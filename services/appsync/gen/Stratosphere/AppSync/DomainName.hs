@@ -10,6 +10,7 @@ data DomainName
   = DomainName {certificateArn :: (Value Prelude.Text),
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 domainName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainName ::
   Value Prelude.Text -> Value Prelude.Text -> DomainName
 mkDomainName certificateArn domainName

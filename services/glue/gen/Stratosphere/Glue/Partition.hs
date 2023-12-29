@@ -12,6 +12,7 @@ data Partition
                databaseName :: (Value Prelude.Text),
                partitionInput :: PartitionInputProperty,
                tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPartition ::
   Value Prelude.Text
   -> Value Prelude.Text

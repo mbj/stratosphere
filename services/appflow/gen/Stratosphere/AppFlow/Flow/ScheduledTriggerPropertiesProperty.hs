@@ -16,6 +16,7 @@ data ScheduledTriggerPropertiesProperty
                                         scheduleOffset :: (Prelude.Maybe (Value Prelude.Double)),
                                         scheduleStartTime :: (Prelude.Maybe (Value Prelude.Double)),
                                         timeZone :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledTriggerPropertiesProperty ::
   Value Prelude.Text -> ScheduledTriggerPropertiesProperty
 mkScheduledTriggerPropertiesProperty scheduleExpression

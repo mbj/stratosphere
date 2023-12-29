@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AnalysisLoadBalancerListenerProperty
   = AnalysisLoadBalancerListenerProperty {instancePort :: (Prelude.Maybe (Value Prelude.Integer)),
                                           loadBalancerPort :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisLoadBalancerListenerProperty ::
   AnalysisLoadBalancerListenerProperty
 mkAnalysisLoadBalancerListenerProperty

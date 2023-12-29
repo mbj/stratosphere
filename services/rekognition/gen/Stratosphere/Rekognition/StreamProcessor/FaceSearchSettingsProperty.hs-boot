@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FaceSearchSettingsProperty :: Prelude.Type
 instance ToResourceProperties FaceSearchSettingsProperty
+instance Prelude.Eq FaceSearchSettingsProperty
+instance Prelude.Show FaceSearchSettingsProperty
 instance JSON.ToJSON FaceSearchSettingsProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EcsEnvironmentVariableProperty
   = EcsEnvironmentVariableProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                                     value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsEnvironmentVariableProperty :: EcsEnvironmentVariableProperty
 mkEcsEnvironmentVariableProperty
   = EcsEnvironmentVariableProperty

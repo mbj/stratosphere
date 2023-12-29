@@ -15,6 +15,7 @@ data AssetModelPropertyProperty
                                 name :: (Value Prelude.Text),
                                 type' :: PropertyTypeProperty,
                                 unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetModelPropertyProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

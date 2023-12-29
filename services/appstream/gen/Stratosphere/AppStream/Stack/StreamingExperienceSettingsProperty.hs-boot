@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StreamingExperienceSettingsProperty :: Prelude.Type
 instance ToResourceProperties StreamingExperienceSettingsProperty
+instance Prelude.Eq StreamingExperienceSettingsProperty
+instance Prelude.Show StreamingExperienceSettingsProperty
 instance JSON.ToJSON StreamingExperienceSettingsProperty

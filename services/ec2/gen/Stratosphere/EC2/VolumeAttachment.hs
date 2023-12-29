@@ -10,6 +10,7 @@ data VolumeAttachment
   = VolumeAttachment {device :: (Value Prelude.Text),
                       instanceId :: (Value Prelude.Text),
                       volumeId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> VolumeAttachment

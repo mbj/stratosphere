@@ -12,6 +12,7 @@ data Connector
                connectorProvisioningConfig :: ConnectorProvisioningConfigProperty,
                connectorProvisioningType :: (Value Prelude.Text),
                description :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnector ::
   ConnectorProvisioningConfigProperty
   -> Value Prelude.Text -> Connector

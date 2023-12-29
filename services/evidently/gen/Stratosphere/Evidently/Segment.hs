@@ -12,6 +12,7 @@ data Segment
              name :: (Value Prelude.Text),
              pattern :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSegment :: Value Prelude.Text -> Segment
 mkSegment name
   = Segment

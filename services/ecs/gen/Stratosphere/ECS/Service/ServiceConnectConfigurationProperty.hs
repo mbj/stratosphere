@@ -14,6 +14,7 @@ data ServiceConnectConfigurationProperty
                                          logConfiguration :: (Prelude.Maybe LogConfigurationProperty),
                                          namespace :: (Prelude.Maybe (Value Prelude.Text)),
                                          services :: (Prelude.Maybe [ServiceConnectServiceProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceConnectConfigurationProperty ::
   Value Prelude.Bool -> ServiceConnectConfigurationProperty
 mkServiceConnectConfigurationProperty enabled

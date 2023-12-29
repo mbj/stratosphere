@@ -20,6 +20,7 @@ data TimeRangeFilterProperty
                              rangeMaximumValue :: (Prelude.Maybe TimeRangeFilterValueProperty),
                              rangeMinimumValue :: (Prelude.Maybe TimeRangeFilterValueProperty),
                              timeGranularity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeRangeFilterProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EventBatchingConditionProperty
   = EventBatchingConditionProperty {batchSize :: (Value Prelude.Integer),
                                     batchWindow :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBatchingConditionProperty ::
   Value Prelude.Integer -> EventBatchingConditionProperty
 mkEventBatchingConditionProperty batchSize

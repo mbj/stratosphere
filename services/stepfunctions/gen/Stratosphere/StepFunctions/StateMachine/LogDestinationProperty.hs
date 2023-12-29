@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.StepFunctions.StateMachine.CloudWatchLogsLogG
 import Stratosphere.ResourceProperties
 data LogDestinationProperty
   = LogDestinationProperty {cloudWatchLogsLogGroup :: (Prelude.Maybe CloudWatchLogsLogGroupProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDestinationProperty :: LogDestinationProperty
 mkLogDestinationProperty
   = LogDestinationProperty {cloudWatchLogsLogGroup = Prelude.Nothing}

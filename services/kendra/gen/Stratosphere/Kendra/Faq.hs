@@ -16,6 +16,7 @@ data Faq
          roleArn :: (Value Prelude.Text),
          s3Path :: S3PathProperty,
          tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFaq ::
   Value Prelude.Text
   -> Value Prelude.Text

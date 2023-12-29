@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AWSServiceProperty :: Prelude.Type
 instance ToResourceProperties AWSServiceProperty
+instance Prelude.Eq AWSServiceProperty
+instance Prelude.Show AWSServiceProperty
 instance JSON.ToJSON AWSServiceProperty

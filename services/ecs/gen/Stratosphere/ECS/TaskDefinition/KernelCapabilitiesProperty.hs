@@ -9,6 +9,7 @@ import Stratosphere.Value
 data KernelCapabilitiesProperty
   = KernelCapabilitiesProperty {add :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 drop :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKernelCapabilitiesProperty :: KernelCapabilitiesProperty
 mkKernelCapabilitiesProperty
   = KernelCapabilitiesProperty

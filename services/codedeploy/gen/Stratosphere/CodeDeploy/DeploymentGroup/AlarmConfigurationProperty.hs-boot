@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AlarmConfigurationProperty :: Prelude.Type
 instance ToResourceProperties AlarmConfigurationProperty
+instance Prelude.Eq AlarmConfigurationProperty
+instance Prelude.Show AlarmConfigurationProperty
 instance JSON.ToJSON AlarmConfigurationProperty

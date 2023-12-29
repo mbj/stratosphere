@@ -28,6 +28,7 @@ data Canary
             tags :: (Prelude.Maybe [Tag]),
             vPCConfig :: (Prelude.Maybe VPCConfigProperty),
             visualReference :: (Prelude.Maybe VisualReferenceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCanary ::
   Value Prelude.Text
   -> CodeProperty

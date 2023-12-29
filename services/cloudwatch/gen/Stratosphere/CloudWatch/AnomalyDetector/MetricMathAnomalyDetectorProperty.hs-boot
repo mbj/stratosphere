@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MetricMathAnomalyDetectorProperty :: Prelude.Type
 instance ToResourceProperties MetricMathAnomalyDetectorProperty
+instance Prelude.Eq MetricMathAnomalyDetectorProperty
+instance Prelude.Show MetricMathAnomalyDetectorProperty
 instance JSON.ToJSON MetricMathAnomalyDetectorProperty

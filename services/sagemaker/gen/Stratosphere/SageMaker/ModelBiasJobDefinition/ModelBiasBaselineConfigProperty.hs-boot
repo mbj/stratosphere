@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ModelBiasBaselineConfigProperty :: Prelude.Type
 instance ToResourceProperties ModelBiasBaselineConfigProperty
+instance Prelude.Eq ModelBiasBaselineConfigProperty
+instance Prelude.Show ModelBiasBaselineConfigProperty
 instance JSON.ToJSON ModelBiasBaselineConfigProperty

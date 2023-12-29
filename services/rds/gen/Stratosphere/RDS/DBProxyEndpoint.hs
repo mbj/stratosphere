@@ -14,6 +14,7 @@ data DBProxyEndpoint
                      targetRole :: (Prelude.Maybe (Value Prelude.Text)),
                      vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                      vpcSubnetIds :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDBProxyEndpoint ::
   Value Prelude.Text
   -> Value Prelude.Text -> ValueList Prelude.Text -> DBProxyEndpoint

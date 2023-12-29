@@ -26,6 +26,7 @@ data ComputationProperty
                          topBottomRanked :: (Prelude.Maybe TopBottomRankedComputationProperty),
                          totalAggregation :: (Prelude.Maybe TotalAggregationComputationProperty),
                          uniqueValues :: (Prelude.Maybe UniqueValuesComputationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComputationProperty :: ComputationProperty
 mkComputationProperty
   = ComputationProperty

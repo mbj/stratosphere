@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EntityOverrideProperty
   = EntityOverrideProperty {entityId :: (Prelude.Maybe (Value Prelude.Text)),
                             variation :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityOverrideProperty :: EntityOverrideProperty
 mkEntityOverrideProperty
   = EntityOverrideProperty

@@ -33,6 +33,7 @@ data Fleet
            tags :: (Prelude.Maybe [Tag]),
            usbDeviceFilterStrings :: (Prelude.Maybe (ValueList Prelude.Text)),
            vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFleet :: Value Prelude.Text -> Value Prelude.Text -> Fleet
 mkFleet instanceType name
   = Fleet

@@ -20,6 +20,7 @@ data EksContainerProperty
                           resources :: (Prelude.Maybe EksContainerResourceRequirementsProperty),
                           securityContext :: (Prelude.Maybe EksContainerSecurityContextProperty),
                           volumeMounts :: (Prelude.Maybe [EksContainerVolumeMountProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksContainerProperty ::
   Value Prelude.Text -> EksContainerProperty
 mkEksContainerProperty image

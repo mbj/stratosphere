@@ -11,6 +11,7 @@ data ControlScopeProperty
   = ControlScopeProperty {complianceResourceIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                           complianceResourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkControlScopeProperty :: ControlScopeProperty
 mkControlScopeProperty
   = ControlScopeProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SNSConfigurationProperty
   = SNSConfigurationProperty {roleArn :: (Value Prelude.Text),
                               snsTopicArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSNSConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SNSConfigurationProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SchemaVersionProperty
   = SchemaVersionProperty {isLatest :: (Prelude.Maybe (Value Prelude.Bool)),
                            versionNumber :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaVersionProperty :: SchemaVersionProperty
 mkSchemaVersionProperty
   = SchemaVersionProperty

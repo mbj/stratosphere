@@ -12,6 +12,7 @@ data Version
              description :: (Prelude.Maybe (Value Prelude.Text)),
              functionName :: (Value Prelude.Text),
              provisionedConcurrencyConfig :: (Prelude.Maybe ProvisionedConcurrencyConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVersion :: Value Prelude.Text -> Version
 mkVersion functionName
   = Version

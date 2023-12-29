@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DTMFSpecificationProperty :: Prelude.Type
 instance ToResourceProperties DTMFSpecificationProperty
+instance Prelude.Eq DTMFSpecificationProperty
+instance Prelude.Show DTMFSpecificationProperty
 instance JSON.ToJSON DTMFSpecificationProperty

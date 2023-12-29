@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CustomAuthCredentialsProperty
   = CustomAuthCredentialsProperty {credentialsMap :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                    customAuthenticationType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomAuthCredentialsProperty ::
   Value Prelude.Text -> CustomAuthCredentialsProperty
 mkCustomAuthCredentialsProperty customAuthenticationType

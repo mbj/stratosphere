@@ -12,6 +12,7 @@ data ActiveDirectoryConfigurationProperty
   = ActiveDirectoryConfigurationProperty {computerAttributes :: (Prelude.Maybe [ActiveDirectoryComputerAttributeProperty]),
                                           directoryId :: (Prelude.Maybe (Value Prelude.Text)),
                                           organizationalUnitDistinguishedName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActiveDirectoryConfigurationProperty ::
   ActiveDirectoryConfigurationProperty
 mkActiveDirectoryConfigurationProperty

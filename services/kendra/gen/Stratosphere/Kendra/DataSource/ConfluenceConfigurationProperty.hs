@@ -23,6 +23,7 @@ data ConfluenceConfigurationProperty
                                      spaceConfiguration :: (Prelude.Maybe ConfluenceSpaceConfigurationProperty),
                                      version :: (Value Prelude.Text),
                                      vpcConfiguration :: (Prelude.Maybe DataSourceVpcConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -13,6 +13,7 @@ data RelevanceProperty
                        importance :: (Prelude.Maybe (Value Prelude.Integer)),
                        rankOrder :: (Prelude.Maybe (Value Prelude.Text)),
                        valueImportanceItems :: (Prelude.Maybe [ValueImportanceItemProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRelevanceProperty :: RelevanceProperty
 mkRelevanceProperty
   = RelevanceProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GreenFleetProvisioningOptionProperty :: Prelude.Type
 instance ToResourceProperties GreenFleetProvisioningOptionProperty
+instance Prelude.Eq GreenFleetProvisioningOptionProperty
+instance Prelude.Show GreenFleetProvisioningOptionProperty
 instance JSON.ToJSON GreenFleetProvisioningOptionProperty

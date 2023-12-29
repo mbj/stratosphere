@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ModelExplainabilityBaselineConfigProperty
   = ModelExplainabilityBaselineConfigProperty {baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
                                                constraintsResource :: (Prelude.Maybe ConstraintsResourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelExplainabilityBaselineConfigProperty ::
   ModelExplainabilityBaselineConfigProperty
 mkModelExplainabilityBaselineConfigProperty

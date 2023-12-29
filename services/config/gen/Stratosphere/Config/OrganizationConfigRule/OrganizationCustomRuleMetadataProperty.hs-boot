@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OrganizationCustomRuleMetadataProperty :: Prelude.Type
 instance ToResourceProperties OrganizationCustomRuleMetadataProperty
+instance Prelude.Eq OrganizationCustomRuleMetadataProperty
+instance Prelude.Show OrganizationCustomRuleMetadataProperty
 instance JSON.ToJSON OrganizationCustomRuleMetadataProperty

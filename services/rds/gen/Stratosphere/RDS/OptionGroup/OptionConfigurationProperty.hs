@@ -15,6 +15,7 @@ data OptionConfigurationProperty
                                  optionVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                  port :: (Prelude.Maybe (Value Prelude.Integer)),
                                  vpcSecurityGroupMemberships :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionConfigurationProperty ::
   Value Prelude.Text -> OptionConfigurationProperty
 mkOptionConfigurationProperty optionName

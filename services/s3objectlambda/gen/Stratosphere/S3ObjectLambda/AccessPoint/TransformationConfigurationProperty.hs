@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TransformationConfigurationProperty
   = TransformationConfigurationProperty {actions :: (ValueList Prelude.Text),
                                          contentTransformation :: ContentTransformationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformationConfigurationProperty ::
   ValueList Prelude.Text
   -> ContentTransformationProperty

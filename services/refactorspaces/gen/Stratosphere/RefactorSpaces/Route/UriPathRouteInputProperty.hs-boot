@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UriPathRouteInputProperty :: Prelude.Type
 instance ToResourceProperties UriPathRouteInputProperty
+instance Prelude.Eq UriPathRouteInputProperty
+instance Prelude.Show UriPathRouteInputProperty
 instance JSON.ToJSON UriPathRouteInputProperty

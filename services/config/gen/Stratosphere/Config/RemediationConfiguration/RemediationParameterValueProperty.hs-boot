@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RemediationParameterValueProperty :: Prelude.Type
 instance ToResourceProperties RemediationParameterValueProperty
+instance Prelude.Eq RemediationParameterValueProperty
+instance Prelude.Show RemediationParameterValueProperty
 instance JSON.ToJSON RemediationParameterValueProperty

@@ -19,6 +19,7 @@ data ReportDefinition
                       s3Prefix :: (Value Prelude.Text),
                       s3Region :: (Value Prelude.Text),
                       timeUnit :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReportDefinition ::
   Value Prelude.Text
   -> Value Prelude.Text

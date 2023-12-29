@@ -26,6 +26,7 @@ data LoRaWANServiceProfileProperty
                                    ulBucketSize :: (Prelude.Maybe (Value Prelude.Integer)),
                                    ulRate :: (Prelude.Maybe (Value Prelude.Integer)),
                                    ulRatePolicy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANServiceProfileProperty :: LoRaWANServiceProfileProperty
 mkLoRaWANServiceProfileProperty
   = LoRaWANServiceProfileProperty

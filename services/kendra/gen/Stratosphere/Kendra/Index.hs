@@ -22,6 +22,7 @@ data Index
            tags :: (Prelude.Maybe [Tag]),
            userContextPolicy :: (Prelude.Maybe (Value Prelude.Text)),
            userTokenConfigurations :: (Prelude.Maybe [UserTokenConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIndex ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Index

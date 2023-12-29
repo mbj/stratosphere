@@ -11,6 +11,7 @@ data NoncurrentVersionTransitionProperty
   = NoncurrentVersionTransitionProperty {newerNoncurrentVersions :: (Prelude.Maybe (Value Prelude.Integer)),
                                          storageClass :: (Value Prelude.Text),
                                          transitionInDays :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNoncurrentVersionTransitionProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> NoncurrentVersionTransitionProperty

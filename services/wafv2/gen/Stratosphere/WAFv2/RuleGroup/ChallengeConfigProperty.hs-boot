@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ChallengeConfigProperty :: Prelude.Type
 instance ToResourceProperties ChallengeConfigProperty
+instance Prelude.Eq ChallengeConfigProperty
+instance Prelude.Show ChallengeConfigProperty
 instance JSON.ToJSON ChallengeConfigProperty

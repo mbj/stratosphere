@@ -19,6 +19,7 @@ data AppMonitorConfigurationProperty
                                      metricDestinations :: (Prelude.Maybe [MetricDestinationProperty]),
                                      sessionSampleRate :: (Prelude.Maybe (Value Prelude.Double)),
                                      telemetries :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAppMonitorConfigurationProperty ::
   AppMonitorConfigurationProperty
 mkAppMonitorConfigurationProperty

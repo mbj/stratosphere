@@ -11,6 +11,7 @@ import Stratosphere.Value
 data InstanceConfigurationProperty
   = InstanceConfigurationProperty {blockDeviceMappings :: (Prelude.Maybe [InstanceBlockDeviceMappingProperty]),
                                    image :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceConfigurationProperty :: InstanceConfigurationProperty
 mkInstanceConfigurationProperty
   = InstanceConfigurationProperty

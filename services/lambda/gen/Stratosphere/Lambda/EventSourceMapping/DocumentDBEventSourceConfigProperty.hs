@@ -11,6 +11,7 @@ data DocumentDBEventSourceConfigProperty
   = DocumentDBEventSourceConfigProperty {collectionName :: (Prelude.Maybe (Value Prelude.Text)),
                                          databaseName :: (Prelude.Maybe (Value Prelude.Text)),
                                          fullDocument :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentDBEventSourceConfigProperty ::
   DocumentDBEventSourceConfigProperty
 mkDocumentDBEventSourceConfigProperty

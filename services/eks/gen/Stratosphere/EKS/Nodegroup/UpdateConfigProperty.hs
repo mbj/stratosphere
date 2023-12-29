@@ -9,6 +9,7 @@ import Stratosphere.Value
 data UpdateConfigProperty
   = UpdateConfigProperty {maxUnavailable :: (Prelude.Maybe (Value Prelude.Double)),
                           maxUnavailablePercentage :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdateConfigProperty :: UpdateConfigProperty
 mkUpdateConfigProperty
   = UpdateConfigProperty

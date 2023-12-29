@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdMarkerPassthroughProperty
   = AdMarkerPassthroughProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdMarkerPassthroughProperty :: AdMarkerPassthroughProperty
 mkAdMarkerPassthroughProperty
   = AdMarkerPassthroughProperty {enabled = Prelude.Nothing}

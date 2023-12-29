@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DeploymentReadyOptionProperty
   = DeploymentReadyOptionProperty {actionOnTimeout :: (Prelude.Maybe (Value Prelude.Text)),
                                    waitTimeInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentReadyOptionProperty :: DeploymentReadyOptionProperty
 mkDeploymentReadyOptionProperty
   = DeploymentReadyOptionProperty

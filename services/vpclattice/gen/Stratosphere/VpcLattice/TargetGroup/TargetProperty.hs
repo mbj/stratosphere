@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TargetProperty
   = TargetProperty {id :: (Value Prelude.Text),
                     port :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetProperty :: Value Prelude.Text -> TargetProperty
 mkTargetProperty id
   = TargetProperty {id = id, port = Prelude.Nothing}

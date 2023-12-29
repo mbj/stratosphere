@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data WebCrawlerUrlsProperty
   = WebCrawlerUrlsProperty {seedUrlConfiguration :: (Prelude.Maybe WebCrawlerSeedUrlConfigurationProperty),
                             siteMapsConfiguration :: (Prelude.Maybe WebCrawlerSiteMapsConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerUrlsProperty :: WebCrawlerUrlsProperty
 mkWebCrawlerUrlsProperty
   = WebCrawlerUrlsProperty

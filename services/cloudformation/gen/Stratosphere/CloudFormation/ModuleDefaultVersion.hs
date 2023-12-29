@@ -10,6 +10,7 @@ data ModuleDefaultVersion
   = ModuleDefaultVersion {arn :: (Prelude.Maybe (Value Prelude.Text)),
                           moduleName :: (Prelude.Maybe (Value Prelude.Text)),
                           versionId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModuleDefaultVersion :: ModuleDefaultVersion
 mkModuleDefaultVersion
   = ModuleDefaultVersion

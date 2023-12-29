@@ -25,6 +25,7 @@ data RestApi
              parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
              policy :: (Prelude.Maybe JSON.Object),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRestApi :: RestApi
 mkRestApi
   = RestApi

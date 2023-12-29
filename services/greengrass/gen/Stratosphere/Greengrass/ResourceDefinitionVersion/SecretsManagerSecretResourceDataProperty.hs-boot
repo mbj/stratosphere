@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SecretsManagerSecretResourceDataProperty :: Prelude.Type
 instance ToResourceProperties SecretsManagerSecretResourceDataProperty
+instance Prelude.Eq SecretsManagerSecretResourceDataProperty
+instance Prelude.Show SecretsManagerSecretResourceDataProperty
 instance JSON.ToJSON SecretsManagerSecretResourceDataProperty

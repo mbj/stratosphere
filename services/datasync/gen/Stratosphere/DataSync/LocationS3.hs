@@ -14,6 +14,7 @@ data LocationS3
                 s3StorageClass :: (Prelude.Maybe (Value Prelude.Text)),
                 subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationS3 :: S3ConfigProperty -> LocationS3
 mkLocationS3 s3Config
   = LocationS3

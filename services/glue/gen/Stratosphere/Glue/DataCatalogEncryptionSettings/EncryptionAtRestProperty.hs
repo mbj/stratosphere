@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EncryptionAtRestProperty
   = EncryptionAtRestProperty {catalogEncryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
                               sseAwsKmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionAtRestProperty :: EncryptionAtRestProperty
 mkEncryptionAtRestProperty
   = EncryptionAtRestProperty

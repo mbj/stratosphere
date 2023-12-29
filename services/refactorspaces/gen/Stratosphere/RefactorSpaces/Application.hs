@@ -15,6 +15,7 @@ data Application
                  proxyType :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag]),
                  vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication ::
   Value Prelude.Text
   -> Value Prelude.Text

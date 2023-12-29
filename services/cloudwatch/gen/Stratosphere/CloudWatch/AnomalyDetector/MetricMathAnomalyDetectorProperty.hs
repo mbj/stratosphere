@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.MetricDataQueryPro
 import Stratosphere.ResourceProperties
 data MetricMathAnomalyDetectorProperty
   = MetricMathAnomalyDetectorProperty {metricDataQueries :: (Prelude.Maybe [MetricDataQueryProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricMathAnomalyDetectorProperty ::
   MetricMathAnomalyDetectorProperty
 mkMetricMathAnomalyDetectorProperty

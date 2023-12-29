@@ -10,6 +10,7 @@ data FilterProperty
   = FilterProperty {filter :: (Value Prelude.Text),
                     name :: (Value Prelude.Text),
                     next :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> FilterProperty
 mkFilterProperty filter name

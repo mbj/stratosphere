@@ -12,6 +12,7 @@ import Stratosphere.Value
 data SalesforceStandardObjectAttachmentConfigurationProperty
   = SalesforceStandardObjectAttachmentConfigurationProperty {documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
                                                              fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceStandardObjectAttachmentConfigurationProperty ::
   SalesforceStandardObjectAttachmentConfigurationProperty
 mkSalesforceStandardObjectAttachmentConfigurationProperty

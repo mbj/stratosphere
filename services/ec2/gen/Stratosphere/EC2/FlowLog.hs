@@ -20,6 +20,7 @@ data FlowLog
              resourceType :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag]),
              trafficType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowLog :: Value Prelude.Text -> Value Prelude.Text -> FlowLog
 mkFlowLog resourceId resourceType
   = FlowLog

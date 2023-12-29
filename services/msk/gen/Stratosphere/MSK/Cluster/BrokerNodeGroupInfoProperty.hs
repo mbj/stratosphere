@@ -16,6 +16,7 @@ data BrokerNodeGroupInfoProperty
                                  instanceType :: (Value Prelude.Text),
                                  securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  storageInfo :: (Prelude.Maybe StorageInfoProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBrokerNodeGroupInfoProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> BrokerNodeGroupInfoProperty

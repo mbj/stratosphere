@@ -18,6 +18,7 @@ data NamespaceProperty
                        namespaceId :: (Prelude.Maybe (Value Prelude.Text)),
                        namespaceName :: (Prelude.Maybe (Value Prelude.Text)),
                        status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNamespaceProperty :: NamespaceProperty
 mkNamespaceProperty
   = NamespaceProperty

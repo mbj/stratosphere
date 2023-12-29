@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ComparativeOrderProperty :: Prelude.Type
 instance ToResourceProperties ComparativeOrderProperty
+instance Prelude.Eq ComparativeOrderProperty
+instance Prelude.Show ComparativeOrderProperty
 instance JSON.ToJSON ComparativeOrderProperty

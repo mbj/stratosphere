@@ -21,6 +21,7 @@ data OriginProperty
                     originPath :: (Prelude.Maybe (Value Prelude.Text)),
                     originShield :: (Prelude.Maybe OriginShieldProperty),
                     s3OriginConfig :: (Prelude.Maybe S3OriginConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginProperty ::
   Value Prelude.Text -> Value Prelude.Text -> OriginProperty
 mkOriginProperty domainName id

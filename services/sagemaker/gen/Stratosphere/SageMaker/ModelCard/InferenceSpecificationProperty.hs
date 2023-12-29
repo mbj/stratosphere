@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelCard.ContainerProperty as Expo
 import Stratosphere.ResourceProperties
 data InferenceSpecificationProperty
   = InferenceSpecificationProperty {containers :: [ContainerProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceSpecificationProperty ::
   [ContainerProperty] -> InferenceSpecificationProperty
 mkInferenceSpecificationProperty containers

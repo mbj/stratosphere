@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LocationProperty
   = LocationProperty {cidrList :: (ValueList Prelude.Text),
                       locationName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationProperty ::
   ValueList Prelude.Text -> Value Prelude.Text -> LocationProperty
 mkLocationProperty cidrList locationName

@@ -21,6 +21,7 @@ data TransformOperationProperty
                                 projectOperation :: (Prelude.Maybe ProjectOperationProperty),
                                 renameColumnOperation :: (Prelude.Maybe RenameColumnOperationProperty),
                                 tagColumnOperation :: (Prelude.Maybe TagColumnOperationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformOperationProperty :: TransformOperationProperty
 mkTransformOperationProperty
   = TransformOperationProperty

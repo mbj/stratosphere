@@ -20,6 +20,7 @@ data PolicyDetailsProperty
                            resourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                            schedules :: (Prelude.Maybe [ScheduleProperty]),
                            targetTags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyDetailsProperty :: PolicyDetailsProperty
 mkPolicyDetailsProperty
   = PolicyDetailsProperty

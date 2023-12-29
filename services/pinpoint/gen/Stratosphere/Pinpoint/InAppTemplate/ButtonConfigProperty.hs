@@ -12,6 +12,7 @@ data ButtonConfigProperty
                           defaultConfig :: (Prelude.Maybe DefaultButtonConfigurationProperty),
                           iOS :: (Prelude.Maybe OverrideButtonConfigurationProperty),
                           web :: (Prelude.Maybe OverrideButtonConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkButtonConfigProperty :: ButtonConfigProperty
 mkButtonConfigProperty
   = ButtonConfigProperty

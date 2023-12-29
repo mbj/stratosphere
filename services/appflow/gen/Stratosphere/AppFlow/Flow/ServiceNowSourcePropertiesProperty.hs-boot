@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ServiceNowSourcePropertiesProperty :: Prelude.Type
 instance ToResourceProperties ServiceNowSourcePropertiesProperty
+instance Prelude.Eq ServiceNowSourcePropertiesProperty
+instance Prelude.Show ServiceNowSourcePropertiesProperty
 instance JSON.ToJSON ServiceNowSourcePropertiesProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TimestampPartitionProperty
   = TimestampPartitionProperty {attributeName :: (Value Prelude.Text),
                                 timestampFormat :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestampPartitionProperty ::
   Value Prelude.Text -> TimestampPartitionProperty
 mkTimestampPartitionProperty attributeName

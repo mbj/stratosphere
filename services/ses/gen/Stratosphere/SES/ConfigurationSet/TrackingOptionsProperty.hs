@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrackingOptionsProperty
   = TrackingOptionsProperty {customRedirectDomain :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrackingOptionsProperty :: TrackingOptionsProperty
 mkTrackingOptionsProperty
   = TrackingOptionsProperty {customRedirectDomain = Prelude.Nothing}

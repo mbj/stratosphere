@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IntelligentTieringConfigurationProperty :: Prelude.Type
 instance ToResourceProperties IntelligentTieringConfigurationProperty
+instance Prelude.Eq IntelligentTieringConfigurationProperty
+instance Prelude.Show IntelligentTieringConfigurationProperty
 instance JSON.ToJSON IntelligentTieringConfigurationProperty

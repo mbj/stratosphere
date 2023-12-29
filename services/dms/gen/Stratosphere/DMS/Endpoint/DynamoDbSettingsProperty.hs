@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamoDbSettingsProperty
   = DynamoDbSettingsProperty {serviceAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDbSettingsProperty :: DynamoDbSettingsProperty
 mkDynamoDbSettingsProperty
   = DynamoDbSettingsProperty {serviceAccessRoleArn = Prelude.Nothing}

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AdvancedBackupSettingResourceTypeProperty
   = AdvancedBackupSettingResourceTypeProperty {backupOptions :: JSON.Object,
                                                resourceType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedBackupSettingResourceTypeProperty ::
   JSON.Object
   -> Value Prelude.Text -> AdvancedBackupSettingResourceTypeProperty

@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data ScopeProperty
   = ScopeProperty {awsAccounts :: (Prelude.Maybe [AWSAccountProperty]),
                    awsServices :: (Prelude.Maybe [AWSServiceProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScopeProperty :: ScopeProperty
 mkScopeProperty
   = ScopeProperty

@@ -13,6 +13,7 @@ data IdentityProviderDetailsProperty
                                      invocationRole :: (Prelude.Maybe (Value Prelude.Text)),
                                      sftpAuthenticationMethods :: (Prelude.Maybe (Value Prelude.Text)),
                                      url :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityProviderDetailsProperty ::
   IdentityProviderDetailsProperty
 mkIdentityProviderDetailsProperty

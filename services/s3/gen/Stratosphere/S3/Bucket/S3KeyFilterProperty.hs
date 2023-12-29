@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.FilterRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data S3KeyFilterProperty
   = S3KeyFilterProperty {rules :: [FilterRuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3KeyFilterProperty ::
   [FilterRuleProperty] -> S3KeyFilterProperty
 mkS3KeyFilterProperty rules = S3KeyFilterProperty {rules = rules}

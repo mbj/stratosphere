@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MsSmoothOutputSettingsProperty
   = MsSmoothOutputSettingsProperty {h265PackagingType :: (Prelude.Maybe (Value Prelude.Text)),
                                     nameModifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMsSmoothOutputSettingsProperty :: MsSmoothOutputSettingsProperty
 mkMsSmoothOutputSettingsProperty
   = MsSmoothOutputSettingsProperty

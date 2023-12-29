@@ -16,6 +16,7 @@ data DashPackageProperty
                          periodTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
                          segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          segmentTemplateFormat :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashPackageProperty ::
   [DashManifestProperty] -> DashPackageProperty
 mkDashPackageProperty dashManifests

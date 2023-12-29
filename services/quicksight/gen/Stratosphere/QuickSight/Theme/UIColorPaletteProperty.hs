@@ -23,6 +23,7 @@ data UIColorPaletteProperty
                             successForeground :: (Prelude.Maybe (Value Prelude.Text)),
                             warning :: (Prelude.Maybe (Value Prelude.Text)),
                             warningForeground :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUIColorPaletteProperty :: UIColorPaletteProperty
 mkUIColorPaletteProperty
   = UIColorPaletteProperty

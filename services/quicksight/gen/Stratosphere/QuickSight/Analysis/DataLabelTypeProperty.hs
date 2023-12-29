@@ -16,6 +16,7 @@ data DataLabelTypeProperty
                            maximumLabelType :: (Prelude.Maybe MaximumLabelTypeProperty),
                            minimumLabelType :: (Prelude.Maybe MinimumLabelTypeProperty),
                            rangeEndsLabelType :: (Prelude.Maybe RangeEndsLabelTypeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataLabelTypeProperty :: DataLabelTypeProperty
 mkDataLabelTypeProperty
   = DataLabelTypeProperty

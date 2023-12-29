@@ -10,6 +10,7 @@ data ResourcePolicy
   = ResourcePolicy {blockPublicPolicy :: (Prelude.Maybe (Value Prelude.Bool)),
                     resourcePolicy :: JSON.Object,
                     secretId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePolicy ::
   JSON.Object -> Value Prelude.Text -> ResourcePolicy
 mkResourcePolicy resourcePolicy secretId

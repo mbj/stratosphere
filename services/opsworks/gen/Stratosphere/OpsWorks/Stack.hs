@@ -38,6 +38,7 @@ data Stack
            useCustomCookbooks :: (Prelude.Maybe (Value Prelude.Bool)),
            useOpsworksSecurityGroups :: (Prelude.Maybe (Value Prelude.Bool)),
            vpcId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStack ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Stack

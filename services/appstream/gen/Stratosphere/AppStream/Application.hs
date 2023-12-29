@@ -21,6 +21,7 @@ data Application
                  platforms :: (ValueList Prelude.Text),
                  tags :: (Prelude.Maybe [Tag]),
                  workingDirectory :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication ::
   Value Prelude.Text
   -> S3LocationProperty

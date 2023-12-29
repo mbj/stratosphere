@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data RecipeStepProperty
   = RecipeStepProperty {action :: ActionProperty,
                         conditionExpressions :: (Prelude.Maybe [ConditionExpressionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecipeStepProperty :: ActionProperty -> RecipeStepProperty
 mkRecipeStepProperty action
   = RecipeStepProperty

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.BrokerLogsProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingInfoProperty
   = LoggingInfoProperty {brokerLogs :: BrokerLogsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingInfoProperty :: BrokerLogsProperty -> LoggingInfoProperty
 mkLoggingInfoProperty brokerLogs
   = LoggingInfoProperty {brokerLogs = brokerLogs}

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PartitionProperty
   = PartitionProperty {attributeName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPartitionProperty :: Value Prelude.Text -> PartitionProperty
 mkPartitionProperty attributeName
   = PartitionProperty {attributeName = attributeName}

@@ -13,6 +13,7 @@ data Bucket
             lifecycleConfiguration :: (Prelude.Maybe LifecycleConfigurationProperty),
             outpostId :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBucket :: Value Prelude.Text -> Value Prelude.Text -> Bucket
 mkBucket bucketName outpostId
   = Bucket

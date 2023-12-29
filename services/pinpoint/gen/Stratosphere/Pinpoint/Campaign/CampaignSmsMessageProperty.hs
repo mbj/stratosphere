@@ -13,6 +13,7 @@ data CampaignSmsMessageProperty
                                 originationNumber :: (Prelude.Maybe (Value Prelude.Text)),
                                 senderId :: (Prelude.Maybe (Value Prelude.Text)),
                                 templateId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaignSmsMessageProperty :: CampaignSmsMessageProperty
 mkCampaignSmsMessageProperty
   = CampaignSmsMessageProperty

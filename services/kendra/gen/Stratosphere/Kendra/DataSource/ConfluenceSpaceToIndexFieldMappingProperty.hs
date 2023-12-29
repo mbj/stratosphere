@@ -11,6 +11,7 @@ data ConfluenceSpaceToIndexFieldMappingProperty
   = ConfluenceSpaceToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
                                                 dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
                                                 indexFieldName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceSpaceToIndexFieldMappingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ConfluenceSpaceToIndexFieldMappingProperty

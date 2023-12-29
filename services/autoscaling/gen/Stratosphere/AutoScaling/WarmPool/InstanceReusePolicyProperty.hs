@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceReusePolicyProperty
   = InstanceReusePolicyProperty {reuseOnScaleIn :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceReusePolicyProperty :: InstanceReusePolicyProperty
 mkInstanceReusePolicyProperty
   = InstanceReusePolicyProperty {reuseOnScaleIn = Prelude.Nothing}

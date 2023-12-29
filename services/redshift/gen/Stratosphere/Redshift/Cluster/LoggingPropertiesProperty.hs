@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LoggingPropertiesProperty
   = LoggingPropertiesProperty {bucketName :: (Value Prelude.Text),
                                s3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingPropertiesProperty ::
   Value Prelude.Text -> LoggingPropertiesProperty
 mkLoggingPropertiesProperty bucketName

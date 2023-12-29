@@ -16,6 +16,7 @@ data APNSVoipSandboxChannel
                             teamId :: (Prelude.Maybe (Value Prelude.Text)),
                             tokenKey :: (Prelude.Maybe (Value Prelude.Text)),
                             tokenKeyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAPNSVoipSandboxChannel ::
   Value Prelude.Text -> APNSVoipSandboxChannel
 mkAPNSVoipSandboxChannel applicationId

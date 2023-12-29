@@ -14,6 +14,7 @@ data ScatterPlotCategoricallyAggregatedFieldWellsProperty
                                                           size :: (Prelude.Maybe [MeasureFieldProperty]),
                                                           xAxis :: (Prelude.Maybe [MeasureFieldProperty]),
                                                           yAxis :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScatterPlotCategoricallyAggregatedFieldWellsProperty ::
   ScatterPlotCategoricallyAggregatedFieldWellsProperty
 mkScatterPlotCategoricallyAggregatedFieldWellsProperty

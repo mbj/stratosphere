@@ -10,6 +10,7 @@ data CoreNetworkEdgeProperty
   = CoreNetworkEdgeProperty {asn :: (Prelude.Maybe (Value Prelude.Double)),
                              edgeLocation :: (Prelude.Maybe (Value Prelude.Text)),
                              insideCidrBlocks :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreNetworkEdgeProperty :: CoreNetworkEdgeProperty
 mkCoreNetworkEdgeProperty
   = CoreNetworkEdgeProperty

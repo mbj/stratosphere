@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EksConfigurationProperty
   = EksConfigurationProperty {eksClusterArn :: (Value Prelude.Text),
                               kubernetesNamespace :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EksConfigurationProperty

@@ -13,6 +13,7 @@ data HttpGatewayRouteRewriteProperty
   = HttpGatewayRouteRewriteProperty {hostname :: (Prelude.Maybe GatewayRouteHostnameRewriteProperty),
                                      path :: (Prelude.Maybe HttpGatewayRoutePathRewriteProperty),
                                      prefix :: (Prelude.Maybe HttpGatewayRoutePrefixRewriteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteRewriteProperty ::
   HttpGatewayRouteRewriteProperty
 mkHttpGatewayRouteRewriteProperty

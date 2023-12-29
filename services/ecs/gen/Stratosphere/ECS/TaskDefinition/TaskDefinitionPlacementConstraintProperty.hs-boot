@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TaskDefinitionPlacementConstraintProperty :: Prelude.Type
 instance ToResourceProperties TaskDefinitionPlacementConstraintProperty
+instance Prelude.Eq TaskDefinitionPlacementConstraintProperty
+instance Prelude.Show TaskDefinitionPlacementConstraintProperty
 instance JSON.ToJSON TaskDefinitionPlacementConstraintProperty

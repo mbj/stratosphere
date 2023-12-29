@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PipeTargetCloudWatchLogsParametersProperty
   = PipeTargetCloudWatchLogsParametersProperty {logStreamName :: (Prelude.Maybe (Value Prelude.Text)),
                                                 timestamp :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetCloudWatchLogsParametersProperty ::
   PipeTargetCloudWatchLogsParametersProperty
 mkPipeTargetCloudWatchLogsParametersProperty

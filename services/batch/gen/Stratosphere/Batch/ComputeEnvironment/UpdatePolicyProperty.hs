@@ -9,6 +9,7 @@ import Stratosphere.Value
 data UpdatePolicyProperty
   = UpdatePolicyProperty {jobExecutionTimeoutMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
                           terminateJobsOnUpdate :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdatePolicyProperty :: UpdatePolicyProperty
 mkUpdatePolicyProperty
   = UpdatePolicyProperty

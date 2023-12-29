@@ -19,6 +19,7 @@ data OntapConfigurationProperty
                                 routeTableIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 throughputCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                 weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOntapConfigurationProperty ::
   Value Prelude.Text -> OntapConfigurationProperty
 mkOntapConfigurationProperty deploymentType

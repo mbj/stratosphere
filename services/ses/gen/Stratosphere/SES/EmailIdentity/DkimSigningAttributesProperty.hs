@@ -10,6 +10,7 @@ data DkimSigningAttributesProperty
   = DkimSigningAttributesProperty {domainSigningPrivateKey :: (Prelude.Maybe (Value Prelude.Text)),
                                    domainSigningSelector :: (Prelude.Maybe (Value Prelude.Text)),
                                    nextSigningKeyLength :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDkimSigningAttributesProperty :: DkimSigningAttributesProperty
 mkDkimSigningAttributesProperty
   = DkimSigningAttributesProperty

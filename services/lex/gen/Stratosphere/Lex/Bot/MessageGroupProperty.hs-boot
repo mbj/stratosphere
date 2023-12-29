@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MessageGroupProperty :: Prelude.Type
 instance ToResourceProperties MessageGroupProperty
+instance Prelude.Eq MessageGroupProperty
+instance Prelude.Show MessageGroupProperty
 instance JSON.ToJSON MessageGroupProperty

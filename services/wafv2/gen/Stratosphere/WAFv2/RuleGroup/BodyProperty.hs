@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BodyProperty
   = BodyProperty {oversizeHandling :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBodyProperty :: BodyProperty
 mkBodyProperty = BodyProperty {oversizeHandling = Prelude.Nothing}
 instance ToResourceProperties BodyProperty where

@@ -14,6 +14,7 @@ data DHCPOptions
                  netbiosNodeType :: (Prelude.Maybe (Value Prelude.Integer)),
                  ntpServers :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDHCPOptions :: DHCPOptions
 mkDHCPOptions
   = DHCPOptions

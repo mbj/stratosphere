@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MavenReferenceProperty :: Prelude.Type
 instance ToResourceProperties MavenReferenceProperty
+instance Prelude.Eq MavenReferenceProperty
+instance Prelude.Show MavenReferenceProperty
 instance JSON.ToJSON MavenReferenceProperty

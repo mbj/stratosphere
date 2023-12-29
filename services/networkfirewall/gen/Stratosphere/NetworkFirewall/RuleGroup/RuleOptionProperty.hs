@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RuleOptionProperty
   = RuleOptionProperty {keyword :: (Value Prelude.Text),
                         settings :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleOptionProperty :: Value Prelude.Text -> RuleOptionProperty
 mkRuleOptionProperty keyword
   = RuleOptionProperty

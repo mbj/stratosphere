@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DockerVolumeConfigurationProperty :: Prelude.Type
 instance ToResourceProperties DockerVolumeConfigurationProperty
+instance Prelude.Eq DockerVolumeConfigurationProperty
+instance Prelude.Show DockerVolumeConfigurationProperty
 instance JSON.ToJSON DockerVolumeConfigurationProperty

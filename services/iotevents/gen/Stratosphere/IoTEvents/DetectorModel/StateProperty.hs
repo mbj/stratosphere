@@ -14,6 +14,7 @@ data StateProperty
                    onExit :: (Prelude.Maybe OnExitProperty),
                    onInput :: (Prelude.Maybe OnInputProperty),
                    stateName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStateProperty :: Value Prelude.Text -> StateProperty
 mkStateProperty stateName
   = StateProperty

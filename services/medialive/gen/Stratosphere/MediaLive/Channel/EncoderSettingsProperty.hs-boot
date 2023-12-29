@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EncoderSettingsProperty :: Prelude.Type
 instance ToResourceProperties EncoderSettingsProperty
+instance Prelude.Eq EncoderSettingsProperty
+instance Prelude.Show EncoderSettingsProperty
 instance JSON.ToJSON EncoderSettingsProperty

@@ -13,6 +13,7 @@ data StillWaitingResponseSpecificationProperty
                                                frequencyInSeconds :: (Value Prelude.Integer),
                                                messageGroupsList :: [MessageGroupProperty],
                                                timeoutInSeconds :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStillWaitingResponseSpecificationProperty ::
   Value Prelude.Integer
   -> [MessageGroupProperty]

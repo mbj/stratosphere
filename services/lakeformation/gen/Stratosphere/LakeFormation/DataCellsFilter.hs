@@ -16,6 +16,7 @@ data DataCellsFilter
                      rowFilter :: (Prelude.Maybe RowFilterProperty),
                      tableCatalogId :: (Value Prelude.Text),
                      tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCellsFilter ::
   Value Prelude.Text
   -> Value Prelude.Text

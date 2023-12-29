@@ -14,6 +14,7 @@ data VolumeConfigurationProperty
                                  raidLevel :: (Prelude.Maybe (Value Prelude.Integer)),
                                  size :: (Prelude.Maybe (Value Prelude.Integer)),
                                  volumeType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeConfigurationProperty :: VolumeConfigurationProperty
 mkVolumeConfigurationProperty
   = VolumeConfigurationProperty

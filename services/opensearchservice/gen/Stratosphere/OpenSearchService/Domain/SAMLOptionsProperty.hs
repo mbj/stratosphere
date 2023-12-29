@@ -15,6 +15,7 @@ data SAMLOptionsProperty
                          rolesKey :: (Prelude.Maybe (Value Prelude.Text)),
                          sessionTimeoutMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
                          subjectKey :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSAMLOptionsProperty :: SAMLOptionsProperty
 mkSAMLOptionsProperty
   = SAMLOptionsProperty

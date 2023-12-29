@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DomainEndpointOptionsProperty :: Prelude.Type
 instance ToResourceProperties DomainEndpointOptionsProperty
+instance Prelude.Eq DomainEndpointOptionsProperty
+instance Prelude.Show DomainEndpointOptionsProperty
 instance JSON.ToJSON DomainEndpointOptionsProperty

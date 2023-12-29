@@ -13,6 +13,7 @@ data TopicCategoryFilterProperty
                                  categoryFilterType :: (Prelude.Maybe (Value Prelude.Text)),
                                  constant :: (Prelude.Maybe TopicCategoryFilterConstantProperty),
                                  inverse :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicCategoryFilterProperty :: TopicCategoryFilterProperty
 mkTopicCategoryFilterProperty
   = TopicCategoryFilterProperty

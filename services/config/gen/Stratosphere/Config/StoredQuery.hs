@@ -12,6 +12,7 @@ data StoredQuery
                  queryExpression :: (Value Prelude.Text),
                  queryName :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStoredQuery ::
   Value Prelude.Text -> Value Prelude.Text -> StoredQuery
 mkStoredQuery queryExpression queryName

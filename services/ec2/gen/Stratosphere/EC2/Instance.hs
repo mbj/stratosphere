@@ -62,6 +62,7 @@ data Instance
               tenancy :: (Prelude.Maybe (Value Prelude.Text)),
               userData :: (Prelude.Maybe (Value Prelude.Text)),
               volumes :: (Prelude.Maybe [VolumeProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstance :: Instance
 mkInstance
   = Instance

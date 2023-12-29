@@ -12,6 +12,7 @@ data ResourceUpdateConstraint
                               portfolioId :: (Value Prelude.Text),
                               productId :: (Value Prelude.Text),
                               tagUpdateOnProvisionedProduct :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceUpdateConstraint ::
   Value Prelude.Text
   -> Value Prelude.Text

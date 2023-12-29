@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeploymentConfigurationValidationPolicyProperty :: Prelude.Type
 instance ToResourceProperties DeploymentConfigurationValidationPolicyProperty
+instance Prelude.Eq DeploymentConfigurationValidationPolicyProperty
+instance Prelude.Show DeploymentConfigurationValidationPolicyProperty
 instance JSON.ToJSON DeploymentConfigurationValidationPolicyProperty

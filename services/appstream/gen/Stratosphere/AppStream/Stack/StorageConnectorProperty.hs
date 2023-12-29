@@ -10,6 +10,7 @@ data StorageConnectorProperty
   = StorageConnectorProperty {connectorType :: (Value Prelude.Text),
                               domains :: (Prelude.Maybe (ValueList Prelude.Text)),
                               resourceIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageConnectorProperty ::
   Value Prelude.Text -> StorageConnectorProperty
 mkStorageConnectorProperty connectorType

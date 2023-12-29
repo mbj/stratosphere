@@ -23,6 +23,7 @@ data AudioDescriptionProperty
                               name :: (Prelude.Maybe (Value Prelude.Text)),
                               remixSettings :: (Prelude.Maybe RemixSettingsProperty),
                               streamName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioDescriptionProperty :: AudioDescriptionProperty
 mkAudioDescriptionProperty
   = AudioDescriptionProperty

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DataCatalogEncryptionSettings
   = DataCatalogEncryptionSettings {catalogId :: (Value Prelude.Text),
                                    dataCatalogEncryptionSettings :: DataCatalogEncryptionSettingsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCatalogEncryptionSettings ::
   Value Prelude.Text
   -> DataCatalogEncryptionSettingsProperty

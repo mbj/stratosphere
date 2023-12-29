@@ -10,6 +10,7 @@ data GeofenceCollection
   = GeofenceCollection {collectionName :: (Value Prelude.Text),
                         description :: (Prelude.Maybe (Value Prelude.Text)),
                         kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeofenceCollection :: Value Prelude.Text -> GeofenceCollection
 mkGeofenceCollection collectionName
   = GeofenceCollection

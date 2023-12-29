@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NotifyEmailTypeProperty :: Prelude.Type
 instance ToResourceProperties NotifyEmailTypeProperty
+instance Prelude.Eq NotifyEmailTypeProperty
+instance Prelude.Show NotifyEmailTypeProperty
 instance JSON.ToJSON NotifyEmailTypeProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ReplicationDestinationProperty
   = ReplicationDestinationProperty {region :: (Value Prelude.Text),
                                     registryId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationDestinationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ReplicationDestinationProperty

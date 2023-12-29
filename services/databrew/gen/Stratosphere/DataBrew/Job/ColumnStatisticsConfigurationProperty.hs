@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ColumnStatisticsConfigurationProperty
   = ColumnStatisticsConfigurationProperty {selectors :: (Prelude.Maybe [ColumnSelectorProperty]),
                                            statistics :: StatisticsConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnStatisticsConfigurationProperty ::
   StatisticsConfigurationProperty
   -> ColumnStatisticsConfigurationProperty

@@ -28,6 +28,7 @@ data RuleProperty
                   tagFilters :: (Prelude.Maybe [TagFilterProperty]),
                   transition :: (Prelude.Maybe TransitionProperty),
                   transitions :: (Prelude.Maybe [TransitionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty :: Value Prelude.Text -> RuleProperty
 mkRuleProperty status
   = RuleProperty

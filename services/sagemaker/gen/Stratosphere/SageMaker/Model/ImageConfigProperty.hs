@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ImageConfigProperty
   = ImageConfigProperty {repositoryAccessMode :: (Value Prelude.Text),
                          repositoryAuthConfig :: (Prelude.Maybe RepositoryAuthConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImageConfigProperty :: Value Prelude.Text -> ImageConfigProperty
 mkImageConfigProperty repositoryAccessMode
   = ImageConfigProperty

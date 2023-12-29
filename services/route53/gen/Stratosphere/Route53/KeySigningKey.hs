@@ -11,6 +11,7 @@ data KeySigningKey
                    keyManagementServiceArn :: (Value Prelude.Text),
                    name :: (Value Prelude.Text),
                    status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKeySigningKey ::
   Value Prelude.Text
   -> Value Prelude.Text

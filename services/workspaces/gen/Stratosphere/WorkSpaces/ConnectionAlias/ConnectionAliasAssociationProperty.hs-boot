@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConnectionAliasAssociationProperty :: Prelude.Type
 instance ToResourceProperties ConnectionAliasAssociationProperty
+instance Prelude.Eq ConnectionAliasAssociationProperty
+instance Prelude.Show ConnectionAliasAssociationProperty
 instance JSON.ToJSON ConnectionAliasAssociationProperty

@@ -18,6 +18,7 @@ data TrainingJobDetailsProperty
                                 trainingMetrics :: (Prelude.Maybe [TrainingMetricProperty]),
                                 userProvidedHyperParameters :: (Prelude.Maybe [TrainingHyperParameterProperty]),
                                 userProvidedTrainingMetrics :: (Prelude.Maybe [TrainingMetricProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrainingJobDetailsProperty :: TrainingJobDetailsProperty
 mkTrainingJobDetailsProperty
   = TrainingJobDetailsProperty

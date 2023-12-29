@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceApiAssociationConfigProperty
   = SourceApiAssociationConfigProperty {mergeType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceApiAssociationConfigProperty ::
   SourceApiAssociationConfigProperty
 mkSourceApiAssociationConfigProperty

@@ -13,6 +13,7 @@ data ResourceSet
                  resourceTypeList :: (ValueList Prelude.Text),
                  resources :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceSet ::
   Value Prelude.Text -> ValueList Prelude.Text -> ResourceSet
 mkResourceSet name resourceTypeList

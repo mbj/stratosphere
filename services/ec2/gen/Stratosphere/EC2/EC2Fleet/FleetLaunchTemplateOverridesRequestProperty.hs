@@ -18,6 +18,7 @@ data FleetLaunchTemplateOverridesRequestProperty
                                                  priority :: (Prelude.Maybe (Value Prelude.Double)),
                                                  subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                                                  weightedCapacity :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetLaunchTemplateOverridesRequestProperty ::
   FleetLaunchTemplateOverridesRequestProperty
 mkFleetLaunchTemplateOverridesRequestProperty

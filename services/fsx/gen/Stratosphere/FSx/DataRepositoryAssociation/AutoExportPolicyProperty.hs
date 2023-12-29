@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoExportPolicyProperty
   = AutoExportPolicyProperty {events :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoExportPolicyProperty ::
   ValueList Prelude.Text -> AutoExportPolicyProperty
 mkAutoExportPolicyProperty events

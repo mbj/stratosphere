@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ComponentEventProperty
   = ComponentEventProperty {action :: (Prelude.Maybe (Value Prelude.Text)),
                             parameters :: (Prelude.Maybe ActionParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentEventProperty :: ComponentEventProperty
 mkComponentEventProperty
   = ComponentEventProperty

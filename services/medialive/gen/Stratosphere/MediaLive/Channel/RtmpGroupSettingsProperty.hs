@@ -14,6 +14,7 @@ data RtmpGroupSettingsProperty
                                captionData :: (Prelude.Maybe (Value Prelude.Text)),
                                inputLossAction :: (Prelude.Maybe (Value Prelude.Text)),
                                restartDelay :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRtmpGroupSettingsProperty :: RtmpGroupSettingsProperty
 mkRtmpGroupSettingsProperty
   = RtmpGroupSettingsProperty

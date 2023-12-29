@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SectionStyleProperty
   = SectionStyleProperty {height :: (Prelude.Maybe (Value Prelude.Text)),
                           padding :: (Prelude.Maybe SpacingProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSectionStyleProperty :: SectionStyleProperty
 mkSectionStyleProperty
   = SectionStyleProperty

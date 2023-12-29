@@ -10,6 +10,7 @@ data DeploymentAlarmsProperty
   = DeploymentAlarmsProperty {alarmNames :: (ValueList Prelude.Text),
                               enable :: (Value Prelude.Bool),
                               rollback :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentAlarmsProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Bool

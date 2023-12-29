@@ -19,6 +19,7 @@ data TrafficMirrorFilterRule
                              sourcePortRange :: (Prelude.Maybe TrafficMirrorPortRangeProperty),
                              trafficDirection :: (Value Prelude.Text),
                              trafficMirrorFilterId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficMirrorFilterRule ::
   Value Prelude.Text
   -> Value Prelude.Text

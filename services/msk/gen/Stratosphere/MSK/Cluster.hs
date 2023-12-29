@@ -26,6 +26,7 @@ data Cluster
              openMonitoring :: (Prelude.Maybe OpenMonitoringProperty),
              storageMode :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster ::
   BrokerNodeGroupInfoProperty
   -> Value Prelude.Text

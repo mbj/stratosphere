@@ -9,6 +9,7 @@ import Stratosphere.Value
 data OtaaV10xProperty
   = OtaaV10xProperty {appEui :: (Value Prelude.Text),
                       appKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOtaaV10xProperty ::
   Value Prelude.Text -> Value Prelude.Text -> OtaaV10xProperty
 mkOtaaV10xProperty appEui appKey

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.SSMIncidents.ResponsePlan.PagerDutyConfigurat
 import Stratosphere.ResourceProperties
 data IntegrationProperty
   = IntegrationProperty {pagerDutyConfiguration :: PagerDutyConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegrationProperty ::
   PagerDutyConfigurationProperty -> IntegrationProperty
 mkIntegrationProperty pagerDutyConfiguration

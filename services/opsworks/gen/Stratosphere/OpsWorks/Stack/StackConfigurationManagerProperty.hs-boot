@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StackConfigurationManagerProperty :: Prelude.Type
 instance ToResourceProperties StackConfigurationManagerProperty
+instance Prelude.Eq StackConfigurationManagerProperty
+instance Prelude.Show StackConfigurationManagerProperty
 instance JSON.ToJSON StackConfigurationManagerProperty

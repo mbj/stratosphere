@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExpressionVariableProperty :: Prelude.Type
 instance ToResourceProperties ExpressionVariableProperty
+instance Prelude.Eq ExpressionVariableProperty
+instance Prelude.Show ExpressionVariableProperty
 instance JSON.ToJSON ExpressionVariableProperty

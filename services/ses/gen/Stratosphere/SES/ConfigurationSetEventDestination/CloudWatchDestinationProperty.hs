@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SES.ConfigurationSetEventDestination.Dimensio
 import Stratosphere.ResourceProperties
 data CloudWatchDestinationProperty
   = CloudWatchDestinationProperty {dimensionConfigurations :: (Prelude.Maybe [DimensionConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchDestinationProperty :: CloudWatchDestinationProperty
 mkCloudWatchDestinationProperty
   = CloudWatchDestinationProperty

@@ -15,6 +15,7 @@ data InstanceTypeSpecificationProperty
                                        instanceType :: (Prelude.Maybe (Value Prelude.Text)),
                                        priority :: (Prelude.Maybe (Value Prelude.Integer)),
                                        weight :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceTypeSpecificationProperty ::
   InstanceTypeSpecificationProperty
 mkInstanceTypeSpecificationProperty

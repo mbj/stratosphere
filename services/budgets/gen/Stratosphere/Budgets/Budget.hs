@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data Budget
   = Budget {budget :: BudgetDataProperty,
             notificationsWithSubscribers :: (Prelude.Maybe [NotificationWithSubscribersProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBudget :: BudgetDataProperty -> Budget
 mkBudget budget
   = Budget

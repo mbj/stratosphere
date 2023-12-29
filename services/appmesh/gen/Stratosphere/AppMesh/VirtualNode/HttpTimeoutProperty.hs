@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 data HttpTimeoutProperty
   = HttpTimeoutProperty {idle :: (Prelude.Maybe DurationProperty),
                          perRequest :: (Prelude.Maybe DurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpTimeoutProperty :: HttpTimeoutProperty
 mkHttpTimeoutProperty
   = HttpTimeoutProperty

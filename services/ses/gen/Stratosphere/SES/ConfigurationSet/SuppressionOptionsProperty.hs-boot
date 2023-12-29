@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SuppressionOptionsProperty :: Prelude.Type
 instance ToResourceProperties SuppressionOptionsProperty
+instance Prelude.Eq SuppressionOptionsProperty
+instance Prelude.Show SuppressionOptionsProperty
 instance JSON.ToJSON SuppressionOptionsProperty

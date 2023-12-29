@@ -20,6 +20,7 @@ data ResponsePlan
                   integrations :: (Prelude.Maybe [IntegrationProperty]),
                   name :: (Value Prelude.Text),
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponsePlan ::
   IncidentTemplateProperty -> Value Prelude.Text -> ResponsePlan
 mkResponsePlan incidentTemplate name

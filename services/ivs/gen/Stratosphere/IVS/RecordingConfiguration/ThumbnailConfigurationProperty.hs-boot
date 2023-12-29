@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ThumbnailConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ThumbnailConfigurationProperty
+instance Prelude.Eq ThumbnailConfigurationProperty
+instance Prelude.Show ThumbnailConfigurationProperty
 instance JSON.ToJSON ThumbnailConfigurationProperty

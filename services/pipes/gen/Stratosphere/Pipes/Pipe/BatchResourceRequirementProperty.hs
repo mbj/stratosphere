@@ -10,6 +10,7 @@ import Stratosphere.Value
 data BatchResourceRequirementProperty
   = BatchResourceRequirementProperty {type' :: (Value Prelude.Text),
                                       value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchResourceRequirementProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> BatchResourceRequirementProperty

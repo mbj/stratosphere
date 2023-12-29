@@ -21,6 +21,7 @@ data MessageConfigurationProperty
                                   gCMMessage :: (Prelude.Maybe MessageProperty),
                                   inAppMessage :: (Prelude.Maybe CampaignInAppMessageProperty),
                                   sMSMessage :: (Prelude.Maybe CampaignSmsMessageProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageConfigurationProperty :: MessageConfigurationProperty
 mkMessageConfigurationProperty
   = MessageConfigurationProperty

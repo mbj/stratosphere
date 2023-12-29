@@ -15,6 +15,7 @@ data TopicRulePayloadProperty
                               errorAction :: (Prelude.Maybe ActionProperty),
                               ruleDisabled :: (Prelude.Maybe (Value Prelude.Bool)),
                               sql :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicRulePayloadProperty ::
   [ActionProperty] -> Value Prelude.Text -> TopicRulePayloadProperty
 mkTopicRulePayloadProperty actions sql

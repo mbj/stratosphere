@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RedshiftConnectorProfileCredentialsProperty
   = RedshiftConnectorProfileCredentialsProperty {password :: (Prelude.Maybe (Value Prelude.Text)),
                                                  username :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftConnectorProfileCredentialsProperty ::
   RedshiftConnectorProfileCredentialsProperty
 mkRedshiftConnectorProfileCredentialsProperty

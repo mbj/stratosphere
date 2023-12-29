@@ -12,6 +12,7 @@ data SelfManagedKafkaAccessConfigurationCredentialsProperty
                                                             clientCertificateTlsAuth :: (Prelude.Maybe (Value Prelude.Text)),
                                                             saslScram256Auth :: (Prelude.Maybe (Value Prelude.Text)),
                                                             saslScram512Auth :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSelfManagedKafkaAccessConfigurationCredentialsProperty ::
   SelfManagedKafkaAccessConfigurationCredentialsProperty
 mkSelfManagedKafkaAccessConfigurationCredentialsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReferrerPolicyProperty :: Prelude.Type
 instance ToResourceProperties ReferrerPolicyProperty
+instance Prelude.Eq ReferrerPolicyProperty
+instance Prelude.Show ReferrerPolicyProperty
 instance JSON.ToJSON ReferrerPolicyProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3InputFormatConfigProperty
   = S3InputFormatConfigProperty {s3InputFileType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3InputFormatConfigProperty :: S3InputFormatConfigProperty
 mkS3InputFormatConfigProperty
   = S3InputFormatConfigProperty {s3InputFileType = Prelude.Nothing}

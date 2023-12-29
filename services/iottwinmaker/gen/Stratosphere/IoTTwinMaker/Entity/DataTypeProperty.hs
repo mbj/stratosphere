@@ -14,6 +14,7 @@ data DataTypeProperty
                       relationship :: (Prelude.Maybe RelationshipProperty),
                       type' :: (Prelude.Maybe (Value Prelude.Text)),
                       unitOfMeasure :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataTypeProperty :: DataTypeProperty
 mkDataTypeProperty
   = DataTypeProperty

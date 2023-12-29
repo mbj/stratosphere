@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DecimalPlacesConfigurationProperty :: Prelude.Type
 instance ToResourceProperties DecimalPlacesConfigurationProperty
+instance Prelude.Eq DecimalPlacesConfigurationProperty
+instance Prelude.Show DecimalPlacesConfigurationProperty
 instance JSON.ToJSON DecimalPlacesConfigurationProperty

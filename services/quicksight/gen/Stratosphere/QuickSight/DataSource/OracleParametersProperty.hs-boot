@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OracleParametersProperty :: Prelude.Type
 instance ToResourceProperties OracleParametersProperty
+instance Prelude.Eq OracleParametersProperty
+instance Prelude.Show OracleParametersProperty
 instance JSON.ToJSON OracleParametersProperty

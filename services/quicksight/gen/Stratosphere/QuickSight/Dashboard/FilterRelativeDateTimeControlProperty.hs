@@ -13,6 +13,7 @@ data FilterRelativeDateTimeControlProperty
                                            filterControlId :: (Value Prelude.Text),
                                            sourceFilterId :: (Value Prelude.Text),
                                            title :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterRelativeDateTimeControlProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

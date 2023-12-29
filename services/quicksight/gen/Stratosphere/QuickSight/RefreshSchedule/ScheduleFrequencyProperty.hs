@@ -13,6 +13,7 @@ data ScheduleFrequencyProperty
                                refreshOnDay :: (Prelude.Maybe RefreshOnDayProperty),
                                timeOfTheDay :: (Prelude.Maybe (Value Prelude.Text)),
                                timeZone :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleFrequencyProperty :: ScheduleFrequencyProperty
 mkScheduleFrequencyProperty
   = ScheduleFrequencyProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectAttachmentOptionsProperty
   = ConnectAttachmentOptionsProperty {protocol :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectAttachmentOptionsProperty ::
   ConnectAttachmentOptionsProperty
 mkConnectAttachmentOptionsProperty

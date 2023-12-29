@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ConnectionPasswordEncryptionProperty
   = ConnectionPasswordEncryptionProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                                           returnConnectionPasswordEncrypted :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionPasswordEncryptionProperty ::
   ConnectionPasswordEncryptionProperty
 mkConnectionPasswordEncryptionProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TopicRulePayloadProperty :: Prelude.Type
 instance ToResourceProperties TopicRulePayloadProperty
+instance Prelude.Eq TopicRulePayloadProperty
+instance Prelude.Show TopicRulePayloadProperty
 instance JSON.ToJSON TopicRulePayloadProperty

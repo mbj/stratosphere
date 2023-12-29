@@ -18,6 +18,7 @@ data DynamoDBProperty
                       rangeKeyType :: (Prelude.Maybe (Value Prelude.Text)),
                       rangeKeyValue :: (Prelude.Maybe (Value Prelude.Text)),
                       tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> DynamoDBProperty

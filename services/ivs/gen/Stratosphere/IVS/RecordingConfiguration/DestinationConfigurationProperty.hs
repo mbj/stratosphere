@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IVS.RecordingConfiguration.S3DestinationConfi
 import Stratosphere.ResourceProperties
 data DestinationConfigurationProperty
   = DestinationConfigurationProperty {s3 :: S3DestinationConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigurationProperty ::
   S3DestinationConfigurationProperty
   -> DestinationConfigurationProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FilterRuleProperty
   = FilterRuleProperty {name :: (Value Prelude.Text),
                         value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterRuleProperty ::
   Value Prelude.Text -> Value Prelude.Text -> FilterRuleProperty
 mkFilterRuleProperty name value

@@ -11,6 +11,7 @@ data VpcLink
              securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              subnetIds :: (ValueList Prelude.Text),
              tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcLink ::
   Value Prelude.Text -> ValueList Prelude.Text -> VpcLink
 mkVpcLink name subnetIds

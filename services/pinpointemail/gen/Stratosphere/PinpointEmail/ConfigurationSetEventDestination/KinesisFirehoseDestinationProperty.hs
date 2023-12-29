@@ -10,6 +10,7 @@ import Stratosphere.Value
 data KinesisFirehoseDestinationProperty
   = KinesisFirehoseDestinationProperty {deliveryStreamArn :: (Value Prelude.Text),
                                         iamRoleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisFirehoseDestinationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> KinesisFirehoseDestinationProperty

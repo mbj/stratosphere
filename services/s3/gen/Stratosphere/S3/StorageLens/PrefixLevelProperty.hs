@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.S3.StorageLens.PrefixLevelStorageMetricsPrope
 import Stratosphere.ResourceProperties
 data PrefixLevelProperty
   = PrefixLevelProperty {storageMetrics :: PrefixLevelStorageMetricsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrefixLevelProperty ::
   PrefixLevelStorageMetricsProperty -> PrefixLevelProperty
 mkPrefixLevelProperty storageMetrics

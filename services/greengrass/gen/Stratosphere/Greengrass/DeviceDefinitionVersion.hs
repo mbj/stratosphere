@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DeviceDefinitionVersion
   = DeviceDefinitionVersion {deviceDefinitionId :: (Value Prelude.Text),
                              devices :: [DeviceProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceDefinitionVersion ::
   Value Prelude.Text -> [DeviceProperty] -> DeviceDefinitionVersion
 mkDeviceDefinitionVersion deviceDefinitionId devices

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data GatewayPlatformProperty
   = GatewayPlatformProperty {greengrass :: (Prelude.Maybe GreengrassProperty),
                              greengrassV2 :: (Prelude.Maybe GreengrassV2Property)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayPlatformProperty :: GatewayPlatformProperty
 mkGatewayPlatformProperty
   = GatewayPlatformProperty

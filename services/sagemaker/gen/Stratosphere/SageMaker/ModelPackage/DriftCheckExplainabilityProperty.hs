@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DriftCheckExplainabilityProperty
   = DriftCheckExplainabilityProperty {configFile :: (Prelude.Maybe FileSourceProperty),
                                       constraints :: (Prelude.Maybe MetricsSourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDriftCheckExplainabilityProperty ::
   DriftCheckExplainabilityProperty
 mkDriftCheckExplainabilityProperty

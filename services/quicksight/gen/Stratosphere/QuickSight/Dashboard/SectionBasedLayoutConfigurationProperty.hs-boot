@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SectionBasedLayoutConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SectionBasedLayoutConfigurationProperty
+instance Prelude.Eq SectionBasedLayoutConfigurationProperty
+instance Prelude.Show SectionBasedLayoutConfigurationProperty
 instance JSON.ToJSON SectionBasedLayoutConfigurationProperty

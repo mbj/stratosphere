@@ -11,6 +11,7 @@ data TransitGatewayPeering
   = TransitGatewayPeering {coreNetworkId :: (Value Prelude.Text),
                            tags :: (Prelude.Maybe [Tag]),
                            transitGatewayArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayPeering ::
   Value Prelude.Text -> Value Prelude.Text -> TransitGatewayPeering
 mkTransitGatewayPeering coreNetworkId transitGatewayArn

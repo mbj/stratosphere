@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
-data AwsOrgProperty = AwsOrgProperty {arn :: (Value Prelude.Text)}
+data AwsOrgProperty
+  = AwsOrgProperty {arn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsOrgProperty :: Value Prelude.Text -> AwsOrgProperty
 mkAwsOrgProperty arn = AwsOrgProperty {arn = arn}
 instance ToResourceProperties AwsOrgProperty where

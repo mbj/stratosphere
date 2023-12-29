@@ -12,6 +12,7 @@ data BoxPlotOptionsProperty
   = BoxPlotOptionsProperty {allDataPointsVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                             outlierVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                             styleOptions :: (Prelude.Maybe BoxPlotStyleOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBoxPlotOptionsProperty :: BoxPlotOptionsProperty
 mkBoxPlotOptionsProperty
   = BoxPlotOptionsProperty

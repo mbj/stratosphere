@@ -10,6 +10,7 @@ data LocationProperty
   = LocationProperty {address :: (Prelude.Maybe (Value Prelude.Text)),
                       latitude :: (Prelude.Maybe (Value Prelude.Text)),
                       longitude :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationProperty :: LocationProperty
 mkLocationProperty
   = LocationProperty

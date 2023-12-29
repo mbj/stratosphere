@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AddHeaderActionProperty
   = AddHeaderActionProperty {headerName :: (Value Prelude.Text),
                              headerValue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAddHeaderActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AddHeaderActionProperty
 mkAddHeaderActionProperty headerName headerValue

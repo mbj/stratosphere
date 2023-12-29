@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.NumericFormatConfigurati
 import Stratosphere.ResourceProperties
 data NumberFormatConfigurationProperty
   = NumberFormatConfigurationProperty {formatConfiguration :: (Prelude.Maybe NumericFormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumberFormatConfigurationProperty ::
   NumberFormatConfigurationProperty
 mkNumberFormatConfigurationProperty

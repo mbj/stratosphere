@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IpamOperatingRegionProperty :: Prelude.Type
 instance ToResourceProperties IpamOperatingRegionProperty
+instance Prelude.Eq IpamOperatingRegionProperty
+instance Prelude.Show IpamOperatingRegionProperty
 instance JSON.ToJSON IpamOperatingRegionProperty

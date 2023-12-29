@@ -13,6 +13,7 @@ data ServiceAction
                    definitionType :: (Value Prelude.Text),
                    description :: (Prelude.Maybe (Value Prelude.Text)),
                    name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceAction ::
   [DefinitionParameterProperty]
   -> Value Prelude.Text -> Value Prelude.Text -> ServiceAction

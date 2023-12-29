@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LifecycleConfigurationProperty :: Prelude.Type
 instance ToResourceProperties LifecycleConfigurationProperty
+instance Prelude.Eq LifecycleConfigurationProperty
+instance Prelude.Show LifecycleConfigurationProperty
 instance JSON.ToJSON LifecycleConfigurationProperty

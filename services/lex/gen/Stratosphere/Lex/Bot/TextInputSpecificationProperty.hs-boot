@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TextInputSpecificationProperty :: Prelude.Type
 instance ToResourceProperties TextInputSpecificationProperty
+instance Prelude.Eq TextInputSpecificationProperty
+instance Prelude.Show TextInputSpecificationProperty
 instance JSON.ToJSON TextInputSpecificationProperty

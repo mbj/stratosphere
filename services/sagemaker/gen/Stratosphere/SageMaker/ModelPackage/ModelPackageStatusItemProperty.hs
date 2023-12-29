@@ -11,6 +11,7 @@ data ModelPackageStatusItemProperty
   = ModelPackageStatusItemProperty {failureReason :: (Prelude.Maybe (Value Prelude.Text)),
                                     name :: (Value Prelude.Text),
                                     status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageStatusItemProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ModelPackageStatusItemProperty

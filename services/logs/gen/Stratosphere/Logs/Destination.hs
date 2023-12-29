@@ -11,6 +11,7 @@ data Destination
                  destinationPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                  roleArn :: (Value Prelude.Text),
                  targetArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestination ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Destination

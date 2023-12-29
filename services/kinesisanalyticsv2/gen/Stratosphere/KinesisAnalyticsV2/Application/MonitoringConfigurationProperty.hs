@@ -11,6 +11,7 @@ data MonitoringConfigurationProperty
   = MonitoringConfigurationProperty {configurationType :: (Value Prelude.Text),
                                      logLevel :: (Prelude.Maybe (Value Prelude.Text)),
                                      metricsLevel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringConfigurationProperty ::
   Value Prelude.Text -> MonitoringConfigurationProperty
 mkMonitoringConfigurationProperty configurationType

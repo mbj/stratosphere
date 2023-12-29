@@ -25,6 +25,7 @@ data Stage
            tags :: (Prelude.Maybe [Tag]),
            tracingEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
            variables :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStage :: Value Prelude.Text -> Stage
 mkStage restApiId
   = Stage

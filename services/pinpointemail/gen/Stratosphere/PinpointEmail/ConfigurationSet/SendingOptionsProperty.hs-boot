@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SendingOptionsProperty :: Prelude.Type
 instance ToResourceProperties SendingOptionsProperty
+instance Prelude.Eq SendingOptionsProperty
+instance Prelude.Show SendingOptionsProperty
 instance JSON.ToJSON SendingOptionsProperty

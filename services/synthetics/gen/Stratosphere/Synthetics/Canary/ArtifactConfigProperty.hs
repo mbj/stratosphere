@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Synthetics.Canary.S3EncryptionProperty as Exp
 import Stratosphere.ResourceProperties
 data ArtifactConfigProperty
   = ArtifactConfigProperty {s3Encryption :: (Prelude.Maybe S3EncryptionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArtifactConfigProperty :: ArtifactConfigProperty
 mkArtifactConfigProperty
   = ArtifactConfigProperty {s3Encryption = Prelude.Nothing}

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSourceConfigurationProperty
   = DataSourceConfigurationProperty {intendedUse :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceConfigurationProperty ::
   DataSourceConfigurationProperty
 mkDataSourceConfigurationProperty

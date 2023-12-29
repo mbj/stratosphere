@@ -14,6 +14,7 @@ data LayerVersion
                   description :: (Prelude.Maybe (Value Prelude.Text)),
                   layerName :: (Prelude.Maybe (Value Prelude.Text)),
                   licenseInfo :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLayerVersion :: ContentProperty -> LayerVersion
 mkLayerVersion content
   = LayerVersion

@@ -13,6 +13,7 @@ data FailoverConditionSettingsProperty
   = FailoverConditionSettingsProperty {audioSilenceSettings :: (Prelude.Maybe AudioSilenceFailoverSettingsProperty),
                                        inputLossSettings :: (Prelude.Maybe InputLossFailoverSettingsProperty),
                                        videoBlackSettings :: (Prelude.Maybe VideoBlackFailoverSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFailoverConditionSettingsProperty ::
   FailoverConditionSettingsProperty
 mkFailoverConditionSettingsProperty

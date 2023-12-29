@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BackupRuleResourceTypeProperty :: Prelude.Type
 instance ToResourceProperties BackupRuleResourceTypeProperty
+instance Prelude.Eq BackupRuleResourceTypeProperty
+instance Prelude.Show BackupRuleResourceTypeProperty
 instance JSON.ToJSON BackupRuleResourceTypeProperty

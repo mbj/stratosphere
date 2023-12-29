@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ManifestOverridesPayloadProperty :: Prelude.Type
 instance ToResourceProperties ManifestOverridesPayloadProperty
+instance Prelude.Eq ManifestOverridesPayloadProperty
+instance Prelude.Show ManifestOverridesPayloadProperty
 instance JSON.ToJSON ManifestOverridesPayloadProperty

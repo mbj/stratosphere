@@ -10,6 +10,7 @@ import Stratosphere.Value
 data HoursOfOperationTimeSliceProperty
   = HoursOfOperationTimeSliceProperty {hours :: (Value Prelude.Integer),
                                        minutes :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHoursOfOperationTimeSliceProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> HoursOfOperationTimeSliceProperty

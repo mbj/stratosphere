@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DiskIopsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties DiskIopsConfigurationProperty
+instance Prelude.Eq DiskIopsConfigurationProperty
+instance Prelude.Show DiskIopsConfigurationProperty
 instance JSON.ToJSON DiskIopsConfigurationProperty

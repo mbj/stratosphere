@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.TagFilterProperty 
 import Stratosphere.ResourceProperties
 data OnPremisesTagSetListObjectProperty
   = OnPremisesTagSetListObjectProperty {onPremisesTagGroup :: (Prelude.Maybe [TagFilterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOnPremisesTagSetListObjectProperty ::
   OnPremisesTagSetListObjectProperty
 mkOnPremisesTagSetListObjectProperty

@@ -25,6 +25,7 @@ data NotebookInstance
                       subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                       tags :: (Prelude.Maybe [Tag]),
                       volumeSizeInGB :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotebookInstance ::
   Value Prelude.Text -> Value Prelude.Text -> NotebookInstance
 mkNotebookInstance instanceType roleArn

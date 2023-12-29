@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ResolverQueryLoggingConfig
   = ResolverQueryLoggingConfig {destinationArn :: (Prelude.Maybe (Value Prelude.Text)),
                                 name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverQueryLoggingConfig :: ResolverQueryLoggingConfig
 mkResolverQueryLoggingConfig
   = ResolverQueryLoggingConfig

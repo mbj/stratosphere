@@ -11,6 +11,7 @@ import Stratosphere.Value
 data BotAliasLocaleSettingsProperty
   = BotAliasLocaleSettingsProperty {codeHookSpecification :: (Prelude.Maybe CodeHookSpecificationProperty),
                                     enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBotAliasLocaleSettingsProperty ::
   Value Prelude.Bool -> BotAliasLocaleSettingsProperty
 mkBotAliasLocaleSettingsProperty enabled

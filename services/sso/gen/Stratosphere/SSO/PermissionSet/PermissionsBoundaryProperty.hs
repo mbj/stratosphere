@@ -11,6 +11,7 @@ import Stratosphere.Value
 data PermissionsBoundaryProperty
   = PermissionsBoundaryProperty {customerManagedPolicyReference :: (Prelude.Maybe CustomerManagedPolicyReferenceProperty),
                                  managedPolicyArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPermissionsBoundaryProperty :: PermissionsBoundaryProperty
 mkPermissionsBoundaryProperty
   = PermissionsBoundaryProperty

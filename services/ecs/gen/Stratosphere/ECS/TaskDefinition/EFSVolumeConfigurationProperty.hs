@@ -14,6 +14,7 @@ data EFSVolumeConfigurationProperty
                                     rootDirectory :: (Prelude.Maybe (Value Prelude.Text)),
                                     transitEncryption :: (Prelude.Maybe (Value Prelude.Text)),
                                     transitEncryptionPort :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEFSVolumeConfigurationProperty ::
   Value Prelude.Text -> EFSVolumeConfigurationProperty
 mkEFSVolumeConfigurationProperty filesystemId

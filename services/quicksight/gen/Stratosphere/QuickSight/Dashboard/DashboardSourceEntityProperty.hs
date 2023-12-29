@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.DashboardSourceTemplateP
 import Stratosphere.ResourceProperties
 data DashboardSourceEntityProperty
   = DashboardSourceEntityProperty {sourceTemplate :: (Prelude.Maybe DashboardSourceTemplateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboardSourceEntityProperty :: DashboardSourceEntityProperty
 mkDashboardSourceEntityProperty
   = DashboardSourceEntityProperty {sourceTemplate = Prelude.Nothing}

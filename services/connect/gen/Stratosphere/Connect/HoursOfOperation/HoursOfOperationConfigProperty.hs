@@ -12,6 +12,7 @@ data HoursOfOperationConfigProperty
   = HoursOfOperationConfigProperty {day :: (Value Prelude.Text),
                                     endTime :: HoursOfOperationTimeSliceProperty,
                                     startTime :: HoursOfOperationTimeSliceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHoursOfOperationConfigProperty ::
   Value Prelude.Text
   -> HoursOfOperationTimeSliceProperty

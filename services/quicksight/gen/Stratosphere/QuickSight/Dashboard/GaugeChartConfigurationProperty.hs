@@ -17,6 +17,7 @@ data GaugeChartConfigurationProperty
                                      gaugeChartOptions :: (Prelude.Maybe GaugeChartOptionsProperty),
                                      tooltipOptions :: (Prelude.Maybe TooltipOptionsProperty),
                                      visualPalette :: (Prelude.Maybe VisualPaletteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGaugeChartConfigurationProperty ::
   GaugeChartConfigurationProperty
 mkGaugeChartConfigurationProperty

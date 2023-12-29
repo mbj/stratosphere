@@ -11,6 +11,7 @@ data AssetPropertyVariantProperty
                                   doubleValue :: (Prelude.Maybe (Value Prelude.Text)),
                                   integerValue :: (Prelude.Maybe (Value Prelude.Text)),
                                   stringValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetPropertyVariantProperty :: AssetPropertyVariantProperty
 mkAssetPropertyVariantProperty
   = AssetPropertyVariantProperty

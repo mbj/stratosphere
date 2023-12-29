@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TimestreamDimensionProperty
   = TimestreamDimensionProperty {name :: (Value Prelude.Text),
                                  value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestreamDimensionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> TimestreamDimensionProperty

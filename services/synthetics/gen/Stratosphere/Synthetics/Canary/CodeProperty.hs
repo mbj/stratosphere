@@ -13,6 +13,7 @@ data CodeProperty
                   s3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text)),
                   script :: (Prelude.Maybe (Value Prelude.Text)),
                   sourceLocationArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeProperty :: Value Prelude.Text -> CodeProperty
 mkCodeProperty handler
   = CodeProperty

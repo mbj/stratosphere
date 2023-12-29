@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DefinitionParameterProperty
   = DefinitionParameterProperty {key :: (Value Prelude.Text),
                                  value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefinitionParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DefinitionParameterProperty

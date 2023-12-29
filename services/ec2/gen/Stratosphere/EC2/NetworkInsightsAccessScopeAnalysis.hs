@@ -11,6 +11,7 @@ import Stratosphere.Value
 data NetworkInsightsAccessScopeAnalysis
   = NetworkInsightsAccessScopeAnalysis {networkInsightsAccessScopeId :: (Value Prelude.Text),
                                         tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInsightsAccessScopeAnalysis ::
   Value Prelude.Text -> NetworkInsightsAccessScopeAnalysis
 mkNetworkInsightsAccessScopeAnalysis networkInsightsAccessScopeId

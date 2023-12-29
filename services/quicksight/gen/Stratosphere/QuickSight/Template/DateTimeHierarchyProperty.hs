@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DateTimeHierarchyProperty
   = DateTimeHierarchyProperty {drillDownFilters :: (Prelude.Maybe [DrillDownFilterProperty]),
                                hierarchyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimeHierarchyProperty ::
   Value Prelude.Text -> DateTimeHierarchyProperty
 mkDateTimeHierarchyProperty hierarchyId

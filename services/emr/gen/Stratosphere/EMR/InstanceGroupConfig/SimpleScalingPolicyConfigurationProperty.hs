@@ -11,6 +11,7 @@ data SimpleScalingPolicyConfigurationProperty
   = SimpleScalingPolicyConfigurationProperty {adjustmentType :: (Prelude.Maybe (Value Prelude.Text)),
                                               coolDown :: (Prelude.Maybe (Value Prelude.Integer)),
                                               scalingAdjustment :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSimpleScalingPolicyConfigurationProperty ::
   Value Prelude.Integer -> SimpleScalingPolicyConfigurationProperty
 mkSimpleScalingPolicyConfigurationProperty scalingAdjustment

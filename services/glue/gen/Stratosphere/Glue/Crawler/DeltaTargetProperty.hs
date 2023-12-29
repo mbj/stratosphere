@@ -11,6 +11,7 @@ data DeltaTargetProperty
                          createNativeDeltaTable :: (Prelude.Maybe (Value Prelude.Bool)),
                          deltaTables :: (Prelude.Maybe (ValueList Prelude.Text)),
                          writeManifest :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeltaTargetProperty :: DeltaTargetProperty
 mkDeltaTargetProperty
   = DeltaTargetProperty

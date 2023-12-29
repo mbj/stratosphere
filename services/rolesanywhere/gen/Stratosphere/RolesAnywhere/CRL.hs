@@ -13,6 +13,7 @@ data CRL
          name :: (Value Prelude.Text),
          tags :: (Prelude.Maybe [Tag]),
          trustAnchorArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCRL :: Value Prelude.Text -> Value Prelude.Text -> CRL
 mkCRL crlData name
   = CRL

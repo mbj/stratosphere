@@ -10,6 +10,7 @@ import Stratosphere.Value
 data BillingModeProperty
   = BillingModeProperty {mode :: (Value Prelude.Text),
                          provisionedThroughput :: (Prelude.Maybe ProvisionedThroughputProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBillingModeProperty :: Value Prelude.Text -> BillingModeProperty
 mkBillingModeProperty mode
   = BillingModeProperty

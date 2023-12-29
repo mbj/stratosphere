@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SubscriberProperty
   = SubscriberProperty {address :: (Value Prelude.Text),
                         type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriberProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SubscriberProperty
 mkSubscriberProperty address type'

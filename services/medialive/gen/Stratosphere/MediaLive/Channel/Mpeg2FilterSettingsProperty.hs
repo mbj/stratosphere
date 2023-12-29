@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TemporalFilterSettingsPrope
 import Stratosphere.ResourceProperties
 data Mpeg2FilterSettingsProperty
   = Mpeg2FilterSettingsProperty {temporalFilterSettings :: (Prelude.Maybe TemporalFilterSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMpeg2FilterSettingsProperty :: Mpeg2FilterSettingsProperty
 mkMpeg2FilterSettingsProperty
   = Mpeg2FilterSettingsProperty

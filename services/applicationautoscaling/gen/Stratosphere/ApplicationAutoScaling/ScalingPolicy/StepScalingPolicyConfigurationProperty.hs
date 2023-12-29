@@ -14,6 +14,7 @@ data StepScalingPolicyConfigurationProperty
                                             metricAggregationType :: (Prelude.Maybe (Value Prelude.Text)),
                                             minAdjustmentMagnitude :: (Prelude.Maybe (Value Prelude.Integer)),
                                             stepAdjustments :: (Prelude.Maybe [StepAdjustmentProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStepScalingPolicyConfigurationProperty ::
   StepScalingPolicyConfigurationProperty
 mkStepScalingPolicyConfigurationProperty

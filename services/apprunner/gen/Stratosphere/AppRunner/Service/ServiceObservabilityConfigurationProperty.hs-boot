@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ServiceObservabilityConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ServiceObservabilityConfigurationProperty
+instance Prelude.Eq ServiceObservabilityConfigurationProperty
+instance Prelude.Show ServiceObservabilityConfigurationProperty
 instance JSON.ToJSON ServiceObservabilityConfigurationProperty

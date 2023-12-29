@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DemodulationConfigProperty :: Prelude.Type
 instance ToResourceProperties DemodulationConfigProperty
+instance Prelude.Eq DemodulationConfigProperty
+instance Prelude.Show DemodulationConfigProperty
 instance JSON.ToJSON DemodulationConfigProperty

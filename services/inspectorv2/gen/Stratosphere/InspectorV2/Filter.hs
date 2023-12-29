@@ -12,6 +12,7 @@ data Filter
             filterAction :: (Value Prelude.Text),
             filterCriteria :: FilterCriteriaProperty,
             name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilter ::
   Value Prelude.Text
   -> FilterCriteriaProperty -> Value Prelude.Text -> Filter

@@ -10,6 +10,7 @@ data CustomExtensionProperty
   = CustomExtensionProperty {critical :: (Prelude.Maybe (Value Prelude.Bool)),
                              objectIdentifier :: (Value Prelude.Text),
                              value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomExtensionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> CustomExtensionProperty
 mkCustomExtensionProperty objectIdentifier value

@@ -15,6 +15,7 @@ data WorkDocsConfigurationProperty
                                    inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    organizationId :: (Value Prelude.Text),
                                    useChangeLog :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkDocsConfigurationProperty ::
   Value Prelude.Text -> WorkDocsConfigurationProperty
 mkWorkDocsConfigurationProperty organizationId

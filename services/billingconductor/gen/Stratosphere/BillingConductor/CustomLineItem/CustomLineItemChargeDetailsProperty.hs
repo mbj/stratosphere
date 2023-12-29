@@ -13,6 +13,7 @@ data CustomLineItemChargeDetailsProperty
   = CustomLineItemChargeDetailsProperty {flat :: (Prelude.Maybe CustomLineItemFlatChargeDetailsProperty),
                                          percentage :: (Prelude.Maybe CustomLineItemPercentageChargeDetailsProperty),
                                          type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomLineItemChargeDetailsProperty ::
   Value Prelude.Text -> CustomLineItemChargeDetailsProperty
 mkCustomLineItemChargeDetailsProperty type'

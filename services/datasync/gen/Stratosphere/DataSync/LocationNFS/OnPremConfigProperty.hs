@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnPremConfigProperty
   = OnPremConfigProperty {agentArns :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOnPremConfigProperty ::
   ValueList Prelude.Text -> OnPremConfigProperty
 mkOnPremConfigProperty agentArns

@@ -14,6 +14,7 @@ data VariableProperty
                       outputFileUriValue :: (Prelude.Maybe OutputFileUriValueProperty),
                       stringValue :: (Prelude.Maybe (Value Prelude.Text)),
                       variableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVariableProperty :: Value Prelude.Text -> VariableProperty
 mkVariableProperty variableName
   = VariableProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data QopConfigurationProperty
   = QopConfigurationProperty {dataTransferProtection :: (Prelude.Maybe (Value Prelude.Text)),
                               rpcProtection :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQopConfigurationProperty :: QopConfigurationProperty
 mkQopConfigurationProperty
   = QopConfigurationProperty

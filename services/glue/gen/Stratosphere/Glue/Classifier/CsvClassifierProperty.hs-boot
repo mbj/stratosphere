@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CsvClassifierProperty :: Prelude.Type
 instance ToResourceProperties CsvClassifierProperty
+instance Prelude.Eq CsvClassifierProperty
+instance Prelude.Show CsvClassifierProperty
 instance JSON.ToJSON CsvClassifierProperty

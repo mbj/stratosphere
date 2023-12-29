@@ -10,6 +10,7 @@ data PostgreSqlParametersProperty
   = PostgreSqlParametersProperty {database :: (Value Prelude.Text),
                                   host :: (Value Prelude.Text),
                                   port :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPostgreSqlParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

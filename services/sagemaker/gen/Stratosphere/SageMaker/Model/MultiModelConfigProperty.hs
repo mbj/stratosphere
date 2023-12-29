@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultiModelConfigProperty
   = MultiModelConfigProperty {modelCacheSetting :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiModelConfigProperty :: MultiModelConfigProperty
 mkMultiModelConfigProperty
   = MultiModelConfigProperty {modelCacheSetting = Prelude.Nothing}

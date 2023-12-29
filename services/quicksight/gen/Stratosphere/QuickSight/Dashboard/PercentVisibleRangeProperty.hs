@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PercentVisibleRangeProperty
   = PercentVisibleRangeProperty {from :: (Prelude.Maybe (Value Prelude.Double)),
                                  to :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPercentVisibleRangeProperty :: PercentVisibleRangeProperty
 mkPercentVisibleRangeProperty
   = PercentVisibleRangeProperty

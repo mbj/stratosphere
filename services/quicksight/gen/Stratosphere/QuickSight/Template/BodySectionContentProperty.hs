@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.SectionLayoutConfiguratio
 import Stratosphere.ResourceProperties
 data BodySectionContentProperty
   = BodySectionContentProperty {layout :: (Prelude.Maybe SectionLayoutConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBodySectionContentProperty :: BodySectionContentProperty
 mkBodySectionContentProperty
   = BodySectionContentProperty {layout = Prelude.Nothing}

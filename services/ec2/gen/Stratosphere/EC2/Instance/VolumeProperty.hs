@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VolumeProperty
   = VolumeProperty {device :: (Value Prelude.Text),
                     volumeId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> VolumeProperty
 mkVolumeProperty device volumeId

@@ -12,6 +12,7 @@ data KerberosAttributesProperty
                                 crossRealmTrustPrincipalPassword :: (Prelude.Maybe (Value Prelude.Text)),
                                 kdcAdminPassword :: (Value Prelude.Text),
                                 realm :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKerberosAttributesProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> KerberosAttributesProperty

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.Events.Endpoint.FailoverConfigProperty as Exp
 import Stratosphere.ResourceProperties
 data RoutingConfigProperty
   = RoutingConfigProperty {failoverConfig :: FailoverConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingConfigProperty ::
   FailoverConfigProperty -> RoutingConfigProperty
 mkRoutingConfigProperty failoverConfig

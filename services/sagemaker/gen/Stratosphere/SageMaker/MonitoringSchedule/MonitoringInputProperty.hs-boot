@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MonitoringInputProperty :: Prelude.Type
 instance ToResourceProperties MonitoringInputProperty
+instance Prelude.Eq MonitoringInputProperty
+instance Prelude.Show MonitoringInputProperty
 instance JSON.ToJSON MonitoringInputProperty

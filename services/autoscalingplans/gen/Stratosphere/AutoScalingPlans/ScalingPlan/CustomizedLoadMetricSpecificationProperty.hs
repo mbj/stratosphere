@@ -14,6 +14,7 @@ data CustomizedLoadMetricSpecificationProperty
                                                namespace :: (Value Prelude.Text),
                                                statistic :: (Value Prelude.Text),
                                                unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomizedLoadMetricSpecificationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

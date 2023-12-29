@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ZendeskDestinationPropertiesProperty :: Prelude.Type
 instance ToResourceProperties ZendeskDestinationPropertiesProperty
+instance Prelude.Eq ZendeskDestinationPropertiesProperty
+instance Prelude.Show ZendeskDestinationPropertiesProperty
 instance JSON.ToJSON ZendeskDestinationPropertiesProperty

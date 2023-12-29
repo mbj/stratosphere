@@ -12,6 +12,7 @@ data FieldBasedTooltipProperty
   = FieldBasedTooltipProperty {aggregationVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                                tooltipFields :: (Prelude.Maybe [TooltipItemProperty]),
                                tooltipTitleType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldBasedTooltipProperty :: FieldBasedTooltipProperty
 mkFieldBasedTooltipProperty
   = FieldBasedTooltipProperty

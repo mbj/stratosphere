@@ -24,6 +24,7 @@ data Experiment
                 segment :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag]),
                 treatments :: [TreatmentObjectProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExperiment ::
   [MetricGoalObjectProperty]
   -> Value Prelude.Text

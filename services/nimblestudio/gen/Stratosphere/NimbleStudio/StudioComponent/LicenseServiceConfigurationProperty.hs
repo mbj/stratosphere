@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LicenseServiceConfigurationProperty
   = LicenseServiceConfigurationProperty {endpoint :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLicenseServiceConfigurationProperty ::
   LicenseServiceConfigurationProperty
 mkLicenseServiceConfigurationProperty

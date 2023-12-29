@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MarketoSourcePropertiesProperty
   = MarketoSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMarketoSourcePropertiesProperty ::
   Value Prelude.Text -> MarketoSourcePropertiesProperty
 mkMarketoSourcePropertiesProperty object

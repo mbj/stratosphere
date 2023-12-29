@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ServiceAccountCredentialsProperty
   = ServiceAccountCredentialsProperty {accountName :: (Value Prelude.Text),
                                        accountPassword :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceAccountCredentialsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ServiceAccountCredentialsProperty

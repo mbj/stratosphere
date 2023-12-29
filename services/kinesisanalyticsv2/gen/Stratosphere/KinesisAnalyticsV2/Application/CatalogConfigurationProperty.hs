@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.GlueDataCatalo
 import Stratosphere.ResourceProperties
 data CatalogConfigurationProperty
   = CatalogConfigurationProperty {glueDataCatalogConfiguration :: (Prelude.Maybe GlueDataCatalogConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCatalogConfigurationProperty :: CatalogConfigurationProperty
 mkCatalogConfigurationProperty
   = CatalogConfigurationProperty

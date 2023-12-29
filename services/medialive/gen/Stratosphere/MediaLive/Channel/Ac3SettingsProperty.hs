@@ -14,6 +14,7 @@ data Ac3SettingsProperty
                          drcProfile :: (Prelude.Maybe (Value Prelude.Text)),
                          lfeFilter :: (Prelude.Maybe (Value Prelude.Text)),
                          metadataControl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAc3SettingsProperty :: Ac3SettingsProperty
 mkAc3SettingsProperty
   = Ac3SettingsProperty

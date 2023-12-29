@@ -13,6 +13,7 @@ data EntitlementProperty
                          overage :: (Prelude.Maybe (Value Prelude.Bool)),
                          unit :: (Value Prelude.Text),
                          value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntitlementProperty ::
   Value Prelude.Text -> Value Prelude.Text -> EntitlementProperty
 mkEntitlementProperty name unit

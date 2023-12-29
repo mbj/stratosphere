@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ContinuousHyperParameterRangeProperty :: Prelude.Type
 instance ToResourceProperties ContinuousHyperParameterRangeProperty
+instance Prelude.Eq ContinuousHyperParameterRangeProperty
+instance Prelude.Show ContinuousHyperParameterRangeProperty
 instance JSON.ToJSON ContinuousHyperParameterRangeProperty

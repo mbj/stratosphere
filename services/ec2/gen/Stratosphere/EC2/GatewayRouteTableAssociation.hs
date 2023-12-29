@@ -9,6 +9,7 @@ import Stratosphere.Value
 data GatewayRouteTableAssociation
   = GatewayRouteTableAssociation {gatewayId :: (Value Prelude.Text),
                                   routeTableId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteTableAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> GatewayRouteTableAssociation

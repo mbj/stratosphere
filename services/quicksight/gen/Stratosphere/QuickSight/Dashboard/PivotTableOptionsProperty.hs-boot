@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PivotTableOptionsProperty :: Prelude.Type
 instance ToResourceProperties PivotTableOptionsProperty
+instance Prelude.Eq PivotTableOptionsProperty
+instance Prelude.Show PivotTableOptionsProperty
 instance JSON.ToJSON PivotTableOptionsProperty

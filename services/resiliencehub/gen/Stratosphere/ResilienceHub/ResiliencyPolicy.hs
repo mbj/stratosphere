@@ -14,6 +14,7 @@ data ResiliencyPolicy
                       policyName :: (Value Prelude.Text),
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                       tier :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResiliencyPolicy ::
   Prelude.Map Prelude.Text FailurePolicyProperty
   -> Value Prelude.Text -> Value Prelude.Text -> ResiliencyPolicy

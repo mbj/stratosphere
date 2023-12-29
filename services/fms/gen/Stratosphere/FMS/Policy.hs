@@ -25,6 +25,7 @@ data Policy
             resourcesCleanUp :: (Prelude.Maybe (Value Prelude.Bool)),
             securityServicePolicyData :: SecurityServicePolicyDataProperty,
             tags :: (Prelude.Maybe [PolicyTagProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicy ::
   Value Prelude.Bool
   -> Value Prelude.Text

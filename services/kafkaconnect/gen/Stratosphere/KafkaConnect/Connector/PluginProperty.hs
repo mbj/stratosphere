@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.CustomPluginProperty a
 import Stratosphere.ResourceProperties
 data PluginProperty
   = PluginProperty {customPlugin :: CustomPluginProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPluginProperty :: CustomPluginProperty -> PluginProperty
 mkPluginProperty customPlugin
   = PluginProperty {customPlugin = customPlugin}

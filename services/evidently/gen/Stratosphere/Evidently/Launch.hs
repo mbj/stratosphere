@@ -21,6 +21,7 @@ data Launch
             randomizationSalt :: (Prelude.Maybe (Value Prelude.Text)),
             scheduledSplitsConfig :: [StepConfigProperty],
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunch ::
   [LaunchGroupObjectProperty]
   -> Value Prelude.Text

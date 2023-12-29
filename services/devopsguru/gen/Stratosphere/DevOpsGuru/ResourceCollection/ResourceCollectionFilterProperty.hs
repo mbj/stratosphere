@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ResourceCollectionFilterProperty
   = ResourceCollectionFilterProperty {cloudFormation :: (Prelude.Maybe CloudFormationCollectionFilterProperty),
                                       tags :: (Prelude.Maybe [TagCollectionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceCollectionFilterProperty ::
   ResourceCollectionFilterProperty
 mkResourceCollectionFilterProperty

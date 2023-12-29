@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HttpQueryParameterMatchProperty :: Prelude.Type
 instance ToResourceProperties HttpQueryParameterMatchProperty
+instance Prelude.Eq HttpQueryParameterMatchProperty
+instance Prelude.Show HttpQueryParameterMatchProperty
 instance JSON.ToJSON HttpQueryParameterMatchProperty

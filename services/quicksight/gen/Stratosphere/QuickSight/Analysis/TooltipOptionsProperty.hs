@@ -12,6 +12,7 @@ data TooltipOptionsProperty
   = TooltipOptionsProperty {fieldBasedTooltip :: (Prelude.Maybe FieldBasedTooltipProperty),
                             selectedTooltipType :: (Prelude.Maybe (Value Prelude.Text)),
                             tooltipVisibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTooltipOptionsProperty :: TooltipOptionsProperty
 mkTooltipOptionsProperty
   = TooltipOptionsProperty

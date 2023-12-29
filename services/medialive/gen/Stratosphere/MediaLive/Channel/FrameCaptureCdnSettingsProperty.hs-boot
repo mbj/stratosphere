@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FrameCaptureCdnSettingsProperty :: Prelude.Type
 instance ToResourceProperties FrameCaptureCdnSettingsProperty
+instance Prelude.Eq FrameCaptureCdnSettingsProperty
+instance Prelude.Show FrameCaptureCdnSettingsProperty
 instance JSON.ToJSON FrameCaptureCdnSettingsProperty

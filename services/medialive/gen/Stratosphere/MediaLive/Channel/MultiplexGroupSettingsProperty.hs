@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MultiplexGroupSettingsProperty
   = MultiplexGroupSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexGroupSettingsProperty :: MultiplexGroupSettingsProperty
 mkMultiplexGroupSettingsProperty
   = MultiplexGroupSettingsProperty {}

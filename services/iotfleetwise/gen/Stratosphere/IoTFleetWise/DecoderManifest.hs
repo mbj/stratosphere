@@ -17,6 +17,7 @@ data DecoderManifest
                      signalDecoders :: (Prelude.Maybe [SignalDecodersItemsProperty]),
                      status :: (Prelude.Maybe (Value Prelude.Text)),
                      tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDecoderManifest ::
   Value Prelude.Text -> Value Prelude.Text -> DecoderManifest
 mkDecoderManifest modelManifestArn name

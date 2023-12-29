@@ -10,6 +10,7 @@ import Stratosphere.Value
 data VideoBlackFailoverSettingsProperty
   = VideoBlackFailoverSettingsProperty {blackDetectThreshold :: (Prelude.Maybe (Value Prelude.Double)),
                                         videoBlackThresholdMsec :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoBlackFailoverSettingsProperty ::
   VideoBlackFailoverSettingsProperty
 mkVideoBlackFailoverSettingsProperty

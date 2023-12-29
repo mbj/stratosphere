@@ -14,6 +14,7 @@ data PrincipalPermissions
                           permissionsWithGrantOption :: (ValueList Prelude.Text),
                           principal :: DataLakePrincipalProperty,
                           resource :: ResourceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrincipalPermissions ::
   ValueList Prelude.Text
   -> ValueList Prelude.Text

@@ -18,6 +18,7 @@ data User
           policies :: (Prelude.Maybe [PolicyProperty]),
           tags :: (Prelude.Maybe [Tag]),
           userName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUser :: User
 mkUser
   = User

@@ -10,6 +10,7 @@ data RuleConfigProperty
   = RuleConfigProperty {inverted :: (Value Prelude.Bool),
                         threshold :: (Value Prelude.Integer),
                         type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleConfigProperty ::
   Value Prelude.Bool
   -> Value Prelude.Integer

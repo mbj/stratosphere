@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TrafficRoutingConfigProperty :: Prelude.Type
 instance ToResourceProperties TrafficRoutingConfigProperty
+instance Prelude.Eq TrafficRoutingConfigProperty
+instance Prelude.Show TrafficRoutingConfigProperty
 instance JSON.ToJSON TrafficRoutingConfigProperty

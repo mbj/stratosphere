@@ -15,6 +15,7 @@ data ConditionalBranchProperty
                                name :: (Value Prelude.Text),
                                nextStep :: DialogStateProperty,
                                response :: (Prelude.Maybe ResponseSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionalBranchProperty ::
   ConditionProperty
   -> Value Prelude.Text

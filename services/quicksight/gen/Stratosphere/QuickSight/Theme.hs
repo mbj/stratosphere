@@ -18,6 +18,7 @@ data Theme
            tags :: (Prelude.Maybe [Tag]),
            themeId :: (Value Prelude.Text),
            versionDescription :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTheme :: Value Prelude.Text -> Value Prelude.Text -> Theme
 mkTheme awsAccountId themeId
   = Theme

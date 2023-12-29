@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AccessLogSettingProperty
   = AccessLogSettingProperty {destinationArn :: (Prelude.Maybe (Value Prelude.Text)),
                               format :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessLogSettingProperty :: AccessLogSettingProperty
 mkAccessLogSettingProperty
   = AccessLogSettingProperty

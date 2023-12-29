@@ -9,6 +9,7 @@ import Stratosphere.Value
 data UserToGroupAddition
   = UserToGroupAddition {groupName :: (Value Prelude.Text),
                          users :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserToGroupAddition ::
   Value Prelude.Text -> ValueList Prelude.Text -> UserToGroupAddition
 mkUserToGroupAddition groupName users

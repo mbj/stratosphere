@@ -13,6 +13,7 @@ data DataInputConfigurationProperty
   = DataInputConfigurationProperty {inferenceInputNameConfiguration :: (Prelude.Maybe InputNameConfigurationProperty),
                                     inputTimeZoneOffset :: (Prelude.Maybe (Value Prelude.Text)),
                                     s3InputConfiguration :: S3InputConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataInputConfigurationProperty ::
   S3InputConfigurationProperty -> DataInputConfigurationProperty
 mkDataInputConfigurationProperty s3InputConfiguration

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NodeToNodeEncryptionOptionsProperty
   = NodeToNodeEncryptionOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeToNodeEncryptionOptionsProperty ::
   NodeToNodeEncryptionOptionsProperty
 mkNodeToNodeEncryptionOptionsProperty

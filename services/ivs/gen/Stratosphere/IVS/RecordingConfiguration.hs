@@ -16,6 +16,7 @@ data RecordingConfiguration
                             recordingReconnectWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                             tags :: (Prelude.Maybe [Tag]),
                             thumbnailConfiguration :: (Prelude.Maybe ThumbnailConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordingConfiguration ::
   DestinationConfigurationProperty -> RecordingConfiguration
 mkRecordingConfiguration destinationConfiguration

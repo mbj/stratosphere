@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AlarmProperty
   = AlarmProperty {alarmName :: (Value Prelude.Text),
                    severity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmProperty :: Value Prelude.Text -> AlarmProperty
 mkAlarmProperty alarmName
   = AlarmProperty {alarmName = alarmName, severity = Prelude.Nothing}

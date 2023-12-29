@@ -12,6 +12,7 @@ data AccessPoint
                  name :: (Value Prelude.Text),
                  policy :: (Prelude.Maybe JSON.Object),
                  vpcConfiguration :: VpcConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPoint ::
   Value Prelude.Text
   -> Value Prelude.Text -> VpcConfigurationProperty -> AccessPoint

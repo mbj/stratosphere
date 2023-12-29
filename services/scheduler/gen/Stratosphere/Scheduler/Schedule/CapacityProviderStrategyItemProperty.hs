@@ -11,6 +11,7 @@ data CapacityProviderStrategyItemProperty
   = CapacityProviderStrategyItemProperty {base :: (Prelude.Maybe (Value Prelude.Double)),
                                           capacityProvider :: (Value Prelude.Text),
                                           weight :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityProviderStrategyItemProperty ::
   Value Prelude.Text -> CapacityProviderStrategyItemProperty
 mkCapacityProviderStrategyItemProperty capacityProvider

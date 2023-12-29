@@ -14,6 +14,7 @@ data QuickConnect
                   name :: (Value Prelude.Text),
                   quickConnectConfig :: QuickConnectConfigProperty,
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQuickConnect ::
   Value Prelude.Text
   -> Value Prelude.Text -> QuickConnectConfigProperty -> QuickConnect

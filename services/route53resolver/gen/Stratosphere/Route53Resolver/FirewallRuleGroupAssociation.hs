@@ -14,6 +14,7 @@ data FirewallRuleGroupAssociation
                                   priority :: (Value Prelude.Integer),
                                   tags :: (Prelude.Maybe [Tag]),
                                   vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallRuleGroupAssociation ::
   Value Prelude.Text
   -> Value Prelude.Integer

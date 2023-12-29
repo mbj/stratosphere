@@ -12,6 +12,7 @@ data ConditionProperty
                        jobName :: (Prelude.Maybe (Value Prelude.Text)),
                        logicalOperator :: (Prelude.Maybe (Value Prelude.Text)),
                        state :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionProperty :: ConditionProperty
 mkConditionProperty
   = ConditionProperty

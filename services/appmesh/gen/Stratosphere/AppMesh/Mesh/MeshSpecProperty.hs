@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data MeshSpecProperty
   = MeshSpecProperty {egressFilter :: (Prelude.Maybe EgressFilterProperty),
                       serviceDiscovery :: (Prelude.Maybe MeshServiceDiscoveryProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMeshSpecProperty :: MeshSpecProperty
 mkMeshSpecProperty
   = MeshSpecProperty

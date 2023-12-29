@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data StringFormatConfigurationProperty
   = StringFormatConfigurationProperty {nullValueFormatConfiguration :: (Prelude.Maybe NullValueFormatConfigurationProperty),
                                        numericFormatConfiguration :: (Prelude.Maybe NumericFormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStringFormatConfigurationProperty ::
   StringFormatConfigurationProperty
 mkStringFormatConfigurationProperty

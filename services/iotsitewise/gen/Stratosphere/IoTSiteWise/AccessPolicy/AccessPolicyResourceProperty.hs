@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data AccessPolicyResourceProperty
   = AccessPolicyResourceProperty {portal :: (Prelude.Maybe PortalProperty),
                                   project :: (Prelude.Maybe ProjectProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPolicyResourceProperty :: AccessPolicyResourceProperty
 mkAccessPolicyResourceProperty
   = AccessPolicyResourceProperty

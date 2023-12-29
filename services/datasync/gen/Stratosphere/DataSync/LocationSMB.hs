@@ -17,6 +17,7 @@ data LocationSMB
                  subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag]),
                  user :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationSMB ::
   ValueList Prelude.Text -> Value Prelude.Text -> LocationSMB
 mkLocationSMB agentArns user

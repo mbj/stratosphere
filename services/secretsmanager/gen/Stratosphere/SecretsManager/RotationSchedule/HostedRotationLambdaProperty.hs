@@ -18,6 +18,7 @@ data HostedRotationLambdaProperty
                                   superuserSecretKmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                                   vpcSecurityGroupIds :: (Prelude.Maybe (Value Prelude.Text)),
                                   vpcSubnetIds :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHostedRotationLambdaProperty ::
   Value Prelude.Text -> HostedRotationLambdaProperty
 mkHostedRotationLambdaProperty rotationType

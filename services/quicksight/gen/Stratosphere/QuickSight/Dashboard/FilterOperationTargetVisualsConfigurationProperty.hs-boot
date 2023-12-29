@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FilterOperationTargetVisualsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties FilterOperationTargetVisualsConfigurationProperty
+instance Prelude.Eq FilterOperationTargetVisualsConfigurationProperty
+instance Prelude.Show FilterOperationTargetVisualsConfigurationProperty
 instance JSON.ToJSON FilterOperationTargetVisualsConfigurationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RefreshScheduleMapProperty :: Prelude.Type
 instance ToResourceProperties RefreshScheduleMapProperty
+instance Prelude.Eq RefreshScheduleMapProperty
+instance Prelude.Show RefreshScheduleMapProperty
 instance JSON.ToJSON RefreshScheduleMapProperty

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.WindowStartTimePrope
 import Stratosphere.ResourceProperties
 data OffPeakWindowProperty
   = OffPeakWindowProperty {windowStartTime :: (Prelude.Maybe WindowStartTimeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOffPeakWindowProperty :: OffPeakWindowProperty
 mkOffPeakWindowProperty
   = OffPeakWindowProperty {windowStartTime = Prelude.Nothing}

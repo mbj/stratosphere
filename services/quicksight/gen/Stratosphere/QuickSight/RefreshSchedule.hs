@@ -11,6 +11,7 @@ data RefreshSchedule
   = RefreshSchedule {awsAccountId :: (Prelude.Maybe (Value Prelude.Text)),
                      dataSetId :: (Prelude.Maybe (Value Prelude.Text)),
                      schedule :: (Prelude.Maybe RefreshScheduleMapProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRefreshSchedule :: RefreshSchedule
 mkRefreshSchedule
   = RefreshSchedule

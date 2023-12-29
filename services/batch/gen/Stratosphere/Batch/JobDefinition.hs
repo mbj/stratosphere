@@ -24,6 +24,7 @@ data JobDefinition
                    tags :: (Prelude.Maybe JSON.Object),
                    timeout :: (Prelude.Maybe TimeoutProperty),
                    type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJobDefinition :: Value Prelude.Text -> JobDefinition
 mkJobDefinition type'
   = JobDefinition

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FormBindingElementProperty :: Prelude.Type
 instance ToResourceProperties FormBindingElementProperty
+instance Prelude.Eq FormBindingElementProperty
+instance Prelude.Show FormBindingElementProperty
 instance JSON.ToJSON FormBindingElementProperty

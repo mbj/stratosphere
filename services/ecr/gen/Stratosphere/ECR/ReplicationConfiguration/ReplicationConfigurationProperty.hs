@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.ECR.ReplicationConfiguration.ReplicationRuleP
 import Stratosphere.ResourceProperties
 data ReplicationConfigurationProperty
   = ReplicationConfigurationProperty {rules :: [ReplicationRuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigurationProperty ::
   [ReplicationRuleProperty] -> ReplicationConfigurationProperty
 mkReplicationConfigurationProperty rules

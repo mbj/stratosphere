@@ -21,6 +21,7 @@ data Application
                  opsItemSNSTopicArn :: (Prelude.Maybe (Value Prelude.Text)),
                  resourceGroupName :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication :: Value Prelude.Text -> Application
 mkApplication resourceGroupName
   = Application

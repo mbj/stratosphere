@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.FunnelChartAggregatedFie
 import Stratosphere.ResourceProperties
 data FunnelChartFieldWellsProperty
   = FunnelChartFieldWellsProperty {funnelChartAggregatedFieldWells :: (Prelude.Maybe FunnelChartAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunnelChartFieldWellsProperty :: FunnelChartFieldWellsProperty
 mkFunnelChartFieldWellsProperty
   = FunnelChartFieldWellsProperty

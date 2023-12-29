@@ -14,6 +14,7 @@ data HlsSettingsProperty
                          fmp4HlsSettings :: (Prelude.Maybe Fmp4HlsSettingsProperty),
                          frameCaptureHlsSettings :: (Prelude.Maybe FrameCaptureHlsSettingsProperty),
                          standardHlsSettings :: (Prelude.Maybe StandardHlsSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsSettingsProperty :: HlsSettingsProperty
 mkHlsSettingsProperty
   = HlsSettingsProperty

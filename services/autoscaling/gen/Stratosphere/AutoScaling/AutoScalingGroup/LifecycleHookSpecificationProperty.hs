@@ -15,6 +15,7 @@ data LifecycleHookSpecificationProperty
                                         notificationMetadata :: (Prelude.Maybe (Value Prelude.Text)),
                                         notificationTargetARN :: (Prelude.Maybe (Value Prelude.Text)),
                                         roleARN :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecycleHookSpecificationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> LifecycleHookSpecificationProperty

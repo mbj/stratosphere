@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SegmentGroupsProperty
   = SegmentGroupsProperty {groups :: (Prelude.Maybe [GroupsProperty]),
                            include :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSegmentGroupsProperty :: SegmentGroupsProperty
 mkSegmentGroupsProperty
   = SegmentGroupsProperty

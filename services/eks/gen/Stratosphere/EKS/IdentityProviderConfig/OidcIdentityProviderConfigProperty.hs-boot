@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OidcIdentityProviderConfigProperty :: Prelude.Type
 instance ToResourceProperties OidcIdentityProviderConfigProperty
+instance Prelude.Eq OidcIdentityProviderConfigProperty
+instance Prelude.Show OidcIdentityProviderConfigProperty
 instance JSON.ToJSON OidcIdentityProviderConfigProperty

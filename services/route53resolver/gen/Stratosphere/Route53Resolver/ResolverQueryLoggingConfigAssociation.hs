@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ResolverQueryLoggingConfigAssociation
   = ResolverQueryLoggingConfigAssociation {resolverQueryLogConfigId :: (Prelude.Maybe (Value Prelude.Text)),
                                            resourceId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverQueryLoggingConfigAssociation ::
   ResolverQueryLoggingConfigAssociation
 mkResolverQueryLoggingConfigAssociation

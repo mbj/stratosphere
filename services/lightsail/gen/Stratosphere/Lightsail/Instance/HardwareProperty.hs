@@ -11,6 +11,7 @@ data HardwareProperty
   = HardwareProperty {cpuCount :: (Prelude.Maybe (Value Prelude.Integer)),
                       disks :: (Prelude.Maybe [DiskProperty]),
                       ramSizeInGb :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHardwareProperty :: HardwareProperty
 mkHardwareProperty
   = HardwareProperty

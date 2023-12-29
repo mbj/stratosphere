@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SES.ReceiptFilter.FilterProperty as Exports
 import Stratosphere.ResourceProperties
-data ReceiptFilter = ReceiptFilter {filter :: FilterProperty}
+data ReceiptFilter
+  = ReceiptFilter {filter :: FilterProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReceiptFilter :: FilterProperty -> ReceiptFilter
 mkReceiptFilter filter = ReceiptFilter {filter = filter}
 instance ToResourceProperties ReceiptFilter where

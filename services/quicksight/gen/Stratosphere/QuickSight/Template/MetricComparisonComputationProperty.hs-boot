@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MetricComparisonComputationProperty :: Prelude.Type
 instance ToResourceProperties MetricComparisonComputationProperty
+instance Prelude.Eq MetricComparisonComputationProperty
+instance Prelude.Show MetricComparisonComputationProperty
 instance JSON.ToJSON MetricComparisonComputationProperty

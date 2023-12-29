@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScaleOutPolicyProperty
   = ScaleOutPolicyProperty {cpuUtilizationPercentage :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScaleOutPolicyProperty ::
   Value Prelude.Integer -> ScaleOutPolicyProperty
 mkScaleOutPolicyProperty cpuUtilizationPercentage

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomLineItemFlatChargeDetailsProperty
   = CustomLineItemFlatChargeDetailsProperty {chargeValue :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomLineItemFlatChargeDetailsProperty ::
   Value Prelude.Double -> CustomLineItemFlatChargeDetailsProperty
 mkCustomLineItemFlatChargeDetailsProperty chargeValue

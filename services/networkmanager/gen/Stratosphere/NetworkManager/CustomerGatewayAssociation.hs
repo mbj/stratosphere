@@ -11,6 +11,7 @@ data CustomerGatewayAssociation
                                 deviceId :: (Value Prelude.Text),
                                 globalNetworkId :: (Value Prelude.Text),
                                 linkId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerGatewayAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text

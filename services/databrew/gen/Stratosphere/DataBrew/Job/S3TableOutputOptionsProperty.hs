@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 data S3TableOutputOptionsProperty
   = S3TableOutputOptionsProperty {location :: S3LocationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3TableOutputOptionsProperty ::
   S3LocationProperty -> S3TableOutputOptionsProperty
 mkS3TableOutputOptionsProperty location

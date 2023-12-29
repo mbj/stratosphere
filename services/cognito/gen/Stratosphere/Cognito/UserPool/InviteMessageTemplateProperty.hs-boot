@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InviteMessageTemplateProperty :: Prelude.Type
 instance ToResourceProperties InviteMessageTemplateProperty
+instance Prelude.Eq InviteMessageTemplateProperty
+instance Prelude.Show InviteMessageTemplateProperty
 instance JSON.ToJSON InviteMessageTemplateProperty

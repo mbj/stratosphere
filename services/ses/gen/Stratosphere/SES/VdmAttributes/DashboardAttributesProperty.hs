@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DashboardAttributesProperty
   = DashboardAttributesProperty {engagementMetrics :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboardAttributesProperty :: DashboardAttributesProperty
 mkDashboardAttributesProperty
   = DashboardAttributesProperty {engagementMetrics = Prelude.Nothing}

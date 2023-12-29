@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResolverDNSSECConfig
   = ResolverDNSSECConfig {resourceId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverDNSSECConfig :: ResolverDNSSECConfig
 mkResolverDNSSECConfig
   = ResolverDNSSECConfig {resourceId = Prelude.Nothing}

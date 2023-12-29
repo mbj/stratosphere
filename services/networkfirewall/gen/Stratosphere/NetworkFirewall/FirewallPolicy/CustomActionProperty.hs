@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CustomActionProperty
   = CustomActionProperty {actionDefinition :: ActionDefinitionProperty,
                           actionName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomActionProperty ::
   ActionDefinitionProperty
   -> Value Prelude.Text -> CustomActionProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ColumnProperty
   = ColumnProperty {name :: (Value Prelude.Text),
                     type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ColumnProperty
 mkColumnProperty name type'

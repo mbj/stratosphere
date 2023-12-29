@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ServiceNowConnectorProfilePropertiesProperty :: Prelude.Type
 instance ToResourceProperties ServiceNowConnectorProfilePropertiesProperty
+instance Prelude.Eq ServiceNowConnectorProfilePropertiesProperty
+instance Prelude.Show ServiceNowConnectorProfilePropertiesProperty
 instance JSON.ToJSON ServiceNowConnectorProfilePropertiesProperty

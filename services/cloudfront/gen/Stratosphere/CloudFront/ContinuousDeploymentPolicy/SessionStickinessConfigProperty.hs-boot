@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SessionStickinessConfigProperty :: Prelude.Type
 instance ToResourceProperties SessionStickinessConfigProperty
+instance Prelude.Eq SessionStickinessConfigProperty
+instance Prelude.Show SessionStickinessConfigProperty
 instance JSON.ToJSON SessionStickinessConfigProperty

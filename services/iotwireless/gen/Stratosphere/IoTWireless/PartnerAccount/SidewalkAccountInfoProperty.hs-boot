@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SidewalkAccountInfoProperty :: Prelude.Type
 instance ToResourceProperties SidewalkAccountInfoProperty
+instance Prelude.Eq SidewalkAccountInfoProperty
+instance Prelude.Show SidewalkAccountInfoProperty
 instance JSON.ToJSON SidewalkAccountInfoProperty

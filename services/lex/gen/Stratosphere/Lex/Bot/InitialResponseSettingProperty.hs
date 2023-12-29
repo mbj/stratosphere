@@ -15,6 +15,7 @@ data InitialResponseSettingProperty
                                     conditional :: (Prelude.Maybe ConditionalSpecificationProperty),
                                     initialResponse :: (Prelude.Maybe ResponseSpecificationProperty),
                                     nextStep :: (Prelude.Maybe DialogStateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInitialResponseSettingProperty :: InitialResponseSettingProperty
 mkInitialResponseSettingProperty
   = InitialResponseSettingProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SubscriptionProperty
   = SubscriptionProperty {endpoint :: (Value Prelude.Text),
                           protocol :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriptionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SubscriptionProperty
 mkSubscriptionProperty endpoint protocol

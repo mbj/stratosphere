@@ -31,6 +31,7 @@ data Job
          tags :: (Prelude.Maybe JSON.Object),
          timeout :: (Prelude.Maybe (Value Prelude.Integer)),
          workerType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJob :: JobCommandProperty -> Value Prelude.Text -> Job
 mkJob command role
   = Job

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data PivotFieldSortOptionsProperty
   = PivotFieldSortOptionsProperty {fieldId :: (Value Prelude.Text),
                                    sortBy :: PivotTableSortByProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotFieldSortOptionsProperty ::
   Value Prelude.Text
   -> PivotTableSortByProperty -> PivotFieldSortOptionsProperty

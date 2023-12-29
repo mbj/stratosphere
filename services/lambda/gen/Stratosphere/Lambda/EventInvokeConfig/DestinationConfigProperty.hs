@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DestinationConfigProperty
   = DestinationConfigProperty {onFailure :: (Prelude.Maybe OnFailureProperty),
                                onSuccess :: (Prelude.Maybe OnSuccessProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigProperty :: DestinationConfigProperty
 mkDestinationConfigProperty
   = DestinationConfigProperty

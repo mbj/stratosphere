@@ -10,6 +10,7 @@ import Stratosphere.Value
 data IngressVpcConfigurationProperty
   = IngressVpcConfigurationProperty {vpcEndpointId :: (Value Prelude.Text),
                                      vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressVpcConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> IngressVpcConfigurationProperty

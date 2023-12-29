@@ -16,6 +16,7 @@ data DataCatalogOutputProperty
                                overwrite :: (Prelude.Maybe (Value Prelude.Bool)),
                                s3Options :: (Prelude.Maybe S3TableOutputOptionsProperty),
                                tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCatalogOutputProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DataCatalogOutputProperty

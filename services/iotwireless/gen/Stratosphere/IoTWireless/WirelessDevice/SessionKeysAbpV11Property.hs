@@ -11,6 +11,7 @@ data SessionKeysAbpV11Property
                                fNwkSIntKey :: (Value Prelude.Text),
                                nwkSEncKey :: (Value Prelude.Text),
                                sNwkSIntKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSessionKeysAbpV11Property ::
   Value Prelude.Text
   -> Value Prelude.Text

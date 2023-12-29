@@ -27,6 +27,7 @@ data IntentConfirmationSettingProperty
                                        failureResponse :: (Prelude.Maybe ResponseSpecificationProperty),
                                        isActive :: (Prelude.Maybe (Value Prelude.Bool)),
                                        promptSpecification :: PromptSpecificationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntentConfirmationSettingProperty ::
   PromptSpecificationProperty -> IntentConfirmationSettingProperty
 mkIntentConfirmationSettingProperty promptSpecification

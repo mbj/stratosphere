@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IotAnalyticsActionProperty :: Prelude.Type
 instance ToResourceProperties IotAnalyticsActionProperty
+instance Prelude.Eq IotAnalyticsActionProperty
+instance Prelude.Show IotAnalyticsActionProperty
 instance JSON.ToJSON IotAnalyticsActionProperty

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data TextAreaControlDisplayOptionsProperty
   = TextAreaControlDisplayOptionsProperty {placeholderOptions :: (Prelude.Maybe TextControlPlaceholderOptionsProperty),
                                            titleOptions :: (Prelude.Maybe LabelOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTextAreaControlDisplayOptionsProperty ::
   TextAreaControlDisplayOptionsProperty
 mkTextAreaControlDisplayOptionsProperty

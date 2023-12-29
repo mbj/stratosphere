@@ -10,6 +10,7 @@ data SecurityDetailsProperty
   = SecurityDetailsProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                              securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                              subnetIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityDetailsProperty :: SecurityDetailsProperty
 mkSecurityDetailsProperty
   = SecurityDetailsProperty

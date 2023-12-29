@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicaSSESpecificationProperty
   = ReplicaSSESpecificationProperty {kMSMasterKeyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaSSESpecificationProperty ::
   Value Prelude.Text -> ReplicaSSESpecificationProperty
 mkReplicaSSESpecificationProperty kMSMasterKeyId

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GlueDataCatalogConfigurationProperty :: Prelude.Type
 instance ToResourceProperties GlueDataCatalogConfigurationProperty
+instance Prelude.Eq GlueDataCatalogConfigurationProperty
+instance Prelude.Show GlueDataCatalogConfigurationProperty
 instance JSON.ToJSON GlueDataCatalogConfigurationProperty

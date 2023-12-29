@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.GeoRestrictionPropert
 import Stratosphere.ResourceProperties
 data RestrictionsProperty
   = RestrictionsProperty {geoRestriction :: GeoRestrictionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRestrictionsProperty ::
   GeoRestrictionProperty -> RestrictionsProperty
 mkRestrictionsProperty geoRestriction

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ApplicationSourceProperty
   = ApplicationSourceProperty {cloudFormationStackARN :: (Prelude.Maybe (Value Prelude.Text)),
                                tagFilters :: (Prelude.Maybe [TagFilterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationSourceProperty :: ApplicationSourceProperty
 mkApplicationSourceProperty
   = ApplicationSourceProperty

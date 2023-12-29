@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data PivotTableFieldOptionsProperty
   = PivotTableFieldOptionsProperty {dataPathOptions :: (Prelude.Maybe [PivotTableDataPathOptionProperty]),
                                     selectedFieldOptions :: (Prelude.Maybe [PivotTableFieldOptionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableFieldOptionsProperty :: PivotTableFieldOptionsProperty
 mkPivotTableFieldOptionsProperty
   = PivotTableFieldOptionsProperty

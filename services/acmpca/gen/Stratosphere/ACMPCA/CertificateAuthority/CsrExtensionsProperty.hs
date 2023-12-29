@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data CsrExtensionsProperty
   = CsrExtensionsProperty {keyUsage :: (Prelude.Maybe KeyUsageProperty),
                            subjectInformationAccess :: (Prelude.Maybe [AccessDescriptionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCsrExtensionsProperty :: CsrExtensionsProperty
 mkCsrExtensionsProperty
   = CsrExtensionsProperty

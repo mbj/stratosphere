@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ArchiveRuleProperty
   = ArchiveRuleProperty {filter :: [FilterProperty],
                          ruleName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveRuleProperty ::
   [FilterProperty] -> Value Prelude.Text -> ArchiveRuleProperty
 mkArchiveRuleProperty filter ruleName

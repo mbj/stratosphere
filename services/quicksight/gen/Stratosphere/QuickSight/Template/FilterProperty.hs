@@ -20,6 +20,7 @@ data FilterProperty
                     timeEqualityFilter :: (Prelude.Maybe TimeEqualityFilterProperty),
                     timeRangeFilter :: (Prelude.Maybe TimeRangeFilterProperty),
                     topBottomFilter :: (Prelude.Maybe TopBottomFilterProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty :: FilterProperty
 mkFilterProperty
   = FilterProperty

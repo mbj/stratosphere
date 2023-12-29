@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayClientPo
 import Stratosphere.ResourceProperties
 data VirtualGatewayClientPolicyProperty
   = VirtualGatewayClientPolicyProperty {tLS :: (Prelude.Maybe VirtualGatewayClientPolicyTlsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayClientPolicyProperty ::
   VirtualGatewayClientPolicyProperty
 mkVirtualGatewayClientPolicyProperty

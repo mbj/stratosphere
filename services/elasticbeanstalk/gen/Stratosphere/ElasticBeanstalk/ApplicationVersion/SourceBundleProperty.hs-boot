@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SourceBundleProperty :: Prelude.Type
 instance ToResourceProperties SourceBundleProperty
+instance Prelude.Eq SourceBundleProperty
+instance Prelude.Show SourceBundleProperty
 instance JSON.ToJSON SourceBundleProperty

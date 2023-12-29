@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.VirtualGatewayFileAcce
 import Stratosphere.ResourceProperties
 data VirtualGatewayAccessLogProperty
   = VirtualGatewayAccessLogProperty {file :: (Prelude.Maybe VirtualGatewayFileAccessLogProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayAccessLogProperty ::
   VirtualGatewayAccessLogProperty
 mkVirtualGatewayAccessLogProperty

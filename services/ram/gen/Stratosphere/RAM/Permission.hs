@@ -12,6 +12,7 @@ data Permission
                 policyTemplate :: JSON.Object,
                 resourceType :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPermission ::
   Value Prelude.Text
   -> JSON.Object -> Value Prelude.Text -> Permission

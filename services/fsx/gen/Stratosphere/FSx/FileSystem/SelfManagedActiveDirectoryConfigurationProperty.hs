@@ -14,6 +14,7 @@ data SelfManagedActiveDirectoryConfigurationProperty
                                                      organizationalUnitDistinguishedName :: (Prelude.Maybe (Value Prelude.Text)),
                                                      password :: (Prelude.Maybe (Value Prelude.Text)),
                                                      userName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSelfManagedActiveDirectoryConfigurationProperty ::
   SelfManagedActiveDirectoryConfigurationProperty
 mkSelfManagedActiveDirectoryConfigurationProperty

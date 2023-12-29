@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MonthlyTransferProperty :: Prelude.Type
 instance ToResourceProperties MonthlyTransferProperty
+instance Prelude.Eq MonthlyTransferProperty
+instance Prelude.Show MonthlyTransferProperty
 instance JSON.ToJSON MonthlyTransferProperty

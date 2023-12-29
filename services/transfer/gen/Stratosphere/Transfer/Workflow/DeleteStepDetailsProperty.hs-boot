@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeleteStepDetailsProperty :: Prelude.Type
 instance ToResourceProperties DeleteStepDetailsProperty
+instance Prelude.Eq DeleteStepDetailsProperty
+instance Prelude.Show DeleteStepDetailsProperty
 instance JSON.ToJSON DeleteStepDetailsProperty

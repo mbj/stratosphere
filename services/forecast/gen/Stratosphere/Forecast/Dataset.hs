@@ -17,6 +17,7 @@ data Dataset
              encryptionConfig :: (Prelude.Maybe EncryptionConfigProperty),
              schema :: SchemaProperty,
              tags :: (Prelude.Maybe [TagsItemsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataset ::
   Value Prelude.Text
   -> Value Prelude.Text

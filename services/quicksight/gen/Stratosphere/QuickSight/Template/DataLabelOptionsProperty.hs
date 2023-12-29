@@ -19,6 +19,7 @@ data DataLabelOptionsProperty
                               overlap :: (Prelude.Maybe (Value Prelude.Text)),
                               position :: (Prelude.Maybe (Value Prelude.Text)),
                               visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataLabelOptionsProperty :: DataLabelOptionsProperty
 mkDataLabelOptionsProperty
   = DataLabelOptionsProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BillingPeriodRangeProperty
   = BillingPeriodRangeProperty {exclusiveEndBillingPeriod :: (Prelude.Maybe (Value Prelude.Text)),
                                 inclusiveStartBillingPeriod :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBillingPeriodRangeProperty :: BillingPeriodRangeProperty
 mkBillingPeriodRangeProperty
   = BillingPeriodRangeProperty

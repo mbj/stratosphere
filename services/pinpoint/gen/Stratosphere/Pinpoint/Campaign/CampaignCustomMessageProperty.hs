@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CampaignCustomMessageProperty
   = CampaignCustomMessageProperty {data' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaignCustomMessageProperty :: CampaignCustomMessageProperty
 mkCampaignCustomMessageProperty
   = CampaignCustomMessageProperty {data' = Prelude.Nothing}

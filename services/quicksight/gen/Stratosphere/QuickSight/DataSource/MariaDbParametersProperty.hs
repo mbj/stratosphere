@@ -10,6 +10,7 @@ data MariaDbParametersProperty
   = MariaDbParametersProperty {database :: (Value Prelude.Text),
                                host :: (Value Prelude.Text),
                                port :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMariaDbParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

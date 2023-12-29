@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FrameworkControlProperty :: Prelude.Type
 instance ToResourceProperties FrameworkControlProperty
+instance Prelude.Eq FrameworkControlProperty
+instance Prelude.Show FrameworkControlProperty
 instance JSON.ToJSON FrameworkControlProperty

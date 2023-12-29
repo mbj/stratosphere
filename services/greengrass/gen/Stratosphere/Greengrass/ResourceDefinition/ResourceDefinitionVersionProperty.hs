@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.ResourceInstanc
 import Stratosphere.ResourceProperties
 data ResourceDefinitionVersionProperty
   = ResourceDefinitionVersionProperty {resources :: [ResourceInstanceProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDefinitionVersionProperty ::
   [ResourceInstanceProperty] -> ResourceDefinitionVersionProperty
 mkResourceDefinitionVersionProperty resources

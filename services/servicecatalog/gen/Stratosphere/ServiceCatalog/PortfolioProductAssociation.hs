@@ -11,6 +11,7 @@ data PortfolioProductAssociation
                                  portfolioId :: (Value Prelude.Text),
                                  productId :: (Value Prelude.Text),
                                  sourcePortfolioId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortfolioProductAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> PortfolioProductAssociation

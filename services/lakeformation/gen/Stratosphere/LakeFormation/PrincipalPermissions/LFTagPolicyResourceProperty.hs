@@ -12,6 +12,7 @@ data LFTagPolicyResourceProperty
   = LFTagPolicyResourceProperty {catalogId :: (Value Prelude.Text),
                                  expression :: [LFTagProperty],
                                  resourceType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLFTagPolicyResourceProperty ::
   Value Prelude.Text
   -> [LFTagProperty]

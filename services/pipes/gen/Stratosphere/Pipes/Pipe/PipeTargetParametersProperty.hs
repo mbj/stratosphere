@@ -31,6 +31,7 @@ data PipeTargetParametersProperty
                                   sageMakerPipelineParameters :: (Prelude.Maybe PipeTargetSageMakerPipelineParametersProperty),
                                   sqsQueueParameters :: (Prelude.Maybe PipeTargetSqsQueueParametersProperty),
                                   stepFunctionStateMachineParameters :: (Prelude.Maybe PipeTargetStateMachineParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetParametersProperty :: PipeTargetParametersProperty
 mkPipeTargetParametersProperty
   = PipeTargetParametersProperty

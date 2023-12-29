@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LookoutMetricsDestinationPropertiesProperty :: Prelude.Type
 instance ToResourceProperties LookoutMetricsDestinationPropertiesProperty
+instance Prelude.Eq LookoutMetricsDestinationPropertiesProperty
+instance Prelude.Show LookoutMetricsDestinationPropertiesProperty
 instance JSON.ToJSON LookoutMetricsDestinationPropertiesProperty

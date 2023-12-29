@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AppCookieStickinessPolicyProperty
   = AppCookieStickinessPolicyProperty {cookieName :: (Value Prelude.Text),
                                        policyName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAppCookieStickinessPolicyProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> AppCookieStickinessPolicyProperty

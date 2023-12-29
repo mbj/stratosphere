@@ -14,6 +14,7 @@ data ImportSourceSpecificationProperty
                                        inputFormat :: (Value Prelude.Text),
                                        inputFormatOptions :: (Prelude.Maybe InputFormatOptionsProperty),
                                        s3BucketSource :: S3BucketSourceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImportSourceSpecificationProperty ::
   Value Prelude.Text
   -> S3BucketSourceProperty -> ImportSourceSpecificationProperty

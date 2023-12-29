@@ -12,6 +12,7 @@ data SecurityServicePolicyDataProperty
   = SecurityServicePolicyDataProperty {managedServiceData :: (Prelude.Maybe (Value Prelude.Text)),
                                        policyOption :: (Prelude.Maybe PolicyOptionProperty),
                                        type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityServicePolicyDataProperty ::
   Value Prelude.Text -> SecurityServicePolicyDataProperty
 mkSecurityServicePolicyDataProperty type'

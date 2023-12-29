@@ -9,6 +9,7 @@ import Stratosphere.Value
 data S3PathProperty
   = S3PathProperty {bucket :: (Value Prelude.Text),
                     key :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3PathProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3PathProperty
 mkS3PathProperty bucket key

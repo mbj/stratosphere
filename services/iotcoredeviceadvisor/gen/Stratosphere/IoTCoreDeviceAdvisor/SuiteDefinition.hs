@@ -10,6 +10,7 @@ import Stratosphere.Tag
 data SuiteDefinition
   = SuiteDefinition {suiteDefinitionConfiguration :: SuiteDefinitionConfigurationProperty,
                      tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSuiteDefinition ::
   SuiteDefinitionConfigurationProperty -> SuiteDefinition
 mkSuiteDefinition suiteDefinitionConfiguration

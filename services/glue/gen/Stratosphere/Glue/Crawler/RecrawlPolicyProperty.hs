@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecrawlPolicyProperty
   = RecrawlPolicyProperty {recrawlBehavior :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecrawlPolicyProperty :: RecrawlPolicyProperty
 mkRecrawlPolicyProperty
   = RecrawlPolicyProperty {recrawlBehavior = Prelude.Nothing}

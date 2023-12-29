@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ManagedScalingProperty :: Prelude.Type
 instance ToResourceProperties ManagedScalingProperty
+instance Prelude.Eq ManagedScalingProperty
+instance Prelude.Show ManagedScalingProperty
 instance JSON.ToJSON ManagedScalingProperty

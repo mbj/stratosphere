@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CreatedAtProperty
   = CreatedAtProperty {nanos :: (Value Prelude.Integer),
                        seconds :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCreatedAtProperty ::
   Value Prelude.Integer -> Value Prelude.Text -> CreatedAtProperty
 mkCreatedAtProperty nanos seconds

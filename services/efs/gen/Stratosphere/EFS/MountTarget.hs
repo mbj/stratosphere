@@ -11,6 +11,7 @@ data MountTarget
                  ipAddress :: (Prelude.Maybe (Value Prelude.Text)),
                  securityGroups :: (ValueList Prelude.Text),
                  subnetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMountTarget ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> Value Prelude.Text -> MountTarget

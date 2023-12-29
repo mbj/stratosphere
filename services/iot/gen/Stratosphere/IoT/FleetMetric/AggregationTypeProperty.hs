@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AggregationTypeProperty
   = AggregationTypeProperty {name :: (Value Prelude.Text),
                              values :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAggregationTypeProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> AggregationTypeProperty

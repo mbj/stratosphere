@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SendNotificationActionProperty :: Prelude.Type
 instance ToResourceProperties SendNotificationActionProperty
+instance Prelude.Eq SendNotificationActionProperty
+instance Prelude.Show SendNotificationActionProperty
 instance JSON.ToJSON SendNotificationActionProperty

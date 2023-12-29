@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CSVMappingParametersProperty
   = CSVMappingParametersProperty {recordColumnDelimiter :: (Value Prelude.Text),
                                   recordRowDelimiter :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCSVMappingParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> CSVMappingParametersProperty

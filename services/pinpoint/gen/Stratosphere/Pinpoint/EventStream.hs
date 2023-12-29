@@ -10,6 +10,7 @@ data EventStream
   = EventStream {applicationId :: (Value Prelude.Text),
                  destinationStreamArn :: (Value Prelude.Text),
                  roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventStream ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> EventStream

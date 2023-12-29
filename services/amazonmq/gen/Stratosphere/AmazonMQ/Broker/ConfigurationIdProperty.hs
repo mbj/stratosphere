@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ConfigurationIdProperty
   = ConfigurationIdProperty {id :: (Value Prelude.Text),
                              revision :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationIdProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> ConfigurationIdProperty

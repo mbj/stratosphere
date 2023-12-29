@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IncludedPropertyProperty
   = IncludedPropertyProperty {name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIncludedPropertyProperty ::
   Value Prelude.Text -> IncludedPropertyProperty
 mkIncludedPropertyProperty name

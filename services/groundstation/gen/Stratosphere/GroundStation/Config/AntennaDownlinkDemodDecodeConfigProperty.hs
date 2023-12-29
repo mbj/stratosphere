@@ -13,6 +13,7 @@ data AntennaDownlinkDemodDecodeConfigProperty
   = AntennaDownlinkDemodDecodeConfigProperty {decodeConfig :: (Prelude.Maybe DecodeConfigProperty),
                                               demodulationConfig :: (Prelude.Maybe DemodulationConfigProperty),
                                               spectrumConfig :: (Prelude.Maybe SpectrumConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAntennaDownlinkDemodDecodeConfigProperty ::
   AntennaDownlinkDemodDecodeConfigProperty
 mkAntennaDownlinkDemodDecodeConfigProperty

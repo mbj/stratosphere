@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OutputGroupSettingsProperty :: Prelude.Type
 instance ToResourceProperties OutputGroupSettingsProperty
+instance Prelude.Eq OutputGroupSettingsProperty
+instance Prelude.Show OutputGroupSettingsProperty
 instance JSON.ToJSON OutputGroupSettingsProperty

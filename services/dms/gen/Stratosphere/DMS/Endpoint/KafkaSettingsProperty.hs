@@ -25,6 +25,7 @@ data KafkaSettingsProperty
                            sslClientKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                            sslClientKeyPassword :: (Prelude.Maybe (Value Prelude.Text)),
                            topic :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaSettingsProperty :: KafkaSettingsProperty
 mkKafkaSettingsProperty
   = KafkaSettingsProperty

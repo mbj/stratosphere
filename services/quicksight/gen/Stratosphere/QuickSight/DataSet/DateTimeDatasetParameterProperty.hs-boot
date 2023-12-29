@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DateTimeDatasetParameterProperty :: Prelude.Type
 instance ToResourceProperties DateTimeDatasetParameterProperty
+instance Prelude.Eq DateTimeDatasetParameterProperty
+instance Prelude.Show DateTimeDatasetParameterProperty
 instance JSON.ToJSON DateTimeDatasetParameterProperty

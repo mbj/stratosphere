@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TableCellImageSizingConfigurationProperty
   = TableCellImageSizingConfigurationProperty {tableCellImageScalingConfiguration :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableCellImageSizingConfigurationProperty ::
   TableCellImageSizingConfigurationProperty
 mkTableCellImageSizingConfigurationProperty

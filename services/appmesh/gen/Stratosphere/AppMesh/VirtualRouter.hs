@@ -14,6 +14,7 @@ data VirtualRouter
                    spec :: VirtualRouterSpecProperty,
                    tags :: (Prelude.Maybe [Tag]),
                    virtualRouterName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualRouter ::
   Value Prelude.Text -> VirtualRouterSpecProperty -> VirtualRouter
 mkVirtualRouter meshName spec

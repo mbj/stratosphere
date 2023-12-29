@@ -10,6 +10,7 @@ data CalculatedFieldProperty
   = CalculatedFieldProperty {dataSetIdentifier :: (Value Prelude.Text),
                              expression :: (Value Prelude.Text),
                              name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCalculatedFieldProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

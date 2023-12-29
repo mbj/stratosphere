@@ -10,6 +10,7 @@ data LoggingInfoProperty
   = LoggingInfoProperty {region :: (Value Prelude.Text),
                          s3Bucket :: (Value Prelude.Text),
                          s3Prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingInfoProperty ::
   Value Prelude.Text -> Value Prelude.Text -> LoggingInfoProperty
 mkLoggingInfoProperty region s3Bucket

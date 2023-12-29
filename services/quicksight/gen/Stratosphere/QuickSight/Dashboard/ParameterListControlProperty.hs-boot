@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ParameterListControlProperty :: Prelude.Type
 instance ToResourceProperties ParameterListControlProperty
+instance Prelude.Eq ParameterListControlProperty
+instance Prelude.Show ParameterListControlProperty
 instance JSON.ToJSON ParameterListControlProperty

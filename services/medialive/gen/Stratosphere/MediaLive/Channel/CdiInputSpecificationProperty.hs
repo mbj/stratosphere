@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CdiInputSpecificationProperty
   = CdiInputSpecificationProperty {resolution :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCdiInputSpecificationProperty :: CdiInputSpecificationProperty
 mkCdiInputSpecificationProperty
   = CdiInputSpecificationProperty {resolution = Prelude.Nothing}

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MetricGroupProperty
   = MetricGroupProperty {metricData :: [MetricDataItemsProperty],
                          name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricGroupProperty ::
   [MetricDataItemsProperty]
   -> Value Prelude.Text -> MetricGroupProperty

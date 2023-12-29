@@ -15,6 +15,7 @@ data Project
              serviceCatalogProvisionedProductDetails :: (Prelude.Maybe ServiceCatalogProvisionedProductDetailsProperty),
              serviceCatalogProvisioningDetails :: ServiceCatalogProvisioningDetailsProperty,
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProject ::
   Value Prelude.Text
   -> ServiceCatalogProvisioningDetailsProperty -> Project

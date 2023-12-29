@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.ConditionalFormattingColo
 import Stratosphere.ResourceProperties
 data KPIProgressBarConditionalFormattingProperty
   = KPIProgressBarConditionalFormattingProperty {foregroundColor :: (Prelude.Maybe ConditionalFormattingColorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKPIProgressBarConditionalFormattingProperty ::
   KPIProgressBarConditionalFormattingProperty
 mkKPIProgressBarConditionalFormattingProperty

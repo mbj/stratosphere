@@ -19,6 +19,7 @@ data VerifiedAccessTrustProvider
                                  tags :: (Prelude.Maybe [Tag]),
                                  trustProviderType :: (Value Prelude.Text),
                                  userTrustProviderType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVerifiedAccessTrustProvider ::
   Value Prelude.Text
   -> Value Prelude.Text -> VerifiedAccessTrustProvider

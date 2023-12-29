@@ -12,6 +12,7 @@ data LocalVolumeResourceDataProperty
   = LocalVolumeResourceDataProperty {destinationPath :: (Value Prelude.Text),
                                      groupOwnerSetting :: (Prelude.Maybe GroupOwnerSettingProperty),
                                      sourcePath :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalVolumeResourceDataProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> LocalVolumeResourceDataProperty

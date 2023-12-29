@@ -21,6 +21,7 @@ data HlsPackageProperty
                         segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                         streamSelection :: (Prelude.Maybe StreamSelectionProperty),
                         useAudioRenditionGroup :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsPackageProperty :: HlsPackageProperty
 mkHlsPackageProperty
   = HlsPackageProperty

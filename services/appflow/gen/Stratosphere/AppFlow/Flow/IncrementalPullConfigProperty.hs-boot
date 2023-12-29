@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IncrementalPullConfigProperty :: Prelude.Type
 instance ToResourceProperties IncrementalPullConfigProperty
+instance Prelude.Eq IncrementalPullConfigProperty
+instance Prelude.Show IncrementalPullConfigProperty
 instance JSON.ToJSON IncrementalPullConfigProperty

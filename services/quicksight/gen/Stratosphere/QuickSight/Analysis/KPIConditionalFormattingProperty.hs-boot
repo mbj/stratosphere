@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KPIConditionalFormattingProperty :: Prelude.Type
 instance ToResourceProperties KPIConditionalFormattingProperty
+instance Prelude.Eq KPIConditionalFormattingProperty
+instance Prelude.Show KPIConditionalFormattingProperty
 instance JSON.ToJSON KPIConditionalFormattingProperty

@@ -11,6 +11,7 @@ data PipeTargetHttpParametersProperty
   = PipeTargetHttpParametersProperty {headerParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                       pathParameterValues :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       queryStringParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetHttpParametersProperty ::
   PipeTargetHttpParametersProperty
 mkPipeTargetHttpParametersProperty

@@ -46,6 +46,7 @@ data ModelPackage
                   tags :: (Prelude.Maybe [Tag]),
                   task :: (Prelude.Maybe (Value Prelude.Text)),
                   validationSpecification :: (Prelude.Maybe ValidationSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackage :: ModelPackage
 mkModelPackage
   = ModelPackage

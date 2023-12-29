@@ -10,6 +10,7 @@ data MaintenanceWindowProperty
   = MaintenanceWindowProperty {dayOfWeek :: (Value Prelude.Text),
                                timeOfDay :: (Value Prelude.Text),
                                timeZone :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

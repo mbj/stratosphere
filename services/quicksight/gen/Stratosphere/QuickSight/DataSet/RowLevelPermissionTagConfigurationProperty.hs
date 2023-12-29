@@ -12,6 +12,7 @@ data RowLevelPermissionTagConfigurationProperty
   = RowLevelPermissionTagConfigurationProperty {status :: (Prelude.Maybe (Value Prelude.Text)),
                                                 tagRuleConfigurations :: (Prelude.Maybe JSON.Object),
                                                 tagRules :: [RowLevelPermissionTagRuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRowLevelPermissionTagConfigurationProperty ::
   [RowLevelPermissionTagRuleProperty]
   -> RowLevelPermissionTagConfigurationProperty

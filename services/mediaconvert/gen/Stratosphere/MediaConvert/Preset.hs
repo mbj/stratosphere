@@ -12,6 +12,7 @@ data Preset
             name :: (Prelude.Maybe (Value Prelude.Text)),
             settingsJson :: JSON.Object,
             tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPreset :: JSON.Object -> Preset
 mkPreset settingsJson
   = Preset

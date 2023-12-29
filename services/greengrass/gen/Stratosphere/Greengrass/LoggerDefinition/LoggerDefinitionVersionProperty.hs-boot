@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LoggerDefinitionVersionProperty :: Prelude.Type
 instance ToResourceProperties LoggerDefinitionVersionProperty
+instance Prelude.Eq LoggerDefinitionVersionProperty
+instance Prelude.Show LoggerDefinitionVersionProperty
 instance JSON.ToJSON LoggerDefinitionVersionProperty

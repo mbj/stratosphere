@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LegacyS3OriginProperty :: Prelude.Type
 instance ToResourceProperties LegacyS3OriginProperty
+instance Prelude.Eq LegacyS3OriginProperty
+instance Prelude.Show LegacyS3OriginProperty
 instance JSON.ToJSON LegacyS3OriginProperty

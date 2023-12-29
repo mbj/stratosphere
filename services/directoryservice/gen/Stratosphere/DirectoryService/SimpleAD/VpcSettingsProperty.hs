@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VpcSettingsProperty
   = VpcSettingsProperty {subnetIds :: (ValueList Prelude.Text),
                          vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcSettingsProperty ::
   ValueList Prelude.Text -> Value Prelude.Text -> VpcSettingsProperty
 mkVpcSettingsProperty subnetIds vpcId

@@ -12,6 +12,7 @@ data AlarmConfigurationProperty
   = AlarmConfigurationProperty {alarms :: (Prelude.Maybe [AlarmProperty]),
                                 enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                 ignorePollAlarmFailure :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmConfigurationProperty :: AlarmConfigurationProperty
 mkAlarmConfigurationProperty
   = AlarmConfigurationProperty

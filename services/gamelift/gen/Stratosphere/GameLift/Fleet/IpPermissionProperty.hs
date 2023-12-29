@@ -11,6 +11,7 @@ data IpPermissionProperty
                           ipRange :: (Value Prelude.Text),
                           protocol :: (Value Prelude.Text),
                           toPort :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIpPermissionProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text

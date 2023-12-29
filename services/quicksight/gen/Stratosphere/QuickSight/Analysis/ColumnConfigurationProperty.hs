@@ -15,6 +15,7 @@ data ColumnConfigurationProperty
                                  column :: ColumnIdentifierProperty,
                                  formatConfiguration :: (Prelude.Maybe FormatConfigurationProperty),
                                  role :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnConfigurationProperty ::
   ColumnIdentifierProperty -> ColumnConfigurationProperty
 mkColumnConfigurationProperty column

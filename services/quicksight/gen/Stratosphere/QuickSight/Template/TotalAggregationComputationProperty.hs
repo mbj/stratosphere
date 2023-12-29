@@ -12,6 +12,7 @@ data TotalAggregationComputationProperty
   = TotalAggregationComputationProperty {computationId :: (Value Prelude.Text),
                                          name :: (Prelude.Maybe (Value Prelude.Text)),
                                          value :: MeasureFieldProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTotalAggregationComputationProperty ::
   Value Prelude.Text
   -> MeasureFieldProperty -> TotalAggregationComputationProperty

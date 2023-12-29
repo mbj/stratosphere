@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CFNKubernetesAuditLogsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties CFNKubernetesAuditLogsConfigurationProperty
+instance Prelude.Eq CFNKubernetesAuditLogsConfigurationProperty
+instance Prelude.Show CFNKubernetesAuditLogsConfigurationProperty
 instance JSON.ToJSON CFNKubernetesAuditLogsConfigurationProperty

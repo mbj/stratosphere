@@ -22,6 +22,7 @@ data ScheduledQuery
                     scheduledQueryName :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag]),
                     targetConfiguration :: (Prelude.Maybe TargetConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledQuery ::
   ErrorReportConfigurationProperty
   -> NotificationConfigurationProperty

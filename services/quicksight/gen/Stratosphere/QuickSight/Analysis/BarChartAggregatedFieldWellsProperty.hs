@@ -13,6 +13,7 @@ data BarChartAggregatedFieldWellsProperty
                                           colors :: (Prelude.Maybe [DimensionFieldProperty]),
                                           smallMultiples :: (Prelude.Maybe [DimensionFieldProperty]),
                                           values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBarChartAggregatedFieldWellsProperty ::
   BarChartAggregatedFieldWellsProperty
 mkBarChartAggregatedFieldWellsProperty

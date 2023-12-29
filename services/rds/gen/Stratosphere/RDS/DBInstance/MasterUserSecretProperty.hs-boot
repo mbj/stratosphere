@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MasterUserSecretProperty :: Prelude.Type
 instance ToResourceProperties MasterUserSecretProperty
+instance Prelude.Eq MasterUserSecretProperty
+instance Prelude.Show MasterUserSecretProperty
 instance JSON.ToJSON MasterUserSecretProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatasetContentVersionValueProperty
   = DatasetContentVersionValueProperty {datasetName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetContentVersionValueProperty ::
   Value Prelude.Text -> DatasetContentVersionValueProperty
 mkDatasetContentVersionValueProperty datasetName

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ResourceDownloadOwnerSettingProperty :: Prelude.Type
 instance ToResourceProperties ResourceDownloadOwnerSettingProperty
+instance Prelude.Eq ResourceDownloadOwnerSettingProperty
+instance Prelude.Show ResourceDownloadOwnerSettingProperty
 instance JSON.ToJSON ResourceDownloadOwnerSettingProperty

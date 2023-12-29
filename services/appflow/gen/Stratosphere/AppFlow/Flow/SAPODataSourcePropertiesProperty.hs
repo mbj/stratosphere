@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SAPODataSourcePropertiesProperty
   = SAPODataSourcePropertiesProperty {objectPath :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataSourcePropertiesProperty ::
   Value Prelude.Text -> SAPODataSourcePropertiesProperty
 mkSAPODataSourcePropertiesProperty objectPath

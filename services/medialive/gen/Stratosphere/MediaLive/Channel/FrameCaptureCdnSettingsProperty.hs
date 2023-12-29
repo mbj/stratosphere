@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FrameCaptureS3SettingsPrope
 import Stratosphere.ResourceProperties
 data FrameCaptureCdnSettingsProperty
   = FrameCaptureCdnSettingsProperty {frameCaptureS3Settings :: (Prelude.Maybe FrameCaptureS3SettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameCaptureCdnSettingsProperty ::
   FrameCaptureCdnSettingsProperty
 mkFrameCaptureCdnSettingsProperty

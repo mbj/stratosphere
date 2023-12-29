@@ -13,6 +13,7 @@ data ListenerRule
                   conditions :: [RuleConditionProperty],
                   listenerArn :: (Prelude.Maybe (Value Prelude.Text)),
                   priority :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerRule ::
   [ActionProperty]
   -> [RuleConditionProperty] -> Value Prelude.Integer -> ListenerRule

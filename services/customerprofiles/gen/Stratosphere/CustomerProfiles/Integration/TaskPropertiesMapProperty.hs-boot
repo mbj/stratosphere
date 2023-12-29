@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TaskPropertiesMapProperty :: Prelude.Type
 instance ToResourceProperties TaskPropertiesMapProperty
+instance Prelude.Eq TaskPropertiesMapProperty
+instance Prelude.Show TaskPropertiesMapProperty
 instance JSON.ToJSON TaskPropertiesMapProperty

@@ -13,6 +13,7 @@ data TlsValidationContextTrustProperty
   = TlsValidationContextTrustProperty {aCM :: (Prelude.Maybe TlsValidationContextAcmTrustProperty),
                                        file :: (Prelude.Maybe TlsValidationContextFileTrustProperty),
                                        sDS :: (Prelude.Maybe TlsValidationContextSdsTrustProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTlsValidationContextTrustProperty ::
   TlsValidationContextTrustProperty
 mkTlsValidationContextTrustProperty

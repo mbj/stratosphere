@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EvaluationFormNumericQuestionOptionProperty :: Prelude.Type
 instance ToResourceProperties EvaluationFormNumericQuestionOptionProperty
+instance Prelude.Eq EvaluationFormNumericQuestionOptionProperty
+instance Prelude.Show EvaluationFormNumericQuestionOptionProperty
 instance JSON.ToJSON EvaluationFormNumericQuestionOptionProperty

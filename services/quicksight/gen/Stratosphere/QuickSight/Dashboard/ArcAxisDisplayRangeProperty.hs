@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ArcAxisDisplayRangeProperty
   = ArcAxisDisplayRangeProperty {max :: (Prelude.Maybe (Value Prelude.Double)),
                                  min :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArcAxisDisplayRangeProperty :: ArcAxisDisplayRangeProperty
 mkArcAxisDisplayRangeProperty
   = ArcAxisDisplayRangeProperty

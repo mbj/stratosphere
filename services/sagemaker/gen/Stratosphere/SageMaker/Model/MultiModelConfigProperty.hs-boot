@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MultiModelConfigProperty :: Prelude.Type
 instance ToResourceProperties MultiModelConfigProperty
+instance Prelude.Eq MultiModelConfigProperty
+instance Prelude.Show MultiModelConfigProperty
 instance JSON.ToJSON MultiModelConfigProperty

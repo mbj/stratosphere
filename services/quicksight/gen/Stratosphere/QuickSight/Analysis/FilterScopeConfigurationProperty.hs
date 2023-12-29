@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.SelectedSheetsFilterScope
 import Stratosphere.ResourceProperties
 data FilterScopeConfigurationProperty
   = FilterScopeConfigurationProperty {selectedSheets :: (Prelude.Maybe SelectedSheetsFilterScopeConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterScopeConfigurationProperty ::
   FilterScopeConfigurationProperty
 mkFilterScopeConfigurationProperty

@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HtmlMotionGraphicsSettingsProperty
   = HtmlMotionGraphicsSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHtmlMotionGraphicsSettingsProperty ::
   HtmlMotionGraphicsSettingsProperty
 mkHtmlMotionGraphicsSettingsProperty

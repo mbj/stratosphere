@@ -13,6 +13,7 @@ data RadarChartSortConfigurationProperty
                                          categorySort :: (Prelude.Maybe [FieldSortOptionsProperty]),
                                          colorItemsLimit :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                          colorSort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRadarChartSortConfigurationProperty ::
   RadarChartSortConfigurationProperty
 mkRadarChartSortConfigurationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UnauthenticatedProperty :: Prelude.Type
 instance ToResourceProperties UnauthenticatedProperty
+instance Prelude.Eq UnauthenticatedProperty
+instance Prelude.Show UnauthenticatedProperty
 instance JSON.ToJSON UnauthenticatedProperty

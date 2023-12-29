@@ -12,6 +12,7 @@ data MemberConfigurationProperty
   = MemberConfigurationProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
                                  memberFrameworkConfiguration :: (Prelude.Maybe MemberFrameworkConfigurationProperty),
                                  name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberConfigurationProperty ::
   Value Prelude.Text -> MemberConfigurationProperty
 mkMemberConfigurationProperty name

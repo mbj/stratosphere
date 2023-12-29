@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ObfuscationSettingProperty :: Prelude.Type
 instance ToResourceProperties ObfuscationSettingProperty
+instance Prelude.Eq ObfuscationSettingProperty
+instance Prelude.Show ObfuscationSettingProperty
 instance JSON.ToJSON ObfuscationSettingProperty

@@ -12,6 +12,7 @@ data VeevaSourcePropertiesProperty
                                    includeRenditions :: (Prelude.Maybe (Value Prelude.Bool)),
                                    includeSourceFiles :: (Prelude.Maybe (Value Prelude.Bool)),
                                    object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVeevaSourcePropertiesProperty ::
   Value Prelude.Text -> VeevaSourcePropertiesProperty
 mkVeevaSourcePropertiesProperty object

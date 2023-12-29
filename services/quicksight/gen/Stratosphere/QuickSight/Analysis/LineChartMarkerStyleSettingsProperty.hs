@@ -12,6 +12,7 @@ data LineChartMarkerStyleSettingsProperty
                                           markerShape :: (Prelude.Maybe (Value Prelude.Text)),
                                           markerSize :: (Prelude.Maybe (Value Prelude.Text)),
                                           markerVisibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLineChartMarkerStyleSettingsProperty ::
   LineChartMarkerStyleSettingsProperty
 mkLineChartMarkerStyleSettingsProperty

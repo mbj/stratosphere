@@ -10,6 +10,7 @@ data FilesLimitProperty
   = FilesLimitProperty {maxFiles :: (Value Prelude.Integer),
                         order :: (Prelude.Maybe (Value Prelude.Text)),
                         orderedBy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilesLimitProperty :: Value Prelude.Integer -> FilesLimitProperty
 mkFilesLimitProperty maxFiles
   = FilesLimitProperty

@@ -14,6 +14,7 @@ data FirewallRuleProperty
                           blockResponse :: (Prelude.Maybe (Value Prelude.Text)),
                           firewallDomainListId :: (Value Prelude.Text),
                           priority :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallRuleProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

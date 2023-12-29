@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BucketsAndRegionsProperty :: Prelude.Type
 instance ToResourceProperties BucketsAndRegionsProperty
+instance Prelude.Eq BucketsAndRegionsProperty
+instance Prelude.Show BucketsAndRegionsProperty
 instance JSON.ToJSON BucketsAndRegionsProperty

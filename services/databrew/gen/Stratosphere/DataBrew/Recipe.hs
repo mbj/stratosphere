@@ -13,6 +13,7 @@ data Recipe
             name :: (Value Prelude.Text),
             steps :: [RecipeStepProperty],
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecipe :: Value Prelude.Text -> [RecipeStepProperty] -> Recipe
 mkRecipe name steps
   = Recipe

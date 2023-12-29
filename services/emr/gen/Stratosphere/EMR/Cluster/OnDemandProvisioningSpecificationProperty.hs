@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnDemandProvisioningSpecificationProperty
   = OnDemandProvisioningSpecificationProperty {allocationStrategy :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOnDemandProvisioningSpecificationProperty ::
   Value Prelude.Text -> OnDemandProvisioningSpecificationProperty
 mkOnDemandProvisioningSpecificationProperty allocationStrategy

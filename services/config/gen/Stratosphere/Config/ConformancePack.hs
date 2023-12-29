@@ -16,6 +16,7 @@ data ConformancePack
                      templateBody :: (Prelude.Maybe (Value Prelude.Text)),
                      templateS3Uri :: (Prelude.Maybe (Value Prelude.Text)),
                      templateSSMDocumentDetails :: (Prelude.Maybe TemplateSSMDocumentDetailsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConformancePack :: Value Prelude.Text -> ConformancePack
 mkConformancePack conformancePackName
   = ConformancePack

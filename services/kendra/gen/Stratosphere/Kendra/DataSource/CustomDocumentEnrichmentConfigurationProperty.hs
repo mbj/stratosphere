@@ -14,6 +14,7 @@ data CustomDocumentEnrichmentConfigurationProperty
                                                    postExtractionHookConfiguration :: (Prelude.Maybe HookConfigurationProperty),
                                                    preExtractionHookConfiguration :: (Prelude.Maybe HookConfigurationProperty),
                                                    roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomDocumentEnrichmentConfigurationProperty ::
   CustomDocumentEnrichmentConfigurationProperty
 mkCustomDocumentEnrichmentConfigurationProperty

@@ -20,6 +20,7 @@ data WebCrawlerConfigurationProperty
                                      urlExclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      urlInclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      urls :: WebCrawlerUrlsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerConfigurationProperty ::
   WebCrawlerUrlsProperty -> WebCrawlerConfigurationProperty
 mkWebCrawlerConfigurationProperty urls

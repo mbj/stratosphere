@@ -12,6 +12,7 @@ data CodeRepository
   = CodeRepository {codeRepositoryName :: (Prelude.Maybe (Value Prelude.Text)),
                     gitConfig :: GitConfigProperty,
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeRepository :: GitConfigProperty -> CodeRepository
 mkCodeRepository gitConfig
   = CodeRepository

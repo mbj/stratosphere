@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EdgeOutputConfigProperty
   = EdgeOutputConfigProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                               s3OutputLocation :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEdgeOutputConfigProperty ::
   Value Prelude.Text -> EdgeOutputConfigProperty
 mkEdgeOutputConfigProperty s3OutputLocation

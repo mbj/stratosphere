@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AttributeMapItemsProperty
   = AttributeMapItemsProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
                                value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeMapItemsProperty :: AttributeMapItemsProperty
 mkAttributeMapItemsProperty
   = AttributeMapItemsProperty

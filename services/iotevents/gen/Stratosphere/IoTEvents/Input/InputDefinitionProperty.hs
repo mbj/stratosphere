@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.Input.AttributeProperty as Exports
 import Stratosphere.ResourceProperties
 data InputDefinitionProperty
   = InputDefinitionProperty {attributes :: [AttributeProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputDefinitionProperty ::
   [AttributeProperty] -> InputDefinitionProperty
 mkInputDefinitionProperty attributes

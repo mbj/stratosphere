@@ -11,6 +11,7 @@ import Stratosphere.Value
 data RuleActionOverrideProperty
   = RuleActionOverrideProperty {actionToUse :: RuleActionProperty,
                                 name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleActionOverrideProperty ::
   RuleActionProperty
   -> Value Prelude.Text -> RuleActionOverrideProperty

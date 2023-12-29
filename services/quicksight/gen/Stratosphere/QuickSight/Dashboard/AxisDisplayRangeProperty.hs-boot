@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AxisDisplayRangeProperty :: Prelude.Type
 instance ToResourceProperties AxisDisplayRangeProperty
+instance Prelude.Eq AxisDisplayRangeProperty
+instance Prelude.Show AxisDisplayRangeProperty
 instance JSON.ToJSON AxisDisplayRangeProperty

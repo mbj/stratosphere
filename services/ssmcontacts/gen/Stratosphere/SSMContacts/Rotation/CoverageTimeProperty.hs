@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CoverageTimeProperty
   = CoverageTimeProperty {endTime :: (Value Prelude.Text),
                           startTime :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCoverageTimeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> CoverageTimeProperty
 mkCoverageTimeProperty endTime startTime

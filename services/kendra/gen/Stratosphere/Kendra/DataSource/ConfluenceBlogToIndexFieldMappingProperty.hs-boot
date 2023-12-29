@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConfluenceBlogToIndexFieldMappingProperty :: Prelude.Type
 instance ToResourceProperties ConfluenceBlogToIndexFieldMappingProperty
+instance Prelude.Eq ConfluenceBlogToIndexFieldMappingProperty
+instance Prelude.Show ConfluenceBlogToIndexFieldMappingProperty
 instance JSON.ToJSON ConfluenceBlogToIndexFieldMappingProperty

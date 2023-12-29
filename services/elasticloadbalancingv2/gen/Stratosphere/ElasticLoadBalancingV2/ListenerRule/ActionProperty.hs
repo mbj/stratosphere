@@ -20,6 +20,7 @@ data ActionProperty
                     redirectConfig :: (Prelude.Maybe RedirectConfigProperty),
                     targetGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
                     type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: Value Prelude.Text -> ActionProperty
 mkActionProperty type'
   = ActionProperty

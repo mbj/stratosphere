@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.GuardDuty.Detector.CFNKubernetesAuditLogsConf
 import Stratosphere.ResourceProperties
 data CFNKubernetesConfigurationProperty
   = CFNKubernetesConfigurationProperty {auditLogs :: (Prelude.Maybe CFNKubernetesAuditLogsConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNKubernetesConfigurationProperty ::
   CFNKubernetesConfigurationProperty
 mkCFNKubernetesConfigurationProperty

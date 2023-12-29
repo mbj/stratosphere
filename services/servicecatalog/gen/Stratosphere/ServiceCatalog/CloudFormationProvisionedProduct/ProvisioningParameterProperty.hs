@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ProvisioningParameterProperty
   = ProvisioningParameterProperty {key :: (Value Prelude.Text),
                                    value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisioningParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ProvisioningParameterProperty

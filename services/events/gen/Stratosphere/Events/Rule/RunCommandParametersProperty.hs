@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Events.Rule.RunCommandTargetProperty as Expor
 import Stratosphere.ResourceProperties
 data RunCommandParametersProperty
   = RunCommandParametersProperty {runCommandTargets :: [RunCommandTargetProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRunCommandParametersProperty ::
   [RunCommandTargetProperty] -> RunCommandParametersProperty
 mkRunCommandParametersProperty runCommandTargets

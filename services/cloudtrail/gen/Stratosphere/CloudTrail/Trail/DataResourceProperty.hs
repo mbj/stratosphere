@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DataResourceProperty
   = DataResourceProperty {type' :: (Value Prelude.Text),
                           values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataResourceProperty ::
   Value Prelude.Text -> DataResourceProperty
 mkDataResourceProperty type'

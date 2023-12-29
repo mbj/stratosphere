@@ -14,6 +14,7 @@ data FileUploaderFieldConfigProperty
                                      maxFileCount :: (Prelude.Maybe (Value Prelude.Double)),
                                      maxSize :: (Prelude.Maybe (Value Prelude.Double)),
                                      showThumbnails :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFileUploaderFieldConfigProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> FileUploaderFieldConfigProperty

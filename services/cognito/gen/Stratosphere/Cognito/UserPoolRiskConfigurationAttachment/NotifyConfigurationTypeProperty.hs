@@ -15,6 +15,7 @@ data NotifyConfigurationTypeProperty
                                      noActionEmail :: (Prelude.Maybe NotifyEmailTypeProperty),
                                      replyTo :: (Prelude.Maybe (Value Prelude.Text)),
                                      sourceArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotifyConfigurationTypeProperty ::
   Value Prelude.Text -> NotifyConfigurationTypeProperty
 mkNotifyConfigurationTypeProperty sourceArn

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SageMakerMachineLearningModelResourceDataProperty :: Prelude.Type
 instance ToResourceProperties SageMakerMachineLearningModelResourceDataProperty
+instance Prelude.Eq SageMakerMachineLearningModelResourceDataProperty
+instance Prelude.Show SageMakerMachineLearningModelResourceDataProperty
 instance JSON.ToJSON SageMakerMachineLearningModelResourceDataProperty

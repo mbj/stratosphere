@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SubstitutionValueProperty
   = SubstitutionValueProperty {value :: (Value Prelude.Text),
                                valueReference :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubstitutionValueProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SubstitutionValueProperty

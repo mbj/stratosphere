@@ -19,6 +19,7 @@ data Template
               tags :: (Prelude.Maybe [Tag]),
               templateId :: (Value Prelude.Text),
               versionDescription :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplate :: Value Prelude.Text -> Value Prelude.Text -> Template
 mkTemplate awsAccountId templateId
   = Template

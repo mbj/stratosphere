@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.ColumnProperty as Expo
 import Stratosphere.ResourceProperties
 data SchemaDefinitionProperty
   = SchemaDefinitionProperty {columns :: (Prelude.Maybe [ColumnProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaDefinitionProperty :: SchemaDefinitionProperty
 mkSchemaDefinitionProperty
   = SchemaDefinitionProperty {columns = Prelude.Nothing}

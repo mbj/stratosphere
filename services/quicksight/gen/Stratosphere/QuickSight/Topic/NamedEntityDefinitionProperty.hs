@@ -14,6 +14,7 @@ data NamedEntityDefinitionProperty
                                    propertyName :: (Prelude.Maybe (Value Prelude.Text)),
                                    propertyRole :: (Prelude.Maybe (Value Prelude.Text)),
                                    propertyUsage :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNamedEntityDefinitionProperty :: NamedEntityDefinitionProperty
 mkNamedEntityDefinitionProperty
   = NamedEntityDefinitionProperty

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data NumericAxisOptionsProperty
   = NumericAxisOptionsProperty {range :: (Prelude.Maybe AxisDisplayRangeProperty),
                                 scale :: (Prelude.Maybe AxisScaleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericAxisOptionsProperty :: NumericAxisOptionsProperty
 mkNumericAxisOptionsProperty
   = NumericAxisOptionsProperty

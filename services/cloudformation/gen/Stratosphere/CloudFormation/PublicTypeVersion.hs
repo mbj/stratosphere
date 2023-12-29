@@ -12,6 +12,7 @@ data PublicTypeVersion
                        publicVersionNumber :: (Prelude.Maybe (Value Prelude.Text)),
                        type' :: (Prelude.Maybe (Value Prelude.Text)),
                        typeName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicTypeVersion :: PublicTypeVersion
 mkPublicTypeVersion
   = PublicTypeVersion

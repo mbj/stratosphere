@@ -16,6 +16,7 @@ data Workteam
               tags :: (Prelude.Maybe [Tag]),
               workforceName :: (Prelude.Maybe (Value Prelude.Text)),
               workteamName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkteam :: Workteam
 mkWorkteam
   = Workteam

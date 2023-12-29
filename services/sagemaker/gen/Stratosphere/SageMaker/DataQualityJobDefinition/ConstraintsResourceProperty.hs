@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConstraintsResourceProperty
   = ConstraintsResourceProperty {s3Uri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConstraintsResourceProperty :: ConstraintsResourceProperty
 mkConstraintsResourceProperty
   = ConstraintsResourceProperty {s3Uri = Prelude.Nothing}

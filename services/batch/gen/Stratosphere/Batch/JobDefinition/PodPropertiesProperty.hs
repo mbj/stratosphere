@@ -16,6 +16,7 @@ data PodPropertiesProperty
                            metadata :: (Prelude.Maybe MetadataProperty),
                            serviceAccountName :: (Prelude.Maybe (Value Prelude.Text)),
                            volumes :: (Prelude.Maybe [EksVolumeProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPodPropertiesProperty :: PodPropertiesProperty
 mkPodPropertiesProperty
   = PodPropertiesProperty

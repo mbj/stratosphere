@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PhoneNumberQuickConnectConfigProperty
   = PhoneNumberQuickConnectConfigProperty {phoneNumber :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPhoneNumberQuickConnectConfigProperty ::
   Value Prelude.Text -> PhoneNumberQuickConnectConfigProperty
 mkPhoneNumberQuickConnectConfigProperty phoneNumber

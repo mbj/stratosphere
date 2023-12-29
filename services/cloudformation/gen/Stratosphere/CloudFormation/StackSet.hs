@@ -28,6 +28,7 @@ data StackSet
               tags :: (Prelude.Maybe [Tag]),
               templateBody :: (Prelude.Maybe (Value Prelude.Text)),
               templateURL :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStackSet :: Value Prelude.Text -> Value Prelude.Text -> StackSet
 mkStackSet permissionModel stackSetName
   = StackSet

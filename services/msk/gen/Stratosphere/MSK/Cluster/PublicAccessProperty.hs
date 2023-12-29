@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PublicAccessProperty
   = PublicAccessProperty {type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicAccessProperty :: PublicAccessProperty
 mkPublicAccessProperty
   = PublicAccessProperty {type' = Prelude.Nothing}

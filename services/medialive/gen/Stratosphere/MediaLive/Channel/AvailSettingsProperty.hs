@@ -12,6 +12,7 @@ data AvailSettingsProperty
   = AvailSettingsProperty {esam :: (Prelude.Maybe EsamProperty),
                            scte35SpliceInsert :: (Prelude.Maybe Scte35SpliceInsertProperty),
                            scte35TimeSignalApos :: (Prelude.Maybe Scte35TimeSignalAposProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAvailSettingsProperty :: AvailSettingsProperty
 mkAvailSettingsProperty
   = AvailSettingsProperty

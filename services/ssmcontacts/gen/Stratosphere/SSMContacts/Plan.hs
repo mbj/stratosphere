@@ -11,6 +11,7 @@ data Plan
   = Plan {contactId :: (Value Prelude.Text),
           rotationIds :: (Prelude.Maybe (ValueList Prelude.Text)),
           stages :: (Prelude.Maybe [StageProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlan :: Value Prelude.Text -> Plan
 mkPlan contactId
   = Plan

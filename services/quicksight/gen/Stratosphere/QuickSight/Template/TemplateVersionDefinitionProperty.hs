@@ -21,6 +21,7 @@ data TemplateVersionDefinitionProperty
                                        filterGroups :: (Prelude.Maybe [FilterGroupProperty]),
                                        parameterDeclarations :: (Prelude.Maybe [ParameterDeclarationProperty]),
                                        sheets :: (Prelude.Maybe [SheetDefinitionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateVersionDefinitionProperty ::
   [DataSetConfigurationProperty] -> TemplateVersionDefinitionProperty
 mkTemplateVersionDefinitionProperty dataSetConfigurations

@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data TriggerProperty
   = TriggerProperty {schedule :: (Prelude.Maybe ScheduleProperty),
                      triggeringDataset :: (Prelude.Maybe TriggeringDatasetProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggerProperty :: TriggerProperty
 mkTriggerProperty
   = TriggerProperty

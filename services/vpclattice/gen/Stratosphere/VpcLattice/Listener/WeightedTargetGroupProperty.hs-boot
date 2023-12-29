@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WeightedTargetGroupProperty :: Prelude.Type
 instance ToResourceProperties WeightedTargetGroupProperty
+instance Prelude.Eq WeightedTargetGroupProperty
+instance Prelude.Show WeightedTargetGroupProperty
 instance JSON.ToJSON WeightedTargetGroupProperty

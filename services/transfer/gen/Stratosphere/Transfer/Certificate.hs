@@ -16,6 +16,7 @@ data Certificate
                  privateKey :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag]),
                  usage :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificate ::
   Value Prelude.Text -> Value Prelude.Text -> Certificate
 mkCertificate certificate usage

@@ -16,6 +16,7 @@ data SamlConfigurationProperty
                                idpMetadata :: IdpMetadataProperty,
                                loginValidityDuration :: (Prelude.Maybe (Value Prelude.Double)),
                                roleValues :: (Prelude.Maybe RoleValuesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSamlConfigurationProperty ::
   IdpMetadataProperty -> SamlConfigurationProperty
 mkSamlConfigurationProperty idpMetadata

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionedConcurrencyConfigurationProperty
   = ProvisionedConcurrencyConfigurationProperty {provisionedConcurrentExecutions :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionedConcurrencyConfigurationProperty ::
   Value Prelude.Integer
   -> ProvisionedConcurrencyConfigurationProperty

@@ -12,6 +12,7 @@ data NotebookInstanceLifecycleConfig
   = NotebookInstanceLifecycleConfig {notebookInstanceLifecycleConfigName :: (Prelude.Maybe (Value Prelude.Text)),
                                      onCreate :: (Prelude.Maybe [NotebookInstanceLifecycleHookProperty]),
                                      onStart :: (Prelude.Maybe [NotebookInstanceLifecycleHookProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotebookInstanceLifecycleConfig ::
   NotebookInstanceLifecycleConfig
 mkNotebookInstanceLifecycleConfig

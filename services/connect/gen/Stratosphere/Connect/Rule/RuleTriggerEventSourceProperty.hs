@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RuleTriggerEventSourceProperty
   = RuleTriggerEventSourceProperty {eventSourceName :: (Value Prelude.Text),
                                     integrationAssociationArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleTriggerEventSourceProperty ::
   Value Prelude.Text -> RuleTriggerEventSourceProperty
 mkRuleTriggerEventSourceProperty eventSourceName

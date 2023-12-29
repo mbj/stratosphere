@@ -19,6 +19,7 @@ data PivotTableConfigurationProperty
                                      sortConfiguration :: (Prelude.Maybe PivotTableSortConfigurationProperty),
                                      tableOptions :: (Prelude.Maybe PivotTableOptionsProperty),
                                      totalOptions :: (Prelude.Maybe PivotTableTotalOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableConfigurationProperty ::
   PivotTableConfigurationProperty
 mkPivotTableConfigurationProperty

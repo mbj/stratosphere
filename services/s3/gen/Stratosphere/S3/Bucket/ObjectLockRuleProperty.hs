@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.DefaultRetentionProperty as Exports
 import Stratosphere.ResourceProperties
 data ObjectLockRuleProperty
   = ObjectLockRuleProperty {defaultRetention :: (Prelude.Maybe DefaultRetentionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectLockRuleProperty :: ObjectLockRuleProperty
 mkObjectLockRuleProperty
   = ObjectLockRuleProperty {defaultRetention = Prelude.Nothing}

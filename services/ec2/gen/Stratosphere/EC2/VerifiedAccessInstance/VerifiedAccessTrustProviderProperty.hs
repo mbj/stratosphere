@@ -13,6 +13,7 @@ data VerifiedAccessTrustProviderProperty
                                          trustProviderType :: (Prelude.Maybe (Value Prelude.Text)),
                                          userTrustProviderType :: (Prelude.Maybe (Value Prelude.Text)),
                                          verifiedAccessTrustProviderId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVerifiedAccessTrustProviderProperty ::
   VerifiedAccessTrustProviderProperty
 mkVerifiedAccessTrustProviderProperty

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data InitialCapacityConfigKeyValuePairProperty
   = InitialCapacityConfigKeyValuePairProperty {key :: (Value Prelude.Text),
                                                value :: InitialCapacityConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInitialCapacityConfigKeyValuePairProperty ::
   Value Prelude.Text
   -> InitialCapacityConfigProperty

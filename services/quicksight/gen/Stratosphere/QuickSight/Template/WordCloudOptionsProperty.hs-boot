@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WordCloudOptionsProperty :: Prelude.Type
 instance ToResourceProperties WordCloudOptionsProperty
+instance Prelude.Eq WordCloudOptionsProperty
+instance Prelude.Show WordCloudOptionsProperty
 instance JSON.ToJSON WordCloudOptionsProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TransitGatewayRouteTablePropagation
   = TransitGatewayRouteTablePropagation {transitGatewayAttachmentId :: (Value Prelude.Text),
                                          transitGatewayRouteTableId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayRouteTablePropagation ::
   Value Prelude.Text
   -> Value Prelude.Text -> TransitGatewayRouteTablePropagation

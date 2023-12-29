@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MatcherProperty
   = MatcherProperty {httpCode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMatcherProperty :: Value Prelude.Text -> MatcherProperty
 mkMatcherProperty httpCode = MatcherProperty {httpCode = httpCode}
 instance ToResourceProperties MatcherProperty where

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PathPatternConfigProperty
   = PathPatternConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPathPatternConfigProperty :: PathPatternConfigProperty
 mkPathPatternConfigProperty
   = PathPatternConfigProperty {values = Prelude.Nothing}

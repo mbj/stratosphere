@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EcrConfigurationProperty
   = EcrConfigurationProperty {containerTags :: (Prelude.Maybe (ValueList Prelude.Text)),
                               repositoryName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEcrConfigurationProperty :: EcrConfigurationProperty
 mkEcrConfigurationProperty
   = EcrConfigurationProperty

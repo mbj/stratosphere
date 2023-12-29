@@ -11,6 +11,7 @@ data ClusterSubnetGroup
   = ClusterSubnetGroup {description :: (Value Prelude.Text),
                         subnetIds :: (ValueList Prelude.Text),
                         tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterSubnetGroup ::
   Value Prelude.Text -> ValueList Prelude.Text -> ClusterSubnetGroup
 mkClusterSubnetGroup description subnetIds

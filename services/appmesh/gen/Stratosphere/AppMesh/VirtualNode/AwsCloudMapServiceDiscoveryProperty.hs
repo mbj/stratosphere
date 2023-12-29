@@ -13,6 +13,7 @@ data AwsCloudMapServiceDiscoveryProperty
                                          ipPreference :: (Prelude.Maybe (Value Prelude.Text)),
                                          namespaceName :: (Value Prelude.Text),
                                          serviceName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsCloudMapServiceDiscoveryProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> AwsCloudMapServiceDiscoveryProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data S3KeyFilterProperty :: Prelude.Type
 instance ToResourceProperties S3KeyFilterProperty
+instance Prelude.Eq S3KeyFilterProperty
+instance Prelude.Show S3KeyFilterProperty
 instance JSON.ToJSON S3KeyFilterProperty

@@ -13,6 +13,7 @@ data LaunchRoleConstraint
                           portfolioId :: (Value Prelude.Text),
                           productId :: (Value Prelude.Text),
                           roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchRoleConstraint ::
   Value Prelude.Text -> Value Prelude.Text -> LaunchRoleConstraint
 mkLaunchRoleConstraint portfolioId productId

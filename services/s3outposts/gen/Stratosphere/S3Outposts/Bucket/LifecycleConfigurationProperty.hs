@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.S3Outposts.Bucket.RuleProperty as Exports
 import Stratosphere.ResourceProperties
 data LifecycleConfigurationProperty
   = LifecycleConfigurationProperty {rules :: [RuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecycleConfigurationProperty ::
   [RuleProperty] -> LifecycleConfigurationProperty
 mkLifecycleConfigurationProperty rules

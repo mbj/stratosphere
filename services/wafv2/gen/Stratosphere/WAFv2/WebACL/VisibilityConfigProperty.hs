@@ -10,6 +10,7 @@ data VisibilityConfigProperty
   = VisibilityConfigProperty {cloudWatchMetricsEnabled :: (Value Prelude.Bool),
                               metricName :: (Value Prelude.Text),
                               sampledRequestsEnabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVisibilityConfigProperty ::
   Value Prelude.Bool
   -> Value Prelude.Text

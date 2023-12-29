@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.VirtualServiceBackendProp
 import Stratosphere.ResourceProperties
 data BackendProperty
   = BackendProperty {virtualService :: (Prelude.Maybe VirtualServiceBackendProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBackendProperty :: BackendProperty
 mkBackendProperty
   = BackendProperty {virtualService = Prelude.Nothing}

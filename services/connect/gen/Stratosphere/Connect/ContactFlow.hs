@@ -15,6 +15,7 @@ data ContactFlow
                  state :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag]),
                  type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContactFlow ::
   Value Prelude.Text
   -> Value Prelude.Text

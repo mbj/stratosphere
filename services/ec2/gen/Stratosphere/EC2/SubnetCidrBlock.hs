@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SubnetCidrBlock
   = SubnetCidrBlock {ipv6CidrBlock :: (Value Prelude.Text),
                      subnetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetCidrBlock ::
   Value Prelude.Text -> Value Prelude.Text -> SubnetCidrBlock
 mkSubnetCidrBlock ipv6CidrBlock subnetId

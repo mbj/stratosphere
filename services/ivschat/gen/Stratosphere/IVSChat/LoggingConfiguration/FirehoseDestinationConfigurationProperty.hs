@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FirehoseDestinationConfigurationProperty
   = FirehoseDestinationConfigurationProperty {deliveryStreamName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseDestinationConfigurationProperty ::
   Value Prelude.Text -> FirehoseDestinationConfigurationProperty
 mkFirehoseDestinationConfigurationProperty deliveryStreamName

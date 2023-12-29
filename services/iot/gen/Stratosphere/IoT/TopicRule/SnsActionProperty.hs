@@ -10,6 +10,7 @@ data SnsActionProperty
   = SnsActionProperty {messageFormat :: (Prelude.Maybe (Value Prelude.Text)),
                        roleArn :: (Value Prelude.Text),
                        targetArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSnsActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SnsActionProperty
 mkSnsActionProperty roleArn targetArn

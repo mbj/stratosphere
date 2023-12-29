@@ -11,6 +11,7 @@ data ClientVpnRoute
                     description :: (Prelude.Maybe (Value Prelude.Text)),
                     destinationCidrBlock :: (Value Prelude.Text),
                     targetVpcSubnetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientVpnRoute ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> ClientVpnRoute

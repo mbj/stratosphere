@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DateTimeDefaultValuesProperty :: Prelude.Type
 instance ToResourceProperties DateTimeDefaultValuesProperty
+instance Prelude.Eq DateTimeDefaultValuesProperty
+instance Prelude.Show DateTimeDefaultValuesProperty
 instance JSON.ToJSON DateTimeDefaultValuesProperty

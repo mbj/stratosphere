@@ -13,6 +13,7 @@ data ZendeskDestinationPropertiesProperty
                                           idFieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           object :: (Value Prelude.Text),
                                           writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkZendeskDestinationPropertiesProperty ::
   Value Prelude.Text -> ZendeskDestinationPropertiesProperty
 mkZendeskDestinationPropertiesProperty object

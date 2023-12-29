@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EnabledControl
   = EnabledControl {controlIdentifier :: (Value Prelude.Text),
                     targetIdentifier :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnabledControl ::
   Value Prelude.Text -> Value Prelude.Text -> EnabledControl
 mkEnabledControl controlIdentifier targetIdentifier

@@ -10,6 +10,7 @@ data EndpointConfigurationProperty
   = EndpointConfigurationProperty {clientIPPreservationEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                    endpointId :: (Value Prelude.Text),
                                    weight :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointConfigurationProperty ::
   Value Prelude.Text -> EndpointConfigurationProperty
 mkEndpointConfigurationProperty endpointId

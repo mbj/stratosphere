@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.DevOpsGuru.ResourceCollection.ResourceCollect
 import Stratosphere.ResourceProperties
 data ResourceCollection
   = ResourceCollection {resourceCollectionFilter :: ResourceCollectionFilterProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceCollection ::
   ResourceCollectionFilterProperty -> ResourceCollection
 mkResourceCollection resourceCollectionFilter

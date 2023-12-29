@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.FieldSortOptionsProperty 
 import Stratosphere.ResourceProperties
 data FilledMapSortConfigurationProperty
   = FilledMapSortConfigurationProperty {categorySort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilledMapSortConfigurationProperty ::
   FilledMapSortConfigurationProperty
 mkFilledMapSortConfigurationProperty

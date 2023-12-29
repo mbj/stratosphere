@@ -13,6 +13,7 @@ data DBParameterGroup
                       name :: (Prelude.Maybe (Value Prelude.Text)),
                       parameters :: JSON.Object,
                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDBParameterGroup ::
   Value Prelude.Text
   -> Value Prelude.Text -> JSON.Object -> DBParameterGroup

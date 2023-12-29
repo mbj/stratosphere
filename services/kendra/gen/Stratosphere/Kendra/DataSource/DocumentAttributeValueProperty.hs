@@ -12,6 +12,7 @@ data DocumentAttributeValueProperty
                                     longValue :: (Prelude.Maybe (Value Prelude.Integer)),
                                     stringListValue :: (Prelude.Maybe (ValueList Prelude.Text)),
                                     stringValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentAttributeValueProperty :: DocumentAttributeValueProperty
 mkDocumentAttributeValueProperty
   = DocumentAttributeValueProperty

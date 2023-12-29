@@ -15,6 +15,7 @@ data SignalDecodersItemsProperty
                                  interfaceId :: (Value Prelude.Text),
                                  obdSignal :: (Prelude.Maybe ObdSignalProperty),
                                  type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSignalDecodersItemsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

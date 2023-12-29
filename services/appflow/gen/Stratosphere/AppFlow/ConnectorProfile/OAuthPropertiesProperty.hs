@@ -10,6 +10,7 @@ data OAuthPropertiesProperty
   = OAuthPropertiesProperty {authCodeUrl :: (Prelude.Maybe (Value Prelude.Text)),
                              oAuthScopes :: (Prelude.Maybe (ValueList Prelude.Text)),
                              tokenUrl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOAuthPropertiesProperty :: OAuthPropertiesProperty
 mkOAuthPropertiesProperty
   = OAuthPropertiesProperty

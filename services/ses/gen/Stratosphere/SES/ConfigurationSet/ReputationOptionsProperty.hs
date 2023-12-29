@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReputationOptionsProperty
   = ReputationOptionsProperty {reputationMetricsEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReputationOptionsProperty :: ReputationOptionsProperty
 mkReputationOptionsProperty
   = ReputationOptionsProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ColumnSelectorProperty
   = ColumnSelectorProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                             regex :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnSelectorProperty :: ColumnSelectorProperty
 mkColumnSelectorProperty
   = ColumnSelectorProperty

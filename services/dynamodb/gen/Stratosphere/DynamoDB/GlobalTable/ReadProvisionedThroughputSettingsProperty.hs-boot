@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReadProvisionedThroughputSettingsProperty :: Prelude.Type
 instance ToResourceProperties ReadProvisionedThroughputSettingsProperty
+instance Prelude.Eq ReadProvisionedThroughputSettingsProperty
+instance Prelude.Show ReadProvisionedThroughputSettingsProperty
 instance JSON.ToJSON ReadProvisionedThroughputSettingsProperty

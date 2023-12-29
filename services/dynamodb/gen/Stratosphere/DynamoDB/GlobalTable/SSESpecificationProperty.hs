@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SSESpecificationProperty
   = SSESpecificationProperty {sSEEnabled :: (Value Prelude.Bool),
                               sSEType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSSESpecificationProperty ::
   Value Prelude.Bool -> SSESpecificationProperty
 mkSSESpecificationProperty sSEEnabled

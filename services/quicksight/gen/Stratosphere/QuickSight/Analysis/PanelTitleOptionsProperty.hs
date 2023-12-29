@@ -12,6 +12,7 @@ data PanelTitleOptionsProperty
   = PanelTitleOptionsProperty {fontConfiguration :: (Prelude.Maybe FontConfigurationProperty),
                                horizontalTextAlignment :: (Prelude.Maybe (Value Prelude.Text)),
                                visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPanelTitleOptionsProperty :: PanelTitleOptionsProperty
 mkPanelTitleOptionsProperty
   = PanelTitleOptionsProperty

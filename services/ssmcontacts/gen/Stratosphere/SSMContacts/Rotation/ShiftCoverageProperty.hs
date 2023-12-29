@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ShiftCoverageProperty
   = ShiftCoverageProperty {coverageTimes :: [CoverageTimeProperty],
                            dayOfWeek :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkShiftCoverageProperty ::
   [CoverageTimeProperty]
   -> Value Prelude.Text -> ShiftCoverageProperty

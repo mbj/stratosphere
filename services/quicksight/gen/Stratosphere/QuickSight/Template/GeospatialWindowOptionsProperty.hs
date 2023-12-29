@@ -11,6 +11,7 @@ import Stratosphere.Value
 data GeospatialWindowOptionsProperty
   = GeospatialWindowOptionsProperty {bounds :: (Prelude.Maybe GeospatialCoordinateBoundsProperty),
                                      mapZoomMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeospatialWindowOptionsProperty ::
   GeospatialWindowOptionsProperty
 mkGeospatialWindowOptionsProperty

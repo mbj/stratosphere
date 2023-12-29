@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data PolicyOptionProperty
   = PolicyOptionProperty {networkFirewallPolicy :: (Prelude.Maybe NetworkFirewallPolicyProperty),
                           thirdPartyFirewallPolicy :: (Prelude.Maybe ThirdPartyFirewallPolicyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyOptionProperty :: PolicyOptionProperty
 mkPolicyOptionProperty
   = PolicyOptionProperty

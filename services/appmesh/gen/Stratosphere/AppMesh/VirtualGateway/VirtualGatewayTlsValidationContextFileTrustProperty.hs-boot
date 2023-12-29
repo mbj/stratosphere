@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VirtualGatewayTlsValidationContextFileTrustProperty :: Prelude.Type
 instance ToResourceProperties VirtualGatewayTlsValidationContextFileTrustProperty
+instance Prelude.Eq VirtualGatewayTlsValidationContextFileTrustProperty
+instance Prelude.Show VirtualGatewayTlsValidationContextFileTrustProperty
 instance JSON.ToJSON VirtualGatewayTlsValidationContextFileTrustProperty

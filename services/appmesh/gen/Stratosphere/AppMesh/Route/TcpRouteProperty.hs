@@ -12,6 +12,7 @@ data TcpRouteProperty
   = TcpRouteProperty {action :: TcpRouteActionProperty,
                       match :: (Prelude.Maybe TcpRouteMatchProperty),
                       timeout :: (Prelude.Maybe TcpTimeoutProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTcpRouteProperty :: TcpRouteActionProperty -> TcpRouteProperty
 mkTcpRouteProperty action
   = TcpRouteProperty

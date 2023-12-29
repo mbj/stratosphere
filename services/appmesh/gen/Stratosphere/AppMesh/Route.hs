@@ -15,6 +15,7 @@ data Route
            spec :: RouteSpecProperty,
            tags :: (Prelude.Maybe [Tag]),
            virtualRouterName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoute ::
   Value Prelude.Text
   -> RouteSpecProperty -> Value Prelude.Text -> Route

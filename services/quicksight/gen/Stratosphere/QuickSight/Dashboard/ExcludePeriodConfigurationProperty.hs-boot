@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExcludePeriodConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ExcludePeriodConfigurationProperty
+instance Prelude.Eq ExcludePeriodConfigurationProperty
+instance Prelude.Show ExcludePeriodConfigurationProperty
 instance JSON.ToJSON ExcludePeriodConfigurationProperty

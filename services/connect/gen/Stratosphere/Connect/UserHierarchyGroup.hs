@@ -10,6 +10,7 @@ data UserHierarchyGroup
   = UserHierarchyGroup {instanceArn :: (Value Prelude.Text),
                         name :: (Value Prelude.Text),
                         parentGroupArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserHierarchyGroup ::
   Value Prelude.Text -> Value Prelude.Text -> UserHierarchyGroup
 mkUserHierarchyGroup instanceArn name

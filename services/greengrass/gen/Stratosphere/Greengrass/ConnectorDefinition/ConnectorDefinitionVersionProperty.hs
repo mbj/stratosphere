@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Greengrass.ConnectorDefinition.ConnectorPrope
 import Stratosphere.ResourceProperties
 data ConnectorDefinitionVersionProperty
   = ConnectorDefinitionVersionProperty {connectors :: [ConnectorProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorDefinitionVersionProperty ::
   [ConnectorProperty] -> ConnectorDefinitionVersionProperty
 mkConnectorDefinitionVersionProperty connectors

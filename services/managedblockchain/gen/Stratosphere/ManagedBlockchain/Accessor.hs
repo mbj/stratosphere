@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Accessor
   = Accessor {accessorType :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessor :: Value Prelude.Text -> Accessor
 mkAccessor accessorType
   = Accessor {accessorType = accessorType, tags = Prelude.Nothing}

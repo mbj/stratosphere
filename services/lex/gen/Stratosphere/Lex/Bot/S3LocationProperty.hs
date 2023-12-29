@@ -10,6 +10,7 @@ data S3LocationProperty
   = S3LocationProperty {s3Bucket :: (Value Prelude.Text),
                         s3ObjectKey :: (Value Prelude.Text),
                         s3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LocationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3LocationProperty
 mkS3LocationProperty s3Bucket s3ObjectKey

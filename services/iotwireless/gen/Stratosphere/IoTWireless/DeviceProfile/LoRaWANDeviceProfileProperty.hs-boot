@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LoRaWANDeviceProfileProperty :: Prelude.Type
 instance ToResourceProperties LoRaWANDeviceProfileProperty
+instance Prelude.Eq LoRaWANDeviceProfileProperty
+instance Prelude.Show LoRaWANDeviceProfileProperty
 instance JSON.ToJSON LoRaWANDeviceProfileProperty

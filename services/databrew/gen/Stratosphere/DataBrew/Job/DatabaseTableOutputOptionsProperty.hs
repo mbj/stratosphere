@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DatabaseTableOutputOptionsProperty
   = DatabaseTableOutputOptionsProperty {tableName :: (Value Prelude.Text),
                                         tempDirectory :: (Prelude.Maybe S3LocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseTableOutputOptionsProperty ::
   Value Prelude.Text -> DatabaseTableOutputOptionsProperty
 mkDatabaseTableOutputOptionsProperty tableName

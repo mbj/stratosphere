@@ -11,6 +11,7 @@ data SqsProperty
   = SqsProperty {payload :: (Prelude.Maybe PayloadProperty),
                  queueUrl :: (Value Prelude.Text),
                  useBase64 :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSqsProperty :: Value Prelude.Text -> SqsProperty
 mkSqsProperty queueUrl
   = SqsProperty

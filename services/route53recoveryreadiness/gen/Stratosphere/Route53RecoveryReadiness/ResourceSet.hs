@@ -13,6 +13,7 @@ data ResourceSet
                  resourceSetType :: (Value Prelude.Text),
                  resources :: [ResourceProperty],
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceSet ::
   Value Prelude.Text -> [ResourceProperty] -> ResourceSet
 mkResourceSet resourceSetType resources

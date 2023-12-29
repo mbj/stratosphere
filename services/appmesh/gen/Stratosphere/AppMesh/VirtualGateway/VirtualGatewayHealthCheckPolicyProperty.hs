@@ -15,6 +15,7 @@ data VirtualGatewayHealthCheckPolicyProperty
                                              protocol :: (Value Prelude.Text),
                                              timeoutMillis :: (Value Prelude.Integer),
                                              unhealthyThreshold :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayHealthCheckPolicyProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer

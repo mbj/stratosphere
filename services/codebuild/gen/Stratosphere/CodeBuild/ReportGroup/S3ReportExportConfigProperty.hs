@@ -13,6 +13,7 @@ data S3ReportExportConfigProperty
                                   encryptionKey :: (Prelude.Maybe (Value Prelude.Text)),
                                   packaging :: (Prelude.Maybe (Value Prelude.Text)),
                                   path :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ReportExportConfigProperty ::
   Value Prelude.Text -> S3ReportExportConfigProperty
 mkS3ReportExportConfigProperty bucket

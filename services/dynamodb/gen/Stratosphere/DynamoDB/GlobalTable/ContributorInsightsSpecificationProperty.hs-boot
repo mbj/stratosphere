@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ContributorInsightsSpecificationProperty :: Prelude.Type
 instance ToResourceProperties ContributorInsightsSpecificationProperty
+instance Prelude.Eq ContributorInsightsSpecificationProperty
+instance Prelude.Show ContributorInsightsSpecificationProperty
 instance JSON.ToJSON ContributorInsightsSpecificationProperty

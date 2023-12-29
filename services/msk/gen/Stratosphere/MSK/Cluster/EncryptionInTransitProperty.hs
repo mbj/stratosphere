@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EncryptionInTransitProperty
   = EncryptionInTransitProperty {clientBroker :: (Prelude.Maybe (Value Prelude.Text)),
                                  inCluster :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionInTransitProperty :: EncryptionInTransitProperty
 mkEncryptionInTransitProperty
   = EncryptionInTransitProperty

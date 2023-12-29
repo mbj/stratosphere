@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FilterValueProperty
   = FilterValueProperty {value :: (Value Prelude.Text),
                          valueReference :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterValueProperty ::
   Value Prelude.Text -> Value Prelude.Text -> FilterValueProperty
 mkFilterValueProperty value valueReference

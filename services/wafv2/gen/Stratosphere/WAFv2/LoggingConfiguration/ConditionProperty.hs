@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data ConditionProperty
   = ConditionProperty {actionCondition :: (Prelude.Maybe ActionConditionProperty),
                        labelNameCondition :: (Prelude.Maybe LabelNameConditionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionProperty :: ConditionProperty
 mkConditionProperty
   = ConditionProperty

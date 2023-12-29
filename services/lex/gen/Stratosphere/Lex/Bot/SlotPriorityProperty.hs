@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SlotPriorityProperty
   = SlotPriorityProperty {priority :: (Value Prelude.Integer),
                           slotName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotPriorityProperty ::
   Value Prelude.Integer -> Value Prelude.Text -> SlotPriorityProperty
 mkSlotPriorityProperty priority slotName

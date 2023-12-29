@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PlacementConstraintProperty
   = PlacementConstraintProperty {expression :: (Prelude.Maybe (Value Prelude.Text)),
                                  type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacementConstraintProperty ::
   Value Prelude.Text -> PlacementConstraintProperty
 mkPlacementConstraintProperty type'

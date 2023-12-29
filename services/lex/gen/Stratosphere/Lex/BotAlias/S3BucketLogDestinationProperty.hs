@@ -11,6 +11,7 @@ data S3BucketLogDestinationProperty
   = S3BucketLogDestinationProperty {kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                                     logPrefix :: (Value Prelude.Text),
                                     s3BucketArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3BucketLogDestinationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> S3BucketLogDestinationProperty

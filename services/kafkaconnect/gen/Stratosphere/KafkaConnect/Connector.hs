@@ -26,6 +26,7 @@ data Connector
                plugins :: [PluginProperty],
                serviceExecutionRoleArn :: (Value Prelude.Text),
                workerConfiguration :: (Prelude.Maybe WorkerConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnector ::
   CapacityProperty
   -> Prelude.Map Prelude.Text (Value Prelude.Text)

@@ -13,6 +13,7 @@ data AudioAndDTMFInputSpecificationProperty
   = AudioAndDTMFInputSpecificationProperty {audioSpecification :: (Prelude.Maybe AudioSpecificationProperty),
                                             dTMFSpecification :: (Prelude.Maybe DTMFSpecificationProperty),
                                             startTimeoutMs :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioAndDTMFInputSpecificationProperty ::
   Value Prelude.Integer -> AudioAndDTMFInputSpecificationProperty
 mkAudioAndDTMFInputSpecificationProperty startTimeoutMs

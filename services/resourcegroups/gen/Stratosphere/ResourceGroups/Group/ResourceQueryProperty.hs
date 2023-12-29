@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ResourceQueryProperty
   = ResourceQueryProperty {query :: (Prelude.Maybe QueryProperty),
                            type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceQueryProperty :: ResourceQueryProperty
 mkResourceQueryProperty
   = ResourceQueryProperty

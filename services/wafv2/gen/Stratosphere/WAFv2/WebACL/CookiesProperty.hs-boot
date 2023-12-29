@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CookiesProperty :: Prelude.Type
 instance ToResourceProperties CookiesProperty
+instance Prelude.Eq CookiesProperty
+instance Prelude.Show CookiesProperty
 instance JSON.ToJSON CookiesProperty

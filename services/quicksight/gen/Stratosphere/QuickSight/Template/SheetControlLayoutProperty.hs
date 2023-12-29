@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.SheetControlLayoutConfigu
 import Stratosphere.ResourceProperties
 data SheetControlLayoutProperty
   = SheetControlLayoutProperty {configuration :: SheetControlLayoutConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSheetControlLayoutProperty ::
   SheetControlLayoutConfigurationProperty
   -> SheetControlLayoutProperty

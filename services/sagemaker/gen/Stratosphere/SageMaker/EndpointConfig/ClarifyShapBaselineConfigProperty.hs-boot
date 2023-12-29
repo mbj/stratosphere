@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ClarifyShapBaselineConfigProperty :: Prelude.Type
 instance ToResourceProperties ClarifyShapBaselineConfigProperty
+instance Prelude.Eq ClarifyShapBaselineConfigProperty
+instance Prelude.Show ClarifyShapBaselineConfigProperty
 instance JSON.ToJSON ClarifyShapBaselineConfigProperty

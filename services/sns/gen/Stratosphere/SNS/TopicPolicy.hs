@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TopicPolicy
   = TopicPolicy {policyDocument :: JSON.Object,
                  topics :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicPolicy ::
   JSON.Object -> ValueList Prelude.Text -> TopicPolicy
 mkTopicPolicy policyDocument topics

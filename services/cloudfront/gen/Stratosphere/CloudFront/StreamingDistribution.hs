@@ -10,6 +10,7 @@ import Stratosphere.Tag
 data StreamingDistribution
   = StreamingDistribution {streamingDistributionConfig :: StreamingDistributionConfigProperty,
                            tags :: [Tag]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamingDistribution ::
   StreamingDistributionConfigProperty
   -> [Tag] -> StreamingDistribution

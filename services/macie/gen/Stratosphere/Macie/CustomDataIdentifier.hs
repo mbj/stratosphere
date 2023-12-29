@@ -13,6 +13,7 @@ data CustomDataIdentifier
                           maximumMatchDistance :: (Prelude.Maybe (Value Prelude.Integer)),
                           name :: (Value Prelude.Text),
                           regex :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomDataIdentifier ::
   Value Prelude.Text -> Value Prelude.Text -> CustomDataIdentifier
 mkCustomDataIdentifier name regex

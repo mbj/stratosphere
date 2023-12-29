@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatisticsResourceProperty
   = StatisticsResourceProperty {s3Uri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatisticsResourceProperty :: StatisticsResourceProperty
 mkStatisticsResourceProperty
   = StatisticsResourceProperty {s3Uri = Prelude.Nothing}

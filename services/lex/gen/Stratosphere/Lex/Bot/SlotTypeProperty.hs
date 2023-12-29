@@ -16,6 +16,7 @@ data SlotTypeProperty
                       parentSlotTypeSignature :: (Prelude.Maybe (Value Prelude.Text)),
                       slotTypeValues :: (Prelude.Maybe [SlotTypeValueProperty]),
                       valueSelectionSetting :: (Prelude.Maybe SlotValueSelectionSettingProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotTypeProperty :: Value Prelude.Text -> SlotTypeProperty
 mkSlotTypeProperty name
   = SlotTypeProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DateTimeParameterProperty
   = DateTimeParameterProperty {name :: (Value Prelude.Text),
                                values :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimeParameterProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> DateTimeParameterProperty

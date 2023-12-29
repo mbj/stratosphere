@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TemplateSSMDocumentDetailsProperty :: Prelude.Type
 instance ToResourceProperties TemplateSSMDocumentDetailsProperty
+instance Prelude.Eq TemplateSSMDocumentDetailsProperty
+instance Prelude.Show TemplateSSMDocumentDetailsProperty
 instance JSON.ToJSON TemplateSSMDocumentDetailsProperty

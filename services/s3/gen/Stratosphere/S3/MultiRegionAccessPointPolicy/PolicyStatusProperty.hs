@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PolicyStatusProperty
   = PolicyStatusProperty {isPublic :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyStatusProperty ::
   Value Prelude.Text -> PolicyStatusProperty
 mkPolicyStatusProperty isPublic

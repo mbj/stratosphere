@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ObjectLockConfigurationProperty
   = ObjectLockConfigurationProperty {objectLockEnabled :: (Prelude.Maybe (Value Prelude.Text)),
                                      rule :: (Prelude.Maybe ObjectLockRuleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectLockConfigurationProperty ::
   ObjectLockConfigurationProperty
 mkObjectLockConfigurationProperty

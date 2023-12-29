@@ -15,6 +15,7 @@ data Hypervisor
                 password :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag]),
                 username :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHypervisor :: Hypervisor
 mkHypervisor
   = Hypervisor

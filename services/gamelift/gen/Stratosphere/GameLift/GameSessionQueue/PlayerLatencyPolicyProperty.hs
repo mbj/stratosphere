@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PlayerLatencyPolicyProperty
   = PlayerLatencyPolicyProperty {maximumIndividualPlayerLatencyMilliseconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                  policyDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlayerLatencyPolicyProperty :: PlayerLatencyPolicyProperty
 mkPlayerLatencyPolicyProperty
   = PlayerLatencyPolicyProperty

@@ -24,6 +24,7 @@ data TargetProperty
                     roleArn :: (Value Prelude.Text),
                     sageMakerPipelineParameters :: (Prelude.Maybe SageMakerPipelineParametersProperty),
                     sqsParameters :: (Prelude.Maybe SqsParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TargetProperty
 mkTargetProperty arn roleArn

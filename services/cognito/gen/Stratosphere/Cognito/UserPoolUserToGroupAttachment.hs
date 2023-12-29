@@ -10,6 +10,7 @@ data UserPoolUserToGroupAttachment
   = UserPoolUserToGroupAttachment {groupName :: (Value Prelude.Text),
                                    userPoolId :: (Value Prelude.Text),
                                    username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolUserToGroupAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text

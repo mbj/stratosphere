@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecondaryValueOptionsProperty
   = SecondaryValueOptionsProperty {visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecondaryValueOptionsProperty :: SecondaryValueOptionsProperty
 mkSecondaryValueOptionsProperty
   = SecondaryValueOptionsProperty {visibility = Prelude.Nothing}

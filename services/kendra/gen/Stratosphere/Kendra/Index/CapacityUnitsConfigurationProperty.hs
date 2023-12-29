@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CapacityUnitsConfigurationProperty
   = CapacityUnitsConfigurationProperty {queryCapacityUnits :: (Value Prelude.Integer),
                                         storageCapacityUnits :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityUnitsConfigurationProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> CapacityUnitsConfigurationProperty

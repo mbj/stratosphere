@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MediaConnectFlowRequestProperty
   = MediaConnectFlowRequestProperty {flowArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaConnectFlowRequestProperty ::
   MediaConnectFlowRequestProperty
 mkMediaConnectFlowRequestProperty

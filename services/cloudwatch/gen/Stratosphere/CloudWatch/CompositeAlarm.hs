@@ -17,6 +17,7 @@ data CompositeAlarm
                     alarmRule :: (Value Prelude.Text),
                     insufficientDataActions :: (Prelude.Maybe (ValueList Prelude.Text)),
                     oKActions :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCompositeAlarm :: Value Prelude.Text -> CompositeAlarm
 mkCompositeAlarm alarmRule
   = CompositeAlarm

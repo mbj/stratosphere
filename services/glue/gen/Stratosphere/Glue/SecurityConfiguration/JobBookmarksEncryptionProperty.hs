@@ -10,6 +10,7 @@ import Stratosphere.Value
 data JobBookmarksEncryptionProperty
   = JobBookmarksEncryptionProperty {jobBookmarksEncryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
                                     kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJobBookmarksEncryptionProperty :: JobBookmarksEncryptionProperty
 mkJobBookmarksEncryptionProperty
   = JobBookmarksEncryptionProperty

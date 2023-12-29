@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputFileUriValueProperty
   = OutputFileUriValueProperty {fileName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputFileUriValueProperty ::
   Value Prelude.Text -> OutputFileUriValueProperty
 mkOutputFileUriValueProperty fileName

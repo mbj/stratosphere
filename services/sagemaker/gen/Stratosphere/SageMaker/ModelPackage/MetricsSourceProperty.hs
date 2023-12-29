@@ -10,6 +10,7 @@ data MetricsSourceProperty
   = MetricsSourceProperty {contentDigest :: (Prelude.Maybe (Value Prelude.Text)),
                            contentType :: (Value Prelude.Text),
                            s3Uri :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricsSourceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> MetricsSourceProperty
 mkMetricsSourceProperty contentType s3Uri

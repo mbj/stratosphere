@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AcceleratorCountProperty :: Prelude.Type
 instance ToResourceProperties AcceleratorCountProperty
+instance Prelude.Eq AcceleratorCountProperty
+instance Prelude.Show AcceleratorCountProperty
 instance JSON.ToJSON AcceleratorCountProperty

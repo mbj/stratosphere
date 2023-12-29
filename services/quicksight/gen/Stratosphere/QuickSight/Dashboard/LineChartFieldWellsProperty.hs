@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.LineChartAggregatedField
 import Stratosphere.ResourceProperties
 data LineChartFieldWellsProperty
   = LineChartFieldWellsProperty {lineChartAggregatedFieldWells :: (Prelude.Maybe LineChartAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLineChartFieldWellsProperty :: LineChartFieldWellsProperty
 mkLineChartFieldWellsProperty
   = LineChartFieldWellsProperty

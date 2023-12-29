@@ -14,6 +14,7 @@ data PipeSourceRabbitMQBrokerParametersProperty
                                                 maximumBatchingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                                 queueName :: (Value Prelude.Text),
                                                 virtualHost :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceRabbitMQBrokerParametersProperty ::
   MQBrokerAccessCredentialsProperty
   -> Value Prelude.Text -> PipeSourceRabbitMQBrokerParametersProperty

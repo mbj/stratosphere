@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SheetTextBoxProperty
   = SheetTextBoxProperty {content :: (Prelude.Maybe (Value Prelude.Text)),
                           sheetTextBoxId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSheetTextBoxProperty ::
   Value Prelude.Text -> SheetTextBoxProperty
 mkSheetTextBoxProperty sheetTextBoxId

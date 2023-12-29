@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IncludedPropertyProperty :: Prelude.Type
 instance ToResourceProperties IncludedPropertyProperty
+instance Prelude.Eq IncludedPropertyProperty
+instance Prelude.Show IncludedPropertyProperty
 instance JSON.ToJSON IncludedPropertyProperty

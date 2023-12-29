@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WaterfallChartOptionsProperty
   = WaterfallChartOptionsProperty {totalBarLabel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWaterfallChartOptionsProperty :: WaterfallChartOptionsProperty
 mkWaterfallChartOptionsProperty
   = WaterfallChartOptionsProperty {totalBarLabel = Prelude.Nothing}

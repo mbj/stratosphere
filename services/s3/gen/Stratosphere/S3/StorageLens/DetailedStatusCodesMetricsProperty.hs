@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DetailedStatusCodesMetricsProperty
   = DetailedStatusCodesMetricsProperty {isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDetailedStatusCodesMetricsProperty ::
   DetailedStatusCodesMetricsProperty
 mkDetailedStatusCodesMetricsProperty

@@ -15,6 +15,7 @@ data FontConfigurationProperty
                                fontSize :: (Prelude.Maybe FontSizeProperty),
                                fontStyle :: (Prelude.Maybe (Value Prelude.Text)),
                                fontWeight :: (Prelude.Maybe FontWeightProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFontConfigurationProperty :: FontConfigurationProperty
 mkFontConfigurationProperty
   = FontConfigurationProperty

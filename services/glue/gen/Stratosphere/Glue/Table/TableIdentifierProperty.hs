@@ -10,6 +10,7 @@ data TableIdentifierProperty
   = TableIdentifierProperty {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
                              databaseName :: (Prelude.Maybe (Value Prelude.Text)),
                              name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableIdentifierProperty :: TableIdentifierProperty
 mkTableIdentifierProperty
   = TableIdentifierProperty

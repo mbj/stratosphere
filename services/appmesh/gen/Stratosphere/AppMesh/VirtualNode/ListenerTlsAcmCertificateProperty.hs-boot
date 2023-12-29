@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ListenerTlsAcmCertificateProperty :: Prelude.Type
 instance ToResourceProperties ListenerTlsAcmCertificateProperty
+instance Prelude.Eq ListenerTlsAcmCertificateProperty
+instance Prelude.Show ListenerTlsAcmCertificateProperty
 instance JSON.ToJSON ListenerTlsAcmCertificateProperty

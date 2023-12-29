@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ElasticInferenceAcceleratorProperty
   = ElasticInferenceAcceleratorProperty {count :: (Prelude.Maybe (Value Prelude.Integer)),
                                          type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticInferenceAcceleratorProperty ::
   Value Prelude.Text -> ElasticInferenceAcceleratorProperty
 mkElasticInferenceAcceleratorProperty type'

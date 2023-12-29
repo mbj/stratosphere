@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data SaslProperty
   = SaslProperty {iam :: (Prelude.Maybe IamProperty),
                   scram :: (Prelude.Maybe ScramProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSaslProperty :: SaslProperty
 mkSaslProperty
   = SaslProperty {iam = Prelude.Nothing, scram = Prelude.Nothing}

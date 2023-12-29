@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PublishMetricActionProperty :: Prelude.Type
 instance ToResourceProperties PublishMetricActionProperty
+instance Prelude.Eq PublishMetricActionProperty
+instance Prelude.Show PublishMetricActionProperty
 instance JSON.ToJSON PublishMetricActionProperty

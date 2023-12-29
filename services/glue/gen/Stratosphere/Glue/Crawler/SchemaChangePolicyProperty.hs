@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SchemaChangePolicyProperty
   = SchemaChangePolicyProperty {deleteBehavior :: (Prelude.Maybe (Value Prelude.Text)),
                                 updateBehavior :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaChangePolicyProperty :: SchemaChangePolicyProperty
 mkSchemaChangePolicyProperty
   = SchemaChangePolicyProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ScriptBootstrapActionConfigProperty
   = ScriptBootstrapActionConfigProperty {args :: (Prelude.Maybe (ValueList Prelude.Text)),
                                          path :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScriptBootstrapActionConfigProperty ::
   Value Prelude.Text -> ScriptBootstrapActionConfigProperty
 mkScriptBootstrapActionConfigProperty path

@@ -12,6 +12,7 @@ data VpcLink
              name :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag]),
              targetArns :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcLink ::
   Value Prelude.Text -> ValueList Prelude.Text -> VpcLink
 mkVpcLink name targetArns

@@ -12,6 +12,7 @@ data LineChartLineStyleSettingsProperty
                                         lineStyle :: (Prelude.Maybe (Value Prelude.Text)),
                                         lineVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                                         lineWidth :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLineChartLineStyleSettingsProperty ::
   LineChartLineStyleSettingsProperty
 mkLineChartLineStyleSettingsProperty

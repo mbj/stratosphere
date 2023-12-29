@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.CustomerManagedS3Stora
 import Stratosphere.ResourceProperties
 data IotSiteWiseMultiLayerStorageProperty
   = IotSiteWiseMultiLayerStorageProperty {customerManagedS3Storage :: (Prelude.Maybe CustomerManagedS3StorageProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIotSiteWiseMultiLayerStorageProperty ::
   IotSiteWiseMultiLayerStorageProperty
 mkIotSiteWiseMultiLayerStorageProperty

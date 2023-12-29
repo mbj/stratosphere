@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeleteMarkerReplicationProperty :: Prelude.Type
 instance ToResourceProperties DeleteMarkerReplicationProperty
+instance Prelude.Eq DeleteMarkerReplicationProperty
+instance Prelude.Show DeleteMarkerReplicationProperty
 instance JSON.ToJSON DeleteMarkerReplicationProperty

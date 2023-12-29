@@ -9,6 +9,7 @@ import Stratosphere.Value
 data HealthCheckTagProperty
   = HealthCheckTagProperty {key :: (Value Prelude.Text),
                             value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckTagProperty ::
   Value Prelude.Text -> Value Prelude.Text -> HealthCheckTagProperty
 mkHealthCheckTagProperty key value

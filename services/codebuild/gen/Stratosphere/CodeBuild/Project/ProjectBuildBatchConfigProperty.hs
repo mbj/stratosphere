@@ -14,6 +14,7 @@ data ProjectBuildBatchConfigProperty
                                      restrictions :: (Prelude.Maybe BatchRestrictionsProperty),
                                      serviceRole :: (Prelude.Maybe (Value Prelude.Text)),
                                      timeoutInMins :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectBuildBatchConfigProperty ::
   ProjectBuildBatchConfigProperty
 mkProjectBuildBatchConfigProperty

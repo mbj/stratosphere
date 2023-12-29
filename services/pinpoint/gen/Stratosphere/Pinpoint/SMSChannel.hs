@@ -11,6 +11,7 @@ data SMSChannel
                 enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                 senderId :: (Prelude.Maybe (Value Prelude.Text)),
                 shortCode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSMSChannel :: Value Prelude.Text -> SMSChannel
 mkSMSChannel applicationId
   = SMSChannel

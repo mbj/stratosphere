@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CopyActionResourceTypeProperty :: Prelude.Type
 instance ToResourceProperties CopyActionResourceTypeProperty
+instance Prelude.Eq CopyActionResourceTypeProperty
+instance Prelude.Show CopyActionResourceTypeProperty
 instance JSON.ToJSON CopyActionResourceTypeProperty

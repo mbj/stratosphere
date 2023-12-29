@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RegistryCredentialProperty
   = RegistryCredentialProperty {credential :: (Value Prelude.Text),
                                 credentialProvider :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegistryCredentialProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> RegistryCredentialProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataCellsFilterResourceProperty :: Prelude.Type
 instance ToResourceProperties DataCellsFilterResourceProperty
+instance Prelude.Eq DataCellsFilterResourceProperty
+instance Prelude.Show DataCellsFilterResourceProperty
 instance JSON.ToJSON DataCellsFilterResourceProperty

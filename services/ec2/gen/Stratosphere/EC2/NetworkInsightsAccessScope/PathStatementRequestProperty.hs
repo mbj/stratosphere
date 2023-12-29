@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data PathStatementRequestProperty
   = PathStatementRequestProperty {packetHeaderStatement :: (Prelude.Maybe PacketHeaderStatementRequestProperty),
                                   resourceStatement :: (Prelude.Maybe ResourceStatementRequestProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPathStatementRequestProperty :: PathStatementRequestProperty
 mkPathStatementRequestProperty
   = PathStatementRequestProperty

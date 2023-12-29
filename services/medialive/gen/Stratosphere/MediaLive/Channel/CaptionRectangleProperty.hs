@@ -11,6 +11,7 @@ data CaptionRectangleProperty
                               leftOffset :: (Prelude.Maybe (Value Prelude.Double)),
                               topOffset :: (Prelude.Maybe (Value Prelude.Double)),
                               width :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionRectangleProperty :: CaptionRectangleProperty
 mkCaptionRectangleProperty
   = CaptionRectangleProperty

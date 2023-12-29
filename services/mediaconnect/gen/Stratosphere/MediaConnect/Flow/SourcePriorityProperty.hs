@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourcePriorityProperty
   = SourcePriorityProperty {primarySource :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourcePriorityProperty ::
   Value Prelude.Text -> SourcePriorityProperty
 mkSourcePriorityProperty primarySource

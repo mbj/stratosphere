@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ServerSideEncryptionRuleProperty
   = ServerSideEncryptionRuleProperty {bucketKeyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                       serverSideEncryptionByDefault :: (Prelude.Maybe ServerSideEncryptionByDefaultProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerSideEncryptionRuleProperty ::
   ServerSideEncryptionRuleProperty
 mkServerSideEncryptionRuleProperty

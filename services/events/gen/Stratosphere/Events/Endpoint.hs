@@ -16,6 +16,7 @@ data Endpoint
               replicationConfig :: (Prelude.Maybe ReplicationConfigProperty),
               roleArn :: (Prelude.Maybe (Value Prelude.Text)),
               routingConfig :: RoutingConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpoint ::
   [EndpointEventBusProperty] -> RoutingConfigProperty -> Endpoint
 mkEndpoint eventBuses routingConfig

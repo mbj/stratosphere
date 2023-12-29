@@ -18,6 +18,7 @@ data WorkflowStepProperty
                           deleteStepDetails :: (Prelude.Maybe DeleteStepDetailsProperty),
                           tagStepDetails :: (Prelude.Maybe TagStepDetailsProperty),
                           type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflowStepProperty :: WorkflowStepProperty
 mkWorkflowStepProperty
   = WorkflowStepProperty

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.FSx.FileSystem.ClientConfigurationsProperty a
 import Stratosphere.ResourceProperties
 data NfsExportsProperty
   = NfsExportsProperty {clientConfigurations :: (Prelude.Maybe [ClientConfigurationsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNfsExportsProperty :: NfsExportsProperty
 mkNfsExportsProperty
   = NfsExportsProperty {clientConfigurations = Prelude.Nothing}

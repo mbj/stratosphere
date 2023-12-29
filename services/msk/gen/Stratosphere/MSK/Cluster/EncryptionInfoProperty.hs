@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data EncryptionInfoProperty
   = EncryptionInfoProperty {encryptionAtRest :: (Prelude.Maybe EncryptionAtRestProperty),
                             encryptionInTransit :: (Prelude.Maybe EncryptionInTransitProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionInfoProperty :: EncryptionInfoProperty
 mkEncryptionInfoProperty
   = EncryptionInfoProperty

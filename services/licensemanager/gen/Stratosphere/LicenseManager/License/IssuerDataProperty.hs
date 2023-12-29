@@ -9,6 +9,7 @@ import Stratosphere.Value
 data IssuerDataProperty
   = IssuerDataProperty {name :: (Value Prelude.Text),
                         signKey :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIssuerDataProperty :: Value Prelude.Text -> IssuerDataProperty
 mkIssuerDataProperty name
   = IssuerDataProperty {name = name, signKey = Prelude.Nothing}

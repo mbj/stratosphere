@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FontSizeProperty
   = FontSizeProperty {relative :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFontSizeProperty :: FontSizeProperty
 mkFontSizeProperty = FontSizeProperty {relative = Prelude.Nothing}
 instance ToResourceProperties FontSizeProperty where

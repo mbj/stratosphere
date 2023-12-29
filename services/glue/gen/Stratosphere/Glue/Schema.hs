@@ -18,6 +18,7 @@ data Schema
             registry :: (Prelude.Maybe RegistryProperty),
             schemaDefinition :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchema ::
   Value Prelude.Text
   -> Value Prelude.Text

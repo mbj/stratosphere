@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AllowedStatisticsProperty
   = AllowedStatisticsProperty {statistics :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowedStatisticsProperty ::
   ValueList Prelude.Text -> AllowedStatisticsProperty
 mkAllowedStatisticsProperty statistics

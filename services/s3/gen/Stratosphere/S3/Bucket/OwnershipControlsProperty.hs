@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.OwnershipControlsRuleProperty as Ex
 import Stratosphere.ResourceProperties
 data OwnershipControlsProperty
   = OwnershipControlsProperty {rules :: [OwnershipControlsRuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOwnershipControlsProperty ::
   [OwnershipControlsRuleProperty] -> OwnershipControlsProperty
 mkOwnershipControlsProperty rules

@@ -13,6 +13,7 @@ data ImageConfigurationProperty
                                 runtimeEnvironmentSecrets :: (Prelude.Maybe [KeyValuePairProperty]),
                                 runtimeEnvironmentVariables :: (Prelude.Maybe [KeyValuePairProperty]),
                                 startCommand :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImageConfigurationProperty :: ImageConfigurationProperty
 mkImageConfigurationProperty
   = ImageConfigurationProperty

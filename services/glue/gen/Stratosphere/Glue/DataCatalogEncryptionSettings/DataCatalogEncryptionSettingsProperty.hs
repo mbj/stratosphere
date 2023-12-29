@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DataCatalogEncryptionSettingsProperty
   = DataCatalogEncryptionSettingsProperty {connectionPasswordEncryption :: (Prelude.Maybe ConnectionPasswordEncryptionProperty),
                                            encryptionAtRest :: (Prelude.Maybe EncryptionAtRestProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCatalogEncryptionSettingsProperty ::
   DataCatalogEncryptionSettingsProperty
 mkDataCatalogEncryptionSettingsProperty

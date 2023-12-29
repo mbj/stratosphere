@@ -18,6 +18,7 @@ data EmailIdentity
                    emailIdentity :: (Value Prelude.Text),
                    feedbackAttributes :: (Prelude.Maybe FeedbackAttributesProperty),
                    mailFromAttributes :: (Prelude.Maybe MailFromAttributesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailIdentity :: Value Prelude.Text -> EmailIdentity
 mkEmailIdentity emailIdentity
   = EmailIdentity

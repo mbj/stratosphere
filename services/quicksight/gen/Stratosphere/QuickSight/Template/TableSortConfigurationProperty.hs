@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data TableSortConfigurationProperty
   = TableSortConfigurationProperty {paginationConfiguration :: (Prelude.Maybe PaginationConfigurationProperty),
                                     rowSort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableSortConfigurationProperty :: TableSortConfigurationProperty
 mkTableSortConfigurationProperty
   = TableSortConfigurationProperty

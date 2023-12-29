@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TrustedSignersProperty :: Prelude.Type
 instance ToResourceProperties TrustedSignersProperty
+instance Prelude.Eq TrustedSignersProperty
+instance Prelude.Show TrustedSignersProperty
 instance JSON.ToJSON TrustedSignersProperty

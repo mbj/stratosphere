@@ -11,6 +11,7 @@ data JobCommandProperty
                         pythonVersion :: (Prelude.Maybe (Value Prelude.Text)),
                         runtime :: (Prelude.Maybe (Value Prelude.Text)),
                         scriptLocation :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJobCommandProperty :: JobCommandProperty
 mkJobCommandProperty
   = JobCommandProperty

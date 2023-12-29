@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data QuickConnectConfigProperty :: Prelude.Type
 instance ToResourceProperties QuickConnectConfigProperty
+instance Prelude.Eq QuickConnectConfigProperty
+instance Prelude.Show QuickConnectConfigProperty
 instance JSON.ToJSON QuickConnectConfigProperty

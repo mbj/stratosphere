@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FixedResponseConfigProperty :: Prelude.Type
 instance ToResourceProperties FixedResponseConfigProperty
+instance Prelude.Eq FixedResponseConfigProperty
+instance Prelude.Show FixedResponseConfigProperty
 instance JSON.ToJSON FixedResponseConfigProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Database
   = Database {catalogId :: (Value Prelude.Text),
               databaseInput :: DatabaseInputProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabase ::
   Value Prelude.Text -> DatabaseInputProperty -> Database
 mkDatabase catalogId databaseInput

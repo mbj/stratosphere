@@ -9,6 +9,7 @@ import Stratosphere.Value
 data IPSetDescriptorProperty
   = IPSetDescriptorProperty {type' :: (Value Prelude.Text),
                              value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSetDescriptorProperty ::
   Value Prelude.Text -> Value Prelude.Text -> IPSetDescriptorProperty
 mkIPSetDescriptorProperty type' value

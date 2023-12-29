@@ -21,6 +21,7 @@ data FileSystem
                 performanceMode :: (Prelude.Maybe (Value Prelude.Text)),
                 provisionedThroughputInMibps :: (Prelude.Maybe (Value Prelude.Double)),
                 throughputMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFileSystem :: FileSystem
 mkFileSystem
   = FileSystem

@@ -12,6 +12,7 @@ data DataSourceCredentialsProperty
   = DataSourceCredentialsProperty {copySourceArn :: (Prelude.Maybe (Value Prelude.Text)),
                                    credentialPair :: (Prelude.Maybe CredentialPairProperty),
                                    secretArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceCredentialsProperty :: DataSourceCredentialsProperty
 mkDataSourceCredentialsProperty
   = DataSourceCredentialsProperty

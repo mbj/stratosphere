@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SourceAlgorithmSpecificationProperty :: Prelude.Type
 instance ToResourceProperties SourceAlgorithmSpecificationProperty
+instance Prelude.Eq SourceAlgorithmSpecificationProperty
+instance Prelude.Show SourceAlgorithmSpecificationProperty
 instance JSON.ToJSON SourceAlgorithmSpecificationProperty

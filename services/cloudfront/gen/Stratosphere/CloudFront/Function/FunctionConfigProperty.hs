@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FunctionConfigProperty
   = FunctionConfigProperty {comment :: (Value Prelude.Text),
                             runtime :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> FunctionConfigProperty
 mkFunctionConfigProperty comment runtime

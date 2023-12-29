@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.TumblingWindowProperty
 import Stratosphere.ResourceProperties
 data MetricWindowProperty
   = MetricWindowProperty {tumbling :: (Prelude.Maybe TumblingWindowProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricWindowProperty :: MetricWindowProperty
 mkMetricWindowProperty
   = MetricWindowProperty {tumbling = Prelude.Nothing}

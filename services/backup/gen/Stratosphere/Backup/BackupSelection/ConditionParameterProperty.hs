@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ConditionParameterProperty
   = ConditionParameterProperty {conditionKey :: (Prelude.Maybe (Value Prelude.Text)),
                                 conditionValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionParameterProperty :: ConditionParameterProperty
 mkConditionParameterProperty
   = ConditionParameterProperty

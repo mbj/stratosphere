@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data GaugeChartFieldWellsProperty
   = GaugeChartFieldWellsProperty {targetValues :: (Prelude.Maybe [MeasureFieldProperty]),
                                   values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGaugeChartFieldWellsProperty :: GaugeChartFieldWellsProperty
 mkGaugeChartFieldWellsProperty
   = GaugeChartFieldWellsProperty

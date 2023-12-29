@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AudioDolbyEDecodeProperty :: Prelude.Type
 instance ToResourceProperties AudioDolbyEDecodeProperty
+instance Prelude.Eq AudioDolbyEDecodeProperty
+instance Prelude.Show AudioDolbyEDecodeProperty
 instance JSON.ToJSON AudioDolbyEDecodeProperty

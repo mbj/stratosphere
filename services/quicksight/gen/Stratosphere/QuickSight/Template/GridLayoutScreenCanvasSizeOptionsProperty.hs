@@ -10,6 +10,7 @@ import Stratosphere.Value
 data GridLayoutScreenCanvasSizeOptionsProperty
   = GridLayoutScreenCanvasSizeOptionsProperty {optimizedViewPortWidth :: (Prelude.Maybe (Value Prelude.Text)),
                                                resizeOption :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGridLayoutScreenCanvasSizeOptionsProperty ::
   Value Prelude.Text -> GridLayoutScreenCanvasSizeOptionsProperty
 mkGridLayoutScreenCanvasSizeOptionsProperty resizeOption

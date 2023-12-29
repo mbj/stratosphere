@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CustomAttributeProperty
   = CustomAttributeProperty {objectIdentifier :: (Value Prelude.Text),
                              value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomAttributeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> CustomAttributeProperty
 mkCustomAttributeProperty objectIdentifier value

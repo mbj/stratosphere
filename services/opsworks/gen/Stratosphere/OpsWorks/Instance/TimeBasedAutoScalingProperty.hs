@@ -14,6 +14,7 @@ data TimeBasedAutoScalingProperty
                                   thursday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                   tuesday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                   wednesday :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeBasedAutoScalingProperty :: TimeBasedAutoScalingProperty
 mkTimeBasedAutoScalingProperty
   = TimeBasedAutoScalingProperty

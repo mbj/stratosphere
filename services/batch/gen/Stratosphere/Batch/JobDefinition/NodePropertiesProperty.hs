@@ -12,6 +12,7 @@ data NodePropertiesProperty
   = NodePropertiesProperty {mainNode :: (Value Prelude.Integer),
                             nodeRangeProperties :: [NodeRangePropertyProperty],
                             numNodes :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNodePropertiesProperty ::
   Value Prelude.Integer
   -> [NodeRangePropertyProperty]

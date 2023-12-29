@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OnlineAbConfigObjectProperty :: Prelude.Type
 instance ToResourceProperties OnlineAbConfigObjectProperty
+instance Prelude.Eq OnlineAbConfigObjectProperty
+instance Prelude.Show OnlineAbConfigObjectProperty
 instance JSON.ToJSON OnlineAbConfigObjectProperty

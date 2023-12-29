@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data QueryLoggingConfigProperty
   = QueryLoggingConfigProperty {cloudWatchLogsLogGroupArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryLoggingConfigProperty ::
   Value Prelude.Text -> QueryLoggingConfigProperty
 mkQueryLoggingConfigProperty cloudWatchLogsLogGroupArn

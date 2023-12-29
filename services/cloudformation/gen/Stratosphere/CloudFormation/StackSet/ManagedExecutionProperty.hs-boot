@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ManagedExecutionProperty :: Prelude.Type
 instance ToResourceProperties ManagedExecutionProperty
+instance Prelude.Eq ManagedExecutionProperty
+instance Prelude.Show ManagedExecutionProperty
 instance JSON.ToJSON ManagedExecutionProperty

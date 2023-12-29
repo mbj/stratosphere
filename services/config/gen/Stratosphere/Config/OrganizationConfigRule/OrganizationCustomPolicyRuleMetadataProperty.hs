@@ -19,6 +19,7 @@ data OrganizationCustomPolicyRuleMetadataProperty
                                                   runtime :: (Value Prelude.Text),
                                                   tagKeyScope :: (Prelude.Maybe (Value Prelude.Text)),
                                                   tagValueScope :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationCustomPolicyRuleMetadataProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

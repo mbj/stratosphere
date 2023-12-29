@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IoTJobAbortConfigProperty :: Prelude.Type
 instance ToResourceProperties IoTJobAbortConfigProperty
+instance Prelude.Eq IoTJobAbortConfigProperty
+instance Prelude.Show IoTJobAbortConfigProperty
 instance JSON.ToJSON IoTJobAbortConfigProperty

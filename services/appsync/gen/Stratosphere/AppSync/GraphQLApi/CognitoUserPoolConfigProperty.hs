@@ -10,6 +10,7 @@ data CognitoUserPoolConfigProperty
   = CognitoUserPoolConfigProperty {appIdClientRegex :: (Prelude.Maybe (Value Prelude.Text)),
                                    awsRegion :: (Prelude.Maybe (Value Prelude.Text)),
                                    userPoolId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoUserPoolConfigProperty :: CognitoUserPoolConfigProperty
 mkCognitoUserPoolConfigProperty
   = CognitoUserPoolConfigProperty

@@ -29,6 +29,7 @@ data Server
             serviceRoleArn :: (Value Prelude.Text),
             subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServer ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Server

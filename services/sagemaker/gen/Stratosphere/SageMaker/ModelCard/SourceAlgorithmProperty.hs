@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SourceAlgorithmProperty
   = SourceAlgorithmProperty {algorithmName :: (Value Prelude.Text),
                              modelDataUrl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceAlgorithmProperty ::
   Value Prelude.Text -> SourceAlgorithmProperty
 mkSourceAlgorithmProperty algorithmName

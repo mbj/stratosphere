@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NetworkInterfaceCountProperty :: Prelude.Type
 instance ToResourceProperties NetworkInterfaceCountProperty
+instance Prelude.Eq NetworkInterfaceCountProperty
+instance Prelude.Show NetworkInterfaceCountProperty
 instance JSON.ToJSON NetworkInterfaceCountProperty

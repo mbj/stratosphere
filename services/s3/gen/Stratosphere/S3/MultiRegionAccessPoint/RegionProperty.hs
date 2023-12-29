@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RegionProperty
   = RegionProperty {bucket :: (Value Prelude.Text),
                     bucketAccountId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegionProperty :: Value Prelude.Text -> RegionProperty
 mkRegionProperty bucket
   = RegionProperty

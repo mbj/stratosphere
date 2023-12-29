@@ -13,6 +13,7 @@ data SkillPackageProperty
                           s3BucketRole :: (Prelude.Maybe (Value Prelude.Text)),
                           s3Key :: (Value Prelude.Text),
                           s3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSkillPackageProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SkillPackageProperty
 mkSkillPackageProperty s3Bucket s3Key

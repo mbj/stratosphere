@@ -12,6 +12,7 @@ data IbmDb2SettingsProperty
                             secretsManagerAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                             secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text)),
                             setDataCaptureChanges :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIbmDb2SettingsProperty :: IbmDb2SettingsProperty
 mkIbmDb2SettingsProperty
   = IbmDb2SettingsProperty

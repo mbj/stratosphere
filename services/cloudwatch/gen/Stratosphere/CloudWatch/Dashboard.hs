@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Dashboard
   = Dashboard {dashboardBody :: (Value Prelude.Text),
                dashboardName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboard :: Value Prelude.Text -> Dashboard
 mkDashboard dashboardBody
   = Dashboard

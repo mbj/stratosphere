@@ -11,6 +11,7 @@ data PortfolioShare
                     accountId :: (Value Prelude.Text),
                     portfolioId :: (Value Prelude.Text),
                     shareTagOptions :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortfolioShare ::
   Value Prelude.Text -> Value Prelude.Text -> PortfolioShare
 mkPortfolioShare accountId portfolioId

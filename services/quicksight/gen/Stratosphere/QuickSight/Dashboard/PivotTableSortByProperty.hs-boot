@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PivotTableSortByProperty :: Prelude.Type
 instance ToResourceProperties PivotTableSortByProperty
+instance Prelude.Eq PivotTableSortByProperty
+instance Prelude.Show PivotTableSortByProperty
 instance JSON.ToJSON PivotTableSortByProperty

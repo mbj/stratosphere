@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data S3Property
   = S3Property {autoExportPolicy :: (Prelude.Maybe AutoExportPolicyProperty),
                 autoImportPolicy :: (Prelude.Maybe AutoImportPolicyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3Property :: S3Property
 mkS3Property
   = S3Property

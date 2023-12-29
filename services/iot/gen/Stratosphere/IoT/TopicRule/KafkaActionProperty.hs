@@ -12,6 +12,7 @@ data KafkaActionProperty
                          key :: (Prelude.Maybe (Value Prelude.Text)),
                          partition :: (Prelude.Maybe (Value Prelude.Text)),
                          topic :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaActionProperty ::
   Prelude.Map Prelude.Text (Value Prelude.Text)
   -> Value Prelude.Text -> Value Prelude.Text -> KafkaActionProperty

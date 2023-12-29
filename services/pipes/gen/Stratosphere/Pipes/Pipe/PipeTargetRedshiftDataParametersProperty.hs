@@ -14,6 +14,7 @@ data PipeTargetRedshiftDataParametersProperty
                                               sqls :: (ValueList Prelude.Text),
                                               statementName :: (Prelude.Maybe (Value Prelude.Text)),
                                               withEvent :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetRedshiftDataParametersProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text

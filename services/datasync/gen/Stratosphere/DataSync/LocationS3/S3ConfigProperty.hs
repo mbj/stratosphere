@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3ConfigProperty
   = S3ConfigProperty {bucketAccessRoleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigProperty :: Value Prelude.Text -> S3ConfigProperty
 mkS3ConfigProperty bucketAccessRoleArn
   = S3ConfigProperty {bucketAccessRoleArn = bucketAccessRoleArn}

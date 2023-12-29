@@ -21,6 +21,7 @@ data FilledMapVisualProperty
                              subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                              title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                              visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilledMapVisualProperty ::
   Value Prelude.Text -> FilledMapVisualProperty
 mkFilledMapVisualProperty visualId

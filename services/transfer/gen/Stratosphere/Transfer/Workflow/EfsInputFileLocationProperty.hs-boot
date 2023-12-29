@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EfsInputFileLocationProperty :: Prelude.Type
 instance ToResourceProperties EfsInputFileLocationProperty
+instance Prelude.Eq EfsInputFileLocationProperty
+instance Prelude.Show EfsInputFileLocationProperty
 instance JSON.ToJSON EfsInputFileLocationProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.CustomerProfiles.Integration.ScheduledTrigger
 import Stratosphere.ResourceProperties
 data TriggerPropertiesProperty
   = TriggerPropertiesProperty {scheduled :: (Prelude.Maybe ScheduledTriggerPropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggerPropertiesProperty :: TriggerPropertiesProperty
 mkTriggerPropertiesProperty
   = TriggerPropertiesProperty {scheduled = Prelude.Nothing}

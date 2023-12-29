@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LoggingConfigurationProperty
   = LoggingConfigurationProperty {destinationBucketName :: (Prelude.Maybe (Value Prelude.Text)),
                                   logFilePrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigurationProperty :: LoggingConfigurationProperty
 mkLoggingConfigurationProperty
   = LoggingConfigurationProperty

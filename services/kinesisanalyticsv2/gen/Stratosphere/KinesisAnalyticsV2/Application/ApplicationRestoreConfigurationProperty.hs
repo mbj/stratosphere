@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ApplicationRestoreConfigurationProperty
   = ApplicationRestoreConfigurationProperty {applicationRestoreType :: (Value Prelude.Text),
                                              snapshotName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationRestoreConfigurationProperty ::
   Value Prelude.Text -> ApplicationRestoreConfigurationProperty
 mkApplicationRestoreConfigurationProperty applicationRestoreType

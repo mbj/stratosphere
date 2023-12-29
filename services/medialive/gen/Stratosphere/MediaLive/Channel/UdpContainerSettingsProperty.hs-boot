@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UdpContainerSettingsProperty :: Prelude.Type
 instance ToResourceProperties UdpContainerSettingsProperty
+instance Prelude.Eq UdpContainerSettingsProperty
+instance Prelude.Show UdpContainerSettingsProperty
 instance JSON.ToJSON UdpContainerSettingsProperty

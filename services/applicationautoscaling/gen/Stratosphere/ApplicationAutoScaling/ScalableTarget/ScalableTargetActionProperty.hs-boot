@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ScalableTargetActionProperty :: Prelude.Type
 instance ToResourceProperties ScalableTargetActionProperty
+instance Prelude.Eq ScalableTargetActionProperty
+instance Prelude.Show ScalableTargetActionProperty
 instance JSON.ToJSON ScalableTargetActionProperty

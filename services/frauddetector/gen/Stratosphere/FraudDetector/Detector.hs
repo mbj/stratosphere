@@ -19,6 +19,7 @@ data Detector
               ruleExecutionMode :: (Prelude.Maybe (Value Prelude.Text)),
               rules :: [RuleProperty],
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDetector ::
   Value Prelude.Text
   -> EventTypeProperty -> [RuleProperty] -> Detector

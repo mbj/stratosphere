@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.WordCloudAggregatedFieldW
 import Stratosphere.ResourceProperties
 data WordCloudFieldWellsProperty
   = WordCloudFieldWellsProperty {wordCloudAggregatedFieldWells :: (Prelude.Maybe WordCloudAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWordCloudFieldWellsProperty :: WordCloudFieldWellsProperty
 mkWordCloudFieldWellsProperty
   = WordCloudFieldWellsProperty

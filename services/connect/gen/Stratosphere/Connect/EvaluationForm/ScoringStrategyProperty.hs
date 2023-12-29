@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ScoringStrategyProperty
   = ScoringStrategyProperty {mode :: (Value Prelude.Text),
                              status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScoringStrategyProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ScoringStrategyProperty
 mkScoringStrategyProperty mode status

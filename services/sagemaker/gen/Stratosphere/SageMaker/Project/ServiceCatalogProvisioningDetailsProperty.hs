@@ -13,6 +13,7 @@ data ServiceCatalogProvisioningDetailsProperty
                                                productId :: (Value Prelude.Text),
                                                provisioningArtifactId :: (Prelude.Maybe (Value Prelude.Text)),
                                                provisioningParameters :: (Prelude.Maybe [ProvisioningParameterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceCatalogProvisioningDetailsProperty ::
   Value Prelude.Text -> ServiceCatalogProvisioningDetailsProperty
 mkServiceCatalogProvisioningDetailsProperty productId

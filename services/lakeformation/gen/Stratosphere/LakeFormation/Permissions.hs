@@ -13,6 +13,7 @@ data Permissions
                  permissions :: (Prelude.Maybe (ValueList Prelude.Text)),
                  permissionsWithGrantOption :: (Prelude.Maybe (ValueList Prelude.Text)),
                  resource :: ResourceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPermissions ::
   DataLakePrincipalProperty -> ResourceProperty -> Permissions
 mkPermissions dataLakePrincipal resource

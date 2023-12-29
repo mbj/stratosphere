@@ -10,6 +10,7 @@ import Stratosphere.Tag
 data StorageLens
   = StorageLens {storageLensConfiguration :: StorageLensConfigurationProperty,
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageLens :: StorageLensConfigurationProperty -> StorageLens
 mkStorageLens storageLensConfiguration
   = StorageLens

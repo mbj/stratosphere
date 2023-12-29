@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ManifestFileLocationProperty
   = ManifestFileLocationProperty {bucket :: (Value Prelude.Text),
                                   key :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkManifestFileLocationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ManifestFileLocationProperty

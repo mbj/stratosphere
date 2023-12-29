@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConversationLogSettingsProperty :: Prelude.Type
 instance ToResourceProperties ConversationLogSettingsProperty
+instance Prelude.Eq ConversationLogSettingsProperty
+instance Prelude.Show ConversationLogSettingsProperty
 instance JSON.ToJSON ConversationLogSettingsProperty

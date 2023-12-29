@@ -12,6 +12,7 @@ data ProjectTriggersProperty
   = ProjectTriggersProperty {buildType :: (Prelude.Maybe (Value Prelude.Text)),
                              filterGroups :: (Prelude.Maybe [FilterGroupProperty]),
                              webhook :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectTriggersProperty :: ProjectTriggersProperty
 mkProjectTriggersProperty
   = ProjectTriggersProperty

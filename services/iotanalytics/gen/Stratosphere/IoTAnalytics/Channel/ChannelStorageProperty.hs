@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data ChannelStorageProperty
   = ChannelStorageProperty {customerManagedS3 :: (Prelude.Maybe CustomerManagedS3Property),
                             serviceManagedS3 :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelStorageProperty :: ChannelStorageProperty
 mkChannelStorageProperty
   = ChannelStorageProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoStartConfigurationProperty
   = AutoStartConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoStartConfigurationProperty :: AutoStartConfigurationProperty
 mkAutoStartConfigurationProperty
   = AutoStartConfigurationProperty {enabled = Prelude.Nothing}

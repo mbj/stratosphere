@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EgressEndpointProperty
   = EgressEndpointProperty {packagingConfigurationId :: (Value Prelude.Text),
                             url :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEgressEndpointProperty ::
   Value Prelude.Text -> Value Prelude.Text -> EgressEndpointProperty
 mkEgressEndpointProperty packagingConfigurationId url

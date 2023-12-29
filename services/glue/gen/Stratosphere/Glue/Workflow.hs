@@ -12,6 +12,7 @@ data Workflow
               maxConcurrentRuns :: (Prelude.Maybe (Value Prelude.Integer)),
               name :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflow :: Workflow
 mkWorkflow
   = Workflow

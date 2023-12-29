@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ElasticsearchBufferingHintsProperty :: Prelude.Type
 instance ToResourceProperties ElasticsearchBufferingHintsProperty
+instance Prelude.Eq ElasticsearchBufferingHintsProperty
+instance Prelude.Show ElasticsearchBufferingHintsProperty
 instance JSON.ToJSON ElasticsearchBufferingHintsProperty

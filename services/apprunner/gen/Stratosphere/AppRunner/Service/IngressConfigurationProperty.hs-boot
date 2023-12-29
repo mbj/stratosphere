@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IngressConfigurationProperty :: Prelude.Type
 instance ToResourceProperties IngressConfigurationProperty
+instance Prelude.Eq IngressConfigurationProperty
+instance Prelude.Show IngressConfigurationProperty
 instance JSON.ToJSON IngressConfigurationProperty

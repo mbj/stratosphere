@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DatabricksParametersProperty :: Prelude.Type
 instance ToResourceProperties DatabricksParametersProperty
+instance Prelude.Eq DatabricksParametersProperty
+instance Prelude.Show DatabricksParametersProperty
 instance JSON.ToJSON DatabricksParametersProperty

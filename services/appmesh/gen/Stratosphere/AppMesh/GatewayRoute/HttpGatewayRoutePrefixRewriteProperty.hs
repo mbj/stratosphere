@@ -10,6 +10,7 @@ import Stratosphere.Value
 data HttpGatewayRoutePrefixRewriteProperty
   = HttpGatewayRoutePrefixRewriteProperty {defaultPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                                            value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRoutePrefixRewriteProperty ::
   HttpGatewayRoutePrefixRewriteProperty
 mkHttpGatewayRoutePrefixRewriteProperty

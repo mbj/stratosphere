@@ -12,6 +12,7 @@ data DefinitionProperty
   = DefinitionProperty {iamActionDefinition :: (Prelude.Maybe IamActionDefinitionProperty),
                         scpActionDefinition :: (Prelude.Maybe ScpActionDefinitionProperty),
                         ssmActionDefinition :: (Prelude.Maybe SsmActionDefinitionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefinitionProperty :: DefinitionProperty
 mkDefinitionProperty
   = DefinitionProperty

@@ -10,6 +10,7 @@ data LogDestinationConfigProperty
   = LogDestinationConfigProperty {logDestination :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
                                   logDestinationType :: (Value Prelude.Text),
                                   logType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDestinationConfigProperty ::
   Prelude.Map Prelude.Text (Value Prelude.Text)
   -> Value Prelude.Text

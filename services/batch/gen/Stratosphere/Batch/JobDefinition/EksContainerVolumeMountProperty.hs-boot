@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EksContainerVolumeMountProperty :: Prelude.Type
 instance ToResourceProperties EksContainerVolumeMountProperty
+instance Prelude.Eq EksContainerVolumeMountProperty
+instance Prelude.Show EksContainerVolumeMountProperty
 instance JSON.ToJSON EksContainerVolumeMountProperty

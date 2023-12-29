@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlAllowHeadersProperty
   = AccessControlAllowHeadersProperty {items :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlAllowHeadersProperty ::
   ValueList Prelude.Text -> AccessControlAllowHeadersProperty
 mkAccessControlAllowHeadersProperty items

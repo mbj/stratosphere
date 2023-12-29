@@ -13,6 +13,7 @@ data PivotTableCellConditionalFormattingProperty
   = PivotTableCellConditionalFormattingProperty {fieldId :: (Value Prelude.Text),
                                                  scope :: (Prelude.Maybe PivotTableConditionalFormattingScopeProperty),
                                                  textFormat :: (Prelude.Maybe TextConditionalFormatProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableCellConditionalFormattingProperty ::
   Value Prelude.Text -> PivotTableCellConditionalFormattingProperty
 mkPivotTableCellConditionalFormattingProperty fieldId

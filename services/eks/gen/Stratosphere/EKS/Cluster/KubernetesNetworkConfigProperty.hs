@@ -11,6 +11,7 @@ data KubernetesNetworkConfigProperty
   = KubernetesNetworkConfigProperty {ipFamily :: (Prelude.Maybe (Value Prelude.Text)),
                                      serviceIpv4Cidr :: (Prelude.Maybe (Value Prelude.Text)),
                                      serviceIpv6Cidr :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKubernetesNetworkConfigProperty ::
   KubernetesNetworkConfigProperty
 mkKubernetesNetworkConfigProperty

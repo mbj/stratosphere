@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ComponentParameterProperty
   = ComponentParameterProperty {name :: (Value Prelude.Text),
                                 value :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentParameterProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> ComponentParameterProperty

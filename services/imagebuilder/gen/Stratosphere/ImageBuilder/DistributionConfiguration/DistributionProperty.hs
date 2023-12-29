@@ -17,6 +17,7 @@ data DistributionProperty
                           launchTemplateConfigurations :: (Prelude.Maybe [LaunchTemplateConfigurationProperty]),
                           licenseConfigurationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                           region :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDistributionProperty ::
   Value Prelude.Text -> DistributionProperty
 mkDistributionProperty region

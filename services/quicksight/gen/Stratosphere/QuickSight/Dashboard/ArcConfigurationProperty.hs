@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ArcConfigurationProperty
   = ArcConfigurationProperty {arcAngle :: (Prelude.Maybe (Value Prelude.Double)),
                               arcThickness :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArcConfigurationProperty :: ArcConfigurationProperty
 mkArcConfigurationProperty
   = ArcConfigurationProperty

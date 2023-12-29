@@ -10,6 +10,7 @@ data Schema
   = Schema {domain :: (Prelude.Maybe (Value Prelude.Text)),
             name :: (Value Prelude.Text),
             schema :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchema :: Value Prelude.Text -> Value Prelude.Text -> Schema
 mkSchema name schema
   = Schema {name = name, schema = schema, domain = Prelude.Nothing}

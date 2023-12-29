@@ -12,6 +12,7 @@ data StatefulRuleGroupReferenceProperty
   = StatefulRuleGroupReferenceProperty {override :: (Prelude.Maybe StatefulRuleGroupOverrideProperty),
                                         priority :: (Prelude.Maybe (Value Prelude.Integer)),
                                         resourceArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatefulRuleGroupReferenceProperty ::
   Value Prelude.Text -> StatefulRuleGroupReferenceProperty
 mkStatefulRuleGroupReferenceProperty resourceArn

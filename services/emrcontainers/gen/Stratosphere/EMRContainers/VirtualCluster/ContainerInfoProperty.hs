@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.EMRContainers.VirtualCluster.EksInfoProperty 
 import Stratosphere.ResourceProperties
 data ContainerInfoProperty
   = ContainerInfoProperty {eksInfo :: EksInfoProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerInfoProperty :: EksInfoProperty -> ContainerInfoProperty
 mkContainerInfoProperty eksInfo
   = ContainerInfoProperty {eksInfo = eksInfo}

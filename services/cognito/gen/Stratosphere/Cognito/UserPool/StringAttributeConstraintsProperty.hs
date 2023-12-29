@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StringAttributeConstraintsProperty
   = StringAttributeConstraintsProperty {maxLength :: (Prelude.Maybe (Value Prelude.Text)),
                                         minLength :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStringAttributeConstraintsProperty ::
   StringAttributeConstraintsProperty
 mkStringAttributeConstraintsProperty

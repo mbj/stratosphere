@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.AlarmActionProperty as E
 import Stratosphere.ResourceProperties
 data AlarmEventActionsProperty
   = AlarmEventActionsProperty {alarmActions :: (Prelude.Maybe [AlarmActionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmEventActionsProperty :: AlarmEventActionsProperty
 mkAlarmEventActionsProperty
   = AlarmEventActionsProperty {alarmActions = Prelude.Nothing}

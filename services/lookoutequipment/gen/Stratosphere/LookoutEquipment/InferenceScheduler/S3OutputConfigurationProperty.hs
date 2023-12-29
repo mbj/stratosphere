@@ -9,6 +9,7 @@ import Stratosphere.Value
 data S3OutputConfigurationProperty
   = S3OutputConfigurationProperty {bucket :: (Value Prelude.Text),
                                    prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3OutputConfigurationProperty ::
   Value Prelude.Text -> S3OutputConfigurationProperty
 mkS3OutputConfigurationProperty bucket

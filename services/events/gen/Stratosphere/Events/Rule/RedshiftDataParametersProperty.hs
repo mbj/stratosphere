@@ -14,6 +14,7 @@ data RedshiftDataParametersProperty
                                     sql :: (Value Prelude.Text),
                                     statementName :: (Prelude.Maybe (Value Prelude.Text)),
                                     withEvent :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftDataParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> RedshiftDataParametersProperty

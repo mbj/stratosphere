@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ServiceDiscoveryProperty :: Prelude.Type
 instance ToResourceProperties ServiceDiscoveryProperty
+instance Prelude.Eq ServiceDiscoveryProperty
+instance Prelude.Show ServiceDiscoveryProperty
 instance JSON.ToJSON ServiceDiscoveryProperty

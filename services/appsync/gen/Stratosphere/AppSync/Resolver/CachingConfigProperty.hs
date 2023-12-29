@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CachingConfigProperty
   = CachingConfigProperty {cachingKeys :: (Prelude.Maybe (ValueList Prelude.Text)),
                            ttl :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCachingConfigProperty ::
   Value Prelude.Double -> CachingConfigProperty
 mkCachingConfigProperty ttl

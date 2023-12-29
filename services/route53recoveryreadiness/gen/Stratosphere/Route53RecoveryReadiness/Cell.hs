@@ -11,6 +11,7 @@ data Cell
   = Cell {cellName :: (Prelude.Maybe (Value Prelude.Text)),
           cells :: (Prelude.Maybe (ValueList Prelude.Text)),
           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCell :: Cell
 mkCell
   = Cell

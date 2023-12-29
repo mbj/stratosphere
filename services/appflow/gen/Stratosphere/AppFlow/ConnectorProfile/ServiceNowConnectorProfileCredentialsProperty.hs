@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ServiceNowConnectorProfileCredentialsProperty
   = ServiceNowConnectorProfileCredentialsProperty {password :: (Value Prelude.Text),
                                                    username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNowConnectorProfileCredentialsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -12,6 +12,7 @@ data OpenSearchActionProperty
                               index :: (Value Prelude.Text),
                               roleArn :: (Value Prelude.Text),
                               type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenSearchActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

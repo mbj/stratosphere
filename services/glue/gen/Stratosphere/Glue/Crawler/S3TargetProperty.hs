@@ -13,6 +13,7 @@ data S3TargetProperty
                       exclusions :: (Prelude.Maybe (ValueList Prelude.Text)),
                       path :: (Prelude.Maybe (Value Prelude.Text)),
                       sampleSize :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3TargetProperty :: S3TargetProperty
 mkS3TargetProperty
   = S3TargetProperty

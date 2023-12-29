@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomOriginConfigProperty :: Prelude.Type
 instance ToResourceProperties CustomOriginConfigProperty
+instance Prelude.Eq CustomOriginConfigProperty
+instance Prelude.Show CustomOriginConfigProperty
 instance JSON.ToJSON CustomOriginConfigProperty

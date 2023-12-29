@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.ComboChartAggregatedField
 import Stratosphere.ResourceProperties
 data ComboChartFieldWellsProperty
   = ComboChartFieldWellsProperty {comboChartAggregatedFieldWells :: (Prelude.Maybe ComboChartAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComboChartFieldWellsProperty :: ComboChartFieldWellsProperty
 mkComboChartFieldWellsProperty
   = ComboChartFieldWellsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExperimentTemplateTargetFilterProperty :: Prelude.Type
 instance ToResourceProperties ExperimentTemplateTargetFilterProperty
+instance Prelude.Eq ExperimentTemplateTargetFilterProperty
+instance Prelude.Show ExperimentTemplateTargetFilterProperty
 instance JSON.ToJSON ExperimentTemplateTargetFilterProperty

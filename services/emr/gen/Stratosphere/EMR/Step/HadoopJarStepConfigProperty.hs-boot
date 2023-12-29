@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HadoopJarStepConfigProperty :: Prelude.Type
 instance ToResourceProperties HadoopJarStepConfigProperty
+instance Prelude.Eq HadoopJarStepConfigProperty
+instance Prelude.Show HadoopJarStepConfigProperty
 instance JSON.ToJSON HadoopJarStepConfigProperty

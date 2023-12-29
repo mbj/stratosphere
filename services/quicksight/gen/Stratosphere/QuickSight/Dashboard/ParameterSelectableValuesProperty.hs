@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ParameterSelectableValuesProperty
   = ParameterSelectableValuesProperty {linkToDataSetColumn :: (Prelude.Maybe ColumnIdentifierProperty),
                                        values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterSelectableValuesProperty ::
   ParameterSelectableValuesProperty
 mkParameterSelectableValuesProperty

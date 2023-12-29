@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ReplicationRegionProperty
   = ReplicationRegionProperty {regionConfiguration :: (Prelude.Maybe RegionConfigurationProperty),
                                regionName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRegionProperty :: ReplicationRegionProperty
 mkReplicationRegionProperty
   = ReplicationRegionProperty

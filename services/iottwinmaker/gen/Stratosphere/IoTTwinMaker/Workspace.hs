@@ -12,6 +12,7 @@ data Workspace
                s3Location :: (Value Prelude.Text),
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                workspaceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkspace ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Workspace

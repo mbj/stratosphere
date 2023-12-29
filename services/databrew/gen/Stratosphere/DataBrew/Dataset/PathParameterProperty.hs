@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PathParameterProperty
   = PathParameterProperty {datasetParameter :: DatasetParameterProperty,
                            pathParameterName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPathParameterProperty ::
   DatasetParameterProperty
   -> Value Prelude.Text -> PathParameterProperty

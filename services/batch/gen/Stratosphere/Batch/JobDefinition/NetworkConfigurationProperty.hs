@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkConfigurationProperty
   = NetworkConfigurationProperty {assignPublicIp :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty
 mkNetworkConfigurationProperty
   = NetworkConfigurationProperty {assignPublicIp = Prelude.Nothing}

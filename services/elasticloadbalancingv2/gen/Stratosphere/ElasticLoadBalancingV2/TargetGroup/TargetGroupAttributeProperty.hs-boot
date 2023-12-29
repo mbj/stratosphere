@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TargetGroupAttributeProperty :: Prelude.Type
 instance ToResourceProperties TargetGroupAttributeProperty
+instance Prelude.Eq TargetGroupAttributeProperty
+instance Prelude.Show TargetGroupAttributeProperty
 instance JSON.ToJSON TargetGroupAttributeProperty

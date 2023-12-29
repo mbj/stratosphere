@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DatadogConnectorProfileCredentialsProperty
   = DatadogConnectorProfileCredentialsProperty {apiKey :: (Value Prelude.Text),
                                                 applicationKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatadogConnectorProfileCredentialsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DatadogConnectorProfileCredentialsProperty

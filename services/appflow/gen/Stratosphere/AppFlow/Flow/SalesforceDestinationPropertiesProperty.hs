@@ -14,6 +14,7 @@ data SalesforceDestinationPropertiesProperty
                                              idFieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                              object :: (Value Prelude.Text),
                                              writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceDestinationPropertiesProperty ::
   Value Prelude.Text -> SalesforceDestinationPropertiesProperty
 mkSalesforceDestinationPropertiesProperty object

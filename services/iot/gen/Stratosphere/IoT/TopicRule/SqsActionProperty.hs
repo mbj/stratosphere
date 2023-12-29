@@ -10,6 +10,7 @@ data SqsActionProperty
   = SqsActionProperty {queueUrl :: (Value Prelude.Text),
                        roleArn :: (Value Prelude.Text),
                        useBase64 :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSqsActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SqsActionProperty
 mkSqsActionProperty queueUrl roleArn

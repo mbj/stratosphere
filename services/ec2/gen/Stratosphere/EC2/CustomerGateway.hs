@@ -13,6 +13,7 @@ data CustomerGateway
                      ipAddress :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag]),
                      type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerGateway ::
   Value Prelude.Integer
   -> Value Prelude.Text -> Value Prelude.Text -> CustomerGateway

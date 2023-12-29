@@ -21,6 +21,7 @@ data MaintenanceWindowRunCommandParametersProperty
                                                    parameters :: (Prelude.Maybe JSON.Object),
                                                    serviceRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                                    timeoutSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowRunCommandParametersProperty ::
   MaintenanceWindowRunCommandParametersProperty
 mkMaintenanceWindowRunCommandParametersProperty

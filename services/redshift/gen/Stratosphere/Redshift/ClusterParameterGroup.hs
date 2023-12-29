@@ -14,6 +14,7 @@ data ClusterParameterGroup
                            parameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                            parameters :: (Prelude.Maybe [ParameterProperty]),
                            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterParameterGroup ::
   Value Prelude.Text -> Value Prelude.Text -> ClusterParameterGroup
 mkClusterParameterGroup description parameterGroupFamily

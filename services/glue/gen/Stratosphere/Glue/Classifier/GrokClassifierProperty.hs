@@ -11,6 +11,7 @@ data GrokClassifierProperty
                             customPatterns :: (Prelude.Maybe (Value Prelude.Text)),
                             grokPattern :: (Value Prelude.Text),
                             name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrokClassifierProperty ::
   Value Prelude.Text -> Value Prelude.Text -> GrokClassifierProperty
 mkGrokClassifierProperty classification grokPattern

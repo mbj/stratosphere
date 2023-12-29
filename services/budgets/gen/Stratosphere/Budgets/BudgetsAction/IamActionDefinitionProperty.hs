@@ -11,6 +11,7 @@ data IamActionDefinitionProperty
                                  policyArn :: (Value Prelude.Text),
                                  roles :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  users :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIamActionDefinitionProperty ::
   Value Prelude.Text -> IamActionDefinitionProperty
 mkIamActionDefinitionProperty policyArn

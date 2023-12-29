@@ -14,6 +14,7 @@ data DateMeasureFieldProperty
                               column :: ColumnIdentifierProperty,
                               fieldId :: (Value Prelude.Text),
                               formatConfiguration :: (Prelude.Maybe DateTimeFormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateMeasureFieldProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text -> DateMeasureFieldProperty

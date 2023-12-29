@@ -12,6 +12,7 @@ data JsonBodyProperty
                       matchPattern :: JsonMatchPatternProperty,
                       matchScope :: (Value Prelude.Text),
                       oversizeHandling :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonBodyProperty ::
   JsonMatchPatternProperty -> Value Prelude.Text -> JsonBodyProperty
 mkJsonBodyProperty matchPattern matchScope

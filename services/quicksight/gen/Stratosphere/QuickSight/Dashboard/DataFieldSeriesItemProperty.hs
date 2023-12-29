@@ -13,6 +13,7 @@ data DataFieldSeriesItemProperty
                                  fieldId :: (Value Prelude.Text),
                                  fieldValue :: (Prelude.Maybe (Value Prelude.Text)),
                                  settings :: (Prelude.Maybe LineChartSeriesSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataFieldSeriesItemProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DataFieldSeriesItemProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.HealthLake.FHIRDatastore.KmsEncryptionConfigP
 import Stratosphere.ResourceProperties
 data SseConfigurationProperty
   = SseConfigurationProperty {kmsEncryptionConfig :: KmsEncryptionConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSseConfigurationProperty ::
   KmsEncryptionConfigProperty -> SseConfigurationProperty
 mkSseConfigurationProperty kmsEncryptionConfig

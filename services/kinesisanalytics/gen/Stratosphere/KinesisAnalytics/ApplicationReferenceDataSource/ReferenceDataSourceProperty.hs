@@ -13,6 +13,7 @@ data ReferenceDataSourceProperty
   = ReferenceDataSourceProperty {referenceSchema :: ReferenceSchemaProperty,
                                  s3ReferenceDataSource :: (Prelude.Maybe S3ReferenceDataSourceProperty),
                                  tableName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceDataSourceProperty ::
   ReferenceSchemaProperty -> ReferenceDataSourceProperty
 mkReferenceDataSourceProperty referenceSchema

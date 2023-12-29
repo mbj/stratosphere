@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotDefaultValueProperty as Exports
 import Stratosphere.ResourceProperties
 data SlotDefaultValueSpecificationProperty
   = SlotDefaultValueSpecificationProperty {defaultValueList :: [SlotDefaultValueProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotDefaultValueSpecificationProperty ::
   [SlotDefaultValueProperty] -> SlotDefaultValueSpecificationProperty
 mkSlotDefaultValueSpecificationProperty defaultValueList

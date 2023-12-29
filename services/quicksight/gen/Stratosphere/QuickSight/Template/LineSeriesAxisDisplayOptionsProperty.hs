@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data LineSeriesAxisDisplayOptionsProperty
   = LineSeriesAxisDisplayOptionsProperty {axisOptions :: (Prelude.Maybe AxisDisplayOptionsProperty),
                                           missingDataConfigurations :: (Prelude.Maybe [MissingDataConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLineSeriesAxisDisplayOptionsProperty ::
   LineSeriesAxisDisplayOptionsProperty
 mkLineSeriesAxisDisplayOptionsProperty

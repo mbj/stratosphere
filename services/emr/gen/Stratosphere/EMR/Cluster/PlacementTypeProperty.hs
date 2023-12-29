@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PlacementTypeProperty
   = PlacementTypeProperty {availabilityZone :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacementTypeProperty ::
   Value Prelude.Text -> PlacementTypeProperty
 mkPlacementTypeProperty availabilityZone

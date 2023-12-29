@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TumblingWindowProperty
   = TumblingWindowProperty {interval :: (Value Prelude.Text),
                             offset :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTumblingWindowProperty ::
   Value Prelude.Text -> TumblingWindowProperty
 mkTumblingWindowProperty interval

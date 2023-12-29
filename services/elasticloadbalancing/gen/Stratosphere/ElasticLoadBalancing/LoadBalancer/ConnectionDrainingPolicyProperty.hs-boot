@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConnectionDrainingPolicyProperty :: Prelude.Type
 instance ToResourceProperties ConnectionDrainingPolicyProperty
+instance Prelude.Eq ConnectionDrainingPolicyProperty
+instance Prelude.Show ConnectionDrainingPolicyProperty
 instance JSON.ToJSON ConnectionDrainingPolicyProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StorageClassAnalysisProperty :: Prelude.Type
 instance ToResourceProperties StorageClassAnalysisProperty
+instance Prelude.Eq StorageClassAnalysisProperty
+instance Prelude.Show StorageClassAnalysisProperty
 instance JSON.ToJSON StorageClassAnalysisProperty

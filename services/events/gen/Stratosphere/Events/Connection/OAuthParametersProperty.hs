@@ -14,6 +14,7 @@ data OAuthParametersProperty
                              clientParameters :: ClientParametersProperty,
                              httpMethod :: (Value Prelude.Text),
                              oAuthHttpParameters :: (Prelude.Maybe ConnectionHttpParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOAuthParametersProperty ::
   Value Prelude.Text
   -> ClientParametersProperty

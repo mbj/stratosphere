@@ -10,6 +10,7 @@ data TierProperty
   = TierProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                   type' :: (Prelude.Maybe (Value Prelude.Text)),
                   version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTierProperty :: TierProperty
 mkTierProperty
   = TierProperty

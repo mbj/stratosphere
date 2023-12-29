@@ -55,6 +55,7 @@ data HlsGroupSettingsProperty
                               timedMetadataId3Period :: (Prelude.Maybe (Value Prelude.Integer)),
                               timestampDeltaMilliseconds :: (Prelude.Maybe (Value Prelude.Integer)),
                               tsFileMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsGroupSettingsProperty :: HlsGroupSettingsProperty
 mkHlsGroupSettingsProperty
   = HlsGroupSettingsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AudioAndDTMFInputSpecificationProperty :: Prelude.Type
 instance ToResourceProperties AudioAndDTMFInputSpecificationProperty
+instance Prelude.Eq AudioAndDTMFInputSpecificationProperty
+instance Prelude.Show AudioAndDTMFInputSpecificationProperty
 instance JSON.ToJSON AudioAndDTMFInputSpecificationProperty

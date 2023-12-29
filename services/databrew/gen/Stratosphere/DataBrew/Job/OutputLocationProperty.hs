@@ -10,6 +10,7 @@ data OutputLocationProperty
   = OutputLocationProperty {bucket :: (Value Prelude.Text),
                             bucketOwner :: (Prelude.Maybe (Value Prelude.Text)),
                             key :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputLocationProperty ::
   Value Prelude.Text -> OutputLocationProperty
 mkOutputLocationProperty bucket

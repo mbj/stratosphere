@@ -44,6 +44,7 @@ data Bucket
             tags :: (Prelude.Maybe [Tag]),
             versioningConfiguration :: (Prelude.Maybe VersioningConfigurationProperty),
             websiteConfiguration :: (Prelude.Maybe WebsiteConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBucket :: Bucket
 mkBucket
   = Bucket

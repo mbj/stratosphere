@@ -13,6 +13,7 @@ data TrafficMirrorTarget
                          networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
                          networkLoadBalancerArn :: (Prelude.Maybe (Value Prelude.Text)),
                          tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficMirrorTarget :: TrafficMirrorTarget
 mkTrafficMirrorTarget
   = TrafficMirrorTarget

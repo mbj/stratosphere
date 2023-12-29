@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SingleHeaderConfigProperty
   = SingleHeaderConfigProperty {header :: (Value Prelude.Text),
                                 value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleHeaderConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SingleHeaderConfigProperty

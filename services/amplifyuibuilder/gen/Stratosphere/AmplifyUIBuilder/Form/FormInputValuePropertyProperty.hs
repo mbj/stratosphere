@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FormInputValuePropertyProperty
   = FormInputValuePropertyProperty {value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFormInputValuePropertyProperty :: FormInputValuePropertyProperty
 mkFormInputValuePropertyProperty
   = FormInputValuePropertyProperty {value = Prelude.Nothing}

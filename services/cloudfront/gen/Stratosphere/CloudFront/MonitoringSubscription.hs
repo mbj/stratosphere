@@ -11,6 +11,7 @@ import Stratosphere.Value
 data MonitoringSubscription
   = MonitoringSubscription {distributionId :: (Value Prelude.Text),
                             monitoringSubscription :: MonitoringSubscriptionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringSubscription ::
   Value Prelude.Text
   -> MonitoringSubscriptionProperty -> MonitoringSubscription

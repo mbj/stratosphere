@@ -13,6 +13,7 @@ data LoggingConfigurationProperty
                                   taskLogs :: (Prelude.Maybe ModuleLoggingConfigurationProperty),
                                   webserverLogs :: (Prelude.Maybe ModuleLoggingConfigurationProperty),
                                   workerLogs :: (Prelude.Maybe ModuleLoggingConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigurationProperty :: LoggingConfigurationProperty
 mkLoggingConfigurationProperty
   = LoggingConfigurationProperty

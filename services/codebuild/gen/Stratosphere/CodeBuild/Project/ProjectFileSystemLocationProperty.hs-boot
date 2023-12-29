@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProjectFileSystemLocationProperty :: Prelude.Type
 instance ToResourceProperties ProjectFileSystemLocationProperty
+instance Prelude.Eq ProjectFileSystemLocationProperty
+instance Prelude.Show ProjectFileSystemLocationProperty
 instance JSON.ToJSON ProjectFileSystemLocationProperty

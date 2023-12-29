@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PrivateDnsNameOptionsProperty :: Prelude.Type
 instance ToResourceProperties PrivateDnsNameOptionsProperty
+instance Prelude.Eq PrivateDnsNameOptionsProperty
+instance Prelude.Show PrivateDnsNameOptionsProperty
 instance JSON.ToJSON PrivateDnsNameOptionsProperty

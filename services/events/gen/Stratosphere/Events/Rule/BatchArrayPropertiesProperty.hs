@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchArrayPropertiesProperty
   = BatchArrayPropertiesProperty {size :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchArrayPropertiesProperty :: BatchArrayPropertiesProperty
 mkBatchArrayPropertiesProperty
   = BatchArrayPropertiesProperty {size = Prelude.Nothing}

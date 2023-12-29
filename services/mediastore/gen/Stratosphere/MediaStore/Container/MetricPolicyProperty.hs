@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MetricPolicyProperty
   = MetricPolicyProperty {containerLevelMetrics :: (Value Prelude.Text),
                           metricPolicyRules :: (Prelude.Maybe [MetricPolicyRuleProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricPolicyProperty ::
   Value Prelude.Text -> MetricPolicyProperty
 mkMetricPolicyProperty containerLevelMetrics

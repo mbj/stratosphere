@@ -13,6 +13,7 @@ data SlotValueSelectionSettingProperty
   = SlotValueSelectionSettingProperty {advancedRecognitionSetting :: (Prelude.Maybe AdvancedRecognitionSettingProperty),
                                        regexFilter :: (Prelude.Maybe SlotValueRegexFilterProperty),
                                        resolutionStrategy :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueSelectionSettingProperty ::
   Value Prelude.Text -> SlotValueSelectionSettingProperty
 mkSlotValueSelectionSettingProperty resolutionStrategy

@@ -12,6 +12,7 @@ data KinesisVideoStreamConfigProperty
   = KinesisVideoStreamConfigProperty {encryptionConfig :: (Prelude.Maybe EncryptionConfigProperty),
                                       prefix :: (Value Prelude.Text),
                                       retentionPeriodHours :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisVideoStreamConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Double -> KinesisVideoStreamConfigProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetStateMachineParametersProperty
   = PipeTargetStateMachineParametersProperty {invocationType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetStateMachineParametersProperty ::
   PipeTargetStateMachineParametersProperty
 mkPipeTargetStateMachineParametersProperty

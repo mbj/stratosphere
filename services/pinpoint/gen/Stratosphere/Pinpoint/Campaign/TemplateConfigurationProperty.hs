@@ -12,6 +12,7 @@ data TemplateConfigurationProperty
                                    pushTemplate :: (Prelude.Maybe TemplateProperty),
                                    sMSTemplate :: (Prelude.Maybe TemplateProperty),
                                    voiceTemplate :: (Prelude.Maybe TemplateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateConfigurationProperty :: TemplateConfigurationProperty
 mkTemplateConfigurationProperty
   = TemplateConfigurationProperty

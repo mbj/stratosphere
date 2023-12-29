@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CreateColumnsOperationProperty :: Prelude.Type
 instance ToResourceProperties CreateColumnsOperationProperty
+instance Prelude.Eq CreateColumnsOperationProperty
+instance Prelude.Show CreateColumnsOperationProperty
 instance JSON.ToJSON CreateColumnsOperationProperty

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.Channel.IngestEndpointProperty a
 import Stratosphere.ResourceProperties
 data HlsIngestProperty
   = HlsIngestProperty {ingestEndpoints :: (Prelude.Maybe [IngestEndpointProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsIngestProperty :: HlsIngestProperty
 mkHlsIngestProperty
   = HlsIngestProperty {ingestEndpoints = Prelude.Nothing}

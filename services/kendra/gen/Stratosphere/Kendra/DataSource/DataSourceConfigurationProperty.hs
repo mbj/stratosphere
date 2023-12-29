@@ -27,6 +27,7 @@ data DataSourceConfigurationProperty
                                      sharePointConfiguration :: (Prelude.Maybe SharePointConfigurationProperty),
                                      webCrawlerConfiguration :: (Prelude.Maybe WebCrawlerConfigurationProperty),
                                      workDocsConfiguration :: (Prelude.Maybe WorkDocsConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceConfigurationProperty ::
   DataSourceConfigurationProperty
 mkDataSourceConfigurationProperty

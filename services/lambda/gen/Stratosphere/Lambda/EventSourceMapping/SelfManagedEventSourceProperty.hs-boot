@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SelfManagedEventSourceProperty :: Prelude.Type
 instance ToResourceProperties SelfManagedEventSourceProperty
+instance Prelude.Eq SelfManagedEventSourceProperty
+instance Prelude.Show SelfManagedEventSourceProperty
 instance JSON.ToJSON SelfManagedEventSourceProperty

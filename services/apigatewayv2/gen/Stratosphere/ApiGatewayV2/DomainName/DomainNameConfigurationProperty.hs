@@ -13,6 +13,7 @@ data DomainNameConfigurationProperty
                                      endpointType :: (Prelude.Maybe (Value Prelude.Text)),
                                      ownershipVerificationCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
                                      securityPolicy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainNameConfigurationProperty ::
   DomainNameConfigurationProperty
 mkDomainNameConfigurationProperty

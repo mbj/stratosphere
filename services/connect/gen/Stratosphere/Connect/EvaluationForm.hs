@@ -17,6 +17,7 @@ data EvaluationForm
                     status :: (Value Prelude.Text),
                     tags :: (Prelude.Maybe [Tag]),
                     title :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationForm ::
   Value Prelude.Text
   -> [EvaluationFormBaseItemProperty]

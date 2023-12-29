@@ -10,6 +10,7 @@ import Stratosphere.Value
 data OriginGroupsProperty
   = OriginGroupsProperty {items :: (Prelude.Maybe [OriginGroupProperty]),
                           quantity :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupsProperty ::
   Value Prelude.Integer -> OriginGroupsProperty
 mkOriginGroupsProperty quantity

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipeTargetLambdaFunctionParametersProperty :: Prelude.Type
 instance ToResourceProperties PipeTargetLambdaFunctionParametersProperty
+instance Prelude.Eq PipeTargetLambdaFunctionParametersProperty
+instance Prelude.Show PipeTargetLambdaFunctionParametersProperty
 instance JSON.ToJSON PipeTargetLambdaFunctionParametersProperty

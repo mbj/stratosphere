@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AccessControlAllowMethodsProperty :: Prelude.Type
 instance ToResourceProperties AccessControlAllowMethodsProperty
+instance Prelude.Eq AccessControlAllowMethodsProperty
+instance Prelude.Show AccessControlAllowMethodsProperty
 instance JSON.ToJSON AccessControlAllowMethodsProperty

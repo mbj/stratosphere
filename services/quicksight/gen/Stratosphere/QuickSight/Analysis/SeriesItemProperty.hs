@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data SeriesItemProperty
   = SeriesItemProperty {dataFieldSeriesItem :: (Prelude.Maybe DataFieldSeriesItemProperty),
                         fieldSeriesItem :: (Prelude.Maybe FieldSeriesItemProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSeriesItemProperty :: SeriesItemProperty
 mkSeriesItemProperty
   = SeriesItemProperty

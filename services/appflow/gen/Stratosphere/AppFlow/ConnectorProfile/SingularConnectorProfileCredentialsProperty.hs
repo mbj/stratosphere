@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingularConnectorProfileCredentialsProperty
   = SingularConnectorProfileCredentialsProperty {apiKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSingularConnectorProfileCredentialsProperty ::
   Value Prelude.Text -> SingularConnectorProfileCredentialsProperty
 mkSingularConnectorProfileCredentialsProperty apiKey

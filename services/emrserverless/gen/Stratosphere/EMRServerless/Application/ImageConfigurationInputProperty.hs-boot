@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ImageConfigurationInputProperty :: Prelude.Type
 instance ToResourceProperties ImageConfigurationInputProperty
+instance Prelude.Eq ImageConfigurationInputProperty
+instance Prelude.Show ImageConfigurationInputProperty
 instance JSON.ToJSON ImageConfigurationInputProperty

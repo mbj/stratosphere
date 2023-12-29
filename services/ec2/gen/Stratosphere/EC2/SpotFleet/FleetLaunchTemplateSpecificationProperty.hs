@@ -11,6 +11,7 @@ data FleetLaunchTemplateSpecificationProperty
   = FleetLaunchTemplateSpecificationProperty {launchTemplateId :: (Prelude.Maybe (Value Prelude.Text)),
                                               launchTemplateName :: (Prelude.Maybe (Value Prelude.Text)),
                                               version :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetLaunchTemplateSpecificationProperty ::
   Value Prelude.Text -> FleetLaunchTemplateSpecificationProperty
 mkFleetLaunchTemplateSpecificationProperty version

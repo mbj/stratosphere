@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MinimumHealthyHostsProperty :: Prelude.Type
 instance ToResourceProperties MinimumHealthyHostsProperty
+instance Prelude.Eq MinimumHealthyHostsProperty
+instance Prelude.Show MinimumHealthyHostsProperty
 instance JSON.ToJSON MinimumHealthyHostsProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ServiceObservabilityConfigurationProperty
   = ServiceObservabilityConfigurationProperty {observabilityConfigurationArn :: (Prelude.Maybe (Value Prelude.Text)),
                                                observabilityEnabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceObservabilityConfigurationProperty ::
   Value Prelude.Bool -> ServiceObservabilityConfigurationProperty
 mkServiceObservabilityConfigurationProperty observabilityEnabled

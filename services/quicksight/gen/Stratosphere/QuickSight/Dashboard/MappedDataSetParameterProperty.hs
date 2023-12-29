@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MappedDataSetParameterProperty
   = MappedDataSetParameterProperty {dataSetIdentifier :: (Value Prelude.Text),
                                     dataSetParameterName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMappedDataSetParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> MappedDataSetParameterProperty

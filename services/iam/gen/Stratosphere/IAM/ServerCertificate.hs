@@ -14,6 +14,7 @@ data ServerCertificate
                        privateKey :: (Prelude.Maybe (Value Prelude.Text)),
                        serverCertificateName :: (Prelude.Maybe (Value Prelude.Text)),
                        tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerCertificate :: ServerCertificate
 mkServerCertificate
   = ServerCertificate

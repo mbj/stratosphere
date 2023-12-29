@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SyncSourceProperty :: Prelude.Type
 instance ToResourceProperties SyncSourceProperty
+instance Prelude.Eq SyncSourceProperty
+instance Prelude.Show SyncSourceProperty
 instance JSON.ToJSON SyncSourceProperty

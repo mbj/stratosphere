@@ -11,6 +11,7 @@ data TrafficMirrorFilter
   = TrafficMirrorFilter {description :: (Prelude.Maybe (Value Prelude.Text)),
                          networkServices :: (Prelude.Maybe (ValueList Prelude.Text)),
                          tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficMirrorFilter :: TrafficMirrorFilter
 mkTrafficMirrorFilter
   = TrafficMirrorFilter

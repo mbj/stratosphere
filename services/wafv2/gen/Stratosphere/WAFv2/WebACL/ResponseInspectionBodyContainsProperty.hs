@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ResponseInspectionBodyContainsProperty
   = ResponseInspectionBodyContainsProperty {failureStrings :: (ValueList Prelude.Text),
                                             successStrings :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionBodyContainsProperty ::
   ValueList Prelude.Text
   -> ValueList Prelude.Text -> ResponseInspectionBodyContainsProperty

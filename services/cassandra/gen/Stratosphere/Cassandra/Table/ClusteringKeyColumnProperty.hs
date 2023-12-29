@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ClusteringKeyColumnProperty
   = ClusteringKeyColumnProperty {column :: ColumnProperty,
                                  orderBy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusteringKeyColumnProperty ::
   ColumnProperty -> ClusteringKeyColumnProperty
 mkClusteringKeyColumnProperty column

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CodeHookSpecificationProperty :: Prelude.Type
 instance ToResourceProperties CodeHookSpecificationProperty
+instance Prelude.Eq CodeHookSpecificationProperty
+instance Prelude.Show CodeHookSpecificationProperty
 instance JSON.ToJSON CodeHookSpecificationProperty

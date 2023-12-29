@@ -10,6 +10,7 @@ data GraphQLSchema
   = GraphQLSchema {apiId :: (Value Prelude.Text),
                    definition :: (Prelude.Maybe (Value Prelude.Text)),
                    definitionS3Location :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGraphQLSchema :: Value Prelude.Text -> GraphQLSchema
 mkGraphQLSchema apiId
   = GraphQLSchema

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ObfuscationSettingProperty
   = ObfuscationSettingProperty {obfuscationSettingType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObfuscationSettingProperty ::
   Value Prelude.Text -> ObfuscationSettingProperty
 mkObfuscationSettingProperty obfuscationSettingType

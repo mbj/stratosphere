@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RiskExceptionConfigurationTypeProperty
   = RiskExceptionConfigurationTypeProperty {blockedIPRangeList :: (Prelude.Maybe (ValueList Prelude.Text)),
                                             skippedIPRangeList :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRiskExceptionConfigurationTypeProperty ::
   RiskExceptionConfigurationTypeProperty
 mkRiskExceptionConfigurationTypeProperty

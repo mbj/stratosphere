@@ -15,6 +15,7 @@ data ByteMatchStatementProperty
                                 searchString :: (Prelude.Maybe (Value Prelude.Text)),
                                 searchStringBase64 :: (Prelude.Maybe (Value Prelude.Text)),
                                 textTransformations :: [TextTransformationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkByteMatchStatementProperty ::
   FieldToMatchProperty
   -> Value Prelude.Text

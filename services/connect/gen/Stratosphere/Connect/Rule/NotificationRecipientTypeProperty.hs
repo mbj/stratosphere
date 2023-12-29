@@ -10,6 +10,7 @@ import Stratosphere.Value
 data NotificationRecipientTypeProperty
   = NotificationRecipientTypeProperty {userArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                        userTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationRecipientTypeProperty ::
   NotificationRecipientTypeProperty
 mkNotificationRecipientTypeProperty

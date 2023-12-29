@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ObjectiveFunctionProperty :: Prelude.Type
 instance ToResourceProperties ObjectiveFunctionProperty
+instance Prelude.Eq ObjectiveFunctionProperty
+instance Prelude.Show ObjectiveFunctionProperty
 instance JSON.ToJSON ObjectiveFunctionProperty

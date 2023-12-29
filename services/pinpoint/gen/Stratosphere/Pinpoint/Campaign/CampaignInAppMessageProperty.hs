@@ -12,6 +12,7 @@ data CampaignInAppMessageProperty
   = CampaignInAppMessageProperty {content :: (Prelude.Maybe [InAppMessageContentProperty]),
                                   customConfig :: (Prelude.Maybe JSON.Object),
                                   layout :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaignInAppMessageProperty :: CampaignInAppMessageProperty
 mkCampaignInAppMessageProperty
   = CampaignInAppMessageProperty

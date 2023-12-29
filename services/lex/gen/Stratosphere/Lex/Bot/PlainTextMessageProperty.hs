@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PlainTextMessageProperty
   = PlainTextMessageProperty {value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlainTextMessageProperty ::
   Value Prelude.Text -> PlainTextMessageProperty
 mkPlainTextMessageProperty value

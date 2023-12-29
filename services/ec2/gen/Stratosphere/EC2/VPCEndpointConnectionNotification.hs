@@ -12,6 +12,7 @@ data VPCEndpointConnectionNotification
                                        connectionNotificationArn :: (Value Prelude.Text),
                                        serviceId :: (Prelude.Maybe (Value Prelude.Text)),
                                        vPCEndpointId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCEndpointConnectionNotification ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> VPCEndpointConnectionNotification

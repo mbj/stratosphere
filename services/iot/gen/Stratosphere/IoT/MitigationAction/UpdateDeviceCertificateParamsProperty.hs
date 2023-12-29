@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UpdateDeviceCertificateParamsProperty
   = UpdateDeviceCertificateParamsProperty {action :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdateDeviceCertificateParamsProperty ::
   Value Prelude.Text -> UpdateDeviceCertificateParamsProperty
 mkUpdateDeviceCertificateParamsProperty action

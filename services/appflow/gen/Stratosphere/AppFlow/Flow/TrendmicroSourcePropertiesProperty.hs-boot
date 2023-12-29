@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TrendmicroSourcePropertiesProperty :: Prelude.Type
 instance ToResourceProperties TrendmicroSourcePropertiesProperty
+instance Prelude.Eq TrendmicroSourcePropertiesProperty
+instance Prelude.Show TrendmicroSourcePropertiesProperty
 instance JSON.ToJSON TrendmicroSourcePropertiesProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SheetElementConfigurationOverridesProperty
   = SheetElementConfigurationOverridesProperty {visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSheetElementConfigurationOverridesProperty ::
   SheetElementConfigurationOverridesProperty
 mkSheetElementConfigurationOverridesProperty

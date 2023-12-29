@@ -23,6 +23,7 @@ data TreeMapConfigurationProperty
                                   sizeLabelOptions :: (Prelude.Maybe ChartAxisLabelOptionsProperty),
                                   sortConfiguration :: (Prelude.Maybe TreeMapSortConfigurationProperty),
                                   tooltip :: (Prelude.Maybe TooltipOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTreeMapConfigurationProperty :: TreeMapConfigurationProperty
 mkTreeMapConfigurationProperty
   = TreeMapConfigurationProperty

@@ -33,6 +33,7 @@ data ComboChartConfigurationProperty
                                      sortConfiguration :: (Prelude.Maybe ComboChartSortConfigurationProperty),
                                      tooltip :: (Prelude.Maybe TooltipOptionsProperty),
                                      visualPalette :: (Prelude.Maybe VisualPaletteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComboChartConfigurationProperty ::
   ComboChartConfigurationProperty
 mkComboChartConfigurationProperty

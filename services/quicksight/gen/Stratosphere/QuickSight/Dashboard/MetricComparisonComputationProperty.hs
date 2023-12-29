@@ -15,6 +15,7 @@ data MetricComparisonComputationProperty
                                          name :: (Prelude.Maybe (Value Prelude.Text)),
                                          targetValue :: MeasureFieldProperty,
                                          time :: DimensionFieldProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricComparisonComputationProperty ::
   Value Prelude.Text
   -> MeasureFieldProperty

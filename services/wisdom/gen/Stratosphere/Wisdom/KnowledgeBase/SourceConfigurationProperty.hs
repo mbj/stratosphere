@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.AppIntegrationsConfigura
 import Stratosphere.ResourceProperties
 data SourceConfigurationProperty
   = SourceConfigurationProperty {appIntegrations :: AppIntegrationsConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConfigurationProperty ::
   AppIntegrationsConfigurationProperty -> SourceConfigurationProperty
 mkSourceConfigurationProperty appIntegrations

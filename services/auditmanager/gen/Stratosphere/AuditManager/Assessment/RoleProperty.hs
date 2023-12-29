@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RoleProperty
   = RoleProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                   roleType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoleProperty :: RoleProperty
 mkRoleProperty
   = RoleProperty

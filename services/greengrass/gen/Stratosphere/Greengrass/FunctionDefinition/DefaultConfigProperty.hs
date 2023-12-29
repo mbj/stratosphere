@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.Greengrass.FunctionDefinition.ExecutionProper
 import Stratosphere.ResourceProperties
 data DefaultConfigProperty
   = DefaultConfigProperty {execution :: ExecutionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultConfigProperty ::
   ExecutionProperty -> DefaultConfigProperty
 mkDefaultConfigProperty execution

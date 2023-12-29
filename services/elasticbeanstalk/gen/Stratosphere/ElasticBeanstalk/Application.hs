@@ -11,6 +11,7 @@ data Application
   = Application {applicationName :: (Prelude.Maybe (Value Prelude.Text)),
                  description :: (Prelude.Maybe (Value Prelude.Text)),
                  resourceLifecycleConfig :: (Prelude.Maybe ApplicationResourceLifecycleConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication :: Application
 mkApplication
   = Application

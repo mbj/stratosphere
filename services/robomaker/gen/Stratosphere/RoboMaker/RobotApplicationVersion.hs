@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RobotApplicationVersion
   = RobotApplicationVersion {application :: (Value Prelude.Text),
                              currentRevisionId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRobotApplicationVersion ::
   Value Prelude.Text -> RobotApplicationVersion
 mkRobotApplicationVersion application

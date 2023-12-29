@@ -11,6 +11,7 @@ import Stratosphere.Value
 data LocationConfigurationProperty
   = LocationConfigurationProperty {location :: (Value Prelude.Text),
                                    locationCapacity :: (Prelude.Maybe LocationCapacityProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationConfigurationProperty ::
   Value Prelude.Text -> LocationConfigurationProperty
 mkLocationConfigurationProperty location

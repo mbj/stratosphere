@@ -18,6 +18,7 @@ data NotificationRule
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                       targetAddress :: (Prelude.Maybe (Value Prelude.Text)),
                       targets :: [TargetProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationRule ::
   Value Prelude.Text
   -> ValueList Prelude.Text

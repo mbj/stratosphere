@@ -11,6 +11,7 @@ data ModelBiasAppSpecificationProperty
   = ModelBiasAppSpecificationProperty {configUri :: (Value Prelude.Text),
                                        environment :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                        imageUri :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelBiasAppSpecificationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ModelBiasAppSpecificationProperty

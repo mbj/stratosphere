@@ -13,6 +13,7 @@ data MetricValueProperty
                          numbers :: (Prelude.Maybe (ValueList Prelude.Double)),
                          ports :: (Prelude.Maybe (ValueList Prelude.Integer)),
                          strings :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricValueProperty :: MetricValueProperty
 mkMetricValueProperty
   = MetricValueProperty

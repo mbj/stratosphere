@@ -11,6 +11,7 @@ data IoTJobAbortCriteriaProperty
                                  failureType :: (Value Prelude.Text),
                                  minNumberOfExecutedThings :: (Value Prelude.Integer),
                                  thresholdPercentage :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobAbortCriteriaProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

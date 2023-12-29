@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IoT.TopicRule.SigV4AuthorizationProperty as E
 import Stratosphere.ResourceProperties
 data HttpAuthorizationProperty
   = HttpAuthorizationProperty {sigv4 :: (Prelude.Maybe SigV4AuthorizationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpAuthorizationProperty :: HttpAuthorizationProperty
 mkHttpAuthorizationProperty
   = HttpAuthorizationProperty {sigv4 = Prelude.Nothing}

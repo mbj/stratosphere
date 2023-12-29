@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LogAnomalyDetectionIntegration
   = LogAnomalyDetectionIntegration {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogAnomalyDetectionIntegration :: LogAnomalyDetectionIntegration
 mkLogAnomalyDetectionIntegration
   = LogAnomalyDetectionIntegration {}

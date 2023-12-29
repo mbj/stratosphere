@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ByteMatchSet
   = ByteMatchSet {byteMatchTuples :: (Prelude.Maybe [ByteMatchTupleProperty]),
                   name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkByteMatchSet :: Value Prelude.Text -> ByteMatchSet
 mkByteMatchSet name
   = ByteMatchSet {name = name, byteMatchTuples = Prelude.Nothing}

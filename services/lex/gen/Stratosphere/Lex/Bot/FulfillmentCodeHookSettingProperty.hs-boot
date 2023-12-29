@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FulfillmentCodeHookSettingProperty :: Prelude.Type
 instance ToResourceProperties FulfillmentCodeHookSettingProperty
+instance Prelude.Eq FulfillmentCodeHookSettingProperty
+instance Prelude.Show FulfillmentCodeHookSettingProperty
 instance JSON.ToJSON FulfillmentCodeHookSettingProperty

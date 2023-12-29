@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PivotTableCellConditionalFormattingProperty :: Prelude.Type
 instance ToResourceProperties PivotTableCellConditionalFormattingProperty
+instance Prelude.Eq PivotTableCellConditionalFormattingProperty
+instance Prelude.Show PivotTableCellConditionalFormattingProperty
 instance JSON.ToJSON PivotTableCellConditionalFormattingProperty

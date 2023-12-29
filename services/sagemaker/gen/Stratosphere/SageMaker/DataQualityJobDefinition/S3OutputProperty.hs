@@ -10,6 +10,7 @@ data S3OutputProperty
   = S3OutputProperty {localPath :: (Value Prelude.Text),
                       s3UploadMode :: (Prelude.Maybe (Value Prelude.Text)),
                       s3Uri :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3OutputProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3OutputProperty
 mkS3OutputProperty localPath s3Uri

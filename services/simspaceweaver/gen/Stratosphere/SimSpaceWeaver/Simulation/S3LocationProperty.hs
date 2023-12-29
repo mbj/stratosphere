@@ -9,6 +9,7 @@ import Stratosphere.Value
 data S3LocationProperty
   = S3LocationProperty {bucketName :: (Value Prelude.Text),
                         objectKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LocationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3LocationProperty
 mkS3LocationProperty bucketName objectKey

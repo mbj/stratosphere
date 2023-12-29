@@ -33,6 +33,7 @@ data CaptionDestinationSettingsProperty
                                         teletextDestinationSettings :: (Prelude.Maybe TeletextDestinationSettingsProperty),
                                         ttmlDestinationSettings :: (Prelude.Maybe TtmlDestinationSettingsProperty),
                                         webvttDestinationSettings :: (Prelude.Maybe WebvttDestinationSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionDestinationSettingsProperty ::
   CaptionDestinationSettingsProperty
 mkCaptionDestinationSettingsProperty

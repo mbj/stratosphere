@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MediaConnectFlowRequestProperty :: Prelude.Type
 instance ToResourceProperties MediaConnectFlowRequestProperty
+instance Prelude.Eq MediaConnectFlowRequestProperty
+instance Prelude.Show MediaConnectFlowRequestProperty
 instance JSON.ToJSON MediaConnectFlowRequestProperty

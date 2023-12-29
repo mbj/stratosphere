@@ -11,6 +11,7 @@ data FunctionDefinition
   = FunctionDefinition {initialVersion :: (Prelude.Maybe FunctionDefinitionVersionProperty),
                         name :: (Value Prelude.Text),
                         tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionDefinition :: Value Prelude.Text -> FunctionDefinition
 mkFunctionDefinition name
   = FunctionDefinition

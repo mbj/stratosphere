@@ -12,6 +12,7 @@ data ListenerTlsProperty
   = ListenerTlsProperty {certificate :: ListenerTlsCertificateProperty,
                          mode :: (Value Prelude.Text),
                          validation :: (Prelude.Maybe ListenerTlsValidationContextProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsProperty ::
   ListenerTlsCertificateProperty
   -> Value Prelude.Text -> ListenerTlsProperty

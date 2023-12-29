@@ -13,6 +13,7 @@ data RefreshScheduleMapProperty
                                 scheduleFrequency :: (Prelude.Maybe ScheduleFrequencyProperty),
                                 scheduleId :: (Prelude.Maybe (Value Prelude.Text)),
                                 startAfterDateTime :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRefreshScheduleMapProperty :: RefreshScheduleMapProperty
 mkRefreshScheduleMapProperty
   = RefreshScheduleMapProperty

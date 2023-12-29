@@ -13,6 +13,7 @@ data ObservabilityConfiguration
   = ObservabilityConfiguration {observabilityConfigurationName :: (Prelude.Maybe (Value Prelude.Text)),
                                 tags :: (Prelude.Maybe [Tag]),
                                 traceConfiguration :: (Prelude.Maybe TraceConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObservabilityConfiguration :: ObservabilityConfiguration
 mkObservabilityConfiguration
   = ObservabilityConfiguration

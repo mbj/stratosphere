@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SimulationSoftwareSuiteProperty :: Prelude.Type
 instance ToResourceProperties SimulationSoftwareSuiteProperty
+instance Prelude.Eq SimulationSoftwareSuiteProperty
+instance Prelude.Show SimulationSoftwareSuiteProperty
 instance JSON.ToJSON SimulationSoftwareSuiteProperty

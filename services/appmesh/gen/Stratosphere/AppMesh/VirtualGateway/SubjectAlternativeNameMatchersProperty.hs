@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubjectAlternativeNameMatchersProperty
   = SubjectAlternativeNameMatchersProperty {exact :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubjectAlternativeNameMatchersProperty ::
   SubjectAlternativeNameMatchersProperty
 mkSubjectAlternativeNameMatchersProperty

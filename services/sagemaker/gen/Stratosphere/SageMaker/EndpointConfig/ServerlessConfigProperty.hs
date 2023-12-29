@@ -10,6 +10,7 @@ data ServerlessConfigProperty
   = ServerlessConfigProperty {maxConcurrency :: (Value Prelude.Integer),
                               memorySizeInMB :: (Value Prelude.Integer),
                               provisionedConcurrency :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerlessConfigProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> ServerlessConfigProperty

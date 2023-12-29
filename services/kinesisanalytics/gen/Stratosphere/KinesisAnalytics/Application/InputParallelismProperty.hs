@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputParallelismProperty
   = InputParallelismProperty {count :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputParallelismProperty :: InputParallelismProperty
 mkInputParallelismProperty
   = InputParallelismProperty {count = Prelude.Nothing}

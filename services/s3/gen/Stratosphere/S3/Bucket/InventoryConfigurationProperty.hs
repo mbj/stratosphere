@@ -16,6 +16,7 @@ data InventoryConfigurationProperty
                                     optionalFields :: (Prelude.Maybe (ValueList Prelude.Text)),
                                     prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                     scheduleFrequency :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInventoryConfigurationProperty ::
   DestinationProperty
   -> Value Prelude.Bool

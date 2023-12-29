@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksHostPathProperty
   = EksHostPathProperty {path :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksHostPathProperty :: EksHostPathProperty
 mkEksHostPathProperty
   = EksHostPathProperty {path = Prelude.Nothing}

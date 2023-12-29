@@ -16,6 +16,7 @@ data DataCaptureConfigProperty
                                enableCapture :: (Prelude.Maybe (Value Prelude.Bool)),
                                initialSamplingPercentage :: (Value Prelude.Integer),
                                kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCaptureConfigProperty ::
   [CaptureOptionProperty]
   -> Value Prelude.Text

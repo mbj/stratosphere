@@ -17,6 +17,7 @@ data ServiceNowKnowledgeArticleConfigurationProperty
                                                      fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
                                                      filterQuery :: (Prelude.Maybe (Value Prelude.Text)),
                                                      includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNowKnowledgeArticleConfigurationProperty ::
   Value Prelude.Text
   -> ServiceNowKnowledgeArticleConfigurationProperty

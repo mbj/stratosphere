@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PortOverrideProperty
   = PortOverrideProperty {endpointPort :: (Value Prelude.Integer),
                           listenerPort :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortOverrideProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> PortOverrideProperty

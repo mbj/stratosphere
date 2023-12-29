@@ -16,6 +16,7 @@ data StringParameterDeclarationProperty
                                         name :: (Value Prelude.Text),
                                         parameterValueType :: (Value Prelude.Text),
                                         valueWhenUnset :: (Prelude.Maybe StringValueWhenUnsetConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStringParameterDeclarationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> StringParameterDeclarationProperty

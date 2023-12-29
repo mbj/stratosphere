@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ObjectLockConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ObjectLockConfigurationProperty
+instance Prelude.Eq ObjectLockConfigurationProperty
+instance Prelude.Show ObjectLockConfigurationProperty
 instance JSON.ToJSON ObjectLockConfigurationProperty

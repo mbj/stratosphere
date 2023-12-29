@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AllowedStatisticsProperty :: Prelude.Type
 instance ToResourceProperties AllowedStatisticsProperty
+instance Prelude.Eq AllowedStatisticsProperty
+instance Prelude.Show AllowedStatisticsProperty
 instance JSON.ToJSON AllowedStatisticsProperty

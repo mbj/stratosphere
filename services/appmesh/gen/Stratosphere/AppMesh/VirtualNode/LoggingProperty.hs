@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.AccessLogProperty as Expo
 import Stratosphere.ResourceProperties
 data LoggingProperty
   = LoggingProperty {accessLog :: (Prelude.Maybe AccessLogProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingProperty :: LoggingProperty
 mkLoggingProperty = LoggingProperty {accessLog = Prelude.Nothing}
 instance ToResourceProperties LoggingProperty where

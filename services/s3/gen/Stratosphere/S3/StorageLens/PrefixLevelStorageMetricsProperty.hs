@@ -11,6 +11,7 @@ import Stratosphere.Value
 data PrefixLevelStorageMetricsProperty
   = PrefixLevelStorageMetricsProperty {isEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                        selectionCriteria :: (Prelude.Maybe SelectionCriteriaProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrefixLevelStorageMetricsProperty ::
   PrefixLevelStorageMetricsProperty
 mkPrefixLevelStorageMetricsProperty

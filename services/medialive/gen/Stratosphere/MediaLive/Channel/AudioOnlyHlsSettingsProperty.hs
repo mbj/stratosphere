@@ -13,6 +13,7 @@ data AudioOnlyHlsSettingsProperty
                                   audioOnlyImage :: (Prelude.Maybe InputLocationProperty),
                                   audioTrackType :: (Prelude.Maybe (Value Prelude.Text)),
                                   segmentType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioOnlyHlsSettingsProperty :: AudioOnlyHlsSettingsProperty
 mkAudioOnlyHlsSettingsProperty
   = AudioOnlyHlsSettingsProperty

@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data AxisDisplayRangeProperty
   = AxisDisplayRangeProperty {dataDriven :: (Prelude.Maybe JSON.Object),
                               minMax :: (Prelude.Maybe AxisDisplayMinMaxRangeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAxisDisplayRangeProperty :: AxisDisplayRangeProperty
 mkAxisDisplayRangeProperty
   = AxisDisplayRangeProperty

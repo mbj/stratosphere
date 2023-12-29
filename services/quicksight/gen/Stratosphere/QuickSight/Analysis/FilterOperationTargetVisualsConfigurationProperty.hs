@@ -10,6 +10,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.SameSheetTargetVisualConf
 import Stratosphere.ResourceProperties
 data FilterOperationTargetVisualsConfigurationProperty
   = FilterOperationTargetVisualsConfigurationProperty {sameSheetTargetVisualConfiguration :: (Prelude.Maybe SameSheetTargetVisualConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterOperationTargetVisualsConfigurationProperty ::
   FilterOperationTargetVisualsConfigurationProperty
 mkFilterOperationTargetVisualsConfigurationProperty

@@ -24,6 +24,7 @@ data Crawler
              tablePrefix :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe JSON.Object),
              targets :: TargetsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCrawler :: Value Prelude.Text -> TargetsProperty -> Crawler
 mkCrawler role targets
   = Crawler

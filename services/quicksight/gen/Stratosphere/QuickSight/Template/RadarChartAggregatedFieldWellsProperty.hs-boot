@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RadarChartAggregatedFieldWellsProperty :: Prelude.Type
 instance ToResourceProperties RadarChartAggregatedFieldWellsProperty
+instance Prelude.Eq RadarChartAggregatedFieldWellsProperty
+instance Prelude.Show RadarChartAggregatedFieldWellsProperty
 instance JSON.ToJSON RadarChartAggregatedFieldWellsProperty

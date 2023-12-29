@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SparkParametersProperty :: Prelude.Type
 instance ToResourceProperties SparkParametersProperty
+instance Prelude.Eq SparkParametersProperty
+instance Prelude.Show SparkParametersProperty
 instance JSON.ToJSON SparkParametersProperty

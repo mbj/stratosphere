@@ -5,7 +5,9 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
-data Hub = Hub {tags :: (Prelude.Maybe JSON.Object)}
+data Hub
+  = Hub {tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHub :: Hub
 mkHub = Hub {tags = Prelude.Nothing}
 instance ToResourceProperties Hub where

@@ -12,6 +12,7 @@ data TopicRuleDestination
   = TopicRuleDestination {httpUrlProperties :: (Prelude.Maybe HttpUrlDestinationSummaryProperty),
                           status :: (Prelude.Maybe (Value Prelude.Text)),
                           vpcProperties :: (Prelude.Maybe VpcDestinationPropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicRuleDestination :: TopicRuleDestination
 mkTopicRuleDestination
   = TopicRuleDestination

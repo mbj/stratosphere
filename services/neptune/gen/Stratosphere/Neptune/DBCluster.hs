@@ -34,6 +34,7 @@ data DBCluster
                tags :: (Prelude.Maybe [Tag]),
                useLatestRestorableTime :: (Prelude.Maybe (Value Prelude.Bool)),
                vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDBCluster :: DBCluster
 mkDBCluster
   = DBCluster

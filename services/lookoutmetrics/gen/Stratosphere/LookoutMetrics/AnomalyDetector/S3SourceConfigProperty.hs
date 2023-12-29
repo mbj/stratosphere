@@ -13,6 +13,7 @@ data S3SourceConfigProperty
                             historicalDataPathList :: (Prelude.Maybe (ValueList Prelude.Text)),
                             roleArn :: (Value Prelude.Text),
                             templatedPathList :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3SourceConfigProperty ::
   FileFormatDescriptorProperty
   -> Value Prelude.Text -> S3SourceConfigProperty

@@ -24,6 +24,7 @@ data AlarmActionProperty
                          lambda :: (Prelude.Maybe LambdaProperty),
                          sns :: (Prelude.Maybe SnsProperty),
                          sqs :: (Prelude.Maybe SqsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmActionProperty :: AlarmActionProperty
 mkAlarmActionProperty
   = AlarmActionProperty

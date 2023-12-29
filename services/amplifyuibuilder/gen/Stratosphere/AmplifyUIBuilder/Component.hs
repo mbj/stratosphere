@@ -27,6 +27,7 @@ data Component
                sourceId :: (Prelude.Maybe (Value Prelude.Text)),
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                variants :: [ComponentVariantProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponent ::
   Prelude.Map Prelude.Text ComponentBindingPropertiesValueProperty
   -> Value Prelude.Text

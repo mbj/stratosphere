@@ -13,6 +13,7 @@ data ListControlDisplayOptionsProperty
   = ListControlDisplayOptionsProperty {searchOptions :: (Prelude.Maybe ListControlSearchOptionsProperty),
                                        selectAllOptions :: (Prelude.Maybe ListControlSelectAllOptionsProperty),
                                        titleOptions :: (Prelude.Maybe LabelOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListControlDisplayOptionsProperty ::
   ListControlDisplayOptionsProperty
 mkListControlDisplayOptionsProperty

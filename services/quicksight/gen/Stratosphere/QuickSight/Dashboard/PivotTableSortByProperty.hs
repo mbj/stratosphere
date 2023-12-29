@@ -13,6 +13,7 @@ data PivotTableSortByProperty
   = PivotTableSortByProperty {column :: (Prelude.Maybe ColumnSortProperty),
                               dataPath :: (Prelude.Maybe DataPathSortProperty),
                               field :: (Prelude.Maybe FieldSortProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableSortByProperty :: PivotTableSortByProperty
 mkPivotTableSortByProperty
   = PivotTableSortByProperty

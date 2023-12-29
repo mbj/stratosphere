@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CertificateAuthenticationRequestProperty
   = CertificateAuthenticationRequestProperty {clientRootCertificateChainArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateAuthenticationRequestProperty ::
   Value Prelude.Text -> CertificateAuthenticationRequestProperty
 mkCertificateAuthenticationRequestProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ContentTypeOptionsProperty
   = ContentTypeOptionsProperty {override :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContentTypeOptionsProperty ::
   Value Prelude.Bool -> ContentTypeOptionsProperty
 mkContentTypeOptionsProperty override

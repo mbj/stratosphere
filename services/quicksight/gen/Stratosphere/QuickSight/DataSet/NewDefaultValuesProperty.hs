@@ -11,6 +11,7 @@ data NewDefaultValuesProperty
                               decimalStaticValues :: (Prelude.Maybe (ValueList Prelude.Double)),
                               integerStaticValues :: (Prelude.Maybe (ValueList Prelude.Double)),
                               stringStaticValues :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNewDefaultValuesProperty :: NewDefaultValuesProperty
 mkNewDefaultValuesProperty
   = NewDefaultValuesProperty

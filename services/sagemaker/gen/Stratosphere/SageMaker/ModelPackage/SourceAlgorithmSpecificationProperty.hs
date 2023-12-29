@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.SourceAlgorithmPropert
 import Stratosphere.ResourceProperties
 data SourceAlgorithmSpecificationProperty
   = SourceAlgorithmSpecificationProperty {sourceAlgorithms :: [SourceAlgorithmProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceAlgorithmSpecificationProperty ::
   [SourceAlgorithmProperty] -> SourceAlgorithmSpecificationProperty
 mkSourceAlgorithmSpecificationProperty sourceAlgorithms

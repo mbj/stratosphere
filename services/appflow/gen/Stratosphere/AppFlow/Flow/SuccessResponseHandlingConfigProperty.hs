@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SuccessResponseHandlingConfigProperty
   = SuccessResponseHandlingConfigProperty {bucketName :: (Prelude.Maybe (Value Prelude.Text)),
                                            bucketPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSuccessResponseHandlingConfigProperty ::
   SuccessResponseHandlingConfigProperty
 mkSuccessResponseHandlingConfigProperty

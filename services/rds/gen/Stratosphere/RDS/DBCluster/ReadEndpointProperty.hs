@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReadEndpointProperty
   = ReadEndpointProperty {address :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReadEndpointProperty :: ReadEndpointProperty
 mkReadEndpointProperty
   = ReadEndpointProperty {address = Prelude.Nothing}

@@ -43,6 +43,7 @@ data UserPool
               usernameAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
               usernameConfiguration :: (Prelude.Maybe UsernameConfigurationProperty),
               verificationMessageTemplate :: (Prelude.Maybe VerificationMessageTemplateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPool :: UserPool
 mkUserPool
   = UserPool

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParameterConstraintsProperty
   = ParameterConstraintsProperty {required :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterConstraintsProperty ::
   Value Prelude.Bool -> ParameterConstraintsProperty
 mkParameterConstraintsProperty required

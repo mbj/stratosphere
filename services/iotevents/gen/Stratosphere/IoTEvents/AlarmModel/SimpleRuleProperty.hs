@@ -10,6 +10,7 @@ data SimpleRuleProperty
   = SimpleRuleProperty {comparisonOperator :: (Value Prelude.Text),
                         inputProperty :: (Value Prelude.Text),
                         threshold :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSimpleRuleProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> SimpleRuleProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CsvOutputOptionsProperty
   = CsvOutputOptionsProperty {delimiter :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCsvOutputOptionsProperty :: CsvOutputOptionsProperty
 mkCsvOutputOptionsProperty
   = CsvOutputOptionsProperty {delimiter = Prelude.Nothing}

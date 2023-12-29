@@ -19,6 +19,7 @@ data Cluster
              defaultCapacityProviderStrategy :: (Prelude.Maybe [CapacityProviderStrategyItemProperty]),
              serviceConnectDefaults :: (Prelude.Maybe ServiceConnectDefaultsProperty),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster :: Cluster
 mkCluster
   = Cluster

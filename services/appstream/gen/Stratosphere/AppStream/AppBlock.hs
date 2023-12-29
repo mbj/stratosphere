@@ -16,6 +16,7 @@ data AppBlock
               setupScriptDetails :: ScriptDetailsProperty,
               sourceS3Location :: S3LocationProperty,
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAppBlock ::
   Value Prelude.Text
   -> ScriptDetailsProperty -> S3LocationProperty -> AppBlock

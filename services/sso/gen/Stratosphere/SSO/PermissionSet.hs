@@ -20,6 +20,7 @@ data PermissionSet
                    relayStateType :: (Prelude.Maybe (Value Prelude.Text)),
                    sessionDuration :: (Prelude.Maybe (Value Prelude.Text)),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPermissionSet ::
   Value Prelude.Text -> Value Prelude.Text -> PermissionSet
 mkPermissionSet instanceArn name

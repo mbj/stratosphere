@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SqlInjectionMatchSet
   = SqlInjectionMatchSet {name :: (Value Prelude.Text),
                           sqlInjectionMatchTuples :: (Prelude.Maybe [SqlInjectionMatchTupleProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlInjectionMatchSet ::
   Value Prelude.Text -> SqlInjectionMatchSet
 mkSqlInjectionMatchSet name

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BackupPolicyProperty
   = BackupPolicyProperty {status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupPolicyProperty ::
   Value Prelude.Text -> BackupPolicyProperty
 mkBackupPolicyProperty status

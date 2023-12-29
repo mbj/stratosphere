@@ -21,6 +21,7 @@ data ClarifyInferenceConfigProperty
                                     maxRecordCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                     probabilityAttribute :: (Prelude.Maybe (Value Prelude.Text)),
                                     probabilityIndex :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClarifyInferenceConfigProperty :: ClarifyInferenceConfigProperty
 mkClarifyInferenceConfigProperty
   = ClarifyInferenceConfigProperty

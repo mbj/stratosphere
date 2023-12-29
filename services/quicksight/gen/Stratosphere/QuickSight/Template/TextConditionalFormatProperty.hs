@@ -12,6 +12,7 @@ data TextConditionalFormatProperty
   = TextConditionalFormatProperty {backgroundColor :: (Prelude.Maybe ConditionalFormattingColorProperty),
                                    icon :: (Prelude.Maybe ConditionalFormattingIconProperty),
                                    textColor :: (Prelude.Maybe ConditionalFormattingColorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTextConditionalFormatProperty :: TextConditionalFormatProperty
 mkTextConditionalFormatProperty
   = TextConditionalFormatProperty

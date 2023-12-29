@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ApacheKafkaClusterProperty
   = ApacheKafkaClusterProperty {bootstrapServers :: (Value Prelude.Text),
                                 vpc :: VpcProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApacheKafkaClusterProperty ::
   Value Prelude.Text -> VpcProperty -> ApacheKafkaClusterProperty
 mkApacheKafkaClusterProperty bootstrapServers vpc

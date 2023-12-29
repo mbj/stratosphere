@@ -12,6 +12,7 @@ data InforNexusConnectorProfileCredentialsProperty
                                                    datakey :: (Value Prelude.Text),
                                                    secretAccessKey :: (Value Prelude.Text),
                                                    userId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInforNexusConnectorProfileCredentialsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

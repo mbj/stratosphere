@@ -11,6 +11,7 @@ data CodeContentProperty
   = CodeContentProperty {s3ContentLocation :: (Prelude.Maybe S3ContentLocationProperty),
                          textContent :: (Prelude.Maybe (Value Prelude.Text)),
                          zipFileContent :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeContentProperty :: CodeContentProperty
 mkCodeContentProperty
   = CodeContentProperty

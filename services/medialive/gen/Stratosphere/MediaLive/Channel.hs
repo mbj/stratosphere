@@ -26,6 +26,7 @@ data Channel
              roleArn :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe JSON.Object),
              vpc :: (Prelude.Maybe VpcOutputSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChannel :: Channel
 mkChannel
   = Channel

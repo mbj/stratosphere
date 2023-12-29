@@ -12,6 +12,7 @@ data S3SourcePropertiesProperty
   = S3SourcePropertiesProperty {bucketName :: (Value Prelude.Text),
                                 bucketPrefix :: (Value Prelude.Text),
                                 s3InputFormatConfig :: (Prelude.Maybe S3InputFormatConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3SourcePropertiesProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> S3SourcePropertiesProperty

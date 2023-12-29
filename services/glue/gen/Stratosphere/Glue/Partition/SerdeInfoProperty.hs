@@ -10,6 +10,7 @@ data SerdeInfoProperty
   = SerdeInfoProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                        parameters :: (Prelude.Maybe JSON.Object),
                        serializationLibrary :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSerdeInfoProperty :: SerdeInfoProperty
 mkSerdeInfoProperty
   = SerdeInfoProperty

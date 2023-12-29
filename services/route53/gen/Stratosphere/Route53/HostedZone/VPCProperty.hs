@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VPCProperty
   = VPCProperty {vPCId :: (Value Prelude.Text),
                  vPCRegion :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCProperty ::
   Value Prelude.Text -> Value Prelude.Text -> VPCProperty
 mkVPCProperty vPCId vPCRegion

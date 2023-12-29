@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ReplicationRuleAndOperatorProperty
   = ReplicationRuleAndOperatorProperty {prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                         tagFilters :: (Prelude.Maybe [TagFilterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRuleAndOperatorProperty ::
   ReplicationRuleAndOperatorProperty
 mkReplicationRuleAndOperatorProperty

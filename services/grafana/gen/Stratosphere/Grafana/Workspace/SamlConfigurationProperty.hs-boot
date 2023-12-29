@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SamlConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SamlConfigurationProperty
+instance Prelude.Eq SamlConfigurationProperty
+instance Prelude.Show SamlConfigurationProperty
 instance JSON.ToJSON SamlConfigurationProperty

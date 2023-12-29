@@ -12,6 +12,7 @@ data PoliciesProperty
                       loadBalancerPorts :: (Prelude.Maybe (ValueList Prelude.Text)),
                       policyName :: (Value Prelude.Text),
                       policyType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPoliciesProperty ::
   JSON.Object
   -> Value Prelude.Text -> Value Prelude.Text -> PoliciesProperty

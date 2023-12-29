@@ -14,6 +14,7 @@ data ResourceProperty
                       databaseResource :: (Prelude.Maybe DatabaseResourceProperty),
                       tableResource :: (Prelude.Maybe TableResourceProperty),
                       tableWithColumnsResource :: (Prelude.Maybe TableWithColumnsResourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceProperty :: ResourceProperty
 mkResourceProperty
   = ResourceProperty

@@ -12,6 +12,7 @@ data StatefulRuleProperty
   = StatefulRuleProperty {action :: (Value Prelude.Text),
                           header :: HeaderProperty,
                           ruleOptions :: [RuleOptionProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatefulRuleProperty ::
   Value Prelude.Text
   -> HeaderProperty -> [RuleOptionProperty] -> StatefulRuleProperty

@@ -17,6 +17,7 @@ data Webhook
              targetAction :: (Value Prelude.Text),
              targetPipeline :: (Value Prelude.Text),
              targetPipelineVersion :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebhook ::
   Value Prelude.Text
   -> WebhookAuthConfigurationProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AlarmIdentifierProperty
   = AlarmIdentifierProperty {name :: (Value Prelude.Text),
                              region :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmIdentifierProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AlarmIdentifierProperty
 mkAlarmIdentifierProperty name region

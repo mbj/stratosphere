@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DynamicPartitioningConfigurationProperty :: Prelude.Type
 instance ToResourceProperties DynamicPartitioningConfigurationProperty
+instance Prelude.Eq DynamicPartitioningConfigurationProperty
+instance Prelude.Show DynamicPartitioningConfigurationProperty
 instance JSON.ToJSON DynamicPartitioningConfigurationProperty

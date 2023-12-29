@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ExecutionProperty
   = ExecutionProperty {isolationMode :: (Prelude.Maybe (Value Prelude.Text)),
                        runAs :: (Prelude.Maybe RunAsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionProperty :: ExecutionProperty
 mkExecutionProperty
   = ExecutionProperty

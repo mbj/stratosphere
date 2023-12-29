@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ReplicaRegionProperty
   = ReplicaRegionProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                            region :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaRegionProperty ::
   Value Prelude.Text -> ReplicaRegionProperty
 mkReplicaRegionProperty region

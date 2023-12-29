@@ -20,6 +20,7 @@ data ConfigDataProperty
                         s3RecordingConfig :: (Prelude.Maybe S3RecordingConfigProperty),
                         trackingConfig :: (Prelude.Maybe TrackingConfigProperty),
                         uplinkEchoConfig :: (Prelude.Maybe UplinkEchoConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigDataProperty :: ConfigDataProperty
 mkConfigDataProperty
   = ConfigDataProperty

@@ -11,6 +11,7 @@ data CoreProperty
                   id :: (Value Prelude.Text),
                   syncShadow :: (Prelude.Maybe (Value Prelude.Bool)),
                   thingArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> CoreProperty

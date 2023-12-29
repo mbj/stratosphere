@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ForwardedValuesProperty :: Prelude.Type
 instance ToResourceProperties ForwardedValuesProperty
+instance Prelude.Eq ForwardedValuesProperty
+instance Prelude.Show ForwardedValuesProperty
 instance JSON.ToJSON ForwardedValuesProperty

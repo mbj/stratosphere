@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SourceAuthProperty
   = SourceAuthProperty {resource :: (Prelude.Maybe (Value Prelude.Text)),
                         type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceAuthProperty :: Value Prelude.Text -> SourceAuthProperty
 mkSourceAuthProperty type'
   = SourceAuthProperty {type' = type', resource = Prelude.Nothing}

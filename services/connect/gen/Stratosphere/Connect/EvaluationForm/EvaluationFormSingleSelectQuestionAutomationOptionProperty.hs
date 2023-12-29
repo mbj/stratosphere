@@ -10,6 +10,7 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.SingleSelectQuestionRu
 import Stratosphere.ResourceProperties
 data EvaluationFormSingleSelectQuestionAutomationOptionProperty
   = EvaluationFormSingleSelectQuestionAutomationOptionProperty {ruleCategory :: SingleSelectQuestionRuleCategoryAutomationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSingleSelectQuestionAutomationOptionProperty ::
   SingleSelectQuestionRuleCategoryAutomationProperty
   -> EvaluationFormSingleSelectQuestionAutomationOptionProperty

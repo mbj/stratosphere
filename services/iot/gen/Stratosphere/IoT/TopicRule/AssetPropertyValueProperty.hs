@@ -13,6 +13,7 @@ data AssetPropertyValueProperty
   = AssetPropertyValueProperty {quality :: (Prelude.Maybe (Value Prelude.Text)),
                                 timestamp :: AssetPropertyTimestampProperty,
                                 value :: AssetPropertyVariantProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetPropertyValueProperty ::
   AssetPropertyTimestampProperty
   -> AssetPropertyVariantProperty -> AssetPropertyValueProperty

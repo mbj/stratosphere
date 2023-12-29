@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ExperimentTemplateTargetFilterProperty
   = ExperimentTemplateTargetFilterProperty {path :: (Value Prelude.Text),
                                             values :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateTargetFilterProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> ExperimentTemplateTargetFilterProperty

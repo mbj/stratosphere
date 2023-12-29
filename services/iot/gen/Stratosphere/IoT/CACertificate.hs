@@ -17,6 +17,7 @@ data CACertificate
                    status :: (Value Prelude.Text),
                    tags :: (Prelude.Maybe [Tag]),
                    verificationCertificatePem :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCACertificate ::
   Value Prelude.Text -> Value Prelude.Text -> CACertificate
 mkCACertificate cACertificatePem status

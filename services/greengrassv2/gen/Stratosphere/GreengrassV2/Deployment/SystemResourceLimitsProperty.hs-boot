@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SystemResourceLimitsProperty :: Prelude.Type
 instance ToResourceProperties SystemResourceLimitsProperty
+instance Prelude.Eq SystemResourceLimitsProperty
+instance Prelude.Show SystemResourceLimitsProperty
 instance JSON.ToJSON SystemResourceLimitsProperty

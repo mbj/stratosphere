@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data FunnelChartSortConfigurationProperty
   = FunnelChartSortConfigurationProperty {categoryItemsLimit :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                           categorySort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunnelChartSortConfigurationProperty ::
   FunnelChartSortConfigurationProperty
 mkFunnelChartSortConfigurationProperty

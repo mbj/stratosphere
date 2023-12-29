@@ -16,6 +16,7 @@ data ConnectAttachment
                        proposedSegmentChange :: (Prelude.Maybe ProposedSegmentChangeProperty),
                        tags :: (Prelude.Maybe [Tag]),
                        transportAttachmentId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.CertificateManager.Account.ExpiryEventsConfig
 import Stratosphere.ResourceProperties
 data Account
   = Account {expiryEventsConfiguration :: ExpiryEventsConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccount :: ExpiryEventsConfigurationProperty -> Account
 mkAccount expiryEventsConfiguration
   = Account {expiryEventsConfiguration = expiryEventsConfiguration}

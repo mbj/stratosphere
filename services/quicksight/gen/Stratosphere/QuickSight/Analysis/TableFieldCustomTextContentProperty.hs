@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TableFieldCustomTextContentProperty
   = TableFieldCustomTextContentProperty {fontConfiguration :: FontConfigurationProperty,
                                          value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableFieldCustomTextContentProperty ::
   FontConfigurationProperty -> TableFieldCustomTextContentProperty
 mkTableFieldCustomTextContentProperty fontConfiguration

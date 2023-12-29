@@ -12,6 +12,7 @@ data BasePathMapping
                      id :: (Prelude.Maybe (Value Prelude.Text)),
                      restApiId :: (Prelude.Maybe (Value Prelude.Text)),
                      stage :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBasePathMapping :: Value Prelude.Text -> BasePathMapping
 mkBasePathMapping domainName
   = BasePathMapping

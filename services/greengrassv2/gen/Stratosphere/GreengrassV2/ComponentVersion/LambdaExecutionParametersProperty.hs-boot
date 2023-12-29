@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LambdaExecutionParametersProperty :: Prelude.Type
 instance ToResourceProperties LambdaExecutionParametersProperty
+instance Prelude.Eq LambdaExecutionParametersProperty
+instance Prelude.Show LambdaExecutionParametersProperty
 instance JSON.ToJSON LambdaExecutionParametersProperty

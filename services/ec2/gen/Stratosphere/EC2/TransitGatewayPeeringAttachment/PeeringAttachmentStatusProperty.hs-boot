@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PeeringAttachmentStatusProperty :: Prelude.Type
 instance ToResourceProperties PeeringAttachmentStatusProperty
+instance Prelude.Eq PeeringAttachmentStatusProperty
+instance Prelude.Show PeeringAttachmentStatusProperty
 instance JSON.ToJSON PeeringAttachmentStatusProperty

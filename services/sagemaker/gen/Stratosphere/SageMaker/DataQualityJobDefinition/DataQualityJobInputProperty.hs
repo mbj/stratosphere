@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DataQualityJobInputProperty
   = DataQualityJobInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
                                  endpointInput :: (Prelude.Maybe EndpointInputProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataQualityJobInputProperty :: DataQualityJobInputProperty
 mkDataQualityJobInputProperty
   = DataQualityJobInputProperty

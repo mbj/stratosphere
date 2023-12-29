@@ -15,6 +15,7 @@ data QuickConnectConfigProperty
                                 queueConfig :: (Prelude.Maybe QueueQuickConnectConfigProperty),
                                 quickConnectType :: (Value Prelude.Text),
                                 userConfig :: (Prelude.Maybe UserQuickConnectConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQuickConnectConfigProperty ::
   Value Prelude.Text -> QuickConnectConfigProperty
 mkQuickConnectConfigProperty quickConnectType

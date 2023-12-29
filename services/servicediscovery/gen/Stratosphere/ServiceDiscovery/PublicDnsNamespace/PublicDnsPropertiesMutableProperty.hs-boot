@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PublicDnsPropertiesMutableProperty :: Prelude.Type
 instance ToResourceProperties PublicDnsPropertiesMutableProperty
+instance Prelude.Eq PublicDnsPropertiesMutableProperty
+instance Prelude.Show PublicDnsPropertiesMutableProperty
 instance JSON.ToJSON PublicDnsPropertiesMutableProperty

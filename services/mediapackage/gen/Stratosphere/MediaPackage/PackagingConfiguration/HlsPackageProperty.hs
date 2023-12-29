@@ -14,6 +14,7 @@ data HlsPackageProperty
                         includeDvbSubtitles :: (Prelude.Maybe (Value Prelude.Bool)),
                         segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                         useAudioRenditionGroup :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsPackageProperty :: [HlsManifestProperty] -> HlsPackageProperty
 mkHlsPackageProperty hlsManifests
   = HlsPackageProperty

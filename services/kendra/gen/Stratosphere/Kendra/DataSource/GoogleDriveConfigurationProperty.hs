@@ -16,6 +16,7 @@ data GoogleDriveConfigurationProperty
                                       fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
                                       inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       secretArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGoogleDriveConfigurationProperty ::
   Value Prelude.Text -> GoogleDriveConfigurationProperty
 mkGoogleDriveConfigurationProperty secretArn

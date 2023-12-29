@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VpcConfigProperty
   = VpcConfigProperty {securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                        subnetIds :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConfigProperty :: ValueList Prelude.Text -> VpcConfigProperty
 mkVpcConfigProperty subnetIds
   = VpcConfigProperty

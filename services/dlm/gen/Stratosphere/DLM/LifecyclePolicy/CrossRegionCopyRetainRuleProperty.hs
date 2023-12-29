@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CrossRegionCopyRetainRuleProperty
   = CrossRegionCopyRetainRuleProperty {interval :: (Value Prelude.Integer),
                                        intervalUnit :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCrossRegionCopyRetainRuleProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> CrossRegionCopyRetainRuleProperty

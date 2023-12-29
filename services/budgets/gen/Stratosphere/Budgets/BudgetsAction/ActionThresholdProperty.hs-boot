@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ActionThresholdProperty :: Prelude.Type
 instance ToResourceProperties ActionThresholdProperty
+instance Prelude.Eq ActionThresholdProperty
+instance Prelude.Show ActionThresholdProperty
 instance JSON.ToJSON ActionThresholdProperty

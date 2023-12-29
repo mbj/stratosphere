@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BrokerLogsProperty :: Prelude.Type
 instance ToResourceProperties BrokerLogsProperty
+instance Prelude.Eq BrokerLogsProperty
+instance Prelude.Show BrokerLogsProperty
 instance JSON.ToJSON BrokerLogsProperty

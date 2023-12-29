@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ConnectorDefinitionVersion
   = ConnectorDefinitionVersion {connectorDefinitionId :: (Value Prelude.Text),
                                 connectors :: [ConnectorProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorDefinitionVersion ::
   Value Prelude.Text
   -> [ConnectorProperty] -> ConnectorDefinitionVersion

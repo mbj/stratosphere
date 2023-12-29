@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MetricsProperty
   = MetricsProperty {eventThreshold :: (Prelude.Maybe ReplicationTimeValueProperty),
                      status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricsProperty :: Value Prelude.Text -> MetricsProperty
 mkMetricsProperty status
   = MetricsProperty

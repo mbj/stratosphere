@@ -22,6 +22,7 @@ data Environment
                  storageConfigurations :: (Prelude.Maybe [StorageConfigurationProperty]),
                  subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Environment

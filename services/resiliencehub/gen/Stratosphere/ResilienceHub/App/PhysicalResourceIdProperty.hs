@@ -11,6 +11,7 @@ data PhysicalResourceIdProperty
                                 awsRegion :: (Prelude.Maybe (Value Prelude.Text)),
                                 identifier :: (Value Prelude.Text),
                                 type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPhysicalResourceIdProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> PhysicalResourceIdProperty

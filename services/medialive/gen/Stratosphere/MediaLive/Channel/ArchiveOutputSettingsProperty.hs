@@ -12,6 +12,7 @@ data ArchiveOutputSettingsProperty
   = ArchiveOutputSettingsProperty {containerSettings :: (Prelude.Maybe ArchiveContainerSettingsProperty),
                                    extension :: (Prelude.Maybe (Value Prelude.Text)),
                                    nameModifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveOutputSettingsProperty :: ArchiveOutputSettingsProperty
 mkArchiveOutputSettingsProperty
   = ArchiveOutputSettingsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AutoScalingGroupProviderProperty :: Prelude.Type
 instance ToResourceProperties AutoScalingGroupProviderProperty
+instance Prelude.Eq AutoScalingGroupProviderProperty
+instance Prelude.Show AutoScalingGroupProviderProperty
 instance JSON.ToJSON AutoScalingGroupProviderProperty

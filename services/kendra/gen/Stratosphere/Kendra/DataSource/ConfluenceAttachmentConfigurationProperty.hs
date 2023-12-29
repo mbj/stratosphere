@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ConfluenceAttachmentConfigurationProperty
   = ConfluenceAttachmentConfigurationProperty {attachmentFieldMappings :: (Prelude.Maybe [ConfluenceAttachmentToIndexFieldMappingProperty]),
                                                crawlAttachments :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceAttachmentConfigurationProperty ::
   ConfluenceAttachmentConfigurationProperty
 mkConfluenceAttachmentConfigurationProperty

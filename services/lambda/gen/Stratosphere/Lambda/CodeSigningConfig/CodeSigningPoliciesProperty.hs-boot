@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CodeSigningPoliciesProperty :: Prelude.Type
 instance ToResourceProperties CodeSigningPoliciesProperty
+instance Prelude.Eq CodeSigningPoliciesProperty
+instance Prelude.Show CodeSigningPoliciesProperty
 instance JSON.ToJSON CodeSigningPoliciesProperty

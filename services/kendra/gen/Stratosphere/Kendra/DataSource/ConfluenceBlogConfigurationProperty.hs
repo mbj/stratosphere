@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.ConfluenceBlogToIndexFieldM
 import Stratosphere.ResourceProperties
 data ConfluenceBlogConfigurationProperty
   = ConfluenceBlogConfigurationProperty {blogFieldMappings :: (Prelude.Maybe [ConfluenceBlogToIndexFieldMappingProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceBlogConfigurationProperty ::
   ConfluenceBlogConfigurationProperty
 mkConfluenceBlogConfigurationProperty

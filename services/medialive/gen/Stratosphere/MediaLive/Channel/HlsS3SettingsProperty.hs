@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsS3SettingsProperty
   = HlsS3SettingsProperty {cannedAcl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsS3SettingsProperty :: HlsS3SettingsProperty
 mkHlsS3SettingsProperty
   = HlsS3SettingsProperty {cannedAcl = Prelude.Nothing}

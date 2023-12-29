@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataFormatConversionConfigurationProperty :: Prelude.Type
 instance ToResourceProperties DataFormatConversionConfigurationProperty
+instance Prelude.Eq DataFormatConversionConfigurationProperty
+instance Prelude.Show DataFormatConversionConfigurationProperty
 instance JSON.ToJSON DataFormatConversionConfigurationProperty

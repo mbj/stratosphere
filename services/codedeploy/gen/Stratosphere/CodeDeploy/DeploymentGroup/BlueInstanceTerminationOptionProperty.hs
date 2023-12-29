@@ -10,6 +10,7 @@ import Stratosphere.Value
 data BlueInstanceTerminationOptionProperty
   = BlueInstanceTerminationOptionProperty {action :: (Prelude.Maybe (Value Prelude.Text)),
                                            terminationWaitTimeInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBlueInstanceTerminationOptionProperty ::
   BlueInstanceTerminationOptionProperty
 mkBlueInstanceTerminationOptionProperty

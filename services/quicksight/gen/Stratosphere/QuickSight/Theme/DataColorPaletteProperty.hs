@@ -10,6 +10,7 @@ data DataColorPaletteProperty
   = DataColorPaletteProperty {colors :: (Prelude.Maybe (ValueList Prelude.Text)),
                               emptyFillColor :: (Prelude.Maybe (Value Prelude.Text)),
                               minMaxGradient :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataColorPaletteProperty :: DataColorPaletteProperty
 mkDataColorPaletteProperty
   = DataColorPaletteProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WebhookFilterRuleProperty
   = WebhookFilterRuleProperty {jsonPath :: (Value Prelude.Text),
                                matchEquals :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebhookFilterRuleProperty ::
   Value Prelude.Text -> WebhookFilterRuleProperty
 mkWebhookFilterRuleProperty jsonPath

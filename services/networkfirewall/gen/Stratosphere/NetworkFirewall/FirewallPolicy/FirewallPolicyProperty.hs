@@ -21,6 +21,7 @@ data FirewallPolicyProperty
                             statelessDefaultActions :: (ValueList Prelude.Text),
                             statelessFragmentDefaultActions :: (ValueList Prelude.Text),
                             statelessRuleGroupReferences :: (Prelude.Maybe [StatelessRuleGroupReferenceProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallPolicyProperty ::
   ValueList Prelude.Text
   -> ValueList Prelude.Text -> FirewallPolicyProperty

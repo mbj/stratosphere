@@ -12,6 +12,7 @@ data Device
   = Device {device :: (Prelude.Maybe DeviceProperty),
             deviceFleetName :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDevice :: Value Prelude.Text -> Device
 mkDevice deviceFleetName
   = Device

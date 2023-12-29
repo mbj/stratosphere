@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MetricStreamStatisticsMetricProperty
   = MetricStreamStatisticsMetricProperty {metricName :: (Value Prelude.Text),
                                           namespace :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricStreamStatisticsMetricProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> MetricStreamStatisticsMetricProperty

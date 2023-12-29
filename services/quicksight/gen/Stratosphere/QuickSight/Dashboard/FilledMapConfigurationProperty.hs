@@ -19,6 +19,7 @@ data FilledMapConfigurationProperty
                                     sortConfiguration :: (Prelude.Maybe FilledMapSortConfigurationProperty),
                                     tooltip :: (Prelude.Maybe TooltipOptionsProperty),
                                     windowOptions :: (Prelude.Maybe GeospatialWindowOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilledMapConfigurationProperty :: FilledMapConfigurationProperty
 mkFilledMapConfigurationProperty
   = FilledMapConfigurationProperty

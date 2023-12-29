@@ -14,6 +14,7 @@ data CsvClassifierProperty
                            header :: (Prelude.Maybe (ValueList Prelude.Text)),
                            name :: (Prelude.Maybe (Value Prelude.Text)),
                            quoteSymbol :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCsvClassifierProperty :: CsvClassifierProperty
 mkCsvClassifierProperty
   = CsvClassifierProperty

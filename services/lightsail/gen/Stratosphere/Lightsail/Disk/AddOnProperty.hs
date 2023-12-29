@@ -11,6 +11,7 @@ data AddOnProperty
   = AddOnProperty {addOnType :: (Value Prelude.Text),
                    autoSnapshotAddOnRequest :: (Prelude.Maybe AutoSnapshotAddOnProperty),
                    status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAddOnProperty :: Value Prelude.Text -> AddOnProperty
 mkAddOnProperty addOnType
   = AddOnProperty

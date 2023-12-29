@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DefaultFormattingProperty
   = DefaultFormattingProperty {displayFormat :: (Prelude.Maybe (Value Prelude.Text)),
                                displayFormatOptions :: (Prelude.Maybe DisplayFormatOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultFormattingProperty :: DefaultFormattingProperty
 mkDefaultFormattingProperty
   = DefaultFormattingProperty

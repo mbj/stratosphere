@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AxisDisplayMinMaxRangeProperty
   = AxisDisplayMinMaxRangeProperty {maximum :: (Prelude.Maybe (Value Prelude.Double)),
                                     minimum :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAxisDisplayMinMaxRangeProperty :: AxisDisplayMinMaxRangeProperty
 mkAxisDisplayMinMaxRangeProperty
   = AxisDisplayMinMaxRangeProperty

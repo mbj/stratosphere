@@ -10,6 +10,7 @@ data ScheduleConfigProperty
   = ScheduleConfigProperty {firstExecutionFrom :: (Prelude.Maybe (Value Prelude.Text)),
                             object :: (Prelude.Maybe (Value Prelude.Text)),
                             scheduleExpression :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleConfigProperty ::
   Value Prelude.Text -> ScheduleConfigProperty
 mkScheduleConfigProperty scheduleExpression

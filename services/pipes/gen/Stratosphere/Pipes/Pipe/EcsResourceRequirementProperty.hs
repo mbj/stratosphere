@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EcsResourceRequirementProperty
   = EcsResourceRequirementProperty {type' :: (Value Prelude.Text),
                                     value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsResourceRequirementProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EcsResourceRequirementProperty

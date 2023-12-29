@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ChannelStorageProperty :: Prelude.Type
 instance ToResourceProperties ChannelStorageProperty
+instance Prelude.Eq ChannelStorageProperty
+instance Prelude.Show ChannelStorageProperty
 instance JSON.ToJSON ChannelStorageProperty

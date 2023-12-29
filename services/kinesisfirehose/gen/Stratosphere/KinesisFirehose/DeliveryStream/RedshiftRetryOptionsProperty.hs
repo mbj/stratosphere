@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RedshiftRetryOptionsProperty
   = RedshiftRetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftRetryOptionsProperty :: RedshiftRetryOptionsProperty
 mkRedshiftRetryOptionsProperty
   = RedshiftRetryOptionsProperty

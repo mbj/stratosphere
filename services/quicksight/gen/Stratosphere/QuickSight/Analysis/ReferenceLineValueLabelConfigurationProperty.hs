@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ReferenceLineValueLabelConfigurationProperty
   = ReferenceLineValueLabelConfigurationProperty {formatConfiguration :: (Prelude.Maybe NumericFormatConfigurationProperty),
                                                   relativePosition :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceLineValueLabelConfigurationProperty ::
   ReferenceLineValueLabelConfigurationProperty
 mkReferenceLineValueLabelConfigurationProperty

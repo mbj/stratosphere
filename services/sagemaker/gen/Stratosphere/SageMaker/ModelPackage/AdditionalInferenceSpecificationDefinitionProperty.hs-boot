@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AdditionalInferenceSpecificationDefinitionProperty :: Prelude.Type
 instance ToResourceProperties AdditionalInferenceSpecificationDefinitionProperty
+instance Prelude.Eq AdditionalInferenceSpecificationDefinitionProperty
+instance Prelude.Show AdditionalInferenceSpecificationDefinitionProperty
 instance JSON.ToJSON AdditionalInferenceSpecificationDefinitionProperty

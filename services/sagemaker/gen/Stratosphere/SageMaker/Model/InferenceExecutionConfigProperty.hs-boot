@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InferenceExecutionConfigProperty :: Prelude.Type
 instance ToResourceProperties InferenceExecutionConfigProperty
+instance Prelude.Eq InferenceExecutionConfigProperty
+instance Prelude.Show InferenceExecutionConfigProperty
 instance JSON.ToJSON InferenceExecutionConfigProperty

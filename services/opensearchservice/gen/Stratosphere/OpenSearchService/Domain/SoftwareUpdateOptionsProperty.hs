@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SoftwareUpdateOptionsProperty
   = SoftwareUpdateOptionsProperty {autoSoftwareUpdateEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSoftwareUpdateOptionsProperty :: SoftwareUpdateOptionsProperty
 mkSoftwareUpdateOptionsProperty
   = SoftwareUpdateOptionsProperty

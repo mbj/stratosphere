@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DatabaseResourceProperty
   = DatabaseResourceProperty {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
                               name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseResourceProperty :: DatabaseResourceProperty
 mkDatabaseResourceProperty
   = DatabaseResourceProperty

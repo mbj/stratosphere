@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FilterAndOperatorProperty :: Prelude.Type
 instance ToResourceProperties FilterAndOperatorProperty
+instance Prelude.Eq FilterAndOperatorProperty
+instance Prelude.Show FilterAndOperatorProperty
 instance JSON.ToJSON FilterAndOperatorProperty

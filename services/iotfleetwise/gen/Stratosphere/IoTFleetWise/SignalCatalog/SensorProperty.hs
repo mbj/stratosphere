@@ -14,6 +14,7 @@ data SensorProperty
                     max :: (Prelude.Maybe (Value Prelude.Double)),
                     min :: (Prelude.Maybe (Value Prelude.Double)),
                     unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSensorProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SensorProperty
 mkSensorProperty dataType fullyQualifiedName

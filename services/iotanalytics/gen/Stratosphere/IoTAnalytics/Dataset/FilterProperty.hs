@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.DeltaTimeProperty as Exp
 import Stratosphere.ResourceProperties
 data FilterProperty
   = FilterProperty {deltaTime :: (Prelude.Maybe DeltaTimeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty :: FilterProperty
 mkFilterProperty = FilterProperty {deltaTime = Prelude.Nothing}
 instance ToResourceProperties FilterProperty where

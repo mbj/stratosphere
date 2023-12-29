@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ManifestFileLocationProperty :: Prelude.Type
 instance ToResourceProperties ManifestFileLocationProperty
+instance Prelude.Eq ManifestFileLocationProperty
+instance Prelude.Show ManifestFileLocationProperty
 instance JSON.ToJSON ManifestFileLocationProperty

@@ -12,6 +12,7 @@ data DeviceShadowEnrichProperty
                                 next :: (Prelude.Maybe (Value Prelude.Text)),
                                 roleArn :: (Value Prelude.Text),
                                 thingName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceShadowEnrichProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

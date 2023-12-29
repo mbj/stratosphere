@@ -10,6 +10,7 @@ import Stratosphere.Value
 data NotificationFilterConfigProperty
   = NotificationFilterConfigProperty {messageTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       severities :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationFilterConfigProperty ::
   NotificationFilterConfigProperty
 mkNotificationFilterConfigProperty

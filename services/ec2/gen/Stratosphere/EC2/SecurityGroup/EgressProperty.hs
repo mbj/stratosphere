@@ -15,6 +15,7 @@ data EgressProperty
                     fromPort :: (Prelude.Maybe (Value Prelude.Integer)),
                     ipProtocol :: (Value Prelude.Text),
                     toPort :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEgressProperty :: Value Prelude.Text -> EgressProperty
 mkEgressProperty ipProtocol
   = EgressProperty

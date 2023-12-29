@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DecimalParameterProperty
   = DecimalParameterProperty {name :: (Value Prelude.Text),
                               values :: (ValueList Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDecimalParameterProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Double -> DecimalParameterProperty

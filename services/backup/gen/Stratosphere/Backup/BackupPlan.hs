@@ -10,6 +10,7 @@ import Stratosphere.Value
 data BackupPlan
   = BackupPlan {backupPlan :: BackupPlanResourceTypeProperty,
                 backupPlanTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupPlan :: BackupPlanResourceTypeProperty -> BackupPlan
 mkBackupPlan backupPlan
   = BackupPlan

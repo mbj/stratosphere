@@ -10,6 +10,7 @@ data GatingRuleProperty
   = GatingRuleProperty {gatingControls :: (ValueList Prelude.Text),
                         targetControls :: (ValueList Prelude.Text),
                         waitPeriodMs :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatingRuleProperty ::
   ValueList Prelude.Text
   -> ValueList Prelude.Text

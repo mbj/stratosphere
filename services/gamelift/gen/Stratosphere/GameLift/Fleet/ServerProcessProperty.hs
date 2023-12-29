@@ -10,6 +10,7 @@ data ServerProcessProperty
   = ServerProcessProperty {concurrentExecutions :: (Value Prelude.Integer),
                            launchPath :: (Value Prelude.Text),
                            parameters :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerProcessProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> ServerProcessProperty

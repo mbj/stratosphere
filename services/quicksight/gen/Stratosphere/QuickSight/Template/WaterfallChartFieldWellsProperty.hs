@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.WaterfallChartAggregatedF
 import Stratosphere.ResourceProperties
 data WaterfallChartFieldWellsProperty
   = WaterfallChartFieldWellsProperty {waterfallChartAggregatedFieldWells :: (Prelude.Maybe WaterfallChartAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWaterfallChartFieldWellsProperty ::
   WaterfallChartFieldWellsProperty
 mkWaterfallChartFieldWellsProperty

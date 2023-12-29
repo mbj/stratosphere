@@ -18,6 +18,7 @@ data TopBottomMoversComputationProperty
                                         time :: DimensionFieldProperty,
                                         type' :: (Value Prelude.Text),
                                         value :: (Prelude.Maybe MeasureFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopBottomMoversComputationProperty ::
   DimensionFieldProperty
   -> Value Prelude.Text

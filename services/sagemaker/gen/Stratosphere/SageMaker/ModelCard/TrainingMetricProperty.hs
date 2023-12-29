@@ -10,6 +10,7 @@ data TrainingMetricProperty
   = TrainingMetricProperty {name :: (Value Prelude.Text),
                             notes :: (Prelude.Maybe (Value Prelude.Text)),
                             value :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrainingMetricProperty ::
   Value Prelude.Text
   -> Value Prelude.Double -> TrainingMetricProperty

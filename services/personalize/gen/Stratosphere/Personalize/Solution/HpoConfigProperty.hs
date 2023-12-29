@@ -12,6 +12,7 @@ data HpoConfigProperty
   = HpoConfigProperty {algorithmHyperParameterRanges :: (Prelude.Maybe AlgorithmHyperParameterRangesProperty),
                        hpoObjective :: (Prelude.Maybe HpoObjectiveProperty),
                        hpoResourceConfig :: (Prelude.Maybe HpoResourceConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHpoConfigProperty :: HpoConfigProperty
 mkHpoConfigProperty
   = HpoConfigProperty

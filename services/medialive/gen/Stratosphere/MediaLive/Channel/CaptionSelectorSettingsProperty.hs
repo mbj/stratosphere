@@ -21,6 +21,7 @@ data CaptionSelectorSettingsProperty
                                      scte20SourceSettings :: (Prelude.Maybe Scte20SourceSettingsProperty),
                                      scte27SourceSettings :: (Prelude.Maybe Scte27SourceSettingsProperty),
                                      teletextSourceSettings :: (Prelude.Maybe TeletextSourceSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionSelectorSettingsProperty ::
   CaptionSelectorSettingsProperty
 mkCaptionSelectorSettingsProperty

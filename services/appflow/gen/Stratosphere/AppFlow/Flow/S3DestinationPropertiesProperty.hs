@@ -12,6 +12,7 @@ data S3DestinationPropertiesProperty
   = S3DestinationPropertiesProperty {bucketName :: (Value Prelude.Text),
                                      bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                                      s3OutputFormatConfig :: (Prelude.Maybe S3OutputFormatConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationPropertiesProperty ::
   Value Prelude.Text -> S3DestinationPropertiesProperty
 mkS3DestinationPropertiesProperty bucketName

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RelationshipProperty
   = RelationshipProperty {relationshipType :: (Prelude.Maybe (Value Prelude.Text)),
                           targetComponentTypeId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRelationshipProperty :: RelationshipProperty
 mkRelationshipProperty
   = RelationshipProperty

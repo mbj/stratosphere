@@ -21,6 +21,7 @@ data PostgreSqlSettingsProperty
                                 secretsManagerAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                 secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text)),
                                 slotName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPostgreSqlSettingsProperty :: PostgreSqlSettingsProperty
 mkPostgreSqlSettingsProperty
   = PostgreSqlSettingsProperty

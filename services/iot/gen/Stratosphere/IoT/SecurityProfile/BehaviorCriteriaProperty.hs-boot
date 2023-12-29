@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BehaviorCriteriaProperty :: Prelude.Type
 instance ToResourceProperties BehaviorCriteriaProperty
+instance Prelude.Eq BehaviorCriteriaProperty
+instance Prelude.Show BehaviorCriteriaProperty
 instance JSON.ToJSON BehaviorCriteriaProperty

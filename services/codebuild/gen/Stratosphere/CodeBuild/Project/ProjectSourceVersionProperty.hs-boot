@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProjectSourceVersionProperty :: Prelude.Type
 instance ToResourceProperties ProjectSourceVersionProperty
+instance Prelude.Eq ProjectSourceVersionProperty
+instance Prelude.Show ProjectSourceVersionProperty
 instance JSON.ToJSON ProjectSourceVersionProperty

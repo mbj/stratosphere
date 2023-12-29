@@ -42,6 +42,7 @@ data Function
               timeout :: (Prelude.Maybe (Value Prelude.Integer)),
               tracingConfig :: (Prelude.Maybe TracingConfigProperty),
               vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunction :: CodeProperty -> Value Prelude.Text -> Function
 mkFunction code role
   = Function

@@ -22,6 +22,7 @@ data Distribution
                   isEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                   origin :: InputOriginProperty,
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDistribution ::
   Value Prelude.Text
   -> CacheBehaviorProperty

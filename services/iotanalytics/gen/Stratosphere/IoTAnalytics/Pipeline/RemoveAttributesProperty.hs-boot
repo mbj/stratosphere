@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RemoveAttributesProperty :: Prelude.Type
 instance ToResourceProperties RemoveAttributesProperty
+instance Prelude.Eq RemoveAttributesProperty
+instance Prelude.Show RemoveAttributesProperty
 instance JSON.ToJSON RemoveAttributesProperty

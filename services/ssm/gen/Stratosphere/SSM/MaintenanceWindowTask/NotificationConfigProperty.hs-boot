@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NotificationConfigProperty :: Prelude.Type
 instance ToResourceProperties NotificationConfigProperty
+instance Prelude.Eq NotificationConfigProperty
+instance Prelude.Show NotificationConfigProperty
 instance JSON.ToJSON NotificationConfigProperty

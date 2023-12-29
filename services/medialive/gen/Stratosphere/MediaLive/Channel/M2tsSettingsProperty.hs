@@ -58,6 +58,7 @@ data M2tsSettingsProperty
                           timedMetadataPid :: (Prelude.Maybe (Value Prelude.Text)),
                           transportStreamId :: (Prelude.Maybe (Value Prelude.Integer)),
                           videoPid :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkM2tsSettingsProperty :: M2tsSettingsProperty
 mkM2tsSettingsProperty
   = M2tsSettingsProperty

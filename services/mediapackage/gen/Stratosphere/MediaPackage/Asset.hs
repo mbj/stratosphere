@@ -16,6 +16,7 @@ data Asset
            sourceArn :: (Value Prelude.Text),
            sourceRoleArn :: (Value Prelude.Text),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAsset ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MetricStreamFilterProperty
   = MetricStreamFilterProperty {metricNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 namespace :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricStreamFilterProperty ::
   Value Prelude.Text -> MetricStreamFilterProperty
 mkMetricStreamFilterProperty namespace

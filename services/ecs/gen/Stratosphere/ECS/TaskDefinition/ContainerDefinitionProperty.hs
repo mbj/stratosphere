@@ -63,6 +63,7 @@ data ContainerDefinitionProperty
                                  user :: (Prelude.Maybe (Value Prelude.Text)),
                                  volumesFrom :: (Prelude.Maybe [VolumeFromProperty]),
                                  workingDirectory :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerDefinitionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ContainerDefinitionProperty

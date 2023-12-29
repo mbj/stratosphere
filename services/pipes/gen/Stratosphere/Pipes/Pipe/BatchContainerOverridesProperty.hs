@@ -14,6 +14,7 @@ data BatchContainerOverridesProperty
                                      environment :: (Prelude.Maybe [BatchEnvironmentVariableProperty]),
                                      instanceType :: (Prelude.Maybe (Value Prelude.Text)),
                                      resourceRequirements :: (Prelude.Maybe [BatchResourceRequirementProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchContainerOverridesProperty ::
   BatchContainerOverridesProperty
 mkBatchContainerOverridesProperty

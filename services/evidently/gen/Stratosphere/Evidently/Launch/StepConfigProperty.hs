@@ -12,6 +12,7 @@ data StepConfigProperty
   = StepConfigProperty {groupWeights :: [GroupToWeightProperty],
                         segmentOverrides :: (Prelude.Maybe [SegmentOverrideProperty]),
                         startTime :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStepConfigProperty ::
   [GroupToWeightProperty] -> Value Prelude.Text -> StepConfigProperty
 mkStepConfigProperty groupWeights startTime

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KafkaClusterEncryptionInTransitProperty :: Prelude.Type
 instance ToResourceProperties KafkaClusterEncryptionInTransitProperty
+instance Prelude.Eq KafkaClusterEncryptionInTransitProperty
+instance Prelude.Show KafkaClusterEncryptionInTransitProperty
 instance JSON.ToJSON KafkaClusterEncryptionInTransitProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MarketoConnectorProfilePropertiesProperty
   = MarketoConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMarketoConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> MarketoConnectorProfilePropertiesProperty
 mkMarketoConnectorProfilePropertiesProperty instanceUrl

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CarrierGateway
   = CarrierGateway {tags :: (Prelude.Maybe [Tag]),
                     vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCarrierGateway :: Value Prelude.Text -> CarrierGateway
 mkCarrierGateway vpcId
   = CarrierGateway {vpcId = vpcId, tags = Prelude.Nothing}

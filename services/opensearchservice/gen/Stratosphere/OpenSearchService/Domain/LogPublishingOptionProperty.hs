@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LogPublishingOptionProperty
   = LogPublishingOptionProperty {cloudWatchLogsLogGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
                                  enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogPublishingOptionProperty :: LogPublishingOptionProperty
 mkLogPublishingOptionProperty
   = LogPublishingOptionProperty

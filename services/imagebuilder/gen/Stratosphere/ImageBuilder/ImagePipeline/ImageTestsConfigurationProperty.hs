@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ImageTestsConfigurationProperty
   = ImageTestsConfigurationProperty {imageTestsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                      timeoutMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImageTestsConfigurationProperty ::
   ImageTestsConfigurationProperty
 mkImageTestsConfigurationProperty

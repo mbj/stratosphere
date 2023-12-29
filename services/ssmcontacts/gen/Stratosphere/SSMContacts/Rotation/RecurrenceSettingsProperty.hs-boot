@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RecurrenceSettingsProperty :: Prelude.Type
 instance ToResourceProperties RecurrenceSettingsProperty
+instance Prelude.Eq RecurrenceSettingsProperty
+instance Prelude.Show RecurrenceSettingsProperty
 instance JSON.ToJSON RecurrenceSettingsProperty

@@ -13,6 +13,7 @@ data PortMappingProperty
                          hostPort :: (Prelude.Maybe (Value Prelude.Integer)),
                          name :: (Prelude.Maybe (Value Prelude.Text)),
                          protocol :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortMappingProperty :: PortMappingProperty
 mkPortMappingProperty
   = PortMappingProperty

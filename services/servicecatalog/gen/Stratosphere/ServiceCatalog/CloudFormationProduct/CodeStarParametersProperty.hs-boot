@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CodeStarParametersProperty :: Prelude.Type
 instance ToResourceProperties CodeStarParametersProperty
+instance Prelude.Eq CodeStarParametersProperty
+instance Prelude.Show CodeStarParametersProperty
 instance JSON.ToJSON CodeStarParametersProperty

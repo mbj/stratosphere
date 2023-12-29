@@ -19,6 +19,7 @@ data EcsContainerOverrideProperty
                                   memoryReservation :: (Prelude.Maybe (Value Prelude.Integer)),
                                   name :: (Prelude.Maybe (Value Prelude.Text)),
                                   resourceRequirements :: (Prelude.Maybe [EcsResourceRequirementProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsContainerOverrideProperty :: EcsContainerOverrideProperty
 mkEcsContainerOverrideProperty
   = EcsContainerOverrideProperty

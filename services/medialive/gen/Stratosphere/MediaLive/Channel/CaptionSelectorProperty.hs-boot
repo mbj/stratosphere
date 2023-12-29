@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CaptionSelectorProperty :: Prelude.Type
 instance ToResourceProperties CaptionSelectorProperty
+instance Prelude.Eq CaptionSelectorProperty
+instance Prelude.Show CaptionSelectorProperty
 instance JSON.ToJSON CaptionSelectorProperty

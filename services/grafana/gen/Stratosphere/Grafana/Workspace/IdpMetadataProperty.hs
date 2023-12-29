@@ -9,6 +9,7 @@ import Stratosphere.Value
 data IdpMetadataProperty
   = IdpMetadataProperty {url :: (Prelude.Maybe (Value Prelude.Text)),
                          xml :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIdpMetadataProperty :: IdpMetadataProperty
 mkIdpMetadataProperty
   = IdpMetadataProperty

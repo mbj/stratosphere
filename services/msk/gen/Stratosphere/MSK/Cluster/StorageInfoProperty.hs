@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.EBSStorageInfoProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageInfoProperty
   = StorageInfoProperty {eBSStorageInfo :: (Prelude.Maybe EBSStorageInfoProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageInfoProperty :: StorageInfoProperty
 mkStorageInfoProperty
   = StorageInfoProperty {eBSStorageInfo = Prelude.Nothing}

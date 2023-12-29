@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LocalNavigationConfigurationProperty
   = LocalNavigationConfigurationProperty {targetSheetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalNavigationConfigurationProperty ::
   Value Prelude.Text -> LocalNavigationConfigurationProperty
 mkLocalNavigationConfigurationProperty targetSheetId

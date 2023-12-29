@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RelationalDatabaseConfigProperty :: Prelude.Type
 instance ToResourceProperties RelationalDatabaseConfigProperty
+instance Prelude.Eq RelationalDatabaseConfigProperty
+instance Prelude.Show RelationalDatabaseConfigProperty
 instance JSON.ToJSON RelationalDatabaseConfigProperty

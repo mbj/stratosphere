@@ -11,6 +11,7 @@ data S3ActionProperty
                       cannedAcl :: (Prelude.Maybe (Value Prelude.Text)),
                       key :: (Value Prelude.Text),
                       roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> S3ActionProperty

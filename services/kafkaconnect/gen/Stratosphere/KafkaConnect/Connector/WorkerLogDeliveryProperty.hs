@@ -13,6 +13,7 @@ data WorkerLogDeliveryProperty
   = WorkerLogDeliveryProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsLogDeliveryProperty),
                                firehose :: (Prelude.Maybe FirehoseLogDeliveryProperty),
                                s3 :: (Prelude.Maybe S3LogDeliveryProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkerLogDeliveryProperty :: WorkerLogDeliveryProperty
 mkWorkerLogDeliveryProperty
   = WorkerLogDeliveryProperty

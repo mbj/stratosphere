@@ -9,6 +9,7 @@ import Stratosphere.Value
 data GamePropertyProperty
   = GamePropertyProperty {key :: (Value Prelude.Text),
                           value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGamePropertyProperty ::
   Value Prelude.Text -> Value Prelude.Text -> GamePropertyProperty
 mkGamePropertyProperty key value

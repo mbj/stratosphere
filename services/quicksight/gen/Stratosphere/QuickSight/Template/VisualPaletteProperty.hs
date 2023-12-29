@@ -10,6 +10,7 @@ import Stratosphere.Value
 data VisualPaletteProperty
   = VisualPaletteProperty {chartColor :: (Prelude.Maybe (Value Prelude.Text)),
                            colorMap :: (Prelude.Maybe [DataPathColorProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVisualPaletteProperty :: VisualPaletteProperty
 mkVisualPaletteProperty
   = VisualPaletteProperty

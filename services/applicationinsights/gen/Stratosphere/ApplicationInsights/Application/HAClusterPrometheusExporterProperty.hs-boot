@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HAClusterPrometheusExporterProperty :: Prelude.Type
 instance ToResourceProperties HAClusterPrometheusExporterProperty
+instance Prelude.Eq HAClusterPrometheusExporterProperty
+instance Prelude.Show HAClusterPrometheusExporterProperty
 instance JSON.ToJSON HAClusterPrometheusExporterProperty

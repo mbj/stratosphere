@@ -17,6 +17,7 @@ data DatabaseInputProperty
                            name :: (Prelude.Maybe (Value Prelude.Text)),
                            parameters :: (Prelude.Maybe JSON.Object),
                            targetDatabase :: (Prelude.Maybe DatabaseIdentifierProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseInputProperty :: DatabaseInputProperty
 mkDatabaseInputProperty
   = DatabaseInputProperty

@@ -26,6 +26,7 @@ data Association
                  syncCompliance :: (Prelude.Maybe (Value Prelude.Text)),
                  targets :: (Prelude.Maybe [TargetProperty]),
                  waitForSuccessTimeoutSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssociation :: Value Prelude.Text -> Association
 mkAssociation name
   = Association

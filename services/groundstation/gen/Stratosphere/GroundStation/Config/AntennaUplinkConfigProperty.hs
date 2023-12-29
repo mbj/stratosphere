@@ -13,6 +13,7 @@ data AntennaUplinkConfigProperty
   = AntennaUplinkConfigProperty {spectrumConfig :: (Prelude.Maybe UplinkSpectrumConfigProperty),
                                  targetEirp :: (Prelude.Maybe EirpProperty),
                                  transmitDisabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAntennaUplinkConfigProperty :: AntennaUplinkConfigProperty
 mkAntennaUplinkConfigProperty
   = AntennaUplinkConfigProperty

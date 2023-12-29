@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ThousandSeparatorOptionsProperty
   = ThousandSeparatorOptionsProperty {symbol :: (Prelude.Maybe (Value Prelude.Text)),
                                       visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThousandSeparatorOptionsProperty ::
   ThousandSeparatorOptionsProperty
 mkThousandSeparatorOptionsProperty

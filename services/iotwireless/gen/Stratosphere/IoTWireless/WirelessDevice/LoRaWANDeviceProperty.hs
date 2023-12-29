@@ -18,6 +18,7 @@ data LoRaWANDeviceProperty
                            otaaV10x :: (Prelude.Maybe OtaaV10xProperty),
                            otaaV11 :: (Prelude.Maybe OtaaV11Property),
                            serviceProfileId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANDeviceProperty :: LoRaWANDeviceProperty
 mkLoRaWANDeviceProperty
   = LoRaWANDeviceProperty

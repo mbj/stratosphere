@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PriorityConfigurationProperty :: Prelude.Type
 instance ToResourceProperties PriorityConfigurationProperty
+instance Prelude.Eq PriorityConfigurationProperty
+instance Prelude.Show PriorityConfigurationProperty
 instance JSON.ToJSON PriorityConfigurationProperty

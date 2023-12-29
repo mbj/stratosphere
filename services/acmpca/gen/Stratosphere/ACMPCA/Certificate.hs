@@ -16,6 +16,7 @@ data Certificate
                  templateArn :: (Prelude.Maybe (Value Prelude.Text)),
                  validity :: ValidityProperty,
                  validityNotBefore :: (Prelude.Maybe ValidityProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificate ::
   Value Prelude.Text
   -> Value Prelude.Text

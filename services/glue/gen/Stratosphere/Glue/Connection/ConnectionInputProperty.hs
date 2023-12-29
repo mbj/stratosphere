@@ -15,6 +15,7 @@ data ConnectionInputProperty
                              matchCriteria :: (Prelude.Maybe (ValueList Prelude.Text)),
                              name :: (Prelude.Maybe (Value Prelude.Text)),
                              physicalConnectionRequirements :: (Prelude.Maybe PhysicalConnectionRequirementsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionInputProperty ::
   Value Prelude.Text -> ConnectionInputProperty
 mkConnectionInputProperty connectionType

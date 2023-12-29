@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Config.RemediationConfiguration.SsmControlsPr
 import Stratosphere.ResourceProperties
 data ExecutionControlsProperty
   = ExecutionControlsProperty {ssmControls :: (Prelude.Maybe SsmControlsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionControlsProperty :: ExecutionControlsProperty
 mkExecutionControlsProperty
   = ExecutionControlsProperty {ssmControls = Prelude.Nothing}

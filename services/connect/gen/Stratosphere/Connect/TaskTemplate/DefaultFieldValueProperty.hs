@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DefaultFieldValueProperty
   = DefaultFieldValueProperty {defaultValue :: (Value Prelude.Text),
                                id :: FieldIdentifierProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultFieldValueProperty ::
   Value Prelude.Text
   -> FieldIdentifierProperty -> DefaultFieldValueProperty

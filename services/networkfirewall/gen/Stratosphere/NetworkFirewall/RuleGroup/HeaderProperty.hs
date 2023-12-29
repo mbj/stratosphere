@@ -13,6 +13,7 @@ data HeaderProperty
                     protocol :: (Value Prelude.Text),
                     source :: (Value Prelude.Text),
                     sourcePort :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeaderProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

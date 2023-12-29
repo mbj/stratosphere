@@ -13,6 +13,7 @@ data List
           name :: (Value Prelude.Text),
           tags :: (Prelude.Maybe [Tag]),
           variableType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkList :: Value Prelude.Text -> List
 mkList name
   = List

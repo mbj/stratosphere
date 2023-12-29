@@ -12,6 +12,7 @@ data LocalGatewayRouteTableVPCAssociation
   = LocalGatewayRouteTableVPCAssociation {localGatewayRouteTableId :: (Value Prelude.Text),
                                           tags :: (Prelude.Maybe [Tag]),
                                           vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalGatewayRouteTableVPCAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> LocalGatewayRouteTableVPCAssociation

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.TargetGroupProperty as Exports
 import Stratosphere.ResourceProperties
 data TargetGroupsConfigProperty
   = TargetGroupsConfigProperty {targetGroups :: [TargetGroupProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupsConfigProperty ::
   [TargetGroupProperty] -> TargetGroupsConfigProperty
 mkTargetGroupsConfigProperty targetGroups

@@ -10,6 +10,7 @@ data EndpointMetadataProperty
   = EndpointMetadataProperty {endpointConfigName :: (Prelude.Maybe (Value Prelude.Text)),
                               endpointName :: (Value Prelude.Text),
                               endpointStatus :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointMetadataProperty ::
   Value Prelude.Text -> EndpointMetadataProperty
 mkEndpointMetadataProperty endpointName

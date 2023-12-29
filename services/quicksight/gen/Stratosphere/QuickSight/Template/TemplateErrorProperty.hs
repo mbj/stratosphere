@@ -11,6 +11,7 @@ data TemplateErrorProperty
   = TemplateErrorProperty {message :: (Prelude.Maybe (Value Prelude.Text)),
                            type' :: (Prelude.Maybe (Value Prelude.Text)),
                            violatedEntities :: (Prelude.Maybe [EntityProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateErrorProperty :: TemplateErrorProperty
 mkTemplateErrorProperty
   = TemplateErrorProperty

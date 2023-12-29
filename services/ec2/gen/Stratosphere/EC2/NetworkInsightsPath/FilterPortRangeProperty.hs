@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FilterPortRangeProperty
   = FilterPortRangeProperty {fromPort :: (Prelude.Maybe (Value Prelude.Integer)),
                              toPort :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterPortRangeProperty :: FilterPortRangeProperty
 mkFilterPortRangeProperty
   = FilterPortRangeProperty

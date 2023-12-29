@@ -23,6 +23,7 @@ data RuleProperty
                   ruleLabels :: (Prelude.Maybe [LabelProperty]),
                   statement :: StatementProperty,
                   visibilityConfig :: VisibilityConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DriftCheckBaselinesProperty :: Prelude.Type
 instance ToResourceProperties DriftCheckBaselinesProperty
+instance Prelude.Eq DriftCheckBaselinesProperty
+instance Prelude.Show DriftCheckBaselinesProperty
 instance JSON.ToJSON DriftCheckBaselinesProperty

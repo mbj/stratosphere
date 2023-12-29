@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Account
   = Account {cloudWatchRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccount :: Account
 mkAccount = Account {cloudWatchRoleArn = Prelude.Nothing}
 instance ToResourceProperties Account where

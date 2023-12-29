@@ -12,6 +12,7 @@ data CheckpointConfigurationProperty
                                      checkpointingEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                      configurationType :: (Value Prelude.Text),
                                      minPauseBetweenCheckpoints :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCheckpointConfigurationProperty ::
   Value Prelude.Text -> CheckpointConfigurationProperty
 mkCheckpointConfigurationProperty configurationType

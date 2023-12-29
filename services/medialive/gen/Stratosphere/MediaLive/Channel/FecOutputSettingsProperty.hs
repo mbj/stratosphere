@@ -10,6 +10,7 @@ data FecOutputSettingsProperty
   = FecOutputSettingsProperty {columnDepth :: (Prelude.Maybe (Value Prelude.Integer)),
                                includeFec :: (Prelude.Maybe (Value Prelude.Text)),
                                rowLength :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFecOutputSettingsProperty :: FecOutputSettingsProperty
 mkFecOutputSettingsProperty
   = FecOutputSettingsProperty

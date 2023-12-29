@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ResponseInspectionBodyContainsProperty :: Prelude.Type
 instance ToResourceProperties ResponseInspectionBodyContainsProperty
+instance Prelude.Eq ResponseInspectionBodyContainsProperty
+instance Prelude.Show ResponseInspectionBodyContainsProperty
 instance JSON.ToJSON ResponseInspectionBodyContainsProperty

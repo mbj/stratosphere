@@ -12,6 +12,7 @@ data Package
   = Package {packageName :: (Value Prelude.Text),
              storageLocation :: (Prelude.Maybe StorageLocationProperty),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPackage :: Value Prelude.Text -> Package
 mkPackage packageName
   = Package

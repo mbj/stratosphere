@@ -14,6 +14,7 @@ data BehaviorProperty
                       metricDimension :: (Prelude.Maybe MetricDimensionProperty),
                       name :: (Value Prelude.Text),
                       suppressAlerts :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBehaviorProperty :: Value Prelude.Text -> BehaviorProperty
 mkBehaviorProperty name
   = BehaviorProperty

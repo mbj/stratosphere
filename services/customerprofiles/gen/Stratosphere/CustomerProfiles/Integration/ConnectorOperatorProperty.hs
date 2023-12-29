@@ -12,6 +12,7 @@ data ConnectorOperatorProperty
                                salesforce :: (Prelude.Maybe (Value Prelude.Text)),
                                serviceNow :: (Prelude.Maybe (Value Prelude.Text)),
                                zendesk :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorOperatorProperty :: ConnectorOperatorProperty
 mkConnectorOperatorProperty
   = ConnectorOperatorProperty

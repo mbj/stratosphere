@@ -13,6 +13,7 @@ data HealthCheckConfigProperty
                                successCodes :: (Prelude.Maybe (Value Prelude.Text)),
                                timeoutSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                unhealthyThreshold :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckConfigProperty :: HealthCheckConfigProperty
 mkHealthCheckConfigProperty
   = HealthCheckConfigProperty

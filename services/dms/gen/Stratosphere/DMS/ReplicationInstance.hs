@@ -23,6 +23,7 @@ data ReplicationInstance
                          resourceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                          tags :: (Prelude.Maybe [Tag]),
                          vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationInstance :: Value Prelude.Text -> ReplicationInstance
 mkReplicationInstance replicationInstanceClass
   = ReplicationInstance

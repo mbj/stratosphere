@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TrustedSignersProperty
   = TrustedSignersProperty {awsAccountNumbers :: (Prelude.Maybe (ValueList Prelude.Text)),
                             enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrustedSignersProperty ::
   Value Prelude.Bool -> TrustedSignersProperty
 mkTrustedSignersProperty enabled

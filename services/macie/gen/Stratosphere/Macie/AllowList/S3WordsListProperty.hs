@@ -9,6 +9,7 @@ import Stratosphere.Value
 data S3WordsListProperty
   = S3WordsListProperty {bucketName :: (Value Prelude.Text),
                          objectKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3WordsListProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3WordsListProperty
 mkS3WordsListProperty bucketName objectKey

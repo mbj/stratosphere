@@ -11,6 +11,7 @@ import Stratosphere.Value
 data MonitoringOutputConfigProperty
   = MonitoringOutputConfigProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                                     monitoringOutputs :: [MonitoringOutputProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringOutputConfigProperty ::
   [MonitoringOutputProperty] -> MonitoringOutputConfigProperty
 mkMonitoringOutputConfigProperty monitoringOutputs

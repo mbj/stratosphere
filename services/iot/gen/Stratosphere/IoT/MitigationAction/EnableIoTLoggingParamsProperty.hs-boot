@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EnableIoTLoggingParamsProperty :: Prelude.Type
 instance ToResourceProperties EnableIoTLoggingParamsProperty
+instance Prelude.Eq EnableIoTLoggingParamsProperty
+instance Prelude.Show EnableIoTLoggingParamsProperty
 instance JSON.ToJSON EnableIoTLoggingParamsProperty

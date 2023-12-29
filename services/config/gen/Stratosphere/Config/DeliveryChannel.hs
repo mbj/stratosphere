@@ -14,6 +14,7 @@ data DeliveryChannel
                      s3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                      s3KmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                      snsTopicARN :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryChannel :: Value Prelude.Text -> DeliveryChannel
 mkDeliveryChannel s3BucketName
   = DeliveryChannel

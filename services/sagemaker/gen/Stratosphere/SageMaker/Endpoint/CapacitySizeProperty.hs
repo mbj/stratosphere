@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CapacitySizeProperty
   = CapacitySizeProperty {type' :: (Value Prelude.Text),
                           value :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacitySizeProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> CapacitySizeProperty
 mkCapacitySizeProperty type' value

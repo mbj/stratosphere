@@ -9,6 +9,7 @@ import Stratosphere.Value
 data S3StorageConfigProperty
   = S3StorageConfigProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                              s3Uri :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3StorageConfigProperty ::
   Value Prelude.Text -> S3StorageConfigProperty
 mkS3StorageConfigProperty s3Uri

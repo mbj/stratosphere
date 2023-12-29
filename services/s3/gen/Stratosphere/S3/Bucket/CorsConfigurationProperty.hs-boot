@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CorsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties CorsConfigurationProperty
+instance Prelude.Eq CorsConfigurationProperty
+instance Prelude.Show CorsConfigurationProperty
 instance JSON.ToJSON CorsConfigurationProperty

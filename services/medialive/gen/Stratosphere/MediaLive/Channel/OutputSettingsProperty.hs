@@ -23,6 +23,7 @@ data OutputSettingsProperty
                             multiplexOutputSettings :: (Prelude.Maybe MultiplexOutputSettingsProperty),
                             rtmpOutputSettings :: (Prelude.Maybe RtmpOutputSettingsProperty),
                             udpOutputSettings :: (Prelude.Maybe UdpOutputSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputSettingsProperty :: OutputSettingsProperty
 mkOutputSettingsProperty
   = OutputSettingsProperty

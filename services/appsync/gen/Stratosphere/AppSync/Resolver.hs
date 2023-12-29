@@ -27,6 +27,7 @@ data Resolver
               runtime :: (Prelude.Maybe AppSyncRuntimeProperty),
               syncConfig :: (Prelude.Maybe SyncConfigProperty),
               typeName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResolver ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Resolver

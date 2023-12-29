@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ExtendedKeyUsageProperty
   = ExtendedKeyUsageProperty {extendedKeyUsageObjectIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                               extendedKeyUsageType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExtendedKeyUsageProperty :: ExtendedKeyUsageProperty
 mkExtendedKeyUsageProperty
   = ExtendedKeyUsageProperty

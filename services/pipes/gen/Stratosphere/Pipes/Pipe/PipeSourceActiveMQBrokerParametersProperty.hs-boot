@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipeSourceActiveMQBrokerParametersProperty :: Prelude.Type
 instance ToResourceProperties PipeSourceActiveMQBrokerParametersProperty
+instance Prelude.Eq PipeSourceActiveMQBrokerParametersProperty
+instance Prelude.Show PipeSourceActiveMQBrokerParametersProperty
 instance JSON.ToJSON PipeSourceActiveMQBrokerParametersProperty

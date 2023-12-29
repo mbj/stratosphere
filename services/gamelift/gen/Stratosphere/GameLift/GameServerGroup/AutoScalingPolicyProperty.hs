@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AutoScalingPolicyProperty
   = AutoScalingPolicyProperty {estimatedInstanceWarmup :: (Prelude.Maybe (Value Prelude.Double)),
                                targetTrackingConfiguration :: TargetTrackingConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingPolicyProperty ::
   TargetTrackingConfigurationProperty -> AutoScalingPolicyProperty
 mkAutoScalingPolicyProperty targetTrackingConfiguration

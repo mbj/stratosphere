@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TimeBasedCanaryProperty
   = TimeBasedCanaryProperty {canaryInterval :: (Value Prelude.Integer),
                              canaryPercentage :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeBasedCanaryProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> TimeBasedCanaryProperty

@@ -22,6 +22,7 @@ data ImagePipeline
                    schedule :: (Prelude.Maybe ScheduleProperty),
                    status :: (Prelude.Maybe (Value Prelude.Text)),
                    tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImagePipeline ::
   Value Prelude.Text -> Value Prelude.Text -> ImagePipeline
 mkImagePipeline infrastructureConfigurationArn name

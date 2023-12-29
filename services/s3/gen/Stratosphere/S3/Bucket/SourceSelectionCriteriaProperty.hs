@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data SourceSelectionCriteriaProperty
   = SourceSelectionCriteriaProperty {replicaModifications :: (Prelude.Maybe ReplicaModificationsProperty),
                                      sseKmsEncryptedObjects :: (Prelude.Maybe SseKmsEncryptedObjectsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceSelectionCriteriaProperty ::
   SourceSelectionCriteriaProperty
 mkSourceSelectionCriteriaProperty

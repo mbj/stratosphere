@@ -12,6 +12,7 @@ data Profile
              certificateIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              profileType :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProfile :: Value Prelude.Text -> Value Prelude.Text -> Profile
 mkProfile as2Id profileType
   = Profile

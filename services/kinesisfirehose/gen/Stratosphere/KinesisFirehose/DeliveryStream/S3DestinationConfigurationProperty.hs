@@ -19,6 +19,7 @@ data S3DestinationConfigurationProperty
                                         errorOutputPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                                         prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                         roleARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> S3DestinationConfigurationProperty

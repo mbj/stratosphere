@@ -13,6 +13,7 @@ data CmafPackageProperty
                          hlsManifests :: [HlsManifestProperty],
                          includeEncoderConfigurationInSegments :: (Prelude.Maybe (Value Prelude.Bool)),
                          segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCmafPackageProperty ::
   [HlsManifestProperty] -> CmafPackageProperty
 mkCmafPackageProperty hlsManifests

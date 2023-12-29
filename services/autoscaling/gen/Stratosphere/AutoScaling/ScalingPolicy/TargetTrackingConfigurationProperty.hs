@@ -14,6 +14,7 @@ data TargetTrackingConfigurationProperty
                                          disableScaleIn :: (Prelude.Maybe (Value Prelude.Bool)),
                                          predefinedMetricSpecification :: (Prelude.Maybe PredefinedMetricSpecificationProperty),
                                          targetValue :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingConfigurationProperty ::
   Value Prelude.Double -> TargetTrackingConfigurationProperty
 mkTargetTrackingConfigurationProperty targetValue

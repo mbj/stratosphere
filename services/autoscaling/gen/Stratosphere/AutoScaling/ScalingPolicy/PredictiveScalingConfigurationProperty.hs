@@ -14,6 +14,7 @@ data PredictiveScalingConfigurationProperty
                                             metricSpecifications :: [PredictiveScalingMetricSpecificationProperty],
                                             mode :: (Prelude.Maybe (Value Prelude.Text)),
                                             schedulingBufferTime :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveScalingConfigurationProperty ::
   [PredictiveScalingMetricSpecificationProperty]
   -> PredictiveScalingConfigurationProperty

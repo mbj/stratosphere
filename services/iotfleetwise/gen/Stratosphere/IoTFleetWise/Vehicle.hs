@@ -14,6 +14,7 @@ data Vehicle
              modelManifestArn :: (Value Prelude.Text),
              name :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVehicle ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Vehicle

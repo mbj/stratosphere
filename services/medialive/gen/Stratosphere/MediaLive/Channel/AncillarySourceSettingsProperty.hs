@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AncillarySourceSettingsProperty
   = AncillarySourceSettingsProperty {sourceAncillaryChannelNumber :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAncillarySourceSettingsProperty ::
   AncillarySourceSettingsProperty
 mkAncillarySourceSettingsProperty

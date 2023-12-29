@@ -14,6 +14,7 @@ data NeptuneSettingsProperty
                              s3BucketFolder :: (Prelude.Maybe (Value Prelude.Text)),
                              s3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
                              serviceAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNeptuneSettingsProperty :: NeptuneSettingsProperty
 mkNeptuneSettingsProperty
   = NeptuneSettingsProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data KeyValuePairProperty
   = KeyValuePairProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                           value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyValuePairProperty :: KeyValuePairProperty
 mkKeyValuePairProperty
   = KeyValuePairProperty

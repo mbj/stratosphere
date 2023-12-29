@@ -17,6 +17,7 @@ data MethodSettingProperty
                            resourcePath :: (Prelude.Maybe (Value Prelude.Text)),
                            throttlingBurstLimit :: (Prelude.Maybe (Value Prelude.Integer)),
                            throttlingRateLimit :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMethodSettingProperty :: MethodSettingProperty
 mkMethodSettingProperty
   = MethodSettingProperty

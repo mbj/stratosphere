@@ -13,6 +13,7 @@ data MonitoringAppSpecificationProperty
                                         imageUri :: (Value Prelude.Text),
                                         postAnalyticsProcessorSourceUri :: (Prelude.Maybe (Value Prelude.Text)),
                                         recordPreprocessorSourceUri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringAppSpecificationProperty ::
   Value Prelude.Text -> MonitoringAppSpecificationProperty
 mkMonitoringAppSpecificationProperty imageUri

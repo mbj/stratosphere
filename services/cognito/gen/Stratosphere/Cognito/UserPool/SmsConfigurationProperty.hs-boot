@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SmsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SmsConfigurationProperty
+instance Prelude.Eq SmsConfigurationProperty
+instance Prelude.Show SmsConfigurationProperty
 instance JSON.ToJSON SmsConfigurationProperty

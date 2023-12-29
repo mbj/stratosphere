@@ -11,6 +11,7 @@ data GroupMembership
   = GroupMembership {groupId :: (Value Prelude.Text),
                      identityStoreId :: (Value Prelude.Text),
                      memberId :: MemberIdProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupMembership ::
   Value Prelude.Text
   -> Value Prelude.Text -> MemberIdProperty -> GroupMembership

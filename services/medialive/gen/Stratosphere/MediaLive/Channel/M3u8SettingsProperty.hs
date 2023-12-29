@@ -24,6 +24,7 @@ data M3u8SettingsProperty
                           timedMetadataPid :: (Prelude.Maybe (Value Prelude.Text)),
                           transportStreamId :: (Prelude.Maybe (Value Prelude.Integer)),
                           videoPid :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkM3u8SettingsProperty :: M3u8SettingsProperty
 mkM3u8SettingsProperty
   = M3u8SettingsProperty

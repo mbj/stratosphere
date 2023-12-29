@@ -10,6 +10,7 @@ import Stratosphere.Value
 data VirtualGatewayListenerTlsFileCertificateProperty
   = VirtualGatewayListenerTlsFileCertificateProperty {certificateChain :: (Value Prelude.Text),
                                                       privateKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsFileCertificateProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

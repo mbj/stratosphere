@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RemoveHeadersConfigProperty :: Prelude.Type
 instance ToResourceProperties RemoveHeadersConfigProperty
+instance Prelude.Eq RemoveHeadersConfigProperty
+instance Prelude.Show RemoveHeadersConfigProperty
 instance JSON.ToJSON RemoveHeadersConfigProperty

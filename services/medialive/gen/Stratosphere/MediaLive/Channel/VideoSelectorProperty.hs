@@ -13,6 +13,7 @@ data VideoSelectorProperty
                            colorSpaceSettings :: (Prelude.Maybe VideoSelectorColorSpaceSettingsProperty),
                            colorSpaceUsage :: (Prelude.Maybe (Value Prelude.Text)),
                            selectorSettings :: (Prelude.Maybe VideoSelectorSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoSelectorProperty :: VideoSelectorProperty
 mkVideoSelectorProperty
   = VideoSelectorProperty

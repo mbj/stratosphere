@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CustomPluginProperty
   = CustomPluginProperty {customPluginArn :: (Value Prelude.Text),
                           revision :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPluginProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> CustomPluginProperty
 mkCustomPluginProperty customPluginArn revision

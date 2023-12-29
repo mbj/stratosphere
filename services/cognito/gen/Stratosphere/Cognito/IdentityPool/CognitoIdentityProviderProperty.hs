@@ -11,6 +11,7 @@ data CognitoIdentityProviderProperty
   = CognitoIdentityProviderProperty {clientId :: (Prelude.Maybe (Value Prelude.Text)),
                                      providerName :: (Prelude.Maybe (Value Prelude.Text)),
                                      serverSideTokenCheck :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoIdentityProviderProperty ::
   CognitoIdentityProviderProperty
 mkCognitoIdentityProviderProperty

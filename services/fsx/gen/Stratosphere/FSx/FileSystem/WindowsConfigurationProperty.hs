@@ -21,6 +21,7 @@ data WindowsConfigurationProperty
                                   selfManagedActiveDirectoryConfiguration :: (Prelude.Maybe SelfManagedActiveDirectoryConfigurationProperty),
                                   throughputCapacity :: (Value Prelude.Integer),
                                   weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWindowsConfigurationProperty ::
   Value Prelude.Integer -> WindowsConfigurationProperty
 mkWindowsConfigurationProperty throughputCapacity

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DefinitionProperty
   = DefinitionProperty {content :: (Prelude.Maybe (Value Prelude.Text)),
                         s3Location :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefinitionProperty :: DefinitionProperty
 mkDefinitionProperty
   = DefinitionProperty

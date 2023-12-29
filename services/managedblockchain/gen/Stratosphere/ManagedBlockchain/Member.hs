@@ -13,6 +13,7 @@ data Member
             memberConfiguration :: MemberConfigurationProperty,
             networkConfiguration :: (Prelude.Maybe NetworkConfigurationProperty),
             networkId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMember :: MemberConfigurationProperty -> Member
 mkMember memberConfiguration
   = Member

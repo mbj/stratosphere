@@ -14,6 +14,7 @@ data EmailTemplate
                    templateDescription :: (Prelude.Maybe (Value Prelude.Text)),
                    templateName :: (Value Prelude.Text),
                    textPart :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailTemplate ::
   Value Prelude.Text -> Value Prelude.Text -> EmailTemplate
 mkEmailTemplate subject templateName

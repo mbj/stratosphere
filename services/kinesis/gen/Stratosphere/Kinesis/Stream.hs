@@ -16,6 +16,7 @@ data Stream
             streamEncryption :: (Prelude.Maybe StreamEncryptionProperty),
             streamModeDetails :: (Prelude.Maybe StreamModeDetailsProperty),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStream :: Stream
 mkStream
   = Stream

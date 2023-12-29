@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OnlineStoreSecurityConfigProperty :: Prelude.Type
 instance ToResourceProperties OnlineStoreSecurityConfigProperty
+instance Prelude.Eq OnlineStoreSecurityConfigProperty
+instance Prelude.Show OnlineStoreSecurityConfigProperty
 instance JSON.ToJSON OnlineStoreSecurityConfigProperty

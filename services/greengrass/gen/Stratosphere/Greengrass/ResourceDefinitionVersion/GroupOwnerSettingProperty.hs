@@ -9,6 +9,7 @@ import Stratosphere.Value
 data GroupOwnerSettingProperty
   = GroupOwnerSettingProperty {autoAddGroupOwner :: (Value Prelude.Bool),
                                groupOwner :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupOwnerSettingProperty ::
   Value Prelude.Bool -> GroupOwnerSettingProperty
 mkGroupOwnerSettingProperty autoAddGroupOwner

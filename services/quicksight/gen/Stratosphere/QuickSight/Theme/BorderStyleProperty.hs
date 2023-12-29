@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BorderStyleProperty
   = BorderStyleProperty {show :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBorderStyleProperty :: BorderStyleProperty
 mkBorderStyleProperty
   = BorderStyleProperty {show = Prelude.Nothing}

@@ -17,6 +17,7 @@ data DataRepositoryAssociation
                                importedFileChunkSize :: (Prelude.Maybe (Value Prelude.Integer)),
                                s3 :: (Prelude.Maybe S3Property),
                                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataRepositoryAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text

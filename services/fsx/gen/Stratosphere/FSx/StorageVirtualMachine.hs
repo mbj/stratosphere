@@ -15,6 +15,7 @@ data StorageVirtualMachine
                            rootVolumeSecurityStyle :: (Prelude.Maybe (Value Prelude.Text)),
                            svmAdminPassword :: (Prelude.Maybe (Value Prelude.Text)),
                            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageVirtualMachine ::
   Value Prelude.Text -> Value Prelude.Text -> StorageVirtualMachine
 mkStorageVirtualMachine fileSystemId name

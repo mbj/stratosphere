@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data TableConditionalFormattingOptionProperty
   = TableConditionalFormattingOptionProperty {cell :: (Prelude.Maybe TableCellConditionalFormattingProperty),
                                               row :: (Prelude.Maybe TableRowConditionalFormattingProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableConditionalFormattingOptionProperty ::
   TableConditionalFormattingOptionProperty
 mkTableConditionalFormattingOptionProperty

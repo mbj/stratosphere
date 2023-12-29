@@ -11,6 +11,7 @@ data LaunchTemplateConfigurationProperty
   = LaunchTemplateConfigurationProperty {accountId :: (Prelude.Maybe (Value Prelude.Text)),
                                          launchTemplateId :: (Prelude.Maybe (Value Prelude.Text)),
                                          setDefaultVersion :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateConfigurationProperty ::
   LaunchTemplateConfigurationProperty
 mkLaunchTemplateConfigurationProperty

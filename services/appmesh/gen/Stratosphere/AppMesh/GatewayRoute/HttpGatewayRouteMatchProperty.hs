@@ -19,6 +19,7 @@ data HttpGatewayRouteMatchProperty
                                    port :: (Prelude.Maybe (Value Prelude.Integer)),
                                    prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                    queryParameters :: (Prelude.Maybe [QueryParameterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteMatchProperty :: HttpGatewayRouteMatchProperty
 mkHttpGatewayRouteMatchProperty
   = HttpGatewayRouteMatchProperty

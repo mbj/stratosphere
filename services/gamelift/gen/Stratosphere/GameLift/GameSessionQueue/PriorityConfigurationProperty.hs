@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PriorityConfigurationProperty
   = PriorityConfigurationProperty {locationOrder :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    priorityOrder :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPriorityConfigurationProperty :: PriorityConfigurationProperty
 mkPriorityConfigurationProperty
   = PriorityConfigurationProperty

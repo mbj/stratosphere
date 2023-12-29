@@ -15,6 +15,7 @@ data FlowEntitlement
                      flowArn :: (Value Prelude.Text),
                      name :: (Value Prelude.Text),
                      subscribers :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowEntitlement ::
   Value Prelude.Text
   -> Value Prelude.Text

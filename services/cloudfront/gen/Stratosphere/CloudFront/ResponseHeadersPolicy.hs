@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.ResponseHead
 import Stratosphere.ResourceProperties
 data ResponseHeadersPolicy
   = ResponseHeadersPolicy {responseHeadersPolicyConfig :: ResponseHeadersPolicyConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseHeadersPolicy ::
   ResponseHeadersPolicyConfigProperty -> ResponseHeadersPolicy
 mkResponseHeadersPolicy responseHeadersPolicyConfig

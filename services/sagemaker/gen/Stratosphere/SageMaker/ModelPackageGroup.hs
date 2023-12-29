@@ -12,6 +12,7 @@ data ModelPackageGroup
                        modelPackageGroupName :: (Value Prelude.Text),
                        modelPackageGroupPolicy :: (Prelude.Maybe JSON.Object),
                        tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageGroup :: Value Prelude.Text -> ModelPackageGroup
 mkModelPackageGroup modelPackageGroupName
   = ModelPackageGroup

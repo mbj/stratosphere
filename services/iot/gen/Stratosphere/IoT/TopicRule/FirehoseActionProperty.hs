@@ -11,6 +11,7 @@ data FirehoseActionProperty
                             deliveryStreamName :: (Value Prelude.Text),
                             roleArn :: (Value Prelude.Text),
                             separator :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> FirehoseActionProperty
 mkFirehoseActionProperty deliveryStreamName roleArn

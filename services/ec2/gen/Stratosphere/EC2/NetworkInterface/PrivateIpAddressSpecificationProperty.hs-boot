@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PrivateIpAddressSpecificationProperty :: Prelude.Type
 instance ToResourceProperties PrivateIpAddressSpecificationProperty
+instance Prelude.Eq PrivateIpAddressSpecificationProperty
+instance Prelude.Show PrivateIpAddressSpecificationProperty
 instance JSON.ToJSON PrivateIpAddressSpecificationProperty

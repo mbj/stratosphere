@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ApplicationVersionLifecycleConfigProperty
   = ApplicationVersionLifecycleConfigProperty {maxAgeRule :: (Prelude.Maybe MaxAgeRuleProperty),
                                                maxCountRule :: (Prelude.Maybe MaxCountRuleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationVersionLifecycleConfigProperty ::
   ApplicationVersionLifecycleConfigProperty
 mkApplicationVersionLifecycleConfigProperty

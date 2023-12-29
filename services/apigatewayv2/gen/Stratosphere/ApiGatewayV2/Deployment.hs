@@ -10,6 +10,7 @@ data Deployment
   = Deployment {apiId :: (Value Prelude.Text),
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 stageName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployment :: Value Prelude.Text -> Deployment
 mkDeployment apiId
   = Deployment

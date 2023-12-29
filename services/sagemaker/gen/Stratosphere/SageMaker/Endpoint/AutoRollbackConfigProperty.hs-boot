@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AutoRollbackConfigProperty :: Prelude.Type
 instance ToResourceProperties AutoRollbackConfigProperty
+instance Prelude.Eq AutoRollbackConfigProperty
+instance Prelude.Show AutoRollbackConfigProperty
 instance JSON.ToJSON AutoRollbackConfigProperty

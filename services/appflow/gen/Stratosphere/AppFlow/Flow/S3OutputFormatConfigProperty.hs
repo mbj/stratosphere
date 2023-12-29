@@ -14,6 +14,7 @@ data S3OutputFormatConfigProperty
                                   fileType :: (Prelude.Maybe (Value Prelude.Text)),
                                   prefixConfig :: (Prelude.Maybe PrefixConfigProperty),
                                   preserveSourceDataTyping :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3OutputFormatConfigProperty :: S3OutputFormatConfigProperty
 mkS3OutputFormatConfigProperty
   = S3OutputFormatConfigProperty

@@ -22,6 +22,7 @@ data HeatMapConfigurationProperty
                                   rowLabelOptions :: (Prelude.Maybe ChartAxisLabelOptionsProperty),
                                   sortConfiguration :: (Prelude.Maybe HeatMapSortConfigurationProperty),
                                   tooltip :: (Prelude.Maybe TooltipOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeatMapConfigurationProperty :: HeatMapConfigurationProperty
 mkHeatMapConfigurationProperty
   = HeatMapConfigurationProperty

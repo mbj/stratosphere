@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SelfManagedActiveDirectoryConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SelfManagedActiveDirectoryConfigurationProperty
+instance Prelude.Eq SelfManagedActiveDirectoryConfigurationProperty
+instance Prelude.Show SelfManagedActiveDirectoryConfigurationProperty
 instance JSON.ToJSON SelfManagedActiveDirectoryConfigurationProperty

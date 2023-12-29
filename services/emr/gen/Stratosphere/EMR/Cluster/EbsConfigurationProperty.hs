@@ -11,6 +11,7 @@ import Stratosphere.Value
 data EbsConfigurationProperty
   = EbsConfigurationProperty {ebsBlockDeviceConfigs :: (Prelude.Maybe [EbsBlockDeviceConfigProperty]),
                               ebsOptimized :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEbsConfigurationProperty :: EbsConfigurationProperty
 mkEbsConfigurationProperty
   = EbsConfigurationProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ColumnTagProperty
   = ColumnTagProperty {columnDescription :: (Prelude.Maybe ColumnDescriptionProperty),
                        columnGeographicRole :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnTagProperty :: ColumnTagProperty
 mkColumnTagProperty
   = ColumnTagProperty

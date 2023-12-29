@@ -11,6 +11,7 @@ data HlsBasicPutSettingsProperty
                                  filecacheDuration :: (Prelude.Maybe (Value Prelude.Integer)),
                                  numRetries :: (Prelude.Maybe (Value Prelude.Integer)),
                                  restartDelay :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsBasicPutSettingsProperty :: HlsBasicPutSettingsProperty
 mkHlsBasicPutSettingsProperty
   = HlsBasicPutSettingsProperty

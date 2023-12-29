@@ -12,6 +12,7 @@ data NetworkInsightsAccessScope
   = NetworkInsightsAccessScope {excludePaths :: (Prelude.Maybe [AccessScopePathRequestProperty]),
                                 matchPaths :: (Prelude.Maybe [AccessScopePathRequestProperty]),
                                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInsightsAccessScope :: NetworkInsightsAccessScope
 mkNetworkInsightsAccessScope
   = NetworkInsightsAccessScope

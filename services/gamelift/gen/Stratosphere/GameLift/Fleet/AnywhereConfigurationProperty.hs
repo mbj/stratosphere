@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnywhereConfigurationProperty
   = AnywhereConfigurationProperty {cost :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnywhereConfigurationProperty ::
   Value Prelude.Text -> AnywhereConfigurationProperty
 mkAnywhereConfigurationProperty cost

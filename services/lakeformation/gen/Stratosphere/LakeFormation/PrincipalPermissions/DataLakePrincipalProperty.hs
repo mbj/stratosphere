@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataLakePrincipalProperty
   = DataLakePrincipalProperty {dataLakePrincipalIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataLakePrincipalProperty :: DataLakePrincipalProperty
 mkDataLakePrincipalProperty
   = DataLakePrincipalProperty

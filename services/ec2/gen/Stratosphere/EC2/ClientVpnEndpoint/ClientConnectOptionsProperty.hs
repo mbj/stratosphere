@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ClientConnectOptionsProperty
   = ClientConnectOptionsProperty {enabled :: (Value Prelude.Bool),
                                   lambdaFunctionArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientConnectOptionsProperty ::
   Value Prelude.Bool -> ClientConnectOptionsProperty
 mkClientConnectOptionsProperty enabled

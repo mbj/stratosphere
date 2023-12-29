@@ -10,6 +10,7 @@ data FieldPositionProperty
   = FieldPositionProperty {below :: (Prelude.Maybe (Value Prelude.Text)),
                            fixed :: (Prelude.Maybe (Value Prelude.Text)),
                            rightOf :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldPositionProperty :: FieldPositionProperty
 mkFieldPositionProperty
   = FieldPositionProperty

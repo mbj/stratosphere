@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ForecastConfigurationProperty
   = ForecastConfigurationProperty {forecastProperties :: (Prelude.Maybe TimeBasedForecastPropertiesProperty),
                                    scenario :: (Prelude.Maybe ForecastScenarioProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkForecastConfigurationProperty :: ForecastConfigurationProperty
 mkForecastConfigurationProperty
   = ForecastConfigurationProperty

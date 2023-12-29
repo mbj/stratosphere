@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data FunctionDefinitionVersionProperty
   = FunctionDefinitionVersionProperty {defaultConfig :: (Prelude.Maybe DefaultConfigProperty),
                                        functions :: [FunctionProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionDefinitionVersionProperty ::
   [FunctionProperty] -> FunctionDefinitionVersionProperty
 mkFunctionDefinitionVersionProperty functions

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CustomResponseBodyProperty
   = CustomResponseBodyProperty {content :: (Value Prelude.Text),
                                 contentType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomResponseBodyProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> CustomResponseBodyProperty

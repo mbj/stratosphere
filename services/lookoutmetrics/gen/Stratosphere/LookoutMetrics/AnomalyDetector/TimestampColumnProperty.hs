@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TimestampColumnProperty
   = TimestampColumnProperty {columnFormat :: (Prelude.Maybe (Value Prelude.Text)),
                              columnName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestampColumnProperty :: TimestampColumnProperty
 mkTimestampColumnProperty
   = TimestampColumnProperty

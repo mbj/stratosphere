@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Connector.LambdaConnectorProvisioning
 import Stratosphere.ResourceProperties
 data ConnectorProvisioningConfigProperty
   = ConnectorProvisioningConfigProperty {lambda :: (Prelude.Maybe LambdaConnectorProvisioningConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProvisioningConfigProperty ::
   ConnectorProvisioningConfigProperty
 mkConnectorProvisioningConfigProperty

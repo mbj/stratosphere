@@ -12,6 +12,7 @@ data ManagedScalingProperty
                             minimumScalingStepSize :: (Prelude.Maybe (Value Prelude.Integer)),
                             status :: (Prelude.Maybe (Value Prelude.Text)),
                             targetCapacity :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedScalingProperty :: ManagedScalingProperty
 mkManagedScalingProperty
   = ManagedScalingProperty

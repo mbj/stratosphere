@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CoreDefinitionVersion
   = CoreDefinitionVersion {coreDefinitionId :: (Value Prelude.Text),
                            cores :: [CoreProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreDefinitionVersion ::
   Value Prelude.Text -> [CoreProperty] -> CoreDefinitionVersion
 mkCoreDefinitionVersion coreDefinitionId cores

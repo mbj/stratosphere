@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CapacityUnitsConfigurationProperty
   = CapacityUnitsConfigurationProperty {rescoreCapacityUnits :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityUnitsConfigurationProperty ::
   Value Prelude.Integer -> CapacityUnitsConfigurationProperty
 mkCapacityUnitsConfigurationProperty rescoreCapacityUnits

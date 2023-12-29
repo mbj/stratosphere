@@ -19,6 +19,7 @@ data DataLakeSettings
                       externalDataFilteringAllowList :: (Prelude.Maybe ExternalDataFilteringAllowListProperty),
                       parameters :: (Prelude.Maybe JSON.Object),
                       trustedResourceOwners :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataLakeSettings :: DataLakeSettings
 mkDataLakeSettings
   = DataLakeSettings

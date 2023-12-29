@@ -18,6 +18,7 @@ data AnomalyDetector
                      namespace :: (Prelude.Maybe (Value Prelude.Text)),
                      singleMetricAnomalyDetector :: (Prelude.Maybe SingleMetricAnomalyDetectorProperty),
                      stat :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnomalyDetector :: AnomalyDetector
 mkAnomalyDetector
   = AnomalyDetector

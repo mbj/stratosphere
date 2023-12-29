@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ColumnGroupSchemaProperty
   = ColumnGroupSchemaProperty {columnGroupColumnSchemaList :: (Prelude.Maybe [ColumnGroupColumnSchemaProperty]),
                                name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnGroupSchemaProperty :: ColumnGroupSchemaProperty
 mkColumnGroupSchemaProperty
   = ColumnGroupSchemaProperty

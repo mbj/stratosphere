@@ -13,6 +13,7 @@ data TimeRangeDrillDownFilterProperty
                                       rangeMaximum :: (Value Prelude.Text),
                                       rangeMinimum :: (Value Prelude.Text),
                                       timeGranularity :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeRangeDrillDownFilterProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text

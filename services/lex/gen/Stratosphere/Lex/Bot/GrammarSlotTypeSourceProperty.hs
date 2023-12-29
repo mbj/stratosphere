@@ -10,6 +10,7 @@ data GrammarSlotTypeSourceProperty
   = GrammarSlotTypeSourceProperty {kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                                    s3BucketName :: (Value Prelude.Text),
                                    s3ObjectKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrammarSlotTypeSourceProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> GrammarSlotTypeSourceProperty

@@ -21,6 +21,7 @@ data InstanceGroupConfig
                          jobFlowId :: (Value Prelude.Text),
                          market :: (Prelude.Maybe (Value Prelude.Text)),
                          name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceGroupConfig ::
   Value Prelude.Integer
   -> Value Prelude.Text

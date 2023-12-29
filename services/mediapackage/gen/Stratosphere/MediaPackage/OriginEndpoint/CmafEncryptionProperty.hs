@@ -13,6 +13,7 @@ data CmafEncryptionProperty
                             encryptionMethod :: (Prelude.Maybe (Value Prelude.Text)),
                             keyRotationIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                             spekeKeyProvider :: SpekeKeyProviderProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCmafEncryptionProperty ::
   SpekeKeyProviderProperty -> CmafEncryptionProperty
 mkCmafEncryptionProperty spekeKeyProvider

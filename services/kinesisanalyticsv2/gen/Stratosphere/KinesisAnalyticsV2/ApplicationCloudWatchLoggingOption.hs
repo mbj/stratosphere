@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ApplicationCloudWatchLoggingOption
   = ApplicationCloudWatchLoggingOption {applicationName :: (Value Prelude.Text),
                                         cloudWatchLoggingOption :: CloudWatchLoggingOptionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationCloudWatchLoggingOption ::
   Value Prelude.Text
   -> CloudWatchLoggingOptionProperty

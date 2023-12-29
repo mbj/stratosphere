@@ -20,6 +20,7 @@ data OpenZFSConfigurationProperty
                                   rootVolumeConfiguration :: (Prelude.Maybe RootVolumeConfigurationProperty),
                                   throughputCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                   weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenZFSConfigurationProperty ::
   Value Prelude.Text -> OpenZFSConfigurationProperty
 mkOpenZFSConfigurationProperty deploymentType

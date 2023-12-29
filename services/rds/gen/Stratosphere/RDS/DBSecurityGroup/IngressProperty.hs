@@ -11,6 +11,7 @@ data IngressProperty
                      eC2SecurityGroupId :: (Prelude.Maybe (Value Prelude.Text)),
                      eC2SecurityGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                      eC2SecurityGroupOwnerId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressProperty :: IngressProperty
 mkIngressProperty
   = IngressProperty

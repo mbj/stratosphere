@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StackConfigurationManagerProperty
   = StackConfigurationManagerProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                                        version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStackConfigurationManagerProperty ::
   StackConfigurationManagerProperty
 mkStackConfigurationManagerProperty

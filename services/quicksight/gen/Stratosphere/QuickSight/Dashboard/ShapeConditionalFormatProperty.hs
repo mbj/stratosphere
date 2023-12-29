@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.ConditionalFormattingCol
 import Stratosphere.ResourceProperties
 data ShapeConditionalFormatProperty
   = ShapeConditionalFormatProperty {backgroundColor :: ConditionalFormattingColorProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkShapeConditionalFormatProperty ::
   ConditionalFormattingColorProperty
   -> ShapeConditionalFormatProperty

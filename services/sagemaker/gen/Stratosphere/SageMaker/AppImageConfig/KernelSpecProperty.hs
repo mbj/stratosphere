@@ -9,6 +9,7 @@ import Stratosphere.Value
 data KernelSpecProperty
   = KernelSpecProperty {displayName :: (Prelude.Maybe (Value Prelude.Text)),
                         name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKernelSpecProperty :: Value Prelude.Text -> KernelSpecProperty
 mkKernelSpecProperty name
   = KernelSpecProperty {name = name, displayName = Prelude.Nothing}

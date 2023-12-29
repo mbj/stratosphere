@@ -20,6 +20,7 @@ data ResponseHeadersPolicyConfigProperty
                                          removeHeadersConfig :: (Prelude.Maybe RemoveHeadersConfigProperty),
                                          securityHeadersConfig :: (Prelude.Maybe SecurityHeadersConfigProperty),
                                          serverTimingHeadersConfig :: (Prelude.Maybe ServerTimingHeadersConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseHeadersPolicyConfigProperty ::
   Value Prelude.Text -> ResponseHeadersPolicyConfigProperty
 mkResponseHeadersPolicyConfigProperty name

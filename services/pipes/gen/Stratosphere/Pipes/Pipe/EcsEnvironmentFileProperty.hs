@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EcsEnvironmentFileProperty
   = EcsEnvironmentFileProperty {type' :: (Value Prelude.Text),
                                 value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsEnvironmentFileProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EcsEnvironmentFileProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScramProperty
   = ScramProperty {enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScramProperty :: Value Prelude.Bool -> ScramProperty
 mkScramProperty enabled = ScramProperty {enabled = enabled}
 instance ToResourceProperties ScramProperty where

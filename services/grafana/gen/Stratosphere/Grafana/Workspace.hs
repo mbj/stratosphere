@@ -26,6 +26,7 @@ data Workspace
                samlConfiguration :: (Prelude.Maybe SamlConfigurationProperty),
                stackSetName :: (Prelude.Maybe (Value Prelude.Text)),
                vpcConfiguration :: (Prelude.Maybe VpcConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkspace ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> Value Prelude.Text -> Workspace

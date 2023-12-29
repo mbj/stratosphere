@@ -14,6 +14,7 @@ data VirtualGateway
                     spec :: VirtualGatewaySpecProperty,
                     tags :: (Prelude.Maybe [Tag]),
                     virtualGatewayName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGateway ::
   Value Prelude.Text -> VirtualGatewaySpecProperty -> VirtualGateway
 mkVirtualGateway meshName spec

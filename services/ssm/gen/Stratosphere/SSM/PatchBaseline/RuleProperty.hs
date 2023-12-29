@@ -14,6 +14,7 @@ data RuleProperty
                   complianceLevel :: (Prelude.Maybe (Value Prelude.Text)),
                   enableNonSecurity :: (Prelude.Maybe (Value Prelude.Bool)),
                   patchFilterGroup :: (Prelude.Maybe PatchFilterGroupProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty :: RuleProperty
 mkRuleProperty
   = RuleProperty

@@ -11,6 +11,7 @@ data IPAMScope
   = IPAMScope {description :: (Prelude.Maybe (Value Prelude.Text)),
                ipamId :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAMScope :: Value Prelude.Text -> IPAMScope
 mkIPAMScope ipamId
   = IPAMScope

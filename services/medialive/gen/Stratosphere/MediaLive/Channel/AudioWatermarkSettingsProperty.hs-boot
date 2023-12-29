@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AudioWatermarkSettingsProperty :: Prelude.Type
 instance ToResourceProperties AudioWatermarkSettingsProperty
+instance Prelude.Eq AudioWatermarkSettingsProperty
+instance Prelude.Show AudioWatermarkSettingsProperty
 instance JSON.ToJSON AudioWatermarkSettingsProperty

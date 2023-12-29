@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FrequencyProperty
   = FrequencyProperty {units :: (Prelude.Maybe (Value Prelude.Text)),
                        value :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFrequencyProperty :: FrequencyProperty
 mkFrequencyProperty
   = FrequencyProperty

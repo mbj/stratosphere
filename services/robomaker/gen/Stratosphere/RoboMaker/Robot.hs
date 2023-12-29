@@ -12,6 +12,7 @@ data Robot
            greengrassGroupId :: (Value Prelude.Text),
            name :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRobot :: Value Prelude.Text -> Value Prelude.Text -> Robot
 mkRobot architecture greengrassGroupId
   = Robot

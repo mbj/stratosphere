@@ -12,6 +12,7 @@ data KeyPair
              keyType :: (Prelude.Maybe (Value Prelude.Text)),
              publicKeyMaterial :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyPair :: Value Prelude.Text -> KeyPair
 mkKeyPair keyName
   = KeyPair

@@ -14,6 +14,7 @@ data TableWithColumnsResourceProperty
                                       columnWildcard :: (Prelude.Maybe ColumnWildcardProperty),
                                       databaseName :: (Prelude.Maybe (Value Prelude.Text)),
                                       name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableWithColumnsResourceProperty ::
   TableWithColumnsResourceProperty
 mkTableWithColumnsResourceProperty

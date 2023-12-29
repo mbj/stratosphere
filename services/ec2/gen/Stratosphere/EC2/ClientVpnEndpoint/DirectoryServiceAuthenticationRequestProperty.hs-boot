@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DirectoryServiceAuthenticationRequestProperty :: Prelude.Type
 instance ToResourceProperties DirectoryServiceAuthenticationRequestProperty
+instance Prelude.Eq DirectoryServiceAuthenticationRequestProperty
+instance Prelude.Show DirectoryServiceAuthenticationRequestProperty
 instance JSON.ToJSON DirectoryServiceAuthenticationRequestProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TimestampProperty
   = TimestampProperty {unit :: (Prelude.Maybe (Value Prelude.Text)),
                        value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestampProperty :: Value Prelude.Text -> TimestampProperty
 mkTimestampProperty value
   = TimestampProperty {value = value, unit = Prelude.Nothing}

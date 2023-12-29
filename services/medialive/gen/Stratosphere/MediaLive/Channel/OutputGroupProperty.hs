@@ -12,6 +12,7 @@ data OutputGroupProperty
   = OutputGroupProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                          outputGroupSettings :: (Prelude.Maybe OutputGroupSettingsProperty),
                          outputs :: (Prelude.Maybe [OutputProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputGroupProperty :: OutputGroupProperty
 mkOutputGroupProperty
   = OutputGroupProperty

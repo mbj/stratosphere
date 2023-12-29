@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StageTransitionProperty
   = StageTransitionProperty {reason :: (Value Prelude.Text),
                              stageName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStageTransitionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> StageTransitionProperty
 mkStageTransitionProperty reason stageName

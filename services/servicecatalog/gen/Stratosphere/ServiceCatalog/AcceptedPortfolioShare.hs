@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AcceptedPortfolioShare
   = AcceptedPortfolioShare {acceptLanguage :: (Prelude.Maybe (Value Prelude.Text)),
                             portfolioId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAcceptedPortfolioShare ::
   Value Prelude.Text -> AcceptedPortfolioShare
 mkAcceptedPortfolioShare portfolioId

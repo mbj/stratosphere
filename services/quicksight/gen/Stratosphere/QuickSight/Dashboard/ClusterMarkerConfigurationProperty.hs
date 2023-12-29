@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.ClusterMarkerProperty as
 import Stratosphere.ResourceProperties
 data ClusterMarkerConfigurationProperty
   = ClusterMarkerConfigurationProperty {clusterMarker :: (Prelude.Maybe ClusterMarkerProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterMarkerConfigurationProperty ::
   ClusterMarkerConfigurationProperty
 mkClusterMarkerConfigurationProperty

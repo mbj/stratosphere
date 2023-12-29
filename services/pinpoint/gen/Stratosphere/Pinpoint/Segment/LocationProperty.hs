@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data LocationProperty
   = LocationProperty {country :: (Prelude.Maybe SetDimensionProperty),
                       gPSPoint :: (Prelude.Maybe GPSPointProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationProperty :: LocationProperty
 mkLocationProperty
   = LocationProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data OriginCustomHeaderProperty
   = OriginCustomHeaderProperty {headerName :: (Value Prelude.Text),
                                 headerValue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginCustomHeaderProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> OriginCustomHeaderProperty

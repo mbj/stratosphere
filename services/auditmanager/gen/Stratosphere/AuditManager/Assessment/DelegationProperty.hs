@@ -18,6 +18,7 @@ data DelegationProperty
                         roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                         roleType :: (Prelude.Maybe (Value Prelude.Text)),
                         status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDelegationProperty :: DelegationProperty
 mkDelegationProperty
   = DelegationProperty

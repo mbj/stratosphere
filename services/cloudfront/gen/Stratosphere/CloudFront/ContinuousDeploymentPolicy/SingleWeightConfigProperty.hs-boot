@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SingleWeightConfigProperty :: Prelude.Type
 instance ToResourceProperties SingleWeightConfigProperty
+instance Prelude.Eq SingleWeightConfigProperty
+instance Prelude.Show SingleWeightConfigProperty
 instance JSON.ToJSON SingleWeightConfigProperty

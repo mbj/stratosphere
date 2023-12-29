@@ -17,6 +17,7 @@ data Image
            imageTestsConfiguration :: (Prelude.Maybe ImageTestsConfigurationProperty),
            infrastructureConfigurationArn :: (Value Prelude.Text),
            tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImage :: Value Prelude.Text -> Image
 mkImage infrastructureConfigurationArn
   = Image

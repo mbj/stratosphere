@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties
 data InstanceFleetProvisioningSpecificationsProperty
   = InstanceFleetProvisioningSpecificationsProperty {onDemandSpecification :: (Prelude.Maybe OnDemandProvisioningSpecificationProperty),
                                                      spotSpecification :: (Prelude.Maybe SpotProvisioningSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceFleetProvisioningSpecificationsProperty ::
   InstanceFleetProvisioningSpecificationsProperty
 mkInstanceFleetProvisioningSpecificationsProperty

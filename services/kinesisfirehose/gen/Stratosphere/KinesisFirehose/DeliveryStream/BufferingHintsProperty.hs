@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BufferingHintsProperty
   = BufferingHintsProperty {intervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                             sizeInMBs :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBufferingHintsProperty :: BufferingHintsProperty
 mkBufferingHintsProperty
   = BufferingHintsProperty

@@ -13,6 +13,7 @@ data ScalingConfigurationProperty
                                   secondsBeforeTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                   secondsUntilAutoPause :: (Prelude.Maybe (Value Prelude.Integer)),
                                   timeoutAction :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingConfigurationProperty :: ScalingConfigurationProperty
 mkScalingConfigurationProperty
   = ScalingConfigurationProperty

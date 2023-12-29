@@ -18,6 +18,7 @@ data EcsTaskOverrideProperty
                              inferenceAcceleratorOverrides :: (Prelude.Maybe [EcsInferenceAcceleratorOverrideProperty]),
                              memory :: (Prelude.Maybe (Value Prelude.Text)),
                              taskRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsTaskOverrideProperty :: EcsTaskOverrideProperty
 mkEcsTaskOverrideProperty
   = EcsTaskOverrideProperty

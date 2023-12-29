@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MetricToRetainProperty :: Prelude.Type
 instance ToResourceProperties MetricToRetainProperty
+instance Prelude.Eq MetricToRetainProperty
+instance Prelude.Show MetricToRetainProperty
 instance JSON.ToJSON MetricToRetainProperty

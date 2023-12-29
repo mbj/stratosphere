@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextControlPlaceholderOptionsProperty
   = TextControlPlaceholderOptionsProperty {visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTextControlPlaceholderOptionsProperty ::
   TextControlPlaceholderOptionsProperty
 mkTextControlPlaceholderOptionsProperty

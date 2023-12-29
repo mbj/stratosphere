@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EcrConfigurationProperty :: Prelude.Type
 instance ToResourceProperties EcrConfigurationProperty
+instance Prelude.Eq EcrConfigurationProperty
+instance Prelude.Show EcrConfigurationProperty
 instance JSON.ToJSON EcrConfigurationProperty

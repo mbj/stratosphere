@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingularSourcePropertiesProperty
   = SingularSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSingularSourcePropertiesProperty ::
   Value Prelude.Text -> SingularSourcePropertiesProperty
 mkSingularSourcePropertiesProperty object

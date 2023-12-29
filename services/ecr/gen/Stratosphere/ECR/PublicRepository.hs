@@ -13,6 +13,7 @@ data PublicRepository
                       repositoryName :: (Prelude.Maybe (Value Prelude.Text)),
                       repositoryPolicyText :: (Prelude.Maybe JSON.Object),
                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicRepository :: PublicRepository
 mkPublicRepository
   = PublicRepository

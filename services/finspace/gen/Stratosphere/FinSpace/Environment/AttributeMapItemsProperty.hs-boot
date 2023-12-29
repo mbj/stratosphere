@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AttributeMapItemsProperty :: Prelude.Type
 instance ToResourceProperties AttributeMapItemsProperty
+instance Prelude.Eq AttributeMapItemsProperty
+instance Prelude.Show AttributeMapItemsProperty
 instance JSON.ToJSON AttributeMapItemsProperty

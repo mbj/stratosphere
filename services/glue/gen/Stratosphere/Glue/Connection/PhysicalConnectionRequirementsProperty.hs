@@ -11,6 +11,7 @@ data PhysicalConnectionRequirementsProperty
   = PhysicalConnectionRequirementsProperty {availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
                                             securityGroupIdList :: (Prelude.Maybe (ValueList Prelude.Text)),
                                             subnetId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPhysicalConnectionRequirementsProperty ::
   PhysicalConnectionRequirementsProperty
 mkPhysicalConnectionRequirementsProperty

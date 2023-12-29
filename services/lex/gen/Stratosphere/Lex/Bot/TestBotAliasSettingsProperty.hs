@@ -15,6 +15,7 @@ data TestBotAliasSettingsProperty
                                   conversationLogSettings :: (Prelude.Maybe ConversationLogSettingsProperty),
                                   description :: (Prelude.Maybe (Value Prelude.Text)),
                                   sentimentAnalysisSettings :: (Prelude.Maybe SentimentAnalysisSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTestBotAliasSettingsProperty :: TestBotAliasSettingsProperty
 mkTestBotAliasSettingsProperty
   = TestBotAliasSettingsProperty

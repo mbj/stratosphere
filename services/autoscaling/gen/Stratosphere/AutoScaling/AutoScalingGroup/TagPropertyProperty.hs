@@ -10,6 +10,7 @@ data TagPropertyProperty
   = TagPropertyProperty {key :: (Value Prelude.Text),
                          propagateAtLaunch :: (Value Prelude.Bool),
                          value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTagPropertyProperty ::
   Value Prelude.Text
   -> Value Prelude.Bool -> Value Prelude.Text -> TagPropertyProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IntegerDatasetParameterDefaultValuesProperty
   = IntegerDatasetParameterDefaultValuesProperty {staticValues :: (Prelude.Maybe (ValueList Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegerDatasetParameterDefaultValuesProperty ::
   IntegerDatasetParameterDefaultValuesProperty
 mkIntegerDatasetParameterDefaultValuesProperty

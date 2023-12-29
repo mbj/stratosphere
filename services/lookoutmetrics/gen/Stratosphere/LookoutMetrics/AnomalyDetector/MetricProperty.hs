@@ -10,6 +10,7 @@ data MetricProperty
   = MetricProperty {aggregationFunction :: (Value Prelude.Text),
                     metricName :: (Value Prelude.Text),
                     namespace :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricProperty ::
   Value Prelude.Text -> Value Prelude.Text -> MetricProperty
 mkMetricProperty aggregationFunction metricName

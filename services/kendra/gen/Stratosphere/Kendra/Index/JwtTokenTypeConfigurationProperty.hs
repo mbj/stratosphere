@@ -15,6 +15,7 @@ data JwtTokenTypeConfigurationProperty
                                        secretManagerArn :: (Prelude.Maybe (Value Prelude.Text)),
                                        uRL :: (Prelude.Maybe (Value Prelude.Text)),
                                        userNameAttributeField :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJwtTokenTypeConfigurationProperty ::
   Value Prelude.Text -> JwtTokenTypeConfigurationProperty
 mkJwtTokenTypeConfigurationProperty keyLocation

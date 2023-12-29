@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserAttributeUpdateSettingsProperty
   = UserAttributeUpdateSettingsProperty {attributesRequireVerificationBeforeUpdate :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserAttributeUpdateSettingsProperty ::
   ValueList Prelude.Text -> UserAttributeUpdateSettingsProperty
 mkUserAttributeUpdateSettingsProperty

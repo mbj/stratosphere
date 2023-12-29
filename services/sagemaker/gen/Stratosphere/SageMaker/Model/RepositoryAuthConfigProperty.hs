@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RepositoryAuthConfigProperty
   = RepositoryAuthConfigProperty {repositoryCredentialsProviderArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRepositoryAuthConfigProperty ::
   Value Prelude.Text -> RepositoryAuthConfigProperty
 mkRepositoryAuthConfigProperty repositoryCredentialsProviderArn

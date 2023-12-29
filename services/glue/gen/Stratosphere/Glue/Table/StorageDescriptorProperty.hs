@@ -26,6 +26,7 @@ data StorageDescriptorProperty
                                skewedInfo :: (Prelude.Maybe SkewedInfoProperty),
                                sortColumns :: (Prelude.Maybe [OrderProperty]),
                                storedAsSubDirectories :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageDescriptorProperty :: StorageDescriptorProperty
 mkStorageDescriptorProperty
   = StorageDescriptorProperty

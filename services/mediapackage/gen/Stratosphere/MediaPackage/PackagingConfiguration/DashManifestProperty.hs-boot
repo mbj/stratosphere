@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DashManifestProperty :: Prelude.Type
 instance ToResourceProperties DashManifestProperty
+instance Prelude.Eq DashManifestProperty
+instance Prelude.Show DashManifestProperty
 instance JSON.ToJSON DashManifestProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IngressConfigurationProperty
   = IngressConfigurationProperty {isPubliclyAccessible :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIngressConfigurationProperty ::
   Value Prelude.Bool -> IngressConfigurationProperty
 mkIngressConfigurationProperty isPubliclyAccessible

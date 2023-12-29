@@ -12,6 +12,7 @@ data RunGroup
               maxRuns :: (Prelude.Maybe (Value Prelude.Double)),
               name :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRunGroup :: RunGroup
 mkRunGroup
   = RunGroup

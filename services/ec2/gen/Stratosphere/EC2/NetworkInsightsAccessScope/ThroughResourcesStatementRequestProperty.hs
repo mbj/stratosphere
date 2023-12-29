@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.EC2.NetworkInsightsAccessScope.ResourceStatem
 import Stratosphere.ResourceProperties
 data ThroughResourcesStatementRequestProperty
   = ThroughResourcesStatementRequestProperty {resourceStatement :: (Prelude.Maybe ResourceStatementRequestProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThroughResourcesStatementRequestProperty ::
   ThroughResourcesStatementRequestProperty
 mkThroughResourcesStatementRequestProperty

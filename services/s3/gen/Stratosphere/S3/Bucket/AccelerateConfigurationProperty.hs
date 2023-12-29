@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccelerateConfigurationProperty
   = AccelerateConfigurationProperty {accelerationStatus :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccelerateConfigurationProperty ::
   Value Prelude.Text -> AccelerateConfigurationProperty
 mkAccelerateConfigurationProperty accelerationStatus

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.ConditionalFormattingCol
 import Stratosphere.ResourceProperties
 data GaugeChartArcConditionalFormattingProperty
   = GaugeChartArcConditionalFormattingProperty {foregroundColor :: (Prelude.Maybe ConditionalFormattingColorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGaugeChartArcConditionalFormattingProperty ::
   GaugeChartArcConditionalFormattingProperty
 mkGaugeChartArcConditionalFormattingProperty

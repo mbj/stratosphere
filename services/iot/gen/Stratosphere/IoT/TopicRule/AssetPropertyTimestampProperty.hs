@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AssetPropertyTimestampProperty
   = AssetPropertyTimestampProperty {offsetInNanos :: (Prelude.Maybe (Value Prelude.Text)),
                                     timeInSeconds :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetPropertyTimestampProperty ::
   Value Prelude.Text -> AssetPropertyTimestampProperty
 mkAssetPropertyTimestampProperty timeInSeconds

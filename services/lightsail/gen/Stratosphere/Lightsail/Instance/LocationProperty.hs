@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LocationProperty
   = LocationProperty {availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
                       regionName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationProperty :: LocationProperty
 mkLocationProperty
   = LocationProperty

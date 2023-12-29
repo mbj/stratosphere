@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolAddOnsProperty
   = UserPoolAddOnsProperty {advancedSecurityMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolAddOnsProperty :: UserPoolAddOnsProperty
 mkUserPoolAddOnsProperty
   = UserPoolAddOnsProperty {advancedSecurityMode = Prelude.Nothing}

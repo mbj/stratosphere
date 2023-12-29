@@ -12,6 +12,7 @@ data HlsMediaStoreSettingsProperty
                                    mediaStoreStorageClass :: (Prelude.Maybe (Value Prelude.Text)),
                                    numRetries :: (Prelude.Maybe (Value Prelude.Integer)),
                                    restartDelay :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsMediaStoreSettingsProperty :: HlsMediaStoreSettingsProperty
 mkHlsMediaStoreSettingsProperty
   = HlsMediaStoreSettingsProperty

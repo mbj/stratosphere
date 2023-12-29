@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ProvisionedCapacityProperty
   = ProvisionedCapacityProperty {mcuCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                  workerCount :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionedCapacityProperty ::
   Value Prelude.Integer -> ProvisionedCapacityProperty
 mkProvisionedCapacityProperty workerCount

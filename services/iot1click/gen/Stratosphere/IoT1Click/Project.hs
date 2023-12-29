@@ -11,6 +11,7 @@ data Project
   = Project {description :: (Prelude.Maybe (Value Prelude.Text)),
              placementTemplate :: PlacementTemplateProperty,
              projectName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProject :: PlacementTemplateProperty -> Project
 mkProject placementTemplate
   = Project

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PublicDomainNameProperty
   = PublicDomainNameProperty {certificateName :: (Prelude.Maybe (Value Prelude.Text)),
                               domainNames :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicDomainNameProperty :: PublicDomainNameProperty
 mkPublicDomainNameProperty
   = PublicDomainNameProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomerManagedPolicyReferenceProperty :: Prelude.Type
 instance ToResourceProperties CustomerManagedPolicyReferenceProperty
+instance Prelude.Eq CustomerManagedPolicyReferenceProperty
+instance Prelude.Show CustomerManagedPolicyReferenceProperty
 instance JSON.ToJSON CustomerManagedPolicyReferenceProperty

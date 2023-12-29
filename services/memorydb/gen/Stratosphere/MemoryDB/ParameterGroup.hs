@@ -13,6 +13,7 @@ data ParameterGroup
                     parameterGroupName :: (Value Prelude.Text),
                     parameters :: (Prelude.Maybe JSON.Object),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterGroup ::
   Value Prelude.Text -> Value Prelude.Text -> ParameterGroup
 mkParameterGroup family parameterGroupName

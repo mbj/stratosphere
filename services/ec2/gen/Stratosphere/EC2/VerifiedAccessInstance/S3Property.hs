@@ -11,6 +11,7 @@ data S3Property
                 bucketOwner :: (Prelude.Maybe (Value Prelude.Text)),
                 enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                 prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3Property :: S3Property
 mkS3Property
   = S3Property

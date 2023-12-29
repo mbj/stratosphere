@@ -13,6 +13,7 @@ data HlsEncryptionProperty
                            keyRotationIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                            repeatExtXKey :: (Prelude.Maybe (Value Prelude.Bool)),
                            spekeKeyProvider :: SpekeKeyProviderProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsEncryptionProperty ::
   SpekeKeyProviderProperty -> HlsEncryptionProperty
 mkHlsEncryptionProperty spekeKeyProvider

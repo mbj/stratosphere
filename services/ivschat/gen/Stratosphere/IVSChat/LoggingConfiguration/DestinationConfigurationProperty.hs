@@ -13,6 +13,7 @@ data DestinationConfigurationProperty
   = DestinationConfigurationProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsDestinationConfigurationProperty),
                                       firehose :: (Prelude.Maybe FirehoseDestinationConfigurationProperty),
                                       s3 :: (Prelude.Maybe S3DestinationConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigurationProperty ::
   DestinationConfigurationProperty
 mkDestinationConfigurationProperty

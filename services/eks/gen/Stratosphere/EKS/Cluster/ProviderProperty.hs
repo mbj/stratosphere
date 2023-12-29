@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProviderProperty
   = ProviderProperty {keyArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProviderProperty :: ProviderProperty
 mkProviderProperty = ProviderProperty {keyArn = Prelude.Nothing}
 instance ToResourceProperties ProviderProperty where

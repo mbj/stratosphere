@@ -11,6 +11,7 @@ data ApiStageProperty
   = ApiStageProperty {apiId :: (Prelude.Maybe (Value Prelude.Text)),
                       stage :: (Prelude.Maybe (Value Prelude.Text)),
                       throttle :: (Prelude.Maybe (Prelude.Map Prelude.Text ThrottleSettingsProperty))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApiStageProperty :: ApiStageProperty
 mkApiStageProperty
   = ApiStageProperty

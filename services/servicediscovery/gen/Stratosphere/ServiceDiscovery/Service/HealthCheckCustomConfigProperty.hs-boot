@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HealthCheckCustomConfigProperty :: Prelude.Type
 instance ToResourceProperties HealthCheckCustomConfigProperty
+instance Prelude.Eq HealthCheckCustomConfigProperty
+instance Prelude.Show HealthCheckCustomConfigProperty
 instance JSON.ToJSON HealthCheckCustomConfigProperty

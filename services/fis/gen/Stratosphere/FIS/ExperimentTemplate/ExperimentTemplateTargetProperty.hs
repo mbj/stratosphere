@@ -15,6 +15,7 @@ data ExperimentTemplateTargetProperty
                                       resourceTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                       resourceType :: (Value Prelude.Text),
                                       selectionMode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateTargetProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ExperimentTemplateTargetProperty

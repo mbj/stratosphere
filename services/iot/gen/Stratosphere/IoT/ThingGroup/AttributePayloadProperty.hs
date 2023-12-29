@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributePayloadProperty
   = AttributePayloadProperty {attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributePayloadProperty :: AttributePayloadProperty
 mkAttributePayloadProperty
   = AttributePayloadProperty {attributes = Prelude.Nothing}

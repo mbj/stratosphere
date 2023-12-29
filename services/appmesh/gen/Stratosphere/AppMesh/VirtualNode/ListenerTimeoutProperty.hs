@@ -14,6 +14,7 @@ data ListenerTimeoutProperty
                              hTTP :: (Prelude.Maybe HttpTimeoutProperty),
                              hTTP2 :: (Prelude.Maybe HttpTimeoutProperty),
                              tCP :: (Prelude.Maybe TcpTimeoutProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTimeoutProperty :: ListenerTimeoutProperty
 mkListenerTimeoutProperty
   = ListenerTimeoutProperty

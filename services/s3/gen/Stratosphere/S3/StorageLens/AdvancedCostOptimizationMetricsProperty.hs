@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedCostOptimizationMetricsProperty
   = AdvancedCostOptimizationMetricsProperty {isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedCostOptimizationMetricsProperty ::
   AdvancedCostOptimizationMetricsProperty
 mkAdvancedCostOptimizationMetricsProperty

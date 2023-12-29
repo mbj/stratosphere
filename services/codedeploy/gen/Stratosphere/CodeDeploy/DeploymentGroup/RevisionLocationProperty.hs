@@ -13,6 +13,7 @@ data RevisionLocationProperty
   = RevisionLocationProperty {gitHubLocation :: (Prelude.Maybe GitHubLocationProperty),
                               revisionType :: (Prelude.Maybe (Value Prelude.Text)),
                               s3Location :: (Prelude.Maybe S3LocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRevisionLocationProperty :: RevisionLocationProperty
 mkRevisionLocationProperty
   = RevisionLocationProperty

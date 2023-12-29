@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.S3DataSourceProperty a
 import Stratosphere.ResourceProperties
 data DataSourceProperty
   = DataSourceProperty {s3DataSource :: S3DataSourceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceProperty :: S3DataSourceProperty -> DataSourceProperty
 mkDataSourceProperty s3DataSource
   = DataSourceProperty {s3DataSource = s3DataSource}

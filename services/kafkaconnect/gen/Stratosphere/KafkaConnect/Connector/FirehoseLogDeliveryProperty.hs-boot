@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FirehoseLogDeliveryProperty :: Prelude.Type
 instance ToResourceProperties FirehoseLogDeliveryProperty
+instance Prelude.Eq FirehoseLogDeliveryProperty
+instance Prelude.Show FirehoseLogDeliveryProperty
 instance JSON.ToJSON FirehoseLogDeliveryProperty

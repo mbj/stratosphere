@@ -12,6 +12,7 @@ data DriftCheckBiasProperty
   = DriftCheckBiasProperty {configFile :: (Prelude.Maybe FileSourceProperty),
                             postTrainingConstraints :: (Prelude.Maybe MetricsSourceProperty),
                             preTrainingConstraints :: (Prelude.Maybe MetricsSourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDriftCheckBiasProperty :: DriftCheckBiasProperty
 mkDriftCheckBiasProperty
   = DriftCheckBiasProperty

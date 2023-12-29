@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataLabelOptionsProperty :: Prelude.Type
 instance ToResourceProperties DataLabelOptionsProperty
+instance Prelude.Eq DataLabelOptionsProperty
+instance Prelude.Show DataLabelOptionsProperty
 instance JSON.ToJSON DataLabelOptionsProperty

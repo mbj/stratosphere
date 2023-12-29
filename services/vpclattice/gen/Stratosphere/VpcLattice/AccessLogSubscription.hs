@@ -11,6 +11,7 @@ data AccessLogSubscription
   = AccessLogSubscription {destinationArn :: (Value Prelude.Text),
                            resourceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessLogSubscription ::
   Value Prelude.Text -> AccessLogSubscription
 mkAccessLogSubscription destinationArn

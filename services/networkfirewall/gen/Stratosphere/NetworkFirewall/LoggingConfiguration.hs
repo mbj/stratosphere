@@ -11,6 +11,7 @@ data LoggingConfiguration
   = LoggingConfiguration {firewallArn :: (Value Prelude.Text),
                           firewallName :: (Prelude.Maybe (Value Prelude.Text)),
                           loggingConfiguration :: LoggingConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfiguration ::
   Value Prelude.Text
   -> LoggingConfigurationProperty -> LoggingConfiguration

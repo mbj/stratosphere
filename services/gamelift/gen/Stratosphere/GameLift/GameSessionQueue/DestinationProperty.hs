@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationProperty
   = DestinationProperty {destinationArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationProperty :: DestinationProperty
 mkDestinationProperty
   = DestinationProperty {destinationArn = Prelude.Nothing}

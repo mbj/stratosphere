@@ -10,6 +10,7 @@ data DvbNitSettingsProperty
   = DvbNitSettingsProperty {networkId :: (Prelude.Maybe (Value Prelude.Integer)),
                             networkName :: (Prelude.Maybe (Value Prelude.Text)),
                             repInterval :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDvbNitSettingsProperty :: DvbNitSettingsProperty
 mkDvbNitSettingsProperty
   = DvbNitSettingsProperty

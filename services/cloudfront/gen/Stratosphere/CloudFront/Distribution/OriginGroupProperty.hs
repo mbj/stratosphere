@@ -12,6 +12,7 @@ data OriginGroupProperty
   = OriginGroupProperty {failoverCriteria :: OriginGroupFailoverCriteriaProperty,
                          id :: (Value Prelude.Text),
                          members :: OriginGroupMembersProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupProperty ::
   OriginGroupFailoverCriteriaProperty
   -> Value Prelude.Text

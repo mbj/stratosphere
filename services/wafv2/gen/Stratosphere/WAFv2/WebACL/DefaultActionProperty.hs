@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data DefaultActionProperty
   = DefaultActionProperty {allow :: (Prelude.Maybe AllowActionProperty),
                            block :: (Prelude.Maybe BlockActionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultActionProperty :: DefaultActionProperty
 mkDefaultActionProperty
   = DefaultActionProperty

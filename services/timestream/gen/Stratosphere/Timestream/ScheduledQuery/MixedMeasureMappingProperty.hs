@@ -14,6 +14,7 @@ data MixedMeasureMappingProperty
                                  multiMeasureAttributeMappings :: (Prelude.Maybe [MultiMeasureAttributeMappingProperty]),
                                  sourceColumn :: (Prelude.Maybe (Value Prelude.Text)),
                                  targetMeasureName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMixedMeasureMappingProperty ::
   Value Prelude.Text -> MixedMeasureMappingProperty
 mkMixedMeasureMappingProperty measureValueType

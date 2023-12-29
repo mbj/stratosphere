@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 data ModelQualityProperty
   = ModelQualityProperty {constraints :: (Prelude.Maybe MetricsSourceProperty),
                           statistics :: (Prelude.Maybe MetricsSourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelQualityProperty :: ModelQualityProperty
 mkModelQualityProperty
   = ModelQualityProperty

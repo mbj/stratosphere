@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AmazonOpenSearchServerlessBufferingHintsProperty
   = AmazonOpenSearchServerlessBufferingHintsProperty {intervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                                       sizeInMBs :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonOpenSearchServerlessBufferingHintsProperty ::
   AmazonOpenSearchServerlessBufferingHintsProperty
 mkAmazonOpenSearchServerlessBufferingHintsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MarketoSourcePropertiesProperty :: Prelude.Type
 instance ToResourceProperties MarketoSourcePropertiesProperty
+instance Prelude.Eq MarketoSourcePropertiesProperty
+instance Prelude.Show MarketoSourcePropertiesProperty
 instance JSON.ToJSON MarketoSourcePropertiesProperty

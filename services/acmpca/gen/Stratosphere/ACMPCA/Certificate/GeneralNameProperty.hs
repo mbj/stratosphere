@@ -18,6 +18,7 @@ data GeneralNameProperty
                          registeredId :: (Prelude.Maybe (Value Prelude.Text)),
                          rfc822Name :: (Prelude.Maybe (Value Prelude.Text)),
                          uniformResourceIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeneralNameProperty :: GeneralNameProperty
 mkGeneralNameProperty
   = GeneralNameProperty

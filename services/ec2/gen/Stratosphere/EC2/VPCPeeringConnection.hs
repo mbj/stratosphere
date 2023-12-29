@@ -14,6 +14,7 @@ data VPCPeeringConnection
                           peerVpcId :: (Value Prelude.Text),
                           tags :: (Prelude.Maybe [Tag]),
                           vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCPeeringConnection ::
   Value Prelude.Text -> Value Prelude.Text -> VPCPeeringConnection
 mkVPCPeeringConnection peerVpcId vpcId

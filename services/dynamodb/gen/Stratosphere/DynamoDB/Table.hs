@@ -37,6 +37,7 @@ data Table
            tableName :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe [Tag]),
            timeToLiveSpecification :: (Prelude.Maybe TimeToLiveSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTable :: [KeySchemaProperty] -> Table
 mkTable keySchema
   = Table

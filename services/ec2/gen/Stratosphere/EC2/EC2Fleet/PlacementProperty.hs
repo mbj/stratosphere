@@ -15,6 +15,7 @@ data PlacementProperty
                        partitionNumber :: (Prelude.Maybe (Value Prelude.Integer)),
                        spreadDomain :: (Prelude.Maybe (Value Prelude.Text)),
                        tenancy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacementProperty :: PlacementProperty
 mkPlacementProperty
   = PlacementProperty

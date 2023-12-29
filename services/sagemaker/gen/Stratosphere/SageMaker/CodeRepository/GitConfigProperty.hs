@@ -10,6 +10,7 @@ data GitConfigProperty
   = GitConfigProperty {branch :: (Prelude.Maybe (Value Prelude.Text)),
                        repositoryUrl :: (Value Prelude.Text),
                        secretArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGitConfigProperty :: Value Prelude.Text -> GitConfigProperty
 mkGitConfigProperty repositoryUrl
   = GitConfigProperty

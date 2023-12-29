@@ -9,6 +9,7 @@ import Stratosphere.Value
 data UplinkEchoConfigProperty
   = UplinkEchoConfigProperty {antennaUplinkConfigArn :: (Prelude.Maybe (Value Prelude.Text)),
                               enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUplinkEchoConfigProperty :: UplinkEchoConfigProperty
 mkUplinkEchoConfigProperty
   = UplinkEchoConfigProperty

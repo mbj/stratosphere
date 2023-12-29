@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RefreshOnDayProperty
   = RefreshOnDayProperty {dayOfMonth :: (Prelude.Maybe (Value Prelude.Text)),
                           dayOfWeek :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRefreshOnDayProperty :: RefreshOnDayProperty
 mkRefreshOnDayProperty
   = RefreshOnDayProperty

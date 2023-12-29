@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TopicRangeFilterConstantProperty
   = TopicRangeFilterConstantProperty {constantType :: (Prelude.Maybe (Value Prelude.Text)),
                                       rangeConstant :: (Prelude.Maybe RangeConstantProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicRangeFilterConstantProperty ::
   TopicRangeFilterConstantProperty
 mkTopicRangeFilterConstantProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TemplateSSMDocumentDetailsProperty
   = TemplateSSMDocumentDetailsProperty {documentName :: (Prelude.Maybe (Value Prelude.Text)),
                                         documentVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateSSMDocumentDetailsProperty ::
   TemplateSSMDocumentDetailsProperty
 mkTemplateSSMDocumentDetailsProperty

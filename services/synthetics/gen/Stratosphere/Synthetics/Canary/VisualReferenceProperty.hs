@@ -11,6 +11,7 @@ import Stratosphere.Value
 data VisualReferenceProperty
   = VisualReferenceProperty {baseCanaryRunId :: (Value Prelude.Text),
                              baseScreenshots :: (Prelude.Maybe [BaseScreenshotProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVisualReferenceProperty ::
   Value Prelude.Text -> VisualReferenceProperty
 mkVisualReferenceProperty baseCanaryRunId

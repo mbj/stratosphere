@@ -10,6 +10,7 @@ data SecretTargetAttachment
   = SecretTargetAttachment {secretId :: (Value Prelude.Text),
                             targetId :: (Value Prelude.Text),
                             targetType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecretTargetAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text

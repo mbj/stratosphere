@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ListenerTlsValidationContextProperty
   = ListenerTlsValidationContextProperty {subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
                                           trust :: ListenerTlsValidationContextTrustProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsValidationContextProperty ::
   ListenerTlsValidationContextTrustProperty
   -> ListenerTlsValidationContextProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AllowedInputTypesProperty
   = AllowedInputTypesProperty {allowAudioInput :: (Value Prelude.Bool),
                                allowDTMFInput :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowedInputTypesProperty ::
   Value Prelude.Bool
   -> Value Prelude.Bool -> AllowedInputTypesProperty

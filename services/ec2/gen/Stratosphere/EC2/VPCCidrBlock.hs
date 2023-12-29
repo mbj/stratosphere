@@ -16,6 +16,7 @@ data VPCCidrBlock
                   ipv6NetmaskLength :: (Prelude.Maybe (Value Prelude.Integer)),
                   ipv6Pool :: (Prelude.Maybe (Value Prelude.Text)),
                   vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCCidrBlock :: Value Prelude.Text -> VPCCidrBlock
 mkVPCCidrBlock vpcId
   = VPCCidrBlock

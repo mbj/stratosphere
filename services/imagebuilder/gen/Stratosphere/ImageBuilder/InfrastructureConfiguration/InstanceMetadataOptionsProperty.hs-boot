@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InstanceMetadataOptionsProperty :: Prelude.Type
 instance ToResourceProperties InstanceMetadataOptionsProperty
+instance Prelude.Eq InstanceMetadataOptionsProperty
+instance Prelude.Show InstanceMetadataOptionsProperty
 instance JSON.ToJSON InstanceMetadataOptionsProperty

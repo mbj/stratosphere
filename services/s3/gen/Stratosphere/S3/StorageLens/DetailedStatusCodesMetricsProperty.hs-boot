@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DetailedStatusCodesMetricsProperty :: Prelude.Type
 instance ToResourceProperties DetailedStatusCodesMetricsProperty
+instance Prelude.Eq DetailedStatusCodesMetricsProperty
+instance Prelude.Show DetailedStatusCodesMetricsProperty
 instance JSON.ToJSON DetailedStatusCodesMetricsProperty

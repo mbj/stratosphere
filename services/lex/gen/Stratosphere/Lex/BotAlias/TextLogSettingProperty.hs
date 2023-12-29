@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TextLogSettingProperty
   = TextLogSettingProperty {destination :: TextLogDestinationProperty,
                             enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTextLogSettingProperty ::
   TextLogDestinationProperty
   -> Value Prelude.Bool -> TextLogSettingProperty

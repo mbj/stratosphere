@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NetworkAccessControlProperty :: Prelude.Type
 instance ToResourceProperties NetworkAccessControlProperty
+instance Prelude.Eq NetworkAccessControlProperty
+instance Prelude.Show NetworkAccessControlProperty
 instance JSON.ToJSON NetworkAccessControlProperty

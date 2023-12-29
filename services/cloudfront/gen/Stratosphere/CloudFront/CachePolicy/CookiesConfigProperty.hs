@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CookiesConfigProperty
   = CookiesConfigProperty {cookieBehavior :: (Value Prelude.Text),
                            cookies :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCookiesConfigProperty ::
   Value Prelude.Text -> CookiesConfigProperty
 mkCookiesConfigProperty cookieBehavior

@@ -11,6 +11,7 @@ data ConnectionHttpParametersProperty
   = ConnectionHttpParametersProperty {bodyParameters :: (Prelude.Maybe [ParameterProperty]),
                                       headerParameters :: (Prelude.Maybe [ParameterProperty]),
                                       queryStringParameters :: (Prelude.Maybe [ParameterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionHttpParametersProperty ::
   ConnectionHttpParametersProperty
 mkConnectionHttpParametersProperty

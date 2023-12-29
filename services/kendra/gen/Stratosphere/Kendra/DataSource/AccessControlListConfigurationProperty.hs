@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlListConfigurationProperty
   = AccessControlListConfigurationProperty {keyPath :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlListConfigurationProperty ::
   AccessControlListConfigurationProperty
 mkAccessControlListConfigurationProperty

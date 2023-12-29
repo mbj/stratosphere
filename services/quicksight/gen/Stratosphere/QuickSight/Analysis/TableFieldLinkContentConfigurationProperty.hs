@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data TableFieldLinkContentConfigurationProperty
   = TableFieldLinkContentConfigurationProperty {customIconContent :: (Prelude.Maybe TableFieldCustomIconContentProperty),
                                                 customTextContent :: (Prelude.Maybe TableFieldCustomTextContentProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableFieldLinkContentConfigurationProperty ::
   TableFieldLinkContentConfigurationProperty
 mkTableFieldLinkContentConfigurationProperty

@@ -10,6 +10,7 @@ data MavenReferenceProperty
   = MavenReferenceProperty {artifactId :: (Value Prelude.Text),
                             groupId :: (Value Prelude.Text),
                             version :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMavenReferenceProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

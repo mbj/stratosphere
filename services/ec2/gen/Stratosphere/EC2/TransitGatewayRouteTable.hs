@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TransitGatewayRouteTable
   = TransitGatewayRouteTable {tags :: (Prelude.Maybe [Tag]),
                               transitGatewayId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayRouteTable ::
   Value Prelude.Text -> TransitGatewayRouteTable
 mkTransitGatewayRouteTable transitGatewayId

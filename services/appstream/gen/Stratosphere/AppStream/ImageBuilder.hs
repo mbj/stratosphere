@@ -24,6 +24,7 @@ data ImageBuilder
                   name :: (Value Prelude.Text),
                   tags :: (Prelude.Maybe [Tag]),
                   vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImageBuilder ::
   Value Prelude.Text -> Value Prelude.Text -> ImageBuilder
 mkImageBuilder instanceType name

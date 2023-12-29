@@ -13,6 +13,7 @@ data PivotTableTotalOptionsProperty
                                     columnTotalOptions :: (Prelude.Maybe PivotTotalOptionsProperty),
                                     rowSubtotalOptions :: (Prelude.Maybe SubtotalOptionsProperty),
                                     rowTotalOptions :: (Prelude.Maybe PivotTotalOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableTotalOptionsProperty :: PivotTableTotalOptionsProperty
 mkPivotTableTotalOptionsProperty
   = PivotTableTotalOptionsProperty

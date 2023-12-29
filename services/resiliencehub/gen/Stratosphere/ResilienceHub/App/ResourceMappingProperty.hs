@@ -15,6 +15,7 @@ data ResourceMappingProperty
                              physicalResourceId :: PhysicalResourceIdProperty,
                              resourceName :: (Prelude.Maybe (Value Prelude.Text)),
                              terraformSourceName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceMappingProperty ::
   Value Prelude.Text
   -> PhysicalResourceIdProperty -> ResourceMappingProperty

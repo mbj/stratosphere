@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.CachePolicy.CachePolicyConfigPrope
 import Stratosphere.ResourceProperties
 data CachePolicy
   = CachePolicy {cachePolicyConfig :: CachePolicyConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCachePolicy :: CachePolicyConfigProperty -> CachePolicy
 mkCachePolicy cachePolicyConfig
   = CachePolicy {cachePolicyConfig = cachePolicyConfig}

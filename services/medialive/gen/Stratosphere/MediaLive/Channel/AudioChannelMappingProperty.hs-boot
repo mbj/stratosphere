@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AudioChannelMappingProperty :: Prelude.Type
 instance ToResourceProperties AudioChannelMappingProperty
+instance Prelude.Eq AudioChannelMappingProperty
+instance Prelude.Show AudioChannelMappingProperty
 instance JSON.ToJSON AudioChannelMappingProperty

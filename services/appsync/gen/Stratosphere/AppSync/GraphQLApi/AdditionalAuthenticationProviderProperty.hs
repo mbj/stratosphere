@@ -15,6 +15,7 @@ data AdditionalAuthenticationProviderProperty
                                               lambdaAuthorizerConfig :: (Prelude.Maybe LambdaAuthorizerConfigProperty),
                                               openIDConnectConfig :: (Prelude.Maybe OpenIDConnectConfigProperty),
                                               userPoolConfig :: (Prelude.Maybe CognitoUserPoolConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdditionalAuthenticationProviderProperty ::
   Value Prelude.Text -> AdditionalAuthenticationProviderProperty
 mkAdditionalAuthenticationProviderProperty authenticationType

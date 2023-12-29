@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomNarrativeOptionsProperty
   = CustomNarrativeOptionsProperty {narrative :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomNarrativeOptionsProperty ::
   Value Prelude.Text -> CustomNarrativeOptionsProperty
 mkCustomNarrativeOptionsProperty narrative

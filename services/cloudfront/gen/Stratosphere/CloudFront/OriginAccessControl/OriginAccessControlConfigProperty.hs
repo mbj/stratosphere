@@ -13,6 +13,7 @@ data OriginAccessControlConfigProperty
                                        originAccessControlOriginType :: (Value Prelude.Text),
                                        signingBehavior :: (Value Prelude.Text),
                                        signingProtocol :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginAccessControlConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -11,6 +11,7 @@ data ConfluenceBlogToIndexFieldMappingProperty
   = ConfluenceBlogToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
                                                dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
                                                indexFieldName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceBlogToIndexFieldMappingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ConfluenceBlogToIndexFieldMappingProperty

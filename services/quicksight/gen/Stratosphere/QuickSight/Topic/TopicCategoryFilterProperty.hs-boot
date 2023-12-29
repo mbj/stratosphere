@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TopicCategoryFilterProperty :: Prelude.Type
 instance ToResourceProperties TopicCategoryFilterProperty
+instance Prelude.Eq TopicCategoryFilterProperty
+instance Prelude.Show TopicCategoryFilterProperty
 instance JSON.ToJSON TopicCategoryFilterProperty

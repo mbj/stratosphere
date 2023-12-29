@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AssetPropertyTimestampProperty :: Prelude.Type
 instance ToResourceProperties AssetPropertyTimestampProperty
+instance Prelude.Eq AssetPropertyTimestampProperty
+instance Prelude.Show AssetPropertyTimestampProperty
 instance JSON.ToJSON AssetPropertyTimestampProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputDestinationRequestProperty
   = InputDestinationRequestProperty {streamName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputDestinationRequestProperty ::
   InputDestinationRequestProperty
 mkInputDestinationRequestProperty

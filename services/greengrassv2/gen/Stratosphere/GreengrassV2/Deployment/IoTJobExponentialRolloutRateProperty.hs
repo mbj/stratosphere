@@ -12,6 +12,7 @@ data IoTJobExponentialRolloutRateProperty
   = IoTJobExponentialRolloutRateProperty {baseRatePerMinute :: (Value Prelude.Integer),
                                           incrementFactor :: (Value Prelude.Double),
                                           rateIncreaseCriteria :: IoTJobRateIncreaseCriteriaProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobExponentialRolloutRateProperty ::
   Value Prelude.Integer
   -> Value Prelude.Double

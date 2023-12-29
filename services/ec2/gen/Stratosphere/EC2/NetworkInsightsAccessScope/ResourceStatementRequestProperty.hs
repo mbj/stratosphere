@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ResourceStatementRequestProperty
   = ResourceStatementRequestProperty {resourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       resources :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceStatementRequestProperty ::
   ResourceStatementRequestProperty
 mkResourceStatementRequestProperty

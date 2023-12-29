@@ -11,6 +11,7 @@ data OpenIDConnectConfigProperty
                                  clientId :: (Prelude.Maybe (Value Prelude.Text)),
                                  iatTTL :: (Prelude.Maybe (Value Prelude.Double)),
                                  issuer :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenIDConnectConfigProperty :: OpenIDConnectConfigProperty
 mkOpenIDConnectConfigProperty
   = OpenIDConnectConfigProperty

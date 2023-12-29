@@ -39,6 +39,7 @@ data DistributionConfigProperty
                                 staging :: (Prelude.Maybe (Value Prelude.Bool)),
                                 viewerCertificate :: (Prelude.Maybe ViewerCertificateProperty),
                                 webACLId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDistributionConfigProperty ::
   DefaultCacheBehaviorProperty
   -> Value Prelude.Bool -> DistributionConfigProperty

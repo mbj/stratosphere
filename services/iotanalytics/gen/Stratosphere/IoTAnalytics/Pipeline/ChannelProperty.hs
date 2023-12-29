@@ -10,6 +10,7 @@ data ChannelProperty
   = ChannelProperty {channelName :: (Value Prelude.Text),
                      name :: (Value Prelude.Text),
                      next :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ChannelProperty
 mkChannelProperty channelName name

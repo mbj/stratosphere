@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PipeTargetSqsQueueParametersProperty
   = PipeTargetSqsQueueParametersProperty {messageDeduplicationId :: (Prelude.Maybe (Value Prelude.Text)),
                                           messageGroupId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetSqsQueueParametersProperty ::
   PipeTargetSqsQueueParametersProperty
 mkPipeTargetSqsQueueParametersProperty

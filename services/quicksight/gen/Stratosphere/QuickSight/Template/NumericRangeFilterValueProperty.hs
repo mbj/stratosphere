@@ -10,6 +10,7 @@ import Stratosphere.Value
 data NumericRangeFilterValueProperty
   = NumericRangeFilterValueProperty {parameter :: (Prelude.Maybe (Value Prelude.Text)),
                                      staticValue :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericRangeFilterValueProperty ::
   NumericRangeFilterValueProperty
 mkNumericRangeFilterValueProperty

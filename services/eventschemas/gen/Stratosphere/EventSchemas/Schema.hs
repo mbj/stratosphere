@@ -14,6 +14,7 @@ data Schema
             schemaName :: (Prelude.Maybe (Value Prelude.Text)),
             tags :: (Prelude.Maybe [TagsEntryProperty]),
             type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchema ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Schema

@@ -11,6 +11,7 @@ data LimitsProperty
                     maximumDuration :: (Prelude.Maybe (Value Prelude.Integer)),
                     messagesPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
                     total :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLimitsProperty :: LimitsProperty
 mkLimitsProperty
   = LimitsProperty

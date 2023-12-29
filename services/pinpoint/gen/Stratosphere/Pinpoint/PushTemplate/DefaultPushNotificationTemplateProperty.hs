@@ -13,6 +13,7 @@ data DefaultPushNotificationTemplateProperty
                                              sound :: (Prelude.Maybe (Value Prelude.Text)),
                                              title :: (Prelude.Maybe (Value Prelude.Text)),
                                              url :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultPushNotificationTemplateProperty ::
   DefaultPushNotificationTemplateProperty
 mkDefaultPushNotificationTemplateProperty

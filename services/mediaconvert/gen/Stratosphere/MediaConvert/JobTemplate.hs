@@ -19,6 +19,7 @@ data JobTemplate
                  settingsJson :: JSON.Object,
                  statusUpdateInterval :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJobTemplate :: JSON.Object -> JobTemplate
 mkJobTemplate settingsJson
   = JobTemplate

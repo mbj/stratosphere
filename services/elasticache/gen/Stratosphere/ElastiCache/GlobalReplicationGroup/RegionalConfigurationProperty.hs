@@ -12,6 +12,7 @@ data RegionalConfigurationProperty
   = RegionalConfigurationProperty {replicationGroupId :: (Prelude.Maybe (Value Prelude.Text)),
                                    replicationGroupRegion :: (Prelude.Maybe (Value Prelude.Text)),
                                    reshardingConfigurations :: (Prelude.Maybe [ReshardingConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegionalConfigurationProperty :: RegionalConfigurationProperty
 mkRegionalConfigurationProperty
   = RegionalConfigurationProperty

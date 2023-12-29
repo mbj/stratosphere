@@ -10,6 +10,7 @@ data CustomImageProperty
   = CustomImageProperty {appImageConfigName :: (Value Prelude.Text),
                          imageName :: (Value Prelude.Text),
                          imageVersionNumber :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomImageProperty ::
   Value Prelude.Text -> Value Prelude.Text -> CustomImageProperty
 mkCustomImageProperty appImageConfigName imageName

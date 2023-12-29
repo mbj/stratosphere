@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FaceSearchSettingsProperty
   = FaceSearchSettingsProperty {collectionId :: (Value Prelude.Text),
                                 faceMatchThreshold :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFaceSearchSettingsProperty ::
   Value Prelude.Text -> FaceSearchSettingsProperty
 mkFaceSearchSettingsProperty collectionId

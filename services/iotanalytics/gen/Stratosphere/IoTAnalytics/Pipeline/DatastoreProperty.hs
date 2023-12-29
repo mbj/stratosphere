@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DatastoreProperty
   = DatastoreProperty {datastoreName :: (Value Prelude.Text),
                        name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatastoreProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DatastoreProperty
 mkDatastoreProperty datastoreName name

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.CapacityAutoScalingSetti
 import Stratosphere.ResourceProperties
 data WriteProvisionedThroughputSettingsProperty
   = WriteProvisionedThroughputSettingsProperty {writeCapacityAutoScalingSettings :: (Prelude.Maybe CapacityAutoScalingSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWriteProvisionedThroughputSettingsProperty ::
   WriteProvisionedThroughputSettingsProperty
 mkWriteProvisionedThroughputSettingsProperty

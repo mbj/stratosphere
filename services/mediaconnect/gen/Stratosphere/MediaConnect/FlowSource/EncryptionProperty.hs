@@ -16,6 +16,7 @@ data EncryptionProperty
                         roleArn :: (Value Prelude.Text),
                         secretArn :: (Prelude.Maybe (Value Prelude.Text)),
                         url :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionProperty :: Value Prelude.Text -> EncryptionProperty
 mkEncryptionProperty roleArn
   = EncryptionProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EventBatchingConditionProperty :: Prelude.Type
 instance ToResourceProperties EventBatchingConditionProperty
+instance Prelude.Eq EventBatchingConditionProperty
+instance Prelude.Show EventBatchingConditionProperty
 instance JSON.ToJSON EventBatchingConditionProperty

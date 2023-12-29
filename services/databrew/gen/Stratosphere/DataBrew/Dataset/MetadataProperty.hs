@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetadataProperty
   = MetadataProperty {sourceArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataProperty :: MetadataProperty
 mkMetadataProperty = MetadataProperty {sourceArn = Prelude.Nothing}
 instance ToResourceProperties MetadataProperty where

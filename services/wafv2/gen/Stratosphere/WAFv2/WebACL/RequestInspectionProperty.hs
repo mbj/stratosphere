@@ -12,6 +12,7 @@ data RequestInspectionProperty
   = RequestInspectionProperty {passwordField :: FieldIdentifierProperty,
                                payloadType :: (Value Prelude.Text),
                                usernameField :: FieldIdentifierProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRequestInspectionProperty ::
   FieldIdentifierProperty
   -> Value Prelude.Text

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.SimpleClusterMarkerProper
 import Stratosphere.ResourceProperties
 data ClusterMarkerProperty
   = ClusterMarkerProperty {simpleClusterMarker :: (Prelude.Maybe SimpleClusterMarkerProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterMarkerProperty :: ClusterMarkerProperty
 mkClusterMarkerProperty
   = ClusterMarkerProperty {simpleClusterMarker = Prelude.Nothing}

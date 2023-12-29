@@ -20,6 +20,7 @@ data Trigger
              tags :: (Prelude.Maybe JSON.Object),
              type' :: (Value Prelude.Text),
              workflowName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrigger :: [ActionProperty] -> Value Prelude.Text -> Trigger
 mkTrigger actions type'
   = Trigger

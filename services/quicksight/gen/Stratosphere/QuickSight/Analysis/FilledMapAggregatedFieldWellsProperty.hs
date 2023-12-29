@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data FilledMapAggregatedFieldWellsProperty
   = FilledMapAggregatedFieldWellsProperty {geospatial :: (Prelude.Maybe [DimensionFieldProperty]),
                                            values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilledMapAggregatedFieldWellsProperty ::
   FilledMapAggregatedFieldWellsProperty
 mkFilledMapAggregatedFieldWellsProperty

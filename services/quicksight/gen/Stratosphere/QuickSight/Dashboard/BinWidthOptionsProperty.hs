@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BinWidthOptionsProperty
   = BinWidthOptionsProperty {binCountLimit :: (Prelude.Maybe (Value Prelude.Double)),
                              value :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBinWidthOptionsProperty :: BinWidthOptionsProperty
 mkBinWidthOptionsProperty
   = BinWidthOptionsProperty

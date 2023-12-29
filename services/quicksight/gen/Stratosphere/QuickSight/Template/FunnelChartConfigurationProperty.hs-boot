@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FunnelChartConfigurationProperty :: Prelude.Type
 instance ToResourceProperties FunnelChartConfigurationProperty
+instance Prelude.Eq FunnelChartConfigurationProperty
+instance Prelude.Show FunnelChartConfigurationProperty
 instance JSON.ToJSON FunnelChartConfigurationProperty

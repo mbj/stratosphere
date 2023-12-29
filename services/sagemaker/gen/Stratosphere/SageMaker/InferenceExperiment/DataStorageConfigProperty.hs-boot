@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataStorageConfigProperty :: Prelude.Type
 instance ToResourceProperties DataStorageConfigProperty
+instance Prelude.Eq DataStorageConfigProperty
+instance Prelude.Show DataStorageConfigProperty
 instance JSON.ToJSON DataStorageConfigProperty

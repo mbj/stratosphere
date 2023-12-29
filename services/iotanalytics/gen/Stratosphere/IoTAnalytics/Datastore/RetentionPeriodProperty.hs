@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RetentionPeriodProperty
   = RetentionPeriodProperty {numberOfDays :: (Prelude.Maybe (Value Prelude.Integer)),
                              unlimited :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRetentionPeriodProperty :: RetentionPeriodProperty
 mkRetentionPeriodProperty
   = RetentionPeriodProperty

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data IotTopicPublishProperty
   = IotTopicPublishProperty {mqttTopic :: (Value Prelude.Text),
                              payload :: (Prelude.Maybe PayloadProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIotTopicPublishProperty ::
   Value Prelude.Text -> IotTopicPublishProperty
 mkIotTopicPublishProperty mqttTopic

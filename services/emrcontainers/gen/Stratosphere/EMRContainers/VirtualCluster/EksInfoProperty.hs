@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksInfoProperty
   = EksInfoProperty {namespace :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksInfoProperty :: Value Prelude.Text -> EksInfoProperty
 mkEksInfoProperty namespace
   = EksInfoProperty {namespace = namespace}

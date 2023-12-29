@@ -12,6 +12,7 @@ data UpsolverDestinationPropertiesProperty
   = UpsolverDestinationPropertiesProperty {bucketName :: (Value Prelude.Text),
                                            bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                                            s3OutputFormatConfig :: UpsolverS3OutputFormatConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUpsolverDestinationPropertiesProperty ::
   Value Prelude.Text
   -> UpsolverS3OutputFormatConfigProperty

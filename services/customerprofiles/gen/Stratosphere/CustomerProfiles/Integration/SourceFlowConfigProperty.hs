@@ -14,6 +14,7 @@ data SourceFlowConfigProperty
                               connectorType :: (Value Prelude.Text),
                               incrementalPullConfig :: (Prelude.Maybe IncrementalPullConfigProperty),
                               sourceConnectorProperties :: SourceConnectorPropertiesProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceFlowConfigProperty ::
   Value Prelude.Text
   -> SourceConnectorPropertiesProperty -> SourceFlowConfigProperty

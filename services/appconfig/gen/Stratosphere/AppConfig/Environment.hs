@@ -14,6 +14,7 @@ data Environment
                  monitors :: (Prelude.Maybe [MonitorsProperty]),
                  name :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [TagsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment ::
   Value Prelude.Text -> Value Prelude.Text -> Environment
 mkEnvironment applicationId name

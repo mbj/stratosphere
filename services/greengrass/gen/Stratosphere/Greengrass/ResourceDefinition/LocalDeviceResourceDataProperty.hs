@@ -11,6 +11,7 @@ import Stratosphere.Value
 data LocalDeviceResourceDataProperty
   = LocalDeviceResourceDataProperty {groupOwnerSetting :: (Prelude.Maybe GroupOwnerSettingProperty),
                                      sourcePath :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalDeviceResourceDataProperty ::
   Value Prelude.Text -> LocalDeviceResourceDataProperty
 mkLocalDeviceResourceDataProperty sourcePath

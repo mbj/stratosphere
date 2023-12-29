@@ -12,6 +12,7 @@ data ContainerDistributionConfigurationProperty
   = ContainerDistributionConfigurationProperty {containerTags :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                 description :: (Prelude.Maybe (Value Prelude.Text)),
                                                 targetRepository :: (Prelude.Maybe TargetContainerRepositoryProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerDistributionConfigurationProperty ::
   ContainerDistributionConfigurationProperty
 mkContainerDistributionConfigurationProperty

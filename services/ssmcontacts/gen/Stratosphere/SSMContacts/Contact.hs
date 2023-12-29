@@ -12,6 +12,7 @@ data Contact
              displayName :: (Value Prelude.Text),
              plan :: (Prelude.Maybe [StageProperty]),
              type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContact ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Contact

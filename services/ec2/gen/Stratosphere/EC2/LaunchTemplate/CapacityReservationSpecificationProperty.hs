@@ -11,6 +11,7 @@ import Stratosphere.Value
 data CapacityReservationSpecificationProperty
   = CapacityReservationSpecificationProperty {capacityReservationPreference :: (Prelude.Maybe (Value Prelude.Text)),
                                               capacityReservationTarget :: (Prelude.Maybe CapacityReservationTargetProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservationSpecificationProperty ::
   CapacityReservationSpecificationProperty
 mkCapacityReservationSpecificationProperty

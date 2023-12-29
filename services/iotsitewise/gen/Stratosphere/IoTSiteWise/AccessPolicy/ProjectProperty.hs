@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectProperty
   = ProjectProperty {id :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectProperty :: ProjectProperty
 mkProjectProperty = ProjectProperty {id = Prelude.Nothing}
 instance ToResourceProperties ProjectProperty where

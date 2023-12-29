@@ -11,6 +11,7 @@ data RunningStatusObjectProperty
                                  desiredState :: (Prelude.Maybe (Value Prelude.Text)),
                                  reason :: (Prelude.Maybe (Value Prelude.Text)),
                                  status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRunningStatusObjectProperty ::
   Value Prelude.Text -> RunningStatusObjectProperty
 mkRunningStatusObjectProperty status

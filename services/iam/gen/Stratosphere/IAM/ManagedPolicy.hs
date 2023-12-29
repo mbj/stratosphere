@@ -14,6 +14,7 @@ data ManagedPolicy
                    policyDocument :: JSON.Object,
                    roles :: (Prelude.Maybe (ValueList Prelude.Text)),
                    users :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedPolicy :: JSON.Object -> ManagedPolicy
 mkManagedPolicy policyDocument
   = ManagedPolicy

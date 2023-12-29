@@ -11,6 +11,7 @@ data LoadBalancerOptionsProperty
                                  port :: (Prelude.Maybe (Value Prelude.Integer)),
                                  protocol :: (Prelude.Maybe (Value Prelude.Text)),
                                  subnetIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancerOptionsProperty :: LoadBalancerOptionsProperty
 mkLoadBalancerOptionsProperty
   = LoadBalancerOptionsProperty

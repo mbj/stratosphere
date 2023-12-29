@@ -12,6 +12,7 @@ data HookVersion
                  loggingConfig :: (Prelude.Maybe LoggingConfigProperty),
                  schemaHandlerPackage :: (Value Prelude.Text),
                  typeName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHookVersion ::
   Value Prelude.Text -> Value Prelude.Text -> HookVersion
 mkHookVersion schemaHandlerPackage typeName

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MultiplexGroupSettingsProperty :: Prelude.Type
 instance ToResourceProperties MultiplexGroupSettingsProperty
+instance Prelude.Eq MultiplexGroupSettingsProperty
+instance Prelude.Show MultiplexGroupSettingsProperty
 instance JSON.ToJSON MultiplexGroupSettingsProperty

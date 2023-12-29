@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FrameOptionsProperty
   = FrameOptionsProperty {frameOption :: (Value Prelude.Text),
                           override :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameOptionsProperty ::
   Value Prelude.Text -> Value Prelude.Bool -> FrameOptionsProperty
 mkFrameOptionsProperty frameOption override

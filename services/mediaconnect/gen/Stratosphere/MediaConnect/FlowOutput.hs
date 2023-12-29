@@ -23,6 +23,7 @@ data FlowOutput
                 smoothingLatency :: (Prelude.Maybe (Value Prelude.Integer)),
                 streamId :: (Prelude.Maybe (Value Prelude.Text)),
                 vpcInterfaceAttachment :: (Prelude.Maybe VpcInterfaceAttachmentProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowOutput ::
   Value Prelude.Text -> Value Prelude.Text -> FlowOutput
 mkFlowOutput flowArn protocol

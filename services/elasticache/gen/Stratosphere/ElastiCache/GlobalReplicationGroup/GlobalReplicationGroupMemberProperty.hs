@@ -11,6 +11,7 @@ data GlobalReplicationGroupMemberProperty
   = GlobalReplicationGroupMemberProperty {replicationGroupId :: (Prelude.Maybe (Value Prelude.Text)),
                                           replicationGroupRegion :: (Prelude.Maybe (Value Prelude.Text)),
                                           role :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalReplicationGroupMemberProperty ::
   GlobalReplicationGroupMemberProperty
 mkGlobalReplicationGroupMemberProperty

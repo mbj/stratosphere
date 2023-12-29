@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LogPatternSetProperty :: Prelude.Type
 instance ToResourceProperties LogPatternSetProperty
+instance Prelude.Eq LogPatternSetProperty
+instance Prelude.Show LogPatternSetProperty
 instance JSON.ToJSON LogPatternSetProperty

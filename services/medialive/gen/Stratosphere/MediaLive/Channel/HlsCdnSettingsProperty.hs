@@ -17,6 +17,7 @@ data HlsCdnSettingsProperty
                             hlsMediaStoreSettings :: (Prelude.Maybe HlsMediaStoreSettingsProperty),
                             hlsS3Settings :: (Prelude.Maybe HlsS3SettingsProperty),
                             hlsWebdavSettings :: (Prelude.Maybe HlsWebdavSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsCdnSettingsProperty :: HlsCdnSettingsProperty
 mkHlsCdnSettingsProperty
   = HlsCdnSettingsProperty

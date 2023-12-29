@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HomeDirectoryMapEntryProperty :: Prelude.Type
 instance ToResourceProperties HomeDirectoryMapEntryProperty
+instance Prelude.Eq HomeDirectoryMapEntryProperty
+instance Prelude.Show HomeDirectoryMapEntryProperty
 instance JSON.ToJSON HomeDirectoryMapEntryProperty

@@ -15,6 +15,7 @@ data ScheduledActionProperty
                              scheduledActionName :: (Value Prelude.Text),
                              startTime :: (Prelude.Maybe (Value Prelude.Text)),
                              timezone :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ScheduledActionProperty
 mkScheduledActionProperty schedule scheduledActionName

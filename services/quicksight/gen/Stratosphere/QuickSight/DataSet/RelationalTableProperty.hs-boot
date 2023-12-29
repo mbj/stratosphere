@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RelationalTableProperty :: Prelude.Type
 instance ToResourceProperties RelationalTableProperty
+instance Prelude.Eq RelationalTableProperty
+instance Prelude.Show RelationalTableProperty
 instance JSON.ToJSON RelationalTableProperty

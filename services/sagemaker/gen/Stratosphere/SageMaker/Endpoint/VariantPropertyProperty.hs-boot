@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VariantPropertyProperty :: Prelude.Type
 instance ToResourceProperties VariantPropertyProperty
+instance Prelude.Eq VariantPropertyProperty
+instance Prelude.Show VariantPropertyProperty
 instance JSON.ToJSON VariantPropertyProperty

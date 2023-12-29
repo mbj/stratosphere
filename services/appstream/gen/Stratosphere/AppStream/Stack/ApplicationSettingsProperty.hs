@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ApplicationSettingsProperty
   = ApplicationSettingsProperty {enabled :: (Value Prelude.Bool),
                                  settingsGroup :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationSettingsProperty ::
   Value Prelude.Bool -> ApplicationSettingsProperty
 mkApplicationSettingsProperty enabled

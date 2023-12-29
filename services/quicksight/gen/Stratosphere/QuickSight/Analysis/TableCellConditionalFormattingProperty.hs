@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TableCellConditionalFormattingProperty
   = TableCellConditionalFormattingProperty {fieldId :: (Value Prelude.Text),
                                             textFormat :: (Prelude.Maybe TextConditionalFormatProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableCellConditionalFormattingProperty ::
   Value Prelude.Text -> TableCellConditionalFormattingProperty
 mkTableCellConditionalFormattingProperty fieldId

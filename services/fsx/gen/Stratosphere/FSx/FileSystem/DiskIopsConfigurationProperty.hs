@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DiskIopsConfigurationProperty
   = DiskIopsConfigurationProperty {iops :: (Prelude.Maybe (Value Prelude.Integer)),
                                    mode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDiskIopsConfigurationProperty :: DiskIopsConfigurationProperty
 mkDiskIopsConfigurationProperty
   = DiskIopsConfigurationProperty

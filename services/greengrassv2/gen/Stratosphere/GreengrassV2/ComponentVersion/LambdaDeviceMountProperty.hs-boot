@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LambdaDeviceMountProperty :: Prelude.Type
 instance ToResourceProperties LambdaDeviceMountProperty
+instance Prelude.Eq LambdaDeviceMountProperty
+instance Prelude.Show LambdaDeviceMountProperty
 instance JSON.ToJSON LambdaDeviceMountProperty

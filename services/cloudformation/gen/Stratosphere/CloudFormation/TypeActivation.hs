@@ -18,6 +18,7 @@ data TypeActivation
                     typeName :: (Prelude.Maybe (Value Prelude.Text)),
                     typeNameAlias :: (Prelude.Maybe (Value Prelude.Text)),
                     versionBump :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTypeActivation :: TypeActivation
 mkTypeActivation
   = TypeActivation

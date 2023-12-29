@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DynamicPartitioningConfigurationProperty
   = DynamicPartitioningConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                               retryOptions :: (Prelude.Maybe RetryOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamicPartitioningConfigurationProperty ::
   DynamicPartitioningConfigurationProperty
 mkDynamicPartitioningConfigurationProperty

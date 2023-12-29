@@ -10,6 +10,7 @@ data DataCatalogConfigProperty
   = DataCatalogConfigProperty {catalog :: (Value Prelude.Text),
                                database :: (Value Prelude.Text),
                                tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCatalogConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AudioChannelMappingProperty
   = AudioChannelMappingProperty {inputChannelLevels :: (Prelude.Maybe [InputChannelLevelProperty]),
                                  outputChannel :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioChannelMappingProperty :: AudioChannelMappingProperty
 mkAudioChannelMappingProperty
   = AudioChannelMappingProperty

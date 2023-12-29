@@ -10,6 +10,7 @@ import Stratosphere.Value
 data S3ParametersProperty
   = S3ParametersProperty {manifestFileLocation :: ManifestFileLocationProperty,
                           roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ParametersProperty ::
   ManifestFileLocationProperty -> S3ParametersProperty
 mkS3ParametersProperty manifestFileLocation

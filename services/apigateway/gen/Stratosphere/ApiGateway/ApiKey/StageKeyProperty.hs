@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StageKeyProperty
   = StageKeyProperty {restApiId :: (Prelude.Maybe (Value Prelude.Text)),
                       stageName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStageKeyProperty :: StageKeyProperty
 mkStageKeyProperty
   = StageKeyProperty

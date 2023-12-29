@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeltaTimeSessionWindowConfigurationProperty
   = DeltaTimeSessionWindowConfigurationProperty {timeoutInMinutes :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeltaTimeSessionWindowConfigurationProperty ::
   Value Prelude.Integer
   -> DeltaTimeSessionWindowConfigurationProperty

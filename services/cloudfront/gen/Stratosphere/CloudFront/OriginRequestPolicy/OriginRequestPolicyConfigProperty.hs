@@ -16,6 +16,7 @@ data OriginRequestPolicyConfigProperty
                                        headersConfig :: HeadersConfigProperty,
                                        name :: (Value Prelude.Text),
                                        queryStringsConfig :: QueryStringsConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginRequestPolicyConfigProperty ::
   CookiesConfigProperty
   -> HeadersConfigProperty

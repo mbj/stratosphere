@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Ipv6PrefixSpecificationProperty
   = Ipv6PrefixSpecificationProperty {ipv6Prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIpv6PrefixSpecificationProperty ::
   Ipv6PrefixSpecificationProperty
 mkIpv6PrefixSpecificationProperty

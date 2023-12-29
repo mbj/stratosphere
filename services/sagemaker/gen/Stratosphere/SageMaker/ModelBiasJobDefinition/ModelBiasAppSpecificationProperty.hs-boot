@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ModelBiasAppSpecificationProperty :: Prelude.Type
 instance ToResourceProperties ModelBiasAppSpecificationProperty
+instance Prelude.Eq ModelBiasAppSpecificationProperty
+instance Prelude.Show ModelBiasAppSpecificationProperty
 instance JSON.ToJSON ModelBiasAppSpecificationProperty

@@ -12,6 +12,7 @@ data EvaluationFormNumericQuestionOptionProperty
                                                  maxValue :: (Value Prelude.Integer),
                                                  minValue :: (Value Prelude.Integer),
                                                  score :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormNumericQuestionOptionProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer

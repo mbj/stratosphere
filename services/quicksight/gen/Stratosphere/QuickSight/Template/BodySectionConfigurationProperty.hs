@@ -15,6 +15,7 @@ data BodySectionConfigurationProperty
                                       pageBreakConfiguration :: (Prelude.Maybe SectionPageBreakConfigurationProperty),
                                       sectionId :: (Value Prelude.Text),
                                       style :: (Prelude.Maybe SectionStyleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBodySectionConfigurationProperty ::
   BodySectionContentProperty
   -> Value Prelude.Text -> BodySectionConfigurationProperty

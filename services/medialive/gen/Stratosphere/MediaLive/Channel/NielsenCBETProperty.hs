@@ -10,6 +10,7 @@ data NielsenCBETProperty
   = NielsenCBETProperty {cbetCheckDigitString :: (Prelude.Maybe (Value Prelude.Text)),
                          cbetStepaside :: (Prelude.Maybe (Value Prelude.Text)),
                          csid :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNielsenCBETProperty :: NielsenCBETProperty
 mkNielsenCBETProperty
   = NielsenCBETProperty

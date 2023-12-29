@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DynamoDBv2ActionProperty
   = DynamoDBv2ActionProperty {putItem :: (Prelude.Maybe PutItemInputProperty),
                               roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBv2ActionProperty :: DynamoDBv2ActionProperty
 mkDynamoDBv2ActionProperty
   = DynamoDBv2ActionProperty

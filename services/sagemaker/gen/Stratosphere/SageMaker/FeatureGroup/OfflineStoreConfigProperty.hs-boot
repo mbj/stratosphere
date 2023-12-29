@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OfflineStoreConfigProperty :: Prelude.Type
 instance ToResourceProperties OfflineStoreConfigProperty
+instance Prelude.Eq OfflineStoreConfigProperty
+instance Prelude.Show OfflineStoreConfigProperty
 instance JSON.ToJSON OfflineStoreConfigProperty

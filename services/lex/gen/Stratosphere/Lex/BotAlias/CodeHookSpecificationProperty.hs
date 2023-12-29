@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Lex.BotAlias.LambdaCodeHookProperty as Export
 import Stratosphere.ResourceProperties
 data CodeHookSpecificationProperty
   = CodeHookSpecificationProperty {lambdaCodeHook :: LambdaCodeHookProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeHookSpecificationProperty ::
   LambdaCodeHookProperty -> CodeHookSpecificationProperty
 mkCodeHookSpecificationProperty lambdaCodeHook

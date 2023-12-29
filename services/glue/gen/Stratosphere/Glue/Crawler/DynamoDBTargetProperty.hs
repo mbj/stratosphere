@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynamoDBTargetProperty
   = DynamoDBTargetProperty {path :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBTargetProperty :: DynamoDBTargetProperty
 mkDynamoDBTargetProperty
   = DynamoDBTargetProperty {path = Prelude.Nothing}

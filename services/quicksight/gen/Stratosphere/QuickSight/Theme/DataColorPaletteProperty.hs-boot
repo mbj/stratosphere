@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataColorPaletteProperty :: Prelude.Type
 instance ToResourceProperties DataColorPaletteProperty
+instance Prelude.Eq DataColorPaletteProperty
+instance Prelude.Show DataColorPaletteProperty
 instance JSON.ToJSON DataColorPaletteProperty

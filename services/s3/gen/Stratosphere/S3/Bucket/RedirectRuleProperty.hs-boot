@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RedirectRuleProperty :: Prelude.Type
 instance ToResourceProperties RedirectRuleProperty
+instance Prelude.Eq RedirectRuleProperty
+instance Prelude.Show RedirectRuleProperty
 instance JSON.ToJSON RedirectRuleProperty

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ConnectionDetailsProperty
   = ConnectionDetailsProperty {mtu :: (Prelude.Maybe (Value Prelude.Integer)),
                                socketAddress :: (Prelude.Maybe SocketAddressProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionDetailsProperty :: ConnectionDetailsProperty
 mkConnectionDetailsProperty
   = ConnectionDetailsProperty

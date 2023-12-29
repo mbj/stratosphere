@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnswerMachineDetectionConfigProperty
   = AnswerMachineDetectionConfigProperty {enableAnswerMachineDetection :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnswerMachineDetectionConfigProperty ::
   Value Prelude.Bool -> AnswerMachineDetectionConfigProperty
 mkAnswerMachineDetectionConfigProperty enableAnswerMachineDetection

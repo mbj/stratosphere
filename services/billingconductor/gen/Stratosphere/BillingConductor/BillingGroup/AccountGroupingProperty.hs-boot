@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AccountGroupingProperty :: Prelude.Type
 instance ToResourceProperties AccountGroupingProperty
+instance Prelude.Eq AccountGroupingProperty
+instance Prelude.Show AccountGroupingProperty
 instance JSON.ToJSON AccountGroupingProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaximumLabelTypeProperty
   = MaximumLabelTypeProperty {visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaximumLabelTypeProperty :: MaximumLabelTypeProperty
 mkMaximumLabelTypeProperty
   = MaximumLabelTypeProperty {visibility = Prelude.Nothing}

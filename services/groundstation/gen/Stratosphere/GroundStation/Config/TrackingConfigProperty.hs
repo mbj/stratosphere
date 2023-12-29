@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrackingConfigProperty
   = TrackingConfigProperty {autotrack :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrackingConfigProperty :: TrackingConfigProperty
 mkTrackingConfigProperty
   = TrackingConfigProperty {autotrack = Prelude.Nothing}

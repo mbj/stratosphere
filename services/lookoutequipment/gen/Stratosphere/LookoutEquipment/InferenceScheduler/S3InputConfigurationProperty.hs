@@ -9,6 +9,7 @@ import Stratosphere.Value
 data S3InputConfigurationProperty
   = S3InputConfigurationProperty {bucket :: (Value Prelude.Text),
                                   prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3InputConfigurationProperty ::
   Value Prelude.Text -> S3InputConfigurationProperty
 mkS3InputConfigurationProperty bucket

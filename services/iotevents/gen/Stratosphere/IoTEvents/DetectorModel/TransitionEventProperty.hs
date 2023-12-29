@@ -13,6 +13,7 @@ data TransitionEventProperty
                              condition :: (Value Prelude.Text),
                              eventName :: (Value Prelude.Text),
                              nextState :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitionEventProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

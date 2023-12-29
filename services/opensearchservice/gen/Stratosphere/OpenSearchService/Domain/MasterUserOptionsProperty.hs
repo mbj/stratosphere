@@ -10,6 +10,7 @@ data MasterUserOptionsProperty
   = MasterUserOptionsProperty {masterUserARN :: (Prelude.Maybe (Value Prelude.Text)),
                                masterUserName :: (Prelude.Maybe (Value Prelude.Text)),
                                masterUserPassword :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMasterUserOptionsProperty :: MasterUserOptionsProperty
 mkMasterUserOptionsProperty
   = MasterUserOptionsProperty

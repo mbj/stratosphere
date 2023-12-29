@@ -15,6 +15,7 @@ data SnowflakeConnectorProfilePropertiesProperty
                                                  region :: (Prelude.Maybe (Value Prelude.Text)),
                                                  stage :: (Value Prelude.Text),
                                                  warehouse :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSnowflakeConnectorProfilePropertiesProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

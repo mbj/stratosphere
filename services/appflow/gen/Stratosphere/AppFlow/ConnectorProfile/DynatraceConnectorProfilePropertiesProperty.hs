@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynatraceConnectorProfilePropertiesProperty
   = DynatraceConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynatraceConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> DynatraceConnectorProfilePropertiesProperty
 mkDynatraceConnectorProfilePropertiesProperty instanceUrl

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TemplateSourceTemplateProperty
   = TemplateSourceTemplateProperty {arn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateSourceTemplateProperty ::
   Value Prelude.Text -> TemplateSourceTemplateProperty
 mkTemplateSourceTemplateProperty arn

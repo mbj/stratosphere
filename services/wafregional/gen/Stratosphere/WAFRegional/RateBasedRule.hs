@@ -13,6 +13,7 @@ data RateBasedRule
                    name :: (Value Prelude.Text),
                    rateKey :: (Value Prelude.Text),
                    rateLimit :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRateBasedRule ::
   Value Prelude.Text
   -> Value Prelude.Text

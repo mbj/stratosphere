@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data NetworkConfigurationProperty
   = NetworkConfigurationProperty {egressConfiguration :: (Prelude.Maybe EgressConfigurationProperty),
                                   ingressConfiguration :: (Prelude.Maybe IngressConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty
 mkNetworkConfigurationProperty
   = NetworkConfigurationProperty

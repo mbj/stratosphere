@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqsParametersProperty
   = SqsParametersProperty {messageGroupId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSqsParametersProperty :: SqsParametersProperty
 mkSqsParametersProperty
   = SqsParametersProperty {messageGroupId = Prelude.Nothing}

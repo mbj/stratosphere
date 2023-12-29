@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data VpcConnectivityClientAuthenticationProperty
   = VpcConnectivityClientAuthenticationProperty {sasl :: (Prelude.Maybe VpcConnectivitySaslProperty),
                                                  tls :: (Prelude.Maybe VpcConnectivityTlsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnectivityClientAuthenticationProperty ::
   VpcConnectivityClientAuthenticationProperty
 mkVpcConnectivityClientAuthenticationProperty

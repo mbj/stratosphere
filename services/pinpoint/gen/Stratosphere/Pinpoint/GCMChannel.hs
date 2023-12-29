@@ -10,6 +10,7 @@ data GCMChannel
   = GCMChannel {apiKey :: (Value Prelude.Text),
                 applicationId :: (Value Prelude.Text),
                 enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGCMChannel ::
   Value Prelude.Text -> Value Prelude.Text -> GCMChannel
 mkGCMChannel apiKey applicationId

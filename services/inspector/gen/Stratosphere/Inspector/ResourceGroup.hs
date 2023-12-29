@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
-data ResourceGroup = ResourceGroup {resourceGroupTags :: [Tag]}
+data ResourceGroup
+  = ResourceGroup {resourceGroupTags :: [Tag]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceGroup :: [Tag] -> ResourceGroup
 mkResourceGroup resourceGroupTags
   = ResourceGroup {resourceGroupTags = resourceGroupTags}

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ChannelTargetInfoProperty
   = ChannelTargetInfoProperty {channelId :: (Value Prelude.Text),
                                retryIntervalInMinutes :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelTargetInfoProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> ChannelTargetInfoProperty

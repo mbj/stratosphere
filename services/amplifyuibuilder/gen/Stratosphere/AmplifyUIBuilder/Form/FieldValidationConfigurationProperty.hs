@@ -12,6 +12,7 @@ data FieldValidationConfigurationProperty
                                           strValues :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           type' :: (Value Prelude.Text),
                                           validationMessage :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldValidationConfigurationProperty ::
   Value Prelude.Text -> FieldValidationConfigurationProperty
 mkFieldValidationConfigurationProperty type'

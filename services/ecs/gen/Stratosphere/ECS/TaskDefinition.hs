@@ -32,6 +32,7 @@ data TaskDefinition
                     tags :: (Prelude.Maybe [Tag]),
                     taskRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                     volumes :: (Prelude.Maybe [VolumeProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskDefinition :: TaskDefinition
 mkTaskDefinition
   = TaskDefinition

@@ -10,6 +10,7 @@ data DeploymentTargetsProperty
   = DeploymentTargetsProperty {accountFilterType :: (Prelude.Maybe (Value Prelude.Text)),
                                accounts :: (Prelude.Maybe (ValueList Prelude.Text)),
                                organizationalUnitIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentTargetsProperty :: DeploymentTargetsProperty
 mkDeploymentTargetsProperty
   = DeploymentTargetsProperty

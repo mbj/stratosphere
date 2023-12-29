@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ValidityProperty
   = ValidityProperty {type' :: (Value Prelude.Text),
                       value :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkValidityProperty ::
   Value Prelude.Text -> Value Prelude.Double -> ValidityProperty
 mkValidityProperty type' value

@@ -11,6 +11,7 @@ data RequestValidator
                       restApiId :: (Value Prelude.Text),
                       validateRequestBody :: (Prelude.Maybe (Value Prelude.Bool)),
                       validateRequestParameters :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRequestValidator :: Value Prelude.Text -> RequestValidator
 mkRequestValidator restApiId
   = RequestValidator

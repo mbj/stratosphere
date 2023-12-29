@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RevocationConfigurationProperty :: Prelude.Type
 instance ToResourceProperties RevocationConfigurationProperty
+instance Prelude.Eq RevocationConfigurationProperty
+instance Prelude.Show RevocationConfigurationProperty
 instance JSON.ToJSON RevocationConfigurationProperty

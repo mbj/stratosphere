@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StillWaitingResponseSpecificationProperty :: Prelude.Type
 instance ToResourceProperties StillWaitingResponseSpecificationProperty
+instance Prelude.Eq StillWaitingResponseSpecificationProperty
+instance Prelude.Show StillWaitingResponseSpecificationProperty
 instance JSON.ToJSON StillWaitingResponseSpecificationProperty

@@ -12,6 +12,7 @@ data HlsInputSettingsProperty
                               retries :: (Prelude.Maybe (Value Prelude.Integer)),
                               retryInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                               scte35Source :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsInputSettingsProperty :: HlsInputSettingsProperty
 mkHlsInputSettingsProperty
   = HlsInputSettingsProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VariantPropertyProperty
   = VariantPropertyProperty {variantPropertyType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVariantPropertyProperty :: VariantPropertyProperty
 mkVariantPropertyProperty
   = VariantPropertyProperty {variantPropertyType = Prelude.Nothing}

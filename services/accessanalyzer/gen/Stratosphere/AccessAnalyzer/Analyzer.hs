@@ -13,6 +13,7 @@ data Analyzer
               archiveRules :: (Prelude.Maybe [ArchiveRuleProperty]),
               tags :: (Prelude.Maybe [Tag]),
               type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalyzer :: Value Prelude.Text -> Analyzer
 mkAnalyzer type'
   = Analyzer

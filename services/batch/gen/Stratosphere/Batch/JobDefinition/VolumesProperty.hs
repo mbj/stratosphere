@@ -12,6 +12,7 @@ data VolumesProperty
   = VolumesProperty {efsVolumeConfiguration :: (Prelude.Maybe EfsVolumeConfigurationProperty),
                      host :: (Prelude.Maybe VolumesHostProperty),
                      name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumesProperty :: VolumesProperty
 mkVolumesProperty
   = VolumesProperty

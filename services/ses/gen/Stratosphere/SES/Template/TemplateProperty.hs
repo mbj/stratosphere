@@ -11,6 +11,7 @@ data TemplateProperty
                       subjectPart :: (Value Prelude.Text),
                       templateName :: (Prelude.Maybe (Value Prelude.Text)),
                       textPart :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateProperty :: Value Prelude.Text -> TemplateProperty
 mkTemplateProperty subjectPart
   = TemplateProperty

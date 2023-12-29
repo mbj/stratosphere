@@ -12,6 +12,7 @@ data ContinuousDeploymentPolicyConfigProperty
   = ContinuousDeploymentPolicyConfigProperty {enabled :: (Value Prelude.Bool),
                                               stagingDistributionDnsNames :: (ValueList Prelude.Text),
                                               trafficConfig :: (Prelude.Maybe TrafficConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContinuousDeploymentPolicyConfigProperty ::
   Value Prelude.Bool
   -> ValueList Prelude.Text

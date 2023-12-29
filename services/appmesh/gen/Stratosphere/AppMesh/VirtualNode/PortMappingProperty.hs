@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PortMappingProperty
   = PortMappingProperty {port :: (Value Prelude.Integer),
                          protocol :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortMappingProperty ::
   Value Prelude.Integer -> Value Prelude.Text -> PortMappingProperty
 mkPortMappingProperty port protocol

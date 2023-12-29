@@ -13,6 +13,7 @@ data OutputProperty
                     outputName :: (Prelude.Maybe (Value Prelude.Text)),
                     outputSettings :: (Prelude.Maybe OutputSettingsProperty),
                     videoDescriptionName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputProperty :: OutputProperty
 mkOutputProperty
   = OutputProperty

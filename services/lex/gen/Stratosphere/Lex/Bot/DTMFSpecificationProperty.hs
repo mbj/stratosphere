@@ -11,6 +11,7 @@ data DTMFSpecificationProperty
                                endCharacter :: (Value Prelude.Text),
                                endTimeoutMs :: (Value Prelude.Integer),
                                maxLength :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDTMFSpecificationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

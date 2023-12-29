@@ -10,6 +10,7 @@ data LFTagPairProperty
   = LFTagPairProperty {catalogId :: (Value Prelude.Text),
                        tagKey :: (Value Prelude.Text),
                        tagValues :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLFTagPairProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

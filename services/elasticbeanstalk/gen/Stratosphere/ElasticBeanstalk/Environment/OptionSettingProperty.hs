@@ -11,6 +11,7 @@ data OptionSettingProperty
                            optionName :: (Value Prelude.Text),
                            resourceName :: (Prelude.Maybe (Value Prelude.Text)),
                            value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionSettingProperty ::
   Value Prelude.Text -> Value Prelude.Text -> OptionSettingProperty
 mkOptionSettingProperty namespace optionName

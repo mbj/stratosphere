@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PardotConnectorProfileCredentialsProperty :: Prelude.Type
 instance ToResourceProperties PardotConnectorProfileCredentialsProperty
+instance Prelude.Eq PardotConnectorProfileCredentialsProperty
+instance Prelude.Show PardotConnectorProfileCredentialsProperty
 instance JSON.ToJSON PardotConnectorProfileCredentialsProperty

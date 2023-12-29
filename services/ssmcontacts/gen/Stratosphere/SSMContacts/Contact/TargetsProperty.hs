@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data TargetsProperty
   = TargetsProperty {channelTargetInfo :: (Prelude.Maybe ChannelTargetInfoProperty),
                      contactTargetInfo :: (Prelude.Maybe ContactTargetInfoProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetsProperty :: TargetsProperty
 mkTargetsProperty
   = TargetsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExportWithHiddenFieldsOptionProperty :: Prelude.Type
 instance ToResourceProperties ExportWithHiddenFieldsOptionProperty
+instance Prelude.Eq ExportWithHiddenFieldsOptionProperty
+instance Prelude.Show ExportWithHiddenFieldsOptionProperty
 instance JSON.ToJSON ExportWithHiddenFieldsOptionProperty

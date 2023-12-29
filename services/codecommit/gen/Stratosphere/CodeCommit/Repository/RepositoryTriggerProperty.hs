@@ -12,6 +12,7 @@ data RepositoryTriggerProperty
                                destinationArn :: (Value Prelude.Text),
                                events :: (ValueList Prelude.Text),
                                name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRepositoryTriggerProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text

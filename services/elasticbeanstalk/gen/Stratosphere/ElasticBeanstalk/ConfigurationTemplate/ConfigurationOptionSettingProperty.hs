@@ -12,6 +12,7 @@ data ConfigurationOptionSettingProperty
                                         optionName :: (Value Prelude.Text),
                                         resourceName :: (Prelude.Maybe (Value Prelude.Text)),
                                         value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationOptionSettingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ConfigurationOptionSettingProperty

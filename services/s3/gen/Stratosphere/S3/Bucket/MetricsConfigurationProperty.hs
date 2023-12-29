@@ -13,6 +13,7 @@ data MetricsConfigurationProperty
                                   id :: (Value Prelude.Text),
                                   prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                   tagFilters :: (Prelude.Maybe [TagFilterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricsConfigurationProperty ::
   Value Prelude.Text -> MetricsConfigurationProperty
 mkMetricsConfigurationProperty id

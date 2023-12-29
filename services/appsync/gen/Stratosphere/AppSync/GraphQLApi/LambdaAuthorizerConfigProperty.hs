@@ -11,6 +11,7 @@ data LambdaAuthorizerConfigProperty
   = LambdaAuthorizerConfigProperty {authorizerResultTtlInSeconds :: (Prelude.Maybe (Value Prelude.Double)),
                                     authorizerUri :: (Prelude.Maybe (Value Prelude.Text)),
                                     identityValidationExpression :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaAuthorizerConfigProperty :: LambdaAuthorizerConfigProperty
 mkLambdaAuthorizerConfigProperty
   = LambdaAuthorizerConfigProperty

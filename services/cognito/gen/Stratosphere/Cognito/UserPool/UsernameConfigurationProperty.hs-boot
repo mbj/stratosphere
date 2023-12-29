@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UsernameConfigurationProperty :: Prelude.Type
 instance ToResourceProperties UsernameConfigurationProperty
+instance Prelude.Eq UsernameConfigurationProperty
+instance Prelude.Show UsernameConfigurationProperty
 instance JSON.ToJSON UsernameConfigurationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AssetHierarchyProperty :: Prelude.Type
 instance ToResourceProperties AssetHierarchyProperty
+instance Prelude.Eq AssetHierarchyProperty
+instance Prelude.Show AssetHierarchyProperty
 instance JSON.ToJSON AssetHierarchyProperty

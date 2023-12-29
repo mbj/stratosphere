@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FieldToMatchProperty :: Prelude.Type
 instance ToResourceProperties FieldToMatchProperty
+instance Prelude.Eq FieldToMatchProperty
+instance Prelude.Show FieldToMatchProperty
 instance JSON.ToJSON FieldToMatchProperty

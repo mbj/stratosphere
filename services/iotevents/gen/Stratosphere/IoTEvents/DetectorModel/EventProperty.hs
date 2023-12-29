@@ -11,6 +11,7 @@ data EventProperty
   = EventProperty {actions :: (Prelude.Maybe [ActionProperty]),
                    condition :: (Prelude.Maybe (Value Prelude.Text)),
                    eventName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventProperty :: Value Prelude.Text -> EventProperty
 mkEventProperty eventName
   = EventProperty

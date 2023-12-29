@@ -15,6 +15,7 @@ data Rotation
               startTime :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [Tag]),
               timeZoneId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRotation ::
   ValueList Prelude.Text
   -> Value Prelude.Text

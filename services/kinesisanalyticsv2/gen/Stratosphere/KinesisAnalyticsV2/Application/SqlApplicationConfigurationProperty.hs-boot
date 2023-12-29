@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SqlApplicationConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SqlApplicationConfigurationProperty
+instance Prelude.Eq SqlApplicationConfigurationProperty
+instance Prelude.Show SqlApplicationConfigurationProperty
 instance JSON.ToJSON SqlApplicationConfigurationProperty

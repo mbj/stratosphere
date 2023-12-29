@@ -17,6 +17,7 @@ data GlobalSecondaryIndexProperty
                                   keySchema :: [KeySchemaProperty],
                                   projection :: ProjectionProperty,
                                   provisionedThroughput :: (Prelude.Maybe ProvisionedThroughputProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalSecondaryIndexProperty ::
   Value Prelude.Text
   -> [KeySchemaProperty]

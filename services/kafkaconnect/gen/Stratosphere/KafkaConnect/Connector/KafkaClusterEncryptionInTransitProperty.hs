@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KafkaClusterEncryptionInTransitProperty
   = KafkaClusterEncryptionInTransitProperty {encryptionType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKafkaClusterEncryptionInTransitProperty ::
   Value Prelude.Text -> KafkaClusterEncryptionInTransitProperty
 mkKafkaClusterEncryptionInTransitProperty encryptionType

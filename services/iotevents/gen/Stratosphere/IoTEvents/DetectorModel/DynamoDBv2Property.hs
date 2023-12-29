@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DynamoDBv2Property
   = DynamoDBv2Property {payload :: (Prelude.Maybe PayloadProperty),
                         tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBv2Property :: Value Prelude.Text -> DynamoDBv2Property
 mkDynamoDBv2Property tableName
   = DynamoDBv2Property

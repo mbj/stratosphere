@@ -14,6 +14,7 @@ data GrpcGatewayRouteMatchProperty
                                    metadata :: (Prelude.Maybe [GrpcGatewayRouteMetadataProperty]),
                                    port :: (Prelude.Maybe (Value Prelude.Integer)),
                                    serviceName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcGatewayRouteMatchProperty :: GrpcGatewayRouteMatchProperty
 mkGrpcGatewayRouteMatchProperty
   = GrpcGatewayRouteMatchProperty

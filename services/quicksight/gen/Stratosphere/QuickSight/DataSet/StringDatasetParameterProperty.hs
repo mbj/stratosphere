@@ -13,6 +13,7 @@ data StringDatasetParameterProperty
                                     id :: (Value Prelude.Text),
                                     name :: (Value Prelude.Text),
                                     valueType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStringDatasetParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

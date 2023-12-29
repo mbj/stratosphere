@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TableInlineVisualizationProperty :: Prelude.Type
 instance ToResourceProperties TableInlineVisualizationProperty
+instance Prelude.Eq TableInlineVisualizationProperty
+instance Prelude.Show TableInlineVisualizationProperty
 instance JSON.ToJSON TableInlineVisualizationProperty

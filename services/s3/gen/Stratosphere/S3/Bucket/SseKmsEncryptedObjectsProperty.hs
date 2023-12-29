@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SseKmsEncryptedObjectsProperty
   = SseKmsEncryptedObjectsProperty {status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSseKmsEncryptedObjectsProperty ::
   Value Prelude.Text -> SseKmsEncryptedObjectsProperty
 mkSseKmsEncryptedObjectsProperty status

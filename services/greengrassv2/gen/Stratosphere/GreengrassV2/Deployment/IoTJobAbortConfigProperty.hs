@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.GreengrassV2.Deployment.IoTJobAbortCriteriaPr
 import Stratosphere.ResourceProperties
 data IoTJobAbortConfigProperty
   = IoTJobAbortConfigProperty {criteriaList :: [IoTJobAbortCriteriaProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobAbortConfigProperty ::
   [IoTJobAbortCriteriaProperty] -> IoTJobAbortConfigProperty
 mkIoTJobAbortConfigProperty criteriaList

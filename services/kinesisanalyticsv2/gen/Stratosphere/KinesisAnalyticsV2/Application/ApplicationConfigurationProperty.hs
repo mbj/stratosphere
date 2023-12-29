@@ -21,6 +21,7 @@ data ApplicationConfigurationProperty
                                       sqlApplicationConfiguration :: (Prelude.Maybe SqlApplicationConfigurationProperty),
                                       vpcConfigurations :: (Prelude.Maybe [VpcConfigurationProperty]),
                                       zeppelinApplicationConfiguration :: (Prelude.Maybe ZeppelinApplicationConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationConfigurationProperty ::
   ApplicationConfigurationProperty
 mkApplicationConfigurationProperty

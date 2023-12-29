@@ -12,6 +12,7 @@ data EIPAssociation
                     instanceId :: (Prelude.Maybe (Value Prelude.Text)),
                     networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
                     privateIpAddress :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEIPAssociation :: EIPAssociation
 mkEIPAssociation
   = EIPAssociation

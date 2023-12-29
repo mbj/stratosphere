@@ -23,6 +23,7 @@ data NetworkInterfaceProperty
                               privateIpAddresses :: (Prelude.Maybe [PrivateIpAddressSpecificationProperty]),
                               secondaryPrivateIpAddressCount :: (Prelude.Maybe (Value Prelude.Integer)),
                               subnetId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfaceProperty ::
   Value Prelude.Text -> NetworkInterfaceProperty
 mkNetworkInterfaceProperty deviceIndex

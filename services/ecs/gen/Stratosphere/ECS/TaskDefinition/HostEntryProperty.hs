@@ -9,6 +9,7 @@ import Stratosphere.Value
 data HostEntryProperty
   = HostEntryProperty {hostname :: (Prelude.Maybe (Value Prelude.Text)),
                        ipAddress :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHostEntryProperty :: HostEntryProperty
 mkHostEntryProperty
   = HostEntryProperty

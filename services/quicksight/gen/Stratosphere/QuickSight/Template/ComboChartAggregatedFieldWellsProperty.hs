@@ -13,6 +13,7 @@ data ComboChartAggregatedFieldWellsProperty
                                             category :: (Prelude.Maybe [DimensionFieldProperty]),
                                             colors :: (Prelude.Maybe [DimensionFieldProperty]),
                                             lineValues :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComboChartAggregatedFieldWellsProperty ::
   ComboChartAggregatedFieldWellsProperty
 mkComboChartAggregatedFieldWellsProperty

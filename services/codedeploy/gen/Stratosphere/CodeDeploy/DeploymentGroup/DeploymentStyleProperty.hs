@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DeploymentStyleProperty
   = DeploymentStyleProperty {deploymentOption :: (Prelude.Maybe (Value Prelude.Text)),
                              deploymentType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentStyleProperty :: DeploymentStyleProperty
 mkDeploymentStyleProperty
   = DeploymentStyleProperty

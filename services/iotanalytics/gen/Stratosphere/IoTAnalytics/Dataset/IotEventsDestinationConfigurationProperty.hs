@@ -10,6 +10,7 @@ import Stratosphere.Value
 data IotEventsDestinationConfigurationProperty
   = IotEventsDestinationConfigurationProperty {inputName :: (Value Prelude.Text),
                                                roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIotEventsDestinationConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> IotEventsDestinationConfigurationProperty

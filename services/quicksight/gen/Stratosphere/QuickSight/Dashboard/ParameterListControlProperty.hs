@@ -18,6 +18,7 @@ data ParameterListControlProperty
                                   sourceParameterName :: (Value Prelude.Text),
                                   title :: (Value Prelude.Text),
                                   type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterListControlProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

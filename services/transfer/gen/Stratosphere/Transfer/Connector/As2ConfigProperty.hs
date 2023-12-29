@@ -15,6 +15,7 @@ data As2ConfigProperty
                        messageSubject :: (Prelude.Maybe (Value Prelude.Text)),
                        partnerProfileId :: (Prelude.Maybe (Value Prelude.Text)),
                        signingAlgorithm :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAs2ConfigProperty :: As2ConfigProperty
 mkAs2ConfigProperty
   = As2ConfigProperty

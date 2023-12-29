@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AccessControlAttributeProperty :: Prelude.Type
 instance ToResourceProperties AccessControlAttributeProperty
+instance Prelude.Eq AccessControlAttributeProperty
+instance Prelude.Show AccessControlAttributeProperty
 instance JSON.ToJSON AccessControlAttributeProperty

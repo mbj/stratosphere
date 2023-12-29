@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TriggerConfigProperty
   = TriggerConfigProperty {triggerProperties :: (Prelude.Maybe ScheduledTriggerPropertiesProperty),
                            triggerType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggerConfigProperty ::
   Value Prelude.Text -> TriggerConfigProperty
 mkTriggerConfigProperty triggerType

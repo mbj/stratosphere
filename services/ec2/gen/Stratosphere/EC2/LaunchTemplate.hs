@@ -13,6 +13,7 @@ data LaunchTemplate
                     launchTemplateName :: (Prelude.Maybe (Value Prelude.Text)),
                     tagSpecifications :: (Prelude.Maybe [LaunchTemplateTagSpecificationProperty]),
                     versionDescription :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplate :: LaunchTemplateDataProperty -> LaunchTemplate
 mkLaunchTemplate launchTemplateData
   = LaunchTemplate

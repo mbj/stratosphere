@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InlineCustomDocumentEnrichmentConfigurationProperty :: Prelude.Type
 instance ToResourceProperties InlineCustomDocumentEnrichmentConfigurationProperty
+instance Prelude.Eq InlineCustomDocumentEnrichmentConfigurationProperty
+instance Prelude.Show InlineCustomDocumentEnrichmentConfigurationProperty
 instance JSON.ToJSON InlineCustomDocumentEnrichmentConfigurationProperty

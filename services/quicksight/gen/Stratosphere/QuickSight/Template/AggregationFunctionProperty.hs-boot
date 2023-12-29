@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AggregationFunctionProperty :: Prelude.Type
 instance ToResourceProperties AggregationFunctionProperty
+instance Prelude.Eq AggregationFunctionProperty
+instance Prelude.Show AggregationFunctionProperty
 instance JSON.ToJSON AggregationFunctionProperty

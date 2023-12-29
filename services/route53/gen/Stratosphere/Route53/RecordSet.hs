@@ -26,6 +26,7 @@ data RecordSet
                tTL :: (Prelude.Maybe (Value Prelude.Text)),
                type' :: (Value Prelude.Text),
                weight :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordSet ::
   Value Prelude.Text -> Value Prelude.Text -> RecordSet
 mkRecordSet name type'

@@ -14,6 +14,7 @@ data HealthCheckConfigurationProperty
                                       protocol :: (Prelude.Maybe (Value Prelude.Text)),
                                       timeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                       unhealthyThreshold :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckConfigurationProperty ::
   HealthCheckConfigurationProperty
 mkHealthCheckConfigurationProperty

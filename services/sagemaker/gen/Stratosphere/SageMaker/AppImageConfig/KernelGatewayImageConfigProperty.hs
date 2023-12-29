@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data KernelGatewayImageConfigProperty
   = KernelGatewayImageConfigProperty {fileSystemConfig :: (Prelude.Maybe FileSystemConfigProperty),
                                       kernelSpecs :: [KernelSpecProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKernelGatewayImageConfigProperty ::
   [KernelSpecProperty] -> KernelGatewayImageConfigProperty
 mkKernelGatewayImageConfigProperty kernelSpecs

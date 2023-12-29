@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PauseClusterMessageProperty :: Prelude.Type
 instance ToResourceProperties PauseClusterMessageProperty
+instance Prelude.Eq PauseClusterMessageProperty
+instance Prelude.Show PauseClusterMessageProperty
 instance JSON.ToJSON PauseClusterMessageProperty

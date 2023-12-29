@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VPNGatewayRoutePropagation
   = VPNGatewayRoutePropagation {routeTableIds :: (ValueList Prelude.Text),
                                 vpnGatewayId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPNGatewayRoutePropagation ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> VPNGatewayRoutePropagation

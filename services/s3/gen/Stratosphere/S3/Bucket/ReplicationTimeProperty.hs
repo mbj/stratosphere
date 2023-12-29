@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ReplicationTimeProperty
   = ReplicationTimeProperty {status :: (Value Prelude.Text),
                              time :: ReplicationTimeValueProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationTimeProperty ::
   Value Prelude.Text
   -> ReplicationTimeValueProperty -> ReplicationTimeProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FiltersProperty
   = FiltersProperty {filterString :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFiltersProperty :: Value Prelude.Text -> FiltersProperty
 mkFiltersProperty filterString
   = FiltersProperty {filterString = filterString}

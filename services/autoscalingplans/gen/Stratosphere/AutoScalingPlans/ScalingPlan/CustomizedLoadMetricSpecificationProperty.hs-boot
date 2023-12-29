@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomizedLoadMetricSpecificationProperty :: Prelude.Type
 instance ToResourceProperties CustomizedLoadMetricSpecificationProperty
+instance Prelude.Eq CustomizedLoadMetricSpecificationProperty
+instance Prelude.Show CustomizedLoadMetricSpecificationProperty
 instance JSON.ToJSON CustomizedLoadMetricSpecificationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ELBInfoProperty :: Prelude.Type
 instance ToResourceProperties ELBInfoProperty
+instance Prelude.Eq ELBInfoProperty
+instance Prelude.Show ELBInfoProperty
 instance JSON.ToJSON ELBInfoProperty

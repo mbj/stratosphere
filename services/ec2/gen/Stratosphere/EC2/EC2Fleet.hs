@@ -24,6 +24,7 @@ data EC2Fleet
               type' :: (Prelude.Maybe (Value Prelude.Text)),
               validFrom :: (Prelude.Maybe (Value Prelude.Text)),
               validUntil :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEC2Fleet ::
   [FleetLaunchTemplateConfigRequestProperty]
   -> TargetCapacitySpecificationRequestProperty -> EC2Fleet

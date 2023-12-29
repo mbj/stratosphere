@@ -10,6 +10,7 @@ data DialogActionProperty
   = DialogActionProperty {slotToElicit :: (Prelude.Maybe (Value Prelude.Text)),
                           suppressNextMessage :: (Prelude.Maybe (Value Prelude.Bool)),
                           type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDialogActionProperty ::
   Value Prelude.Text -> DialogActionProperty
 mkDialogActionProperty type'

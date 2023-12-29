@@ -14,6 +14,7 @@ data ParametersProperty
                         decimalParameters :: (Prelude.Maybe [DecimalParameterProperty]),
                         integerParameters :: (Prelude.Maybe [IntegerParameterProperty]),
                         stringParameters :: (Prelude.Maybe [StringParameterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParametersProperty :: ParametersProperty
 mkParametersProperty
   = ParametersProperty

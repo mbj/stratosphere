@@ -12,6 +12,7 @@ data CustomFilterListConfigurationProperty
                                            matchOperator :: (Value Prelude.Text),
                                            nullOption :: (Value Prelude.Text),
                                            selectAllOptions :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomFilterListConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> CustomFilterListConfigurationProperty

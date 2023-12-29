@@ -18,6 +18,7 @@ data BotLocaleProperty
                        nluConfidenceThreshold :: (Value Prelude.Double),
                        slotTypes :: (Prelude.Maybe [SlotTypeProperty]),
                        voiceSettings :: (Prelude.Maybe VoiceSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBotLocaleProperty ::
   Value Prelude.Text -> Value Prelude.Double -> BotLocaleProperty
 mkBotLocaleProperty localeId nluConfidenceThreshold

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TimeRangeFilterValueProperty :: Prelude.Type
 instance ToResourceProperties TimeRangeFilterValueProperty
+instance Prelude.Eq TimeRangeFilterValueProperty
+instance Prelude.Show TimeRangeFilterValueProperty
 instance JSON.ToJSON TimeRangeFilterValueProperty

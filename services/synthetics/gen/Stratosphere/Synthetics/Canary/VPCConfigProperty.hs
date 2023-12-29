@@ -10,6 +10,7 @@ data VPCConfigProperty
   = VPCConfigProperty {securityGroupIds :: (ValueList Prelude.Text),
                        subnetIds :: (ValueList Prelude.Text),
                        vpcId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCConfigProperty ::
   ValueList Prelude.Text
   -> ValueList Prelude.Text -> VPCConfigProperty

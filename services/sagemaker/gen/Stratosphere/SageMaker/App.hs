@@ -15,6 +15,7 @@ data App
          resourceSpec :: (Prelude.Maybe ResourceSpecProperty),
          tags :: (Prelude.Maybe [Tag]),
          userProfileName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApp ::
   Value Prelude.Text
   -> Value Prelude.Text

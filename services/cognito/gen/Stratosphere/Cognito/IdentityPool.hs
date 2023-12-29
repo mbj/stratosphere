@@ -21,6 +21,7 @@ data IdentityPool
                   pushSync :: (Prelude.Maybe PushSyncProperty),
                   samlProviderARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
                   supportedLoginProviders :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityPool :: Value Prelude.Bool -> IdentityPool
 mkIdentityPool allowUnauthenticatedIdentities
   = IdentityPool

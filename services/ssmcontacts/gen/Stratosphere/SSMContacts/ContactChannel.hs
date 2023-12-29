@@ -12,6 +12,7 @@ data ContactChannel
                     channelType :: (Value Prelude.Text),
                     contactId :: (Value Prelude.Text),
                     deferActivation :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContactChannel ::
   Value Prelude.Text
   -> Value Prelude.Text

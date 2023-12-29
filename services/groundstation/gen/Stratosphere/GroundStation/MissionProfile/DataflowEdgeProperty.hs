@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DataflowEdgeProperty
   = DataflowEdgeProperty {destination :: (Prelude.Maybe (Value Prelude.Text)),
                           source :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataflowEdgeProperty :: DataflowEdgeProperty
 mkDataflowEdgeProperty
   = DataflowEdgeProperty

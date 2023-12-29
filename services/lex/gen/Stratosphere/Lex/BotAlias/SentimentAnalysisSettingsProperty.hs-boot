@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SentimentAnalysisSettingsProperty :: Prelude.Type
 instance ToResourceProperties SentimentAnalysisSettingsProperty
+instance Prelude.Eq SentimentAnalysisSettingsProperty
+instance Prelude.Show SentimentAnalysisSettingsProperty
 instance JSON.ToJSON SentimentAnalysisSettingsProperty

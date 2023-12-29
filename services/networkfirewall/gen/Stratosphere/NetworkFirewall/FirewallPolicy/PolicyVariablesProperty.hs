@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.IPSetProperty 
 import Stratosphere.ResourceProperties
 data PolicyVariablesProperty
   = PolicyVariablesProperty {ruleVariables :: (Prelude.Maybe (Prelude.Map Prelude.Text IPSetProperty))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyVariablesProperty :: PolicyVariablesProperty
 mkPolicyVariablesProperty
   = PolicyVariablesProperty {ruleVariables = Prelude.Nothing}

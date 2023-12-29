@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Datastore.DatastorePartitionProp
 import Stratosphere.ResourceProperties
 data DatastorePartitionsProperty
   = DatastorePartitionsProperty {partitions :: (Prelude.Maybe [DatastorePartitionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatastorePartitionsProperty :: DatastorePartitionsProperty
 mkDatastorePartitionsProperty
   = DatastorePartitionsProperty {partitions = Prelude.Nothing}

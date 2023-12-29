@@ -17,6 +17,7 @@ data Route
            serviceIdentifier :: (Value Prelude.Text),
            tags :: (Prelude.Maybe [Tag]),
            uriPathRoute :: (Prelude.Maybe UriPathRouteInputProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoute ::
   Value Prelude.Text
   -> Value Prelude.Text

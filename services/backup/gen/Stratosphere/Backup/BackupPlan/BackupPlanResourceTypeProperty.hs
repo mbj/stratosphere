@@ -13,6 +13,7 @@ data BackupPlanResourceTypeProperty
   = BackupPlanResourceTypeProperty {advancedBackupSettings :: (Prelude.Maybe [AdvancedBackupSettingResourceTypeProperty]),
                                     backupPlanName :: (Value Prelude.Text),
                                     backupPlanRule :: [BackupRuleResourceTypeProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupPlanResourceTypeProperty ::
   Value Prelude.Text
   -> [BackupRuleResourceTypeProperty]

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BodySectionConfigurationProperty :: Prelude.Type
 instance ToResourceProperties BodySectionConfigurationProperty
+instance Prelude.Eq BodySectionConfigurationProperty
+instance Prelude.Show BodySectionConfigurationProperty
 instance JSON.ToJSON BodySectionConfigurationProperty

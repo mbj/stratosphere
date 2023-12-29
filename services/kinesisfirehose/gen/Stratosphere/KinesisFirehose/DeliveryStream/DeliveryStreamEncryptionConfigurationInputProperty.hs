@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DeliveryStreamEncryptionConfigurationInputProperty
   = DeliveryStreamEncryptionConfigurationInputProperty {keyARN :: (Prelude.Maybe (Value Prelude.Text)),
                                                         keyType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryStreamEncryptionConfigurationInputProperty ::
   Value Prelude.Text
   -> DeliveryStreamEncryptionConfigurationInputProperty

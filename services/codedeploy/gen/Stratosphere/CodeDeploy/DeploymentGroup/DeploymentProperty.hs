@@ -11,6 +11,7 @@ data DeploymentProperty
   = DeploymentProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
                         ignoreApplicationStopFailures :: (Prelude.Maybe (Value Prelude.Bool)),
                         revision :: RevisionLocationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentProperty ::
   RevisionLocationProperty -> DeploymentProperty
 mkDeploymentProperty revision

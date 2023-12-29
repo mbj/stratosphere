@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
-data LabelProperty = LabelProperty {name :: (Value Prelude.Text)}
+data LabelProperty
+  = LabelProperty {name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLabelProperty :: Value Prelude.Text -> LabelProperty
 mkLabelProperty name = LabelProperty {name = name}
 instance ToResourceProperties LabelProperty where

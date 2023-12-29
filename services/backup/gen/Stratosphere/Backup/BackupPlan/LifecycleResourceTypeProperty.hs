@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LifecycleResourceTypeProperty
   = LifecycleResourceTypeProperty {deleteAfterDays :: (Prelude.Maybe (Value Prelude.Double)),
                                    moveToColdStorageAfterDays :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecycleResourceTypeProperty :: LifecycleResourceTypeProperty
 mkLifecycleResourceTypeProperty
   = LifecycleResourceTypeProperty

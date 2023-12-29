@@ -26,6 +26,7 @@ data DataSource
                 tags :: (Prelude.Maybe [Tag]),
                 type' :: (Prelude.Maybe (Value Prelude.Text)),
                 vpcConnectionProperties :: (Prelude.Maybe VpcConnectionPropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSource :: DataSource
 mkDataSource
   = DataSource

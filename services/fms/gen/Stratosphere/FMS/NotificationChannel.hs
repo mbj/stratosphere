@@ -9,6 +9,7 @@ import Stratosphere.Value
 data NotificationChannel
   = NotificationChannel {snsRoleName :: (Value Prelude.Text),
                          snsTopicArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationChannel ::
   Value Prelude.Text -> Value Prelude.Text -> NotificationChannel
 mkNotificationChannel snsRoleName snsTopicArn

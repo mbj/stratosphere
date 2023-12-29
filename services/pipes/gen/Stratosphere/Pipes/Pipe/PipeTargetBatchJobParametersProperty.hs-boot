@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipeTargetBatchJobParametersProperty :: Prelude.Type
 instance ToResourceProperties PipeTargetBatchJobParametersProperty
+instance Prelude.Eq PipeTargetBatchJobParametersProperty
+instance Prelude.Show PipeTargetBatchJobParametersProperty
 instance JSON.ToJSON PipeTargetBatchJobParametersProperty

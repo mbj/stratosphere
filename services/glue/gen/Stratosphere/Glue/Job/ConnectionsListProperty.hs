@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionsListProperty
   = ConnectionsListProperty {connections :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionsListProperty :: ConnectionsListProperty
 mkConnectionsListProperty
   = ConnectionsListProperty {connections = Prelude.Nothing}

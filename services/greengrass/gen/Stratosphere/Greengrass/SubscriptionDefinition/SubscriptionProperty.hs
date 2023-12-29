@@ -11,6 +11,7 @@ data SubscriptionProperty
                           source :: (Value Prelude.Text),
                           subject :: (Value Prelude.Text),
                           target :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriptionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

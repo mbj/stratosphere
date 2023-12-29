@@ -11,6 +11,7 @@ data LambdaFunctionAssociationProperty
   = LambdaFunctionAssociationProperty {eventType :: (Prelude.Maybe (Value Prelude.Text)),
                                        includeBody :: (Prelude.Maybe (Value Prelude.Bool)),
                                        lambdaFunctionARN :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaFunctionAssociationProperty ::
   LambdaFunctionAssociationProperty
 mkLambdaFunctionAssociationProperty

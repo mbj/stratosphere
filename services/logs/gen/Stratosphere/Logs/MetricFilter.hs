@@ -12,6 +12,7 @@ data MetricFilter
                   filterPattern :: (Value Prelude.Text),
                   logGroupName :: (Value Prelude.Text),
                   metricTransformations :: [MetricTransformationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricFilter ::
   Value Prelude.Text
   -> Value Prelude.Text

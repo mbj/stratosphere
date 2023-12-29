@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ImageResponseCardProperty :: Prelude.Type
 instance ToResourceProperties ImageResponseCardProperty
+instance Prelude.Eq ImageResponseCardProperty
+instance Prelude.Show ImageResponseCardProperty
 instance JSON.ToJSON ImageResponseCardProperty

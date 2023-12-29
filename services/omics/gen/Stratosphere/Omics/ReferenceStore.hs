@@ -12,6 +12,7 @@ data ReferenceStore
                     name :: (Value Prelude.Text),
                     sseConfig :: (Prelude.Maybe SseConfigProperty),
                     tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceStore :: Value Prelude.Text -> ReferenceStore
 mkReferenceStore name
   = ReferenceStore

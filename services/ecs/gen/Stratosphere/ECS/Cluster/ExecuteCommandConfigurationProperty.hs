@@ -12,6 +12,7 @@ data ExecuteCommandConfigurationProperty
   = ExecuteCommandConfigurationProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                                          logConfiguration :: (Prelude.Maybe ExecuteCommandLogConfigurationProperty),
                                          logging :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExecuteCommandConfigurationProperty ::
   ExecuteCommandConfigurationProperty
 mkExecuteCommandConfigurationProperty

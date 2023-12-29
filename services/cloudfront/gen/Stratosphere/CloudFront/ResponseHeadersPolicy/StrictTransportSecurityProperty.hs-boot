@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StrictTransportSecurityProperty :: Prelude.Type
 instance ToResourceProperties StrictTransportSecurityProperty
+instance Prelude.Eq StrictTransportSecurityProperty
+instance Prelude.Show StrictTransportSecurityProperty
 instance JSON.ToJSON StrictTransportSecurityProperty

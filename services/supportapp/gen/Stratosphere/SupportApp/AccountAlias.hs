@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountAlias
   = AccountAlias {accountAlias :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountAlias :: Value Prelude.Text -> AccountAlias
 mkAccountAlias accountAlias
   = AccountAlias {accountAlias = accountAlias}

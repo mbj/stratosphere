@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data FileFormatConfigurationProperty
   = FileFormatConfigurationProperty {jsonConfiguration :: (Prelude.Maybe JSON.Object),
                                      parquetConfiguration :: (Prelude.Maybe ParquetConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFileFormatConfigurationProperty ::
   FileFormatConfigurationProperty
 mkFileFormatConfigurationProperty

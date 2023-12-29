@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AllowedPublishersProperty
   = AllowedPublishersProperty {signingProfileVersionArns :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowedPublishersProperty ::
   ValueList Prelude.Text -> AllowedPublishersProperty
 mkAllowedPublishersProperty signingProfileVersionArns

@@ -10,6 +10,7 @@ data RdsDbInstanceProperty
   = RdsDbInstanceProperty {dbPassword :: (Value Prelude.Text),
                            dbUser :: (Value Prelude.Text),
                            rdsDbInstanceArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRdsDbInstanceProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

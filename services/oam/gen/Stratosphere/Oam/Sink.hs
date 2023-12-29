@@ -10,6 +10,7 @@ data Sink
   = Sink {name :: (Value Prelude.Text),
           policy :: (Prelude.Maybe JSON.Object),
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSink :: Value Prelude.Text -> Sink
 mkSink name
   = Sink

@@ -10,6 +10,7 @@ data HeaderMatchTypeProperty
   = HeaderMatchTypeProperty {contains :: (Prelude.Maybe (Value Prelude.Text)),
                              exact :: (Prelude.Maybe (Value Prelude.Text)),
                              prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeaderMatchTypeProperty :: HeaderMatchTypeProperty
 mkHeaderMatchTypeProperty
   = HeaderMatchTypeProperty

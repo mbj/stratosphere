@@ -10,6 +10,7 @@ import Stratosphere.Value
 data OpenSearchServiceConfigProperty
   = OpenSearchServiceConfigProperty {awsRegion :: (Value Prelude.Text),
                                      endpoint :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenSearchServiceConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> OpenSearchServiceConfigProperty

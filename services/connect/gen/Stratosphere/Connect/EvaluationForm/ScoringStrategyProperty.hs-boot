@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ScoringStrategyProperty :: Prelude.Type
 instance ToResourceProperties ScoringStrategyProperty
+instance Prelude.Eq ScoringStrategyProperty
+instance Prelude.Show ScoringStrategyProperty
 instance JSON.ToJSON ScoringStrategyProperty

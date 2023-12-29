@@ -12,6 +12,7 @@ data ElasticsearchActionProperty
                                  index :: (Value Prelude.Text),
                                  roleArn :: (Value Prelude.Text),
                                  type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticsearchActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

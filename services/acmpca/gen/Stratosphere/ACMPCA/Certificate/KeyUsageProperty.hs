@@ -16,6 +16,7 @@ data KeyUsageProperty
                       keyCertSign :: (Prelude.Maybe (Value Prelude.Bool)),
                       keyEncipherment :: (Prelude.Maybe (Value Prelude.Bool)),
                       nonRepudiation :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyUsageProperty :: KeyUsageProperty
 mkKeyUsageProperty
   = KeyUsageProperty

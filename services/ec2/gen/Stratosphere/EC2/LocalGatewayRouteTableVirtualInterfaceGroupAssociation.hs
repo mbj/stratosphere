@@ -12,6 +12,7 @@ data LocalGatewayRouteTableVirtualInterfaceGroupAssociation
   = LocalGatewayRouteTableVirtualInterfaceGroupAssociation {localGatewayRouteTableId :: (Value Prelude.Text),
                                                             localGatewayVirtualInterfaceGroupId :: (Value Prelude.Text),
                                                             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text

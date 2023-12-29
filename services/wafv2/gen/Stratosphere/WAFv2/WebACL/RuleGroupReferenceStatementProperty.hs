@@ -13,6 +13,7 @@ data RuleGroupReferenceStatementProperty
   = RuleGroupReferenceStatementProperty {arn :: (Value Prelude.Text),
                                          excludedRules :: (Prelude.Maybe [ExcludedRuleProperty]),
                                          ruleActionOverrides :: (Prelude.Maybe [RuleActionOverrideProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroupReferenceStatementProperty ::
   Value Prelude.Text -> RuleGroupReferenceStatementProperty
 mkRuleGroupReferenceStatementProperty arn

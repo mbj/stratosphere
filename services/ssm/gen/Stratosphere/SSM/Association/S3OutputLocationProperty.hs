@@ -10,6 +10,7 @@ data S3OutputLocationProperty
   = S3OutputLocationProperty {outputS3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
                               outputS3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                               outputS3Region :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3OutputLocationProperty :: S3OutputLocationProperty
 mkS3OutputLocationProperty
   = S3OutputLocationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Eac3AtmosSettingsProperty :: Prelude.Type
 instance ToResourceProperties Eac3AtmosSettingsProperty
+instance Prelude.Eq Eac3AtmosSettingsProperty
+instance Prelude.Show Eac3AtmosSettingsProperty
 instance JSON.ToJSON Eac3AtmosSettingsProperty

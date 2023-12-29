@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SqlConfigurationProperty
   = SqlConfigurationProperty {queryIdentifiersEnclosingOption :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlConfigurationProperty :: SqlConfigurationProperty
 mkSqlConfigurationProperty
   = SqlConfigurationProperty

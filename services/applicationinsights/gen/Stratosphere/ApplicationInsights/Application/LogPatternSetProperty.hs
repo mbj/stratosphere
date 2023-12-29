@@ -10,6 +10,7 @@ import Stratosphere.Value
 data LogPatternSetProperty
   = LogPatternSetProperty {logPatterns :: [LogPatternProperty],
                            patternSetName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogPatternSetProperty ::
   [LogPatternProperty] -> Value Prelude.Text -> LogPatternSetProperty
 mkLogPatternSetProperty logPatterns patternSetName

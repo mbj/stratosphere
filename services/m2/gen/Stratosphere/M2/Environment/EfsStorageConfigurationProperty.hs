@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EfsStorageConfigurationProperty
   = EfsStorageConfigurationProperty {fileSystemId :: (Value Prelude.Text),
                                      mountPoint :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEfsStorageConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EfsStorageConfigurationProperty

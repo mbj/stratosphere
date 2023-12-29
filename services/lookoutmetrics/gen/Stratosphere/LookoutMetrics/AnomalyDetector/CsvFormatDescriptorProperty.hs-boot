@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CsvFormatDescriptorProperty :: Prelude.Type
 instance ToResourceProperties CsvFormatDescriptorProperty
+instance Prelude.Eq CsvFormatDescriptorProperty
+instance Prelude.Show CsvFormatDescriptorProperty
 instance JSON.ToJSON CsvFormatDescriptorProperty

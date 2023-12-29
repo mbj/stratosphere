@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HighAvailabilityConfigProperty :: Prelude.Type
 instance ToResourceProperties HighAvailabilityConfigProperty
+instance Prelude.Eq HighAvailabilityConfigProperty
+instance Prelude.Show HighAvailabilityConfigProperty
 instance JSON.ToJSON HighAvailabilityConfigProperty

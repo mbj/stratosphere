@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AudioHlsRenditionSelectionProperty :: Prelude.Type
 instance ToResourceProperties AudioHlsRenditionSelectionProperty
+instance Prelude.Eq AudioHlsRenditionSelectionProperty
+instance Prelude.Show AudioHlsRenditionSelectionProperty
 instance JSON.ToJSON AudioHlsRenditionSelectionProperty

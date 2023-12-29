@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReferenceLineCustomLabelConfigurationProperty
   = ReferenceLineCustomLabelConfigurationProperty {customLabel :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceLineCustomLabelConfigurationProperty ::
   Value Prelude.Text -> ReferenceLineCustomLabelConfigurationProperty
 mkReferenceLineCustomLabelConfigurationProperty customLabel

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReceiptRuleSet
   = ReceiptRuleSet {ruleSetName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReceiptRuleSet :: ReceiptRuleSet
 mkReceiptRuleSet = ReceiptRuleSet {ruleSetName = Prelude.Nothing}
 instance ToResourceProperties ReceiptRuleSet where

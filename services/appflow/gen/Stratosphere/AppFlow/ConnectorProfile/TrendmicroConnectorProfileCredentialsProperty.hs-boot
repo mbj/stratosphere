@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TrendmicroConnectorProfileCredentialsProperty :: Prelude.Type
 instance ToResourceProperties TrendmicroConnectorProfileCredentialsProperty
+instance Prelude.Eq TrendmicroConnectorProfileCredentialsProperty
+instance Prelude.Show TrendmicroConnectorProfileCredentialsProperty
 instance JSON.ToJSON TrendmicroConnectorProfileCredentialsProperty

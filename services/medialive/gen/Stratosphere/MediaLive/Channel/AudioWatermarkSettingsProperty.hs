@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.NielsenWatermarksSettingsPr
 import Stratosphere.ResourceProperties
 data AudioWatermarkSettingsProperty
   = AudioWatermarkSettingsProperty {nielsenWatermarksSettings :: (Prelude.Maybe NielsenWatermarksSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioWatermarkSettingsProperty :: AudioWatermarkSettingsProperty
 mkAudioWatermarkSettingsProperty
   = AudioWatermarkSettingsProperty

@@ -13,6 +13,7 @@ data HeatMapSortConfigurationProperty
                                       heatMapColumnSort :: (Prelude.Maybe [FieldSortOptionsProperty]),
                                       heatMapRowItemsLimitConfiguration :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                       heatMapRowSort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeatMapSortConfigurationProperty ::
   HeatMapSortConfigurationProperty
 mkHeatMapSortConfigurationProperty

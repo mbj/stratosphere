@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TopicSingularFilterConstantProperty
   = TopicSingularFilterConstantProperty {constantType :: (Prelude.Maybe (Value Prelude.Text)),
                                          singularConstant :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicSingularFilterConstantProperty ::
   TopicSingularFilterConstantProperty
 mkTopicSingularFilterConstantProperty

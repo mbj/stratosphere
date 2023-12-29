@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OpenSearchServiceConfigProperty :: Prelude.Type
 instance ToResourceProperties OpenSearchServiceConfigProperty
+instance Prelude.Eq OpenSearchServiceConfigProperty
+instance Prelude.Show OpenSearchServiceConfigProperty
 instance JSON.ToJSON OpenSearchServiceConfigProperty

@@ -11,6 +11,7 @@ data CaptionLanguageMappingProperty
   = CaptionLanguageMappingProperty {captionChannel :: (Prelude.Maybe (Value Prelude.Integer)),
                                     languageCode :: (Prelude.Maybe (Value Prelude.Text)),
                                     languageDescription :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionLanguageMappingProperty :: CaptionLanguageMappingProperty
 mkCaptionLanguageMappingProperty
   = CaptionLanguageMappingProperty

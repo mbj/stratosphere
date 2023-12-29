@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Macie.FindingsFilter.CriterionAdditionalPrope
 import Stratosphere.ResourceProperties
 data FindingCriteriaProperty
   = FindingCriteriaProperty {criterion :: (Prelude.Maybe (Prelude.Map Prelude.Text CriterionAdditionalPropertiesProperty))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFindingCriteriaProperty :: FindingCriteriaProperty
 mkFindingCriteriaProperty
   = FindingCriteriaProperty {criterion = Prelude.Nothing}

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SingleMetricAnomalyDetectorProperty :: Prelude.Type
 instance ToResourceProperties SingleMetricAnomalyDetectorProperty
+instance Prelude.Eq SingleMetricAnomalyDetectorProperty
+instance Prelude.Show SingleMetricAnomalyDetectorProperty
 instance JSON.ToJSON SingleMetricAnomalyDetectorProperty

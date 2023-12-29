@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CollectiveConstantProperty
   = CollectiveConstantProperty {valueList :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCollectiveConstantProperty :: CollectiveConstantProperty
 mkCollectiveConstantProperty
   = CollectiveConstantProperty {valueList = Prelude.Nothing}

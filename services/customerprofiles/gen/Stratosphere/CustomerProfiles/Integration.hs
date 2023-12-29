@@ -16,6 +16,7 @@ data Integration
                  objectTypeNames :: (Prelude.Maybe [ObjectTypeMappingProperty]),
                  tags :: (Prelude.Maybe [Tag]),
                  uri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegration :: Value Prelude.Text -> Integration
 mkIntegration domainName
   = Integration

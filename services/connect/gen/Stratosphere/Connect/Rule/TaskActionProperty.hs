@@ -12,6 +12,7 @@ data TaskActionProperty
                         description :: (Prelude.Maybe (Value Prelude.Text)),
                         name :: (Value Prelude.Text),
                         references :: (Prelude.Maybe (Prelude.Map Prelude.Text ReferenceProperty))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TaskActionProperty
 mkTaskActionProperty contactFlowArn name

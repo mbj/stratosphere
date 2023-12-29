@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReadOnlyFieldInfoProperty :: Prelude.Type
 instance ToResourceProperties ReadOnlyFieldInfoProperty
+instance Prelude.Eq ReadOnlyFieldInfoProperty
+instance Prelude.Show ReadOnlyFieldInfoProperty
 instance JSON.ToJSON ReadOnlyFieldInfoProperty

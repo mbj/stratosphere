@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data JoinInstructionProperty :: Prelude.Type
 instance ToResourceProperties JoinInstructionProperty
+instance Prelude.Eq JoinInstructionProperty
+instance Prelude.Show JoinInstructionProperty
 instance JSON.ToJSON JoinInstructionProperty

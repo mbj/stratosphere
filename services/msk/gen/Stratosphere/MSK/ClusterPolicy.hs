@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ClusterPolicy
   = ClusterPolicy {clusterArn :: (Value Prelude.Text),
                    policy :: JSON.Object}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterPolicy ::
   Value Prelude.Text -> JSON.Object -> ClusterPolicy
 mkClusterPolicy clusterArn policy

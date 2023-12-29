@@ -10,6 +10,7 @@ data UdpGroupSettingsProperty
   = UdpGroupSettingsProperty {inputLossAction :: (Prelude.Maybe (Value Prelude.Text)),
                               timedMetadataId3Frame :: (Prelude.Maybe (Value Prelude.Text)),
                               timedMetadataId3Period :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUdpGroupSettingsProperty :: UdpGroupSettingsProperty
 mkUdpGroupSettingsProperty
   = UdpGroupSettingsProperty

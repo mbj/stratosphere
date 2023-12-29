@@ -10,6 +10,7 @@ data SuperuserParametersProperty
   = SuperuserParametersProperty {emailAddress :: (Prelude.Maybe (Value Prelude.Text)),
                                  firstName :: (Prelude.Maybe (Value Prelude.Text)),
                                  lastName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSuperuserParametersProperty :: SuperuserParametersProperty
 mkSuperuserParametersProperty
   = SuperuserParametersProperty

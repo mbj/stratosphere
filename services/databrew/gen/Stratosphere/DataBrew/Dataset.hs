@@ -17,6 +17,7 @@ data Dataset
              name :: (Value Prelude.Text),
              pathOptions :: (Prelude.Maybe PathOptionsProperty),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataset :: InputProperty -> Value Prelude.Text -> Dataset
 mkDataset input name
   = Dataset

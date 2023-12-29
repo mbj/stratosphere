@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MemoryGiBPerVCpuRequestProperty
   = MemoryGiBPerVCpuRequestProperty {max :: (Prelude.Maybe (Value Prelude.Double)),
                                      min :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMemoryGiBPerVCpuRequestProperty ::
   MemoryGiBPerVCpuRequestProperty
 mkMemoryGiBPerVCpuRequestProperty

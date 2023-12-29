@@ -17,6 +17,7 @@ data PortProperty
                   ipv6Cidrs :: (Prelude.Maybe (ValueList Prelude.Text)),
                   protocol :: (Prelude.Maybe (Value Prelude.Text)),
                   toPort :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortProperty :: PortProperty
 mkPortProperty
   = PortProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AccountTakeoverActionTypeProperty
   = AccountTakeoverActionTypeProperty {eventAction :: (Value Prelude.Text),
                                        notify :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountTakeoverActionTypeProperty ::
   Value Prelude.Text
   -> Value Prelude.Bool -> AccountTakeoverActionTypeProperty

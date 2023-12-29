@@ -12,6 +12,7 @@ data ConnectPeerBgpConfigurationProperty
                                          coreNetworkAsn :: (Prelude.Maybe (Value Prelude.Double)),
                                          peerAddress :: (Prelude.Maybe (Value Prelude.Text)),
                                          peerAsn :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectPeerBgpConfigurationProperty ::
   ConnectPeerBgpConfigurationProperty
 mkConnectPeerBgpConfigurationProperty

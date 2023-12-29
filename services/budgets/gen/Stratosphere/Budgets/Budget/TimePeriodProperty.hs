@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TimePeriodProperty
   = TimePeriodProperty {end :: (Prelude.Maybe (Value Prelude.Text)),
                         start :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimePeriodProperty :: TimePeriodProperty
 mkTimePeriodProperty
   = TimePeriodProperty

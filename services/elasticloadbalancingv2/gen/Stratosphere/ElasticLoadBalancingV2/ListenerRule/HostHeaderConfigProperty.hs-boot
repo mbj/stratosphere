@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HostHeaderConfigProperty :: Prelude.Type
 instance ToResourceProperties HostHeaderConfigProperty
+instance Prelude.Eq HostHeaderConfigProperty
+instance Prelude.Show HostHeaderConfigProperty
 instance JSON.ToJSON HostHeaderConfigProperty

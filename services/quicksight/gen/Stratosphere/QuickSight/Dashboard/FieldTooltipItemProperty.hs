@@ -10,6 +10,7 @@ data FieldTooltipItemProperty
   = FieldTooltipItemProperty {fieldId :: (Value Prelude.Text),
                               label :: (Prelude.Maybe (Value Prelude.Text)),
                               visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldTooltipItemProperty ::
   Value Prelude.Text -> FieldTooltipItemProperty
 mkFieldTooltipItemProperty fieldId

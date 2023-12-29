@@ -11,6 +11,7 @@ import Stratosphere.Value
 data InitialCapacityConfigProperty
   = InitialCapacityConfigProperty {workerConfiguration :: WorkerConfigurationProperty,
                                    workerCount :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInitialCapacityConfigProperty ::
   WorkerConfigurationProperty
   -> Value Prelude.Integer -> InitialCapacityConfigProperty

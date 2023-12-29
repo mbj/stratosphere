@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RangeConstantProperty
   = RangeConstantProperty {maximum :: (Prelude.Maybe (Value Prelude.Text)),
                            minimum :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRangeConstantProperty :: RangeConstantProperty
 mkRangeConstantProperty
   = RangeConstantProperty

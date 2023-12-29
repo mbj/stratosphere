@@ -15,6 +15,7 @@ data SsmAutomationProperty
                            parameters :: (Prelude.Maybe [SsmParameterProperty]),
                            roleArn :: (Value Prelude.Text),
                            targetAccount :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSsmAutomationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SsmAutomationProperty
 mkSsmAutomationProperty documentName roleArn

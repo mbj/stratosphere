@@ -28,6 +28,7 @@ data MsSmoothGroupSettingsProperty
                                    streamManifestBehavior :: (Prelude.Maybe (Value Prelude.Text)),
                                    timestampOffset :: (Prelude.Maybe (Value Prelude.Text)),
                                    timestampOffsetMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMsSmoothGroupSettingsProperty :: MsSmoothGroupSettingsProperty
 mkMsSmoothGroupSettingsProperty
   = MsSmoothGroupSettingsProperty

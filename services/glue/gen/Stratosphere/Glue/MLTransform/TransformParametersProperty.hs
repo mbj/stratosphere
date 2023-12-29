@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TransformParametersProperty
   = TransformParametersProperty {findMatchesParameters :: (Prelude.Maybe FindMatchesParametersProperty),
                                  transformType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformParametersProperty ::
   Value Prelude.Text -> TransformParametersProperty
 mkTransformParametersProperty transformType

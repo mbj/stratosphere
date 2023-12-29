@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeoutProperty
   = TimeoutProperty {attemptDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeoutProperty :: TimeoutProperty
 mkTimeoutProperty
   = TimeoutProperty {attemptDurationSeconds = Prelude.Nothing}

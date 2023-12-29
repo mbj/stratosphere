@@ -18,6 +18,7 @@ data BehaviorCriteriaProperty
                               mlDetectionConfig :: (Prelude.Maybe MachineLearningDetectionConfigProperty),
                               statisticalThreshold :: (Prelude.Maybe StatisticalThresholdProperty),
                               value :: (Prelude.Maybe MetricValueProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBehaviorCriteriaProperty :: BehaviorCriteriaProperty
 mkBehaviorCriteriaProperty
   = BehaviorCriteriaProperty

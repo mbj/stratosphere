@@ -14,6 +14,7 @@ data VirtualNode
                  spec :: VirtualNodeSpecProperty,
                  tags :: (Prelude.Maybe [Tag]),
                  virtualNodeName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNode ::
   Value Prelude.Text -> VirtualNodeSpecProperty -> VirtualNode
 mkVirtualNode meshName spec

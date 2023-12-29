@@ -10,6 +10,7 @@ data LoRaWANGatewayVersionProperty
   = LoRaWANGatewayVersionProperty {model :: (Prelude.Maybe (Value Prelude.Text)),
                                    packageVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                    station :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANGatewayVersionProperty :: LoRaWANGatewayVersionProperty
 mkLoRaWANGatewayVersionProperty
   = LoRaWANGatewayVersionProperty

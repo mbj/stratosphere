@@ -11,6 +11,7 @@ import Stratosphere.Value
 data RangedSocketAddressProperty
   = RangedSocketAddressProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                                  portRange :: (Prelude.Maybe IntegerRangeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRangedSocketAddressProperty :: RangedSocketAddressProperty
 mkRangedSocketAddressProperty
   = RangedSocketAddressProperty

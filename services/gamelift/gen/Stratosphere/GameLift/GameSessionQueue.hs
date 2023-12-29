@@ -21,6 +21,7 @@ data GameSessionQueue
                       priorityConfiguration :: (Prelude.Maybe PriorityConfigurationProperty),
                       tags :: (Prelude.Maybe [Tag]),
                       timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGameSessionQueue :: Value Prelude.Text -> GameSessionQueue
 mkGameSessionQueue name
   = GameSessionQueue

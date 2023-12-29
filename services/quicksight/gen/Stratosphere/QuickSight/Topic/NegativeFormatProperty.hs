@@ -9,6 +9,7 @@ import Stratosphere.Value
 data NegativeFormatProperty
   = NegativeFormatProperty {prefix :: (Prelude.Maybe (Value Prelude.Text)),
                             suffix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNegativeFormatProperty :: NegativeFormatProperty
 mkNegativeFormatProperty
   = NegativeFormatProperty

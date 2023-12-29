@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ResourcePolicy
   = ResourcePolicy {policy :: JSON.Object,
                     resourceArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePolicy ::
   JSON.Object -> Value Prelude.Text -> ResourcePolicy
 mkResourcePolicy policy resourceArn

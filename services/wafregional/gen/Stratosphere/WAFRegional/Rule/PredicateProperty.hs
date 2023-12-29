@@ -10,6 +10,7 @@ data PredicateProperty
   = PredicateProperty {dataId :: (Value Prelude.Text),
                        negated :: (Value Prelude.Bool),
                        type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredicateProperty ::
   Value Prelude.Text
   -> Value Prelude.Bool -> Value Prelude.Text -> PredicateProperty

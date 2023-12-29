@@ -10,6 +10,7 @@ data DataPathLabelTypeProperty
   = DataPathLabelTypeProperty {fieldId :: (Prelude.Maybe (Value Prelude.Text)),
                                fieldValue :: (Prelude.Maybe (Value Prelude.Text)),
                                visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPathLabelTypeProperty :: DataPathLabelTypeProperty
 mkDataPathLabelTypeProperty
   = DataPathLabelTypeProperty

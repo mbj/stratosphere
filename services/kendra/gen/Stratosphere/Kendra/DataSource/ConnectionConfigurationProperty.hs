@@ -13,6 +13,7 @@ data ConnectionConfigurationProperty
                                      databasePort :: (Value Prelude.Integer),
                                      secretArn :: (Value Prelude.Text),
                                      tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

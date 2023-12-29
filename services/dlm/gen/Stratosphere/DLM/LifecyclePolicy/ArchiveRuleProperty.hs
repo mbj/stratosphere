@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.DLM.LifecyclePolicy.ArchiveRetainRuleProperty
 import Stratosphere.ResourceProperties
 data ArchiveRuleProperty
   = ArchiveRuleProperty {retainRule :: ArchiveRetainRuleProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveRuleProperty ::
   ArchiveRetainRuleProperty -> ArchiveRuleProperty
 mkArchiveRuleProperty retainRule

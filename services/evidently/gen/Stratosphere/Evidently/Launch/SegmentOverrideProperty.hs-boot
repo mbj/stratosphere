@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SegmentOverrideProperty :: Prelude.Type
 instance ToResourceProperties SegmentOverrideProperty
+instance Prelude.Eq SegmentOverrideProperty
+instance Prelude.Show SegmentOverrideProperty
 instance JSON.ToJSON SegmentOverrideProperty

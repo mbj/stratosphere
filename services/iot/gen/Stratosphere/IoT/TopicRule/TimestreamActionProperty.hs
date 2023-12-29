@@ -15,6 +15,7 @@ data TimestreamActionProperty
                               roleArn :: (Value Prelude.Text),
                               tableName :: (Value Prelude.Text),
                               timestamp :: (Prelude.Maybe TimestreamTimestampProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestreamActionProperty ::
   Value Prelude.Text
   -> [TimestreamDimensionProperty]

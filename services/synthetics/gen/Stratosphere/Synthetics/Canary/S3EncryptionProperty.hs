@@ -9,6 +9,7 @@ import Stratosphere.Value
 data S3EncryptionProperty
   = S3EncryptionProperty {encryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
                           kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3EncryptionProperty :: S3EncryptionProperty
 mkS3EncryptionProperty
   = S3EncryptionProperty

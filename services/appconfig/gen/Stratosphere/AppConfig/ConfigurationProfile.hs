@@ -17,6 +17,7 @@ data ConfigurationProfile
                           tags :: (Prelude.Maybe [TagsProperty]),
                           type' :: (Prelude.Maybe (Value Prelude.Text)),
                           validators :: (Prelude.Maybe [ValidatorsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationProfile ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> ConfigurationProfile

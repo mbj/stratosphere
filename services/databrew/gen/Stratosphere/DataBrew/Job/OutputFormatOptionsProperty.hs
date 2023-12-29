@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.DataBrew.Job.CsvOutputOptionsProperty as Expo
 import Stratosphere.ResourceProperties
 data OutputFormatOptionsProperty
   = OutputFormatOptionsProperty {csv :: (Prelude.Maybe CsvOutputOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputFormatOptionsProperty :: OutputFormatOptionsProperty
 mkOutputFormatOptionsProperty
   = OutputFormatOptionsProperty {csv = Prelude.Nothing}

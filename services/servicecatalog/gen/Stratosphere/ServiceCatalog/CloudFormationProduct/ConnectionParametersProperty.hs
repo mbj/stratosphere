@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.ServiceCatalog.CloudFormationProduct.CodeStar
 import Stratosphere.ResourceProperties
 data ConnectionParametersProperty
   = ConnectionParametersProperty {codeStar :: (Prelude.Maybe CodeStarParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionParametersProperty :: ConnectionParametersProperty
 mkConnectionParametersProperty
   = ConnectionParametersProperty {codeStar = Prelude.Nothing}

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AuditCheckConfigurationProperty :: Prelude.Type
 instance ToResourceProperties AuditCheckConfigurationProperty
+instance Prelude.Eq AuditCheckConfigurationProperty
+instance Prelude.Show AuditCheckConfigurationProperty
 instance JSON.ToJSON AuditCheckConfigurationProperty

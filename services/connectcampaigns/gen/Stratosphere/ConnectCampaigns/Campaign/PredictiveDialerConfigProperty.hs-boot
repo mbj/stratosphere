@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PredictiveDialerConfigProperty :: Prelude.Type
 instance ToResourceProperties PredictiveDialerConfigProperty
+instance Prelude.Eq PredictiveDialerConfigProperty
+instance Prelude.Show PredictiveDialerConfigProperty
 instance JSON.ToJSON PredictiveDialerConfigProperty

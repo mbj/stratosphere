@@ -13,6 +13,7 @@ data UserPoolResourceServer
                             name :: (Value Prelude.Text),
                             scopes :: (Prelude.Maybe [ResourceServerScopeTypeProperty]),
                             userPoolId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolResourceServer ::
   Value Prelude.Text
   -> Value Prelude.Text

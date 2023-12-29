@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelExplainabilityJobDefinition.S3
 import Stratosphere.ResourceProperties
 data MonitoringOutputProperty
   = MonitoringOutputProperty {s3Output :: S3OutputProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringOutputProperty ::
   S3OutputProperty -> MonitoringOutputProperty
 mkMonitoringOutputProperty s3Output

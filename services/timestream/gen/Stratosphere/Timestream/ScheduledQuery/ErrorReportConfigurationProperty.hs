@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.S3ConfigurationProp
 import Stratosphere.ResourceProperties
 data ErrorReportConfigurationProperty
   = ErrorReportConfigurationProperty {s3Configuration :: S3ConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkErrorReportConfigurationProperty ::
   S3ConfigurationProperty -> ErrorReportConfigurationProperty
 mkErrorReportConfigurationProperty s3Configuration

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SnsProperty
   = SnsProperty {payload :: (Prelude.Maybe PayloadProperty),
                  targetArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSnsProperty :: Value Prelude.Text -> SnsProperty
 mkSnsProperty targetArn
   = SnsProperty {targetArn = targetArn, payload = Prelude.Nothing}

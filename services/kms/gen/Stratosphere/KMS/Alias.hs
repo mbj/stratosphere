@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Alias
   = Alias {aliasName :: (Value Prelude.Text),
            targetKeyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlias :: Value Prelude.Text -> Value Prelude.Text -> Alias
 mkAlias aliasName targetKeyId
   = Alias {aliasName = aliasName, targetKeyId = targetKeyId}

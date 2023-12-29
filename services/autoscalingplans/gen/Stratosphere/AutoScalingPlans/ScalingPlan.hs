@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data ScalingPlan
   = ScalingPlan {applicationSource :: ApplicationSourceProperty,
                  scalingInstructions :: [ScalingInstructionProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingPlan ::
   ApplicationSourceProperty
   -> [ScalingInstructionProperty] -> ScalingPlan

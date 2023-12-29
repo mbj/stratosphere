@@ -20,6 +20,7 @@ data WorkGroupConfigurationProperty
                                     publishCloudWatchMetricsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                     requesterPaysEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                     resultConfiguration :: (Prelude.Maybe ResultConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkGroupConfigurationProperty :: WorkGroupConfigurationProperty
 mkWorkGroupConfigurationProperty
   = WorkGroupConfigurationProperty

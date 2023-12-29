@@ -15,6 +15,7 @@ data PeriodToDateComputationProperty
                                      periodTimeGranularity :: (Prelude.Maybe (Value Prelude.Text)),
                                      time :: DimensionFieldProperty,
                                      value :: (Prelude.Maybe MeasureFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPeriodToDateComputationProperty ::
   Value Prelude.Text
   -> DimensionFieldProperty -> PeriodToDateComputationProperty

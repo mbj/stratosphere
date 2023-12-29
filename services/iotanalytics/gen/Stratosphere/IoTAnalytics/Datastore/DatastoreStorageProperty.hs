@@ -12,6 +12,7 @@ data DatastoreStorageProperty
   = DatastoreStorageProperty {customerManagedS3 :: (Prelude.Maybe CustomerManagedS3Property),
                               iotSiteWiseMultiLayerStorage :: (Prelude.Maybe IotSiteWiseMultiLayerStorageProperty),
                               serviceManagedS3 :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatastoreStorageProperty :: DatastoreStorageProperty
 mkDatastoreStorageProperty
   = DatastoreStorageProperty

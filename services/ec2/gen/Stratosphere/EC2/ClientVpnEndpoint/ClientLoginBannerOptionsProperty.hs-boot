@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ClientLoginBannerOptionsProperty :: Prelude.Type
 instance ToResourceProperties ClientLoginBannerOptionsProperty
+instance Prelude.Eq ClientLoginBannerOptionsProperty
+instance Prelude.Show ClientLoginBannerOptionsProperty
 instance JSON.ToJSON ClientLoginBannerOptionsProperty

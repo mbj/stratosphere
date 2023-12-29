@@ -10,6 +10,7 @@ import Stratosphere.Value
 data GatewayRouteRangeMatchProperty
   = GatewayRouteRangeMatchProperty {end :: (Value Prelude.Integer),
                                     start :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteRangeMatchProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> GatewayRouteRangeMatchProperty

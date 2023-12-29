@@ -12,6 +12,7 @@ data CorsRuleProperty
                       allowedOrigins :: (Prelude.Maybe (ValueList Prelude.Text)),
                       exposeHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
                       maxAgeSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCorsRuleProperty :: CorsRuleProperty
 mkCorsRuleProperty
   = CorsRuleProperty

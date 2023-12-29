@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AmplitudeSourcePropertiesProperty :: Prelude.Type
 instance ToResourceProperties AmplitudeSourcePropertiesProperty
+instance Prelude.Eq AmplitudeSourcePropertiesProperty
+instance Prelude.Show AmplitudeSourcePropertiesProperty
 instance JSON.ToJSON AmplitudeSourcePropertiesProperty

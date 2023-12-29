@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.CustomHeader
 import Stratosphere.ResourceProperties
 data CustomHeadersConfigProperty
   = CustomHeadersConfigProperty {items :: [CustomHeaderProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomHeadersConfigProperty ::
   [CustomHeaderProperty] -> CustomHeadersConfigProperty
 mkCustomHeadersConfigProperty items

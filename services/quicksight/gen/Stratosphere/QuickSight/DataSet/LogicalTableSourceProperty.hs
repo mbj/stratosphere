@@ -12,6 +12,7 @@ data LogicalTableSourceProperty
   = LogicalTableSourceProperty {dataSetArn :: (Prelude.Maybe (Value Prelude.Text)),
                                 joinInstruction :: (Prelude.Maybe JoinInstructionProperty),
                                 physicalTableId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogicalTableSourceProperty :: LogicalTableSourceProperty
 mkLogicalTableSourceProperty
   = LogicalTableSourceProperty

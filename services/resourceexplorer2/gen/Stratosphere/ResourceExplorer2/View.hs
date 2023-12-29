@@ -13,6 +13,7 @@ data View
           includedProperties :: (Prelude.Maybe [IncludedPropertyProperty]),
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
           viewName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkView :: Value Prelude.Text -> View
 mkView viewName
   = View

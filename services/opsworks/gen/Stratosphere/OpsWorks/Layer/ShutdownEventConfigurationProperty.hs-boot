@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ShutdownEventConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ShutdownEventConfigurationProperty
+instance Prelude.Eq ShutdownEventConfigurationProperty
+instance Prelude.Show ShutdownEventConfigurationProperty
 instance JSON.ToJSON ShutdownEventConfigurationProperty

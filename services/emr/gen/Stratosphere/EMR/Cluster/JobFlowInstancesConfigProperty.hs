@@ -29,6 +29,7 @@ data JobFlowInstancesConfigProperty
                                     taskInstanceFleets :: (Prelude.Maybe [InstanceFleetConfigProperty]),
                                     taskInstanceGroups :: (Prelude.Maybe [InstanceGroupConfigProperty]),
                                     terminationProtected :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJobFlowInstancesConfigProperty :: JobFlowInstancesConfigProperty
 mkJobFlowInstancesConfigProperty
   = JobFlowInstancesConfigProperty

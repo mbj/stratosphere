@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GuardianAttributesProperty
   = GuardianAttributesProperty {optimizedSharedDelivery :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGuardianAttributesProperty :: GuardianAttributesProperty
 mkGuardianAttributesProperty
   = GuardianAttributesProperty

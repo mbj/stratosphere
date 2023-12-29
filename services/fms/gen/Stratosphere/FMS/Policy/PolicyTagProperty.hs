@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PolicyTagProperty
   = PolicyTagProperty {key :: (Value Prelude.Text),
                        value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyTagProperty ::
   Value Prelude.Text -> Value Prelude.Text -> PolicyTagProperty
 mkPolicyTagProperty key value

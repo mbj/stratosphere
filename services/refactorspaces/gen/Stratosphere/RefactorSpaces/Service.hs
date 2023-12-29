@@ -19,6 +19,7 @@ data Service
              tags :: (Prelude.Maybe [Tag]),
              urlEndpoint :: (Prelude.Maybe UrlEndpointInputProperty),
              vpcId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkService ::
   Value Prelude.Text
   -> Value Prelude.Text

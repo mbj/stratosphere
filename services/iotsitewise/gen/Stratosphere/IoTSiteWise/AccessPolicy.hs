@@ -12,6 +12,7 @@ data AccessPolicy
   = AccessPolicy {accessPolicyIdentity :: AccessPolicyIdentityProperty,
                   accessPolicyPermission :: (Value Prelude.Text),
                   accessPolicyResource :: AccessPolicyResourceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPolicy ::
   AccessPolicyIdentityProperty
   -> Value Prelude.Text

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SnapStartResponseProperty
   = SnapStartResponseProperty {applyOn :: (Prelude.Maybe (Value Prelude.Text)),
                                optimizationStatus :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSnapStartResponseProperty :: SnapStartResponseProperty
 mkSnapStartResponseProperty
   = SnapStartResponseProperty

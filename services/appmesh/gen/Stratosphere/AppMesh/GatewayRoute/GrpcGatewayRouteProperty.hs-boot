@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GrpcGatewayRouteProperty :: Prelude.Type
 instance ToResourceProperties GrpcGatewayRouteProperty
+instance Prelude.Eq GrpcGatewayRouteProperty
+instance Prelude.Show GrpcGatewayRouteProperty
 instance JSON.ToJSON GrpcGatewayRouteProperty

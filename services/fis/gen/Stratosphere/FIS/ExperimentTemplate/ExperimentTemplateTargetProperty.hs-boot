@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExperimentTemplateTargetProperty :: Prelude.Type
 instance ToResourceProperties ExperimentTemplateTargetProperty
+instance Prelude.Eq ExperimentTemplateTargetProperty
+instance Prelude.Show ExperimentTemplateTargetProperty
 instance JSON.ToJSON ExperimentTemplateTargetProperty

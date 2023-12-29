@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EmailConfigurationProperty :: Prelude.Type
 instance ToResourceProperties EmailConfigurationProperty
+instance Prelude.Eq EmailConfigurationProperty
+instance Prelude.Show EmailConfigurationProperty
 instance JSON.ToJSON EmailConfigurationProperty

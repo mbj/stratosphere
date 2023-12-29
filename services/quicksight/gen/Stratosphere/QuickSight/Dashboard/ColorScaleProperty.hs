@@ -11,6 +11,7 @@ data ColorScaleProperty
   = ColorScaleProperty {colorFillType :: (Value Prelude.Text),
                         colors :: [DataColorProperty],
                         nullValueColor :: (Prelude.Maybe DataColorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColorScaleProperty ::
   Value Prelude.Text -> [DataColorProperty] -> ColorScaleProperty
 mkColorScaleProperty colorFillType colors

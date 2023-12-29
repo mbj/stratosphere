@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MultiplexProgramChannelDestinationSettingsProperty :: Prelude.Type
 instance ToResourceProperties MultiplexProgramChannelDestinationSettingsProperty
+instance Prelude.Eq MultiplexProgramChannelDestinationSettingsProperty
+instance Prelude.Show MultiplexProgramChannelDestinationSettingsProperty
 instance JSON.ToJSON MultiplexProgramChannelDestinationSettingsProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.ECS.Cluster.ExecuteCommandConfigurationProper
 import Stratosphere.ResourceProperties
 data ClusterConfigurationProperty
   = ClusterConfigurationProperty {executeCommandConfiguration :: (Prelude.Maybe ExecuteCommandConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterConfigurationProperty :: ClusterConfigurationProperty
 mkClusterConfigurationProperty
   = ClusterConfigurationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ForecastComputationProperty :: Prelude.Type
 instance ToResourceProperties ForecastComputationProperty
+instance Prelude.Eq ForecastComputationProperty
+instance Prelude.Show ForecastComputationProperty
 instance JSON.ToJSON ForecastComputationProperty

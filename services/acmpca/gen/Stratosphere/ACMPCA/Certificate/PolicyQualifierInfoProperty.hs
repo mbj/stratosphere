@@ -11,6 +11,7 @@ import Stratosphere.Value
 data PolicyQualifierInfoProperty
   = PolicyQualifierInfoProperty {policyQualifierId :: (Value Prelude.Text),
                                  qualifier :: QualifierProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyQualifierInfoProperty ::
   Value Prelude.Text
   -> QualifierProperty -> PolicyQualifierInfoProperty

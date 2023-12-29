@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SlackConnectorProfileCredentialsProperty :: Prelude.Type
 instance ToResourceProperties SlackConnectorProfileCredentialsProperty
+instance Prelude.Eq SlackConnectorProfileCredentialsProperty
+instance Prelude.Show SlackConnectorProfileCredentialsProperty
 instance JSON.ToJSON SlackConnectorProfileCredentialsProperty

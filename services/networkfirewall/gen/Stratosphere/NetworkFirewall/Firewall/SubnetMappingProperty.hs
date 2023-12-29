@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SubnetMappingProperty
   = SubnetMappingProperty {iPAddressType :: (Prelude.Maybe (Value Prelude.Text)),
                            subnetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetMappingProperty ::
   Value Prelude.Text -> SubnetMappingProperty
 mkSubnetMappingProperty subnetId

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LabelMatchStatementProperty
   = LabelMatchStatementProperty {key :: (Value Prelude.Text),
                                  scope :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLabelMatchStatementProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> LabelMatchStatementProperty

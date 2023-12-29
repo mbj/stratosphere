@@ -4,7 +4,9 @@ module Stratosphere.MediaLive.Channel.Rec601SettingsProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
-data Rec601SettingsProperty = Rec601SettingsProperty {}
+data Rec601SettingsProperty
+  = Rec601SettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRec601SettingsProperty :: Rec601SettingsProperty
 mkRec601SettingsProperty = Rec601SettingsProperty {}
 instance ToResourceProperties Rec601SettingsProperty where

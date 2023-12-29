@@ -10,6 +10,7 @@ data FunctionProperty
   = FunctionProperty {condition :: (Prelude.Maybe (Value Prelude.Text)),
                       facet :: (Prelude.Maybe (Value Prelude.Text)),
                       function :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionProperty :: FunctionProperty
 mkFunctionProperty
   = FunctionProperty

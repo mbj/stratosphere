@@ -14,6 +14,7 @@ data GatewayRouteSpecProperty
                               http2Route :: (Prelude.Maybe HttpGatewayRouteProperty),
                               httpRoute :: (Prelude.Maybe HttpGatewayRouteProperty),
                               priority :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteSpecProperty :: GatewayRouteSpecProperty
 mkGatewayRouteSpecProperty
   = GatewayRouteSpecProperty

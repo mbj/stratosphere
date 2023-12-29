@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MaintenanceWindowStepFunctionsParametersProperty
   = MaintenanceWindowStepFunctionsParametersProperty {input :: (Prelude.Maybe (Value Prelude.Text)),
                                                       name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowStepFunctionsParametersProperty ::
   MaintenanceWindowStepFunctionsParametersProperty
 mkMaintenanceWindowStepFunctionsParametersProperty

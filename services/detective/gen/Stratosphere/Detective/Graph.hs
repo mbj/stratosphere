@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Graph
   = Graph {autoEnableMembers :: (Prelude.Maybe (Value Prelude.Bool)),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGraph :: Graph
 mkGraph
   = Graph

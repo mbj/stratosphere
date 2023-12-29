@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SessionAttributeProperty
   = SessionAttributeProperty {key :: (Value Prelude.Text),
                               value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSessionAttributeProperty ::
   Value Prelude.Text -> SessionAttributeProperty
 mkSessionAttributeProperty key

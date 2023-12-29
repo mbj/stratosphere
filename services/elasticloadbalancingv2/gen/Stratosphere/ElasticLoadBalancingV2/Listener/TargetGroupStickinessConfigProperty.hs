@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TargetGroupStickinessConfigProperty
   = TargetGroupStickinessConfigProperty {durationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                          enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupStickinessConfigProperty ::
   TargetGroupStickinessConfigProperty
 mkTargetGroupStickinessConfigProperty

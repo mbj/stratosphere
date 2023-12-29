@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AncillarySourceSettingsProperty :: Prelude.Type
 instance ToResourceProperties AncillarySourceSettingsProperty
+instance Prelude.Eq AncillarySourceSettingsProperty
+instance Prelude.Show AncillarySourceSettingsProperty
 instance JSON.ToJSON AncillarySourceSettingsProperty

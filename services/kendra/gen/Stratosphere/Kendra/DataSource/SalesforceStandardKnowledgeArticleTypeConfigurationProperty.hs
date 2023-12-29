@@ -13,6 +13,7 @@ data SalesforceStandardKnowledgeArticleTypeConfigurationProperty
   = SalesforceStandardKnowledgeArticleTypeConfigurationProperty {documentDataFieldName :: (Value Prelude.Text),
                                                                  documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
                                                                  fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceStandardKnowledgeArticleTypeConfigurationProperty ::
   Value Prelude.Text
   -> SalesforceStandardKnowledgeArticleTypeConfigurationProperty

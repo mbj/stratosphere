@@ -14,6 +14,7 @@ data Deployment
                 restApiId :: (Value Prelude.Text),
                 stageDescription :: (Prelude.Maybe StageDescriptionProperty),
                 stageName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployment :: Value Prelude.Text -> Deployment
 mkDeployment restApiId
   = Deployment

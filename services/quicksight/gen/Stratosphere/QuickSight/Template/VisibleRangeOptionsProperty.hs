@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.PercentVisibleRangeProper
 import Stratosphere.ResourceProperties
 data VisibleRangeOptionsProperty
   = VisibleRangeOptionsProperty {percentRange :: (Prelude.Maybe PercentVisibleRangeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVisibleRangeOptionsProperty :: VisibleRangeOptionsProperty
 mkVisibleRangeOptionsProperty
   = VisibleRangeOptionsProperty {percentRange = Prelude.Nothing}

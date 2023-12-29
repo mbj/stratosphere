@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CloudWatchOutputConfigProperty
   = CloudWatchOutputConfigProperty {cloudWatchLogGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                                     cloudWatchOutputEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchOutputConfigProperty :: CloudWatchOutputConfigProperty
 mkCloudWatchOutputConfigProperty
   = CloudWatchOutputConfigProperty

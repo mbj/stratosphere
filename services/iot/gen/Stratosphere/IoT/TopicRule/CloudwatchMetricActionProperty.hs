@@ -14,6 +14,7 @@ data CloudwatchMetricActionProperty
                                     metricUnit :: (Value Prelude.Text),
                                     metricValue :: (Value Prelude.Text),
                                     roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudwatchMetricActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

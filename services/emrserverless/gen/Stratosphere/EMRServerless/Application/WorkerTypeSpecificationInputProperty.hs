@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ImageConfigurationI
 import Stratosphere.ResourceProperties
 data WorkerTypeSpecificationInputProperty
   = WorkerTypeSpecificationInputProperty {imageConfiguration :: (Prelude.Maybe ImageConfigurationInputProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkerTypeSpecificationInputProperty ::
   WorkerTypeSpecificationInputProperty
 mkWorkerTypeSpecificationInputProperty

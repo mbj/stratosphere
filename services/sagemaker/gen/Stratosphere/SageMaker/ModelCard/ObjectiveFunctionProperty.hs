@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ObjectiveFunctionProperty
   = ObjectiveFunctionProperty {function :: (Prelude.Maybe FunctionProperty),
                                notes :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectiveFunctionProperty :: ObjectiveFunctionProperty
 mkObjectiveFunctionProperty
   = ObjectiveFunctionProperty

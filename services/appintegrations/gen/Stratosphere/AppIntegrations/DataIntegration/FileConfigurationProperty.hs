@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FileConfigurationProperty
   = FileConfigurationProperty {filters :: (Prelude.Maybe JSON.Object),
                                folders :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFileConfigurationProperty ::
   ValueList Prelude.Text -> FileConfigurationProperty
 mkFileConfigurationProperty folders

@@ -12,6 +12,7 @@ data DatabaseOutputProperty
   = DatabaseOutputProperty {databaseOptions :: DatabaseTableOutputOptionsProperty,
                             databaseOutputMode :: (Prelude.Maybe (Value Prelude.Text)),
                             glueConnectionName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseOutputProperty ::
   DatabaseTableOutputOptionsProperty
   -> Value Prelude.Text -> DatabaseOutputProperty

@@ -16,6 +16,7 @@ data Workflow
               parameterTemplate :: (Prelude.Maybe (Prelude.Map Prelude.Text WorkflowParameterProperty)),
               storageCapacity :: (Prelude.Maybe (Value Prelude.Double)),
               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflow :: Workflow
 mkWorkflow
   = Workflow

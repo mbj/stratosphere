@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DocumentDBEventSourceConfigProperty :: Prelude.Type
 instance ToResourceProperties DocumentDBEventSourceConfigProperty
+instance Prelude.Eq DocumentDBEventSourceConfigProperty
+instance Prelude.Show DocumentDBEventSourceConfigProperty
 instance JSON.ToJSON DocumentDBEventSourceConfigProperty

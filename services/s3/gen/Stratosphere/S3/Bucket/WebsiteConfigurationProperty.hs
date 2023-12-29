@@ -14,6 +14,7 @@ data WebsiteConfigurationProperty
                                   indexDocument :: (Prelude.Maybe (Value Prelude.Text)),
                                   redirectAllRequestsTo :: (Prelude.Maybe RedirectAllRequestsToProperty),
                                   routingRules :: (Prelude.Maybe [RoutingRuleProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebsiteConfigurationProperty :: WebsiteConfigurationProperty
 mkWebsiteConfigurationProperty
   = WebsiteConfigurationProperty

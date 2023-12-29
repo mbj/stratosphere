@@ -16,6 +16,7 @@ data OrganizationConfigRule
                             organizationCustomPolicyRuleMetadata :: (Prelude.Maybe OrganizationCustomPolicyRuleMetadataProperty),
                             organizationCustomRuleMetadata :: (Prelude.Maybe OrganizationCustomRuleMetadataProperty),
                             organizationManagedRuleMetadata :: (Prelude.Maybe OrganizationManagedRuleMetadataProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationConfigRule ::
   Value Prelude.Text -> OrganizationConfigRule
 mkOrganizationConfigRule organizationConfigRuleName

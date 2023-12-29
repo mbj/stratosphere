@@ -10,6 +10,7 @@ data TokenValidityUnitsProperty
   = TokenValidityUnitsProperty {accessToken :: (Prelude.Maybe (Value Prelude.Text)),
                                 idToken :: (Prelude.Maybe (Value Prelude.Text)),
                                 refreshToken :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTokenValidityUnitsProperty :: TokenValidityUnitsProperty
 mkTokenValidityUnitsProperty
   = TokenValidityUnitsProperty

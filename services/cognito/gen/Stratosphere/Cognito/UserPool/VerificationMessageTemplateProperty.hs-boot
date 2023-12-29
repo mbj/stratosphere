@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VerificationMessageTemplateProperty :: Prelude.Type
 instance ToResourceProperties VerificationMessageTemplateProperty
+instance Prelude.Eq VerificationMessageTemplateProperty
+instance Prelude.Show VerificationMessageTemplateProperty
 instance JSON.ToJSON VerificationMessageTemplateProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EgressFilterProperty
   = EgressFilterProperty {type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEgressFilterProperty ::
   Value Prelude.Text -> EgressFilterProperty
 mkEgressFilterProperty type' = EgressFilterProperty {type' = type'}

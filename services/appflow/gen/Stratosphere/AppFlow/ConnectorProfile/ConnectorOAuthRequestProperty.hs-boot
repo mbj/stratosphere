@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConnectorOAuthRequestProperty :: Prelude.Type
 instance ToResourceProperties ConnectorOAuthRequestProperty
+instance Prelude.Eq ConnectorOAuthRequestProperty
+instance Prelude.Show ConnectorOAuthRequestProperty
 instance JSON.ToJSON ConnectorOAuthRequestProperty

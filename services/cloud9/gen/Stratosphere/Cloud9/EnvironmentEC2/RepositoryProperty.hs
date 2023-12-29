@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RepositoryProperty
   = RepositoryProperty {pathComponent :: (Value Prelude.Text),
                         repositoryUrl :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRepositoryProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RepositoryProperty
 mkRepositoryProperty pathComponent repositoryUrl

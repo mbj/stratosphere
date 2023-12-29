@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PublicKeyConfigProperty :: Prelude.Type
 instance ToResourceProperties PublicKeyConfigProperty
+instance Prelude.Eq PublicKeyConfigProperty
+instance Prelude.Show PublicKeyConfigProperty
 instance JSON.ToJSON PublicKeyConfigProperty

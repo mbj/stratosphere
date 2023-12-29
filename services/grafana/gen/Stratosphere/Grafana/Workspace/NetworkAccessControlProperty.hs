@@ -9,6 +9,7 @@ import Stratosphere.Value
 data NetworkAccessControlProperty
   = NetworkAccessControlProperty {prefixListIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   vpceIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAccessControlProperty :: NetworkAccessControlProperty
 mkNetworkAccessControlProperty
   = NetworkAccessControlProperty

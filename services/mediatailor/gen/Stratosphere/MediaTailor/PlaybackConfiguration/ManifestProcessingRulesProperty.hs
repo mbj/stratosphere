@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaTailor.PlaybackConfiguration.AdMarkerPas
 import Stratosphere.ResourceProperties
 data ManifestProcessingRulesProperty
   = ManifestProcessingRulesProperty {adMarkerPassthrough :: (Prelude.Maybe AdMarkerPassthroughProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkManifestProcessingRulesProperty ::
   ManifestProcessingRulesProperty
 mkManifestProcessingRulesProperty

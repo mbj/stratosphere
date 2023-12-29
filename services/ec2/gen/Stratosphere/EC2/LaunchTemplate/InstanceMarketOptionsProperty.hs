@@ -11,6 +11,7 @@ import Stratosphere.Value
 data InstanceMarketOptionsProperty
   = InstanceMarketOptionsProperty {marketType :: (Prelude.Maybe (Value Prelude.Text)),
                                    spotOptions :: (Prelude.Maybe SpotOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceMarketOptionsProperty :: InstanceMarketOptionsProperty
 mkInstanceMarketOptionsProperty
   = InstanceMarketOptionsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CognitoMemberDefinitionProperty :: Prelude.Type
 instance ToResourceProperties CognitoMemberDefinitionProperty
+instance Prelude.Eq CognitoMemberDefinitionProperty
+instance Prelude.Show CognitoMemberDefinitionProperty
 instance JSON.ToJSON CognitoMemberDefinitionProperty

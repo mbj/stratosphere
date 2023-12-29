@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionSettingsProperty
   = ConnectionSettingsProperty {idleTimeout :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionSettingsProperty ::
   Value Prelude.Integer -> ConnectionSettingsProperty
 mkConnectionSettingsProperty idleTimeout

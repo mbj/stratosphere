@@ -11,6 +11,7 @@ data AsyncInferenceNotificationConfigProperty
   = AsyncInferenceNotificationConfigProperty {errorTopic :: (Prelude.Maybe (Value Prelude.Text)),
                                               includeInferenceResponseIn :: (Prelude.Maybe (ValueList Prelude.Text)),
                                               successTopic :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAsyncInferenceNotificationConfigProperty ::
   AsyncInferenceNotificationConfigProperty
 mkAsyncInferenceNotificationConfigProperty

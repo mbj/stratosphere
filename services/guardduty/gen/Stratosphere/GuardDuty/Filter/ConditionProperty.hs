@@ -19,6 +19,7 @@ data ConditionProperty
                        lte :: (Prelude.Maybe (Value Prelude.Integer)),
                        neq :: (Prelude.Maybe (ValueList Prelude.Text)),
                        notEquals :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionProperty :: ConditionProperty
 mkConditionProperty
   = ConditionProperty

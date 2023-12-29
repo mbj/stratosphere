@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ConnectorOAuthRequestProperty
   = ConnectorOAuthRequestProperty {authCode :: (Prelude.Maybe (Value Prelude.Text)),
                                    redirectUri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorOAuthRequestProperty :: ConnectorOAuthRequestProperty
 mkConnectorOAuthRequestProperty
   = ConnectorOAuthRequestProperty

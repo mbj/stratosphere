@@ -14,6 +14,7 @@ data RotationSchedule
                       rotationLambdaARN :: (Prelude.Maybe (Value Prelude.Text)),
                       rotationRules :: (Prelude.Maybe RotationRulesProperty),
                       secretId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRotationSchedule :: Value Prelude.Text -> RotationSchedule
 mkRotationSchedule secretId
   = RotationSchedule

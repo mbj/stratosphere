@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynatraceSourcePropertiesProperty
   = DynatraceSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynatraceSourcePropertiesProperty ::
   Value Prelude.Text -> DynatraceSourcePropertiesProperty
 mkDynatraceSourcePropertiesProperty object

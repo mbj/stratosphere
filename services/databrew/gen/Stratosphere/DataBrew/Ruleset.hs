@@ -14,6 +14,7 @@ data Ruleset
              rules :: [RuleProperty],
              tags :: (Prelude.Maybe [Tag]),
              targetArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleset ::
   Value Prelude.Text
   -> [RuleProperty] -> Value Prelude.Text -> Ruleset

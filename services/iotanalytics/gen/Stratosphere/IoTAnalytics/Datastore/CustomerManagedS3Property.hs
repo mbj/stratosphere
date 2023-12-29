@@ -10,6 +10,7 @@ data CustomerManagedS3Property
   = CustomerManagedS3Property {bucket :: (Value Prelude.Text),
                                keyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                                roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerManagedS3Property ::
   Value Prelude.Text
   -> Value Prelude.Text -> CustomerManagedS3Property

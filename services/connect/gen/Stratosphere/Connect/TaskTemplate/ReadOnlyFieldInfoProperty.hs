@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty 
 import Stratosphere.ResourceProperties
 data ReadOnlyFieldInfoProperty
   = ReadOnlyFieldInfoProperty {id :: FieldIdentifierProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReadOnlyFieldInfoProperty ::
   FieldIdentifierProperty -> ReadOnlyFieldInfoProperty
 mkReadOnlyFieldInfoProperty id

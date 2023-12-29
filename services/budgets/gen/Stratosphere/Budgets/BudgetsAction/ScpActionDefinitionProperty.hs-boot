@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ScpActionDefinitionProperty :: Prelude.Type
 instance ToResourceProperties ScpActionDefinitionProperty
+instance Prelude.Eq ScpActionDefinitionProperty
+instance Prelude.Show ScpActionDefinitionProperty
 instance JSON.ToJSON ScpActionDefinitionProperty

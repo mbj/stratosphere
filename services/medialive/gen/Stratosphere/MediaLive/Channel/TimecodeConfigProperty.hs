@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TimecodeConfigProperty
   = TimecodeConfigProperty {source :: (Prelude.Maybe (Value Prelude.Text)),
                             syncThreshold :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimecodeConfigProperty :: TimecodeConfigProperty
 mkTimecodeConfigProperty
   = TimecodeConfigProperty

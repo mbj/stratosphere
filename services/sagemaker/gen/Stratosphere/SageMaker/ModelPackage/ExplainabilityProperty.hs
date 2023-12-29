@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.MetricsSourceProperty 
 import Stratosphere.ResourceProperties
 data ExplainabilityProperty
   = ExplainabilityProperty {report :: (Prelude.Maybe MetricsSourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExplainabilityProperty :: ExplainabilityProperty
 mkExplainabilityProperty
   = ExplainabilityProperty {report = Prelude.Nothing}

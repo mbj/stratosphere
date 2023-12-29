@@ -14,6 +14,7 @@ data ByteMatchTupleProperty
                             targetString :: (Prelude.Maybe (Value Prelude.Text)),
                             targetStringBase64 :: (Prelude.Maybe (Value Prelude.Text)),
                             textTransformation :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkByteMatchTupleProperty ::
   FieldToMatchProperty
   -> Value Prelude.Text

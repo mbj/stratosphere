@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PolicyProperty
   = PolicyProperty {policyDocument :: JSON.Object,
                     policyName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyProperty ::
   JSON.Object -> Value Prelude.Text -> PolicyProperty
 mkPolicyProperty policyDocument policyName

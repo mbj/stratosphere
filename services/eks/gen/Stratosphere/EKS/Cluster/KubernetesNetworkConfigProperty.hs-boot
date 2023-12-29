@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KubernetesNetworkConfigProperty :: Prelude.Type
 instance ToResourceProperties KubernetesNetworkConfigProperty
+instance Prelude.Eq KubernetesNetworkConfigProperty
+instance Prelude.Show KubernetesNetworkConfigProperty
 instance JSON.ToJSON KubernetesNetworkConfigProperty

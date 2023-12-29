@@ -12,6 +12,7 @@ data Schedule
               jobNames :: (Prelude.Maybe (ValueList Prelude.Text)),
               name :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchedule :: Value Prelude.Text -> Value Prelude.Text -> Schedule
 mkSchedule cronExpression name
   = Schedule

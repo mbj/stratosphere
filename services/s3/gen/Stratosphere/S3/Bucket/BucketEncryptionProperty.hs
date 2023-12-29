@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.ServerSideEncryptionRuleProperty as
 import Stratosphere.ResourceProperties
 data BucketEncryptionProperty
   = BucketEncryptionProperty {serverSideEncryptionConfiguration :: [ServerSideEncryptionRuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBucketEncryptionProperty ::
   [ServerSideEncryptionRuleProperty] -> BucketEncryptionProperty
 mkBucketEncryptionProperty serverSideEncryptionConfiguration

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HostHeaderConfigProperty
   = HostHeaderConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHostHeaderConfigProperty :: HostHeaderConfigProperty
 mkHostHeaderConfigProperty
   = HostHeaderConfigProperty {values = Prelude.Nothing}

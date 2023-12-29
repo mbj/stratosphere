@@ -11,6 +11,7 @@ data SecurityPolicy
                     name :: (Value Prelude.Text),
                     policy :: (Value Prelude.Text),
                     type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityPolicy ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> SecurityPolicy

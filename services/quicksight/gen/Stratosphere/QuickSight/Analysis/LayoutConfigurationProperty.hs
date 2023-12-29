@@ -13,6 +13,7 @@ data LayoutConfigurationProperty
   = LayoutConfigurationProperty {freeFormLayout :: (Prelude.Maybe FreeFormLayoutConfigurationProperty),
                                  gridLayout :: (Prelude.Maybe GridLayoutConfigurationProperty),
                                  sectionBasedLayout :: (Prelude.Maybe SectionBasedLayoutConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLayoutConfigurationProperty :: LayoutConfigurationProperty
 mkLayoutConfigurationProperty
   = LayoutConfigurationProperty

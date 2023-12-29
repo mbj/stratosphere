@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VideoSelectorColorSpaceSettingsProperty :: Prelude.Type
 instance ToResourceProperties VideoSelectorColorSpaceSettingsProperty
+instance Prelude.Eq VideoSelectorColorSpaceSettingsProperty
+instance Prelude.Show VideoSelectorColorSpaceSettingsProperty
 instance JSON.ToJSON VideoSelectorColorSpaceSettingsProperty

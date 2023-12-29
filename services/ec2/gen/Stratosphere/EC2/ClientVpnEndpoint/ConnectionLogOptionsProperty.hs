@@ -10,6 +10,7 @@ data ConnectionLogOptionsProperty
   = ConnectionLogOptionsProperty {cloudwatchLogGroup :: (Prelude.Maybe (Value Prelude.Text)),
                                   cloudwatchLogStream :: (Prelude.Maybe (Value Prelude.Text)),
                                   enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionLogOptionsProperty ::
   Value Prelude.Bool -> ConnectionLogOptionsProperty
 mkConnectionLogOptionsProperty enabled

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data SlotValueOverrideMapProperty
   = SlotValueOverrideMapProperty {slotName :: (Prelude.Maybe (Value Prelude.Text)),
                                   slotValueOverride :: (Prelude.Maybe SlotValueOverrideProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueOverrideMapProperty :: SlotValueOverrideMapProperty
 mkSlotValueOverrideMapProperty
   = SlotValueOverrideMapProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AntennaDownlinkConfigProperty :: Prelude.Type
 instance ToResourceProperties AntennaDownlinkConfigProperty
+instance Prelude.Eq AntennaDownlinkConfigProperty
+instance Prelude.Show AntennaDownlinkConfigProperty
 instance JSON.ToJSON AntennaDownlinkConfigProperty

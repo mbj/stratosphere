@@ -12,6 +12,7 @@ data HttpGatewayRouteHeaderProperty
   = HttpGatewayRouteHeaderProperty {invert :: (Prelude.Maybe (Value Prelude.Bool)),
                                     match :: (Prelude.Maybe HttpGatewayRouteHeaderMatchProperty),
                                     name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteHeaderProperty ::
   Value Prelude.Text -> HttpGatewayRouteHeaderProperty
 mkHttpGatewayRouteHeaderProperty name

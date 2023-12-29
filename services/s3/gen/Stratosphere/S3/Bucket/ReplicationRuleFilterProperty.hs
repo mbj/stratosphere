@@ -13,6 +13,7 @@ data ReplicationRuleFilterProperty
   = ReplicationRuleFilterProperty {and :: (Prelude.Maybe ReplicationRuleAndOperatorProperty),
                                    prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                    tagFilter :: (Prelude.Maybe TagFilterProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRuleFilterProperty :: ReplicationRuleFilterProperty
 mkReplicationRuleFilterProperty
   = ReplicationRuleFilterProperty

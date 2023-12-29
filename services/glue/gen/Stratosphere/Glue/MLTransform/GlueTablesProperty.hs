@@ -11,6 +11,7 @@ data GlueTablesProperty
                         connectionName :: (Prelude.Maybe (Value Prelude.Text)),
                         databaseName :: (Value Prelude.Text),
                         tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueTablesProperty ::
   Value Prelude.Text -> Value Prelude.Text -> GlueTablesProperty
 mkGlueTablesProperty databaseName tableName

@@ -10,6 +10,7 @@ data MapFilterProperty
   = MapFilterProperty {comparison :: (Value Prelude.Text),
                        key :: (Prelude.Maybe (Value Prelude.Text)),
                        value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMapFilterProperty :: Value Prelude.Text -> MapFilterProperty
 mkMapFilterProperty comparison
   = MapFilterProperty

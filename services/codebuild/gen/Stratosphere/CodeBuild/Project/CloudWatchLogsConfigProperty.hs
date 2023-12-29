@@ -10,6 +10,7 @@ data CloudWatchLogsConfigProperty
   = CloudWatchLogsConfigProperty {groupName :: (Prelude.Maybe (Value Prelude.Text)),
                                   status :: (Value Prelude.Text),
                                   streamName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLogsConfigProperty ::
   Value Prelude.Text -> CloudWatchLogsConfigProperty
 mkCloudWatchLogsConfigProperty status

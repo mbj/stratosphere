@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TotalLocalStorageGBProperty
   = TotalLocalStorageGBProperty {max :: (Prelude.Maybe (Value Prelude.Double)),
                                  min :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTotalLocalStorageGBProperty :: TotalLocalStorageGBProperty
 mkTotalLocalStorageGBProperty
   = TotalLocalStorageGBProperty

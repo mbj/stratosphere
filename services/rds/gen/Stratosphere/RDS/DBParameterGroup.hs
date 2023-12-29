@@ -13,6 +13,7 @@ data DBParameterGroup
                       family :: (Value Prelude.Text),
                       parameters :: (Prelude.Maybe JSON.Object),
                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDBParameterGroup ::
   Value Prelude.Text -> Value Prelude.Text -> DBParameterGroup
 mkDBParameterGroup description family

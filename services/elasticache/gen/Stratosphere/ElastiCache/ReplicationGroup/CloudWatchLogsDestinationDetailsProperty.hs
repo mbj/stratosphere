@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchLogsDestinationDetailsProperty
   = CloudWatchLogsDestinationDetailsProperty {logGroup :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLogsDestinationDetailsProperty ::
   Value Prelude.Text -> CloudWatchLogsDestinationDetailsProperty
 mkCloudWatchLogsDestinationDetailsProperty logGroup

@@ -24,6 +24,7 @@ data ModelPackageDetailsProperty
                                  modelPackageVersion :: (Prelude.Maybe (Value Prelude.Double)),
                                  sourceAlgorithms :: (Prelude.Maybe [SourceAlgorithmProperty]),
                                  task :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageDetailsProperty :: ModelPackageDetailsProperty
 mkModelPackageDetailsProperty
   = ModelPackageDetailsProperty

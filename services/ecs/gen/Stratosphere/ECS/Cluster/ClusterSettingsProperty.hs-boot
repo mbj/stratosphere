@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ClusterSettingsProperty :: Prelude.Type
 instance ToResourceProperties ClusterSettingsProperty
+instance Prelude.Eq ClusterSettingsProperty
+instance Prelude.Show ClusterSettingsProperty
 instance JSON.ToJSON ClusterSettingsProperty

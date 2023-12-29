@@ -15,6 +15,7 @@ data ProfilingGroup
                     computePlatform :: (Prelude.Maybe (Value Prelude.Text)),
                     profilingGroupName :: (Value Prelude.Text),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProfilingGroup :: Value Prelude.Text -> ProfilingGroup
 mkProfilingGroup profilingGroupName
   = ProfilingGroup

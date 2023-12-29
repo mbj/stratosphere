@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AssessmentTarget
   = AssessmentTarget {assessmentTargetName :: (Prelude.Maybe (Value Prelude.Text)),
                       resourceGroupArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssessmentTarget :: AssessmentTarget
 mkAssessmentTarget
   = AssessmentTarget

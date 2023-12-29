@@ -18,6 +18,7 @@ data NetworkInsightsPath
                          source :: (Value Prelude.Text),
                          sourceIp :: (Prelude.Maybe (Value Prelude.Text)),
                          tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInsightsPath ::
   Value Prelude.Text -> Value Prelude.Text -> NetworkInsightsPath
 mkNetworkInsightsPath protocol source

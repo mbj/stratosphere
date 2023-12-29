@@ -13,6 +13,7 @@ data EmailChannel
                   fromAddress :: (Value Prelude.Text),
                   identity :: (Value Prelude.Text),
                   roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailChannel ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> EmailChannel

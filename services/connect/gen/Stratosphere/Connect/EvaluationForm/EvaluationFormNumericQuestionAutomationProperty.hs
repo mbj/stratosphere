@@ -10,6 +10,7 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.NumericQuestionPropert
 import Stratosphere.ResourceProperties
 data EvaluationFormNumericQuestionAutomationProperty
   = EvaluationFormNumericQuestionAutomationProperty {propertyValue :: NumericQuestionPropertyValueAutomationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormNumericQuestionAutomationProperty ::
   NumericQuestionPropertyValueAutomationProperty
   -> EvaluationFormNumericQuestionAutomationProperty

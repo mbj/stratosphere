@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AxisLabelReferenceOptionsProperty
   = AxisLabelReferenceOptionsProperty {column :: ColumnIdentifierProperty,
                                        fieldId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAxisLabelReferenceOptionsProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text -> AxisLabelReferenceOptionsProperty

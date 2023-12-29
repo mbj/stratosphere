@@ -12,6 +12,7 @@ data FulfillmentStartResponseSpecificationProperty
   = FulfillmentStartResponseSpecificationProperty {allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
                                                    delayInSeconds :: (Value Prelude.Integer),
                                                    messageGroups :: [MessageGroupProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFulfillmentStartResponseSpecificationProperty ::
   Value Prelude.Integer
   -> [MessageGroupProperty]

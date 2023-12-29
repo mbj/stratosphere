@@ -12,6 +12,7 @@ data FirewallDomainList
                         domains :: (Prelude.Maybe (ValueList Prelude.Text)),
                         name :: (Prelude.Maybe (Value Prelude.Text)),
                         tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallDomainList :: FirewallDomainList
 mkFirewallDomainList
   = FirewallDomainList

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HANAPrometheusExporterProperty :: Prelude.Type
 instance ToResourceProperties HANAPrometheusExporterProperty
+instance Prelude.Eq HANAPrometheusExporterProperty
+instance Prelude.Show HANAPrometheusExporterProperty
 instance JSON.ToJSON HANAPrometheusExporterProperty

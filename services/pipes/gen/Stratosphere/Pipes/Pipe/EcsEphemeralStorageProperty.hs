@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EcsEphemeralStorageProperty
   = EcsEphemeralStorageProperty {sizeInGiB :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsEphemeralStorageProperty ::
   Value Prelude.Integer -> EcsEphemeralStorageProperty
 mkEcsEphemeralStorageProperty sizeInGiB

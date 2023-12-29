@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomSMSSenderProperty :: Prelude.Type
 instance ToResourceProperties CustomSMSSenderProperty
+instance Prelude.Eq CustomSMSSenderProperty
+instance Prelude.Show CustomSMSSenderProperty
 instance JSON.ToJSON CustomSMSSenderProperty

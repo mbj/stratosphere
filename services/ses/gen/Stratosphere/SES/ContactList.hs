@@ -13,6 +13,7 @@ data ContactList
                  description :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag]),
                  topics :: (Prelude.Maybe [TopicProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContactList :: ContactList
 mkContactList
   = ContactList

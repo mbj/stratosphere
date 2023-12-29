@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PolicyPrincipalAttachment
   = PolicyPrincipalAttachment {policyName :: (Value Prelude.Text),
                                principal :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyPrincipalAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text -> PolicyPrincipalAttachment

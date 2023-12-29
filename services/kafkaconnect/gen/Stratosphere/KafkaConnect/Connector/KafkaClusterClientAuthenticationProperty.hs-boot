@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KafkaClusterClientAuthenticationProperty :: Prelude.Type
 instance ToResourceProperties KafkaClusterClientAuthenticationProperty
+instance Prelude.Eq KafkaClusterClientAuthenticationProperty
+instance Prelude.Show KafkaClusterClientAuthenticationProperty
 instance JSON.ToJSON KafkaClusterClientAuthenticationProperty

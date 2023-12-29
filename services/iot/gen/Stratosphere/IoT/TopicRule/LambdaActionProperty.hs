@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaActionProperty
   = LambdaActionProperty {functionArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaActionProperty :: LambdaActionProperty
 mkLambdaActionProperty
   = LambdaActionProperty {functionArn = Prelude.Nothing}

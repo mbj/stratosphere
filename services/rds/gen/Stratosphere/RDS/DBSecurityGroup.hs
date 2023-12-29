@@ -13,6 +13,7 @@ data DBSecurityGroup
                      eC2VpcId :: (Prelude.Maybe (Value Prelude.Text)),
                      groupDescription :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDBSecurityGroup ::
   [IngressProperty] -> Value Prelude.Text -> DBSecurityGroup
 mkDBSecurityGroup dBSecurityGroupIngress groupDescription

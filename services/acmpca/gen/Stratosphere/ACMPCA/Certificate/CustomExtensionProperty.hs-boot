@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomExtensionProperty :: Prelude.Type
 instance ToResourceProperties CustomExtensionProperty
+instance Prelude.Eq CustomExtensionProperty
+instance Prelude.Show CustomExtensionProperty
 instance JSON.ToJSON CustomExtensionProperty

@@ -12,6 +12,7 @@ data DomainEndpointOptionsProperty
                                    customEndpointEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                    enforceHTTPS :: (Prelude.Maybe (Value Prelude.Bool)),
                                    tLSSecurityPolicy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainEndpointOptionsProperty :: DomainEndpointOptionsProperty
 mkDomainEndpointOptionsProperty
   = DomainEndpointOptionsProperty

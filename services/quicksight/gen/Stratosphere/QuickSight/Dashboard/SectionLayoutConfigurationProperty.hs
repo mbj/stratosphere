@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.FreeFormSectionLayoutCon
 import Stratosphere.ResourceProperties
 data SectionLayoutConfigurationProperty
   = SectionLayoutConfigurationProperty {freeFormLayout :: FreeFormSectionLayoutConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSectionLayoutConfigurationProperty ::
   FreeFormSectionLayoutConfigurationProperty
   -> SectionLayoutConfigurationProperty

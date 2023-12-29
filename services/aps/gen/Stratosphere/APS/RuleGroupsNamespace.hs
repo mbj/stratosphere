@@ -12,6 +12,7 @@ data RuleGroupsNamespace
                          name :: (Value Prelude.Text),
                          tags :: (Prelude.Maybe [Tag]),
                          workspace :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroupsNamespace ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> RuleGroupsNamespace

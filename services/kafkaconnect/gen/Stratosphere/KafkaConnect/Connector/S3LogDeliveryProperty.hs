@@ -10,6 +10,7 @@ data S3LogDeliveryProperty
   = S3LogDeliveryProperty {bucket :: (Prelude.Maybe (Value Prelude.Text)),
                            enabled :: (Value Prelude.Bool),
                            prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LogDeliveryProperty ::
   Value Prelude.Bool -> S3LogDeliveryProperty
 mkS3LogDeliveryProperty enabled

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MaintenanceWindowStepFunctionsParametersProperty :: Prelude.Type
 instance ToResourceProperties MaintenanceWindowStepFunctionsParametersProperty
+instance Prelude.Eq MaintenanceWindowStepFunctionsParametersProperty
+instance Prelude.Show MaintenanceWindowStepFunctionsParametersProperty
 instance JSON.ToJSON MaintenanceWindowStepFunctionsParametersProperty

@@ -12,6 +12,7 @@ data Connection
                 authorizationType :: (Value Prelude.Text),
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnection ::
   AuthParametersProperty -> Value Prelude.Text -> Connection
 mkConnection authParameters authorizationType

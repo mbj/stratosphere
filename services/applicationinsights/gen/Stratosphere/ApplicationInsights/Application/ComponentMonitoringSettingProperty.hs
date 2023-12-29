@@ -15,6 +15,7 @@ data ComponentMonitoringSettingProperty
                                         customComponentConfiguration :: (Prelude.Maybe ComponentConfigurationProperty),
                                         defaultOverwriteComponentConfiguration :: (Prelude.Maybe ComponentConfigurationProperty),
                                         tier :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentMonitoringSettingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ComponentMonitoringSettingProperty

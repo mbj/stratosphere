@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DateTimeDatasetParameterDefaultValuesProperty
   = DateTimeDatasetParameterDefaultValuesProperty {staticValues :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimeDatasetParameterDefaultValuesProperty ::
   DateTimeDatasetParameterDefaultValuesProperty
 mkDateTimeDatasetParameterDefaultValuesProperty

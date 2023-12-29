@@ -13,6 +13,7 @@ data FunctionDefinitionVersion
   = FunctionDefinitionVersion {defaultConfig :: (Prelude.Maybe DefaultConfigProperty),
                                functionDefinitionId :: (Value Prelude.Text),
                                functions :: [FunctionProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionDefinitionVersion ::
   Value Prelude.Text
   -> [FunctionProperty] -> FunctionDefinitionVersion

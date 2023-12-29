@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotValueProperty
   = SlotValueProperty {interpretedValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueProperty :: SlotValueProperty
 mkSlotValueProperty
   = SlotValueProperty {interpretedValue = Prelude.Nothing}

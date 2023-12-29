@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data SheetStyleProperty
   = SheetStyleProperty {tile :: (Prelude.Maybe TileStyleProperty),
                         tileLayout :: (Prelude.Maybe TileLayoutStyleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSheetStyleProperty :: SheetStyleProperty
 mkSheetStyleProperty
   = SheetStyleProperty

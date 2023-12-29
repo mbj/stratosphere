@@ -10,6 +10,7 @@ data SelectAttributesProperty
   = SelectAttributesProperty {attributes :: (ValueList Prelude.Text),
                               name :: (Value Prelude.Text),
                               next :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSelectAttributesProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> SelectAttributesProperty

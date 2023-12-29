@@ -17,6 +17,7 @@ data H265ColorSpaceSettingsProperty
                                     hdr10Settings :: (Prelude.Maybe Hdr10SettingsProperty),
                                     rec601Settings :: (Prelude.Maybe Rec601SettingsProperty),
                                     rec709Settings :: (Prelude.Maybe Rec709SettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkH265ColorSpaceSettingsProperty :: H265ColorSpaceSettingsProperty
 mkH265ColorSpaceSettingsProperty
   = H265ColorSpaceSettingsProperty

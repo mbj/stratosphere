@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DatadogConnectorProfilePropertiesProperty :: Prelude.Type
 instance ToResourceProperties DatadogConnectorProfilePropertiesProperty
+instance Prelude.Eq DatadogConnectorProfilePropertiesProperty
+instance Prelude.Show DatadogConnectorProfilePropertiesProperty
 instance JSON.ToJSON DatadogConnectorProfilePropertiesProperty

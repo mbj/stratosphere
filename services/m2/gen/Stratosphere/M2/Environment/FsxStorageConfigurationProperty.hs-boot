@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FsxStorageConfigurationProperty :: Prelude.Type
 instance ToResourceProperties FsxStorageConfigurationProperty
+instance Prelude.Eq FsxStorageConfigurationProperty
+instance Prelude.Show FsxStorageConfigurationProperty
 instance JSON.ToJSON FsxStorageConfigurationProperty

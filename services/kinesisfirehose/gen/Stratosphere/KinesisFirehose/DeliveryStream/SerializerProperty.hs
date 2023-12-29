@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data SerializerProperty
   = SerializerProperty {orcSerDe :: (Prelude.Maybe OrcSerDeProperty),
                         parquetSerDe :: (Prelude.Maybe ParquetSerDeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSerializerProperty :: SerializerProperty
 mkSerializerProperty
   = SerializerProperty

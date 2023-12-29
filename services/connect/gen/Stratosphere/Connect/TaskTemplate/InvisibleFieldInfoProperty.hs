@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty 
 import Stratosphere.ResourceProperties
 data InvisibleFieldInfoProperty
   = InvisibleFieldInfoProperty {id :: FieldIdentifierProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInvisibleFieldInfoProperty ::
   FieldIdentifierProperty -> InvisibleFieldInfoProperty
 mkInvisibleFieldInfoProperty id

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RobotSoftwareSuiteProperty :: Prelude.Type
 instance ToResourceProperties RobotSoftwareSuiteProperty
+instance Prelude.Eq RobotSoftwareSuiteProperty
+instance Prelude.Show RobotSoftwareSuiteProperty
 instance JSON.ToJSON RobotSoftwareSuiteProperty

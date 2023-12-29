@@ -11,6 +11,7 @@ data Volume
             mountPoint :: (Prelude.Maybe (Value Prelude.Text)),
             name :: (Prelude.Maybe (Value Prelude.Text)),
             stackId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolume :: Value Prelude.Text -> Value Prelude.Text -> Volume
 mkVolume ec2VolumeId stackId
   = Volume

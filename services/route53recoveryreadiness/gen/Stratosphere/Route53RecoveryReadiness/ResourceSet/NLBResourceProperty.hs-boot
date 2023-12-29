@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NLBResourceProperty :: Prelude.Type
 instance ToResourceProperties NLBResourceProperty
+instance Prelude.Eq NLBResourceProperty
+instance Prelude.Show NLBResourceProperty
 instance JSON.ToJSON NLBResourceProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data InstanceDefinitionProperty
   = InstanceDefinitionProperty {instanceType :: (Value Prelude.Text),
                                 weightedCapacity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceDefinitionProperty ::
   Value Prelude.Text -> InstanceDefinitionProperty
 mkInstanceDefinitionProperty instanceType

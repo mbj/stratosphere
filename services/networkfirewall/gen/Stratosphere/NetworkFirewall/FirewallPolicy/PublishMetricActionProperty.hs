@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.DimensionPrope
 import Stratosphere.ResourceProperties
 data PublishMetricActionProperty
   = PublishMetricActionProperty {dimensions :: [DimensionProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublishMetricActionProperty ::
   [DimensionProperty] -> PublishMetricActionProperty
 mkPublishMetricActionProperty dimensions

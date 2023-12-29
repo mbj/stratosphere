@@ -19,6 +19,7 @@ data PivotTableOptionsProperty
                                rowHeaderStyle :: (Prelude.Maybe TableCellStyleProperty),
                                singleMetricVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                                toggleButtonsVisibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableOptionsProperty :: PivotTableOptionsProperty
 mkPivotTableOptionsProperty
   = PivotTableOptionsProperty

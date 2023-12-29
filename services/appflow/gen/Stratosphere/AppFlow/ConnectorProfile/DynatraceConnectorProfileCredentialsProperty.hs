@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DynatraceConnectorProfileCredentialsProperty
   = DynatraceConnectorProfileCredentialsProperty {apiToken :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynatraceConnectorProfileCredentialsProperty ::
   Value Prelude.Text -> DynatraceConnectorProfileCredentialsProperty
 mkDynatraceConnectorProfileCredentialsProperty apiToken

@@ -13,6 +13,7 @@ data ThingType
                tags :: (Prelude.Maybe [Tag]),
                thingTypeName :: (Prelude.Maybe (Value Prelude.Text)),
                thingTypeProperties :: (Prelude.Maybe ThingTypePropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThingType :: ThingType
 mkThingType
   = ThingType

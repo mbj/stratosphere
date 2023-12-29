@@ -17,6 +17,7 @@ data RDSSourceConfigProperty
                              secretManagerArn :: (Value Prelude.Text),
                              tableName :: (Value Prelude.Text),
                              vpcConfiguration :: VpcConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRDSSourceConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

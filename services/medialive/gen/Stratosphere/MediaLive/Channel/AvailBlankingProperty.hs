@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AvailBlankingProperty
   = AvailBlankingProperty {availBlankingImage :: (Prelude.Maybe InputLocationProperty),
                            state :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAvailBlankingProperty :: AvailBlankingProperty
 mkAvailBlankingProperty
   = AvailBlankingProperty

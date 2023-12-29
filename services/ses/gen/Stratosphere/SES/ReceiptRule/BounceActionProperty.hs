@@ -12,6 +12,7 @@ data BounceActionProperty
                           smtpReplyCode :: (Value Prelude.Text),
                           statusCode :: (Prelude.Maybe (Value Prelude.Text)),
                           topicArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBounceActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> BounceActionProperty

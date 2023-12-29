@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MemberFabricConfigurationProperty
   = MemberFabricConfigurationProperty {adminPassword :: (Value Prelude.Text),
                                        adminUsername :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberFabricConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> MemberFabricConfigurationProperty

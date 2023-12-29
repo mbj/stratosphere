@@ -17,6 +17,7 @@ data MicrosoftSqlServerSettingsProperty
                                         secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text)),
                                         useBcpFullLoad :: (Prelude.Maybe (Value Prelude.Bool)),
                                         useThirdPartyBackupDevice :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMicrosoftSqlServerSettingsProperty ::
   MicrosoftSqlServerSettingsProperty
 mkMicrosoftSqlServerSettingsProperty

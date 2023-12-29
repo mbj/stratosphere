@@ -19,6 +19,7 @@ data SimulationApplication
                            simulationSoftwareSuite :: SimulationSoftwareSuiteProperty,
                            sources :: (Prelude.Maybe [SourceConfigProperty]),
                            tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSimulationApplication ::
   RobotSoftwareSuiteProperty
   -> SimulationSoftwareSuiteProperty -> SimulationApplication

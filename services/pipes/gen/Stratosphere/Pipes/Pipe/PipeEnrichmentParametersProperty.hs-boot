@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipeEnrichmentParametersProperty :: Prelude.Type
 instance ToResourceProperties PipeEnrichmentParametersProperty
+instance Prelude.Eq PipeEnrichmentParametersProperty
+instance Prelude.Show PipeEnrichmentParametersProperty
 instance JSON.ToJSON PipeEnrichmentParametersProperty

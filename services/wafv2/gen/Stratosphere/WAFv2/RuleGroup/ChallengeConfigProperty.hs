@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.ImmunityTimePropertyProperty 
 import Stratosphere.ResourceProperties
 data ChallengeConfigProperty
   = ChallengeConfigProperty {immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChallengeConfigProperty :: ChallengeConfigProperty
 mkChallengeConfigProperty
   = ChallengeConfigProperty {immunityTimeProperty = Prelude.Nothing}

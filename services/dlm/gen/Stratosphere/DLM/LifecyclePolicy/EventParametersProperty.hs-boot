@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EventParametersProperty :: Prelude.Type
 instance ToResourceProperties EventParametersProperty
+instance Prelude.Eq EventParametersProperty
+instance Prelude.Show EventParametersProperty
 instance JSON.ToJSON EventParametersProperty

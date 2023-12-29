@@ -10,6 +10,7 @@ data ServiceActionAssociation
   = ServiceActionAssociation {productId :: (Value Prelude.Text),
                               provisioningArtifactId :: (Value Prelude.Text),
                               serviceActionId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceActionAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text

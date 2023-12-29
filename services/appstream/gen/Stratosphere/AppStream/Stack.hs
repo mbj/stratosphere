@@ -27,6 +27,7 @@ data Stack
            streamingExperienceSettings :: (Prelude.Maybe StreamingExperienceSettingsProperty),
            tags :: (Prelude.Maybe [Tag]),
            userSettings :: (Prelude.Maybe [UserSettingProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStack :: Stack
 mkStack
   = Stack

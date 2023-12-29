@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.SankeyDiagramAggregatedFi
 import Stratosphere.ResourceProperties
 data SankeyDiagramFieldWellsProperty
   = SankeyDiagramFieldWellsProperty {sankeyDiagramAggregatedFieldWells :: (Prelude.Maybe SankeyDiagramAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSankeyDiagramFieldWellsProperty ::
   SankeyDiagramFieldWellsProperty
 mkSankeyDiagramFieldWellsProperty

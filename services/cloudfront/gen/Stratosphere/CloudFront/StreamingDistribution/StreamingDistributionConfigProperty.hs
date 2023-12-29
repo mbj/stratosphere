@@ -18,6 +18,7 @@ data StreamingDistributionConfigProperty
                                          priceClass :: (Prelude.Maybe (Value Prelude.Text)),
                                          s3Origin :: S3OriginProperty,
                                          trustedSigners :: TrustedSignersProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamingDistributionConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Bool

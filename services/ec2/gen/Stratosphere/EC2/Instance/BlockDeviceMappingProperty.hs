@@ -14,6 +14,7 @@ data BlockDeviceMappingProperty
                                 ebs :: (Prelude.Maybe EbsProperty),
                                 noDevice :: (Prelude.Maybe NoDeviceProperty),
                                 virtualName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockDeviceMappingProperty ::
   Value Prelude.Text -> BlockDeviceMappingProperty
 mkBlockDeviceMappingProperty deviceName

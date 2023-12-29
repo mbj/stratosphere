@@ -16,6 +16,7 @@ data SecurityGroup
                    securityGroupIngress :: (Prelude.Maybe [IngressProperty]),
                    tags :: (Prelude.Maybe [Tag]),
                    vpcId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityGroup :: Value Prelude.Text -> SecurityGroup
 mkSecurityGroup groupDescription
   = SecurityGroup

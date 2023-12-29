@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnlineStoreSecurityConfigProperty
   = OnlineStoreSecurityConfigProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOnlineStoreSecurityConfigProperty ::
   OnlineStoreSecurityConfigProperty
 mkOnlineStoreSecurityConfigProperty

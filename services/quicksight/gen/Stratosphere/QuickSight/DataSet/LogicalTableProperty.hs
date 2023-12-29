@@ -12,6 +12,7 @@ data LogicalTableProperty
   = LogicalTableProperty {alias :: (Value Prelude.Text),
                           dataTransforms :: (Prelude.Maybe [TransformOperationProperty]),
                           source :: LogicalTableSourceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogicalTableProperty ::
   Value Prelude.Text
   -> LogicalTableSourceProperty -> LogicalTableProperty

@@ -17,6 +17,7 @@ data Deployment
                 parentTargetArn :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                 targetArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployment :: Value Prelude.Text -> Deployment
 mkDeployment targetArn
   = Deployment

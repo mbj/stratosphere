@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CapacityRebalanceProperty
   = CapacityRebalanceProperty {replacementStrategy :: (Prelude.Maybe (Value Prelude.Text)),
                                terminationDelay :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityRebalanceProperty :: CapacityRebalanceProperty
 mkCapacityRebalanceProperty
   = CapacityRebalanceProperty

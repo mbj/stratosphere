@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TrafficMirrorPortRangeProperty :: Prelude.Type
 instance ToResourceProperties TrafficMirrorPortRangeProperty
+instance Prelude.Eq TrafficMirrorPortRangeProperty
+instance Prelude.Show TrafficMirrorPortRangeProperty
 instance JSON.ToJSON TrafficMirrorPortRangeProperty

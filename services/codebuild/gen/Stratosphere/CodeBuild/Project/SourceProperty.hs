@@ -20,6 +20,7 @@ data SourceProperty
                     reportBuildStatus :: (Prelude.Maybe (Value Prelude.Bool)),
                     sourceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                     type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceProperty :: Value Prelude.Text -> SourceProperty
 mkSourceProperty type'
   = SourceProperty

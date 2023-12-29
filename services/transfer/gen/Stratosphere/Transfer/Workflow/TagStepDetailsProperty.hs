@@ -12,6 +12,7 @@ data TagStepDetailsProperty
   = TagStepDetailsProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                             sourceFileLocation :: (Prelude.Maybe (Value Prelude.Text)),
                             tags :: (Prelude.Maybe [S3TagProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTagStepDetailsProperty :: TagStepDetailsProperty
 mkTagStepDetailsProperty
   = TagStepDetailsProperty

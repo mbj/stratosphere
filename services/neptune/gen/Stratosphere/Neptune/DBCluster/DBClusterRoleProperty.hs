@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DBClusterRoleProperty
   = DBClusterRoleProperty {featureName :: (Prelude.Maybe (Value Prelude.Text)),
                            roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDBClusterRoleProperty ::
   Value Prelude.Text -> DBClusterRoleProperty
 mkDBClusterRoleProperty roleArn

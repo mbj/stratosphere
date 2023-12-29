@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data LoadBalancersConfigProperty
   = LoadBalancersConfigProperty {classicLoadBalancersConfig :: (Prelude.Maybe ClassicLoadBalancersConfigProperty),
                                  targetGroupsConfig :: (Prelude.Maybe TargetGroupsConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancersConfigProperty :: LoadBalancersConfigProperty
 mkLoadBalancersConfigProperty
   = LoadBalancersConfigProperty

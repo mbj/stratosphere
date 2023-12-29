@@ -10,6 +10,7 @@ data WebhookFilterProperty
   = WebhookFilterProperty {excludeMatchedPattern :: (Prelude.Maybe (Value Prelude.Bool)),
                            pattern :: (Value Prelude.Text),
                            type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebhookFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> WebhookFilterProperty
 mkWebhookFilterProperty pattern type'

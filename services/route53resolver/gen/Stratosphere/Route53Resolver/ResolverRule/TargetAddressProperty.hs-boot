@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TargetAddressProperty :: Prelude.Type
 instance ToResourceProperties TargetAddressProperty
+instance Prelude.Eq TargetAddressProperty
+instance Prelude.Show TargetAddressProperty
 instance JSON.ToJSON TargetAddressProperty

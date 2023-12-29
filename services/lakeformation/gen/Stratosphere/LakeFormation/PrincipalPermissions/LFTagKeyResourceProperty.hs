@@ -10,6 +10,7 @@ data LFTagKeyResourceProperty
   = LFTagKeyResourceProperty {catalogId :: (Value Prelude.Text),
                               tagKey :: (Value Prelude.Text),
                               tagValues :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLFTagKeyResourceProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

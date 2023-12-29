@@ -11,6 +11,7 @@ import Stratosphere.Value
 data NodeRangePropertyProperty
   = NodeRangePropertyProperty {container :: (Prelude.Maybe ContainerPropertiesProperty),
                                targetNodes :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeRangePropertyProperty ::
   Value Prelude.Text -> NodeRangePropertyProperty
 mkNodeRangePropertyProperty targetNodes

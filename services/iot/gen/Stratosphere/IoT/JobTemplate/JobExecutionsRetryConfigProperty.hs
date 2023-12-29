@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IoT.JobTemplate.RetryCriteriaProperty as Expo
 import Stratosphere.ResourceProperties
 data JobExecutionsRetryConfigProperty
   = JobExecutionsRetryConfigProperty {retryCriteriaList :: (Prelude.Maybe [RetryCriteriaProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJobExecutionsRetryConfigProperty ::
   JobExecutionsRetryConfigProperty
 mkJobExecutionsRetryConfigProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataPointMenuLabelOptionProperty
   = DataPointMenuLabelOptionProperty {availabilityStatus :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPointMenuLabelOptionProperty ::
   DataPointMenuLabelOptionProperty
 mkDataPointMenuLabelOptionProperty

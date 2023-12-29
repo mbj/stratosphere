@@ -10,6 +10,7 @@ data TargetDescriptionProperty
   = TargetDescriptionProperty {availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
                                id :: (Value Prelude.Text),
                                port :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetDescriptionProperty ::
   Value Prelude.Text -> TargetDescriptionProperty
 mkTargetDescriptionProperty id

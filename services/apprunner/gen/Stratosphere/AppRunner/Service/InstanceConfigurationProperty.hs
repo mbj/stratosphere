@@ -10,6 +10,7 @@ data InstanceConfigurationProperty
   = InstanceConfigurationProperty {cpu :: (Prelude.Maybe (Value Prelude.Text)),
                                    instanceRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                    memory :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceConfigurationProperty :: InstanceConfigurationProperty
 mkInstanceConfigurationProperty
   = InstanceConfigurationProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data HttpActionHeaderProperty
   = HttpActionHeaderProperty {key :: (Value Prelude.Text),
                               value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpActionHeaderProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> HttpActionHeaderProperty

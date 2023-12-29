@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomerContentEncryptionConfigurationProperty :: Prelude.Type
 instance ToResourceProperties CustomerContentEncryptionConfigurationProperty
+instance Prelude.Eq CustomerContentEncryptionConfigurationProperty
+instance Prelude.Show CustomerContentEncryptionConfigurationProperty
 instance JSON.ToJSON CustomerContentEncryptionConfigurationProperty

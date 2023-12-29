@@ -11,6 +11,7 @@ data S3LocationProperty
                         eTag :: (Prelude.Maybe (Value Prelude.Text)),
                         key :: (Prelude.Maybe (Value Prelude.Text)),
                         version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LocationProperty :: S3LocationProperty
 mkS3LocationProperty
   = S3LocationProperty

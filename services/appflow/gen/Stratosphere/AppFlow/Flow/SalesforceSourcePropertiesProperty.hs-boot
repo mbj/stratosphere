@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SalesforceSourcePropertiesProperty :: Prelude.Type
 instance ToResourceProperties SalesforceSourcePropertiesProperty
+instance Prelude.Eq SalesforceSourcePropertiesProperty
+instance Prelude.Show SalesforceSourcePropertiesProperty
 instance JSON.ToJSON SalesforceSourcePropertiesProperty

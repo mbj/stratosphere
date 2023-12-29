@@ -13,6 +13,7 @@ data PipeTargetEventBridgeEventBusParametersProperty
                                                      resources :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                      source :: (Prelude.Maybe (Value Prelude.Text)),
                                                      time :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetEventBridgeEventBusParametersProperty ::
   PipeTargetEventBridgeEventBusParametersProperty
 mkPipeTargetEventBridgeEventBusParametersProperty

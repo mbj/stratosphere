@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data VpcConnectivitySaslProperty
   = VpcConnectivitySaslProperty {iam :: (Prelude.Maybe VpcConnectivityIamProperty),
                                  scram :: (Prelude.Maybe VpcConnectivityScramProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnectivitySaslProperty :: VpcConnectivitySaslProperty
 mkVpcConnectivitySaslProperty
   = VpcConnectivitySaslProperty

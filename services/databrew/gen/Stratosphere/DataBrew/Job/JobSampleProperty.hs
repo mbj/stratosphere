@@ -9,6 +9,7 @@ import Stratosphere.Value
 data JobSampleProperty
   = JobSampleProperty {mode :: (Prelude.Maybe (Value Prelude.Text)),
                        size :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJobSampleProperty :: JobSampleProperty
 mkJobSampleProperty
   = JobSampleProperty

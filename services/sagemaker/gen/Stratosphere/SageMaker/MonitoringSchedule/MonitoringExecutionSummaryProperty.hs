@@ -16,6 +16,7 @@ data MonitoringExecutionSummaryProperty
                                         monitoringScheduleName :: (Value Prelude.Text),
                                         processingJobArn :: (Prelude.Maybe (Value Prelude.Text)),
                                         scheduledTime :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringExecutionSummaryProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

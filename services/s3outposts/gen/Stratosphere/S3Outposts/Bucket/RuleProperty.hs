@@ -15,6 +15,7 @@ data RuleProperty
                   filter :: (Prelude.Maybe FilterProperty),
                   id :: (Prelude.Maybe (Value Prelude.Text)),
                   status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty :: Value Prelude.Text -> RuleProperty
 mkRuleProperty status
   = RuleProperty

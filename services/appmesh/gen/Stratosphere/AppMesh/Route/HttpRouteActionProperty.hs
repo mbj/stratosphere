@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.WeightedTargetProperty as Expor
 import Stratosphere.ResourceProperties
 data HttpRouteActionProperty
   = HttpRouteActionProperty {weightedTargets :: [WeightedTargetProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpRouteActionProperty ::
   [WeightedTargetProperty] -> HttpRouteActionProperty
 mkHttpRouteActionProperty weightedTargets

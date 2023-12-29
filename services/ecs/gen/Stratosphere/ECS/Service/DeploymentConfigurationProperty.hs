@@ -14,6 +14,7 @@ data DeploymentConfigurationProperty
                                      deploymentCircuitBreaker :: (Prelude.Maybe DeploymentCircuitBreakerProperty),
                                      maximumPercent :: (Prelude.Maybe (Value Prelude.Integer)),
                                      minimumHealthyPercent :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentConfigurationProperty ::
   DeploymentConfigurationProperty
 mkDeploymentConfigurationProperty

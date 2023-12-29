@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ResponseInspectionStatusCodeProperty :: Prelude.Type
 instance ToResourceProperties ResponseInspectionStatusCodeProperty
+instance Prelude.Eq ResponseInspectionStatusCodeProperty
+instance Prelude.Show ResponseInspectionStatusCodeProperty
 instance JSON.ToJSON ResponseInspectionStatusCodeProperty

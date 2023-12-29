@@ -10,6 +10,7 @@ import Stratosphere.Value
 data GatewayRouteHostnameMatchProperty
   = GatewayRouteHostnameMatchProperty {exact :: (Prelude.Maybe (Value Prelude.Text)),
                                        suffix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteHostnameMatchProperty ::
   GatewayRouteHostnameMatchProperty
 mkGatewayRouteHostnameMatchProperty

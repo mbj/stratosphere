@@ -9,6 +9,7 @@ import Stratosphere.Value
 data IngestionWaitPolicyProperty
   = IngestionWaitPolicyProperty {ingestionWaitTimeInHours :: (Prelude.Maybe (Value Prelude.Double)),
                                  waitForSpiceIngestion :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIngestionWaitPolicyProperty :: IngestionWaitPolicyProperty
 mkIngestionWaitPolicyProperty
   = IngestionWaitPolicyProperty

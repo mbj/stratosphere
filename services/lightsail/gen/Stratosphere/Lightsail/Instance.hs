@@ -25,6 +25,7 @@ data Instance
               state :: (Prelude.Maybe StateProperty),
               tags :: (Prelude.Maybe [Tag]),
               userData :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstance ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Instance

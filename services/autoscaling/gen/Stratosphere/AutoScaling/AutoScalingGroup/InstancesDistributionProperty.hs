@@ -13,6 +13,7 @@ data InstancesDistributionProperty
                                    spotAllocationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
                                    spotInstancePools :: (Prelude.Maybe (Value Prelude.Integer)),
                                    spotMaxPrice :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstancesDistributionProperty :: InstancesDistributionProperty
 mkInstancesDistributionProperty
   = InstancesDistributionProperty

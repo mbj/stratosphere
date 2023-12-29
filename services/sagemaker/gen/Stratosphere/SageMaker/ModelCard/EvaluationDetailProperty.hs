@@ -15,6 +15,7 @@ data EvaluationDetailProperty
                               metadata :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                               metricGroups :: (Prelude.Maybe [MetricGroupProperty]),
                               name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationDetailProperty ::
   Value Prelude.Text -> EvaluationDetailProperty
 mkEvaluationDetailProperty name

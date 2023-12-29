@@ -9,6 +9,7 @@ import Stratosphere.Value
 data NodeConfigurationProperty
   = NodeConfigurationProperty {availabilityZone :: (Value Prelude.Text),
                                instanceType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> NodeConfigurationProperty

@@ -11,6 +11,7 @@ data PortfolioPrincipalAssociation
                                    portfolioId :: (Value Prelude.Text),
                                    principalARN :: (Value Prelude.Text),
                                    principalType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortfolioPrincipalAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text

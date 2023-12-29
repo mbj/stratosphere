@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LookbackWindowProperty :: Prelude.Type
 instance ToResourceProperties LookbackWindowProperty
+instance Prelude.Eq LookbackWindowProperty
+instance Prelude.Show LookbackWindowProperty
 instance JSON.ToJSON LookbackWindowProperty

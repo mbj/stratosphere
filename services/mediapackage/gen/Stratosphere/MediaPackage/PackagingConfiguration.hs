@@ -20,6 +20,7 @@ data PackagingConfiguration
                             mssPackage :: (Prelude.Maybe MssPackageProperty),
                             packagingGroupId :: (Value Prelude.Text),
                             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPackagingConfiguration ::
   Value Prelude.Text -> Value Prelude.Text -> PackagingConfiguration
 mkPackagingConfiguration id packagingGroupId

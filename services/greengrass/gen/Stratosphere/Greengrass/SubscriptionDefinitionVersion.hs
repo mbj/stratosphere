@@ -11,6 +11,7 @@ import Stratosphere.Value
 data SubscriptionDefinitionVersion
   = SubscriptionDefinitionVersion {subscriptionDefinitionId :: (Value Prelude.Text),
                                    subscriptions :: [SubscriptionProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriptionDefinitionVersion ::
   Value Prelude.Text
   -> [SubscriptionProperty] -> SubscriptionDefinitionVersion

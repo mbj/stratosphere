@@ -23,6 +23,7 @@ data Bot
          roleArn :: (Value Prelude.Text),
          testBotAliasSettings :: (Prelude.Maybe TestBotAliasSettingsProperty),
          testBotAliasTags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBot ::
   DataPrivacyProperty
   -> Value Prelude.Integer

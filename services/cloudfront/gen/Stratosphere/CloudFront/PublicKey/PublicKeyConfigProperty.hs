@@ -11,6 +11,7 @@ data PublicKeyConfigProperty
                              comment :: (Prelude.Maybe (Value Prelude.Text)),
                              encodedKey :: (Value Prelude.Text),
                              name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicKeyConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AxisLinearScaleProperty :: Prelude.Type
 instance ToResourceProperties AxisLinearScaleProperty
+instance Prelude.Eq AxisLinearScaleProperty
+instance Prelude.Show AxisLinearScaleProperty
 instance JSON.ToJSON AxisLinearScaleProperty

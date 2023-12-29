@@ -11,6 +11,7 @@ data Node
   = Node {memberId :: (Prelude.Maybe (Value Prelude.Text)),
           networkId :: (Value Prelude.Text),
           nodeConfiguration :: NodeConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNode :: Value Prelude.Text -> NodeConfigurationProperty -> Node
 mkNode networkId nodeConfiguration
   = Node

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AutoScalingThresholdsProperty :: Prelude.Type
 instance ToResourceProperties AutoScalingThresholdsProperty
+instance Prelude.Eq AutoScalingThresholdsProperty
+instance Prelude.Show AutoScalingThresholdsProperty
 instance JSON.ToJSON AutoScalingThresholdsProperty

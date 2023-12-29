@@ -10,6 +10,7 @@ data TransitionProperty
   = TransitionProperty {storageClass :: (Value Prelude.Text),
                         transitionDate :: (Prelude.Maybe (Value Prelude.Text)),
                         transitionInDays :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitionProperty :: Value Prelude.Text -> TransitionProperty
 mkTransitionProperty storageClass
   = TransitionProperty

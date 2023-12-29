@@ -12,6 +12,7 @@ data ConstraintsProperty
   = ConstraintsProperty {invisibleFields :: (Prelude.Maybe [InvisibleFieldInfoProperty]),
                          readOnlyFields :: (Prelude.Maybe [ReadOnlyFieldInfoProperty]),
                          requiredFields :: (Prelude.Maybe [RequiredFieldInfoProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConstraintsProperty :: ConstraintsProperty
 mkConstraintsProperty
   = ConstraintsProperty

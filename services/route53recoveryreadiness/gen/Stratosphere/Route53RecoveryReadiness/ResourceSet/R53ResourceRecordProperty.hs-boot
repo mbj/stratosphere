@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data R53ResourceRecordProperty :: Prelude.Type
 instance ToResourceProperties R53ResourceRecordProperty
+instance Prelude.Eq R53ResourceRecordProperty
+instance Prelude.Show R53ResourceRecordProperty
 instance JSON.ToJSON R53ResourceRecordProperty

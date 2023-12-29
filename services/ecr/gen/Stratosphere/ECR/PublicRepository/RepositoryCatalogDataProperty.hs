@@ -12,6 +12,7 @@ data RepositoryCatalogDataProperty
                                    operatingSystems :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    repositoryDescription :: (Prelude.Maybe (Value Prelude.Text)),
                                    usageText :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRepositoryCatalogDataProperty :: RepositoryCatalogDataProperty
 mkRepositoryCatalogDataProperty
   = RepositoryCatalogDataProperty

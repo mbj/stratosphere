@@ -18,6 +18,7 @@ data TimestreamConfigurationProperty
                                      multiMeasureMappings :: (Prelude.Maybe MultiMeasureMappingsProperty),
                                      tableName :: (Value Prelude.Text),
                                      timeColumn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestreamConfigurationProperty ::
   Value Prelude.Text
   -> [DimensionMappingProperty]

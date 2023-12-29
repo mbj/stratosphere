@@ -26,6 +26,7 @@ data BurnInDestinationSettingsProperty
                                        teletextGridControl :: (Prelude.Maybe (Value Prelude.Text)),
                                        xPosition :: (Prelude.Maybe (Value Prelude.Integer)),
                                        yPosition :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBurnInDestinationSettingsProperty ::
   BurnInDestinationSettingsProperty
 mkBurnInDestinationSettingsProperty

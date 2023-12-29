@@ -11,6 +11,7 @@ data StackUserAssociation
                           sendEmailNotification :: (Prelude.Maybe (Value Prelude.Bool)),
                           stackName :: (Value Prelude.Text),
                           userName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStackUserAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> StackUserAssociation

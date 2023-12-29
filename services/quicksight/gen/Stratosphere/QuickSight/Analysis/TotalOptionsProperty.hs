@@ -13,6 +13,7 @@ data TotalOptionsProperty
                           scrollStatus :: (Prelude.Maybe (Value Prelude.Text)),
                           totalCellStyle :: (Prelude.Maybe TableCellStyleProperty),
                           totalsVisibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTotalOptionsProperty :: TotalOptionsProperty
 mkTotalOptionsProperty
   = TotalOptionsProperty

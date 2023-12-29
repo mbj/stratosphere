@@ -21,6 +21,7 @@ data DisplayFormatOptionsProperty
                                   unitScaler :: (Prelude.Maybe (Value Prelude.Text)),
                                   useBlankCellFormat :: (Prelude.Maybe (Value Prelude.Bool)),
                                   useGrouping :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDisplayFormatOptionsProperty :: DisplayFormatOptionsProperty
 mkDisplayFormatOptionsProperty
   = DisplayFormatOptionsProperty

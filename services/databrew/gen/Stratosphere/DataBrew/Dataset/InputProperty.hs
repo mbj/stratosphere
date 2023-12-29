@@ -14,6 +14,7 @@ data InputProperty
                    databaseInputDefinition :: (Prelude.Maybe DatabaseInputDefinitionProperty),
                    metadata :: (Prelude.Maybe MetadataProperty),
                    s3InputDefinition :: (Prelude.Maybe S3LocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputProperty :: InputProperty
 mkInputProperty
   = InputProperty

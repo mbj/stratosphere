@@ -14,6 +14,7 @@ data ConfluenceSpaceConfigurationProperty
                                           excludeSpaces :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           includeSpaces :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           spaceFieldMappings :: (Prelude.Maybe [ConfluenceSpaceToIndexFieldMappingProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluenceSpaceConfigurationProperty ::
   ConfluenceSpaceConfigurationProperty
 mkConfluenceSpaceConfigurationProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.PivotTableConditionalForm
 import Stratosphere.ResourceProperties
 data PivotTableConditionalFormattingProperty
   = PivotTableConditionalFormattingProperty {conditionalFormattingOptions :: (Prelude.Maybe [PivotTableConditionalFormattingOptionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableConditionalFormattingProperty ::
   PivotTableConditionalFormattingProperty
 mkPivotTableConditionalFormattingProperty

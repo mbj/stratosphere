@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PathMatchProperty
   = PathMatchProperty {caseSensitive :: (Prelude.Maybe (Value Prelude.Bool)),
                        match :: PathMatchTypeProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPathMatchProperty :: PathMatchTypeProperty -> PathMatchProperty
 mkPathMatchProperty match
   = PathMatchProperty

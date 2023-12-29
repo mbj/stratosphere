@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FeedbackAttributesProperty :: Prelude.Type
 instance ToResourceProperties FeedbackAttributesProperty
+instance Prelude.Eq FeedbackAttributesProperty
+instance Prelude.Show FeedbackAttributesProperty
 instance JSON.ToJSON FeedbackAttributesProperty

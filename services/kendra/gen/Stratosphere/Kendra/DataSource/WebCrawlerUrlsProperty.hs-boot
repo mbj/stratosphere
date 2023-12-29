@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WebCrawlerUrlsProperty :: Prelude.Type
 instance ToResourceProperties WebCrawlerUrlsProperty
+instance Prelude.Eq WebCrawlerUrlsProperty
+instance Prelude.Show WebCrawlerUrlsProperty
 instance JSON.ToJSON WebCrawlerUrlsProperty

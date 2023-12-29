@@ -16,6 +16,7 @@ data MetricDataQueryProperty
                              metricStat :: (Prelude.Maybe MetricStatProperty),
                              period :: (Prelude.Maybe (Value Prelude.Integer)),
                              returnData :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricDataQueryProperty ::
   Value Prelude.Text -> MetricDataQueryProperty
 mkMetricDataQueryProperty id

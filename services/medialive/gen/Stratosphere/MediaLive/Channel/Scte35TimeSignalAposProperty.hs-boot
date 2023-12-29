@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Scte35TimeSignalAposProperty :: Prelude.Type
 instance ToResourceProperties Scte35TimeSignalAposProperty
+instance Prelude.Eq Scte35TimeSignalAposProperty
+instance Prelude.Show Scte35TimeSignalAposProperty
 instance JSON.ToJSON Scte35TimeSignalAposProperty

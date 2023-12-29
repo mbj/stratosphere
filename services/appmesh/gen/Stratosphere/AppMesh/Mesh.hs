@@ -12,6 +12,7 @@ data Mesh
   = Mesh {meshName :: (Prelude.Maybe (Value Prelude.Text)),
           spec :: (Prelude.Maybe MeshSpecProperty),
           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMesh :: Mesh
 mkMesh
   = Mesh

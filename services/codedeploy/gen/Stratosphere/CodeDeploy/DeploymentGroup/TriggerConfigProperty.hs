@@ -10,6 +10,7 @@ data TriggerConfigProperty
   = TriggerConfigProperty {triggerEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
                            triggerName :: (Prelude.Maybe (Value Prelude.Text)),
                            triggerTargetArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggerConfigProperty :: TriggerConfigProperty
 mkTriggerConfigProperty
   = TriggerConfigProperty

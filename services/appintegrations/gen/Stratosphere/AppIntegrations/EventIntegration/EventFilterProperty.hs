@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventFilterProperty
   = EventFilterProperty {source :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventFilterProperty :: Value Prelude.Text -> EventFilterProperty
 mkEventFilterProperty source
   = EventFilterProperty {source = source}

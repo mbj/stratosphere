@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ServerCredentialsProperty
   = ServerCredentialsProperty {password :: (Value Prelude.Text),
                                username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerCredentialsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ServerCredentialsProperty

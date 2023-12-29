@@ -34,6 +34,7 @@ data Cluster
              subnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
              tLSEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Cluster

@@ -10,6 +10,7 @@ data InviteMessageTemplateProperty
   = InviteMessageTemplateProperty {emailMessage :: (Prelude.Maybe (Value Prelude.Text)),
                                    emailSubject :: (Prelude.Maybe (Value Prelude.Text)),
                                    sMSMessage :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInviteMessageTemplateProperty :: InviteMessageTemplateProperty
 mkInviteMessageTemplateProperty
   = InviteMessageTemplateProperty

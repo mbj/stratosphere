@@ -15,6 +15,7 @@ data TargetGroup
                  tags :: (Prelude.Maybe [Tag]),
                  targets :: (Prelude.Maybe [TargetProperty]),
                  type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroup :: Value Prelude.Text -> TargetGroup
 mkTargetGroup type'
   = TargetGroup

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data VideoSelectorSettingsProperty
   = VideoSelectorSettingsProperty {videoSelectorPid :: (Prelude.Maybe VideoSelectorPidProperty),
                                    videoSelectorProgramId :: (Prelude.Maybe VideoSelectorProgramIdProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoSelectorSettingsProperty :: VideoSelectorSettingsProperty
 mkVideoSelectorSettingsProperty
   = VideoSelectorSettingsProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AmplitudeConnectorProfileCredentialsProperty
   = AmplitudeConnectorProfileCredentialsProperty {apiKey :: (Value Prelude.Text),
                                                   secretKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAmplitudeConnectorProfileCredentialsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

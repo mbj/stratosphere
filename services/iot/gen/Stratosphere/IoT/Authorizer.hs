@@ -16,6 +16,7 @@ data Authorizer
                 tags :: (Prelude.Maybe [Tag]),
                 tokenKeyName :: (Prelude.Maybe (Value Prelude.Text)),
                 tokenSigningPublicKeys :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizer :: Value Prelude.Text -> Authorizer
 mkAuthorizer authorizerFunctionArn
   = Authorizer

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IotSiteWiseMultiLayerStorageProperty :: Prelude.Type
 instance ToResourceProperties IotSiteWiseMultiLayerStorageProperty
+instance Prelude.Eq IotSiteWiseMultiLayerStorageProperty
+instance Prelude.Show IotSiteWiseMultiLayerStorageProperty
 instance JSON.ToJSON IotSiteWiseMultiLayerStorageProperty

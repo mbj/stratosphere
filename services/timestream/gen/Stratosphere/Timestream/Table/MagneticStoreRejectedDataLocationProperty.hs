@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Timestream.Table.S3ConfigurationProperty as E
 import Stratosphere.ResourceProperties
 data MagneticStoreRejectedDataLocationProperty
   = MagneticStoreRejectedDataLocationProperty {s3Configuration :: (Prelude.Maybe S3ConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMagneticStoreRejectedDataLocationProperty ::
   MagneticStoreRejectedDataLocationProperty
 mkMagneticStoreRejectedDataLocationProperty

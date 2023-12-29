@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DriftCheckExplainabilityProperty :: Prelude.Type
 instance ToResourceProperties DriftCheckExplainabilityProperty
+instance Prelude.Eq DriftCheckExplainabilityProperty
+instance Prelude.Show DriftCheckExplainabilityProperty
 instance JSON.ToJSON DriftCheckExplainabilityProperty

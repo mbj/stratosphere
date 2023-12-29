@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MaintenanceWindowProperty
   = MaintenanceWindowProperty {durationInMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
                                startTime :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowProperty :: MaintenanceWindowProperty
 mkMaintenanceWindowProperty
   = MaintenanceWindowProperty

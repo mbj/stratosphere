@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Activity
   = Activity {name :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [TagsEntryProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActivity :: Value Prelude.Text -> Activity
 mkActivity name = Activity {name = name, tags = Prelude.Nothing}
 instance ToResourceProperties Activity where

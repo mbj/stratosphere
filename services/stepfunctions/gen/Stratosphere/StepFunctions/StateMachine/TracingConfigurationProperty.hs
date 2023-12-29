@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TracingConfigurationProperty
   = TracingConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTracingConfigurationProperty :: TracingConfigurationProperty
 mkTracingConfigurationProperty
   = TracingConfigurationProperty {enabled = Prelude.Nothing}

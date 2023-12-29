@@ -14,6 +14,7 @@ data ProtectionGroup
                      protectionGroupId :: (Value Prelude.Text),
                      resourceType :: (Prelude.Maybe (Value Prelude.Text)),
                      tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProtectionGroup ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> ProtectionGroup

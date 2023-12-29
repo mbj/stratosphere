@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PredictiveScalingPredefinedLoadMetricProperty
   = PredictiveScalingPredefinedLoadMetricProperty {predefinedMetricType :: (Value Prelude.Text),
                                                    resourceLabel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveScalingPredefinedLoadMetricProperty ::
   Value Prelude.Text -> PredictiveScalingPredefinedLoadMetricProperty
 mkPredictiveScalingPredefinedLoadMetricProperty

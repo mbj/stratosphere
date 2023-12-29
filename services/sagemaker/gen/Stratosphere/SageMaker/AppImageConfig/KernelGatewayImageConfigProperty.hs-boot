@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KernelGatewayImageConfigProperty :: Prelude.Type
 instance ToResourceProperties KernelGatewayImageConfigProperty
+instance Prelude.Eq KernelGatewayImageConfigProperty
+instance Prelude.Show KernelGatewayImageConfigProperty
 instance JSON.ToJSON KernelGatewayImageConfigProperty

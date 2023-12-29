@@ -13,6 +13,7 @@ data NielsenWatermarksSettingsProperty
   = NielsenWatermarksSettingsProperty {nielsenCbetSettings :: (Prelude.Maybe NielsenCBETProperty),
                                        nielsenDistributionType :: (Prelude.Maybe (Value Prelude.Text)),
                                        nielsenNaesIiNwSettings :: (Prelude.Maybe NielsenNaesIiNwProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNielsenWatermarksSettingsProperty ::
   NielsenWatermarksSettingsProperty
 mkNielsenWatermarksSettingsProperty

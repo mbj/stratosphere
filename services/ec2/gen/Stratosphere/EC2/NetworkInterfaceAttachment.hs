@@ -11,6 +11,7 @@ data NetworkInterfaceAttachment
                                 deviceIndex :: (Value Prelude.Text),
                                 instanceId :: (Value Prelude.Text),
                                 networkInterfaceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfaceAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text

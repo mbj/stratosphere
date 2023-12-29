@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MeshServiceDiscoveryProperty
   = MeshServiceDiscoveryProperty {ipPreference :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMeshServiceDiscoveryProperty :: MeshServiceDiscoveryProperty
 mkMeshServiceDiscoveryProperty
   = MeshServiceDiscoveryProperty {ipPreference = Prelude.Nothing}

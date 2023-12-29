@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IpamOperatingRegionProperty
   = IpamOperatingRegionProperty {regionName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIpamOperatingRegionProperty ::
   Value Prelude.Text -> IpamOperatingRegionProperty
 mkIpamOperatingRegionProperty regionName

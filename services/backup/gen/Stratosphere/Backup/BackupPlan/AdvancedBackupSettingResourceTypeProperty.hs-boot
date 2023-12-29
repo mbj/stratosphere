@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AdvancedBackupSettingResourceTypeProperty :: Prelude.Type
 instance ToResourceProperties AdvancedBackupSettingResourceTypeProperty
+instance Prelude.Eq AdvancedBackupSettingResourceTypeProperty
+instance Prelude.Show AdvancedBackupSettingResourceTypeProperty
 instance JSON.ToJSON AdvancedBackupSettingResourceTypeProperty

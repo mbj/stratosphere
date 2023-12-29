@@ -10,6 +10,7 @@ data OpenXJsonSerDeProperty
   = OpenXJsonSerDeProperty {caseInsensitive :: (Prelude.Maybe (Value Prelude.Bool)),
                             columnToJsonKeyMappings :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                             convertDotsInJsonKeysToUnderscores :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenXJsonSerDeProperty :: OpenXJsonSerDeProperty
 mkOpenXJsonSerDeProperty
   = OpenXJsonSerDeProperty

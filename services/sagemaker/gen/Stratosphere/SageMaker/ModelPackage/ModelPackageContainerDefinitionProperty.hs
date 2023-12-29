@@ -19,6 +19,7 @@ data ModelPackageContainerDefinitionProperty
                                              modelInput :: (Prelude.Maybe ModelInputProperty),
                                              nearestModelName :: (Prelude.Maybe (Value Prelude.Text)),
                                              productId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageContainerDefinitionProperty ::
   Value Prelude.Text -> ModelPackageContainerDefinitionProperty
 mkModelPackageContainerDefinitionProperty image

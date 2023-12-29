@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ExpressionVariableProperty
   = ExpressionVariableProperty {name :: (Value Prelude.Text),
                                 value :: VariableValueProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExpressionVariableProperty ::
   Value Prelude.Text
   -> VariableValueProperty -> ExpressionVariableProperty

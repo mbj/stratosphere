@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InstanceIpv6AddressProperty
   = InstanceIpv6AddressProperty {ipv6Address :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceIpv6AddressProperty ::
   Value Prelude.Text -> InstanceIpv6AddressProperty
 mkInstanceIpv6AddressProperty ipv6Address

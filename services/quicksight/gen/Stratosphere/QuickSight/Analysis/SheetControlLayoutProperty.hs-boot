@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SheetControlLayoutProperty :: Prelude.Type
 instance ToResourceProperties SheetControlLayoutProperty
+instance Prelude.Eq SheetControlLayoutProperty
+instance Prelude.Show SheetControlLayoutProperty
 instance JSON.ToJSON SheetControlLayoutProperty

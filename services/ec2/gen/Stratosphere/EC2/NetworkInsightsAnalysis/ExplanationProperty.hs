@@ -66,6 +66,7 @@ data ExplanationProperty
                          vpnConnection :: (Prelude.Maybe AnalysisComponentProperty),
                          vpnGateway :: (Prelude.Maybe AnalysisComponentProperty),
                          vpcEndpoint :: (Prelude.Maybe AnalysisComponentProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExplanationProperty :: ExplanationProperty
 mkExplanationProperty
   = ExplanationProperty

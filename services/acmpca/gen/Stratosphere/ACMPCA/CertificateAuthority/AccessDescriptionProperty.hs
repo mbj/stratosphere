@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data AccessDescriptionProperty
   = AccessDescriptionProperty {accessLocation :: GeneralNameProperty,
                                accessMethod :: AccessMethodProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessDescriptionProperty ::
   GeneralNameProperty
   -> AccessMethodProperty -> AccessDescriptionProperty

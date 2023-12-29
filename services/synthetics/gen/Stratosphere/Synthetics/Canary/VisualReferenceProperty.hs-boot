@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VisualReferenceProperty :: Prelude.Type
 instance ToResourceProperties VisualReferenceProperty
+instance Prelude.Eq VisualReferenceProperty
+instance Prelude.Show VisualReferenceProperty
 instance JSON.ToJSON VisualReferenceProperty

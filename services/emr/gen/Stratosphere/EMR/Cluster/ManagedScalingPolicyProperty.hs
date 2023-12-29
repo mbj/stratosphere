@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.ComputeLimitsProperty as Exports
 import Stratosphere.ResourceProperties
 data ManagedScalingPolicyProperty
   = ManagedScalingPolicyProperty {computeLimits :: (Prelude.Maybe ComputeLimitsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedScalingPolicyProperty :: ManagedScalingPolicyProperty
 mkManagedScalingPolicyProperty
   = ManagedScalingPolicyProperty {computeLimits = Prelude.Nothing}

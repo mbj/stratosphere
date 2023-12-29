@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CustomEmailSenderProperty
   = CustomEmailSenderProperty {lambdaArn :: (Prelude.Maybe (Value Prelude.Text)),
                                lambdaVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomEmailSenderProperty :: CustomEmailSenderProperty
 mkCustomEmailSenderProperty
   = CustomEmailSenderProperty

@@ -15,6 +15,7 @@ data VPC
          ipv4IpamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
          ipv4NetmaskLength :: (Prelude.Maybe (Value Prelude.Integer)),
          tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPC :: VPC
 mkVPC
   = VPC

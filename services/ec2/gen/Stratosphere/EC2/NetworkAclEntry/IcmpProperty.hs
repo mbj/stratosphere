@@ -9,6 +9,7 @@ import Stratosphere.Value
 data IcmpProperty
   = IcmpProperty {code :: (Prelude.Maybe (Value Prelude.Integer)),
                   type' :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIcmpProperty :: IcmpProperty
 mkIcmpProperty
   = IcmpProperty {code = Prelude.Nothing, type' = Prelude.Nothing}

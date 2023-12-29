@@ -12,6 +12,7 @@ data LambdaConfigurationProperty
   = LambdaConfigurationProperty {event :: (Value Prelude.Text),
                                  filter :: (Prelude.Maybe NotificationFilterProperty),
                                  function :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> LambdaConfigurationProperty

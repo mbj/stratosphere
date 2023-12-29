@@ -29,6 +29,7 @@ data RadarChartConfigurationProperty
                                      sortConfiguration :: (Prelude.Maybe RadarChartSortConfigurationProperty),
                                      startAngle :: (Prelude.Maybe (Value Prelude.Double)),
                                      visualPalette :: (Prelude.Maybe VisualPaletteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRadarChartConfigurationProperty ::
   RadarChartConfigurationProperty
 mkRadarChartConfigurationProperty

@@ -11,6 +11,7 @@ data SpacingProperty
                      left :: (Prelude.Maybe (Value Prelude.Text)),
                      right :: (Prelude.Maybe (Value Prelude.Text)),
                      top :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpacingProperty :: SpacingProperty
 mkSpacingProperty
   = SpacingProperty

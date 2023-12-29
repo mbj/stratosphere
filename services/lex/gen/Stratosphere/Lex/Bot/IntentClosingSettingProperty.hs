@@ -15,6 +15,7 @@ data IntentClosingSettingProperty
                                   conditional :: (Prelude.Maybe ConditionalSpecificationProperty),
                                   isActive :: (Prelude.Maybe (Value Prelude.Bool)),
                                   nextStep :: (Prelude.Maybe DialogStateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntentClosingSettingProperty :: IntentClosingSettingProperty
 mkIntentClosingSettingProperty
   = IntentClosingSettingProperty

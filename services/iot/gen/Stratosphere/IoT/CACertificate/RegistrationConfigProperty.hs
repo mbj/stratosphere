@@ -10,6 +10,7 @@ data RegistrationConfigProperty
   = RegistrationConfigProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                 templateBody :: (Prelude.Maybe (Value Prelude.Text)),
                                 templateName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegistrationConfigProperty :: RegistrationConfigProperty
 mkRegistrationConfigProperty
   = RegistrationConfigProperty

@@ -25,6 +25,7 @@ data SheetDefinitionProperty
                              textBoxes :: (Prelude.Maybe [SheetTextBoxProperty]),
                              title :: (Prelude.Maybe (Value Prelude.Text)),
                              visuals :: (Prelude.Maybe [VisualProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSheetDefinitionProperty ::
   Value Prelude.Text -> SheetDefinitionProperty
 mkSheetDefinitionProperty sheetId

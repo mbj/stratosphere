@@ -18,6 +18,7 @@ data TransformJobDefinitionProperty
                                     transformInput :: TransformInputProperty,
                                     transformOutput :: TransformOutputProperty,
                                     transformResources :: TransformResourcesProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformJobDefinitionProperty ::
   TransformInputProperty
   -> TransformOutputProperty

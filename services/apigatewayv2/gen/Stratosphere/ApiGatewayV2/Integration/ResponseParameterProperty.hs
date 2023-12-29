@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ResponseParameterProperty
   = ResponseParameterProperty {destination :: (Value Prelude.Text),
                                source :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ResponseParameterProperty

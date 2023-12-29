@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.LayoutConfigurationProper
 import Stratosphere.ResourceProperties
 data LayoutProperty
   = LayoutProperty {configuration :: LayoutConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLayoutProperty :: LayoutConfigurationProperty -> LayoutProperty
 mkLayoutProperty configuration
   = LayoutProperty {configuration = configuration}

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KernelGatewayAppSettingsProperty :: Prelude.Type
 instance ToResourceProperties KernelGatewayAppSettingsProperty
+instance Prelude.Eq KernelGatewayAppSettingsProperty
+instance Prelude.Show KernelGatewayAppSettingsProperty
 instance JSON.ToJSON KernelGatewayAppSettingsProperty

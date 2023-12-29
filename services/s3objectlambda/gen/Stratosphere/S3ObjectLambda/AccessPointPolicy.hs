@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AccessPointPolicy
   = AccessPointPolicy {objectLambdaAccessPoint :: (Value Prelude.Text),
                        policyDocument :: JSON.Object}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPointPolicy ::
   Value Prelude.Text -> JSON.Object -> AccessPointPolicy
 mkAccessPointPolicy objectLambdaAccessPoint policyDocument

@@ -10,6 +10,7 @@ data IpAddressRequestProperty
   = IpAddressRequestProperty {ip :: (Prelude.Maybe (Value Prelude.Text)),
                               ipv6 :: (Prelude.Maybe (Value Prelude.Text)),
                               subnetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIpAddressRequestProperty ::
   Value Prelude.Text -> IpAddressRequestProperty
 mkIpAddressRequestProperty subnetId

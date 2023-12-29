@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data FailoverConfigProperty
   = FailoverConfigProperty {primary :: PrimaryProperty,
                             secondary :: SecondaryProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFailoverConfigProperty ::
   PrimaryProperty -> SecondaryProperty -> FailoverConfigProperty
 mkFailoverConfigProperty primary secondary

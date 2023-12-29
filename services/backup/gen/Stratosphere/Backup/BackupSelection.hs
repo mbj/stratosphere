@@ -10,6 +10,7 @@ import Stratosphere.Value
 data BackupSelection
   = BackupSelection {backupPlanId :: (Value Prelude.Text),
                      backupSelection :: BackupSelectionResourceTypeProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupSelection ::
   Value Prelude.Text
   -> BackupSelectionResourceTypeProperty -> BackupSelection

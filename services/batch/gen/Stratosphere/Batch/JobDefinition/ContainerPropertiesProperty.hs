@@ -40,6 +40,7 @@ data ContainerPropertiesProperty
                                  user :: (Prelude.Maybe (Value Prelude.Text)),
                                  vcpus :: (Prelude.Maybe (Value Prelude.Integer)),
                                  volumes :: (Prelude.Maybe [VolumesProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerPropertiesProperty ::
   Value Prelude.Text -> ContainerPropertiesProperty
 mkContainerPropertiesProperty image

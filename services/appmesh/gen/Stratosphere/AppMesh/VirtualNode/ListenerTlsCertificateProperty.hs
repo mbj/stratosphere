@@ -13,6 +13,7 @@ data ListenerTlsCertificateProperty
   = ListenerTlsCertificateProperty {aCM :: (Prelude.Maybe ListenerTlsAcmCertificateProperty),
                                     file :: (Prelude.Maybe ListenerTlsFileCertificateProperty),
                                     sDS :: (Prelude.Maybe ListenerTlsSdsCertificateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsCertificateProperty :: ListenerTlsCertificateProperty
 mkListenerTlsCertificateProperty
   = ListenerTlsCertificateProperty

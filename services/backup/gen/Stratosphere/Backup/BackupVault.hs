@@ -15,6 +15,7 @@ data BackupVault
                  encryptionKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                  lockConfiguration :: (Prelude.Maybe LockConfigurationTypeProperty),
                  notifications :: (Prelude.Maybe NotificationObjectTypeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupVault :: Value Prelude.Text -> BackupVault
 mkBackupVault backupVaultName
   = BackupVault

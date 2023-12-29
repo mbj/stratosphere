@@ -9,6 +9,7 @@ import Stratosphere.Value
 data InputLambdaProcessorProperty
   = InputLambdaProcessorProperty {resourceARN :: (Value Prelude.Text),
                                   roleARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputLambdaProcessorProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> InputLambdaProcessorProperty

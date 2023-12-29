@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data AlarmCapabilitiesProperty
   = AlarmCapabilitiesProperty {acknowledgeFlow :: (Prelude.Maybe AcknowledgeFlowProperty),
                                initializationConfiguration :: (Prelude.Maybe InitializationConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmCapabilitiesProperty :: AlarmCapabilitiesProperty
 mkAlarmCapabilitiesProperty
   = AlarmCapabilitiesProperty

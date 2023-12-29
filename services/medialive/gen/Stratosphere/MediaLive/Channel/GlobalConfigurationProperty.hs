@@ -15,6 +15,7 @@ data GlobalConfigurationProperty
                                  outputLockingMode :: (Prelude.Maybe (Value Prelude.Text)),
                                  outputTimingSource :: (Prelude.Maybe (Value Prelude.Text)),
                                  supportLowFramerateInputs :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalConfigurationProperty :: GlobalConfigurationProperty
 mkGlobalConfigurationProperty
   = GlobalConfigurationProperty

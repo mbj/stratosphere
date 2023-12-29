@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ScatterPlotFieldWellsProperty
   = ScatterPlotFieldWellsProperty {scatterPlotCategoricallyAggregatedFieldWells :: (Prelude.Maybe ScatterPlotCategoricallyAggregatedFieldWellsProperty),
                                    scatterPlotUnaggregatedFieldWells :: (Prelude.Maybe ScatterPlotUnaggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScatterPlotFieldWellsProperty :: ScatterPlotFieldWellsProperty
 mkScatterPlotFieldWellsProperty
   = ScatterPlotFieldWellsProperty

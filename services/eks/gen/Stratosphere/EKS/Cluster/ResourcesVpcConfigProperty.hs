@@ -12,6 +12,7 @@ data ResourcesVpcConfigProperty
                                 publicAccessCidrs :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 subnetIds :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcesVpcConfigProperty ::
   ValueList Prelude.Text -> ResourcesVpcConfigProperty
 mkResourcesVpcConfigProperty subnetIds

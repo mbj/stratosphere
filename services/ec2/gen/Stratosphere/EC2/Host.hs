@@ -14,6 +14,7 @@ data Host
           instanceFamily :: (Prelude.Maybe (Value Prelude.Text)),
           instanceType :: (Prelude.Maybe (Value Prelude.Text)),
           outpostArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHost :: Value Prelude.Text -> Host
 mkHost availabilityZone
   = Host

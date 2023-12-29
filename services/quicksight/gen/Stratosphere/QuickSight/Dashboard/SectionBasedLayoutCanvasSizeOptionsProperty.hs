@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.SectionBasedLayoutPaperC
 import Stratosphere.ResourceProperties
 data SectionBasedLayoutCanvasSizeOptionsProperty
   = SectionBasedLayoutCanvasSizeOptionsProperty {paperCanvasSizeOptions :: (Prelude.Maybe SectionBasedLayoutPaperCanvasSizeOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSectionBasedLayoutCanvasSizeOptionsProperty ::
   SectionBasedLayoutCanvasSizeOptionsProperty
 mkSectionBasedLayoutCanvasSizeOptionsProperty

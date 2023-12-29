@@ -10,6 +10,7 @@ data TagOption
   = TagOption {active :: (Prelude.Maybe (Value Prelude.Bool)),
                key :: (Value Prelude.Text),
                value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTagOption ::
   Value Prelude.Text -> Value Prelude.Text -> TagOption
 mkTagOption key value

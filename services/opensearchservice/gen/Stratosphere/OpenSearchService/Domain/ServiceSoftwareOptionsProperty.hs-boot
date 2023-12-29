@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ServiceSoftwareOptionsProperty :: Prelude.Type
 instance ToResourceProperties ServiceSoftwareOptionsProperty
+instance Prelude.Eq ServiceSoftwareOptionsProperty
+instance Prelude.Show ServiceSoftwareOptionsProperty
 instance JSON.ToJSON ServiceSoftwareOptionsProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ThingPrincipalAttachment
   = ThingPrincipalAttachment {principal :: (Value Prelude.Text),
                               thingName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThingPrincipalAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text -> ThingPrincipalAttachment

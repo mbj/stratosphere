@@ -19,6 +19,7 @@ data ManagedRuleGroupStatementProperty
                                        scopeDownStatement :: (Prelude.Maybe StatementProperty),
                                        vendorName :: (Value Prelude.Text),
                                        version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedRuleGroupStatementProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ManagedRuleGroupStatementProperty

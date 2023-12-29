@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HoursOfOperationConfigProperty :: Prelude.Type
 instance ToResourceProperties HoursOfOperationConfigProperty
+instance Prelude.Eq HoursOfOperationConfigProperty
+instance Prelude.Show HoursOfOperationConfigProperty
 instance JSON.ToJSON HoursOfOperationConfigProperty

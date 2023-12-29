@@ -11,6 +11,7 @@ data FastLaunchLaunchTemplateSpecificationProperty
   = FastLaunchLaunchTemplateSpecificationProperty {launchTemplateId :: (Prelude.Maybe (Value Prelude.Text)),
                                                    launchTemplateName :: (Prelude.Maybe (Value Prelude.Text)),
                                                    launchTemplateVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFastLaunchLaunchTemplateSpecificationProperty ::
   FastLaunchLaunchTemplateSpecificationProperty
 mkFastLaunchLaunchTemplateSpecificationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ServerlessScalingConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ServerlessScalingConfigurationProperty
+instance Prelude.Eq ServerlessScalingConfigurationProperty
+instance Prelude.Show ServerlessScalingConfigurationProperty
 instance JSON.ToJSON ServerlessScalingConfigurationProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DataflowEndpointConfigProperty
   = DataflowEndpointConfigProperty {dataflowEndpointName :: (Prelude.Maybe (Value Prelude.Text)),
                                     dataflowEndpointRegion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataflowEndpointConfigProperty :: DataflowEndpointConfigProperty
 mkDataflowEndpointConfigProperty
   = DataflowEndpointConfigProperty

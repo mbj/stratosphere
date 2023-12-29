@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelQualityJobDefinition.ClusterCo
 import Stratosphere.ResourceProperties
 data MonitoringResourcesProperty
   = MonitoringResourcesProperty {clusterConfig :: ClusterConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringResourcesProperty ::
   ClusterConfigProperty -> MonitoringResourcesProperty
 mkMonitoringResourcesProperty clusterConfig

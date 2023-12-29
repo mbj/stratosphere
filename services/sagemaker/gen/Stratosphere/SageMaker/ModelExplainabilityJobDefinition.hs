@@ -27,6 +27,7 @@ data ModelExplainabilityJobDefinition
                                       roleArn :: (Value Prelude.Text),
                                       stoppingCondition :: (Prelude.Maybe StoppingConditionProperty),
                                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelExplainabilityJobDefinition ::
   MonitoringResourcesProperty
   -> ModelExplainabilityAppSpecificationProperty

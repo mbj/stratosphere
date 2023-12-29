@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AppFlowConfigProperty
   = AppFlowConfigProperty {flowName :: (Value Prelude.Text),
                            roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAppFlowConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AppFlowConfigProperty
 mkAppFlowConfigProperty flowName roleArn

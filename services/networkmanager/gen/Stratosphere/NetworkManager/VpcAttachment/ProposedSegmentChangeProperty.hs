@@ -11,6 +11,7 @@ data ProposedSegmentChangeProperty
   = ProposedSegmentChangeProperty {attachmentPolicyRuleNumber :: (Prelude.Maybe (Value Prelude.Integer)),
                                    segmentName :: (Prelude.Maybe (Value Prelude.Text)),
                                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProposedSegmentChangeProperty :: ProposedSegmentChangeProperty
 mkProposedSegmentChangeProperty
   = ProposedSegmentChangeProperty

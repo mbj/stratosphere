@@ -13,6 +13,7 @@ data PackageVersion
                     packageVersion :: (Value Prelude.Text),
                     patchVersion :: (Value Prelude.Text),
                     updatedLatestPatchVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPackageVersion ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> PackageVersion

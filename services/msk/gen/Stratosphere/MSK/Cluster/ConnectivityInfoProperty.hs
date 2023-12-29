@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ConnectivityInfoProperty
   = ConnectivityInfoProperty {publicAccess :: (Prelude.Maybe PublicAccessProperty),
                               vpcConnectivity :: (Prelude.Maybe VpcConnectivityProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectivityInfoProperty :: ConnectivityInfoProperty
 mkConnectivityInfoProperty
   = ConnectivityInfoProperty

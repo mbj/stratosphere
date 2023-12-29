@@ -12,6 +12,7 @@ data MemberInvitation
                       memberEmailAddress :: (Value Prelude.Text),
                       memberId :: (Value Prelude.Text),
                       message :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberInvitation ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> MemberInvitation

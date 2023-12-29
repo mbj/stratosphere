@@ -14,6 +14,7 @@ data AccountAuditConfiguration
                                auditCheckConfigurations :: AuditCheckConfigurationsProperty,
                                auditNotificationTargetConfigurations :: (Prelude.Maybe AuditNotificationTargetConfigurationsProperty),
                                roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountAuditConfiguration ::
   Value Prelude.Text
   -> AuditCheckConfigurationsProperty

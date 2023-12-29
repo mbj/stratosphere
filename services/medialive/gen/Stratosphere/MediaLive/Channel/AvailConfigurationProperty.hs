@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AvailSettingsProperty as Ex
 import Stratosphere.ResourceProperties
 data AvailConfigurationProperty
   = AvailConfigurationProperty {availSettings :: (Prelude.Maybe AvailSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAvailConfigurationProperty :: AvailConfigurationProperty
 mkAvailConfigurationProperty
   = AvailConfigurationProperty {availSettings = Prelude.Nothing}

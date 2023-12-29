@@ -10,6 +10,7 @@ data LambdaActionProperty
   = LambdaActionProperty {functionArn :: (Value Prelude.Text),
                           invocationType :: (Prelude.Maybe (Value Prelude.Text)),
                           topicArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaActionProperty ::
   Value Prelude.Text -> LambdaActionProperty
 mkLambdaActionProperty functionArn

@@ -12,6 +12,7 @@ data Application
                  applicationDescription :: (Prelude.Maybe (Value Prelude.Text)),
                  applicationName :: (Prelude.Maybe (Value Prelude.Text)),
                  inputs :: [InputProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication :: [InputProperty] -> Application
 mkApplication inputs
   = Application

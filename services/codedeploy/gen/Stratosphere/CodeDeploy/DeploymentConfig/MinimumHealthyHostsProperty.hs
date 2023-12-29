@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MinimumHealthyHostsProperty
   = MinimumHealthyHostsProperty {type' :: (Value Prelude.Text),
                                  value :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMinimumHealthyHostsProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> MinimumHealthyHostsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DialogCodeHookSettingProperty :: Prelude.Type
 instance ToResourceProperties DialogCodeHookSettingProperty
+instance Prelude.Eq DialogCodeHookSettingProperty
+instance Prelude.Show DialogCodeHookSettingProperty
 instance JSON.ToJSON DialogCodeHookSettingProperty

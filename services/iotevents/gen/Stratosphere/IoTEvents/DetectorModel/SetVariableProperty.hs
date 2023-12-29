@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SetVariableProperty
   = SetVariableProperty {value :: (Value Prelude.Text),
                          variableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSetVariableProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SetVariableProperty
 mkSetVariableProperty value variableName

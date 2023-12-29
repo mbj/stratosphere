@@ -10,6 +10,7 @@ data TmpfsProperty
   = TmpfsProperty {containerPath :: (Value Prelude.Text),
                    mountOptions :: (Prelude.Maybe (ValueList Prelude.Text)),
                    size :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTmpfsProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> TmpfsProperty
 mkTmpfsProperty containerPath size

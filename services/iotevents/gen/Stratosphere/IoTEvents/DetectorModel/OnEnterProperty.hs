@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.DetectorModel.EventProperty as Expo
 import Stratosphere.ResourceProperties
 data OnEnterProperty
   = OnEnterProperty {events :: (Prelude.Maybe [EventProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOnEnterProperty :: OnEnterProperty
 mkOnEnterProperty = OnEnterProperty {events = Prelude.Nothing}
 instance ToResourceProperties OnEnterProperty where

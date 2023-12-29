@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudWatchMetricsProperty
   = CloudWatchMetricsProperty {isEnabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchMetricsProperty ::
   Value Prelude.Bool -> CloudWatchMetricsProperty
 mkCloudWatchMetricsProperty isEnabled

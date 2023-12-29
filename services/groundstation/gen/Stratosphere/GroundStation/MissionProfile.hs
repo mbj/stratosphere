@@ -19,6 +19,7 @@ data MissionProfile
                     streamsKmsRole :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag]),
                     trackingConfigArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMissionProfile ::
   [DataflowEdgeProperty]
   -> Value Prelude.Integer

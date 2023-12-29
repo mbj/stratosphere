@@ -16,6 +16,7 @@ data S3DataSourceConfigurationProperty
                                        exclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                        inclusionPatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                        inclusionPrefixes :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DataSourceConfigurationProperty ::
   Value Prelude.Text -> S3DataSourceConfigurationProperty
 mkS3DataSourceConfigurationProperty bucketName

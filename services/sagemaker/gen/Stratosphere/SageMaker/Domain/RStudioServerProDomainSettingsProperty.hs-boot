@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RStudioServerProDomainSettingsProperty :: Prelude.Type
 instance ToResourceProperties RStudioServerProDomainSettingsProperty
+instance Prelude.Eq RStudioServerProDomainSettingsProperty
+instance Prelude.Show RStudioServerProDomainSettingsProperty
 instance JSON.ToJSON RStudioServerProDomainSettingsProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkFabricConfigurationProperty
   = NetworkFabricConfigurationProperty {edition :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkFabricConfigurationProperty ::
   Value Prelude.Text -> NetworkFabricConfigurationProperty
 mkNetworkFabricConfigurationProperty edition

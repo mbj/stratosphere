@@ -11,6 +11,7 @@ data DvbSdtSettingsProperty
                             repInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                             serviceName :: (Prelude.Maybe (Value Prelude.Text)),
                             serviceProviderName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDvbSdtSettingsProperty :: DvbSdtSettingsProperty
 mkDvbSdtSettingsProperty
   = DvbSdtSettingsProperty

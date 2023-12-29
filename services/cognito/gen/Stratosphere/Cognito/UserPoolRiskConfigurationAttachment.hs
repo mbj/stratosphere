@@ -16,6 +16,7 @@ data UserPoolRiskConfigurationAttachment
                                          compromisedCredentialsRiskConfiguration :: (Prelude.Maybe CompromisedCredentialsRiskConfigurationTypeProperty),
                                          riskExceptionConfiguration :: (Prelude.Maybe RiskExceptionConfigurationTypeProperty),
                                          userPoolId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolRiskConfigurationAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text -> UserPoolRiskConfigurationAttachment

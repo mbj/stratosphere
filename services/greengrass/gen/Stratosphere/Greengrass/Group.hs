@@ -12,6 +12,7 @@ data Group
            name :: (Value Prelude.Text),
            roleArn :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGroup :: Value Prelude.Text -> Group
 mkGroup name
   = Group

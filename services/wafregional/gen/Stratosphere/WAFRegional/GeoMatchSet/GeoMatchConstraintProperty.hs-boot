@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GeoMatchConstraintProperty :: Prelude.Type
 instance ToResourceProperties GeoMatchConstraintProperty
+instance Prelude.Eq GeoMatchConstraintProperty
+instance Prelude.Show GeoMatchConstraintProperty
 instance JSON.ToJSON GeoMatchConstraintProperty

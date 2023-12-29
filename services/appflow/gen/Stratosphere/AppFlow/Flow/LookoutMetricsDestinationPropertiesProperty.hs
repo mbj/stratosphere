@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LookoutMetricsDestinationPropertiesProperty
   = LookoutMetricsDestinationPropertiesProperty {object :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLookoutMetricsDestinationPropertiesProperty ::
   LookoutMetricsDestinationPropertiesProperty
 mkLookoutMetricsDestinationPropertiesProperty

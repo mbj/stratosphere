@@ -13,6 +13,7 @@ data Framework
                frameworkDescription :: (Prelude.Maybe (Value Prelude.Text)),
                frameworkName :: (Prelude.Maybe (Value Prelude.Text)),
                frameworkTags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFramework :: [FrameworkControlProperty] -> Framework
 mkFramework frameworkControls
   = Framework

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.RadarChartAggregatedFiel
 import Stratosphere.ResourceProperties
 data RadarChartFieldWellsProperty
   = RadarChartFieldWellsProperty {radarChartAggregatedFieldWells :: (Prelude.Maybe RadarChartAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRadarChartFieldWellsProperty :: RadarChartFieldWellsProperty
 mkRadarChartFieldWellsProperty
   = RadarChartFieldWellsProperty

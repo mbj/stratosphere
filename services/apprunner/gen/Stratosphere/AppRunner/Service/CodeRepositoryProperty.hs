@@ -13,6 +13,7 @@ data CodeRepositoryProperty
   = CodeRepositoryProperty {codeConfiguration :: (Prelude.Maybe CodeConfigurationProperty),
                             repositoryUrl :: (Value Prelude.Text),
                             sourceCodeVersion :: SourceCodeVersionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeRepositoryProperty ::
   Value Prelude.Text
   -> SourceCodeVersionProperty -> CodeRepositoryProperty

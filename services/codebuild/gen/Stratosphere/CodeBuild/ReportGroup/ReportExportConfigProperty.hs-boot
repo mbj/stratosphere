@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReportExportConfigProperty :: Prelude.Type
 instance ToResourceProperties ReportExportConfigProperty
+instance Prelude.Eq ReportExportConfigProperty
+instance Prelude.Show ReportExportConfigProperty
 instance JSON.ToJSON ReportExportConfigProperty

@@ -13,6 +13,7 @@ data DefaultNewSheetConfigurationProperty
   = DefaultNewSheetConfigurationProperty {interactiveLayoutConfiguration :: (Prelude.Maybe DefaultInteractiveLayoutConfigurationProperty),
                                           paginatedLayoutConfiguration :: (Prelude.Maybe DefaultPaginatedLayoutConfigurationProperty),
                                           sheetContentType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultNewSheetConfigurationProperty ::
   DefaultNewSheetConfigurationProperty
 mkDefaultNewSheetConfigurationProperty

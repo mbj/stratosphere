@@ -19,6 +19,7 @@ data DatabaseConfigurationProperty
                                    databaseEngineType :: (Value Prelude.Text),
                                    sqlConfiguration :: (Prelude.Maybe SqlConfigurationProperty),
                                    vpcConfiguration :: (Prelude.Maybe DataSourceVpcConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseConfigurationProperty ::
   ColumnConfigurationProperty
   -> ConnectionConfigurationProperty

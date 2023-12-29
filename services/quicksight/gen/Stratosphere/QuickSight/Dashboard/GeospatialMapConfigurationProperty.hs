@@ -21,6 +21,7 @@ data GeospatialMapConfigurationProperty
                                         tooltip :: (Prelude.Maybe TooltipOptionsProperty),
                                         visualPalette :: (Prelude.Maybe VisualPaletteProperty),
                                         windowOptions :: (Prelude.Maybe GeospatialWindowOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeospatialMapConfigurationProperty ::
   GeospatialMapConfigurationProperty
 mkGeospatialMapConfigurationProperty

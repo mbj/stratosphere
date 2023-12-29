@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PrivateIpAddressSpecificationProperty
   = PrivateIpAddressSpecificationProperty {primary :: (Value Prelude.Bool),
                                            privateIpAddress :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateIpAddressSpecificationProperty ::
   Value Prelude.Bool
   -> Value Prelude.Text -> PrivateIpAddressSpecificationProperty

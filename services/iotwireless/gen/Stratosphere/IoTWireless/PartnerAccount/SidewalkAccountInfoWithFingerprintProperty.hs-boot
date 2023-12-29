@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SidewalkAccountInfoWithFingerprintProperty :: Prelude.Type
 instance ToResourceProperties SidewalkAccountInfoWithFingerprintProperty
+instance Prelude.Eq SidewalkAccountInfoWithFingerprintProperty
+instance Prelude.Show SidewalkAccountInfoWithFingerprintProperty
 instance JSON.ToJSON SidewalkAccountInfoWithFingerprintProperty

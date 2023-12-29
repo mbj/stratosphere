@@ -17,6 +17,7 @@ data GaugeChartOptionsProperty
                                comparison :: (Prelude.Maybe ComparisonConfigurationProperty),
                                primaryValueDisplayType :: (Prelude.Maybe (Value Prelude.Text)),
                                primaryValueFontConfiguration :: (Prelude.Maybe FontConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGaugeChartOptionsProperty :: GaugeChartOptionsProperty
 mkGaugeChartOptionsProperty
   = GaugeChartOptionsProperty

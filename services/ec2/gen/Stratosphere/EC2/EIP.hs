@@ -14,6 +14,7 @@ data EIP
          publicIpv4Pool :: (Prelude.Maybe (Value Prelude.Text)),
          tags :: (Prelude.Maybe [Tag]),
          transferAddress :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEIP :: EIP
 mkEIP
   = EIP

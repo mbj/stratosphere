@@ -16,6 +16,7 @@ data StackSetConstraint
                         productId :: (Value Prelude.Text),
                         regionList :: (ValueList Prelude.Text),
                         stackInstanceControl :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStackSetConstraint ::
   ValueList Prelude.Text
   -> Value Prelude.Text

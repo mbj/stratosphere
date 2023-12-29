@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetGroupProperty
   = TargetGroupProperty {arn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupProperty :: Value Prelude.Text -> TargetGroupProperty
 mkTargetGroupProperty arn = TargetGroupProperty {arn = arn}
 instance ToResourceProperties TargetGroupProperty where

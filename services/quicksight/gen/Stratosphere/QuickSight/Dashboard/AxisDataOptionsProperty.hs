@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data AxisDataOptionsProperty
   = AxisDataOptionsProperty {dateAxisOptions :: (Prelude.Maybe DateAxisOptionsProperty),
                              numericAxisOptions :: (Prelude.Maybe NumericAxisOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAxisDataOptionsProperty :: AxisDataOptionsProperty
 mkAxisDataOptionsProperty
   = AxisDataOptionsProperty

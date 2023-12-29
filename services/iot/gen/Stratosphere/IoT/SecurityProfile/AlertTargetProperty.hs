@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AlertTargetProperty
   = AlertTargetProperty {alertTargetArn :: (Value Prelude.Text),
                          roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlertTargetProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AlertTargetProperty
 mkAlertTargetProperty alertTargetArn roleArn

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ModelBiasBaselineConfigProperty
   = ModelBiasBaselineConfigProperty {baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
                                      constraintsResource :: (Prelude.Maybe ConstraintsResourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelBiasBaselineConfigProperty ::
   ModelBiasBaselineConfigProperty
 mkModelBiasBaselineConfigProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BotAliasLocaleSettingsItemProperty :: Prelude.Type
 instance ToResourceProperties BotAliasLocaleSettingsItemProperty
+instance Prelude.Eq BotAliasLocaleSettingsItemProperty
+instance Prelude.Show BotAliasLocaleSettingsItemProperty
 instance JSON.ToJSON BotAliasLocaleSettingsItemProperty

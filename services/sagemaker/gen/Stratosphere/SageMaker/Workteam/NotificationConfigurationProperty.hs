@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationConfigurationProperty
   = NotificationConfigurationProperty {notificationTopicArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigurationProperty ::
   Value Prelude.Text -> NotificationConfigurationProperty
 mkNotificationConfigurationProperty notificationTopicArn

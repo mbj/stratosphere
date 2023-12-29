@@ -14,6 +14,7 @@ data ReplicaKey
                 pendingWindowInDays :: (Prelude.Maybe (Value Prelude.Integer)),
                 primaryKeyArn :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaKey :: JSON.Object -> Value Prelude.Text -> ReplicaKey
 mkReplicaKey keyPolicy primaryKeyArn
   = ReplicaKey

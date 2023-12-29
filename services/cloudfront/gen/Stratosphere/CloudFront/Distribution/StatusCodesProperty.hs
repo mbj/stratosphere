@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StatusCodesProperty
   = StatusCodesProperty {items :: (ValueList Prelude.Integer),
                          quantity :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatusCodesProperty ::
   ValueList Prelude.Integer
   -> Value Prelude.Integer -> StatusCodesProperty

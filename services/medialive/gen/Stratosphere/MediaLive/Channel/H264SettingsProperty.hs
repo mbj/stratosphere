@@ -52,6 +52,7 @@ data H264SettingsProperty
                           temporalAq :: (Prelude.Maybe (Value Prelude.Text)),
                           timecodeBurninSettings :: (Prelude.Maybe TimecodeBurninSettingsProperty),
                           timecodeInsertion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkH264SettingsProperty :: H264SettingsProperty
 mkH264SettingsProperty
   = H264SettingsProperty

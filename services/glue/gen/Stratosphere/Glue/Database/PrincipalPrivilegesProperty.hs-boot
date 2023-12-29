@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PrincipalPrivilegesProperty :: Prelude.Type
 instance ToResourceProperties PrincipalPrivilegesProperty
+instance Prelude.Eq PrincipalPrivilegesProperty
+instance Prelude.Show PrincipalPrivilegesProperty
 instance JSON.ToJSON PrincipalPrivilegesProperty

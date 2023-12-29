@@ -7,6 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data OverridesProperty
   = OverridesProperty {manifest :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOverridesProperty :: OverridesProperty
 mkOverridesProperty
   = OverridesProperty {manifest = Prelude.Nothing}

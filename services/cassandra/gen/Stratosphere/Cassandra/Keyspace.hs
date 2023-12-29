@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Keyspace
   = Keyspace {keyspaceName :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyspace :: Keyspace
 mkKeyspace
   = Keyspace {keyspaceName = Prelude.Nothing, tags = Prelude.Nothing}

@@ -17,6 +17,7 @@ data InAppMessageContentProperty
                                  imageUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                  primaryBtn :: (Prelude.Maybe ButtonConfigProperty),
                                  secondaryBtn :: (Prelude.Maybe ButtonConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppMessageContentProperty :: InAppMessageContentProperty
 mkInAppMessageContentProperty
   = InAppMessageContentProperty

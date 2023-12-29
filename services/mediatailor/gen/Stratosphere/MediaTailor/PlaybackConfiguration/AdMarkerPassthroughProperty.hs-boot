@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AdMarkerPassthroughProperty :: Prelude.Type
 instance ToResourceProperties AdMarkerPassthroughProperty
+instance Prelude.Eq AdMarkerPassthroughProperty
+instance Prelude.Show AdMarkerPassthroughProperty
 instance JSON.ToJSON AdMarkerPassthroughProperty

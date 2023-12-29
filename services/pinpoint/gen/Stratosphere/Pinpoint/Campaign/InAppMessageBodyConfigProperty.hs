@@ -11,6 +11,7 @@ data InAppMessageBodyConfigProperty
   = InAppMessageBodyConfigProperty {alignment :: (Prelude.Maybe (Value Prelude.Text)),
                                     body :: (Prelude.Maybe (Value Prelude.Text)),
                                     textColor :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppMessageBodyConfigProperty :: InAppMessageBodyConfigProperty
 mkInAppMessageBodyConfigProperty
   = InAppMessageBodyConfigProperty

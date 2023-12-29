@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipeSourceManagedStreamingKafkaParametersProperty :: Prelude.Type
 instance ToResourceProperties PipeSourceManagedStreamingKafkaParametersProperty
+instance Prelude.Eq PipeSourceManagedStreamingKafkaParametersProperty
+instance Prelude.Show PipeSourceManagedStreamingKafkaParametersProperty
 instance JSON.ToJSON PipeSourceManagedStreamingKafkaParametersProperty

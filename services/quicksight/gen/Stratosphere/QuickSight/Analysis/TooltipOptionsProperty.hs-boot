@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TooltipOptionsProperty :: Prelude.Type
 instance ToResourceProperties TooltipOptionsProperty
+instance Prelude.Eq TooltipOptionsProperty
+instance Prelude.Show TooltipOptionsProperty
 instance JSON.ToJSON TooltipOptionsProperty

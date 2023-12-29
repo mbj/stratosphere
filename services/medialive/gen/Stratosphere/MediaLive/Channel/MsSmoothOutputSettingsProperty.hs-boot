@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MsSmoothOutputSettingsProperty :: Prelude.Type
 instance ToResourceProperties MsSmoothOutputSettingsProperty
+instance Prelude.Eq MsSmoothOutputSettingsProperty
+instance Prelude.Show MsSmoothOutputSettingsProperty
 instance JSON.ToJSON MsSmoothOutputSettingsProperty

@@ -16,6 +16,7 @@ data LaunchProfile
                    studioComponentIds :: (ValueList Prelude.Text),
                    studioId :: (Value Prelude.Text),
                    tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchProfile ::
   ValueList Prelude.Text
   -> ValueList Prelude.Text

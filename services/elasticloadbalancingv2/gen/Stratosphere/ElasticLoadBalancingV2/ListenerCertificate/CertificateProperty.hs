@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CertificateProperty
   = CertificateProperty {certificateArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateProperty :: CertificateProperty
 mkCertificateProperty
   = CertificateProperty {certificateArn = Prelude.Nothing}

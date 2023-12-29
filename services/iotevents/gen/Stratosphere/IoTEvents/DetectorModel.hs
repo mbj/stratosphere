@@ -16,6 +16,7 @@ data DetectorModel
                    key :: (Prelude.Maybe (Value Prelude.Text)),
                    roleArn :: (Value Prelude.Text),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDetectorModel ::
   DetectorModelDefinitionProperty
   -> Value Prelude.Text -> DetectorModel

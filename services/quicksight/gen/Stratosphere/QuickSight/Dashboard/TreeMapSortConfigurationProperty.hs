@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data TreeMapSortConfigurationProperty
   = TreeMapSortConfigurationProperty {treeMapGroupItemsLimitConfiguration :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                       treeMapSort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTreeMapSortConfigurationProperty ::
   TreeMapSortConfigurationProperty
 mkTreeMapSortConfigurationProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EgressOnlyInternetGateway
   = EgressOnlyInternetGateway {vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEgressOnlyInternetGateway ::
   Value Prelude.Text -> EgressOnlyInternetGateway
 mkEgressOnlyInternetGateway vpcId

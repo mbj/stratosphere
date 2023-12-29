@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VerifiedAccessTrustProviderProperty :: Prelude.Type
 instance ToResourceProperties VerifiedAccessTrustProviderProperty
+instance Prelude.Eq VerifiedAccessTrustProviderProperty
+instance Prelude.Show VerifiedAccessTrustProviderProperty
 instance JSON.ToJSON VerifiedAccessTrustProviderProperty

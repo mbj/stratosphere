@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortalProperty
   = PortalProperty {id :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortalProperty :: PortalProperty
 mkPortalProperty = PortalProperty {id = Prelude.Nothing}
 instance ToResourceProperties PortalProperty where

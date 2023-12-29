@@ -16,6 +16,7 @@ data DecimalParameterDeclarationProperty
                                          name :: (Value Prelude.Text),
                                          parameterValueType :: (Value Prelude.Text),
                                          valueWhenUnset :: (Prelude.Maybe DecimalValueWhenUnsetConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDecimalParameterDeclarationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DecimalParameterDeclarationProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssociationDataProperty
   = AssociationDataProperty {knowledgeBaseId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssociationDataProperty ::
   Value Prelude.Text -> AssociationDataProperty
 mkAssociationDataProperty knowledgeBaseId

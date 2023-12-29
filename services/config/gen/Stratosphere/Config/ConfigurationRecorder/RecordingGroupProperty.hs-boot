@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RecordingGroupProperty :: Prelude.Type
 instance ToResourceProperties RecordingGroupProperty
+instance Prelude.Eq RecordingGroupProperty
+instance Prelude.Show RecordingGroupProperty
 instance JSON.ToJSON RecordingGroupProperty

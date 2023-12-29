@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointsProperty
   = EndpointsProperty {kafkaBootstrapServers :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointsProperty :: EndpointsProperty
 mkEndpointsProperty
   = EndpointsProperty {kafkaBootstrapServers = Prelude.Nothing}

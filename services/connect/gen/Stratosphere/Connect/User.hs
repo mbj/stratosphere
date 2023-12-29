@@ -20,6 +20,7 @@ data User
           securityProfileArns :: (ValueList Prelude.Text),
           tags :: (Prelude.Maybe [Tag]),
           username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUser ::
   Value Prelude.Text
   -> UserPhoneConfigProperty

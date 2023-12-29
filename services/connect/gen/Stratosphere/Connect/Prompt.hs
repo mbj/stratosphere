@@ -13,6 +13,7 @@ data Prompt
             name :: (Value Prelude.Text),
             s3Uri :: (Prelude.Maybe (Value Prelude.Text)),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrompt :: Value Prelude.Text -> Value Prelude.Text -> Prompt
 mkPrompt instanceArn name
   = Prompt

@@ -11,6 +11,7 @@ data TableResourceProperty
                            databaseName :: (Value Prelude.Text),
                            name :: (Prelude.Maybe (Value Prelude.Text)),
                            tableWildcard :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableResourceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TableResourceProperty
 mkTableResourceProperty catalogId databaseName

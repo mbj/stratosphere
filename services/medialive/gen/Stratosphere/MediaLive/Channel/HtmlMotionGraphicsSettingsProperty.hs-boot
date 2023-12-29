@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HtmlMotionGraphicsSettingsProperty :: Prelude.Type
 instance ToResourceProperties HtmlMotionGraphicsSettingsProperty
+instance Prelude.Eq HtmlMotionGraphicsSettingsProperty
+instance Prelude.Show HtmlMotionGraphicsSettingsProperty
 instance JSON.ToJSON HtmlMotionGraphicsSettingsProperty

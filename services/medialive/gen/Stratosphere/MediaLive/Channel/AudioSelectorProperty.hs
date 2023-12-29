@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AudioSelectorProperty
   = AudioSelectorProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                            selectorSettings :: (Prelude.Maybe AudioSelectorSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioSelectorProperty :: AudioSelectorProperty
 mkAudioSelectorProperty
   = AudioSelectorProperty

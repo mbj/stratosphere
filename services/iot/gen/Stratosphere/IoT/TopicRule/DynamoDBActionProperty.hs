@@ -16,6 +16,7 @@ data DynamoDBActionProperty
                             rangeKeyValue :: (Prelude.Maybe (Value Prelude.Text)),
                             roleArn :: (Value Prelude.Text),
                             tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

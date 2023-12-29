@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FileSystemConfigProperty
   = FileSystemConfigProperty {arn :: (Value Prelude.Text),
                               localMountPath :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFileSystemConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> FileSystemConfigProperty

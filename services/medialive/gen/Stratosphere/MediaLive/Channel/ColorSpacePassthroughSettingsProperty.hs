@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ColorSpacePassthroughSettingsProperty
   = ColorSpacePassthroughSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColorSpacePassthroughSettingsProperty ::
   ColorSpacePassthroughSettingsProperty
 mkColorSpacePassthroughSettingsProperty

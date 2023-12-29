@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ValidationProfileProperty
   = ValidationProfileProperty {profileName :: (Value Prelude.Text),
                                transformJobDefinition :: TransformJobDefinitionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkValidationProfileProperty ::
   Value Prelude.Text
   -> TransformJobDefinitionProperty -> ValidationProfileProperty

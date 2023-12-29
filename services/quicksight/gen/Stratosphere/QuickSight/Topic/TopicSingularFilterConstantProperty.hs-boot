@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TopicSingularFilterConstantProperty :: Prelude.Type
 instance ToResourceProperties TopicSingularFilterConstantProperty
+instance Prelude.Eq TopicSingularFilterConstantProperty
+instance Prelude.Show TopicSingularFilterConstantProperty
 instance JSON.ToJSON TopicSingularFilterConstantProperty

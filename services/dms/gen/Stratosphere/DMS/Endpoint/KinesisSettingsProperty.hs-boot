@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KinesisSettingsProperty :: Prelude.Type
 instance ToResourceProperties KinesisSettingsProperty
+instance Prelude.Eq KinesisSettingsProperty
+instance Prelude.Show KinesisSettingsProperty
 instance JSON.ToJSON KinesisSettingsProperty

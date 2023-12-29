@@ -11,6 +11,7 @@ data S3ConfigurationProperty
                              encryptionOption :: (Value Prelude.Text),
                              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                              objectKeyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigurationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3ConfigurationProperty
 mkS3ConfigurationProperty bucketName encryptionOption

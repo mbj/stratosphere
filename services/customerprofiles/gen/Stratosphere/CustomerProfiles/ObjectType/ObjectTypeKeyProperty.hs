@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ObjectTypeKeyProperty
   = ObjectTypeKeyProperty {fieldNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                            standardIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectTypeKeyProperty :: ObjectTypeKeyProperty
 mkObjectTypeKeyProperty
   = ObjectTypeKeyProperty

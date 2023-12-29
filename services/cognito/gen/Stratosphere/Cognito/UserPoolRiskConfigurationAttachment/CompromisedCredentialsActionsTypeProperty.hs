@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CompromisedCredentialsActionsTypeProperty
   = CompromisedCredentialsActionsTypeProperty {eventAction :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCompromisedCredentialsActionsTypeProperty ::
   Value Prelude.Text -> CompromisedCredentialsActionsTypeProperty
 mkCompromisedCredentialsActionsTypeProperty eventAction

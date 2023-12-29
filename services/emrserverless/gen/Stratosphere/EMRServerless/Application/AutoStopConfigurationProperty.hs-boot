@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AutoStopConfigurationProperty :: Prelude.Type
 instance ToResourceProperties AutoStopConfigurationProperty
+instance Prelude.Eq AutoStopConfigurationProperty
+instance Prelude.Show AutoStopConfigurationProperty
 instance JSON.ToJSON AutoStopConfigurationProperty

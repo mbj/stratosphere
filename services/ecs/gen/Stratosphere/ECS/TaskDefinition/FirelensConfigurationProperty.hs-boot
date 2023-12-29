@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FirelensConfigurationProperty :: Prelude.Type
 instance ToResourceProperties FirelensConfigurationProperty
+instance Prelude.Eq FirelensConfigurationProperty
+instance Prelude.Show FirelensConfigurationProperty
 instance JSON.ToJSON FirelensConfigurationProperty

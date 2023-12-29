@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DefaultFreeFormLayoutConfigurationProperty :: Prelude.Type
 instance ToResourceProperties DefaultFreeFormLayoutConfigurationProperty
+instance Prelude.Eq DefaultFreeFormLayoutConfigurationProperty
+instance Prelude.Show DefaultFreeFormLayoutConfigurationProperty
 instance JSON.ToJSON DefaultFreeFormLayoutConfigurationProperty

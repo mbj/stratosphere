@@ -11,6 +11,7 @@ import Stratosphere.Value
 data BotAliasLocaleSettingsItemProperty
   = BotAliasLocaleSettingsItemProperty {botAliasLocaleSetting :: BotAliasLocaleSettingsProperty,
                                         localeId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBotAliasLocaleSettingsItemProperty ::
   BotAliasLocaleSettingsProperty
   -> Value Prelude.Text -> BotAliasLocaleSettingsItemProperty

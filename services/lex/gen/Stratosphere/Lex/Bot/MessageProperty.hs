@@ -14,6 +14,7 @@ data MessageProperty
                      imageResponseCard :: (Prelude.Maybe ImageResponseCardProperty),
                      plainTextMessage :: (Prelude.Maybe PlainTextMessageProperty),
                      sSMLMessage :: (Prelude.Maybe SSMLMessageProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageProperty :: MessageProperty
 mkMessageProperty
   = MessageProperty

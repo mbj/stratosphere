@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.PublishMetricAction
 import Stratosphere.ResourceProperties
 data ActionDefinitionProperty
   = ActionDefinitionProperty {publishMetricAction :: (Prelude.Maybe PublishMetricActionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionDefinitionProperty :: ActionDefinitionProperty
 mkActionDefinitionProperty
   = ActionDefinitionProperty {publishMetricAction = Prelude.Nothing}

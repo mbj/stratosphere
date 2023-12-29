@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ColumnIdentifierProperty
   = ColumnIdentifierProperty {columnName :: (Value Prelude.Text),
                               dataSetIdentifier :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnIdentifierProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ColumnIdentifierProperty

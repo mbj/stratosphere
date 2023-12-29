@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoSnapshotAddOnProperty
   = AutoSnapshotAddOnProperty {snapshotTimeOfDay :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoSnapshotAddOnProperty :: AutoSnapshotAddOnProperty
 mkAutoSnapshotAddOnProperty
   = AutoSnapshotAddOnProperty {snapshotTimeOfDay = Prelude.Nothing}

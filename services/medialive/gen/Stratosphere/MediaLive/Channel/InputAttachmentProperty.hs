@@ -14,6 +14,7 @@ data InputAttachmentProperty
                              inputAttachmentName :: (Prelude.Maybe (Value Prelude.Text)),
                              inputId :: (Prelude.Maybe (Value Prelude.Text)),
                              inputSettings :: (Prelude.Maybe InputSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputAttachmentProperty :: InputAttachmentProperty
 mkInputAttachmentProperty
   = InputAttachmentProperty

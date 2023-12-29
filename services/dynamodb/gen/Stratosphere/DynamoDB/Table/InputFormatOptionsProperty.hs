@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.Table.CsvProperty as Exports
 import Stratosphere.ResourceProperties
 data InputFormatOptionsProperty
   = InputFormatOptionsProperty {csv :: (Prelude.Maybe CsvProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputFormatOptionsProperty :: InputFormatOptionsProperty
 mkInputFormatOptionsProperty
   = InputFormatOptionsProperty {csv = Prelude.Nothing}

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DeploymentComponentUpdatePolicyProperty
   = DeploymentComponentUpdatePolicyProperty {action :: (Prelude.Maybe (Value Prelude.Text)),
                                              timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentComponentUpdatePolicyProperty ::
   DeploymentComponentUpdatePolicyProperty
 mkDeploymentComponentUpdatePolicyProperty

@@ -10,6 +10,7 @@ data RoutingStrategyProperty
   = RoutingStrategyProperty {fleetId :: (Prelude.Maybe (Value Prelude.Text)),
                              message :: (Prelude.Maybe (Value Prelude.Text)),
                              type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingStrategyProperty ::
   Value Prelude.Text -> RoutingStrategyProperty
 mkRoutingStrategyProperty type'

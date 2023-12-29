@@ -13,6 +13,7 @@ data PipeSourceActiveMQBrokerParametersProperty
                                                 credentials :: MQBrokerAccessCredentialsProperty,
                                                 maximumBatchingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                                 queueName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceActiveMQBrokerParametersProperty ::
   MQBrokerAccessCredentialsProperty
   -> Value Prelude.Text -> PipeSourceActiveMQBrokerParametersProperty

@@ -13,6 +13,7 @@ data MultiRegionAccessPoint
   = MultiRegionAccessPoint {name :: (Prelude.Maybe (Value Prelude.Text)),
                             publicAccessBlockConfiguration :: (Prelude.Maybe PublicAccessBlockConfigurationProperty),
                             regions :: [RegionProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiRegionAccessPoint ::
   [RegionProperty] -> MultiRegionAccessPoint
 mkMultiRegionAccessPoint regions

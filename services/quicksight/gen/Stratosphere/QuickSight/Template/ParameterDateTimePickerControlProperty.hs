@@ -13,6 +13,7 @@ data ParameterDateTimePickerControlProperty
                                             parameterControlId :: (Value Prelude.Text),
                                             sourceParameterName :: (Value Prelude.Text),
                                             title :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterDateTimePickerControlProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

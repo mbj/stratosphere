@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RuntimePlatformProperty
   = RuntimePlatformProperty {cpuArchitecture :: (Prelude.Maybe (Value Prelude.Text)),
                              operatingSystemFamily :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuntimePlatformProperty :: RuntimePlatformProperty
 mkRuntimePlatformProperty
   = RuntimePlatformProperty

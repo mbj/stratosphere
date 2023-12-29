@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.S3ObjectLambda.AccessPoint.AwsLambdaProperty 
 import Stratosphere.ResourceProperties
 data ContentTransformationProperty
   = ContentTransformationProperty {awsLambda :: AwsLambdaProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContentTransformationProperty ::
   AwsLambdaProperty -> ContentTransformationProperty
 mkContentTransformationProperty awsLambda

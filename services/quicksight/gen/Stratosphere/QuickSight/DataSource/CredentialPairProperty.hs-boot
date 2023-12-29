@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CredentialPairProperty :: Prelude.Type
 instance ToResourceProperties CredentialPairProperty
+instance Prelude.Eq CredentialPairProperty
+instance Prelude.Show CredentialPairProperty
 instance JSON.ToJSON CredentialPairProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data HpoResourceConfigProperty
   = HpoResourceConfigProperty {maxNumberOfTrainingJobs :: (Prelude.Maybe (Value Prelude.Text)),
                                maxParallelTrainingJobs :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHpoResourceConfigProperty :: HpoResourceConfigProperty
 mkHpoResourceConfigProperty
   = HpoResourceConfigProperty

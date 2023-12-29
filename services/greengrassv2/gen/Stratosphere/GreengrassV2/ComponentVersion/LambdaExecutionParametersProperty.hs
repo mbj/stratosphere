@@ -21,6 +21,7 @@ data LambdaExecutionParametersProperty
                                        pinned :: (Prelude.Maybe (Value Prelude.Bool)),
                                        statusTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                        timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaExecutionParametersProperty ::
   LambdaExecutionParametersProperty
 mkLambdaExecutionParametersProperty

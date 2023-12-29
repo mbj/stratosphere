@@ -10,6 +10,7 @@ data BiasProperty
   = BiasProperty {postTrainingReport :: (Prelude.Maybe MetricsSourceProperty),
                   preTrainingReport :: (Prelude.Maybe MetricsSourceProperty),
                   report :: (Prelude.Maybe MetricsSourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBiasProperty :: BiasProperty
 mkBiasProperty
   = BiasProperty

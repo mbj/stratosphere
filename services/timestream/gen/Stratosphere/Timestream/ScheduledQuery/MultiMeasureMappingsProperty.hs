@@ -11,6 +11,7 @@ import Stratosphere.Value
 data MultiMeasureMappingsProperty
   = MultiMeasureMappingsProperty {multiMeasureAttributeMappings :: [MultiMeasureAttributeMappingProperty],
                                   targetMultiMeasureName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiMeasureMappingsProperty ::
   [MultiMeasureAttributeMappingProperty]
   -> MultiMeasureMappingsProperty

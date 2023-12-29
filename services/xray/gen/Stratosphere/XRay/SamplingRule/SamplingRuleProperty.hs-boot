@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SamplingRuleProperty :: Prelude.Type
 instance ToResourceProperties SamplingRuleProperty
+instance Prelude.Eq SamplingRuleProperty
+instance Prelude.Show SamplingRuleProperty
 instance JSON.ToJSON SamplingRuleProperty

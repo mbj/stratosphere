@@ -13,6 +13,7 @@ data RegexPatternSet
                      regularExpressionList :: (ValueList Prelude.Text),
                      scope :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegexPatternSet ::
   ValueList Prelude.Text -> Value Prelude.Text -> RegexPatternSet
 mkRegexPatternSet regularExpressionList scope

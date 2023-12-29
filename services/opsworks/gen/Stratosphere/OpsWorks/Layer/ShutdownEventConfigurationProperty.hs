@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ShutdownEventConfigurationProperty
   = ShutdownEventConfigurationProperty {delayUntilElbConnectionsDrained :: (Prelude.Maybe (Value Prelude.Bool)),
                                         executionTimeout :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkShutdownEventConfigurationProperty ::
   ShutdownEventConfigurationProperty
 mkShutdownEventConfigurationProperty

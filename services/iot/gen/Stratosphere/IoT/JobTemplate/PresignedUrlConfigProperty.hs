@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PresignedUrlConfigProperty
   = PresignedUrlConfigProperty {expiresInSec :: (Prelude.Maybe (Value Prelude.Integer)),
                                 roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPresignedUrlConfigProperty ::
   Value Prelude.Text -> PresignedUrlConfigProperty
 mkPresignedUrlConfigProperty roleArn

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data JWTConfigurationProperty
   = JWTConfigurationProperty {audience :: (Prelude.Maybe (ValueList Prelude.Text)),
                               issuer :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJWTConfigurationProperty :: JWTConfigurationProperty
 mkJWTConfigurationProperty
   = JWTConfigurationProperty

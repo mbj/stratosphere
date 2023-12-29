@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MarketoConnectorProfilePropertiesProperty :: Prelude.Type
 instance ToResourceProperties MarketoConnectorProfilePropertiesProperty
+instance Prelude.Eq MarketoConnectorProfilePropertiesProperty
+instance Prelude.Show MarketoConnectorProfilePropertiesProperty
 instance JSON.ToJSON MarketoConnectorProfilePropertiesProperty

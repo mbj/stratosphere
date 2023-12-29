@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeProperty
   = AttributeProperty {jsonPath :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeProperty :: Value Prelude.Text -> AttributeProperty
 mkAttributeProperty jsonPath
   = AttributeProperty {jsonPath = jsonPath}

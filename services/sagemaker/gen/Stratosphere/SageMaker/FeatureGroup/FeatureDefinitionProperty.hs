@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FeatureDefinitionProperty
   = FeatureDefinitionProperty {featureName :: (Value Prelude.Text),
                                featureType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFeatureDefinitionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> FeatureDefinitionProperty

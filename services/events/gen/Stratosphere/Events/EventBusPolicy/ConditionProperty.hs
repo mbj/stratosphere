@@ -10,6 +10,7 @@ data ConditionProperty
   = ConditionProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
                        type' :: (Prelude.Maybe (Value Prelude.Text)),
                        value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionProperty :: ConditionProperty
 mkConditionProperty
   = ConditionProperty

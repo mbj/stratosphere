@@ -11,6 +11,7 @@ data ApiMapping
                 apiMappingKey :: (Prelude.Maybe (Value Prelude.Text)),
                 domainName :: (Value Prelude.Text),
                 stage :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApiMapping ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> ApiMapping

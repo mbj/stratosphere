@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data RunConfigurationProperty
   = RunConfigurationProperty {applicationRestoreConfiguration :: (Prelude.Maybe ApplicationRestoreConfigurationProperty),
                               flinkRunConfiguration :: (Prelude.Maybe FlinkRunConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRunConfigurationProperty :: RunConfigurationProperty
 mkRunConfigurationProperty
   = RunConfigurationProperty

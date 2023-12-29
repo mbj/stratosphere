@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AnalysisSecurityGroupRuleProperty :: Prelude.Type
 instance ToResourceProperties AnalysisSecurityGroupRuleProperty
+instance Prelude.Eq AnalysisSecurityGroupRuleProperty
+instance Prelude.Show AnalysisSecurityGroupRuleProperty
 instance JSON.ToJSON AnalysisSecurityGroupRuleProperty

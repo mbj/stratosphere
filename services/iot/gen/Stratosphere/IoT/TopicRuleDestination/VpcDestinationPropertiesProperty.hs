@@ -12,6 +12,7 @@ data VpcDestinationPropertiesProperty
                                       securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       vpcId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcDestinationPropertiesProperty ::
   VpcDestinationPropertiesProperty
 mkVpcDestinationPropertiesProperty

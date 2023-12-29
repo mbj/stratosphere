@@ -14,6 +14,7 @@ data HostedConfigurationVersion
                                 description :: (Prelude.Maybe (Value Prelude.Text)),
                                 latestVersionNumber :: (Prelude.Maybe (Value Prelude.Double)),
                                 versionLabel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHostedConfigurationVersion ::
   Value Prelude.Text
   -> Value Prelude.Text

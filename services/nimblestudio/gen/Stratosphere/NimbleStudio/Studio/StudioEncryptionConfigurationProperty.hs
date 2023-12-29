@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StudioEncryptionConfigurationProperty
   = StudioEncryptionConfigurationProperty {keyArn :: (Prelude.Maybe (Value Prelude.Text)),
                                            keyType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStudioEncryptionConfigurationProperty ::
   Value Prelude.Text -> StudioEncryptionConfigurationProperty
 mkStudioEncryptionConfigurationProperty keyType

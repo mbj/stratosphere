@@ -10,6 +10,7 @@ import Stratosphere.Value
 data KinesisStreamSourceConfigurationProperty
   = KinesisStreamSourceConfigurationProperty {kinesisStreamARN :: (Value Prelude.Text),
                                               roleARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisStreamSourceConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> KinesisStreamSourceConfigurationProperty

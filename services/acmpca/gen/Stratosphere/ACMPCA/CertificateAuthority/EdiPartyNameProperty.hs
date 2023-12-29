@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EdiPartyNameProperty
   = EdiPartyNameProperty {nameAssigner :: (Value Prelude.Text),
                           partyName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEdiPartyNameProperty ::
   Value Prelude.Text -> Value Prelude.Text -> EdiPartyNameProperty
 mkEdiPartyNameProperty nameAssigner partyName

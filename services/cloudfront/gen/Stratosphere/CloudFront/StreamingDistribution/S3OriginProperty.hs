@@ -9,6 +9,7 @@ import Stratosphere.Value
 data S3OriginProperty
   = S3OriginProperty {domainName :: (Value Prelude.Text),
                       originAccessIdentity :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3OriginProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3OriginProperty
 mkS3OriginProperty domainName originAccessIdentity

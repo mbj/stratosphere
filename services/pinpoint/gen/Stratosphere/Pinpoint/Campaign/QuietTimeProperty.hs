@@ -9,6 +9,7 @@ import Stratosphere.Value
 data QuietTimeProperty
   = QuietTimeProperty {end :: (Value Prelude.Text),
                        start :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQuietTimeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> QuietTimeProperty
 mkQuietTimeProperty end start

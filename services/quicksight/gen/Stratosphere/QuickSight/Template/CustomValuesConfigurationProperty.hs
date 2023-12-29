@@ -11,6 +11,7 @@ import Stratosphere.Value
 data CustomValuesConfigurationProperty
   = CustomValuesConfigurationProperty {customValues :: CustomParameterValuesProperty,
                                        includeNullValue :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomValuesConfigurationProperty ::
   CustomParameterValuesProperty -> CustomValuesConfigurationProperty
 mkCustomValuesConfigurationProperty customValues

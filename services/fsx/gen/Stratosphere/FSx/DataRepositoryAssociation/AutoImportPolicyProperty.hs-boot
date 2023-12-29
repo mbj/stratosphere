@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AutoImportPolicyProperty :: Prelude.Type
 instance ToResourceProperties AutoImportPolicyProperty
+instance Prelude.Eq AutoImportPolicyProperty
+instance Prelude.Show AutoImportPolicyProperty
 instance JSON.ToJSON AutoImportPolicyProperty

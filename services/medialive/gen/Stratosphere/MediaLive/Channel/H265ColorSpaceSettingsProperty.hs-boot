@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data H265ColorSpaceSettingsProperty :: Prelude.Type
 instance ToResourceProperties H265ColorSpaceSettingsProperty
+instance Prelude.Eq H265ColorSpaceSettingsProperty
+instance Prelude.Show H265ColorSpaceSettingsProperty
 instance JSON.ToJSON H265ColorSpaceSettingsProperty

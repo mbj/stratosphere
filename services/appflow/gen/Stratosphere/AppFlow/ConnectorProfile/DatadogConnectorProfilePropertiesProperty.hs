@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatadogConnectorProfilePropertiesProperty
   = DatadogConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatadogConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> DatadogConnectorProfilePropertiesProperty
 mkDatadogConnectorProfilePropertiesProperty instanceUrl

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SubnetMappingProperty :: Prelude.Type
 instance ToResourceProperties SubnetMappingProperty
+instance Prelude.Eq SubnetMappingProperty
+instance Prelude.Show SubnetMappingProperty
 instance JSON.ToJSON SubnetMappingProperty

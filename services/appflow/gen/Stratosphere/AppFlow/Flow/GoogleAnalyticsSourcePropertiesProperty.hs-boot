@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GoogleAnalyticsSourcePropertiesProperty :: Prelude.Type
 instance ToResourceProperties GoogleAnalyticsSourcePropertiesProperty
+instance Prelude.Eq GoogleAnalyticsSourcePropertiesProperty
+instance Prelude.Show GoogleAnalyticsSourcePropertiesProperty
 instance JSON.ToJSON GoogleAnalyticsSourcePropertiesProperty

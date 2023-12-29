@@ -33,6 +33,7 @@ data RedshiftSettingsProperty
                               trimBlanks :: (Prelude.Maybe (Value Prelude.Bool)),
                               truncateColumns :: (Prelude.Maybe (Value Prelude.Bool)),
                               writeBufferSize :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftSettingsProperty :: RedshiftSettingsProperty
 mkRedshiftSettingsProperty
   = RedshiftSettingsProperty

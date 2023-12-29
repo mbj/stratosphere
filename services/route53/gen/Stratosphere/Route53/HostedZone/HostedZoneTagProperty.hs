@@ -9,6 +9,7 @@ import Stratosphere.Value
 data HostedZoneTagProperty
   = HostedZoneTagProperty {key :: (Value Prelude.Text),
                            value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHostedZoneTagProperty ::
   Value Prelude.Text -> Value Prelude.Text -> HostedZoneTagProperty
 mkHostedZoneTagProperty key value

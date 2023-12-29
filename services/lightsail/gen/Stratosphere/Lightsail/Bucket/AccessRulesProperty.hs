@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AccessRulesProperty
   = AccessRulesProperty {allowPublicOverrides :: (Prelude.Maybe (Value Prelude.Bool)),
                          getObject :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessRulesProperty :: AccessRulesProperty
 mkAccessRulesProperty
   = AccessRulesProperty

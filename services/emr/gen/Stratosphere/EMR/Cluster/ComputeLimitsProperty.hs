@@ -12,6 +12,7 @@ data ComputeLimitsProperty
                            maximumOnDemandCapacityUnits :: (Prelude.Maybe (Value Prelude.Integer)),
                            minimumCapacityUnits :: (Value Prelude.Integer),
                            unitType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeLimitsProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer

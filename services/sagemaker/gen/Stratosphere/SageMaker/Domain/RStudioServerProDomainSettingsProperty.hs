@@ -13,6 +13,7 @@ data RStudioServerProDomainSettingsProperty
                                             domainExecutionRoleArn :: (Value Prelude.Text),
                                             rStudioConnectUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                             rStudioPackageManagerUrl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRStudioServerProDomainSettingsProperty ::
   Value Prelude.Text -> RStudioServerProDomainSettingsProperty
 mkRStudioServerProDomainSettingsProperty domainExecutionRoleArn

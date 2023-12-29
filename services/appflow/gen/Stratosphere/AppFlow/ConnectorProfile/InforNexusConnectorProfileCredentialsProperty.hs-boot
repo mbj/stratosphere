@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InforNexusConnectorProfileCredentialsProperty :: Prelude.Type
 instance ToResourceProperties InforNexusConnectorProfileCredentialsProperty
+instance Prelude.Eq InforNexusConnectorProfileCredentialsProperty
+instance Prelude.Show InforNexusConnectorProfileCredentialsProperty
 instance JSON.ToJSON InforNexusConnectorProfileCredentialsProperty

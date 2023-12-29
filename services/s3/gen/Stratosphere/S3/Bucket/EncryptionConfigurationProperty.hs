@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionConfigurationProperty
   = EncryptionConfigurationProperty {replicaKmsKeyID :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigurationProperty ::
   Value Prelude.Text -> EncryptionConfigurationProperty
 mkEncryptionConfigurationProperty replicaKmsKeyID

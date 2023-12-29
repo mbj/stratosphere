@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SimpleClusterMarkerProperty
   = SimpleClusterMarkerProperty {color :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSimpleClusterMarkerProperty :: SimpleClusterMarkerProperty
 mkSimpleClusterMarkerProperty
   = SimpleClusterMarkerProperty {color = Prelude.Nothing}

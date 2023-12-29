@@ -13,6 +13,7 @@ data ClientAuthenticationProperty
   = ClientAuthenticationProperty {sasl :: (Prelude.Maybe SaslProperty),
                                   tls :: (Prelude.Maybe TlsProperty),
                                   unauthenticated :: (Prelude.Maybe UnauthenticatedProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientAuthenticationProperty :: ClientAuthenticationProperty
 mkClientAuthenticationProperty
   = ClientAuthenticationProperty

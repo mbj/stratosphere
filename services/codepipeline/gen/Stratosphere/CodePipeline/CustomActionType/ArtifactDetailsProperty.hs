@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ArtifactDetailsProperty
   = ArtifactDetailsProperty {maximumCount :: (Value Prelude.Integer),
                              minimumCount :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArtifactDetailsProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> ArtifactDetailsProperty

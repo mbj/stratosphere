@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SocketAddressProperty
   = SocketAddressProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                            port :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSocketAddressProperty :: SocketAddressProperty
 mkSocketAddressProperty
   = SocketAddressProperty

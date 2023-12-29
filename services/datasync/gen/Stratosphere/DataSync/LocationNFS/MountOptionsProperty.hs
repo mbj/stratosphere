@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MountOptionsProperty
   = MountOptionsProperty {version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMountOptionsProperty :: MountOptionsProperty
 mkMountOptionsProperty
   = MountOptionsProperty {version = Prelude.Nothing}

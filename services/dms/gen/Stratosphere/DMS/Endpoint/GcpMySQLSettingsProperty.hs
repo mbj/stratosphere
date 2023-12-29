@@ -20,6 +20,7 @@ data GcpMySQLSettingsProperty
                               serverName :: (Prelude.Maybe (Value Prelude.Text)),
                               serverTimezone :: (Prelude.Maybe (Value Prelude.Text)),
                               username :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGcpMySQLSettingsProperty :: GcpMySQLSettingsProperty
 mkGcpMySQLSettingsProperty
   = GcpMySQLSettingsProperty

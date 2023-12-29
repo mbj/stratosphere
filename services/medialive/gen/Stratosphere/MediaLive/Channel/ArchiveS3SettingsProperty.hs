@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ArchiveS3SettingsProperty
   = ArchiveS3SettingsProperty {cannedAcl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveS3SettingsProperty :: ArchiveS3SettingsProperty
 mkArchiveS3SettingsProperty
   = ArchiveS3SettingsProperty {cannedAcl = Prelude.Nothing}

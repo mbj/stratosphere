@@ -17,6 +17,7 @@ data MatchAttributesProperty
                              sourcePorts :: (Prelude.Maybe [PortRangeProperty]),
                              sources :: (Prelude.Maybe [AddressProperty]),
                              tCPFlags :: (Prelude.Maybe [TCPFlagFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchAttributesProperty :: MatchAttributesProperty
 mkMatchAttributesProperty
   = MatchAttributesProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceExecutionConfigProperty
   = InferenceExecutionConfigProperty {mode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceExecutionConfigProperty ::
   Value Prelude.Text -> InferenceExecutionConfigProperty
 mkInferenceExecutionConfigProperty mode

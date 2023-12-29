@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AppConfigResourceObjectProperty
   = AppConfigResourceObjectProperty {applicationId :: (Value Prelude.Text),
                                      environmentId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAppConfigResourceObjectProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> AppConfigResourceObjectProperty

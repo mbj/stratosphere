@@ -16,6 +16,7 @@ data Certificate
                  subjectAlternativeNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag]),
                  validationMethod :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificate :: Value Prelude.Text -> Certificate
 mkCertificate domainName
   = Certificate

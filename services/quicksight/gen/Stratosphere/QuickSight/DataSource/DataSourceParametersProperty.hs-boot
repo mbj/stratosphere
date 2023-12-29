@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataSourceParametersProperty :: Prelude.Type
 instance ToResourceProperties DataSourceParametersProperty
+instance Prelude.Eq DataSourceParametersProperty
+instance Prelude.Show DataSourceParametersProperty
 instance JSON.ToJSON DataSourceParametersProperty

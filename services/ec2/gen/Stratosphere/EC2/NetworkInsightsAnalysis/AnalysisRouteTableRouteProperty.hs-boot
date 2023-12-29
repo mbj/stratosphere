@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AnalysisRouteTableRouteProperty :: Prelude.Type
 instance ToResourceProperties AnalysisRouteTableRouteProperty
+instance Prelude.Eq AnalysisRouteTableRouteProperty
+instance Prelude.Show AnalysisRouteTableRouteProperty
 instance JSON.ToJSON AnalysisRouteTableRouteProperty

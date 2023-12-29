@@ -17,6 +17,7 @@ data Pipeline
               pipelineName :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [Tag]),
               vpcOptions :: (Prelude.Maybe VpcOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeline ::
   Value Prelude.Integer
   -> Value Prelude.Integer

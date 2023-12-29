@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BaselineConfigProperty :: Prelude.Type
 instance ToResourceProperties BaselineConfigProperty
+instance Prelude.Eq BaselineConfigProperty
+instance Prelude.Show BaselineConfigProperty
 instance JSON.ToJSON BaselineConfigProperty

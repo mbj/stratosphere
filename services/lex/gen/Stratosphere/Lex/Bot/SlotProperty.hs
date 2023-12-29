@@ -16,6 +16,7 @@ data SlotProperty
                   obfuscationSetting :: (Prelude.Maybe ObfuscationSettingProperty),
                   slotTypeName :: (Value Prelude.Text),
                   valueElicitationSetting :: SlotValueElicitationSettingProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -10,6 +10,7 @@ data SetTimerProperty
   = SetTimerProperty {durationExpression :: (Prelude.Maybe (Value Prelude.Text)),
                       seconds :: (Prelude.Maybe (Value Prelude.Integer)),
                       timerName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSetTimerProperty :: Value Prelude.Text -> SetTimerProperty
 mkSetTimerProperty timerName
   = SetTimerProperty

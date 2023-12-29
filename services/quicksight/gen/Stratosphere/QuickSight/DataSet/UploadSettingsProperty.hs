@@ -12,6 +12,7 @@ data UploadSettingsProperty
                             format :: (Prelude.Maybe (Value Prelude.Text)),
                             startFromRow :: (Prelude.Maybe (Value Prelude.Double)),
                             textQualifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUploadSettingsProperty :: UploadSettingsProperty
 mkUploadSettingsProperty
   = UploadSettingsProperty

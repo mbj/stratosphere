@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ScheduledActionProperty :: Prelude.Type
 instance ToResourceProperties ScheduledActionProperty
+instance Prelude.Eq ScheduledActionProperty
+instance Prelude.Show ScheduledActionProperty
 instance JSON.ToJSON ScheduledActionProperty

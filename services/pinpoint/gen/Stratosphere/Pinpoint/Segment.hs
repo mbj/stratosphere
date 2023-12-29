@@ -14,6 +14,7 @@ data Segment
              name :: (Value Prelude.Text),
              segmentGroups :: (Prelude.Maybe SegmentGroupsProperty),
              tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSegment :: Value Prelude.Text -> Value Prelude.Text -> Segment
 mkSegment applicationId name
   = Segment

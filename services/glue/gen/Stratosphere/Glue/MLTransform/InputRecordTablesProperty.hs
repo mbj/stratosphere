@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Glue.MLTransform.GlueTablesProperty as Export
 import Stratosphere.ResourceProperties
 data InputRecordTablesProperty
   = InputRecordTablesProperty {glueTables :: (Prelude.Maybe [GlueTablesProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputRecordTablesProperty :: InputRecordTablesProperty
 mkInputRecordTablesProperty
   = InputRecordTablesProperty {glueTables = Prelude.Nothing}

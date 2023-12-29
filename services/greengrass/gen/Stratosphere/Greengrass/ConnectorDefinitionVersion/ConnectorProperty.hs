@@ -10,6 +10,7 @@ data ConnectorProperty
   = ConnectorProperty {connectorArn :: (Value Prelude.Text),
                        id :: (Value Prelude.Text),
                        parameters :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ConnectorProperty
 mkConnectorProperty connectorArn id

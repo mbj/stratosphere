@@ -58,6 +58,7 @@ data Cluster
              snapshotIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag]),
              vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster ::
   Value Prelude.Text
   -> Value Prelude.Text

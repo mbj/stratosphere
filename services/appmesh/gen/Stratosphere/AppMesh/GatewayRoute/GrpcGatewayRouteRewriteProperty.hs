@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.GatewayRoute.GatewayRouteHostnameRewr
 import Stratosphere.ResourceProperties
 data GrpcGatewayRouteRewriteProperty
   = GrpcGatewayRouteRewriteProperty {hostname :: (Prelude.Maybe GatewayRouteHostnameRewriteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcGatewayRouteRewriteProperty ::
   GrpcGatewayRouteRewriteProperty
 mkGrpcGatewayRouteRewriteProperty

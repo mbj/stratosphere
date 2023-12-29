@@ -10,6 +10,7 @@ data AddAttributesProperty
   = AddAttributesProperty {attributes :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
                            name :: (Value Prelude.Text),
                            next :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAddAttributesProperty ::
   Prelude.Map Prelude.Text (Value Prelude.Text)
   -> Value Prelude.Text -> AddAttributesProperty

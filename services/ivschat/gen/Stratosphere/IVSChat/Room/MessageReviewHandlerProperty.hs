@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MessageReviewHandlerProperty
   = MessageReviewHandlerProperty {fallbackResult :: (Prelude.Maybe (Value Prelude.Text)),
                                   uri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageReviewHandlerProperty :: MessageReviewHandlerProperty
 mkMessageReviewHandlerProperty
   = MessageReviewHandlerProperty

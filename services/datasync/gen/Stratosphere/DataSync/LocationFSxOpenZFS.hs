@@ -14,6 +14,7 @@ data LocationFSxOpenZFS
                         securityGroupArns :: (ValueList Prelude.Text),
                         subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                         tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationFSxOpenZFS ::
   ProtocolProperty -> ValueList Prelude.Text -> LocationFSxOpenZFS
 mkLocationFSxOpenZFS protocol securityGroupArns

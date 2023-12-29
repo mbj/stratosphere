@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data ActionProperty
   = ActionProperty {lambdaConfiguration :: (Prelude.Maybe LambdaConfigurationProperty),
                     sNSConfiguration :: (Prelude.Maybe SNSConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HostVolumePropertiesProperty :: Prelude.Type
 instance ToResourceProperties HostVolumePropertiesProperty
+instance Prelude.Eq HostVolumePropertiesProperty
+instance Prelude.Show HostVolumePropertiesProperty
 instance JSON.ToJSON HostVolumePropertiesProperty

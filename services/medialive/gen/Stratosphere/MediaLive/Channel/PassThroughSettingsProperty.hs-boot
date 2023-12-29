@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PassThroughSettingsProperty :: Prelude.Type
 instance ToResourceProperties PassThroughSettingsProperty
+instance Prelude.Eq PassThroughSettingsProperty
+instance Prelude.Show PassThroughSettingsProperty
 instance JSON.ToJSON PassThroughSettingsProperty

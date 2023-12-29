@@ -14,6 +14,7 @@ data PackageFilterProperty
                            release :: (Prelude.Maybe StringFilterProperty),
                            sourceLayerHash :: (Prelude.Maybe StringFilterProperty),
                            version :: (Prelude.Maybe StringFilterProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPackageFilterProperty :: PackageFilterProperty
 mkPackageFilterProperty
   = PackageFilterProperty

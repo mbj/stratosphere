@@ -14,6 +14,7 @@ data Studio
             studioName :: (Value Prelude.Text),
             tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
             userRoleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStudio ::
   Value Prelude.Text
   -> Value Prelude.Text

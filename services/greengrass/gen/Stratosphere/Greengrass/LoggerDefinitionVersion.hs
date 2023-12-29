@@ -11,6 +11,7 @@ import Stratosphere.Value
 data LoggerDefinitionVersion
   = LoggerDefinitionVersion {loggerDefinitionId :: (Value Prelude.Text),
                              loggers :: [LoggerProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggerDefinitionVersion ::
   Value Prelude.Text -> [LoggerProperty] -> LoggerDefinitionVersion
 mkLoggerDefinitionVersion loggerDefinitionId loggers

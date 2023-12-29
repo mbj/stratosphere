@@ -10,6 +10,7 @@ data ColumnProperty
   = ColumnProperty {comment :: (Prelude.Maybe (Value Prelude.Text)),
                     name :: (Value Prelude.Text),
                     type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnProperty :: Value Prelude.Text -> ColumnProperty
 mkColumnProperty name
   = ColumnProperty

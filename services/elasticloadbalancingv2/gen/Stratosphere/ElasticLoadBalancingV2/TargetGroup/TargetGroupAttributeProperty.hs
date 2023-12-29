@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TargetGroupAttributeProperty
   = TargetGroupAttributeProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
                                   value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupAttributeProperty :: TargetGroupAttributeProperty
 mkTargetGroupAttributeProperty
   = TargetGroupAttributeProperty

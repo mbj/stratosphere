@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PortRangeProperty
   = PortRangeProperty {from :: (Prelude.Maybe (Value Prelude.Integer)),
                        to :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortRangeProperty :: PortRangeProperty
 mkPortRangeProperty
   = PortRangeProperty {from = Prelude.Nothing, to = Prelude.Nothing}

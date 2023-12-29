@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ElasticGpuSpecificationProperty :: Prelude.Type
 instance ToResourceProperties ElasticGpuSpecificationProperty
+instance Prelude.Eq ElasticGpuSpecificationProperty
+instance Prelude.Show ElasticGpuSpecificationProperty
 instance JSON.ToJSON ElasticGpuSpecificationProperty

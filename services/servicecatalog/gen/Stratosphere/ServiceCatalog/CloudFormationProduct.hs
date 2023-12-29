@@ -23,6 +23,7 @@ data CloudFormationProduct
                            supportEmail :: (Prelude.Maybe (Value Prelude.Text)),
                            supportUrl :: (Prelude.Maybe (Value Prelude.Text)),
                            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudFormationProduct ::
   Value Prelude.Text -> Value Prelude.Text -> CloudFormationProduct
 mkCloudFormationProduct name owner

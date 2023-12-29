@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TopicDateRangeFilterProperty
   = TopicDateRangeFilterProperty {constant :: (Prelude.Maybe TopicRangeFilterConstantProperty),
                                   inclusive :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicDateRangeFilterProperty :: TopicDateRangeFilterProperty
 mkTopicDateRangeFilterProperty
   = TopicDateRangeFilterProperty

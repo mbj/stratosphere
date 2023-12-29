@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DirectoryServiceAuthenticationRequestProperty
   = DirectoryServiceAuthenticationRequestProperty {directoryId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDirectoryServiceAuthenticationRequestProperty ::
   Value Prelude.Text -> DirectoryServiceAuthenticationRequestProperty
 mkDirectoryServiceAuthenticationRequestProperty directoryId

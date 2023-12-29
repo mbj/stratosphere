@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataflowEndpointConfigProperty :: Prelude.Type
 instance ToResourceProperties DataflowEndpointConfigProperty
+instance Prelude.Eq DataflowEndpointConfigProperty
+instance Prelude.Show DataflowEndpointConfigProperty
 instance JSON.ToJSON DataflowEndpointConfigProperty

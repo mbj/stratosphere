@@ -12,6 +12,7 @@ data CoreNetwork
                  globalNetworkId :: (Value Prelude.Text),
                  policyDocument :: (Prelude.Maybe JSON.Object),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreNetwork :: Value Prelude.Text -> CoreNetwork
 mkCoreNetwork globalNetworkId
   = CoreNetwork

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ElicitationCodeHookInvocationSettingProperty
   = ElicitationCodeHookInvocationSettingProperty {enableCodeHookInvocation :: (Value Prelude.Bool),
                                                   invocationLabel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkElicitationCodeHookInvocationSettingProperty ::
   Value Prelude.Bool -> ElicitationCodeHookInvocationSettingProperty
 mkElicitationCodeHookInvocationSettingProperty

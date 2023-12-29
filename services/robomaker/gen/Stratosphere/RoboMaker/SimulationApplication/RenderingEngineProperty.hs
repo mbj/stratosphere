@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RenderingEngineProperty
   = RenderingEngineProperty {name :: (Value Prelude.Text),
                              version :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRenderingEngineProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RenderingEngineProperty
 mkRenderingEngineProperty name version

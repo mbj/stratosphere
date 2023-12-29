@@ -10,6 +10,7 @@ data AuroraParametersProperty
   = AuroraParametersProperty {database :: (Value Prelude.Text),
                               host :: (Value Prelude.Text),
                               port :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuroraParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MachineLearningDetectionConfigProperty
   = MachineLearningDetectionConfigProperty {confidenceLevel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMachineLearningDetectionConfigProperty ::
   MachineLearningDetectionConfigProperty
 mkMachineLearningDetectionConfigProperty

@@ -12,6 +12,7 @@ data StrictTransportSecurityProperty
                                      includeSubdomains :: (Prelude.Maybe (Value Prelude.Bool)),
                                      override :: (Value Prelude.Bool),
                                      preload :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStrictTransportSecurityProperty ::
   Value Prelude.Integer
   -> Value Prelude.Bool -> StrictTransportSecurityProperty

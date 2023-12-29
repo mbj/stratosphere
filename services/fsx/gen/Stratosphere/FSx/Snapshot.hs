@@ -11,6 +11,7 @@ data Snapshot
   = Snapshot {name :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [Tag]),
               volumeId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSnapshot :: Value Prelude.Text -> Value Prelude.Text -> Snapshot
 mkSnapshot name volumeId
   = Snapshot

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SpotProvisioningSpecificationProperty :: Prelude.Type
 instance ToResourceProperties SpotProvisioningSpecificationProperty
+instance Prelude.Eq SpotProvisioningSpecificationProperty
+instance Prelude.Show SpotProvisioningSpecificationProperty
 instance JSON.ToJSON SpotProvisioningSpecificationProperty

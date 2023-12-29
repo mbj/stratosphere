@@ -20,6 +20,7 @@ data ProductionVariantProperty
                                serverlessConfig :: (Prelude.Maybe ServerlessConfigProperty),
                                variantName :: (Value Prelude.Text),
                                volumeSizeInGB :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProductionVariantProperty ::
   Value Prelude.Double
   -> Value Prelude.Text

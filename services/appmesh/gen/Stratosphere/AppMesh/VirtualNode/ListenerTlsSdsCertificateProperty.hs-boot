@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ListenerTlsSdsCertificateProperty :: Prelude.Type
 instance ToResourceProperties ListenerTlsSdsCertificateProperty
+instance Prelude.Eq ListenerTlsSdsCertificateProperty
+instance Prelude.Show ListenerTlsSdsCertificateProperty
 instance JSON.ToJSON ListenerTlsSdsCertificateProperty

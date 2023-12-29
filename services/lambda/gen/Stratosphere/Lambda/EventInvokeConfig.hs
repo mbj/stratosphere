@@ -13,6 +13,7 @@ data EventInvokeConfig
                        maximumEventAgeInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                        maximumRetryAttempts :: (Prelude.Maybe (Value Prelude.Integer)),
                        qualifier :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventInvokeConfig ::
   Value Prelude.Text -> Value Prelude.Text -> EventInvokeConfig
 mkEventInvokeConfig functionName qualifier

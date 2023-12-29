@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OffPeakWindowOptionsProperty :: Prelude.Type
 instance ToResourceProperties OffPeakWindowOptionsProperty
+instance Prelude.Eq OffPeakWindowOptionsProperty
+instance Prelude.Show OffPeakWindowOptionsProperty
 instance JSON.ToJSON OffPeakWindowOptionsProperty

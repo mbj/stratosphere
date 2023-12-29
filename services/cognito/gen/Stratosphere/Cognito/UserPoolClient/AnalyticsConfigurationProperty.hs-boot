@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AnalyticsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties AnalyticsConfigurationProperty
+instance Prelude.Eq AnalyticsConfigurationProperty
+instance Prelude.Show AnalyticsConfigurationProperty
 instance JSON.ToJSON AnalyticsConfigurationProperty

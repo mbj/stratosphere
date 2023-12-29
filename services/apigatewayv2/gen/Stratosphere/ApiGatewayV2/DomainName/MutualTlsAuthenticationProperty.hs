@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MutualTlsAuthenticationProperty
   = MutualTlsAuthenticationProperty {truststoreUri :: (Prelude.Maybe (Value Prelude.Text)),
                                      truststoreVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMutualTlsAuthenticationProperty ::
   MutualTlsAuthenticationProperty
 mkMutualTlsAuthenticationProperty

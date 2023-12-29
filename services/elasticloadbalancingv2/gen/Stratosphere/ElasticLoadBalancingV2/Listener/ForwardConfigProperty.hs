@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data ForwardConfigProperty
   = ForwardConfigProperty {targetGroupStickinessConfig :: (Prelude.Maybe TargetGroupStickinessConfigProperty),
                            targetGroups :: (Prelude.Maybe [TargetGroupTupleProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkForwardConfigProperty :: ForwardConfigProperty
 mkForwardConfigProperty
   = ForwardConfigProperty

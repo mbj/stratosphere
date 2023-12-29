@@ -13,6 +13,7 @@ data TransitGatewayMulticastDomain
   = TransitGatewayMulticastDomain {options :: (Prelude.Maybe OptionsProperty),
                                    tags :: (Prelude.Maybe [Tag]),
                                    transitGatewayId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayMulticastDomain ::
   Value Prelude.Text -> TransitGatewayMulticastDomain
 mkTransitGatewayMulticastDomain transitGatewayId

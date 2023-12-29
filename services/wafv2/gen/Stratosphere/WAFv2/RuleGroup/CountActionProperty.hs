@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CustomRequestHandlingProperty
 import Stratosphere.ResourceProperties
 data CountActionProperty
   = CountActionProperty {customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCountActionProperty :: CountActionProperty
 mkCountActionProperty
   = CountActionProperty {customRequestHandling = Prelude.Nothing}

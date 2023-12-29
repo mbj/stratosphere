@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AuthenticateCognitoConfigProperty :: Prelude.Type
 instance ToResourceProperties AuthenticateCognitoConfigProperty
+instance Prelude.Eq AuthenticateCognitoConfigProperty
+instance Prelude.Show AuthenticateCognitoConfigProperty
 instance JSON.ToJSON AuthenticateCognitoConfigProperty

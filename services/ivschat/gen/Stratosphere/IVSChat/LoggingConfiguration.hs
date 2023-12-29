@@ -12,6 +12,7 @@ data LoggingConfiguration
   = LoggingConfiguration {destinationConfiguration :: DestinationConfigurationProperty,
                           name :: (Prelude.Maybe (Value Prelude.Text)),
                           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfiguration ::
   DestinationConfigurationProperty -> LoggingConfiguration
 mkLoggingConfiguration destinationConfiguration

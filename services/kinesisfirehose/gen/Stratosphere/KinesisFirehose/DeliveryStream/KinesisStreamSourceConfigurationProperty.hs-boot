@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KinesisStreamSourceConfigurationProperty :: Prelude.Type
 instance ToResourceProperties KinesisStreamSourceConfigurationProperty
+instance Prelude.Eq KinesisStreamSourceConfigurationProperty
+instance Prelude.Show KinesisStreamSourceConfigurationProperty
 instance JSON.ToJSON KinesisStreamSourceConfigurationProperty

@@ -11,6 +11,7 @@ data ConfluencePageToIndexFieldMappingProperty
   = ConfluencePageToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
                                                dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
                                                indexFieldName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluencePageToIndexFieldMappingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ConfluencePageToIndexFieldMappingProperty

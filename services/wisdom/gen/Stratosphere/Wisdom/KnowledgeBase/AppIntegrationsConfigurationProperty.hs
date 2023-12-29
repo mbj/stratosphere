@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AppIntegrationsConfigurationProperty
   = AppIntegrationsConfigurationProperty {appIntegrationArn :: (Value Prelude.Text),
                                           objectFields :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAppIntegrationsConfigurationProperty ::
   Value Prelude.Text -> AppIntegrationsConfigurationProperty
 mkAppIntegrationsConfigurationProperty appIntegrationArn

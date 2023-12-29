@@ -12,6 +12,7 @@ data VpcConnector
                   subnets :: (ValueList Prelude.Text),
                   tags :: (Prelude.Maybe [Tag]),
                   vpcConnectorName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnector :: ValueList Prelude.Text -> VpcConnector
 mkVpcConnector subnets
   = VpcConnector

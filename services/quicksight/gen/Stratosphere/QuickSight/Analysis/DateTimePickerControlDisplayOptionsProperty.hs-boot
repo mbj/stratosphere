@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DateTimePickerControlDisplayOptionsProperty :: Prelude.Type
 instance ToResourceProperties DateTimePickerControlDisplayOptionsProperty
+instance Prelude.Eq DateTimePickerControlDisplayOptionsProperty
+instance Prelude.Show DateTimePickerControlDisplayOptionsProperty
 instance JSON.ToJSON DateTimePickerControlDisplayOptionsProperty

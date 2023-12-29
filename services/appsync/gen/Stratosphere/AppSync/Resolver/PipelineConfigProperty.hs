@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipelineConfigProperty
   = PipelineConfigProperty {functions :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipelineConfigProperty :: PipelineConfigProperty
 mkPipelineConfigProperty
   = PipelineConfigProperty {functions = Prelude.Nothing}

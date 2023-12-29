@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrendmicroSourcePropertiesProperty
   = TrendmicroSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrendmicroSourcePropertiesProperty ::
   Value Prelude.Text -> TrendmicroSourcePropertiesProperty
 mkTrendmicroSourcePropertiesProperty object

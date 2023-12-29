@@ -16,6 +16,7 @@ data Profile
              roleArns :: (ValueList Prelude.Text),
              sessionPolicy :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProfile ::
   Value Prelude.Text -> ValueList Prelude.Text -> Profile
 mkProfile name roleArns

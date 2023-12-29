@@ -12,6 +12,7 @@ data CustomResponseProperty
   = CustomResponseProperty {customResponseBodyKey :: (Prelude.Maybe (Value Prelude.Text)),
                             responseCode :: (Value Prelude.Integer),
                             responseHeaders :: (Prelude.Maybe [CustomHTTPHeaderProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomResponseProperty ::
   Value Prelude.Integer -> CustomResponseProperty
 mkCustomResponseProperty responseCode

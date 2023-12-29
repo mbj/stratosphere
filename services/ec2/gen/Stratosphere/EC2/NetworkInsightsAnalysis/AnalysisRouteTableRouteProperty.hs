@@ -19,6 +19,7 @@ data AnalysisRouteTableRouteProperty
                                      egressOnlyInternetGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
                                      gatewayId :: (Prelude.Maybe (Value Prelude.Text)),
                                      instanceId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisRouteTableRouteProperty ::
   AnalysisRouteTableRouteProperty
 mkAnalysisRouteTableRouteProperty

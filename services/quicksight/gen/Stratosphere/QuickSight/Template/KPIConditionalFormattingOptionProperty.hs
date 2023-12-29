@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data KPIConditionalFormattingOptionProperty
   = KPIConditionalFormattingOptionProperty {primaryValue :: (Prelude.Maybe KPIPrimaryValueConditionalFormattingProperty),
                                             progressBar :: (Prelude.Maybe KPIProgressBarConditionalFormattingProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKPIConditionalFormattingOptionProperty ::
   KPIConditionalFormattingOptionProperty
 mkKPIConditionalFormattingOptionProperty

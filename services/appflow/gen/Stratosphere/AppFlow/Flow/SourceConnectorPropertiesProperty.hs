@@ -41,6 +41,7 @@ data SourceConnectorPropertiesProperty
                                        trendmicro :: (Prelude.Maybe TrendmicroSourcePropertiesProperty),
                                        veeva :: (Prelude.Maybe VeevaSourcePropertiesProperty),
                                        zendesk :: (Prelude.Maybe ZendeskSourcePropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConnectorPropertiesProperty ::
   SourceConnectorPropertiesProperty
 mkSourceConnectorPropertiesProperty

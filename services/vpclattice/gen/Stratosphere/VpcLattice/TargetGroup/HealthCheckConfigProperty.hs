@@ -19,6 +19,7 @@ data HealthCheckConfigProperty
                                protocol :: (Prelude.Maybe (Value Prelude.Text)),
                                protocolVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                unhealthyThresholdCount :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckConfigProperty :: HealthCheckConfigProperty
 mkHealthCheckConfigProperty
   = HealthCheckConfigProperty

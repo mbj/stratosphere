@@ -14,6 +14,7 @@ data AttributesProperty
                         inboundCalls :: (Value Prelude.Bool),
                         outboundCalls :: (Value Prelude.Bool),
                         useCustomTTSVoices :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributesProperty ::
   Value Prelude.Bool -> Value Prelude.Bool -> AttributesProperty
 mkAttributesProperty inboundCalls outboundCalls

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data CustomActionFilterOperationProperty
   = CustomActionFilterOperationProperty {selectedFieldsConfiguration :: FilterOperationSelectedFieldsConfigurationProperty,
                                          targetVisualsConfiguration :: FilterOperationTargetVisualsConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomActionFilterOperationProperty ::
   FilterOperationSelectedFieldsConfigurationProperty
   -> FilterOperationTargetVisualsConfigurationProperty

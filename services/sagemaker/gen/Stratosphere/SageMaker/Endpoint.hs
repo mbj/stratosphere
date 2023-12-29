@@ -17,6 +17,7 @@ data Endpoint
               retainAllVariantProperties :: (Prelude.Maybe (Value Prelude.Bool)),
               retainDeploymentConfig :: (Prelude.Maybe (Value Prelude.Bool)),
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpoint :: Value Prelude.Text -> Endpoint
 mkEndpoint endpointConfigName
   = Endpoint

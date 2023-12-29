@@ -14,6 +14,7 @@ data ContainerProperty
                        environment :: (Prelude.Maybe [EnvironmentVariableProperty]),
                        image :: (Prelude.Maybe (Value Prelude.Text)),
                        ports :: (Prelude.Maybe [PortInfoProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerProperty :: ContainerProperty
 mkContainerProperty
   = ContainerProperty

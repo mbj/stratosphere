@@ -18,6 +18,7 @@ data TreeMapVisualProperty
                            subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                            title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                            visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTreeMapVisualProperty ::
   Value Prelude.Text -> TreeMapVisualProperty
 mkTreeMapVisualProperty visualId

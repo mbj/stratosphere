@@ -10,6 +10,7 @@ data AssetModelHierarchyProperty
   = AssetModelHierarchyProperty {childAssetModelId :: (Value Prelude.Text),
                                  logicalId :: (Value Prelude.Text),
                                  name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetModelHierarchyProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

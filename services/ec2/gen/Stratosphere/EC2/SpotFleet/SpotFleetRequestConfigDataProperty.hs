@@ -36,6 +36,7 @@ data SpotFleetRequestConfigDataProperty
                                         type' :: (Prelude.Maybe (Value Prelude.Text)),
                                         validFrom :: (Prelude.Maybe (Value Prelude.Text)),
                                         validUntil :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotFleetRequestConfigDataProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> SpotFleetRequestConfigDataProperty

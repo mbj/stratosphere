@@ -11,6 +11,7 @@ data SingleSelectQuestionRuleCategoryAutomationProperty
   = SingleSelectQuestionRuleCategoryAutomationProperty {category :: (Value Prelude.Text),
                                                         condition :: (Value Prelude.Text),
                                                         optionRefId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleSelectQuestionRuleCategoryAutomationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

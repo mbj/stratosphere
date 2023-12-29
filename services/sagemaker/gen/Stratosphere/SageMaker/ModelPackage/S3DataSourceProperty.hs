@@ -9,6 +9,7 @@ import Stratosphere.Value
 data S3DataSourceProperty
   = S3DataSourceProperty {s3DataType :: (Value Prelude.Text),
                           s3Uri :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DataSourceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3DataSourceProperty
 mkS3DataSourceProperty s3DataType s3Uri

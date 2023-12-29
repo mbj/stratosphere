@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FieldFolderProperty
   = FieldFolderProperty {columns :: (Prelude.Maybe (ValueList Prelude.Text)),
                          description :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldFolderProperty :: FieldFolderProperty
 mkFieldFolderProperty
   = FieldFolderProperty

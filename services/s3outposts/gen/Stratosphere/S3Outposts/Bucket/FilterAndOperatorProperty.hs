@@ -11,6 +11,7 @@ import Stratosphere.Value
 data FilterAndOperatorProperty
   = FilterAndOperatorProperty {prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                tags :: [FilterTagProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterAndOperatorProperty ::
   [FilterTagProperty] -> FilterAndOperatorProperty
 mkFilterAndOperatorProperty tags

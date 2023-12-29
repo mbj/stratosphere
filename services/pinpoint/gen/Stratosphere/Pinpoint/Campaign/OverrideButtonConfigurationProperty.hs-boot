@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OverrideButtonConfigurationProperty :: Prelude.Type
 instance ToResourceProperties OverrideButtonConfigurationProperty
+instance Prelude.Eq OverrideButtonConfigurationProperty
+instance Prelude.Show OverrideButtonConfigurationProperty
 instance JSON.ToJSON OverrideButtonConfigurationProperty

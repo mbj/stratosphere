@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentGroup.EC2TagSetListObjec
 import Stratosphere.ResourceProperties
 data EC2TagSetProperty
   = EC2TagSetProperty {ec2TagSetList :: (Prelude.Maybe [EC2TagSetListObjectProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEC2TagSetProperty :: EC2TagSetProperty
 mkEC2TagSetProperty
   = EC2TagSetProperty {ec2TagSetList = Prelude.Nothing}

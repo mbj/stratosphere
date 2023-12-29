@@ -10,6 +10,7 @@ data SuspendedStateProperty
   = SuspendedStateProperty {dynamicScalingInSuspended :: (Prelude.Maybe (Value Prelude.Bool)),
                             dynamicScalingOutSuspended :: (Prelude.Maybe (Value Prelude.Bool)),
                             scheduledScalingSuspended :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSuspendedStateProperty :: SuspendedStateProperty
 mkSuspendedStateProperty
   = SuspendedStateProperty

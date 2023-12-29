@@ -10,6 +10,7 @@ data NotificationConfigProperty
   = NotificationConfigProperty {notificationArn :: (Value Prelude.Text),
                                 notificationEvents :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 notificationType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigProperty ::
   Value Prelude.Text -> NotificationConfigProperty
 mkNotificationConfigProperty notificationArn

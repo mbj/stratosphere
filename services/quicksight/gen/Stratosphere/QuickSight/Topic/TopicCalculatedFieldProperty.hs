@@ -27,6 +27,7 @@ data TopicCalculatedFieldProperty
                                   notAllowedAggregations :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   semanticType :: (Prelude.Maybe SemanticTypeProperty),
                                   timeGranularity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicCalculatedFieldProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> TopicCalculatedFieldProperty

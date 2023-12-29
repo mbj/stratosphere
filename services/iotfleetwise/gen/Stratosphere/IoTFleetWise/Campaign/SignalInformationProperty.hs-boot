@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SignalInformationProperty :: Prelude.Type
 instance ToResourceProperties SignalInformationProperty
+instance Prelude.Eq SignalInformationProperty
+instance Prelude.Show SignalInformationProperty
 instance JSON.ToJSON SignalInformationProperty

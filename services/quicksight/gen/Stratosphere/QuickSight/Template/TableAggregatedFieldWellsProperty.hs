@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data TableAggregatedFieldWellsProperty
   = TableAggregatedFieldWellsProperty {groupBy :: (Prelude.Maybe [DimensionFieldProperty]),
                                        values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableAggregatedFieldWellsProperty ::
   TableAggregatedFieldWellsProperty
 mkTableAggregatedFieldWellsProperty

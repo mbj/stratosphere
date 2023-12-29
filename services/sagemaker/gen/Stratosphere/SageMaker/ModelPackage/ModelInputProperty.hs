@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelInputProperty
   = ModelInputProperty {dataInputConfig :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelInputProperty :: Value Prelude.Text -> ModelInputProperty
 mkModelInputProperty dataInputConfig
   = ModelInputProperty {dataInputConfig = dataInputConfig}

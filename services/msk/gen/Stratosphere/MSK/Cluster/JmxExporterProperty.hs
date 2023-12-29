@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JmxExporterProperty
   = JmxExporterProperty {enabledInBroker :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJmxExporterProperty :: Value Prelude.Bool -> JmxExporterProperty
 mkJmxExporterProperty enabledInBroker
   = JmxExporterProperty {enabledInBroker = enabledInBroker}

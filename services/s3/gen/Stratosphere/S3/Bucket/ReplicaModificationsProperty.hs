@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicaModificationsProperty
   = ReplicaModificationsProperty {status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaModificationsProperty ::
   Value Prelude.Text -> ReplicaModificationsProperty
 mkReplicaModificationsProperty status

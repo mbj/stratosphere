@@ -14,6 +14,7 @@ data SemanticTypeProperty
                           truthyCellValueSynonyms :: (Prelude.Maybe (ValueList Prelude.Text)),
                           typeName :: (Prelude.Maybe (Value Prelude.Text)),
                           typeParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSemanticTypeProperty :: SemanticTypeProperty
 mkSemanticTypeProperty
   = SemanticTypeProperty

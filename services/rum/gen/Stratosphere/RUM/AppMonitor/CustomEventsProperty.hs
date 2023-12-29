@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomEventsProperty
   = CustomEventsProperty {status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomEventsProperty :: CustomEventsProperty
 mkCustomEventsProperty
   = CustomEventsProperty {status = Prelude.Nothing}

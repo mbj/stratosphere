@@ -27,6 +27,7 @@ data GlobalTable
                  tableName :: (Prelude.Maybe (Value Prelude.Text)),
                  timeToLiveSpecification :: (Prelude.Maybe TimeToLiveSpecificationProperty),
                  writeProvisionedThroughputSettings :: (Prelude.Maybe WriteProvisionedThroughputSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalTable ::
   [AttributeDefinitionProperty]
   -> [KeySchemaProperty]

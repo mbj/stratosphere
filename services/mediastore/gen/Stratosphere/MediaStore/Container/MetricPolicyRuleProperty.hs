@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MetricPolicyRuleProperty
   = MetricPolicyRuleProperty {objectGroup :: (Value Prelude.Text),
                               objectGroupName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricPolicyRuleProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> MetricPolicyRuleProperty

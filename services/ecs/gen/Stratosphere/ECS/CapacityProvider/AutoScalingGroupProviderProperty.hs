@@ -12,6 +12,7 @@ data AutoScalingGroupProviderProperty
   = AutoScalingGroupProviderProperty {autoScalingGroupArn :: (Value Prelude.Text),
                                       managedScaling :: (Prelude.Maybe ManagedScalingProperty),
                                       managedTerminationProtection :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingGroupProviderProperty ::
   Value Prelude.Text -> AutoScalingGroupProviderProperty
 mkAutoScalingGroupProviderProperty autoScalingGroupArn

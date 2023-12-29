@@ -14,6 +14,7 @@ data SalesforceCustomKnowledgeArticleTypeConfigurationProperty
                                                                documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
                                                                fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
                                                                name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceCustomKnowledgeArticleTypeConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

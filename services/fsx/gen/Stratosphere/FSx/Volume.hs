@@ -16,6 +16,7 @@ data Volume
             openZFSConfiguration :: (Prelude.Maybe OpenZFSConfigurationProperty),
             tags :: (Prelude.Maybe [Tag]),
             volumeType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolume :: Value Prelude.Text -> Volume
 mkVolume name
   = Volume

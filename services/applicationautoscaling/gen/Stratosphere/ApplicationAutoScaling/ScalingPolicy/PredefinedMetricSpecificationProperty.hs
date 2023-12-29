@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PredefinedMetricSpecificationProperty
   = PredefinedMetricSpecificationProperty {predefinedMetricType :: (Value Prelude.Text),
                                            resourceLabel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredefinedMetricSpecificationProperty ::
   Value Prelude.Text -> PredefinedMetricSpecificationProperty
 mkPredefinedMetricSpecificationProperty predefinedMetricType

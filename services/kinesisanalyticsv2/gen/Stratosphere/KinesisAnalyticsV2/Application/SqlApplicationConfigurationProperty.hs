@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.InputProperty 
 import Stratosphere.ResourceProperties
 data SqlApplicationConfigurationProperty
   = SqlApplicationConfigurationProperty {inputs :: (Prelude.Maybe [InputProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlApplicationConfigurationProperty ::
   SqlApplicationConfigurationProperty
 mkSqlApplicationConfigurationProperty

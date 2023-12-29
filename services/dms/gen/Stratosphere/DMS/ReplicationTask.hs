@@ -21,6 +21,7 @@ data ReplicationTask
                      tags :: (Prelude.Maybe [Tag]),
                      targetEndpointArn :: (Value Prelude.Text),
                      taskData :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationTask ::
   Value Prelude.Text
   -> Value Prelude.Text

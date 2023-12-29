@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SampleUtteranceProperty
   = SampleUtteranceProperty {utterance :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSampleUtteranceProperty ::
   Value Prelude.Text -> SampleUtteranceProperty
 mkSampleUtteranceProperty utterance

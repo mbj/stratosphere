@@ -10,6 +10,7 @@ data CognitoStreamsProperty
   = CognitoStreamsProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                             streamName :: (Prelude.Maybe (Value Prelude.Text)),
                             streamingStatus :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoStreamsProperty :: CognitoStreamsProperty
 mkCognitoStreamsProperty
   = CognitoStreamsProperty

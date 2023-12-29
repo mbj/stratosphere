@@ -10,6 +10,7 @@ import Stratosphere.Value
 data LambdaProperty
   = LambdaProperty {functionArn :: (Value Prelude.Text),
                     payload :: (Prelude.Maybe PayloadProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaProperty :: Value Prelude.Text -> LambdaProperty
 mkLambdaProperty functionArn
   = LambdaProperty

@@ -10,6 +10,7 @@ data StepFunctionsActionProperty
   = StepFunctionsActionProperty {executionNamePrefix :: (Prelude.Maybe (Value Prelude.Text)),
                                  roleArn :: (Value Prelude.Text),
                                  stateMachineName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStepFunctionsActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> StepFunctionsActionProperty

@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data SpaceSettingsProperty
   = SpaceSettingsProperty {jupyterServerAppSettings :: (Prelude.Maybe JupyterServerAppSettingsProperty),
                            kernelGatewayAppSettings :: (Prelude.Maybe KernelGatewayAppSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpaceSettingsProperty :: SpaceSettingsProperty
 mkSpaceSettingsProperty
   = SpaceSettingsProperty

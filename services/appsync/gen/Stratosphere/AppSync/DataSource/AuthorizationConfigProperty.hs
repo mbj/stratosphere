@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AuthorizationConfigProperty
   = AuthorizationConfigProperty {authorizationType :: (Value Prelude.Text),
                                  awsIamConfig :: (Prelude.Maybe AwsIamConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizationConfigProperty ::
   Value Prelude.Text -> AuthorizationConfigProperty
 mkAuthorizationConfigProperty authorizationType

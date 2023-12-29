@@ -10,6 +10,7 @@ data EventParametersProperty
   = EventParametersProperty {descriptionRegex :: (Prelude.Maybe (Value Prelude.Text)),
                              eventType :: (Value Prelude.Text),
                              snapshotOwner :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventParametersProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> EventParametersProperty

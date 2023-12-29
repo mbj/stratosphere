@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DefaultConditionalBranchProperty
   = DefaultConditionalBranchProperty {nextStep :: (Prelude.Maybe DialogStateProperty),
                                       response :: (Prelude.Maybe ResponseSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultConditionalBranchProperty ::
   DefaultConditionalBranchProperty
 mkDefaultConditionalBranchProperty

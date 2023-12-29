@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.TimestreamConfigura
 import Stratosphere.ResourceProperties
 data TargetConfigurationProperty
   = TargetConfigurationProperty {timestreamConfiguration :: TimestreamConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetConfigurationProperty ::
   TimestreamConfigurationProperty -> TargetConfigurationProperty
 mkTargetConfigurationProperty timestreamConfiguration

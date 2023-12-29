@@ -17,6 +17,7 @@ data FilterSliderControlProperty
                                  stepSize :: (Value Prelude.Double),
                                  title :: (Value Prelude.Text),
                                  type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterSliderControlProperty ::
   Value Prelude.Text
   -> Value Prelude.Double

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PercentileAggregationProperty
   = PercentileAggregationProperty {percentileValue :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPercentileAggregationProperty :: PercentileAggregationProperty
 mkPercentileAggregationProperty
   = PercentileAggregationProperty {percentileValue = Prelude.Nothing}

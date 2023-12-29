@@ -10,6 +10,7 @@ import Stratosphere.Value
 data VirtualGatewayPortMappingProperty
   = VirtualGatewayPortMappingProperty {port :: (Value Prelude.Integer),
                                        protocol :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayPortMappingProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> VirtualGatewayPortMappingProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CaptureOptionProperty :: Prelude.Type
 instance ToResourceProperties CaptureOptionProperty
+instance Prelude.Eq CaptureOptionProperty
+instance Prelude.Show CaptureOptionProperty
 instance JSON.ToJSON CaptureOptionProperty

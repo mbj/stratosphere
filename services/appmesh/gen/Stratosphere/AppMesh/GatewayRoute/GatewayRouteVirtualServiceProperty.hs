@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatewayRouteVirtualServiceProperty
   = GatewayRouteVirtualServiceProperty {virtualServiceName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteVirtualServiceProperty ::
   Value Prelude.Text -> GatewayRouteVirtualServiceProperty
 mkGatewayRouteVirtualServiceProperty virtualServiceName

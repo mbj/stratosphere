@@ -11,6 +11,7 @@ data DataSourceToIndexFieldMappingProperty
   = DataSourceToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
                                            dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
                                            indexFieldName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceToIndexFieldMappingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DataSourceToIndexFieldMappingProperty

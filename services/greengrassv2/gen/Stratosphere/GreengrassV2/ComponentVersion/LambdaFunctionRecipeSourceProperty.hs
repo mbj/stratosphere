@@ -17,6 +17,7 @@ data LambdaFunctionRecipeSourceProperty
                                         componentPlatforms :: (Prelude.Maybe [ComponentPlatformProperty]),
                                         componentVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                         lambdaArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaFunctionRecipeSourceProperty ::
   LambdaFunctionRecipeSourceProperty
 mkLambdaFunctionRecipeSourceProperty

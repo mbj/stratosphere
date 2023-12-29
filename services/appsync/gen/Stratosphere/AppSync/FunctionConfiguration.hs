@@ -23,6 +23,7 @@ data FunctionConfiguration
                            responseMappingTemplateS3Location :: (Prelude.Maybe (Value Prelude.Text)),
                            runtime :: (Prelude.Maybe AppSyncRuntimeProperty),
                            syncConfig :: (Prelude.Maybe SyncConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionConfiguration ::
   Value Prelude.Text
   -> Value Prelude.Text

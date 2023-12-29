@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ReportExportConfigProperty
   = ReportExportConfigProperty {exportConfigType :: (Value Prelude.Text),
                                 s3Destination :: (Prelude.Maybe S3ReportExportConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReportExportConfigProperty ::
   Value Prelude.Text -> ReportExportConfigProperty
 mkReportExportConfigProperty exportConfigType

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ManifestProcessingRulesProperty :: Prelude.Type
 instance ToResourceProperties ManifestProcessingRulesProperty
+instance Prelude.Eq ManifestProcessingRulesProperty
+instance Prelude.Show ManifestProcessingRulesProperty
 instance JSON.ToJSON ManifestProcessingRulesProperty

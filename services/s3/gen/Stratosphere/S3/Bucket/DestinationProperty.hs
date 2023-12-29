@@ -11,6 +11,7 @@ data DestinationProperty
                          bucketArn :: (Value Prelude.Text),
                          format :: (Value Prelude.Text),
                          prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DestinationProperty
 mkDestinationProperty bucketArn format

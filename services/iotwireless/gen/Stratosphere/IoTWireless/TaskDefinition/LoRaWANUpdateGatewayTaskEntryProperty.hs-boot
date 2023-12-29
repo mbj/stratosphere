@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LoRaWANUpdateGatewayTaskEntryProperty :: Prelude.Type
 instance ToResourceProperties LoRaWANUpdateGatewayTaskEntryProperty
+instance Prelude.Eq LoRaWANUpdateGatewayTaskEntryProperty
+instance Prelude.Show LoRaWANUpdateGatewayTaskEntryProperty
 instance JSON.ToJSON LoRaWANUpdateGatewayTaskEntryProperty

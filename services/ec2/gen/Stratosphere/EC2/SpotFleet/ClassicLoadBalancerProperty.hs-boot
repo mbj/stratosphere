@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ClassicLoadBalancerProperty :: Prelude.Type
 instance ToResourceProperties ClassicLoadBalancerProperty
+instance Prelude.Eq ClassicLoadBalancerProperty
+instance Prelude.Show ClassicLoadBalancerProperty
 instance JSON.ToJSON ClassicLoadBalancerProperty

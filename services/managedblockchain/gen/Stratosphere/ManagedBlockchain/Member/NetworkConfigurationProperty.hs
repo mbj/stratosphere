@@ -16,6 +16,7 @@ data NetworkConfigurationProperty
                                   name :: (Value Prelude.Text),
                                   networkFrameworkConfiguration :: (Prelude.Maybe NetworkFrameworkConfigurationProperty),
                                   votingPolicy :: VotingPolicyProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StatusProperty
   = StatusProperty {error :: (Prelude.Maybe ErrorProperty),
                     state :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatusProperty :: StatusProperty
 mkStatusProperty
   = StatusProperty {error = Prelude.Nothing, state = Prelude.Nothing}

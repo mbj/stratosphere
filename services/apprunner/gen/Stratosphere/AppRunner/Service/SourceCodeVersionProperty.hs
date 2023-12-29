@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SourceCodeVersionProperty
   = SourceCodeVersionProperty {type' :: (Value Prelude.Text),
                                value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceCodeVersionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SourceCodeVersionProperty

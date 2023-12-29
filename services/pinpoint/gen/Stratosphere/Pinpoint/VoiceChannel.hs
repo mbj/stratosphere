@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VoiceChannel
   = VoiceChannel {applicationId :: (Value Prelude.Text),
                   enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVoiceChannel :: Value Prelude.Text -> VoiceChannel
 mkVoiceChannel applicationId
   = VoiceChannel

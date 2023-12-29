@@ -12,6 +12,7 @@ data ImageRepositoryProperty
   = ImageRepositoryProperty {imageConfiguration :: (Prelude.Maybe ImageConfigurationProperty),
                              imageIdentifier :: (Value Prelude.Text),
                              imageRepositoryType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImageRepositoryProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ImageRepositoryProperty
 mkImageRepositoryProperty imageIdentifier imageRepositoryType

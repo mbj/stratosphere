@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VariableValueProperty
   = VariableValueProperty {hierarchyLogicalId :: (Prelude.Maybe (Value Prelude.Text)),
                            propertyLogicalId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVariableValueProperty ::
   Value Prelude.Text -> VariableValueProperty
 mkVariableValueProperty propertyLogicalId

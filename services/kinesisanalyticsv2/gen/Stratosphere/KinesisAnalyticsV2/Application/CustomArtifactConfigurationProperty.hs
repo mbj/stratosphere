@@ -13,6 +13,7 @@ data CustomArtifactConfigurationProperty
   = CustomArtifactConfigurationProperty {artifactType :: (Value Prelude.Text),
                                          mavenReference :: (Prelude.Maybe MavenReferenceProperty),
                                          s3ContentLocation :: (Prelude.Maybe S3ContentLocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomArtifactConfigurationProperty ::
   Value Prelude.Text -> CustomArtifactConfigurationProperty
 mkCustomArtifactConfigurationProperty artifactType

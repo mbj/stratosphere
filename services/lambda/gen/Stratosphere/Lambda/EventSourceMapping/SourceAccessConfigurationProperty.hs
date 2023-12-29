@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SourceAccessConfigurationProperty
   = SourceAccessConfigurationProperty {type' :: (Prelude.Maybe (Value Prelude.Text)),
                                        uRI :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceAccessConfigurationProperty ::
   SourceAccessConfigurationProperty
 mkSourceAccessConfigurationProperty

@@ -23,6 +23,7 @@ data GameServerGroup
                      roleArn :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag]),
                      vpcSubnets :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGameServerGroup ::
   Value Prelude.Text
   -> [InstanceDefinitionProperty]

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SSM.PatchBaseline.PatchFilterProperty as Expo
 import Stratosphere.ResourceProperties
 data PatchFilterGroupProperty
   = PatchFilterGroupProperty {patchFilters :: (Prelude.Maybe [PatchFilterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPatchFilterGroupProperty :: PatchFilterGroupProperty
 mkPatchFilterGroupProperty
   = PatchFilterGroupProperty {patchFilters = Prelude.Nothing}

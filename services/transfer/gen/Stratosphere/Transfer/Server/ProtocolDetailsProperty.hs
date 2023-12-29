@@ -13,6 +13,7 @@ data ProtocolDetailsProperty
                              passiveIp :: (Prelude.Maybe (Value Prelude.Text)),
                              setStatOption :: (Prelude.Maybe (Value Prelude.Text)),
                              tlsSessionResumptionMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProtocolDetailsProperty :: ProtocolDetailsProperty
 mkProtocolDetailsProperty
   = ProtocolDetailsProperty

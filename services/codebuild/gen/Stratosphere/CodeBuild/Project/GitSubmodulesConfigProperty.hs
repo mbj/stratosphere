@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GitSubmodulesConfigProperty
   = GitSubmodulesConfigProperty {fetchSubmodules :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGitSubmodulesConfigProperty ::
   Value Prelude.Bool -> GitSubmodulesConfigProperty
 mkGitSubmodulesConfigProperty fetchSubmodules

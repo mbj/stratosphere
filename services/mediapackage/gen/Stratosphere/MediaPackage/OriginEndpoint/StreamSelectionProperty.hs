@@ -10,6 +10,7 @@ data StreamSelectionProperty
   = StreamSelectionProperty {maxVideoBitsPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
                              minVideoBitsPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
                              streamOrder :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamSelectionProperty :: StreamSelectionProperty
 mkStreamSelectionProperty
   = StreamSelectionProperty

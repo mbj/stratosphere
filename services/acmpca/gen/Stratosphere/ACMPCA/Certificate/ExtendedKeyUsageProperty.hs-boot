@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExtendedKeyUsageProperty :: Prelude.Type
 instance ToResourceProperties ExtendedKeyUsageProperty
+instance Prelude.Eq ExtendedKeyUsageProperty
+instance Prelude.Show ExtendedKeyUsageProperty
 instance JSON.ToJSON ExtendedKeyUsageProperty

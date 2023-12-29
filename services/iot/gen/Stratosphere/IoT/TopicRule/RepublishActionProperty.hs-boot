@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RepublishActionProperty :: Prelude.Type
 instance ToResourceProperties RepublishActionProperty
+instance Prelude.Eq RepublishActionProperty
+instance Prelude.Show RepublishActionProperty
 instance JSON.ToJSON RepublishActionProperty

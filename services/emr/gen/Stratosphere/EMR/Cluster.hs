@@ -40,6 +40,7 @@ data Cluster
              steps :: (Prelude.Maybe [StepConfigProperty]),
              tags :: (Prelude.Maybe [Tag]),
              visibleToAllUsers :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster ::
   JobFlowInstancesConfigProperty
   -> Value Prelude.Text

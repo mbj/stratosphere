@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MetricTransformationProperty :: Prelude.Type
 instance ToResourceProperties MetricTransformationProperty
+instance Prelude.Eq MetricTransformationProperty
+instance Prelude.Show MetricTransformationProperty
 instance JSON.ToJSON MetricTransformationProperty

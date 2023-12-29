@@ -20,6 +20,7 @@ data BatchTransformInputProperty
                                  s3DataDistributionType :: (Prelude.Maybe (Value Prelude.Text)),
                                  s3InputMode :: (Prelude.Maybe (Value Prelude.Text)),
                                  startTimeOffset :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchTransformInputProperty ::
   Value Prelude.Text
   -> DatasetFormatProperty

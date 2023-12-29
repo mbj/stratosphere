@@ -18,6 +18,7 @@ data DataIntegration
                      scheduleConfig :: ScheduleConfigProperty,
                      sourceURI :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataIntegration ::
   Value Prelude.Text
   -> Value Prelude.Text

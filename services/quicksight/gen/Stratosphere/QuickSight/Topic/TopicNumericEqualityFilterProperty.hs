@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TopicNumericEqualityFilterProperty
   = TopicNumericEqualityFilterProperty {aggregation :: (Prelude.Maybe (Value Prelude.Text)),
                                         constant :: (Prelude.Maybe TopicSingularFilterConstantProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicNumericEqualityFilterProperty ::
   TopicNumericEqualityFilterProperty
 mkTopicNumericEqualityFilterProperty

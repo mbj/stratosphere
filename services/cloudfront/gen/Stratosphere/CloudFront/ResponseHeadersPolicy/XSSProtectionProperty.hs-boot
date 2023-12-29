@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data XSSProtectionProperty :: Prelude.Type
 instance ToResourceProperties XSSProtectionProperty
+instance Prelude.Eq XSSProtectionProperty
+instance Prelude.Show XSSProtectionProperty
 instance JSON.ToJSON XSSProtectionProperty

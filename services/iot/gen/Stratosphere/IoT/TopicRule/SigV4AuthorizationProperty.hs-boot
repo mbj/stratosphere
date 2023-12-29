@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SigV4AuthorizationProperty :: Prelude.Type
 instance ToResourceProperties SigV4AuthorizationProperty
+instance Prelude.Eq SigV4AuthorizationProperty
+instance Prelude.Show SigV4AuthorizationProperty
 instance JSON.ToJSON SigV4AuthorizationProperty

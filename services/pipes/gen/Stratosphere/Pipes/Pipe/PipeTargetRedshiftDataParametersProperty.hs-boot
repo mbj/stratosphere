@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipeTargetRedshiftDataParametersProperty :: Prelude.Type
 instance ToResourceProperties PipeTargetRedshiftDataParametersProperty
+instance Prelude.Eq PipeTargetRedshiftDataParametersProperty
+instance Prelude.Show PipeTargetRedshiftDataParametersProperty
 instance JSON.ToJSON PipeTargetRedshiftDataParametersProperty

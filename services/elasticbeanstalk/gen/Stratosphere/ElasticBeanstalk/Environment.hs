@@ -22,6 +22,7 @@ data Environment
                  templateName :: (Prelude.Maybe (Value Prelude.Text)),
                  tier :: (Prelude.Maybe TierProperty),
                  versionLabel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment :: Value Prelude.Text -> Environment
 mkEnvironment applicationName
   = Environment

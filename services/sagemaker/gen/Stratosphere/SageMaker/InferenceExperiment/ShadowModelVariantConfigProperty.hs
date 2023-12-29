@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ShadowModelVariantConfigProperty
   = ShadowModelVariantConfigProperty {samplingPercentage :: (Value Prelude.Integer),
                                       shadowModelVariantName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkShadowModelVariantConfigProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> ShadowModelVariantConfigProperty

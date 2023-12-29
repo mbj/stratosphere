@@ -14,6 +14,7 @@ data Policy
             tags :: (Prelude.Maybe [Tag]),
             targetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
             type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicy ::
   JSON.Object -> Value Prelude.Text -> Value Prelude.Text -> Policy
 mkPolicy content name type'

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReplicaRegionProperty :: Prelude.Type
 instance ToResourceProperties ReplicaRegionProperty
+instance Prelude.Eq ReplicaRegionProperty
+instance Prelude.Show ReplicaRegionProperty
 instance JSON.ToJSON ReplicaRegionProperty

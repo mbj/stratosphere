@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EC2TagSetListObjectProperty :: Prelude.Type
 instance ToResourceProperties EC2TagSetListObjectProperty
+instance Prelude.Eq EC2TagSetListObjectProperty
+instance Prelude.Show EC2TagSetListObjectProperty
 instance JSON.ToJSON EC2TagSetListObjectProperty

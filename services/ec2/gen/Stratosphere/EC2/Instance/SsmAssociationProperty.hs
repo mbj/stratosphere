@@ -11,6 +11,7 @@ import Stratosphere.Value
 data SsmAssociationProperty
   = SsmAssociationProperty {associationParameters :: (Prelude.Maybe [AssociationParameterProperty]),
                             documentName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSsmAssociationProperty ::
   Value Prelude.Text -> SsmAssociationProperty
 mkSsmAssociationProperty documentName

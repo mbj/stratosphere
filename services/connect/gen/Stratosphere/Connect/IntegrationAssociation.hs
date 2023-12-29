@@ -10,6 +10,7 @@ data IntegrationAssociation
   = IntegrationAssociation {instanceId :: (Value Prelude.Text),
                             integrationArn :: (Value Prelude.Text),
                             integrationType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegrationAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ActionThresholdProperty
   = ActionThresholdProperty {type' :: (Value Prelude.Text),
                              value :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionThresholdProperty ::
   Value Prelude.Text
   -> Value Prelude.Double -> ActionThresholdProperty

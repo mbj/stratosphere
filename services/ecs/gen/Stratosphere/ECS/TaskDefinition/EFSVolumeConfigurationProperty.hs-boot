@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EFSVolumeConfigurationProperty :: Prelude.Type
 instance ToResourceProperties EFSVolumeConfigurationProperty
+instance Prelude.Eq EFSVolumeConfigurationProperty
+instance Prelude.Show EFSVolumeConfigurationProperty
 instance JSON.ToJSON EFSVolumeConfigurationProperty

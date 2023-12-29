@@ -20,6 +20,7 @@ data ActionProperty
                     sNSAction :: (Prelude.Maybe SNSActionProperty),
                     stopAction :: (Prelude.Maybe StopActionProperty),
                     workmailAction :: (Prelude.Maybe WorkmailActionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty

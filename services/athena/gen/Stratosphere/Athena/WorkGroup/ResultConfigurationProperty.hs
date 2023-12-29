@@ -14,6 +14,7 @@ data ResultConfigurationProperty
                                  encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
                                  expectedBucketOwner :: (Prelude.Maybe (Value Prelude.Text)),
                                  outputLocation :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResultConfigurationProperty :: ResultConfigurationProperty
 mkResultConfigurationProperty
   = ResultConfigurationProperty

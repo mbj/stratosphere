@@ -14,6 +14,7 @@ data DatasetImportJobProperty
                               datasetImportJobArn :: (Prelude.Maybe (Value Prelude.Text)),
                               jobName :: (Prelude.Maybe (Value Prelude.Text)),
                               roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetImportJobProperty :: DatasetImportJobProperty
 mkDatasetImportJobProperty
   = DatasetImportJobProperty

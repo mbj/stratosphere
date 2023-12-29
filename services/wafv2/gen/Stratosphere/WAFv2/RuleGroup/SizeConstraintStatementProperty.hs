@@ -14,6 +14,7 @@ data SizeConstraintStatementProperty
                                      fieldToMatch :: FieldToMatchProperty,
                                      size :: (Value Prelude.Double),
                                      textTransformations :: [TextTransformationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSizeConstraintStatementProperty ::
   Value Prelude.Text
   -> FieldToMatchProperty

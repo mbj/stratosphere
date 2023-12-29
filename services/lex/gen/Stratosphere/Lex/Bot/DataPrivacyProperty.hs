@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataPrivacyProperty
   = DataPrivacyProperty {childDirected :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPrivacyProperty :: Value Prelude.Bool -> DataPrivacyProperty
 mkDataPrivacyProperty childDirected
   = DataPrivacyProperty {childDirected = childDirected}

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DolbyVision81SettingsProperty :: Prelude.Type
 instance ToResourceProperties DolbyVision81SettingsProperty
+instance Prelude.Eq DolbyVision81SettingsProperty
+instance Prelude.Show DolbyVision81SettingsProperty
 instance JSON.ToJSON DolbyVision81SettingsProperty

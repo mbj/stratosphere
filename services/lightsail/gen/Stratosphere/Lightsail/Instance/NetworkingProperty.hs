@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data NetworkingProperty
   = NetworkingProperty {monthlyTransfer :: (Prelude.Maybe MonthlyTransferProperty),
                         ports :: [PortProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkingProperty :: [PortProperty] -> NetworkingProperty
 mkNetworkingProperty ports
   = NetworkingProperty

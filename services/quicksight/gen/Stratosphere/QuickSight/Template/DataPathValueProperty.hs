@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DataPathValueProperty
   = DataPathValueProperty {fieldId :: (Value Prelude.Text),
                            fieldValue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPathValueProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DataPathValueProperty
 mkDataPathValueProperty fieldId fieldValue

@@ -14,6 +14,7 @@ data EksVolumeProperty
                        hostPath :: (Prelude.Maybe EksHostPathProperty),
                        name :: (Value Prelude.Text),
                        secret :: (Prelude.Maybe EksSecretProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksVolumeProperty :: Value Prelude.Text -> EksVolumeProperty
 mkEksVolumeProperty name
   = EksVolumeProperty

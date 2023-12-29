@@ -22,6 +22,7 @@ data Cluster
              securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              subnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Integer -> Cluster

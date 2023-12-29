@@ -12,6 +12,7 @@ data ConfigurationSetEventDestination
   = ConfigurationSetEventDestination {configurationSetName :: (Value Prelude.Text),
                                       eventDestination :: (Prelude.Maybe EventDestinationProperty),
                                       eventDestinationName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationSetEventDestination ::
   Value Prelude.Text
   -> Value Prelude.Text -> ConfigurationSetEventDestination

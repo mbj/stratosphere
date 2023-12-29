@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AttributeDimensionProperty
   = AttributeDimensionProperty {attributeType :: (Prelude.Maybe (Value Prelude.Text)),
                                 values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeDimensionProperty :: AttributeDimensionProperty
 mkAttributeDimensionProperty
   = AttributeDimensionProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TraceContentProperty
   = TraceContentProperty {logLevel :: (Prelude.Maybe (Value Prelude.Text)),
                           wirelessDeviceFrameInfo :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTraceContentProperty :: TraceContentProperty
 mkTraceContentProperty
   = TraceContentProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data JsonFormatRefProperty
   = JsonFormatRefProperty {key :: (Value Prelude.Text),
                            value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonFormatRefProperty ::
   Value Prelude.Text -> Value Prelude.Text -> JsonFormatRefProperty
 mkJsonFormatRefProperty key value

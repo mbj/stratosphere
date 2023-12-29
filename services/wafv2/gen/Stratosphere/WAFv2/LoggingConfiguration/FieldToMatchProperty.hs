@@ -13,6 +13,7 @@ data FieldToMatchProperty
                           queryString :: (Prelude.Maybe JSON.Object),
                           singleHeader :: (Prelude.Maybe SingleHeaderProperty),
                           uriPath :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldToMatchProperty :: FieldToMatchProperty
 mkFieldToMatchProperty
   = FieldToMatchProperty

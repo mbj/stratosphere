@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TaskDefinitionPlacementConstraintProperty
   = TaskDefinitionPlacementConstraintProperty {expression :: (Prelude.Maybe (Value Prelude.Text)),
                                                type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskDefinitionPlacementConstraintProperty ::
   Value Prelude.Text -> TaskDefinitionPlacementConstraintProperty
 mkTaskDefinitionPlacementConstraintProperty type'

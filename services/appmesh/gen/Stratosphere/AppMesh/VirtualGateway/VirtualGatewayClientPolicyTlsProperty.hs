@@ -14,6 +14,7 @@ data VirtualGatewayClientPolicyTlsProperty
                                            enforce :: (Prelude.Maybe (Value Prelude.Bool)),
                                            ports :: (Prelude.Maybe (ValueList Prelude.Integer)),
                                            validation :: VirtualGatewayTlsValidationContextProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayClientPolicyTlsProperty ::
   VirtualGatewayTlsValidationContextProperty
   -> VirtualGatewayClientPolicyTlsProperty

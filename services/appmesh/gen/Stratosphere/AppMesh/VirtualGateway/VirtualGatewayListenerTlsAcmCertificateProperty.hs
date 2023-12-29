@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayListenerTlsAcmCertificateProperty
   = VirtualGatewayListenerTlsAcmCertificateProperty {certificateArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsAcmCertificateProperty ::
   Value Prelude.Text
   -> VirtualGatewayListenerTlsAcmCertificateProperty

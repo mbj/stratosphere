@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Scte27DestinationSettingsProperty
   = Scte27DestinationSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScte27DestinationSettingsProperty ::
   Scte27DestinationSettingsProperty
 mkScte27DestinationSettingsProperty

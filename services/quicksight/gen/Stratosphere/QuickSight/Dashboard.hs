@@ -24,6 +24,7 @@ data Dashboard
                tags :: (Prelude.Maybe [Tag]),
                themeArn :: (Prelude.Maybe (Value Prelude.Text)),
                versionDescription :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboard ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Dashboard

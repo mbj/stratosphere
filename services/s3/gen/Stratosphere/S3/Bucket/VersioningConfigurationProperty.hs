@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VersioningConfigurationProperty
   = VersioningConfigurationProperty {status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVersioningConfigurationProperty ::
   Value Prelude.Text -> VersioningConfigurationProperty
 mkVersioningConfigurationProperty status

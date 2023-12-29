@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaEndpointInputProperty
   = LambdaEndpointInputProperty {arn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaEndpointInputProperty ::
   Value Prelude.Text -> LambdaEndpointInputProperty
 mkLambdaEndpointInputProperty arn

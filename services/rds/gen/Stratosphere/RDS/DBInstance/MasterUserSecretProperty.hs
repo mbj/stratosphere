@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MasterUserSecretProperty
   = MasterUserSecretProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                               secretArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMasterUserSecretProperty :: MasterUserSecretProperty
 mkMasterUserSecretProperty
   = MasterUserSecretProperty

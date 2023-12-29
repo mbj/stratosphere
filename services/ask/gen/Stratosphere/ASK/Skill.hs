@@ -12,6 +12,7 @@ data Skill
   = Skill {authenticationConfiguration :: AuthenticationConfigurationProperty,
            skillPackage :: SkillPackageProperty,
            vendorId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSkill ::
   AuthenticationConfigurationProperty
   -> SkillPackageProperty -> Value Prelude.Text -> Skill

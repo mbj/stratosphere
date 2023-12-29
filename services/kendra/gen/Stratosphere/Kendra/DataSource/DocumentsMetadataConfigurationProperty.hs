@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DocumentsMetadataConfigurationProperty
   = DocumentsMetadataConfigurationProperty {s3Prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentsMetadataConfigurationProperty ::
   DocumentsMetadataConfigurationProperty
 mkDocumentsMetadataConfigurationProperty

@@ -16,6 +16,7 @@ data TaskDefinition
                     tags :: (Prelude.Maybe [Tag]),
                     taskDefinitionType :: (Prelude.Maybe (Value Prelude.Text)),
                     update :: (Prelude.Maybe UpdateWirelessGatewayTaskCreateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskDefinition :: Value Prelude.Bool -> TaskDefinition
 mkTaskDefinition autoCreateTasks
   = TaskDefinition

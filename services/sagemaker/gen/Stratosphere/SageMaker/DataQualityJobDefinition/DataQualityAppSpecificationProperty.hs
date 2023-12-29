@@ -14,6 +14,7 @@ data DataQualityAppSpecificationProperty
                                          imageUri :: (Value Prelude.Text),
                                          postAnalyticsProcessorSourceUri :: (Prelude.Maybe (Value Prelude.Text)),
                                          recordPreprocessorSourceUri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataQualityAppSpecificationProperty ::
   Value Prelude.Text -> DataQualityAppSpecificationProperty
 mkDataQualityAppSpecificationProperty imageUri

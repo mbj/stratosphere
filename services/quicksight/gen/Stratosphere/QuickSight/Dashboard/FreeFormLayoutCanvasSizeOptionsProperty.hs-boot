@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FreeFormLayoutCanvasSizeOptionsProperty :: Prelude.Type
 instance ToResourceProperties FreeFormLayoutCanvasSizeOptionsProperty
+instance Prelude.Eq FreeFormLayoutCanvasSizeOptionsProperty
+instance Prelude.Show FreeFormLayoutCanvasSizeOptionsProperty
 instance JSON.ToJSON FreeFormLayoutCanvasSizeOptionsProperty

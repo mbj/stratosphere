@@ -17,6 +17,7 @@ data EventType
                labels :: [LabelProperty],
                name :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventType ::
   [EntityTypeProperty]
   -> [EventVariableProperty]

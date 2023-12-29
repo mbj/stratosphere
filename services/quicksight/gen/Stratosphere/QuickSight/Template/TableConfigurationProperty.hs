@@ -21,6 +21,7 @@ data TableConfigurationProperty
                                 tableInlineVisualizations :: (Prelude.Maybe [TableInlineVisualizationProperty]),
                                 tableOptions :: (Prelude.Maybe TableOptionsProperty),
                                 totalOptions :: (Prelude.Maybe TotalOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableConfigurationProperty :: TableConfigurationProperty
 mkTableConfigurationProperty
   = TableConfigurationProperty

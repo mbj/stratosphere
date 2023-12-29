@@ -34,6 +34,7 @@ data Fleet
            resourceCreationLimitPolicy :: (Prelude.Maybe ResourceCreationLimitPolicyProperty),
            runtimeConfiguration :: (Prelude.Maybe RuntimeConfigurationProperty),
            scriptId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFleet :: Value Prelude.Text -> Fleet
 mkFleet name
   = Fleet

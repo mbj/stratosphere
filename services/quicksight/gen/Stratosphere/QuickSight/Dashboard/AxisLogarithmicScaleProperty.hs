@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AxisLogarithmicScaleProperty
   = AxisLogarithmicScaleProperty {base :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAxisLogarithmicScaleProperty :: AxisLogarithmicScaleProperty
 mkAxisLogarithmicScaleProperty
   = AxisLogarithmicScaleProperty {base = Prelude.Nothing}

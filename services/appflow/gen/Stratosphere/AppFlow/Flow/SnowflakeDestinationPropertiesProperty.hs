@@ -13,6 +13,7 @@ data SnowflakeDestinationPropertiesProperty
                                             errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
                                             intermediateBucketName :: (Value Prelude.Text),
                                             object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSnowflakeDestinationPropertiesProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SnowflakeDestinationPropertiesProperty

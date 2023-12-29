@@ -20,6 +20,7 @@ data TransitGateway
                     tags :: (Prelude.Maybe [Tag]),
                     transitGatewayCidrBlocks :: (Prelude.Maybe (ValueList Prelude.Text)),
                     vpnEcmpSupport :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGateway :: TransitGateway
 mkTransitGateway
   = TransitGateway

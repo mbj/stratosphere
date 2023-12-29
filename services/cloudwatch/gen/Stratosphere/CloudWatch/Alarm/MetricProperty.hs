@@ -11,6 +11,7 @@ data MetricProperty
   = MetricProperty {dimensions :: (Prelude.Maybe [DimensionProperty]),
                     metricName :: (Prelude.Maybe (Value Prelude.Text)),
                     namespace :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricProperty :: MetricProperty
 mkMetricProperty
   = MetricProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RouteTable
   = RouteTable {tags :: (Prelude.Maybe [Tag]),
                 vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRouteTable :: Value Prelude.Text -> RouteTable
 mkRouteTable vpcId
   = RouteTable {vpcId = vpcId, tags = Prelude.Nothing}

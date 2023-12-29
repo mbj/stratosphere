@@ -9,6 +9,7 @@ import Stratosphere.Value
 data UserPropertyProperty
   = UserPropertyProperty {key :: (Value Prelude.Text),
                           value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPropertyProperty ::
   Value Prelude.Text -> Value Prelude.Text -> UserPropertyProperty
 mkUserPropertyProperty key value

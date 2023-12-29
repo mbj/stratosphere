@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TextTransformationProperty
   = TextTransformationProperty {priority :: (Value Prelude.Integer),
                                 type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTextTransformationProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> TextTransformationProperty

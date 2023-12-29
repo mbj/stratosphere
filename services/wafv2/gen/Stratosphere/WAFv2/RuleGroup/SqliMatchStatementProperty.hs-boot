@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SqliMatchStatementProperty :: Prelude.Type
 instance ToResourceProperties SqliMatchStatementProperty
+instance Prelude.Eq SqliMatchStatementProperty
+instance Prelude.Show SqliMatchStatementProperty
 instance JSON.ToJSON SqliMatchStatementProperty

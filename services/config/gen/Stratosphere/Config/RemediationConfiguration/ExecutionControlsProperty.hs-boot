@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExecutionControlsProperty :: Prelude.Type
 instance ToResourceProperties ExecutionControlsProperty
+instance Prelude.Eq ExecutionControlsProperty
+instance Prelude.Show ExecutionControlsProperty
 instance JSON.ToJSON ExecutionControlsProperty

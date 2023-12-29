@@ -12,6 +12,7 @@ data SmallMultiplesOptionsProperty
   = SmallMultiplesOptionsProperty {maxVisibleColumns :: (Prelude.Maybe (Value Prelude.Double)),
                                    maxVisibleRows :: (Prelude.Maybe (Value Prelude.Double)),
                                    panelConfiguration :: (Prelude.Maybe PanelConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSmallMultiplesOptionsProperty :: SmallMultiplesOptionsProperty
 mkSmallMultiplesOptionsProperty
   = SmallMultiplesOptionsProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AlarmsProperty
   = AlarmsProperty {alarmRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                     notificationLambdaArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmsProperty :: AlarmsProperty
 mkAlarmsProperty
   = AlarmsProperty

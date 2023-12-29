@@ -12,6 +12,7 @@ data DatasetFormatProperty
   = DatasetFormatProperty {csv :: (Prelude.Maybe CsvProperty),
                            json :: (Prelude.Maybe JsonProperty),
                            parquet :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetFormatProperty :: DatasetFormatProperty
 mkDatasetFormatProperty
   = DatasetFormatProperty

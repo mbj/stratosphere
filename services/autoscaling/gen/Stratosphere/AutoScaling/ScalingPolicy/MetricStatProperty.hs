@@ -11,6 +11,7 @@ data MetricStatProperty
   = MetricStatProperty {metric :: MetricProperty,
                         stat :: (Value Prelude.Text),
                         unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricStatProperty ::
   MetricProperty -> Value Prelude.Text -> MetricStatProperty
 mkMetricStatProperty metric stat

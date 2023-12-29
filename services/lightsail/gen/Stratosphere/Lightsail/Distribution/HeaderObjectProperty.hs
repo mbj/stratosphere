@@ -9,6 +9,7 @@ import Stratosphere.Value
 data HeaderObjectProperty
   = HeaderObjectProperty {headersAllowList :: (Prelude.Maybe (ValueList Prelude.Text)),
                           option :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeaderObjectProperty :: HeaderObjectProperty
 mkHeaderObjectProperty
   = HeaderObjectProperty

@@ -12,6 +12,7 @@ data FilterProperty
                     exists :: (Prelude.Maybe (Value Prelude.Bool)),
                     neq :: (Prelude.Maybe (ValueList Prelude.Text)),
                     property :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty :: Value Prelude.Text -> FilterProperty
 mkFilterProperty property
   = FilterProperty

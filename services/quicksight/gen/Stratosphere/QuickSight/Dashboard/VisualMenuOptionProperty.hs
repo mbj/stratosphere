@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VisualMenuOptionProperty
   = VisualMenuOptionProperty {availabilityStatus :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVisualMenuOptionProperty :: VisualMenuOptionProperty
 mkVisualMenuOptionProperty
   = VisualMenuOptionProperty {availabilityStatus = Prelude.Nothing}

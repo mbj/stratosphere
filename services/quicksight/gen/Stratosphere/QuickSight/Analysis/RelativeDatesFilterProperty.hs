@@ -21,6 +21,7 @@ data RelativeDatesFilterProperty
                                  relativeDateType :: (Value Prelude.Text),
                                  relativeDateValue :: (Prelude.Maybe (Value Prelude.Double)),
                                  timeGranularity :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRelativeDatesFilterProperty ::
   AnchorDateConfigurationProperty
   -> ColumnIdentifierProperty

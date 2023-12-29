@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EncryptionOptionsProperty :: Prelude.Type
 instance ToResourceProperties EncryptionOptionsProperty
+instance Prelude.Eq EncryptionOptionsProperty
+instance Prelude.Show EncryptionOptionsProperty
 instance JSON.ToJSON EncryptionOptionsProperty

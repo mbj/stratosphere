@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.ServerlessCluster.IamProperty as Exports
 import Stratosphere.ResourceProperties
-data SaslProperty = SaslProperty {iam :: IamProperty}
+data SaslProperty
+  = SaslProperty {iam :: IamProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSaslProperty :: IamProperty -> SaslProperty
 mkSaslProperty iam = SaslProperty {iam = iam}
 instance ToResourceProperties SaslProperty where

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HttpUrlDestinationSummaryProperty :: Prelude.Type
 instance ToResourceProperties HttpUrlDestinationSummaryProperty
+instance Prelude.Eq HttpUrlDestinationSummaryProperty
+instance Prelude.Show HttpUrlDestinationSummaryProperty
 instance JSON.ToJSON HttpUrlDestinationSummaryProperty

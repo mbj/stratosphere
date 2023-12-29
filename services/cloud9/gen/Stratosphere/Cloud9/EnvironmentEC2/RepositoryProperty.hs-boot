@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RepositoryProperty :: Prelude.Type
 instance ToResourceProperties RepositoryProperty
+instance Prelude.Eq RepositoryProperty
+instance Prelude.Show RepositoryProperty
 instance JSON.ToJSON RepositoryProperty

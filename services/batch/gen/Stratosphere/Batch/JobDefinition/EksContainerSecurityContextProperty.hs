@@ -13,6 +13,7 @@ data EksContainerSecurityContextProperty
                                          runAsGroup :: (Prelude.Maybe (Value Prelude.Integer)),
                                          runAsNonRoot :: (Prelude.Maybe (Value Prelude.Bool)),
                                          runAsUser :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksContainerSecurityContextProperty ::
   EksContainerSecurityContextProperty
 mkEksContainerSecurityContextProperty

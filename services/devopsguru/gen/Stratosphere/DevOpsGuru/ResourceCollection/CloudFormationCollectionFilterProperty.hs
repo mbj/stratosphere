@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudFormationCollectionFilterProperty
   = CloudFormationCollectionFilterProperty {stackNames :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudFormationCollectionFilterProperty ::
   CloudFormationCollectionFilterProperty
 mkCloudFormationCollectionFilterProperty

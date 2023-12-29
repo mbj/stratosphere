@@ -15,6 +15,7 @@ data AmiDistributionConfigurationProperty
                                           launchPermissionConfiguration :: (Prelude.Maybe LaunchPermissionConfigurationProperty),
                                           name :: (Prelude.Maybe (Value Prelude.Text)),
                                           targetAccountIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAmiDistributionConfigurationProperty ::
   AmiDistributionConfigurationProperty
 mkAmiDistributionConfigurationProperty

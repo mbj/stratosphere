@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StreamsKmsKeyProperty :: Prelude.Type
 instance ToResourceProperties StreamsKmsKeyProperty
+instance Prelude.Eq StreamsKmsKeyProperty
+instance Prelude.Show StreamsKmsKeyProperty
 instance JSON.ToJSON StreamsKmsKeyProperty

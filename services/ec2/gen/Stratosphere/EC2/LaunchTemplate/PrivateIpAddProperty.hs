@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PrivateIpAddProperty
   = PrivateIpAddProperty {primary :: (Prelude.Maybe (Value Prelude.Bool)),
                           privateIpAddress :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateIpAddProperty :: PrivateIpAddProperty
 mkPrivateIpAddProperty
   = PrivateIpAddProperty

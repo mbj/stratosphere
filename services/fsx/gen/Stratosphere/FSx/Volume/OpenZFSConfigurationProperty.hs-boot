@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OpenZFSConfigurationProperty :: Prelude.Type
 instance ToResourceProperties OpenZFSConfigurationProperty
+instance Prelude.Eq OpenZFSConfigurationProperty
+instance Prelude.Show OpenZFSConfigurationProperty
 instance JSON.ToJSON OpenZFSConfigurationProperty

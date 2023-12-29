@@ -12,6 +12,7 @@ data ReportSettingProperty
                            organizationUnits :: (Prelude.Maybe (ValueList Prelude.Text)),
                            regions :: (Prelude.Maybe (ValueList Prelude.Text)),
                            reportTemplate :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReportSettingProperty ::
   Value Prelude.Text -> ReportSettingProperty
 mkReportSettingProperty reportTemplate

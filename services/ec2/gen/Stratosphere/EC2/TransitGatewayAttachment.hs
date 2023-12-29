@@ -15,6 +15,7 @@ data TransitGatewayAttachment
                               tags :: (Prelude.Maybe [Tag]),
                               transitGatewayId :: (Value Prelude.Text),
                               vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayAttachment ::
   ValueList Prelude.Text
   -> Value Prelude.Text

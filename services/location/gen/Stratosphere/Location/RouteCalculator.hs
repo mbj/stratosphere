@@ -11,6 +11,7 @@ data RouteCalculator
                      dataSource :: (Value Prelude.Text),
                      description :: (Prelude.Maybe (Value Prelude.Text)),
                      pricingPlan :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRouteCalculator ::
   Value Prelude.Text -> Value Prelude.Text -> RouteCalculator
 mkRouteCalculator calculatorName dataSource

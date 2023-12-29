@@ -11,6 +11,7 @@ data MathProperty
                   math :: (Value Prelude.Text),
                   name :: (Value Prelude.Text),
                   next :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMathProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> MathProperty

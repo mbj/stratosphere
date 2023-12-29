@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KernelCapabilitiesProperty :: Prelude.Type
 instance ToResourceProperties KernelCapabilitiesProperty
+instance Prelude.Eq KernelCapabilitiesProperty
+instance Prelude.Show KernelCapabilitiesProperty
 instance JSON.ToJSON KernelCapabilitiesProperty

@@ -15,6 +15,7 @@ data ClarifyShapConfigProperty
                                shapBaselineConfig :: ClarifyShapBaselineConfigProperty,
                                textConfig :: (Prelude.Maybe ClarifyTextConfigProperty),
                                useLogit :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClarifyShapConfigProperty ::
   ClarifyShapBaselineConfigProperty -> ClarifyShapConfigProperty
 mkClarifyShapConfigProperty shapBaselineConfig

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WebCrawlerBasicAuthenticationProperty :: Prelude.Type
 instance ToResourceProperties WebCrawlerBasicAuthenticationProperty
+instance Prelude.Eq WebCrawlerBasicAuthenticationProperty
+instance Prelude.Show WebCrawlerBasicAuthenticationProperty
 instance JSON.ToJSON WebCrawlerBasicAuthenticationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WindowsEventProperty :: Prelude.Type
 instance ToResourceProperties WindowsEventProperty
+instance Prelude.Eq WindowsEventProperty
+instance Prelude.Show WindowsEventProperty
 instance JSON.ToJSON WindowsEventProperty

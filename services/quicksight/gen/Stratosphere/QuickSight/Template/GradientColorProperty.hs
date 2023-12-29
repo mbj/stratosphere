@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.GradientStopProperty as E
 import Stratosphere.ResourceProperties
 data GradientColorProperty
   = GradientColorProperty {stops :: (Prelude.Maybe [GradientStopProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGradientColorProperty :: GradientColorProperty
 mkGradientColorProperty
   = GradientColorProperty {stops = Prelude.Nothing}

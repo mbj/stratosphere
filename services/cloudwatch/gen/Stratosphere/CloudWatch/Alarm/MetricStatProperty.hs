@@ -12,6 +12,7 @@ data MetricStatProperty
                         period :: (Value Prelude.Integer),
                         stat :: (Value Prelude.Text),
                         unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricStatProperty ::
   MetricProperty
   -> Value Prelude.Integer

@@ -13,6 +13,7 @@ data CorsProperty
                   allowOrigins :: (Prelude.Maybe (ValueList Prelude.Text)),
                   exposeHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
                   maxAge :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCorsProperty :: CorsProperty
 mkCorsProperty
   = CorsProperty

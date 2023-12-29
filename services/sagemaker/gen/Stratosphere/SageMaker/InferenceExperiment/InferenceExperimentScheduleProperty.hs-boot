@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InferenceExperimentScheduleProperty :: Prelude.Type
 instance ToResourceProperties InferenceExperimentScheduleProperty
+instance Prelude.Eq InferenceExperimentScheduleProperty
+instance Prelude.Show InferenceExperimentScheduleProperty
 instance JSON.ToJSON InferenceExperimentScheduleProperty

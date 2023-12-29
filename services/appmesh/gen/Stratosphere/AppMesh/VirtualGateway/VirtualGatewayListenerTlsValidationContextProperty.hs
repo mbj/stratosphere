@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties
 data VirtualGatewayListenerTlsValidationContextProperty
   = VirtualGatewayListenerTlsValidationContextProperty {subjectAlternativeNames :: (Prelude.Maybe SubjectAlternativeNamesProperty),
                                                         trust :: VirtualGatewayListenerTlsValidationContextTrustProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsValidationContextProperty ::
   VirtualGatewayListenerTlsValidationContextTrustProperty
   -> VirtualGatewayListenerTlsValidationContextProperty

@@ -15,6 +15,7 @@ data VirtualGatewayListenerProperty
                                     healthCheck :: (Prelude.Maybe VirtualGatewayHealthCheckPolicyProperty),
                                     portMapping :: VirtualGatewayPortMappingProperty,
                                     tLS :: (Prelude.Maybe VirtualGatewayListenerTlsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerProperty ::
   VirtualGatewayPortMappingProperty -> VirtualGatewayListenerProperty
 mkVirtualGatewayListenerProperty portMapping

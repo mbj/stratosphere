@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StateProperty
   = StateProperty {code :: (Prelude.Maybe (Value Prelude.Integer)),
                    name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStateProperty :: StateProperty
 mkStateProperty
   = StateProperty {code = Prelude.Nothing, name = Prelude.Nothing}

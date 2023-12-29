@@ -10,6 +10,7 @@ data ExcelOptionsProperty
   = ExcelOptionsProperty {headerRow :: (Prelude.Maybe (Value Prelude.Bool)),
                           sheetIndexes :: (Prelude.Maybe (ValueList Prelude.Integer)),
                           sheetNames :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExcelOptionsProperty :: ExcelOptionsProperty
 mkExcelOptionsProperty
   = ExcelOptionsProperty

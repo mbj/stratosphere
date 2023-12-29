@@ -13,6 +13,7 @@ data SalesforceStandardObjectConfigurationProperty
                                                    documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
                                                    fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
                                                    name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceStandardObjectConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

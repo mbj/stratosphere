@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DataSetReferenceProperty
   = DataSetReferenceProperty {dataSetArn :: (Value Prelude.Text),
                               dataSetPlaceholder :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSetReferenceProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DataSetReferenceProperty

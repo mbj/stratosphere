@@ -12,6 +12,7 @@ data Environment
                  name :: (Value Prelude.Text),
                  networkFabricType :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment ::
   Value Prelude.Text -> Value Prelude.Text -> Environment
 mkEnvironment name networkFabricType

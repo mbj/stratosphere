@@ -9,6 +9,7 @@ import Stratosphere.Value
 data OtherNameProperty
   = OtherNameProperty {typeId :: (Value Prelude.Text),
                        value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOtherNameProperty ::
   Value Prelude.Text -> Value Prelude.Text -> OtherNameProperty
 mkOtherNameProperty typeId value

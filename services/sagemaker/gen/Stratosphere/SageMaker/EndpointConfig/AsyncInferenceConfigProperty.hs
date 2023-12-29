@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data AsyncInferenceConfigProperty
   = AsyncInferenceConfigProperty {clientConfig :: (Prelude.Maybe AsyncInferenceClientConfigProperty),
                                   outputConfig :: AsyncInferenceOutputConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAsyncInferenceConfigProperty ::
   AsyncInferenceOutputConfigProperty -> AsyncInferenceConfigProperty
 mkAsyncInferenceConfigProperty outputConfig

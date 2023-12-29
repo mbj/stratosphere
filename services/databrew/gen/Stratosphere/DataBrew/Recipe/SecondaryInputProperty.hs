@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data SecondaryInputProperty
   = SecondaryInputProperty {dataCatalogInputDefinition :: (Prelude.Maybe DataCatalogInputDefinitionProperty),
                             s3InputDefinition :: (Prelude.Maybe S3LocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecondaryInputProperty :: SecondaryInputProperty
 mkSecondaryInputProperty
   = SecondaryInputProperty

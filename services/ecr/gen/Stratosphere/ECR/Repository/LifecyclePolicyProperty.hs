@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LifecyclePolicyProperty
   = LifecyclePolicyProperty {lifecyclePolicyText :: (Prelude.Maybe (Value Prelude.Text)),
                              registryId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecyclePolicyProperty :: LifecyclePolicyProperty
 mkLifecyclePolicyProperty
   = LifecyclePolicyProperty

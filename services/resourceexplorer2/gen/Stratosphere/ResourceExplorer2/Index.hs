@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Index
   = Index {tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
            type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIndex :: Value Prelude.Text -> Index
 mkIndex type' = Index {type' = type', tags = Prelude.Nothing}
 instance ToResourceProperties Index where

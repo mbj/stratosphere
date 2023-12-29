@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AmazonOpenSearchServerlessRetryOptionsProperty :: Prelude.Type
 instance ToResourceProperties AmazonOpenSearchServerlessRetryOptionsProperty
+instance Prelude.Eq AmazonOpenSearchServerlessRetryOptionsProperty
+instance Prelude.Show AmazonOpenSearchServerlessRetryOptionsProperty
 instance JSON.ToJSON AmazonOpenSearchServerlessRetryOptionsProperty

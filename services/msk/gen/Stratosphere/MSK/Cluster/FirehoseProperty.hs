@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FirehoseProperty
   = FirehoseProperty {deliveryStream :: (Prelude.Maybe (Value Prelude.Text)),
                       enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseProperty :: Value Prelude.Bool -> FirehoseProperty
 mkFirehoseProperty enabled
   = FirehoseProperty

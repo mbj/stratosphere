@@ -10,6 +10,7 @@ data RetentionArchiveTierProperty
   = RetentionArchiveTierProperty {count :: (Prelude.Maybe (Value Prelude.Integer)),
                                   interval :: (Prelude.Maybe (Value Prelude.Integer)),
                                   intervalUnit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRetentionArchiveTierProperty :: RetentionArchiveTierProperty
 mkRetentionArchiveTierProperty
   = RetentionArchiveTierProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MarginStyleProperty
   = MarginStyleProperty {show :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMarginStyleProperty :: MarginStyleProperty
 mkMarginStyleProperty
   = MarginStyleProperty {show = Prelude.Nothing}

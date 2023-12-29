@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DynatraceSourcePropertiesProperty :: Prelude.Type
 instance ToResourceProperties DynatraceSourcePropertiesProperty
+instance Prelude.Eq DynatraceSourcePropertiesProperty
+instance Prelude.Show DynatraceSourcePropertiesProperty
 instance JSON.ToJSON DynatraceSourcePropertiesProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Connection
   = Connection {catalogId :: (Value Prelude.Text),
                 connectionInput :: ConnectionInputProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnection ::
   Value Prelude.Text -> ConnectionInputProperty -> Connection
 mkConnection catalogId connectionInput

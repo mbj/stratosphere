@@ -35,6 +35,7 @@ data ConnectorProfilePropertiesProperty
                                         snowflake :: (Prelude.Maybe SnowflakeConnectorProfilePropertiesProperty),
                                         veeva :: (Prelude.Maybe VeevaConnectorProfilePropertiesProperty),
                                         zendesk :: (Prelude.Maybe ZendeskConnectorProfilePropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProfilePropertiesProperty ::
   ConnectorProfilePropertiesProperty
 mkConnectorProfilePropertiesProperty

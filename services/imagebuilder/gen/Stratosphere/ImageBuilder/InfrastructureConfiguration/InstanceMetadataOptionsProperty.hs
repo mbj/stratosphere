@@ -10,6 +10,7 @@ import Stratosphere.Value
 data InstanceMetadataOptionsProperty
   = InstanceMetadataOptionsProperty {httpPutResponseHopLimit :: (Prelude.Maybe (Value Prelude.Integer)),
                                      httpTokens :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceMetadataOptionsProperty ::
   InstanceMetadataOptionsProperty
 mkInstanceMetadataOptionsProperty

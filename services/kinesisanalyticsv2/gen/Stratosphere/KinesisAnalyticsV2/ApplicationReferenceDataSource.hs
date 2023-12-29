@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ApplicationReferenceDataSource
   = ApplicationReferenceDataSource {applicationName :: (Value Prelude.Text),
                                     referenceDataSource :: ReferenceDataSourceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationReferenceDataSource ::
   Value Prelude.Text
   -> ReferenceDataSourceProperty -> ApplicationReferenceDataSource

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 data InternetGateway
   = InternetGateway {tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInternetGateway :: InternetGateway
 mkInternetGateway = InternetGateway {tags = Prelude.Nothing}
 instance ToResourceProperties InternetGateway where

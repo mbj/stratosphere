@@ -10,6 +10,7 @@ data DataBarsOptionsProperty
   = DataBarsOptionsProperty {fieldId :: (Value Prelude.Text),
                              negativeColor :: (Prelude.Maybe (Value Prelude.Text)),
                              positiveColor :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataBarsOptionsProperty ::
   Value Prelude.Text -> DataBarsOptionsProperty
 mkDataBarsOptionsProperty fieldId

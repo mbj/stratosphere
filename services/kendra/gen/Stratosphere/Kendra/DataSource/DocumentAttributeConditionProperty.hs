@@ -12,6 +12,7 @@ data DocumentAttributeConditionProperty
   = DocumentAttributeConditionProperty {conditionDocumentAttributeKey :: (Value Prelude.Text),
                                         conditionOnValue :: (Prelude.Maybe DocumentAttributeValueProperty),
                                         operator :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentAttributeConditionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DocumentAttributeConditionProperty

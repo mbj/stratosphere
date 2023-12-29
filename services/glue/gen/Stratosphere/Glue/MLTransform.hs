@@ -23,6 +23,7 @@ data MLTransform
                  transformEncryption :: (Prelude.Maybe TransformEncryptionProperty),
                  transformParameters :: TransformParametersProperty,
                  workerType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMLTransform ::
   InputRecordTablesProperty
   -> Value Prelude.Text -> TransformParametersProperty -> MLTransform

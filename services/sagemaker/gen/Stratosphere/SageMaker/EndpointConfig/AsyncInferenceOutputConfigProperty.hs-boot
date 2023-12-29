@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AsyncInferenceOutputConfigProperty :: Prelude.Type
 instance ToResourceProperties AsyncInferenceOutputConfigProperty
+instance Prelude.Eq AsyncInferenceOutputConfigProperty
+instance Prelude.Show AsyncInferenceOutputConfigProperty
 instance JSON.ToJSON AsyncInferenceOutputConfigProperty

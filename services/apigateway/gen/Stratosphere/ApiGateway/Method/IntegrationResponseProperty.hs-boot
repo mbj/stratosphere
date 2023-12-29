@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IntegrationResponseProperty :: Prelude.Type
 instance ToResourceProperties IntegrationResponseProperty
+instance Prelude.Eq IntegrationResponseProperty
+instance Prelude.Show IntegrationResponseProperty
 instance JSON.ToJSON IntegrationResponseProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ApiGatewayProxyInputProperty
   = ApiGatewayProxyInputProperty {endpointType :: (Prelude.Maybe (Value Prelude.Text)),
                                   stageName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApiGatewayProxyInputProperty :: ApiGatewayProxyInputProperty
 mkApiGatewayProxyInputProperty
   = ApiGatewayProxyInputProperty

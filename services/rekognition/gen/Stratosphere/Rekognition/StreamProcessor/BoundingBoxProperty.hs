@@ -11,6 +11,7 @@ data BoundingBoxProperty
                          left :: (Value Prelude.Double),
                          top :: (Value Prelude.Double),
                          width :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBoundingBoxProperty ::
   Value Prelude.Double
   -> Value Prelude.Double

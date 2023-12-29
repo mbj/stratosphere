@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AlgorithmHyperParameterRangesProperty :: Prelude.Type
 instance ToResourceProperties AlgorithmHyperParameterRangesProperty
+instance Prelude.Eq AlgorithmHyperParameterRangesProperty
+instance Prelude.Show AlgorithmHyperParameterRangesProperty
 instance JSON.ToJSON AlgorithmHyperParameterRangesProperty

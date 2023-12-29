@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxOpenZFS.NFSProperty as Ex
 import Stratosphere.ResourceProperties
 data ProtocolProperty
   = ProtocolProperty {nFS :: (Prelude.Maybe NFSProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProtocolProperty :: ProtocolProperty
 mkProtocolProperty = ProtocolProperty {nFS = Prelude.Nothing}
 instance ToResourceProperties ProtocolProperty where

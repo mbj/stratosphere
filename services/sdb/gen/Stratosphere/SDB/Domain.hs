@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Domain
   = Domain {description :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomain :: Domain
 mkDomain = Domain {description = Prelude.Nothing}
 instance ToResourceProperties Domain where

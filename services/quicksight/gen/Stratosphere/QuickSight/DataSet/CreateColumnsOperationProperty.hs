@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.CalculatedColumnProperty a
 import Stratosphere.ResourceProperties
 data CreateColumnsOperationProperty
   = CreateColumnsOperationProperty {columns :: [CalculatedColumnProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCreateColumnsOperationProperty ::
   [CalculatedColumnProperty] -> CreateColumnsOperationProperty
 mkCreateColumnsOperationProperty columns

@@ -13,6 +13,7 @@ data FrameworkControlProperty
   = FrameworkControlProperty {controlInputParameters :: (Prelude.Maybe [ControlInputParameterProperty]),
                               controlName :: (Value Prelude.Text),
                               controlScope :: (Prelude.Maybe ControlScopeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameworkControlProperty ::
   Value Prelude.Text -> FrameworkControlProperty
 mkFrameworkControlProperty controlName

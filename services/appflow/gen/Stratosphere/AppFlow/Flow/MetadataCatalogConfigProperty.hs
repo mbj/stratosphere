@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppFlow.Flow.GlueDataCatalogProperty as Expor
 import Stratosphere.ResourceProperties
 data MetadataCatalogConfigProperty
   = MetadataCatalogConfigProperty {glueDataCatalog :: (Prelude.Maybe GlueDataCatalogProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataCatalogConfigProperty :: MetadataCatalogConfigProperty
 mkMetadataCatalogConfigProperty
   = MetadataCatalogConfigProperty {glueDataCatalog = Prelude.Nothing}

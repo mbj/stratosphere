@@ -15,6 +15,7 @@ data CachePolicyConfigProperty
                                minTTL :: (Value Prelude.Double),
                                name :: (Value Prelude.Text),
                                parametersInCacheKeyAndForwardedToOrigin :: ParametersInCacheKeyAndForwardedToOriginProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCachePolicyConfigProperty ::
   Value Prelude.Double
   -> Value Prelude.Double

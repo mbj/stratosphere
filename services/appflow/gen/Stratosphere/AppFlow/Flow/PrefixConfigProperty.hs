@@ -10,6 +10,7 @@ data PrefixConfigProperty
   = PrefixConfigProperty {pathPrefixHierarchy :: (Prelude.Maybe (ValueList Prelude.Text)),
                           prefixFormat :: (Prelude.Maybe (Value Prelude.Text)),
                           prefixType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrefixConfigProperty :: PrefixConfigProperty
 mkPrefixConfigProperty
   = PrefixConfigProperty

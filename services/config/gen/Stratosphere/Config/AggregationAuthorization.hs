@@ -11,6 +11,7 @@ data AggregationAuthorization
   = AggregationAuthorization {authorizedAccountId :: (Value Prelude.Text),
                               authorizedAwsRegion :: (Value Prelude.Text),
                               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAggregationAuthorization ::
   Value Prelude.Text
   -> Value Prelude.Text -> AggregationAuthorization

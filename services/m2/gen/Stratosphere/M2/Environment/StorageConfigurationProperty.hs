@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data StorageConfigurationProperty
   = StorageConfigurationProperty {efs :: (Prelude.Maybe EfsStorageConfigurationProperty),
                                   fsx :: (Prelude.Maybe FsxStorageConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageConfigurationProperty :: StorageConfigurationProperty
 mkStorageConfigurationProperty
   = StorageConfigurationProperty

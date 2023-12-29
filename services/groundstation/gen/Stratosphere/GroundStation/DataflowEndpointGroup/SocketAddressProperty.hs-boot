@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SocketAddressProperty :: Prelude.Type
 instance ToResourceProperties SocketAddressProperty
+instance Prelude.Eq SocketAddressProperty
+instance Prelude.Show SocketAddressProperty
 instance JSON.ToJSON SocketAddressProperty

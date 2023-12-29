@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LogConfigurationProperty
   = LogConfigurationProperty {logGroupName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogConfigurationProperty :: LogConfigurationProperty
 mkLogConfigurationProperty
   = LogConfigurationProperty {logGroupName = Prelude.Nothing}

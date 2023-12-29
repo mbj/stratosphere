@@ -4,7 +4,9 @@ module Stratosphere.CloudFormation.WaitConditionHandle (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
-data WaitConditionHandle = WaitConditionHandle {}
+data WaitConditionHandle
+  = WaitConditionHandle {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWaitConditionHandle :: WaitConditionHandle
 mkWaitConditionHandle = WaitConditionHandle {}
 instance ToResourceProperties WaitConditionHandle where

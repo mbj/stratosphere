@@ -15,6 +15,7 @@ data EnvironmentAccountConnection
                                   managementAccountId :: (Prelude.Maybe (Value Prelude.Text)),
                                   roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentAccountConnection :: EnvironmentAccountConnection
 mkEnvironmentAccountConnection
   = EnvironmentAccountConnection

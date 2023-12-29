@@ -14,6 +14,7 @@ data TableSideBorderOptionsProperty
                                     left :: (Prelude.Maybe TableBorderOptionsProperty),
                                     right :: (Prelude.Maybe TableBorderOptionsProperty),
                                     top :: (Prelude.Maybe TableBorderOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableSideBorderOptionsProperty :: TableSideBorderOptionsProperty
 mkTableSideBorderOptionsProperty
   = TableSideBorderOptionsProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StreamsKmsKeyProperty
   = StreamsKmsKeyProperty {kmsAliasArn :: (Prelude.Maybe (Value Prelude.Text)),
                            kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamsKmsKeyProperty :: StreamsKmsKeyProperty
 mkStreamsKmsKeyProperty
   = StreamsKmsKeyProperty

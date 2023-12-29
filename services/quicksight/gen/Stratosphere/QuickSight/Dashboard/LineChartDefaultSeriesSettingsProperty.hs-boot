@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LineChartDefaultSeriesSettingsProperty :: Prelude.Type
 instance ToResourceProperties LineChartDefaultSeriesSettingsProperty
+instance Prelude.Eq LineChartDefaultSeriesSettingsProperty
+instance Prelude.Show LineChartDefaultSeriesSettingsProperty
 instance JSON.ToJSON LineChartDefaultSeriesSettingsProperty

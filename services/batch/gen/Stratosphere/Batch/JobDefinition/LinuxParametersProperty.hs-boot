@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LinuxParametersProperty :: Prelude.Type
 instance ToResourceProperties LinuxParametersProperty
+instance Prelude.Eq LinuxParametersProperty
+instance Prelude.Show LinuxParametersProperty
 instance JSON.ToJSON LinuxParametersProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ShortFormatTextProperty
   = ShortFormatTextProperty {plainText :: (Prelude.Maybe (Value Prelude.Text)),
                              richText :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkShortFormatTextProperty :: ShortFormatTextProperty
 mkShortFormatTextProperty
   = ShortFormatTextProperty

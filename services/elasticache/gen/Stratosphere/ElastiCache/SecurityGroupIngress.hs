@@ -10,6 +10,7 @@ data SecurityGroupIngress
   = SecurityGroupIngress {cacheSecurityGroupName :: (Value Prelude.Text),
                           eC2SecurityGroupName :: (Value Prelude.Text),
                           eC2SecurityGroupOwnerId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityGroupIngress ::
   Value Prelude.Text -> Value Prelude.Text -> SecurityGroupIngress
 mkSecurityGroupIngress cacheSecurityGroupName eC2SecurityGroupName

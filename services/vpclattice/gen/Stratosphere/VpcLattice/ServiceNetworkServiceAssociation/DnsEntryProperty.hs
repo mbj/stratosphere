@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DnsEntryProperty
   = DnsEntryProperty {domainName :: (Prelude.Maybe (Value Prelude.Text)),
                       hostedZoneId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDnsEntryProperty :: DnsEntryProperty
 mkDnsEntryProperty
   = DnsEntryProperty

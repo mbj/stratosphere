@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PushSyncProperty
   = PushSyncProperty {applicationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                       roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPushSyncProperty :: PushSyncProperty
 mkPushSyncProperty
   = PushSyncProperty

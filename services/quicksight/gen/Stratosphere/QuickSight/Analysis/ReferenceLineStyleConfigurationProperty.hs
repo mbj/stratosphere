@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ReferenceLineStyleConfigurationProperty
   = ReferenceLineStyleConfigurationProperty {color :: (Prelude.Maybe (Value Prelude.Text)),
                                              pattern :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceLineStyleConfigurationProperty ::
   ReferenceLineStyleConfigurationProperty
 mkReferenceLineStyleConfigurationProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioTrackProperty
   = AudioTrackProperty {track :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioTrackProperty :: AudioTrackProperty
 mkAudioTrackProperty = AudioTrackProperty {track = Prelude.Nothing}
 instance ToResourceProperties AudioTrackProperty where

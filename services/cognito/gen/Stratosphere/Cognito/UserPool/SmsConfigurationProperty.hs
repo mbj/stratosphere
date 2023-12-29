@@ -10,6 +10,7 @@ data SmsConfigurationProperty
   = SmsConfigurationProperty {externalId :: (Prelude.Maybe (Value Prelude.Text)),
                               snsCallerArn :: (Prelude.Maybe (Value Prelude.Text)),
                               snsRegion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSmsConfigurationProperty :: SmsConfigurationProperty
 mkSmsConfigurationProperty
   = SmsConfigurationProperty

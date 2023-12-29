@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data KernelGatewayAppSettingsProperty
   = KernelGatewayAppSettingsProperty {customImages :: (Prelude.Maybe [CustomImageProperty]),
                                       defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKernelGatewayAppSettingsProperty ::
   KernelGatewayAppSettingsProperty
 mkKernelGatewayAppSettingsProperty

@@ -11,6 +11,7 @@ data NetworkInterfaceOptionsProperty
   = NetworkInterfaceOptionsProperty {networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
                                      port :: (Prelude.Maybe (Value Prelude.Integer)),
                                      protocol :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfaceOptionsProperty ::
   NetworkInterfaceOptionsProperty
 mkNetworkInterfaceOptionsProperty

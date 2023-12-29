@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EcsContainerOverrideProperty :: Prelude.Type
 instance ToResourceProperties EcsContainerOverrideProperty
+instance Prelude.Eq EcsContainerOverrideProperty
+instance Prelude.Show EcsContainerOverrideProperty
 instance JSON.ToJSON EcsContainerOverrideProperty

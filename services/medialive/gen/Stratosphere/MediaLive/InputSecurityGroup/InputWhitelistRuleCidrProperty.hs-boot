@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InputWhitelistRuleCidrProperty :: Prelude.Type
 instance ToResourceProperties InputWhitelistRuleCidrProperty
+instance Prelude.Eq InputWhitelistRuleCidrProperty
+instance Prelude.Show InputWhitelistRuleCidrProperty
 instance JSON.ToJSON InputWhitelistRuleCidrProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SessionKeysAbpV10xProperty
   = SessionKeysAbpV10xProperty {appSKey :: (Value Prelude.Text),
                                 nwkSKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSessionKeysAbpV10xProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SessionKeysAbpV10xProperty

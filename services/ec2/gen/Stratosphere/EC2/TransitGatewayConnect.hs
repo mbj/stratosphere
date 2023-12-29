@@ -12,6 +12,7 @@ data TransitGatewayConnect
   = TransitGatewayConnect {options :: TransitGatewayConnectOptionsProperty,
                            tags :: (Prelude.Maybe [Tag]),
                            transportTransitGatewayAttachmentId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayConnect ::
   TransitGatewayConnectOptionsProperty
   -> Value Prelude.Text -> TransitGatewayConnect

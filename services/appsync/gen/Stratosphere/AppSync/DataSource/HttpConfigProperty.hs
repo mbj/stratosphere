@@ -10,6 +10,7 @@ import Stratosphere.Value
 data HttpConfigProperty
   = HttpConfigProperty {authorizationConfig :: (Prelude.Maybe AuthorizationConfigProperty),
                         endpoint :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpConfigProperty :: Value Prelude.Text -> HttpConfigProperty
 mkHttpConfigProperty endpoint
   = HttpConfigProperty

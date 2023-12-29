@@ -16,6 +16,7 @@ data RuleProperty
                   name :: (Value Prelude.Text),
                   substitutionMap :: (Prelude.Maybe [SubstitutionValueProperty]),
                   threshold :: (Prelude.Maybe ThresholdProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RuleProperty
 mkRuleProperty checkExpression name

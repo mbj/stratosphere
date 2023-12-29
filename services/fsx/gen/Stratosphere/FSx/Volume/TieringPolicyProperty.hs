@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TieringPolicyProperty
   = TieringPolicyProperty {coolingPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
                            name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTieringPolicyProperty :: TieringPolicyProperty
 mkTieringPolicyProperty
   = TieringPolicyProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProjectTriggersProperty :: Prelude.Type
 instance ToResourceProperties ProjectTriggersProperty
+instance Prelude.Eq ProjectTriggersProperty
+instance Prelude.Show ProjectTriggersProperty
 instance JSON.ToJSON ProjectTriggersProperty

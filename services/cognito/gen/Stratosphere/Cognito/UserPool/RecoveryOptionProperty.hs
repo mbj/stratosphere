@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RecoveryOptionProperty
   = RecoveryOptionProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                             priority :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecoveryOptionProperty :: RecoveryOptionProperty
 mkRecoveryOptionProperty
   = RecoveryOptionProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FreeFormLayoutScreenCanvasSizeOptionsProperty
   = FreeFormLayoutScreenCanvasSizeOptionsProperty {optimizedViewPortWidth :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFreeFormLayoutScreenCanvasSizeOptionsProperty ::
   Value Prelude.Text -> FreeFormLayoutScreenCanvasSizeOptionsProperty
 mkFreeFormLayoutScreenCanvasSizeOptionsProperty

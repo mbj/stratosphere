@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data AxisScaleProperty
   = AxisScaleProperty {linear :: (Prelude.Maybe AxisLinearScaleProperty),
                        logarithmic :: (Prelude.Maybe AxisLogarithmicScaleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAxisScaleProperty :: AxisScaleProperty
 mkAxisScaleProperty
   = AxisScaleProperty

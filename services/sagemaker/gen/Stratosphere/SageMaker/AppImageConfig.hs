@@ -12,6 +12,7 @@ data AppImageConfig
   = AppImageConfig {appImageConfigName :: (Value Prelude.Text),
                     kernelGatewayImageConfig :: (Prelude.Maybe KernelGatewayImageConfigProperty),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAppImageConfig :: Value Prelude.Text -> AppImageConfig
 mkAppImageConfig appImageConfigName
   = AppImageConfig

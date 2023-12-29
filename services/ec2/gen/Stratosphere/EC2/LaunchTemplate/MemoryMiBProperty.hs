@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MemoryMiBProperty
   = MemoryMiBProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
                        min :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMemoryMiBProperty :: MemoryMiBProperty
 mkMemoryMiBProperty
   = MemoryMiBProperty {max = Prelude.Nothing, min = Prelude.Nothing}

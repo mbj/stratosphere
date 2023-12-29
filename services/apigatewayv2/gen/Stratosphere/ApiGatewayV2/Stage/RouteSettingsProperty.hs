@@ -12,6 +12,7 @@ data RouteSettingsProperty
                            loggingLevel :: (Prelude.Maybe (Value Prelude.Text)),
                            throttlingBurstLimit :: (Prelude.Maybe (Value Prelude.Integer)),
                            throttlingRateLimit :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRouteSettingsProperty :: RouteSettingsProperty
 mkRouteSettingsProperty
   = RouteSettingsProperty

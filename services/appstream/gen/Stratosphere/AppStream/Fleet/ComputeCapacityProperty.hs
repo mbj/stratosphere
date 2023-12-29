@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComputeCapacityProperty
   = ComputeCapacityProperty {desiredInstances :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeCapacityProperty ::
   Value Prelude.Integer -> ComputeCapacityProperty
 mkComputeCapacityProperty desiredInstances

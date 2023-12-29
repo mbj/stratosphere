@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AudioOnlyHlsSettingsProperty :: Prelude.Type
 instance ToResourceProperties AudioOnlyHlsSettingsProperty
+instance Prelude.Eq AudioOnlyHlsSettingsProperty
+instance Prelude.Show AudioOnlyHlsSettingsProperty
 instance JSON.ToJSON AudioOnlyHlsSettingsProperty

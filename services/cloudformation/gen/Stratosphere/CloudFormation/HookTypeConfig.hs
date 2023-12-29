@@ -11,6 +11,7 @@ data HookTypeConfig
                     configurationAlias :: (Prelude.Maybe (Value Prelude.Text)),
                     typeArn :: (Prelude.Maybe (Value Prelude.Text)),
                     typeName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHookTypeConfig :: Value Prelude.Text -> HookTypeConfig
 mkHookTypeConfig configuration
   = HookTypeConfig

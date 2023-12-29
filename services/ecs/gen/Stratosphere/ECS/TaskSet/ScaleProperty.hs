@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ScaleProperty
   = ScaleProperty {unit :: (Prelude.Maybe (Value Prelude.Text)),
                    value :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScaleProperty :: ScaleProperty
 mkScaleProperty
   = ScaleProperty {unit = Prelude.Nothing, value = Prelude.Nothing}

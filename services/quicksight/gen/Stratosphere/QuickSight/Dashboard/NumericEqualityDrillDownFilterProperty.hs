@@ -11,6 +11,7 @@ import Stratosphere.Value
 data NumericEqualityDrillDownFilterProperty
   = NumericEqualityDrillDownFilterProperty {column :: ColumnIdentifierProperty,
                                             value :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericEqualityDrillDownFilterProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Double -> NumericEqualityDrillDownFilterProperty

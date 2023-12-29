@@ -10,6 +10,7 @@ data KendraConfigurationProperty
   = KendraConfigurationProperty {kendraIndex :: (Value Prelude.Text),
                                  queryFilterString :: (Prelude.Maybe (Value Prelude.Text)),
                                  queryFilterStringEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKendraConfigurationProperty ::
   Value Prelude.Text -> KendraConfigurationProperty
 mkKendraConfigurationProperty kendraIndex

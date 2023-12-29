@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Transfer.Workflow.S3InputFileLocationProperty
 import Stratosphere.ResourceProperties
 data S3FileLocationProperty
   = S3FileLocationProperty {s3FileLocation :: (Prelude.Maybe S3InputFileLocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3FileLocationProperty :: S3FileLocationProperty
 mkS3FileLocationProperty
   = S3FileLocationProperty {s3FileLocation = Prelude.Nothing}

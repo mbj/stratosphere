@@ -12,6 +12,7 @@ data StreamingImage
                     name :: (Value Prelude.Text),
                     studioId :: (Value Prelude.Text),
                     tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamingImage ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> StreamingImage

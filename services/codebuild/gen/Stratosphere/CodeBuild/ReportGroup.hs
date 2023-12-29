@@ -14,6 +14,7 @@ data ReportGroup
                  name :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag]),
                  type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReportGroup ::
   ReportExportConfigProperty -> Value Prelude.Text -> ReportGroup
 mkReportGroup exportConfig type'

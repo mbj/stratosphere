@@ -11,6 +11,7 @@ data AccountAggregationSourceProperty
   = AccountAggregationSourceProperty {accountIds :: (ValueList Prelude.Text),
                                       allAwsRegions :: (Prelude.Maybe (Value Prelude.Bool)),
                                       awsRegions :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountAggregationSourceProperty ::
   ValueList Prelude.Text -> AccountAggregationSourceProperty
 mkAccountAggregationSourceProperty accountIds

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ScalingActionProperty
   = ScalingActionProperty {market :: (Prelude.Maybe (Value Prelude.Text)),
                            simpleScalingPolicyConfiguration :: SimpleScalingPolicyConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingActionProperty ::
   SimpleScalingPolicyConfigurationProperty -> ScalingActionProperty
 mkScalingActionProperty simpleScalingPolicyConfiguration

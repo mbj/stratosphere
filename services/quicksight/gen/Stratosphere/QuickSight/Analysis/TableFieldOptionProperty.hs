@@ -14,6 +14,7 @@ data TableFieldOptionProperty
                               uRLStyling :: (Prelude.Maybe TableFieldURLConfigurationProperty),
                               visibility :: (Prelude.Maybe (Value Prelude.Text)),
                               width :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableFieldOptionProperty ::
   Value Prelude.Text -> TableFieldOptionProperty
 mkTableFieldOptionProperty fieldId

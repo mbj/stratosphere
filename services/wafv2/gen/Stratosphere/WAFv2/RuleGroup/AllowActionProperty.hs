@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CustomRequestHandlingProperty
 import Stratosphere.ResourceProperties
 data AllowActionProperty
   = AllowActionProperty {customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowActionProperty :: AllowActionProperty
 mkAllowActionProperty
   = AllowActionProperty {customRequestHandling = Prelude.Nothing}

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DecodeConfigProperty
   = DecodeConfigProperty {unvalidatedJSON :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDecodeConfigProperty :: DecodeConfigProperty
 mkDecodeConfigProperty
   = DecodeConfigProperty {unvalidatedJSON = Prelude.Nothing}

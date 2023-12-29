@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputArtifactProperty
   = InputArtifactProperty {name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputArtifactProperty ::
   Value Prelude.Text -> InputArtifactProperty
 mkInputArtifactProperty name = InputArtifactProperty {name = name}

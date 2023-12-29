@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AbpV11Property
   = AbpV11Property {devAddr :: (Value Prelude.Text),
                     sessionKeys :: SessionKeysAbpV11Property}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAbpV11Property ::
   Value Prelude.Text -> SessionKeysAbpV11Property -> AbpV11Property
 mkAbpV11Property devAddr sessionKeys

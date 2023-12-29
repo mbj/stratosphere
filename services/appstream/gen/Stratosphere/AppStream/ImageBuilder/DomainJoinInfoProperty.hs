@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DomainJoinInfoProperty
   = DomainJoinInfoProperty {directoryName :: (Prelude.Maybe (Value Prelude.Text)),
                             organizationalUnitDistinguishedName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainJoinInfoProperty :: DomainJoinInfoProperty
 mkDomainJoinInfoProperty
   = DomainJoinInfoProperty

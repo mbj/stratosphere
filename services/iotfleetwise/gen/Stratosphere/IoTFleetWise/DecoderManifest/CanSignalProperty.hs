@@ -15,6 +15,7 @@ data CanSignalProperty
                        name :: (Prelude.Maybe (Value Prelude.Text)),
                        offset :: (Value Prelude.Text),
                        startBit :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCanSignalProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

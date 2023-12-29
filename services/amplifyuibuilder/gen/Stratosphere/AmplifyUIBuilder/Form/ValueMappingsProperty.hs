@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Form.ValueMappingProperty as
 import Stratosphere.ResourceProperties
 data ValueMappingsProperty
   = ValueMappingsProperty {values :: [ValueMappingProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkValueMappingsProperty ::
   [ValueMappingProperty] -> ValueMappingsProperty
 mkValueMappingsProperty values

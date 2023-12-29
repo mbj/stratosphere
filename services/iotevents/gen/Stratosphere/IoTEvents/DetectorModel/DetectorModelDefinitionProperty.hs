@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DetectorModelDefinitionProperty
   = DetectorModelDefinitionProperty {initialStateName :: (Value Prelude.Text),
                                      states :: [StateProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDetectorModelDefinitionProperty ::
   Value Prelude.Text
   -> [StateProperty] -> DetectorModelDefinitionProperty

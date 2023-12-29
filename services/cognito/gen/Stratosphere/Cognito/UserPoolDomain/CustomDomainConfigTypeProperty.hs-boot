@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomDomainConfigTypeProperty :: Prelude.Type
 instance ToResourceProperties CustomDomainConfigTypeProperty
+instance Prelude.Eq CustomDomainConfigTypeProperty
+instance Prelude.Show CustomDomainConfigTypeProperty
 instance JSON.ToJSON CustomDomainConfigTypeProperty

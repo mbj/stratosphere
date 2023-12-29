@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MQBrokerAccessCredentialsProperty
   = MQBrokerAccessCredentialsProperty {basicAuth :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMQBrokerAccessCredentialsProperty ::
   Value Prelude.Text -> MQBrokerAccessCredentialsProperty
 mkMQBrokerAccessCredentialsProperty basicAuth

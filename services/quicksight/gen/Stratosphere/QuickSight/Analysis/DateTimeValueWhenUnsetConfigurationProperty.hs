@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DateTimeValueWhenUnsetConfigurationProperty
   = DateTimeValueWhenUnsetConfigurationProperty {customValue :: (Prelude.Maybe (Value Prelude.Text)),
                                                  valueWhenUnsetOption :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimeValueWhenUnsetConfigurationProperty ::
   DateTimeValueWhenUnsetConfigurationProperty
 mkDateTimeValueWhenUnsetConfigurationProperty

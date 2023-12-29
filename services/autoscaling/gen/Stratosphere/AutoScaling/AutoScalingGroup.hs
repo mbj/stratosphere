@@ -41,6 +41,7 @@ data AutoScalingGroup
                       targetGroupARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
                       terminationPolicies :: (Prelude.Maybe (ValueList Prelude.Text)),
                       vPCZoneIdentifier :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingGroup ::
   Value Prelude.Text -> Value Prelude.Text -> AutoScalingGroup
 mkAutoScalingGroup maxSize minSize

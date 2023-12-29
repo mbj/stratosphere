@@ -11,6 +11,7 @@ data IngestEndpointProperty
                             password :: (Value Prelude.Text),
                             url :: (Value Prelude.Text),
                             username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIngestEndpointProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

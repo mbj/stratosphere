@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LogStream
   = LogStream {logGroupName :: (Value Prelude.Text),
                logStreamName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogStream :: Value Prelude.Text -> LogStream
 mkLogStream logGroupName
   = LogStream

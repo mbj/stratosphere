@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.ExportHiddenFieldsOption
 import Stratosphere.ResourceProperties
 data DashboardVisualPublishOptionsProperty
   = DashboardVisualPublishOptionsProperty {exportHiddenFieldsOption :: (Prelude.Maybe ExportHiddenFieldsOptionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboardVisualPublishOptionsProperty ::
   DashboardVisualPublishOptionsProperty
 mkDashboardVisualPublishOptionsProperty

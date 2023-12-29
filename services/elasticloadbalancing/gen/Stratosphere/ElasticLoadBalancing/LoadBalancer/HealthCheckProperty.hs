@@ -12,6 +12,7 @@ data HealthCheckProperty
                          target :: (Value Prelude.Text),
                          timeout :: (Value Prelude.Text),
                          unhealthyThreshold :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

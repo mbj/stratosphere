@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProtocolDetailsProperty :: Prelude.Type
 instance ToResourceProperties ProtocolDetailsProperty
+instance Prelude.Eq ProtocolDetailsProperty
+instance Prelude.Show ProtocolDetailsProperty
 instance JSON.ToJSON ProtocolDetailsProperty

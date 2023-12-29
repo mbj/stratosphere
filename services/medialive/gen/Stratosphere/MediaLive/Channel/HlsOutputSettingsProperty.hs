@@ -13,6 +13,7 @@ data HlsOutputSettingsProperty
                                hlsSettings :: (Prelude.Maybe HlsSettingsProperty),
                                nameModifier :: (Prelude.Maybe (Value Prelude.Text)),
                                segmentModifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsOutputSettingsProperty :: HlsOutputSettingsProperty
 mkHlsOutputSettingsProperty
   = HlsOutputSettingsProperty

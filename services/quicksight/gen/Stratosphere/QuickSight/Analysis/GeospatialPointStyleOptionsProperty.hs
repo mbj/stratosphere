@@ -11,6 +11,7 @@ import Stratosphere.Value
 data GeospatialPointStyleOptionsProperty
   = GeospatialPointStyleOptionsProperty {clusterMarkerConfiguration :: (Prelude.Maybe ClusterMarkerConfigurationProperty),
                                          selectedPointStyle :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeospatialPointStyleOptionsProperty ::
   GeospatialPointStyleOptionsProperty
 mkGeospatialPointStyleOptionsProperty

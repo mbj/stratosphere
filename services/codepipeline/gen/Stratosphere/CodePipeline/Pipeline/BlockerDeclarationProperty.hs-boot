@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BlockerDeclarationProperty :: Prelude.Type
 instance ToResourceProperties BlockerDeclarationProperty
+instance Prelude.Eq BlockerDeclarationProperty
+instance Prelude.Show BlockerDeclarationProperty
 instance JSON.ToJSON BlockerDeclarationProperty

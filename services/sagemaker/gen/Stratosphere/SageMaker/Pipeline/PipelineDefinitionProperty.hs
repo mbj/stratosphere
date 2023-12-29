@@ -11,6 +11,7 @@ import Stratosphere.Value
 data PipelineDefinitionProperty
   = PipelineDefinitionProperty {pipelineDefinitionBody :: (Prelude.Maybe (Value Prelude.Text)),
                                 pipelineDefinitionS3Location :: (Prelude.Maybe S3LocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipelineDefinitionProperty :: PipelineDefinitionProperty
 mkPipelineDefinitionProperty
   = PipelineDefinitionProperty

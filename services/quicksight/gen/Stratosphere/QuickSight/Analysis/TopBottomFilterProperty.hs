@@ -16,6 +16,7 @@ data TopBottomFilterProperty
                              limit :: (Prelude.Maybe (Value Prelude.Double)),
                              parameterName :: (Prelude.Maybe (Value Prelude.Text)),
                              timeGranularity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopBottomFilterProperty ::
   [AggregationSortConfigurationProperty]
   -> ColumnIdentifierProperty

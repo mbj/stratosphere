@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FieldIdentifierProperty
   = FieldIdentifierProperty {name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldIdentifierProperty ::
   Value Prelude.Text -> FieldIdentifierProperty
 mkFieldIdentifierProperty name

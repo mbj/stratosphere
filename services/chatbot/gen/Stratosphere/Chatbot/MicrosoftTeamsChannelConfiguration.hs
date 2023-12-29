@@ -17,6 +17,7 @@ data MicrosoftTeamsChannelConfiguration
                                         teamsChannelId :: (Value Prelude.Text),
                                         teamsTenantId :: (Value Prelude.Text),
                                         userRoleRequired :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMicrosoftTeamsChannelConfiguration ::
   Value Prelude.Text
   -> Value Prelude.Text

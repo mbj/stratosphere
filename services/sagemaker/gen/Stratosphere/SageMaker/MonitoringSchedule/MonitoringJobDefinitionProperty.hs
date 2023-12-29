@@ -24,6 +24,7 @@ data MonitoringJobDefinitionProperty
                                      networkConfig :: (Prelude.Maybe NetworkConfigProperty),
                                      roleArn :: (Value Prelude.Text),
                                      stoppingCondition :: (Prelude.Maybe StoppingConditionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringJobDefinitionProperty ::
   MonitoringAppSpecificationProperty
   -> [MonitoringInputProperty]

@@ -13,6 +13,7 @@ data RowLevelPermissionDataSetProperty
                                        namespace :: (Prelude.Maybe (Value Prelude.Text)),
                                        permissionPolicy :: (Value Prelude.Text),
                                        status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRowLevelPermissionDataSetProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> RowLevelPermissionDataSetProperty

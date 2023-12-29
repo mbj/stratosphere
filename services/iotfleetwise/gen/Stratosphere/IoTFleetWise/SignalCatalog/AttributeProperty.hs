@@ -16,6 +16,7 @@ data AttributeProperty
                        max :: (Prelude.Maybe (Value Prelude.Double)),
                        min :: (Prelude.Maybe (Value Prelude.Double)),
                        unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AttributeProperty
 mkAttributeProperty dataType fullyQualifiedName

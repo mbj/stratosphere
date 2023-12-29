@@ -16,6 +16,7 @@ data ServiceSoftwareOptionsProperty
                                     optionalDeployment :: (Prelude.Maybe (Value Prelude.Bool)),
                                     updateAvailable :: (Prelude.Maybe (Value Prelude.Bool)),
                                     updateStatus :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceSoftwareOptionsProperty :: ServiceSoftwareOptionsProperty
 mkServiceSoftwareOptionsProperty
   = ServiceSoftwareOptionsProperty

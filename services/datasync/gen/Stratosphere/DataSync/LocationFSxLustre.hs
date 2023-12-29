@@ -12,6 +12,7 @@ data LocationFSxLustre
                        securityGroupArns :: (ValueList Prelude.Text),
                        subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                        tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationFSxLustre :: ValueList Prelude.Text -> LocationFSxLustre
 mkLocationFSxLustre securityGroupArns
   = LocationFSxLustre

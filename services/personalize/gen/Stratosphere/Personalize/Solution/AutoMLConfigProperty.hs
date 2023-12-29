@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AutoMLConfigProperty
   = AutoMLConfigProperty {metricName :: (Prelude.Maybe (Value Prelude.Text)),
                           recipeList :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoMLConfigProperty :: AutoMLConfigProperty
 mkAutoMLConfigProperty
   = AutoMLConfigProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoadingAnimationProperty
   = LoadingAnimationProperty {visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadingAnimationProperty :: LoadingAnimationProperty
 mkLoadingAnimationProperty
   = LoadingAnimationProperty {visibility = Prelude.Nothing}

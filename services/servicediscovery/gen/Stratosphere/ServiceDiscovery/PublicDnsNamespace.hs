@@ -13,6 +13,7 @@ data PublicDnsNamespace
                         name :: (Value Prelude.Text),
                         properties :: (Prelude.Maybe PropertiesProperty),
                         tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicDnsNamespace :: Value Prelude.Text -> PublicDnsNamespace
 mkPublicDnsNamespace name
   = PublicDnsNamespace

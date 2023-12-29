@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CheckpointConfigurationProperty :: Prelude.Type
 instance ToResourceProperties CheckpointConfigurationProperty
+instance Prelude.Eq CheckpointConfigurationProperty
+instance Prelude.Show CheckpointConfigurationProperty
 instance JSON.ToJSON CheckpointConfigurationProperty

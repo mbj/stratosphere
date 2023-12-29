@@ -11,6 +11,7 @@ data PardotConnectorProfilePropertiesProperty
   = PardotConnectorProfilePropertiesProperty {businessUnitId :: (Value Prelude.Text),
                                               instanceUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                               isSandboxEnvironment :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPardotConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> PardotConnectorProfilePropertiesProperty
 mkPardotConnectorProfilePropertiesProperty businessUnitId

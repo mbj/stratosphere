@@ -26,6 +26,7 @@ data Mpeg2SettingsProperty
                            subgopLength :: (Prelude.Maybe (Value Prelude.Text)),
                            timecodeBurninSettings :: (Prelude.Maybe TimecodeBurninSettingsProperty),
                            timecodeInsertion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMpeg2SettingsProperty :: Mpeg2SettingsProperty
 mkMpeg2SettingsProperty
   = Mpeg2SettingsProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AwsOrganizationsSourceProperty
   = AwsOrganizationsSourceProperty {organizationSourceType :: (Value Prelude.Text),
                                     organizationalUnits :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsOrganizationsSourceProperty ::
   Value Prelude.Text -> AwsOrganizationsSourceProperty
 mkAwsOrganizationsSourceProperty organizationSourceType

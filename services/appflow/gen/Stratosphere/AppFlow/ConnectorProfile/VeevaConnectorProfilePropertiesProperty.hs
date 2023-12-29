@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VeevaConnectorProfilePropertiesProperty
   = VeevaConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVeevaConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> VeevaConnectorProfilePropertiesProperty
 mkVeevaConnectorProfilePropertiesProperty instanceUrl

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ApiGatewayProxyInputProperty :: Prelude.Type
 instance ToResourceProperties ApiGatewayProxyInputProperty
+instance Prelude.Eq ApiGatewayProxyInputProperty
+instance Prelude.Show ApiGatewayProxyInputProperty
 instance JSON.ToJSON ApiGatewayProxyInputProperty

@@ -13,6 +13,7 @@ data Workspace
                alias :: (Prelude.Maybe (Value Prelude.Text)),
                loggingConfiguration :: (Prelude.Maybe LoggingConfigurationProperty),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkspace :: Workspace
 mkWorkspace
   = Workspace

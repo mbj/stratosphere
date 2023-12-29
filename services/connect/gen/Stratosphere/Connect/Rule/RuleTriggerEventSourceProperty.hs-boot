@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RuleTriggerEventSourceProperty :: Prelude.Type
 instance ToResourceProperties RuleTriggerEventSourceProperty
+instance Prelude.Eq RuleTriggerEventSourceProperty
+instance Prelude.Show RuleTriggerEventSourceProperty
 instance JSON.ToJSON RuleTriggerEventSourceProperty

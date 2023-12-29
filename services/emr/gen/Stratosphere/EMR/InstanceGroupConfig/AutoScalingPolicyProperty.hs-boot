@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AutoScalingPolicyProperty :: Prelude.Type
 instance ToResourceProperties AutoScalingPolicyProperty
+instance Prelude.Eq AutoScalingPolicyProperty
+instance Prelude.Show AutoScalingPolicyProperty
 instance JSON.ToJSON AutoScalingPolicyProperty

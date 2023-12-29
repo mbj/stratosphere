@@ -19,6 +19,7 @@ data Route
            routeKey :: (Value Prelude.Text),
            routeResponseSelectionExpression :: (Prelude.Maybe (Value Prelude.Text)),
            target :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoute :: Value Prelude.Text -> Value Prelude.Text -> Route
 mkRoute apiId routeKey
   = Route

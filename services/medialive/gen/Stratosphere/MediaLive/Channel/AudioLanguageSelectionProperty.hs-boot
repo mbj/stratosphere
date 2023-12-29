@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AudioLanguageSelectionProperty :: Prelude.Type
 instance ToResourceProperties AudioLanguageSelectionProperty
+instance Prelude.Eq AudioLanguageSelectionProperty
+instance Prelude.Show AudioLanguageSelectionProperty
 instance JSON.ToJSON AudioLanguageSelectionProperty

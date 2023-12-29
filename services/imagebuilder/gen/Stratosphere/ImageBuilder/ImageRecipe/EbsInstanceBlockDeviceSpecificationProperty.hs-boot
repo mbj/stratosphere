@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EbsInstanceBlockDeviceSpecificationProperty :: Prelude.Type
 instance ToResourceProperties EbsInstanceBlockDeviceSpecificationProperty
+instance Prelude.Eq EbsInstanceBlockDeviceSpecificationProperty
+instance Prelude.Show EbsInstanceBlockDeviceSpecificationProperty
 instance JSON.ToJSON EbsInstanceBlockDeviceSpecificationProperty

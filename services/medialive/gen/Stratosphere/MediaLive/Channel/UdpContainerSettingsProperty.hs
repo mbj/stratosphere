@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.M2tsSettingsProperty as Exp
 import Stratosphere.ResourceProperties
 data UdpContainerSettingsProperty
   = UdpContainerSettingsProperty {m2tsSettings :: (Prelude.Maybe M2tsSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUdpContainerSettingsProperty :: UdpContainerSettingsProperty
 mkUdpContainerSettingsProperty
   = UdpContainerSettingsProperty {m2tsSettings = Prelude.Nothing}

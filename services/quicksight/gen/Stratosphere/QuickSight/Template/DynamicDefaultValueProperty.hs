@@ -11,6 +11,7 @@ data DynamicDefaultValueProperty
   = DynamicDefaultValueProperty {defaultValueColumn :: ColumnIdentifierProperty,
                                  groupNameColumn :: (Prelude.Maybe ColumnIdentifierProperty),
                                  userNameColumn :: (Prelude.Maybe ColumnIdentifierProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamicDefaultValueProperty ::
   ColumnIdentifierProperty -> DynamicDefaultValueProperty
 mkDynamicDefaultValueProperty defaultValueColumn

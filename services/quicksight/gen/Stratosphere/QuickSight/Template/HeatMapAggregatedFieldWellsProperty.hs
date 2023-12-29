@@ -12,6 +12,7 @@ data HeatMapAggregatedFieldWellsProperty
   = HeatMapAggregatedFieldWellsProperty {columns :: (Prelude.Maybe [DimensionFieldProperty]),
                                          rows :: (Prelude.Maybe [DimensionFieldProperty]),
                                          values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeatMapAggregatedFieldWellsProperty ::
   HeatMapAggregatedFieldWellsProperty
 mkHeatMapAggregatedFieldWellsProperty

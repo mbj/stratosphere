@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data BoxPlotSortConfigurationProperty
   = BoxPlotSortConfigurationProperty {categorySort :: (Prelude.Maybe [FieldSortOptionsProperty]),
                                       paginationConfiguration :: (Prelude.Maybe PaginationConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBoxPlotSortConfigurationProperty ::
   BoxPlotSortConfigurationProperty
 mkBoxPlotSortConfigurationProperty

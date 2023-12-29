@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeviceRegistryEnrichProperty :: Prelude.Type
 instance ToResourceProperties DeviceRegistryEnrichProperty
+instance Prelude.Eq DeviceRegistryEnrichProperty
+instance Prelude.Show DeviceRegistryEnrichProperty
 instance JSON.ToJSON DeviceRegistryEnrichProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SnapStartResponseProperty :: Prelude.Type
 instance ToResourceProperties SnapStartResponseProperty
+instance Prelude.Eq SnapStartResponseProperty
+instance Prelude.Show SnapStartResponseProperty
 instance JSON.ToJSON SnapStartResponseProperty

@@ -13,6 +13,7 @@ data SalesforceChatterFeedConfigurationProperty
                                                 documentTitleFieldName :: (Prelude.Maybe (Value Prelude.Text)),
                                                 fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
                                                 includeFilterTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceChatterFeedConfigurationProperty ::
   Value Prelude.Text -> SalesforceChatterFeedConfigurationProperty
 mkSalesforceChatterFeedConfigurationProperty documentDataFieldName

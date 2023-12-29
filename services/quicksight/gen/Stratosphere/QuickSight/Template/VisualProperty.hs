@@ -52,6 +52,7 @@ data VisualProperty
                     treeMapVisual :: (Prelude.Maybe TreeMapVisualProperty),
                     waterfallVisual :: (Prelude.Maybe WaterfallVisualProperty),
                     wordCloudVisual :: (Prelude.Maybe WordCloudVisualProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVisualProperty :: VisualProperty
 mkVisualProperty
   = VisualProperty

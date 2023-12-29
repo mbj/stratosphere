@@ -111,6 +111,7 @@ data RecipeParametersProperty
                               value2 :: (Prelude.Maybe (Value Prelude.Text)),
                               valueColumn :: (Prelude.Maybe (Value Prelude.Text)),
                               viewFrame :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecipeParametersProperty :: RecipeParametersProperty
 mkRecipeParametersProperty
   = RecipeParametersProperty

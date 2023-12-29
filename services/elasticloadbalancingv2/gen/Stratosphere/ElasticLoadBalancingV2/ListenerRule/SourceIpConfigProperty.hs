@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceIpConfigProperty
   = SourceIpConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceIpConfigProperty :: SourceIpConfigProperty
 mkSourceIpConfigProperty
   = SourceIpConfigProperty {values = Prelude.Nothing}

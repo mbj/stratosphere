@@ -13,6 +13,7 @@ data InstanceBlockDeviceMappingProperty
                                         ebs :: (Prelude.Maybe EbsInstanceBlockDeviceSpecificationProperty),
                                         noDevice :: (Prelude.Maybe (Value Prelude.Text)),
                                         virtualName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceBlockDeviceMappingProperty ::
   InstanceBlockDeviceMappingProperty
 mkInstanceBlockDeviceMappingProperty

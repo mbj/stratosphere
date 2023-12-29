@@ -10,6 +10,7 @@ data DashConfigurationProperty
   = DashConfigurationProperty {manifestEndpointPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                                mpdLocation :: (Prelude.Maybe (Value Prelude.Text)),
                                originManifestType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashConfigurationProperty :: DashConfigurationProperty
 mkDashConfigurationProperty
   = DashConfigurationProperty

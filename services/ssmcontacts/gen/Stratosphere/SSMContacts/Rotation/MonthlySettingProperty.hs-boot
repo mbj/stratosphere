@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MonthlySettingProperty :: Prelude.Type
 instance ToResourceProperties MonthlySettingProperty
+instance Prelude.Eq MonthlySettingProperty
+instance Prelude.Show MonthlySettingProperty
 instance JSON.ToJSON MonthlySettingProperty

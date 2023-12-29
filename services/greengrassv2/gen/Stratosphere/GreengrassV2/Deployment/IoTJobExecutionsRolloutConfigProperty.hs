@@ -11,6 +11,7 @@ import Stratosphere.Value
 data IoTJobExecutionsRolloutConfigProperty
   = IoTJobExecutionsRolloutConfigProperty {exponentialRate :: (Prelude.Maybe IoTJobExponentialRolloutRateProperty),
                                            maximumPerMinute :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobExecutionsRolloutConfigProperty ::
   IoTJobExecutionsRolloutConfigProperty
 mkIoTJobExecutionsRolloutConfigProperty

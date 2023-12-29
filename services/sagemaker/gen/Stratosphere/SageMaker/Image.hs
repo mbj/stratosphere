@@ -13,6 +13,7 @@ data Image
            imageName :: (Value Prelude.Text),
            imageRoleArn :: (Value Prelude.Text),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImage :: Value Prelude.Text -> Value Prelude.Text -> Image
 mkImage imageName imageRoleArn
   = Image

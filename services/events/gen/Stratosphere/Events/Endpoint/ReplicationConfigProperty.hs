@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationConfigProperty
   = ReplicationConfigProperty {state :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigProperty ::
   Value Prelude.Text -> ReplicationConfigProperty
 mkReplicationConfigProperty state

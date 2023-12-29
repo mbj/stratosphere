@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CsvOutputOptionsProperty :: Prelude.Type
 instance ToResourceProperties CsvOutputOptionsProperty
+instance Prelude.Eq CsvOutputOptionsProperty
+instance Prelude.Show CsvOutputOptionsProperty
 instance JSON.ToJSON CsvOutputOptionsProperty

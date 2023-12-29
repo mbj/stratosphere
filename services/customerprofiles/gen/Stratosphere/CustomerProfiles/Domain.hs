@@ -13,6 +13,7 @@ data Domain
             defaultExpirationDays :: (Prelude.Maybe (Value Prelude.Integer)),
             domainName :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomain :: Value Prelude.Text -> Domain
 mkDomain domainName
   = Domain

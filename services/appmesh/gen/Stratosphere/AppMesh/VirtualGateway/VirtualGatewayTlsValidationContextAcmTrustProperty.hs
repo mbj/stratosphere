@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayTlsValidationContextAcmTrustProperty
   = VirtualGatewayTlsValidationContextAcmTrustProperty {certificateAuthorityArns :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayTlsValidationContextAcmTrustProperty ::
   ValueList Prelude.Text
   -> VirtualGatewayTlsValidationContextAcmTrustProperty

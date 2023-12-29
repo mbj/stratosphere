@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StreamEncryptionProperty
   = StreamEncryptionProperty {encryptionType :: (Value Prelude.Text),
                               keyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamEncryptionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> StreamEncryptionProperty

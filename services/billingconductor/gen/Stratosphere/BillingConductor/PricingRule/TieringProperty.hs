@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.BillingConductor.PricingRule.FreeTierProperty
 import Stratosphere.ResourceProperties
 data TieringProperty
   = TieringProperty {freeTier :: (Prelude.Maybe FreeTierProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTieringProperty :: TieringProperty
 mkTieringProperty = TieringProperty {freeTier = Prelude.Nothing}
 instance ToResourceProperties TieringProperty where

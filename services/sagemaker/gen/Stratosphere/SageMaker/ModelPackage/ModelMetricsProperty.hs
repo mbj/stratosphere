@@ -14,6 +14,7 @@ data ModelMetricsProperty
                           explainability :: (Prelude.Maybe ExplainabilityProperty),
                           modelDataQuality :: (Prelude.Maybe ModelDataQualityProperty),
                           modelQuality :: (Prelude.Maybe ModelQualityProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelMetricsProperty :: ModelMetricsProperty
 mkModelMetricsProperty
   = ModelMetricsProperty

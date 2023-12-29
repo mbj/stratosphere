@@ -13,6 +13,7 @@ data OutlierDetectionProperty
                               interval :: DurationProperty,
                               maxEjectionPercent :: (Value Prelude.Integer),
                               maxServerErrors :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutlierDetectionProperty ::
   DurationProperty
   -> DurationProperty

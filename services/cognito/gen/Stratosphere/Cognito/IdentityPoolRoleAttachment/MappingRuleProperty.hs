@@ -11,6 +11,7 @@ data MappingRuleProperty
                          matchType :: (Value Prelude.Text),
                          roleARN :: (Value Prelude.Text),
                          value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMappingRuleProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

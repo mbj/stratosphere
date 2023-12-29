@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MonitoringJobDefinitionProperty :: Prelude.Type
 instance ToResourceProperties MonitoringJobDefinitionProperty
+instance Prelude.Eq MonitoringJobDefinitionProperty
+instance Prelude.Show MonitoringJobDefinitionProperty
 instance JSON.ToJSON MonitoringJobDefinitionProperty

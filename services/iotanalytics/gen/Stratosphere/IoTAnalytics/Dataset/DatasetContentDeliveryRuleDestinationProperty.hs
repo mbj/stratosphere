@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DatasetContentDeliveryRuleDestinationProperty
   = DatasetContentDeliveryRuleDestinationProperty {iotEventsDestinationConfiguration :: (Prelude.Maybe IotEventsDestinationConfigurationProperty),
                                                    s3DestinationConfiguration :: (Prelude.Maybe S3DestinationConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetContentDeliveryRuleDestinationProperty ::
   DatasetContentDeliveryRuleDestinationProperty
 mkDatasetContentDeliveryRuleDestinationProperty

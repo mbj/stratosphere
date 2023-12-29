@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CookieObjectProperty
   = CookieObjectProperty {cookiesAllowList :: (Prelude.Maybe (ValueList Prelude.Text)),
                           option :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCookieObjectProperty :: CookieObjectProperty
 mkCookieObjectProperty
   = CookieObjectProperty

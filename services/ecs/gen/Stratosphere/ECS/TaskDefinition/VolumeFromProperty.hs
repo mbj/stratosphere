@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VolumeFromProperty
   = VolumeFromProperty {readOnly :: (Prelude.Maybe (Value Prelude.Bool)),
                         sourceContainer :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeFromProperty :: VolumeFromProperty
 mkVolumeFromProperty
   = VolumeFromProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SpotFleetMonitoringProperty
   = SpotFleetMonitoringProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotFleetMonitoringProperty :: SpotFleetMonitoringProperty
 mkSpotFleetMonitoringProperty
   = SpotFleetMonitoringProperty {enabled = Prelude.Nothing}

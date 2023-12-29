@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SameSheetTargetVisualConfigurationProperty
   = SameSheetTargetVisualConfigurationProperty {targetVisualOptions :: (Prelude.Maybe (Value Prelude.Text)),
                                                 targetVisuals :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSameSheetTargetVisualConfigurationProperty ::
   SameSheetTargetVisualConfigurationProperty
 mkSameSheetTargetVisualConfigurationProperty

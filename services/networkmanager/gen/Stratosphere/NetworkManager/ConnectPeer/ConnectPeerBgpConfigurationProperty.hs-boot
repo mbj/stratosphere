@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConnectPeerBgpConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ConnectPeerBgpConfigurationProperty
+instance Prelude.Eq ConnectPeerBgpConfigurationProperty
+instance Prelude.Show ConnectPeerBgpConfigurationProperty
 instance JSON.ToJSON ConnectPeerBgpConfigurationProperty

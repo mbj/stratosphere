@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PatchFilterProperty
   = PatchFilterProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
                          values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPatchFilterProperty :: PatchFilterProperty
 mkPatchFilterProperty
   = PatchFilterProperty

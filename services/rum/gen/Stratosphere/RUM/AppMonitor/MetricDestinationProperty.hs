@@ -13,6 +13,7 @@ data MetricDestinationProperty
                                destinationArn :: (Prelude.Maybe (Value Prelude.Text)),
                                iamRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                metricDefinitions :: (Prelude.Maybe [MetricDefinitionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricDestinationProperty ::
   Value Prelude.Text -> MetricDestinationProperty
 mkMetricDestinationProperty destination

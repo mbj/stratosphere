@@ -13,6 +13,7 @@ data TransformInputProperty
                             contentType :: (Prelude.Maybe (Value Prelude.Text)),
                             dataSource :: DataSourceProperty,
                             splitType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformInputProperty ::
   DataSourceProperty -> TransformInputProperty
 mkTransformInputProperty dataSource

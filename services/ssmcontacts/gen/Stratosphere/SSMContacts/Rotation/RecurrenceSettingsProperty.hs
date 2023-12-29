@@ -17,6 +17,7 @@ data RecurrenceSettingsProperty
                                 recurrenceMultiplier :: (Value Prelude.Integer),
                                 shiftCoverages :: (Prelude.Maybe [ShiftCoverageProperty]),
                                 weeklySettings :: (Prelude.Maybe [WeeklySettingProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecurrenceSettingsProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> RecurrenceSettingsProperty

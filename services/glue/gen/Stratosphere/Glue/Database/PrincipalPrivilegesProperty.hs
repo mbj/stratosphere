@@ -11,6 +11,7 @@ import Stratosphere.Value
 data PrincipalPrivilegesProperty
   = PrincipalPrivilegesProperty {permissions :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  principal :: (Prelude.Maybe DataLakePrincipalProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrincipalPrivilegesProperty :: PrincipalPrivilegesProperty
 mkPrincipalPrivilegesProperty
   = PrincipalPrivilegesProperty

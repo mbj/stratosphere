@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ActiveDirectoryConfigurationProperty
   = ActiveDirectoryConfigurationProperty {netBiosName :: (Prelude.Maybe (Value Prelude.Text)),
                                           selfManagedActiveDirectoryConfiguration :: (Prelude.Maybe SelfManagedActiveDirectoryConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActiveDirectoryConfigurationProperty ::
   ActiveDirectoryConfigurationProperty
 mkActiveDirectoryConfigurationProperty

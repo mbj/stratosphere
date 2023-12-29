@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.GridLayoutScreenCanvasSiz
 import Stratosphere.ResourceProperties
 data GridLayoutCanvasSizeOptionsProperty
   = GridLayoutCanvasSizeOptionsProperty {screenCanvasSizeOptions :: (Prelude.Maybe GridLayoutScreenCanvasSizeOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGridLayoutCanvasSizeOptionsProperty ::
   GridLayoutCanvasSizeOptionsProperty
 mkGridLayoutCanvasSizeOptionsProperty

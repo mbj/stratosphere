@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data InputFileLocationProperty
   = InputFileLocationProperty {efsFileLocation :: (Prelude.Maybe EfsInputFileLocationProperty),
                                s3FileLocation :: (Prelude.Maybe S3InputFileLocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputFileLocationProperty :: InputFileLocationProperty
 mkInputFileLocationProperty
   = InputFileLocationProperty

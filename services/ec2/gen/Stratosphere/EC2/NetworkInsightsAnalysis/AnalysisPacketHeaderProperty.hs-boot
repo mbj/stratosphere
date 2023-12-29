@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AnalysisPacketHeaderProperty :: Prelude.Type
 instance ToResourceProperties AnalysisPacketHeaderProperty
+instance Prelude.Eq AnalysisPacketHeaderProperty
+instance Prelude.Show AnalysisPacketHeaderProperty
 instance JSON.ToJSON AnalysisPacketHeaderProperty

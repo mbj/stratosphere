@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Publisher
   = Publisher {acceptTermsAndConditions :: (Value Prelude.Bool),
                connectionArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublisher :: Value Prelude.Bool -> Publisher
 mkPublisher acceptTermsAndConditions
   = Publisher

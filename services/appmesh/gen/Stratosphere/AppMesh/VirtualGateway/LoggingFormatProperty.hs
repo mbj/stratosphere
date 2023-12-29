@@ -10,6 +10,7 @@ import Stratosphere.Value
 data LoggingFormatProperty
   = LoggingFormatProperty {json :: (Prelude.Maybe [JsonFormatRefProperty]),
                            text :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingFormatProperty :: LoggingFormatProperty
 mkLoggingFormatProperty
   = LoggingFormatProperty

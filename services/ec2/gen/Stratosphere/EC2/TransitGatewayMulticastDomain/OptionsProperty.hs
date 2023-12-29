@@ -10,6 +10,7 @@ data OptionsProperty
   = OptionsProperty {autoAcceptSharedAssociations :: (Prelude.Maybe (Value Prelude.Text)),
                      igmpv2Support :: (Prelude.Maybe (Value Prelude.Text)),
                      staticSourcesSupport :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionsProperty :: OptionsProperty
 mkOptionsProperty
   = OptionsProperty

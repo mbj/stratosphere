@@ -12,6 +12,7 @@ data VirtualMFADevice
                       tags :: (Prelude.Maybe [Tag]),
                       users :: (ValueList Prelude.Text),
                       virtualMfaDeviceName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualMFADevice :: ValueList Prelude.Text -> VirtualMFADevice
 mkVirtualMFADevice users
   = VirtualMFADevice

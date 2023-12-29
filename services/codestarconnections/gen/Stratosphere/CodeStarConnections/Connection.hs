@@ -12,6 +12,7 @@ data Connection
                 hostArn :: (Prelude.Maybe (Value Prelude.Text)),
                 providerType :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnection :: Value Prelude.Text -> Connection
 mkConnection connectionName
   = Connection

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WebACLAssociation
   = WebACLAssociation {resourceArn :: (Value Prelude.Text),
                        webACLId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebACLAssociation ::
   Value Prelude.Text -> Value Prelude.Text -> WebACLAssociation
 mkWebACLAssociation resourceArn webACLId

@@ -10,6 +10,7 @@ data EnvironmentVariableProperty
   = EnvironmentVariableProperty {key :: (Value Prelude.Text),
                                  secure :: (Prelude.Maybe (Value Prelude.Bool)),
                                  value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentVariableProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EnvironmentVariableProperty

@@ -14,6 +14,7 @@ data Domain
             domainName :: (Value Prelude.Text),
             enableAutoSubDomain :: (Prelude.Maybe (Value Prelude.Bool)),
             subDomainSettings :: [SubDomainSettingProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomain ::
   Value Prelude.Text
   -> Value Prelude.Text -> [SubDomainSettingProperty] -> Domain

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SidewalkAccountInfoProperty
   = SidewalkAccountInfoProperty {appServerPrivateKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSidewalkAccountInfoProperty ::
   Value Prelude.Text -> SidewalkAccountInfoProperty
 mkSidewalkAccountInfoProperty appServerPrivateKey

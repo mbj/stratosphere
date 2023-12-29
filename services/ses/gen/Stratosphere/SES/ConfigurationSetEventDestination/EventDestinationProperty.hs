@@ -17,6 +17,7 @@ data EventDestinationProperty
                               matchingEventTypes :: (ValueList Prelude.Text),
                               name :: (Prelude.Maybe (Value Prelude.Text)),
                               snsDestination :: (Prelude.Maybe SnsDestinationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventDestinationProperty ::
   ValueList Prelude.Text -> EventDestinationProperty
 mkEventDestinationProperty matchingEventTypes

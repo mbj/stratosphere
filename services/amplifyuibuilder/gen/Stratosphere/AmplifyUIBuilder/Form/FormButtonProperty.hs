@@ -11,6 +11,7 @@ data FormButtonProperty
   = FormButtonProperty {children :: (Prelude.Maybe (Value Prelude.Text)),
                         excluded :: (Prelude.Maybe (Value Prelude.Bool)),
                         position :: (Prelude.Maybe FieldPositionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFormButtonProperty :: FormButtonProperty
 mkFormButtonProperty
   = FormButtonProperty

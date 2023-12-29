@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data TileLayoutStyleProperty
   = TileLayoutStyleProperty {gutter :: (Prelude.Maybe GutterStyleProperty),
                              margin :: (Prelude.Maybe MarginStyleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTileLayoutStyleProperty :: TileLayoutStyleProperty
 mkTileLayoutStyleProperty
   = TileLayoutStyleProperty

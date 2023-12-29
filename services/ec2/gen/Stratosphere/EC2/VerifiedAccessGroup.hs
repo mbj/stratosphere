@@ -13,6 +13,7 @@ data VerifiedAccessGroup
                          policyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                          tags :: (Prelude.Maybe [Tag]),
                          verifiedAccessInstanceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVerifiedAccessGroup :: Value Prelude.Text -> VerifiedAccessGroup
 mkVerifiedAccessGroup verifiedAccessInstanceId
   = VerifiedAccessGroup

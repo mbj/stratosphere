@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PagerDutyConfigurationProperty :: Prelude.Type
 instance ToResourceProperties PagerDutyConfigurationProperty
+instance Prelude.Eq PagerDutyConfigurationProperty
+instance Prelude.Show PagerDutyConfigurationProperty
 instance JSON.ToJSON PagerDutyConfigurationProperty

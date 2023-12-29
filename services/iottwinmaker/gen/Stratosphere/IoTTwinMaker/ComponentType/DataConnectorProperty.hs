@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DataConnectorProperty
   = DataConnectorProperty {isNative :: (Prelude.Maybe (Value Prelude.Bool)),
                            lambda :: (Prelude.Maybe LambdaFunctionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataConnectorProperty :: DataConnectorProperty
 mkDataConnectorProperty
   = DataConnectorProperty

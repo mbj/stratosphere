@@ -10,6 +10,7 @@ data LockConfigurationTypeProperty
   = LockConfigurationTypeProperty {changeableForDays :: (Prelude.Maybe (Value Prelude.Integer)),
                                    maxRetentionDays :: (Prelude.Maybe (Value Prelude.Integer)),
                                    minRetentionDays :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLockConfigurationTypeProperty ::
   Value Prelude.Integer -> LockConfigurationTypeProperty
 mkLockConfigurationTypeProperty minRetentionDays

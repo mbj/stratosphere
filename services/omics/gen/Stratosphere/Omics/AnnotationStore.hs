@@ -17,6 +17,7 @@ data AnnotationStore
                      storeFormat :: (Value Prelude.Text),
                      storeOptions :: (Prelude.Maybe StoreOptionsProperty),
                      tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnnotationStore ::
   Value Prelude.Text -> Value Prelude.Text -> AnnotationStore
 mkAnnotationStore name storeFormat

@@ -16,6 +16,7 @@ data InstanceFleetConfig
                          name :: (Prelude.Maybe (Value Prelude.Text)),
                          targetOnDemandCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                          targetSpotCapacity :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceFleetConfig ::
   Value Prelude.Text -> Value Prelude.Text -> InstanceFleetConfig
 mkInstanceFleetConfig clusterId instanceFleetType

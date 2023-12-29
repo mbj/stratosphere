@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ValueImportanceItemProperty :: Prelude.Type
 instance ToResourceProperties ValueImportanceItemProperty
+instance Prelude.Eq ValueImportanceItemProperty
+instance Prelude.Show ValueImportanceItemProperty
 instance JSON.ToJSON ValueImportanceItemProperty

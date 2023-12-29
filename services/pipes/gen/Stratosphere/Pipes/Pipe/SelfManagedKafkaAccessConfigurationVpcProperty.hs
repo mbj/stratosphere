@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SelfManagedKafkaAccessConfigurationVpcProperty
   = SelfManagedKafkaAccessConfigurationVpcProperty {securityGroup :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                     subnets :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSelfManagedKafkaAccessConfigurationVpcProperty ::
   SelfManagedKafkaAccessConfigurationVpcProperty
 mkSelfManagedKafkaAccessConfigurationVpcProperty

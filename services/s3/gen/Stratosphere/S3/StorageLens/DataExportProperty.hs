@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data DataExportProperty
   = DataExportProperty {cloudWatchMetrics :: (Prelude.Maybe CloudWatchMetricsProperty),
                         s3BucketDestination :: (Prelude.Maybe S3BucketDestinationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataExportProperty :: DataExportProperty
 mkDataExportProperty
   = DataExportProperty

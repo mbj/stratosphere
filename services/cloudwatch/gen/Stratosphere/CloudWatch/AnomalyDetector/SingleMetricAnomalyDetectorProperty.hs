@@ -13,6 +13,7 @@ data SingleMetricAnomalyDetectorProperty
                                          metricName :: (Prelude.Maybe (Value Prelude.Text)),
                                          namespace :: (Prelude.Maybe (Value Prelude.Text)),
                                          stat :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleMetricAnomalyDetectorProperty ::
   SingleMetricAnomalyDetectorProperty
 mkSingleMetricAnomalyDetectorProperty

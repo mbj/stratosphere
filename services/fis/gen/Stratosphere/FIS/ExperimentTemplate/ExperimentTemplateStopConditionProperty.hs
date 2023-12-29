@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ExperimentTemplateStopConditionProperty
   = ExperimentTemplateStopConditionProperty {source :: (Value Prelude.Text),
                                              value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateStopConditionProperty ::
   Value Prelude.Text -> ExperimentTemplateStopConditionProperty
 mkExperimentTemplateStopConditionProperty source

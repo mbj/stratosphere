@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FeatureActivationsProperty :: Prelude.Type
 instance ToResourceProperties FeatureActivationsProperty
+instance Prelude.Eq FeatureActivationsProperty
+instance Prelude.Show FeatureActivationsProperty
 instance JSON.ToJSON FeatureActivationsProperty

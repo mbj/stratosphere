@@ -14,6 +14,7 @@ data BatchParametersProperty
                              jobDefinition :: (Value Prelude.Text),
                              jobName :: (Value Prelude.Text),
                              retryStrategy :: (Prelude.Maybe BatchRetryStrategyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchParametersProperty ::
   Value Prelude.Text -> Value Prelude.Text -> BatchParametersProperty
 mkBatchParametersProperty jobDefinition jobName

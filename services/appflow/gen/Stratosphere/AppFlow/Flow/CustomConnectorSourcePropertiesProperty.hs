@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CustomConnectorSourcePropertiesProperty
   = CustomConnectorSourcePropertiesProperty {customProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                              entityName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomConnectorSourcePropertiesProperty ::
   Value Prelude.Text -> CustomConnectorSourcePropertiesProperty
 mkCustomConnectorSourcePropertiesProperty entityName

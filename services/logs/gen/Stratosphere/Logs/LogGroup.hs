@@ -13,6 +13,7 @@ data LogGroup
               logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
               retentionInDays :: (Prelude.Maybe (Value Prelude.Integer)),
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogGroup :: LogGroup
 mkLogGroup
   = LogGroup

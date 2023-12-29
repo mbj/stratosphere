@@ -15,6 +15,7 @@ data VirtualNodeConnectionPoolProperty
                                        hTTP :: (Prelude.Maybe VirtualNodeHttpConnectionPoolProperty),
                                        hTTP2 :: (Prelude.Maybe VirtualNodeHttp2ConnectionPoolProperty),
                                        tCP :: (Prelude.Maybe VirtualNodeTcpConnectionPoolProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNodeConnectionPoolProperty ::
   VirtualNodeConnectionPoolProperty
 mkVirtualNodeConnectionPoolProperty

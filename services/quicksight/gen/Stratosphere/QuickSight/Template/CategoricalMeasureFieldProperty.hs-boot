@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CategoricalMeasureFieldProperty :: Prelude.Type
 instance ToResourceProperties CategoricalMeasureFieldProperty
+instance Prelude.Eq CategoricalMeasureFieldProperty
+instance Prelude.Show CategoricalMeasureFieldProperty
 instance JSON.ToJSON CategoricalMeasureFieldProperty

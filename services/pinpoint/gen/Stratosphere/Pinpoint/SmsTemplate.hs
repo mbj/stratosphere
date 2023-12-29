@@ -12,6 +12,7 @@ data SmsTemplate
                  tags :: (Prelude.Maybe JSON.Object),
                  templateDescription :: (Prelude.Maybe (Value Prelude.Text)),
                  templateName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSmsTemplate ::
   Value Prelude.Text -> Value Prelude.Text -> SmsTemplate
 mkSmsTemplate body templateName

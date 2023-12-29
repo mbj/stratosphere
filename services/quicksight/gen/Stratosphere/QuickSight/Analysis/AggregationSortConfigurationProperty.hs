@@ -13,6 +13,7 @@ data AggregationSortConfigurationProperty
   = AggregationSortConfigurationProperty {aggregationFunction :: AggregationFunctionProperty,
                                           column :: ColumnIdentifierProperty,
                                           sortDirection :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAggregationSortConfigurationProperty ::
   AggregationFunctionProperty
   -> ColumnIdentifierProperty
