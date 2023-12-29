@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.GeospatialMapAggregatedFi
 import Stratosphere.ResourceProperties
 data GeospatialMapFieldWellsProperty
   = GeospatialMapFieldWellsProperty {geospatialMapAggregatedFieldWells :: (Prelude.Maybe GeospatialMapAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeospatialMapFieldWellsProperty ::
   GeospatialMapFieldWellsProperty
 mkGeospatialMapFieldWellsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MessageReviewHandlerProperty :: Prelude.Type
 instance ToResourceProperties MessageReviewHandlerProperty
+instance Prelude.Eq MessageReviewHandlerProperty
+instance Prelude.Show MessageReviewHandlerProperty
 instance JSON.ToJSON MessageReviewHandlerProperty

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data AutoScalingPolicyProperty
   = AutoScalingPolicyProperty {constraints :: ScalingConstraintsProperty,
                                rules :: [ScalingRuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingPolicyProperty ::
   ScalingConstraintsProperty
   -> [ScalingRuleProperty] -> AutoScalingPolicyProperty

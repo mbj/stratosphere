@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VirtualRouterServiceProviderProperty :: Prelude.Type
 instance ToResourceProperties VirtualRouterServiceProviderProperty
+instance Prelude.Eq VirtualRouterServiceProviderProperty
+instance Prelude.Show VirtualRouterServiceProviderProperty
 instance JSON.ToJSON VirtualRouterServiceProviderProperty

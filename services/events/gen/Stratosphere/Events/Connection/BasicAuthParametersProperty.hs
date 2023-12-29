@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BasicAuthParametersProperty
   = BasicAuthParametersProperty {password :: (Value Prelude.Text),
                                  username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBasicAuthParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> BasicAuthParametersProperty

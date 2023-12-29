@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DeviceConfigurationProperty
   = DeviceConfigurationProperty {challengeRequiredOnNewDevice :: (Prelude.Maybe (Value Prelude.Bool)),
                                  deviceOnlyRememberedOnUserPrompt :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceConfigurationProperty :: DeviceConfigurationProperty
 mkDeviceConfigurationProperty
   = DeviceConfigurationProperty

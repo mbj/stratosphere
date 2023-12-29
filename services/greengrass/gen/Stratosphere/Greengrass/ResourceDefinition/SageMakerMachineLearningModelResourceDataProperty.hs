@@ -13,6 +13,7 @@ data SageMakerMachineLearningModelResourceDataProperty
   = SageMakerMachineLearningModelResourceDataProperty {destinationPath :: (Value Prelude.Text),
                                                        ownerSetting :: (Prelude.Maybe ResourceDownloadOwnerSettingProperty),
                                                        sageMakerJobArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSageMakerMachineLearningModelResourceDataProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

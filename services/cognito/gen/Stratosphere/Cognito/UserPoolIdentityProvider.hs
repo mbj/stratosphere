@@ -13,6 +13,7 @@ data UserPoolIdentityProvider
                               providerName :: (Value Prelude.Text),
                               providerType :: (Value Prelude.Text),
                               userPoolId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolIdentityProvider ::
   Value Prelude.Text
   -> Value Prelude.Text

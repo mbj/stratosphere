@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MaximumAllowedResourcesProperty :: Prelude.Type
 instance ToResourceProperties MaximumAllowedResourcesProperty
+instance Prelude.Eq MaximumAllowedResourcesProperty
+instance Prelude.Show MaximumAllowedResourcesProperty
 instance JSON.ToJSON MaximumAllowedResourcesProperty

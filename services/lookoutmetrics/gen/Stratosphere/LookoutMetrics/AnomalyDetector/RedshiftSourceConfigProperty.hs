@@ -17,6 +17,7 @@ data RedshiftSourceConfigProperty
                                   secretManagerArn :: (Value Prelude.Text),
                                   tableName :: (Value Prelude.Text),
                                   vpcConfiguration :: VpcConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftSourceConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

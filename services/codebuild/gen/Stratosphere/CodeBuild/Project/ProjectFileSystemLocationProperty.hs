@@ -13,6 +13,7 @@ data ProjectFileSystemLocationProperty
                                        mountOptions :: (Prelude.Maybe (Value Prelude.Text)),
                                        mountPoint :: (Value Prelude.Text),
                                        type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectFileSystemLocationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VpcOutputSettingsProperty :: Prelude.Type
 instance ToResourceProperties VpcOutputSettingsProperty
+instance Prelude.Eq VpcOutputSettingsProperty
+instance Prelude.Show VpcOutputSettingsProperty
 instance JSON.ToJSON VpcOutputSettingsProperty

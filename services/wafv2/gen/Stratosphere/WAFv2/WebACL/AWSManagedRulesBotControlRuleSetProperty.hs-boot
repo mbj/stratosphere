@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AWSManagedRulesBotControlRuleSetProperty :: Prelude.Type
 instance ToResourceProperties AWSManagedRulesBotControlRuleSetProperty
+instance Prelude.Eq AWSManagedRulesBotControlRuleSetProperty
+instance Prelude.Show AWSManagedRulesBotControlRuleSetProperty
 instance JSON.ToJSON AWSManagedRulesBotControlRuleSetProperty

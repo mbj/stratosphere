@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GcpMySQLSettingsProperty :: Prelude.Type
 instance ToResourceProperties GcpMySQLSettingsProperty
+instance Prelude.Eq GcpMySQLSettingsProperty
+instance Prelude.Show GcpMySQLSettingsProperty
 instance JSON.ToJSON GcpMySQLSettingsProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.RadarChartAreaStyleSettin
 import Stratosphere.ResourceProperties
 data RadarChartSeriesSettingsProperty
   = RadarChartSeriesSettingsProperty {areaStyleSettings :: (Prelude.Maybe RadarChartAreaStyleSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRadarChartSeriesSettingsProperty ::
   RadarChartSeriesSettingsProperty
 mkRadarChartSeriesSettingsProperty

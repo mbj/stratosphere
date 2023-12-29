@@ -11,6 +11,7 @@ data QueryProperty
   = QueryProperty {resourceTypeFilters :: (Prelude.Maybe (ValueList Prelude.Text)),
                    stackIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                    tagFilters :: (Prelude.Maybe [TagFilterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryProperty :: QueryProperty
 mkQueryProperty
   = QueryProperty

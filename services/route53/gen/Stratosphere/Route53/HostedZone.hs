@@ -16,6 +16,7 @@ data HostedZone
                 name :: (Prelude.Maybe (Value Prelude.Text)),
                 queryLoggingConfig :: (Prelude.Maybe QueryLoggingConfigProperty),
                 vPCs :: (Prelude.Maybe [VPCProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHostedZone :: HostedZone
 mkHostedZone
   = HostedZone

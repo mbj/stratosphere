@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NamedEntityDefinitionMetricProperty :: Prelude.Type
 instance ToResourceProperties NamedEntityDefinitionMetricProperty
+instance Prelude.Eq NamedEntityDefinitionMetricProperty
+instance Prelude.Show NamedEntityDefinitionMetricProperty
 instance JSON.ToJSON NamedEntityDefinitionMetricProperty

@@ -10,6 +10,7 @@ data CustomColorProperty
   = CustomColorProperty {color :: (Value Prelude.Text),
                          fieldValue :: (Prelude.Maybe (Value Prelude.Text)),
                          specialValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomColorProperty :: Value Prelude.Text -> CustomColorProperty
 mkCustomColorProperty color
   = CustomColorProperty

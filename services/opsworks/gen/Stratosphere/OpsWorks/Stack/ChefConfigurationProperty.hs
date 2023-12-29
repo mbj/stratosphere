@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ChefConfigurationProperty
   = ChefConfigurationProperty {berkshelfVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                manageBerkshelf :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChefConfigurationProperty :: ChefConfigurationProperty
 mkChefConfigurationProperty
   = ChefConfigurationProperty

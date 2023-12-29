@@ -10,6 +10,7 @@ data MountPointsProperty
   = MountPointsProperty {containerPath :: (Prelude.Maybe (Value Prelude.Text)),
                          readOnly :: (Prelude.Maybe (Value Prelude.Bool)),
                          sourceVolume :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMountPointsProperty :: MountPointsProperty
 mkMountPointsProperty
   = MountPointsProperty

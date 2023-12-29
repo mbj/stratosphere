@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FormDataTypeConfigProperty :: Prelude.Type
 instance ToResourceProperties FormDataTypeConfigProperty
+instance Prelude.Eq FormDataTypeConfigProperty
+instance Prelude.Show FormDataTypeConfigProperty
 instance JSON.ToJSON FormDataTypeConfigProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SourceSegmentsProperty
   = SourceSegmentsProperty {id :: (Value Prelude.Text),
                             version :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceSegmentsProperty ::
   Value Prelude.Text -> SourceSegmentsProperty
 mkSourceSegmentsProperty id

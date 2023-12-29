@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ConditionalFormattingSolidColorProperty
   = ConditionalFormattingSolidColorProperty {color :: (Prelude.Maybe (Value Prelude.Text)),
                                              expression :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionalFormattingSolidColorProperty ::
   Value Prelude.Text -> ConditionalFormattingSolidColorProperty
 mkConditionalFormattingSolidColorProperty expression

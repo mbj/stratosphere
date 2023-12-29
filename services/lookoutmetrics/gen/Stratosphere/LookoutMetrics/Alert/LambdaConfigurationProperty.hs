@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LambdaConfigurationProperty
   = LambdaConfigurationProperty {lambdaArn :: (Value Prelude.Text),
                                  roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> LambdaConfigurationProperty

@@ -25,6 +25,7 @@ data MatchmakingConfiguration
                               requestTimeoutSeconds :: (Value Prelude.Integer),
                               ruleSetName :: (Value Prelude.Text),
                               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchmakingConfiguration ::
   Value Prelude.Bool
   -> Value Prelude.Text

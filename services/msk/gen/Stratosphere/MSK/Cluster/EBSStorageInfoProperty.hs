@@ -11,6 +11,7 @@ import Stratosphere.Value
 data EBSStorageInfoProperty
   = EBSStorageInfoProperty {provisionedThroughput :: (Prelude.Maybe ProvisionedThroughputProperty),
                             volumeSize :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEBSStorageInfoProperty :: EBSStorageInfoProperty
 mkEBSStorageInfoProperty
   = EBSStorageInfoProperty

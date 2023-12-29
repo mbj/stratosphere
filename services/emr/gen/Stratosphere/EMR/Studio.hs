@@ -21,6 +21,7 @@ data Studio
             userRole :: (Prelude.Maybe (Value Prelude.Text)),
             vpcId :: (Value Prelude.Text),
             workspaceSecurityGroupId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStudio ::
   Value Prelude.Text
   -> Value Prelude.Text

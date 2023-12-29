@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomPayloadProperty
   = CustomPayloadProperty {value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPayloadProperty ::
   Value Prelude.Text -> CustomPayloadProperty
 mkCustomPayloadProperty value

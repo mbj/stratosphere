@@ -11,6 +11,7 @@ data LoRaWANProperty
                      numberOfDevicesInGroup :: (Prelude.Maybe (Value Prelude.Integer)),
                      numberOfDevicesRequested :: (Prelude.Maybe (Value Prelude.Integer)),
                      rfRegion :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANProperty ::
   Value Prelude.Text -> Value Prelude.Text -> LoRaWANProperty
 mkLoRaWANProperty dlClass rfRegion

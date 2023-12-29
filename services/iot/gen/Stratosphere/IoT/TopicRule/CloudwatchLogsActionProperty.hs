@@ -10,6 +10,7 @@ data CloudwatchLogsActionProperty
   = CloudwatchLogsActionProperty {batchMode :: (Prelude.Maybe (Value Prelude.Bool)),
                                   logGroupName :: (Value Prelude.Text),
                                   roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudwatchLogsActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> CloudwatchLogsActionProperty

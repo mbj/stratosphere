@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data TagAssociation
   = TagAssociation {lFTags :: [LFTagPairProperty],
                     resource :: ResourceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTagAssociation ::
   [LFTagPairProperty] -> ResourceProperty -> TagAssociation
 mkTagAssociation lFTags resource

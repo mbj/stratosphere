@@ -12,6 +12,7 @@ data EndpointAccess
                     resourceOwner :: (Prelude.Maybe (Value Prelude.Text)),
                     subnetGroupName :: (Value Prelude.Text),
                     vpcSecurityGroupIds :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointAccess ::
   Value Prelude.Text
   -> Value Prelude.Text

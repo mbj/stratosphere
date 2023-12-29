@@ -15,6 +15,7 @@ data TransitGatewayRouteTableRouteProperty
                                            resourceType :: (Prelude.Maybe (Value Prelude.Text)),
                                            routeOrigin :: (Prelude.Maybe (Value Prelude.Text)),
                                            state :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayRouteTableRouteProperty ::
   TransitGatewayRouteTableRouteProperty
 mkTransitGatewayRouteTableRouteProperty

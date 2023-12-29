@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ServiceCatalogProvisionedProductDetailsProperty :: Prelude.Type
 instance ToResourceProperties ServiceCatalogProvisionedProductDetailsProperty
+instance Prelude.Eq ServiceCatalogProvisionedProductDetailsProperty
+instance Prelude.Show ServiceCatalogProvisionedProductDetailsProperty
 instance JSON.ToJSON ServiceCatalogProvisionedProductDetailsProperty

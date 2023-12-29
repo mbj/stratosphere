@@ -10,6 +10,7 @@ data UserAndGroupQuotasProperty
   = UserAndGroupQuotasProperty {id :: (Value Prelude.Integer),
                                 storageCapacityQuotaGiB :: (Value Prelude.Integer),
                                 type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserAndGroupQuotasProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer

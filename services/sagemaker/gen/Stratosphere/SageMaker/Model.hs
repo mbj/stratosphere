@@ -19,6 +19,7 @@ data Model
            primaryContainer :: (Prelude.Maybe ContainerDefinitionProperty),
            tags :: (Prelude.Maybe [Tag]),
            vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModel :: Value Prelude.Text -> Model
 mkModel executionRoleArn
   = Model

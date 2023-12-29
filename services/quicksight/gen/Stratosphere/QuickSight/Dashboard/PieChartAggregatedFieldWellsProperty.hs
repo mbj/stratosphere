@@ -12,6 +12,7 @@ data PieChartAggregatedFieldWellsProperty
   = PieChartAggregatedFieldWellsProperty {category :: (Prelude.Maybe [DimensionFieldProperty]),
                                           smallMultiples :: (Prelude.Maybe [DimensionFieldProperty]),
                                           values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPieChartAggregatedFieldWellsProperty ::
   PieChartAggregatedFieldWellsProperty
 mkPieChartAggregatedFieldWellsProperty

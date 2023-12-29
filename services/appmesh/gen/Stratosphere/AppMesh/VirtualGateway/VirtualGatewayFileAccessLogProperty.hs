@@ -11,6 +11,7 @@ import Stratosphere.Value
 data VirtualGatewayFileAccessLogProperty
   = VirtualGatewayFileAccessLogProperty {format :: (Prelude.Maybe LoggingFormatProperty),
                                          path :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayFileAccessLogProperty ::
   Value Prelude.Text -> VirtualGatewayFileAccessLogProperty
 mkVirtualGatewayFileAccessLogProperty path

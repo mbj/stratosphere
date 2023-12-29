@@ -22,6 +22,7 @@ data LambdaConfigProperty
                           preTokenGeneration :: (Prelude.Maybe (Value Prelude.Text)),
                           userMigration :: (Prelude.Maybe (Value Prelude.Text)),
                           verifyAuthChallengeResponse :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaConfigProperty :: LambdaConfigProperty
 mkLambdaConfigProperty
   = LambdaConfigProperty

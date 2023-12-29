@@ -15,6 +15,7 @@ data Solution
               performHPO :: (Prelude.Maybe (Value Prelude.Bool)),
               recipeArn :: (Prelude.Maybe (Value Prelude.Text)),
               solutionConfig :: (Prelude.Maybe SolutionConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSolution :: Value Prelude.Text -> Value Prelude.Text -> Solution
 mkSolution datasetGroupArn name
   = Solution

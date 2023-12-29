@@ -12,6 +12,7 @@ data SlotValueOverrideProperty
   = SlotValueOverrideProperty {shape :: (Prelude.Maybe (Value Prelude.Text)),
                                value :: (Prelude.Maybe SlotValueProperty),
                                values :: (Prelude.Maybe [SlotValueOverrideProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueOverrideProperty :: SlotValueOverrideProperty
 mkSlotValueOverrideProperty
   = SlotValueOverrideProperty

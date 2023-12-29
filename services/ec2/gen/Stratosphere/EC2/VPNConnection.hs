@@ -16,6 +16,7 @@ data VPNConnection
                    type' :: (Value Prelude.Text),
                    vpnGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
                    vpnTunnelOptionsSpecifications :: (Prelude.Maybe [VpnTunnelOptionsSpecificationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPNConnection ::
   Value Prelude.Text -> Value Prelude.Text -> VPNConnection
 mkVPNConnection customerGatewayId type'

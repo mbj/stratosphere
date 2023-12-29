@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ActionProperty
   = ActionProperty {crossRegionCopy :: [CrossRegionCopyActionProperty],
                     name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty ::
   [CrossRegionCopyActionProperty]
   -> Value Prelude.Text -> ActionProperty

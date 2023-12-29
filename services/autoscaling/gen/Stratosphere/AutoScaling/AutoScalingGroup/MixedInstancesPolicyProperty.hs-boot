@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MixedInstancesPolicyProperty :: Prelude.Type
 instance ToResourceProperties MixedInstancesPolicyProperty
+instance Prelude.Eq MixedInstancesPolicyProperty
+instance Prelude.Show MixedInstancesPolicyProperty
 instance JSON.ToJSON MixedInstancesPolicyProperty

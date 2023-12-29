@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InAppMessageButtonProperty :: Prelude.Type
 instance ToResourceProperties InAppMessageButtonProperty
+instance Prelude.Eq InAppMessageButtonProperty
+instance Prelude.Show InAppMessageButtonProperty
 instance JSON.ToJSON InAppMessageButtonProperty

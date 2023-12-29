@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CustomRequestHandlingProperty
 import Stratosphere.ResourceProperties
 data ChallengeActionProperty
   = ChallengeActionProperty {customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChallengeActionProperty :: ChallengeActionProperty
 mkChallengeActionProperty
   = ChallengeActionProperty {customRequestHandling = Prelude.Nothing}

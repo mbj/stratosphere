@@ -11,6 +11,7 @@ data BodyS3LocationProperty
                             etag :: (Prelude.Maybe (Value Prelude.Text)),
                             key :: (Prelude.Maybe (Value Prelude.Text)),
                             version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBodyS3LocationProperty :: BodyS3LocationProperty
 mkBodyS3LocationProperty
   = BodyS3LocationProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActivityMetricsProperty
   = ActivityMetricsProperty {isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActivityMetricsProperty :: ActivityMetricsProperty
 mkActivityMetricsProperty
   = ActivityMetricsProperty {isEnabled = Prelude.Nothing}

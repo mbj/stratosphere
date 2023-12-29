@@ -15,6 +15,7 @@ data FargateProfile
                     selectors :: [SelectorProperty],
                     subnets :: (Prelude.Maybe (ValueList Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFargateProfile ::
   Value Prelude.Text
   -> Value Prelude.Text -> [SelectorProperty] -> FargateProfile

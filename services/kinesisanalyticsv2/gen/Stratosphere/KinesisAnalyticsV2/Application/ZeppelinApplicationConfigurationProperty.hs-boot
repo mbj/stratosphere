@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ZeppelinApplicationConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ZeppelinApplicationConfigurationProperty
+instance Prelude.Eq ZeppelinApplicationConfigurationProperty
+instance Prelude.Show ZeppelinApplicationConfigurationProperty
 instance JSON.ToJSON ZeppelinApplicationConfigurationProperty

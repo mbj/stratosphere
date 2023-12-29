@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TumblingWindowProperty :: Prelude.Type
 instance ToResourceProperties TumblingWindowProperty
+instance Prelude.Eq TumblingWindowProperty
+instance Prelude.Show TumblingWindowProperty
 instance JSON.ToJSON TumblingWindowProperty

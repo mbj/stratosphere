@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.DataBarsOptionsProperty 
 import Stratosphere.ResourceProperties
 data TableInlineVisualizationProperty
   = TableInlineVisualizationProperty {dataBars :: (Prelude.Maybe DataBarsOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableInlineVisualizationProperty ::
   TableInlineVisualizationProperty
 mkTableInlineVisualizationProperty

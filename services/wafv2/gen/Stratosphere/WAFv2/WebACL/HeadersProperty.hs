@@ -11,6 +11,7 @@ data HeadersProperty
   = HeadersProperty {matchPattern :: HeaderMatchPatternProperty,
                      matchScope :: (Value Prelude.Text),
                      oversizeHandling :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeadersProperty ::
   HeaderMatchPatternProperty
   -> Value Prelude.Text -> Value Prelude.Text -> HeadersProperty

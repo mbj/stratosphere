@@ -12,6 +12,7 @@ data RowLevelPermissionTagRuleProperty
                                        matchAllValue :: (Prelude.Maybe (Value Prelude.Text)),
                                        tagKey :: (Value Prelude.Text),
                                        tagMultiValueDelimiter :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRowLevelPermissionTagRuleProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> RowLevelPermissionTagRuleProperty

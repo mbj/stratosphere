@@ -14,6 +14,7 @@ data InferenceSpecificationProperty
                                     supportedRealtimeInferenceInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                     supportedResponseMIMETypes :: (ValueList Prelude.Text),
                                     supportedTransformInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceSpecificationProperty ::
   [ModelPackageContainerDefinitionProperty]
   -> ValueList Prelude.Text

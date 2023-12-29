@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MachineLearningDetectionConfigProperty :: Prelude.Type
 instance ToResourceProperties MachineLearningDetectionConfigProperty
+instance Prelude.Eq MachineLearningDetectionConfigProperty
+instance Prelude.Show MachineLearningDetectionConfigProperty
 instance JSON.ToJSON MachineLearningDetectionConfigProperty

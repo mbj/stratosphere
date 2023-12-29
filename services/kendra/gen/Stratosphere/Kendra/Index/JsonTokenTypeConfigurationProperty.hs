@@ -10,6 +10,7 @@ import Stratosphere.Value
 data JsonTokenTypeConfigurationProperty
   = JsonTokenTypeConfigurationProperty {groupAttributeField :: (Value Prelude.Text),
                                         userNameAttributeField :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonTokenTypeConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> JsonTokenTypeConfigurationProperty

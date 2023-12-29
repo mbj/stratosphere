@@ -15,6 +15,7 @@ data Configuration
                    engineVersion :: (Value Prelude.Text),
                    name :: (Value Prelude.Text),
                    tags :: (Prelude.Maybe [TagsEntryProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguration ::
   Value Prelude.Text
   -> Value Prelude.Text

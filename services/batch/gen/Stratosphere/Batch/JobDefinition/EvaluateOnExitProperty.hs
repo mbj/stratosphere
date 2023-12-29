@@ -11,6 +11,7 @@ data EvaluateOnExitProperty
                             onExitCode :: (Prelude.Maybe (Value Prelude.Text)),
                             onReason :: (Prelude.Maybe (Value Prelude.Text)),
                             onStatusReason :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluateOnExitProperty ::
   Value Prelude.Text -> EvaluateOnExitProperty
 mkEvaluateOnExitProperty action

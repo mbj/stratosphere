@@ -14,6 +14,7 @@ data PrefixList
                 maxEntries :: (Value Prelude.Integer),
                 prefixListName :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrefixList ::
   Value Prelude.Text
   -> Value Prelude.Integer -> Value Prelude.Text -> PrefixList

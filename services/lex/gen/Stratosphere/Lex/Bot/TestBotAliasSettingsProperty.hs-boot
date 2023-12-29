@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TestBotAliasSettingsProperty :: Prelude.Type
 instance ToResourceProperties TestBotAliasSettingsProperty
+instance Prelude.Eq TestBotAliasSettingsProperty
+instance Prelude.Show TestBotAliasSettingsProperty
 instance JSON.ToJSON TestBotAliasSettingsProperty

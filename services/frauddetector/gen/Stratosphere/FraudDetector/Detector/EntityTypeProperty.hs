@@ -15,6 +15,7 @@ data EntityTypeProperty
                         lastUpdatedTime :: (Prelude.Maybe (Value Prelude.Text)),
                         name :: (Prelude.Maybe (Value Prelude.Text)),
                         tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityTypeProperty :: EntityTypeProperty
 mkEntityTypeProperty
   = EntityTypeProperty

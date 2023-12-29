@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DecodeConfigProperty :: Prelude.Type
 instance ToResourceProperties DecodeConfigProperty
+instance Prelude.Eq DecodeConfigProperty
+instance Prelude.Show DecodeConfigProperty
 instance JSON.ToJSON DecodeConfigProperty

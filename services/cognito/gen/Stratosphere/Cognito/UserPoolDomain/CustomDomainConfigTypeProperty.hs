@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomDomainConfigTypeProperty
   = CustomDomainConfigTypeProperty {certificateArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomDomainConfigTypeProperty :: CustomDomainConfigTypeProperty
 mkCustomDomainConfigTypeProperty
   = CustomDomainConfigTypeProperty {certificateArn = Prelude.Nothing}

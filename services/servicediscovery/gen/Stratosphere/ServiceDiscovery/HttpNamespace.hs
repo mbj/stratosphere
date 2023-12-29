@@ -11,6 +11,7 @@ data HttpNamespace
   = HttpNamespace {description :: (Prelude.Maybe (Value Prelude.Text)),
                    name :: (Value Prelude.Text),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpNamespace :: Value Prelude.Text -> HttpNamespace
 mkHttpNamespace name
   = HttpNamespace

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EksContainerEnvironmentVariableProperty
   = EksContainerEnvironmentVariableProperty {name :: (Value Prelude.Text),
                                              value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksContainerEnvironmentVariableProperty ::
   Value Prelude.Text -> EksContainerEnvironmentVariableProperty
 mkEksContainerEnvironmentVariableProperty name

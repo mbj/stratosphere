@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConnectAttachmentOptionsProperty :: Prelude.Type
 instance ToResourceProperties ConnectAttachmentOptionsProperty
+instance Prelude.Eq ConnectAttachmentOptionsProperty
+instance Prelude.Show ConnectAttachmentOptionsProperty
 instance JSON.ToJSON ConnectAttachmentOptionsProperty

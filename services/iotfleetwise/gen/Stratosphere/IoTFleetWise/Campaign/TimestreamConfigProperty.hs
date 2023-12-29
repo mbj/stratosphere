@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TimestreamConfigProperty
   = TimestreamConfigProperty {executionRoleArn :: (Value Prelude.Text),
                               timestreamTableArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestreamConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> TimestreamConfigProperty

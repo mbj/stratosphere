@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DefaultPushNotificationTemplateProperty :: Prelude.Type
 instance ToResourceProperties DefaultPushNotificationTemplateProperty
+instance Prelude.Eq DefaultPushNotificationTemplateProperty
+instance Prelude.Show DefaultPushNotificationTemplateProperty
 instance JSON.ToJSON DefaultPushNotificationTemplateProperty

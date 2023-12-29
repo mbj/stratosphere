@@ -12,6 +12,7 @@ data ResizeClusterMessageProperty
                                   clusterType :: (Prelude.Maybe (Value Prelude.Text)),
                                   nodeType :: (Prelude.Maybe (Value Prelude.Text)),
                                   numberOfNodes :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResizeClusterMessageProperty ::
   Value Prelude.Text -> ResizeClusterMessageProperty
 mkResizeClusterMessageProperty clusterIdentifier

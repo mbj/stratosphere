@@ -11,6 +11,7 @@ data Label
   = Label {description :: (Prelude.Maybe (Value Prelude.Text)),
            name :: (Value Prelude.Text),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLabel :: Value Prelude.Text -> Label
 mkLabel name
   = Label

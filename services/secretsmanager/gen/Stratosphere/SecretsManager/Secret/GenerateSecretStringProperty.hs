@@ -17,6 +17,7 @@ data GenerateSecretStringProperty
                                   passwordLength :: (Prelude.Maybe (Value Prelude.Integer)),
                                   requireEachIncludedType :: (Prelude.Maybe (Value Prelude.Bool)),
                                   secretStringTemplate :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGenerateSecretStringProperty :: GenerateSecretStringProperty
 mkGenerateSecretStringProperty
   = GenerateSecretStringProperty

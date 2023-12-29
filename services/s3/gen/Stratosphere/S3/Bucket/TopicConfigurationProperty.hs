@@ -12,6 +12,7 @@ data TopicConfigurationProperty
   = TopicConfigurationProperty {event :: (Value Prelude.Text),
                                 filter :: (Prelude.Maybe NotificationFilterProperty),
                                 topic :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> TopicConfigurationProperty

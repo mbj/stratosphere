@@ -11,6 +11,7 @@ data Placement
                attributes :: (Prelude.Maybe JSON.Object),
                placementName :: (Prelude.Maybe (Value Prelude.Text)),
                projectName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacement :: Value Prelude.Text -> Placement
 mkPlacement projectName
   = Placement

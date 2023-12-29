@@ -11,6 +11,7 @@ data FirehoseProperty
   = FirehoseProperty {deliveryStreamName :: (Value Prelude.Text),
                       payload :: (Prelude.Maybe PayloadProperty),
                       separator :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirehoseProperty :: Value Prelude.Text -> FirehoseProperty
 mkFirehoseProperty deliveryStreamName
   = FirehoseProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CalculatedMeasureFieldProperty
   = CalculatedMeasureFieldProperty {expression :: (Value Prelude.Text),
                                     fieldId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCalculatedMeasureFieldProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> CalculatedMeasureFieldProperty

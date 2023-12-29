@@ -10,6 +10,7 @@ data RecordColumnProperty
   = RecordColumnProperty {mapping :: (Prelude.Maybe (Value Prelude.Text)),
                           name :: (Value Prelude.Text),
                           sqlType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordColumnProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RecordColumnProperty
 mkRecordColumnProperty name sqlType

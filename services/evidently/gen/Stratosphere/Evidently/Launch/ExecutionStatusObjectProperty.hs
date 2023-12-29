@@ -10,6 +10,7 @@ data ExecutionStatusObjectProperty
   = ExecutionStatusObjectProperty {desiredState :: (Prelude.Maybe (Value Prelude.Text)),
                                    reason :: (Prelude.Maybe (Value Prelude.Text)),
                                    status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionStatusObjectProperty ::
   Value Prelude.Text -> ExecutionStatusObjectProperty
 mkExecutionStatusObjectProperty status

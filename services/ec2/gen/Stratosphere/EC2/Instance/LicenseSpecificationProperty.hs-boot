@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LicenseSpecificationProperty :: Prelude.Type
 instance ToResourceProperties LicenseSpecificationProperty
+instance Prelude.Eq LicenseSpecificationProperty
+instance Prelude.Show LicenseSpecificationProperty
 instance JSON.ToJSON LicenseSpecificationProperty

@@ -12,6 +12,7 @@ data S3DestinationProperty
                            bucketRegion :: (Value Prelude.Text),
                            kMSKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                            syncFormat :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EventSourceProperty
   = EventSourceProperty {parameters :: (Prelude.Maybe EventParametersProperty),
                          type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventSourceProperty :: Value Prelude.Text -> EventSourceProperty
 mkEventSourceProperty type'
   = EventSourceProperty {type' = type', parameters = Prelude.Nothing}

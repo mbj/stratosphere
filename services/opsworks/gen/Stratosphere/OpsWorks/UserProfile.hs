@@ -11,6 +11,7 @@ data UserProfile
                  iamUserArn :: (Value Prelude.Text),
                  sshPublicKey :: (Prelude.Maybe (Value Prelude.Text)),
                  sshUsername :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserProfile :: Value Prelude.Text -> UserProfile
 mkUserProfile iamUserArn
   = UserProfile

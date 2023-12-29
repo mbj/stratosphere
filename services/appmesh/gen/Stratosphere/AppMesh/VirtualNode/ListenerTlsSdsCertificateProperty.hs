@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ListenerTlsSdsCertificateProperty
   = ListenerTlsSdsCertificateProperty {secretName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsSdsCertificateProperty ::
   Value Prelude.Text -> ListenerTlsSdsCertificateProperty
 mkListenerTlsSdsCertificateProperty secretName

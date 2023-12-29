@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ComponentRunWithProperty :: Prelude.Type
 instance ToResourceProperties ComponentRunWithProperty
+instance Prelude.Eq ComponentRunWithProperty
+instance Prelude.Show ComponentRunWithProperty
 instance JSON.ToJSON ComponentRunWithProperty

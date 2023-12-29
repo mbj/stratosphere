@@ -11,6 +11,7 @@ data ScopeProperty
                    complianceResourceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                    tagKey :: (Prelude.Maybe (Value Prelude.Text)),
                    tagValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScopeProperty :: ScopeProperty
 mkScopeProperty
   = ScopeProperty

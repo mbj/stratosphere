@@ -13,6 +13,7 @@ data AutomaticInputFailoverSettingsProperty
                                             failoverConditions :: (Prelude.Maybe [FailoverConditionProperty]),
                                             inputPreference :: (Prelude.Maybe (Value Prelude.Text)),
                                             secondaryInputId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutomaticInputFailoverSettingsProperty ::
   AutomaticInputFailoverSettingsProperty
 mkAutomaticInputFailoverSettingsProperty

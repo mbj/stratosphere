@@ -11,6 +11,7 @@ data OrganizationalUnit
   = OrganizationalUnit {name :: (Value Prelude.Text),
                         parentId :: (Value Prelude.Text),
                         tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationalUnit ::
   Value Prelude.Text -> Value Prelude.Text -> OrganizationalUnit
 mkOrganizationalUnit name parentId

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DatastorePartitionProperty
   = DatastorePartitionProperty {partition :: (Prelude.Maybe PartitionProperty),
                                 timestampPartition :: (Prelude.Maybe TimestampPartitionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatastorePartitionProperty :: DatastorePartitionProperty
 mkDatastorePartitionProperty
   = DatastorePartitionProperty

@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
-data Project = Project {projectName :: (Value Prelude.Text)}
+data Project
+  = Project {projectName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProject :: Value Prelude.Text -> Project
 mkProject projectName = Project {projectName = projectName}
 instance ToResourceProperties Project where

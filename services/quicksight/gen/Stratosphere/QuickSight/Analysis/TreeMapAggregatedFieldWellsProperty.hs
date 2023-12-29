@@ -12,6 +12,7 @@ data TreeMapAggregatedFieldWellsProperty
   = TreeMapAggregatedFieldWellsProperty {colors :: (Prelude.Maybe [MeasureFieldProperty]),
                                          groups :: (Prelude.Maybe [DimensionFieldProperty]),
                                          sizes :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTreeMapAggregatedFieldWellsProperty ::
   TreeMapAggregatedFieldWellsProperty
 mkTreeMapAggregatedFieldWellsProperty

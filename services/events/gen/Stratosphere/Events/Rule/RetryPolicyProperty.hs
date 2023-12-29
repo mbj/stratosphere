@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RetryPolicyProperty
   = RetryPolicyProperty {maximumEventAgeInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          maximumRetryAttempts :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRetryPolicyProperty :: RetryPolicyProperty
 mkRetryPolicyProperty
   = RetryPolicyProperty

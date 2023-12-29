@@ -13,6 +13,7 @@ data LoadBalancerTlsCertificate
                                 httpsRedirectionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                 isAttached :: (Prelude.Maybe (Value Prelude.Bool)),
                                 loadBalancerName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancerTlsCertificate ::
   Value Prelude.Text
   -> Value Prelude.Text

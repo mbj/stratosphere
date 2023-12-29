@@ -14,6 +14,7 @@ data MeasureFieldProperty
                           categoricalMeasureField :: (Prelude.Maybe CategoricalMeasureFieldProperty),
                           dateMeasureField :: (Prelude.Maybe DateMeasureFieldProperty),
                           numericalMeasureField :: (Prelude.Maybe NumericalMeasureFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMeasureFieldProperty :: MeasureFieldProperty
 mkMeasureFieldProperty
   = MeasureFieldProperty

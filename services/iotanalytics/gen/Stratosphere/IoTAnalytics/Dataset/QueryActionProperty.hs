@@ -10,6 +10,7 @@ import Stratosphere.Value
 data QueryActionProperty
   = QueryActionProperty {filters :: (Prelude.Maybe [FilterProperty]),
                          sqlQuery :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryActionProperty :: Value Prelude.Text -> QueryActionProperty
 mkQueryActionProperty sqlQuery
   = QueryActionProperty

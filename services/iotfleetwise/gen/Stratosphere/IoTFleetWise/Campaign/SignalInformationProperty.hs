@@ -10,6 +10,7 @@ data SignalInformationProperty
   = SignalInformationProperty {maxSampleCount :: (Prelude.Maybe (Value Prelude.Double)),
                                minimumSamplingIntervalMs :: (Prelude.Maybe (Value Prelude.Double)),
                                name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSignalInformationProperty ::
   Value Prelude.Text -> SignalInformationProperty
 mkSignalInformationProperty name

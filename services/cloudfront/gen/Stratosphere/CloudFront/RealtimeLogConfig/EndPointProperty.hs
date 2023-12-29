@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EndPointProperty
   = EndPointProperty {kinesisStreamConfig :: KinesisStreamConfigProperty,
                       streamType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndPointProperty ::
   KinesisStreamConfigProperty
   -> Value Prelude.Text -> EndPointProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TotalLocalStorageGBProperty :: Prelude.Type
 instance ToResourceProperties TotalLocalStorageGBProperty
+instance Prelude.Eq TotalLocalStorageGBProperty
+instance Prelude.Show TotalLocalStorageGBProperty
 instance JSON.ToJSON TotalLocalStorageGBProperty

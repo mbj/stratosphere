@@ -16,6 +16,7 @@ data MySqlSettingsProperty
                            secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text)),
                            serverTimezone :: (Prelude.Maybe (Value Prelude.Text)),
                            targetDbType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMySqlSettingsProperty :: MySqlSettingsProperty
 mkMySqlSettingsProperty
   = MySqlSettingsProperty

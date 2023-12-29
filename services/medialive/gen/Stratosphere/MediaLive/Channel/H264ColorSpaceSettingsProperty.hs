@@ -13,6 +13,7 @@ data H264ColorSpaceSettingsProperty
   = H264ColorSpaceSettingsProperty {colorSpacePassthroughSettings :: (Prelude.Maybe ColorSpacePassthroughSettingsProperty),
                                     rec601Settings :: (Prelude.Maybe Rec601SettingsProperty),
                                     rec709Settings :: (Prelude.Maybe Rec709SettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkH264ColorSpaceSettingsProperty :: H264ColorSpaceSettingsProperty
 mkH264ColorSpaceSettingsProperty
   = H264ColorSpaceSettingsProperty

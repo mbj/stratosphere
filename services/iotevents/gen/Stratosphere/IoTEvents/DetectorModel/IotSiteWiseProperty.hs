@@ -13,6 +13,7 @@ data IotSiteWiseProperty
                          propertyAlias :: (Prelude.Maybe (Value Prelude.Text)),
                          propertyId :: (Prelude.Maybe (Value Prelude.Text)),
                          propertyValue :: AssetPropertyValueProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIotSiteWiseProperty ::
   AssetPropertyValueProperty -> IotSiteWiseProperty
 mkIotSiteWiseProperty propertyValue

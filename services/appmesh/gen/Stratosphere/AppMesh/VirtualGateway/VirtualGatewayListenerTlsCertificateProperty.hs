@@ -13,6 +13,7 @@ data VirtualGatewayListenerTlsCertificateProperty
   = VirtualGatewayListenerTlsCertificateProperty {aCM :: (Prelude.Maybe VirtualGatewayListenerTlsAcmCertificateProperty),
                                                   file :: (Prelude.Maybe VirtualGatewayListenerTlsFileCertificateProperty),
                                                   sDS :: (Prelude.Maybe VirtualGatewayListenerTlsSdsCertificateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsCertificateProperty ::
   VirtualGatewayListenerTlsCertificateProperty
 mkVirtualGatewayListenerTlsCertificateProperty

@@ -11,6 +11,7 @@ data LaunchGroupObjectProperty
                                feature :: (Value Prelude.Text),
                                groupName :: (Value Prelude.Text),
                                variation :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchGroupObjectProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

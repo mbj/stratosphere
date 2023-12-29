@@ -11,6 +11,7 @@ import Stratosphere.Value
 data BootstrapActionConfigProperty
   = BootstrapActionConfigProperty {name :: (Value Prelude.Text),
                                    scriptBootstrapAction :: ScriptBootstrapActionConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBootstrapActionConfigProperty ::
   Value Prelude.Text
   -> ScriptBootstrapActionConfigProperty

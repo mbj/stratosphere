@@ -14,6 +14,7 @@ data DynamoDBConfigProperty
                             tableName :: (Value Prelude.Text),
                             useCallerCredentials :: (Prelude.Maybe (Value Prelude.Bool)),
                             versioned :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDynamoDBConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> DynamoDBConfigProperty
 mkDynamoDBConfigProperty awsRegion tableName

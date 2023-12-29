@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PivotTablePaginatedReportOptionsProperty
   = PivotTablePaginatedReportOptionsProperty {overflowColumnHeaderVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                                               verticalOverflowVisibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTablePaginatedReportOptionsProperty ::
   PivotTablePaginatedReportOptionsProperty
 mkPivotTablePaginatedReportOptionsProperty

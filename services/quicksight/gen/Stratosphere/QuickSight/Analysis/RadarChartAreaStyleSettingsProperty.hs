@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RadarChartAreaStyleSettingsProperty
   = RadarChartAreaStyleSettingsProperty {visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRadarChartAreaStyleSettingsProperty ::
   RadarChartAreaStyleSettingsProperty
 mkRadarChartAreaStyleSettingsProperty

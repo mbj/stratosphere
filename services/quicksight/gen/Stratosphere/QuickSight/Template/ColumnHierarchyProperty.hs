@@ -13,6 +13,7 @@ data ColumnHierarchyProperty
   = ColumnHierarchyProperty {dateTimeHierarchy :: (Prelude.Maybe DateTimeHierarchyProperty),
                              explicitHierarchy :: (Prelude.Maybe ExplicitHierarchyProperty),
                              predefinedHierarchy :: (Prelude.Maybe PredefinedHierarchyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnHierarchyProperty :: ColumnHierarchyProperty
 mkColumnHierarchyProperty
   = ColumnHierarchyProperty

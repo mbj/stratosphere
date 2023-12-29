@@ -20,6 +20,7 @@ data Schedule
               startDate :: (Prelude.Maybe (Value Prelude.Text)),
               state :: (Prelude.Maybe (Value Prelude.Text)),
               target :: TargetProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchedule ::
   FlexibleTimeWindowProperty
   -> Value Prelude.Text -> TargetProperty -> Schedule

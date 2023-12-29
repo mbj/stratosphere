@@ -19,6 +19,7 @@ data BackupRuleResourceTypeProperty
                                     scheduleExpression :: (Prelude.Maybe (Value Prelude.Text)),
                                     startWindowMinutes :: (Prelude.Maybe (Value Prelude.Double)),
                                     targetBackupVault :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupRuleResourceTypeProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> BackupRuleResourceTypeProperty

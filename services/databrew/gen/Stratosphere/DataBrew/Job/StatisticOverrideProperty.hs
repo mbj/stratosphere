@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StatisticOverrideProperty
   = StatisticOverrideProperty {parameters :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
                                statistic :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatisticOverrideProperty ::
   Prelude.Map Prelude.Text (Value Prelude.Text)
   -> Value Prelude.Text -> StatisticOverrideProperty

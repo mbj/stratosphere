@@ -13,6 +13,7 @@ data S3DestinationConfigurationProperty
                                         glueConfiguration :: (Prelude.Maybe GlueConfigurationProperty),
                                         key :: (Value Prelude.Text),
                                         roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

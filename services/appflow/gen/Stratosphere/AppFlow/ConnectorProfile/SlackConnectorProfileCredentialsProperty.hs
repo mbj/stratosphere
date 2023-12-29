@@ -13,6 +13,7 @@ data SlackConnectorProfileCredentialsProperty
                                               clientId :: (Value Prelude.Text),
                                               clientSecret :: (Value Prelude.Text),
                                               connectorOAuthRequest :: (Prelude.Maybe ConnectorOAuthRequestProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlackConnectorProfileCredentialsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SlackConnectorProfileCredentialsProperty

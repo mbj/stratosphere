@@ -11,6 +11,7 @@ import Stratosphere.Value
 data OnlineStoreConfigProperty
   = OnlineStoreConfigProperty {enableOnlineStore :: (Prelude.Maybe (Value Prelude.Bool)),
                                securityConfig :: (Prelude.Maybe OnlineStoreSecurityConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOnlineStoreConfigProperty :: OnlineStoreConfigProperty
 mkOnlineStoreConfigProperty
   = OnlineStoreConfigProperty

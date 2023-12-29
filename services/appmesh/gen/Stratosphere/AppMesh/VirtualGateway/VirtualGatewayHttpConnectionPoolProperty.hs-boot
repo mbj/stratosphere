@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VirtualGatewayHttpConnectionPoolProperty :: Prelude.Type
 instance ToResourceProperties VirtualGatewayHttpConnectionPoolProperty
+instance Prelude.Eq VirtualGatewayHttpConnectionPoolProperty
+instance Prelude.Show VirtualGatewayHttpConnectionPoolProperty
 instance JSON.ToJSON VirtualGatewayHttpConnectionPoolProperty

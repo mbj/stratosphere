@@ -11,6 +11,7 @@ import Stratosphere.Value
 data HttpEndpointRequestConfigurationProperty
   = HttpEndpointRequestConfigurationProperty {commonAttributes :: (Prelude.Maybe [HttpEndpointCommonAttributeProperty]),
                                               contentEncoding :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpEndpointRequestConfigurationProperty ::
   HttpEndpointRequestConfigurationProperty
 mkHttpEndpointRequestConfigurationProperty

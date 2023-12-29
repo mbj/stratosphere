@@ -12,6 +12,7 @@ data LimitsProperty
                     messagesPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
                     session :: (Prelude.Maybe (Value Prelude.Integer)),
                     total :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLimitsProperty :: LimitsProperty
 mkLimitsProperty
   = LimitsProperty

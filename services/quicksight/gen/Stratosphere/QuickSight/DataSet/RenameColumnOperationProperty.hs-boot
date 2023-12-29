@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RenameColumnOperationProperty :: Prelude.Type
 instance ToResourceProperties RenameColumnOperationProperty
+instance Prelude.Eq RenameColumnOperationProperty
+instance Prelude.Show RenameColumnOperationProperty
 instance JSON.ToJSON RenameColumnOperationProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Thing
   = Thing {attributePayload :: (Prelude.Maybe AttributePayloadProperty),
            thingName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThing :: Thing
 mkThing
   = Thing

@@ -16,6 +16,7 @@ data BackupSelectionResourceTypeProperty
                                          notResources :: (Prelude.Maybe (ValueList Prelude.Text)),
                                          resources :: (Prelude.Maybe (ValueList Prelude.Text)),
                                          selectionName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBackupSelectionResourceTypeProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> BackupSelectionResourceTypeProperty

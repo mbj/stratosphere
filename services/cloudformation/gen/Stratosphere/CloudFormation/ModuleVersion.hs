@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ModuleVersion
   = ModuleVersion {moduleName :: (Value Prelude.Text),
                    modulePackage :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModuleVersion ::
   Value Prelude.Text -> Value Prelude.Text -> ModuleVersion
 mkModuleVersion moduleName modulePackage

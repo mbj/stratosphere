@@ -10,6 +10,7 @@ import Stratosphere.Value
 data FilterOperationSelectedFieldsConfigurationProperty
   = FilterOperationSelectedFieldsConfigurationProperty {selectedFieldOptions :: (Prelude.Maybe (Value Prelude.Text)),
                                                         selectedFields :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterOperationSelectedFieldsConfigurationProperty ::
   FilterOperationSelectedFieldsConfigurationProperty
 mkFilterOperationSelectedFieldsConfigurationProperty

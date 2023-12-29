@@ -15,6 +15,7 @@ data UdpOutputSettingsProperty
                                containerSettings :: (Prelude.Maybe UdpContainerSettingsProperty),
                                destination :: (Prelude.Maybe OutputLocationRefProperty),
                                fecOutputSettings :: (Prelude.Maybe FecOutputSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUdpOutputSettingsProperty :: UdpOutputSettingsProperty
 mkUdpOutputSettingsProperty
   = UdpOutputSettingsProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnGroupColumnSchemaProperty
   = ColumnGroupColumnSchemaProperty {name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnGroupColumnSchemaProperty ::
   ColumnGroupColumnSchemaProperty
 mkColumnGroupColumnSchemaProperty

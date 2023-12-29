@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PreloadDataConfigProperty
   = PreloadDataConfigProperty {preloadDataType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPreloadDataConfigProperty ::
   Value Prelude.Text -> PreloadDataConfigProperty
 mkPreloadDataConfigProperty preloadDataType

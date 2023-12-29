@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LogListProperty
   = LogListProperty {audit :: (Prelude.Maybe (Value Prelude.Bool)),
                      general :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogListProperty :: LogListProperty
 mkLogListProperty
   = LogListProperty

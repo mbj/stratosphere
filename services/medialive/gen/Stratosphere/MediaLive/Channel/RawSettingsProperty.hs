@@ -4,7 +4,9 @@ module Stratosphere.MediaLive.Channel.RawSettingsProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
-data RawSettingsProperty = RawSettingsProperty {}
+data RawSettingsProperty
+  = RawSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRawSettingsProperty :: RawSettingsProperty
 mkRawSettingsProperty = RawSettingsProperty {}
 instance ToResourceProperties RawSettingsProperty where

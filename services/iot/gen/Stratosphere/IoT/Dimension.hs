@@ -12,6 +12,7 @@ data Dimension
                stringValues :: (ValueList Prelude.Text),
                tags :: (Prelude.Maybe [Tag]),
                type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDimension ::
   ValueList Prelude.Text -> Value Prelude.Text -> Dimension
 mkDimension stringValues type'

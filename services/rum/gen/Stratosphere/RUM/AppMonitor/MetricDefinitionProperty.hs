@@ -13,6 +13,7 @@ data MetricDefinitionProperty
                               namespace :: (Prelude.Maybe (Value Prelude.Text)),
                               unitLabel :: (Prelude.Maybe (Value Prelude.Text)),
                               valueKey :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricDefinitionProperty ::
   Value Prelude.Text -> MetricDefinitionProperty
 mkMetricDefinitionProperty name

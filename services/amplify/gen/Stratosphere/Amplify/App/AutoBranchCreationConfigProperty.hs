@@ -21,6 +21,7 @@ data AutoBranchCreationConfigProperty
                                       framework :: (Prelude.Maybe (Value Prelude.Text)),
                                       pullRequestEnvironmentName :: (Prelude.Maybe (Value Prelude.Text)),
                                       stage :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoBranchCreationConfigProperty ::
   AutoBranchCreationConfigProperty
 mkAutoBranchCreationConfigProperty

@@ -15,6 +15,7 @@ data HoursOfOperation
                       name :: (Value Prelude.Text),
                       tags :: (Prelude.Maybe [Tag]),
                       timeZone :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHoursOfOperation ::
   [HoursOfOperationConfigProperty]
   -> Value Prelude.Text

@@ -19,6 +19,7 @@ data PipeTargetBatchJobParametersProperty
                                           jobName :: (Value Prelude.Text),
                                           parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                           retryStrategy :: (Prelude.Maybe BatchRetryStrategyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetBatchJobParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> PipeTargetBatchJobParametersProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GenerateSecretStringProperty :: Prelude.Type
 instance ToResourceProperties GenerateSecretStringProperty
+instance Prelude.Eq GenerateSecretStringProperty
+instance Prelude.Show GenerateSecretStringProperty
 instance JSON.ToJSON GenerateSecretStringProperty

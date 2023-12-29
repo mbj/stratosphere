@@ -14,6 +14,7 @@ data LaunchTemplateOverridesProperty
                                      instanceType :: (Prelude.Maybe (Value Prelude.Text)),
                                      launchTemplateSpecification :: (Prelude.Maybe LaunchTemplateSpecificationProperty),
                                      weightedCapacity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateOverridesProperty ::
   LaunchTemplateOverridesProperty
 mkLaunchTemplateOverridesProperty

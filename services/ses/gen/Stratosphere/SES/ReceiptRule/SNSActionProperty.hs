@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SNSActionProperty
   = SNSActionProperty {encoding :: (Prelude.Maybe (Value Prelude.Text)),
                        topicArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSNSActionProperty :: SNSActionProperty
 mkSNSActionProperty
   = SNSActionProperty

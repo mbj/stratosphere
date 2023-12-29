@@ -12,6 +12,7 @@ data RdsHttpEndpointConfigProperty
                                    databaseName :: (Prelude.Maybe (Value Prelude.Text)),
                                    dbClusterIdentifier :: (Value Prelude.Text),
                                    schema :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRdsHttpEndpointConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

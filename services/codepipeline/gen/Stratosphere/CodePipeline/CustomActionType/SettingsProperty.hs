@@ -11,6 +11,7 @@ data SettingsProperty
                       executionUrlTemplate :: (Prelude.Maybe (Value Prelude.Text)),
                       revisionUrlTemplate :: (Prelude.Maybe (Value Prelude.Text)),
                       thirdPartyConfigurationUrl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSettingsProperty :: SettingsProperty
 mkSettingsProperty
   = SettingsProperty

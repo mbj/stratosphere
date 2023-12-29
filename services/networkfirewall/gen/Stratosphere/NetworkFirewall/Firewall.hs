@@ -18,6 +18,7 @@ data Firewall
               subnetMappings :: [SubnetMappingProperty],
               tags :: (Prelude.Maybe [Tag]),
               vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewall ::
   Value Prelude.Text
   -> Value Prelude.Text

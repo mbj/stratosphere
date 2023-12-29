@@ -11,6 +11,7 @@ import Stratosphere.Value
 data NetworkInputSettingsProperty
   = NetworkInputSettingsProperty {hlsInputSettings :: (Prelude.Maybe HlsInputSettingsProperty),
                                   serverValidation :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInputSettingsProperty :: NetworkInputSettingsProperty
 mkNetworkInputSettingsProperty
   = NetworkInputSettingsProperty

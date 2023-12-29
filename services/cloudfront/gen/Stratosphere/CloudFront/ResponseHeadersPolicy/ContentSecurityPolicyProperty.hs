@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ContentSecurityPolicyProperty
   = ContentSecurityPolicyProperty {contentSecurityPolicy :: (Value Prelude.Text),
                                    override :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContentSecurityPolicyProperty ::
   Value Prelude.Text
   -> Value Prelude.Bool -> ContentSecurityPolicyProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RedshiftDestinationConfigurationProperty :: Prelude.Type
 instance ToResourceProperties RedshiftDestinationConfigurationProperty
+instance Prelude.Eq RedshiftDestinationConfigurationProperty
+instance Prelude.Show RedshiftDestinationConfigurationProperty
 instance JSON.ToJSON RedshiftDestinationConfigurationProperty

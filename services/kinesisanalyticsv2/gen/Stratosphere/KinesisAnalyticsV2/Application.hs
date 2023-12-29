@@ -20,6 +20,7 @@ data Application
                  runtimeEnvironment :: (Value Prelude.Text),
                  serviceExecutionRole :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication ::
   Value Prelude.Text -> Value Prelude.Text -> Application
 mkApplication runtimeEnvironment serviceExecutionRole

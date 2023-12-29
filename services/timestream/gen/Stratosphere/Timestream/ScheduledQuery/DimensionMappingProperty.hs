@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DimensionMappingProperty
   = DimensionMappingProperty {dimensionValueType :: (Value Prelude.Text),
                               name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDimensionMappingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DimensionMappingProperty

@@ -13,6 +13,7 @@ data ScalingRuleProperty
                          description :: (Prelude.Maybe (Value Prelude.Text)),
                          name :: (Value Prelude.Text),
                          trigger :: ScalingTriggerProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingRuleProperty ::
   ScalingActionProperty
   -> Value Prelude.Text

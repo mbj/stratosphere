@@ -9,6 +9,7 @@ import Stratosphere.Value
 data GeoRestrictionProperty
   = GeoRestrictionProperty {locations :: (Prelude.Maybe (ValueList Prelude.Text)),
                             restrictionType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeoRestrictionProperty ::
   Value Prelude.Text -> GeoRestrictionProperty
 mkGeoRestrictionProperty restrictionType

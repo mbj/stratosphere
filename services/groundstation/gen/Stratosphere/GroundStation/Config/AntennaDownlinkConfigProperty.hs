@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.GroundStation.Config.SpectrumConfigProperty a
 import Stratosphere.ResourceProperties
 data AntennaDownlinkConfigProperty
   = AntennaDownlinkConfigProperty {spectrumConfig :: (Prelude.Maybe SpectrumConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAntennaDownlinkConfigProperty :: AntennaDownlinkConfigProperty
 mkAntennaDownlinkConfigProperty
   = AntennaDownlinkConfigProperty {spectrumConfig = Prelude.Nothing}

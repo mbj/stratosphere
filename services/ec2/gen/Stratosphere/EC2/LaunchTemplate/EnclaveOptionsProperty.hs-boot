@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EnclaveOptionsProperty :: Prelude.Type
 instance ToResourceProperties EnclaveOptionsProperty
+instance Prelude.Eq EnclaveOptionsProperty
+instance Prelude.Show EnclaveOptionsProperty
 instance JSON.ToJSON EnclaveOptionsProperty

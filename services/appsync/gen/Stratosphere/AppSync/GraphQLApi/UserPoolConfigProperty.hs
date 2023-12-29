@@ -11,6 +11,7 @@ data UserPoolConfigProperty
                             awsRegion :: (Prelude.Maybe (Value Prelude.Text)),
                             defaultAction :: (Prelude.Maybe (Value Prelude.Text)),
                             userPoolId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolConfigProperty :: UserPoolConfigProperty
 mkUserPoolConfigProperty
   = UserPoolConfigProperty

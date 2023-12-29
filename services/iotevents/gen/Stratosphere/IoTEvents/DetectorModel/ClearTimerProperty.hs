@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClearTimerProperty
   = ClearTimerProperty {timerName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClearTimerProperty :: Value Prelude.Text -> ClearTimerProperty
 mkClearTimerProperty timerName
   = ClearTimerProperty {timerName = timerName}

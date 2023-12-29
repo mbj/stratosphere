@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Timestream.ScheduledQuery.SnsConfigurationPro
 import Stratosphere.ResourceProperties
 data NotificationConfigurationProperty
   = NotificationConfigurationProperty {snsConfiguration :: SnsConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigurationProperty ::
   SnsConfigurationProperty -> NotificationConfigurationProperty
 mkNotificationConfigurationProperty snsConfiguration

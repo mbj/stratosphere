@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SankeyDiagramSortConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SankeyDiagramSortConfigurationProperty
+instance Prelude.Eq SankeyDiagramSortConfigurationProperty
+instance Prelude.Show SankeyDiagramSortConfigurationProperty
 instance JSON.ToJSON SankeyDiagramSortConfigurationProperty

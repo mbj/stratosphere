@@ -19,6 +19,7 @@ data RemediationConfiguration
                               targetId :: (Value Prelude.Text),
                               targetType :: (Value Prelude.Text),
                               targetVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRemediationConfiguration ::
   Value Prelude.Text
   -> Value Prelude.Text

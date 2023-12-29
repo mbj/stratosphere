@@ -18,6 +18,7 @@ data HttpRouteMatchProperty
                             prefix :: (Prelude.Maybe (Value Prelude.Text)),
                             queryParameters :: (Prelude.Maybe [QueryParameterProperty]),
                             scheme :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpRouteMatchProperty :: HttpRouteMatchProperty
 mkHttpRouteMatchProperty
   = HttpRouteMatchProperty

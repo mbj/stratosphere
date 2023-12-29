@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DataLocationResourceProperty
   = DataLocationResourceProperty {catalogId :: (Value Prelude.Text),
                                   resourceArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataLocationResourceProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DataLocationResourceProperty

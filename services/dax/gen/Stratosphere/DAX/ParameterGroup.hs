@@ -10,6 +10,7 @@ data ParameterGroup
   = ParameterGroup {description :: (Prelude.Maybe (Value Prelude.Text)),
                     parameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                     parameterNameValues :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterGroup :: ParameterGroup
 mkParameterGroup
   = ParameterGroup

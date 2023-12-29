@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RowAlternateColorOptionsProperty
   = RowAlternateColorOptionsProperty {rowAlternateColors :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRowAlternateColorOptionsProperty ::
   RowAlternateColorOptionsProperty
 mkRowAlternateColorOptionsProperty

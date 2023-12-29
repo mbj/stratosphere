@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ApplicationMaintenanceConfigurationProperty
   = ApplicationMaintenanceConfigurationProperty {applicationMaintenanceWindowStartTime :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationMaintenanceConfigurationProperty ::
   Value Prelude.Text -> ApplicationMaintenanceConfigurationProperty
 mkApplicationMaintenanceConfigurationProperty

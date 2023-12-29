@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TransformProperty
   = TransformProperty {expression :: (Value Prelude.Text),
                        variables :: [ExpressionVariableProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformProperty ::
   Value Prelude.Text
   -> [ExpressionVariableProperty] -> TransformProperty

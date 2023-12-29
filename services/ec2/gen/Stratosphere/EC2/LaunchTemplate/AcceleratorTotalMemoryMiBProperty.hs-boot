@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AcceleratorTotalMemoryMiBProperty :: Prelude.Type
 instance ToResourceProperties AcceleratorTotalMemoryMiBProperty
+instance Prelude.Eq AcceleratorTotalMemoryMiBProperty
+instance Prelude.Show AcceleratorTotalMemoryMiBProperty
 instance JSON.ToJSON AcceleratorTotalMemoryMiBProperty

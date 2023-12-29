@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PredictiveDialerConfigProperty
   = PredictiveDialerConfigProperty {bandwidthAllocation :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveDialerConfigProperty ::
   Value Prelude.Double -> PredictiveDialerConfigProperty
 mkPredictiveDialerConfigProperty bandwidthAllocation

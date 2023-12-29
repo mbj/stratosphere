@@ -11,6 +11,7 @@ data FilterProperty
   = FilterProperty {behavior :: (Value Prelude.Text),
                     conditions :: [ConditionProperty],
                     requirement :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty ::
   Value Prelude.Text
   -> [ConditionProperty] -> Value Prelude.Text -> FilterProperty

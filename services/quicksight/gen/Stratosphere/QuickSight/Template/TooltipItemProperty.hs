@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data TooltipItemProperty
   = TooltipItemProperty {columnTooltipItem :: (Prelude.Maybe ColumnTooltipItemProperty),
                          fieldTooltipItem :: (Prelude.Maybe FieldTooltipItemProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTooltipItemProperty :: TooltipItemProperty
 mkTooltipItemProperty
   = TooltipItemProperty

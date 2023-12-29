@@ -10,6 +10,7 @@ data WhatIfRangeScenarioProperty
   = WhatIfRangeScenarioProperty {endDate :: (Value Prelude.Text),
                                  startDate :: (Value Prelude.Text),
                                  value :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWhatIfRangeScenarioProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

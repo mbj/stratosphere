@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IamInstanceProfileSpecificationProperty
   = IamInstanceProfileSpecificationProperty {arn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIamInstanceProfileSpecificationProperty ::
   IamInstanceProfileSpecificationProperty
 mkIamInstanceProfileSpecificationProperty

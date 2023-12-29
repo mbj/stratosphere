@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SerializerProp
 import Stratosphere.ResourceProperties
 data OutputFormatConfigurationProperty
   = OutputFormatConfigurationProperty {serializer :: (Prelude.Maybe SerializerProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputFormatConfigurationProperty ::
   OutputFormatConfigurationProperty
 mkOutputFormatConfigurationProperty

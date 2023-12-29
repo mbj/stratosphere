@@ -13,6 +13,7 @@ data SectionBasedLayoutPaperCanvasSizeOptionsProperty
   = SectionBasedLayoutPaperCanvasSizeOptionsProperty {paperMargin :: (Prelude.Maybe SpacingProperty),
                                                       paperOrientation :: (Prelude.Maybe (Value Prelude.Text)),
                                                       paperSize :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSectionBasedLayoutPaperCanvasSizeOptionsProperty ::
   SectionBasedLayoutPaperCanvasSizeOptionsProperty
 mkSectionBasedLayoutPaperCanvasSizeOptionsProperty

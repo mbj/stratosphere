@@ -11,6 +11,7 @@ data MaximumAllowedResourcesProperty
   = MaximumAllowedResourcesProperty {cpu :: (Value Prelude.Text),
                                      disk :: (Prelude.Maybe (Value Prelude.Text)),
                                      memory :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaximumAllowedResourcesProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> MaximumAllowedResourcesProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GatewayRouteHostnameRewriteProperty
   = GatewayRouteHostnameRewriteProperty {defaultTargetHostname :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteHostnameRewriteProperty ::
   GatewayRouteHostnameRewriteProperty
 mkGatewayRouteHostnameRewriteProperty

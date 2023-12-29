@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data S3OutputLocationProperty :: Prelude.Type
 instance ToResourceProperties S3OutputLocationProperty
+instance Prelude.Eq S3OutputLocationProperty
+instance Prelude.Show S3OutputLocationProperty
 instance JSON.ToJSON S3OutputLocationProperty

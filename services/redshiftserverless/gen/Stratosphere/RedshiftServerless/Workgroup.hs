@@ -19,6 +19,7 @@ data Workgroup
                subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                tags :: (Prelude.Maybe [Tag]),
                workgroupName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkgroup :: Value Prelude.Text -> Workgroup
 mkWorkgroup workgroupName
   = Workgroup

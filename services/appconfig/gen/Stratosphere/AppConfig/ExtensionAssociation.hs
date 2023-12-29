@@ -13,6 +13,7 @@ data ExtensionAssociation
                           parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                           resourceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExtensionAssociation :: ExtensionAssociation
 mkExtensionAssociation
   = ExtensionAssociation

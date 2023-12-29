@@ -11,6 +11,7 @@ data EndpointInputProperty
                            localPath :: (Value Prelude.Text),
                            s3DataDistributionType :: (Prelude.Maybe (Value Prelude.Text)),
                            s3InputMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointInputProperty ::
   Value Prelude.Text -> Value Prelude.Text -> EndpointInputProperty
 mkEndpointInputProperty endpointName localPath

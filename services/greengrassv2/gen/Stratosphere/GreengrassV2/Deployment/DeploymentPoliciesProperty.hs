@@ -13,6 +13,7 @@ data DeploymentPoliciesProperty
   = DeploymentPoliciesProperty {componentUpdatePolicy :: (Prelude.Maybe DeploymentComponentUpdatePolicyProperty),
                                 configurationValidationPolicy :: (Prelude.Maybe DeploymentConfigurationValidationPolicyProperty),
                                 failureHandlingPolicy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentPoliciesProperty :: DeploymentPoliciesProperty
 mkDeploymentPoliciesProperty
   = DeploymentPoliciesProperty

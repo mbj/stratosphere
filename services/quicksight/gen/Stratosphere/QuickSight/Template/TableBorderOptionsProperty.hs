@@ -10,6 +10,7 @@ data TableBorderOptionsProperty
   = TableBorderOptionsProperty {color :: (Prelude.Maybe (Value Prelude.Text)),
                                 style :: (Prelude.Maybe (Value Prelude.Text)),
                                 thickness :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableBorderOptionsProperty :: TableBorderOptionsProperty
 mkTableBorderOptionsProperty
   = TableBorderOptionsProperty

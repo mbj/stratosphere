@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeliveryStreamEncryptionConfigurationInputProperty :: Prelude.Type
 instance ToResourceProperties DeliveryStreamEncryptionConfigurationInputProperty
+instance Prelude.Eq DeliveryStreamEncryptionConfigurationInputProperty
+instance Prelude.Show DeliveryStreamEncryptionConfigurationInputProperty
 instance JSON.ToJSON DeliveryStreamEncryptionConfigurationInputProperty

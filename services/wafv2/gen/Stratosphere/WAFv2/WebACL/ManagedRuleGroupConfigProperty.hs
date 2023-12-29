@@ -17,6 +17,7 @@ data ManagedRuleGroupConfigProperty
                                     passwordField :: (Prelude.Maybe FieldIdentifierProperty),
                                     payloadType :: (Prelude.Maybe (Value Prelude.Text)),
                                     usernameField :: (Prelude.Maybe FieldIdentifierProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedRuleGroupConfigProperty :: ManagedRuleGroupConfigProperty
 mkManagedRuleGroupConfigProperty
   = ManagedRuleGroupConfigProperty

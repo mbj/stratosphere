@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AuditCheckConfigurationProperty
   = AuditCheckConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuditCheckConfigurationProperty ::
   AuditCheckConfigurationProperty
 mkAuditCheckConfigurationProperty

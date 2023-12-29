@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WorkmailActionProperty
   = WorkmailActionProperty {organizationArn :: (Value Prelude.Text),
                             topicArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkmailActionProperty ::
   Value Prelude.Text -> WorkmailActionProperty
 mkWorkmailActionProperty organizationArn

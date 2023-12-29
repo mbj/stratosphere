@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SessionKeysAbpV11Property :: Prelude.Type
 instance ToResourceProperties SessionKeysAbpV11Property
+instance Prelude.Eq SessionKeysAbpV11Property
+instance Prelude.Show SessionKeysAbpV11Property
 instance JSON.ToJSON SessionKeysAbpV11Property

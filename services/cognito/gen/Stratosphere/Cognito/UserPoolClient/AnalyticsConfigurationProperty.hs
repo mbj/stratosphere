@@ -13,6 +13,7 @@ data AnalyticsConfigurationProperty
                                     externalId :: (Prelude.Maybe (Value Prelude.Text)),
                                     roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                     userDataShared :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalyticsConfigurationProperty :: AnalyticsConfigurationProperty
 mkAnalyticsConfigurationProperty
   = AnalyticsConfigurationProperty

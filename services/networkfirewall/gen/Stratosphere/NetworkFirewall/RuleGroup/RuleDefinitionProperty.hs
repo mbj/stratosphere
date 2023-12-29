@@ -11,6 +11,7 @@ import Stratosphere.Value
 data RuleDefinitionProperty
   = RuleDefinitionProperty {actions :: (ValueList Prelude.Text),
                             matchAttributes :: MatchAttributesProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleDefinitionProperty ::
   ValueList Prelude.Text
   -> MatchAttributesProperty -> RuleDefinitionProperty

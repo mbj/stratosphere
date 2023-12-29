@@ -19,6 +19,7 @@ data MetricSetProperty
                        offset :: (Prelude.Maybe (Value Prelude.Integer)),
                        timestampColumn :: (Prelude.Maybe TimestampColumnProperty),
                        timezone :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricSetProperty ::
   [MetricProperty]
   -> Value Prelude.Text -> MetricSourceProperty -> MetricSetProperty

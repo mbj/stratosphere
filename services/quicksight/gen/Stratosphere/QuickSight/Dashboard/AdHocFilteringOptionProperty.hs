@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdHocFilteringOptionProperty
   = AdHocFilteringOptionProperty {availabilityStatus :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdHocFilteringOptionProperty :: AdHocFilteringOptionProperty
 mkAdHocFilteringOptionProperty
   = AdHocFilteringOptionProperty

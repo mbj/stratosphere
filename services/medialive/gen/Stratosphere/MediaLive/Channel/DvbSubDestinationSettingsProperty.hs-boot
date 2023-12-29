@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DvbSubDestinationSettingsProperty :: Prelude.Type
 instance ToResourceProperties DvbSubDestinationSettingsProperty
+instance Prelude.Eq DvbSubDestinationSettingsProperty
+instance Prelude.Show DvbSubDestinationSettingsProperty
 instance JSON.ToJSON DvbSubDestinationSettingsProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InitializationConfigurationProperty
   = InitializationConfigurationProperty {disabledOnInitialization :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInitializationConfigurationProperty ::
   Value Prelude.Bool -> InitializationConfigurationProperty
 mkInitializationConfigurationProperty disabledOnInitialization

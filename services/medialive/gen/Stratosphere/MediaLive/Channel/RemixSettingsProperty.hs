@@ -11,6 +11,7 @@ data RemixSettingsProperty
   = RemixSettingsProperty {channelMappings :: (Prelude.Maybe [AudioChannelMappingProperty]),
                            channelsIn :: (Prelude.Maybe (Value Prelude.Integer)),
                            channelsOut :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRemixSettingsProperty :: RemixSettingsProperty
 mkRemixSettingsProperty
   = RemixSettingsProperty

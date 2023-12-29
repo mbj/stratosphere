@@ -10,6 +10,7 @@ data ProxyConfigurationProperty
   = ProxyConfigurationProperty {credentials :: (Prelude.Maybe (Value Prelude.Text)),
                                 host :: (Value Prelude.Text),
                                 port :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProxyConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> ProxyConfigurationProperty

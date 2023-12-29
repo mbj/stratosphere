@@ -11,6 +11,7 @@ data StorageLocationProperty
                              key :: (Value Prelude.Text),
                              objectVersion :: (Prelude.Maybe (Value Prelude.Text)),
                              roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageLocationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -15,6 +15,7 @@ data LocationActionProperty
                             roleArn :: (Value Prelude.Text),
                             timestamp :: (Prelude.Maybe TimestampProperty),
                             trackerName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

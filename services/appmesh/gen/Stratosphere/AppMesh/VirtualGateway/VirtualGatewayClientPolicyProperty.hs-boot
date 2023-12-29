@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VirtualGatewayClientPolicyProperty :: Prelude.Type
 instance ToResourceProperties VirtualGatewayClientPolicyProperty
+instance Prelude.Eq VirtualGatewayClientPolicyProperty
+instance Prelude.Show VirtualGatewayClientPolicyProperty
 instance JSON.ToJSON VirtualGatewayClientPolicyProperty

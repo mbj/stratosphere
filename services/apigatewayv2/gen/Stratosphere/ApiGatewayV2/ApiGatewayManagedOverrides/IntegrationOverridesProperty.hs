@@ -11,6 +11,7 @@ data IntegrationOverridesProperty
                                   integrationMethod :: (Prelude.Maybe (Value Prelude.Text)),
                                   payloadFormatVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                   timeoutInMillis :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegrationOverridesProperty :: IntegrationOverridesProperty
 mkIntegrationOverridesProperty
   = IntegrationOverridesProperty

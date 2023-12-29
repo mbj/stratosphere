@@ -17,6 +17,7 @@ data RedshiftConnectorProfilePropertiesProperty
                                                 isRedshiftServerless :: (Prelude.Maybe (Value Prelude.Bool)),
                                                 roleArn :: (Value Prelude.Text),
                                                 workgroupName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftConnectorProfilePropertiesProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> RedshiftConnectorProfilePropertiesProperty

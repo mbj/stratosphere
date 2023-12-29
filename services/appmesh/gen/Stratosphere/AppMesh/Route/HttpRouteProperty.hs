@@ -14,6 +14,7 @@ data HttpRouteProperty
                        match :: HttpRouteMatchProperty,
                        retryPolicy :: (Prelude.Maybe HttpRetryPolicyProperty),
                        timeout :: (Prelude.Maybe HttpTimeoutProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpRouteProperty ::
   HttpRouteActionProperty
   -> HttpRouteMatchProperty -> HttpRouteProperty

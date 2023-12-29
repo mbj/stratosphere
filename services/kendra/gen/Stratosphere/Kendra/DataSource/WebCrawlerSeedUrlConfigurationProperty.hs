@@ -10,6 +10,7 @@ import Stratosphere.Value
 data WebCrawlerSeedUrlConfigurationProperty
   = WebCrawlerSeedUrlConfigurationProperty {seedUrls :: (ValueList Prelude.Text),
                                             webCrawlerMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerSeedUrlConfigurationProperty ::
   ValueList Prelude.Text -> WebCrawlerSeedUrlConfigurationProperty
 mkWebCrawlerSeedUrlConfigurationProperty seedUrls

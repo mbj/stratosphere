@@ -11,6 +11,7 @@ data ClarifyShapBaselineConfigProperty
   = ClarifyShapBaselineConfigProperty {mimeType :: (Prelude.Maybe (Value Prelude.Text)),
                                        shapBaseline :: (Prelude.Maybe (Value Prelude.Text)),
                                        shapBaselineUri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClarifyShapBaselineConfigProperty ::
   ClarifyShapBaselineConfigProperty
 mkClarifyShapBaselineConfigProperty

@@ -15,6 +15,7 @@ data App
          resiliencyPolicyArn :: (Prelude.Maybe (Value Prelude.Text)),
          resourceMappings :: [ResourceMappingProperty],
          tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApp ::
   Value Prelude.Text
   -> Value Prelude.Text -> [ResourceMappingProperty] -> App

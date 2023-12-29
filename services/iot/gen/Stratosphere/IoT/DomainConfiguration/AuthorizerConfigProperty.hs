@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AuthorizerConfigProperty
   = AuthorizerConfigProperty {allowAuthorizerOverride :: (Prelude.Maybe (Value Prelude.Bool)),
                               defaultAuthorizerName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizerConfigProperty :: AuthorizerConfigProperty
 mkAuthorizerConfigProperty
   = AuthorizerConfigProperty

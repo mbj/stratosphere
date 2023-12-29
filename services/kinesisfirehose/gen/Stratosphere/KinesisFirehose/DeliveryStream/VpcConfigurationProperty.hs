@@ -10,6 +10,7 @@ data VpcConfigurationProperty
   = VpcConfigurationProperty {roleARN :: (Value Prelude.Text),
                               securityGroupIds :: (ValueList Prelude.Text),
                               subnetIds :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConfigurationProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text

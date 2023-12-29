@@ -17,6 +17,7 @@ data OrcSerDeProperty
                       paddingTolerance :: (Prelude.Maybe (Value Prelude.Double)),
                       rowIndexStride :: (Prelude.Maybe (Value Prelude.Integer)),
                       stripeSizeBytes :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrcSerDeProperty :: OrcSerDeProperty
 mkOrcSerDeProperty
   = OrcSerDeProperty

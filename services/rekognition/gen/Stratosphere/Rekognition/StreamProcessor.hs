@@ -29,6 +29,7 @@ data StreamProcessor
                      roleArn :: (Value Prelude.Text),
                      s3Destination :: (Prelude.Maybe S3DestinationProperty),
                      tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamProcessor ::
   KinesisVideoStreamProperty -> Value Prelude.Text -> StreamProcessor
 mkStreamProcessor kinesisVideoStream roleArn

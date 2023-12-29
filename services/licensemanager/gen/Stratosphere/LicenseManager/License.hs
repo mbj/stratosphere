@@ -23,6 +23,7 @@ data License
              productSKU :: (Prelude.Maybe (Value Prelude.Text)),
              status :: (Prelude.Maybe (Value Prelude.Text)),
              validity :: ValidityDateFormatProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLicense ::
   ConsumptionConfigurationProperty
   -> [EntitlementProperty]

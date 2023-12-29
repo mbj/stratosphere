@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomerManagedS3StorageProperty :: Prelude.Type
 instance ToResourceProperties CustomerManagedS3StorageProperty
+instance Prelude.Eq CustomerManagedS3StorageProperty
+instance Prelude.Show CustomerManagedS3StorageProperty
 instance JSON.ToJSON CustomerManagedS3StorageProperty

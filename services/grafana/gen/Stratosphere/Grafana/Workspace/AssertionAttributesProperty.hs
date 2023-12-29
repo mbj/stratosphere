@@ -13,6 +13,7 @@ data AssertionAttributesProperty
                                  name :: (Prelude.Maybe (Value Prelude.Text)),
                                  org :: (Prelude.Maybe (Value Prelude.Text)),
                                  role :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssertionAttributesProperty :: AssertionAttributesProperty
 mkAssertionAttributesProperty
   = AssertionAttributesProperty

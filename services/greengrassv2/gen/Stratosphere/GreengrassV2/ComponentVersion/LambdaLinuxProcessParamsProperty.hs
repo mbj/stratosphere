@@ -11,6 +11,7 @@ import Stratosphere.Value
 data LambdaLinuxProcessParamsProperty
   = LambdaLinuxProcessParamsProperty {containerParams :: (Prelude.Maybe LambdaContainerParamsProperty),
                                       isolationMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaLinuxProcessParamsProperty ::
   LambdaLinuxProcessParamsProperty
 mkLambdaLinuxProcessParamsProperty

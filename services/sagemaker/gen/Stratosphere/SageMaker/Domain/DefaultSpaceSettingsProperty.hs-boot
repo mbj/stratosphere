@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DefaultSpaceSettingsProperty :: Prelude.Type
 instance ToResourceProperties DefaultSpaceSettingsProperty
+instance Prelude.Eq DefaultSpaceSettingsProperty
+instance Prelude.Show DefaultSpaceSettingsProperty
 instance JSON.ToJSON DefaultSpaceSettingsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EgressConfigurationProperty :: Prelude.Type
 instance ToResourceProperties EgressConfigurationProperty
+instance Prelude.Eq EgressConfigurationProperty
+instance Prelude.Show EgressConfigurationProperty
 instance JSON.ToJSON EgressConfigurationProperty

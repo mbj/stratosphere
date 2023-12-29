@@ -13,6 +13,7 @@ data DestinationParameterValueConfigurationProperty
                                                     selectAllValueOptions :: (Prelude.Maybe (Value Prelude.Text)),
                                                     sourceField :: (Prelude.Maybe (Value Prelude.Text)),
                                                     sourceParameterName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationParameterValueConfigurationProperty ::
   DestinationParameterValueConfigurationProperty
 mkDestinationParameterValueConfigurationProperty

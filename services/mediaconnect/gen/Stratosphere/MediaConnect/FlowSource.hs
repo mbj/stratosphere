@@ -25,6 +25,7 @@ data FlowSource
                 streamId :: (Prelude.Maybe (Value Prelude.Text)),
                 vpcInterfaceName :: (Prelude.Maybe (Value Prelude.Text)),
                 whitelistCidr :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowSource ::
   Value Prelude.Text -> Value Prelude.Text -> FlowSource
 mkFlowSource description name

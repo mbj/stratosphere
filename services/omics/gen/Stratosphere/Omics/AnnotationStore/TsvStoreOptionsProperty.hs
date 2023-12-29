@@ -10,6 +10,7 @@ data TsvStoreOptionsProperty
   = TsvStoreOptionsProperty {annotationType :: (Prelude.Maybe (Value Prelude.Text)),
                              formatToHeader :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                              schema :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTsvStoreOptionsProperty :: TsvStoreOptionsProperty
 mkTsvStoreOptionsProperty
   = TsvStoreOptionsProperty

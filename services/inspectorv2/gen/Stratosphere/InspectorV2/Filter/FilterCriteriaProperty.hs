@@ -44,6 +44,7 @@ data FilterCriteriaProperty
                             vulnerabilityId :: (Prelude.Maybe [StringFilterProperty]),
                             vulnerabilitySource :: (Prelude.Maybe [StringFilterProperty]),
                             vulnerablePackages :: (Prelude.Maybe [PackageFilterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterCriteriaProperty :: FilterCriteriaProperty
 mkFilterCriteriaProperty
   = FilterCriteriaProperty

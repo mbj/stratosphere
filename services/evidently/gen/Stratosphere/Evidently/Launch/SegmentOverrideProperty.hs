@@ -12,6 +12,7 @@ data SegmentOverrideProperty
   = SegmentOverrideProperty {evaluationOrder :: (Value Prelude.Integer),
                              segment :: (Value Prelude.Text),
                              weights :: [GroupToWeightProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSegmentOverrideProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text

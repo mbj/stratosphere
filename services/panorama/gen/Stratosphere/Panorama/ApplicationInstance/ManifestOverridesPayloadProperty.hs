@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManifestOverridesPayloadProperty
   = ManifestOverridesPayloadProperty {payloadData :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkManifestOverridesPayloadProperty ::
   ManifestOverridesPayloadProperty
 mkManifestOverridesPayloadProperty

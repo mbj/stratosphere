@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MatchRangeProperty
   = MatchRangeProperty {end :: (Value Prelude.Integer),
                         start :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchRangeProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> MatchRangeProperty

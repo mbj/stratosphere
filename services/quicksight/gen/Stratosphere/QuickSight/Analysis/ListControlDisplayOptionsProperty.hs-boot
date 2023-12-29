@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ListControlDisplayOptionsProperty :: Prelude.Type
 instance ToResourceProperties ListControlDisplayOptionsProperty
+instance Prelude.Eq ListControlDisplayOptionsProperty
+instance Prelude.Show ListControlDisplayOptionsProperty
 instance JSON.ToJSON ListControlDisplayOptionsProperty

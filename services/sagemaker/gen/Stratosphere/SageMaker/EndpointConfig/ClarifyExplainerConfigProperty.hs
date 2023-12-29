@@ -13,6 +13,7 @@ data ClarifyExplainerConfigProperty
   = ClarifyExplainerConfigProperty {enableExplanations :: (Prelude.Maybe (Value Prelude.Text)),
                                     inferenceConfig :: (Prelude.Maybe ClarifyInferenceConfigProperty),
                                     shapConfig :: ClarifyShapConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClarifyExplainerConfigProperty ::
   ClarifyShapConfigProperty -> ClarifyExplainerConfigProperty
 mkClarifyExplainerConfigProperty shapConfig

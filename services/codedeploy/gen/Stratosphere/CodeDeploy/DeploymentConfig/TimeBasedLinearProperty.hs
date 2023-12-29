@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TimeBasedLinearProperty
   = TimeBasedLinearProperty {linearInterval :: (Value Prelude.Integer),
                              linearPercentage :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeBasedLinearProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> TimeBasedLinearProperty

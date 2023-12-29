@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FailoverConditionSettingsPr
 import Stratosphere.ResourceProperties
 data FailoverConditionProperty
   = FailoverConditionProperty {failoverConditionSettings :: (Prelude.Maybe FailoverConditionSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFailoverConditionProperty :: FailoverConditionProperty
 mkFailoverConditionProperty
   = FailoverConditionProperty

@@ -24,6 +24,7 @@ data AuditCheckConfigurationsProperty
                                       revokedCaCertificateStillActiveCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
                                       revokedDeviceCertificateStillActiveCheck :: (Prelude.Maybe AuditCheckConfigurationProperty),
                                       unauthenticatedCognitoRoleOverlyPermissiveCheck :: (Prelude.Maybe AuditCheckConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuditCheckConfigurationsProperty ::
   AuditCheckConfigurationsProperty
 mkAuditCheckConfigurationsProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EgressConfigurationProperty
   = EgressConfigurationProperty {egressType :: (Value Prelude.Text),
                                  vpcConnectorArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEgressConfigurationProperty ::
   Value Prelude.Text -> EgressConfigurationProperty
 mkEgressConfigurationProperty egressType

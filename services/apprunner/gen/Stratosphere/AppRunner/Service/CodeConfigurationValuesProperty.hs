@@ -15,6 +15,7 @@ data CodeConfigurationValuesProperty
                                      runtimeEnvironmentSecrets :: (Prelude.Maybe [KeyValuePairProperty]),
                                      runtimeEnvironmentVariables :: (Prelude.Maybe [KeyValuePairProperty]),
                                      startCommand :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeConfigurationValuesProperty ::
   Value Prelude.Text -> CodeConfigurationValuesProperty
 mkCodeConfigurationValuesProperty runtime

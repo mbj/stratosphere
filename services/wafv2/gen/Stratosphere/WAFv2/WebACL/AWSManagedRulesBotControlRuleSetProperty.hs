@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AWSManagedRulesBotControlRuleSetProperty
   = AWSManagedRulesBotControlRuleSetProperty {inspectionLevel :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAWSManagedRulesBotControlRuleSetProperty ::
   Value Prelude.Text -> AWSManagedRulesBotControlRuleSetProperty
 mkAWSManagedRulesBotControlRuleSetProperty inspectionLevel

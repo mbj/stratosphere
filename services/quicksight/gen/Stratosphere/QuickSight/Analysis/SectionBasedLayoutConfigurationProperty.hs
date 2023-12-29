@@ -14,6 +14,7 @@ data SectionBasedLayoutConfigurationProperty
                                              canvasSizeOptions :: SectionBasedLayoutCanvasSizeOptionsProperty,
                                              footerSections :: [HeaderFooterSectionConfigurationProperty],
                                              headerSections :: [HeaderFooterSectionConfigurationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSectionBasedLayoutConfigurationProperty ::
   [BodySectionConfigurationProperty]
   -> SectionBasedLayoutCanvasSizeOptionsProperty

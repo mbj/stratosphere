@@ -12,6 +12,7 @@ data CertificateAuthorityActivation
                                     certificateAuthorityArn :: (Value Prelude.Text),
                                     certificateChain :: (Prelude.Maybe (Value Prelude.Text)),
                                     status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateAuthorityActivation ::
   Value Prelude.Text
   -> Value Prelude.Text -> CertificateAuthorityActivation

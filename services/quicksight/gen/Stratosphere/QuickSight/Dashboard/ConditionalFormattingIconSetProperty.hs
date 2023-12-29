@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ConditionalFormattingIconSetProperty
   = ConditionalFormattingIconSetProperty {expression :: (Value Prelude.Text),
                                           iconSetType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionalFormattingIconSetProperty ::
   Value Prelude.Text -> ConditionalFormattingIconSetProperty
 mkConditionalFormattingIconSetProperty expression

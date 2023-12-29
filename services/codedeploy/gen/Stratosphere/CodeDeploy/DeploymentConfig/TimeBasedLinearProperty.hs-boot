@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TimeBasedLinearProperty :: Prelude.Type
 instance ToResourceProperties TimeBasedLinearProperty
+instance Prelude.Eq TimeBasedLinearProperty
+instance Prelude.Show TimeBasedLinearProperty
 instance JSON.ToJSON TimeBasedLinearProperty

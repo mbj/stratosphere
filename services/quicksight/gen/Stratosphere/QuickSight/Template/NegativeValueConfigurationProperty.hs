@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NegativeValueConfigurationProperty
   = NegativeValueConfigurationProperty {displayMode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNegativeValueConfigurationProperty ::
   Value Prelude.Text -> NegativeValueConfigurationProperty
 mkNegativeValueConfigurationProperty displayMode

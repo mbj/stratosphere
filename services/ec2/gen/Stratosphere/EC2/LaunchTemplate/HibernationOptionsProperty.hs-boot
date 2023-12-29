@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HibernationOptionsProperty :: Prelude.Type
 instance ToResourceProperties HibernationOptionsProperty
+instance Prelude.Eq HibernationOptionsProperty
+instance Prelude.Show HibernationOptionsProperty
 instance JSON.ToJSON HibernationOptionsProperty

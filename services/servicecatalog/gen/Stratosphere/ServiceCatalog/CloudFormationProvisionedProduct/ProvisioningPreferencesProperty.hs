@@ -15,6 +15,7 @@ data ProvisioningPreferencesProperty
                                      stackSetMaxConcurrencyPercentage :: (Prelude.Maybe (Value Prelude.Integer)),
                                      stackSetOperationType :: (Prelude.Maybe (Value Prelude.Text)),
                                      stackSetRegions :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisioningPreferencesProperty ::
   ProvisioningPreferencesProperty
 mkProvisioningPreferencesProperty

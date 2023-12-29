@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ClarifyInferenceConfigProperty :: Prelude.Type
 instance ToResourceProperties ClarifyInferenceConfigProperty
+instance Prelude.Eq ClarifyInferenceConfigProperty
+instance Prelude.Show ClarifyInferenceConfigProperty
 instance JSON.ToJSON ClarifyInferenceConfigProperty

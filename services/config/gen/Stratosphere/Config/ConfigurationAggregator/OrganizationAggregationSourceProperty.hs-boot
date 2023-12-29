@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OrganizationAggregationSourceProperty :: Prelude.Type
 instance ToResourceProperties OrganizationAggregationSourceProperty
+instance Prelude.Eq OrganizationAggregationSourceProperty
+instance Prelude.Show OrganizationAggregationSourceProperty
 instance JSON.ToJSON OrganizationAggregationSourceProperty

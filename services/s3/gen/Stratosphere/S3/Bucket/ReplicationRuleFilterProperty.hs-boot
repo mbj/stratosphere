@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReplicationRuleFilterProperty :: Prelude.Type
 instance ToResourceProperties ReplicationRuleFilterProperty
+instance Prelude.Eq ReplicationRuleFilterProperty
+instance Prelude.Show ReplicationRuleFilterProperty
 instance JSON.ToJSON ReplicationRuleFilterProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RealtimeMetricsSubscriptionConfigProperty
   = RealtimeMetricsSubscriptionConfigProperty {realtimeMetricsSubscriptionStatus :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRealtimeMetricsSubscriptionConfigProperty ::
   Value Prelude.Text -> RealtimeMetricsSubscriptionConfigProperty
 mkRealtimeMetricsSubscriptionConfigProperty

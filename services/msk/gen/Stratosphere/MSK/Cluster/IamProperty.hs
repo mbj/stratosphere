@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
-data IamProperty = IamProperty {enabled :: (Value Prelude.Bool)}
+data IamProperty
+  = IamProperty {enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIamProperty :: Value Prelude.Bool -> IamProperty
 mkIamProperty enabled = IamProperty {enabled = enabled}
 instance ToResourceProperties IamProperty where

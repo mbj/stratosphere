@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SecurityConfiguration
   = SecurityConfiguration {encryptionConfiguration :: EncryptionConfigurationProperty,
                            name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityConfiguration ::
   EncryptionConfigurationProperty
   -> Value Prelude.Text -> SecurityConfiguration

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DataDeliveryObjectProperty
   = DataDeliveryObjectProperty {logGroup :: (Prelude.Maybe (Value Prelude.Text)),
                                 s3 :: (Prelude.Maybe S3DestinationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataDeliveryObjectProperty :: DataDeliveryObjectProperty
 mkDataDeliveryObjectProperty
   = DataDeliveryObjectProperty

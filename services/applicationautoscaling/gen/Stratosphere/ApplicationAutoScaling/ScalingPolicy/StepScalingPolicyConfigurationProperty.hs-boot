@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StepScalingPolicyConfigurationProperty :: Prelude.Type
 instance ToResourceProperties StepScalingPolicyConfigurationProperty
+instance Prelude.Eq StepScalingPolicyConfigurationProperty
+instance Prelude.Show StepScalingPolicyConfigurationProperty
 instance JSON.ToJSON StepScalingPolicyConfigurationProperty

@@ -14,6 +14,7 @@ data NumericalDimensionFieldProperty
                                      fieldId :: (Value Prelude.Text),
                                      formatConfiguration :: (Prelude.Maybe NumberFormatConfigurationProperty),
                                      hierarchyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericalDimensionFieldProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text -> NumericalDimensionFieldProperty

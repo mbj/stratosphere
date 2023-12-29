@@ -12,6 +12,7 @@ data ComponentBindingPropertiesValueProperty
   = ComponentBindingPropertiesValueProperty {bindingProperties :: (Prelude.Maybe ComponentBindingPropertiesValuePropertiesProperty),
                                              defaultValue :: (Prelude.Maybe (Value Prelude.Text)),
                                              type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentBindingPropertiesValueProperty ::
   ComponentBindingPropertiesValueProperty
 mkComponentBindingPropertiesValueProperty

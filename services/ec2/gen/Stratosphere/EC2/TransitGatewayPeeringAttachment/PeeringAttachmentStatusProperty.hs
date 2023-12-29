@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PeeringAttachmentStatusProperty
   = PeeringAttachmentStatusProperty {code :: (Prelude.Maybe (Value Prelude.Text)),
                                      message :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPeeringAttachmentStatusProperty ::
   PeeringAttachmentStatusProperty
 mkPeeringAttachmentStatusProperty

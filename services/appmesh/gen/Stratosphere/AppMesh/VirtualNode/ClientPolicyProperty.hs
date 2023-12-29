@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ClientPolicyTlsProperty a
 import Stratosphere.ResourceProperties
 data ClientPolicyProperty
   = ClientPolicyProperty {tLS :: (Prelude.Maybe ClientPolicyTlsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientPolicyProperty :: ClientPolicyProperty
 mkClientPolicyProperty
   = ClientPolicyProperty {tLS = Prelude.Nothing}

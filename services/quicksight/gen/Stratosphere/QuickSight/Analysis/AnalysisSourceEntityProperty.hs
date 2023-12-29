@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.AnalysisSourceTemplatePro
 import Stratosphere.ResourceProperties
 data AnalysisSourceEntityProperty
   = AnalysisSourceEntityProperty {sourceTemplate :: (Prelude.Maybe AnalysisSourceTemplateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisSourceEntityProperty :: AnalysisSourceEntityProperty
 mkAnalysisSourceEntityProperty
   = AnalysisSourceEntityProperty {sourceTemplate = Prelude.Nothing}

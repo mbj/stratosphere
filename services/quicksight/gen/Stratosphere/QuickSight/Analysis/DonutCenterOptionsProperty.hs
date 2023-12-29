@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DonutCenterOptionsProperty
   = DonutCenterOptionsProperty {labelVisibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDonutCenterOptionsProperty :: DonutCenterOptionsProperty
 mkDonutCenterOptionsProperty
   = DonutCenterOptionsProperty {labelVisibility = Prelude.Nothing}

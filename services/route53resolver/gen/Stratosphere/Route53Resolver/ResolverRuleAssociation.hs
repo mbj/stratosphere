@@ -10,6 +10,7 @@ data ResolverRuleAssociation
   = ResolverRuleAssociation {name :: (Prelude.Maybe (Value Prelude.Text)),
                              resolverRuleId :: (Value Prelude.Text),
                              vPCId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverRuleAssociation ::
   Value Prelude.Text -> Value Prelude.Text -> ResolverRuleAssociation
 mkResolverRuleAssociation resolverRuleId vPCId

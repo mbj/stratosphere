@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RowFilterProperty
   = RowFilterProperty {allRowsWildcard :: (Prelude.Maybe JSON.Object),
                        filterExpression :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRowFilterProperty :: RowFilterProperty
 mkRowFilterProperty
   = RowFilterProperty

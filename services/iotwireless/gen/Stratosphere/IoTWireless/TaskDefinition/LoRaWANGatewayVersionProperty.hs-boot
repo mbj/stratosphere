@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LoRaWANGatewayVersionProperty :: Prelude.Type
 instance ToResourceProperties LoRaWANGatewayVersionProperty
+instance Prelude.Eq LoRaWANGatewayVersionProperty
+instance Prelude.Show LoRaWANGatewayVersionProperty
 instance JSON.ToJSON LoRaWANGatewayVersionProperty

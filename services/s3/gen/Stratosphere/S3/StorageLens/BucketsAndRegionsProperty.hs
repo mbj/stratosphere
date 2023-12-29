@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BucketsAndRegionsProperty
   = BucketsAndRegionsProperty {buckets :: (Prelude.Maybe (ValueList Prelude.Text)),
                                regions :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBucketsAndRegionsProperty :: BucketsAndRegionsProperty
 mkBucketsAndRegionsProperty
   = BucketsAndRegionsProperty

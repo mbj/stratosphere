@@ -10,6 +10,7 @@ data JdbcTargetProperty
   = JdbcTargetProperty {connectionName :: (Prelude.Maybe (Value Prelude.Text)),
                         exclusions :: (Prelude.Maybe (ValueList Prelude.Text)),
                         path :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJdbcTargetProperty :: JdbcTargetProperty
 mkJdbcTargetProperty
   = JdbcTargetProperty

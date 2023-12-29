@@ -11,6 +11,7 @@ import Stratosphere.Value
 data GatewayRouteTargetProperty
   = GatewayRouteTargetProperty {port :: (Prelude.Maybe (Value Prelude.Integer)),
                                 virtualService :: GatewayRouteVirtualServiceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRouteTargetProperty ::
   GatewayRouteVirtualServiceProperty -> GatewayRouteTargetProperty
 mkGatewayRouteTargetProperty virtualService

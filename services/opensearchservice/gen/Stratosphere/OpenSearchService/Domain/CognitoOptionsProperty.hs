@@ -11,6 +11,7 @@ data CognitoOptionsProperty
                             identityPoolId :: (Prelude.Maybe (Value Prelude.Text)),
                             roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                             userPoolId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoOptionsProperty :: CognitoOptionsProperty
 mkCognitoOptionsProperty
   = CognitoOptionsProperty

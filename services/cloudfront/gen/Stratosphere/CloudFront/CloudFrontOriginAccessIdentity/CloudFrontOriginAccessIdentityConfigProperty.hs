@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudFrontOriginAccessIdentityConfigProperty
   = CloudFrontOriginAccessIdentityConfigProperty {comment :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudFrontOriginAccessIdentityConfigProperty ::
   Value Prelude.Text -> CloudFrontOriginAccessIdentityConfigProperty
 mkCloudFrontOriginAccessIdentityConfigProperty comment

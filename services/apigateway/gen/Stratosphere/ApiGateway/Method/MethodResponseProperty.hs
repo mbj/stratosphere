@@ -10,6 +10,7 @@ data MethodResponseProperty
   = MethodResponseProperty {responseModels :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                             responseParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Bool))),
                             statusCode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMethodResponseProperty ::
   Value Prelude.Text -> MethodResponseProperty
 mkMethodResponseProperty statusCode

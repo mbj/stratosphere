@@ -12,6 +12,7 @@ data UserGroup
                tags :: (Prelude.Maybe [Tag]),
                userGroupId :: (Value Prelude.Text),
                userIds :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserGroup ::
   Value Prelude.Text
   -> Value Prelude.Text -> ValueList Prelude.Text -> UserGroup

@@ -20,6 +20,7 @@ data ActionDeclarationProperty
                                region :: (Prelude.Maybe (Value Prelude.Text)),
                                roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                runOrder :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionDeclarationProperty ::
   ActionTypeIdProperty
   -> Value Prelude.Text -> ActionDeclarationProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.LoggingConfiguration.LogDesti
 import Stratosphere.ResourceProperties
 data LoggingConfigurationProperty
   = LoggingConfigurationProperty {logDestinationConfigs :: [LogDestinationConfigProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfigurationProperty ::
   [LogDestinationConfigProperty] -> LoggingConfigurationProperty
 mkLoggingConfigurationProperty logDestinationConfigs

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.DefaultSectionBasedLayou
 import Stratosphere.ResourceProperties
 data DefaultPaginatedLayoutConfigurationProperty
   = DefaultPaginatedLayoutConfigurationProperty {sectionBased :: (Prelude.Maybe DefaultSectionBasedLayoutConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultPaginatedLayoutConfigurationProperty ::
   DefaultPaginatedLayoutConfigurationProperty
 mkDefaultPaginatedLayoutConfigurationProperty

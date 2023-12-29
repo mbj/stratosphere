@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TemporalFilterSettingsProperty
   = TemporalFilterSettingsProperty {postFilterSharpening :: (Prelude.Maybe (Value Prelude.Text)),
                                     strength :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemporalFilterSettingsProperty :: TemporalFilterSettingsProperty
 mkTemporalFilterSettingsProperty
   = TemporalFilterSettingsProperty

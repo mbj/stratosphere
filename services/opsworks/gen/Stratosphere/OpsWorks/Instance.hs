@@ -30,6 +30,7 @@ data Instance
               timeBasedAutoScaling :: (Prelude.Maybe TimeBasedAutoScalingProperty),
               virtualizationType :: (Prelude.Maybe (Value Prelude.Text)),
               volumes :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstance ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> Value Prelude.Text -> Instance

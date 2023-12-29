@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmazonOpenSearchParametersProperty
   = AmazonOpenSearchParametersProperty {domain :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonOpenSearchParametersProperty ::
   Value Prelude.Text -> AmazonOpenSearchParametersProperty
 mkAmazonOpenSearchParametersProperty domain

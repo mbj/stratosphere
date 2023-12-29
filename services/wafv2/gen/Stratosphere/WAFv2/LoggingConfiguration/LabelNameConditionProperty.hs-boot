@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LabelNameConditionProperty :: Prelude.Type
 instance ToResourceProperties LabelNameConditionProperty
+instance Prelude.Eq LabelNameConditionProperty
+instance Prelude.Show LabelNameConditionProperty
 instance JSON.ToJSON LabelNameConditionProperty

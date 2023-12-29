@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data ActionProperty
   = ActionProperty {fixedResponse :: (Prelude.Maybe FixedResponseProperty),
                     forward :: (Prelude.Maybe ForwardProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty

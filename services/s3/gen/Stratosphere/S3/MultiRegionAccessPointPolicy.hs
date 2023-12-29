@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MultiRegionAccessPointPolicy
   = MultiRegionAccessPointPolicy {mrapName :: (Value Prelude.Text),
                                   policy :: JSON.Object}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiRegionAccessPointPolicy ::
   Value Prelude.Text -> JSON.Object -> MultiRegionAccessPointPolicy
 mkMultiRegionAccessPointPolicy mrapName policy

@@ -12,6 +12,7 @@ data FieldProperty
                    id :: FieldIdentifierProperty,
                    singleSelectOptions :: (Prelude.Maybe (ValueList Prelude.Text)),
                    type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldProperty ::
   FieldIdentifierProperty -> Value Prelude.Text -> FieldProperty
 mkFieldProperty id type'

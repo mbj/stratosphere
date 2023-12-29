@@ -12,6 +12,7 @@ data S3MachineLearningModelResourceDataProperty
   = S3MachineLearningModelResourceDataProperty {destinationPath :: (Value Prelude.Text),
                                                 ownerSetting :: (Prelude.Maybe ResourceDownloadOwnerSettingProperty),
                                                 s3Uri :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3MachineLearningModelResourceDataProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> S3MachineLearningModelResourceDataProperty

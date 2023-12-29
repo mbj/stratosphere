@@ -12,6 +12,7 @@ data ConnectionAliasAssociationProperty
                                         associationStatus :: (Prelude.Maybe (Value Prelude.Text)),
                                         connectionIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                                         resourceId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionAliasAssociationProperty ::
   ConnectionAliasAssociationProperty
 mkConnectionAliasAssociationProperty

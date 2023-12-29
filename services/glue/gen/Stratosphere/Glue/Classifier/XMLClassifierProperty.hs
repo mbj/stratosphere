@@ -10,6 +10,7 @@ data XMLClassifierProperty
   = XMLClassifierProperty {classification :: (Value Prelude.Text),
                            name :: (Prelude.Maybe (Value Prelude.Text)),
                            rowTag :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkXMLClassifierProperty ::
   Value Prelude.Text -> Value Prelude.Text -> XMLClassifierProperty
 mkXMLClassifierProperty classification rowTag

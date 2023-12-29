@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AxisTickLabelOptionsProperty
   = AxisTickLabelOptionsProperty {labelOptions :: (Prelude.Maybe LabelOptionsProperty),
                                   rotationAngle :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAxisTickLabelOptionsProperty :: AxisTickLabelOptionsProperty
 mkAxisTickLabelOptionsProperty
   = AxisTickLabelOptionsProperty

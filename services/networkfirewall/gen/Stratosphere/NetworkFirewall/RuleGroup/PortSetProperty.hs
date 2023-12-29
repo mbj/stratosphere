@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PortSetProperty
   = PortSetProperty {definition :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortSetProperty :: PortSetProperty
 mkPortSetProperty = PortSetProperty {definition = Prelude.Nothing}
 instance ToResourceProperties PortSetProperty where

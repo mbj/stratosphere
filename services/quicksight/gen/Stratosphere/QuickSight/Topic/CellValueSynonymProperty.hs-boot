@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CellValueSynonymProperty :: Prelude.Type
 instance ToResourceProperties CellValueSynonymProperty
+instance Prelude.Eq CellValueSynonymProperty
+instance Prelude.Show CellValueSynonymProperty
 instance JSON.ToJSON CellValueSynonymProperty

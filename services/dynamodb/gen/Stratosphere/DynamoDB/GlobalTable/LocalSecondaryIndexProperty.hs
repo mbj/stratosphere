@@ -13,6 +13,7 @@ data LocalSecondaryIndexProperty
   = LocalSecondaryIndexProperty {indexName :: (Value Prelude.Text),
                                  keySchema :: [KeySchemaProperty],
                                  projection :: ProjectionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalSecondaryIndexProperty ::
   Value Prelude.Text
   -> [KeySchemaProperty]

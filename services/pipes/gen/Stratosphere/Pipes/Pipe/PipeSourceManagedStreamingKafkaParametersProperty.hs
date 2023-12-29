@@ -16,6 +16,7 @@ data PipeSourceManagedStreamingKafkaParametersProperty
                                                        maximumBatchingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                                        startingPosition :: (Prelude.Maybe (Value Prelude.Text)),
                                                        topicName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceManagedStreamingKafkaParametersProperty ::
   Value Prelude.Text
   -> PipeSourceManagedStreamingKafkaParametersProperty

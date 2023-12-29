@@ -10,6 +10,7 @@ data QueryDefinition
   = QueryDefinition {logGroupNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                      name :: (Value Prelude.Text),
                      queryString :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryDefinition ::
   Value Prelude.Text -> Value Prelude.Text -> QueryDefinition
 mkQueryDefinition name queryString

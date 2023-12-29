@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DkimAttributesProperty
   = DkimAttributesProperty {signingEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDkimAttributesProperty :: DkimAttributesProperty
 mkDkimAttributesProperty
   = DkimAttributesProperty {signingEnabled = Prelude.Nothing}

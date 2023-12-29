@@ -14,6 +14,7 @@ data VerificationMessageTemplateProperty
                                          emailSubject :: (Prelude.Maybe (Value Prelude.Text)),
                                          emailSubjectByLink :: (Prelude.Maybe (Value Prelude.Text)),
                                          smsMessage :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVerificationMessageTemplateProperty ::
   VerificationMessageTemplateProperty
 mkVerificationMessageTemplateProperty

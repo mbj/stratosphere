@@ -50,6 +50,7 @@ data ActionProperty
                     sqs :: (Prelude.Maybe SqsActionProperty),
                     stepFunctions :: (Prelude.Maybe StepFunctionsActionProperty),
                     timestream :: (Prelude.Maybe TimestreamActionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ModelExplainabilityAppSpecificationProperty :: Prelude.Type
 instance ToResourceProperties ModelExplainabilityAppSpecificationProperty
+instance Prelude.Eq ModelExplainabilityAppSpecificationProperty
+instance Prelude.Show ModelExplainabilityAppSpecificationProperty
 instance JSON.ToJSON ModelExplainabilityAppSpecificationProperty

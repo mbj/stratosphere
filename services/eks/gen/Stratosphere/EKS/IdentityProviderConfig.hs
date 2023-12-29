@@ -15,6 +15,7 @@ data IdentityProviderConfig
                             oidc :: (Prelude.Maybe OidcIdentityProviderConfigProperty),
                             tags :: (Prelude.Maybe [Tag]),
                             type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityProviderConfig ::
   Value Prelude.Text -> Value Prelude.Text -> IdentityProviderConfig
 mkIdentityProviderConfig clusterName type'

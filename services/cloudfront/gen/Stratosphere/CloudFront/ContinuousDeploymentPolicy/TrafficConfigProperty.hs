@@ -12,6 +12,7 @@ data TrafficConfigProperty
   = TrafficConfigProperty {singleHeaderConfig :: (Prelude.Maybe SingleHeaderConfigProperty),
                            singleWeightConfig :: (Prelude.Maybe SingleWeightConfigProperty),
                            type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficConfigProperty ::
   Value Prelude.Text -> TrafficConfigProperty
 mkTrafficConfigProperty type'

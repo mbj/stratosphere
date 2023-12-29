@@ -13,6 +13,7 @@ data CustomOriginConfigProperty
                                 originProtocolPolicy :: (Value Prelude.Text),
                                 originReadTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                 originSSLProtocols :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomOriginConfigProperty ::
   Value Prelude.Text -> CustomOriginConfigProperty
 mkCustomOriginConfigProperty originProtocolPolicy

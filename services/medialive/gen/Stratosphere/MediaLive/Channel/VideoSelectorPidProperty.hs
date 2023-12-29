@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VideoSelectorPidProperty
   = VideoSelectorPidProperty {pid :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoSelectorPidProperty :: VideoSelectorPidProperty
 mkVideoSelectorPidProperty
   = VideoSelectorPidProperty {pid = Prelude.Nothing}

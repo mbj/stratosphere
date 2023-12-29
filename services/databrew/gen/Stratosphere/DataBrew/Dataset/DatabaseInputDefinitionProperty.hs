@@ -13,6 +13,7 @@ data DatabaseInputDefinitionProperty
                                      glueConnectionName :: (Value Prelude.Text),
                                      queryString :: (Prelude.Maybe (Value Prelude.Text)),
                                      tempDirectory :: (Prelude.Maybe S3LocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabaseInputDefinitionProperty ::
   Value Prelude.Text -> DatabaseInputDefinitionProperty
 mkDatabaseInputDefinitionProperty glueConnectionName

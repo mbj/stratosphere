@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.EndpointsProperty a
 import Stratosphere.ResourceProperties
 data SelfManagedEventSourceProperty
   = SelfManagedEventSourceProperty {endpoints :: (Prelude.Maybe EndpointsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSelfManagedEventSourceProperty :: SelfManagedEventSourceProperty
 mkSelfManagedEventSourceProperty
   = SelfManagedEventSourceProperty {endpoints = Prelude.Nothing}

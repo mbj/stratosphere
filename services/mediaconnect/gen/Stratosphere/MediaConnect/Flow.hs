@@ -13,6 +13,7 @@ data Flow
           name :: (Value Prelude.Text),
           source :: SourceProperty,
           sourceFailoverConfig :: (Prelude.Maybe FailoverConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlow :: Value Prelude.Text -> SourceProperty -> Flow
 mkFlow name source
   = Flow

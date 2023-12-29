@@ -13,6 +13,7 @@ data FirewallPolicy
                     firewallPolicy :: FirewallPolicyProperty,
                     firewallPolicyName :: (Value Prelude.Text),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallPolicy ::
   FirewallPolicyProperty -> Value Prelude.Text -> FirewallPolicy
 mkFirewallPolicy firewallPolicy firewallPolicyName

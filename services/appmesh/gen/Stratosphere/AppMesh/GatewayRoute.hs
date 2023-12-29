@@ -15,6 +15,7 @@ data GatewayRoute
                   spec :: GatewayRouteSpecProperty,
                   tags :: (Prelude.Maybe [Tag]),
                   virtualGatewayName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayRoute ::
   Value Prelude.Text
   -> GatewayRouteSpecProperty -> Value Prelude.Text -> GatewayRoute

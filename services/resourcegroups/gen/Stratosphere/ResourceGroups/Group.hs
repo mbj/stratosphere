@@ -16,6 +16,7 @@ data Group
            resourceQuery :: (Prelude.Maybe ResourceQueryProperty),
            resources :: (Prelude.Maybe (ValueList Prelude.Text)),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGroup :: Value Prelude.Text -> Group
 mkGroup name
   = Group

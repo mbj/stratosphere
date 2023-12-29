@@ -13,6 +13,7 @@ data PieChartSortConfigurationProperty
                                        categorySort :: (Prelude.Maybe [FieldSortOptionsProperty]),
                                        smallMultiplesLimitConfiguration :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                        smallMultiplesSort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPieChartSortConfigurationProperty ::
   PieChartSortConfigurationProperty
 mkPieChartSortConfigurationProperty

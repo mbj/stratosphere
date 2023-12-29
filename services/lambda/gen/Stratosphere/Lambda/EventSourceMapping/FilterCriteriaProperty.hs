@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.FilterProperty as E
 import Stratosphere.ResourceProperties
 data FilterCriteriaProperty
   = FilterCriteriaProperty {filters :: (Prelude.Maybe [FilterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterCriteriaProperty :: FilterCriteriaProperty
 mkFilterCriteriaProperty
   = FilterCriteriaProperty {filters = Prelude.Nothing}

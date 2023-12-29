@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ResourceRequirementProperty
   = ResourceRequirementProperty {type' :: (Value Prelude.Text),
                                  value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceRequirementProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ResourceRequirementProperty

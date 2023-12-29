@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GreengrassV2Property :: Prelude.Type
 instance ToResourceProperties GreengrassV2Property
+instance Prelude.Eq GreengrassV2Property
+instance Prelude.Show GreengrassV2Property
 instance JSON.ToJSON GreengrassV2Property

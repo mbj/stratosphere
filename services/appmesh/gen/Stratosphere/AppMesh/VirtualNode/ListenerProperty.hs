@@ -18,6 +18,7 @@ data ListenerProperty
                       portMapping :: PortMappingProperty,
                       tLS :: (Prelude.Maybe ListenerTlsProperty),
                       timeout :: (Prelude.Maybe ListenerTimeoutProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerProperty :: PortMappingProperty -> ListenerProperty
 mkListenerProperty portMapping
   = ListenerProperty

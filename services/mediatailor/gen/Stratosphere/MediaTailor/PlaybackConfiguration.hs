@@ -30,6 +30,7 @@ data PlaybackConfiguration
                            tags :: (Prelude.Maybe [Tag]),
                            transcodeProfileName :: (Prelude.Maybe (Value Prelude.Text)),
                            videoContentSourceUrl :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlaybackConfiguration ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -10,6 +10,7 @@ data SourceConfigProperty
   = SourceConfigProperty {architecture :: (Value Prelude.Text),
                           s3Bucket :: (Value Prelude.Text),
                           s3Key :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> SourceConfigProperty

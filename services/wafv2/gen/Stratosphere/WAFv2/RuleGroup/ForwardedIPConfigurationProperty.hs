@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ForwardedIPConfigurationProperty
   = ForwardedIPConfigurationProperty {fallbackBehavior :: (Value Prelude.Text),
                                       headerName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkForwardedIPConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ForwardedIPConfigurationProperty

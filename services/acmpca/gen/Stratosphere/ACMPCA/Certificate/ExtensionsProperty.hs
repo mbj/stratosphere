@@ -16,6 +16,7 @@ data ExtensionsProperty
                         extendedKeyUsage :: (Prelude.Maybe [ExtendedKeyUsageProperty]),
                         keyUsage :: (Prelude.Maybe KeyUsageProperty),
                         subjectAlternativeNames :: (Prelude.Maybe [GeneralNameProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExtensionsProperty :: ExtensionsProperty
 mkExtensionsProperty
   = ExtensionsProperty

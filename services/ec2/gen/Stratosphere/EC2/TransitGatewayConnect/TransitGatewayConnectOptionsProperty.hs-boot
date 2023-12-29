@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TransitGatewayConnectOptionsProperty :: Prelude.Type
 instance ToResourceProperties TransitGatewayConnectOptionsProperty
+instance Prelude.Eq TransitGatewayConnectOptionsProperty
+instance Prelude.Show TransitGatewayConnectOptionsProperty
 instance JSON.ToJSON TransitGatewayConnectOptionsProperty

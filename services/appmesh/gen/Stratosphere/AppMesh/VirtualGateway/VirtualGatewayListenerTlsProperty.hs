@@ -13,6 +13,7 @@ data VirtualGatewayListenerTlsProperty
   = VirtualGatewayListenerTlsProperty {certificate :: VirtualGatewayListenerTlsCertificateProperty,
                                        mode :: (Value Prelude.Text),
                                        validation :: (Prelude.Maybe VirtualGatewayListenerTlsValidationContextProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayListenerTlsProperty ::
   VirtualGatewayListenerTlsCertificateProperty
   -> Value Prelude.Text -> VirtualGatewayListenerTlsProperty

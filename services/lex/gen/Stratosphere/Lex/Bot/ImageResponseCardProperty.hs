@@ -13,6 +13,7 @@ data ImageResponseCardProperty
                                imageUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                subtitle :: (Prelude.Maybe (Value Prelude.Text)),
                                title :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImageResponseCardProperty ::
   Value Prelude.Text -> ImageResponseCardProperty
 mkImageResponseCardProperty title

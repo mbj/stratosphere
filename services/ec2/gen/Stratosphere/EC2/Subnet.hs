@@ -21,6 +21,7 @@ data Subnet
             privateDnsNameOptionsOnLaunch :: (Prelude.Maybe PrivateDnsNameOptionsOnLaunchProperty),
             tags :: (Prelude.Maybe [Tag]),
             vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnet :: Value Prelude.Text -> Subnet
 mkSubnet vpcId
   = Subnet

@@ -10,6 +10,7 @@ data InputLocationProperty
   = InputLocationProperty {passwordParam :: (Prelude.Maybe (Value Prelude.Text)),
                            uri :: (Prelude.Maybe (Value Prelude.Text)),
                            username :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputLocationProperty :: InputLocationProperty
 mkInputLocationProperty
   = InputLocationProperty

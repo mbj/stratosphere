@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.DefaultNewSheetConfigurat
 import Stratosphere.ResourceProperties
 data AnalysisDefaultsProperty
   = AnalysisDefaultsProperty {defaultNewSheetConfiguration :: DefaultNewSheetConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisDefaultsProperty ::
   DefaultNewSheetConfigurationProperty -> AnalysisDefaultsProperty
 mkAnalysisDefaultsProperty defaultNewSheetConfiguration

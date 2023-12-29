@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RoutingRuleConditionProperty
   = RoutingRuleConditionProperty {httpErrorCodeReturnedEquals :: (Prelude.Maybe (Value Prelude.Text)),
                                   keyPrefixEquals :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingRuleConditionProperty :: RoutingRuleConditionProperty
 mkRoutingRuleConditionProperty
   = RoutingRuleConditionProperty

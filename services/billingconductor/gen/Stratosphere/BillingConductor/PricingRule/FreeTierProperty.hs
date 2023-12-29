@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FreeTierProperty
   = FreeTierProperty {activated :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFreeTierProperty :: Value Prelude.Bool -> FreeTierProperty
 mkFreeTierProperty activated
   = FreeTierProperty {activated = activated}

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DefaultCacheBehaviorProperty :: Prelude.Type
 instance ToResourceProperties DefaultCacheBehaviorProperty
+instance Prelude.Eq DefaultCacheBehaviorProperty
+instance Prelude.Show DefaultCacheBehaviorProperty
 instance JSON.ToJSON DefaultCacheBehaviorProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnFailureProperty
   = OnFailureProperty {destination :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOnFailureProperty :: OnFailureProperty
 mkOnFailureProperty
   = OnFailureProperty {destination = Prelude.Nothing}

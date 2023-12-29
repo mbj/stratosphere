@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ElasticInferenceAcceleratorProperty :: Prelude.Type
 instance ToResourceProperties ElasticInferenceAcceleratorProperty
+instance Prelude.Eq ElasticInferenceAcceleratorProperty
+instance Prelude.Show ElasticInferenceAcceleratorProperty
 instance JSON.ToJSON ElasticInferenceAcceleratorProperty

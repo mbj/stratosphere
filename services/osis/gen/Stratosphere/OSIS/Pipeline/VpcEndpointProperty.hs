@@ -11,6 +11,7 @@ data VpcEndpointProperty
   = VpcEndpointProperty {vpcEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
                          vpcId :: (Prelude.Maybe (Value Prelude.Text)),
                          vpcOptions :: (Prelude.Maybe VpcOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcEndpointProperty :: VpcEndpointProperty
 mkVpcEndpointProperty
   = VpcEndpointProperty

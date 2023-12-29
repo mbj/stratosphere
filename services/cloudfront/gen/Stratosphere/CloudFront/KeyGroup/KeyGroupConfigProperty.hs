@@ -10,6 +10,7 @@ data KeyGroupConfigProperty
   = KeyGroupConfigProperty {comment :: (Prelude.Maybe (Value Prelude.Text)),
                             items :: (ValueList Prelude.Text),
                             name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyGroupConfigProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> KeyGroupConfigProperty

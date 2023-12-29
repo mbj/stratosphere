@@ -13,6 +13,7 @@ data AlgorithmHyperParameterRangesProperty
   = AlgorithmHyperParameterRangesProperty {categoricalHyperParameterRanges :: (Prelude.Maybe [CategoricalHyperParameterRangeProperty]),
                                            continuousHyperParameterRanges :: (Prelude.Maybe [ContinuousHyperParameterRangeProperty]),
                                            integerHyperParameterRanges :: (Prelude.Maybe [IntegerHyperParameterRangeProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlgorithmHyperParameterRangesProperty ::
   AlgorithmHyperParameterRangesProperty
 mkAlgorithmHyperParameterRangesProperty

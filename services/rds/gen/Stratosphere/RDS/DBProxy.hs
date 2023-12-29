@@ -19,6 +19,7 @@ data DBProxy
              tags :: (Prelude.Maybe [TagFormatProperty]),
              vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              vpcSubnetIds :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDBProxy ::
   [AuthFormatProperty]
   -> Value Prelude.Text

@@ -11,6 +11,7 @@ data TopicProperty
                    description :: (Prelude.Maybe (Value Prelude.Text)),
                    displayName :: (Value Prelude.Text),
                    topicName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> TopicProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ComponentPlatformProperty
   = ComponentPlatformProperty {attributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentPlatformProperty :: ComponentPlatformProperty
 mkComponentPlatformProperty
   = ComponentPlatformProperty

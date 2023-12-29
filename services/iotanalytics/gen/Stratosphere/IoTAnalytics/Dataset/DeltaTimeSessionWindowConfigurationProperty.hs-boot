@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeltaTimeSessionWindowConfigurationProperty :: Prelude.Type
 instance ToResourceProperties DeltaTimeSessionWindowConfigurationProperty
+instance Prelude.Eq DeltaTimeSessionWindowConfigurationProperty
+instance Prelude.Show DeltaTimeSessionWindowConfigurationProperty
 instance JSON.ToJSON DeltaTimeSessionWindowConfigurationProperty

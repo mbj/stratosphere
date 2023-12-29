@@ -13,6 +13,7 @@ data TargetCapacitySpecificationRequestProperty
                                                 spotTargetCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                                 targetCapacityUnitType :: (Prelude.Maybe (Value Prelude.Text)),
                                                 totalTargetCapacity :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetCapacitySpecificationRequestProperty ::
   Value Prelude.Integer -> TargetCapacitySpecificationRequestProperty
 mkTargetCapacitySpecificationRequestProperty totalTargetCapacity

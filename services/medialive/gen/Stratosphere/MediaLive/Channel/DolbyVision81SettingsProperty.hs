@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DolbyVision81SettingsProperty
   = DolbyVision81SettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDolbyVision81SettingsProperty :: DolbyVision81SettingsProperty
 mkDolbyVision81SettingsProperty = DolbyVision81SettingsProperty {}
 instance ToResourceProperties DolbyVision81SettingsProperty where

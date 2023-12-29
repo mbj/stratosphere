@@ -16,6 +16,7 @@ data Agreement
                serverId :: (Value Prelude.Text),
                status :: (Prelude.Maybe (Value Prelude.Text)),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAgreement ::
   Value Prelude.Text
   -> Value Prelude.Text

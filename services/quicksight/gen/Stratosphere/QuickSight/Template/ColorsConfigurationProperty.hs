@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.CustomColorProperty as Ex
 import Stratosphere.ResourceProperties
 data ColorsConfigurationProperty
   = ColorsConfigurationProperty {customColors :: (Prelude.Maybe [CustomColorProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColorsConfigurationProperty :: ColorsConfigurationProperty
 mkColorsConfigurationProperty
   = ColorsConfigurationProperty {customColors = Prelude.Nothing}

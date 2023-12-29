@@ -12,6 +12,7 @@ data SankeyDiagramAggregatedFieldWellsProperty
   = SankeyDiagramAggregatedFieldWellsProperty {destination :: (Prelude.Maybe [DimensionFieldProperty]),
                                                source :: (Prelude.Maybe [DimensionFieldProperty]),
                                                weight :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSankeyDiagramAggregatedFieldWellsProperty ::
   SankeyDiagramAggregatedFieldWellsProperty
 mkSankeyDiagramAggregatedFieldWellsProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomerContentEncryptionConfigurationProperty
   = CustomerContentEncryptionConfigurationProperty {kmsKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerContentEncryptionConfigurationProperty ::
   Value Prelude.Text
   -> CustomerContentEncryptionConfigurationProperty

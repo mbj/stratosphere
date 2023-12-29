@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ModelQualityJobInputProperty :: Prelude.Type
 instance ToResourceProperties ModelQualityJobInputProperty
+instance Prelude.Eq ModelQualityJobInputProperty
+instance Prelude.Show ModelQualityJobInputProperty
 instance JSON.ToJSON ModelQualityJobInputProperty

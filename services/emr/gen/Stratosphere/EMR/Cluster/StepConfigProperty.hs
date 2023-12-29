@@ -11,6 +11,7 @@ data StepConfigProperty
   = StepConfigProperty {actionOnFailure :: (Prelude.Maybe (Value Prelude.Text)),
                         hadoopJarStep :: HadoopJarStepConfigProperty,
                         name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStepConfigProperty ::
   HadoopJarStepConfigProperty
   -> Value Prelude.Text -> StepConfigProperty

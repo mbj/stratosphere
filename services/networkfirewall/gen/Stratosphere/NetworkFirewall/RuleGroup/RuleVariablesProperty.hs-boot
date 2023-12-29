@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RuleVariablesProperty :: Prelude.Type
 instance ToResourceProperties RuleVariablesProperty
+instance Prelude.Eq RuleVariablesProperty
+instance Prelude.Show RuleVariablesProperty
 instance JSON.ToJSON RuleVariablesProperty

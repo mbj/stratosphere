@@ -13,6 +13,7 @@ data Grant
            licenseArn :: (Prelude.Maybe (Value Prelude.Text)),
            principals :: (Prelude.Maybe (ValueList Prelude.Text)),
            status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrant :: Grant
 mkGrant
   = Grant

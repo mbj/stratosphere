@@ -13,6 +13,7 @@ data HeaderFooterSectionConfigurationProperty
   = HeaderFooterSectionConfigurationProperty {layout :: SectionLayoutConfigurationProperty,
                                               sectionId :: (Value Prelude.Text),
                                               style :: (Prelude.Maybe SectionStyleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeaderFooterSectionConfigurationProperty ::
   SectionLayoutConfigurationProperty
   -> Value Prelude.Text -> HeaderFooterSectionConfigurationProperty

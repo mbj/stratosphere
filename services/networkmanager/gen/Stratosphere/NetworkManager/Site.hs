@@ -13,6 +13,7 @@ data Site
           globalNetworkId :: (Value Prelude.Text),
           location :: (Prelude.Maybe LocationProperty),
           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSite :: Value Prelude.Text -> Site
 mkSite globalNetworkId
   = Site

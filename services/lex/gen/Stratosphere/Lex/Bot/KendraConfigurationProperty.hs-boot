@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KendraConfigurationProperty :: Prelude.Type
 instance ToResourceProperties KendraConfigurationProperty
+instance Prelude.Eq KendraConfigurationProperty
+instance Prelude.Show KendraConfigurationProperty
 instance JSON.ToJSON KendraConfigurationProperty

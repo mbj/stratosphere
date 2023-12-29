@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FeedbackAttributesProperty
   = FeedbackAttributesProperty {emailForwardingEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFeedbackAttributesProperty :: FeedbackAttributesProperty
 mkFeedbackAttributesProperty
   = FeedbackAttributesProperty

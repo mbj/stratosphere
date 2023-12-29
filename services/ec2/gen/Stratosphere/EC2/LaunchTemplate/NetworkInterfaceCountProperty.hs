@@ -9,6 +9,7 @@ import Stratosphere.Value
 data NetworkInterfaceCountProperty
   = NetworkInterfaceCountProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
                                    min :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfaceCountProperty :: NetworkInterfaceCountProperty
 mkNetworkInterfaceCountProperty
   = NetworkInterfaceCountProperty

@@ -12,6 +12,7 @@ data EventSelectorProperty
                            excludeManagementEventSources :: (Prelude.Maybe (ValueList Prelude.Text)),
                            includeManagementEvents :: (Prelude.Maybe (Value Prelude.Bool)),
                            readWriteType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventSelectorProperty :: EventSelectorProperty
 mkEventSelectorProperty
   = EventSelectorProperty

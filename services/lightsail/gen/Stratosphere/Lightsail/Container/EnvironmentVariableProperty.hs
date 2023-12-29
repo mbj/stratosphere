@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EnvironmentVariableProperty
   = EnvironmentVariableProperty {value :: (Prelude.Maybe (Value Prelude.Text)),
                                  variable :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentVariableProperty :: EnvironmentVariableProperty
 mkEnvironmentVariableProperty
   = EnvironmentVariableProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PromptSpecificationProperty :: Prelude.Type
 instance ToResourceProperties PromptSpecificationProperty
+instance Prelude.Eq PromptSpecificationProperty
+instance Prelude.Show PromptSpecificationProperty
 instance JSON.ToJSON PromptSpecificationProperty

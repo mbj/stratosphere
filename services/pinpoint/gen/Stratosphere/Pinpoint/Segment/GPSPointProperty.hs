@@ -10,6 +10,7 @@ import Stratosphere.Value
 data GPSPointProperty
   = GPSPointProperty {coordinates :: CoordinatesProperty,
                       rangeInKilometers :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGPSPointProperty ::
   CoordinatesProperty -> Value Prelude.Double -> GPSPointProperty
 mkGPSPointProperty coordinates rangeInKilometers

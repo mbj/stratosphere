@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OriginRequestPolicyConfigProperty :: Prelude.Type
 instance ToResourceProperties OriginRequestPolicyConfigProperty
+instance Prelude.Eq OriginRequestPolicyConfigProperty
+instance Prelude.Show OriginRequestPolicyConfigProperty
 instance JSON.ToJSON OriginRequestPolicyConfigProperty

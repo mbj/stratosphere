@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data JobFlowInstancesConfigProperty :: Prelude.Type
 instance ToResourceProperties JobFlowInstancesConfigProperty
+instance Prelude.Eq JobFlowInstancesConfigProperty
+instance Prelude.Show JobFlowInstancesConfigProperty
 instance JSON.ToJSON JobFlowInstancesConfigProperty

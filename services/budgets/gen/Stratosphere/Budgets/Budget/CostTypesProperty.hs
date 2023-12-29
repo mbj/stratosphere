@@ -18,6 +18,7 @@ data CostTypesProperty
                        includeUpfront :: (Prelude.Maybe (Value Prelude.Bool)),
                        useAmortized :: (Prelude.Maybe (Value Prelude.Bool)),
                        useBlended :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCostTypesProperty :: CostTypesProperty
 mkCostTypesProperty
   = CostTypesProperty

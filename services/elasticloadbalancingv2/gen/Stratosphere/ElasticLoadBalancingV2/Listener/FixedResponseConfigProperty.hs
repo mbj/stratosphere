@@ -10,6 +10,7 @@ data FixedResponseConfigProperty
   = FixedResponseConfigProperty {contentType :: (Prelude.Maybe (Value Prelude.Text)),
                                  messageBody :: (Prelude.Maybe (Value Prelude.Text)),
                                  statusCode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFixedResponseConfigProperty ::
   Value Prelude.Text -> FixedResponseConfigProperty
 mkFixedResponseConfigProperty statusCode

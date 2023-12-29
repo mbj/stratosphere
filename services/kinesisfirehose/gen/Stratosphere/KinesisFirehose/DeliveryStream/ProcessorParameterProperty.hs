@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ProcessorParameterProperty
   = ProcessorParameterProperty {parameterName :: (Value Prelude.Text),
                                 parameterValue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProcessorParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ProcessorParameterProperty

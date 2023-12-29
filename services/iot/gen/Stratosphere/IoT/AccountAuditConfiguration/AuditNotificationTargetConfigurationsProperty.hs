@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IoT.AccountAuditConfiguration.AuditNotificati
 import Stratosphere.ResourceProperties
 data AuditNotificationTargetConfigurationsProperty
   = AuditNotificationTargetConfigurationsProperty {sns :: (Prelude.Maybe AuditNotificationTargetProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuditNotificationTargetConfigurationsProperty ::
   AuditNotificationTargetConfigurationsProperty
 mkAuditNotificationTargetConfigurationsProperty

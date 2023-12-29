@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.SectionAfterPageBreakPro
 import Stratosphere.ResourceProperties
 data SectionPageBreakConfigurationProperty
   = SectionPageBreakConfigurationProperty {after :: (Prelude.Maybe SectionAfterPageBreakProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSectionPageBreakConfigurationProperty ::
   SectionPageBreakConfigurationProperty
 mkSectionPageBreakConfigurationProperty

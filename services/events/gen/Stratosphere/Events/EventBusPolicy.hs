@@ -14,6 +14,7 @@ data EventBusPolicy
                     principal :: (Prelude.Maybe (Value Prelude.Text)),
                     statement :: (Prelude.Maybe JSON.Object),
                     statementId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBusPolicy :: Value Prelude.Text -> EventBusPolicy
 mkEventBusPolicy statementId
   = EventBusPolicy

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TreatmentToWeightProperty
   = TreatmentToWeightProperty {splitWeight :: (Value Prelude.Integer),
                                treatment :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTreatmentToWeightProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> TreatmentToWeightProperty

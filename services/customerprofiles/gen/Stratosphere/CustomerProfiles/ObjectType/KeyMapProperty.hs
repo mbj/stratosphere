@@ -10,6 +10,7 @@ import Stratosphere.Value
 data KeyMapProperty
   = KeyMapProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                     objectTypeKeyList :: (Prelude.Maybe [ObjectTypeKeyProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyMapProperty :: KeyMapProperty
 mkKeyMapProperty
   = KeyMapProperty

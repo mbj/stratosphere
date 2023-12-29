@@ -11,6 +11,7 @@ data MaintenanceUpdateSettingsProperty
   = MaintenanceUpdateSettingsProperty {maintenanceDay :: (Prelude.Maybe (Value Prelude.Text)),
                                        maintenanceScheduledDate :: (Prelude.Maybe (Value Prelude.Text)),
                                        maintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceUpdateSettingsProperty ::
   MaintenanceUpdateSettingsProperty
 mkMaintenanceUpdateSettingsProperty

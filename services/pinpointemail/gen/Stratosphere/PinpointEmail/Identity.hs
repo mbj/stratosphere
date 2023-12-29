@@ -14,6 +14,7 @@ data Identity
               mailFromAttributes :: (Prelude.Maybe MailFromAttributesProperty),
               name :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [TagsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentity :: Value Prelude.Text -> Identity
 mkIdentity name
   = Identity

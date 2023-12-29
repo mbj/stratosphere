@@ -15,6 +15,7 @@ data Table
            retentionProperties :: (Prelude.Maybe RetentionPropertiesProperty),
            tableName :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTable :: Value Prelude.Text -> Table
 mkTable databaseName
   = Table

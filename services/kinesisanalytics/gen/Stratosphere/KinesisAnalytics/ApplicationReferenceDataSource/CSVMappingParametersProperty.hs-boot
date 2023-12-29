@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CSVMappingParametersProperty :: Prelude.Type
 instance ToResourceProperties CSVMappingParametersProperty
+instance Prelude.Eq CSVMappingParametersProperty
+instance Prelude.Show CSVMappingParametersProperty
 instance JSON.ToJSON CSVMappingParametersProperty

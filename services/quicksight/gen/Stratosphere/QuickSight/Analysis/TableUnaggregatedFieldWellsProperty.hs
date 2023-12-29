@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.UnaggregatedFieldProperty
 import Stratosphere.ResourceProperties
 data TableUnaggregatedFieldWellsProperty
   = TableUnaggregatedFieldWellsProperty {values :: (Prelude.Maybe [UnaggregatedFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableUnaggregatedFieldWellsProperty ::
   TableUnaggregatedFieldWellsProperty
 mkTableUnaggregatedFieldWellsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TreatmentToWeightProperty :: Prelude.Type
 instance ToResourceProperties TreatmentToWeightProperty
+instance Prelude.Eq TreatmentToWeightProperty
+instance Prelude.Show TreatmentToWeightProperty
 instance JSON.ToJSON TreatmentToWeightProperty

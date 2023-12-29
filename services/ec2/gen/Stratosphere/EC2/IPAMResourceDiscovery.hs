@@ -12,6 +12,7 @@ data IPAMResourceDiscovery
   = IPAMResourceDiscovery {description :: (Prelude.Maybe (Value Prelude.Text)),
                            operatingRegions :: (Prelude.Maybe [IpamOperatingRegionProperty]),
                            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAMResourceDiscovery :: IPAMResourceDiscovery
 mkIPAMResourceDiscovery
   = IPAMResourceDiscovery

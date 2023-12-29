@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionConditionProperty
   = ActionConditionProperty {action :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionConditionProperty ::
   Value Prelude.Text -> ActionConditionProperty
 mkActionConditionProperty action

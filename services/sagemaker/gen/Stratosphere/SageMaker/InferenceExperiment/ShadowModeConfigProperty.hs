@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ShadowModeConfigProperty
   = ShadowModeConfigProperty {shadowModelVariants :: [ShadowModelVariantConfigProperty],
                               sourceModelVariantName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkShadowModeConfigProperty ::
   [ShadowModelVariantConfigProperty]
   -> Value Prelude.Text -> ShadowModeConfigProperty

@@ -18,6 +18,7 @@ data Role
           policies :: (Prelude.Maybe [PolicyProperty]),
           roleName :: (Prelude.Maybe (Value Prelude.Text)),
           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRole :: JSON.Object -> Role
 mkRole assumeRolePolicyDocument
   = Role

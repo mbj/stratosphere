@@ -58,6 +58,7 @@ data LaunchTemplateDataProperty
                                 securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 tagSpecifications :: (Prelude.Maybe [TagSpecificationProperty]),
                                 userData :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateDataProperty :: LaunchTemplateDataProperty
 mkLaunchTemplateDataProperty
   = LaunchTemplateDataProperty

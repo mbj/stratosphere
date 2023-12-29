@@ -12,6 +12,7 @@ data MssPackageProperty
   = MssPackageProperty {encryption :: (Prelude.Maybe MssEncryptionProperty),
                         mssManifests :: [MssManifestProperty],
                         segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMssPackageProperty :: [MssManifestProperty] -> MssPackageProperty
 mkMssPackageProperty mssManifests
   = MssPackageProperty

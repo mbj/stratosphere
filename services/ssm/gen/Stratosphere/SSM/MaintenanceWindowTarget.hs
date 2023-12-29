@@ -15,6 +15,7 @@ data MaintenanceWindowTarget
                              resourceType :: (Value Prelude.Text),
                              targets :: [TargetsProperty],
                              windowId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowTarget ::
   Value Prelude.Text
   -> [TargetsProperty]

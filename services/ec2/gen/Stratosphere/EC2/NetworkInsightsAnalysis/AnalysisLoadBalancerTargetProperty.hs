@@ -13,6 +13,7 @@ data AnalysisLoadBalancerTargetProperty
                                         availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
                                         instance' :: (Prelude.Maybe AnalysisComponentProperty),
                                         port :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisLoadBalancerTargetProperty ::
   AnalysisLoadBalancerTargetProperty
 mkAnalysisLoadBalancerTargetProperty

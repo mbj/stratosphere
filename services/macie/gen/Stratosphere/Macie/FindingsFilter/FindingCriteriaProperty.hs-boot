@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FindingCriteriaProperty :: Prelude.Type
 instance ToResourceProperties FindingCriteriaProperty
+instance Prelude.Eq FindingCriteriaProperty
+instance Prelude.Show FindingCriteriaProperty
 instance JSON.ToJSON FindingCriteriaProperty

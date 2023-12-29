@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ImmunityTimePropertyProperty
   = ImmunityTimePropertyProperty {immunityTime :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImmunityTimePropertyProperty ::
   Value Prelude.Integer -> ImmunityTimePropertyProperty
 mkImmunityTimePropertyProperty immunityTime

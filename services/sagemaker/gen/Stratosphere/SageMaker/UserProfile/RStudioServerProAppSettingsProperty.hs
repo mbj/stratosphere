@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RStudioServerProAppSettingsProperty
   = RStudioServerProAppSettingsProperty {accessStatus :: (Prelude.Maybe (Value Prelude.Text)),
                                          userGroup :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRStudioServerProAppSettingsProperty ::
   RStudioServerProAppSettingsProperty
 mkRStudioServerProAppSettingsProperty

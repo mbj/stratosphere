@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IoTJobTimeoutConfigProperty
   = IoTJobTimeoutConfigProperty {inProgressTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobTimeoutConfigProperty :: IoTJobTimeoutConfigProperty
 mkIoTJobTimeoutConfigProperty
   = IoTJobTimeoutConfigProperty

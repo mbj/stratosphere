@@ -10,6 +10,7 @@ import Stratosphere.Value
 data VpnTunnelOptionsSpecificationProperty
   = VpnTunnelOptionsSpecificationProperty {preSharedKey :: (Prelude.Maybe (Value Prelude.Text)),
                                            tunnelInsideCidr :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpnTunnelOptionsSpecificationProperty ::
   VpnTunnelOptionsSpecificationProperty
 mkVpnTunnelOptionsSpecificationProperty

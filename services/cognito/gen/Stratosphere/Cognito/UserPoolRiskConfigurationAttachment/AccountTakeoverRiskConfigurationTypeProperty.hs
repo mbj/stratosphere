@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data AccountTakeoverRiskConfigurationTypeProperty
   = AccountTakeoverRiskConfigurationTypeProperty {actions :: AccountTakeoverActionsTypeProperty,
                                                   notifyConfiguration :: (Prelude.Maybe NotifyConfigurationTypeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountTakeoverRiskConfigurationTypeProperty ::
   AccountTakeoverActionsTypeProperty
   -> AccountTakeoverRiskConfigurationTypeProperty

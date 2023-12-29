@@ -40,6 +40,7 @@ data InstanceRequirementsProperty
                                   spotMaxPricePercentageOverLowestPrice :: (Prelude.Maybe (Value Prelude.Integer)),
                                   totalLocalStorageGB :: (Prelude.Maybe TotalLocalStorageGBRequestProperty),
                                   vCpuCount :: (Prelude.Maybe VCpuCountRequestProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceRequirementsProperty :: InstanceRequirementsProperty
 mkInstanceRequirementsProperty
   = InstanceRequirementsProperty

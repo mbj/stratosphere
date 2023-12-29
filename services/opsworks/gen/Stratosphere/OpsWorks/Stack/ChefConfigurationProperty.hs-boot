@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ChefConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ChefConfigurationProperty
+instance Prelude.Eq ChefConfigurationProperty
+instance Prelude.Show ChefConfigurationProperty
 instance JSON.ToJSON ChefConfigurationProperty

@@ -14,6 +14,7 @@ data VirtualService
                     spec :: VirtualServiceSpecProperty,
                     tags :: (Prelude.Maybe [Tag]),
                     virtualServiceName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualService ::
   Value Prelude.Text
   -> VirtualServiceSpecProperty

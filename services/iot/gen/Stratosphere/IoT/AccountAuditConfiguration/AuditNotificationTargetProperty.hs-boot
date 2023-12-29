@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AuditNotificationTargetProperty :: Prelude.Type
 instance ToResourceProperties AuditNotificationTargetProperty
+instance Prelude.Eq AuditNotificationTargetProperty
+instance Prelude.Show AuditNotificationTargetProperty
 instance JSON.ToJSON AuditNotificationTargetProperty

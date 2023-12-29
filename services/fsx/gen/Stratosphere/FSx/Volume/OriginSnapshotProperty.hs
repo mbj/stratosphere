@@ -9,6 +9,7 @@ import Stratosphere.Value
 data OriginSnapshotProperty
   = OriginSnapshotProperty {copyStrategy :: (Value Prelude.Text),
                             snapshotARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginSnapshotProperty ::
   Value Prelude.Text -> Value Prelude.Text -> OriginSnapshotProperty
 mkOriginSnapshotProperty copyStrategy snapshotARN

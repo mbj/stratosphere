@@ -19,6 +19,7 @@ data BarChartVisualProperty
                             subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                             title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                             visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBarChartVisualProperty ::
   Value Prelude.Text -> BarChartVisualProperty
 mkBarChartVisualProperty visualId

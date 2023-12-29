@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodeStar.GitHubRepository.S3Property as Exports
 import Stratosphere.ResourceProperties
-data CodeProperty = CodeProperty {s3 :: S3Property}
+data CodeProperty
+  = CodeProperty {s3 :: S3Property}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeProperty :: S3Property -> CodeProperty
 mkCodeProperty s3 = CodeProperty {s3 = s3}
 instance ToResourceProperties CodeProperty where

@@ -17,6 +17,7 @@ data Component
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                uri :: (Prelude.Maybe (Value Prelude.Text)),
                version :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponent ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Component

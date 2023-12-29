@@ -19,6 +19,7 @@ data SecurityGroupIngress
                           sourceSecurityGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                           sourceSecurityGroupOwnerId :: (Prelude.Maybe (Value Prelude.Text)),
                           toPort :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityGroupIngress ::
   Value Prelude.Text -> SecurityGroupIngress
 mkSecurityGroupIngress ipProtocol

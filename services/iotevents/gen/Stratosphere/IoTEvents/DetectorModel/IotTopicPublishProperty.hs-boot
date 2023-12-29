@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IotTopicPublishProperty :: Prelude.Type
 instance ToResourceProperties IotTopicPublishProperty
+instance Prelude.Eq IotTopicPublishProperty
+instance Prelude.Show IotTopicPublishProperty
 instance JSON.ToJSON IotTopicPublishProperty

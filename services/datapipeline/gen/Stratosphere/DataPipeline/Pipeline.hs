@@ -18,6 +18,7 @@ data Pipeline
               parameterValues :: (Prelude.Maybe [ParameterValueProperty]),
               pipelineObjects :: (Prelude.Maybe [PipelineObjectProperty]),
               pipelineTags :: (Prelude.Maybe [PipelineTagProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeline :: Value Prelude.Text -> Pipeline
 mkPipeline name
   = Pipeline

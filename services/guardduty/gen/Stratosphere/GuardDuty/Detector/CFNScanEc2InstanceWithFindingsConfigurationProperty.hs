@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CFNScanEc2InstanceWithFindingsConfigurationProperty
   = CFNScanEc2InstanceWithFindingsConfigurationProperty {ebsVolumes :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNScanEc2InstanceWithFindingsConfigurationProperty ::
   CFNScanEc2InstanceWithFindingsConfigurationProperty
 mkCFNScanEc2InstanceWithFindingsConfigurationProperty

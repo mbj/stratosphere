@@ -21,6 +21,7 @@ data ConfigurationDetailsProperty
                                   jMXPrometheusExporter :: (Prelude.Maybe JMXPrometheusExporterProperty),
                                   logs :: (Prelude.Maybe [LogProperty]),
                                   windowsEvents :: (Prelude.Maybe [WindowsEventProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationDetailsProperty :: ConfigurationDetailsProperty
 mkConfigurationDetailsProperty
   = ConfigurationDetailsProperty

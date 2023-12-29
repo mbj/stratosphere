@@ -13,6 +13,7 @@ data WordCloudOptionsProperty
                               wordOrientation :: (Prelude.Maybe (Value Prelude.Text)),
                               wordPadding :: (Prelude.Maybe (Value Prelude.Text)),
                               wordScaling :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWordCloudOptionsProperty :: WordCloudOptionsProperty
 mkWordCloudOptionsProperty
   = WordCloudOptionsProperty

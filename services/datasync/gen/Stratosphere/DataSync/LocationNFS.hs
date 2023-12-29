@@ -15,6 +15,7 @@ data LocationNFS
                  serverHostname :: (Prelude.Maybe (Value Prelude.Text)),
                  subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationNFS :: OnPremConfigProperty -> LocationNFS
 mkLocationNFS onPremConfig
   = LocationNFS

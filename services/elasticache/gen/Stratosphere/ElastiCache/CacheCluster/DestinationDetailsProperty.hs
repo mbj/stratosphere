@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DestinationDetailsProperty
   = DestinationDetailsProperty {cloudWatchLogsDetails :: (Prelude.Maybe CloudWatchLogsDestinationDetailsProperty),
                                 kinesisFirehoseDetails :: (Prelude.Maybe KinesisFirehoseDestinationDetailsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationDetailsProperty :: DestinationDetailsProperty
 mkDestinationDetailsProperty
   = DestinationDetailsProperty

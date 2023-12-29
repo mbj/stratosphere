@@ -10,6 +10,7 @@ data FileSourceProperty
   = FileSourceProperty {contentDigest :: (Prelude.Maybe (Value Prelude.Text)),
                         contentType :: (Prelude.Maybe (Value Prelude.Text)),
                         s3Uri :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFileSourceProperty :: Value Prelude.Text -> FileSourceProperty
 mkFileSourceProperty s3Uri
   = FileSourceProperty

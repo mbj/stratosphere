@@ -10,6 +10,7 @@ data HopDestinationProperty
   = HopDestinationProperty {priority :: (Prelude.Maybe (Value Prelude.Integer)),
                             queue :: (Prelude.Maybe (Value Prelude.Text)),
                             waitMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHopDestinationProperty :: HopDestinationProperty
 mkHopDestinationProperty
   = HopDestinationProperty

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TableFieldLinkConfigurationProperty
   = TableFieldLinkConfigurationProperty {content :: TableFieldLinkContentConfigurationProperty,
                                          target :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableFieldLinkConfigurationProperty ::
   TableFieldLinkContentConfigurationProperty
   -> Value Prelude.Text -> TableFieldLinkConfigurationProperty

@@ -13,6 +13,7 @@ data RedirectConfigProperty
                             protocol :: (Prelude.Maybe (Value Prelude.Text)),
                             query :: (Prelude.Maybe (Value Prelude.Text)),
                             statusCode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedirectConfigProperty ::
   Value Prelude.Text -> RedirectConfigProperty
 mkRedirectConfigProperty statusCode

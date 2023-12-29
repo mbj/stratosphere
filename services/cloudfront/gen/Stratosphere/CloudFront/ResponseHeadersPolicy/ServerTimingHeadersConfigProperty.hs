@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ServerTimingHeadersConfigProperty
   = ServerTimingHeadersConfigProperty {enabled :: (Value Prelude.Bool),
                                        samplingRate :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerTimingHeadersConfigProperty ::
   Value Prelude.Bool -> ServerTimingHeadersConfigProperty
 mkServerTimingHeadersConfigProperty enabled

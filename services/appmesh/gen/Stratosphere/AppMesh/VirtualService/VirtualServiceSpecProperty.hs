@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualService.VirtualServiceProvider
 import Stratosphere.ResourceProperties
 data VirtualServiceSpecProperty
   = VirtualServiceSpecProperty {provider :: (Prelude.Maybe VirtualServiceProviderProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualServiceSpecProperty :: VirtualServiceSpecProperty
 mkVirtualServiceSpecProperty
   = VirtualServiceSpecProperty {provider = Prelude.Nothing}

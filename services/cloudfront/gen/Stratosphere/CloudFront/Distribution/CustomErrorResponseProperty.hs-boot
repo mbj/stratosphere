@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomErrorResponseProperty :: Prelude.Type
 instance ToResourceProperties CustomErrorResponseProperty
+instance Prelude.Eq CustomErrorResponseProperty
+instance Prelude.Show CustomErrorResponseProperty
 instance JSON.ToJSON CustomErrorResponseProperty

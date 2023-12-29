@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.OriginEndpoint.SpekeKeyProviderP
 import Stratosphere.ResourceProperties
 data MssEncryptionProperty
   = MssEncryptionProperty {spekeKeyProvider :: SpekeKeyProviderProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMssEncryptionProperty ::
   SpekeKeyProviderProperty -> MssEncryptionProperty
 mkMssEncryptionProperty spekeKeyProvider

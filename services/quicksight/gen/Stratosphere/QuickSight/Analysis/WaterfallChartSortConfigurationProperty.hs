@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data WaterfallChartSortConfigurationProperty
   = WaterfallChartSortConfigurationProperty {breakdownItemsLimit :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                              categorySort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWaterfallChartSortConfigurationProperty ::
   WaterfallChartSortConfigurationProperty
 mkWaterfallChartSortConfigurationProperty

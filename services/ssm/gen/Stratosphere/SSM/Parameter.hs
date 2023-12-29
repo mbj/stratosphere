@@ -16,6 +16,7 @@ data Parameter
                tier :: (Prelude.Maybe (Value Prelude.Text)),
                type' :: (Value Prelude.Text),
                value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameter ::
   Value Prelude.Text -> Value Prelude.Text -> Parameter
 mkParameter type' value

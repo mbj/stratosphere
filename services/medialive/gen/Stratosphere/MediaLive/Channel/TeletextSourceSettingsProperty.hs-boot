@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TeletextSourceSettingsProperty :: Prelude.Type
 instance ToResourceProperties TeletextSourceSettingsProperty
+instance Prelude.Eq TeletextSourceSettingsProperty
+instance Prelude.Show TeletextSourceSettingsProperty
 instance JSON.ToJSON TeletextSourceSettingsProperty

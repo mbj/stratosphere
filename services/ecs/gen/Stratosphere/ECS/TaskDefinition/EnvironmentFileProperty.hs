@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EnvironmentFileProperty
   = EnvironmentFileProperty {type' :: (Prelude.Maybe (Value Prelude.Text)),
                              value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentFileProperty :: EnvironmentFileProperty
 mkEnvironmentFileProperty
   = EnvironmentFileProperty

@@ -27,6 +27,7 @@ data App
          platform :: (Prelude.Maybe (Value Prelude.Text)),
          repository :: (Prelude.Maybe (Value Prelude.Text)),
          tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApp :: Value Prelude.Text -> App
 mkApp name
   = App

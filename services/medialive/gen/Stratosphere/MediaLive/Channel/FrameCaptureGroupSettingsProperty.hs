@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data FrameCaptureGroupSettingsProperty
   = FrameCaptureGroupSettingsProperty {destination :: (Prelude.Maybe OutputLocationRefProperty),
                                        frameCaptureCdnSettings :: (Prelude.Maybe FrameCaptureCdnSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameCaptureGroupSettingsProperty ::
   FrameCaptureGroupSettingsProperty
 mkFrameCaptureGroupSettingsProperty

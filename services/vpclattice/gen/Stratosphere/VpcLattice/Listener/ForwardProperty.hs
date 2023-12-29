@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.VpcLattice.Listener.WeightedTargetGroupProper
 import Stratosphere.ResourceProperties
 data ForwardProperty
   = ForwardProperty {targetGroups :: [WeightedTargetGroupProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkForwardProperty ::
   [WeightedTargetGroupProperty] -> ForwardProperty
 mkForwardProperty targetGroups

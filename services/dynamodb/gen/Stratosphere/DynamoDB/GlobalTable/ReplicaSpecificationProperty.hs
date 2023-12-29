@@ -25,6 +25,7 @@ data ReplicaSpecificationProperty
                                   sSESpecification :: (Prelude.Maybe ReplicaSSESpecificationProperty),
                                   tableClass :: (Prelude.Maybe (Value Prelude.Text)),
                                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaSpecificationProperty ::
   Value Prelude.Text -> ReplicaSpecificationProperty
 mkReplicaSpecificationProperty region

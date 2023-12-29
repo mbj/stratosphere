@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlAllowOriginsProperty
   = AccessControlAllowOriginsProperty {items :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlAllowOriginsProperty ::
   ValueList Prelude.Text -> AccessControlAllowOriginsProperty
 mkAccessControlAllowOriginsProperty items

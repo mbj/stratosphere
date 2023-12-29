@@ -21,6 +21,7 @@ data RuleConditionProperty
                            queryStringConfig :: (Prelude.Maybe QueryStringConfigProperty),
                            sourceIpConfig :: (Prelude.Maybe SourceIpConfigProperty),
                            values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleConditionProperty :: RuleConditionProperty
 mkRuleConditionProperty
   = RuleConditionProperty

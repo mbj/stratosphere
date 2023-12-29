@@ -20,6 +20,7 @@ data CertificateAuthority
                           tags :: (Prelude.Maybe [Tag]),
                           type' :: (Value Prelude.Text),
                           usageMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateAuthority ::
   Value Prelude.Text
   -> Value Prelude.Text

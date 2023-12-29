@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.PieChartAggregatedFieldWe
 import Stratosphere.ResourceProperties
 data PieChartFieldWellsProperty
   = PieChartFieldWellsProperty {pieChartAggregatedFieldWells :: (Prelude.Maybe PieChartAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPieChartFieldWellsProperty :: PieChartFieldWellsProperty
 mkPieChartFieldWellsProperty
   = PieChartFieldWellsProperty

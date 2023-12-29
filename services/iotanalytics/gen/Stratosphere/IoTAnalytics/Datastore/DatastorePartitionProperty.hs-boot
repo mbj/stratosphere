@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DatastorePartitionProperty :: Prelude.Type
 instance ToResourceProperties DatastorePartitionProperty
+instance Prelude.Eq DatastorePartitionProperty
+instance Prelude.Show DatastorePartitionProperty
 instance JSON.ToJSON DatastorePartitionProperty

@@ -10,6 +10,7 @@ data NetworkInterfacePermission
   = NetworkInterfacePermission {awsAccountId :: (Value Prelude.Text),
                                 networkInterfaceId :: (Value Prelude.Text),
                                 permission :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfacePermission ::
   Value Prelude.Text
   -> Value Prelude.Text

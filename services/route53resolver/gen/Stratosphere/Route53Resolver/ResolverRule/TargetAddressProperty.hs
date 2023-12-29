@@ -10,6 +10,7 @@ data TargetAddressProperty
   = TargetAddressProperty {ip :: (Prelude.Maybe (Value Prelude.Text)),
                            ipv6 :: (Prelude.Maybe (Value Prelude.Text)),
                            port :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetAddressProperty :: TargetAddressProperty
 mkTargetAddressProperty
   = TargetAddressProperty

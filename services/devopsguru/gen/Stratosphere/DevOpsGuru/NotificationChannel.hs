@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.DevOpsGuru.NotificationChannel.NotificationCh
 import Stratosphere.ResourceProperties
 data NotificationChannel
   = NotificationChannel {config :: NotificationChannelConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationChannel ::
   NotificationChannelConfigProperty -> NotificationChannel
 mkNotificationChannel config

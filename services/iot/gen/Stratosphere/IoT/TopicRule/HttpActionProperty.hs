@@ -13,6 +13,7 @@ data HttpActionProperty
                         confirmationUrl :: (Prelude.Maybe (Value Prelude.Text)),
                         headers :: (Prelude.Maybe [HttpActionHeaderProperty]),
                         url :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpActionProperty :: Value Prelude.Text -> HttpActionProperty
 mkHttpActionProperty url
   = HttpActionProperty

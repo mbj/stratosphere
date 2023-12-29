@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VpcSecurityGroupProperty
   = VpcSecurityGroupProperty {status :: (Prelude.Maybe (Value Prelude.Text)),
                               vpcSecurityGroupId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcSecurityGroupProperty :: VpcSecurityGroupProperty
 mkVpcSecurityGroupProperty
   = VpcSecurityGroupProperty

@@ -12,6 +12,7 @@ data ServiceProfile
   = ServiceProfile {loRaWAN :: (Prelude.Maybe LoRaWANServiceProfileProperty),
                     name :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceProfile :: ServiceProfile
 mkServiceProfile
   = ServiceProfile

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.FilledMapAggregatedField
 import Stratosphere.ResourceProperties
 data FilledMapFieldWellsProperty
   = FilledMapFieldWellsProperty {filledMapAggregatedFieldWells :: (Prelude.Maybe FilledMapAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilledMapFieldWellsProperty :: FilledMapFieldWellsProperty
 mkFilledMapFieldWellsProperty
   = FilledMapFieldWellsProperty

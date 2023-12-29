@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnDescriptionProperty
   = ColumnDescriptionProperty {text :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnDescriptionProperty :: ColumnDescriptionProperty
 mkColumnDescriptionProperty
   = ColumnDescriptionProperty {text = Prelude.Nothing}

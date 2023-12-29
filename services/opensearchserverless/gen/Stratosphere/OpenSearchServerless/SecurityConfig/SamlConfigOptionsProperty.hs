@@ -11,6 +11,7 @@ data SamlConfigOptionsProperty
                                metadata :: (Value Prelude.Text),
                                sessionTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                userAttribute :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSamlConfigOptionsProperty ::
   Value Prelude.Text -> SamlConfigOptionsProperty
 mkSamlConfigOptionsProperty metadata

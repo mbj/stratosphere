@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.CloudFrontOriginAccessIdentity.Clo
 import Stratosphere.ResourceProperties
 data CloudFrontOriginAccessIdentity
   = CloudFrontOriginAccessIdentity {cloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudFrontOriginAccessIdentity ::
   CloudFrontOriginAccessIdentityConfigProperty
   -> CloudFrontOriginAccessIdentity

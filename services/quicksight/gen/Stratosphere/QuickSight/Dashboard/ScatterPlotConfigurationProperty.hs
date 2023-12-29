@@ -23,6 +23,7 @@ data ScatterPlotConfigurationProperty
                                       xAxisLabelOptions :: (Prelude.Maybe ChartAxisLabelOptionsProperty),
                                       yAxisDisplayOptions :: (Prelude.Maybe AxisDisplayOptionsProperty),
                                       yAxisLabelOptions :: (Prelude.Maybe ChartAxisLabelOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScatterPlotConfigurationProperty ::
   ScatterPlotConfigurationProperty
 mkScatterPlotConfigurationProperty

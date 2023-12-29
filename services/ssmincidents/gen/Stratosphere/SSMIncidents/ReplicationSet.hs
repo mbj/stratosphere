@@ -12,6 +12,7 @@ data ReplicationSet
   = ReplicationSet {deletionProtected :: (Prelude.Maybe (Value Prelude.Bool)),
                     regions :: [ReplicationRegionProperty],
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationSet :: [ReplicationRegionProperty] -> ReplicationSet
 mkReplicationSet regions
   = ReplicationSet

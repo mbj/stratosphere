@@ -11,6 +11,7 @@ import Stratosphere.Value
 data CampaignEventFilterProperty
   = CampaignEventFilterProperty {dimensions :: (Prelude.Maybe EventDimensionsProperty),
                                  filterType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaignEventFilterProperty :: CampaignEventFilterProperty
 mkCampaignEventFilterProperty
   = CampaignEventFilterProperty

@@ -12,6 +12,7 @@ data SyncSourceProperty
                         includeFutureRegions :: (Prelude.Maybe (Value Prelude.Bool)),
                         sourceRegions :: (ValueList Prelude.Text),
                         sourceType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSyncSourceProperty ::
   ValueList Prelude.Text -> Value Prelude.Text -> SyncSourceProperty
 mkSyncSourceProperty sourceRegions sourceType

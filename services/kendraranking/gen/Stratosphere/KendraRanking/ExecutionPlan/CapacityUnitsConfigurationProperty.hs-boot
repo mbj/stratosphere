@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CapacityUnitsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties CapacityUnitsConfigurationProperty
+instance Prelude.Eq CapacityUnitsConfigurationProperty
+instance Prelude.Show CapacityUnitsConfigurationProperty
 instance JSON.ToJSON CapacityUnitsConfigurationProperty

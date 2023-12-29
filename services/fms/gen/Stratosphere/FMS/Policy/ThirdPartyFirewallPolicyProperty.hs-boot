@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ThirdPartyFirewallPolicyProperty :: Prelude.Type
 instance ToResourceProperties ThirdPartyFirewallPolicyProperty
+instance Prelude.Eq ThirdPartyFirewallPolicyProperty
+instance Prelude.Show ThirdPartyFirewallPolicyProperty
 instance JSON.ToJSON ThirdPartyFirewallPolicyProperty

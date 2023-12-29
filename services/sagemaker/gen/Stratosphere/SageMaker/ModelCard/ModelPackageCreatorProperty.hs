@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ModelPackageCreatorProperty
   = ModelPackageCreatorProperty {userProfileName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageCreatorProperty :: ModelPackageCreatorProperty
 mkModelPackageCreatorProperty
   = ModelPackageCreatorProperty {userProfileName = Prelude.Nothing}

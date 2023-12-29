@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ScheduleConfigProperty :: Prelude.Type
 instance ToResourceProperties ScheduleConfigProperty
+instance Prelude.Eq ScheduleConfigProperty
+instance Prelude.Show ScheduleConfigProperty
 instance JSON.ToJSON ScheduleConfigProperty

@@ -10,6 +10,7 @@ data Master
   = Master {detectorId :: (Value Prelude.Text),
             invitationId :: (Prelude.Maybe (Value Prelude.Text)),
             masterId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaster :: Value Prelude.Text -> Value Prelude.Text -> Master
 mkMaster detectorId masterId
   = Master

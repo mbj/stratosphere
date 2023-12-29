@@ -10,6 +10,7 @@ import Stratosphere.Tag
 data Distribution
   = Distribution {distributionConfig :: DistributionConfigProperty,
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDistribution :: DistributionConfigProperty -> Distribution
 mkDistribution distributionConfig
   = Distribution

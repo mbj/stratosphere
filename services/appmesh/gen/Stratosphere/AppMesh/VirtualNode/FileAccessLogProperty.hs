@@ -10,6 +10,7 @@ import Stratosphere.Value
 data FileAccessLogProperty
   = FileAccessLogProperty {format :: (Prelude.Maybe LoggingFormatProperty),
                            path :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFileAccessLogProperty ::
   Value Prelude.Text -> FileAccessLogProperty
 mkFileAccessLogProperty path

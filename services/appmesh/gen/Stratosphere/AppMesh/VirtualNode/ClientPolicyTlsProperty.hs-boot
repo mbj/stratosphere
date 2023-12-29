@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ClientPolicyTlsProperty :: Prelude.Type
 instance ToResourceProperties ClientPolicyTlsProperty
+instance Prelude.Eq ClientPolicyTlsProperty
+instance Prelude.Show ClientPolicyTlsProperty
 instance JSON.ToJSON ClientPolicyTlsProperty

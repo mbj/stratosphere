@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AssessmentReportsDestinationProperty :: Prelude.Type
 instance ToResourceProperties AssessmentReportsDestinationProperty
+instance Prelude.Eq AssessmentReportsDestinationProperty
+instance Prelude.Show AssessmentReportsDestinationProperty
 instance JSON.ToJSON AssessmentReportsDestinationProperty

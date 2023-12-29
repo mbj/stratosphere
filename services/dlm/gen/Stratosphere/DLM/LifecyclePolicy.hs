@@ -14,6 +14,7 @@ data LifecyclePolicy
                      policyDetails :: (Prelude.Maybe PolicyDetailsProperty),
                      state :: (Prelude.Maybe (Value Prelude.Text)),
                      tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecyclePolicy :: LifecyclePolicy
 mkLifecyclePolicy
   = LifecyclePolicy

@@ -13,6 +13,7 @@ data AssetModelCompositeModelProperty
                                       description :: (Prelude.Maybe (Value Prelude.Text)),
                                       name :: (Value Prelude.Text),
                                       type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetModelCompositeModelProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> AssetModelCompositeModelProperty

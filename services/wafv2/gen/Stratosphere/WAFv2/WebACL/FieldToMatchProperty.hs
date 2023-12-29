@@ -22,6 +22,7 @@ data FieldToMatchProperty
                           singleHeader :: (Prelude.Maybe SingleHeaderProperty),
                           singleQueryArgument :: (Prelude.Maybe SingleQueryArgumentProperty),
                           uriPath :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldToMatchProperty :: FieldToMatchProperty
 mkFieldToMatchProperty
   = FieldToMatchProperty

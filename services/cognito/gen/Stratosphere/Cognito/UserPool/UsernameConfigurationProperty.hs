@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UsernameConfigurationProperty
   = UsernameConfigurationProperty {caseSensitive :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUsernameConfigurationProperty :: UsernameConfigurationProperty
 mkUsernameConfigurationProperty
   = UsernameConfigurationProperty {caseSensitive = Prelude.Nothing}

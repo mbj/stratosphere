@@ -12,6 +12,7 @@ data PathFilterProperty
                         destinationPortRange :: (Prelude.Maybe FilterPortRangeProperty),
                         sourceAddress :: (Prelude.Maybe (Value Prelude.Text)),
                         sourcePortRange :: (Prelude.Maybe FilterPortRangeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPathFilterProperty :: PathFilterProperty
 mkPathFilterProperty
   = PathFilterProperty

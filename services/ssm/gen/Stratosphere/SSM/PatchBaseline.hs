@@ -24,6 +24,7 @@ data PatchBaseline
                    rejectedPatchesAction :: (Prelude.Maybe (Value Prelude.Text)),
                    sources :: (Prelude.Maybe [PatchSourceProperty]),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPatchBaseline :: Value Prelude.Text -> PatchBaseline
 mkPatchBaseline name
   = PatchBaseline

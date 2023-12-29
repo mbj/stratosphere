@@ -10,6 +10,7 @@ data ConditionExpressionProperty
   = ConditionExpressionProperty {condition :: (Value Prelude.Text),
                                  targetColumn :: (Value Prelude.Text),
                                  value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionExpressionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ConditionExpressionProperty

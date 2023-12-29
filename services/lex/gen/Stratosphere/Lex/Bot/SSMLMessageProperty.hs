@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SSMLMessageProperty
   = SSMLMessageProperty {value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSSMLMessageProperty :: Value Prelude.Text -> SSMLMessageProperty
 mkSSMLMessageProperty value = SSMLMessageProperty {value = value}
 instance ToResourceProperties SSMLMessageProperty where

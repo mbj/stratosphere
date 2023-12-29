@@ -12,6 +12,7 @@ data ColumnSortProperty
   = ColumnSortProperty {aggregationFunction :: (Prelude.Maybe AggregationFunctionProperty),
                         direction :: (Value Prelude.Text),
                         sortBy :: ColumnIdentifierProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnSortProperty ::
   Value Prelude.Text
   -> ColumnIdentifierProperty -> ColumnSortProperty

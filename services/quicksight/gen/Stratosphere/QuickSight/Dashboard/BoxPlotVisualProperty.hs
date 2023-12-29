@@ -18,6 +18,7 @@ data BoxPlotVisualProperty
                            subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                            title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                            visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBoxPlotVisualProperty ::
   Value Prelude.Text -> BoxPlotVisualProperty
 mkBoxPlotVisualProperty visualId

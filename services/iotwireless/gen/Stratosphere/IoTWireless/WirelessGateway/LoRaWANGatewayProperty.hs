@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LoRaWANGatewayProperty
   = LoRaWANGatewayProperty {gatewayEui :: (Value Prelude.Text),
                             rfRegion :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANGatewayProperty ::
   Value Prelude.Text -> Value Prelude.Text -> LoRaWANGatewayProperty
 mkLoRaWANGatewayProperty gatewayEui rfRegion

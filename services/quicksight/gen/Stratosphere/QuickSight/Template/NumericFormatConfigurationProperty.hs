@@ -13,6 +13,7 @@ data NumericFormatConfigurationProperty
   = NumericFormatConfigurationProperty {currencyDisplayFormatConfiguration :: (Prelude.Maybe CurrencyDisplayFormatConfigurationProperty),
                                         numberDisplayFormatConfiguration :: (Prelude.Maybe NumberDisplayFormatConfigurationProperty),
                                         percentageDisplayFormatConfiguration :: (Prelude.Maybe PercentageDisplayFormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericFormatConfigurationProperty ::
   NumericFormatConfigurationProperty
 mkNumericFormatConfigurationProperty

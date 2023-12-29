@@ -10,6 +10,7 @@ data CpuOptionsProperty
   = CpuOptionsProperty {amdSevSnp :: (Prelude.Maybe (Value Prelude.Text)),
                         coreCount :: (Prelude.Maybe (Value Prelude.Integer)),
                         threadsPerCore :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCpuOptionsProperty :: CpuOptionsProperty
 mkCpuOptionsProperty
   = CpuOptionsProperty

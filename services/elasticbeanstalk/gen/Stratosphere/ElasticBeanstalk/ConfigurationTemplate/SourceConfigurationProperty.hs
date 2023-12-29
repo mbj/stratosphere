@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SourceConfigurationProperty
   = SourceConfigurationProperty {applicationName :: (Value Prelude.Text),
                                  templateName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SourceConfigurationProperty

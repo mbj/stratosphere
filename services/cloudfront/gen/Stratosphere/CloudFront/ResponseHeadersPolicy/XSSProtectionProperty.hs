@@ -11,6 +11,7 @@ data XSSProtectionProperty
                            override :: (Value Prelude.Bool),
                            protection :: (Value Prelude.Bool),
                            reportUri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkXSSProtectionProperty ::
   Value Prelude.Bool -> Value Prelude.Bool -> XSSProtectionProperty
 mkXSSProtectionProperty override protection

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.WeightedTargetProperty as Expor
 import Stratosphere.ResourceProperties
 data GrpcRouteActionProperty
   = GrpcRouteActionProperty {weightedTargets :: [WeightedTargetProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteActionProperty ::
   [WeightedTargetProperty] -> GrpcRouteActionProperty
 mkGrpcRouteActionProperty weightedTargets

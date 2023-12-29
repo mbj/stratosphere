@@ -13,6 +13,7 @@ data DockerVolumeConfigurationProperty
                                        driverOpts :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                        labels :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                        scope :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDockerVolumeConfigurationProperty ::
   DockerVolumeConfigurationProperty
 mkDockerVolumeConfigurationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BoxPlotAggregatedFieldWellsProperty :: Prelude.Type
 instance ToResourceProperties BoxPlotAggregatedFieldWellsProperty
+instance Prelude.Eq BoxPlotAggregatedFieldWellsProperty
+instance Prelude.Show BoxPlotAggregatedFieldWellsProperty
 instance JSON.ToJSON BoxPlotAggregatedFieldWellsProperty

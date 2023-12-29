@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AccessControlAttributeProperty
   = AccessControlAttributeProperty {key :: (Value Prelude.Text),
                                     value :: AccessControlAttributeValueProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlAttributeProperty ::
   Value Prelude.Text
   -> AccessControlAttributeValueProperty

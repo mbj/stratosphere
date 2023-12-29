@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RenderingEngineProperty :: Prelude.Type
 instance ToResourceProperties RenderingEngineProperty
+instance Prelude.Eq RenderingEngineProperty
+instance Prelude.Show RenderingEngineProperty
 instance JSON.ToJSON RenderingEngineProperty

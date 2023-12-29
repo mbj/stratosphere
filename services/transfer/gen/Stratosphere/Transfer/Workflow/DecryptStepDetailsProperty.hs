@@ -14,6 +14,7 @@ data DecryptStepDetailsProperty
                                 overwriteExisting :: (Prelude.Maybe (Value Prelude.Text)),
                                 sourceFileLocation :: (Prelude.Maybe (Value Prelude.Text)),
                                 type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDecryptStepDetailsProperty :: DecryptStepDetailsProperty
 mkDecryptStepDetailsProperty
   = DecryptStepDetailsProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InsightSelectorProperty
   = InsightSelectorProperty {insightType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInsightSelectorProperty :: InsightSelectorProperty
 mkInsightSelectorProperty
   = InsightSelectorProperty {insightType = Prelude.Nothing}

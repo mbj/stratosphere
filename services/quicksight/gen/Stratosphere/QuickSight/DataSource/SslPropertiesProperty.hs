@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SslPropertiesProperty
   = SslPropertiesProperty {disableSsl :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSslPropertiesProperty :: SslPropertiesProperty
 mkSslPropertiesProperty
   = SslPropertiesProperty {disableSsl = Prelude.Nothing}

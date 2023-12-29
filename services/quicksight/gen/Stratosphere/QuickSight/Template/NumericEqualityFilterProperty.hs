@@ -18,6 +18,7 @@ data NumericEqualityFilterProperty
                                    parameterName :: (Prelude.Maybe (Value Prelude.Text)),
                                    selectAllOptions :: (Prelude.Maybe (Value Prelude.Text)),
                                    value :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericEqualityFilterProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text

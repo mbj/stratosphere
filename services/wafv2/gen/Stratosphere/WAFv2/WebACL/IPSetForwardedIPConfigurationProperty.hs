@@ -11,6 +11,7 @@ data IPSetForwardedIPConfigurationProperty
   = IPSetForwardedIPConfigurationProperty {fallbackBehavior :: (Value Prelude.Text),
                                            headerName :: (Value Prelude.Text),
                                            position :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSetForwardedIPConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

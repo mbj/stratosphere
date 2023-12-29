@@ -11,6 +11,7 @@ data RunConfigProperty
                        environmentVariables :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                        memoryInMB :: (Prelude.Maybe (Value Prelude.Integer)),
                        timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRunConfigProperty :: RunConfigProperty
 mkRunConfigProperty
   = RunConfigProperty

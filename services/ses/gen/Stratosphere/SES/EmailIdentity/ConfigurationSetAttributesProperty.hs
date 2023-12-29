@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigurationSetAttributesProperty
   = ConfigurationSetAttributesProperty {configurationSetName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationSetAttributesProperty ::
   ConfigurationSetAttributesProperty
 mkConfigurationSetAttributesProperty

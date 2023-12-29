@@ -11,6 +11,7 @@ data CoreDefinition
   = CoreDefinition {initialVersion :: (Prelude.Maybe CoreDefinitionVersionProperty),
                     name :: (Value Prelude.Text),
                     tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreDefinition :: Value Prelude.Text -> CoreDefinition
 mkCoreDefinition name
   = CoreDefinition

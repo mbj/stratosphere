@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlAllowMethodsProperty
   = AccessControlAllowMethodsProperty {items :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlAllowMethodsProperty ::
   ValueList Prelude.Text -> AccessControlAllowMethodsProperty
 mkAccessControlAllowMethodsProperty items

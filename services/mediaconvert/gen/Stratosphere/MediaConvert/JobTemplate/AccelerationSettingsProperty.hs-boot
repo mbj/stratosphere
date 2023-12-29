@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AccelerationSettingsProperty :: Prelude.Type
 instance ToResourceProperties AccelerationSettingsProperty
+instance Prelude.Eq AccelerationSettingsProperty
+instance Prelude.Show AccelerationSettingsProperty
 instance JSON.ToJSON AccelerationSettingsProperty

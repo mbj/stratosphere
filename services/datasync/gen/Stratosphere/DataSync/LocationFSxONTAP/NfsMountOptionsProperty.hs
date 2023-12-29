@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NfsMountOptionsProperty
   = NfsMountOptionsProperty {version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNfsMountOptionsProperty :: NfsMountOptionsProperty
 mkNfsMountOptionsProperty
   = NfsMountOptionsProperty {version = Prelude.Nothing}

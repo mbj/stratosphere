@@ -13,6 +13,7 @@ data PasswordPolicyProperty
                             requireSymbols :: (Prelude.Maybe (Value Prelude.Bool)),
                             requireUppercase :: (Prelude.Maybe (Value Prelude.Bool)),
                             temporaryPasswordValidityDays :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPasswordPolicyProperty :: PasswordPolicyProperty
 mkPasswordPolicyProperty
   = PasswordPolicyProperty

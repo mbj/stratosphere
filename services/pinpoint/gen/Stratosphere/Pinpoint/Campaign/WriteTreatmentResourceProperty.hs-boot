@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WriteTreatmentResourceProperty :: Prelude.Type
 instance ToResourceProperties WriteTreatmentResourceProperty
+instance Prelude.Eq WriteTreatmentResourceProperty
+instance Prelude.Show WriteTreatmentResourceProperty
 instance JSON.ToJSON WriteTreatmentResourceProperty

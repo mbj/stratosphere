@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PortOverrideProperty :: Prelude.Type
 instance ToResourceProperties PortOverrideProperty
+instance Prelude.Eq PortOverrideProperty
+instance Prelude.Show PortOverrideProperty
 instance JSON.ToJSON PortOverrideProperty

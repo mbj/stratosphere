@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AmazonManagedKafkaEventSourceConfigProperty :: Prelude.Type
 instance ToResourceProperties AmazonManagedKafkaEventSourceConfigProperty
+instance Prelude.Eq AmazonManagedKafkaEventSourceConfigProperty
+instance Prelude.Show AmazonManagedKafkaEventSourceConfigProperty
 instance JSON.ToJSON AmazonManagedKafkaEventSourceConfigProperty

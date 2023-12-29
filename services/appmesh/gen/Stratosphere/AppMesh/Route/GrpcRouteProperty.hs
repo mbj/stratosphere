@@ -14,6 +14,7 @@ data GrpcRouteProperty
                        match :: GrpcRouteMatchProperty,
                        retryPolicy :: (Prelude.Maybe GrpcRetryPolicyProperty),
                        timeout :: (Prelude.Maybe GrpcTimeoutProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteProperty ::
   GrpcRouteActionProperty
   -> GrpcRouteMatchProperty -> GrpcRouteProperty

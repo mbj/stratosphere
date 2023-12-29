@@ -21,6 +21,7 @@ data AudioCodecSettingsProperty
                                 mp2Settings :: (Prelude.Maybe Mp2SettingsProperty),
                                 passThroughSettings :: (Prelude.Maybe PassThroughSettingsProperty),
                                 wavSettings :: (Prelude.Maybe WavSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioCodecSettingsProperty :: AudioCodecSettingsProperty
 mkAudioCodecSettingsProperty
   = AudioCodecSettingsProperty

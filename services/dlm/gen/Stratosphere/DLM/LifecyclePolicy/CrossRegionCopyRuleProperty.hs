@@ -17,6 +17,7 @@ data CrossRegionCopyRuleProperty
                                  retainRule :: (Prelude.Maybe CrossRegionCopyRetainRuleProperty),
                                  target :: (Prelude.Maybe (Value Prelude.Text)),
                                  targetRegion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCrossRegionCopyRuleProperty ::
   Value Prelude.Bool -> CrossRegionCopyRuleProperty
 mkCrossRegionCopyRuleProperty encrypted

@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data PrometheusProperty
   = PrometheusProperty {jmxExporter :: (Prelude.Maybe JmxExporterProperty),
                         nodeExporter :: (Prelude.Maybe NodeExporterProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrometheusProperty :: PrometheusProperty
 mkPrometheusProperty
   = PrometheusProperty

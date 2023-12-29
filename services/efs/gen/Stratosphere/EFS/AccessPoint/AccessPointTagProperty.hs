@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AccessPointTagProperty
   = AccessPointTagProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
                             value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPointTagProperty :: AccessPointTagProperty
 mkAccessPointTagProperty
   = AccessPointTagProperty

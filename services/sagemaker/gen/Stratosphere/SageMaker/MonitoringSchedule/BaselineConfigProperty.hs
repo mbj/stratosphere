@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data BaselineConfigProperty
   = BaselineConfigProperty {constraintsResource :: (Prelude.Maybe ConstraintsResourceProperty),
                             statisticsResource :: (Prelude.Maybe StatisticsResourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBaselineConfigProperty :: BaselineConfigProperty
 mkBaselineConfigProperty
   = BaselineConfigProperty

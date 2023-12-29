@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data DeserializerProperty
   = DeserializerProperty {hiveJsonSerDe :: (Prelude.Maybe HiveJsonSerDeProperty),
                           openXJsonSerDe :: (Prelude.Maybe OpenXJsonSerDeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeserializerProperty :: DeserializerProperty
 mkDeserializerProperty
   = DeserializerProperty

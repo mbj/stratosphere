@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ParameterProperty
   = ParameterProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
                        required :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterProperty :: Value Prelude.Bool -> ParameterProperty
 mkParameterProperty required
   = ParameterProperty

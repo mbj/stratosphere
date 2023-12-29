@@ -11,6 +11,7 @@ import Stratosphere.Value
 data OriginGroupMembersProperty
   = OriginGroupMembersProperty {items :: [OriginGroupMemberProperty],
                                 quantity :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupMembersProperty ::
   [OriginGroupMemberProperty]
   -> Value Prelude.Integer -> OriginGroupMembersProperty

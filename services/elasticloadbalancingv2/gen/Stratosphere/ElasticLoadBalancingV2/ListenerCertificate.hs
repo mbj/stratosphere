@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ListenerCertificate
   = ListenerCertificate {certificates :: [CertificateProperty],
                          listenerArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerCertificate ::
   [CertificateProperty] -> Value Prelude.Text -> ListenerCertificate
 mkListenerCertificate certificates listenerArn

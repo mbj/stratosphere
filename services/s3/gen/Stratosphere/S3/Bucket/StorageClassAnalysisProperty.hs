@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.DataExportProperty as Exports
 import Stratosphere.ResourceProperties
 data StorageClassAnalysisProperty
   = StorageClassAnalysisProperty {dataExport :: (Prelude.Maybe DataExportProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageClassAnalysisProperty :: StorageClassAnalysisProperty
 mkStorageClassAnalysisProperty
   = StorageClassAnalysisProperty {dataExport = Prelude.Nothing}

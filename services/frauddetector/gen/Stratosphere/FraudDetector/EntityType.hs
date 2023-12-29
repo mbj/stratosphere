@@ -11,6 +11,7 @@ data EntityType
   = EntityType {description :: (Prelude.Maybe (Value Prelude.Text)),
                 name :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityType :: Value Prelude.Text -> EntityType
 mkEntityType name
   = EntityType

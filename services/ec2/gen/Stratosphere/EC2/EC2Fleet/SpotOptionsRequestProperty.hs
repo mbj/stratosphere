@@ -17,6 +17,7 @@ data SpotOptionsRequestProperty
                                 minTargetCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                 singleAvailabilityZone :: (Prelude.Maybe (Value Prelude.Bool)),
                                 singleInstanceType :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotOptionsRequestProperty :: SpotOptionsRequestProperty
 mkSpotOptionsRequestProperty
   = SpotOptionsRequestProperty

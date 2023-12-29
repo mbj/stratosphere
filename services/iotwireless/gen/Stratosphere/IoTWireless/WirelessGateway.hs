@@ -16,6 +16,7 @@ data WirelessGateway
                      tags :: (Prelude.Maybe [Tag]),
                      thingArn :: (Prelude.Maybe (Value Prelude.Text)),
                      thingName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWirelessGateway :: LoRaWANGatewayProperty -> WirelessGateway
 mkWirelessGateway loRaWAN
   = WirelessGateway

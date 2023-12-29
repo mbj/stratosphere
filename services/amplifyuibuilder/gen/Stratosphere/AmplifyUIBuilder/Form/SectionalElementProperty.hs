@@ -15,6 +15,7 @@ data SectionalElementProperty
                               position :: (Prelude.Maybe FieldPositionProperty),
                               text :: (Prelude.Maybe (Value Prelude.Text)),
                               type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSectionalElementProperty ::
   Value Prelude.Text -> SectionalElementProperty
 mkSectionalElementProperty type'

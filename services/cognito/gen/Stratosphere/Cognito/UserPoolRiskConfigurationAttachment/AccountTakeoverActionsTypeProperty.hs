@@ -11,6 +11,7 @@ data AccountTakeoverActionsTypeProperty
   = AccountTakeoverActionsTypeProperty {highAction :: (Prelude.Maybe AccountTakeoverActionTypeProperty),
                                         lowAction :: (Prelude.Maybe AccountTakeoverActionTypeProperty),
                                         mediumAction :: (Prelude.Maybe AccountTakeoverActionTypeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountTakeoverActionsTypeProperty ::
   AccountTakeoverActionsTypeProperty
 mkAccountTakeoverActionsTypeProperty

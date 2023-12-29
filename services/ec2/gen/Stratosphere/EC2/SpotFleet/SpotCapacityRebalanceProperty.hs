@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SpotCapacityRebalanceProperty
   = SpotCapacityRebalanceProperty {replacementStrategy :: (Prelude.Maybe (Value Prelude.Text)),
                                    terminationDelay :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotCapacityRebalanceProperty :: SpotCapacityRebalanceProperty
 mkSpotCapacityRebalanceProperty
   = SpotCapacityRebalanceProperty

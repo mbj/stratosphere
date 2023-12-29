@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.BoxPlotAggregatedFieldWe
 import Stratosphere.ResourceProperties
 data BoxPlotFieldWellsProperty
   = BoxPlotFieldWellsProperty {boxPlotAggregatedFieldWells :: (Prelude.Maybe BoxPlotAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBoxPlotFieldWellsProperty :: BoxPlotFieldWellsProperty
 mkBoxPlotFieldWellsProperty
   = BoxPlotFieldWellsProperty

@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data OnInputProperty
   = OnInputProperty {events :: (Prelude.Maybe [EventProperty]),
                      transitionEvents :: (Prelude.Maybe [TransitionEventProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOnInputProperty :: OnInputProperty
 mkOnInputProperty
   = OnInputProperty

@@ -13,6 +13,7 @@ data DrillDownFilterProperty
   = DrillDownFilterProperty {categoryFilter :: (Prelude.Maybe CategoryDrillDownFilterProperty),
                              numericEqualityFilter :: (Prelude.Maybe NumericEqualityDrillDownFilterProperty),
                              timeRangeFilter :: (Prelude.Maybe TimeRangeDrillDownFilterProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDrillDownFilterProperty :: DrillDownFilterProperty
 mkDrillDownFilterProperty
   = DrillDownFilterProperty

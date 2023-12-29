@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.ServiceDiscovery.PublicDnsNamespace.SOAProper
 import Stratosphere.ResourceProperties
 data PublicDnsPropertiesMutableProperty
   = PublicDnsPropertiesMutableProperty {sOA :: (Prelude.Maybe SOAProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicDnsPropertiesMutableProperty ::
   PublicDnsPropertiesMutableProperty
 mkPublicDnsPropertiesMutableProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data WebhookAuthConfigurationProperty
   = WebhookAuthConfigurationProperty {allowedIPRange :: (Prelude.Maybe (Value Prelude.Text)),
                                       secretToken :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebhookAuthConfigurationProperty ::
   WebhookAuthConfigurationProperty
 mkWebhookAuthConfigurationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RowLevelPermissionDataSetProperty :: Prelude.Type
 instance ToResourceProperties RowLevelPermissionDataSetProperty
+instance Prelude.Eq RowLevelPermissionDataSetProperty
+instance Prelude.Show RowLevelPermissionDataSetProperty
 instance JSON.ToJSON RowLevelPermissionDataSetProperty

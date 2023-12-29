@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TtmlDestinationSettingsProperty
   = TtmlDestinationSettingsProperty {styleControl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTtmlDestinationSettingsProperty ::
   TtmlDestinationSettingsProperty
 mkTtmlDestinationSettingsProperty

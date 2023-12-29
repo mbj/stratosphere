@@ -15,6 +15,7 @@ data MaximumMinimumComputationProperty
                                        time :: DimensionFieldProperty,
                                        type' :: (Value Prelude.Text),
                                        value :: (Prelude.Maybe MeasureFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaximumMinimumComputationProperty ::
   Value Prelude.Text
   -> DimensionFieldProperty

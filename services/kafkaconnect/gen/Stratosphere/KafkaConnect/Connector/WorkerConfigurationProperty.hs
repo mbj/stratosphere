@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WorkerConfigurationProperty
   = WorkerConfigurationProperty {revision :: (Value Prelude.Integer),
                                  workerConfigurationArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkerConfigurationProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> WorkerConfigurationProperty

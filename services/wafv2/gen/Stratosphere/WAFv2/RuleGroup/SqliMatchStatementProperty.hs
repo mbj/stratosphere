@@ -13,6 +13,7 @@ data SqliMatchStatementProperty
   = SqliMatchStatementProperty {fieldToMatch :: FieldToMatchProperty,
                                 sensitivityLevel :: (Prelude.Maybe (Value Prelude.Text)),
                                 textTransformations :: [TextTransformationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSqliMatchStatementProperty ::
   FieldToMatchProperty
   -> [TextTransformationProperty] -> SqliMatchStatementProperty

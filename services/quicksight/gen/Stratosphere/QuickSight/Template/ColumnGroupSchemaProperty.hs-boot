@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ColumnGroupSchemaProperty :: Prelude.Type
 instance ToResourceProperties ColumnGroupSchemaProperty
+instance Prelude.Eq ColumnGroupSchemaProperty
+instance Prelude.Show ColumnGroupSchemaProperty
 instance JSON.ToJSON ColumnGroupSchemaProperty

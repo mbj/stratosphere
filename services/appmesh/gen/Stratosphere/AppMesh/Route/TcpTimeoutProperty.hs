@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.Route.DurationProperty as Exports
 import Stratosphere.ResourceProperties
 data TcpTimeoutProperty
   = TcpTimeoutProperty {idle :: (Prelude.Maybe DurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTcpTimeoutProperty :: TcpTimeoutProperty
 mkTcpTimeoutProperty = TcpTimeoutProperty {idle = Prelude.Nothing}
 instance ToResourceProperties TcpTimeoutProperty where

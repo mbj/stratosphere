@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 data ActionProperty
   = ActionProperty {block :: (Prelude.Maybe JSON.Object),
                     count :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty {block = Prelude.Nothing, count = Prelude.Nothing}

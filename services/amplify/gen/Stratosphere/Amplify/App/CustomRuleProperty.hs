@@ -11,6 +11,7 @@ data CustomRuleProperty
                         source :: (Value Prelude.Text),
                         status :: (Prelude.Maybe (Value Prelude.Text)),
                         target :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomRuleProperty ::
   Value Prelude.Text -> Value Prelude.Text -> CustomRuleProperty
 mkCustomRuleProperty source target

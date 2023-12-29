@@ -15,6 +15,7 @@ data Variable
               name :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [Tag]),
               variableType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVariable ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SybaseSettingsProperty
   = SybaseSettingsProperty {secretsManagerAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                             secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSybaseSettingsProperty :: SybaseSettingsProperty
 mkSybaseSettingsProperty
   = SybaseSettingsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EventBridgeConfigurationProperty :: Prelude.Type
 instance ToResourceProperties EventBridgeConfigurationProperty
+instance Prelude.Eq EventBridgeConfigurationProperty
+instance Prelude.Show EventBridgeConfigurationProperty
 instance JSON.ToJSON EventBridgeConfigurationProperty

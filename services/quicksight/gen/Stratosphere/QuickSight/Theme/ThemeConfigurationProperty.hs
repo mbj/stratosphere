@@ -15,6 +15,7 @@ data ThemeConfigurationProperty
                                 sheet :: (Prelude.Maybe SheetStyleProperty),
                                 typography :: (Prelude.Maybe TypographyProperty),
                                 uIColorPalette :: (Prelude.Maybe UIColorPaletteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThemeConfigurationProperty :: ThemeConfigurationProperty
 mkThemeConfigurationProperty
   = ThemeConfigurationProperty

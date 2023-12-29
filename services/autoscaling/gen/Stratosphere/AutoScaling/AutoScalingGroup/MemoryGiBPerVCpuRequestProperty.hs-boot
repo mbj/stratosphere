@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MemoryGiBPerVCpuRequestProperty :: Prelude.Type
 instance ToResourceProperties MemoryGiBPerVCpuRequestProperty
+instance Prelude.Eq MemoryGiBPerVCpuRequestProperty
+instance Prelude.Show MemoryGiBPerVCpuRequestProperty
 instance JSON.ToJSON MemoryGiBPerVCpuRequestProperty

@@ -11,6 +11,7 @@ data EventBus
   = EventBus {eventSourceName :: (Prelude.Maybe (Value Prelude.Text)),
               name :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [TagEntryProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBus :: Value Prelude.Text -> EventBus
 mkEventBus name
   = EventBus

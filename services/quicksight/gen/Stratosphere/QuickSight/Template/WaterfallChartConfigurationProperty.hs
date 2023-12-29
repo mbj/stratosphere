@@ -25,6 +25,7 @@ data WaterfallChartConfigurationProperty
                                          sortConfiguration :: (Prelude.Maybe WaterfallChartSortConfigurationProperty),
                                          visualPalette :: (Prelude.Maybe VisualPaletteProperty),
                                          waterfallChartOptions :: (Prelude.Maybe WaterfallChartOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWaterfallChartConfigurationProperty ::
   WaterfallChartConfigurationProperty
 mkWaterfallChartConfigurationProperty

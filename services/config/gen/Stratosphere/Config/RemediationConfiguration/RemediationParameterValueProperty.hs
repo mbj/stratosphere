@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data RemediationParameterValueProperty
   = RemediationParameterValueProperty {resourceValue :: (Prelude.Maybe ResourceValueProperty),
                                        staticValue :: (Prelude.Maybe StaticValueProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRemediationParameterValueProperty ::
   RemediationParameterValueProperty
 mkRemediationParameterValueProperty

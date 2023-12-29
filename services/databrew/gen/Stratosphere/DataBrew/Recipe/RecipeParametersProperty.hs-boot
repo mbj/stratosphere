@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RecipeParametersProperty :: Prelude.Type
 instance ToResourceProperties RecipeParametersProperty
+instance Prelude.Eq RecipeParametersProperty
+instance Prelude.Show RecipeParametersProperty
 instance JSON.ToJSON RecipeParametersProperty

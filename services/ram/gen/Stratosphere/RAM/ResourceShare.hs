@@ -14,6 +14,7 @@ data ResourceShare
                    principals :: (Prelude.Maybe (ValueList Prelude.Text)),
                    resourceArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceShare :: Value Prelude.Text -> ResourceShare
 mkResourceShare name
   = ResourceShare

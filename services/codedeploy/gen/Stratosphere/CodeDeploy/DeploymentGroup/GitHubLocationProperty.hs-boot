@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GitHubLocationProperty :: Prelude.Type
 instance ToResourceProperties GitHubLocationProperty
+instance Prelude.Eq GitHubLocationProperty
+instance Prelude.Show GitHubLocationProperty
 instance JSON.ToJSON GitHubLocationProperty

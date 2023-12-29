@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AutoStartConfigurationProperty :: Prelude.Type
 instance ToResourceProperties AutoStartConfigurationProperty
+instance Prelude.Eq AutoStartConfigurationProperty
+instance Prelude.Show AutoStartConfigurationProperty
 instance JSON.ToJSON AutoStartConfigurationProperty

@@ -10,6 +10,7 @@ data InstanceProfile
   = InstanceProfile {instanceProfileName :: (Prelude.Maybe (Value Prelude.Text)),
                      path :: (Prelude.Maybe (Value Prelude.Text)),
                      roles :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceProfile :: ValueList Prelude.Text -> InstanceProfile
 mkInstanceProfile roles
   = InstanceProfile

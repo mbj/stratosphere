@@ -15,6 +15,7 @@ data ResponseInspectionProperty
                                 header :: (Prelude.Maybe ResponseInspectionHeaderProperty),
                                 json :: (Prelude.Maybe ResponseInspectionJsonProperty),
                                 statusCode :: (Prelude.Maybe ResponseInspectionStatusCodeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionProperty :: ResponseInspectionProperty
 mkResponseInspectionProperty
   = ResponseInspectionProperty

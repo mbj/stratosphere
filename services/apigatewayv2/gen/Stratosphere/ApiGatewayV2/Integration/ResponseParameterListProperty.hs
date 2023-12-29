@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.ApiGatewayV2.Integration.ResponseParameterPro
 import Stratosphere.ResourceProperties
 data ResponseParameterListProperty
   = ResponseParameterListProperty {responseParameters :: (Prelude.Maybe [ResponseParameterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseParameterListProperty :: ResponseParameterListProperty
 mkResponseParameterListProperty
   = ResponseParameterListProperty

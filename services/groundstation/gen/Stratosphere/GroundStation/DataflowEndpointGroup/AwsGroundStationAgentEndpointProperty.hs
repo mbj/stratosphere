@@ -15,6 +15,7 @@ data AwsGroundStationAgentEndpointProperty
                                            egressAddress :: (Prelude.Maybe ConnectionDetailsProperty),
                                            ingressAddress :: (Prelude.Maybe RangedConnectionDetailsProperty),
                                            name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsGroundStationAgentEndpointProperty ::
   AwsGroundStationAgentEndpointProperty
 mkAwsGroundStationAgentEndpointProperty

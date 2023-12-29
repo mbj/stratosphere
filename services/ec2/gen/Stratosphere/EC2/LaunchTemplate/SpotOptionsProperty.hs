@@ -12,6 +12,7 @@ data SpotOptionsProperty
                          maxPrice :: (Prelude.Maybe (Value Prelude.Text)),
                          spotInstanceType :: (Prelude.Maybe (Value Prelude.Text)),
                          validUntil :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotOptionsProperty :: SpotOptionsProperty
 mkSpotOptionsProperty
   = SpotOptionsProperty

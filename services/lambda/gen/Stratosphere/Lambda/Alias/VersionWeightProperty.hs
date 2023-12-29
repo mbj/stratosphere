@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VersionWeightProperty
   = VersionWeightProperty {functionVersion :: (Value Prelude.Text),
                            functionWeight :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVersionWeightProperty ::
   Value Prelude.Text -> Value Prelude.Double -> VersionWeightProperty
 mkVersionWeightProperty functionVersion functionWeight

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FieldToMatchProperty
   = FieldToMatchProperty {data' :: (Prelude.Maybe (Value Prelude.Text)),
                           type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldToMatchProperty ::
   Value Prelude.Text -> FieldToMatchProperty
 mkFieldToMatchProperty type'

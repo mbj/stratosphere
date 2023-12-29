@@ -11,6 +11,7 @@ data VPNGateway
   = VPNGateway {amazonSideAsn :: (Prelude.Maybe (Value Prelude.Integer)),
                 tags :: (Prelude.Maybe [Tag]),
                 type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPNGateway :: Value Prelude.Text -> VPNGateway
 mkVPNGateway type'
   = VPNGateway

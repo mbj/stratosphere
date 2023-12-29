@@ -17,6 +17,7 @@ data TargetTrackingScalingPolicyConfigurationProperty
                                                       scaleInCooldown :: (Prelude.Maybe (Value Prelude.Integer)),
                                                       scaleOutCooldown :: (Prelude.Maybe (Value Prelude.Integer)),
                                                       targetValue :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetTrackingScalingPolicyConfigurationProperty ::
   Value Prelude.Double
   -> TargetTrackingScalingPolicyConfigurationProperty

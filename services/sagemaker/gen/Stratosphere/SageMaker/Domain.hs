@@ -22,6 +22,7 @@ data Domain
             subnetIds :: (ValueList Prelude.Text),
             tags :: (Prelude.Maybe [Tag]),
             vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomain ::
   Value Prelude.Text
   -> UserSettingsProperty

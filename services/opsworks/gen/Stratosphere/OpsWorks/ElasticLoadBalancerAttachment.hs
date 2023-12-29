@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ElasticLoadBalancerAttachment
   = ElasticLoadBalancerAttachment {elasticLoadBalancerName :: (Value Prelude.Text),
                                    layerId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticLoadBalancerAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text -> ElasticLoadBalancerAttachment

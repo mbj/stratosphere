@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.EC2.EC2Fleet.CapacityRebalanceProperty as Exp
 import Stratosphere.ResourceProperties
 data MaintenanceStrategiesProperty
   = MaintenanceStrategiesProperty {capacityRebalance :: (Prelude.Maybe CapacityRebalanceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceStrategiesProperty :: MaintenanceStrategiesProperty
 mkMaintenanceStrategiesProperty
   = MaintenanceStrategiesProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SsmAutomationProperty :: Prelude.Type
 instance ToResourceProperties SsmAutomationProperty
+instance Prelude.Eq SsmAutomationProperty
+instance Prelude.Show SsmAutomationProperty
 instance JSON.ToJSON SsmAutomationProperty

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data XssMatchStatementProperty
   = XssMatchStatementProperty {fieldToMatch :: FieldToMatchProperty,
                                textTransformations :: [TextTransformationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkXssMatchStatementProperty ::
   FieldToMatchProperty
   -> [TextTransformationProperty] -> XssMatchStatementProperty

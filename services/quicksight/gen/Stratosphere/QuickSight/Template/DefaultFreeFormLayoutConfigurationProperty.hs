@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.FreeFormLayoutCanvasSizeO
 import Stratosphere.ResourceProperties
 data DefaultFreeFormLayoutConfigurationProperty
   = DefaultFreeFormLayoutConfigurationProperty {canvasSizeOptions :: FreeFormLayoutCanvasSizeOptionsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultFreeFormLayoutConfigurationProperty ::
   FreeFormLayoutCanvasSizeOptionsProperty
   -> DefaultFreeFormLayoutConfigurationProperty

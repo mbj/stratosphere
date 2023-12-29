@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RtmpCaptionInfoDestinationSettingsProperty
   = RtmpCaptionInfoDestinationSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRtmpCaptionInfoDestinationSettingsProperty ::
   RtmpCaptionInfoDestinationSettingsProperty
 mkRtmpCaptionInfoDestinationSettingsProperty

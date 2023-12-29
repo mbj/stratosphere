@@ -11,6 +11,7 @@ data LambdaVolumeMountProperty
                                destinationPath :: (Prelude.Maybe (Value Prelude.Text)),
                                permission :: (Prelude.Maybe (Value Prelude.Text)),
                                sourcePath :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaVolumeMountProperty :: LambdaVolumeMountProperty
 mkLambdaVolumeMountProperty
   = LambdaVolumeMountProperty

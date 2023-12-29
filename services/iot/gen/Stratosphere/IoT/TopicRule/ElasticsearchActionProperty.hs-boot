@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ElasticsearchActionProperty :: Prelude.Type
 instance ToResourceProperties ElasticsearchActionProperty
+instance Prelude.Eq ElasticsearchActionProperty
+instance Prelude.Show ElasticsearchActionProperty
 instance JSON.ToJSON ElasticsearchActionProperty

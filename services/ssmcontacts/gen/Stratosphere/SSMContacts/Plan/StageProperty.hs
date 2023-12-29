@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StageProperty
   = StageProperty {durationInMinutes :: (Value Prelude.Integer),
                    targets :: (Prelude.Maybe [TargetsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStageProperty :: Value Prelude.Integer -> StageProperty
 mkStageProperty durationInMinutes
   = StageProperty

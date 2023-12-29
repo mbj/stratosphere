@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RetentionPropertiesProperty
   = RetentionPropertiesProperty {magneticStoreRetentionPeriodInDays :: (Prelude.Maybe (Value Prelude.Text)),
                                  memoryStoreRetentionPeriodInHours :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRetentionPropertiesProperty :: RetentionPropertiesProperty
 mkRetentionPropertiesProperty
   = RetentionPropertiesProperty

@@ -13,6 +13,7 @@ data StageDeclarationProperty
   = StageDeclarationProperty {actions :: [ActionDeclarationProperty],
                               blockers :: (Prelude.Maybe [BlockerDeclarationProperty]),
                               name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStageDeclarationProperty ::
   [ActionDeclarationProperty]
   -> Value Prelude.Text -> StageDeclarationProperty

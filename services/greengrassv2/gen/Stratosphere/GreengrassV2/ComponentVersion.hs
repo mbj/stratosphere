@@ -11,6 +11,7 @@ data ComponentVersion
   = ComponentVersion {inlineRecipe :: (Prelude.Maybe (Value Prelude.Text)),
                       lambdaFunction :: (Prelude.Maybe LambdaFunctionRecipeSourceProperty),
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentVersion :: ComponentVersion
 mkComponentVersion
   = ComponentVersion

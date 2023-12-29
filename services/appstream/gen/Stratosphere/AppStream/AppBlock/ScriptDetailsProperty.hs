@@ -12,6 +12,7 @@ data ScriptDetailsProperty
                            executablePath :: (Value Prelude.Text),
                            scriptS3Location :: S3LocationProperty,
                            timeoutInSeconds :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScriptDetailsProperty ::
   Value Prelude.Text
   -> S3LocationProperty

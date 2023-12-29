@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrendmicroConnectorProfileCredentialsProperty
   = TrendmicroConnectorProfileCredentialsProperty {apiSecretKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrendmicroConnectorProfileCredentialsProperty ::
   Value Prelude.Text -> TrendmicroConnectorProfileCredentialsProperty
 mkTrendmicroConnectorProfileCredentialsProperty apiSecretKey

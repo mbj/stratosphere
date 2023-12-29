@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SpotFleetTagSpecificationProperty :: Prelude.Type
 instance ToResourceProperties SpotFleetTagSpecificationProperty
+instance Prelude.Eq SpotFleetTagSpecificationProperty
+instance Prelude.Show SpotFleetTagSpecificationProperty
 instance JSON.ToJSON SpotFleetTagSpecificationProperty

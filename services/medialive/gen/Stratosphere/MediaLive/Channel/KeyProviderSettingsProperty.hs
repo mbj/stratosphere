@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.StaticKeySettingsProperty a
 import Stratosphere.ResourceProperties
 data KeyProviderSettingsProperty
   = KeyProviderSettingsProperty {staticKeySettings :: (Prelude.Maybe StaticKeySettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyProviderSettingsProperty :: KeyProviderSettingsProperty
 mkKeyProviderSettingsProperty
   = KeyProviderSettingsProperty {staticKeySettings = Prelude.Nothing}

@@ -20,6 +20,7 @@ data MongoDbSettingsProperty
                              secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text)),
                              serverName :: (Prelude.Maybe (Value Prelude.Text)),
                              username :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMongoDbSettingsProperty :: MongoDbSettingsProperty
 mkMongoDbSettingsProperty
   = MongoDbSettingsProperty

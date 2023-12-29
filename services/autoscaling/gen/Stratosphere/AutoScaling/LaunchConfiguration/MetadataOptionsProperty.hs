@@ -10,6 +10,7 @@ data MetadataOptionsProperty
   = MetadataOptionsProperty {httpEndpoint :: (Prelude.Maybe (Value Prelude.Text)),
                              httpPutResponseHopLimit :: (Prelude.Maybe (Value Prelude.Integer)),
                              httpTokens :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataOptionsProperty :: MetadataOptionsProperty
 mkMetadataOptionsProperty
   = MetadataOptionsProperty

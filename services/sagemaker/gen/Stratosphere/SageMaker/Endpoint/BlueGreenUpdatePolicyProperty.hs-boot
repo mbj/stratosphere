@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BlueGreenUpdatePolicyProperty :: Prelude.Type
 instance ToResourceProperties BlueGreenUpdatePolicyProperty
+instance Prelude.Eq BlueGreenUpdatePolicyProperty
+instance Prelude.Show BlueGreenUpdatePolicyProperty
 instance JSON.ToJSON BlueGreenUpdatePolicyProperty

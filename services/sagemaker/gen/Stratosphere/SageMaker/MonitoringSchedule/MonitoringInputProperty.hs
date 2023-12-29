@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data MonitoringInputProperty
   = MonitoringInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
                              endpointInput :: (Prelude.Maybe EndpointInputProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringInputProperty :: MonitoringInputProperty
 mkMonitoringInputProperty
   = MonitoringInputProperty

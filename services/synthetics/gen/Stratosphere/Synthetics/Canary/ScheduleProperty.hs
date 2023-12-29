@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ScheduleProperty
   = ScheduleProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Text)),
                       expression :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleProperty :: Value Prelude.Text -> ScheduleProperty
 mkScheduleProperty expression
   = ScheduleProperty

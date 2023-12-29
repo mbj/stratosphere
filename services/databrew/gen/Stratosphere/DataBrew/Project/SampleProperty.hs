@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SampleProperty
   = SampleProperty {size :: (Prelude.Maybe (Value Prelude.Integer)),
                     type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSampleProperty :: Value Prelude.Text -> SampleProperty
 mkSampleProperty type'
   = SampleProperty {type' = type', size = Prelude.Nothing}

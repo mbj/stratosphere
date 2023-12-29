@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ContainerInfoProperty :: Prelude.Type
 instance ToResourceProperties ContainerInfoProperty
+instance Prelude.Eq ContainerInfoProperty
+instance Prelude.Show ContainerInfoProperty
 instance JSON.ToJSON ContainerInfoProperty

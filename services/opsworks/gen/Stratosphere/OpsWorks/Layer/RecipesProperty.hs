@@ -12,6 +12,7 @@ data RecipesProperty
                      setup :: (Prelude.Maybe (ValueList Prelude.Text)),
                      shutdown :: (Prelude.Maybe (ValueList Prelude.Text)),
                      undeploy :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecipesProperty :: RecipesProperty
 mkRecipesProperty
   = RecipesProperty

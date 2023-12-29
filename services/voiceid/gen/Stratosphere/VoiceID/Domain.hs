@@ -13,6 +13,7 @@ data Domain
             name :: (Value Prelude.Text),
             serverSideEncryptionConfiguration :: ServerSideEncryptionConfigurationProperty,
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomain ::
   Value Prelude.Text
   -> ServerSideEncryptionConfigurationProperty -> Domain

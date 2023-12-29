@@ -14,6 +14,7 @@ data HistogramBinOptionsProperty
                                  binWidth :: (Prelude.Maybe BinWidthOptionsProperty),
                                  selectedBinType :: (Prelude.Maybe (Value Prelude.Text)),
                                  startValue :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHistogramBinOptionsProperty :: HistogramBinOptionsProperty
 mkHistogramBinOptionsProperty
   = HistogramBinOptionsProperty

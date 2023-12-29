@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GroupOwnerSettingProperty :: Prelude.Type
 instance ToResourceProperties GroupOwnerSettingProperty
+instance Prelude.Eq GroupOwnerSettingProperty
+instance Prelude.Show GroupOwnerSettingProperty
 instance JSON.ToJSON GroupOwnerSettingProperty

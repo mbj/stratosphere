@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EncryptionContractConfigurationProperty
   = EncryptionContractConfigurationProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionContractConfigurationProperty ::
   EncryptionContractConfigurationProperty
 mkEncryptionContractConfigurationProperty

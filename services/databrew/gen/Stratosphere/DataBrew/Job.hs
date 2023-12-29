@@ -36,6 +36,7 @@ data Job
          timeout :: (Prelude.Maybe (Value Prelude.Integer)),
          type' :: (Value Prelude.Text),
          validationConfigurations :: (Prelude.Maybe [ValidationConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJob ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Job

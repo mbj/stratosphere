@@ -14,6 +14,7 @@ data Channel
              channelStorage :: (Prelude.Maybe ChannelStorageProperty),
              retentionPeriod :: (Prelude.Maybe RetentionPeriodProperty),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChannel :: Channel
 mkChannel
   = Channel

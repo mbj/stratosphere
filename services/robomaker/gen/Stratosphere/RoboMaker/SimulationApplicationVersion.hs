@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SimulationApplicationVersion
   = SimulationApplicationVersion {application :: (Value Prelude.Text),
                                   currentRevisionId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSimulationApplicationVersion ::
   Value Prelude.Text -> SimulationApplicationVersion
 mkSimulationApplicationVersion application

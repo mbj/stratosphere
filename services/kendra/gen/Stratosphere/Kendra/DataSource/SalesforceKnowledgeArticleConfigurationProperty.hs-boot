@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SalesforceKnowledgeArticleConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SalesforceKnowledgeArticleConfigurationProperty
+instance Prelude.Eq SalesforceKnowledgeArticleConfigurationProperty
+instance Prelude.Show SalesforceKnowledgeArticleConfigurationProperty
 instance JSON.ToJSON SalesforceKnowledgeArticleConfigurationProperty

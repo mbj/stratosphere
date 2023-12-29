@@ -15,6 +15,7 @@ data DriftCheckBaselinesProperty
                                  explainability :: (Prelude.Maybe DriftCheckExplainabilityProperty),
                                  modelDataQuality :: (Prelude.Maybe DriftCheckModelDataQualityProperty),
                                  modelQuality :: (Prelude.Maybe DriftCheckModelQualityProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDriftCheckBaselinesProperty :: DriftCheckBaselinesProperty
 mkDriftCheckBaselinesProperty
   = DriftCheckBaselinesProperty

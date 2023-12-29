@@ -19,6 +19,7 @@ data BotAlias
               conversationLogSettings :: (Prelude.Maybe ConversationLogSettingsProperty),
               description :: (Prelude.Maybe (Value Prelude.Text)),
               sentimentAnalysisSettings :: (Prelude.Maybe SentimentAnalysisSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBotAlias :: Value Prelude.Text -> Value Prelude.Text -> BotAlias
 mkBotAlias botAliasName botId
   = BotAlias

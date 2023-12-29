@@ -11,6 +11,7 @@ data ClusterSecurityGroupIngress
                                  clusterSecurityGroupName :: (Value Prelude.Text),
                                  eC2SecurityGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                                  eC2SecurityGroupOwnerId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterSecurityGroupIngress ::
   Value Prelude.Text -> ClusterSecurityGroupIngress
 mkClusterSecurityGroupIngress clusterSecurityGroupName

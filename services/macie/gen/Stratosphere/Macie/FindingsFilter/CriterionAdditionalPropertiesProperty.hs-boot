@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CriterionAdditionalPropertiesProperty :: Prelude.Type
 instance ToResourceProperties CriterionAdditionalPropertiesProperty
+instance Prelude.Eq CriterionAdditionalPropertiesProperty
+instance Prelude.Show CriterionAdditionalPropertiesProperty
 instance JSON.ToJSON CriterionAdditionalPropertiesProperty

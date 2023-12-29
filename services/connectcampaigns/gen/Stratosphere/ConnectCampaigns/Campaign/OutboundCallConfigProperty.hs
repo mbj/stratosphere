@@ -13,6 +13,7 @@ data OutboundCallConfigProperty
                                 connectContactFlowArn :: (Value Prelude.Text),
                                 connectQueueArn :: (Value Prelude.Text),
                                 connectSourcePhoneNumber :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutboundCallConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> OutboundCallConfigProperty

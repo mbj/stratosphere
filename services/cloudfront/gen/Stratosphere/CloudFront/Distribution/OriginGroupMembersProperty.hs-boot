@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OriginGroupMembersProperty :: Prelude.Type
 instance ToResourceProperties OriginGroupMembersProperty
+instance Prelude.Eq OriginGroupMembersProperty
+instance Prelude.Show OriginGroupMembersProperty
 instance JSON.ToJSON OriginGroupMembersProperty

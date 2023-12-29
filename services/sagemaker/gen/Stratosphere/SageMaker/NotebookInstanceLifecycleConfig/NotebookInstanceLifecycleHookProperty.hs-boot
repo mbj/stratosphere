@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NotebookInstanceLifecycleHookProperty :: Prelude.Type
 instance ToResourceProperties NotebookInstanceLifecycleHookProperty
+instance Prelude.Eq NotebookInstanceLifecycleHookProperty
+instance Prelude.Show NotebookInstanceLifecycleHookProperty
 instance JSON.ToJSON NotebookInstanceLifecycleHookProperty

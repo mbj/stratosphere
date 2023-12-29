@@ -11,6 +11,7 @@ import Stratosphere.Value
 data OnlineAbConfigObjectProperty
   = OnlineAbConfigObjectProperty {controlTreatmentName :: (Prelude.Maybe (Value Prelude.Text)),
                                   treatmentWeights :: (Prelude.Maybe [TreatmentToWeightProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOnlineAbConfigObjectProperty :: OnlineAbConfigObjectProperty
 mkOnlineAbConfigObjectProperty
   = OnlineAbConfigObjectProperty

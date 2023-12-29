@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AccessControlListConfigurationProperty :: Prelude.Type
 instance ToResourceProperties AccessControlListConfigurationProperty
+instance Prelude.Eq AccessControlListConfigurationProperty
+instance Prelude.Show AccessControlListConfigurationProperty
 instance JSON.ToJSON AccessControlListConfigurationProperty

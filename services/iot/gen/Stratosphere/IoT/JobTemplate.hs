@@ -26,6 +26,7 @@ data JobTemplate
                  presignedUrlConfig :: (Prelude.Maybe PresignedUrlConfigProperty),
                  tags :: (Prelude.Maybe [Tag]),
                  timeoutConfig :: (Prelude.Maybe TimeoutConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJobTemplate ::
   Value Prelude.Text -> Value Prelude.Text -> JobTemplate
 mkJobTemplate description jobTemplateId

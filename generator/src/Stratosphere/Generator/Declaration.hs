@@ -129,7 +129,7 @@ genRecord Record{..} = runGen $ do
         recordName
         []
         [GHC.recordCon recordName fields]
-        []
+        [GHC.derivingStock [GHC.var "Prelude.Eq", GHC.var "Prelude.Show"]]
       where
         genField :: Raw.PropertyName -> Raw.Property -> Generator (GHC.OccNameStr, GHC.Field)
         genField propertyName Raw.Property{..} =
@@ -309,11 +309,15 @@ genRecordBoot :: Record  -> ([GHC.HsDecl'], State)
 genRecordBoot Record{..} = runGen $ do
   recordDeclaration          <- genRecordDeclaration
   resourcePropertiesInstance <- genResourcePropertiesInstance
+  eqInstance                 <- genEqInstance
+  showInstance               <- genShowInstance
   toJSONInstance             <- genToJSONInstance
 
   pure $
     [ recordDeclaration
     , resourcePropertiesInstance
+    , eqInstance
+    , showInstance
     , toJSONInstance
     ]
   where
@@ -346,12 +350,19 @@ genRecordBoot Record{..} = runGen $ do
     genResourcePropertiesInstance :: Generator GHC.HsDecl'
     genResourcePropertiesInstance
       = addImport ResourceProperties
-      $ GHC.instance' (GHC.var "ToResourceProperties" @@ (GHC.var recordName)) []
+      $ mkRecordInstance (GHC.var "ToResourceProperties")
 
     genToJSONInstance :: Generator GHC.HsDecl'
-    genToJSONInstance
-      = addImport JSON
-      $ GHC.instance' (GHC.var "JSON.ToJSON" @@ (GHC.var recordName)) []
+    genToJSONInstance = addImport JSON $ mkRecordInstance (GHC.var "JSON.ToJSON")
+
+    genEqInstance :: Generator GHC.HsDecl'
+    genEqInstance = addImport Prelude $ mkRecordInstance (GHC.var "Prelude.Eq")
+
+    genShowInstance :: Generator GHC.HsDecl'
+    genShowInstance = addImport Prelude $ mkRecordInstance (GHC.var "Prelude.Show")
+
+    mkRecordInstance :: GHC.HsType' -> GHC.HsDecl'
+    mkRecordInstance hsType = GHC.instance' (hsType @@ (GHC.var recordName)) []
 
     recordName :: IsString a => a
     recordName = fromString $ Text.unpack name

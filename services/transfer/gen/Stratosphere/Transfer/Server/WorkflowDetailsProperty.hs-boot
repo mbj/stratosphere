@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WorkflowDetailsProperty :: Prelude.Type
 instance ToResourceProperties WorkflowDetailsProperty
+instance Prelude.Eq WorkflowDetailsProperty
+instance Prelude.Show WorkflowDetailsProperty
 instance JSON.ToJSON WorkflowDetailsProperty

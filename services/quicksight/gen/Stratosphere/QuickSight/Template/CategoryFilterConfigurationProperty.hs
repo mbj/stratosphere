@@ -13,6 +13,7 @@ data CategoryFilterConfigurationProperty
   = CategoryFilterConfigurationProperty {customFilterConfiguration :: (Prelude.Maybe CustomFilterConfigurationProperty),
                                          customFilterListConfiguration :: (Prelude.Maybe CustomFilterListConfigurationProperty),
                                          filterListConfiguration :: (Prelude.Maybe FilterListConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCategoryFilterConfigurationProperty ::
   CategoryFilterConfigurationProperty
 mkCategoryFilterConfigurationProperty

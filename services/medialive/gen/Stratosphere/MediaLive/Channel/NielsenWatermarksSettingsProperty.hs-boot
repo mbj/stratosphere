@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NielsenWatermarksSettingsProperty :: Prelude.Type
 instance ToResourceProperties NielsenWatermarksSettingsProperty
+instance Prelude.Eq NielsenWatermarksSettingsProperty
+instance Prelude.Show NielsenWatermarksSettingsProperty
 instance JSON.ToJSON NielsenWatermarksSettingsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WaitAndContinueSpecificationProperty :: Prelude.Type
 instance ToResourceProperties WaitAndContinueSpecificationProperty
+instance Prelude.Eq WaitAndContinueSpecificationProperty
+instance Prelude.Show WaitAndContinueSpecificationProperty
 instance JSON.ToJSON WaitAndContinueSpecificationProperty

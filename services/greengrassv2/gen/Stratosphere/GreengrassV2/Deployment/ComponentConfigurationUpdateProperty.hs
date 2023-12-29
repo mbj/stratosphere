@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ComponentConfigurationUpdateProperty
   = ComponentConfigurationUpdateProperty {merge :: (Prelude.Maybe (Value Prelude.Text)),
                                           reset :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentConfigurationUpdateProperty ::
   ComponentConfigurationUpdateProperty
 mkComponentConfigurationUpdateProperty

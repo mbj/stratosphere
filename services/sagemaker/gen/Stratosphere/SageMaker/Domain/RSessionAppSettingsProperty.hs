@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data RSessionAppSettingsProperty
   = RSessionAppSettingsProperty {customImages :: (Prelude.Maybe [CustomImageProperty]),
                                  defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRSessionAppSettingsProperty :: RSessionAppSettingsProperty
 mkRSessionAppSettingsProperty
   = RSessionAppSettingsProperty

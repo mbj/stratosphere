@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DeviceTemplateProperty
   = DeviceTemplateProperty {callbackOverrides :: (Prelude.Maybe JSON.Object),
                             deviceType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceTemplateProperty :: DeviceTemplateProperty
 mkDeviceTemplateProperty
   = DeviceTemplateProperty

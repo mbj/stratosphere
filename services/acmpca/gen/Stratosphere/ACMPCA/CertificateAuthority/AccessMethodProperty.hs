@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AccessMethodProperty
   = AccessMethodProperty {accessMethodType :: (Prelude.Maybe (Value Prelude.Text)),
                           customObjectIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessMethodProperty :: AccessMethodProperty
 mkAccessMethodProperty
   = AccessMethodProperty

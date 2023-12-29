@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EmbeddedDestinationSettingsProperty
   = EmbeddedDestinationSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEmbeddedDestinationSettingsProperty ::
   EmbeddedDestinationSettingsProperty
 mkEmbeddedDestinationSettingsProperty

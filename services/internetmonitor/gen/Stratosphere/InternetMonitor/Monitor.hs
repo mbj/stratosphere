@@ -18,6 +18,7 @@ data Monitor
              status :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag]),
              trafficPercentageToMonitor :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitor :: Value Prelude.Text -> Monitor
 mkMonitor monitorName
   = Monitor

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data GroupToWeightProperty
   = GroupToWeightProperty {groupName :: (Value Prelude.Text),
                            splitWeight :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupToWeightProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> GroupToWeightProperty

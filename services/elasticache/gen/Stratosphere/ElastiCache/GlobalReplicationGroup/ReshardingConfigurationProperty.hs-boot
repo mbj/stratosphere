@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReshardingConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ReshardingConfigurationProperty
+instance Prelude.Eq ReshardingConfigurationProperty
+instance Prelude.Show ReshardingConfigurationProperty
 instance JSON.ToJSON ReshardingConfigurationProperty

@@ -13,6 +13,7 @@ data TrafficRoutingConfigProperty
                                   linearStepSize :: (Prelude.Maybe CapacitySizeProperty),
                                   type' :: (Value Prelude.Text),
                                   waitIntervalInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficRoutingConfigProperty ::
   Value Prelude.Text -> TrafficRoutingConfigProperty
 mkTrafficRoutingConfigProperty type'

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data FreeFormLayoutConfigurationProperty
   = FreeFormLayoutConfigurationProperty {canvasSizeOptions :: (Prelude.Maybe FreeFormLayoutCanvasSizeOptionsProperty),
                                          elements :: [FreeFormLayoutElementProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFreeFormLayoutConfigurationProperty ::
   [FreeFormLayoutElementProperty]
   -> FreeFormLayoutConfigurationProperty

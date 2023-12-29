@@ -13,6 +13,7 @@ data VpcConnection
                    tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                    targetClusterArn :: (Value Prelude.Text),
                    vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnection ::
   Value Prelude.Text
   -> ValueList Prelude.Text

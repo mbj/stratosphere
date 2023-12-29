@@ -11,6 +11,7 @@ data BotVersion
   = BotVersion {botId :: (Value Prelude.Text),
                 botVersionLocaleSpecification :: [BotVersionLocaleSpecificationProperty],
                 description :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBotVersion ::
   Value Prelude.Text
   -> [BotVersionLocaleSpecificationProperty] -> BotVersion

@@ -15,6 +15,7 @@ data UserProfile
                  tags :: (Prelude.Maybe [Tag]),
                  userProfileName :: (Value Prelude.Text),
                  userSettings :: (Prelude.Maybe UserSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserProfile ::
   Value Prelude.Text -> Value Prelude.Text -> UserProfile
 mkUserProfile domainId userProfileName

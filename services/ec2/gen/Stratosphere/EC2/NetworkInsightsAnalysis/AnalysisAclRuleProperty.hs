@@ -15,6 +15,7 @@ data AnalysisAclRuleProperty
                              protocol :: (Prelude.Maybe (Value Prelude.Text)),
                              ruleAction :: (Prelude.Maybe (Value Prelude.Text)),
                              ruleNumber :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisAclRuleProperty :: AnalysisAclRuleProperty
 mkAnalysisAclRuleProperty
   = AnalysisAclRuleProperty

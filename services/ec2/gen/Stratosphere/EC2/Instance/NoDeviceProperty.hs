@@ -4,7 +4,9 @@ module Stratosphere.EC2.Instance.NoDeviceProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
-data NoDeviceProperty = NoDeviceProperty {}
+data NoDeviceProperty
+  = NoDeviceProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNoDeviceProperty :: NoDeviceProperty
 mkNoDeviceProperty = NoDeviceProperty {}
 instance ToResourceProperties NoDeviceProperty where

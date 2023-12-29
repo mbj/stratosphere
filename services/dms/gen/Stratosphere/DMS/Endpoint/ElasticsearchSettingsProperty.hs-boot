@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ElasticsearchSettingsProperty :: Prelude.Type
 instance ToResourceProperties ElasticsearchSettingsProperty
+instance Prelude.Eq ElasticsearchSettingsProperty
+instance Prelude.Show ElasticsearchSettingsProperty
 instance JSON.ToJSON ElasticsearchSettingsProperty

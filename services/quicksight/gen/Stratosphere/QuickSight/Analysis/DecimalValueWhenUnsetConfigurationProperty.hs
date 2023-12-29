@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DecimalValueWhenUnsetConfigurationProperty
   = DecimalValueWhenUnsetConfigurationProperty {customValue :: (Prelude.Maybe (Value Prelude.Double)),
                                                 valueWhenUnsetOption :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDecimalValueWhenUnsetConfigurationProperty ::
   DecimalValueWhenUnsetConfigurationProperty
 mkDecimalValueWhenUnsetConfigurationProperty

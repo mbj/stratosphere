@@ -15,6 +15,7 @@ data SolutionConfigProperty
                             eventValueThreshold :: (Prelude.Maybe (Value Prelude.Text)),
                             featureTransformationParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                             hpoConfig :: (Prelude.Maybe HpoConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSolutionConfigProperty :: SolutionConfigProperty
 mkSolutionConfigProperty
   = SolutionConfigProperty

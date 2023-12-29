@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Theme.FontProperty as Exports
 import Stratosphere.ResourceProperties
 data TypographyProperty
   = TypographyProperty {fontFamilies :: (Prelude.Maybe [FontProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTypographyProperty :: TypographyProperty
 mkTypographyProperty
   = TypographyProperty {fontFamilies = Prelude.Nothing}

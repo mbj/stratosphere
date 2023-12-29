@@ -17,6 +17,7 @@ data NatGateway
                 secondaryPrivateIpAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
                 subnetId :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNatGateway :: Value Prelude.Text -> NatGateway
 mkNatGateway subnetId
   = NatGateway

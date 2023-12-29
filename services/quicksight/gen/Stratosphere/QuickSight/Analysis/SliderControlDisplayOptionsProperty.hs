@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.LabelOptionsProperty as E
 import Stratosphere.ResourceProperties
 data SliderControlDisplayOptionsProperty
   = SliderControlDisplayOptionsProperty {titleOptions :: (Prelude.Maybe LabelOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSliderControlDisplayOptionsProperty ::
   SliderControlDisplayOptionsProperty
 mkSliderControlDisplayOptionsProperty

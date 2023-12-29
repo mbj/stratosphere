@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CalculatedFieldProperty :: Prelude.Type
 instance ToResourceProperties CalculatedFieldProperty
+instance Prelude.Eq CalculatedFieldProperty
+instance Prelude.Show CalculatedFieldProperty
 instance JSON.ToJSON CalculatedFieldProperty

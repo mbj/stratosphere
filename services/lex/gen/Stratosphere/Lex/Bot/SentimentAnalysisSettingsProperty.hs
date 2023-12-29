@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SentimentAnalysisSettingsProperty
   = SentimentAnalysisSettingsProperty {detectSentiment :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSentimentAnalysisSettingsProperty ::
   Value Prelude.Bool -> SentimentAnalysisSettingsProperty
 mkSentimentAnalysisSettingsProperty detectSentiment

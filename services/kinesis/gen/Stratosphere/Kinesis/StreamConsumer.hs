@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StreamConsumer
   = StreamConsumer {consumerName :: (Value Prelude.Text),
                     streamARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamConsumer ::
   Value Prelude.Text -> Value Prelude.Text -> StreamConsumer
 mkStreamConsumer consumerName streamARN

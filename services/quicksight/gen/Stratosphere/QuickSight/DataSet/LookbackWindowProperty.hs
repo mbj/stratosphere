@@ -10,6 +10,7 @@ data LookbackWindowProperty
   = LookbackWindowProperty {columnName :: (Prelude.Maybe (Value Prelude.Text)),
                             size :: (Prelude.Maybe (Value Prelude.Double)),
                             sizeUnit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLookbackWindowProperty :: LookbackWindowProperty
 mkLookbackWindowProperty
   = LookbackWindowProperty

@@ -12,6 +12,7 @@ data CaptionSelectorProperty
   = CaptionSelectorProperty {languageCode :: (Prelude.Maybe (Value Prelude.Text)),
                              name :: (Prelude.Maybe (Value Prelude.Text)),
                              selectorSettings :: (Prelude.Maybe CaptionSelectorSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionSelectorProperty :: CaptionSelectorProperty
 mkCaptionSelectorProperty
   = CaptionSelectorProperty

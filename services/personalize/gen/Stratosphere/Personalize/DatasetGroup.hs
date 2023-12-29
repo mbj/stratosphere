@@ -11,6 +11,7 @@ data DatasetGroup
                   kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                   name :: (Value Prelude.Text),
                   roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetGroup :: Value Prelude.Text -> DatasetGroup
 mkDatasetGroup name
   = DatasetGroup

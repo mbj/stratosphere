@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProvisioningParameterProperty :: Prelude.Type
 instance ToResourceProperties ProvisioningParameterProperty
+instance Prelude.Eq ProvisioningParameterProperty
+instance Prelude.Show ProvisioningParameterProperty
 instance JSON.ToJSON ProvisioningParameterProperty

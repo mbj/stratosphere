@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GridLayoutConfigurationProperty :: Prelude.Type
 instance ToResourceProperties GridLayoutConfigurationProperty
+instance Prelude.Eq GridLayoutConfigurationProperty
+instance Prelude.Show GridLayoutConfigurationProperty
 instance JSON.ToJSON GridLayoutConfigurationProperty

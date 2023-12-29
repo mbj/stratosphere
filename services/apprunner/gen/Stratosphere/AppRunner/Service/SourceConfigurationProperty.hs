@@ -15,6 +15,7 @@ data SourceConfigurationProperty
                                  autoDeploymentsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                  codeRepository :: (Prelude.Maybe CodeRepositoryProperty),
                                  imageRepository :: (Prelude.Maybe ImageRepositoryProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConfigurationProperty :: SourceConfigurationProperty
 mkSourceConfigurationProperty
   = SourceConfigurationProperty

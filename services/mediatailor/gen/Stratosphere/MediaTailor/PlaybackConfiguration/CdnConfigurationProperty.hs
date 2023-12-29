@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CdnConfigurationProperty
   = CdnConfigurationProperty {adSegmentUrlPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                               contentSegmentUrlPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCdnConfigurationProperty :: CdnConfigurationProperty
 mkCdnConfigurationProperty
   = CdnConfigurationProperty

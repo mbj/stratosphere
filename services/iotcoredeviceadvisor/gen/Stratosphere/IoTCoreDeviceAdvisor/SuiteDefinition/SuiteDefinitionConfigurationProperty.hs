@@ -14,6 +14,7 @@ data SuiteDefinitionConfigurationProperty
                                           intendedForQualification :: (Prelude.Maybe (Value Prelude.Bool)),
                                           rootGroup :: (Value Prelude.Text),
                                           suiteDefinitionName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSuiteDefinitionConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SuiteDefinitionConfigurationProperty

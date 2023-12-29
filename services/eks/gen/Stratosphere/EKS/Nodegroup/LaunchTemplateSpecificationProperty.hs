@@ -11,6 +11,7 @@ data LaunchTemplateSpecificationProperty
   = LaunchTemplateSpecificationProperty {id :: (Prelude.Maybe (Value Prelude.Text)),
                                          name :: (Prelude.Maybe (Value Prelude.Text)),
                                          version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateSpecificationProperty ::
   LaunchTemplateSpecificationProperty
 mkLaunchTemplateSpecificationProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZendeskSourcePropertiesProperty
   = ZendeskSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkZendeskSourcePropertiesProperty ::
   Value Prelude.Text -> ZendeskSourcePropertiesProperty
 mkZendeskSourcePropertiesProperty object

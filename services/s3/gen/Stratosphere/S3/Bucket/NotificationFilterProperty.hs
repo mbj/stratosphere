@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.S3KeyFilterProperty as Exports
 import Stratosphere.ResourceProperties
 data NotificationFilterProperty
   = NotificationFilterProperty {s3Key :: S3KeyFilterProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationFilterProperty ::
   S3KeyFilterProperty -> NotificationFilterProperty
 mkNotificationFilterProperty s3Key

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OriginGroupFailoverCriteriaProperty :: Prelude.Type
 instance ToResourceProperties OriginGroupFailoverCriteriaProperty
+instance Prelude.Eq OriginGroupFailoverCriteriaProperty
+instance Prelude.Show OriginGroupFailoverCriteriaProperty
 instance JSON.ToJSON OriginGroupFailoverCriteriaProperty

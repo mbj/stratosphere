@@ -34,6 +34,7 @@ data TargetProperty
                     runCommandParameters :: (Prelude.Maybe RunCommandParametersProperty),
                     sageMakerPipelineParameters :: (Prelude.Maybe SageMakerPipelineParametersProperty),
                     sqsParameters :: (Prelude.Maybe SqsParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TargetProperty
 mkTargetProperty arn id

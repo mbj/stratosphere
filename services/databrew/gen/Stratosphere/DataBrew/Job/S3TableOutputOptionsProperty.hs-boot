@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data S3TableOutputOptionsProperty :: Prelude.Type
 instance ToResourceProperties S3TableOutputOptionsProperty
+instance Prelude.Eq S3TableOutputOptionsProperty
+instance Prelude.Show S3TableOutputOptionsProperty
 instance JSON.ToJSON S3TableOutputOptionsProperty

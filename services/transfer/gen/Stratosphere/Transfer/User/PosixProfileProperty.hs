@@ -10,6 +10,7 @@ data PosixProfileProperty
   = PosixProfileProperty {gid :: (Value Prelude.Double),
                           secondaryGids :: (Prelude.Maybe (ValueList Prelude.Double)),
                           uid :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPosixProfileProperty ::
   Value Prelude.Double
   -> Value Prelude.Double -> PosixProfileProperty

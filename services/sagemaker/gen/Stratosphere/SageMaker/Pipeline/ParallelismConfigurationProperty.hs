@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParallelismConfigurationProperty
   = ParallelismConfigurationProperty {maxParallelExecutionSteps :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParallelismConfigurationProperty ::
   Value Prelude.Integer -> ParallelismConfigurationProperty
 mkParallelismConfigurationProperty maxParallelExecutionSteps

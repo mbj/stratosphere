@@ -13,6 +13,7 @@ data LogDeliveryConfigurationRequestProperty
                                              destinationType :: (Value Prelude.Text),
                                              logFormat :: (Value Prelude.Text),
                                              logType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDeliveryConfigurationRequestProperty ::
   DestinationDetailsProperty
   -> Value Prelude.Text

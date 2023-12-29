@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 data InputSecurityGroup
   = InputSecurityGroup {tags :: (Prelude.Maybe JSON.Object),
                         whitelistRules :: (Prelude.Maybe [InputWhitelistRuleCidrProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputSecurityGroup :: InputSecurityGroup
 mkInputSecurityGroup
   = InputSecurityGroup

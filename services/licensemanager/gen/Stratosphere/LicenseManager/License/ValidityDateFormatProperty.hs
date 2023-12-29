@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ValidityDateFormatProperty
   = ValidityDateFormatProperty {begin :: (Value Prelude.Text),
                                 end :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkValidityDateFormatProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ValidityDateFormatProperty

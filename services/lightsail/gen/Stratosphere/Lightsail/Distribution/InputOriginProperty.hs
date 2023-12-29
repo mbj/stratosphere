@@ -10,6 +10,7 @@ data InputOriginProperty
   = InputOriginProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                          protocolPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                          regionName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputOriginProperty :: InputOriginProperty
 mkInputOriginProperty
   = InputOriginProperty

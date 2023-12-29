@@ -22,6 +22,7 @@ data OptionsProperty
                      transferMode :: (Prelude.Maybe (Value Prelude.Text)),
                      uid :: (Prelude.Maybe (Value Prelude.Text)),
                      verifyMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionsProperty :: OptionsProperty
 mkOptionsProperty
   = OptionsProperty

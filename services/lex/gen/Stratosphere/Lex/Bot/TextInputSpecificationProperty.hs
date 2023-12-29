@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextInputSpecificationProperty
   = TextInputSpecificationProperty {startTimeoutMs :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTextInputSpecificationProperty ::
   Value Prelude.Integer -> TextInputSpecificationProperty
 mkTextInputSpecificationProperty startTimeoutMs

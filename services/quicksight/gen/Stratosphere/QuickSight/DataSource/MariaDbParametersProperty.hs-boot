@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MariaDbParametersProperty :: Prelude.Type
 instance ToResourceProperties MariaDbParametersProperty
+instance Prelude.Eq MariaDbParametersProperty
+instance Prelude.Show MariaDbParametersProperty
 instance JSON.ToJSON MariaDbParametersProperty

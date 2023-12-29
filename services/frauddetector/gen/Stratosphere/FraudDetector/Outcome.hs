@@ -11,6 +11,7 @@ data Outcome
   = Outcome {description :: (Prelude.Maybe (Value Prelude.Text)),
              name :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutcome :: Value Prelude.Text -> Outcome
 mkOutcome name
   = Outcome

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SnowflakeParametersProperty :: Prelude.Type
 instance ToResourceProperties SnowflakeParametersProperty
+instance Prelude.Eq SnowflakeParametersProperty
+instance Prelude.Show SnowflakeParametersProperty
 instance JSON.ToJSON SnowflakeParametersProperty

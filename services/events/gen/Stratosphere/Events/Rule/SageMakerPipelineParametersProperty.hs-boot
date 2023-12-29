@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SageMakerPipelineParametersProperty :: Prelude.Type
 instance ToResourceProperties SageMakerPipelineParametersProperty
+instance Prelude.Eq SageMakerPipelineParametersProperty
+instance Prelude.Show SageMakerPipelineParametersProperty
 instance JSON.ToJSON SageMakerPipelineParametersProperty

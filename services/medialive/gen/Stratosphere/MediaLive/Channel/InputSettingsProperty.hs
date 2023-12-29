@@ -22,6 +22,7 @@ data InputSettingsProperty
                            smpte2038DataPreference :: (Prelude.Maybe (Value Prelude.Text)),
                            sourceEndBehavior :: (Prelude.Maybe (Value Prelude.Text)),
                            videoSelector :: (Prelude.Maybe VideoSelectorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputSettingsProperty :: InputSettingsProperty
 mkInputSettingsProperty
   = InputSettingsProperty

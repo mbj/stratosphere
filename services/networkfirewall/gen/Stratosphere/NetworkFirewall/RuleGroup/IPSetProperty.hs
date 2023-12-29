@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IPSetProperty
   = IPSetProperty {definition :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSetProperty :: IPSetProperty
 mkIPSetProperty = IPSetProperty {definition = Prelude.Nothing}
 instance ToResourceProperties IPSetProperty where

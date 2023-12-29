@@ -32,6 +32,7 @@ data StatementProperty
                        sizeConstraintStatement :: (Prelude.Maybe SizeConstraintStatementProperty),
                        sqliMatchStatement :: (Prelude.Maybe SqliMatchStatementProperty),
                        xssMatchStatement :: (Prelude.Maybe XssMatchStatementProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatementProperty :: StatementProperty
 mkStatementProperty
   = StatementProperty

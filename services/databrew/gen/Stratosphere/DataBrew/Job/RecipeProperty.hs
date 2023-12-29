@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RecipeProperty
   = RecipeProperty {name :: (Value Prelude.Text),
                     version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecipeProperty :: Value Prelude.Text -> RecipeProperty
 mkRecipeProperty name
   = RecipeProperty {name = name, version = Prelude.Nothing}

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SheetControlsOptionProperty
   = SheetControlsOptionProperty {visibilityState :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSheetControlsOptionProperty :: SheetControlsOptionProperty
 mkSheetControlsOptionProperty
   = SheetControlsOptionProperty {visibilityState = Prelude.Nothing}

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomContentConfigurationProperty :: Prelude.Type
 instance ToResourceProperties CustomContentConfigurationProperty
+instance Prelude.Eq CustomContentConfigurationProperty
+instance Prelude.Show CustomContentConfigurationProperty
 instance JSON.ToJSON CustomContentConfigurationProperty

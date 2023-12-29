@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CustomRequestHandlingProperty as
 import Stratosphere.ResourceProperties
 data CaptchaActionProperty
   = CaptchaActionProperty {customRequestHandling :: (Prelude.Maybe CustomRequestHandlingProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptchaActionProperty :: CaptchaActionProperty
 mkCaptchaActionProperty
   = CaptchaActionProperty {customRequestHandling = Prelude.Nothing}

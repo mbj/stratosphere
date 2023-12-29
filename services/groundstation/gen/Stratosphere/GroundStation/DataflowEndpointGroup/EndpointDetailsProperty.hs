@@ -13,6 +13,7 @@ data EndpointDetailsProperty
   = EndpointDetailsProperty {awsGroundStationAgentEndpoint :: (Prelude.Maybe AwsGroundStationAgentEndpointProperty),
                              endpoint :: (Prelude.Maybe DataflowEndpointProperty),
                              securityDetails :: (Prelude.Maybe SecurityDetailsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointDetailsProperty :: EndpointDetailsProperty
 mkEndpointDetailsProperty
   = EndpointDetailsProperty

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data WordCloudAggregatedFieldWellsProperty
   = WordCloudAggregatedFieldWellsProperty {groupBy :: (Prelude.Maybe [DimensionFieldProperty]),
                                            size :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWordCloudAggregatedFieldWellsProperty ::
   WordCloudAggregatedFieldWellsProperty
 mkWordCloudAggregatedFieldWellsProperty

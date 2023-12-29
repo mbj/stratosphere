@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GoogleAnalyticsSourcePropertiesProperty
   = GoogleAnalyticsSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGoogleAnalyticsSourcePropertiesProperty ::
   Value Prelude.Text -> GoogleAnalyticsSourcePropertiesProperty
 mkGoogleAnalyticsSourcePropertiesProperty object

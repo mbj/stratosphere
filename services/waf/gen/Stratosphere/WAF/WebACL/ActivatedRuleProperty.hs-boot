@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ActivatedRuleProperty :: Prelude.Type
 instance ToResourceProperties ActivatedRuleProperty
+instance Prelude.Eq ActivatedRuleProperty
+instance Prelude.Show ActivatedRuleProperty
 instance JSON.ToJSON ActivatedRuleProperty

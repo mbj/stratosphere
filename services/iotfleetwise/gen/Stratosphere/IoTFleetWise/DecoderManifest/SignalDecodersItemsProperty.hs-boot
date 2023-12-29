@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SignalDecodersItemsProperty :: Prelude.Type
 instance ToResourceProperties SignalDecodersItemsProperty
+instance Prelude.Eq SignalDecodersItemsProperty
+instance Prelude.Show SignalDecodersItemsProperty
 instance JSON.ToJSON SignalDecodersItemsProperty

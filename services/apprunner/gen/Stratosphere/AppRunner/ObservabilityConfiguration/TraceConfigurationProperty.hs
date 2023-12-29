@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TraceConfigurationProperty
   = TraceConfigurationProperty {vendor :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTraceConfigurationProperty ::
   Value Prelude.Text -> TraceConfigurationProperty
 mkTraceConfigurationProperty vendor

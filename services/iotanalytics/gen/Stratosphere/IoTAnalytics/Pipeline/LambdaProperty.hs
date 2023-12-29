@@ -11,6 +11,7 @@ data LambdaProperty
                     lambdaName :: (Value Prelude.Text),
                     name :: (Value Prelude.Text),
                     next :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> Value Prelude.Text -> LambdaProperty

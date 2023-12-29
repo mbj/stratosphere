@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CloudFrontOriginAccessIdentityConfigProperty :: Prelude.Type
 instance ToResourceProperties CloudFrontOriginAccessIdentityConfigProperty
+instance Prelude.Eq CloudFrontOriginAccessIdentityConfigProperty
+instance Prelude.Show CloudFrontOriginAccessIdentityConfigProperty
 instance JSON.ToJSON CloudFrontOriginAccessIdentityConfigProperty

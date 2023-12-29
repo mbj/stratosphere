@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProjectOperationProperty
   = ProjectOperationProperty {projectedColumns :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectOperationProperty ::
   ValueList Prelude.Text -> ProjectOperationProperty
 mkProjectOperationProperty projectedColumns

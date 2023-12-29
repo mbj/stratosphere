@@ -13,6 +13,7 @@ data CapacityAutoScalingSettingsProperty
                                          minCapacity :: (Value Prelude.Integer),
                                          seedCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                          targetTrackingScalingPolicyConfiguration :: TargetTrackingScalingPolicyConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityAutoScalingSettingsProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data UserTokenConfigurationProperty
   = UserTokenConfigurationProperty {jsonTokenTypeConfiguration :: (Prelude.Maybe JsonTokenTypeConfigurationProperty),
                                     jwtTokenTypeConfiguration :: (Prelude.Maybe JwtTokenTypeConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserTokenConfigurationProperty :: UserTokenConfigurationProperty
 mkUserTokenConfigurationProperty
   = UserTokenConfigurationProperty

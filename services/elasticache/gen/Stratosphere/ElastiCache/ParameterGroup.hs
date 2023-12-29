@@ -12,6 +12,7 @@ data ParameterGroup
                     description :: (Value Prelude.Text),
                     properties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterGroup ::
   Value Prelude.Text -> Value Prelude.Text -> ParameterGroup
 mkParameterGroup cacheParameterGroupFamily description

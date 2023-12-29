@@ -39,6 +39,7 @@ data DeploymentGroup
                      serviceRoleArn :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag]),
                      triggerConfigurations :: (Prelude.Maybe [TriggerConfigProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentGroup ::
   Value Prelude.Text -> Value Prelude.Text -> DeploymentGroup
 mkDeploymentGroup applicationName serviceRoleArn

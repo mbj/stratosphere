@@ -10,6 +10,7 @@ data LocationCapacityProperty
   = LocationCapacityProperty {desiredEC2Instances :: (Value Prelude.Integer),
                               maxSize :: (Value Prelude.Integer),
                               minSize :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationCapacityProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer

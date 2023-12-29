@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Location
   = Location {locationName :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocation :: Value Prelude.Text -> Location
 mkLocation locationName
   = Location {locationName = locationName, tags = Prelude.Nothing}

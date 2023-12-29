@@ -18,6 +18,7 @@ data ModelOverviewProperty
                            modelOwner :: (Prelude.Maybe (Value Prelude.Text)),
                            modelVersion :: (Prelude.Maybe (Value Prelude.Double)),
                            problemType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelOverviewProperty :: ModelOverviewProperty
 mkModelOverviewProperty
   = ModelOverviewProperty

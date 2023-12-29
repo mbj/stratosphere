@@ -16,6 +16,7 @@ data BillingGroup
                   name :: (Value Prelude.Text),
                   primaryAccountId :: (Value Prelude.Text),
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBillingGroup ::
   AccountGroupingProperty
   -> ComputationPreferenceProperty

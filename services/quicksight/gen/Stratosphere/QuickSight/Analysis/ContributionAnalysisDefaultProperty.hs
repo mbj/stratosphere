@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ContributionAnalysisDefaultProperty
   = ContributionAnalysisDefaultProperty {contributorDimensions :: [ColumnIdentifierProperty],
                                          measureFieldId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContributionAnalysisDefaultProperty ::
   [ColumnIdentifierProperty]
   -> Value Prelude.Text -> ContributionAnalysisDefaultProperty

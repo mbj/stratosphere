@@ -10,6 +10,7 @@ data DataSourceProperty
   = DataSourceProperty {arn :: (Prelude.Maybe (Value Prelude.Text)),
                         databaseName :: (Prelude.Maybe (Value Prelude.Text)),
                         type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceProperty :: DataSourceProperty
 mkDataSourceProperty
   = DataSourceProperty

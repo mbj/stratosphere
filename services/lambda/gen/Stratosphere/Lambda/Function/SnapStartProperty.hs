@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnapStartProperty
   = SnapStartProperty {applyOn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSnapStartProperty :: Value Prelude.Text -> SnapStartProperty
 mkSnapStartProperty applyOn = SnapStartProperty {applyOn = applyOn}
 instance ToResourceProperties SnapStartProperty where

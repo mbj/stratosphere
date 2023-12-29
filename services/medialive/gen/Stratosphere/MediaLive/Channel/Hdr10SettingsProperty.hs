@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Hdr10SettingsProperty
   = Hdr10SettingsProperty {maxCll :: (Prelude.Maybe (Value Prelude.Integer)),
                            maxFall :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHdr10SettingsProperty :: Hdr10SettingsProperty
 mkHdr10SettingsProperty
   = Hdr10SettingsProperty

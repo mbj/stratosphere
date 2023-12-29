@@ -11,6 +11,7 @@ data PreparedStatement
                        queryStatement :: (Value Prelude.Text),
                        statementName :: (Value Prelude.Text),
                        workGroup :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPreparedStatement ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> PreparedStatement

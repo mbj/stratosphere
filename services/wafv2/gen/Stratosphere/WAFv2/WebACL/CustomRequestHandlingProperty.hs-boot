@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomRequestHandlingProperty :: Prelude.Type
 instance ToResourceProperties CustomRequestHandlingProperty
+instance Prelude.Eq CustomRequestHandlingProperty
+instance Prelude.Show CustomRequestHandlingProperty
 instance JSON.ToJSON CustomRequestHandlingProperty

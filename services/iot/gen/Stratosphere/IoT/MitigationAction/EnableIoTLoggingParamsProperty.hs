@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EnableIoTLoggingParamsProperty
   = EnableIoTLoggingParamsProperty {logLevel :: (Value Prelude.Text),
                                     roleArnForLogging :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnableIoTLoggingParamsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EnableIoTLoggingParamsProperty

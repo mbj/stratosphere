@@ -27,6 +27,7 @@ data BoxPlotChartConfigurationProperty
                                        sortConfiguration :: (Prelude.Maybe BoxPlotSortConfigurationProperty),
                                        tooltip :: (Prelude.Maybe TooltipOptionsProperty),
                                        visualPalette :: (Prelude.Maybe VisualPaletteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBoxPlotChartConfigurationProperty ::
   BoxPlotChartConfigurationProperty
 mkBoxPlotChartConfigurationProperty

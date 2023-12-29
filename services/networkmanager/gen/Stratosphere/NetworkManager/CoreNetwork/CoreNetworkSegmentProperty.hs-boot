@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CoreNetworkSegmentProperty :: Prelude.Type
 instance ToResourceProperties CoreNetworkSegmentProperty
+instance Prelude.Eq CoreNetworkSegmentProperty
+instance Prelude.Show CoreNetworkSegmentProperty
 instance JSON.ToJSON CoreNetworkSegmentProperty

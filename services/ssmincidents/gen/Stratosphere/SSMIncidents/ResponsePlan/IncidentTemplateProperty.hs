@@ -16,6 +16,7 @@ data IncidentTemplateProperty
                               notificationTargets :: (Prelude.Maybe [NotificationTargetItemProperty]),
                               summary :: (Prelude.Maybe (Value Prelude.Text)),
                               title :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIncidentTemplateProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> IncidentTemplateProperty

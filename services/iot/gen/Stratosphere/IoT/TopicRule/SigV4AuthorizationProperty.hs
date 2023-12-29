@@ -10,6 +10,7 @@ data SigV4AuthorizationProperty
   = SigV4AuthorizationProperty {roleArn :: (Value Prelude.Text),
                                 serviceName :: (Value Prelude.Text),
                                 signingRegion :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSigV4AuthorizationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

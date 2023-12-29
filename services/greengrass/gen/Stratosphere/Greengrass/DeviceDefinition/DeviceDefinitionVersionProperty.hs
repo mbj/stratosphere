@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Greengrass.DeviceDefinition.DeviceProperty as
 import Stratosphere.ResourceProperties
 data DeviceDefinitionVersionProperty
   = DeviceDefinitionVersionProperty {devices :: [DeviceProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceDefinitionVersionProperty ::
   [DeviceProperty] -> DeviceDefinitionVersionProperty
 mkDeviceDefinitionVersionProperty devices

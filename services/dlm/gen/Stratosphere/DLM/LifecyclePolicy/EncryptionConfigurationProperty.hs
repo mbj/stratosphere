@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EncryptionConfigurationProperty
   = EncryptionConfigurationProperty {cmkArn :: (Prelude.Maybe (Value Prelude.Text)),
                                      encrypted :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigurationProperty ::
   Value Prelude.Bool -> EncryptionConfigurationProperty
 mkEncryptionConfigurationProperty encrypted

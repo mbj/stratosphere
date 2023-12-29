@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeviceOptionsProperty
   = DeviceOptionsProperty {tenantId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceOptionsProperty :: DeviceOptionsProperty
 mkDeviceOptionsProperty
   = DeviceOptionsProperty {tenantId = Prelude.Nothing}

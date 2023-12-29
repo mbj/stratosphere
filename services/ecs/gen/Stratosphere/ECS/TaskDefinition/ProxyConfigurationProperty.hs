@@ -12,6 +12,7 @@ data ProxyConfigurationProperty
   = ProxyConfigurationProperty {containerName :: (Value Prelude.Text),
                                 proxyConfigurationProperties :: (Prelude.Maybe [KeyValuePairProperty]),
                                 type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProxyConfigurationProperty ::
   Value Prelude.Text -> ProxyConfigurationProperty
 mkProxyConfigurationProperty containerName

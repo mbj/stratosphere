@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FormDataTypeConfigProperty
   = FormDataTypeConfigProperty {dataSourceType :: (Value Prelude.Text),
                                 dataTypeName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFormDataTypeConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> FormDataTypeConfigProperty

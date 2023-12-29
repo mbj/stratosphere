@@ -31,6 +31,7 @@ data Environment
                  tags :: (Prelude.Maybe JSON.Object),
                  webserverAccessMode :: (Prelude.Maybe (Value Prelude.Text)),
                  weeklyMaintenanceWindowStart :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment :: Value Prelude.Text -> Environment
 mkEnvironment name
   = Environment

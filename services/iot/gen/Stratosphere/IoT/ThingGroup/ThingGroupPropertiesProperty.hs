@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ThingGroupPropertiesProperty
   = ThingGroupPropertiesProperty {attributePayload :: (Prelude.Maybe AttributePayloadProperty),
                                   thingGroupDescription :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThingGroupPropertiesProperty :: ThingGroupPropertiesProperty
 mkThingGroupPropertiesProperty
   = ThingGroupPropertiesProperty

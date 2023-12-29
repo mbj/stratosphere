@@ -17,6 +17,7 @@ data InsightVisualProperty
                            subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                            title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                            visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInsightVisualProperty ::
   Value Prelude.Text -> Value Prelude.Text -> InsightVisualProperty
 mkInsightVisualProperty dataSetIdentifier visualId

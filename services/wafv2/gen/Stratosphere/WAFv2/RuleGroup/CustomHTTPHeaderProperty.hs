@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CustomHTTPHeaderProperty
   = CustomHTTPHeaderProperty {name :: (Value Prelude.Text),
                               value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomHTTPHeaderProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> CustomHTTPHeaderProperty

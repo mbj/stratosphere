@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AssociationParameterProperty
   = AssociationParameterProperty {key :: (Value Prelude.Text),
                                   value :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssociationParameterProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> AssociationParameterProperty

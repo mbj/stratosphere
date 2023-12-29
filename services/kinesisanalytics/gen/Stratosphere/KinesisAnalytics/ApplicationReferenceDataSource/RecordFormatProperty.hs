@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RecordFormatProperty
   = RecordFormatProperty {mappingParameters :: (Prelude.Maybe MappingParametersProperty),
                           recordFormatType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordFormatProperty ::
   Value Prelude.Text -> RecordFormatProperty
 mkRecordFormatProperty recordFormatType

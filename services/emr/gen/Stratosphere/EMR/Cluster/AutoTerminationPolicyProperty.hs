@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoTerminationPolicyProperty
   = AutoTerminationPolicyProperty {idleTimeout :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoTerminationPolicyProperty :: AutoTerminationPolicyProperty
 mkAutoTerminationPolicyProperty
   = AutoTerminationPolicyProperty {idleTimeout = Prelude.Nothing}

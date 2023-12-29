@@ -12,6 +12,7 @@ data RecordSetGroup
                     hostedZoneId :: (Prelude.Maybe (Value Prelude.Text)),
                     hostedZoneName :: (Prelude.Maybe (Value Prelude.Text)),
                     recordSets :: (Prelude.Maybe [RecordSetProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordSetGroup :: RecordSetGroup
 mkRecordSetGroup
   = RecordSetGroup

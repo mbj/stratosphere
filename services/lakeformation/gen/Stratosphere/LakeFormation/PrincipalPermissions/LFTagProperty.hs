@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LFTagProperty
   = LFTagProperty {tagKey :: (Prelude.Maybe (Value Prelude.Text)),
                    tagValues :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLFTagProperty :: LFTagProperty
 mkLFTagProperty
   = LFTagProperty

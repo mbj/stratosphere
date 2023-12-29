@@ -13,6 +13,7 @@ data CustomFilterConfigurationProperty
                                        nullOption :: (Value Prelude.Text),
                                        parameterName :: (Prelude.Maybe (Value Prelude.Text)),
                                        selectAllOptions :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomFilterConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> CustomFilterConfigurationProperty

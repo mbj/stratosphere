@@ -24,6 +24,7 @@ data Queue
            sqsManagedSseEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
            tags :: (Prelude.Maybe [Tag]),
            visibilityTimeout :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueue :: Queue
 mkQueue
   = Queue

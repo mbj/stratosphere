@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PublishFindingToSnsParamsProperty :: Prelude.Type
 instance ToResourceProperties PublishFindingToSnsParamsProperty
+instance Prelude.Eq PublishFindingToSnsParamsProperty
+instance Prelude.Show PublishFindingToSnsParamsProperty
 instance JSON.ToJSON PublishFindingToSnsParamsProperty

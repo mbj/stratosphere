@@ -13,6 +13,7 @@ data CsvFormatDescriptorProperty
                                  fileCompression :: (Prelude.Maybe (Value Prelude.Text)),
                                  headerList :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  quoteSymbol :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCsvFormatDescriptorProperty :: CsvFormatDescriptorProperty
 mkCsvFormatDescriptorProperty
   = CsvFormatDescriptorProperty

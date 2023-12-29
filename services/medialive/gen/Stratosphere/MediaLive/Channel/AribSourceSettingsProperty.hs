@@ -4,7 +4,9 @@ module Stratosphere.MediaLive.Channel.AribSourceSettingsProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
-data AribSourceSettingsProperty = AribSourceSettingsProperty {}
+data AribSourceSettingsProperty
+  = AribSourceSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAribSourceSettingsProperty :: AribSourceSettingsProperty
 mkAribSourceSettingsProperty = AribSourceSettingsProperty {}
 instance ToResourceProperties AribSourceSettingsProperty where

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GatewayCapabilitySummaryProperty :: Prelude.Type
 instance ToResourceProperties GatewayCapabilitySummaryProperty
+instance Prelude.Eq GatewayCapabilitySummaryProperty
+instance Prelude.Show GatewayCapabilitySummaryProperty
 instance JSON.ToJSON GatewayCapabilitySummaryProperty

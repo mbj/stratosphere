@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ItemsLimitConfigurationProperty
   = ItemsLimitConfigurationProperty {itemsLimit :: (Prelude.Maybe (Value Prelude.Double)),
                                      otherCategories :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkItemsLimitConfigurationProperty ::
   ItemsLimitConfigurationProperty
 mkItemsLimitConfigurationProperty

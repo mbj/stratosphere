@@ -17,6 +17,7 @@ data SchemaAttributeProperty
                              numberAttributeConstraints :: (Prelude.Maybe NumberAttributeConstraintsProperty),
                              required :: (Prelude.Maybe (Value Prelude.Bool)),
                              stringAttributeConstraints :: (Prelude.Maybe StringAttributeConstraintsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaAttributeProperty :: SchemaAttributeProperty
 mkSchemaAttributeProperty
   = SchemaAttributeProperty

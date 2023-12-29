@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MaintenanceWindowAutomationParametersProperty
   = MaintenanceWindowAutomationParametersProperty {documentVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                                    parameters :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowAutomationParametersProperty ::
   MaintenanceWindowAutomationParametersProperty
 mkMaintenanceWindowAutomationParametersProperty

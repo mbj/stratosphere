@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CustomLineItemPercentageChargeDetailsProperty
   = CustomLineItemPercentageChargeDetailsProperty {childAssociatedResources :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                    percentageValue :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomLineItemPercentageChargeDetailsProperty ::
   Value Prelude.Double
   -> CustomLineItemPercentageChargeDetailsProperty

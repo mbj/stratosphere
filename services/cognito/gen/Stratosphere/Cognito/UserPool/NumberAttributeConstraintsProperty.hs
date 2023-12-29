@@ -10,6 +10,7 @@ import Stratosphere.Value
 data NumberAttributeConstraintsProperty
   = NumberAttributeConstraintsProperty {maxValue :: (Prelude.Maybe (Value Prelude.Text)),
                                         minValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumberAttributeConstraintsProperty ::
   NumberAttributeConstraintsProperty
 mkNumberAttributeConstraintsProperty

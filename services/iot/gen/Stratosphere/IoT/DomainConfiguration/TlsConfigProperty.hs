@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TlsConfigProperty
   = TlsConfigProperty {securityPolicy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTlsConfigProperty :: TlsConfigProperty
 mkTlsConfigProperty
   = TlsConfigProperty {securityPolicy = Prelude.Nothing}

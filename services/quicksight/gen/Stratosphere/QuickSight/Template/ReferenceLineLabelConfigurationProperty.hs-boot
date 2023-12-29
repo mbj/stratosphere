@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReferenceLineLabelConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ReferenceLineLabelConfigurationProperty
+instance Prelude.Eq ReferenceLineLabelConfigurationProperty
+instance Prelude.Show ReferenceLineLabelConfigurationProperty
 instance JSON.ToJSON ReferenceLineLabelConfigurationProperty

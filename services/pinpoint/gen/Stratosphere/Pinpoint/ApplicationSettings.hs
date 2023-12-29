@@ -15,6 +15,7 @@ data ApplicationSettings
                          cloudWatchMetricsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                          limits :: (Prelude.Maybe LimitsProperty),
                          quietTime :: (Prelude.Maybe QuietTimeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationSettings :: Value Prelude.Text -> ApplicationSettings
 mkApplicationSettings applicationId
   = ApplicationSettings

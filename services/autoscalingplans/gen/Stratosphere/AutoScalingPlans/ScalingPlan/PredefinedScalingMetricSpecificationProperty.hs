@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PredefinedScalingMetricSpecificationProperty
   = PredefinedScalingMetricSpecificationProperty {predefinedScalingMetricType :: (Value Prelude.Text),
                                                   resourceLabel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredefinedScalingMetricSpecificationProperty ::
   Value Prelude.Text -> PredefinedScalingMetricSpecificationProperty
 mkPredefinedScalingMetricSpecificationProperty

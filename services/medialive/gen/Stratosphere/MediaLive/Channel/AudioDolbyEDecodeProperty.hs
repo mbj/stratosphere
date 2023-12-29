@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioDolbyEDecodeProperty
   = AudioDolbyEDecodeProperty {programSelection :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioDolbyEDecodeProperty :: AudioDolbyEDecodeProperty
 mkAudioDolbyEDecodeProperty
   = AudioDolbyEDecodeProperty {programSelection = Prelude.Nothing}

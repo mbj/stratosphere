@@ -13,6 +13,7 @@ data ModelQualityJobInputProperty
   = ModelQualityJobInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
                                   endpointInput :: (Prelude.Maybe EndpointInputProperty),
                                   groundTruthS3Input :: MonitoringGroundTruthS3InputProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelQualityJobInputProperty ::
   MonitoringGroundTruthS3InputProperty
   -> ModelQualityJobInputProperty

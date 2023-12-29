@@ -15,6 +15,7 @@ data MetricTransformationProperty
                                   metricNamespace :: (Value Prelude.Text),
                                   metricValue :: (Value Prelude.Text),
                                   unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricTransformationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

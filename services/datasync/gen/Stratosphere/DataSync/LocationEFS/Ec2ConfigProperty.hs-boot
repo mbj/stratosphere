@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Ec2ConfigProperty :: Prelude.Type
 instance ToResourceProperties Ec2ConfigProperty
+instance Prelude.Eq Ec2ConfigProperty
+instance Prelude.Show Ec2ConfigProperty
 instance JSON.ToJSON Ec2ConfigProperty

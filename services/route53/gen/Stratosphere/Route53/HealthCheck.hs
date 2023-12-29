@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data HealthCheck
   = HealthCheck {healthCheckConfig :: HealthCheckConfigProperty,
                  healthCheckTags :: (Prelude.Maybe [HealthCheckTagProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheck :: HealthCheckConfigProperty -> HealthCheck
 mkHealthCheck healthCheckConfig
   = HealthCheck

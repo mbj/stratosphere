@@ -11,6 +11,7 @@ data StageProperty
   = StageProperty {durationInMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
                    rotationIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                    targets :: (Prelude.Maybe [TargetsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStageProperty :: StageProperty
 mkStageProperty
   = StageProperty

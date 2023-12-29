@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ClarifyTextConfigProperty
   = ClarifyTextConfigProperty {granularity :: (Value Prelude.Text),
                                language :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClarifyTextConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ClarifyTextConfigProperty

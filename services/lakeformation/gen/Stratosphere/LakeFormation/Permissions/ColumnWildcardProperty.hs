@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColumnWildcardProperty
   = ColumnWildcardProperty {excludedColumnNames :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnWildcardProperty :: ColumnWildcardProperty
 mkColumnWildcardProperty
   = ColumnWildcardProperty {excludedColumnNames = Prelude.Nothing}

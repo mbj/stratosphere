@@ -14,6 +14,7 @@ data Connector
                loggingRole :: (Prelude.Maybe (Value Prelude.Text)),
                tags :: (Prelude.Maybe [Tag]),
                url :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnector ::
   Value Prelude.Text
   -> As2ConfigProperty -> Value Prelude.Text -> Connector

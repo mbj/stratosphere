@@ -15,6 +15,7 @@ data VPCEndpoint
                  subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                  vpcEndpointType :: (Prelude.Maybe (Value Prelude.Text)),
                  vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCEndpoint ::
   Value Prelude.Text -> Value Prelude.Text -> VPCEndpoint
 mkVPCEndpoint serviceName vpcId

@@ -17,6 +17,7 @@ data FlowDefinitionProperty
                             sourceFlowConfig :: SourceFlowConfigProperty,
                             tasks :: [TaskProperty],
                             triggerConfig :: TriggerConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowDefinitionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

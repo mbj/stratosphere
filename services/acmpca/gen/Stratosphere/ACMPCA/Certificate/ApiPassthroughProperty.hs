@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ApiPassthroughProperty
   = ApiPassthroughProperty {extensions :: (Prelude.Maybe ExtensionsProperty),
                             subject :: (Prelude.Maybe SubjectProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApiPassthroughProperty :: ApiPassthroughProperty
 mkApiPassthroughProperty
   = ApiPassthroughProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data OneDriveUsersProperty
   = OneDriveUsersProperty {oneDriveUserList :: (Prelude.Maybe (ValueList Prelude.Text)),
                            oneDriveUserS3Path :: (Prelude.Maybe S3PathProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOneDriveUsersProperty :: OneDriveUsersProperty
 mkOneDriveUsersProperty
   = OneDriveUsersProperty

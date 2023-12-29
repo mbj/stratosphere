@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SampleValueProperty
   = SampleValueProperty {value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSampleValueProperty :: Value Prelude.Text -> SampleValueProperty
 mkSampleValueProperty value = SampleValueProperty {value = value}
 instance ToResourceProperties SampleValueProperty where

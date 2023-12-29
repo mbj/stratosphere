@@ -11,6 +11,7 @@ data SearchProperty
                     facetable :: (Prelude.Maybe (Value Prelude.Bool)),
                     searchable :: (Prelude.Maybe (Value Prelude.Bool)),
                     sortable :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSearchProperty :: SearchProperty
 mkSearchProperty
   = SearchProperty

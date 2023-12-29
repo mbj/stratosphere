@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.LocalNavigationConfigura
 import Stratosphere.ResourceProperties
 data CustomActionNavigationOperationProperty
   = CustomActionNavigationOperationProperty {localNavigationConfiguration :: (Prelude.Maybe LocalNavigationConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomActionNavigationOperationProperty ::
   CustomActionNavigationOperationProperty
 mkCustomActionNavigationOperationProperty

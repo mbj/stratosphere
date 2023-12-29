@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlinkRunConfigurationProperty
   = FlinkRunConfigurationProperty {allowNonRestoredState :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlinkRunConfigurationProperty :: FlinkRunConfigurationProperty
 mkFlinkRunConfigurationProperty
   = FlinkRunConfigurationProperty

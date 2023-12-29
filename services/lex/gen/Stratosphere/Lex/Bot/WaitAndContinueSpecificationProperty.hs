@@ -14,6 +14,7 @@ data WaitAndContinueSpecificationProperty
                                           isActive :: (Prelude.Maybe (Value Prelude.Bool)),
                                           stillWaitingResponse :: (Prelude.Maybe StillWaitingResponseSpecificationProperty),
                                           waitingResponse :: ResponseSpecificationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWaitAndContinueSpecificationProperty ::
   ResponseSpecificationProperty
   -> ResponseSpecificationProperty

@@ -21,6 +21,7 @@ data NetworkInterface
                       sourceDestCheck :: (Prelude.Maybe (Value Prelude.Bool)),
                       subnetId :: (Value Prelude.Text),
                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterface :: Value Prelude.Text -> NetworkInterface
 mkNetworkInterface subnetId
   = NetworkInterface

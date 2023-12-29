@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FieldValidationConfigurationProperty :: Prelude.Type
 instance ToResourceProperties FieldValidationConfigurationProperty
+instance Prelude.Eq FieldValidationConfigurationProperty
+instance Prelude.Show FieldValidationConfigurationProperty
 instance JSON.ToJSON FieldValidationConfigurationProperty

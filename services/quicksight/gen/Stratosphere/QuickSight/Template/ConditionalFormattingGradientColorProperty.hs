@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ConditionalFormattingGradientColorProperty
   = ConditionalFormattingGradientColorProperty {color :: GradientColorProperty,
                                                 expression :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionalFormattingGradientColorProperty ::
   GradientColorProperty
   -> Value Prelude.Text -> ConditionalFormattingGradientColorProperty

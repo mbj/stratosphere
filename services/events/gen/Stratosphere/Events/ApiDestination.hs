@@ -13,6 +13,7 @@ data ApiDestination
                     invocationEndpoint :: (Value Prelude.Text),
                     invocationRateLimitPerSecond :: (Prelude.Maybe (Value Prelude.Integer)),
                     name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApiDestination ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> ApiDestination

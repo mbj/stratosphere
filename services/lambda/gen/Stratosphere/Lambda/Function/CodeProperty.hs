@@ -12,6 +12,7 @@ data CodeProperty
                   s3Key :: (Prelude.Maybe (Value Prelude.Text)),
                   s3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text)),
                   zipFile :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeProperty :: CodeProperty
 mkCodeProperty
   = CodeProperty

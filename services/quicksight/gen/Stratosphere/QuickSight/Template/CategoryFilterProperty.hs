@@ -13,6 +13,7 @@ data CategoryFilterProperty
   = CategoryFilterProperty {column :: ColumnIdentifierProperty,
                             configuration :: CategoryFilterConfigurationProperty,
                             filterId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCategoryFilterProperty ::
   ColumnIdentifierProperty
   -> CategoryFilterConfigurationProperty

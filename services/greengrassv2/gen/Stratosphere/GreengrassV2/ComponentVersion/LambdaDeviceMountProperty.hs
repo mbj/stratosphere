@@ -10,6 +10,7 @@ data LambdaDeviceMountProperty
   = LambdaDeviceMountProperty {addGroupOwner :: (Prelude.Maybe (Value Prelude.Bool)),
                                path :: (Prelude.Maybe (Value Prelude.Text)),
                                permission :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaDeviceMountProperty :: LambdaDeviceMountProperty
 mkLambdaDeviceMountProperty
   = LambdaDeviceMountProperty

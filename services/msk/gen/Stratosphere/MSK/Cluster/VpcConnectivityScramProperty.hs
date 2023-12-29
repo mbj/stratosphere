@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConnectivityScramProperty
   = VpcConnectivityScramProperty {enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnectivityScramProperty ::
   Value Prelude.Bool -> VpcConnectivityScramProperty
 mkVpcConnectivityScramProperty enabled

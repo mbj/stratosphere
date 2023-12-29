@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MagneticStoreRejectedDataLocationProperty :: Prelude.Type
 instance ToResourceProperties MagneticStoreRejectedDataLocationProperty
+instance Prelude.Eq MagneticStoreRejectedDataLocationProperty
+instance Prelude.Show MagneticStoreRejectedDataLocationProperty
 instance JSON.ToJSON MagneticStoreRejectedDataLocationProperty

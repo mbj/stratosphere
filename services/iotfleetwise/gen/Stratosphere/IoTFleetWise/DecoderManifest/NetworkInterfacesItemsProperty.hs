@@ -14,6 +14,7 @@ data NetworkInterfacesItemsProperty
                                     interfaceId :: (Value Prelude.Text),
                                     obdInterface :: (Prelude.Maybe ObdInterfaceProperty),
                                     type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfacesItemsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> NetworkInterfacesItemsProperty

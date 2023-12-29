@@ -10,6 +10,7 @@ data GeoLocationProperty
   = GeoLocationProperty {continentCode :: (Prelude.Maybe (Value Prelude.Text)),
                          countryCode :: (Prelude.Maybe (Value Prelude.Text)),
                          subdivisionCode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeoLocationProperty :: GeoLocationProperty
 mkGeoLocationProperty
   = GeoLocationProperty

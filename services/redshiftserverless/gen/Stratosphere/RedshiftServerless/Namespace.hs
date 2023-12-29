@@ -19,6 +19,7 @@ data Namespace
                logExports :: (Prelude.Maybe (ValueList Prelude.Text)),
                namespaceName :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNamespace :: Value Prelude.Text -> Namespace
 mkNamespace namespaceName
   = Namespace

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data CustomConnectorProfilePropertiesProperty
   = CustomConnectorProfilePropertiesProperty {oAuth2Properties :: (Prelude.Maybe OAuth2PropertiesProperty),
                                               profileProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomConnectorProfilePropertiesProperty ::
   CustomConnectorProfilePropertiesProperty
 mkCustomConnectorProfilePropertiesProperty

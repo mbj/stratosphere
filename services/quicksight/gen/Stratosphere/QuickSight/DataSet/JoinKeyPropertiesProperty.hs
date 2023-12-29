@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JoinKeyPropertiesProperty
   = JoinKeyPropertiesProperty {uniqueKey :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJoinKeyPropertiesProperty :: JoinKeyPropertiesProperty
 mkJoinKeyPropertiesProperty
   = JoinKeyPropertiesProperty {uniqueKey = Prelude.Nothing}

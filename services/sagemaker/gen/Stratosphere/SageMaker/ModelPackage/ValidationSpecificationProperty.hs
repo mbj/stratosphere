@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ValidationSpecificationProperty
   = ValidationSpecificationProperty {validationProfiles :: [ValidationProfileProperty],
                                      validationRole :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkValidationSpecificationProperty ::
   [ValidationProfileProperty]
   -> Value Prelude.Text -> ValidationSpecificationProperty

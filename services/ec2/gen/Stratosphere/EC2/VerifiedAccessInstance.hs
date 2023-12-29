@@ -16,6 +16,7 @@ data VerifiedAccessInstance
                             tags :: (Prelude.Maybe [Tag]),
                             verifiedAccessTrustProviderIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                             verifiedAccessTrustProviders :: (Prelude.Maybe [VerifiedAccessTrustProviderProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVerifiedAccessInstance :: VerifiedAccessInstance
 mkVerifiedAccessInstance
   = VerifiedAccessInstance

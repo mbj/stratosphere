@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AuthorizationProperty
   = AuthorizationProperty {cdnIdentifierSecret :: (Value Prelude.Text),
                            secretsRoleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AuthorizationProperty
 mkAuthorizationProperty cdnIdentifierSecret secretsRoleArn

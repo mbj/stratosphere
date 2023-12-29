@@ -24,6 +24,7 @@ data MaintenanceWindowTask
                            taskParameters :: (Prelude.Maybe JSON.Object),
                            taskType :: (Value Prelude.Text),
                            windowId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowTask ::
   Value Prelude.Integer
   -> Value Prelude.Text

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data SubComponentTypeConfigurationProperty
   = SubComponentTypeConfigurationProperty {subComponentConfigurationDetails :: SubComponentConfigurationDetailsProperty,
                                            subComponentType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubComponentTypeConfigurationProperty ::
   SubComponentConfigurationDetailsProperty
   -> Value Prelude.Text -> SubComponentTypeConfigurationProperty

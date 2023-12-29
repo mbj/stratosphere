@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AwsIamConfigProperty
   = AwsIamConfigProperty {signingRegion :: (Prelude.Maybe (Value Prelude.Text)),
                           signingServiceName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsIamConfigProperty :: AwsIamConfigProperty
 mkAwsIamConfigProperty
   = AwsIamConfigProperty

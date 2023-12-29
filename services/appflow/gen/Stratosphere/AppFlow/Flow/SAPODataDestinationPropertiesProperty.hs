@@ -15,6 +15,7 @@ data SAPODataDestinationPropertiesProperty
                                            objectPath :: (Value Prelude.Text),
                                            successResponseHandlingConfig :: (Prelude.Maybe SuccessResponseHandlingConfigProperty),
                                            writeOperationType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataDestinationPropertiesProperty ::
   Value Prelude.Text -> SAPODataDestinationPropertiesProperty
 mkSAPODataDestinationPropertiesProperty objectPath

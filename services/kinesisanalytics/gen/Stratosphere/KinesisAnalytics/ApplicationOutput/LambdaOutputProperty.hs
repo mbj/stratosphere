@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LambdaOutputProperty
   = LambdaOutputProperty {resourceARN :: (Value Prelude.Text),
                           roleARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaOutputProperty ::
   Value Prelude.Text -> Value Prelude.Text -> LambdaOutputProperty
 mkLambdaOutputProperty resourceARN roleARN

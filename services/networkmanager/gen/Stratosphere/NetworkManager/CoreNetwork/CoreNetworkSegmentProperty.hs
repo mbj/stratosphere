@@ -10,6 +10,7 @@ data CoreNetworkSegmentProperty
   = CoreNetworkSegmentProperty {edgeLocations :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 name :: (Prelude.Maybe (Value Prelude.Text)),
                                 sharedSegments :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreNetworkSegmentProperty :: CoreNetworkSegmentProperty
 mkCoreNetworkSegmentProperty
   = CoreNetworkSegmentProperty

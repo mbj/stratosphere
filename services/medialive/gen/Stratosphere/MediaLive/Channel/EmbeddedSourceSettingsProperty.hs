@@ -12,6 +12,7 @@ data EmbeddedSourceSettingsProperty
                                     scte20Detection :: (Prelude.Maybe (Value Prelude.Text)),
                                     source608ChannelNumber :: (Prelude.Maybe (Value Prelude.Integer)),
                                     source608TrackNumber :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEmbeddedSourceSettingsProperty :: EmbeddedSourceSettingsProperty
 mkEmbeddedSourceSettingsProperty
   = EmbeddedSourceSettingsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ModelPackageCreatorProperty :: Prelude.Type
 instance ToResourceProperties ModelPackageCreatorProperty
+instance Prelude.Eq ModelPackageCreatorProperty
+instance Prelude.Show ModelPackageCreatorProperty
 instance JSON.ToJSON ModelPackageCreatorProperty

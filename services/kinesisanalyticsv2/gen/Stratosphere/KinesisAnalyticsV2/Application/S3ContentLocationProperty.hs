@@ -10,6 +10,7 @@ data S3ContentLocationProperty
   = S3ContentLocationProperty {bucketARN :: (Value Prelude.Text),
                                fileKey :: (Value Prelude.Text),
                                objectVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ContentLocationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> S3ContentLocationProperty

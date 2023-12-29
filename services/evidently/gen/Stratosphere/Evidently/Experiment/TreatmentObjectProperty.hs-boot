@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TreatmentObjectProperty :: Prelude.Type
 instance ToResourceProperties TreatmentObjectProperty
+instance Prelude.Eq TreatmentObjectProperty
+instance Prelude.Show TreatmentObjectProperty
 instance JSON.ToJSON TreatmentObjectProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UserPoolConfigProperty :: Prelude.Type
 instance ToResourceProperties UserPoolConfigProperty
+instance Prelude.Eq UserPoolConfigProperty
+instance Prelude.Show UserPoolConfigProperty
 instance JSON.ToJSON UserPoolConfigProperty

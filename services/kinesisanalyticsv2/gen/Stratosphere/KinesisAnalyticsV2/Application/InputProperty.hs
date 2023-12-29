@@ -18,6 +18,7 @@ data InputProperty
                    kinesisFirehoseInput :: (Prelude.Maybe KinesisFirehoseInputProperty),
                    kinesisStreamsInput :: (Prelude.Maybe KinesisStreamsInputProperty),
                    namePrefix :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputProperty ::
   InputSchemaProperty -> Value Prelude.Text -> InputProperty
 mkInputProperty inputSchema namePrefix

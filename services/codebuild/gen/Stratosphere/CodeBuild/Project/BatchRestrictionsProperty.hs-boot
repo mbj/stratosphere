@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BatchRestrictionsProperty :: Prelude.Type
 instance ToResourceProperties BatchRestrictionsProperty
+instance Prelude.Eq BatchRestrictionsProperty
+instance Prelude.Show BatchRestrictionsProperty
 instance JSON.ToJSON BatchRestrictionsProperty

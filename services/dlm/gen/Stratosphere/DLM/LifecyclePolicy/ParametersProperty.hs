@@ -11,6 +11,7 @@ data ParametersProperty
   = ParametersProperty {excludeBootVolume :: (Prelude.Maybe (Value Prelude.Bool)),
                         excludeDataVolumeTags :: (Prelude.Maybe [Tag]),
                         noReboot :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParametersProperty :: ParametersProperty
 mkParametersProperty
   = ParametersProperty

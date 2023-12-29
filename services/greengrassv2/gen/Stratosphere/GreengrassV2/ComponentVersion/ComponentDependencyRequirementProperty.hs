@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ComponentDependencyRequirementProperty
   = ComponentDependencyRequirementProperty {dependencyType :: (Prelude.Maybe (Value Prelude.Text)),
                                             versionRequirement :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentDependencyRequirementProperty ::
   ComponentDependencyRequirementProperty
 mkComponentDependencyRequirementProperty

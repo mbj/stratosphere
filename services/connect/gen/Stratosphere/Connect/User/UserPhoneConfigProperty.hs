@@ -11,6 +11,7 @@ data UserPhoneConfigProperty
                              autoAccept :: (Prelude.Maybe (Value Prelude.Bool)),
                              deskPhoneNumber :: (Prelude.Maybe (Value Prelude.Text)),
                              phoneType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPhoneConfigProperty ::
   Value Prelude.Text -> UserPhoneConfigProperty
 mkUserPhoneConfigProperty phoneType

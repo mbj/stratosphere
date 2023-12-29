@@ -32,6 +32,7 @@ data PathComponentProperty
                            transitGateway :: (Prelude.Maybe AnalysisComponentProperty),
                            transitGatewayRouteTableRoute :: (Prelude.Maybe TransitGatewayRouteTableRouteProperty),
                            vpc :: (Prelude.Maybe AnalysisComponentProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPathComponentProperty :: PathComponentProperty
 mkPathComponentProperty
   = PathComponentProperty

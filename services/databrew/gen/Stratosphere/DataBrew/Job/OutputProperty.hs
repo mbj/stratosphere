@@ -16,6 +16,7 @@ data OutputProperty
                     maxOutputFiles :: (Prelude.Maybe (Value Prelude.Integer)),
                     overwrite :: (Prelude.Maybe (Value Prelude.Bool)),
                     partitionColumns :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputProperty :: S3LocationProperty -> OutputProperty
 mkOutputProperty location
   = OutputProperty

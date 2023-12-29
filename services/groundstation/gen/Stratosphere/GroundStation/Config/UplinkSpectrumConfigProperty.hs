@@ -11,6 +11,7 @@ import Stratosphere.Value
 data UplinkSpectrumConfigProperty
   = UplinkSpectrumConfigProperty {centerFrequency :: (Prelude.Maybe FrequencyProperty),
                                   polarization :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUplinkSpectrumConfigProperty :: UplinkSpectrumConfigProperty
 mkUplinkSpectrumConfigProperty
   = UplinkSpectrumConfigProperty

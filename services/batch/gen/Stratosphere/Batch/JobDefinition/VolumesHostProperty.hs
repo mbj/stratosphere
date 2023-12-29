@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VolumesHostProperty
   = VolumesHostProperty {sourcePath :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumesHostProperty :: VolumesHostProperty
 mkVolumesHostProperty
   = VolumesHostProperty {sourcePath = Prelude.Nothing}

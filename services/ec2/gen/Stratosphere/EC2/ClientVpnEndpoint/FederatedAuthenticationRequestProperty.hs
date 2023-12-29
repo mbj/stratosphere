@@ -10,6 +10,7 @@ import Stratosphere.Value
 data FederatedAuthenticationRequestProperty
   = FederatedAuthenticationRequestProperty {sAMLProviderArn :: (Value Prelude.Text),
                                             selfServiceSAMLProviderArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFederatedAuthenticationRequestProperty ::
   Value Prelude.Text -> FederatedAuthenticationRequestProperty
 mkFederatedAuthenticationRequestProperty sAMLProviderArn

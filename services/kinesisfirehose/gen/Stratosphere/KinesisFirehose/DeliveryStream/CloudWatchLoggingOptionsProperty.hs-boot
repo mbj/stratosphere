@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CloudWatchLoggingOptionsProperty :: Prelude.Type
 instance ToResourceProperties CloudWatchLoggingOptionsProperty
+instance Prelude.Eq CloudWatchLoggingOptionsProperty
+instance Prelude.Show CloudWatchLoggingOptionsProperty
 instance JSON.ToJSON CloudWatchLoggingOptionsProperty

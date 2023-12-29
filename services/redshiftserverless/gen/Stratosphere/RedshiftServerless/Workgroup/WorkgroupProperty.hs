@@ -22,6 +22,7 @@ data WorkgroupProperty
                        workgroupArn :: (Prelude.Maybe (Value Prelude.Text)),
                        workgroupId :: (Prelude.Maybe (Value Prelude.Text)),
                        workgroupName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkgroupProperty :: WorkgroupProperty
 mkWorkgroupProperty
   = WorkgroupProperty

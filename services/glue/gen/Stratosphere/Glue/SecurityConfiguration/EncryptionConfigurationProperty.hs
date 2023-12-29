@@ -13,6 +13,7 @@ data EncryptionConfigurationProperty
   = EncryptionConfigurationProperty {cloudWatchEncryption :: (Prelude.Maybe CloudWatchEncryptionProperty),
                                      jobBookmarksEncryption :: (Prelude.Maybe JobBookmarksEncryptionProperty),
                                      s3Encryptions :: (Prelude.Maybe S3EncryptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionConfigurationProperty ::
   EncryptionConfigurationProperty
 mkEncryptionConfigurationProperty

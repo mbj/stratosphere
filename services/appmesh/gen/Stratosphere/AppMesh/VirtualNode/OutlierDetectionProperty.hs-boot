@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OutlierDetectionProperty :: Prelude.Type
 instance ToResourceProperties OutlierDetectionProperty
+instance Prelude.Eq OutlierDetectionProperty
+instance Prelude.Show OutlierDetectionProperty
 instance JSON.ToJSON OutlierDetectionProperty

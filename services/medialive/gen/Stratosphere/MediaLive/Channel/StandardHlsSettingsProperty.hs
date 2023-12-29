@@ -11,6 +11,7 @@ import Stratosphere.Value
 data StandardHlsSettingsProperty
   = StandardHlsSettingsProperty {audioRenditionSets :: (Prelude.Maybe (Value Prelude.Text)),
                                  m3u8Settings :: (Prelude.Maybe M3u8SettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStandardHlsSettingsProperty :: StandardHlsSettingsProperty
 mkStandardHlsSettingsProperty
   = StandardHlsSettingsProperty

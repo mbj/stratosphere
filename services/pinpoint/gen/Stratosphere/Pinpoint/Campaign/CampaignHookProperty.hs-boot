@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CampaignHookProperty :: Prelude.Type
 instance ToResourceProperties CampaignHookProperty
+instance Prelude.Eq CampaignHookProperty
+instance Prelude.Show CampaignHookProperty
 instance JSON.ToJSON CampaignHookProperty

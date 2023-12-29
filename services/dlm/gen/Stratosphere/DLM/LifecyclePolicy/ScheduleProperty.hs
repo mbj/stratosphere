@@ -26,6 +26,7 @@ data ScheduleProperty
                       shareRules :: (Prelude.Maybe [ShareRuleProperty]),
                       tagsToAdd :: (Prelude.Maybe [Tag]),
                       variableTags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleProperty :: ScheduleProperty
 mkScheduleProperty
   = ScheduleProperty

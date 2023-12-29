@@ -12,6 +12,7 @@ data TimeRangeFilterValueProperty
   = TimeRangeFilterValueProperty {parameter :: (Prelude.Maybe (Value Prelude.Text)),
                                   rollingDate :: (Prelude.Maybe RollingDateConfigurationProperty),
                                   staticValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeRangeFilterValueProperty :: TimeRangeFilterValueProperty
 mkTimeRangeFilterValueProperty
   = TimeRangeFilterValueProperty

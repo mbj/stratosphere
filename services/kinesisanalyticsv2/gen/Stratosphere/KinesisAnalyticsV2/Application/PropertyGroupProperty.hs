@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PropertyGroupProperty
   = PropertyGroupProperty {propertyGroupId :: (Prelude.Maybe (Value Prelude.Text)),
                            propertyMap :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyGroupProperty :: PropertyGroupProperty
 mkPropertyGroupProperty
   = PropertyGroupProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RedirectAllRequestsToProperty
   = RedirectAllRequestsToProperty {hostName :: (Value Prelude.Text),
                                    protocol :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedirectAllRequestsToProperty ::
   Value Prelude.Text -> RedirectAllRequestsToProperty
 mkRedirectAllRequestsToProperty hostName

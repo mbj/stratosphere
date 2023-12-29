@@ -11,6 +11,7 @@ data Ec2ConfigurationObjectProperty
   = Ec2ConfigurationObjectProperty {imageIdOverride :: (Prelude.Maybe (Value Prelude.Text)),
                                     imageKubernetesVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                     imageType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEc2ConfigurationObjectProperty ::
   Value Prelude.Text -> Ec2ConfigurationObjectProperty
 mkEc2ConfigurationObjectProperty imageType

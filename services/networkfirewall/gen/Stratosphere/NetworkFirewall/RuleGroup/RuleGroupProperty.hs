@@ -14,6 +14,7 @@ data RuleGroupProperty
                        ruleVariables :: (Prelude.Maybe RuleVariablesProperty),
                        rulesSource :: RulesSourceProperty,
                        statefulRuleOptions :: (Prelude.Maybe StatefulRuleOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroupProperty :: RulesSourceProperty -> RuleGroupProperty
 mkRuleGroupProperty rulesSource
   = RuleGroupProperty

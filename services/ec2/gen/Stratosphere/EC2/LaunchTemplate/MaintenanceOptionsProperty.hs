@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MaintenanceOptionsProperty
   = MaintenanceOptionsProperty {autoRecovery :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceOptionsProperty :: MaintenanceOptionsProperty
 mkMaintenanceOptionsProperty
   = MaintenanceOptionsProperty {autoRecovery = Prelude.Nothing}

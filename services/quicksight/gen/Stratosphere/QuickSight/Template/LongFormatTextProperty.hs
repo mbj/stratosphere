@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LongFormatTextProperty
   = LongFormatTextProperty {plainText :: (Prelude.Maybe (Value Prelude.Text)),
                             richText :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLongFormatTextProperty :: LongFormatTextProperty
 mkLongFormatTextProperty
   = LongFormatTextProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VirtualGatewayAccessLogProperty :: Prelude.Type
 instance ToResourceProperties VirtualGatewayAccessLogProperty
+instance Prelude.Eq VirtualGatewayAccessLogProperty
+instance Prelude.Show VirtualGatewayAccessLogProperty
 instance JSON.ToJSON VirtualGatewayAccessLogProperty

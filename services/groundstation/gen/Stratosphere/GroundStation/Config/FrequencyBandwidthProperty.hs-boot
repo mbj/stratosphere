@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FrequencyBandwidthProperty :: Prelude.Type
 instance ToResourceProperties FrequencyBandwidthProperty
+instance Prelude.Eq FrequencyBandwidthProperty
+instance Prelude.Show FrequencyBandwidthProperty
 instance JSON.ToJSON FrequencyBandwidthProperty

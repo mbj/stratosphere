@@ -11,6 +11,7 @@ import Stratosphere.Value
 data GeoMatchStatementProperty
   = GeoMatchStatementProperty {countryCodes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                forwardedIPConfig :: (Prelude.Maybe ForwardedIPConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeoMatchStatementProperty :: GeoMatchStatementProperty
 mkGeoMatchStatementProperty
   = GeoMatchStatementProperty

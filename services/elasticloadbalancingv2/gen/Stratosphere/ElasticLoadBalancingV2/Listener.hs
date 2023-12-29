@@ -16,6 +16,7 @@ data Listener
               port :: (Prelude.Maybe (Value Prelude.Integer)),
               protocol :: (Prelude.Maybe (Value Prelude.Text)),
               sslPolicy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListener :: [ActionProperty] -> Value Prelude.Text -> Listener
 mkListener defaultActions loadBalancerArn
   = Listener

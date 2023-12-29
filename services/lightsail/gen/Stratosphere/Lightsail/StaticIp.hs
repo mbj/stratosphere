@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StaticIp
   = StaticIp {attachedTo :: (Prelude.Maybe (Value Prelude.Text)),
               staticIpName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStaticIp :: Value Prelude.Text -> StaticIp
 mkStaticIp staticIpName
   = StaticIp

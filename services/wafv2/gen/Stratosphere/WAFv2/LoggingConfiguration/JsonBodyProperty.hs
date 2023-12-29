@@ -11,6 +11,7 @@ data JsonBodyProperty
   = JsonBodyProperty {invalidFallbackBehavior :: (Prelude.Maybe (Value Prelude.Text)),
                       matchPattern :: MatchPatternProperty,
                       matchScope :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonBodyProperty ::
   MatchPatternProperty -> Value Prelude.Text -> JsonBodyProperty
 mkJsonBodyProperty matchPattern matchScope

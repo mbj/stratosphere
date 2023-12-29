@@ -9,6 +9,7 @@ import Stratosphere.Value
 data NetworkBandwidthGbpsProperty
   = NetworkBandwidthGbpsProperty {max :: (Prelude.Maybe (Value Prelude.Double)),
                                   min :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkBandwidthGbpsProperty :: NetworkBandwidthGbpsProperty
 mkNetworkBandwidthGbpsProperty
   = NetworkBandwidthGbpsProperty

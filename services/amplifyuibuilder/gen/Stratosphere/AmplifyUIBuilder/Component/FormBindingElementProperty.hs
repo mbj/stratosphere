@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FormBindingElementProperty
   = FormBindingElementProperty {element :: (Value Prelude.Text),
                                 property :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFormBindingElementProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> FormBindingElementProperty

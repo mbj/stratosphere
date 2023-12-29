@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MetricsCollectionProperty
   = MetricsCollectionProperty {granularity :: (Value Prelude.Text),
                                metrics :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricsCollectionProperty ::
   Value Prelude.Text -> MetricsCollectionProperty
 mkMetricsCollectionProperty granularity

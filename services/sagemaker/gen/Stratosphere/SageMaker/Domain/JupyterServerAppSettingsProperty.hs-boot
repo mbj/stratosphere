@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data JupyterServerAppSettingsProperty :: Prelude.Type
 instance ToResourceProperties JupyterServerAppSettingsProperty
+instance Prelude.Eq JupyterServerAppSettingsProperty
+instance Prelude.Show JupyterServerAppSettingsProperty
 instance JSON.ToJSON JupyterServerAppSettingsProperty

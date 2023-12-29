@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data MemberDefinitionProperty
   = MemberDefinitionProperty {cognitoMemberDefinition :: (Prelude.Maybe CognitoMemberDefinitionProperty),
                               oidcMemberDefinition :: (Prelude.Maybe OidcMemberDefinitionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMemberDefinitionProperty :: MemberDefinitionProperty
 mkMemberDefinitionProperty
   = MemberDefinitionProperty

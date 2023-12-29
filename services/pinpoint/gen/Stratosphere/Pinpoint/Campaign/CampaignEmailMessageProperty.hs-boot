@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CampaignEmailMessageProperty :: Prelude.Type
 instance ToResourceProperties CampaignEmailMessageProperty
+instance Prelude.Eq CampaignEmailMessageProperty
+instance Prelude.Show CampaignEmailMessageProperty
 instance JSON.ToJSON CampaignEmailMessageProperty

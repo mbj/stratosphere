@@ -12,6 +12,7 @@ data MetadataOptionsProperty
                              httpPutResponseHopLimit :: (Prelude.Maybe (Value Prelude.Integer)),
                              httpTokens :: (Prelude.Maybe (Value Prelude.Text)),
                              instanceMetadataTags :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataOptionsProperty :: MetadataOptionsProperty
 mkMetadataOptionsProperty
   = MetadataOptionsProperty

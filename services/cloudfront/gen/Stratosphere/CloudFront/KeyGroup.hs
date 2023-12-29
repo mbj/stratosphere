@@ -6,7 +6,9 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.KeyGroup.KeyGroupConfigProperty as Exports
 import Stratosphere.ResourceProperties
-data KeyGroup = KeyGroup {keyGroupConfig :: KeyGroupConfigProperty}
+data KeyGroup
+  = KeyGroup {keyGroupConfig :: KeyGroupConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyGroup :: KeyGroupConfigProperty -> KeyGroup
 mkKeyGroup keyGroupConfig
   = KeyGroup {keyGroupConfig = keyGroupConfig}

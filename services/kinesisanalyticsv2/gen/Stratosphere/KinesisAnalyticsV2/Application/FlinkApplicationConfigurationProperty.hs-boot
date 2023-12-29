@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FlinkApplicationConfigurationProperty :: Prelude.Type
 instance ToResourceProperties FlinkApplicationConfigurationProperty
+instance Prelude.Eq FlinkApplicationConfigurationProperty
+instance Prelude.Show FlinkApplicationConfigurationProperty
 instance JSON.ToJSON FlinkApplicationConfigurationProperty

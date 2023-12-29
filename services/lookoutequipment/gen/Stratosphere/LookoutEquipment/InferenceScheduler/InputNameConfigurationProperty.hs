@@ -10,6 +10,7 @@ import Stratosphere.Value
 data InputNameConfigurationProperty
   = InputNameConfigurationProperty {componentTimestampDelimiter :: (Prelude.Maybe (Value Prelude.Text)),
                                     timestampFormat :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputNameConfigurationProperty :: InputNameConfigurationProperty
 mkInputNameConfigurationProperty
   = InputNameConfigurationProperty

@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data FindingCriteriaProperty
   = FindingCriteriaProperty {criterion :: (Prelude.Maybe JSON.Object),
                              itemType :: (Prelude.Maybe ConditionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFindingCriteriaProperty :: FindingCriteriaProperty
 mkFindingCriteriaProperty
   = FindingCriteriaProperty

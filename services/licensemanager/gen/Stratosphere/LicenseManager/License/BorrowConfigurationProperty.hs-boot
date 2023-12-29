@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BorrowConfigurationProperty :: Prelude.Type
 instance ToResourceProperties BorrowConfigurationProperty
+instance Prelude.Eq BorrowConfigurationProperty
+instance Prelude.Show BorrowConfigurationProperty
 instance JSON.ToJSON BorrowConfigurationProperty

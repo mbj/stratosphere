@@ -18,6 +18,7 @@ data OntapConfigurationProperty
                                 storageEfficiencyEnabled :: (Prelude.Maybe (Value Prelude.Text)),
                                 storageVirtualMachineId :: (Value Prelude.Text),
                                 tieringPolicy :: (Prelude.Maybe TieringPolicyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOntapConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> OntapConfigurationProperty

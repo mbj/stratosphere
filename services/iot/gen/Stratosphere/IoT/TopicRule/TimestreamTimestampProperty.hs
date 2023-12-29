@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TimestreamTimestampProperty
   = TimestreamTimestampProperty {unit :: (Value Prelude.Text),
                                  value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimestreamTimestampProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> TimestreamTimestampProperty

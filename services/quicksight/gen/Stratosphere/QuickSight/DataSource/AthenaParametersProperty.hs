@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AthenaParametersProperty
   = AthenaParametersProperty {roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                               workGroup :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAthenaParametersProperty :: AthenaParametersProperty
 mkAthenaParametersProperty
   = AthenaParametersProperty

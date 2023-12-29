@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BasicAuthCredentialsProperty :: Prelude.Type
 instance ToResourceProperties BasicAuthCredentialsProperty
+instance Prelude.Eq BasicAuthCredentialsProperty
+instance Prelude.Show BasicAuthCredentialsProperty
 instance JSON.ToJSON BasicAuthCredentialsProperty

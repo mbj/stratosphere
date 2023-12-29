@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VolumeSpecificationProperty :: Prelude.Type
 instance ToResourceProperties VolumeSpecificationProperty
+instance Prelude.Eq VolumeSpecificationProperty
+instance Prelude.Show VolumeSpecificationProperty
 instance JSON.ToJSON VolumeSpecificationProperty

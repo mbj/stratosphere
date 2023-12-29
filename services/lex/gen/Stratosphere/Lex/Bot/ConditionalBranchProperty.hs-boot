@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConditionalBranchProperty :: Prelude.Type
 instance ToResourceProperties ConditionalBranchProperty
+instance Prelude.Eq ConditionalBranchProperty
+instance Prelude.Show ConditionalBranchProperty
 instance JSON.ToJSON ConditionalBranchProperty

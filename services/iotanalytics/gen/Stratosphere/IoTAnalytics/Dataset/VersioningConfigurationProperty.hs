@@ -10,6 +10,7 @@ import Stratosphere.Value
 data VersioningConfigurationProperty
   = VersioningConfigurationProperty {maxVersions :: (Prelude.Maybe (Value Prelude.Integer)),
                                      unlimited :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVersioningConfigurationProperty ::
   VersioningConfigurationProperty
 mkVersioningConfigurationProperty

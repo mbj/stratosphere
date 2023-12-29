@@ -13,6 +13,7 @@ data DialogCodeHookInvocationSettingProperty
                                              invocationLabel :: (Prelude.Maybe (Value Prelude.Text)),
                                              isActive :: (Value Prelude.Bool),
                                              postCodeHookSpecification :: PostDialogCodeHookInvocationSpecificationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDialogCodeHookInvocationSettingProperty ::
   Value Prelude.Bool
   -> Value Prelude.Bool

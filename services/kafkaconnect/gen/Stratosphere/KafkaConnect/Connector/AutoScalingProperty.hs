@@ -14,6 +14,7 @@ data AutoScalingProperty
                          minWorkerCount :: (Value Prelude.Integer),
                          scaleInPolicy :: ScaleInPolicyProperty,
                          scaleOutPolicy :: ScaleOutPolicyProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer

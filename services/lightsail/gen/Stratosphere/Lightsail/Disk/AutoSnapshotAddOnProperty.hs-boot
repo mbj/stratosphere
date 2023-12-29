@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AutoSnapshotAddOnProperty :: Prelude.Type
 instance ToResourceProperties AutoSnapshotAddOnProperty
+instance Prelude.Eq AutoSnapshotAddOnProperty
+instance Prelude.Show AutoSnapshotAddOnProperty
 instance JSON.ToJSON AutoSnapshotAddOnProperty

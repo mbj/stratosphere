@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BuildStatusConfigProperty
   = BuildStatusConfigProperty {context :: (Prelude.Maybe (Value Prelude.Text)),
                                targetUrl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBuildStatusConfigProperty :: BuildStatusConfigProperty
 mkBuildStatusConfigProperty
   = BuildStatusConfigProperty

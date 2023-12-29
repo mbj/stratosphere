@@ -18,6 +18,7 @@ data LdapServerMetadataProperty
                                 userRoleName :: (Prelude.Maybe (Value Prelude.Text)),
                                 userSearchMatching :: (Value Prelude.Text),
                                 userSearchSubtree :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLdapServerMetadataProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ProcessingConfigurationProperty
   = ProcessingConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                      processors :: (Prelude.Maybe [ProcessorProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProcessingConfigurationProperty ::
   ProcessingConfigurationProperty
 mkProcessingConfigurationProperty

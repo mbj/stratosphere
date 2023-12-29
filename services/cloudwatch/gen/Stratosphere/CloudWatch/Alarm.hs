@@ -30,6 +30,7 @@ data Alarm
            thresholdMetricId :: (Prelude.Maybe (Value Prelude.Text)),
            treatMissingData :: (Prelude.Maybe (Value Prelude.Text)),
            unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarm :: Value Prelude.Text -> Value Prelude.Integer -> Alarm
 mkAlarm comparisonOperator evaluationPeriods
   = Alarm

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.TableCellImageSizingConfi
 import Stratosphere.ResourceProperties
 data TableFieldImageConfigurationProperty
   = TableFieldImageConfigurationProperty {sizingOptions :: (Prelude.Maybe TableCellImageSizingConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableFieldImageConfigurationProperty ::
   TableFieldImageConfigurationProperty
 mkTableFieldImageConfigurationProperty

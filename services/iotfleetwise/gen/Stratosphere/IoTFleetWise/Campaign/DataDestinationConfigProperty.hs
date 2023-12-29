@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DataDestinationConfigProperty
   = DataDestinationConfigProperty {s3Config :: (Prelude.Maybe S3ConfigProperty),
                                    timestreamConfig :: (Prelude.Maybe TimestreamConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataDestinationConfigProperty :: DataDestinationConfigProperty
 mkDataDestinationConfigProperty
   = DataDestinationConfigProperty

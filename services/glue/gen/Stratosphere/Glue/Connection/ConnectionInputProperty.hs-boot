@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConnectionInputProperty :: Prelude.Type
 instance ToResourceProperties ConnectionInputProperty
+instance Prelude.Eq ConnectionInputProperty
+instance Prelude.Show ConnectionInputProperty
 instance JSON.ToJSON ConnectionInputProperty

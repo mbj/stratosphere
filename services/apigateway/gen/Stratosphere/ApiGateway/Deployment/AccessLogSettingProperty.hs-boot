@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AccessLogSettingProperty :: Prelude.Type
 instance ToResourceProperties AccessLogSettingProperty
+instance Prelude.Eq AccessLogSettingProperty
+instance Prelude.Show AccessLogSettingProperty
 instance JSON.ToJSON AccessLogSettingProperty

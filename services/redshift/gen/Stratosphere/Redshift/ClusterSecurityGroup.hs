@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ClusterSecurityGroup
   = ClusterSecurityGroup {description :: (Value Prelude.Text),
                           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterSecurityGroup ::
   Value Prelude.Text -> ClusterSecurityGroup
 mkClusterSecurityGroup description

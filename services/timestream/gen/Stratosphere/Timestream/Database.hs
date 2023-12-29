@@ -11,6 +11,7 @@ data Database
   = Database {databaseName :: (Prelude.Maybe (Value Prelude.Text)),
               kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabase :: Database
 mkDatabase
   = Database

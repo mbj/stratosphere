@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TargetProperty
   = TargetProperty {key :: (Value Prelude.Text),
                     values :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetProperty ::
   Value Prelude.Text -> ValueList Prelude.Text -> TargetProperty
 mkTargetProperty key values

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SalesforceChatterFeedConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SalesforceChatterFeedConfigurationProperty
+instance Prelude.Eq SalesforceChatterFeedConfigurationProperty
+instance Prelude.Show SalesforceChatterFeedConfigurationProperty
 instance JSON.ToJSON SalesforceChatterFeedConfigurationProperty

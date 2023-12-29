@@ -13,6 +13,7 @@ data ReferenceSchemaProperty
   = ReferenceSchemaProperty {recordColumns :: [RecordColumnProperty],
                              recordEncoding :: (Prelude.Maybe (Value Prelude.Text)),
                              recordFormat :: RecordFormatProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceSchemaProperty ::
   [RecordColumnProperty]
   -> RecordFormatProperty -> ReferenceSchemaProperty

@@ -12,6 +12,7 @@ data Domain
             encryptionKey :: (Prelude.Maybe (Value Prelude.Text)),
             permissionsPolicyDocument :: (Prelude.Maybe JSON.Object),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomain :: Value Prelude.Text -> Domain
 mkDomain domainName
   = Domain

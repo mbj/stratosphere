@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MemberConfigurationProperty :: Prelude.Type
 instance ToResourceProperties MemberConfigurationProperty
+instance Prelude.Eq MemberConfigurationProperty
+instance Prelude.Show MemberConfigurationProperty
 instance JSON.ToJSON MemberConfigurationProperty

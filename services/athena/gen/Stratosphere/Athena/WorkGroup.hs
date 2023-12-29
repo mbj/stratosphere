@@ -15,6 +15,7 @@ data WorkGroup
                state :: (Prelude.Maybe (Value Prelude.Text)),
                tags :: (Prelude.Maybe [Tag]),
                workGroupConfiguration :: (Prelude.Maybe WorkGroupConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkGroup :: Value Prelude.Text -> WorkGroup
 mkWorkGroup name
   = WorkGroup

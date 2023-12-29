@@ -17,6 +17,7 @@ data ComponentBindingPropertiesValuePropertiesProperty
                                                        model :: (Prelude.Maybe (Value Prelude.Text)),
                                                        predicates :: (Prelude.Maybe [PredicateProperty]),
                                                        userAttribute :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentBindingPropertiesValuePropertiesProperty ::
   ComponentBindingPropertiesValuePropertiesProperty
 mkComponentBindingPropertiesValuePropertiesProperty

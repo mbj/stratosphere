@@ -11,6 +11,7 @@ data TransitGatewayMulticastDomainAssociation
   = TransitGatewayMulticastDomainAssociation {subnetId :: (Value Prelude.Text),
                                               transitGatewayAttachmentId :: (Value Prelude.Text),
                                               transitGatewayMulticastDomainId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayMulticastDomainAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text

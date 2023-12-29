@@ -16,6 +16,7 @@ data CustomLineItem
                     description :: (Prelude.Maybe (Value Prelude.Text)),
                     name :: (Value Prelude.Text),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomLineItem ::
   Value Prelude.Text -> Value Prelude.Text -> CustomLineItem
 mkCustomLineItem billingGroupArn name

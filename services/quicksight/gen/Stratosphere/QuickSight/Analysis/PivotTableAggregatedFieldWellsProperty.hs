@@ -12,6 +12,7 @@ data PivotTableAggregatedFieldWellsProperty
   = PivotTableAggregatedFieldWellsProperty {columns :: (Prelude.Maybe [DimensionFieldProperty]),
                                             rows :: (Prelude.Maybe [DimensionFieldProperty]),
                                             values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableAggregatedFieldWellsProperty ::
   PivotTableAggregatedFieldWellsProperty
 mkPivotTableAggregatedFieldWellsProperty

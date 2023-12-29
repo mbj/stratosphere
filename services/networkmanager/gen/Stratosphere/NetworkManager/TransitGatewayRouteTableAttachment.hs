@@ -14,6 +14,7 @@ data TransitGatewayRouteTableAttachment
                                         proposedSegmentChange :: (Prelude.Maybe ProposedSegmentChangeProperty),
                                         tags :: (Prelude.Maybe [Tag]),
                                         transitGatewayRouteTableArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayRouteTableAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text -> TransitGatewayRouteTableAttachment

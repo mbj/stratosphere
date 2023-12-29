@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BinCountOptionsProperty
   = BinCountOptionsProperty {value :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBinCountOptionsProperty :: BinCountOptionsProperty
 mkBinCountOptionsProperty
   = BinCountOptionsProperty {value = Prelude.Nothing}

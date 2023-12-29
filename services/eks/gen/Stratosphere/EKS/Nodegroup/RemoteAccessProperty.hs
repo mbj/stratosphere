@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RemoteAccessProperty
   = RemoteAccessProperty {ec2SshKey :: (Value Prelude.Text),
                           sourceSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRemoteAccessProperty ::
   Value Prelude.Text -> RemoteAccessProperty
 mkRemoteAccessProperty ec2SshKey

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationChannelProperty
   = NotificationChannelProperty {arn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationChannelProperty ::
   Value Prelude.Text -> NotificationChannelProperty
 mkNotificationChannelProperty arn

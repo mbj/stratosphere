@@ -15,6 +15,7 @@ data TopicNamedEntityProperty
                               entityName :: (Value Prelude.Text),
                               entitySynonyms :: (Prelude.Maybe (ValueList Prelude.Text)),
                               semanticEntityType :: (Prelude.Maybe SemanticEntityTypeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicNamedEntityProperty ::
   Value Prelude.Text -> TopicNamedEntityProperty
 mkTopicNamedEntityProperty entityName

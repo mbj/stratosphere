@@ -14,6 +14,7 @@ data ClientPolicyTlsProperty
                              enforce :: (Prelude.Maybe (Value Prelude.Bool)),
                              ports :: (Prelude.Maybe (ValueList Prelude.Integer)),
                              validation :: TlsValidationContextProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientPolicyTlsProperty ::
   TlsValidationContextProperty -> ClientPolicyTlsProperty
 mkClientPolicyTlsProperty validation

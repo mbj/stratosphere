@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DatadogSourcePropertiesProperty
   = DatadogSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatadogSourcePropertiesProperty ::
   Value Prelude.Text -> DatadogSourcePropertiesProperty
 mkDatadogSourcePropertiesProperty object

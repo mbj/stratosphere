@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ElasticIpProperty
   = ElasticIpProperty {ip :: (Value Prelude.Text),
                        name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticIpProperty :: Value Prelude.Text -> ElasticIpProperty
 mkElasticIpProperty ip
   = ElasticIpProperty {ip = ip, name = Prelude.Nothing}

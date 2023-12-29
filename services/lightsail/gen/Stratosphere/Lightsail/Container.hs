@@ -17,6 +17,7 @@ data Container
                scale :: (Value Prelude.Integer),
                serviceName :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainer ::
   Value Prelude.Text
   -> Value Prelude.Integer -> Value Prelude.Text -> Container

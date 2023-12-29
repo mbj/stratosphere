@@ -14,6 +14,7 @@ data Agent
            subnetArns :: (Prelude.Maybe (ValueList Prelude.Text)),
            tags :: (Prelude.Maybe [Tag]),
            vpcEndpointId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAgent :: Agent
 mkAgent
   = Agent

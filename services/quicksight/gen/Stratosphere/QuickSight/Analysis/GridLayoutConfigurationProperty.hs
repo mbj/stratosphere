@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data GridLayoutConfigurationProperty
   = GridLayoutConfigurationProperty {canvasSizeOptions :: (Prelude.Maybe GridLayoutCanvasSizeOptionsProperty),
                                      elements :: [GridLayoutElementProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGridLayoutConfigurationProperty ::
   [GridLayoutElementProperty] -> GridLayoutConfigurationProperty
 mkGridLayoutConfigurationProperty elements

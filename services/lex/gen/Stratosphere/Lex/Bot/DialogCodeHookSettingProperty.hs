@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DialogCodeHookSettingProperty
   = DialogCodeHookSettingProperty {enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDialogCodeHookSettingProperty ::
   Value Prelude.Bool -> DialogCodeHookSettingProperty
 mkDialogCodeHookSettingProperty enabled

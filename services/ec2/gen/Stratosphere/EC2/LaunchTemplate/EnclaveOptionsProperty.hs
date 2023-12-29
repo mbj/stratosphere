@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EnclaveOptionsProperty
   = EnclaveOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnclaveOptionsProperty :: EnclaveOptionsProperty
 mkEnclaveOptionsProperty
   = EnclaveOptionsProperty {enabled = Prelude.Nothing}

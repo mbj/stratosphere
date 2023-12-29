@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AsyncInferenceClientConfigProperty
   = AsyncInferenceClientConfigProperty {maxConcurrentInvocationsPerInstance :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAsyncInferenceClientConfigProperty ::
   AsyncInferenceClientConfigProperty
 mkAsyncInferenceClientConfigProperty

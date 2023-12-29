@@ -12,6 +12,7 @@ data Fleet
            id :: (Value Prelude.Text),
            signalCatalogArn :: (Value Prelude.Text),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFleet :: Value Prelude.Text -> Value Prelude.Text -> Fleet
 mkFleet id signalCatalogArn
   = Fleet

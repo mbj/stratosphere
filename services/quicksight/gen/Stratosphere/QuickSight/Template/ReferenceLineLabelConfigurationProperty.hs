@@ -17,6 +17,7 @@ data ReferenceLineLabelConfigurationProperty
                                              horizontalPosition :: (Prelude.Maybe (Value Prelude.Text)),
                                              valueLabelConfiguration :: (Prelude.Maybe ReferenceLineValueLabelConfigurationProperty),
                                              verticalPosition :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceLineLabelConfigurationProperty ::
   ReferenceLineLabelConfigurationProperty
 mkReferenceLineLabelConfigurationProperty

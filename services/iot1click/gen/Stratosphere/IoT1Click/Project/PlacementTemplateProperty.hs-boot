@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PlacementTemplateProperty :: Prelude.Type
 instance ToResourceProperties PlacementTemplateProperty
+instance Prelude.Eq PlacementTemplateProperty
+instance Prelude.Show PlacementTemplateProperty
 instance JSON.ToJSON PlacementTemplateProperty

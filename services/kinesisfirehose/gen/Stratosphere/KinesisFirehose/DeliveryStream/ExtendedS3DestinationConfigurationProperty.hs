@@ -28,6 +28,7 @@ data ExtendedS3DestinationConfigurationProperty
                                                 roleARN :: (Value Prelude.Text),
                                                 s3BackupConfiguration :: (Prelude.Maybe S3DestinationConfigurationProperty),
                                                 s3BackupMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExtendedS3DestinationConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ExtendedS3DestinationConfigurationProperty

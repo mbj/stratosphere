@@ -11,6 +11,7 @@ data CognitoMemberDefinitionProperty
   = CognitoMemberDefinitionProperty {cognitoClientId :: (Value Prelude.Text),
                                      cognitoUserGroup :: (Value Prelude.Text),
                                      cognitoUserPool :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCognitoMemberDefinitionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

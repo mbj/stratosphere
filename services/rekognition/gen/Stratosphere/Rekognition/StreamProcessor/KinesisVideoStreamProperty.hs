@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisVideoStreamProperty
   = KinesisVideoStreamProperty {arn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisVideoStreamProperty ::
   Value Prelude.Text -> KinesisVideoStreamProperty
 mkKinesisVideoStreamProperty arn

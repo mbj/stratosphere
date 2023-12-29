@@ -11,6 +11,7 @@ data LocalGatewayRoute
                        localGatewayRouteTableId :: (Value Prelude.Text),
                        localGatewayVirtualInterfaceGroupId :: (Prelude.Maybe (Value Prelude.Text)),
                        networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocalGatewayRoute ::
   Value Prelude.Text -> Value Prelude.Text -> LocalGatewayRoute
 mkLocalGatewayRoute destinationCidrBlock localGatewayRouteTableId

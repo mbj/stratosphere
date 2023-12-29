@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MonitorsProperty
   = MonitorsProperty {alarmArn :: (Prelude.Maybe (Value Prelude.Text)),
                       alarmRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitorsProperty :: MonitorsProperty
 mkMonitorsProperty
   = MonitorsProperty

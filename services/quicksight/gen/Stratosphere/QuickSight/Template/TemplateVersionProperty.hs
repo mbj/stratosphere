@@ -20,6 +20,7 @@ data TemplateVersionProperty
                              status :: (Prelude.Maybe (Value Prelude.Text)),
                              themeArn :: (Prelude.Maybe (Value Prelude.Text)),
                              versionNumber :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateVersionProperty :: TemplateVersionProperty
 mkTemplateVersionProperty
   = TemplateVersionProperty

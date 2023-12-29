@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MicrosoftSqlServerSettingsProperty :: Prelude.Type
 instance ToResourceProperties MicrosoftSqlServerSettingsProperty
+instance Prelude.Eq MicrosoftSqlServerSettingsProperty
+instance Prelude.Show MicrosoftSqlServerSettingsProperty
 instance JSON.ToJSON MicrosoftSqlServerSettingsProperty

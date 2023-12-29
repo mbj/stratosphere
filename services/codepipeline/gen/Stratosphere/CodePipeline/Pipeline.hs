@@ -20,6 +20,7 @@ data Pipeline
               roleArn :: (Value Prelude.Text),
               stages :: [StageDeclarationProperty],
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeline ::
   Value Prelude.Text -> [StageDeclarationProperty] -> Pipeline
 mkPipeline roleArn stages

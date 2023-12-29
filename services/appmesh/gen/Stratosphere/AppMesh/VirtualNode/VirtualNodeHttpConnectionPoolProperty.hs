@@ -10,6 +10,7 @@ import Stratosphere.Value
 data VirtualNodeHttpConnectionPoolProperty
   = VirtualNodeHttpConnectionPoolProperty {maxConnections :: (Value Prelude.Integer),
                                            maxPendingRequests :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNodeHttpConnectionPoolProperty ::
   Value Prelude.Integer -> VirtualNodeHttpConnectionPoolProperty
 mkVirtualNodeHttpConnectionPoolProperty maxConnections

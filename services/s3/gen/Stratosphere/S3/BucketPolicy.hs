@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BucketPolicy
   = BucketPolicy {bucket :: (Value Prelude.Text),
                   policyDocument :: JSON.Object}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBucketPolicy :: Value Prelude.Text -> JSON.Object -> BucketPolicy
 mkBucketPolicy bucket policyDocument
   = BucketPolicy {bucket = bucket, policyDocument = policyDocument}

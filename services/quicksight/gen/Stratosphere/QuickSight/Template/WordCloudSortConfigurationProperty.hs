@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data WordCloudSortConfigurationProperty
   = WordCloudSortConfigurationProperty {categoryItemsLimit :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                         categorySort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWordCloudSortConfigurationProperty ::
   WordCloudSortConfigurationProperty
 mkWordCloudSortConfigurationProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.ClarifyExplainerConf
 import Stratosphere.ResourceProperties
 data ExplainerConfigProperty
   = ExplainerConfigProperty {clarifyExplainerConfig :: (Prelude.Maybe ClarifyExplainerConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExplainerConfigProperty :: ExplainerConfigProperty
 mkExplainerConfigProperty
   = ExplainerConfigProperty

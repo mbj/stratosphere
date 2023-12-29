@@ -18,6 +18,7 @@ data PanelConfigurationProperty
                                 gutterSpacing :: (Prelude.Maybe (Value Prelude.Text)),
                                 gutterVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                                 title :: (Prelude.Maybe PanelTitleOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPanelConfigurationProperty :: PanelConfigurationProperty
 mkPanelConfigurationProperty
   = PanelConfigurationProperty

@@ -12,6 +12,7 @@ data ContainerProviderProperty
   = ContainerProviderProperty {id :: (Value Prelude.Text),
                                info :: ContainerInfoProperty,
                                type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerProviderProperty ::
   Value Prelude.Text
   -> ContainerInfoProperty

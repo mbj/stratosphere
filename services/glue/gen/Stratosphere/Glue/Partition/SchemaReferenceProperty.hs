@@ -12,6 +12,7 @@ data SchemaReferenceProperty
   = SchemaReferenceProperty {schemaId :: (Prelude.Maybe SchemaIdProperty),
                              schemaVersionId :: (Prelude.Maybe (Value Prelude.Text)),
                              schemaVersionNumber :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaReferenceProperty :: SchemaReferenceProperty
 mkSchemaReferenceProperty
   = SchemaReferenceProperty

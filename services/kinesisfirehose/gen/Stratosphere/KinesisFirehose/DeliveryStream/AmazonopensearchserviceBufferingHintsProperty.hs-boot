@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AmazonopensearchserviceBufferingHintsProperty :: Prelude.Type
 instance ToResourceProperties AmazonopensearchserviceBufferingHintsProperty
+instance Prelude.Eq AmazonopensearchserviceBufferingHintsProperty
+instance Prelude.Show AmazonopensearchserviceBufferingHintsProperty
 instance JSON.ToJSON AmazonopensearchserviceBufferingHintsProperty

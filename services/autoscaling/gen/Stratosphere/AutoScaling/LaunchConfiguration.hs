@@ -28,6 +28,7 @@ data LaunchConfiguration
                          securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                          spotPrice :: (Prelude.Maybe (Value Prelude.Text)),
                          userData :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchConfiguration ::
   Value Prelude.Text -> Value Prelude.Text -> LaunchConfiguration
 mkLaunchConfiguration imageId instanceType

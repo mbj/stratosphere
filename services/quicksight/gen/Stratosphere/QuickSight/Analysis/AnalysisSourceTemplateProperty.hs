@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AnalysisSourceTemplateProperty
   = AnalysisSourceTemplateProperty {arn :: (Value Prelude.Text),
                                     dataSetReferences :: [DataSetReferenceProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysisSourceTemplateProperty ::
   Value Prelude.Text
   -> [DataSetReferenceProperty] -> AnalysisSourceTemplateProperty

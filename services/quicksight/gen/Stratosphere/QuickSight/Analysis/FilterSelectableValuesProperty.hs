@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterSelectableValuesProperty
   = FilterSelectableValuesProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterSelectableValuesProperty :: FilterSelectableValuesProperty
 mkFilterSelectableValuesProperty
   = FilterSelectableValuesProperty {values = Prelude.Nothing}

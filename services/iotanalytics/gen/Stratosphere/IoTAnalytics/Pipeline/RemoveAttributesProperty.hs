@@ -10,6 +10,7 @@ data RemoveAttributesProperty
   = RemoveAttributesProperty {attributes :: (ValueList Prelude.Text),
                               name :: (Value Prelude.Text),
                               next :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRemoveAttributesProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> RemoveAttributesProperty

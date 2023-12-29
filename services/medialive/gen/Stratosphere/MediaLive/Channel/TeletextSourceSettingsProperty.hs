@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TeletextSourceSettingsProperty
   = TeletextSourceSettingsProperty {outputRectangle :: (Prelude.Maybe CaptionRectangleProperty),
                                     pageNumber :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTeletextSourceSettingsProperty :: TeletextSourceSettingsProperty
 mkTeletextSourceSettingsProperty
   = TeletextSourceSettingsProperty

@@ -11,6 +11,7 @@ data ApplicationVersion
   = ApplicationVersion {applicationName :: (Value Prelude.Text),
                         description :: (Prelude.Maybe (Value Prelude.Text)),
                         sourceBundle :: SourceBundleProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationVersion ::
   Value Prelude.Text -> SourceBundleProperty -> ApplicationVersion
 mkApplicationVersion applicationName sourceBundle

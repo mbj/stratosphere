@@ -11,6 +11,7 @@ import Stratosphere.Value
 data LogPublishingOptionsProperty
   = LogPublishingOptionsProperty {cloudWatchLogDestination :: (Prelude.Maybe CloudWatchLogDestinationProperty),
                                   isLoggingEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogPublishingOptionsProperty :: LogPublishingOptionsProperty
 mkLogPublishingOptionsProperty
   = LogPublishingOptionsProperty

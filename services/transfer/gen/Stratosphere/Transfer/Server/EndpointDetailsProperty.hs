@@ -12,6 +12,7 @@ data EndpointDetailsProperty
                              subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                              vpcEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
                              vpcId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointDetailsProperty :: EndpointDetailsProperty
 mkEndpointDetailsProperty
   = EndpointDetailsProperty

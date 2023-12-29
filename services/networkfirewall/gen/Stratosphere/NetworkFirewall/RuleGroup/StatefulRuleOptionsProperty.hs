@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatefulRuleOptionsProperty
   = StatefulRuleOptionsProperty {ruleOrder :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatefulRuleOptionsProperty :: StatefulRuleOptionsProperty
 mkStatefulRuleOptionsProperty
   = StatefulRuleOptionsProperty {ruleOrder = Prelude.Nothing}

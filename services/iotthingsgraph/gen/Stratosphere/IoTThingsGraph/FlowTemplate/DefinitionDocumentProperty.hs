@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DefinitionDocumentProperty
   = DefinitionDocumentProperty {language :: (Value Prelude.Text),
                                 text :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefinitionDocumentProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DefinitionDocumentProperty

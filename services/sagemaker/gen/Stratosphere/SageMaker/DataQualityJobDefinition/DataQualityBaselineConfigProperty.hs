@@ -13,6 +13,7 @@ data DataQualityBaselineConfigProperty
   = DataQualityBaselineConfigProperty {baseliningJobName :: (Prelude.Maybe (Value Prelude.Text)),
                                        constraintsResource :: (Prelude.Maybe ConstraintsResourceProperty),
                                        statisticsResource :: (Prelude.Maybe StatisticsResourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataQualityBaselineConfigProperty ::
   DataQualityBaselineConfigProperty
 mkDataQualityBaselineConfigProperty

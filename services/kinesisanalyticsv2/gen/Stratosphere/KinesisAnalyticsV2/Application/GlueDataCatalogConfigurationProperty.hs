@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlueDataCatalogConfigurationProperty
   = GlueDataCatalogConfigurationProperty {databaseARN :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueDataCatalogConfigurationProperty ::
   GlueDataCatalogConfigurationProperty
 mkGlueDataCatalogConfigurationProperty

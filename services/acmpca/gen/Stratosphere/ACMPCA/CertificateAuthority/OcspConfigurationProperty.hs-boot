@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OcspConfigurationProperty :: Prelude.Type
 instance ToResourceProperties OcspConfigurationProperty
+instance Prelude.Eq OcspConfigurationProperty
+instance Prelude.Show OcspConfigurationProperty
 instance JSON.ToJSON OcspConfigurationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PanelConfigurationProperty :: Prelude.Type
 instance ToResourceProperties PanelConfigurationProperty
+instance Prelude.Eq PanelConfigurationProperty
+instance Prelude.Show PanelConfigurationProperty
 instance JSON.ToJSON PanelConfigurationProperty

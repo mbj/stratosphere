@@ -11,6 +11,7 @@ data DocumentationPart
   = DocumentationPart {location :: LocationProperty,
                        properties :: (Value Prelude.Text),
                        restApiId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentationPart ::
   LocationProperty
   -> Value Prelude.Text -> Value Prelude.Text -> DocumentationPart

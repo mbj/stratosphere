@@ -11,6 +11,7 @@ data PrivateDnsNameOptionsOnLaunchProperty
   = PrivateDnsNameOptionsOnLaunchProperty {enableResourceNameDnsAAAARecord :: (Prelude.Maybe (Value Prelude.Bool)),
                                            enableResourceNameDnsARecord :: (Prelude.Maybe (Value Prelude.Bool)),
                                            hostnameType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateDnsNameOptionsOnLaunchProperty ::
   PrivateDnsNameOptionsOnLaunchProperty
 mkPrivateDnsNameOptionsOnLaunchProperty

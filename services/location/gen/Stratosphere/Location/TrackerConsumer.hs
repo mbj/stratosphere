@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TrackerConsumer
   = TrackerConsumer {consumerArn :: (Value Prelude.Text),
                      trackerName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrackerConsumer ::
   Value Prelude.Text -> Value Prelude.Text -> TrackerConsumer
 mkTrackerConsumer consumerArn trackerName

@@ -12,6 +12,7 @@ data VirtualCluster
   = VirtualCluster {containerProvider :: ContainerProviderProperty,
                     name :: (Value Prelude.Text),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualCluster ::
   ContainerProviderProperty -> Value Prelude.Text -> VirtualCluster
 mkVirtualCluster containerProvider name

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ScalingConstraintsProperty
   = ScalingConstraintsProperty {maxCapacity :: (Value Prelude.Integer),
                                 minCapacity :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingConstraintsProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> ScalingConstraintsProperty

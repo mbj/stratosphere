@@ -10,6 +10,7 @@ data ConditionResourceTypeProperty
   = ConditionResourceTypeProperty {conditionKey :: (Value Prelude.Text),
                                    conditionType :: (Value Prelude.Text),
                                    conditionValue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionResourceTypeProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

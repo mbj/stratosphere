@@ -21,6 +21,7 @@ data ScalingPolicy
                    scalingAdjustment :: (Prelude.Maybe (Value Prelude.Integer)),
                    stepAdjustments :: (Prelude.Maybe [StepAdjustmentProperty]),
                    targetTrackingConfiguration :: (Prelude.Maybe TargetTrackingConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingPolicy :: Value Prelude.Text -> ScalingPolicy
 mkScalingPolicy autoScalingGroupName
   = ScalingPolicy

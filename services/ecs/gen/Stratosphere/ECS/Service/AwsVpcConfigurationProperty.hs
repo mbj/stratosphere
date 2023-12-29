@@ -10,6 +10,7 @@ data AwsVpcConfigurationProperty
   = AwsVpcConfigurationProperty {assignPublicIp :: (Prelude.Maybe (Value Prelude.Text)),
                                  securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  subnets :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsVpcConfigurationProperty :: AwsVpcConfigurationProperty
 mkAwsVpcConfigurationProperty
   = AwsVpcConfigurationProperty

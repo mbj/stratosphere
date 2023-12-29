@@ -17,6 +17,7 @@ data ScalableTarget
                     scheduledActions :: (Prelude.Maybe [ScheduledActionProperty]),
                     serviceNamespace :: (Value Prelude.Text),
                     suspendedState :: (Prelude.Maybe SuspendedStateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalableTarget ::
   Value Prelude.Integer
   -> Value Prelude.Integer

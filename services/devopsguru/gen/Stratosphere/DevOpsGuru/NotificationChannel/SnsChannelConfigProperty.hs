@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnsChannelConfigProperty
   = SnsChannelConfigProperty {topicArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSnsChannelConfigProperty :: SnsChannelConfigProperty
 mkSnsChannelConfigProperty
   = SnsChannelConfigProperty {topicArn = Prelude.Nothing}

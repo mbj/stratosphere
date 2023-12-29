@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VpnTunnelOptionsSpecificationProperty :: Prelude.Type
 instance ToResourceProperties VpnTunnelOptionsSpecificationProperty
+instance Prelude.Eq VpnTunnelOptionsSpecificationProperty
+instance Prelude.Show VpnTunnelOptionsSpecificationProperty
 instance JSON.ToJSON VpnTunnelOptionsSpecificationProperty

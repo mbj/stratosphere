@@ -13,6 +13,7 @@ data Simulation
                 roleArn :: (Value Prelude.Text),
                 schemaS3Location :: (Prelude.Maybe S3LocationProperty),
                 snapshotS3Location :: (Prelude.Maybe S3LocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSimulation ::
   Value Prelude.Text -> Value Prelude.Text -> Simulation
 mkSimulation name roleArn

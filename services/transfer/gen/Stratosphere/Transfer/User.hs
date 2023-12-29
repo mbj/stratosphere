@@ -21,6 +21,7 @@ data User
           sshPublicKeys :: (Prelude.Maybe [SshPublicKeyProperty]),
           tags :: (Prelude.Maybe [Tag]),
           userName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUser ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> User

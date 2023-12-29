@@ -12,6 +12,7 @@ data PublicAccessBlockConfigurationProperty
                                             blockPublicPolicy :: (Prelude.Maybe (Value Prelude.Bool)),
                                             ignorePublicAcls :: (Prelude.Maybe (Value Prelude.Bool)),
                                             restrictPublicBuckets :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicAccessBlockConfigurationProperty ::
   PublicAccessBlockConfigurationProperty
 mkPublicAccessBlockConfigurationProperty

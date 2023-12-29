@@ -14,6 +14,7 @@ data EvaluationFormSectionProperty
                                    refId :: (Value Prelude.Text),
                                    title :: (Value Prelude.Text),
                                    weight :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSectionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EvaluationFormSectionProperty

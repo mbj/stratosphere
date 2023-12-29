@@ -10,6 +10,7 @@ data EmergencyContactProperty
   = EmergencyContactProperty {contactNotes :: (Prelude.Maybe (Value Prelude.Text)),
                               emailAddress :: (Value Prelude.Text),
                               phoneNumber :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEmergencyContactProperty ::
   Value Prelude.Text -> EmergencyContactProperty
 mkEmergencyContactProperty emailAddress

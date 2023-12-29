@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TransformJobDefinitionProperty :: Prelude.Type
 instance ToResourceProperties TransformJobDefinitionProperty
+instance Prelude.Eq TransformJobDefinitionProperty
+instance Prelude.Show TransformJobDefinitionProperty
 instance JSON.ToJSON TransformJobDefinitionProperty

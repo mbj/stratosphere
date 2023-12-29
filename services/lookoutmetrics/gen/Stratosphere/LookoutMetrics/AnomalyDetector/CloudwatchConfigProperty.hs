@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CloudwatchConfigProperty
   = CloudwatchConfigProperty {roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudwatchConfigProperty ::
   Value Prelude.Text -> CloudwatchConfigProperty
 mkCloudwatchConfigProperty roleArn

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReportDeliveryChannelProperty :: Prelude.Type
 instance ToResourceProperties ReportDeliveryChannelProperty
+instance Prelude.Eq ReportDeliveryChannelProperty
+instance Prelude.Show ReportDeliveryChannelProperty
 instance JSON.ToJSON ReportDeliveryChannelProperty

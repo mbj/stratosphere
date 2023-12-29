@@ -27,6 +27,7 @@ data SourceProperty
                     streamId :: (Prelude.Maybe (Value Prelude.Text)),
                     vpcInterfaceName :: (Prelude.Maybe (Value Prelude.Text)),
                     whitelistCidr :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceProperty :: SourceProperty
 mkSourceProperty
   = SourceProperty

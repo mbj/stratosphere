@@ -10,6 +10,7 @@ data SubnetGroup
   = SubnetGroup {description :: (Prelude.Maybe (Value Prelude.Text)),
                  subnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                  subnetIds :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetGroup :: ValueList Prelude.Text -> SubnetGroup
 mkSubnetGroup subnetIds
   = SubnetGroup

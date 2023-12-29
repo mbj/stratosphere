@@ -17,6 +17,7 @@ data Rule
           priority :: (Value Prelude.Integer),
           serviceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRule ::
   ActionProperty -> MatchProperty -> Value Prelude.Integer -> Rule
 mkRule action match priority

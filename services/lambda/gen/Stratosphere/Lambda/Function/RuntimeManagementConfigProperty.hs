@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RuntimeManagementConfigProperty
   = RuntimeManagementConfigProperty {runtimeVersionArn :: (Prelude.Maybe (Value Prelude.Text)),
                                      updateRuntimeOn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuntimeManagementConfigProperty ::
   Value Prelude.Text -> RuntimeManagementConfigProperty
 mkRuntimeManagementConfigProperty updateRuntimeOn

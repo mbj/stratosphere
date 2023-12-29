@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PointInTimeRecoverySpecificationProperty :: Prelude.Type
 instance ToResourceProperties PointInTimeRecoverySpecificationProperty
+instance Prelude.Eq PointInTimeRecoverySpecificationProperty
+instance Prelude.Show PointInTimeRecoverySpecificationProperty
 instance JSON.ToJSON PointInTimeRecoverySpecificationProperty

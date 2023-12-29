@@ -14,6 +14,7 @@ data ActionProperty
                     notificationProperty :: (Prelude.Maybe NotificationPropertyProperty),
                     securityConfiguration :: (Prelude.Maybe (Value Prelude.Text)),
                     timeout :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty

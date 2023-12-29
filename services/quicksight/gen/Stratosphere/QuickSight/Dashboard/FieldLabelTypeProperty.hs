@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FieldLabelTypeProperty
   = FieldLabelTypeProperty {fieldId :: (Prelude.Maybe (Value Prelude.Text)),
                             visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldLabelTypeProperty :: FieldLabelTypeProperty
 mkFieldLabelTypeProperty
   = FieldLabelTypeProperty

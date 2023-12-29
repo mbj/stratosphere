@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmazonElasticsearchParametersProperty
   = AmazonElasticsearchParametersProperty {domain :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonElasticsearchParametersProperty ::
   Value Prelude.Text -> AmazonElasticsearchParametersProperty
 mkAmazonElasticsearchParametersProperty domain

@@ -18,6 +18,7 @@ data Datastore
                fileFormatConfiguration :: (Prelude.Maybe FileFormatConfigurationProperty),
                retentionPeriod :: (Prelude.Maybe RetentionPeriodProperty),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatastore :: Datastore
 mkDatastore
   = Datastore

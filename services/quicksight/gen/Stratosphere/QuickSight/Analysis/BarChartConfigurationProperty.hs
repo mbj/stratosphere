@@ -35,6 +35,7 @@ data BarChartConfigurationProperty
                                    valueAxis :: (Prelude.Maybe AxisDisplayOptionsProperty),
                                    valueLabelOptions :: (Prelude.Maybe ChartAxisLabelOptionsProperty),
                                    visualPalette :: (Prelude.Maybe VisualPaletteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBarChartConfigurationProperty :: BarChartConfigurationProperty
 mkBarChartConfigurationProperty
   = BarChartConfigurationProperty

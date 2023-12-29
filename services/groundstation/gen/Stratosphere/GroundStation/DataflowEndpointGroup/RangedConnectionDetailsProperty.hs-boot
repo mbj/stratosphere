@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RangedConnectionDetailsProperty :: Prelude.Type
 instance ToResourceProperties RangedConnectionDetailsProperty
+instance Prelude.Eq RangedConnectionDetailsProperty
+instance Prelude.Show RangedConnectionDetailsProperty
 instance JSON.ToJSON RangedConnectionDetailsProperty

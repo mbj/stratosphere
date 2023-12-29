@@ -14,6 +14,7 @@ data RuleProperty
                   recipients :: (Prelude.Maybe (ValueList Prelude.Text)),
                   scanEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                   tlsPolicy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty :: RuleProperty
 mkRuleProperty
   = RuleProperty

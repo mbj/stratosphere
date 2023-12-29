@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ReshardingConfigurationProperty
   = ReshardingConfigurationProperty {nodeGroupId :: (Prelude.Maybe (Value Prelude.Text)),
                                      preferredAvailabilityZones :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReshardingConfigurationProperty ::
   ReshardingConfigurationProperty
 mkReshardingConfigurationProperty

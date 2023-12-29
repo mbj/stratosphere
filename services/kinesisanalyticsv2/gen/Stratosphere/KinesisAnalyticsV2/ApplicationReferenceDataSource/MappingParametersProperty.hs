@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data MappingParametersProperty
   = MappingParametersProperty {cSVMappingParameters :: (Prelude.Maybe CSVMappingParametersProperty),
                                jSONMappingParameters :: (Prelude.Maybe JSONMappingParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMappingParametersProperty :: MappingParametersProperty
 mkMappingParametersProperty
   = MappingParametersProperty

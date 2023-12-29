@@ -20,6 +20,7 @@ data AlarmModel
                 roleArn :: (Value Prelude.Text),
                 severity :: (Prelude.Maybe (Value Prelude.Integer)),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmModel ::
   AlarmRuleProperty -> Value Prelude.Text -> AlarmModel
 mkAlarmModel alarmRule roleArn

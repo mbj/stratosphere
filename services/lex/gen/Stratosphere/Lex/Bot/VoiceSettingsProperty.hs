@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VoiceSettingsProperty
   = VoiceSettingsProperty {engine :: (Prelude.Maybe (Value Prelude.Text)),
                            voiceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVoiceSettingsProperty ::
   Value Prelude.Text -> VoiceSettingsProperty
 mkVoiceSettingsProperty voiceId

@@ -16,6 +16,7 @@ data Bucket
             readOnlyAccessAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
             resourcesReceivingAccess :: (Prelude.Maybe (ValueList Prelude.Text)),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBucket :: Value Prelude.Text -> Value Prelude.Text -> Bucket
 mkBucket bucketName bundleId
   = Bucket

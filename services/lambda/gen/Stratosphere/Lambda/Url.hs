@@ -13,6 +13,7 @@ data Url
          invokeMode :: (Prelude.Maybe (Value Prelude.Text)),
          qualifier :: (Prelude.Maybe (Value Prelude.Text)),
          targetFunctionArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUrl :: Value Prelude.Text -> Value Prelude.Text -> Url
 mkUrl authType targetFunctionArn
   = Url

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentControllerProperty
   = DeploymentControllerProperty {type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentControllerProperty :: DeploymentControllerProperty
 mkDeploymentControllerProperty
   = DeploymentControllerProperty {type' = Prelude.Nothing}

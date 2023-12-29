@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SubnetNetworkAclAssociation
   = SubnetNetworkAclAssociation {networkAclId :: (Value Prelude.Text),
                                  subnetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetNetworkAclAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> SubnetNetworkAclAssociation

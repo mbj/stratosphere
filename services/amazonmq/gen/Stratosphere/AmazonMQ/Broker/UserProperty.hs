@@ -11,6 +11,7 @@ data UserProperty
                   groups :: (Prelude.Maybe (ValueList Prelude.Text)),
                   password :: (Value Prelude.Text),
                   username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserProperty ::
   Value Prelude.Text -> Value Prelude.Text -> UserProperty
 mkUserProperty password username

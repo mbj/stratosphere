@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TaskProperty :: Prelude.Type
 instance ToResourceProperties TaskProperty
+instance Prelude.Eq TaskProperty
+instance Prelude.Show TaskProperty
 instance JSON.ToJSON TaskProperty

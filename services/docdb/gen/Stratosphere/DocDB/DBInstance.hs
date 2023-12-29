@@ -16,6 +16,7 @@ data DBInstance
                 enablePerformanceInsights :: (Prelude.Maybe (Value Prelude.Bool)),
                 preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDBInstance ::
   Value Prelude.Text -> Value Prelude.Text -> DBInstance
 mkDBInstance dBClusterIdentifier dBInstanceClass

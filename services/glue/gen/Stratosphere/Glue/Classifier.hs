@@ -14,6 +14,7 @@ data Classifier
                 grokClassifier :: (Prelude.Maybe GrokClassifierProperty),
                 jsonClassifier :: (Prelude.Maybe JsonClassifierProperty),
                 xMLClassifier :: (Prelude.Maybe XMLClassifierProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClassifier :: Classifier
 mkClassifier
   = Classifier

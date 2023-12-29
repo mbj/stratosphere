@@ -16,6 +16,7 @@ data BucketLevelProperty
                          advancedDataProtectionMetrics :: (Prelude.Maybe AdvancedDataProtectionMetricsProperty),
                          detailedStatusCodesMetrics :: (Prelude.Maybe DetailedStatusCodesMetricsProperty),
                          prefixLevel :: (Prelude.Maybe PrefixLevelProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBucketLevelProperty :: BucketLevelProperty
 mkBucketLevelProperty
   = BucketLevelProperty

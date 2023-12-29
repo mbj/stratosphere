@@ -12,6 +12,7 @@ data Policy
             policyName :: (Value Prelude.Text),
             roles :: (Prelude.Maybe (ValueList Prelude.Text)),
             users :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicy :: JSON.Object -> Value Prelude.Text -> Policy
 mkPolicy policyDocument policyName
   = Policy

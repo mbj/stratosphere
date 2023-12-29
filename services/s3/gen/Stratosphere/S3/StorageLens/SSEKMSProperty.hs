@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SSEKMSProperty
   = SSEKMSProperty {keyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSSEKMSProperty :: Value Prelude.Text -> SSEKMSProperty
 mkSSEKMSProperty keyId = SSEKMSProperty {keyId = keyId}
 instance ToResourceProperties SSEKMSProperty where

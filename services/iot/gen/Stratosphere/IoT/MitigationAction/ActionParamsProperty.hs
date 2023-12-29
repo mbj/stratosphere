@@ -18,6 +18,7 @@ data ActionParamsProperty
                           replaceDefaultPolicyVersionParams :: (Prelude.Maybe ReplaceDefaultPolicyVersionParamsProperty),
                           updateCACertificateParams :: (Prelude.Maybe UpdateCACertificateParamsProperty),
                           updateDeviceCertificateParams :: (Prelude.Maybe UpdateDeviceCertificateParamsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionParamsProperty :: ActionParamsProperty
 mkActionParamsProperty
   = ActionParamsProperty

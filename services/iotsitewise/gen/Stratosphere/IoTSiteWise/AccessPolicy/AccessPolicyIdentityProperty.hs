@@ -13,6 +13,7 @@ data AccessPolicyIdentityProperty
   = AccessPolicyIdentityProperty {iamRole :: (Prelude.Maybe IamRoleProperty),
                                   iamUser :: (Prelude.Maybe IamUserProperty),
                                   user :: (Prelude.Maybe UserProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPolicyIdentityProperty :: AccessPolicyIdentityProperty
 mkAccessPolicyIdentityProperty
   = AccessPolicyIdentityProperty

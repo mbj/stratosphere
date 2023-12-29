@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Theme.BorderStyleProperty as Expor
 import Stratosphere.ResourceProperties
 data TileStyleProperty
   = TileStyleProperty {border :: (Prelude.Maybe BorderStyleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTileStyleProperty :: TileStyleProperty
 mkTileStyleProperty = TileStyleProperty {border = Prelude.Nothing}
 instance ToResourceProperties TileStyleProperty where

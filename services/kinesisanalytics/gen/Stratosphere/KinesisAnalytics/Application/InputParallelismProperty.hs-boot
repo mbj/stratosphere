@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InputParallelismProperty :: Prelude.Type
 instance ToResourceProperties InputParallelismProperty
+instance Prelude.Eq InputParallelismProperty
+instance Prelude.Show InputParallelismProperty
 instance JSON.ToJSON InputParallelismProperty

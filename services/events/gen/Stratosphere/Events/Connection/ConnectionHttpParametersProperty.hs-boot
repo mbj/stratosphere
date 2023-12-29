@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConnectionHttpParametersProperty :: Prelude.Type
 instance ToResourceProperties ConnectionHttpParametersProperty
+instance Prelude.Eq ConnectionHttpParametersProperty
+instance Prelude.Show ConnectionHttpParametersProperty
 instance JSON.ToJSON ConnectionHttpParametersProperty

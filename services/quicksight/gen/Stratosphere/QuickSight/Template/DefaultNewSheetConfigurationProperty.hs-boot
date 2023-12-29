@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DefaultNewSheetConfigurationProperty :: Prelude.Type
 instance ToResourceProperties DefaultNewSheetConfigurationProperty
+instance Prelude.Eq DefaultNewSheetConfigurationProperty
+instance Prelude.Show DefaultNewSheetConfigurationProperty
 instance JSON.ToJSON DefaultNewSheetConfigurationProperty

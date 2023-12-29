@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ProvisioningHookProperty
   = ProvisioningHookProperty {payloadVersion :: (Prelude.Maybe (Value Prelude.Text)),
                               targetArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisioningHookProperty :: ProvisioningHookProperty
 mkProvisioningHookProperty
   = ProvisioningHookProperty

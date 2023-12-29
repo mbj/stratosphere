@@ -11,6 +11,7 @@ data EksContainerVolumeMountProperty
   = EksContainerVolumeMountProperty {mountPath :: (Prelude.Maybe (Value Prelude.Text)),
                                      name :: (Prelude.Maybe (Value Prelude.Text)),
                                      readOnly :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksContainerVolumeMountProperty ::
   EksContainerVolumeMountProperty
 mkEksContainerVolumeMountProperty

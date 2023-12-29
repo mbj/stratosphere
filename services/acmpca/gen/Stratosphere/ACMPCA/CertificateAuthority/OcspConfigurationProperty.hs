@@ -9,6 +9,7 @@ import Stratosphere.Value
 data OcspConfigurationProperty
   = OcspConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                ocspCustomCname :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOcspConfigurationProperty :: OcspConfigurationProperty
 mkOcspConfigurationProperty
   = OcspConfigurationProperty

@@ -21,6 +21,7 @@ data SalesforceConfigurationProperty
                                      serverUrl :: (Value Prelude.Text),
                                      standardObjectAttachmentConfiguration :: (Prelude.Maybe SalesforceStandardObjectAttachmentConfigurationProperty),
                                      standardObjectConfigurations :: (Prelude.Maybe [SalesforceStandardObjectConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SalesforceConfigurationProperty

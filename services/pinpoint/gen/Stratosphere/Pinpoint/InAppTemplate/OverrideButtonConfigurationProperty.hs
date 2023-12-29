@@ -10,6 +10,7 @@ import Stratosphere.Value
 data OverrideButtonConfigurationProperty
   = OverrideButtonConfigurationProperty {buttonAction :: (Prelude.Maybe (Value Prelude.Text)),
                                          link :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOverrideButtonConfigurationProperty ::
   OverrideButtonConfigurationProperty
 mkOverrideButtonConfigurationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UpdateCACertificateParamsProperty :: Prelude.Type
 instance ToResourceProperties UpdateCACertificateParamsProperty
+instance Prelude.Eq UpdateCACertificateParamsProperty
+instance Prelude.Show UpdateCACertificateParamsProperty
 instance JSON.ToJSON UpdateCACertificateParamsProperty

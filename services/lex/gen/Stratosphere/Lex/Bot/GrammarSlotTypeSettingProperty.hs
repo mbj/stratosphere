@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.GrammarSlotTypeSourceProperty as Expo
 import Stratosphere.ResourceProperties
 data GrammarSlotTypeSettingProperty
   = GrammarSlotTypeSettingProperty {source :: (Prelude.Maybe GrammarSlotTypeSourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrammarSlotTypeSettingProperty :: GrammarSlotTypeSettingProperty
 mkGrammarSlotTypeSettingProperty
   = GrammarSlotTypeSettingProperty {source = Prelude.Nothing}

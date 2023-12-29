@@ -22,6 +22,7 @@ data Analysis
               status :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe [Tag]),
               themeArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalysis ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Analysis

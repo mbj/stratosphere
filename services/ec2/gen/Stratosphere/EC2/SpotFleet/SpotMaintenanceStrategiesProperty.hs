@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.SpotCapacityRebalanceProperty a
 import Stratosphere.ResourceProperties
 data SpotMaintenanceStrategiesProperty
   = SpotMaintenanceStrategiesProperty {capacityRebalance :: (Prelude.Maybe SpotCapacityRebalanceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotMaintenanceStrategiesProperty ::
   SpotMaintenanceStrategiesProperty
 mkSpotMaintenanceStrategiesProperty

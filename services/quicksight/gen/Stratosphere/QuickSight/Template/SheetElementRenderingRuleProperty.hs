@@ -11,6 +11,7 @@ import Stratosphere.Value
 data SheetElementRenderingRuleProperty
   = SheetElementRenderingRuleProperty {configurationOverrides :: SheetElementConfigurationOverridesProperty,
                                        expression :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSheetElementRenderingRuleProperty ::
   SheetElementConfigurationOverridesProperty
   -> Value Prelude.Text -> SheetElementRenderingRuleProperty

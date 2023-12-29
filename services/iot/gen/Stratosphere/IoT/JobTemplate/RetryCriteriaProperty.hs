@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RetryCriteriaProperty
   = RetryCriteriaProperty {failureType :: (Prelude.Maybe (Value Prelude.Text)),
                            numberOfRetries :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRetryCriteriaProperty :: RetryCriteriaProperty
 mkRetryCriteriaProperty
   = RetryCriteriaProperty

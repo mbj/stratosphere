@@ -15,6 +15,7 @@ data SalesforceConnectorProfileCredentialsProperty
                                                    jwtToken :: (Prelude.Maybe (Value Prelude.Text)),
                                                    oAuth2GrantType :: (Prelude.Maybe (Value Prelude.Text)),
                                                    refreshToken :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceConnectorProfileCredentialsProperty ::
   SalesforceConnectorProfileCredentialsProperty
 mkSalesforceConnectorProfileCredentialsProperty

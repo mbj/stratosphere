@@ -15,6 +15,7 @@ data ResolverRule
                   ruleType :: (Value Prelude.Text),
                   tags :: (Prelude.Maybe [Tag]),
                   targetIps :: (Prelude.Maybe [TargetAddressProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverRule ::
   Value Prelude.Text -> Value Prelude.Text -> ResolverRule
 mkResolverRule domainName ruleType

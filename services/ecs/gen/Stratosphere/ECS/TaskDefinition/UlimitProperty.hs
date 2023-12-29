@@ -10,6 +10,7 @@ data UlimitProperty
   = UlimitProperty {hardLimit :: (Value Prelude.Integer),
                     name :: (Value Prelude.Text),
                     softLimit :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUlimitProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> Value Prelude.Integer -> UlimitProperty

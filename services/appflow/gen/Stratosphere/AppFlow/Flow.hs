@@ -23,6 +23,7 @@ data Flow
           tags :: (Prelude.Maybe [Tag]),
           tasks :: [TaskProperty],
           triggerConfig :: TriggerConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlow ::
   [DestinationFlowConfigProperty]
   -> Value Prelude.Text

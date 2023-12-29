@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CapacityReservationTargetProperty
   = CapacityReservationTargetProperty {capacityReservationId :: (Prelude.Maybe (Value Prelude.Text)),
                                        capacityReservationResourceGroupArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservationTargetProperty ::
   CapacityReservationTargetProperty
 mkCapacityReservationTargetProperty

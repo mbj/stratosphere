@@ -11,6 +11,7 @@ import Stratosphere.Value
 data MotionGraphicsConfigurationProperty
   = MotionGraphicsConfigurationProperty {motionGraphicsInsertion :: (Prelude.Maybe (Value Prelude.Text)),
                                          motionGraphicsSettings :: (Prelude.Maybe MotionGraphicsSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMotionGraphicsConfigurationProperty ::
   MotionGraphicsConfigurationProperty
 mkMotionGraphicsConfigurationProperty

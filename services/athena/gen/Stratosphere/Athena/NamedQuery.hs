@@ -12,6 +12,7 @@ data NamedQuery
                 name :: (Prelude.Maybe (Value Prelude.Text)),
                 queryString :: (Value Prelude.Text),
                 workGroup :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNamedQuery ::
   Value Prelude.Text -> Value Prelude.Text -> NamedQuery
 mkNamedQuery database queryString

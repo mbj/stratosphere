@@ -10,6 +10,7 @@ data RecordingGroupProperty
   = RecordingGroupProperty {allSupported :: (Prelude.Maybe (Value Prelude.Bool)),
                             includeGlobalResourceTypes :: (Prelude.Maybe (Value Prelude.Bool)),
                             resourceTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecordingGroupProperty :: RecordingGroupProperty
 mkRecordingGroupProperty
   = RecordingGroupProperty

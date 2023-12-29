@@ -16,6 +16,7 @@ data Filter
             name :: (Value Prelude.Text),
             rank :: (Value Prelude.Integer),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilter ::
   Value Prelude.Text
   -> Value Prelude.Text

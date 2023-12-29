@@ -16,6 +16,7 @@ data VideoDescriptionProperty
                               scalingBehavior :: (Prelude.Maybe (Value Prelude.Text)),
                               sharpness :: (Prelude.Maybe (Value Prelude.Integer)),
                               width :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoDescriptionProperty :: VideoDescriptionProperty
 mkVideoDescriptionProperty
   = VideoDescriptionProperty

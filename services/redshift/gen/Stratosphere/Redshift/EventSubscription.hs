@@ -16,6 +16,7 @@ data EventSubscription
                        sourceType :: (Prelude.Maybe (Value Prelude.Text)),
                        subscriptionName :: (Value Prelude.Text),
                        tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventSubscription :: Value Prelude.Text -> EventSubscription
 mkEventSubscription subscriptionName
   = EventSubscription

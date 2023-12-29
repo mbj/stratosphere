@@ -13,6 +13,7 @@ data ActionsProperty
                      eventBridgeActions :: (Prelude.Maybe [EventBridgeActionProperty]),
                      sendNotificationActions :: (Prelude.Maybe [SendNotificationActionProperty]),
                      taskActions :: (Prelude.Maybe [TaskActionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionsProperty :: ActionsProperty
 mkActionsProperty
   = ActionsProperty

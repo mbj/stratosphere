@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ResourceTagProperty
   = ResourceTagProperty {key :: (Value Prelude.Text),
                          value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceTagProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ResourceTagProperty
 mkResourceTagProperty key value

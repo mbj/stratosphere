@@ -10,6 +10,7 @@ data PosixUserProperty
   = PosixUserProperty {gid :: (Value Prelude.Text),
                        secondaryGids :: (Prelude.Maybe (ValueList Prelude.Text)),
                        uid :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPosixUserProperty ::
   Value Prelude.Text -> Value Prelude.Text -> PosixUserProperty
 mkPosixUserProperty gid uid

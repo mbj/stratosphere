@@ -15,6 +15,7 @@ data AccessPoint
                  fileSystemId :: (Value Prelude.Text),
                  posixUser :: (Prelude.Maybe PosixUserProperty),
                  rootDirectory :: (Prelude.Maybe RootDirectoryProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPoint :: Value Prelude.Text -> AccessPoint
 mkAccessPoint fileSystemId
   = AccessPoint

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data HttpGatewayRouteActionProperty
   = HttpGatewayRouteActionProperty {rewrite :: (Prelude.Maybe HttpGatewayRouteRewriteProperty),
                                     target :: GatewayRouteTargetProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteActionProperty ::
   GatewayRouteTargetProperty -> HttpGatewayRouteActionProperty
 mkHttpGatewayRouteActionProperty target

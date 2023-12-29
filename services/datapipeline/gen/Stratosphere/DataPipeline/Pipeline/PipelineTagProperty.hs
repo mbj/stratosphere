@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PipelineTagProperty
   = PipelineTagProperty {key :: (Value Prelude.Text),
                          value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipelineTagProperty ::
   Value Prelude.Text -> Value Prelude.Text -> PipelineTagProperty
 mkPipelineTagProperty key value

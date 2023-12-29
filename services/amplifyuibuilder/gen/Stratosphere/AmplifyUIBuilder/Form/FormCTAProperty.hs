@@ -12,6 +12,7 @@ data FormCTAProperty
                      clear :: (Prelude.Maybe FormButtonProperty),
                      position :: (Prelude.Maybe (Value Prelude.Text)),
                      submit :: (Prelude.Maybe FormButtonProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFormCTAProperty :: FormCTAProperty
 mkFormCTAProperty
   = FormCTAProperty

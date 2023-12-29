@@ -15,6 +15,7 @@ data MicrosoftAD
                  password :: (Value Prelude.Text),
                  shortName :: (Prelude.Maybe (Value Prelude.Text)),
                  vpcSettings :: VpcSettingsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMicrosoftAD ::
   Value Prelude.Text
   -> Value Prelude.Text -> VpcSettingsProperty -> MicrosoftAD

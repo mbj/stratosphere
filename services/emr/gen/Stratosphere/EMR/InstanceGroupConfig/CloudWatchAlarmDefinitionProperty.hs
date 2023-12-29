@@ -18,6 +18,7 @@ data CloudWatchAlarmDefinitionProperty
                                        statistic :: (Prelude.Maybe (Value Prelude.Text)),
                                        threshold :: (Value Prelude.Double),
                                        unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchAlarmDefinitionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

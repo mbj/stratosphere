@@ -11,6 +11,7 @@ data TransitGatewayMulticastGroupSource
   = TransitGatewayMulticastGroupSource {groupIpAddress :: (Value Prelude.Text),
                                         networkInterfaceId :: (Value Prelude.Text),
                                         transitGatewayMulticastDomainId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayMulticastGroupSource ::
   Value Prelude.Text
   -> Value Prelude.Text

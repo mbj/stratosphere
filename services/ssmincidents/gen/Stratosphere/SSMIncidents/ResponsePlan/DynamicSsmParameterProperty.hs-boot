@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DynamicSsmParameterProperty :: Prelude.Type
 instance ToResourceProperties DynamicSsmParameterProperty
+instance Prelude.Eq DynamicSsmParameterProperty
+instance Prelude.Show DynamicSsmParameterProperty
 instance JSON.ToJSON DynamicSsmParameterProperty

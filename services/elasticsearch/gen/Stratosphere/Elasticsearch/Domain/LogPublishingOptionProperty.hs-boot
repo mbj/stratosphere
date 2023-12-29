@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LogPublishingOptionProperty :: Prelude.Type
 instance ToResourceProperties LogPublishingOptionProperty
+instance Prelude.Eq LogPublishingOptionProperty
+instance Prelude.Show LogPublishingOptionProperty
 instance JSON.ToJSON LogPublishingOptionProperty

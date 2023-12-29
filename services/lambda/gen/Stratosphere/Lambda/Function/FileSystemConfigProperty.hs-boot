@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FileSystemConfigProperty :: Prelude.Type
 instance ToResourceProperties FileSystemConfigProperty
+instance Prelude.Eq FileSystemConfigProperty
+instance Prelude.Show FileSystemConfigProperty
 instance JSON.ToJSON FileSystemConfigProperty

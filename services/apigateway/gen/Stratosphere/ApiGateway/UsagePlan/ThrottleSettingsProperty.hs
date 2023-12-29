@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ThrottleSettingsProperty
   = ThrottleSettingsProperty {burstLimit :: (Prelude.Maybe (Value Prelude.Integer)),
                               rateLimit :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThrottleSettingsProperty :: ThrottleSettingsProperty
 mkThrottleSettingsProperty
   = ThrottleSettingsProperty

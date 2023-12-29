@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.AlarmProperty as Exports
 import Stratosphere.ResourceProperties
 data AutoRollbackConfigProperty
   = AutoRollbackConfigProperty {alarms :: [AlarmProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoRollbackConfigProperty ::
   [AlarmProperty] -> AutoRollbackConfigProperty
 mkAutoRollbackConfigProperty alarms

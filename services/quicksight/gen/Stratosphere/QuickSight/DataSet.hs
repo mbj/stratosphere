@@ -37,6 +37,7 @@ data DataSet
              rowLevelPermissionDataSet :: (Prelude.Maybe RowLevelPermissionDataSetProperty),
              rowLevelPermissionTagConfiguration :: (Prelude.Maybe RowLevelPermissionTagConfigurationProperty),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSet :: DataSet
 mkDataSet
   = DataSet

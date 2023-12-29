@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DataSourceErrorInfoProperty
   = DataSourceErrorInfoProperty {message :: (Prelude.Maybe (Value Prelude.Text)),
                                  type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceErrorInfoProperty :: DataSourceErrorInfoProperty
 mkDataSourceErrorInfoProperty
   = DataSourceErrorInfoProperty

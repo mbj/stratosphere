@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MutualTlsAuthenticationProperty :: Prelude.Type
 instance ToResourceProperties MutualTlsAuthenticationProperty
+instance Prelude.Eq MutualTlsAuthenticationProperty
+instance Prelude.Show MutualTlsAuthenticationProperty
 instance JSON.ToJSON MutualTlsAuthenticationProperty

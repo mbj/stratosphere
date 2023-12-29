@@ -12,6 +12,7 @@ data LaunchNotificationConstraint
                                   notificationArns :: (ValueList Prelude.Text),
                                   portfolioId :: (Value Prelude.Text),
                                   productId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchNotificationConstraint ::
   ValueList Prelude.Text
   -> Value Prelude.Text

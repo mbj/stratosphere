@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RedshiftConnectorProfileCredentialsProperty :: Prelude.Type
 instance ToResourceProperties RedshiftConnectorProfileCredentialsProperty
+instance Prelude.Eq RedshiftConnectorProfileCredentialsProperty
+instance Prelude.Show RedshiftConnectorProfileCredentialsProperty
 instance JSON.ToJSON RedshiftConnectorProfileCredentialsProperty

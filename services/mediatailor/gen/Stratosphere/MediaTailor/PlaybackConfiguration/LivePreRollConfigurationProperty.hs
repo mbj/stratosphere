@@ -10,6 +10,7 @@ import Stratosphere.Value
 data LivePreRollConfigurationProperty
   = LivePreRollConfigurationProperty {adDecisionServerUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                       maxDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLivePreRollConfigurationProperty ::
   LivePreRollConfigurationProperty
 mkLivePreRollConfigurationProperty

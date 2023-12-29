@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SortPropertyProperty
   = SortPropertyProperty {direction :: (Value Prelude.Text),
                           field :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSortPropertyProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SortPropertyProperty
 mkSortPropertyProperty direction field

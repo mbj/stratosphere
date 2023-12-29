@@ -12,6 +12,7 @@ data HttpMatchProperty
   = HttpMatchProperty {headerMatches :: (Prelude.Maybe [HeaderMatchProperty]),
                        method :: (Prelude.Maybe (Value Prelude.Text)),
                        pathMatch :: (Prelude.Maybe PathMatchProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpMatchProperty :: HttpMatchProperty
 mkHttpMatchProperty
   = HttpMatchProperty

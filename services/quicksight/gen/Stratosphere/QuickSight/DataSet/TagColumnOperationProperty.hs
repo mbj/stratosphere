@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TagColumnOperationProperty
   = TagColumnOperationProperty {columnName :: (Value Prelude.Text),
                                 tags :: [ColumnTagProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTagColumnOperationProperty ::
   Value Prelude.Text
   -> [ColumnTagProperty] -> TagColumnOperationProperty

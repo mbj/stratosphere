@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DRTAccess
   = DRTAccess {logBucketList :: (Prelude.Maybe (ValueList Prelude.Text)),
                roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDRTAccess :: Value Prelude.Text -> DRTAccess
 mkDRTAccess roleArn
   = DRTAccess {roleArn = roleArn, logBucketList = Prelude.Nothing}

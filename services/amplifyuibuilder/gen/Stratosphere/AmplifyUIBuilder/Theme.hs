@@ -14,6 +14,7 @@ data Theme
            overrides :: (Prelude.Maybe [ThemeValuesProperty]),
            tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
            values :: [ThemeValuesProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTheme :: Value Prelude.Text -> [ThemeValuesProperty] -> Theme
 mkTheme name values
   = Theme

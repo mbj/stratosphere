@@ -10,6 +10,7 @@ data S3BucketSourceProperty
   = S3BucketSourceProperty {s3Bucket :: (Value Prelude.Text),
                             s3BucketOwner :: (Prelude.Maybe (Value Prelude.Text)),
                             s3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3BucketSourceProperty ::
   Value Prelude.Text -> S3BucketSourceProperty
 mkS3BucketSourceProperty s3Bucket

@@ -12,6 +12,7 @@ data FeatureConfigurationsProperty
   = FeatureConfigurationsProperty {additionalConfiguration :: (Prelude.Maybe [FeatureAdditionalConfigurationProperty]),
                                    name :: (Prelude.Maybe (Value Prelude.Text)),
                                    status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFeatureConfigurationsProperty :: FeatureConfigurationsProperty
 mkFeatureConfigurationsProperty
   = FeatureConfigurationsProperty

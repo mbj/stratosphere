@@ -12,6 +12,7 @@ data PathOptionsProperty
   = PathOptionsProperty {filesLimit :: (Prelude.Maybe FilesLimitProperty),
                          lastModifiedDateCondition :: (Prelude.Maybe FilterExpressionProperty),
                          parameters :: (Prelude.Maybe [PathParameterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPathOptionsProperty :: PathOptionsProperty
 mkPathOptionsProperty
   = PathOptionsProperty

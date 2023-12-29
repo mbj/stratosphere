@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CustomResponseProperty as Exp
 import Stratosphere.ResourceProperties
 data BlockActionProperty
   = BlockActionProperty {customResponse :: (Prelude.Maybe CustomResponseProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockActionProperty :: BlockActionProperty
 mkBlockActionProperty
   = BlockActionProperty {customResponse = Prelude.Nothing}

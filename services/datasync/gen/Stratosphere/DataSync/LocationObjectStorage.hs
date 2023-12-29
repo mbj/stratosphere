@@ -18,6 +18,7 @@ data LocationObjectStorage
                            serverProtocol :: (Prelude.Maybe (Value Prelude.Text)),
                            subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationObjectStorage ::
   ValueList Prelude.Text -> LocationObjectStorage
 mkLocationObjectStorage agentArns

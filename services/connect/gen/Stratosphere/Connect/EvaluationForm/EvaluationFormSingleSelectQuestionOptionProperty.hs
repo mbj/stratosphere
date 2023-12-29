@@ -12,6 +12,7 @@ data EvaluationFormSingleSelectQuestionOptionProperty
                                                       refId :: (Value Prelude.Text),
                                                       score :: (Prelude.Maybe (Value Prelude.Integer)),
                                                       text :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSingleSelectQuestionOptionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -15,6 +15,7 @@ data ConfigurationAggregator
                              configurationAggregatorName :: (Prelude.Maybe (Value Prelude.Text)),
                              organizationAggregationSource :: (Prelude.Maybe OrganizationAggregationSourceProperty),
                              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationAggregator :: ConfigurationAggregator
 mkConfigurationAggregator
   = ConfigurationAggregator

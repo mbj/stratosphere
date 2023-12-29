@@ -11,6 +11,7 @@ data NotificationProperty
                           notificationType :: (Value Prelude.Text),
                           threshold :: (Value Prelude.Double),
                           thresholdType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

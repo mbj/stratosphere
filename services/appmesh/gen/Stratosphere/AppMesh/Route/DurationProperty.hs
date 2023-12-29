@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DurationProperty
   = DurationProperty {unit :: (Value Prelude.Text),
                       value :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDurationProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> DurationProperty
 mkDurationProperty unit value

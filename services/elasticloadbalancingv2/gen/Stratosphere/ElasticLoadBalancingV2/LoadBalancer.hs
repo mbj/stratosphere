@@ -19,6 +19,7 @@ data LoadBalancer
                   subnets :: (Prelude.Maybe (ValueList Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag]),
                   type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancer :: LoadBalancer
 mkLoadBalancer
   = LoadBalancer

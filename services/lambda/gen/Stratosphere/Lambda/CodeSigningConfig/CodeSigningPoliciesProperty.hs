@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CodeSigningPoliciesProperty
   = CodeSigningPoliciesProperty {untrustedArtifactOnDeployment :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeSigningPoliciesProperty ::
   Value Prelude.Text -> CodeSigningPoliciesProperty
 mkCodeSigningPoliciesProperty untrustedArtifactOnDeployment

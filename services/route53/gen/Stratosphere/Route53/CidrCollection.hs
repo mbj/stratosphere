@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CidrCollection
   = CidrCollection {locations :: (Prelude.Maybe [LocationProperty]),
                     name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCidrCollection :: Value Prelude.Text -> CidrCollection
 mkCidrCollection name
   = CidrCollection {name = name, locations = Prelude.Nothing}

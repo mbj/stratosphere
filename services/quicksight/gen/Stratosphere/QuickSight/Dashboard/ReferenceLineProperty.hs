@@ -14,6 +14,7 @@ data ReferenceLineProperty
                            labelConfiguration :: (Prelude.Maybe ReferenceLineLabelConfigurationProperty),
                            status :: (Prelude.Maybe (Value Prelude.Text)),
                            styleConfiguration :: (Prelude.Maybe ReferenceLineStyleConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceLineProperty ::
   ReferenceLineDataConfigurationProperty -> ReferenceLineProperty
 mkReferenceLineProperty dataConfiguration

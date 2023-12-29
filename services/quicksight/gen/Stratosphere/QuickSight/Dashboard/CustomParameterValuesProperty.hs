@@ -11,6 +11,7 @@ data CustomParameterValuesProperty
                                    decimalValues :: (Prelude.Maybe (ValueList Prelude.Double)),
                                    integerValues :: (Prelude.Maybe (ValueList Prelude.Double)),
                                    stringValues :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomParameterValuesProperty :: CustomParameterValuesProperty
 mkCustomParameterValuesProperty
   = CustomParameterValuesProperty

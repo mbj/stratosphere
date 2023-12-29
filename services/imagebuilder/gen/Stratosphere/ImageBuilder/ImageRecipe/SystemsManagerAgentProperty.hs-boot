@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SystemsManagerAgentProperty :: Prelude.Type
 instance ToResourceProperties SystemsManagerAgentProperty
+instance Prelude.Eq SystemsManagerAgentProperty
+instance Prelude.Show SystemsManagerAgentProperty
 instance JSON.ToJSON SystemsManagerAgentProperty

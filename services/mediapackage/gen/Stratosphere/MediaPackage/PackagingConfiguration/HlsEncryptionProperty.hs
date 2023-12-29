@@ -11,6 +11,7 @@ data HlsEncryptionProperty
   = HlsEncryptionProperty {constantInitializationVector :: (Prelude.Maybe (Value Prelude.Text)),
                            encryptionMethod :: (Prelude.Maybe (Value Prelude.Text)),
                            spekeKeyProvider :: SpekeKeyProviderProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsEncryptionProperty ::
   SpekeKeyProviderProperty -> HlsEncryptionProperty
 mkHlsEncryptionProperty spekeKeyProvider

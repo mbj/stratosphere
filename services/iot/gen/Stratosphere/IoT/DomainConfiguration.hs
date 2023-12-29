@@ -19,6 +19,7 @@ data DomainConfiguration
                          tags :: (Prelude.Maybe [Tag]),
                          tlsConfig :: (Prelude.Maybe TlsConfigProperty),
                          validationCertificateArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainConfiguration :: DomainConfiguration
 mkDomainConfiguration
   = DomainConfiguration

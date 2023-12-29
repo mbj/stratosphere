@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ServiceNowServiceCatalogConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ServiceNowServiceCatalogConfigurationProperty
+instance Prelude.Eq ServiceNowServiceCatalogConfigurationProperty
+instance Prelude.Show ServiceNowServiceCatalogConfigurationProperty
 instance JSON.ToJSON ServiceNowServiceCatalogConfigurationProperty

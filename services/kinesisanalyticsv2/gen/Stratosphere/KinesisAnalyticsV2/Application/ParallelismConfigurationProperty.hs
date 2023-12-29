@@ -12,6 +12,7 @@ data ParallelismConfigurationProperty
                                       configurationType :: (Value Prelude.Text),
                                       parallelism :: (Prelude.Maybe (Value Prelude.Integer)),
                                       parallelismPerKPU :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParallelismConfigurationProperty ::
   Value Prelude.Text -> ParallelismConfigurationProperty
 mkParallelismConfigurationProperty configurationType

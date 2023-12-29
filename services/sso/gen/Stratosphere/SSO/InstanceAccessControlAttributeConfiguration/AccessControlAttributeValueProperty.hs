@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlAttributeValueProperty
   = AccessControlAttributeValueProperty {source :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlAttributeValueProperty ::
   ValueList Prelude.Text -> AccessControlAttributeValueProperty
 mkAccessControlAttributeValueProperty source

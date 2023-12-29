@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AssetHierarchyProperty
   = AssetHierarchyProperty {childAssetId :: (Value Prelude.Text),
                             logicalId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetHierarchyProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AssetHierarchyProperty
 mkAssetHierarchyProperty childAssetId logicalId

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeoutConfigProperty
   = TimeoutConfigProperty {inProgressTimeoutInMinutes :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeoutConfigProperty ::
   Value Prelude.Integer -> TimeoutConfigProperty
 mkTimeoutConfigProperty inProgressTimeoutInMinutes

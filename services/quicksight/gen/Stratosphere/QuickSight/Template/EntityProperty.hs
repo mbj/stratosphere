@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EntityProperty
   = EntityProperty {path :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityProperty :: EntityProperty
 mkEntityProperty = EntityProperty {path = Prelude.Nothing}
 instance ToResourceProperties EntityProperty where

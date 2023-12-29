@@ -14,6 +14,7 @@ data AnomalyDetector
                      anomalyDetectorName :: (Prelude.Maybe (Value Prelude.Text)),
                      kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                      metricSetList :: [MetricSetProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnomalyDetector ::
   AnomalyDetectorConfigProperty
   -> [MetricSetProperty] -> AnomalyDetector

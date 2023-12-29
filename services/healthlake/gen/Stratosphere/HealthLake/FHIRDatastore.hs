@@ -15,6 +15,7 @@ data FHIRDatastore
                    preloadDataConfig :: (Prelude.Maybe PreloadDataConfigProperty),
                    sseConfiguration :: (Prelude.Maybe SseConfigurationProperty),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFHIRDatastore :: Value Prelude.Text -> FHIRDatastore
 mkFHIRDatastore datastoreTypeVersion
   = FHIRDatastore

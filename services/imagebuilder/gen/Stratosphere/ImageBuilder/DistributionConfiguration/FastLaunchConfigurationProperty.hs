@@ -15,6 +15,7 @@ data FastLaunchConfigurationProperty
                                      launchTemplate :: (Prelude.Maybe FastLaunchLaunchTemplateSpecificationProperty),
                                      maxParallelLaunches :: (Prelude.Maybe (Value Prelude.Integer)),
                                      snapshotConfiguration :: (Prelude.Maybe FastLaunchSnapshotConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFastLaunchConfigurationProperty ::
   FastLaunchConfigurationProperty
 mkFastLaunchConfigurationProperty

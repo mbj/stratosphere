@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PrefixLevelStorageMetricsProperty :: Prelude.Type
 instance ToResourceProperties PrefixLevelStorageMetricsProperty
+instance Prelude.Eq PrefixLevelStorageMetricsProperty
+instance Prelude.Show PrefixLevelStorageMetricsProperty
 instance JSON.ToJSON PrefixLevelStorageMetricsProperty

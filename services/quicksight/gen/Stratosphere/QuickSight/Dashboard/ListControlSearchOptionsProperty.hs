@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ListControlSearchOptionsProperty
   = ListControlSearchOptionsProperty {visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListControlSearchOptionsProperty ::
   ListControlSearchOptionsProperty
 mkListControlSearchOptionsProperty

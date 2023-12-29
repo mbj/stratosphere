@@ -11,6 +11,7 @@ import Stratosphere.Value
 data NumericSeparatorConfigurationProperty
   = NumericSeparatorConfigurationProperty {decimalSeparator :: (Prelude.Maybe (Value Prelude.Text)),
                                            thousandsSeparator :: (Prelude.Maybe ThousandSeparatorOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericSeparatorConfigurationProperty ::
   NumericSeparatorConfigurationProperty
 mkNumericSeparatorConfigurationProperty

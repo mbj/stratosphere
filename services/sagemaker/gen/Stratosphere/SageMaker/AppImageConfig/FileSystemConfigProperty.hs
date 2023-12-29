@@ -10,6 +10,7 @@ data FileSystemConfigProperty
   = FileSystemConfigProperty {defaultGid :: (Prelude.Maybe (Value Prelude.Integer)),
                               defaultUid :: (Prelude.Maybe (Value Prelude.Integer)),
                               mountPath :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFileSystemConfigProperty :: FileSystemConfigProperty
 mkFileSystemConfigProperty
   = FileSystemConfigProperty

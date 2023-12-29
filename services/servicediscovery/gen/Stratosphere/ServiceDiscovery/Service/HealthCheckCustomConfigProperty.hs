@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HealthCheckCustomConfigProperty
   = HealthCheckCustomConfigProperty {failureThreshold :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckCustomConfigProperty ::
   HealthCheckCustomConfigProperty
 mkHealthCheckCustomConfigProperty

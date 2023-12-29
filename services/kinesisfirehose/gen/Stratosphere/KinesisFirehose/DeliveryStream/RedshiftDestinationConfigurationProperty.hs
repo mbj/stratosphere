@@ -24,6 +24,7 @@ data RedshiftDestinationConfigurationProperty
                                               s3BackupMode :: (Prelude.Maybe (Value Prelude.Text)),
                                               s3Configuration :: S3DestinationConfigurationProperty,
                                               username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftDestinationConfigurationProperty ::
   Value Prelude.Text
   -> CopyCommandProperty

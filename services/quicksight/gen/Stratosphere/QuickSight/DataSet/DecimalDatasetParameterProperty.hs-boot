@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DecimalDatasetParameterProperty :: Prelude.Type
 instance ToResourceProperties DecimalDatasetParameterProperty
+instance Prelude.Eq DecimalDatasetParameterProperty
+instance Prelude.Show DecimalDatasetParameterProperty
 instance JSON.ToJSON DecimalDatasetParameterProperty

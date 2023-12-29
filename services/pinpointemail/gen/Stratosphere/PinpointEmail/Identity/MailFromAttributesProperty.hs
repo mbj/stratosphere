@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MailFromAttributesProperty
   = MailFromAttributesProperty {behaviorOnMxFailure :: (Prelude.Maybe (Value Prelude.Text)),
                                 mailFromDomain :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMailFromAttributesProperty :: MailFromAttributesProperty
 mkMailFromAttributesProperty
   = MailFromAttributesProperty

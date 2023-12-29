@@ -12,6 +12,7 @@ data OutputDestinationSettingsProperty
                                        streamName :: (Prelude.Maybe (Value Prelude.Text)),
                                        url :: (Prelude.Maybe (Value Prelude.Text)),
                                        username :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputDestinationSettingsProperty ::
   OutputDestinationSettingsProperty
 mkOutputDestinationSettingsProperty

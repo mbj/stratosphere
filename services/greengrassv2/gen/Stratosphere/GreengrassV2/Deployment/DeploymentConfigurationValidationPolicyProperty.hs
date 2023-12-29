@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentConfigurationValidationPolicyProperty
   = DeploymentConfigurationValidationPolicyProperty {timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentConfigurationValidationPolicyProperty ::
   DeploymentConfigurationValidationPolicyProperty
 mkDeploymentConfigurationValidationPolicyProperty

@@ -13,6 +13,7 @@ data InAppMessageButtonProperty
                                 defaultConfig :: (Prelude.Maybe DefaultButtonConfigurationProperty),
                                 iOS :: (Prelude.Maybe OverrideButtonConfigurationProperty),
                                 web :: (Prelude.Maybe OverrideButtonConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppMessageButtonProperty :: InAppMessageButtonProperty
 mkInAppMessageButtonProperty
   = InAppMessageButtonProperty

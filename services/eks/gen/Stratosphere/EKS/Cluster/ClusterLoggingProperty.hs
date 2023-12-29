@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.EKS.Cluster.LoggingTypeConfigProperty as Expo
 import Stratosphere.ResourceProperties
 data ClusterLoggingProperty
   = ClusterLoggingProperty {enabledTypes :: (Prelude.Maybe [LoggingTypeConfigProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterLoggingProperty :: ClusterLoggingProperty
 mkClusterLoggingProperty
   = ClusterLoggingProperty {enabledTypes = Prelude.Nothing}

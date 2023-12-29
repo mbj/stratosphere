@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StatisticalThresholdProperty :: Prelude.Type
 instance ToResourceProperties StatisticalThresholdProperty
+instance Prelude.Eq StatisticalThresholdProperty
+instance Prelude.Show StatisticalThresholdProperty
 instance JSON.ToJSON StatisticalThresholdProperty

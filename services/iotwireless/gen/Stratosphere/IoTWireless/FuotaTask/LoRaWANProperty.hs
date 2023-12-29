@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LoRaWANProperty
   = LoRaWANProperty {rfRegion :: (Value Prelude.Text),
                      startTime :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANProperty :: Value Prelude.Text -> LoRaWANProperty
 mkLoRaWANProperty rfRegion
   = LoRaWANProperty

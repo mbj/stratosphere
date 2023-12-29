@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ServerlessScalingConfigurationProperty
   = ServerlessScalingConfigurationProperty {maxCapacity :: (Value Prelude.Double),
                                             minCapacity :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerlessScalingConfigurationProperty ::
   Value Prelude.Double
   -> Value Prelude.Double -> ServerlessScalingConfigurationProperty

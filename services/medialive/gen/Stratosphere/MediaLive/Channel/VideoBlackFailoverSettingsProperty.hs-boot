@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VideoBlackFailoverSettingsProperty :: Prelude.Type
 instance ToResourceProperties VideoBlackFailoverSettingsProperty
+instance Prelude.Eq VideoBlackFailoverSettingsProperty
+instance Prelude.Show VideoBlackFailoverSettingsProperty
 instance JSON.ToJSON VideoBlackFailoverSettingsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MssManifestProperty :: Prelude.Type
 instance ToResourceProperties MssManifestProperty
+instance Prelude.Eq MssManifestProperty
+instance Prelude.Show MssManifestProperty
 instance JSON.ToJSON MssManifestProperty

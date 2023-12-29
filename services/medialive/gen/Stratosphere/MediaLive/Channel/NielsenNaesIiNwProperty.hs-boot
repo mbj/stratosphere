@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NielsenNaesIiNwProperty :: Prelude.Type
 instance ToResourceProperties NielsenNaesIiNwProperty
+instance Prelude.Eq NielsenNaesIiNwProperty
+instance Prelude.Show NielsenNaesIiNwProperty
 instance JSON.ToJSON NielsenNaesIiNwProperty

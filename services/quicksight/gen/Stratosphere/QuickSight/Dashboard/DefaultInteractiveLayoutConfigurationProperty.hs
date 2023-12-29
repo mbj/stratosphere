@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DefaultInteractiveLayoutConfigurationProperty
   = DefaultInteractiveLayoutConfigurationProperty {freeForm :: (Prelude.Maybe DefaultFreeFormLayoutConfigurationProperty),
                                                    grid :: (Prelude.Maybe DefaultGridLayoutConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultInteractiveLayoutConfigurationProperty ::
   DefaultInteractiveLayoutConfigurationProperty
 mkDefaultInteractiveLayoutConfigurationProperty

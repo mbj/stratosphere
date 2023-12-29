@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EcsEnvironmentFileProperty :: Prelude.Type
 instance ToResourceProperties EcsEnvironmentFileProperty
+instance Prelude.Eq EcsEnvironmentFileProperty
+instance Prelude.Show EcsEnvironmentFileProperty
 instance JSON.ToJSON EcsEnvironmentFileProperty

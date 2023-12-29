@@ -10,6 +10,7 @@ import Stratosphere.Value
 data IPSet
   = IPSet {iPSetDescriptors :: (Prelude.Maybe [IPSetDescriptorProperty]),
            name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSet :: Value Prelude.Text -> IPSet
 mkIPSet name
   = IPSet {name = name, iPSetDescriptors = Prelude.Nothing}

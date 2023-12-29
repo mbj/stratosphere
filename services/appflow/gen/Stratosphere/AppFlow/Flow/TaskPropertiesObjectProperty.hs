@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TaskPropertiesObjectProperty
   = TaskPropertiesObjectProperty {key :: (Value Prelude.Text),
                                   value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskPropertiesObjectProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> TaskPropertiesObjectProperty

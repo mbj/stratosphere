@@ -14,6 +14,7 @@ data FilterGroupProperty
                          filters :: [FilterProperty],
                          scopeConfiguration :: FilterScopeConfigurationProperty,
                          status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterGroupProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

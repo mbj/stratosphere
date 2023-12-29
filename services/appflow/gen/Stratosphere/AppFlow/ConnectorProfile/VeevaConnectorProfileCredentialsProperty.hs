@@ -10,6 +10,7 @@ import Stratosphere.Value
 data VeevaConnectorProfileCredentialsProperty
   = VeevaConnectorProfileCredentialsProperty {password :: (Value Prelude.Text),
                                               username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVeevaConnectorProfileCredentialsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> VeevaConnectorProfileCredentialsProperty

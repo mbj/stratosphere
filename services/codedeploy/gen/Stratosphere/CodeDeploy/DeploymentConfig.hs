@@ -13,6 +13,7 @@ data DeploymentConfig
                       deploymentConfigName :: (Prelude.Maybe (Value Prelude.Text)),
                       minimumHealthyHosts :: (Prelude.Maybe MinimumHealthyHostsProperty),
                       trafficRoutingConfig :: (Prelude.Maybe TrafficRoutingConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentConfig :: DeploymentConfig
 mkDeploymentConfig
   = DeploymentConfig

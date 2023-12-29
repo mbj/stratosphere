@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EBSOptionsProperty :: Prelude.Type
 instance ToResourceProperties EBSOptionsProperty
+instance Prelude.Eq EBSOptionsProperty
+instance Prelude.Show EBSOptionsProperty
 instance JSON.ToJSON EBSOptionsProperty

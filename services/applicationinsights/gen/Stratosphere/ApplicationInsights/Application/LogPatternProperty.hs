@@ -10,6 +10,7 @@ data LogPatternProperty
   = LogPatternProperty {pattern :: (Value Prelude.Text),
                         patternName :: (Value Prelude.Text),
                         rank :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogPatternProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

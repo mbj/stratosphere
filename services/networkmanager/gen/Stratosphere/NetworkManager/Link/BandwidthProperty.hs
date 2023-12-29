@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BandwidthProperty
   = BandwidthProperty {downloadSpeed :: (Prelude.Maybe (Value Prelude.Integer)),
                        uploadSpeed :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBandwidthProperty :: BandwidthProperty
 mkBandwidthProperty
   = BandwidthProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NumericFormatConfigurationProperty :: Prelude.Type
 instance ToResourceProperties NumericFormatConfigurationProperty
+instance Prelude.Eq NumericFormatConfigurationProperty
+instance Prelude.Show NumericFormatConfigurationProperty
 instance JSON.ToJSON NumericFormatConfigurationProperty

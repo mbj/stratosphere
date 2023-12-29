@@ -19,6 +19,7 @@ data KPIOptionsProperty
                         secondaryValue :: (Prelude.Maybe SecondaryValueOptionsProperty),
                         secondaryValueFontConfiguration :: (Prelude.Maybe FontConfigurationProperty),
                         trendArrows :: (Prelude.Maybe TrendArrowOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKPIOptionsProperty :: KPIOptionsProperty
 mkKPIOptionsProperty
   = KPIOptionsProperty

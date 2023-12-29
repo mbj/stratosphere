@@ -11,6 +11,7 @@ data WindowsEventProperty
                           eventName :: (Value Prelude.Text),
                           logGroupName :: (Value Prelude.Text),
                           patternSet :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWindowsEventProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> WindowsEventProperty

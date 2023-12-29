@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DashboardPublishOptionsProperty :: Prelude.Type
 instance ToResourceProperties DashboardPublishOptionsProperty
+instance Prelude.Eq DashboardPublishOptionsProperty
+instance Prelude.Show DashboardPublishOptionsProperty
 instance JSON.ToJSON DashboardPublishOptionsProperty

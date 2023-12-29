@@ -12,6 +12,7 @@ data AdminCreateUserConfigProperty
   = AdminCreateUserConfigProperty {allowAdminCreateUserOnly :: (Prelude.Maybe (Value Prelude.Bool)),
                                    inviteMessageTemplate :: (Prelude.Maybe InviteMessageTemplateProperty),
                                    unusedAccountValidityDays :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdminCreateUserConfigProperty :: AdminCreateUserConfigProperty
 mkAdminCreateUserConfigProperty
   = AdminCreateUserConfigProperty

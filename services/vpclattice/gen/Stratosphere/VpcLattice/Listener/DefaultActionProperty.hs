@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data DefaultActionProperty
   = DefaultActionProperty {fixedResponse :: (Prelude.Maybe FixedResponseProperty),
                            forward :: (Prelude.Maybe ForwardProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultActionProperty :: DefaultActionProperty
 mkDefaultActionProperty
   = DefaultActionProperty

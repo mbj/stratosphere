@@ -10,6 +10,7 @@ data Certificate
   = Certificate {certificateIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                  certificatePem :: (Prelude.Maybe (Value Prelude.Text)),
                  certificateWallet :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificate :: Certificate
 mkCertificate
   = Certificate

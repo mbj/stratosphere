@@ -11,6 +11,7 @@ import Stratosphere.Value
 data IntentOverrideProperty
   = IntentOverrideProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                             slots :: (Prelude.Maybe [SlotValueOverrideMapProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntentOverrideProperty :: IntentOverrideProperty
 mkIntentOverrideProperty
   = IntentOverrideProperty

@@ -13,6 +13,7 @@ data FailoverConfigProperty
                             recoveryWindow :: (Prelude.Maybe (Value Prelude.Integer)),
                             sourcePriority :: (Prelude.Maybe SourcePriorityProperty),
                             state :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFailoverConfigProperty :: FailoverConfigProperty
 mkFailoverConfigProperty
   = FailoverConfigProperty

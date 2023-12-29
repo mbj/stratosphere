@@ -15,6 +15,7 @@ data WordCloudChartConfigurationProperty
                                          fieldWells :: (Prelude.Maybe WordCloudFieldWellsProperty),
                                          sortConfiguration :: (Prelude.Maybe WordCloudSortConfigurationProperty),
                                          wordCloudOptions :: (Prelude.Maybe WordCloudOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWordCloudChartConfigurationProperty ::
   WordCloudChartConfigurationProperty
 mkWordCloudChartConfigurationProperty

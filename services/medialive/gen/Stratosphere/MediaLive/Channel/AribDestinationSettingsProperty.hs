@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AribDestinationSettingsProperty
   = AribDestinationSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAribDestinationSettingsProperty ::
   AribDestinationSettingsProperty
 mkAribDestinationSettingsProperty

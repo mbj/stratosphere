@@ -9,6 +9,7 @@ import Stratosphere.Value
 data KinesisConfigurationProperty
   = KinesisConfigurationProperty {aggregationEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                   streamArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisConfigurationProperty :: KinesisConfigurationProperty
 mkKinesisConfigurationProperty
   = KinesisConfigurationProperty

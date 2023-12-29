@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ParametersInCacheKeyAndForwardedToOriginProperty :: Prelude.Type
 instance ToResourceProperties ParametersInCacheKeyAndForwardedToOriginProperty
+instance Prelude.Eq ParametersInCacheKeyAndForwardedToOriginProperty
+instance Prelude.Show ParametersInCacheKeyAndForwardedToOriginProperty
 instance JSON.ToJSON ParametersInCacheKeyAndForwardedToOriginProperty

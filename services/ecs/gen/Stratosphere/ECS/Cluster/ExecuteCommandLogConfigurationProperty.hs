@@ -13,6 +13,7 @@ data ExecuteCommandLogConfigurationProperty
                                             s3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
                                             s3EncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                             s3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExecuteCommandLogConfigurationProperty ::
   ExecuteCommandLogConfigurationProperty
 mkExecuteCommandLogConfigurationProperty

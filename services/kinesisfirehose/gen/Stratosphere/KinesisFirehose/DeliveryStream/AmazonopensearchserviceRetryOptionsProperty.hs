@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmazonopensearchserviceRetryOptionsProperty
   = AmazonopensearchserviceRetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonopensearchserviceRetryOptionsProperty ::
   AmazonopensearchserviceRetryOptionsProperty
 mkAmazonopensearchserviceRetryOptionsProperty

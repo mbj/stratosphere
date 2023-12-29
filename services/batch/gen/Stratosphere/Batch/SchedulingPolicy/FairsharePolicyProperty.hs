@@ -12,6 +12,7 @@ data FairsharePolicyProperty
   = FairsharePolicyProperty {computeReservation :: (Prelude.Maybe (Value Prelude.Double)),
                              shareDecaySeconds :: (Prelude.Maybe (Value Prelude.Double)),
                              shareDistribution :: (Prelude.Maybe [ShareAttributesProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFairsharePolicyProperty :: FairsharePolicyProperty
 mkFairsharePolicyProperty
   = FairsharePolicyProperty

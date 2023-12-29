@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CachePolicyConfigProperty :: Prelude.Type
 instance ToResourceProperties CachePolicyConfigProperty
+instance Prelude.Eq CachePolicyConfigProperty
+instance Prelude.Show CachePolicyConfigProperty
 instance JSON.ToJSON CachePolicyConfigProperty

@@ -24,6 +24,7 @@ data HttpEndpointDestinationConfigurationProperty
                                                   roleARN :: (Prelude.Maybe (Value Prelude.Text)),
                                                   s3BackupMode :: (Prelude.Maybe (Value Prelude.Text)),
                                                   s3Configuration :: S3DestinationConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpEndpointDestinationConfigurationProperty ::
   HttpEndpointConfigurationProperty
   -> S3DestinationConfigurationProperty

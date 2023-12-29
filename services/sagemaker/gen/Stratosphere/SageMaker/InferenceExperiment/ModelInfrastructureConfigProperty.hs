@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ModelInfrastructureConfigProperty
   = ModelInfrastructureConfigProperty {infrastructureType :: (Value Prelude.Text),
                                        realTimeInferenceConfig :: RealTimeInferenceConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelInfrastructureConfigProperty ::
   Value Prelude.Text
   -> RealTimeInferenceConfigProperty

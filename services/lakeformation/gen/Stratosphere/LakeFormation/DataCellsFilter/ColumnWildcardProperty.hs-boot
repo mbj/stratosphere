@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ColumnWildcardProperty :: Prelude.Type
 instance ToResourceProperties ColumnWildcardProperty
+instance Prelude.Eq ColumnWildcardProperty
+instance Prelude.Show ColumnWildcardProperty
 instance JSON.ToJSON ColumnWildcardProperty

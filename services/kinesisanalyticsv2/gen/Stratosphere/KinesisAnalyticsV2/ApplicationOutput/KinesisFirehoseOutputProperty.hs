@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisFirehoseOutputProperty
   = KinesisFirehoseOutputProperty {resourceARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisFirehoseOutputProperty ::
   Value Prelude.Text -> KinesisFirehoseOutputProperty
 mkKinesisFirehoseOutputProperty resourceARN

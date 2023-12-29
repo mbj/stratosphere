@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SslConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SslConfigurationProperty
+instance Prelude.Eq SslConfigurationProperty
+instance Prelude.Show SslConfigurationProperty
 instance JSON.ToJSON SslConfigurationProperty

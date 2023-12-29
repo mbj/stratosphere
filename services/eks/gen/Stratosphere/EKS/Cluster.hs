@@ -22,6 +22,7 @@ data Cluster
              roleArn :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag]),
              version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster ::
   ResourcesVpcConfigProperty -> Value Prelude.Text -> Cluster
 mkCluster resourcesVpcConfig roleArn

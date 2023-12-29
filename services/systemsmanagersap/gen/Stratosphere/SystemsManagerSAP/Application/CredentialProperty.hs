@@ -10,6 +10,7 @@ data CredentialProperty
   = CredentialProperty {credentialType :: (Prelude.Maybe (Value Prelude.Text)),
                         databaseName :: (Prelude.Maybe (Value Prelude.Text)),
                         secretId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCredentialProperty :: CredentialProperty
 mkCredentialProperty
   = CredentialProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 data ValueMappingProperty
   = ValueMappingProperty {displayValue :: (Prelude.Maybe FormInputValuePropertyProperty),
                           value :: FormInputValuePropertyProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkValueMappingProperty ::
   FormInputValuePropertyProperty -> ValueMappingProperty
 mkValueMappingProperty value

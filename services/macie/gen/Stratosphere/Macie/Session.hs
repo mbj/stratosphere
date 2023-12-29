@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Session
   = Session {findingPublishingFrequency :: (Prelude.Maybe (Value Prelude.Text)),
              status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSession :: Session
 mkSession
   = Session

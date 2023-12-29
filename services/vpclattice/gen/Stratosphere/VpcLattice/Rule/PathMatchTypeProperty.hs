@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PathMatchTypeProperty
   = PathMatchTypeProperty {exact :: (Prelude.Maybe (Value Prelude.Text)),
                            prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPathMatchTypeProperty :: PathMatchTypeProperty
 mkPathMatchTypeProperty
   = PathMatchTypeProperty

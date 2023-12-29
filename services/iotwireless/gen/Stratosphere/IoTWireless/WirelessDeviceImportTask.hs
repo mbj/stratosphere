@@ -13,6 +13,7 @@ data WirelessDeviceImportTask
   = WirelessDeviceImportTask {destinationName :: (Value Prelude.Text),
                               sidewalk :: SidewalkProperty,
                               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWirelessDeviceImportTask ::
   Value Prelude.Text -> SidewalkProperty -> WirelessDeviceImportTask
 mkWirelessDeviceImportTask destinationName sidewalk

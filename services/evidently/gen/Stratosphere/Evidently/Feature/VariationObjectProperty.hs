@@ -12,6 +12,7 @@ data VariationObjectProperty
                              longValue :: (Prelude.Maybe (Value Prelude.Double)),
                              stringValue :: (Prelude.Maybe (Value Prelude.Text)),
                              variationName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVariationObjectProperty ::
   Value Prelude.Text -> VariationObjectProperty
 mkVariationObjectProperty variationName

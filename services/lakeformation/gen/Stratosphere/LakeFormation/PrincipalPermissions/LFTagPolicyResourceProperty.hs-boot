@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LFTagPolicyResourceProperty :: Prelude.Type
 instance ToResourceProperties LFTagPolicyResourceProperty
+instance Prelude.Eq LFTagPolicyResourceProperty
+instance Prelude.Show LFTagPolicyResourceProperty
 instance JSON.ToJSON LFTagPolicyResourceProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data KmsEncryptionConfigProperty
   = KmsEncryptionConfigProperty {cmkType :: (Value Prelude.Text),
                                  kmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKmsEncryptionConfigProperty ::
   Value Prelude.Text -> KmsEncryptionConfigProperty
 mkKmsEncryptionConfigProperty cmkType

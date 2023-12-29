@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConnectivityTlsProperty
   = VpcConnectivityTlsProperty {enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnectivityTlsProperty ::
   Value Prelude.Bool -> VpcConnectivityTlsProperty
 mkVpcConnectivityTlsProperty enabled

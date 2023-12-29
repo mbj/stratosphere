@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AclConfigurationProperty
   = AclConfigurationProperty {allowedGroupsColumnName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAclConfigurationProperty ::
   Value Prelude.Text -> AclConfigurationProperty
 mkAclConfigurationProperty allowedGroupsColumnName

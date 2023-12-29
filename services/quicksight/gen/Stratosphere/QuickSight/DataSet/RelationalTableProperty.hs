@@ -14,6 +14,7 @@ data RelationalTableProperty
                              inputColumns :: [InputColumnProperty],
                              name :: (Value Prelude.Text),
                              schema :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRelationalTableProperty ::
   Value Prelude.Text
   -> [InputColumnProperty]

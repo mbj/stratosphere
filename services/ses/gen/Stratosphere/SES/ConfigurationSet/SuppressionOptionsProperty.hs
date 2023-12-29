@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SuppressionOptionsProperty
   = SuppressionOptionsProperty {suppressedReasons :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSuppressionOptionsProperty :: SuppressionOptionsProperty
 mkSuppressionOptionsProperty
   = SuppressionOptionsProperty {suppressedReasons = Prelude.Nothing}

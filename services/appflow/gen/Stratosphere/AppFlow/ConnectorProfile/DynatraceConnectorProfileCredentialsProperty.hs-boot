@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DynatraceConnectorProfileCredentialsProperty :: Prelude.Type
 instance ToResourceProperties DynatraceConnectorProfileCredentialsProperty
+instance Prelude.Eq DynatraceConnectorProfileCredentialsProperty
+instance Prelude.Show DynatraceConnectorProfileCredentialsProperty
 instance JSON.ToJSON DynatraceConnectorProfileCredentialsProperty

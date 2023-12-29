@@ -15,6 +15,7 @@ data SignalCatalog
                    nodeCounts :: (Prelude.Maybe NodeCountsProperty),
                    nodes :: (Prelude.Maybe [NodeProperty]),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSignalCatalog :: SignalCatalog
 mkSignalCatalog
   = SignalCatalog

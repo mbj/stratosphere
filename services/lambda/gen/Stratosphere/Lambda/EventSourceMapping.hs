@@ -38,6 +38,7 @@ data EventSourceMapping
                         startingPositionTimestamp :: (Prelude.Maybe (Value Prelude.Double)),
                         topics :: (Prelude.Maybe (ValueList Prelude.Text)),
                         tumblingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventSourceMapping :: Value Prelude.Text -> EventSourceMapping
 mkEventSourceMapping functionName
   = EventSourceMapping

@@ -28,6 +28,7 @@ data ClientVpnEndpoint
                        transportProtocol :: (Prelude.Maybe (Value Prelude.Text)),
                        vpcId :: (Prelude.Maybe (Value Prelude.Text)),
                        vpnPort :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientVpnEndpoint ::
   [ClientAuthenticationRequestProperty]
   -> Value Prelude.Text

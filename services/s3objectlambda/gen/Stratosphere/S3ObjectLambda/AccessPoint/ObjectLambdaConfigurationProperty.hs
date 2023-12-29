@@ -13,6 +13,7 @@ data ObjectLambdaConfigurationProperty
                                        cloudWatchMetricsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                        supportingAccessPoint :: (Value Prelude.Text),
                                        transformationConfigurations :: [TransformationConfigurationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectLambdaConfigurationProperty ::
   Value Prelude.Text
   -> [TransformationConfigurationProperty]

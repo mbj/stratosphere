@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WorkflowDetailProperty
   = WorkflowDetailProperty {executionRole :: (Value Prelude.Text),
                             workflowId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflowDetailProperty ::
   Value Prelude.Text -> Value Prelude.Text -> WorkflowDetailProperty
 mkWorkflowDetailProperty executionRole workflowId

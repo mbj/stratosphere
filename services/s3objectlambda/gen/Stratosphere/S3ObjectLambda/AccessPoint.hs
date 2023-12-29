@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AccessPoint
   = AccessPoint {name :: (Prelude.Maybe (Value Prelude.Text)),
                  objectLambdaConfiguration :: ObjectLambdaConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPoint :: ObjectLambdaConfigurationProperty -> AccessPoint
 mkAccessPoint objectLambdaConfiguration
   = AccessPoint

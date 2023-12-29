@@ -12,6 +12,7 @@ data Map
          description :: (Prelude.Maybe (Value Prelude.Text)),
          mapName :: (Value Prelude.Text),
          pricingPlan :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMap :: MapConfigurationProperty -> Value Prelude.Text -> Map
 mkMap configuration mapName
   = Map

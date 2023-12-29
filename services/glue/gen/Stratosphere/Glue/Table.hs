@@ -11,6 +11,7 @@ data Table
   = Table {catalogId :: (Value Prelude.Text),
            databaseName :: (Value Prelude.Text),
            tableInput :: TableInputProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTable ::
   Value Prelude.Text
   -> Value Prelude.Text -> TableInputProperty -> Table

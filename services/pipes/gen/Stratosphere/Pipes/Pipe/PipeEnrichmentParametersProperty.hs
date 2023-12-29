@@ -11,6 +11,7 @@ import Stratosphere.Value
 data PipeEnrichmentParametersProperty
   = PipeEnrichmentParametersProperty {httpParameters :: (Prelude.Maybe PipeEnrichmentHttpParametersProperty),
                                       inputTemplate :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeEnrichmentParametersProperty ::
   PipeEnrichmentParametersProperty
 mkPipeEnrichmentParametersProperty

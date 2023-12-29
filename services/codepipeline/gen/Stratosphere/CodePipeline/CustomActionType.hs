@@ -19,6 +19,7 @@ data CustomActionType
                       settings :: (Prelude.Maybe SettingsProperty),
                       tags :: (Prelude.Maybe [Tag]),
                       version :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomActionType ::
   Value Prelude.Text
   -> ArtifactDetailsProperty

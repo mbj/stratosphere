@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SlackWorkspaceConfiguration
   = SlackWorkspaceConfiguration {teamId :: (Value Prelude.Text),
                                  versionId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlackWorkspaceConfiguration ::
   Value Prelude.Text -> SlackWorkspaceConfiguration
 mkSlackWorkspaceConfiguration teamId

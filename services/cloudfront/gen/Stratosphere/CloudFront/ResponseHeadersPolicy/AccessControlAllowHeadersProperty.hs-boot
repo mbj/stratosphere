@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AccessControlAllowHeadersProperty :: Prelude.Type
 instance ToResourceProperties AccessControlAllowHeadersProperty
+instance Prelude.Eq AccessControlAllowHeadersProperty
+instance Prelude.Show AccessControlAllowHeadersProperty
 instance JSON.ToJSON AccessControlAllowHeadersProperty

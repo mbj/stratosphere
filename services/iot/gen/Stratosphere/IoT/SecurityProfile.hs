@@ -18,6 +18,7 @@ data SecurityProfile
                      securityProfileName :: (Prelude.Maybe (Value Prelude.Text)),
                      tags :: (Prelude.Maybe [Tag]),
                      targetArns :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityProfile :: SecurityProfile
 mkSecurityProfile
   = SecurityProfile

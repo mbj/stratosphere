@@ -14,6 +14,7 @@ data IntegrationResponse
                          responseParameters :: (Prelude.Maybe JSON.Object),
                          responseTemplates :: (Prelude.Maybe JSON.Object),
                          templateSelectionExpression :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegrationResponse ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> IntegrationResponse

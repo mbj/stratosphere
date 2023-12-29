@@ -17,6 +17,7 @@ data AxisDisplayOptionsProperty
                                 gridLineVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                                 scrollbarOptions :: (Prelude.Maybe ScrollBarOptionsProperty),
                                 tickLabelOptions :: (Prelude.Maybe AxisTickLabelOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAxisDisplayOptionsProperty :: AxisDisplayOptionsProperty
 mkAxisDisplayOptionsProperty
   = AxisDisplayOptionsProperty

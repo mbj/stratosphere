@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ListenerTlsFileCertificateProperty
   = ListenerTlsFileCertificateProperty {certificateChain :: (Value Prelude.Text),
                                         privateKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListenerTlsFileCertificateProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ListenerTlsFileCertificateProperty

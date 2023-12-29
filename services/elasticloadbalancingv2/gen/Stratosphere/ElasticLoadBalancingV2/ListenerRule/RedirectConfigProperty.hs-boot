@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RedirectConfigProperty :: Prelude.Type
 instance ToResourceProperties RedirectConfigProperty
+instance Prelude.Eq RedirectConfigProperty
+instance Prelude.Show RedirectConfigProperty
 instance JSON.ToJSON RedirectConfigProperty

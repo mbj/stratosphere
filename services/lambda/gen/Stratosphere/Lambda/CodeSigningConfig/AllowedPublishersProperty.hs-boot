@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AllowedPublishersProperty :: Prelude.Type
 instance ToResourceProperties AllowedPublishersProperty
+instance Prelude.Eq AllowedPublishersProperty
+instance Prelude.Show AllowedPublishersProperty
 instance JSON.ToJSON AllowedPublishersProperty

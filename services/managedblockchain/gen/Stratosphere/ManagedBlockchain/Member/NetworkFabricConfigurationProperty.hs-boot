@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NetworkFabricConfigurationProperty :: Prelude.Type
 instance ToResourceProperties NetworkFabricConfigurationProperty
+instance Prelude.Eq NetworkFabricConfigurationProperty
+instance Prelude.Show NetworkFabricConfigurationProperty
 instance JSON.ToJSON NetworkFabricConfigurationProperty

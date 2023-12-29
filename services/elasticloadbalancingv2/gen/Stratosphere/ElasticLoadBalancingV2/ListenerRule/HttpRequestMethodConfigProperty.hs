@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpRequestMethodConfigProperty
   = HttpRequestMethodConfigProperty {values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpRequestMethodConfigProperty ::
   HttpRequestMethodConfigProperty
 mkHttpRequestMethodConfigProperty

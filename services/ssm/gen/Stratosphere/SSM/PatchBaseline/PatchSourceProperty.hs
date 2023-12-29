@@ -10,6 +10,7 @@ data PatchSourceProperty
   = PatchSourceProperty {configuration :: (Prelude.Maybe (Value Prelude.Text)),
                          name :: (Prelude.Maybe (Value Prelude.Text)),
                          products :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPatchSourceProperty :: PatchSourceProperty
 mkPatchSourceProperty
   = PatchSourceProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBridgeConfigProperty
   = EventBridgeConfigProperty {eventBusArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeConfigProperty ::
   Value Prelude.Text -> EventBridgeConfigProperty
 mkEventBridgeConfigProperty eventBusArn

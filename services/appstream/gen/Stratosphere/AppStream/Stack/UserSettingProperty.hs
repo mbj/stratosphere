@@ -9,6 +9,7 @@ import Stratosphere.Value
 data UserSettingProperty
   = UserSettingProperty {action :: (Value Prelude.Text),
                          permission :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserSettingProperty ::
   Value Prelude.Text -> Value Prelude.Text -> UserSettingProperty
 mkUserSettingProperty action permission

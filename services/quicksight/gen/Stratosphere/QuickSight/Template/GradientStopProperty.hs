@@ -10,6 +10,7 @@ data GradientStopProperty
   = GradientStopProperty {color :: (Prelude.Maybe (Value Prelude.Text)),
                           dataValue :: (Prelude.Maybe (Value Prelude.Double)),
                           gradientOffset :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGradientStopProperty ::
   Value Prelude.Double -> GradientStopProperty
 mkGradientStopProperty gradientOffset

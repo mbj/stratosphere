@@ -16,6 +16,7 @@ data OrganizationManagedRuleMetadataProperty
                                              ruleIdentifier :: (Value Prelude.Text),
                                              tagKeyScope :: (Prelude.Maybe (Value Prelude.Text)),
                                              tagValueScope :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationManagedRuleMetadataProperty ::
   Value Prelude.Text -> OrganizationManagedRuleMetadataProperty
 mkOrganizationManagedRuleMetadataProperty ruleIdentifier

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CustomerManagedPolicyReferenceProperty
   = CustomerManagedPolicyReferenceProperty {name :: (Value Prelude.Text),
                                             path :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerManagedPolicyReferenceProperty ::
   Value Prelude.Text -> CustomerManagedPolicyReferenceProperty
 mkCustomerManagedPolicyReferenceProperty name

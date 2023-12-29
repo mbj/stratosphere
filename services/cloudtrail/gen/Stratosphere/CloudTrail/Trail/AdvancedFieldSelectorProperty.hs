@@ -14,6 +14,7 @@ data AdvancedFieldSelectorProperty
                                    notEquals :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    notStartsWith :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    startsWith :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedFieldSelectorProperty ::
   Value Prelude.Text -> AdvancedFieldSelectorProperty
 mkAdvancedFieldSelectorProperty field

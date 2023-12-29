@@ -12,6 +12,7 @@ data PhysicalTableProperty
   = PhysicalTableProperty {customSql :: (Prelude.Maybe CustomSqlProperty),
                            relationalTable :: (Prelude.Maybe RelationalTableProperty),
                            s3Source :: (Prelude.Maybe S3SourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPhysicalTableProperty :: PhysicalTableProperty
 mkPhysicalTableProperty
   = PhysicalTableProperty

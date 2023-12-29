@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.DataSync.LocationFSxONTAP.NfsMountOptionsProp
 import Stratosphere.ResourceProperties
 data NFSProperty
   = NFSProperty {mountOptions :: NfsMountOptionsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNFSProperty :: NfsMountOptionsProperty -> NFSProperty
 mkNFSProperty mountOptions
   = NFSProperty {mountOptions = mountOptions}

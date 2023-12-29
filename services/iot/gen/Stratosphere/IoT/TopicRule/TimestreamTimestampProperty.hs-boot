@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TimestreamTimestampProperty :: Prelude.Type
 instance ToResourceProperties TimestreamTimestampProperty
+instance Prelude.Eq TimestreamTimestampProperty
+instance Prelude.Show TimestreamTimestampProperty
 instance JSON.ToJSON TimestreamTimestampProperty

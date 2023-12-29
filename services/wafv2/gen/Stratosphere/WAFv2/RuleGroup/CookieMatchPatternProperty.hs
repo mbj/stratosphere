@@ -10,6 +10,7 @@ data CookieMatchPatternProperty
   = CookieMatchPatternProperty {all :: (Prelude.Maybe JSON.Object),
                                 excludedCookies :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 includedCookies :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCookieMatchPatternProperty :: CookieMatchPatternProperty
 mkCookieMatchPatternProperty
   = CookieMatchPatternProperty

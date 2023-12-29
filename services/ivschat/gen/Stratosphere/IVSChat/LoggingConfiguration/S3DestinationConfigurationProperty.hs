@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3DestinationConfigurationProperty
   = S3DestinationConfigurationProperty {bucketName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3DestinationConfigurationProperty ::
   Value Prelude.Text -> S3DestinationConfigurationProperty
 mkS3DestinationConfigurationProperty bucketName

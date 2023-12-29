@@ -10,6 +10,7 @@ data Scte35TimeSignalAposProperty
   = Scte35TimeSignalAposProperty {adAvailOffset :: (Prelude.Maybe (Value Prelude.Integer)),
                                   noRegionalBlackoutFlag :: (Prelude.Maybe (Value Prelude.Text)),
                                   webDeliveryAllowedFlag :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScte35TimeSignalAposProperty :: Scte35TimeSignalAposProperty
 mkScte35TimeSignalAposProperty
   = Scte35TimeSignalAposProperty

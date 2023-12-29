@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LambdaLinuxProcessParamsProperty :: Prelude.Type
 instance ToResourceProperties LambdaLinuxProcessParamsProperty
+instance Prelude.Eq LambdaLinuxProcessParamsProperty
+instance Prelude.Show LambdaLinuxProcessParamsProperty
 instance JSON.ToJSON LambdaLinuxProcessParamsProperty

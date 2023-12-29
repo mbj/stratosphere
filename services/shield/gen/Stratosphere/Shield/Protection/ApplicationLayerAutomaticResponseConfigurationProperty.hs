@@ -12,6 +12,7 @@ import Stratosphere.Value
 data ApplicationLayerAutomaticResponseConfigurationProperty
   = ApplicationLayerAutomaticResponseConfigurationProperty {action :: ActionProperty,
                                                             status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationLayerAutomaticResponseConfigurationProperty ::
   ActionProperty
   -> Value Prelude.Text

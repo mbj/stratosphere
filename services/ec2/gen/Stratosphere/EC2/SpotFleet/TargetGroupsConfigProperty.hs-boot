@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TargetGroupsConfigProperty :: Prelude.Type
 instance ToResourceProperties TargetGroupsConfigProperty
+instance Prelude.Eq TargetGroupsConfigProperty
+instance Prelude.Show TargetGroupsConfigProperty
 instance JSON.ToJSON TargetGroupsConfigProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LambdaConflictHandlerConfigProperty :: Prelude.Type
 instance ToResourceProperties LambdaConflictHandlerConfigProperty
+instance Prelude.Eq LambdaConflictHandlerConfigProperty
+instance Prelude.Show LambdaConflictHandlerConfigProperty
 instance JSON.ToJSON LambdaConflictHandlerConfigProperty

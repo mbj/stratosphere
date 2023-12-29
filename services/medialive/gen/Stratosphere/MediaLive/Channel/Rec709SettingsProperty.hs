@@ -4,7 +4,9 @@ module Stratosphere.MediaLive.Channel.Rec709SettingsProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
-data Rec709SettingsProperty = Rec709SettingsProperty {}
+data Rec709SettingsProperty
+  = Rec709SettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRec709SettingsProperty :: Rec709SettingsProperty
 mkRec709SettingsProperty = Rec709SettingsProperty {}
 instance ToResourceProperties Rec709SettingsProperty where

@@ -11,6 +11,7 @@ data AuditNotificationTargetProperty
   = AuditNotificationTargetProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                      roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                      targetArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuditNotificationTargetProperty ::
   AuditNotificationTargetProperty
 mkAuditNotificationTargetProperty

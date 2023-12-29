@@ -11,6 +11,7 @@ data FindMatchesParametersProperty
                                    enforceProvidedLabels :: (Prelude.Maybe (Value Prelude.Bool)),
                                    precisionRecallTradeoff :: (Prelude.Maybe (Value Prelude.Double)),
                                    primaryKeyColumnName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFindMatchesParametersProperty ::
   Value Prelude.Text -> FindMatchesParametersProperty
 mkFindMatchesParametersProperty primaryKeyColumnName

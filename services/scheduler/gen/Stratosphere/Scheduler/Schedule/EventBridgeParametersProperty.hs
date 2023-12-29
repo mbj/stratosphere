@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EventBridgeParametersProperty
   = EventBridgeParametersProperty {detailType :: (Value Prelude.Text),
                                    source :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> EventBridgeParametersProperty

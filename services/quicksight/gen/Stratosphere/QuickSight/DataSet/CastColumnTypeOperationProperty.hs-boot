@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CastColumnTypeOperationProperty :: Prelude.Type
 instance ToResourceProperties CastColumnTypeOperationProperty
+instance Prelude.Eq CastColumnTypeOperationProperty
+instance Prelude.Show CastColumnTypeOperationProperty
 instance JSON.ToJSON CastColumnTypeOperationProperty

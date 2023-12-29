@@ -14,6 +14,7 @@ data PackagingGroup
                     egressAccessLogs :: (Prelude.Maybe LogConfigurationProperty),
                     id :: (Value Prelude.Text),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPackagingGroup :: Value Prelude.Text -> PackagingGroup
 mkPackagingGroup id
   = PackagingGroup

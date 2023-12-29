@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties
 data GaugeChartPrimaryValueConditionalFormattingProperty
   = GaugeChartPrimaryValueConditionalFormattingProperty {icon :: (Prelude.Maybe ConditionalFormattingIconProperty),
                                                          textColor :: (Prelude.Maybe ConditionalFormattingColorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGaugeChartPrimaryValueConditionalFormattingProperty ::
   GaugeChartPrimaryValueConditionalFormattingProperty
 mkGaugeChartPrimaryValueConditionalFormattingProperty

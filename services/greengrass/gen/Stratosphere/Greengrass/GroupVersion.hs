@@ -15,6 +15,7 @@ data GroupVersion
                   loggerDefinitionVersionArn :: (Prelude.Maybe (Value Prelude.Text)),
                   resourceDefinitionVersionArn :: (Prelude.Maybe (Value Prelude.Text)),
                   subscriptionDefinitionVersionArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupVersion :: Value Prelude.Text -> GroupVersion
 mkGroupVersion groupId
   = GroupVersion

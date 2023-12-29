@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ComponentDeploymentSpecificationProperty :: Prelude.Type
 instance ToResourceProperties ComponentDeploymentSpecificationProperty
+instance Prelude.Eq ComponentDeploymentSpecificationProperty
+instance Prelude.Show ComponentDeploymentSpecificationProperty
 instance JSON.ToJSON ComponentDeploymentSpecificationProperty

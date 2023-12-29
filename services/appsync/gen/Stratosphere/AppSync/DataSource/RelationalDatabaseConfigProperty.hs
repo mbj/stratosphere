@@ -11,6 +11,7 @@ import Stratosphere.Value
 data RelationalDatabaseConfigProperty
   = RelationalDatabaseConfigProperty {rdsHttpEndpointConfig :: (Prelude.Maybe RdsHttpEndpointConfigProperty),
                                       relationalDatabaseSourceType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRelationalDatabaseConfigProperty ::
   Value Prelude.Text -> RelationalDatabaseConfigProperty
 mkRelationalDatabaseConfigProperty relationalDatabaseSourceType

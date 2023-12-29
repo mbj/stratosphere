@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DynamicDefaultValueProperty :: Prelude.Type
 instance ToResourceProperties DynamicDefaultValueProperty
+instance Prelude.Eq DynamicDefaultValueProperty
+instance Prelude.Show DynamicDefaultValueProperty
 instance JSON.ToJSON DynamicDefaultValueProperty

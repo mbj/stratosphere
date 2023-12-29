@@ -17,6 +17,7 @@ data ResourceDataContainerProperty
                                    s3MachineLearningModelResourceData :: (Prelude.Maybe S3MachineLearningModelResourceDataProperty),
                                    sageMakerMachineLearningModelResourceData :: (Prelude.Maybe SageMakerMachineLearningModelResourceDataProperty),
                                    secretsManagerSecretResourceData :: (Prelude.Maybe SecretsManagerSecretResourceDataProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDataContainerProperty :: ResourceDataContainerProperty
 mkResourceDataContainerProperty
   = ResourceDataContainerProperty

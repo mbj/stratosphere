@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SheetProperty
   = SheetProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                    sheetId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSheetProperty :: SheetProperty
 mkSheetProperty
   = SheetProperty {name = Prelude.Nothing, sheetId = Prelude.Nothing}

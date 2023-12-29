@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SparkParametersProperty
   = SparkParametersProperty {host :: (Value Prelude.Text),
                              port :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSparkParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Double -> SparkParametersProperty

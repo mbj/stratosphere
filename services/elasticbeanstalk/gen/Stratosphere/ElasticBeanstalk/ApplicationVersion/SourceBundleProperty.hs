@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SourceBundleProperty
   = SourceBundleProperty {s3Bucket :: (Value Prelude.Text),
                           s3Key :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceBundleProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SourceBundleProperty
 mkSourceBundleProperty s3Bucket s3Key

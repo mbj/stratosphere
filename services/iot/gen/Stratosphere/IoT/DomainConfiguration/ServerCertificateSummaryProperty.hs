@@ -11,6 +11,7 @@ data ServerCertificateSummaryProperty
   = ServerCertificateSummaryProperty {serverCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
                                       serverCertificateStatus :: (Prelude.Maybe (Value Prelude.Text)),
                                       serverCertificateStatusDetail :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerCertificateSummaryProperty ::
   ServerCertificateSummaryProperty
 mkServerCertificateSummaryProperty

@@ -16,6 +16,7 @@ data RootVolumeConfigurationProperty
                                      readOnly :: (Prelude.Maybe (Value Prelude.Bool)),
                                      recordSizeKiB :: (Prelude.Maybe (Value Prelude.Integer)),
                                      userAndGroupQuotas :: (Prelude.Maybe [UserAndGroupQuotasProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRootVolumeConfigurationProperty ::
   RootVolumeConfigurationProperty
 mkRootVolumeConfigurationProperty

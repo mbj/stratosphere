@@ -19,6 +19,7 @@ data ParameterControlProperty
                               slider :: (Prelude.Maybe ParameterSliderControlProperty),
                               textArea :: (Prelude.Maybe ParameterTextAreaControlProperty),
                               textField :: (Prelude.Maybe ParameterTextFieldControlProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterControlProperty :: ParameterControlProperty
 mkParameterControlProperty
   = ParameterControlProperty

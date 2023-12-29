@@ -15,6 +15,7 @@ data FieldConfigProperty
                          label :: (Prelude.Maybe (Value Prelude.Text)),
                          position :: (Prelude.Maybe FieldPositionProperty),
                          validations :: (Prelude.Maybe [FieldValidationConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldConfigProperty :: FieldConfigProperty
 mkFieldConfigProperty
   = FieldConfigProperty

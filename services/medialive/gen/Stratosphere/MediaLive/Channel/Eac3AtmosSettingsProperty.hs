@@ -14,6 +14,7 @@ data Eac3AtmosSettingsProperty
                                drcRf :: (Prelude.Maybe (Value Prelude.Text)),
                                heightTrim :: (Prelude.Maybe (Value Prelude.Double)),
                                surroundTrim :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEac3AtmosSettingsProperty :: Eac3AtmosSettingsProperty
 mkEac3AtmosSettingsProperty
   = Eac3AtmosSettingsProperty

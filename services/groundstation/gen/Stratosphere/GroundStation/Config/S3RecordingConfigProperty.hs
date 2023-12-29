@@ -10,6 +10,7 @@ data S3RecordingConfigProperty
   = S3RecordingConfigProperty {bucketArn :: (Prelude.Maybe (Value Prelude.Text)),
                                prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3RecordingConfigProperty :: S3RecordingConfigProperty
 mkS3RecordingConfigProperty
   = S3RecordingConfigProperty

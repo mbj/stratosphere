@@ -12,6 +12,7 @@ data GrpcRouteMetadataProperty
   = GrpcRouteMetadataProperty {invert :: (Prelude.Maybe (Value Prelude.Bool)),
                                match :: (Prelude.Maybe GrpcRouteMetadataMatchMethodProperty),
                                name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteMetadataProperty ::
   Value Prelude.Text -> GrpcRouteMetadataProperty
 mkGrpcRouteMetadataProperty name

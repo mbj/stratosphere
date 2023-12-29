@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AbpV10xProperty :: Prelude.Type
 instance ToResourceProperties AbpV10xProperty
+instance Prelude.Eq AbpV10xProperty
+instance Prelude.Show AbpV10xProperty
 instance JSON.ToJSON AbpV10xProperty

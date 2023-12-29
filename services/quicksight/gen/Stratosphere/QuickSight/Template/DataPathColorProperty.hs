@@ -11,6 +11,7 @@ data DataPathColorProperty
   = DataPathColorProperty {color :: (Value Prelude.Text),
                            element :: DataPathValueProperty,
                            timeGranularity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPathColorProperty ::
   Value Prelude.Text
   -> DataPathValueProperty -> DataPathColorProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GroupIdentifierProperty
   = GroupIdentifierProperty {groupId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGroupIdentifierProperty ::
   Value Prelude.Text -> GroupIdentifierProperty
 mkGroupIdentifierProperty groupId

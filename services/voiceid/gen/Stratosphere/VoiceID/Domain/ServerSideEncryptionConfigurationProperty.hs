@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServerSideEncryptionConfigurationProperty
   = ServerSideEncryptionConfigurationProperty {kmsKeyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerSideEncryptionConfigurationProperty ::
   Value Prelude.Text -> ServerSideEncryptionConfigurationProperty
 mkServerSideEncryptionConfigurationProperty kmsKeyId

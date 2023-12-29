@@ -10,6 +10,7 @@ data RulesSourceListProperty
   = RulesSourceListProperty {generatedRulesType :: (Value Prelude.Text),
                              targetTypes :: (ValueList Prelude.Text),
                              targets :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRulesSourceListProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text

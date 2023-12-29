@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExportToCSVOptionProperty
   = ExportToCSVOptionProperty {availabilityStatus :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExportToCSVOptionProperty :: ExportToCSVOptionProperty
 mkExportToCSVOptionProperty
   = ExportToCSVOptionProperty {availabilityStatus = Prelude.Nothing}

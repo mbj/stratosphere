@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AudioNormalizationSettingsProperty :: Prelude.Type
 instance ToResourceProperties AudioNormalizationSettingsProperty
+instance Prelude.Eq AudioNormalizationSettingsProperty
+instance Prelude.Show AudioNormalizationSettingsProperty
 instance JSON.ToJSON AudioNormalizationSettingsProperty

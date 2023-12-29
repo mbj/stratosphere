@@ -13,6 +13,7 @@ data Build
            serverSdkVersion :: (Prelude.Maybe (Value Prelude.Text)),
            storageLocation :: (Prelude.Maybe StorageLocationProperty),
            version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBuild :: Build
 mkBuild
   = Build

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ELBInfoProperty
   = ELBInfoProperty {name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkELBInfoProperty :: ELBInfoProperty
 mkELBInfoProperty = ELBInfoProperty {name = Prelude.Nothing}
 instance ToResourceProperties ELBInfoProperty where

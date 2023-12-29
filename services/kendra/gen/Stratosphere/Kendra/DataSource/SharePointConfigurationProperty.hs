@@ -23,6 +23,7 @@ data SharePointConfigurationProperty
                                      urls :: (ValueList Prelude.Text),
                                      useChangeLog :: (Prelude.Maybe (Value Prelude.Bool)),
                                      vpcConfiguration :: (Prelude.Maybe DataSourceVpcConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSharePointConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -32,6 +32,7 @@ data Broker
             subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
             tags :: (Prelude.Maybe [TagsEntryProperty]),
             users :: [UserProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBroker ::
   Value Prelude.Bool
   -> Value Prelude.Text

@@ -14,6 +14,7 @@ data Gateway
              gatewayName :: (Value Prelude.Text),
              gatewayPlatform :: GatewayPlatformProperty,
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGateway ::
   Value Prelude.Text -> GatewayPlatformProperty -> Gateway
 mkGateway gatewayName gatewayPlatform

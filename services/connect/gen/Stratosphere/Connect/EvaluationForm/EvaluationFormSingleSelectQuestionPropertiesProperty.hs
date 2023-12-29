@@ -14,6 +14,7 @@ data EvaluationFormSingleSelectQuestionPropertiesProperty
   = EvaluationFormSingleSelectQuestionPropertiesProperty {automation :: (Prelude.Maybe EvaluationFormSingleSelectQuestionAutomationProperty),
                                                           displayAs :: (Prelude.Maybe (Value Prelude.Text)),
                                                           options :: [EvaluationFormSingleSelectQuestionOptionProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormSingleSelectQuestionPropertiesProperty ::
   [EvaluationFormSingleSelectQuestionOptionProperty]
   -> EvaluationFormSingleSelectQuestionPropertiesProperty

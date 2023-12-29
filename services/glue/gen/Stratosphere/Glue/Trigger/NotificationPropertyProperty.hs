@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationPropertyProperty
   = NotificationPropertyProperty {notifyDelayAfter :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationPropertyProperty :: NotificationPropertyProperty
 mkNotificationPropertyProperty
   = NotificationPropertyProperty {notifyDelayAfter = Prelude.Nothing}

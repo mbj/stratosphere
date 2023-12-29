@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ApiPassthroughProperty :: Prelude.Type
 instance ToResourceProperties ApiPassthroughProperty
+instance Prelude.Eq ApiPassthroughProperty
+instance Prelude.Show ApiPassthroughProperty
 instance JSON.ToJSON ApiPassthroughProperty

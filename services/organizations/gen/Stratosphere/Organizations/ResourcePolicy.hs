@@ -9,6 +9,7 @@ import Stratosphere.Tag
 data ResourcePolicy
   = ResourcePolicy {content :: JSON.Object,
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePolicy :: JSON.Object -> ResourcePolicy
 mkResourcePolicy content
   = ResourcePolicy {content = content, tags = Prelude.Nothing}

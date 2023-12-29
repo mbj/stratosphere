@@ -13,6 +13,7 @@ data GrpcRouteMatchProperty
                             methodName :: (Prelude.Maybe (Value Prelude.Text)),
                             port :: (Prelude.Maybe (Value Prelude.Integer)),
                             serviceName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRouteMatchProperty :: GrpcRouteMatchProperty
 mkGrpcRouteMatchProperty
   = GrpcRouteMatchProperty

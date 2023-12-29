@@ -10,6 +10,7 @@ data S3Property
   = S3Property {bucket :: (Value Prelude.Text),
                 key :: (Value Prelude.Text),
                 objectVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3Property ::
   Value Prelude.Text -> Value Prelude.Text -> S3Property
 mkS3Property bucket key

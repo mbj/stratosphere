@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ProjectSourceVersionProperty
   = ProjectSourceVersionProperty {sourceIdentifier :: (Value Prelude.Text),
                                   sourceVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectSourceVersionProperty ::
   Value Prelude.Text -> ProjectSourceVersionProperty
 mkProjectSourceVersionProperty sourceIdentifier

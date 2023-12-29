@@ -10,6 +10,7 @@ data IdentityPoolRoleAttachment
   = IdentityPoolRoleAttachment {identityPoolId :: (Value Prelude.Text),
                                 roleMappings :: (Prelude.Maybe JSON.Object),
                                 roles :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityPoolRoleAttachment ::
   Value Prelude.Text -> IdentityPoolRoleAttachment
 mkIdentityPoolRoleAttachment identityPoolId

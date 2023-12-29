@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ModelExplainabilityJobInputProperty
   = ModelExplainabilityJobInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
                                          endpointInput :: (Prelude.Maybe EndpointInputProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelExplainabilityJobInputProperty ::
   ModelExplainabilityJobInputProperty
 mkModelExplainabilityJobInputProperty

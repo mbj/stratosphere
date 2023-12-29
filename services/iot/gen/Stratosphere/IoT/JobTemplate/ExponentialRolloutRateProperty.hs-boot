@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExponentialRolloutRateProperty :: Prelude.Type
 instance ToResourceProperties ExponentialRolloutRateProperty
+instance Prelude.Eq ExponentialRolloutRateProperty
+instance Prelude.Show ExponentialRolloutRateProperty
 instance JSON.ToJSON ExponentialRolloutRateProperty

@@ -12,6 +12,7 @@ data LogConfigurationProperty
   = LogConfigurationProperty {logDriver :: (Prelude.Maybe (Value Prelude.Text)),
                               options :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                               secretOptions :: (Prelude.Maybe [SecretProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogConfigurationProperty :: LogConfigurationProperty
 mkLogConfigurationProperty
   = LogConfigurationProperty

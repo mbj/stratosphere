@@ -12,6 +12,7 @@ data NodeCountsProperty
                         totalBranches :: (Prelude.Maybe (Value Prelude.Double)),
                         totalNodes :: (Prelude.Maybe (Value Prelude.Double)),
                         totalSensors :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeCountsProperty :: NodeCountsProperty
 mkNodeCountsProperty
   = NodeCountsProperty

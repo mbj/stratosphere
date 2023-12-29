@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PostDialogCodeHookInvocationSpecificationProperty :: Prelude.Type
 instance ToResourceProperties PostDialogCodeHookInvocationSpecificationProperty
+instance Prelude.Eq PostDialogCodeHookInvocationSpecificationProperty
+instance Prelude.Show PostDialogCodeHookInvocationSpecificationProperty
 instance JSON.ToJSON PostDialogCodeHookInvocationSpecificationProperty

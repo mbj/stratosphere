@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HeatMapConfigurationProperty :: Prelude.Type
 instance ToResourceProperties HeatMapConfigurationProperty
+instance Prelude.Eq HeatMapConfigurationProperty
+instance Prelude.Show HeatMapConfigurationProperty
 instance JSON.ToJSON HeatMapConfigurationProperty

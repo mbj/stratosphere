@@ -29,6 +29,7 @@ data PipeTargetEcsTaskParametersProperty
                                          tags :: (Prelude.Maybe [Tag]),
                                          taskCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                          taskDefinitionArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetEcsTaskParametersProperty ::
   Value Prelude.Text -> PipeTargetEcsTaskParametersProperty
 mkPipeTargetEcsTaskParametersProperty taskDefinitionArn

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionalConfigurationProperty
   = ProvisionalConfigurationProperty {maxTimeToLiveInMinutes :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionalConfigurationProperty ::
   Value Prelude.Integer -> ProvisionalConfigurationProperty
 mkProvisionalConfigurationProperty maxTimeToLiveInMinutes

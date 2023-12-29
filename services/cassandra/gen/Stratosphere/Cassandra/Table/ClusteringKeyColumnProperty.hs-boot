@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ClusteringKeyColumnProperty :: Prelude.Type
 instance ToResourceProperties ClusteringKeyColumnProperty
+instance Prelude.Eq ClusteringKeyColumnProperty
+instance Prelude.Show ClusteringKeyColumnProperty
 instance JSON.ToJSON ClusteringKeyColumnProperty

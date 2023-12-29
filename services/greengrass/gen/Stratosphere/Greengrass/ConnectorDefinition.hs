@@ -11,6 +11,7 @@ data ConnectorDefinition
   = ConnectorDefinition {initialVersion :: (Prelude.Maybe ConnectorDefinitionVersionProperty),
                          name :: (Value Prelude.Text),
                          tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorDefinition :: Value Prelude.Text -> ConnectorDefinition
 mkConnectorDefinition name
   = ConnectorDefinition

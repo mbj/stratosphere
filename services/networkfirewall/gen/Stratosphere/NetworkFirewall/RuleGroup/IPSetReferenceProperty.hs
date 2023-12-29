@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IPSetReferenceProperty
   = IPSetReferenceProperty {referenceArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSetReferenceProperty :: IPSetReferenceProperty
 mkIPSetReferenceProperty
   = IPSetReferenceProperty {referenceArn = Prelude.Nothing}

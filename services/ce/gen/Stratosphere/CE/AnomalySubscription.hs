@@ -16,6 +16,7 @@ data AnomalySubscription
                          subscriptionName :: (Value Prelude.Text),
                          threshold :: (Prelude.Maybe (Value Prelude.Double)),
                          thresholdExpression :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnomalySubscription ::
   Value Prelude.Text
   -> ValueList Prelude.Text

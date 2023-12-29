@@ -21,6 +21,7 @@ data DatasetMetadataProperty
                              datasetName :: (Prelude.Maybe (Value Prelude.Text)),
                              filters :: (Prelude.Maybe [TopicFilterProperty]),
                              namedEntities :: (Prelude.Maybe [TopicNamedEntityProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetMetadataProperty ::
   Value Prelude.Text -> DatasetMetadataProperty
 mkDatasetMetadataProperty datasetArn

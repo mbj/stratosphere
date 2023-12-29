@@ -11,6 +11,7 @@ data MultiMeasureAttributeMappingProperty
   = MultiMeasureAttributeMappingProperty {measureValueType :: (Value Prelude.Text),
                                           sourceColumn :: (Value Prelude.Text),
                                           targetMultiMeasureAttributeName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiMeasureAttributeMappingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> MultiMeasureAttributeMappingProperty

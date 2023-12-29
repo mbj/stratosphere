@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data TargetResourceProperty
   = TargetResourceProperty {nLBResource :: (Prelude.Maybe NLBResourceProperty),
                             r53Resource :: (Prelude.Maybe R53ResourceRecordProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetResourceProperty :: TargetResourceProperty
 mkTargetResourceProperty
   = TargetResourceProperty

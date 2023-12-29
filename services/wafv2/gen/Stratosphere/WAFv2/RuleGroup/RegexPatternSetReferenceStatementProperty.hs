@@ -13,6 +13,7 @@ data RegexPatternSetReferenceStatementProperty
   = RegexPatternSetReferenceStatementProperty {arn :: (Value Prelude.Text),
                                                fieldToMatch :: FieldToMatchProperty,
                                                textTransformations :: [TextTransformationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegexPatternSetReferenceStatementProperty ::
   Value Prelude.Text
   -> FieldToMatchProperty

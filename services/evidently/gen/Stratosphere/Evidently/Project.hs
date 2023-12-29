@@ -15,6 +15,7 @@ data Project
              description :: (Prelude.Maybe (Value Prelude.Text)),
              name :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProject :: Value Prelude.Text -> Project
 mkProject name
   = Project

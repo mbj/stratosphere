@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.PublicKey.PublicKeyConfigProperty 
 import Stratosphere.ResourceProperties
 data PublicKey
   = PublicKey {publicKeyConfig :: PublicKeyConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicKey :: PublicKeyConfigProperty -> PublicKey
 mkPublicKey publicKeyConfig
   = PublicKey {publicKeyConfig = publicKeyConfig}

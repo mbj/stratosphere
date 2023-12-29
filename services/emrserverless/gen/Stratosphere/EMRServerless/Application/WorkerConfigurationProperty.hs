@@ -10,6 +10,7 @@ data WorkerConfigurationProperty
   = WorkerConfigurationProperty {cpu :: (Value Prelude.Text),
                                  disk :: (Prelude.Maybe (Value Prelude.Text)),
                                  memory :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkerConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> WorkerConfigurationProperty

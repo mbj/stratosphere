@@ -12,6 +12,7 @@ data ResourceProperty
                       dnsTargetResource :: (Prelude.Maybe DNSTargetResourceProperty),
                       readinessScopes :: (Prelude.Maybe (ValueList Prelude.Text)),
                       resourceArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceProperty :: ResourceProperty
 mkResourceProperty
   = ResourceProperty

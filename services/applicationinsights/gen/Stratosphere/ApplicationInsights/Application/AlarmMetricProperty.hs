@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AlarmMetricProperty
   = AlarmMetricProperty {alarmMetricName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmMetricProperty :: Value Prelude.Text -> AlarmMetricProperty
 mkAlarmMetricProperty alarmMetricName
   = AlarmMetricProperty {alarmMetricName = alarmMetricName}

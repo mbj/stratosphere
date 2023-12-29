@@ -19,6 +19,7 @@ data MetricStream
                   roleArn :: (Value Prelude.Text),
                   statisticsConfigurations :: (Prelude.Maybe [MetricStreamStatisticsConfigurationProperty]),
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricStream ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> MetricStream

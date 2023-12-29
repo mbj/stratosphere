@@ -15,6 +15,7 @@ data ZeppelinApplicationConfigurationProperty
                                               customArtifactsConfiguration :: (Prelude.Maybe [CustomArtifactConfigurationProperty]),
                                               deployAsApplicationConfiguration :: (Prelude.Maybe DeployAsApplicationConfigurationProperty),
                                               monitoringConfiguration :: (Prelude.Maybe ZeppelinMonitoringConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkZeppelinApplicationConfigurationProperty ::
   ZeppelinApplicationConfigurationProperty
 mkZeppelinApplicationConfigurationProperty

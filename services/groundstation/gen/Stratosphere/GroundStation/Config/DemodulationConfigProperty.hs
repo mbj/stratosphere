@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DemodulationConfigProperty
   = DemodulationConfigProperty {unvalidatedJSON :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDemodulationConfigProperty :: DemodulationConfigProperty
 mkDemodulationConfigProperty
   = DemodulationConfigProperty {unvalidatedJSON = Prelude.Nothing}

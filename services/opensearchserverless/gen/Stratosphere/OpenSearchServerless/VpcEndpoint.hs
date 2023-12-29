@@ -11,6 +11,7 @@ data VpcEndpoint
                  securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                  subnetIds :: (ValueList Prelude.Text),
                  vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcEndpoint ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> Value Prelude.Text -> VpcEndpoint

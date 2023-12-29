@@ -16,6 +16,7 @@ data NetworkAnalyzerConfiguration
                                   traceContent :: (Prelude.Maybe TraceContentProperty),
                                   wirelessDevices :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   wirelessGateways :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAnalyzerConfiguration ::
   Value Prelude.Text -> NetworkAnalyzerConfiguration
 mkNetworkAnalyzerConfiguration name

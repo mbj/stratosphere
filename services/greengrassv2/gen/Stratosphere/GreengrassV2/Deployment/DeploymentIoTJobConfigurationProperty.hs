@@ -13,6 +13,7 @@ data DeploymentIoTJobConfigurationProperty
   = DeploymentIoTJobConfigurationProperty {abortConfig :: (Prelude.Maybe IoTJobAbortConfigProperty),
                                            jobExecutionsRolloutConfig :: (Prelude.Maybe IoTJobExecutionsRolloutConfigProperty),
                                            timeoutConfig :: (Prelude.Maybe IoTJobTimeoutConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentIoTJobConfigurationProperty ::
   DeploymentIoTJobConfigurationProperty
 mkDeploymentIoTJobConfigurationProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Lex.Bot.CustomVocabularyItemProperty as Expor
 import Stratosphere.ResourceProperties
 data CustomVocabularyProperty
   = CustomVocabularyProperty {customVocabularyItems :: [CustomVocabularyItemProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomVocabularyProperty ::
   [CustomVocabularyItemProperty] -> CustomVocabularyProperty
 mkCustomVocabularyProperty customVocabularyItems

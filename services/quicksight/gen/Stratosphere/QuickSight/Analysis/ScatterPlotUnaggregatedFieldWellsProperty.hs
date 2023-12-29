@@ -12,6 +12,7 @@ data ScatterPlotUnaggregatedFieldWellsProperty
   = ScatterPlotUnaggregatedFieldWellsProperty {size :: (Prelude.Maybe [MeasureFieldProperty]),
                                                xAxis :: (Prelude.Maybe [DimensionFieldProperty]),
                                                yAxis :: (Prelude.Maybe [DimensionFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScatterPlotUnaggregatedFieldWellsProperty ::
   ScatterPlotUnaggregatedFieldWellsProperty
 mkScatterPlotUnaggregatedFieldWellsProperty

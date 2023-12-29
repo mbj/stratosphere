@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OperationPreferencesProperty :: Prelude.Type
 instance ToResourceProperties OperationPreferencesProperty
+instance Prelude.Eq OperationPreferencesProperty
+instance Prelude.Show OperationPreferencesProperty
 instance JSON.ToJSON OperationPreferencesProperty

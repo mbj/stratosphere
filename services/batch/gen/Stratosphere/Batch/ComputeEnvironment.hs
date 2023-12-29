@@ -20,6 +20,7 @@ data ComputeEnvironment
                         type' :: (Value Prelude.Text),
                         unmanagedvCpus :: (Prelude.Maybe (Value Prelude.Integer)),
                         updatePolicy :: (Prelude.Maybe UpdatePolicyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeEnvironment :: Value Prelude.Text -> ComputeEnvironment
 mkComputeEnvironment type'
   = ComputeEnvironment

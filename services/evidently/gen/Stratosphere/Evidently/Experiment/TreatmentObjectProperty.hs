@@ -11,6 +11,7 @@ data TreatmentObjectProperty
                              feature :: (Value Prelude.Text),
                              treatmentName :: (Value Prelude.Text),
                              variation :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTreatmentObjectProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

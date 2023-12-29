@@ -10,6 +10,7 @@ data CustomVocabularyItemProperty
   = CustomVocabularyItemProperty {displayAs :: (Prelude.Maybe (Value Prelude.Text)),
                                   phrase :: (Value Prelude.Text),
                                   weight :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomVocabularyItemProperty ::
   Value Prelude.Text -> CustomVocabularyItemProperty
 mkCustomVocabularyItemProperty phrase

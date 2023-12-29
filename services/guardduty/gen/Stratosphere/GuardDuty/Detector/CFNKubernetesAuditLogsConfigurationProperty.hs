@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CFNKubernetesAuditLogsConfigurationProperty
   = CFNKubernetesAuditLogsConfigurationProperty {enable :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNKubernetesAuditLogsConfigurationProperty ::
   CFNKubernetesAuditLogsConfigurationProperty
 mkCFNKubernetesAuditLogsConfigurationProperty

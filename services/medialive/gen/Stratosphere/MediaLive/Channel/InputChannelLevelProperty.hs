@@ -9,6 +9,7 @@ import Stratosphere.Value
 data InputChannelLevelProperty
   = InputChannelLevelProperty {gain :: (Prelude.Maybe (Value Prelude.Integer)),
                                inputChannel :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputChannelLevelProperty :: InputChannelLevelProperty
 mkInputChannelLevelProperty
   = InputChannelLevelProperty

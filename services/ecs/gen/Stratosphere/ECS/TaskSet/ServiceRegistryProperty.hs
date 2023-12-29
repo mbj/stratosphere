@@ -11,6 +11,7 @@ data ServiceRegistryProperty
                              containerPort :: (Prelude.Maybe (Value Prelude.Integer)),
                              port :: (Prelude.Maybe (Value Prelude.Integer)),
                              registryArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceRegistryProperty :: ServiceRegistryProperty
 mkServiceRegistryProperty
   = ServiceRegistryProperty

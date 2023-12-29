@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.ClassicLoadBalancerProperty as 
 import Stratosphere.ResourceProperties
 data ClassicLoadBalancersConfigProperty
   = ClassicLoadBalancersConfigProperty {classicLoadBalancers :: [ClassicLoadBalancerProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClassicLoadBalancersConfigProperty ::
   [ClassicLoadBalancerProperty] -> ClassicLoadBalancersConfigProperty
 mkClassicLoadBalancersConfigProperty classicLoadBalancers

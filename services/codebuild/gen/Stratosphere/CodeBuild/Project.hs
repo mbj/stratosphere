@@ -42,6 +42,7 @@ data Project
              triggers :: (Prelude.Maybe ProjectTriggersProperty),
              visibility :: (Prelude.Maybe (Value Prelude.Text)),
              vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProject ::
   ArtifactsProperty
   -> EnvironmentProperty

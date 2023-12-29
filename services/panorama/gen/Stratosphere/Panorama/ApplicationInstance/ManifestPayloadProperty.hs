@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManifestPayloadProperty
   = ManifestPayloadProperty {payloadData :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkManifestPayloadProperty :: ManifestPayloadProperty
 mkManifestPayloadProperty
   = ManifestPayloadProperty {payloadData = Prelude.Nothing}

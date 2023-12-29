@@ -13,6 +13,7 @@ data Alert
            alertName :: (Prelude.Maybe (Value Prelude.Text)),
            alertSensitivityThreshold :: (Value Prelude.Integer),
            anomalyDetectorArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlert ::
   ActionProperty
   -> Value Prelude.Integer -> Value Prelude.Text -> Alert

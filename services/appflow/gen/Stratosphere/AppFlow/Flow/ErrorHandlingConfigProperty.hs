@@ -10,6 +10,7 @@ data ErrorHandlingConfigProperty
   = ErrorHandlingConfigProperty {bucketName :: (Prelude.Maybe (Value Prelude.Text)),
                                  bucketPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                                  failOnFirstError :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkErrorHandlingConfigProperty :: ErrorHandlingConfigProperty
 mkErrorHandlingConfigProperty
   = ErrorHandlingConfigProperty

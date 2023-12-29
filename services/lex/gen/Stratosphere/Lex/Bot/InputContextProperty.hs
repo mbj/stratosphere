@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputContextProperty
   = InputContextProperty {name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputContextProperty ::
   Value Prelude.Text -> InputContextProperty
 mkInputContextProperty name = InputContextProperty {name = name}

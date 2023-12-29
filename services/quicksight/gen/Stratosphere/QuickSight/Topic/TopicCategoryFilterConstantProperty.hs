@@ -12,6 +12,7 @@ data TopicCategoryFilterConstantProperty
   = TopicCategoryFilterConstantProperty {collectiveConstant :: (Prelude.Maybe CollectiveConstantProperty),
                                          constantType :: (Prelude.Maybe (Value Prelude.Text)),
                                          singularConstant :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicCategoryFilterConstantProperty ::
   TopicCategoryFilterConstantProperty
 mkTopicCategoryFilterConstantProperty

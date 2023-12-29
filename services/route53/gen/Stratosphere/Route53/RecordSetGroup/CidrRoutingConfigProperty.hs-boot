@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CidrRoutingConfigProperty :: Prelude.Type
 instance ToResourceProperties CidrRoutingConfigProperty
+instance Prelude.Eq CidrRoutingConfigProperty
+instance Prelude.Show CidrRoutingConfigProperty
 instance JSON.ToJSON CidrRoutingConfigProperty

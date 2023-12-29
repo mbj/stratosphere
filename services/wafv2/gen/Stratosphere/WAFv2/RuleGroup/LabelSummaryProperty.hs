@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LabelSummaryProperty
   = LabelSummaryProperty {name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLabelSummaryProperty :: LabelSummaryProperty
 mkLabelSummaryProperty
   = LabelSummaryProperty {name = Prelude.Nothing}

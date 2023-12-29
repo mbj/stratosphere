@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SemanticEntityTypeProperty :: Prelude.Type
 instance ToResourceProperties SemanticEntityTypeProperty
+instance Prelude.Eq SemanticEntityTypeProperty
+instance Prelude.Show SemanticEntityTypeProperty
 instance JSON.ToJSON SemanticEntityTypeProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LambdaEndpointInputProperty :: Prelude.Type
 instance ToResourceProperties LambdaEndpointInputProperty
+instance Prelude.Eq LambdaEndpointInputProperty
+instance Prelude.Show LambdaEndpointInputProperty
 instance JSON.ToJSON LambdaEndpointInputProperty

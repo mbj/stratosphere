@@ -13,6 +13,7 @@ data HttpRetryPolicyProperty
                              maxRetries :: (Value Prelude.Integer),
                              perRetryTimeout :: DurationProperty,
                              tcpRetryEvents :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpRetryPolicyProperty ::
   Value Prelude.Integer
   -> DurationProperty -> HttpRetryPolicyProperty

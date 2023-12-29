@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DashboardVersionProperty :: Prelude.Type
 instance ToResourceProperties DashboardVersionProperty
+instance Prelude.Eq DashboardVersionProperty
+instance Prelude.Show DashboardVersionProperty
 instance JSON.ToJSON DashboardVersionProperty

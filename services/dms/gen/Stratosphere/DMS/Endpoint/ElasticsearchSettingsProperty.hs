@@ -11,6 +11,7 @@ data ElasticsearchSettingsProperty
                                    errorRetryDuration :: (Prelude.Maybe (Value Prelude.Integer)),
                                    fullLoadErrorPercentage :: (Prelude.Maybe (Value Prelude.Integer)),
                                    serviceAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticsearchSettingsProperty :: ElasticsearchSettingsProperty
 mkElasticsearchSettingsProperty
   = ElasticsearchSettingsProperty

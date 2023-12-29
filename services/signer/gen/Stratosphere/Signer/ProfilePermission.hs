@@ -12,6 +12,7 @@ data ProfilePermission
                        profileName :: (Value Prelude.Text),
                        profileVersion :: (Prelude.Maybe (Value Prelude.Text)),
                        statementId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProfilePermission ::
   Value Prelude.Text
   -> Value Prelude.Text

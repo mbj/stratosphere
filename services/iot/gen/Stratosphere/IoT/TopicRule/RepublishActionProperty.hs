@@ -13,6 +13,7 @@ data RepublishActionProperty
                              qos :: (Prelude.Maybe (Value Prelude.Integer)),
                              roleArn :: (Value Prelude.Text),
                              topic :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRepublishActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RepublishActionProperty
 mkRepublishActionProperty roleArn topic

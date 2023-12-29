@@ -13,6 +13,7 @@ data RtmpOutputSettingsProperty
                                 connectionRetryInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                                 destination :: (Prelude.Maybe OutputLocationRefProperty),
                                 numRetries :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRtmpOutputSettingsProperty :: RtmpOutputSettingsProperty
 mkRtmpOutputSettingsProperty
   = RtmpOutputSettingsProperty

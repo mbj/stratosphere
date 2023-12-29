@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DeviceUnderTestProperty
   = DeviceUnderTestProperty {certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
                              thingArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceUnderTestProperty :: DeviceUnderTestProperty
 mkDeviceUnderTestProperty
   = DeviceUnderTestProperty

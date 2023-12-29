@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JsonProperty
   = JsonProperty {line :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonProperty :: JsonProperty
 mkJsonProperty = JsonProperty {line = Prelude.Nothing}
 instance ToResourceProperties JsonProperty where

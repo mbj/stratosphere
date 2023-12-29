@@ -22,6 +22,7 @@ data Input
            tags :: (Prelude.Maybe JSON.Object),
            type' :: (Prelude.Maybe (Value Prelude.Text)),
            vpc :: (Prelude.Maybe InputVpcRequestProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInput :: Input
 mkInput
   = Input

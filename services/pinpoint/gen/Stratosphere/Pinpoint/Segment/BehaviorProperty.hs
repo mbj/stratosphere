@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.Pinpoint.Segment.RecencyProperty as Exports
 import Stratosphere.ResourceProperties
 data BehaviorProperty
   = BehaviorProperty {recency :: (Prelude.Maybe RecencyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBehaviorProperty :: BehaviorProperty
 mkBehaviorProperty = BehaviorProperty {recency = Prelude.Nothing}
 instance ToResourceProperties BehaviorProperty where

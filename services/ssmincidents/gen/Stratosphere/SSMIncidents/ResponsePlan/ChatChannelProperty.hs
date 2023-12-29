@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ChatChannelProperty
   = ChatChannelProperty {chatbotSns :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChatChannelProperty :: ChatChannelProperty
 mkChatChannelProperty
   = ChatChannelProperty {chatbotSns = Prelude.Nothing}

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProjectOperationProperty :: Prelude.Type
 instance ToResourceProperties ProjectOperationProperty
+instance Prelude.Eq ProjectOperationProperty
+instance Prelude.Show ProjectOperationProperty
 instance JSON.ToJSON ProjectOperationProperty

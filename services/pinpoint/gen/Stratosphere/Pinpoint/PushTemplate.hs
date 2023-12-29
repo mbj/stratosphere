@@ -19,6 +19,7 @@ data PushTemplate
                   tags :: (Prelude.Maybe JSON.Object),
                   templateDescription :: (Prelude.Maybe (Value Prelude.Text)),
                   templateName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPushTemplate :: Value Prelude.Text -> PushTemplate
 mkPushTemplate templateName
   = PushTemplate

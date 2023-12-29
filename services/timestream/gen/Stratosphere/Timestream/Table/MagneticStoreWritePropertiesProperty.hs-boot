@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MagneticStoreWritePropertiesProperty :: Prelude.Type
 instance ToResourceProperties MagneticStoreWritePropertiesProperty
+instance Prelude.Eq MagneticStoreWritePropertiesProperty
+instance Prelude.Show MagneticStoreWritePropertiesProperty
 instance JSON.ToJSON MagneticStoreWritePropertiesProperty

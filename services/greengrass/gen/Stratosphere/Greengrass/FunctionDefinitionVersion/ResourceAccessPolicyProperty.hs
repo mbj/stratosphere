@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ResourceAccessPolicyProperty
   = ResourceAccessPolicyProperty {permission :: (Prelude.Maybe (Value Prelude.Text)),
                                   resourceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceAccessPolicyProperty ::
   Value Prelude.Text -> ResourceAccessPolicyProperty
 mkResourceAccessPolicyProperty resourceId

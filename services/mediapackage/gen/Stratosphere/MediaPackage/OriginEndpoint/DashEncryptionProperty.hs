@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DashEncryptionProperty
   = DashEncryptionProperty {keyRotationIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                             spekeKeyProvider :: SpekeKeyProviderProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashEncryptionProperty ::
   SpekeKeyProviderProperty -> DashEncryptionProperty
 mkDashEncryptionProperty spekeKeyProvider

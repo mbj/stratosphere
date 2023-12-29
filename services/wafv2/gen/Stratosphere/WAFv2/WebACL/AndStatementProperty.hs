@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.StatementProperty as Exports
 import Stratosphere.ResourceProperties
 data AndStatementProperty
   = AndStatementProperty {statements :: [StatementProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAndStatementProperty ::
   [StatementProperty] -> AndStatementProperty
 mkAndStatementProperty statements

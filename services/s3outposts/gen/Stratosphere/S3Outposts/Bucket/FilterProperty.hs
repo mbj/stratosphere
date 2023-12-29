@@ -12,6 +12,7 @@ data FilterProperty
   = FilterProperty {andOperator :: (Prelude.Maybe FilterAndOperatorProperty),
                     prefix :: (Prelude.Maybe (Value Prelude.Text)),
                     tag :: (Prelude.Maybe FilterTagProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty :: FilterProperty
 mkFilterProperty
   = FilterProperty

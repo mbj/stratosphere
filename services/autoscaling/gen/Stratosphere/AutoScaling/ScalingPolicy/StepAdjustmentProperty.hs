@@ -10,6 +10,7 @@ data StepAdjustmentProperty
   = StepAdjustmentProperty {metricIntervalLowerBound :: (Prelude.Maybe (Value Prelude.Double)),
                             metricIntervalUpperBound :: (Prelude.Maybe (Value Prelude.Double)),
                             scalingAdjustment :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStepAdjustmentProperty ::
   Value Prelude.Integer -> StepAdjustmentProperty
 mkStepAdjustmentProperty scalingAdjustment

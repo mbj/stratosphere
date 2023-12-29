@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DomainNameApiAssociation
   = DomainNameApiAssociation {apiId :: (Value Prelude.Text),
                               domainName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainNameApiAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> DomainNameApiAssociation

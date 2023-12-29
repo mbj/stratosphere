@@ -10,6 +10,7 @@ data HealthCheckConfigProperty
   = HealthCheckConfigProperty {failureThreshold :: (Prelude.Maybe (Value Prelude.Double)),
                                resourcePath :: (Prelude.Maybe (Value Prelude.Text)),
                                type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckConfigProperty ::
   Value Prelude.Text -> HealthCheckConfigProperty
 mkHealthCheckConfigProperty type'

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data GeoMatchSet
   = GeoMatchSet {geoMatchConstraints :: (Prelude.Maybe [GeoMatchConstraintProperty]),
                  name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeoMatchSet :: Value Prelude.Text -> GeoMatchSet
 mkGeoMatchSet name
   = GeoMatchSet {name = name, geoMatchConstraints = Prelude.Nothing}

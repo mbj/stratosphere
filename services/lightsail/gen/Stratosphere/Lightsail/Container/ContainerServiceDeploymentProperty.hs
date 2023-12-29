@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ContainerServiceDeploymentProperty
   = ContainerServiceDeploymentProperty {containers :: (Prelude.Maybe [ContainerProperty]),
                                         publicEndpoint :: (Prelude.Maybe PublicEndpointProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerServiceDeploymentProperty ::
   ContainerServiceDeploymentProperty
 mkContainerServiceDeploymentProperty

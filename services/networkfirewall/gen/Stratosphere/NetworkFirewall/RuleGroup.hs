@@ -15,6 +15,7 @@ data RuleGroup
                ruleGroupName :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag]),
                type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroup ::
   Value Prelude.Integer
   -> Value Prelude.Text -> Value Prelude.Text -> RuleGroup

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplaceDefaultPolicyVersionParamsProperty
   = ReplaceDefaultPolicyVersionParamsProperty {templateName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplaceDefaultPolicyVersionParamsProperty ::
   Value Prelude.Text -> ReplaceDefaultPolicyVersionParamsProperty
 mkReplaceDefaultPolicyVersionParamsProperty templateName

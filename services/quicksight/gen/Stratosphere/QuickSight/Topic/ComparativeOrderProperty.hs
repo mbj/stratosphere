@@ -10,6 +10,7 @@ data ComparativeOrderProperty
   = ComparativeOrderProperty {specifedOrder :: (Prelude.Maybe (ValueList Prelude.Text)),
                               treatUndefinedSpecifiedValues :: (Prelude.Maybe (Value Prelude.Text)),
                               useOrdering :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComparativeOrderProperty :: ComparativeOrderProperty
 mkComparativeOrderProperty
   = ComparativeOrderProperty

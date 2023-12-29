@@ -11,6 +11,7 @@ data SheetVisualScopingConfigurationProperty
   = SheetVisualScopingConfigurationProperty {scope :: (Value Prelude.Text),
                                              sheetId :: (Value Prelude.Text),
                                              visualIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSheetVisualScopingConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SheetVisualScopingConfigurationProperty

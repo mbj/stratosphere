@@ -11,6 +11,7 @@ data HttpEndpointConfigurationProperty
   = HttpEndpointConfigurationProperty {accessKey :: (Prelude.Maybe (Value Prelude.Text)),
                                        name :: (Prelude.Maybe (Value Prelude.Text)),
                                        url :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpEndpointConfigurationProperty ::
   Value Prelude.Text -> HttpEndpointConfigurationProperty
 mkHttpEndpointConfigurationProperty url

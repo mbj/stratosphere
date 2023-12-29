@@ -14,6 +14,7 @@ data OAuth2CredentialsProperty
                                clientSecret :: (Prelude.Maybe (Value Prelude.Text)),
                                oAuthRequest :: (Prelude.Maybe ConnectorOAuthRequestProperty),
                                refreshToken :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOAuth2CredentialsProperty :: OAuth2CredentialsProperty
 mkOAuth2CredentialsProperty
   = OAuth2CredentialsProperty

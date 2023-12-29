@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ThousandSeparatorOptionsProperty :: Prelude.Type
 instance ToResourceProperties ThousandSeparatorOptionsProperty
+instance Prelude.Eq ThousandSeparatorOptionsProperty
+instance Prelude.Show ThousandSeparatorOptionsProperty
 instance JSON.ToJSON ThousandSeparatorOptionsProperty

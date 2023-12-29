@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConformancePackInputParameterProperty :: Prelude.Type
 instance ToResourceProperties ConformancePackInputParameterProperty
+instance Prelude.Eq ConformancePackInputParameterProperty
+instance Prelude.Show ConformancePackInputParameterProperty
 instance JSON.ToJSON ConformancePackInputParameterProperty

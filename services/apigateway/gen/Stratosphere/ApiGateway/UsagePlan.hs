@@ -17,6 +17,7 @@ data UsagePlan
                tags :: (Prelude.Maybe [Tag]),
                throttle :: (Prelude.Maybe ThrottleSettingsProperty),
                usagePlanName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUsagePlan :: UsagePlan
 mkUsagePlan
   = UsagePlan

@@ -14,6 +14,7 @@ data ScheduledAudit
                     scheduledAuditName :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag]),
                     targetCheckNames :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledAudit ::
   Value Prelude.Text -> ValueList Prelude.Text -> ScheduledAudit
 mkScheduledAudit frequency targetCheckNames

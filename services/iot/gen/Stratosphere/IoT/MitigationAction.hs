@@ -13,6 +13,7 @@ data MitigationAction
                       actionParams :: ActionParamsProperty,
                       roleArn :: (Value Prelude.Text),
                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMitigationAction ::
   ActionParamsProperty -> Value Prelude.Text -> MitigationAction
 mkMitigationAction actionParams roleArn

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CompromisedCredentialsActionsTypeProperty :: Prelude.Type
 instance ToResourceProperties CompromisedCredentialsActionsTypeProperty
+instance Prelude.Eq CompromisedCredentialsActionsTypeProperty
+instance Prelude.Show CompromisedCredentialsActionsTypeProperty
 instance JSON.ToJSON CompromisedCredentialsActionsTypeProperty

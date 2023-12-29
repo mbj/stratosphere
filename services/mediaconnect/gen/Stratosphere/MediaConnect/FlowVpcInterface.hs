@@ -12,6 +12,7 @@ data FlowVpcInterface
                       roleArn :: (Value Prelude.Text),
                       securityGroupIds :: (ValueList Prelude.Text),
                       subnetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowVpcInterface ::
   Value Prelude.Text
   -> Value Prelude.Text

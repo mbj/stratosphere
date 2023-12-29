@@ -9,6 +9,7 @@ import Stratosphere.Value
 data QueuePolicy
   = QueuePolicy {policyDocument :: JSON.Object,
                  queues :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueuePolicy ::
   JSON.Object -> ValueList Prelude.Text -> QueuePolicy
 mkQueuePolicy policyDocument queues

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ClientCertificate
   = ClientCertificate {description :: (Prelude.Maybe (Value Prelude.Text)),
                        tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientCertificate :: ClientCertificate
 mkClientCertificate
   = ClientCertificate

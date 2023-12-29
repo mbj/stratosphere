@@ -15,6 +15,7 @@ data SlackChannelConfiguration
                                slackWorkspaceId :: (Value Prelude.Text),
                                snsTopicArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                userRoleRequired :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlackChannelConfiguration ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -13,6 +13,7 @@ data GlobalCluster
                    globalClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                    sourceDBClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                    storageEncrypted :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalCluster :: GlobalCluster
 mkGlobalCluster
   = GlobalCluster

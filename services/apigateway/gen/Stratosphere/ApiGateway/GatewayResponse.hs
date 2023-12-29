@@ -12,6 +12,7 @@ data GatewayResponse
                      responseType :: (Value Prelude.Text),
                      restApiId :: (Value Prelude.Text),
                      statusCode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGatewayResponse ::
   Value Prelude.Text -> Value Prelude.Text -> GatewayResponse
 mkGatewayResponse responseType restApiId

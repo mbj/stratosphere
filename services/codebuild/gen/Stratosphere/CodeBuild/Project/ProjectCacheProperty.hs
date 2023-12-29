@@ -10,6 +10,7 @@ data ProjectCacheProperty
   = ProjectCacheProperty {location :: (Prelude.Maybe (Value Prelude.Text)),
                           modes :: (Prelude.Maybe (ValueList Prelude.Text)),
                           type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectCacheProperty ::
   Value Prelude.Text -> ProjectCacheProperty
 mkProjectCacheProperty type'

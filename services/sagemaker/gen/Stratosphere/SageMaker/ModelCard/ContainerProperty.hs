@@ -10,6 +10,7 @@ data ContainerProperty
   = ContainerProperty {image :: (Value Prelude.Text),
                        modelDataUrl :: (Prelude.Maybe (Value Prelude.Text)),
                        nearestModelName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerProperty :: Value Prelude.Text -> ContainerProperty
 mkContainerProperty image
   = ContainerProperty

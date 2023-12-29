@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayTlsValidationContextSdsTrustProperty
   = VirtualGatewayTlsValidationContextSdsTrustProperty {secretName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayTlsValidationContextSdsTrustProperty ::
   Value Prelude.Text
   -> VirtualGatewayTlsValidationContextSdsTrustProperty

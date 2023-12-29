@@ -27,6 +27,7 @@ data Eac3SettingsProperty
                           stereoDownmix :: (Prelude.Maybe (Value Prelude.Text)),
                           surroundExMode :: (Prelude.Maybe (Value Prelude.Text)),
                           surroundMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEac3SettingsProperty :: Eac3SettingsProperty
 mkEac3SettingsProperty
   = Eac3SettingsProperty

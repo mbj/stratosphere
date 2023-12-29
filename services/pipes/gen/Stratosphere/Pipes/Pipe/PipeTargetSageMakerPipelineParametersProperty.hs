@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.SageMakerPipelineParameterProperty
 import Stratosphere.ResourceProperties
 data PipeTargetSageMakerPipelineParametersProperty
   = PipeTargetSageMakerPipelineParametersProperty {pipelineParameterList :: (Prelude.Maybe [SageMakerPipelineParameterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetSageMakerPipelineParametersProperty ::
   PipeTargetSageMakerPipelineParametersProperty
 mkPipeTargetSageMakerPipelineParametersProperty

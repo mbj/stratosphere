@@ -12,6 +12,7 @@ data LegacyCustomOriginProperty
                                 hTTPSPort :: (Prelude.Maybe (Value Prelude.Integer)),
                                 originProtocolPolicy :: (Value Prelude.Text),
                                 originSSLProtocols :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLegacyCustomOriginProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

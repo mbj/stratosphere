@@ -13,6 +13,7 @@ data Group
            groupName :: (Value Prelude.Text),
            insightsConfiguration :: (Prelude.Maybe InsightsConfigurationProperty),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGroup :: Value Prelude.Text -> Group
 mkGroup groupName
   = Group

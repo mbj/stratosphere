@@ -11,6 +11,7 @@ data LoggerDefinition
   = LoggerDefinition {initialVersion :: (Prelude.Maybe LoggerDefinitionVersionProperty),
                       name :: (Value Prelude.Text),
                       tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggerDefinition :: Value Prelude.Text -> LoggerDefinition
 mkLoggerDefinition name
   = LoggerDefinition

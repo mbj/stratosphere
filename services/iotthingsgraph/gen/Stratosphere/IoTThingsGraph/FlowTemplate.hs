@@ -10,6 +10,7 @@ import Stratosphere.Value
 data FlowTemplate
   = FlowTemplate {compatibleNamespaceVersion :: (Prelude.Maybe (Value Prelude.Double)),
                   definition :: DefinitionDocumentProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlowTemplate :: DefinitionDocumentProperty -> FlowTemplate
 mkFlowTemplate definition
   = FlowTemplate

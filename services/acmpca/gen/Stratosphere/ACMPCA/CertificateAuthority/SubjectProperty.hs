@@ -23,6 +23,7 @@ data SubjectProperty
                      state :: (Prelude.Maybe (Value Prelude.Text)),
                      surname :: (Prelude.Maybe (Value Prelude.Text)),
                      title :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubjectProperty :: SubjectProperty
 mkSubjectProperty
   = SubjectProperty

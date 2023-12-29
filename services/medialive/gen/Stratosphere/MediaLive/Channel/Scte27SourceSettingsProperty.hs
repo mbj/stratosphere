@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Scte27SourceSettingsProperty
   = Scte27SourceSettingsProperty {ocrLanguage :: (Prelude.Maybe (Value Prelude.Text)),
                                   pid :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScte27SourceSettingsProperty :: Scte27SourceSettingsProperty
 mkScte27SourceSettingsProperty
   = Scte27SourceSettingsProperty

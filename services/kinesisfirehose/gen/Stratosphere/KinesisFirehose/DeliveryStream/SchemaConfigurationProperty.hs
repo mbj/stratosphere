@@ -13,6 +13,7 @@ data SchemaConfigurationProperty
                                  roleARN :: (Prelude.Maybe (Value Prelude.Text)),
                                  tableName :: (Prelude.Maybe (Value Prelude.Text)),
                                  versionId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaConfigurationProperty :: SchemaConfigurationProperty
 mkSchemaConfigurationProperty
   = SchemaConfigurationProperty

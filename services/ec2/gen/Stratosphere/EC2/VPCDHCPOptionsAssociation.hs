@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VPCDHCPOptionsAssociation
   = VPCDHCPOptionsAssociation {dhcpOptionsId :: (Value Prelude.Text),
                                vpcId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCDHCPOptionsAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> VPCDHCPOptionsAssociation

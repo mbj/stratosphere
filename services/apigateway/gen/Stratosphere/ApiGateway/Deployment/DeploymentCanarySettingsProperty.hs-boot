@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeploymentCanarySettingsProperty :: Prelude.Type
 instance ToResourceProperties DeploymentCanarySettingsProperty
+instance Prelude.Eq DeploymentCanarySettingsProperty
+instance Prelude.Show DeploymentCanarySettingsProperty
 instance JSON.ToJSON DeploymentCanarySettingsProperty

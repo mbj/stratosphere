@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FilledMapVisualProperty :: Prelude.Type
 instance ToResourceProperties FilledMapVisualProperty
+instance Prelude.Eq FilledMapVisualProperty
+instance Prelude.Show FilledMapVisualProperty
 instance JSON.ToJSON FilledMapVisualProperty

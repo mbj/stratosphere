@@ -17,6 +17,7 @@ data Rule
           publishStatus :: (Value Prelude.Text),
           tags :: (Prelude.Maybe [Tag]),
           triggerEventSource :: RuleTriggerEventSourceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRule ::
   ActionsProperty
   -> Value Prelude.Text

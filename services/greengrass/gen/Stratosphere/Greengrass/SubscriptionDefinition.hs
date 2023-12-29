@@ -12,6 +12,7 @@ data SubscriptionDefinition
   = SubscriptionDefinition {initialVersion :: (Prelude.Maybe SubscriptionDefinitionVersionProperty),
                             name :: (Value Prelude.Text),
                             tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriptionDefinition ::
   Value Prelude.Text -> SubscriptionDefinition
 mkSubscriptionDefinition name

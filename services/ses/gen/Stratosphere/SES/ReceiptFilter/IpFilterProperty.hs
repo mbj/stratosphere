@@ -9,6 +9,7 @@ import Stratosphere.Value
 data IpFilterProperty
   = IpFilterProperty {cidr :: (Value Prelude.Text),
                       policy :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIpFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> IpFilterProperty
 mkIpFilterProperty cidr policy

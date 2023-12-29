@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StreamSelectionProperty :: Prelude.Type
 instance ToResourceProperties StreamSelectionProperty
+instance Prelude.Eq StreamSelectionProperty
+instance Prelude.Show StreamSelectionProperty
 instance JSON.ToJSON StreamSelectionProperty

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data StatisticsConfigurationProperty
   = StatisticsConfigurationProperty {includedStatistics :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      overrides :: (Prelude.Maybe [StatisticOverrideProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatisticsConfigurationProperty ::
   StatisticsConfigurationProperty
 mkStatisticsConfigurationProperty

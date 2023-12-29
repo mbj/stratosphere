@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GitSubmodulesConfigProperty :: Prelude.Type
 instance ToResourceProperties GitSubmodulesConfigProperty
+instance Prelude.Eq GitSubmodulesConfigProperty
+instance Prelude.Show GitSubmodulesConfigProperty
 instance JSON.ToJSON GitSubmodulesConfigProperty

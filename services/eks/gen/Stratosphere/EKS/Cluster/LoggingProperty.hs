@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.EKS.Cluster.ClusterLoggingProperty as Exports
 import Stratosphere.ResourceProperties
 data LoggingProperty
   = LoggingProperty {clusterLogging :: (Prelude.Maybe ClusterLoggingProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingProperty :: LoggingProperty
 mkLoggingProperty
   = LoggingProperty {clusterLogging = Prelude.Nothing}

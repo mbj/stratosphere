@@ -10,6 +10,7 @@ data ShareRuleProperty
   = ShareRuleProperty {targetAccounts :: (Prelude.Maybe (ValueList Prelude.Text)),
                        unshareInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                        unshareIntervalUnit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkShareRuleProperty :: ShareRuleProperty
 mkShareRuleProperty
   = ShareRuleProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ObjectTypeMappingProperty
   = ObjectTypeMappingProperty {key :: (Value Prelude.Text),
                                value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectTypeMappingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ObjectTypeMappingProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HistoricalOptionsProperty
   = HistoricalOptionsProperty {budgetAdjustmentPeriod :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHistoricalOptionsProperty ::
   Value Prelude.Integer -> HistoricalOptionsProperty
 mkHistoricalOptionsProperty budgetAdjustmentPeriod

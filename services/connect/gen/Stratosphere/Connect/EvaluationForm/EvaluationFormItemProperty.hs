@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data EvaluationFormItemProperty
   = EvaluationFormItemProperty {question :: (Prelude.Maybe EvaluationFormQuestionProperty),
                                 section :: (Prelude.Maybe EvaluationFormSectionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormItemProperty :: EvaluationFormItemProperty
 mkEvaluationFormItemProperty
   = EvaluationFormItemProperty

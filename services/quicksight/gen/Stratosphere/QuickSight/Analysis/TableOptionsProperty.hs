@@ -13,6 +13,7 @@ data TableOptionsProperty
                           headerStyle :: (Prelude.Maybe TableCellStyleProperty),
                           orientation :: (Prelude.Maybe (Value Prelude.Text)),
                           rowAlternateColorOptions :: (Prelude.Maybe RowAlternateColorOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableOptionsProperty :: TableOptionsProperty
 mkTableOptionsProperty
   = TableOptionsProperty

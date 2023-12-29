@@ -11,6 +11,7 @@ import Stratosphere.Value
 data SingleWeightConfigProperty
   = SingleWeightConfigProperty {sessionStickinessConfig :: (Prelude.Maybe SessionStickinessConfigProperty),
                                 weight :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleWeightConfigProperty ::
   Value Prelude.Double -> SingleWeightConfigProperty
 mkSingleWeightConfigProperty weight

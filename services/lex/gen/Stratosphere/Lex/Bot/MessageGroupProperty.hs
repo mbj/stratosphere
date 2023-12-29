@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 data MessageGroupProperty
   = MessageGroupProperty {message :: MessageProperty,
                           variations :: (Prelude.Maybe [MessageProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageGroupProperty :: MessageProperty -> MessageGroupProperty
 mkMessageGroupProperty message
   = MessageGroupProperty

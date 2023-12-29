@@ -13,6 +13,7 @@ data SankeyDiagramChartConfigurationProperty
   = SankeyDiagramChartConfigurationProperty {dataLabels :: (Prelude.Maybe DataLabelOptionsProperty),
                                              fieldWells :: (Prelude.Maybe SankeyDiagramFieldWellsProperty),
                                              sortConfiguration :: (Prelude.Maybe SankeyDiagramSortConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSankeyDiagramChartConfigurationProperty ::
   SankeyDiagramChartConfigurationProperty
 mkSankeyDiagramChartConfigurationProperty

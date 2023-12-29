@@ -13,6 +13,7 @@ data Assignment
                 principalType :: (Value Prelude.Text),
                 targetId :: (Value Prelude.Text),
                 targetType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssignment ::
   Value Prelude.Text
   -> Value Prelude.Text

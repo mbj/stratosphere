@@ -10,6 +10,7 @@ data SelectionCriteriaProperty
   = SelectionCriteriaProperty {delimiter :: (Prelude.Maybe (Value Prelude.Text)),
                                maxDepth :: (Prelude.Maybe (Value Prelude.Integer)),
                                minStorageBytesPercentage :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSelectionCriteriaProperty :: SelectionCriteriaProperty
 mkSelectionCriteriaProperty
   = SelectionCriteriaProperty

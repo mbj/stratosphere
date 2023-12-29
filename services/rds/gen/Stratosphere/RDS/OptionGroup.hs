@@ -15,6 +15,7 @@ data OptionGroup
                  optionGroupDescription :: (Value Prelude.Text),
                  optionGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionGroup ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> OptionGroup

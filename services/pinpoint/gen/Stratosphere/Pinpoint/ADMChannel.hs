@@ -11,6 +11,7 @@ data ADMChannel
                 clientId :: (Value Prelude.Text),
                 clientSecret :: (Value Prelude.Text),
                 enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkADMChannel ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> ADMChannel

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HeaderMatchPatternProperty :: Prelude.Type
 instance ToResourceProperties HeaderMatchPatternProperty
+instance Prelude.Eq HeaderMatchPatternProperty
+instance Prelude.Show HeaderMatchPatternProperty
 instance JSON.ToJSON HeaderMatchPatternProperty

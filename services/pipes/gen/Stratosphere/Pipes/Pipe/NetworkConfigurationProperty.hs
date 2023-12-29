@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.AwsVpcConfigurationProperty as Exp
 import Stratosphere.ResourceProperties
 data NetworkConfigurationProperty
   = NetworkConfigurationProperty {awsvpcConfiguration :: (Prelude.Maybe AwsVpcConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty
 mkNetworkConfigurationProperty
   = NetworkConfigurationProperty

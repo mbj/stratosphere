@@ -18,6 +18,7 @@ data PipeSourceKinesisStreamParametersProperty
                                                parallelizationFactor :: (Prelude.Maybe (Value Prelude.Integer)),
                                                startingPosition :: (Value Prelude.Text),
                                                startingPositionTimestamp :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceKinesisStreamParametersProperty ::
   Value Prelude.Text -> PipeSourceKinesisStreamParametersProperty
 mkPipeSourceKinesisStreamParametersProperty startingPosition

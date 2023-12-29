@@ -13,6 +13,7 @@ data SubComponentConfigurationDetailsProperty
   = SubComponentConfigurationDetailsProperty {alarmMetrics :: (Prelude.Maybe [AlarmMetricProperty]),
                                               logs :: (Prelude.Maybe [LogProperty]),
                                               windowsEvents :: (Prelude.Maybe [WindowsEventProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubComponentConfigurationDetailsProperty ::
   SubComponentConfigurationDetailsProperty
 mkSubComponentConfigurationDetailsProperty

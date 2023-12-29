@@ -11,6 +11,7 @@ import Stratosphere.Value
 data EventBridgeDestinationPropertiesProperty
   = EventBridgeDestinationPropertiesProperty {errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
                                               object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeDestinationPropertiesProperty ::
   Value Prelude.Text -> EventBridgeDestinationPropertiesProperty
 mkEventBridgeDestinationPropertiesProperty object

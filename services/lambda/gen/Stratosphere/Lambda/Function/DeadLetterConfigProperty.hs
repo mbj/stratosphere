@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeadLetterConfigProperty
   = DeadLetterConfigProperty {targetArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeadLetterConfigProperty :: DeadLetterConfigProperty
 mkDeadLetterConfigProperty
   = DeadLetterConfigProperty {targetArn = Prelude.Nothing}

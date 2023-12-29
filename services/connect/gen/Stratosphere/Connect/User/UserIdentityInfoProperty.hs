@@ -12,6 +12,7 @@ data UserIdentityInfoProperty
                               lastName :: (Prelude.Maybe (Value Prelude.Text)),
                               mobile :: (Prelude.Maybe (Value Prelude.Text)),
                               secondaryEmail :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserIdentityInfoProperty :: UserIdentityInfoProperty
 mkUserIdentityInfoProperty
   = UserIdentityInfoProperty

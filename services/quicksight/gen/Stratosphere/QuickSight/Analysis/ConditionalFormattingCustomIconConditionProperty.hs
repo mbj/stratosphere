@@ -15,6 +15,7 @@ data ConditionalFormattingCustomIconConditionProperty
                                                       displayConfiguration :: (Prelude.Maybe ConditionalFormattingIconDisplayConfigurationProperty),
                                                       expression :: (Value Prelude.Text),
                                                       iconOptions :: ConditionalFormattingCustomIconOptionsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionalFormattingCustomIconConditionProperty ::
   Value Prelude.Text
   -> ConditionalFormattingCustomIconOptionsProperty

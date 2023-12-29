@@ -19,6 +19,7 @@ data WordCloudVisualProperty
                              subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                              title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                              visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWordCloudVisualProperty ::
   Value Prelude.Text -> WordCloudVisualProperty
 mkWordCloudVisualProperty visualId

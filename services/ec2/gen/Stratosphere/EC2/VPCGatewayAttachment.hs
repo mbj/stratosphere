@@ -10,6 +10,7 @@ data VPCGatewayAttachment
   = VPCGatewayAttachment {internetGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
                           vpcId :: (Value Prelude.Text),
                           vpnGatewayId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCGatewayAttachment ::
   Value Prelude.Text -> VPCGatewayAttachment
 mkVPCGatewayAttachment vpcId

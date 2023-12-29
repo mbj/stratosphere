@@ -11,6 +11,7 @@ data Configuration
                    kafkaVersionsList :: (Prelude.Maybe (ValueList Prelude.Text)),
                    name :: (Value Prelude.Text),
                    serverProperties :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguration ::
   Value Prelude.Text -> Value Prelude.Text -> Configuration
 mkConfiguration name serverProperties

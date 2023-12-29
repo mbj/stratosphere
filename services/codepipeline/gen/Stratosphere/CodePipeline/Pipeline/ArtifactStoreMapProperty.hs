@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ArtifactStoreMapProperty
   = ArtifactStoreMapProperty {artifactStore :: ArtifactStoreProperty,
                               region :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArtifactStoreMapProperty ::
   ArtifactStoreProperty
   -> Value Prelude.Text -> ArtifactStoreMapProperty

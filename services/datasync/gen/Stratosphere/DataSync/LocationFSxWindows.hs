@@ -15,6 +15,7 @@ data LocationFSxWindows
                         subdirectory :: (Prelude.Maybe (Value Prelude.Text)),
                         tags :: (Prelude.Maybe [Tag]),
                         user :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationFSxWindows ::
   ValueList Prelude.Text -> Value Prelude.Text -> LocationFSxWindows
 mkLocationFSxWindows securityGroupArns user

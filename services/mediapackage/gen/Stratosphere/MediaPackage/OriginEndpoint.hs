@@ -27,6 +27,7 @@ data OriginEndpoint
                     tags :: (Prelude.Maybe [Tag]),
                     timeDelaySeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                     whitelist :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginEndpoint ::
   Value Prelude.Text -> Value Prelude.Text -> OriginEndpoint
 mkOriginEndpoint channelId id

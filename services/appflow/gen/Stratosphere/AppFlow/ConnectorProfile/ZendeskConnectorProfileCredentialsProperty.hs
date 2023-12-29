@@ -13,6 +13,7 @@ data ZendeskConnectorProfileCredentialsProperty
                                                 clientId :: (Value Prelude.Text),
                                                 clientSecret :: (Value Prelude.Text),
                                                 connectorOAuthRequest :: (Prelude.Maybe ConnectorOAuthRequestProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkZendeskConnectorProfileCredentialsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ZendeskConnectorProfileCredentialsProperty

@@ -12,6 +12,7 @@ data IntendedUsesProperty
                           intendedUses :: (Prelude.Maybe (Value Prelude.Text)),
                           purposeOfModel :: (Prelude.Maybe (Value Prelude.Text)),
                           riskRating :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntendedUsesProperty :: IntendedUsesProperty
 mkIntendedUsesProperty
   = IntendedUsesProperty

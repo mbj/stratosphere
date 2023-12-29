@@ -15,6 +15,7 @@ data StudioComponentConfigurationProperty
                                           computeFarmConfiguration :: (Prelude.Maybe ComputeFarmConfigurationProperty),
                                           licenseServiceConfiguration :: (Prelude.Maybe LicenseServiceConfigurationProperty),
                                           sharedFileSystemConfiguration :: (Prelude.Maybe SharedFileSystemConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStudioComponentConfigurationProperty ::
   StudioComponentConfigurationProperty
 mkStudioComponentConfigurationProperty

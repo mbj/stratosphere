@@ -15,6 +15,7 @@ data ScheduledAction
                      recurrence :: (Prelude.Maybe (Value Prelude.Text)),
                      startTime :: (Prelude.Maybe (Value Prelude.Text)),
                      timeZone :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledAction :: Value Prelude.Text -> ScheduledAction
 mkScheduledAction autoScalingGroupName
   = ScheduledAction

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data StatelessRulesAndCustomActionsProperty
   = StatelessRulesAndCustomActionsProperty {customActions :: (Prelude.Maybe [CustomActionProperty]),
                                             statelessRules :: [StatelessRuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatelessRulesAndCustomActionsProperty ::
   [StatelessRuleProperty] -> StatelessRulesAndCustomActionsProperty
 mkStatelessRulesAndCustomActionsProperty statelessRules

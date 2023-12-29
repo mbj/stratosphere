@@ -18,6 +18,7 @@ data ResourceDataSync
                       syncName :: (Value Prelude.Text),
                       syncSource :: (Prelude.Maybe SyncSourceProperty),
                       syncType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDataSync :: Value Prelude.Text -> ResourceDataSync
 mkResourceDataSync syncName
   = ResourceDataSync

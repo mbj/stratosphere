@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StringFilterProperty
   = StringFilterProperty {comparison :: (Value Prelude.Text),
                           value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStringFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> StringFilterProperty
 mkStringFilterProperty comparison value

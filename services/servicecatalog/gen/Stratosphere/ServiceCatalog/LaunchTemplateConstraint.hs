@@ -12,6 +12,7 @@ data LaunchTemplateConstraint
                               portfolioId :: (Value Prelude.Text),
                               productId :: (Value Prelude.Text),
                               rules :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateConstraint ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -10,6 +10,7 @@ data LogConfigProperty
   = LogConfigProperty {cloudWatchLogsRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                        excludeVerboseContent :: (Prelude.Maybe (Value Prelude.Bool)),
                        fieldLogLevel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogConfigProperty :: LogConfigProperty
 mkLogConfigProperty
   = LogConfigProperty

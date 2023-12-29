@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WindowStartTimeProperty
   = WindowStartTimeProperty {hours :: (Value Prelude.Integer),
                              minutes :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWindowStartTimeProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> WindowStartTimeProperty

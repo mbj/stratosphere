@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PostgreSqlParametersProperty :: Prelude.Type
 instance ToResourceProperties PostgreSqlParametersProperty
+instance Prelude.Eq PostgreSqlParametersProperty
+instance Prelude.Show PostgreSqlParametersProperty
 instance JSON.ToJSON PostgreSqlParametersProperty

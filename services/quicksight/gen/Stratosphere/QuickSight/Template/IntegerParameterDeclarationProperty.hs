@@ -16,6 +16,7 @@ data IntegerParameterDeclarationProperty
                                          name :: (Value Prelude.Text),
                                          parameterValueType :: (Value Prelude.Text),
                                          valueWhenUnset :: (Prelude.Maybe IntegerValueWhenUnsetConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegerParameterDeclarationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> IntegerParameterDeclarationProperty

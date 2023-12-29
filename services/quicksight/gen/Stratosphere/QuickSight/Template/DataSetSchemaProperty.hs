@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.ColumnSchemaProperty as E
 import Stratosphere.ResourceProperties
 data DataSetSchemaProperty
   = DataSetSchemaProperty {columnSchemaList :: (Prelude.Maybe [ColumnSchemaProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSetSchemaProperty :: DataSetSchemaProperty
 mkDataSetSchemaProperty
   = DataSetSchemaProperty {columnSchemaList = Prelude.Nothing}

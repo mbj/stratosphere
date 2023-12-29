@@ -16,6 +16,7 @@ data Disk
           location :: (Prelude.Maybe LocationProperty),
           sizeInGb :: (Value Prelude.Integer),
           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDisk :: Value Prelude.Text -> Value Prelude.Integer -> Disk
 mkDisk diskName sizeInGb
   = Disk

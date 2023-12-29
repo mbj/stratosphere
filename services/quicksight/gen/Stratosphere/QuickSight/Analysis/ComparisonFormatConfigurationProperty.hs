@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ComparisonFormatConfigurationProperty
   = ComparisonFormatConfigurationProperty {numberDisplayFormatConfiguration :: (Prelude.Maybe NumberDisplayFormatConfigurationProperty),
                                            percentageDisplayFormatConfiguration :: (Prelude.Maybe PercentageDisplayFormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComparisonFormatConfigurationProperty ::
   ComparisonFormatConfigurationProperty
 mkComparisonFormatConfigurationProperty

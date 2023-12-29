@@ -12,6 +12,7 @@ data MutationActionSetStateParameterProperty
   = MutationActionSetStateParameterProperty {componentName :: (Value Prelude.Text),
                                              property :: (Value Prelude.Text),
                                              set' :: ComponentPropertyProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMutationActionSetStateParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

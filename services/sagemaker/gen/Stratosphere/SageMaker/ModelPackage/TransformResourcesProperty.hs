@@ -10,6 +10,7 @@ data TransformResourcesProperty
   = TransformResourcesProperty {instanceCount :: (Value Prelude.Integer),
                                 instanceType :: (Value Prelude.Text),
                                 volumeKmsKeyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformResourcesProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> TransformResourcesProperty

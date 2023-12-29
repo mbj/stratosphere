@@ -21,6 +21,7 @@ data StateMachine
                   stateMachineType :: (Prelude.Maybe (Value Prelude.Text)),
                   tags :: (Prelude.Maybe [TagsEntryProperty]),
                   tracingConfiguration :: (Prelude.Maybe TracingConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStateMachine :: Value Prelude.Text -> StateMachine
 mkStateMachine roleArn
   = StateMachine

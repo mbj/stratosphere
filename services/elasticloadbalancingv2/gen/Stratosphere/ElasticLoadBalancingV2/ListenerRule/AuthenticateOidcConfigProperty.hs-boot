@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AuthenticateOidcConfigProperty :: Prelude.Type
 instance ToResourceProperties AuthenticateOidcConfigProperty
+instance Prelude.Eq AuthenticateOidcConfigProperty
+instance Prelude.Show AuthenticateOidcConfigProperty
 instance JSON.ToJSON AuthenticateOidcConfigProperty

@@ -12,6 +12,7 @@ data Collection
                 name :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag]),
                 type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCollection :: Value Prelude.Text -> Collection
 mkCollection name
   = Collection

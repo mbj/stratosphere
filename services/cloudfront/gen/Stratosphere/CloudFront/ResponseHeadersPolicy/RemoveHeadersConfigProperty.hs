@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ResponseHeadersPolicy.RemoveHeader
 import Stratosphere.ResourceProperties
 data RemoveHeadersConfigProperty
   = RemoveHeadersConfigProperty {items :: [RemoveHeaderProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRemoveHeadersConfigProperty ::
   [RemoveHeaderProperty] -> RemoveHeadersConfigProperty
 mkRemoveHeadersConfigProperty items

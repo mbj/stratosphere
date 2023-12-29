@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PayloadProperty
   = PayloadProperty {contentExpression :: (Value Prelude.Text),
                      type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPayloadProperty ::
   Value Prelude.Text -> Value Prelude.Text -> PayloadProperty
 mkPayloadProperty contentExpression type'

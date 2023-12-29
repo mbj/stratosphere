@@ -11,6 +11,7 @@ data SidewalkAccountInfoWithFingerprintProperty
   = SidewalkAccountInfoWithFingerprintProperty {amazonId :: (Prelude.Maybe (Value Prelude.Text)),
                                                 arn :: (Prelude.Maybe (Value Prelude.Text)),
                                                 fingerprint :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSidewalkAccountInfoWithFingerprintProperty ::
   SidewalkAccountInfoWithFingerprintProperty
 mkSidewalkAccountInfoWithFingerprintProperty

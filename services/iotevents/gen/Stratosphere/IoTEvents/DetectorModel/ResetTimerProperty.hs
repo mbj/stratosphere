@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResetTimerProperty
   = ResetTimerProperty {timerName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResetTimerProperty :: Value Prelude.Text -> ResetTimerProperty
 mkResetTimerProperty timerName
   = ResetTimerProperty {timerName = timerName}

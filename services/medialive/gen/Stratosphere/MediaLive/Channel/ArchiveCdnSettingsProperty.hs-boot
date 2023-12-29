@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ArchiveCdnSettingsProperty :: Prelude.Type
 instance ToResourceProperties ArchiveCdnSettingsProperty
+instance Prelude.Eq ArchiveCdnSettingsProperty
+instance Prelude.Show ArchiveCdnSettingsProperty
 instance JSON.ToJSON ArchiveCdnSettingsProperty

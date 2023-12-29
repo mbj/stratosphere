@@ -15,6 +15,7 @@ data Alias
            name :: (Value Prelude.Text),
            provisionedConcurrencyConfig :: (Prelude.Maybe ProvisionedConcurrencyConfigurationProperty),
            routingConfig :: (Prelude.Maybe AliasRoutingConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlias ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Alias

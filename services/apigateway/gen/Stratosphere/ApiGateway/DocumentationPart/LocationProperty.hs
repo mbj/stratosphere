@@ -12,6 +12,7 @@ data LocationProperty
                       path :: (Prelude.Maybe (Value Prelude.Text)),
                       statusCode :: (Prelude.Maybe (Value Prelude.Text)),
                       type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLocationProperty :: LocationProperty
 mkLocationProperty
   = LocationProperty

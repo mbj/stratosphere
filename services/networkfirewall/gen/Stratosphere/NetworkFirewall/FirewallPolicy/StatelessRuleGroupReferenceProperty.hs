@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StatelessRuleGroupReferenceProperty
   = StatelessRuleGroupReferenceProperty {priority :: (Value Prelude.Integer),
                                          resourceArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatelessRuleGroupReferenceProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> StatelessRuleGroupReferenceProperty

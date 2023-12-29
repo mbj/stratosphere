@@ -10,6 +10,7 @@ data AuditLogConfigurationProperty
   = AuditLogConfigurationProperty {auditLogDestination :: (Prelude.Maybe (Value Prelude.Text)),
                                    fileAccessAuditLogLevel :: (Value Prelude.Text),
                                    fileShareAccessAuditLogLevel :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuditLogConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> AuditLogConfigurationProperty

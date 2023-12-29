@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AribDestinationSettingsProperty :: Prelude.Type
 instance ToResourceProperties AribDestinationSettingsProperty
+instance Prelude.Eq AribDestinationSettingsProperty
+instance Prelude.Show AribDestinationSettingsProperty
 instance JSON.ToJSON AribDestinationSettingsProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MSK.Cluster.PrometheusProperty as Exports
 import Stratosphere.ResourceProperties
 data OpenMonitoringProperty
   = OpenMonitoringProperty {prometheus :: PrometheusProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenMonitoringProperty ::
   PrometheusProperty -> OpenMonitoringProperty
 mkOpenMonitoringProperty prometheus

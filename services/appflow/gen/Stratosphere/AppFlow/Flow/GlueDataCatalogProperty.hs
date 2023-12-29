@@ -10,6 +10,7 @@ data GlueDataCatalogProperty
   = GlueDataCatalogProperty {databaseName :: (Value Prelude.Text),
                              roleArn :: (Value Prelude.Text),
                              tablePrefix :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueDataCatalogProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

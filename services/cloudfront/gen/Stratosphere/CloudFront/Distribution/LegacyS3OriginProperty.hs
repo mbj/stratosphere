@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LegacyS3OriginProperty
   = LegacyS3OriginProperty {dNSName :: (Value Prelude.Text),
                             originAccessIdentity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLegacyS3OriginProperty ::
   Value Prelude.Text -> LegacyS3OriginProperty
 mkLegacyS3OriginProperty dNSName

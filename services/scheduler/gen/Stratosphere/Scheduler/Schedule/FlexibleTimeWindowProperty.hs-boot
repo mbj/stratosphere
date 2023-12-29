@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FlexibleTimeWindowProperty :: Prelude.Type
 instance ToResourceProperties FlexibleTimeWindowProperty
+instance Prelude.Eq FlexibleTimeWindowProperty
+instance Prelude.Show FlexibleTimeWindowProperty
 instance JSON.ToJSON FlexibleTimeWindowProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SourceCodeVersionProperty :: Prelude.Type
 instance ToResourceProperties SourceCodeVersionProperty
+instance Prelude.Eq SourceCodeVersionProperty
+instance Prelude.Show SourceCodeVersionProperty
 instance JSON.ToJSON SourceCodeVersionProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BorrowConfigurationProperty
   = BorrowConfigurationProperty {allowEarlyCheckIn :: (Value Prelude.Bool),
                                  maxTimeToLiveInMinutes :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBorrowConfigurationProperty ::
   Value Prelude.Bool
   -> Value Prelude.Integer -> BorrowConfigurationProperty

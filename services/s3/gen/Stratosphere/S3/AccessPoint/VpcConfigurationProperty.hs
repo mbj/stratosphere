@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConfigurationProperty
   = VpcConfigurationProperty {vpcId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConfigurationProperty :: VpcConfigurationProperty
 mkVpcConfigurationProperty
   = VpcConfigurationProperty {vpcId = Prelude.Nothing}

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.ContinuousDeploymentPolicy.Continu
 import Stratosphere.ResourceProperties
 data ContinuousDeploymentPolicy
   = ContinuousDeploymentPolicy {continuousDeploymentPolicyConfig :: ContinuousDeploymentPolicyConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContinuousDeploymentPolicy ::
   ContinuousDeploymentPolicyConfigProperty
   -> ContinuousDeploymentPolicy

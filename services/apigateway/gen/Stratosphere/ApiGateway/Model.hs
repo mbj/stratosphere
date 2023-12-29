@@ -12,6 +12,7 @@ data Model
            name :: (Prelude.Maybe (Value Prelude.Text)),
            restApiId :: (Value Prelude.Text),
            schema :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModel :: Value Prelude.Text -> Model
 mkModel restApiId
   = Model

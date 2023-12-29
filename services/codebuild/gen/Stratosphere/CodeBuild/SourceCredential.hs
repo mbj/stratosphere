@@ -11,6 +11,7 @@ data SourceCredential
                       serverType :: (Value Prelude.Text),
                       token :: (Value Prelude.Text),
                       username :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceCredential ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> SourceCredential

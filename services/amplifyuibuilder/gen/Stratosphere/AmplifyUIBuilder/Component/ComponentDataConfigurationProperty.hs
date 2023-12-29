@@ -14,6 +14,7 @@ data ComponentDataConfigurationProperty
                                         model :: (Value Prelude.Text),
                                         predicate :: (Prelude.Maybe PredicateProperty),
                                         sort :: (Prelude.Maybe [SortPropertyProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentDataConfigurationProperty ::
   Value Prelude.Text -> ComponentDataConfigurationProperty
 mkComponentDataConfigurationProperty model

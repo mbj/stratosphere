@@ -14,6 +14,7 @@ data FulfillmentCodeHookSettingProperty
                                         fulfillmentUpdatesSpecification :: (Prelude.Maybe FulfillmentUpdatesSpecificationProperty),
                                         isActive :: (Prelude.Maybe (Value Prelude.Bool)),
                                         postFulfillmentStatusSpecification :: (Prelude.Maybe PostFulfillmentStatusSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFulfillmentCodeHookSettingProperty ::
   Value Prelude.Bool -> FulfillmentCodeHookSettingProperty
 mkFulfillmentCodeHookSettingProperty enabled

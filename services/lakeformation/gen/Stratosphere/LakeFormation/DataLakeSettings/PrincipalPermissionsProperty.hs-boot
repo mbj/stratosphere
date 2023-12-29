@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PrincipalPermissionsProperty :: Prelude.Type
 instance ToResourceProperties PrincipalPermissionsProperty
+instance Prelude.Eq PrincipalPermissionsProperty
+instance Prelude.Show PrincipalPermissionsProperty
 instance JSON.ToJSON PrincipalPermissionsProperty

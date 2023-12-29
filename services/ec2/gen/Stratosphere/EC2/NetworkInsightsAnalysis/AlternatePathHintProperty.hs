@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AlternatePathHintProperty
   = AlternatePathHintProperty {componentArn :: (Prelude.Maybe (Value Prelude.Text)),
                                componentId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlternatePathHintProperty :: AlternatePathHintProperty
 mkAlternatePathHintProperty
   = AlternatePathHintProperty

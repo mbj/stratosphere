@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TemplateProperty
   = TemplateProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                       version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateProperty :: TemplateProperty
 mkTemplateProperty
   = TemplateProperty

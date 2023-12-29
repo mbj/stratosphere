@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PredicateProperty
   = PredicateProperty {conditions :: (Prelude.Maybe [ConditionProperty]),
                        logical :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredicateProperty :: PredicateProperty
 mkPredicateProperty
   = PredicateProperty

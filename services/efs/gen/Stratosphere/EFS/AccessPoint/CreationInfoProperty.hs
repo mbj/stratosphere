@@ -10,6 +10,7 @@ data CreationInfoProperty
   = CreationInfoProperty {ownerGid :: (Value Prelude.Text),
                           ownerUid :: (Value Prelude.Text),
                           permissions :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCreationInfoProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> CreationInfoProperty

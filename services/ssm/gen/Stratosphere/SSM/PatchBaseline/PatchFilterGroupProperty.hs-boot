@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PatchFilterGroupProperty :: Prelude.Type
 instance ToResourceProperties PatchFilterGroupProperty
+instance Prelude.Eq PatchFilterGroupProperty
+instance Prelude.Show PatchFilterGroupProperty
 instance JSON.ToJSON PatchFilterGroupProperty

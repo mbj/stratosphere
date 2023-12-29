@@ -30,6 +30,7 @@ data AmazonopensearchserviceDestinationConfigurationProperty
                                                              s3Configuration :: S3DestinationConfigurationProperty,
                                                              typeName :: (Prelude.Maybe (Value Prelude.Text)),
                                                              vpcConfiguration :: (Prelude.Maybe VpcConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAmazonopensearchserviceDestinationConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

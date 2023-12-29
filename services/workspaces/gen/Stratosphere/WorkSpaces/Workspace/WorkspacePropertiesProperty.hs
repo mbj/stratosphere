@@ -12,6 +12,7 @@ data WorkspacePropertiesProperty
                                  runningMode :: (Prelude.Maybe (Value Prelude.Text)),
                                  runningModeAutoStopTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
                                  userVolumeSizeGib :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkspacePropertiesProperty :: WorkspacePropertiesProperty
 mkWorkspacePropertiesProperty
   = WorkspacePropertiesProperty

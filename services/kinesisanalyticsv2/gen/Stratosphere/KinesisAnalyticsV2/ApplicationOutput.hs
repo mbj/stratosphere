@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ApplicationOutput
   = ApplicationOutput {applicationName :: (Value Prelude.Text),
                        output :: OutputProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationOutput ::
   Value Prelude.Text -> OutputProperty -> ApplicationOutput
 mkApplicationOutput applicationName output

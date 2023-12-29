@@ -10,6 +10,7 @@ data MaxAgeRuleProperty
   = MaxAgeRuleProperty {deleteSourceFromS3 :: (Prelude.Maybe (Value Prelude.Bool)),
                         enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                         maxAgeInDays :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaxAgeRuleProperty :: MaxAgeRuleProperty
 mkMaxAgeRuleProperty
   = MaxAgeRuleProperty

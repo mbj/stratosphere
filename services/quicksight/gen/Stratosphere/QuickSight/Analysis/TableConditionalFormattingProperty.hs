@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.TableConditionalFormattin
 import Stratosphere.ResourceProperties
 data TableConditionalFormattingProperty
   = TableConditionalFormattingProperty {conditionalFormattingOptions :: (Prelude.Maybe [TableConditionalFormattingOptionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableConditionalFormattingProperty ::
   TableConditionalFormattingProperty
 mkTableConditionalFormattingProperty

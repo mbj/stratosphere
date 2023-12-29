@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PipeSourceSqsQueueParametersProperty
   = PipeSourceSqsQueueParametersProperty {batchSize :: (Prelude.Maybe (Value Prelude.Integer)),
                                           maximumBatchingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceSqsQueueParametersProperty ::
   PipeSourceSqsQueueParametersProperty
 mkPipeSourceSqsQueueParametersProperty

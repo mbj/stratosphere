@@ -10,6 +10,7 @@ data WeightedTargetProperty
   = WeightedTargetProperty {port :: (Prelude.Maybe (Value Prelude.Integer)),
                             virtualNode :: (Value Prelude.Text),
                             weight :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWeightedTargetProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> WeightedTargetProperty

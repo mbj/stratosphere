@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AttributeDimensionProperty :: Prelude.Type
 instance ToResourceProperties AttributeDimensionProperty
+instance Prelude.Eq AttributeDimensionProperty
+instance Prelude.Show AttributeDimensionProperty
 instance JSON.ToJSON AttributeDimensionProperty

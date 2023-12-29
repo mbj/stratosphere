@@ -10,6 +10,7 @@ import Stratosphere.Value
 data LBCookieStickinessPolicyProperty
   = LBCookieStickinessPolicyProperty {cookieExpirationPeriod :: (Prelude.Maybe (Value Prelude.Text)),
                                       policyName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLBCookieStickinessPolicyProperty ::
   LBCookieStickinessPolicyProperty
 mkLBCookieStickinessPolicyProperty

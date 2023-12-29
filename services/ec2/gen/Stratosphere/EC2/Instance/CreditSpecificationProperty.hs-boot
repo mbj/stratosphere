@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CreditSpecificationProperty :: Prelude.Type
 instance ToResourceProperties CreditSpecificationProperty
+instance Prelude.Eq CreditSpecificationProperty
+instance Prelude.Show CreditSpecificationProperty
 instance JSON.ToJSON CreditSpecificationProperty

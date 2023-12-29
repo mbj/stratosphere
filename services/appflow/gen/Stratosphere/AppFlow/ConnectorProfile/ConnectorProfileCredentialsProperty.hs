@@ -43,6 +43,7 @@ data ConnectorProfileCredentialsProperty
                                          trendmicro :: (Prelude.Maybe TrendmicroConnectorProfileCredentialsProperty),
                                          veeva :: (Prelude.Maybe VeevaConnectorProfileCredentialsProperty),
                                          zendesk :: (Prelude.Maybe ZendeskConnectorProfileCredentialsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProfileCredentialsProperty ::
   ConnectorProfileCredentialsProperty
 mkConnectorProfileCredentialsProperty

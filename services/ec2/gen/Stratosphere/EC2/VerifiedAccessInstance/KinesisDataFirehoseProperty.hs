@@ -9,6 +9,7 @@ import Stratosphere.Value
 data KinesisDataFirehoseProperty
   = KinesisDataFirehoseProperty {deliveryStream :: (Prelude.Maybe (Value Prelude.Text)),
                                  enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisDataFirehoseProperty :: KinesisDataFirehoseProperty
 mkKinesisDataFirehoseProperty
   = KinesisDataFirehoseProperty

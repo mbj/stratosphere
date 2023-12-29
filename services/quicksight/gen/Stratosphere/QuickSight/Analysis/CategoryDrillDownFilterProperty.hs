@@ -11,6 +11,7 @@ import Stratosphere.Value
 data CategoryDrillDownFilterProperty
   = CategoryDrillDownFilterProperty {categoryValues :: (ValueList Prelude.Text),
                                      column :: ColumnIdentifierProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCategoryDrillDownFilterProperty ::
   ValueList Prelude.Text
   -> ColumnIdentifierProperty -> CategoryDrillDownFilterProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data S3DestinationPropertiesProperty :: Prelude.Type
 instance ToResourceProperties S3DestinationPropertiesProperty
+instance Prelude.Eq S3DestinationPropertiesProperty
+instance Prelude.Show S3DestinationPropertiesProperty
 instance JSON.ToJSON S3DestinationPropertiesProperty

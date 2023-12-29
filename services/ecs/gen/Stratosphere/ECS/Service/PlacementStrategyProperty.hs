@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PlacementStrategyProperty
   = PlacementStrategyProperty {field :: (Prelude.Maybe (Value Prelude.Text)),
                                type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacementStrategyProperty ::
   Value Prelude.Text -> PlacementStrategyProperty
 mkPlacementStrategyProperty type'

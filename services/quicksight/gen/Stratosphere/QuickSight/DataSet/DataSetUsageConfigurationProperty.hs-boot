@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataSetUsageConfigurationProperty :: Prelude.Type
 instance ToResourceProperties DataSetUsageConfigurationProperty
+instance Prelude.Eq DataSetUsageConfigurationProperty
+instance Prelude.Show DataSetUsageConfigurationProperty
 instance JSON.ToJSON DataSetUsageConfigurationProperty

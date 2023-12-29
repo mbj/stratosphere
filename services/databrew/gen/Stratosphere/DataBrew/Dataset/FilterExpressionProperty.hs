@@ -11,6 +11,7 @@ import Stratosphere.Value
 data FilterExpressionProperty
   = FilterExpressionProperty {expression :: (Value Prelude.Text),
                               valuesMap :: [FilterValueProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterExpressionProperty ::
   Value Prelude.Text
   -> [FilterValueProperty] -> FilterExpressionProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data HttpPathMatchProperty
   = HttpPathMatchProperty {exact :: (Prelude.Maybe (Value Prelude.Text)),
                            regex :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpPathMatchProperty :: HttpPathMatchProperty
 mkHttpPathMatchProperty
   = HttpPathMatchProperty

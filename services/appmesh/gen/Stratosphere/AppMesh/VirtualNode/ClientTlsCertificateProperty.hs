@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ClientTlsCertificateProperty
   = ClientTlsCertificateProperty {file :: (Prelude.Maybe ListenerTlsFileCertificateProperty),
                                   sDS :: (Prelude.Maybe ListenerTlsSdsCertificateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientTlsCertificateProperty :: ClientTlsCertificateProperty
 mkClientTlsCertificateProperty
   = ClientTlsCertificateProperty

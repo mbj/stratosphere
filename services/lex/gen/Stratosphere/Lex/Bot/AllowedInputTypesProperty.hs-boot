@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AllowedInputTypesProperty :: Prelude.Type
 instance ToResourceProperties AllowedInputTypesProperty
+instance Prelude.Eq AllowedInputTypesProperty
+instance Prelude.Show AllowedInputTypesProperty
 instance JSON.ToJSON AllowedInputTypesProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StringDatasetParameterProperty :: Prelude.Type
 instance ToResourceProperties StringDatasetParameterProperty
+instance Prelude.Eq StringDatasetParameterProperty
+instance Prelude.Show StringDatasetParameterProperty
 instance JSON.ToJSON StringDatasetParameterProperty

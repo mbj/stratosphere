@@ -17,6 +17,7 @@ data HlsManifestProperty
                          playlistWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          programDateTimeIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          url :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsManifestProperty :: Value Prelude.Text -> HlsManifestProperty
 mkHlsManifestProperty id
   = HlsManifestProperty

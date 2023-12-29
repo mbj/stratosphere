@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ComparisonConfigurationProperty
   = ComparisonConfigurationProperty {comparisonFormat :: (Prelude.Maybe ComparisonFormatConfigurationProperty),
                                      comparisonMethod :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComparisonConfigurationProperty ::
   ComparisonConfigurationProperty
 mkComparisonConfigurationProperty

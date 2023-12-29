@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TimeBasedCanaryProperty :: Prelude.Type
 instance ToResourceProperties TimeBasedCanaryProperty
+instance Prelude.Eq TimeBasedCanaryProperty
+instance Prelude.Show TimeBasedCanaryProperty
 instance JSON.ToJSON TimeBasedCanaryProperty

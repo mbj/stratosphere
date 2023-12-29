@@ -13,6 +13,7 @@ data ExperimentTemplateLogConfigurationProperty
   = ExperimentTemplateLogConfigurationProperty {cloudWatchLogsConfiguration :: (Prelude.Maybe CloudWatchLogsConfigurationProperty),
                                                 logSchemaVersion :: (Value Prelude.Integer),
                                                 s3Configuration :: (Prelude.Maybe S3ConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateLogConfigurationProperty ::
   Value Prelude.Integer -> ExperimentTemplateLogConfigurationProperty
 mkExperimentTemplateLogConfigurationProperty logSchemaVersion

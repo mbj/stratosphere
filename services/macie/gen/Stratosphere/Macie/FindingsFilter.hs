@@ -13,6 +13,7 @@ data FindingsFilter
                     findingCriteria :: FindingCriteriaProperty,
                     name :: (Value Prelude.Text),
                     position :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFindingsFilter ::
   FindingCriteriaProperty -> Value Prelude.Text -> FindingsFilter
 mkFindingsFilter findingCriteria name

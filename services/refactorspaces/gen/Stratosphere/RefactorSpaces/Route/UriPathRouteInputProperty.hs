@@ -12,6 +12,7 @@ data UriPathRouteInputProperty
                                includeChildPaths :: (Prelude.Maybe (Value Prelude.Bool)),
                                methods :: (Prelude.Maybe (ValueList Prelude.Text)),
                                sourcePath :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUriPathRouteInputProperty ::
   Value Prelude.Text -> UriPathRouteInputProperty
 mkUriPathRouteInputProperty activationState

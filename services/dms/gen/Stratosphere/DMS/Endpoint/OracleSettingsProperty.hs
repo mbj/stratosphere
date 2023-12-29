@@ -42,6 +42,7 @@ data OracleSettingsProperty
                             useDirectPathFullLoad :: (Prelude.Maybe (Value Prelude.Bool)),
                             useLogminerReader :: (Prelude.Maybe (Value Prelude.Bool)),
                             usePathPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOracleSettingsProperty :: OracleSettingsProperty
 mkOracleSettingsProperty
   = OracleSettingsProperty

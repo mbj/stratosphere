@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data InsightConfigurationProperty
   = InsightConfigurationProperty {computations :: (Prelude.Maybe [ComputationProperty]),
                                   customNarrative :: (Prelude.Maybe CustomNarrativeOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInsightConfigurationProperty :: InsightConfigurationProperty
 mkInsightConfigurationProperty
   = InsightConfigurationProperty

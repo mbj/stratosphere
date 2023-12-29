@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BoxPlotStyleOptionsProperty
   = BoxPlotStyleOptionsProperty {fillStyle :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBoxPlotStyleOptionsProperty :: BoxPlotStyleOptionsProperty
 mkBoxPlotStyleOptionsProperty
   = BoxPlotStyleOptionsProperty {fillStyle = Prelude.Nothing}

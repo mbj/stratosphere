@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TlsValidationContextSdsTrustProperty
   = TlsValidationContextSdsTrustProperty {secretName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTlsValidationContextSdsTrustProperty ::
   Value Prelude.Text -> TlsValidationContextSdsTrustProperty
 mkTlsValidationContextSdsTrustProperty secretName

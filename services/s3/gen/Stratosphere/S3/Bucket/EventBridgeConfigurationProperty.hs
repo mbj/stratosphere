@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBridgeConfigurationProperty
   = EventBridgeConfigurationProperty {eventBridgeEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeConfigurationProperty ::
   EventBridgeConfigurationProperty
 mkEventBridgeConfigurationProperty

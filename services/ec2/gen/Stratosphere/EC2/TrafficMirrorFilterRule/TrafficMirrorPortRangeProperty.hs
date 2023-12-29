@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TrafficMirrorPortRangeProperty
   = TrafficMirrorPortRangeProperty {fromPort :: (Value Prelude.Integer),
                                     toPort :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficMirrorPortRangeProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> TrafficMirrorPortRangeProperty

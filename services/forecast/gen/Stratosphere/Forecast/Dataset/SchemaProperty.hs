@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.Forecast.Dataset.AttributesItemsProperty as E
 import Stratosphere.ResourceProperties
 data SchemaProperty
   = SchemaProperty {attributes :: (Prelude.Maybe [AttributesItemsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaProperty :: SchemaProperty
 mkSchemaProperty = SchemaProperty {attributes = Prelude.Nothing}
 instance ToResourceProperties SchemaProperty where

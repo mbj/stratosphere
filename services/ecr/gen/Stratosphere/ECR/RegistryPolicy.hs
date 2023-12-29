@@ -5,7 +5,9 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
-data RegistryPolicy = RegistryPolicy {policyText :: JSON.Object}
+data RegistryPolicy
+  = RegistryPolicy {policyText :: JSON.Object}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegistryPolicy :: JSON.Object -> RegistryPolicy
 mkRegistryPolicy policyText
   = RegistryPolicy {policyText = policyText}

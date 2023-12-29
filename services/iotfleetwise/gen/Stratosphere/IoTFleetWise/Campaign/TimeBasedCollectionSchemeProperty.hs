@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeBasedCollectionSchemeProperty
   = TimeBasedCollectionSchemeProperty {periodMs :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeBasedCollectionSchemeProperty ::
   Value Prelude.Double -> TimeBasedCollectionSchemeProperty
 mkTimeBasedCollectionSchemeProperty periodMs

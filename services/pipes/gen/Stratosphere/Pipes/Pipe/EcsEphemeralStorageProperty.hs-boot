@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EcsEphemeralStorageProperty :: Prelude.Type
 instance ToResourceProperties EcsEphemeralStorageProperty
+instance Prelude.Eq EcsEphemeralStorageProperty
+instance Prelude.Show EcsEphemeralStorageProperty
 instance JSON.ToJSON EcsEphemeralStorageProperty

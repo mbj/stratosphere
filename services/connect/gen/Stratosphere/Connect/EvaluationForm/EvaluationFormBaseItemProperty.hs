@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormSectionP
 import Stratosphere.ResourceProperties
 data EvaluationFormBaseItemProperty
   = EvaluationFormBaseItemProperty {section :: EvaluationFormSectionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormBaseItemProperty ::
   EvaluationFormSectionProperty -> EvaluationFormBaseItemProperty
 mkEvaluationFormBaseItemProperty section

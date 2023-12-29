@@ -11,6 +11,7 @@ data Alias
   = Alias {description :: (Prelude.Maybe (Value Prelude.Text)),
            name :: (Value Prelude.Text),
            routingStrategy :: RoutingStrategyProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlias :: Value Prelude.Text -> RoutingStrategyProperty -> Alias
 mkAlias name routingStrategy
   = Alias

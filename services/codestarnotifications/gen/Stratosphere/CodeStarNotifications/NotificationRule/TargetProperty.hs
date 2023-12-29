@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TargetProperty
   = TargetProperty {targetAddress :: (Value Prelude.Text),
                     targetType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TargetProperty
 mkTargetProperty targetAddress targetType

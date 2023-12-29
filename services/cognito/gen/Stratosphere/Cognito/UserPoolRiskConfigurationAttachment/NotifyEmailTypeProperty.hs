@@ -10,6 +10,7 @@ data NotifyEmailTypeProperty
   = NotifyEmailTypeProperty {htmlBody :: (Prelude.Maybe (Value Prelude.Text)),
                              subject :: (Value Prelude.Text),
                              textBody :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotifyEmailTypeProperty ::
   Value Prelude.Text -> NotifyEmailTypeProperty
 mkNotifyEmailTypeProperty subject

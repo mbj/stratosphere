@@ -14,6 +14,7 @@ data SalesforceKnowledgeArticleConfigurationProperty
   = SalesforceKnowledgeArticleConfigurationProperty {customKnowledgeArticleTypeConfigurations :: (Prelude.Maybe [SalesforceCustomKnowledgeArticleTypeConfigurationProperty]),
                                                      includedStates :: (ValueList Prelude.Text),
                                                      standardKnowledgeArticleTypeConfiguration :: (Prelude.Maybe SalesforceStandardKnowledgeArticleTypeConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSalesforceKnowledgeArticleConfigurationProperty ::
   ValueList Prelude.Text
   -> SalesforceKnowledgeArticleConfigurationProperty

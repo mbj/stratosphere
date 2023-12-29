@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IoTJobExecutionsRolloutConfigProperty :: Prelude.Type
 instance ToResourceProperties IoTJobExecutionsRolloutConfigProperty
+instance Prelude.Eq IoTJobExecutionsRolloutConfigProperty
+instance Prelude.Show IoTJobExecutionsRolloutConfigProperty
 instance JSON.ToJSON IoTJobExecutionsRolloutConfigProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SchemaVersion
   = SchemaVersion {schema :: SchemaProperty,
                    schemaDefinition :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaVersion ::
   SchemaProperty -> Value Prelude.Text -> SchemaVersion
 mkSchemaVersion schema schemaDefinition

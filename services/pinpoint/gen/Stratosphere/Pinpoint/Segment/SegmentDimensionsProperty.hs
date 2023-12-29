@@ -16,6 +16,7 @@ data SegmentDimensionsProperty
                                location :: (Prelude.Maybe LocationProperty),
                                metrics :: (Prelude.Maybe JSON.Object),
                                userAttributes :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSegmentDimensionsProperty :: SegmentDimensionsProperty
 mkSegmentDimensionsProperty
   = SegmentDimensionsProperty

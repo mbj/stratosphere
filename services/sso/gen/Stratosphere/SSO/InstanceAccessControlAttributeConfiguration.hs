@@ -11,6 +11,7 @@ import Stratosphere.Value
 data InstanceAccessControlAttributeConfiguration
   = InstanceAccessControlAttributeConfiguration {accessControlAttributes :: (Prelude.Maybe [AccessControlAttributeProperty]),
                                                  instanceArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceAccessControlAttributeConfiguration ::
   Value Prelude.Text -> InstanceAccessControlAttributeConfiguration
 mkInstanceAccessControlAttributeConfiguration instanceArn

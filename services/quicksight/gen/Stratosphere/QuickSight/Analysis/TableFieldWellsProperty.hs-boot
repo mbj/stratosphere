@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TableFieldWellsProperty :: Prelude.Type
 instance ToResourceProperties TableFieldWellsProperty
+instance Prelude.Eq TableFieldWellsProperty
+instance Prelude.Show TableFieldWellsProperty
 instance JSON.ToJSON TableFieldWellsProperty

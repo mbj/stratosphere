@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AuthorizationConfigProperty
   = AuthorizationConfigProperty {accessPointId :: (Prelude.Maybe (Value Prelude.Text)),
                                  iAM :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizationConfigProperty :: AuthorizationConfigProperty
 mkAuthorizationConfigProperty
   = AuthorizationConfigProperty

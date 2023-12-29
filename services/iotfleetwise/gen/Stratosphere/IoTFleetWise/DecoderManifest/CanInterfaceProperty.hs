@@ -10,6 +10,7 @@ data CanInterfaceProperty
   = CanInterfaceProperty {name :: (Value Prelude.Text),
                           protocolName :: (Prelude.Maybe (Value Prelude.Text)),
                           protocolVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCanInterfaceProperty ::
   Value Prelude.Text -> CanInterfaceProperty
 mkCanInterfaceProperty name

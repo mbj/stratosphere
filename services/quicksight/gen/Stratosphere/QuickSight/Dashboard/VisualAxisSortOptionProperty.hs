@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VisualAxisSortOptionProperty
   = VisualAxisSortOptionProperty {availabilityStatus :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVisualAxisSortOptionProperty :: VisualAxisSortOptionProperty
 mkVisualAxisSortOptionProperty
   = VisualAxisSortOptionProperty

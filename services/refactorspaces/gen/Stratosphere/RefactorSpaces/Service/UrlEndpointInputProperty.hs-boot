@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UrlEndpointInputProperty :: Prelude.Type
 instance ToResourceProperties UrlEndpointInputProperty
+instance Prelude.Eq UrlEndpointInputProperty
+instance Prelude.Show UrlEndpointInputProperty
 instance JSON.ToJSON UrlEndpointInputProperty

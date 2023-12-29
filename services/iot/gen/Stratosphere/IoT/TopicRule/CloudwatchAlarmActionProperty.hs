@@ -11,6 +11,7 @@ data CloudwatchAlarmActionProperty
                                    roleArn :: (Value Prelude.Text),
                                    stateReason :: (Value Prelude.Text),
                                    stateValue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudwatchAlarmActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

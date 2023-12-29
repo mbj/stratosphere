@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataSourceErrorInfoProperty :: Prelude.Type
 instance ToResourceProperties DataSourceErrorInfoProperty
+instance Prelude.Eq DataSourceErrorInfoProperty
+instance Prelude.Show DataSourceErrorInfoProperty
 instance JSON.ToJSON DataSourceErrorInfoProperty

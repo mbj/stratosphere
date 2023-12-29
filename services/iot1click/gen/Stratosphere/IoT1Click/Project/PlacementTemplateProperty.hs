@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 data PlacementTemplateProperty
   = PlacementTemplateProperty {defaultAttributes :: (Prelude.Maybe JSON.Object),
                                deviceTemplates :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlacementTemplateProperty :: PlacementTemplateProperty
 mkPlacementTemplateProperty
   = PlacementTemplateProperty

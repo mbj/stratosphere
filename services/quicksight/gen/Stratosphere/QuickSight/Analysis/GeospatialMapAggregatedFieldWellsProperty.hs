@@ -12,6 +12,7 @@ data GeospatialMapAggregatedFieldWellsProperty
   = GeospatialMapAggregatedFieldWellsProperty {colors :: (Prelude.Maybe [DimensionFieldProperty]),
                                                geospatial :: (Prelude.Maybe [DimensionFieldProperty]),
                                                values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeospatialMapAggregatedFieldWellsProperty ::
   GeospatialMapAggregatedFieldWellsProperty
 mkGeospatialMapAggregatedFieldWellsProperty

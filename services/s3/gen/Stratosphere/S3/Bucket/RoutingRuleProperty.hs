@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data RoutingRuleProperty
   = RoutingRuleProperty {redirectRule :: RedirectRuleProperty,
                          routingRuleCondition :: (Prelude.Maybe RoutingRuleConditionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingRuleProperty ::
   RedirectRuleProperty -> RoutingRuleProperty
 mkRoutingRuleProperty redirectRule

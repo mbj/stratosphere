@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ScpActionDefinitionProperty
   = ScpActionDefinitionProperty {policyId :: (Value Prelude.Text),
                                  targetIds :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScpActionDefinitionProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> ScpActionDefinitionProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CustomDeliveryConfigurationProperty
   = CustomDeliveryConfigurationProperty {deliveryUri :: (Prelude.Maybe (Value Prelude.Text)),
                                          endpointTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomDeliveryConfigurationProperty ::
   CustomDeliveryConfigurationProperty
 mkCustomDeliveryConfigurationProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PortInfoProperty
   = PortInfoProperty {port :: (Prelude.Maybe (Value Prelude.Text)),
                       protocol :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortInfoProperty :: PortInfoProperty
 mkPortInfoProperty
   = PortInfoProperty

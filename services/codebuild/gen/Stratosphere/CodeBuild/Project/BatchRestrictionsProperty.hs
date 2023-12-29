@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BatchRestrictionsProperty
   = BatchRestrictionsProperty {computeTypesAllowed :: (Prelude.Maybe (ValueList Prelude.Text)),
                                maximumBuildsAllowed :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchRestrictionsProperty :: BatchRestrictionsProperty
 mkBatchRestrictionsProperty
   = BatchRestrictionsProperty

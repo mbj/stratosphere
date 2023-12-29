@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.MeasureFieldProperty as E
 import Stratosphere.ResourceProperties
 data HistogramAggregatedFieldWellsProperty
   = HistogramAggregatedFieldWellsProperty {values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHistogramAggregatedFieldWellsProperty ::
   HistogramAggregatedFieldWellsProperty
 mkHistogramAggregatedFieldWellsProperty

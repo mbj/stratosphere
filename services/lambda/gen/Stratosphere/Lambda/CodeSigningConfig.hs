@@ -12,6 +12,7 @@ data CodeSigningConfig
   = CodeSigningConfig {allowedPublishers :: AllowedPublishersProperty,
                        codeSigningPolicies :: (Prelude.Maybe CodeSigningPoliciesProperty),
                        description :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeSigningConfig ::
   AllowedPublishersProperty -> CodeSigningConfig
 mkCodeSigningConfig allowedPublishers

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LambdaFunctionProperty :: Prelude.Type
 instance ToResourceProperties LambdaFunctionProperty
+instance Prelude.Eq LambdaFunctionProperty
+instance Prelude.Show LambdaFunctionProperty
 instance JSON.ToJSON LambdaFunctionProperty

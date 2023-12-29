@@ -15,6 +15,7 @@ data ClientAuthenticationRequestProperty
                                          federatedAuthentication :: (Prelude.Maybe FederatedAuthenticationRequestProperty),
                                          mutualAuthentication :: (Prelude.Maybe CertificateAuthenticationRequestProperty),
                                          type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientAuthenticationRequestProperty ::
   Value Prelude.Text -> ClientAuthenticationRequestProperty
 mkClientAuthenticationRequestProperty type'

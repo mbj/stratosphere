@@ -10,6 +10,7 @@ data Instance
   = Instance {instanceAttributes :: JSON.Object,
               instanceId :: (Prelude.Maybe (Value Prelude.Text)),
               serviceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstance :: JSON.Object -> Value Prelude.Text -> Instance
 mkInstance instanceAttributes serviceId
   = Instance

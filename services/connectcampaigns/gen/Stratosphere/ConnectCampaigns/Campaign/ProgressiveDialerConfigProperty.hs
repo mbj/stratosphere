@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProgressiveDialerConfigProperty
   = ProgressiveDialerConfigProperty {bandwidthAllocation :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProgressiveDialerConfigProperty ::
   Value Prelude.Double -> ProgressiveDialerConfigProperty
 mkProgressiveDialerConfigProperty bandwidthAllocation

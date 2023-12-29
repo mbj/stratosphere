@@ -16,6 +16,7 @@ data AdvancedSecurityOptionsInputProperty
                                           internalUserDatabaseEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                           masterUserOptions :: (Prelude.Maybe MasterUserOptionsProperty),
                                           sAMLOptions :: (Prelude.Maybe SAMLOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedSecurityOptionsInputProperty ::
   AdvancedSecurityOptionsInputProperty
 mkAdvancedSecurityOptionsInputProperty

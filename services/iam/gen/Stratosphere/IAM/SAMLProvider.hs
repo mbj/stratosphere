@@ -11,6 +11,7 @@ data SAMLProvider
   = SAMLProvider {name :: (Prelude.Maybe (Value Prelude.Text)),
                   samlMetadataDocument :: (Value Prelude.Text),
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSAMLProvider :: Value Prelude.Text -> SAMLProvider
 mkSAMLProvider samlMetadataDocument
   = SAMLProvider

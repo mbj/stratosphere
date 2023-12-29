@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ClusterEndpointProperty
   = ClusterEndpointProperty {endpoint :: (Prelude.Maybe (Value Prelude.Text)),
                              region :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterEndpointProperty :: ClusterEndpointProperty
 mkClusterEndpointProperty
   = ClusterEndpointProperty

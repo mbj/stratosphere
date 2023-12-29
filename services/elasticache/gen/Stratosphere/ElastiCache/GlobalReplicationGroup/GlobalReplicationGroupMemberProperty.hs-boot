@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GlobalReplicationGroupMemberProperty :: Prelude.Type
 instance ToResourceProperties GlobalReplicationGroupMemberProperty
+instance Prelude.Eq GlobalReplicationGroupMemberProperty
+instance Prelude.Show GlobalReplicationGroupMemberProperty
 instance JSON.ToJSON GlobalReplicationGroupMemberProperty

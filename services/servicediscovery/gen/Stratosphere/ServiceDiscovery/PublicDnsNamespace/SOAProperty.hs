@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SOAProperty
   = SOAProperty {tTL :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSOAProperty :: SOAProperty
 mkSOAProperty = SOAProperty {tTL = Prelude.Nothing}
 instance ToResourceProperties SOAProperty where

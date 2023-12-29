@@ -12,6 +12,7 @@ data StorageLocationProperty
                              generatedPrefixLocation :: (Prelude.Maybe (Value Prelude.Text)),
                              manifestPrefixLocation :: (Prelude.Maybe (Value Prelude.Text)),
                              repoPrefixLocation :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageLocationProperty :: StorageLocationProperty
 mkStorageLocationProperty
   = StorageLocationProperty

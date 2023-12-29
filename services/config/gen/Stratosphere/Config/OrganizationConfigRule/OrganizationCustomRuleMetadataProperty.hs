@@ -17,6 +17,7 @@ data OrganizationCustomRuleMetadataProperty
                                             resourceTypesScope :: (Prelude.Maybe (ValueList Prelude.Text)),
                                             tagKeyScope :: (Prelude.Maybe (Value Prelude.Text)),
                                             tagValueScope :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationCustomRuleMetadataProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> OrganizationCustomRuleMetadataProperty

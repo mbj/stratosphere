@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MsSmoothGroupSettingsProperty :: Prelude.Type
 instance ToResourceProperties MsSmoothGroupSettingsProperty
+instance Prelude.Eq MsSmoothGroupSettingsProperty
+instance Prelude.Show MsSmoothGroupSettingsProperty
 instance JSON.ToJSON MsSmoothGroupSettingsProperty

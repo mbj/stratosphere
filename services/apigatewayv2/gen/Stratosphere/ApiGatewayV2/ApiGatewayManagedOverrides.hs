@@ -15,6 +15,7 @@ data ApiGatewayManagedOverrides
                                 integration :: (Prelude.Maybe IntegrationOverridesProperty),
                                 route :: (Prelude.Maybe RouteOverridesProperty),
                                 stage :: (Prelude.Maybe StageOverridesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApiGatewayManagedOverrides ::
   Value Prelude.Text -> ApiGatewayManagedOverrides
 mkApiGatewayManagedOverrides apiId

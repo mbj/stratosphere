@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SimpleScalingPolicyConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SimpleScalingPolicyConfigurationProperty
+instance Prelude.Eq SimpleScalingPolicyConfigurationProperty
+instance Prelude.Show SimpleScalingPolicyConfigurationProperty
 instance JSON.ToJSON SimpleScalingPolicyConfigurationProperty

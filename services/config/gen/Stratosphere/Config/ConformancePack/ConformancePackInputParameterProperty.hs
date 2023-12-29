@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ConformancePackInputParameterProperty
   = ConformancePackInputParameterProperty {parameterName :: (Value Prelude.Text),
                                            parameterValue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConformancePackInputParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ConformancePackInputParameterProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.StatusCodesProperty a
 import Stratosphere.ResourceProperties
 data OriginGroupFailoverCriteriaProperty
   = OriginGroupFailoverCriteriaProperty {statusCodes :: StatusCodesProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupFailoverCriteriaProperty ::
   StatusCodesProperty -> OriginGroupFailoverCriteriaProperty
 mkOriginGroupFailoverCriteriaProperty statusCodes

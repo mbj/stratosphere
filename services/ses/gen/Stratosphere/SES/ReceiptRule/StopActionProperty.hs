@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StopActionProperty
   = StopActionProperty {scope :: (Value Prelude.Text),
                         topicArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStopActionProperty :: Value Prelude.Text -> StopActionProperty
 mkStopActionProperty scope
   = StopActionProperty {scope = scope, topicArn = Prelude.Nothing}

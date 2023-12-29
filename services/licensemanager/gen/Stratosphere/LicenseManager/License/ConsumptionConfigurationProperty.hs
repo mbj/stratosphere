@@ -13,6 +13,7 @@ data ConsumptionConfigurationProperty
   = ConsumptionConfigurationProperty {borrowConfiguration :: (Prelude.Maybe BorrowConfigurationProperty),
                                       provisionalConfiguration :: (Prelude.Maybe ProvisionalConfigurationProperty),
                                       renewType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConsumptionConfigurationProperty ::
   ConsumptionConfigurationProperty
 mkConsumptionConfigurationProperty

@@ -22,6 +22,7 @@ data DevEndpoint
                  subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe JSON.Object),
                  workerType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDevEndpoint :: Value Prelude.Text -> DevEndpoint
 mkDevEndpoint roleArn
   = DevEndpoint

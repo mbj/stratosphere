@@ -16,6 +16,7 @@ data AccountLevelProperty
                           advancedDataProtectionMetrics :: (Prelude.Maybe AdvancedDataProtectionMetricsProperty),
                           bucketLevel :: BucketLevelProperty,
                           detailedStatusCodesMetrics :: (Prelude.Maybe DetailedStatusCodesMetricsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountLevelProperty ::
   BucketLevelProperty -> AccountLevelProperty
 mkAccountLevelProperty bucketLevel

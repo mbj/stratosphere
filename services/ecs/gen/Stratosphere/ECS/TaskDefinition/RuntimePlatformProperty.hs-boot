@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RuntimePlatformProperty :: Prelude.Type
 instance ToResourceProperties RuntimePlatformProperty
+instance Prelude.Eq RuntimePlatformProperty
+instance Prelude.Show RuntimePlatformProperty
 instance JSON.ToJSON RuntimePlatformProperty

@@ -12,6 +12,7 @@ data LoadBasedAutoScalingProperty
   = LoadBasedAutoScalingProperty {downScaling :: (Prelude.Maybe AutoScalingThresholdsProperty),
                                   enable :: (Prelude.Maybe (Value Prelude.Bool)),
                                   upScaling :: (Prelude.Maybe AutoScalingThresholdsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBasedAutoScalingProperty :: LoadBasedAutoScalingProperty
 mkLoadBasedAutoScalingProperty
   = LoadBasedAutoScalingProperty

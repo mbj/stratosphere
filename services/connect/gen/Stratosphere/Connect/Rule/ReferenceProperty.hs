@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ReferenceProperty
   = ReferenceProperty {type' :: (Value Prelude.Text),
                        value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ReferenceProperty
 mkReferenceProperty type' value

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ViewerCertificateProperty :: Prelude.Type
 instance ToResourceProperties ViewerCertificateProperty
+instance Prelude.Eq ViewerCertificateProperty
+instance Prelude.Show ViewerCertificateProperty
 instance JSON.ToJSON ViewerCertificateProperty

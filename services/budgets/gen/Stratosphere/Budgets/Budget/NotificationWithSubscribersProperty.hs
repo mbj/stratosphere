@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data NotificationWithSubscribersProperty
   = NotificationWithSubscribersProperty {notification :: NotificationProperty,
                                          subscribers :: [SubscriberProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationWithSubscribersProperty ::
   NotificationProperty
   -> [SubscriberProperty] -> NotificationWithSubscribersProperty

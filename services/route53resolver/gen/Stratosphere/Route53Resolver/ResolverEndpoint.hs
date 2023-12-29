@@ -17,6 +17,7 @@ data ResolverEndpoint
                       resolverEndpointType :: (Prelude.Maybe (Value Prelude.Text)),
                       securityGroupIds :: (ValueList Prelude.Text),
                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverEndpoint ::
   Value Prelude.Text
   -> [IpAddressRequestProperty]

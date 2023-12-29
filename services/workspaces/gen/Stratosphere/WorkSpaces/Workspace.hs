@@ -17,6 +17,7 @@ data Workspace
                userVolumeEncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                volumeEncryptionKey :: (Prelude.Maybe (Value Prelude.Text)),
                workspaceProperties :: (Prelude.Maybe WorkspacePropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkspace ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Workspace

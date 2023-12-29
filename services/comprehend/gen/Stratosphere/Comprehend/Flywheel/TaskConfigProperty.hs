@@ -12,6 +12,7 @@ data TaskConfigProperty
   = TaskConfigProperty {documentClassificationConfig :: (Prelude.Maybe DocumentClassificationConfigProperty),
                         entityRecognitionConfig :: (Prelude.Maybe EntityRecognitionConfigProperty),
                         languageCode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskConfigProperty :: Value Prelude.Text -> TaskConfigProperty
 mkTaskConfigProperty languageCode
   = TaskConfigProperty

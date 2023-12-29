@@ -19,6 +19,7 @@ data FleetMetric
                  queryVersion :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag]),
                  unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFleetMetric :: Value Prelude.Text -> FleetMetric
 mkFleetMetric metricName
   = FleetMetric

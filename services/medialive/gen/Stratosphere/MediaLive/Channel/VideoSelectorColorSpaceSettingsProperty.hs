@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Hdr10SettingsProperty as Ex
 import Stratosphere.ResourceProperties
 data VideoSelectorColorSpaceSettingsProperty
   = VideoSelectorColorSpaceSettingsProperty {hdr10Settings :: (Prelude.Maybe Hdr10SettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoSelectorColorSpaceSettingsProperty ::
   VideoSelectorColorSpaceSettingsProperty
 mkVideoSelectorColorSpaceSettingsProperty

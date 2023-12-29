@@ -15,6 +15,7 @@ data ServiceNowServiceCatalogConfigurationProperty
                                                    excludeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                                    fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty]),
                                                    includeAttachmentFilePatterns :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNowServiceCatalogConfigurationProperty ::
   Value Prelude.Text -> ServiceNowServiceCatalogConfigurationProperty
 mkServiceNowServiceCatalogConfigurationProperty

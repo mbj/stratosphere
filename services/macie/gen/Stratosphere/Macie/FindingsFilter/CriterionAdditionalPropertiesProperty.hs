@@ -14,6 +14,7 @@ data CriterionAdditionalPropertiesProperty
                                            lt :: (Prelude.Maybe (Value Prelude.Integer)),
                                            lte :: (Prelude.Maybe (Value Prelude.Integer)),
                                            neq :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCriterionAdditionalPropertiesProperty ::
   CriterionAdditionalPropertiesProperty
 mkCriterionAdditionalPropertiesProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DetectorModelDefinitionProperty :: Prelude.Type
 instance ToResourceProperties DetectorModelDefinitionProperty
+instance Prelude.Eq DetectorModelDefinitionProperty
+instance Prelude.Show DetectorModelDefinitionProperty
 instance JSON.ToJSON DetectorModelDefinitionProperty

@@ -13,6 +13,7 @@ data VirtualGatewayConnectionPoolProperty
   = VirtualGatewayConnectionPoolProperty {gRPC :: (Prelude.Maybe VirtualGatewayGrpcConnectionPoolProperty),
                                           hTTP :: (Prelude.Maybe VirtualGatewayHttpConnectionPoolProperty),
                                           hTTP2 :: (Prelude.Maybe VirtualGatewayHttp2ConnectionPoolProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayConnectionPoolProperty ::
   VirtualGatewayConnectionPoolProperty
 mkVirtualGatewayConnectionPoolProperty

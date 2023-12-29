@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IoTJobTimeoutConfigProperty :: Prelude.Type
 instance ToResourceProperties IoTJobTimeoutConfigProperty
+instance Prelude.Eq IoTJobTimeoutConfigProperty
+instance Prelude.Show IoTJobTimeoutConfigProperty
 instance JSON.ToJSON IoTJobTimeoutConfigProperty

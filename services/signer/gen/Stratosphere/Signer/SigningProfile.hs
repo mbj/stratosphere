@@ -12,6 +12,7 @@ data SigningProfile
   = SigningProfile {platformId :: (Value Prelude.Text),
                     signatureValidityPeriod :: (Prelude.Maybe SignatureValidityPeriodProperty),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSigningProfile :: Value Prelude.Text -> SigningProfile
 mkSigningProfile platformId
   = SigningProfile

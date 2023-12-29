@@ -17,6 +17,7 @@ data SafetyRule
                 name :: (Value Prelude.Text),
                 ruleConfig :: RuleConfigProperty,
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSafetyRule ::
   Value Prelude.Text
   -> Value Prelude.Text -> RuleConfigProperty -> SafetyRule

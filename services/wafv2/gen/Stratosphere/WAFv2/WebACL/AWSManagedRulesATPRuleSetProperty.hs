@@ -13,6 +13,7 @@ data AWSManagedRulesATPRuleSetProperty
   = AWSManagedRulesATPRuleSetProperty {loginPath :: (Value Prelude.Text),
                                        requestInspection :: (Prelude.Maybe RequestInspectionProperty),
                                        responseInspection :: (Prelude.Maybe ResponseInspectionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAWSManagedRulesATPRuleSetProperty ::
   Value Prelude.Text -> AWSManagedRulesATPRuleSetProperty
 mkAWSManagedRulesATPRuleSetProperty loginPath

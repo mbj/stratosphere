@@ -12,6 +12,7 @@ data AccessScopePathRequestProperty
   = AccessScopePathRequestProperty {destination :: (Prelude.Maybe PathStatementRequestProperty),
                                     source :: (Prelude.Maybe PathStatementRequestProperty),
                                     throughResources :: (Prelude.Maybe [ThroughResourcesStatementRequestProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessScopePathRequestProperty :: AccessScopePathRequestProperty
 mkAccessScopePathRequestProperty
   = AccessScopePathRequestProperty

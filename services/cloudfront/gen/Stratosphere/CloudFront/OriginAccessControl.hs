@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.OriginAccessControl.OriginAccessCo
 import Stratosphere.ResourceProperties
 data OriginAccessControl
   = OriginAccessControl {originAccessControlConfig :: OriginAccessControlConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginAccessControl ::
   OriginAccessControlConfigProperty -> OriginAccessControl
 mkOriginAccessControl originAccessControlConfig

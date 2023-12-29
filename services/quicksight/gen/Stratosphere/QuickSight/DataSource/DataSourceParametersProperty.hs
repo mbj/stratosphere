@@ -43,6 +43,7 @@ data DataSourceParametersProperty
                                   sparkParameters :: (Prelude.Maybe SparkParametersProperty),
                                   sqlServerParameters :: (Prelude.Maybe SqlServerParametersProperty),
                                   teradataParameters :: (Prelude.Maybe TeradataParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceParametersProperty :: DataSourceParametersProperty
 mkDataSourceParametersProperty
   = DataSourceParametersProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RdsHttpEndpointConfigProperty :: Prelude.Type
 instance ToResourceProperties RdsHttpEndpointConfigProperty
+instance Prelude.Eq RdsHttpEndpointConfigProperty
+instance Prelude.Show RdsHttpEndpointConfigProperty
 instance JSON.ToJSON RdsHttpEndpointConfigProperty

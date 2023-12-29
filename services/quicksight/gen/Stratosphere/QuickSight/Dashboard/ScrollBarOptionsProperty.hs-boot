@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ScrollBarOptionsProperty :: Prelude.Type
 instance ToResourceProperties ScrollBarOptionsProperty
+instance Prelude.Eq ScrollBarOptionsProperty
+instance Prelude.Show ScrollBarOptionsProperty
 instance JSON.ToJSON ScrollBarOptionsProperty

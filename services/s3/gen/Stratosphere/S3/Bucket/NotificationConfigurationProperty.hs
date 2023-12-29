@@ -15,6 +15,7 @@ data NotificationConfigurationProperty
                                        lambdaConfigurations :: (Prelude.Maybe [LambdaConfigurationProperty]),
                                        queueConfigurations :: (Prelude.Maybe [QueueConfigurationProperty]),
                                        topicConfigurations :: (Prelude.Maybe [TopicConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigurationProperty ::
   NotificationConfigurationProperty
 mkNotificationConfigurationProperty

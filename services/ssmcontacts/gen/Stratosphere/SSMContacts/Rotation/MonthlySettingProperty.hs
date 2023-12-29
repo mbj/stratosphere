@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MonthlySettingProperty
   = MonthlySettingProperty {dayOfMonth :: (Value Prelude.Integer),
                             handOffTime :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonthlySettingProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> MonthlySettingProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PredictiveScalingConfigurationProperty :: Prelude.Type
 instance ToResourceProperties PredictiveScalingConfigurationProperty
+instance Prelude.Eq PredictiveScalingConfigurationProperty
+instance Prelude.Show PredictiveScalingConfigurationProperty
 instance JSON.ToJSON PredictiveScalingConfigurationProperty

@@ -13,6 +13,7 @@ data DateTimeDefaultValuesProperty
   = DateTimeDefaultValuesProperty {dynamicValue :: (Prelude.Maybe DynamicDefaultValueProperty),
                                    rollingDate :: (Prelude.Maybe RollingDateConfigurationProperty),
                                    staticValues :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimeDefaultValuesProperty :: DateTimeDefaultValuesProperty
 mkDateTimeDefaultValuesProperty
   = DateTimeDefaultValuesProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data JWTConfigurationProperty :: Prelude.Type
 instance ToResourceProperties JWTConfigurationProperty
+instance Prelude.Eq JWTConfigurationProperty
+instance Prelude.Show JWTConfigurationProperty
 instance JSON.ToJSON JWTConfigurationProperty

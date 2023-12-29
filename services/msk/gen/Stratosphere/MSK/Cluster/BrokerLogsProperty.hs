@@ -12,6 +12,7 @@ data BrokerLogsProperty
   = BrokerLogsProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsProperty),
                         firehose :: (Prelude.Maybe FirehoseProperty),
                         s3 :: (Prelude.Maybe S3Property)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBrokerLogsProperty :: BrokerLogsProperty
 mkBrokerLogsProperty
   = BrokerLogsProperty

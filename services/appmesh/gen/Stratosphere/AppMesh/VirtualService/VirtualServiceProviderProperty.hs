@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data VirtualServiceProviderProperty
   = VirtualServiceProviderProperty {virtualNode :: (Prelude.Maybe VirtualNodeServiceProviderProperty),
                                     virtualRouter :: (Prelude.Maybe VirtualRouterServiceProviderProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualServiceProviderProperty :: VirtualServiceProviderProperty
 mkVirtualServiceProviderProperty
   = VirtualServiceProviderProperty

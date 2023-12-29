@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EirpProperty
   = EirpProperty {units :: (Prelude.Maybe (Value Prelude.Text)),
                   value :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEirpProperty :: EirpProperty
 mkEirpProperty
   = EirpProperty {units = Prelude.Nothing, value = Prelude.Nothing}

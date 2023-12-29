@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DataOutputConfigurationProperty
   = DataOutputConfigurationProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                                      s3OutputConfiguration :: S3OutputConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataOutputConfigurationProperty ::
   S3OutputConfigurationProperty -> DataOutputConfigurationProperty
 mkDataOutputConfigurationProperty s3OutputConfiguration

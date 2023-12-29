@@ -12,6 +12,7 @@ data CredentialPairProperty
   = CredentialPairProperty {alternateDataSourceParameters :: (Prelude.Maybe [DataSourceParametersProperty]),
                             password :: (Value Prelude.Text),
                             username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCredentialPairProperty ::
   Value Prelude.Text -> Value Prelude.Text -> CredentialPairProperty
 mkCredentialPairProperty password username

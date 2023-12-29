@@ -19,6 +19,7 @@ data SecurityHeadersConfigProperty
                                    referrerPolicy :: (Prelude.Maybe ReferrerPolicyProperty),
                                    strictTransportSecurity :: (Prelude.Maybe StrictTransportSecurityProperty),
                                    xSSProtection :: (Prelude.Maybe XSSProtectionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityHeadersConfigProperty :: SecurityHeadersConfigProperty
 mkSecurityHeadersConfigProperty
   = SecurityHeadersConfigProperty

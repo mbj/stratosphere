@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StatisticOverrideProperty :: Prelude.Type
 instance ToResourceProperties StatisticOverrideProperty
+instance Prelude.Eq StatisticOverrideProperty
+instance Prelude.Show StatisticOverrideProperty
 instance JSON.ToJSON StatisticOverrideProperty

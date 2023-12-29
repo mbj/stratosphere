@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AgentPermissionsProperty
   = AgentPermissionsProperty {principals :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAgentPermissionsProperty ::
   ValueList Prelude.Text -> AgentPermissionsProperty
 mkAgentPermissionsProperty principals

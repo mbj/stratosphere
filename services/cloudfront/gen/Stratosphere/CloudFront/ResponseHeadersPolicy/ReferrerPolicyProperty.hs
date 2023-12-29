@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ReferrerPolicyProperty
   = ReferrerPolicyProperty {override :: (Value Prelude.Bool),
                             referrerPolicy :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferrerPolicyProperty ::
   Value Prelude.Bool -> Value Prelude.Text -> ReferrerPolicyProperty
 mkReferrerPolicyProperty override referrerPolicy

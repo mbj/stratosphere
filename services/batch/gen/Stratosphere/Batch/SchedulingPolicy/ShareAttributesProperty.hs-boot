@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ShareAttributesProperty :: Prelude.Type
 instance ToResourceProperties ShareAttributesProperty
+instance Prelude.Eq ShareAttributesProperty
+instance Prelude.Show ShareAttributesProperty
 instance JSON.ToJSON ShareAttributesProperty

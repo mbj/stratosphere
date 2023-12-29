@@ -13,6 +13,7 @@ data ForwardedValuesProperty
                              headers :: (Prelude.Maybe (ValueList Prelude.Text)),
                              queryString :: (Value Prelude.Bool),
                              queryStringCacheKeys :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkForwardedValuesProperty ::
   Value Prelude.Bool -> ForwardedValuesProperty
 mkForwardedValuesProperty queryString

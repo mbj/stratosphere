@@ -15,6 +15,7 @@ data TaskInvocationParametersProperty
                                       maintenanceWindowLambdaParameters :: (Prelude.Maybe MaintenanceWindowLambdaParametersProperty),
                                       maintenanceWindowRunCommandParameters :: (Prelude.Maybe MaintenanceWindowRunCommandParametersProperty),
                                       maintenanceWindowStepFunctionsParameters :: (Prelude.Maybe MaintenanceWindowStepFunctionsParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskInvocationParametersProperty ::
   TaskInvocationParametersProperty
 mkTaskInvocationParametersProperty

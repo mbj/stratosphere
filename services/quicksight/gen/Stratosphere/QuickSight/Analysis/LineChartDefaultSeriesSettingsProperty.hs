@@ -13,6 +13,7 @@ data LineChartDefaultSeriesSettingsProperty
   = LineChartDefaultSeriesSettingsProperty {axisBinding :: (Prelude.Maybe (Value Prelude.Text)),
                                             lineStyleSettings :: (Prelude.Maybe LineChartLineStyleSettingsProperty),
                                             markerStyleSettings :: (Prelude.Maybe LineChartMarkerStyleSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLineChartDefaultSeriesSettingsProperty ::
   LineChartDefaultSeriesSettingsProperty
 mkLineChartDefaultSeriesSettingsProperty

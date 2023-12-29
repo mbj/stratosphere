@@ -13,6 +13,7 @@ data Input
            inputDescription :: (Prelude.Maybe (Value Prelude.Text)),
            inputName :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInput :: InputDefinitionProperty -> Input
 mkInput inputDefinition
   = Input

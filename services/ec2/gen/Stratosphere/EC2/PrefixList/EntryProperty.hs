@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EntryProperty
   = EntryProperty {cidr :: (Value Prelude.Text),
                    description :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntryProperty :: Value Prelude.Text -> EntryProperty
 mkEntryProperty cidr
   = EntryProperty {cidr = cidr, description = Prelude.Nothing}

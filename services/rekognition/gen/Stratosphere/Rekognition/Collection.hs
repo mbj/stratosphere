@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Collection
   = Collection {collectionId :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCollection :: Value Prelude.Text -> Collection
 mkCollection collectionId
   = Collection {collectionId = collectionId, tags = Prelude.Nothing}

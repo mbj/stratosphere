@@ -25,6 +25,7 @@ data ScalingInstructionProperty
                                 scheduledActionBufferTime :: (Prelude.Maybe (Value Prelude.Integer)),
                                 serviceNamespace :: (Value Prelude.Text),
                                 targetTrackingConfigurations :: [TargetTrackingConfigurationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingInstructionProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer

@@ -13,6 +13,7 @@ data UpsolverS3OutputFormatConfigProperty
   = UpsolverS3OutputFormatConfigProperty {aggregationConfig :: (Prelude.Maybe AggregationConfigProperty),
                                           fileType :: (Prelude.Maybe (Value Prelude.Text)),
                                           prefixConfig :: PrefixConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUpsolverS3OutputFormatConfigProperty ::
   PrefixConfigProperty -> UpsolverS3OutputFormatConfigProperty
 mkUpsolverS3OutputFormatConfigProperty prefixConfig

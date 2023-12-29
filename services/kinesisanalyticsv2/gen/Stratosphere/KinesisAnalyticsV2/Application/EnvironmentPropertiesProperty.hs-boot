@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EnvironmentPropertiesProperty :: Prelude.Type
 instance ToResourceProperties EnvironmentPropertiesProperty
+instance Prelude.Eq EnvironmentPropertiesProperty
+instance Prelude.Show EnvironmentPropertiesProperty
 instance JSON.ToJSON EnvironmentPropertiesProperty

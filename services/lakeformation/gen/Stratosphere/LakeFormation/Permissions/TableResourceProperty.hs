@@ -12,6 +12,7 @@ data TableResourceProperty
                            databaseName :: (Prelude.Maybe (Value Prelude.Text)),
                            name :: (Prelude.Maybe (Value Prelude.Text)),
                            tableWildcard :: (Prelude.Maybe TableWildcardProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableResourceProperty :: TableResourceProperty
 mkTableResourceProperty
   = TableResourceProperty

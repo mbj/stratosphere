@@ -11,6 +11,7 @@ data MaintenanceWindowLambdaParametersProperty
   = MaintenanceWindowLambdaParametersProperty {clientContext :: (Prelude.Maybe (Value Prelude.Text)),
                                                payload :: (Prelude.Maybe (Value Prelude.Text)),
                                                qualifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindowLambdaParametersProperty ::
   MaintenanceWindowLambdaParametersProperty
 mkMaintenanceWindowLambdaParametersProperty

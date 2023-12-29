@@ -11,6 +11,7 @@ data AccessLoggingPolicyProperty
                                  enabled :: (Value Prelude.Bool),
                                  s3BucketName :: (Value Prelude.Text),
                                  s3BucketPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessLoggingPolicyProperty ::
   Value Prelude.Bool
   -> Value Prelude.Text -> AccessLoggingPolicyProperty

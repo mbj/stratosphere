@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ComponentConfigurationProperty
   = ComponentConfigurationProperty {componentArn :: (Prelude.Maybe (Value Prelude.Text)),
                                     parameters :: (Prelude.Maybe [ComponentParameterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentConfigurationProperty :: ComponentConfigurationProperty
 mkComponentConfigurationProperty
   = ComponentConfigurationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StatefulRuleGroupReferenceProperty :: Prelude.Type
 instance ToResourceProperties StatefulRuleGroupReferenceProperty
+instance Prelude.Eq StatefulRuleGroupReferenceProperty
+instance Prelude.Show StatefulRuleGroupReferenceProperty
 instance JSON.ToJSON StatefulRuleGroupReferenceProperty

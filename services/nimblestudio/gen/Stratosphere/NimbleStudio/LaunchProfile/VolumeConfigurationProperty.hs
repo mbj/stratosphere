@@ -10,6 +10,7 @@ data VolumeConfigurationProperty
   = VolumeConfigurationProperty {iops :: (Prelude.Maybe (Value Prelude.Double)),
                                  size :: (Prelude.Maybe (Value Prelude.Double)),
                                  throughput :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeConfigurationProperty :: VolumeConfigurationProperty
 mkVolumeConfigurationProperty
   = VolumeConfigurationProperty

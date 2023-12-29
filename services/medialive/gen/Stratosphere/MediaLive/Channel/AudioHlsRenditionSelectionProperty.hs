@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AudioHlsRenditionSelectionProperty
   = AudioHlsRenditionSelectionProperty {groupId :: (Prelude.Maybe (Value Prelude.Text)),
                                         name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioHlsRenditionSelectionProperty ::
   AudioHlsRenditionSelectionProperty
 mkAudioHlsRenditionSelectionProperty

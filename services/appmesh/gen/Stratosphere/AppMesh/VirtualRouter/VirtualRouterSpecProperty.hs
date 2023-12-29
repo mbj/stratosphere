@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualRouter.VirtualRouterListenerPr
 import Stratosphere.ResourceProperties
 data VirtualRouterSpecProperty
   = VirtualRouterSpecProperty {listeners :: [VirtualRouterListenerProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualRouterSpecProperty ::
   [VirtualRouterListenerProperty] -> VirtualRouterSpecProperty
 mkVirtualRouterSpecProperty listeners

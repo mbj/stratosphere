@@ -13,6 +13,7 @@ data TrafficRoutingConfigProperty
   = TrafficRoutingConfigProperty {timeBasedCanary :: (Prelude.Maybe TimeBasedCanaryProperty),
                                   timeBasedLinear :: (Prelude.Maybe TimeBasedLinearProperty),
                                   type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficRoutingConfigProperty ::
   Value Prelude.Text -> TrafficRoutingConfigProperty
 mkTrafficRoutingConfigProperty type'

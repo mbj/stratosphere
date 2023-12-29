@@ -32,6 +32,7 @@ data Campaign
               templateConfiguration :: (Prelude.Maybe TemplateConfigurationProperty),
               treatmentDescription :: (Prelude.Maybe (Value Prelude.Text)),
               treatmentName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaign ::
   Value Prelude.Text
   -> Value Prelude.Text

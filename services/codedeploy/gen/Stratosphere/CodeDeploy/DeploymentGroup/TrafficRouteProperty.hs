@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrafficRouteProperty
   = TrafficRouteProperty {listenerArns :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficRouteProperty :: TrafficRouteProperty
 mkTrafficRouteProperty
   = TrafficRouteProperty {listenerArns = Prelude.Nothing}

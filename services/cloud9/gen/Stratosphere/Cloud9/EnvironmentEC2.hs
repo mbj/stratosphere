@@ -19,6 +19,7 @@ data EnvironmentEC2
                     repositories :: (Prelude.Maybe [RepositoryProperty]),
                     subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentEC2 :: Value Prelude.Text -> EnvironmentEC2
 mkEnvironmentEC2 instanceType
   = EnvironmentEC2

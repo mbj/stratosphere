@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.OriginRequestPolicy.OriginRequestP
 import Stratosphere.ResourceProperties
 data OriginRequestPolicy
   = OriginRequestPolicy {originRequestPolicyConfig :: OriginRequestPolicyConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginRequestPolicy ::
   OriginRequestPolicyConfigProperty -> OriginRequestPolicy
 mkOriginRequestPolicy originRequestPolicyConfig

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data CollectionSchemeProperty
   = CollectionSchemeProperty {conditionBasedCollectionScheme :: (Prelude.Maybe ConditionBasedCollectionSchemeProperty),
                               timeBasedCollectionScheme :: (Prelude.Maybe TimeBasedCollectionSchemeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCollectionSchemeProperty :: CollectionSchemeProperty
 mkCollectionSchemeProperty
   = CollectionSchemeProperty

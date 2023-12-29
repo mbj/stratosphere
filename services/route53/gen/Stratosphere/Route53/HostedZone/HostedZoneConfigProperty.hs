@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HostedZoneConfigProperty
   = HostedZoneConfigProperty {comment :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHostedZoneConfigProperty :: HostedZoneConfigProperty
 mkHostedZoneConfigProperty
   = HostedZoneConfigProperty {comment = Prelude.Nothing}

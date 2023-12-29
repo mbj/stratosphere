@@ -10,6 +10,7 @@ data NielsenNaesIiNwProperty
   = NielsenNaesIiNwProperty {checkDigitString :: (Prelude.Maybe (Value Prelude.Text)),
                              sid :: (Prelude.Maybe (Value Prelude.Double)),
                              timezone :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNielsenNaesIiNwProperty :: NielsenNaesIiNwProperty
 mkNielsenNaesIiNwProperty
   = NielsenNaesIiNwProperty

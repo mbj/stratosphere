@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DatasetContentDeliveryRuleProperty
   = DatasetContentDeliveryRuleProperty {destination :: DatasetContentDeliveryRuleDestinationProperty,
                                         entryName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetContentDeliveryRuleProperty ::
   DatasetContentDeliveryRuleDestinationProperty
   -> DatasetContentDeliveryRuleProperty

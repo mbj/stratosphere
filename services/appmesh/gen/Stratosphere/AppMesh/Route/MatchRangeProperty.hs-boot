@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MatchRangeProperty :: Prelude.Type
 instance ToResourceProperties MatchRangeProperty
+instance Prelude.Eq MatchRangeProperty
+instance Prelude.Show MatchRangeProperty
 instance JSON.ToJSON MatchRangeProperty

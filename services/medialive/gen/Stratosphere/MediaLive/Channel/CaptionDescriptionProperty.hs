@@ -15,6 +15,7 @@ data CaptionDescriptionProperty
                                 languageCode :: (Prelude.Maybe (Value Prelude.Text)),
                                 languageDescription :: (Prelude.Maybe (Value Prelude.Text)),
                                 name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptionDescriptionProperty :: CaptionDescriptionProperty
 mkCaptionDescriptionProperty
   = CaptionDescriptionProperty

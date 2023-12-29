@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AcceleratorCountProperty
   = AcceleratorCountProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
                               min :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAcceleratorCountProperty :: AcceleratorCountProperty
 mkAcceleratorCountProperty
   = AcceleratorCountProperty

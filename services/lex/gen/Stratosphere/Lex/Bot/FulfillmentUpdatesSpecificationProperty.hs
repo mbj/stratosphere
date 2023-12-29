@@ -14,6 +14,7 @@ data FulfillmentUpdatesSpecificationProperty
                                              startResponse :: (Prelude.Maybe FulfillmentStartResponseSpecificationProperty),
                                              timeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                              updateResponse :: (Prelude.Maybe FulfillmentUpdateResponseSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFulfillmentUpdatesSpecificationProperty ::
   Value Prelude.Bool -> FulfillmentUpdatesSpecificationProperty
 mkFulfillmentUpdatesSpecificationProperty active

@@ -13,6 +13,7 @@ data SharedFileSystemConfigurationProperty
                                            linuxMountPoint :: (Prelude.Maybe (Value Prelude.Text)),
                                            shareName :: (Prelude.Maybe (Value Prelude.Text)),
                                            windowsMountDrive :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSharedFileSystemConfigurationProperty ::
   SharedFileSystemConfigurationProperty
 mkSharedFileSystemConfigurationProperty

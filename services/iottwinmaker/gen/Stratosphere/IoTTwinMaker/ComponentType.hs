@@ -19,6 +19,7 @@ data ComponentType
                    propertyGroups :: (Prelude.Maybe (Prelude.Map Prelude.Text PropertyGroupProperty)),
                    tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                    workspaceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentType ::
   Value Prelude.Text -> Value Prelude.Text -> ComponentType
 mkComponentType componentTypeId workspaceId

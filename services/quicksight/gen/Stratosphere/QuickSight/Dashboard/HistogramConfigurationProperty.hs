@@ -22,6 +22,7 @@ data HistogramConfigurationProperty
                                     xAxisDisplayOptions :: (Prelude.Maybe AxisDisplayOptionsProperty),
                                     xAxisLabelOptions :: (Prelude.Maybe ChartAxisLabelOptionsProperty),
                                     yAxisDisplayOptions :: (Prelude.Maybe AxisDisplayOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHistogramConfigurationProperty :: HistogramConfigurationProperty
 mkHistogramConfigurationProperty
   = HistogramConfigurationProperty

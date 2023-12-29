@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InternetMeasurementsLogDeliveryProperty :: Prelude.Type
 instance ToResourceProperties InternetMeasurementsLogDeliveryProperty
+instance Prelude.Eq InternetMeasurementsLogDeliveryProperty
+instance Prelude.Show InternetMeasurementsLogDeliveryProperty
 instance JSON.ToJSON InternetMeasurementsLogDeliveryProperty

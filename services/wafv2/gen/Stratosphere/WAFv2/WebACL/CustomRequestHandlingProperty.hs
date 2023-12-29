@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.CustomHTTPHeaderProperty as Expo
 import Stratosphere.ResourceProperties
 data CustomRequestHandlingProperty
   = CustomRequestHandlingProperty {insertHeaders :: [CustomHTTPHeaderProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomRequestHandlingProperty ::
   [CustomHTTPHeaderProperty] -> CustomRequestHandlingProperty
 mkCustomRequestHandlingProperty insertHeaders

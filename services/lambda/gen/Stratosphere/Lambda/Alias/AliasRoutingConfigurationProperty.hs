@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Lambda.Alias.VersionWeightProperty as Exports
 import Stratosphere.ResourceProperties
 data AliasRoutingConfigurationProperty
   = AliasRoutingConfigurationProperty {additionalVersionWeights :: [VersionWeightProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAliasRoutingConfigurationProperty ::
   [VersionWeightProperty] -> AliasRoutingConfigurationProperty
 mkAliasRoutingConfigurationProperty additionalVersionWeights

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualGatewayGrpcConnectionPoolProperty
   = VirtualGatewayGrpcConnectionPoolProperty {maxRequests :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayGrpcConnectionPoolProperty ::
   Value Prelude.Integer -> VirtualGatewayGrpcConnectionPoolProperty
 mkVirtualGatewayGrpcConnectionPoolProperty maxRequests

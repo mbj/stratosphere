@@ -10,6 +10,7 @@ data SharingSettingsProperty
   = SharingSettingsProperty {notebookOutputOption :: (Prelude.Maybe (Value Prelude.Text)),
                              s3KmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                              s3OutputPath :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSharingSettingsProperty :: SharingSettingsProperty
 mkSharingSettingsProperty
   = SharingSettingsProperty

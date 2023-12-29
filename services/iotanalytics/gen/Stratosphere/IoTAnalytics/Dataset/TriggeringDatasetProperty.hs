@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TriggeringDatasetProperty
   = TriggeringDatasetProperty {datasetName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTriggeringDatasetProperty ::
   Value Prelude.Text -> TriggeringDatasetProperty
 mkTriggeringDatasetProperty datasetName

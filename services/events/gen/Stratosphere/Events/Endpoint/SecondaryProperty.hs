@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SecondaryProperty
   = SecondaryProperty {route :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecondaryProperty :: Value Prelude.Text -> SecondaryProperty
 mkSecondaryProperty route = SecondaryProperty {route = route}
 instance ToResourceProperties SecondaryProperty where

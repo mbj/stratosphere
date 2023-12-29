@@ -14,6 +14,7 @@ data RouteResponse
                    responseParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text ParameterConstraintsProperty)),
                    routeId :: (Value Prelude.Text),
                    routeResponseKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRouteResponse ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> RouteResponse

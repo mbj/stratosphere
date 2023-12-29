@@ -27,6 +27,7 @@ data Trail
            snsTopicName :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe [Tag]),
            trailName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrail :: Value Prelude.Bool -> Value Prelude.Text -> Trail
 mkTrail isLogging s3BucketName
   = Trail

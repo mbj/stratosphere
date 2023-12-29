@@ -13,6 +13,7 @@ data Workflow
               onExceptionSteps :: (Prelude.Maybe [WorkflowStepProperty]),
               steps :: [WorkflowStepProperty],
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflow :: [WorkflowStepProperty] -> Workflow
 mkWorkflow steps
   = Workflow

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NetworkBandwidthGbpsProperty :: Prelude.Type
 instance ToResourceProperties NetworkBandwidthGbpsProperty
+instance Prelude.Eq NetworkBandwidthGbpsProperty
+instance Prelude.Show NetworkBandwidthGbpsProperty
 instance JSON.ToJSON NetworkBandwidthGbpsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExplicitHierarchyProperty :: Prelude.Type
 instance ToResourceProperties ExplicitHierarchyProperty
+instance Prelude.Eq ExplicitHierarchyProperty
+instance Prelude.Show ExplicitHierarchyProperty
 instance JSON.ToJSON ExplicitHierarchyProperty

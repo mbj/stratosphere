@@ -12,6 +12,7 @@ data OIDCProvider
                   tags :: (Prelude.Maybe [Tag]),
                   thumbprintList :: (ValueList Prelude.Text),
                   url :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOIDCProvider :: ValueList Prelude.Text -> OIDCProvider
 mkOIDCProvider thumbprintList
   = OIDCProvider

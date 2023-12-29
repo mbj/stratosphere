@@ -12,6 +12,7 @@ data CreateRuleProperty
                         intervalUnit :: (Prelude.Maybe (Value Prelude.Text)),
                         location :: (Prelude.Maybe (Value Prelude.Text)),
                         times :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCreateRuleProperty :: CreateRuleProperty
 mkCreateRuleProperty
   = CreateRuleProperty

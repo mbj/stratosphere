@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MetadataProperty
   = MetadataProperty {name :: (Value Prelude.Text),
                       value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataProperty ::
   Value Prelude.Text -> Value Prelude.Text -> MetadataProperty
 mkMetadataProperty name value

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FederatedDatabaseProperty :: Prelude.Type
 instance ToResourceProperties FederatedDatabaseProperty
+instance Prelude.Eq FederatedDatabaseProperty
+instance Prelude.Show FederatedDatabaseProperty
 instance JSON.ToJSON FederatedDatabaseProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RDSSourceConfigProperty :: Prelude.Type
 instance ToResourceProperties RDSSourceConfigProperty
+instance Prelude.Eq RDSSourceConfigProperty
+instance Prelude.Show RDSSourceConfigProperty
 instance JSON.ToJSON RDSSourceConfigProperty

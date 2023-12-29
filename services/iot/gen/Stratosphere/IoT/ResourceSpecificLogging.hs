@@ -10,6 +10,7 @@ data ResourceSpecificLogging
   = ResourceSpecificLogging {logLevel :: (Value Prelude.Text),
                              targetName :: (Value Prelude.Text),
                              targetType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceSpecificLogging ::
   Value Prelude.Text
   -> Value Prelude.Text

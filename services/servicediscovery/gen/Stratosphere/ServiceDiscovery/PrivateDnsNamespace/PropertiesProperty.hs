@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.ServiceDiscovery.PrivateDnsNamespace.PrivateD
 import Stratosphere.ResourceProperties
 data PropertiesProperty
   = PropertiesProperty {dnsProperties :: (Prelude.Maybe PrivateDnsPropertiesMutableProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertiesProperty :: PropertiesProperty
 mkPropertiesProperty
   = PropertiesProperty {dnsProperties = Prelude.Nothing}

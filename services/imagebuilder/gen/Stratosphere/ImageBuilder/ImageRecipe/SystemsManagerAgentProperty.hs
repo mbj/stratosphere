@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SystemsManagerAgentProperty
   = SystemsManagerAgentProperty {uninstallAfterBuild :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSystemsManagerAgentProperty :: SystemsManagerAgentProperty
 mkSystemsManagerAgentProperty
   = SystemsManagerAgentProperty

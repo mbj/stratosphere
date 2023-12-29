@@ -12,6 +12,7 @@ data TopicNumericRangeFilterProperty
   = TopicNumericRangeFilterProperty {aggregation :: (Prelude.Maybe (Value Prelude.Text)),
                                      constant :: (Prelude.Maybe TopicRangeFilterConstantProperty),
                                      inclusive :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicNumericRangeFilterProperty ::
   TopicNumericRangeFilterProperty
 mkTopicNumericRangeFilterProperty

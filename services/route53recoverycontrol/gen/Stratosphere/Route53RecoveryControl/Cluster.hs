@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Cluster
   = Cluster {name :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster :: Value Prelude.Text -> Cluster
 mkCluster name = Cluster {name = name, tags = Prelude.Nothing}
 instance ToResourceProperties Cluster where

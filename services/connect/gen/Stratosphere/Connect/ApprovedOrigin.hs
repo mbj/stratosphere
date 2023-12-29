@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ApprovedOrigin
   = ApprovedOrigin {instanceId :: (Value Prelude.Text),
                     origin :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApprovedOrigin ::
   Value Prelude.Text -> Value Prelude.Text -> ApprovedOrigin
 mkApprovedOrigin instanceId origin

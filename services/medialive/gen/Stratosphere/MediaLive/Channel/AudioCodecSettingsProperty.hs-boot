@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AudioCodecSettingsProperty :: Prelude.Type
 instance ToResourceProperties AudioCodecSettingsProperty
+instance Prelude.Eq AudioCodecSettingsProperty
+instance Prelude.Show AudioCodecSettingsProperty
 instance JSON.ToJSON AudioCodecSettingsProperty

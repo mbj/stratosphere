@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AdditionalInstanceConfigurationProperty
   = AdditionalInstanceConfigurationProperty {systemsManagerAgent :: (Prelude.Maybe SystemsManagerAgentProperty),
                                              userDataOverride :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdditionalInstanceConfigurationProperty ::
   AdditionalInstanceConfigurationProperty
 mkAdditionalInstanceConfigurationProperty

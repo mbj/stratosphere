@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NLBResourceProperty
   = NLBResourceProperty {arn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNLBResourceProperty :: NLBResourceProperty
 mkNLBResourceProperty = NLBResourceProperty {arn = Prelude.Nothing}
 instance ToResourceProperties NLBResourceProperty where

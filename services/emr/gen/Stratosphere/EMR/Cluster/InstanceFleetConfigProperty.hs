@@ -15,6 +15,7 @@ data InstanceFleetConfigProperty
                                  name :: (Prelude.Maybe (Value Prelude.Text)),
                                  targetOnDemandCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                  targetSpotCapacity :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceFleetConfigProperty :: InstanceFleetConfigProperty
 mkInstanceFleetConfigProperty
   = InstanceFleetConfigProperty

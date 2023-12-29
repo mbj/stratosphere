@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data KPIPrimaryValueConditionalFormattingProperty
   = KPIPrimaryValueConditionalFormattingProperty {icon :: (Prelude.Maybe ConditionalFormattingIconProperty),
                                                   textColor :: (Prelude.Maybe ConditionalFormattingColorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKPIPrimaryValueConditionalFormattingProperty ::
   KPIPrimaryValueConditionalFormattingProperty
 mkKPIPrimaryValueConditionalFormattingProperty

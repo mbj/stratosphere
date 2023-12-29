@@ -10,6 +10,7 @@ import Stratosphere.Value
 data HttpEndpointCommonAttributeProperty
   = HttpEndpointCommonAttributeProperty {attributeName :: (Value Prelude.Text),
                                          attributeValue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpEndpointCommonAttributeProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> HttpEndpointCommonAttributeProperty

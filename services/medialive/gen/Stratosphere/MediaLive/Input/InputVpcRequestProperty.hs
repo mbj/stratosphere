@@ -9,6 +9,7 @@ import Stratosphere.Value
 data InputVpcRequestProperty
   = InputVpcRequestProperty {securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                              subnetIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputVpcRequestProperty :: InputVpcRequestProperty
 mkInputVpcRequestProperty
   = InputVpcRequestProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeploymentCircuitBreakerProperty :: Prelude.Type
 instance ToResourceProperties DeploymentCircuitBreakerProperty
+instance Prelude.Eq DeploymentCircuitBreakerProperty
+instance Prelude.Show DeploymentCircuitBreakerProperty
 instance JSON.ToJSON DeploymentCircuitBreakerProperty

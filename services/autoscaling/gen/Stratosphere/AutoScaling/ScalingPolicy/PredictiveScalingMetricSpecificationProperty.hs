@@ -21,6 +21,7 @@ data PredictiveScalingMetricSpecificationProperty
                                                   predefinedMetricPairSpecification :: (Prelude.Maybe PredictiveScalingPredefinedMetricPairProperty),
                                                   predefinedScalingMetricSpecification :: (Prelude.Maybe PredictiveScalingPredefinedScalingMetricProperty),
                                                   targetValue :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveScalingMetricSpecificationProperty ::
   Value Prelude.Double
   -> PredictiveScalingMetricSpecificationProperty

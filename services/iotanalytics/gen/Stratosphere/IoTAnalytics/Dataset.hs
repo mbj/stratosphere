@@ -22,6 +22,7 @@ data Dataset
              tags :: (Prelude.Maybe [Tag]),
              triggers :: (Prelude.Maybe [TriggerProperty]),
              versioningConfiguration :: (Prelude.Maybe VersioningConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataset :: [ActionProperty] -> Dataset
 mkDataset actions
   = Dataset

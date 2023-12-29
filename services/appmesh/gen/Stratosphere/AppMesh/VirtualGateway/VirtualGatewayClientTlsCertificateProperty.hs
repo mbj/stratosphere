@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data VirtualGatewayClientTlsCertificateProperty
   = VirtualGatewayClientTlsCertificateProperty {file :: (Prelude.Maybe VirtualGatewayListenerTlsFileCertificateProperty),
                                                 sDS :: (Prelude.Maybe VirtualGatewayListenerTlsSdsCertificateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayClientTlsCertificateProperty ::
   VirtualGatewayClientTlsCertificateProperty
 mkVirtualGatewayClientTlsCertificateProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HopDestinationProperty :: Prelude.Type
 instance ToResourceProperties HopDestinationProperty
+instance Prelude.Eq HopDestinationProperty
+instance Prelude.Show HopDestinationProperty
 instance JSON.ToJSON HopDestinationProperty

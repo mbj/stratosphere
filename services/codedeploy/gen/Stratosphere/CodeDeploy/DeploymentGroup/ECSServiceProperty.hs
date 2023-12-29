@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ECSServiceProperty
   = ECSServiceProperty {clusterName :: (Value Prelude.Text),
                         serviceName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkECSServiceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ECSServiceProperty
 mkECSServiceProperty clusterName serviceName

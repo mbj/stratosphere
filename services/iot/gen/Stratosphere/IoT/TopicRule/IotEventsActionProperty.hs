@@ -11,6 +11,7 @@ data IotEventsActionProperty
                              inputName :: (Value Prelude.Text),
                              messageId :: (Prelude.Maybe (Value Prelude.Text)),
                              roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIotEventsActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> IotEventsActionProperty
 mkIotEventsActionProperty inputName roleArn

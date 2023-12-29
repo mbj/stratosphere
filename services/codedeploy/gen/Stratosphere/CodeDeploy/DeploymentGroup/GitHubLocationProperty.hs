@@ -9,6 +9,7 @@ import Stratosphere.Value
 data GitHubLocationProperty
   = GitHubLocationProperty {commitId :: (Value Prelude.Text),
                             repository :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGitHubLocationProperty ::
   Value Prelude.Text -> Value Prelude.Text -> GitHubLocationProperty
 mkGitHubLocationProperty commitId repository

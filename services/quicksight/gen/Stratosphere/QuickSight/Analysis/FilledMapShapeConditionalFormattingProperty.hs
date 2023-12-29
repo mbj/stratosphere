@@ -11,6 +11,7 @@ import Stratosphere.Value
 data FilledMapShapeConditionalFormattingProperty
   = FilledMapShapeConditionalFormattingProperty {fieldId :: (Value Prelude.Text),
                                                  format :: (Prelude.Maybe ShapeConditionalFormatProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilledMapShapeConditionalFormattingProperty ::
   Value Prelude.Text -> FilledMapShapeConditionalFormattingProperty
 mkFilledMapShapeConditionalFormattingProperty fieldId

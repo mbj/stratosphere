@@ -12,6 +12,7 @@ data OverrideDatasetParameterOperationProperty
   = OverrideDatasetParameterOperationProperty {newDefaultValues :: (Prelude.Maybe NewDefaultValuesProperty),
                                                newParameterName :: (Prelude.Maybe (Value Prelude.Text)),
                                                parameterName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOverrideDatasetParameterOperationProperty ::
   Value Prelude.Text -> OverrideDatasetParameterOperationProperty
 mkOverrideDatasetParameterOperationProperty parameterName

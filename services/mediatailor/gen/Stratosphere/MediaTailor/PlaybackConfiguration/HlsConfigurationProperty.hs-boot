@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HlsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties HlsConfigurationProperty
+instance Prelude.Eq HlsConfigurationProperty
+instance Prelude.Show HlsConfigurationProperty
 instance JSON.ToJSON HlsConfigurationProperty

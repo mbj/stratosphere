@@ -11,6 +11,7 @@ data ResponseInspectionJsonProperty
   = ResponseInspectionJsonProperty {failureValues :: (ValueList Prelude.Text),
                                     identifier :: (Value Prelude.Text),
                                     successValues :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionJsonProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text

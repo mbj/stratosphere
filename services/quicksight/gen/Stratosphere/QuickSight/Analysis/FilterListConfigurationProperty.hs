@@ -11,6 +11,7 @@ data FilterListConfigurationProperty
   = FilterListConfigurationProperty {categoryValues :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      matchOperator :: (Value Prelude.Text),
                                      selectAllOptions :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterListConfigurationProperty ::
   Value Prelude.Text -> FilterListConfigurationProperty
 mkFilterListConfigurationProperty matchOperator

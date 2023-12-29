@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TaskInvocationParametersProperty :: Prelude.Type
 instance ToResourceProperties TaskInvocationParametersProperty
+instance Prelude.Eq TaskInvocationParametersProperty
+instance Prelude.Show TaskInvocationParametersProperty
 instance JSON.ToJSON TaskInvocationParametersProperty

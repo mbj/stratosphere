@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DataSetUsageConfigurationProperty
   = DataSetUsageConfigurationProperty {disableUseAsDirectQuerySource :: (Prelude.Maybe (Value Prelude.Bool)),
                                        disableUseAsImportedSource :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSetUsageConfigurationProperty ::
   DataSetUsageConfigurationProperty
 mkDataSetUsageConfigurationProperty

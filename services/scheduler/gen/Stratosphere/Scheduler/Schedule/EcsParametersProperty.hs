@@ -25,6 +25,7 @@ data EcsParametersProperty
                            tags :: (Prelude.Maybe JSON.Object),
                            taskCount :: (Prelude.Maybe (Value Prelude.Double)),
                            taskDefinitionArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEcsParametersProperty ::
   Value Prelude.Text -> EcsParametersProperty
 mkEcsParametersProperty taskDefinitionArn

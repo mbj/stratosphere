@@ -11,6 +11,7 @@ import Stratosphere.Value
 data PolicyInformationProperty
   = PolicyInformationProperty {certPolicyId :: (Value Prelude.Text),
                                policyQualifiers :: (Prelude.Maybe [PolicyQualifierInfoProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPolicyInformationProperty ::
   Value Prelude.Text -> PolicyInformationProperty
 mkPolicyInformationProperty certPolicyId

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.CloudWatchAlarmDefinitionProperty
 import Stratosphere.ResourceProperties
 data ScalingTriggerProperty
   = ScalingTriggerProperty {cloudWatchAlarmDefinition :: CloudWatchAlarmDefinitionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingTriggerProperty ::
   CloudWatchAlarmDefinitionProperty -> ScalingTriggerProperty
 mkScalingTriggerProperty cloudWatchAlarmDefinition

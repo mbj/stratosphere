@@ -20,6 +20,7 @@ data ObjectType
                 objectTypeName :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag]),
                 templateId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObjectType :: Value Prelude.Text -> ObjectType
 mkObjectType domainName
   = ObjectType

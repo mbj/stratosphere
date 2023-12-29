@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TieringProperty
   = TieringProperty {accessTier :: (Value Prelude.Text),
                      days :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTieringProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> TieringProperty
 mkTieringProperty accessTier days

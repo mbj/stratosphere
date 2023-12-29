@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SqlInjectionMatchTupleProperty :: Prelude.Type
 instance ToResourceProperties SqlInjectionMatchTupleProperty
+instance Prelude.Eq SqlInjectionMatchTupleProperty
+instance Prelude.Show SqlInjectionMatchTupleProperty
 instance JSON.ToJSON SqlInjectionMatchTupleProperty

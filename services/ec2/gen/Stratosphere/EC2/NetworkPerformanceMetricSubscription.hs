@@ -12,6 +12,7 @@ data NetworkPerformanceMetricSubscription
                                           metric :: (Value Prelude.Text),
                                           source :: (Value Prelude.Text),
                                           statistic :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkPerformanceMetricSubscription ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ColdStorageOptionsProperty
   = ColdStorageOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColdStorageOptionsProperty :: ColdStorageOptionsProperty
 mkColdStorageOptionsProperty
   = ColdStorageOptionsProperty {enabled = Prelude.Nothing}

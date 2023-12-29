@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataSetRefreshPropertiesProperty :: Prelude.Type
 instance ToResourceProperties DataSetRefreshPropertiesProperty
+instance Prelude.Eq DataSetRefreshPropertiesProperty
+instance Prelude.Show DataSetRefreshPropertiesProperty
 instance JSON.ToJSON DataSetRefreshPropertiesProperty

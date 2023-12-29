@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualGateway.SubjectAlternativeName
 import Stratosphere.ResourceProperties
 data SubjectAlternativeNamesProperty
   = SubjectAlternativeNamesProperty {match :: SubjectAlternativeNameMatchersProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubjectAlternativeNamesProperty ::
   SubjectAlternativeNameMatchersProperty
   -> SubjectAlternativeNamesProperty

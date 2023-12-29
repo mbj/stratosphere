@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConnectionPropertiesProperty
   = VpcConnectionPropertiesProperty {vpcConnectionArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConnectionPropertiesProperty ::
   Value Prelude.Text -> VpcConnectionPropertiesProperty
 mkVpcConnectionPropertiesProperty vpcConnectionArn

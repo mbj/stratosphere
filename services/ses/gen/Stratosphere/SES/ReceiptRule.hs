@@ -11,6 +11,7 @@ data ReceiptRule
   = ReceiptRule {after :: (Prelude.Maybe (Value Prelude.Text)),
                  rule :: RuleProperty,
                  ruleSetName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReceiptRule :: RuleProperty -> Value Prelude.Text -> ReceiptRule
 mkReceiptRule rule ruleSetName
   = ReceiptRule

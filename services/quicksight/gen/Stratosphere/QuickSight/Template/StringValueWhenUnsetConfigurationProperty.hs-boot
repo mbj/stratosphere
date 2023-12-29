@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StringValueWhenUnsetConfigurationProperty :: Prelude.Type
 instance ToResourceProperties StringValueWhenUnsetConfigurationProperty
+instance Prelude.Eq StringValueWhenUnsetConfigurationProperty
+instance Prelude.Show StringValueWhenUnsetConfigurationProperty
 instance JSON.ToJSON StringValueWhenUnsetConfigurationProperty

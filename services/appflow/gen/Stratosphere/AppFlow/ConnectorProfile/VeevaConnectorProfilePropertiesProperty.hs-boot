@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VeevaConnectorProfilePropertiesProperty :: Prelude.Type
 instance ToResourceProperties VeevaConnectorProfilePropertiesProperty
+instance Prelude.Eq VeevaConnectorProfilePropertiesProperty
+instance Prelude.Show VeevaConnectorProfilePropertiesProperty
 instance JSON.ToJSON VeevaConnectorProfilePropertiesProperty

@@ -23,6 +23,7 @@ data OutputGroupSettingsProperty
                                  multiplexGroupSettings :: (Prelude.Maybe MultiplexGroupSettingsProperty),
                                  rtmpGroupSettings :: (Prelude.Maybe RtmpGroupSettingsProperty),
                                  udpGroupSettings :: (Prelude.Maybe UdpGroupSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputGroupSettingsProperty :: OutputGroupSettingsProperty
 mkOutputGroupSettingsProperty
   = OutputGroupSettingsProperty

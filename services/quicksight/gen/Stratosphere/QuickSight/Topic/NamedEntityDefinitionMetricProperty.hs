@@ -10,6 +10,7 @@ import Stratosphere.Value
 data NamedEntityDefinitionMetricProperty
   = NamedEntityDefinitionMetricProperty {aggregation :: (Prelude.Maybe (Value Prelude.Text)),
                                          aggregationFunctionParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNamedEntityDefinitionMetricProperty ::
   NamedEntityDefinitionMetricProperty
 mkNamedEntityDefinitionMetricProperty

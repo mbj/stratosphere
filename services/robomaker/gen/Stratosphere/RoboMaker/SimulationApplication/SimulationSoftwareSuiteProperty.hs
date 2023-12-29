@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SimulationSoftwareSuiteProperty
   = SimulationSoftwareSuiteProperty {name :: (Value Prelude.Text),
                                      version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSimulationSoftwareSuiteProperty ::
   Value Prelude.Text -> SimulationSoftwareSuiteProperty
 mkSimulationSoftwareSuiteProperty name

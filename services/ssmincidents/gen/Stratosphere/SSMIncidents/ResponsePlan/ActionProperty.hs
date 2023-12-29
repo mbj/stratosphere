@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.SSMIncidents.ResponsePlan.SsmAutomationProper
 import Stratosphere.ResourceProperties
 data ActionProperty
   = ActionProperty {ssmAutomation :: (Prelude.Maybe SsmAutomationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: ActionProperty
 mkActionProperty = ActionProperty {ssmAutomation = Prelude.Nothing}
 instance ToResourceProperties ActionProperty where

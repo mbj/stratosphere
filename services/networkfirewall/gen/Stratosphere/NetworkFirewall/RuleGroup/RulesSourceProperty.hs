@@ -14,6 +14,7 @@ data RulesSourceProperty
                          rulesString :: (Prelude.Maybe (Value Prelude.Text)),
                          statefulRules :: (Prelude.Maybe [StatefulRuleProperty]),
                          statelessRulesAndCustomActions :: (Prelude.Maybe StatelessRulesAndCustomActionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRulesSourceProperty :: RulesSourceProperty
 mkRulesSourceProperty
   = RulesSourceProperty

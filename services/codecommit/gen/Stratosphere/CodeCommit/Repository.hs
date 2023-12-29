@@ -15,6 +15,7 @@ data Repository
                 repositoryName :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag]),
                 triggers :: (Prelude.Maybe [RepositoryTriggerProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRepository :: Value Prelude.Text -> Repository
 mkRepository repositoryName
   = Repository

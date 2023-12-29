@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MixedMeasureMappingProperty :: Prelude.Type
 instance ToResourceProperties MixedMeasureMappingProperty
+instance Prelude.Eq MixedMeasureMappingProperty
+instance Prelude.Show MixedMeasureMappingProperty
 instance JSON.ToJSON MixedMeasureMappingProperty

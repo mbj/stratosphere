@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TcpRouteMatchProperty
   = TcpRouteMatchProperty {port :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTcpRouteMatchProperty :: TcpRouteMatchProperty
 mkTcpRouteMatchProperty
   = TcpRouteMatchProperty {port = Prelude.Nothing}

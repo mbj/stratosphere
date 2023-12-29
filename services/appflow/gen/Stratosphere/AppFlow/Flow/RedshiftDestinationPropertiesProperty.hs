@@ -13,6 +13,7 @@ data RedshiftDestinationPropertiesProperty
                                            errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
                                            intermediateBucketName :: (Value Prelude.Text),
                                            object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftDestinationPropertiesProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> RedshiftDestinationPropertiesProperty

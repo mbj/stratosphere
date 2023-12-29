@@ -10,6 +10,7 @@ data ThresholdProperty
   = ThresholdProperty {type' :: (Prelude.Maybe (Value Prelude.Text)),
                        unit :: (Prelude.Maybe (Value Prelude.Text)),
                        value :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThresholdProperty :: Value Prelude.Double -> ThresholdProperty
 mkThresholdProperty value
   = ThresholdProperty

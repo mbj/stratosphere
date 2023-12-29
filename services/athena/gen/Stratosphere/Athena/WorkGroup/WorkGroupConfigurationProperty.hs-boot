@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WorkGroupConfigurationProperty :: Prelude.Type
 instance ToResourceProperties WorkGroupConfigurationProperty
+instance Prelude.Eq WorkGroupConfigurationProperty
+instance Prelude.Show WorkGroupConfigurationProperty
 instance JSON.ToJSON WorkGroupConfigurationProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data BatchEnvironmentVariableProperty
   = BatchEnvironmentVariableProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                                       value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchEnvironmentVariableProperty ::
   BatchEnvironmentVariableProperty
 mkBatchEnvironmentVariableProperty

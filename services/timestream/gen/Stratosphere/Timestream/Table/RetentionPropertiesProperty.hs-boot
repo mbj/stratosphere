@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RetentionPropertiesProperty :: Prelude.Type
 instance ToResourceProperties RetentionPropertiesProperty
+instance Prelude.Eq RetentionPropertiesProperty
+instance Prelude.Show RetentionPropertiesProperty
 instance JSON.ToJSON RetentionPropertiesProperty

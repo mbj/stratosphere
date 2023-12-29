@@ -31,6 +31,7 @@ data Layer
            type' :: (Value Prelude.Text),
            useEbsOptimizedInstances :: (Prelude.Maybe (Value Prelude.Bool)),
            volumeConfigurations :: (Prelude.Maybe [VolumeConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLayer ::
   Value Prelude.Bool
   -> Value Prelude.Bool

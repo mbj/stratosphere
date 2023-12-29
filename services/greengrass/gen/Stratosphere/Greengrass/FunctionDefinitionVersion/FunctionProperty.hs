@@ -11,6 +11,7 @@ data FunctionProperty
   = FunctionProperty {functionArn :: (Value Prelude.Text),
                       functionConfiguration :: FunctionConfigurationProperty,
                       id :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionProperty ::
   Value Prelude.Text
   -> FunctionConfigurationProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.PivotTableAggregatedFiel
 import Stratosphere.ResourceProperties
 data PivotTableFieldWellsProperty
   = PivotTableFieldWellsProperty {pivotTableAggregatedFieldWells :: (Prelude.Maybe PivotTableAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableFieldWellsProperty :: PivotTableFieldWellsProperty
 mkPivotTableFieldWellsProperty
   = PivotTableFieldWellsProperty

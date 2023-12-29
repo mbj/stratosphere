@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TracingConfigurationProperty :: Prelude.Type
 instance ToResourceProperties TracingConfigurationProperty
+instance Prelude.Eq TracingConfigurationProperty
+instance Prelude.Show TracingConfigurationProperty
 instance JSON.ToJSON TracingConfigurationProperty

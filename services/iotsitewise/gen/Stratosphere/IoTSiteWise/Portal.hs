@@ -17,6 +17,7 @@ data Portal
             portalName :: (Value Prelude.Text),
             roleArn :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPortal ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Portal

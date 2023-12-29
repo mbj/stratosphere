@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReferenceItemProperty
   = ReferenceItemProperty {referenceArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceItemProperty ::
   Value Prelude.Text -> ReferenceItemProperty
 mkReferenceItemProperty referenceArn

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ControlInputParameterProperty
   = ControlInputParameterProperty {parameterName :: (Value Prelude.Text),
                                    parameterValue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkControlInputParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ControlInputParameterProperty

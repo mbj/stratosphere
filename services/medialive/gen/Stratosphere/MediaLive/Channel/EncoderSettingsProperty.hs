@@ -31,6 +31,7 @@ data EncoderSettingsProperty
                              outputGroups :: (Prelude.Maybe [OutputGroupProperty]),
                              timecodeConfig :: (Prelude.Maybe TimecodeConfigProperty),
                              videoDescriptions :: (Prelude.Maybe [VideoDescriptionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncoderSettingsProperty :: EncoderSettingsProperty
 mkEncoderSettingsProperty
   = EncoderSettingsProperty

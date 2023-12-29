@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DataSetIdentifierDeclarationProperty
   = DataSetIdentifierDeclarationProperty {dataSetArn :: (Value Prelude.Text),
                                           identifier :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSetIdentifierDeclarationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DataSetIdentifierDeclarationProperty

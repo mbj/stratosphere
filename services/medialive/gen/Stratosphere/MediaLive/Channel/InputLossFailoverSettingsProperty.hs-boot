@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InputLossFailoverSettingsProperty :: Prelude.Type
 instance ToResourceProperties InputLossFailoverSettingsProperty
+instance Prelude.Eq InputLossFailoverSettingsProperty
+instance Prelude.Show InputLossFailoverSettingsProperty
 instance JSON.ToJSON InputLossFailoverSettingsProperty

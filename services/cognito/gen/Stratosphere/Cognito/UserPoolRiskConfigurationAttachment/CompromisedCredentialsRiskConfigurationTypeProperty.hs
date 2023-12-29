@@ -12,6 +12,7 @@ import Stratosphere.Value
 data CompromisedCredentialsRiskConfigurationTypeProperty
   = CompromisedCredentialsRiskConfigurationTypeProperty {actions :: CompromisedCredentialsActionsTypeProperty,
                                                          eventFilter :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCompromisedCredentialsRiskConfigurationTypeProperty ::
   CompromisedCredentialsActionsTypeProperty
   -> CompromisedCredentialsRiskConfigurationTypeProperty

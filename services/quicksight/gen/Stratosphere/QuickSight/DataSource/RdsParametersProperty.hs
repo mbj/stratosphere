@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RdsParametersProperty
   = RdsParametersProperty {database :: (Value Prelude.Text),
                            instanceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRdsParametersProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RdsParametersProperty
 mkRdsParametersProperty database instanceId

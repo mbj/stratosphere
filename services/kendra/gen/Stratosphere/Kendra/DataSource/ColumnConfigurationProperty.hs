@@ -14,6 +14,7 @@ data ColumnConfigurationProperty
                                  documentIdColumnName :: (Value Prelude.Text),
                                  documentTitleColumnName :: (Prelude.Maybe (Value Prelude.Text)),
                                  fieldMappings :: (Prelude.Maybe [DataSourceToIndexFieldMappingProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnConfigurationProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text

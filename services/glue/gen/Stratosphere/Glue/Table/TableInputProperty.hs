@@ -21,6 +21,7 @@ data TableInputProperty
                         targetTable :: (Prelude.Maybe TableIdentifierProperty),
                         viewExpandedText :: (Prelude.Maybe (Value Prelude.Text)),
                         viewOriginalText :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableInputProperty :: TableInputProperty
 mkTableInputProperty
   = TableInputProperty

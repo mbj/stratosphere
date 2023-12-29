@@ -16,6 +16,7 @@ data OrganizationConformancePack
                                  organizationConformancePackName :: (Value Prelude.Text),
                                  templateBody :: (Prelude.Maybe (Value Prelude.Text)),
                                  templateS3Uri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationConformancePack ::
   Value Prelude.Text -> OrganizationConformancePack
 mkOrganizationConformancePack organizationConformancePackName

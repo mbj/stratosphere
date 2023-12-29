@@ -17,6 +17,7 @@ data ThemeVersionProperty
                           errors :: (Prelude.Maybe [ThemeErrorProperty]),
                           status :: (Prelude.Maybe (Value Prelude.Text)),
                           versionNumber :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThemeVersionProperty :: ThemeVersionProperty
 mkThemeVersionProperty
   = ThemeVersionProperty

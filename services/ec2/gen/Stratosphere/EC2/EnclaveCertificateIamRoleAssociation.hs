@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EnclaveCertificateIamRoleAssociation
   = EnclaveCertificateIamRoleAssociation {certificateArn :: (Value Prelude.Text),
                                           roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnclaveCertificateIamRoleAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> EnclaveCertificateIamRoleAssociation

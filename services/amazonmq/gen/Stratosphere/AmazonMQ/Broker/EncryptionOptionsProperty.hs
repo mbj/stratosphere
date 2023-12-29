@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EncryptionOptionsProperty
   = EncryptionOptionsProperty {kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                                useAwsOwnedKey :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionOptionsProperty ::
   Value Prelude.Bool -> EncryptionOptionsProperty
 mkEncryptionOptionsProperty useAwsOwnedKey

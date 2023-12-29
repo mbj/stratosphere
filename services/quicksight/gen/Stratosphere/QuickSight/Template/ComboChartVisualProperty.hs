@@ -19,6 +19,7 @@ data ComboChartVisualProperty
                               subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                               title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                               visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComboChartVisualProperty ::
   Value Prelude.Text -> ComboChartVisualProperty
 mkComboChartVisualProperty visualId

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomVocabularyProperty :: Prelude.Type
 instance ToResourceProperties CustomVocabularyProperty
+instance Prelude.Eq CustomVocabularyProperty
+instance Prelude.Show CustomVocabularyProperty
 instance JSON.ToJSON CustomVocabularyProperty

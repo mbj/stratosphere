@@ -42,6 +42,7 @@ data LineChartConfigurationProperty
                                     visualPalette :: (Prelude.Maybe VisualPaletteProperty),
                                     xAxisDisplayOptions :: (Prelude.Maybe AxisDisplayOptionsProperty),
                                     xAxisLabelOptions :: (Prelude.Maybe ChartAxisLabelOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLineChartConfigurationProperty :: LineChartConfigurationProperty
 mkLineChartConfigurationProperty
   = LineChartConfigurationProperty

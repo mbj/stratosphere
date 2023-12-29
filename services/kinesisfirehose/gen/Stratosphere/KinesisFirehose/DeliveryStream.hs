@@ -31,6 +31,7 @@ data DeliveryStream
                     s3DestinationConfiguration :: (Prelude.Maybe S3DestinationConfigurationProperty),
                     splunkDestinationConfiguration :: (Prelude.Maybe SplunkDestinationConfigurationProperty),
                     tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryStream :: DeliveryStream
 mkDeliveryStream
   = DeliveryStream

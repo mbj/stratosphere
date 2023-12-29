@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomHeadersConfigProperty :: Prelude.Type
 instance ToResourceProperties CustomHeadersConfigProperty
+instance Prelude.Eq CustomHeadersConfigProperty
+instance Prelude.Show CustomHeadersConfigProperty
 instance JSON.ToJSON CustomHeadersConfigProperty

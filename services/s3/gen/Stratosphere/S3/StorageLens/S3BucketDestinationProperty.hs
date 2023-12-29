@@ -15,6 +15,7 @@ data S3BucketDestinationProperty
                                  format :: (Value Prelude.Text),
                                  outputSchemaVersion :: (Value Prelude.Text),
                                  prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3BucketDestinationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

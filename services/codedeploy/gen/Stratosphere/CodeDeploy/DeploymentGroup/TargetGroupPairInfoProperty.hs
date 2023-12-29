@@ -12,6 +12,7 @@ data TargetGroupPairInfoProperty
   = TargetGroupPairInfoProperty {prodTrafficRoute :: (Prelude.Maybe TrafficRouteProperty),
                                  targetGroups :: (Prelude.Maybe [TargetGroupInfoProperty]),
                                  testTrafficRoute :: (Prelude.Maybe TrafficRouteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupPairInfoProperty :: TargetGroupPairInfoProperty
 mkTargetGroupPairInfoProperty
   = TargetGroupPairInfoProperty

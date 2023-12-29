@@ -11,6 +11,7 @@ data ExcludePeriodConfigurationProperty
   = ExcludePeriodConfigurationProperty {amount :: (Value Prelude.Double),
                                         granularity :: (Value Prelude.Text),
                                         status :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExcludePeriodConfigurationProperty ::
   Value Prelude.Double
   -> Value Prelude.Text -> ExcludePeriodConfigurationProperty

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data MetricStreamStatisticsConfigurationProperty
   = MetricStreamStatisticsConfigurationProperty {additionalStatistics :: (ValueList Prelude.Text),
                                                  includeMetrics :: [MetricStreamStatisticsMetricProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricStreamStatisticsConfigurationProperty ::
   ValueList Prelude.Text
   -> [MetricStreamStatisticsMetricProperty]

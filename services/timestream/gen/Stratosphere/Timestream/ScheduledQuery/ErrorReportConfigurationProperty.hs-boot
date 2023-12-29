@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ErrorReportConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ErrorReportConfigurationProperty
+instance Prelude.Eq ErrorReportConfigurationProperty
+instance Prelude.Show ErrorReportConfigurationProperty
 instance JSON.ToJSON ErrorReportConfigurationProperty

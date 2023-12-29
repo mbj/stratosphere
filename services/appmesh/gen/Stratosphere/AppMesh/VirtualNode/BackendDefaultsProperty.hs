@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ClientPolicyProperty as E
 import Stratosphere.ResourceProperties
 data BackendDefaultsProperty
   = BackendDefaultsProperty {clientPolicy :: (Prelude.Maybe ClientPolicyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBackendDefaultsProperty :: BackendDefaultsProperty
 mkBackendDefaultsProperty
   = BackendDefaultsProperty {clientPolicy = Prelude.Nothing}

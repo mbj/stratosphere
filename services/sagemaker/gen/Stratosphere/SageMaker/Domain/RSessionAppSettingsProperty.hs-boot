@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RSessionAppSettingsProperty :: Prelude.Type
 instance ToResourceProperties RSessionAppSettingsProperty
+instance Prelude.Eq RSessionAppSettingsProperty
+instance Prelude.Show RSessionAppSettingsProperty
 instance JSON.ToJSON RSessionAppSettingsProperty

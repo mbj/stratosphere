@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TableFieldOptionsProperty
   = TableFieldOptionsProperty {order :: (Prelude.Maybe (ValueList Prelude.Text)),
                                selectedFieldOptions :: (Prelude.Maybe [TableFieldOptionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableFieldOptionsProperty :: TableFieldOptionsProperty
 mkTableFieldOptionsProperty
   = TableFieldOptionsProperty

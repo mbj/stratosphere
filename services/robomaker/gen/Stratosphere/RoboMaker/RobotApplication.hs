@@ -15,6 +15,7 @@ data RobotApplication
                       robotSoftwareSuite :: RobotSoftwareSuiteProperty,
                       sources :: (Prelude.Maybe [SourceConfigProperty]),
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRobotApplication ::
   RobotSoftwareSuiteProperty -> RobotApplication
 mkRobotApplication robotSoftwareSuite

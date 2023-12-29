@@ -19,6 +19,7 @@ data Authorizer
                 identityValidationExpression :: (Prelude.Maybe (Value Prelude.Text)),
                 jwtConfiguration :: (Prelude.Maybe JWTConfigurationProperty),
                 name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizer ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Authorizer

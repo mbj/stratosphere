@@ -19,6 +19,7 @@ data DataSource
                 schedule :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag]),
                 type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSource ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> DataSource

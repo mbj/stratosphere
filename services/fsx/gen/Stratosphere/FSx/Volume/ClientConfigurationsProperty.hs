@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ClientConfigurationsProperty
   = ClientConfigurationsProperty {clients :: (Value Prelude.Text),
                                   options :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientConfigurationsProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> ClientConfigurationsProperty

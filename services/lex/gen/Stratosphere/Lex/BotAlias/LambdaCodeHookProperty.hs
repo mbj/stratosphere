@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LambdaCodeHookProperty
   = LambdaCodeHookProperty {codeHookInterfaceVersion :: (Value Prelude.Text),
                             lambdaArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaCodeHookProperty ::
   Value Prelude.Text -> Value Prelude.Text -> LambdaCodeHookProperty
 mkLambdaCodeHookProperty codeHookInterfaceVersion lambdaArn

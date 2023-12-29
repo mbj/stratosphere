@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StoppingConditionProperty
   = StoppingConditionProperty {maxRuntimeInSeconds :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStoppingConditionProperty ::
   Value Prelude.Integer -> StoppingConditionProperty
 mkStoppingConditionProperty maxRuntimeInSeconds

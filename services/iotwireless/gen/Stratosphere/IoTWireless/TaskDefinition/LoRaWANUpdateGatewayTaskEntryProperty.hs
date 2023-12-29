@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data LoRaWANUpdateGatewayTaskEntryProperty
   = LoRaWANUpdateGatewayTaskEntryProperty {currentVersion :: (Prelude.Maybe LoRaWANGatewayVersionProperty),
                                            updateVersion :: (Prelude.Maybe LoRaWANGatewayVersionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANUpdateGatewayTaskEntryProperty ::
   LoRaWANUpdateGatewayTaskEntryProperty
 mkLoRaWANUpdateGatewayTaskEntryProperty

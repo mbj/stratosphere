@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProvisionedConcurrencyConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ProvisionedConcurrencyConfigurationProperty
+instance Prelude.Eq ProvisionedConcurrencyConfigurationProperty
+instance Prelude.Show ProvisionedConcurrencyConfigurationProperty
 instance JSON.ToJSON ProvisionedConcurrencyConfigurationProperty

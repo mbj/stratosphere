@@ -12,6 +12,7 @@ data Certificate
                  certificatePem :: (Prelude.Maybe (Value Prelude.Text)),
                  certificateSigningRequest :: (Prelude.Maybe (Value Prelude.Text)),
                  status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificate :: Value Prelude.Text -> Certificate
 mkCertificate status
   = Certificate

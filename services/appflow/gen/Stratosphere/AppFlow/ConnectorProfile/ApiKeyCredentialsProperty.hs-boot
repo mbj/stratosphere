@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ApiKeyCredentialsProperty :: Prelude.Type
 instance ToResourceProperties ApiKeyCredentialsProperty
+instance Prelude.Eq ApiKeyCredentialsProperty
+instance Prelude.Show ApiKeyCredentialsProperty
 instance JSON.ToJSON ApiKeyCredentialsProperty

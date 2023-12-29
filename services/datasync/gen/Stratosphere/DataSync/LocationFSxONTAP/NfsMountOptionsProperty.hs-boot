@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NfsMountOptionsProperty :: Prelude.Type
 instance ToResourceProperties NfsMountOptionsProperty
+instance Prelude.Eq NfsMountOptionsProperty
+instance Prelude.Show NfsMountOptionsProperty
 instance JSON.ToJSON NfsMountOptionsProperty

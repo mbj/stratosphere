@@ -15,6 +15,7 @@ data ReportPlan
                 reportPlanName :: (Prelude.Maybe (Value Prelude.Text)),
                 reportPlanTags :: (Prelude.Maybe [Tag]),
                 reportSetting :: ReportSettingProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReportPlan ::
   ReportDeliveryChannelProperty
   -> ReportSettingProperty -> ReportPlan

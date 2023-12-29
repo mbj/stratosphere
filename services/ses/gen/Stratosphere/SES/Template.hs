@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.SES.Template.TemplateProperty as Exports
 import Stratosphere.ResourceProperties
 data Template
   = Template {template :: (Prelude.Maybe TemplateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplate :: Template
 mkTemplate = Template {template = Prelude.Nothing}
 instance ToResourceProperties Template where

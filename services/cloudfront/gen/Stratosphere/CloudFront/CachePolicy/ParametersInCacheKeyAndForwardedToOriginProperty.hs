@@ -17,6 +17,7 @@ data ParametersInCacheKeyAndForwardedToOriginProperty
                                                       enableAcceptEncodingGzip :: (Value Prelude.Bool),
                                                       headersConfig :: HeadersConfigProperty,
                                                       queryStringsConfig :: QueryStringsConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParametersInCacheKeyAndForwardedToOriginProperty ::
   CookiesConfigProperty
   -> Value Prelude.Bool

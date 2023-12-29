@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.Omics.AnnotationStore.TsvStoreOptionsProperty
 import Stratosphere.ResourceProperties
 data StoreOptionsProperty
   = StoreOptionsProperty {tsvStoreOptions :: TsvStoreOptionsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStoreOptionsProperty ::
   TsvStoreOptionsProperty -> StoreOptionsProperty
 mkStoreOptionsProperty tsvStoreOptions

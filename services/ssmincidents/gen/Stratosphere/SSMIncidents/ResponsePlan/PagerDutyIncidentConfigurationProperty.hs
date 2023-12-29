@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PagerDutyIncidentConfigurationProperty
   = PagerDutyIncidentConfigurationProperty {serviceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPagerDutyIncidentConfigurationProperty ::
   Value Prelude.Text -> PagerDutyIncidentConfigurationProperty
 mkPagerDutyIncidentConfigurationProperty serviceId

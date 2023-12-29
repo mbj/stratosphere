@@ -10,6 +10,7 @@ data Fmp4HlsSettingsProperty
   = Fmp4HlsSettingsProperty {audioRenditionSets :: (Prelude.Maybe (Value Prelude.Text)),
                              nielsenId3Behavior :: (Prelude.Maybe (Value Prelude.Text)),
                              timedMetadataBehavior :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFmp4HlsSettingsProperty :: Fmp4HlsSettingsProperty
 mkFmp4HlsSettingsProperty
   = Fmp4HlsSettingsProperty

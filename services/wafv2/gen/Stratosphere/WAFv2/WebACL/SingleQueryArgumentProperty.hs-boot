@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SingleQueryArgumentProperty :: Prelude.Type
 instance ToResourceProperties SingleQueryArgumentProperty
+instance Prelude.Eq SingleQueryArgumentProperty
+instance Prelude.Show SingleQueryArgumentProperty
 instance JSON.ToJSON SingleQueryArgumentProperty

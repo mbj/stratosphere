@@ -10,6 +10,7 @@ import Stratosphere.Value
 data PaginationConfigurationProperty
   = PaginationConfigurationProperty {pageNumber :: (Value Prelude.Double),
                                      pageSize :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPaginationConfigurationProperty ::
   Value Prelude.Double
   -> Value Prelude.Double -> PaginationConfigurationProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MatchPatternProperty
   = MatchPatternProperty {all :: (Prelude.Maybe JSON.Object),
                           includedPaths :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchPatternProperty :: MatchPatternProperty
 mkMatchPatternProperty
   = MatchPatternProperty

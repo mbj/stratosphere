@@ -10,6 +10,7 @@ data DestinationOptionsProperty
   = DestinationOptionsProperty {fileFormat :: (Value Prelude.Text),
                                 hiveCompatiblePartitions :: (Value Prelude.Bool),
                                 perHourPartition :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationOptionsProperty ::
   Value Prelude.Text
   -> Value Prelude.Bool

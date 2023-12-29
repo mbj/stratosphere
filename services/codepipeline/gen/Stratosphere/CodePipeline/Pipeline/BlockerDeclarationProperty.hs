@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BlockerDeclarationProperty
   = BlockerDeclarationProperty {name :: (Value Prelude.Text),
                                 type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockerDeclarationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> BlockerDeclarationProperty

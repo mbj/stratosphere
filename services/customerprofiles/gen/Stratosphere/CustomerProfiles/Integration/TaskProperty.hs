@@ -14,6 +14,7 @@ data TaskProperty
                   sourceFields :: (ValueList Prelude.Text),
                   taskProperties :: (Prelude.Maybe [TaskPropertiesMapProperty]),
                   taskType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskProperty ::
   ValueList Prelude.Text -> Value Prelude.Text -> TaskProperty
 mkTaskProperty sourceFields taskType

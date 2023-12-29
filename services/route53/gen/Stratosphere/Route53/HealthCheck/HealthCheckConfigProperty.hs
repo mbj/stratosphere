@@ -26,6 +26,7 @@ data HealthCheckConfigProperty
                                routingControlArn :: (Prelude.Maybe (Value Prelude.Text)),
                                searchString :: (Prelude.Maybe (Value Prelude.Text)),
                                type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckConfigProperty ::
   Value Prelude.Text -> HealthCheckConfigProperty
 mkHealthCheckConfigProperty type'

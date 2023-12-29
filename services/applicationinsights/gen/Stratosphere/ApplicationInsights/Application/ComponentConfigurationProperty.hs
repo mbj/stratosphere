@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ComponentConfigurationProperty
   = ComponentConfigurationProperty {configurationDetails :: (Prelude.Maybe ConfigurationDetailsProperty),
                                     subComponentTypeConfigurations :: (Prelude.Maybe [SubComponentTypeConfigurationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentConfigurationProperty :: ComponentConfigurationProperty
 mkComponentConfigurationProperty
   = ComponentConfigurationProperty

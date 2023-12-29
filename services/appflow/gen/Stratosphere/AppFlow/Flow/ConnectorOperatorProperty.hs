@@ -24,6 +24,7 @@ data ConnectorOperatorProperty
                                trendmicro :: (Prelude.Maybe (Value Prelude.Text)),
                                veeva :: (Prelude.Maybe (Value Prelude.Text)),
                                zendesk :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorOperatorProperty :: ConnectorOperatorProperty
 mkConnectorOperatorProperty
   = ConnectorOperatorProperty

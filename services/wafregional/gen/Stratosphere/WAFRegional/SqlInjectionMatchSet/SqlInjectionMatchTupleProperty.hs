@@ -11,6 +11,7 @@ import Stratosphere.Value
 data SqlInjectionMatchTupleProperty
   = SqlInjectionMatchTupleProperty {fieldToMatch :: FieldToMatchProperty,
                                     textTransformation :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlInjectionMatchTupleProperty ::
   FieldToMatchProperty
   -> Value Prelude.Text -> SqlInjectionMatchTupleProperty

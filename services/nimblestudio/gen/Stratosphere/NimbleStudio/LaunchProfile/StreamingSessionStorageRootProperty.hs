@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StreamingSessionStorageRootProperty
   = StreamingSessionStorageRootProperty {linux :: (Prelude.Maybe (Value Prelude.Text)),
                                          windows :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamingSessionStorageRootProperty ::
   StreamingSessionStorageRootProperty
 mkStreamingSessionStorageRootProperty

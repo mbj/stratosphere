@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ModuleLoggingConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ModuleLoggingConfigurationProperty
+instance Prelude.Eq ModuleLoggingConfigurationProperty
+instance Prelude.Show ModuleLoggingConfigurationProperty
 instance JSON.ToJSON ModuleLoggingConfigurationProperty

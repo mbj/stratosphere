@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ZoneAwarenessConfigProperty :: Prelude.Type
 instance ToResourceProperties ZoneAwarenessConfigProperty
+instance Prelude.Eq ZoneAwarenessConfigProperty
+instance Prelude.Show ZoneAwarenessConfigProperty
 instance JSON.ToJSON ZoneAwarenessConfigProperty

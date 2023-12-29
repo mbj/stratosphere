@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SageMakerPipelineParameterProperty
   = SageMakerPipelineParameterProperty {name :: (Value Prelude.Text),
                                         value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSageMakerPipelineParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> SageMakerPipelineParameterProperty

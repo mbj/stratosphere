@@ -22,6 +22,7 @@ data OpenZFSConfigurationProperty
                                   storageCapacityQuotaGiB :: (Prelude.Maybe (Value Prelude.Integer)),
                                   storageCapacityReservationGiB :: (Prelude.Maybe (Value Prelude.Integer)),
                                   userAndGroupQuotas :: (Prelude.Maybe [UserAndGroupQuotasProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOpenZFSConfigurationProperty ::
   Value Prelude.Text -> OpenZFSConfigurationProperty
 mkOpenZFSConfigurationProperty parentVolumeId

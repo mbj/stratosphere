@@ -9,6 +9,7 @@ import Stratosphere.Value
 data KeySchemaProperty
   = KeySchemaProperty {attributeName :: (Value Prelude.Text),
                        keyType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKeySchemaProperty ::
   Value Prelude.Text -> Value Prelude.Text -> KeySchemaProperty
 mkKeySchemaProperty attributeName keyType

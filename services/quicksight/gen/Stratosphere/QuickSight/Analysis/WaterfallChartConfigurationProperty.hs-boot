@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WaterfallChartConfigurationProperty :: Prelude.Type
 instance ToResourceProperties WaterfallChartConfigurationProperty
+instance Prelude.Eq WaterfallChartConfigurationProperty
+instance Prelude.Show WaterfallChartConfigurationProperty
 instance JSON.ToJSON WaterfallChartConfigurationProperty

@@ -31,6 +31,7 @@ data UserPoolClient
                     tokenValidityUnits :: (Prelude.Maybe TokenValidityUnitsProperty),
                     userPoolId :: (Value Prelude.Text),
                     writeAttributes :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolClient :: Value Prelude.Text -> UserPoolClient
 mkUserPoolClient userPoolId
   = UserPoolClient

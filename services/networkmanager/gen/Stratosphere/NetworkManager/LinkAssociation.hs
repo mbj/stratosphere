@@ -10,6 +10,7 @@ data LinkAssociation
   = LinkAssociation {deviceId :: (Value Prelude.Text),
                      globalNetworkId :: (Value Prelude.Text),
                      linkId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLinkAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> LinkAssociation

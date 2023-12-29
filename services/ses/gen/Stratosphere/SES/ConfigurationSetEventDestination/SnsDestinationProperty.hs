@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnsDestinationProperty
   = SnsDestinationProperty {topicARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSnsDestinationProperty ::
   Value Prelude.Text -> SnsDestinationProperty
 mkSnsDestinationProperty topicARN

@@ -19,6 +19,7 @@ data PipeSourceSelfManagedKafkaParametersProperty
                                                   startingPosition :: (Prelude.Maybe (Value Prelude.Text)),
                                                   topicName :: (Value Prelude.Text),
                                                   vpc :: (Prelude.Maybe SelfManagedKafkaAccessConfigurationVpcProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceSelfManagedKafkaParametersProperty ::
   Value Prelude.Text -> PipeSourceSelfManagedKafkaParametersProperty
 mkPipeSourceSelfManagedKafkaParametersProperty topicName

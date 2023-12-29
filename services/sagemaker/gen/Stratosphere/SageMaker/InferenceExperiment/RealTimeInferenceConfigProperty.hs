@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RealTimeInferenceConfigProperty
   = RealTimeInferenceConfigProperty {instanceCount :: (Value Prelude.Integer),
                                      instanceType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRealTimeInferenceConfigProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> RealTimeInferenceConfigProperty

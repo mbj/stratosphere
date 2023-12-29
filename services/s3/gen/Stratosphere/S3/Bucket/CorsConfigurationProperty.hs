@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.CorsRuleProperty as Exports
 import Stratosphere.ResourceProperties
 data CorsConfigurationProperty
   = CorsConfigurationProperty {corsRules :: [CorsRuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCorsConfigurationProperty ::
   [CorsRuleProperty] -> CorsConfigurationProperty
 mkCorsConfigurationProperty corsRules

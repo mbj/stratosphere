@@ -18,6 +18,7 @@ data NetworkAclEntry
                      protocol :: (Value Prelude.Integer),
                      ruleAction :: (Value Prelude.Text),
                      ruleNumber :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkAclEntry ::
   Value Prelude.Text
   -> Value Prelude.Integer

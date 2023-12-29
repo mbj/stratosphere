@@ -13,6 +13,7 @@ data ListenersProperty
                        policyNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                        protocol :: (Value Prelude.Text),
                        sSLCertificateId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListenersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> ListenersProperty

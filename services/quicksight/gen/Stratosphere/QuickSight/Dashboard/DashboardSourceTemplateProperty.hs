@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DashboardSourceTemplateProperty
   = DashboardSourceTemplateProperty {arn :: (Value Prelude.Text),
                                      dataSetReferences :: [DataSetReferenceProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboardSourceTemplateProperty ::
   Value Prelude.Text
   -> [DataSetReferenceProperty] -> DashboardSourceTemplateProperty

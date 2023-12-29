@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BatchTransformInputProperty :: Prelude.Type
 instance ToResourceProperties BatchTransformInputProperty
+instance Prelude.Eq BatchTransformInputProperty
+instance Prelude.Show BatchTransformInputProperty
 instance JSON.ToJSON BatchTransformInputProperty

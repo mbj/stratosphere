@@ -17,6 +17,7 @@ data SubtotalOptionsProperty
                              totalCellStyle :: (Prelude.Maybe TableCellStyleProperty),
                              totalsVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                              valueCellStyle :: (Prelude.Maybe TableCellStyleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubtotalOptionsProperty :: SubtotalOptionsProperty
 mkSubtotalOptionsProperty
   = SubtotalOptionsProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TagOptionAssociation
   = TagOptionAssociation {resourceId :: (Value Prelude.Text),
                           tagOptionId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTagOptionAssociation ::
   Value Prelude.Text -> Value Prelude.Text -> TagOptionAssociation
 mkTagOptionAssociation resourceId tagOptionId

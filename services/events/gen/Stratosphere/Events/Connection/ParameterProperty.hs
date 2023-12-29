@@ -10,6 +10,7 @@ data ParameterProperty
   = ParameterProperty {isValueSecret :: (Prelude.Maybe (Value Prelude.Bool)),
                        key :: (Value Prelude.Text),
                        value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ParameterProperty
 mkParameterProperty key value

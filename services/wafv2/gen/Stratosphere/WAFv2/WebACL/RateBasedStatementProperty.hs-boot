@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RateBasedStatementProperty :: Prelude.Type
 instance ToResourceProperties RateBasedStatementProperty
+instance Prelude.Eq RateBasedStatementProperty
+instance Prelude.Show RateBasedStatementProperty
 instance JSON.ToJSON RateBasedStatementProperty

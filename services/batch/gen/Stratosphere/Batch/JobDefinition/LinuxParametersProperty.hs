@@ -16,6 +16,7 @@ data LinuxParametersProperty
                              sharedMemorySize :: (Prelude.Maybe (Value Prelude.Integer)),
                              swappiness :: (Prelude.Maybe (Value Prelude.Integer)),
                              tmpfs :: (Prelude.Maybe [TmpfsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLinuxParametersProperty :: LinuxParametersProperty
 mkLinuxParametersProperty
   = LinuxParametersProperty

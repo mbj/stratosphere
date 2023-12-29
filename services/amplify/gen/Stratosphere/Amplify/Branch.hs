@@ -23,6 +23,7 @@ data Branch
             pullRequestEnvironmentName :: (Prelude.Maybe (Value Prelude.Text)),
             stage :: (Prelude.Maybe (Value Prelude.Text)),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBranch :: Value Prelude.Text -> Value Prelude.Text -> Branch
 mkBranch appId branchName
   = Branch

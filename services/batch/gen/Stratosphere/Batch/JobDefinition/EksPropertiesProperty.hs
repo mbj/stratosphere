@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.PodPropertiesProperty as 
 import Stratosphere.ResourceProperties
 data EksPropertiesProperty
   = EksPropertiesProperty {podProperties :: (Prelude.Maybe PodPropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksPropertiesProperty :: EksPropertiesProperty
 mkEksPropertiesProperty
   = EksPropertiesProperty {podProperties = Prelude.Nothing}

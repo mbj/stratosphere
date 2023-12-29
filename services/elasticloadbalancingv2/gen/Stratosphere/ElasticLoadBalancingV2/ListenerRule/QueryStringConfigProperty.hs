@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.ListenerRule.QueryStri
 import Stratosphere.ResourceProperties
 data QueryStringConfigProperty
   = QueryStringConfigProperty {values :: (Prelude.Maybe [QueryStringKeyValueProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryStringConfigProperty :: QueryStringConfigProperty
 mkQueryStringConfigProperty
   = QueryStringConfigProperty {values = Prelude.Nothing}

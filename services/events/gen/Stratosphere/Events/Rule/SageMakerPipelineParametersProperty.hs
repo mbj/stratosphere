@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Events.Rule.SageMakerPipelineParameterPropert
 import Stratosphere.ResourceProperties
 data SageMakerPipelineParametersProperty
   = SageMakerPipelineParametersProperty {pipelineParameterList :: (Prelude.Maybe [SageMakerPipelineParameterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSageMakerPipelineParametersProperty ::
   SageMakerPipelineParametersProperty
 mkSageMakerPipelineParametersProperty

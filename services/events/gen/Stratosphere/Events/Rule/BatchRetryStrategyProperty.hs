@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BatchRetryStrategyProperty
   = BatchRetryStrategyProperty {attempts :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchRetryStrategyProperty :: BatchRetryStrategyProperty
 mkBatchRetryStrategyProperty
   = BatchRetryStrategyProperty {attempts = Prelude.Nothing}

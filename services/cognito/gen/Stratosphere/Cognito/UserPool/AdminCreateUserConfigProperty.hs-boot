@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AdminCreateUserConfigProperty :: Prelude.Type
 instance ToResourceProperties AdminCreateUserConfigProperty
+instance Prelude.Eq AdminCreateUserConfigProperty
+instance Prelude.Show AdminCreateUserConfigProperty
 instance JSON.ToJSON AdminCreateUserConfigProperty

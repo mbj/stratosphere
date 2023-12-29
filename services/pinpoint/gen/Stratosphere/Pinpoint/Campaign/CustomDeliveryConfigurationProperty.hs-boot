@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomDeliveryConfigurationProperty :: Prelude.Type
 instance ToResourceProperties CustomDeliveryConfigurationProperty
+instance Prelude.Eq CustomDeliveryConfigurationProperty
+instance Prelude.Show CustomDeliveryConfigurationProperty
 instance JSON.ToJSON CustomDeliveryConfigurationProperty

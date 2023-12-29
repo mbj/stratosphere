@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SegmentDimensionsProperty :: Prelude.Type
 instance ToResourceProperties SegmentDimensionsProperty
+instance Prelude.Eq SegmentDimensionsProperty
+instance Prelude.Show SegmentDimensionsProperty
 instance JSON.ToJSON SegmentDimensionsProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BotVersionLocaleDetailsProperty
   = BotVersionLocaleDetailsProperty {sourceBotVersion :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBotVersionLocaleDetailsProperty ::
   Value Prelude.Text -> BotVersionLocaleDetailsProperty
 mkBotVersionLocaleDetailsProperty sourceBotVersion

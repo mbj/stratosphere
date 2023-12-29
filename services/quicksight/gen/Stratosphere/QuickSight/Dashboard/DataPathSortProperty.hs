@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DataPathSortProperty
   = DataPathSortProperty {direction :: (Value Prelude.Text),
                           sortPaths :: [DataPathValueProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataPathSortProperty ::
   Value Prelude.Text
   -> [DataPathValueProperty] -> DataPathSortProperty

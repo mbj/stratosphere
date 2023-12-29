@@ -11,6 +11,7 @@ data CustomContentConfigurationProperty
   = CustomContentConfigurationProperty {contentType :: (Prelude.Maybe (Value Prelude.Text)),
                                         contentUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                         imageScaling :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomContentConfigurationProperty ::
   CustomContentConfigurationProperty
 mkCustomContentConfigurationProperty

@@ -21,6 +21,7 @@ data Stage
            stageName :: (Value Prelude.Text),
            stageVariables :: (Prelude.Maybe JSON.Object),
            tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStage :: Value Prelude.Text -> Value Prelude.Text -> Stage
 mkStage apiId stageName
   = Stage

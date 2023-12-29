@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data NotificationChannelConfigProperty
   = NotificationChannelConfigProperty {filters :: (Prelude.Maybe NotificationFilterConfigProperty),
                                        sns :: (Prelude.Maybe SnsChannelConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationChannelConfigProperty ::
   NotificationChannelConfigProperty
 mkNotificationChannelConfigProperty

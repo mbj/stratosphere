@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeliveryOptionsProperty
   = DeliveryOptionsProperty {sendingPoolName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryOptionsProperty :: DeliveryOptionsProperty
 mkDeliveryOptionsProperty
   = DeliveryOptionsProperty {sendingPoolName = Prelude.Nothing}

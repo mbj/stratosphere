@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LocalSecondaryIndexProperty :: Prelude.Type
 instance ToResourceProperties LocalSecondaryIndexProperty
+instance Prelude.Eq LocalSecondaryIndexProperty
+instance Prelude.Show LocalSecondaryIndexProperty
 instance JSON.ToJSON LocalSecondaryIndexProperty

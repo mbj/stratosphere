@@ -10,6 +10,7 @@ data CustomHeaderProperty
   = CustomHeaderProperty {header :: (Value Prelude.Text),
                           override :: (Value Prelude.Bool),
                           value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomHeaderProperty ::
   Value Prelude.Text
   -> Value Prelude.Bool -> Value Prelude.Text -> CustomHeaderProperty

@@ -13,6 +13,7 @@ data AxisLabelOptionsProperty
   = AxisLabelOptionsProperty {applyTo :: (Prelude.Maybe AxisLabelReferenceOptionsProperty),
                               customLabel :: (Prelude.Maybe (Value Prelude.Text)),
                               fontConfiguration :: (Prelude.Maybe FontConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAxisLabelOptionsProperty :: AxisLabelOptionsProperty
 mkAxisLabelOptionsProperty
   = AxisLabelOptionsProperty

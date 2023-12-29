@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ConfigurationProperty
   = ConfigurationProperty {excludedTimeRanges :: (Prelude.Maybe [RangeProperty]),
                            metricTimeZone :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationProperty :: ConfigurationProperty
 mkConfigurationProperty
   = ConfigurationProperty

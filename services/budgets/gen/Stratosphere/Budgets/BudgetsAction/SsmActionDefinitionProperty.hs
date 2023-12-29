@@ -10,6 +10,7 @@ data SsmActionDefinitionProperty
   = SsmActionDefinitionProperty {instanceIds :: (ValueList Prelude.Text),
                                  region :: (Value Prelude.Text),
                                  subtype :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSsmActionDefinitionProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text

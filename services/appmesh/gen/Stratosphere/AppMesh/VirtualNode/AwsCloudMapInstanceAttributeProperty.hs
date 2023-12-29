@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AwsCloudMapInstanceAttributeProperty
   = AwsCloudMapInstanceAttributeProperty {key :: (Value Prelude.Text),
                                           value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAwsCloudMapInstanceAttributeProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> AwsCloudMapInstanceAttributeProperty

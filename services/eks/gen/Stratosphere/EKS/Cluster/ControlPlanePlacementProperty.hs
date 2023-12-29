@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ControlPlanePlacementProperty
   = ControlPlanePlacementProperty {groupName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkControlPlanePlacementProperty :: ControlPlanePlacementProperty
 mkControlPlanePlacementProperty
   = ControlPlanePlacementProperty {groupName = Prelude.Nothing}

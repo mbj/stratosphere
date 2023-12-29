@@ -12,6 +12,7 @@ data UniqueValuesComputationProperty
   = UniqueValuesComputationProperty {category :: DimensionFieldProperty,
                                      computationId :: (Value Prelude.Text),
                                      name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUniqueValuesComputationProperty ::
   DimensionFieldProperty
   -> Value Prelude.Text -> UniqueValuesComputationProperty

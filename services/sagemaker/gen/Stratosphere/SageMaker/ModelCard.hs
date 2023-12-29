@@ -18,6 +18,7 @@ data ModelCard
                modelCardStatus :: (Value Prelude.Text),
                securityConfig :: (Prelude.Maybe SecurityConfigProperty),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelCard ::
   ContentProperty
   -> Value Prelude.Text -> Value Prelude.Text -> ModelCard

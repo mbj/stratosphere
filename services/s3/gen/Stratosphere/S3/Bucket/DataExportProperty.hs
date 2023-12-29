@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DataExportProperty
   = DataExportProperty {destination :: DestinationProperty,
                         outputSchemaVersion :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataExportProperty ::
   DestinationProperty -> Value Prelude.Text -> DataExportProperty
 mkDataExportProperty destination outputSchemaVersion

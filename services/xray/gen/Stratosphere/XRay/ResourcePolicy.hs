@@ -10,6 +10,7 @@ data ResourcePolicy
   = ResourcePolicy {bypassPolicyLockoutCheck :: (Prelude.Maybe (Value Prelude.Bool)),
                     policyDocument :: (Value Prelude.Text),
                     policyName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePolicy ::
   Value Prelude.Text -> Value Prelude.Text -> ResourcePolicy
 mkResourcePolicy policyDocument policyName

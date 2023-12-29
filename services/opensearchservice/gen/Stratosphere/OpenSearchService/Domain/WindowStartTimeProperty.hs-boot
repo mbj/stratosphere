@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WindowStartTimeProperty :: Prelude.Type
 instance ToResourceProperties WindowStartTimeProperty
+instance Prelude.Eq WindowStartTimeProperty
+instance Prelude.Show WindowStartTimeProperty
 instance JSON.ToJSON WindowStartTimeProperty

@@ -12,6 +12,7 @@ data Queue
            pricingPlan :: (Prelude.Maybe (Value Prelude.Text)),
            status :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueue :: Queue
 mkQueue
   = Queue

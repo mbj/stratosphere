@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EvaluateOnExitProperty :: Prelude.Type
 instance ToResourceProperties EvaluateOnExitProperty
+instance Prelude.Eq EvaluateOnExitProperty
+instance Prelude.Show EvaluateOnExitProperty
 instance JSON.ToJSON EvaluateOnExitProperty

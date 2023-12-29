@@ -15,6 +15,7 @@ data ActuatorProperty
                       max :: (Prelude.Maybe (Value Prelude.Double)),
                       min :: (Prelude.Maybe (Value Prelude.Double)),
                       unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActuatorProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ActuatorProperty
 mkActuatorProperty dataType fullyQualifiedName

@@ -10,6 +10,7 @@ data WaitCondition
   = WaitCondition {count :: (Prelude.Maybe (Value Prelude.Integer)),
                    handle :: (Prelude.Maybe (Value Prelude.Text)),
                    timeout :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWaitCondition :: WaitCondition
 mkWaitCondition
   = WaitCondition

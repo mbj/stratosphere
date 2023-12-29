@@ -14,6 +14,7 @@ data DeviceFleet
                  outputConfig :: EdgeOutputConfigProperty,
                  roleArn :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceFleet ::
   Value Prelude.Text
   -> EdgeOutputConfigProperty -> Value Prelude.Text -> DeviceFleet

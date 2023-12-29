@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EncryptionAtRestProperty
   = EncryptionAtRestProperty {dataVolumeKMSKeyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionAtRestProperty ::
   Value Prelude.Text -> EncryptionAtRestProperty
 mkEncryptionAtRestProperty dataVolumeKMSKeyId

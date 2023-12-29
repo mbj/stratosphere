@@ -11,6 +11,7 @@ import Stratosphere.Value
 data RangedConnectionDetailsProperty
   = RangedConnectionDetailsProperty {mtu :: (Prelude.Maybe (Value Prelude.Integer)),
                                      socketAddress :: (Prelude.Maybe RangedSocketAddressProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRangedConnectionDetailsProperty ::
   RangedConnectionDetailsProperty
 mkRangedConnectionDetailsProperty

@@ -14,6 +14,7 @@ data ObdInterfaceProperty
                           pidRequestIntervalSeconds :: (Prelude.Maybe (Value Prelude.Text)),
                           requestMessageId :: (Value Prelude.Text),
                           useExtendedIds :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObdInterfaceProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ObdInterfaceProperty
 mkObdInterfaceProperty name requestMessageId

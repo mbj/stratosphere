@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RegionConfigurationProperty
   = RegionConfigurationProperty {sseKmsKeyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegionConfigurationProperty ::
   Value Prelude.Text -> RegionConfigurationProperty
 mkRegionConfigurationProperty sseKmsKeyId

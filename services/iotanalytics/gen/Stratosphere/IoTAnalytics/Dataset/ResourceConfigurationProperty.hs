@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ResourceConfigurationProperty
   = ResourceConfigurationProperty {computeType :: (Value Prelude.Text),
                                    volumeSizeInGB :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> ResourceConfigurationProperty

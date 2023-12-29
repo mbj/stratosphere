@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FastLaunchLaunchTemplateSpecificationProperty :: Prelude.Type
 instance ToResourceProperties FastLaunchLaunchTemplateSpecificationProperty
+instance Prelude.Eq FastLaunchLaunchTemplateSpecificationProperty
+instance Prelude.Show FastLaunchLaunchTemplateSpecificationProperty
 instance JSON.ToJSON FastLaunchLaunchTemplateSpecificationProperty

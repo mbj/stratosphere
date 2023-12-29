@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GreenFleetProvisioningOptionProperty
   = GreenFleetProvisioningOptionProperty {action :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGreenFleetProvisioningOptionProperty ::
   GreenFleetProvisioningOptionProperty
 mkGreenFleetProvisioningOptionProperty

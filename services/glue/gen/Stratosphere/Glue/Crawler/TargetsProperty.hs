@@ -18,6 +18,7 @@ data TargetsProperty
                      jdbcTargets :: (Prelude.Maybe [JdbcTargetProperty]),
                      mongoDBTargets :: (Prelude.Maybe [MongoDBTargetProperty]),
                      s3Targets :: (Prelude.Maybe [S3TargetProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetsProperty :: TargetsProperty
 mkTargetsProperty
   = TargetsProperty

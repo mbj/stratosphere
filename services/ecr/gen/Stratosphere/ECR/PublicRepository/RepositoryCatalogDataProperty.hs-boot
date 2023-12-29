@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RepositoryCatalogDataProperty :: Prelude.Type
 instance ToResourceProperties RepositoryCatalogDataProperty
+instance Prelude.Eq RepositoryCatalogDataProperty
+instance Prelude.Show RepositoryCatalogDataProperty
 instance JSON.ToJSON RepositoryCatalogDataProperty

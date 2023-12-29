@@ -19,6 +19,7 @@ data ContainerDefinitionProperty
                                  modelDataUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                  modelPackageName :: (Prelude.Maybe (Value Prelude.Text)),
                                  multiModelConfig :: (Prelude.Maybe MultiModelConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerDefinitionProperty :: ContainerDefinitionProperty
 mkContainerDefinitionProperty
   = ContainerDefinitionProperty

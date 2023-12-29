@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.RefreshConfigurationProper
 import Stratosphere.ResourceProperties
 data DataSetRefreshPropertiesProperty
   = DataSetRefreshPropertiesProperty {refreshConfiguration :: (Prelude.Maybe RefreshConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSetRefreshPropertiesProperty ::
   DataSetRefreshPropertiesProperty
 mkDataSetRefreshPropertiesProperty

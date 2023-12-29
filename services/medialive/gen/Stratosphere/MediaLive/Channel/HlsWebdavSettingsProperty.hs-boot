@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HlsWebdavSettingsProperty :: Prelude.Type
 instance ToResourceProperties HlsWebdavSettingsProperty
+instance Prelude.Eq HlsWebdavSettingsProperty
+instance Prelude.Show HlsWebdavSettingsProperty
 instance JSON.ToJSON HlsWebdavSettingsProperty

@@ -12,6 +12,7 @@ data TableWithColumnsResourceProperty
                                       columnNames :: (ValueList Prelude.Text),
                                       databaseName :: (Value Prelude.Text),
                                       name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableWithColumnsResourceProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text

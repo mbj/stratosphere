@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InputSourceRequestProperty :: Prelude.Type
 instance ToResourceProperties InputSourceRequestProperty
+instance Prelude.Eq InputSourceRequestProperty
+instance Prelude.Show InputSourceRequestProperty
 instance JSON.ToJSON InputSourceRequestProperty

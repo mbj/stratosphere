@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TagFilterProperty
   = TagFilterProperty {key :: (Value Prelude.Text),
                        value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTagFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TagFilterProperty
 mkTagFilterProperty key value

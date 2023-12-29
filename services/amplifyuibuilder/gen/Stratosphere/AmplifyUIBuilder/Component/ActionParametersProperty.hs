@@ -19,6 +19,7 @@ data ActionParametersProperty
                               target :: (Prelude.Maybe ComponentPropertyProperty),
                               type' :: (Prelude.Maybe ComponentPropertyProperty),
                               url :: (Prelude.Maybe ComponentPropertyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionParametersProperty :: ActionParametersProperty
 mkActionParametersProperty
   = ActionParametersProperty

@@ -10,6 +10,7 @@ data LoggingProperty
   = LoggingProperty {bucket :: (Value Prelude.Text),
                      includeCookies :: (Prelude.Maybe (Value Prelude.Bool)),
                      prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingProperty :: Value Prelude.Text -> LoggingProperty
 mkLoggingProperty bucket
   = LoggingProperty

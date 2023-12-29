@@ -19,6 +19,7 @@ data CapacityReservationFleet
                               tagSpecifications :: (Prelude.Maybe [TagSpecificationProperty]),
                               tenancy :: (Prelude.Maybe (Value Prelude.Text)),
                               totalTargetCapacity :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservationFleet :: CapacityReservationFleet
 mkCapacityReservationFleet
   = CapacityReservationFleet

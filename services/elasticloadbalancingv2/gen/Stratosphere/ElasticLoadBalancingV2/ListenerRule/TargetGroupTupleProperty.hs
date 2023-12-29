@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TargetGroupTupleProperty
   = TargetGroupTupleProperty {targetGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
                               weight :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupTupleProperty :: TargetGroupTupleProperty
 mkTargetGroupTupleProperty
   = TargetGroupTupleProperty

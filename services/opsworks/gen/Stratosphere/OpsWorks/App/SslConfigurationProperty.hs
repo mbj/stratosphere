@@ -10,6 +10,7 @@ data SslConfigurationProperty
   = SslConfigurationProperty {certificate :: (Prelude.Maybe (Value Prelude.Text)),
                               chain :: (Prelude.Maybe (Value Prelude.Text)),
                               privateKey :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSslConfigurationProperty :: SslConfigurationProperty
 mkSslConfigurationProperty
   = SslConfigurationProperty

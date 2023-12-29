@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data JsonTokenTypeConfigurationProperty :: Prelude.Type
 instance ToResourceProperties JsonTokenTypeConfigurationProperty
+instance Prelude.Eq JsonTokenTypeConfigurationProperty
+instance Prelude.Show JsonTokenTypeConfigurationProperty
 instance JSON.ToJSON JsonTokenTypeConfigurationProperty

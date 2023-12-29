@@ -10,6 +10,7 @@ data ScalingConfigProperty
   = ScalingConfigProperty {desiredSize :: (Prelude.Maybe (Value Prelude.Integer)),
                            maxSize :: (Prelude.Maybe (Value Prelude.Integer)),
                            minSize :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingConfigProperty :: ScalingConfigProperty
 mkScalingConfigProperty
   = ScalingConfigProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LdapServerMetadataProperty :: Prelude.Type
 instance ToResourceProperties LdapServerMetadataProperty
+instance Prelude.Eq LdapServerMetadataProperty
+instance Prelude.Show LdapServerMetadataProperty
 instance JSON.ToJSON LdapServerMetadataProperty

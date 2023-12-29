@@ -13,6 +13,7 @@ data Script
             storageLocation :: S3LocationProperty,
             tags :: (Prelude.Maybe [Tag]),
             version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScript :: S3LocationProperty -> Script
 mkScript storageLocation
   = Script

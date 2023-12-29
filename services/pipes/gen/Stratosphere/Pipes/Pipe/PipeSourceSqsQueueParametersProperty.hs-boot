@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipeSourceSqsQueueParametersProperty :: Prelude.Type
 instance ToResourceProperties PipeSourceSqsQueueParametersProperty
+instance Prelude.Eq PipeSourceSqsQueueParametersProperty
+instance Prelude.Show PipeSourceSqsQueueParametersProperty
 instance JSON.ToJSON PipeSourceSqsQueueParametersProperty

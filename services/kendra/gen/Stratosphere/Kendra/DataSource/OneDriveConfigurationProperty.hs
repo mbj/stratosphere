@@ -17,6 +17,7 @@ data OneDriveConfigurationProperty
                                    oneDriveUsers :: OneDriveUsersProperty,
                                    secretArn :: (Value Prelude.Text),
                                    tenantDomain :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOneDriveConfigurationProperty ::
   OneDriveUsersProperty
   -> Value Prelude.Text

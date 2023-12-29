@@ -12,6 +12,7 @@ data UpdateWirelessGatewayTaskCreateProperty
   = UpdateWirelessGatewayTaskCreateProperty {loRaWAN :: (Prelude.Maybe LoRaWANUpdateGatewayTaskCreateProperty),
                                              updateDataRole :: (Prelude.Maybe (Value Prelude.Text)),
                                              updateDataSource :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdateWirelessGatewayTaskCreateProperty ::
   UpdateWirelessGatewayTaskCreateProperty
 mkUpdateWirelessGatewayTaskCreateProperty

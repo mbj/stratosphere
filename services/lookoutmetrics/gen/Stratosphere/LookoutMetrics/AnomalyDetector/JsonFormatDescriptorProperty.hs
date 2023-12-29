@@ -9,6 +9,7 @@ import Stratosphere.Value
 data JsonFormatDescriptorProperty
   = JsonFormatDescriptorProperty {charset :: (Prelude.Maybe (Value Prelude.Text)),
                                   fileCompression :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJsonFormatDescriptorProperty :: JsonFormatDescriptorProperty
 mkJsonFormatDescriptorProperty
   = JsonFormatDescriptorProperty

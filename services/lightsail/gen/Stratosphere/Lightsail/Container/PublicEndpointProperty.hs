@@ -12,6 +12,7 @@ data PublicEndpointProperty
   = PublicEndpointProperty {containerName :: (Prelude.Maybe (Value Prelude.Text)),
                             containerPort :: (Prelude.Maybe (Value Prelude.Integer)),
                             healthCheckConfig :: (Prelude.Maybe HealthCheckConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublicEndpointProperty :: PublicEndpointProperty
 mkPublicEndpointProperty
   = PublicEndpointProperty

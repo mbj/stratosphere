@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomConnectorProfilePropertiesProperty :: Prelude.Type
 instance ToResourceProperties CustomConnectorProfilePropertiesProperty
+instance Prelude.Eq CustomConnectorProfilePropertiesProperty
+instance Prelude.Show CustomConnectorProfilePropertiesProperty
 instance JSON.ToJSON CustomConnectorProfilePropertiesProperty

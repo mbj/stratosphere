@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AcknowledgeFlowProperty :: Prelude.Type
 instance ToResourceProperties AcknowledgeFlowProperty
+instance Prelude.Eq AcknowledgeFlowProperty
+instance Prelude.Show AcknowledgeFlowProperty
 instance JSON.ToJSON AcknowledgeFlowProperty

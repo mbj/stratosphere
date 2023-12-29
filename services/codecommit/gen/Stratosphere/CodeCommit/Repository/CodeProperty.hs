@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CodeProperty
   = CodeProperty {branchName :: (Prelude.Maybe (Value Prelude.Text)),
                   s3 :: S3Property}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeProperty :: S3Property -> CodeProperty
 mkCodeProperty s3
   = CodeProperty {s3 = s3, branchName = Prelude.Nothing}

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data FilterProperty
   = FilterProperty {ipFilter :: IpFilterProperty,
                     name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterProperty :: IpFilterProperty -> FilterProperty
 mkFilterProperty ipFilter
   = FilterProperty {ipFilter = ipFilter, name = Prelude.Nothing}

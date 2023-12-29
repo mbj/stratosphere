@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReportSettingProperty :: Prelude.Type
 instance ToResourceProperties ReportSettingProperty
+instance Prelude.Eq ReportSettingProperty
+instance Prelude.Show ReportSettingProperty
 instance JSON.ToJSON ReportSettingProperty

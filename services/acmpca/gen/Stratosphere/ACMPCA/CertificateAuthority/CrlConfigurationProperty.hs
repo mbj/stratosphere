@@ -12,6 +12,7 @@ data CrlConfigurationProperty
                               expirationInDays :: (Prelude.Maybe (Value Prelude.Integer)),
                               s3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
                               s3ObjectAcl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCrlConfigurationProperty :: CrlConfigurationProperty
 mkCrlConfigurationProperty
   = CrlConfigurationProperty

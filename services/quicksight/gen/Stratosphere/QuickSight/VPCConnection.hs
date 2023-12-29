@@ -17,6 +17,7 @@ data VPCConnection
                    subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                    tags :: (Prelude.Maybe [Tag]),
                    vPCConnectionId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCConnection :: VPCConnection
 mkVPCConnection
   = VPCConnection

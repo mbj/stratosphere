@@ -13,6 +13,7 @@ data Channel
              name :: (Prelude.Maybe (Value Prelude.Text)),
              source :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChannel :: Channel
 mkChannel
   = Channel

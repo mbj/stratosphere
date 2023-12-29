@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PardotSourcePropertiesProperty :: Prelude.Type
 instance ToResourceProperties PardotSourcePropertiesProperty
+instance Prelude.Eq PardotSourcePropertiesProperty
+instance Prelude.Show PardotSourcePropertiesProperty
 instance JSON.ToJSON PardotSourcePropertiesProperty

@@ -14,6 +14,7 @@ data VirtualGatewayTlsValidationContextTrustProperty
   = VirtualGatewayTlsValidationContextTrustProperty {aCM :: (Prelude.Maybe VirtualGatewayTlsValidationContextAcmTrustProperty),
                                                      file :: (Prelude.Maybe VirtualGatewayTlsValidationContextFileTrustProperty),
                                                      sDS :: (Prelude.Maybe VirtualGatewayTlsValidationContextSdsTrustProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewayTlsValidationContextTrustProperty ::
   VirtualGatewayTlsValidationContextTrustProperty
 mkVirtualGatewayTlsValidationContextTrustProperty

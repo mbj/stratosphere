@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PublishFindingToSnsParamsProperty
   = PublishFindingToSnsParamsProperty {topicArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPublishFindingToSnsParamsProperty ::
   Value Prelude.Text -> PublishFindingToSnsParamsProperty
 mkPublishFindingToSnsParamsProperty topicArn

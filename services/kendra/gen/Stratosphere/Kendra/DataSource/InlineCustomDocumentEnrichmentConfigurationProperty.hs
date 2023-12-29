@@ -14,6 +14,7 @@ data InlineCustomDocumentEnrichmentConfigurationProperty
   = InlineCustomDocumentEnrichmentConfigurationProperty {condition :: (Prelude.Maybe DocumentAttributeConditionProperty),
                                                          documentContentDeletion :: (Prelude.Maybe (Value Prelude.Bool)),
                                                          target :: (Prelude.Maybe DocumentAttributeTargetProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInlineCustomDocumentEnrichmentConfigurationProperty ::
   InlineCustomDocumentEnrichmentConfigurationProperty
 mkInlineCustomDocumentEnrichmentConfigurationProperty

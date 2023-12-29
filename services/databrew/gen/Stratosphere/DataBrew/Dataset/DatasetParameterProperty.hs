@@ -15,6 +15,7 @@ data DatasetParameterProperty
                               filter :: (Prelude.Maybe FilterExpressionProperty),
                               name :: (Value Prelude.Text),
                               type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DatasetParameterProperty

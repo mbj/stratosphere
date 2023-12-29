@@ -11,6 +11,7 @@ data CustomErrorResponseProperty
                                  errorCode :: (Value Prelude.Integer),
                                  responseCode :: (Prelude.Maybe (Value Prelude.Integer)),
                                  responsePagePath :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomErrorResponseProperty ::
   Value Prelude.Integer -> CustomErrorResponseProperty
 mkCustomErrorResponseProperty errorCode

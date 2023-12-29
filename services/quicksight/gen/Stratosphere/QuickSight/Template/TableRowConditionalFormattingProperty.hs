@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data TableRowConditionalFormattingProperty
   = TableRowConditionalFormattingProperty {backgroundColor :: (Prelude.Maybe ConditionalFormattingColorProperty),
                                            textColor :: (Prelude.Maybe ConditionalFormattingColorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableRowConditionalFormattingProperty ::
   TableRowConditionalFormattingProperty
 mkTableRowConditionalFormattingProperty

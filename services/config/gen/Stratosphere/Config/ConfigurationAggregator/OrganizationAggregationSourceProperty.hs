@@ -11,6 +11,7 @@ data OrganizationAggregationSourceProperty
   = OrganizationAggregationSourceProperty {allAwsRegions :: (Prelude.Maybe (Value Prelude.Bool)),
                                            awsRegions :: (Prelude.Maybe (ValueList Prelude.Text)),
                                            roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationAggregationSourceProperty ::
   Value Prelude.Text -> OrganizationAggregationSourceProperty
 mkOrganizationAggregationSourceProperty roleArn

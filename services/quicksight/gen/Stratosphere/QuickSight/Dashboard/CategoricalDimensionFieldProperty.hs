@@ -14,6 +14,7 @@ data CategoricalDimensionFieldProperty
                                        fieldId :: (Value Prelude.Text),
                                        formatConfiguration :: (Prelude.Maybe StringFormatConfigurationProperty),
                                        hierarchyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCategoricalDimensionFieldProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text -> CategoricalDimensionFieldProperty

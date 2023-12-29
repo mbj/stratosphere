@@ -11,6 +11,7 @@ data ApprovalThresholdPolicyProperty
   = ApprovalThresholdPolicyProperty {proposalDurationInHours :: (Prelude.Maybe (Value Prelude.Integer)),
                                      thresholdComparator :: (Prelude.Maybe (Value Prelude.Text)),
                                      thresholdPercentage :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApprovalThresholdPolicyProperty ::
   ApprovalThresholdPolicyProperty
 mkApprovalThresholdPolicyProperty

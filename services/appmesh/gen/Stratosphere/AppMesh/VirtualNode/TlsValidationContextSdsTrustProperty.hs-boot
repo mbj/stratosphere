@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TlsValidationContextSdsTrustProperty :: Prelude.Type
 instance ToResourceProperties TlsValidationContextSdsTrustProperty
+instance Prelude.Eq TlsValidationContextSdsTrustProperty
+instance Prelude.Show TlsValidationContextSdsTrustProperty
 instance JSON.ToJSON TlsValidationContextSdsTrustProperty

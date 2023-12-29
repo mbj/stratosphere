@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RealtimeMetricsSubscriptionConfigProperty :: Prelude.Type
 instance ToResourceProperties RealtimeMetricsSubscriptionConfigProperty
+instance Prelude.Eq RealtimeMetricsSubscriptionConfigProperty
+instance Prelude.Show RealtimeMetricsSubscriptionConfigProperty
 instance JSON.ToJSON RealtimeMetricsSubscriptionConfigProperty

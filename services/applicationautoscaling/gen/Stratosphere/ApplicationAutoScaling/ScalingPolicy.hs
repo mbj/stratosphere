@@ -17,6 +17,7 @@ data ScalingPolicy
                    serviceNamespace :: (Prelude.Maybe (Value Prelude.Text)),
                    stepScalingPolicyConfiguration :: (Prelude.Maybe StepScalingPolicyConfigurationProperty),
                    targetTrackingScalingPolicyConfiguration :: (Prelude.Maybe TargetTrackingScalingPolicyConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalingPolicy ::
   Value Prelude.Text -> Value Prelude.Text -> ScalingPolicy
 mkScalingPolicy policyName policyType

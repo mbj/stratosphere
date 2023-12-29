@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ServiceDiscoveryProperty
   = ServiceDiscoveryProperty {aWSCloudMap :: (Prelude.Maybe AwsCloudMapServiceDiscoveryProperty),
                               dNS :: (Prelude.Maybe DnsServiceDiscoveryProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceDiscoveryProperty :: ServiceDiscoveryProperty
 mkServiceDiscoveryProperty
   = ServiceDiscoveryProperty

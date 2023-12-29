@@ -12,6 +12,7 @@ data RealtimeLogConfig
                        fields :: (ValueList Prelude.Text),
                        name :: (Value Prelude.Text),
                        samplingRate :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRealtimeLogConfig ::
   [EndPointProperty]
   -> ValueList Prelude.Text

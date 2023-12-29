@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReferenceLineStaticDataConfigurationProperty
   = ReferenceLineStaticDataConfigurationProperty {value :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceLineStaticDataConfigurationProperty ::
   Value Prelude.Double
   -> ReferenceLineStaticDataConfigurationProperty

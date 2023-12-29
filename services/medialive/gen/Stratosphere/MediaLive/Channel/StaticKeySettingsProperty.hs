@@ -11,6 +11,7 @@ import Stratosphere.Value
 data StaticKeySettingsProperty
   = StaticKeySettingsProperty {keyProviderServer :: (Prelude.Maybe InputLocationProperty),
                                staticKeyValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStaticKeySettingsProperty :: StaticKeySettingsProperty
 mkStaticKeySettingsProperty
   = StaticKeySettingsProperty

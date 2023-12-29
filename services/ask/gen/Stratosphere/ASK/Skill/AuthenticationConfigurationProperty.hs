@@ -11,6 +11,7 @@ data AuthenticationConfigurationProperty
   = AuthenticationConfigurationProperty {clientId :: (Value Prelude.Text),
                                          clientSecret :: (Value Prelude.Text),
                                          refreshToken :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthenticationConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

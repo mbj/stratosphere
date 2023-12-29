@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ScheduledTriggerPropertiesProperty :: Prelude.Type
 instance ToResourceProperties ScheduledTriggerPropertiesProperty
+instance Prelude.Eq ScheduledTriggerPropertiesProperty
+instance Prelude.Show ScheduledTriggerPropertiesProperty
 instance JSON.ToJSON ScheduledTriggerPropertiesProperty

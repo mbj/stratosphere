@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MaintenanceCreateSettingsProperty
   = MaintenanceCreateSettingsProperty {maintenanceDay :: (Prelude.Maybe (Value Prelude.Text)),
                                        maintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceCreateSettingsProperty ::
   MaintenanceCreateSettingsProperty
 mkMaintenanceCreateSettingsProperty

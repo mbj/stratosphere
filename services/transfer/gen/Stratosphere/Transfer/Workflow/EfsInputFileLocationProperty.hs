@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EfsInputFileLocationProperty
   = EfsInputFileLocationProperty {fileSystemId :: (Prelude.Maybe (Value Prelude.Text)),
                                   path :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEfsInputFileLocationProperty :: EfsInputFileLocationProperty
 mkEfsInputFileLocationProperty
   = EfsInputFileLocationProperty

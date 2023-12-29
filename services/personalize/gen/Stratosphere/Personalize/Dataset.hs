@@ -13,6 +13,7 @@ data Dataset
              datasetType :: (Value Prelude.Text),
              name :: (Value Prelude.Text),
              schemaArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataset ::
   Value Prelude.Text
   -> Value Prelude.Text

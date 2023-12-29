@@ -11,6 +11,7 @@ import Stratosphere.Value
 data RelativeDateTimeControlDisplayOptionsProperty
   = RelativeDateTimeControlDisplayOptionsProperty {dateTimeFormat :: (Prelude.Maybe (Value Prelude.Text)),
                                                    titleOptions :: (Prelude.Maybe LabelOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRelativeDateTimeControlDisplayOptionsProperty ::
   RelativeDateTimeControlDisplayOptionsProperty
 mkRelativeDateTimeControlDisplayOptionsProperty

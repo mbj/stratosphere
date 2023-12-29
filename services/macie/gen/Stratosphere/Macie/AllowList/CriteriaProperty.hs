@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CriteriaProperty
   = CriteriaProperty {regex :: (Prelude.Maybe (Value Prelude.Text)),
                       s3WordsList :: (Prelude.Maybe S3WordsListProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCriteriaProperty :: CriteriaProperty
 mkCriteriaProperty
   = CriteriaProperty

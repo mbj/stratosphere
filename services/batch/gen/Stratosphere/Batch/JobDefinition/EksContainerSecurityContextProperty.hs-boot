@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data EksContainerSecurityContextProperty :: Prelude.Type
 instance ToResourceProperties EksContainerSecurityContextProperty
+instance Prelude.Eq EksContainerSecurityContextProperty
+instance Prelude.Show EksContainerSecurityContextProperty
 instance JSON.ToJSON EksContainerSecurityContextProperty

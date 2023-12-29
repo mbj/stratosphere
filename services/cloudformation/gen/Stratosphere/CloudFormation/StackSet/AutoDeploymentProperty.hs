@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AutoDeploymentProperty
   = AutoDeploymentProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                             retainStacksOnAccountRemoval :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoDeploymentProperty :: AutoDeploymentProperty
 mkAutoDeploymentProperty
   = AutoDeploymentProperty

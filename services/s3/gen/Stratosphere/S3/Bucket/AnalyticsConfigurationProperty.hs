@@ -14,6 +14,7 @@ data AnalyticsConfigurationProperty
                                     prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                     storageClassAnalysis :: StorageClassAnalysisProperty,
                                     tagFilters :: (Prelude.Maybe [TagFilterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnalyticsConfigurationProperty ::
   Value Prelude.Text
   -> StorageClassAnalysisProperty -> AnalyticsConfigurationProperty

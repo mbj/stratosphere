@@ -19,6 +19,7 @@ data SlotValueElicitationSettingProperty
                                          slotCaptureSetting :: (Prelude.Maybe SlotCaptureSettingProperty),
                                          slotConstraint :: (Value Prelude.Text),
                                          waitAndContinueSpecification :: (Prelude.Maybe WaitAndContinueSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueElicitationSettingProperty ::
   Value Prelude.Text -> SlotValueElicitationSettingProperty
 mkSlotValueElicitationSettingProperty slotConstraint

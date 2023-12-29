@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PublicDomainNameProperty :: Prelude.Type
 instance ToResourceProperties PublicDomainNameProperty
+instance Prelude.Eq PublicDomainNameProperty
+instance Prelude.Show PublicDomainNameProperty
 instance JSON.ToJSON PublicDomainNameProperty

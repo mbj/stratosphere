@@ -19,6 +19,7 @@ data FunnelChartVisualProperty
                                subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                                title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                                visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunnelChartVisualProperty ::
   Value Prelude.Text -> FunnelChartVisualProperty
 mkFunnelChartVisualProperty visualId

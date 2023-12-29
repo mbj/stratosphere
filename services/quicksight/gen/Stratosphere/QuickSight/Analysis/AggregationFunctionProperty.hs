@@ -12,6 +12,7 @@ data AggregationFunctionProperty
   = AggregationFunctionProperty {categoricalAggregationFunction :: (Prelude.Maybe (Value Prelude.Text)),
                                  dateAggregationFunction :: (Prelude.Maybe (Value Prelude.Text)),
                                  numericalAggregationFunction :: (Prelude.Maybe NumericalAggregationFunctionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAggregationFunctionProperty :: AggregationFunctionProperty
 mkAggregationFunctionProperty
   = AggregationFunctionProperty

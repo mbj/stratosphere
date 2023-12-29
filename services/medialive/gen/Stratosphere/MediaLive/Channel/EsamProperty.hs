@@ -13,6 +13,7 @@ data EsamProperty
                   poisEndpoint :: (Prelude.Maybe (Value Prelude.Text)),
                   username :: (Prelude.Maybe (Value Prelude.Text)),
                   zoneIdentity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEsamProperty :: EsamProperty
 mkEsamProperty
   = EsamProperty

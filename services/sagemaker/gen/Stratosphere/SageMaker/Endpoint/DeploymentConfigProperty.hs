@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DeploymentConfigProperty
   = DeploymentConfigProperty {autoRollbackConfiguration :: (Prelude.Maybe AutoRollbackConfigProperty),
                               blueGreenUpdatePolicy :: BlueGreenUpdatePolicyProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentConfigProperty ::
   BlueGreenUpdatePolicyProperty -> DeploymentConfigProperty
 mkDeploymentConfigProperty blueGreenUpdatePolicy

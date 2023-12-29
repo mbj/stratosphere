@@ -7,6 +7,7 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 data MetadataProperty
   = MetadataProperty {labels :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataProperty :: MetadataProperty
 mkMetadataProperty = MetadataProperty {labels = Prelude.Nothing}
 instance ToResourceProperties MetadataProperty where

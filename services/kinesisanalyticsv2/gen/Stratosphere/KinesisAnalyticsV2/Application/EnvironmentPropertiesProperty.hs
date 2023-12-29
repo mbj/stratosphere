@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.PropertyGroupP
 import Stratosphere.ResourceProperties
 data EnvironmentPropertiesProperty
   = EnvironmentPropertiesProperty {propertyGroups :: (Prelude.Maybe [PropertyGroupProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentPropertiesProperty :: EnvironmentPropertiesProperty
 mkEnvironmentPropertiesProperty
   = EnvironmentPropertiesProperty {propertyGroups = Prelude.Nothing}

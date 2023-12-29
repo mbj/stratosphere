@@ -16,6 +16,7 @@ data OidcIdentityProviderConfigProperty
                                         requiredClaims :: (Prelude.Maybe [RequiredClaimProperty]),
                                         usernameClaim :: (Prelude.Maybe (Value Prelude.Text)),
                                         usernamePrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOidcIdentityProviderConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> OidcIdentityProviderConfigProperty

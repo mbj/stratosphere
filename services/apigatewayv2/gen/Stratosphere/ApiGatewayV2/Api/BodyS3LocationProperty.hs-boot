@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BodyS3LocationProperty :: Prelude.Type
 instance ToResourceProperties BodyS3LocationProperty
+instance Prelude.Eq BodyS3LocationProperty
+instance Prelude.Show BodyS3LocationProperty
 instance JSON.ToJSON BodyS3LocationProperty

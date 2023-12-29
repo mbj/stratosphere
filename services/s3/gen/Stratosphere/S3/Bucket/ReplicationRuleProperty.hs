@@ -20,6 +20,7 @@ data ReplicationRuleProperty
                              priority :: (Prelude.Maybe (Value Prelude.Integer)),
                              sourceSelectionCriteria :: (Prelude.Maybe SourceSelectionCriteriaProperty),
                              status :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRuleProperty ::
   ReplicationDestinationProperty
   -> Value Prelude.Text -> ReplicationRuleProperty

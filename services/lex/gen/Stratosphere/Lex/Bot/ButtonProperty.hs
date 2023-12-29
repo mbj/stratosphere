@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ButtonProperty
   = ButtonProperty {text :: (Value Prelude.Text),
                     value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkButtonProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ButtonProperty
 mkButtonProperty text value

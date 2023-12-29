@@ -26,6 +26,7 @@ data LoRaWANDeviceProfileProperty
                                   supportsClassB :: (Prelude.Maybe (Value Prelude.Bool)),
                                   supportsClassC :: (Prelude.Maybe (Value Prelude.Bool)),
                                   supportsJoin :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANDeviceProfileProperty :: LoRaWANDeviceProfileProperty
 mkLoRaWANDeviceProfileProperty
   = LoRaWANDeviceProfileProperty

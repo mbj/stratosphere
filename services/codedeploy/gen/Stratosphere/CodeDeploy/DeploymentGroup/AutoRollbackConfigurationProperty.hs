@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AutoRollbackConfigurationProperty
   = AutoRollbackConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                        events :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoRollbackConfigurationProperty ::
   AutoRollbackConfigurationProperty
 mkAutoRollbackConfigurationProperty

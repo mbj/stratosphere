@@ -12,6 +12,7 @@ data RouteOverridesProperty
                             authorizerId :: (Prelude.Maybe (Value Prelude.Text)),
                             operationName :: (Prelude.Maybe (Value Prelude.Text)),
                             target :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRouteOverridesProperty :: RouteOverridesProperty
 mkRouteOverridesProperty
   = RouteOverridesProperty

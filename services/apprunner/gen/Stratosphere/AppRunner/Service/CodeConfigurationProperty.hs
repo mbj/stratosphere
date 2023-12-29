@@ -11,6 +11,7 @@ import Stratosphere.Value
 data CodeConfigurationProperty
   = CodeConfigurationProperty {codeConfigurationValues :: (Prelude.Maybe CodeConfigurationValuesProperty),
                                configurationSource :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeConfigurationProperty ::
   Value Prelude.Text -> CodeConfigurationProperty
 mkCodeConfigurationProperty configurationSource

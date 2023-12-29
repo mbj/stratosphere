@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FulfillmentStartResponseSpecificationProperty :: Prelude.Type
 instance ToResourceProperties FulfillmentStartResponseSpecificationProperty
+instance Prelude.Eq FulfillmentStartResponseSpecificationProperty
+instance Prelude.Show FulfillmentStartResponseSpecificationProperty
 instance JSON.ToJSON FulfillmentStartResponseSpecificationProperty

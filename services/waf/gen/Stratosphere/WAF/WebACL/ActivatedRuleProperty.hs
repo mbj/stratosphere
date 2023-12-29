@@ -11,6 +11,7 @@ data ActivatedRuleProperty
   = ActivatedRuleProperty {action :: (Prelude.Maybe WafActionProperty),
                            priority :: (Value Prelude.Integer),
                            ruleId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActivatedRuleProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> ActivatedRuleProperty

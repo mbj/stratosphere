@@ -12,6 +12,7 @@ data MetricProperty
   = MetricProperty {expression :: (Value Prelude.Text),
                     variables :: [ExpressionVariableProperty],
                     window :: MetricWindowProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricProperty ::
   Value Prelude.Text
   -> [ExpressionVariableProperty]

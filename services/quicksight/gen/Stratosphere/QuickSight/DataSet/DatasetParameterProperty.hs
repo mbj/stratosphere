@@ -15,6 +15,7 @@ data DatasetParameterProperty
                               decimalDatasetParameter :: (Prelude.Maybe DecimalDatasetParameterProperty),
                               integerDatasetParameter :: (Prelude.Maybe IntegerDatasetParameterProperty),
                               stringDatasetParameter :: (Prelude.Maybe StringDatasetParameterProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetParameterProperty :: DatasetParameterProperty
 mkDatasetParameterProperty
   = DatasetParameterProperty

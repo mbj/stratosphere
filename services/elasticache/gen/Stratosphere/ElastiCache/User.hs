@@ -17,6 +17,7 @@ data User
           tags :: (Prelude.Maybe [Tag]),
           userId :: (Value Prelude.Text),
           userName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUser ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> User

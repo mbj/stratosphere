@@ -12,6 +12,7 @@ data AuthFormatProperty
                         description :: (Prelude.Maybe (Value Prelude.Text)),
                         iAMAuth :: (Prelude.Maybe (Value Prelude.Text)),
                         secretArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthFormatProperty :: AuthFormatProperty
 mkAuthFormatProperty
   = AuthFormatProperty

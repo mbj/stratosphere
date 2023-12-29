@@ -11,6 +11,7 @@ import Stratosphere.Value
 data JobExecutionsRolloutConfigProperty
   = JobExecutionsRolloutConfigProperty {exponentialRolloutRate :: (Prelude.Maybe ExponentialRolloutRateProperty),
                                         maximumPerMinute :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJobExecutionsRolloutConfigProperty ::
   JobExecutionsRolloutConfigProperty
 mkJobExecutionsRolloutConfigProperty

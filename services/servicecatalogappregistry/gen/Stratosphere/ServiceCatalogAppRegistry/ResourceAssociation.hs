@@ -10,6 +10,7 @@ data ResourceAssociation
   = ResourceAssociation {application :: (Value Prelude.Text),
                          resource :: (Value Prelude.Text),
                          resourceType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> ResourceAssociation

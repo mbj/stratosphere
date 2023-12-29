@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConfigSnapshotDeliveryPropertiesProperty
   = ConfigSnapshotDeliveryPropertiesProperty {deliveryFrequency :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigSnapshotDeliveryPropertiesProperty ::
   ConfigSnapshotDeliveryPropertiesProperty
 mkConfigSnapshotDeliveryPropertiesProperty

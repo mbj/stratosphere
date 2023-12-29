@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ProjectionProperty
   = ProjectionProperty {nonKeyAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
                         projectionType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProjectionProperty :: ProjectionProperty
 mkProjectionProperty
   = ProjectionProperty

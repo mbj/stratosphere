@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KMSEncryptionConfigProperty :: Prelude.Type
 instance ToResourceProperties KMSEncryptionConfigProperty
+instance Prelude.Eq KMSEncryptionConfigProperty
+instance Prelude.Show KMSEncryptionConfigProperty
 instance JSON.ToJSON KMSEncryptionConfigProperty

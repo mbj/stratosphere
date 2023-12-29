@@ -13,6 +13,7 @@ data AllowList
                description :: (Prelude.Maybe (Value Prelude.Text)),
                name :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAllowList :: CriteriaProperty -> Value Prelude.Text -> AllowList
 mkAllowList criteria name
   = AllowList

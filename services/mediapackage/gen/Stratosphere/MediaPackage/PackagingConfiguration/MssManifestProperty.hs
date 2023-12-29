@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MssManifestProperty
   = MssManifestProperty {manifestName :: (Prelude.Maybe (Value Prelude.Text)),
                          streamSelection :: (Prelude.Maybe StreamSelectionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMssManifestProperty :: MssManifestProperty
 mkMssManifestProperty
   = MssManifestProperty

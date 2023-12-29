@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VisualCustomActionProperty :: Prelude.Type
 instance ToResourceProperties VisualCustomActionProperty
+instance Prelude.Eq VisualCustomActionProperty
+instance Prelude.Show VisualCustomActionProperty
 instance JSON.ToJSON VisualCustomActionProperty

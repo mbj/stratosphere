@@ -4,7 +4,9 @@ module Stratosphere.LakeFormation.Permissions.TableWildcardProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
-data TableWildcardProperty = TableWildcardProperty {}
+data TableWildcardProperty
+  = TableWildcardProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableWildcardProperty :: TableWildcardProperty
 mkTableWildcardProperty = TableWildcardProperty {}
 instance ToResourceProperties TableWildcardProperty where

@@ -45,6 +45,7 @@ data S3SettingsProperty
                         timestampColumnName :: (Prelude.Maybe (Value Prelude.Text)),
                         useCsvNoSupValue :: (Prelude.Maybe (Value Prelude.Bool)),
                         useTaskStartTimeForFullLoadTimestamp :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3SettingsProperty :: S3SettingsProperty
 mkS3SettingsProperty
   = S3SettingsProperty

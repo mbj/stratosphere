@@ -19,6 +19,7 @@ data ImageRecipe
                  tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                  version :: (Value Prelude.Text),
                  workingDirectory :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImageRecipe ::
   [ComponentConfigurationProperty]
   -> Value Prelude.Text

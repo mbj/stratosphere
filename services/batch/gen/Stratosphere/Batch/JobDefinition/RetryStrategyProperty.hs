@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RetryStrategyProperty
   = RetryStrategyProperty {attempts :: (Prelude.Maybe (Value Prelude.Integer)),
                            evaluateOnExit :: (Prelude.Maybe [EvaluateOnExitProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRetryStrategyProperty :: RetryStrategyProperty
 mkRetryStrategyProperty
   = RetryStrategyProperty

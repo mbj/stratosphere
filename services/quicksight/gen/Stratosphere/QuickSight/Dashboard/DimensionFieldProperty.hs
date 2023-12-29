@@ -13,6 +13,7 @@ data DimensionFieldProperty
   = DimensionFieldProperty {categoricalDimensionField :: (Prelude.Maybe CategoricalDimensionFieldProperty),
                             dateDimensionField :: (Prelude.Maybe DateDimensionFieldProperty),
                             numericalDimensionField :: (Prelude.Maybe NumericalDimensionFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDimensionFieldProperty :: DimensionFieldProperty
 mkDimensionFieldProperty
   = DimensionFieldProperty

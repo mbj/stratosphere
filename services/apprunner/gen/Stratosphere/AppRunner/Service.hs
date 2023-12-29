@@ -23,6 +23,7 @@ data Service
              serviceName :: (Prelude.Maybe (Value Prelude.Text)),
              sourceConfiguration :: SourceConfigurationProperty,
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkService :: SourceConfigurationProperty -> Service
 mkService sourceConfiguration
   = Service

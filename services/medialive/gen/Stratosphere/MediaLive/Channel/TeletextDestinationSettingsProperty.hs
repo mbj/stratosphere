@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TeletextDestinationSettingsProperty
   = TeletextDestinationSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTeletextDestinationSettingsProperty ::
   TeletextDestinationSettingsProperty
 mkTeletextDestinationSettingsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IntentConfirmationSettingProperty :: Prelude.Type
 instance ToResourceProperties IntentConfirmationSettingProperty
+instance Prelude.Eq IntentConfirmationSettingProperty
+instance Prelude.Show IntentConfirmationSettingProperty
 instance JSON.ToJSON IntentConfirmationSettingProperty

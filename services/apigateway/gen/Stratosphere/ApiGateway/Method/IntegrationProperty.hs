@@ -22,6 +22,7 @@ data IntegrationProperty
                          timeoutInMillis :: (Prelude.Maybe (Value Prelude.Integer)),
                          type' :: (Prelude.Maybe (Value Prelude.Text)),
                          uri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegrationProperty :: IntegrationProperty
 mkIntegrationProperty
   = IntegrationProperty

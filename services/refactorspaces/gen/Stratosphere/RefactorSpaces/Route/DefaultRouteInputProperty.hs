@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DefaultRouteInputProperty
   = DefaultRouteInputProperty {activationState :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultRouteInputProperty ::
   Value Prelude.Text -> DefaultRouteInputProperty
 mkDefaultRouteInputProperty activationState

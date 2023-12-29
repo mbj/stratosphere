@@ -15,6 +15,7 @@ data RouteSpecProperty
                        httpRoute :: (Prelude.Maybe HttpRouteProperty),
                        priority :: (Prelude.Maybe (Value Prelude.Integer)),
                        tcpRoute :: (Prelude.Maybe TcpRouteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRouteSpecProperty :: RouteSpecProperty
 mkRouteSpecProperty
   = RouteSpecProperty

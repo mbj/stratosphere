@@ -16,6 +16,7 @@ data AacSettingsProperty
                          sampleRate :: (Prelude.Maybe (Value Prelude.Double)),
                          spec :: (Prelude.Maybe (Value Prelude.Text)),
                          vbrQuality :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAacSettingsProperty :: AacSettingsProperty
 mkAacSettingsProperty
   = AacSettingsProperty

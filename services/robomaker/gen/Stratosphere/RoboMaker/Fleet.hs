@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Fleet
   = Fleet {name :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFleet :: Fleet
 mkFleet = Fleet {name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Fleet where

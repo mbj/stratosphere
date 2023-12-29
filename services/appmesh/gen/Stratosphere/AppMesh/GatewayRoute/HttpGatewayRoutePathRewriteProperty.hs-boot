@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HttpGatewayRoutePathRewriteProperty :: Prelude.Type
 instance ToResourceProperties HttpGatewayRoutePathRewriteProperty
+instance Prelude.Eq HttpGatewayRoutePathRewriteProperty
+instance Prelude.Show HttpGatewayRoutePathRewriteProperty
 instance JSON.ToJSON HttpGatewayRoutePathRewriteProperty

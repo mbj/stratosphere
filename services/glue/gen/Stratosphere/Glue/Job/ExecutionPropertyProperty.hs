@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExecutionPropertyProperty
   = ExecutionPropertyProperty {maxConcurrentRuns :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionPropertyProperty :: ExecutionPropertyProperty
 mkExecutionPropertyProperty
   = ExecutionPropertyProperty {maxConcurrentRuns = Prelude.Nothing}

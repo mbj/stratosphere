@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CloudWatchLogsProperty
   = CloudWatchLogsProperty {enabled :: (Value Prelude.Bool),
                             logGroup :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLogsProperty ::
   Value Prelude.Bool -> CloudWatchLogsProperty
 mkCloudWatchLogsProperty enabled

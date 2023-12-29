@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data JobBookmarksEncryptionProperty :: Prelude.Type
 instance ToResourceProperties JobBookmarksEncryptionProperty
+instance Prelude.Eq JobBookmarksEncryptionProperty
+instance Prelude.Show JobBookmarksEncryptionProperty
 instance JSON.ToJSON JobBookmarksEncryptionProperty

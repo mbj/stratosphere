@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeploymentTargetsProperty :: Prelude.Type
 instance ToResourceProperties DeploymentTargetsProperty
+instance Prelude.Eq DeploymentTargetsProperty
+instance Prelude.Show DeploymentTargetsProperty
 instance JSON.ToJSON DeploymentTargetsProperty

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Connect.TaskTemplate.FieldIdentifierProperty 
 import Stratosphere.ResourceProperties
 data RequiredFieldInfoProperty
   = RequiredFieldInfoProperty {id :: FieldIdentifierProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRequiredFieldInfoProperty ::
   FieldIdentifierProperty -> RequiredFieldInfoProperty
 mkRequiredFieldInfoProperty id

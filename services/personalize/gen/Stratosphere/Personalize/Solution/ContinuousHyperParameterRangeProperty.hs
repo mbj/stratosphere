@@ -11,6 +11,7 @@ data ContinuousHyperParameterRangeProperty
   = ContinuousHyperParameterRangeProperty {maxValue :: (Prelude.Maybe (Value Prelude.Double)),
                                            minValue :: (Prelude.Maybe (Value Prelude.Double)),
                                            name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContinuousHyperParameterRangeProperty ::
   ContinuousHyperParameterRangeProperty
 mkContinuousHyperParameterRangeProperty

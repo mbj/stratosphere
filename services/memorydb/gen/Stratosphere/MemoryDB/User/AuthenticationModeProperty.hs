@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AuthenticationModeProperty
   = AuthenticationModeProperty {passwords :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthenticationModeProperty :: AuthenticationModeProperty
 mkAuthenticationModeProperty
   = AuthenticationModeProperty

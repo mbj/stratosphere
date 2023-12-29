@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.PivotFieldSortOptionsPro
 import Stratosphere.ResourceProperties
 data PivotTableSortConfigurationProperty
   = PivotTableSortConfigurationProperty {fieldSortOptions :: (Prelude.Maybe [PivotFieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableSortConfigurationProperty ::
   PivotTableSortConfigurationProperty
 mkPivotTableSortConfigurationProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 data EksContainerResourceRequirementsProperty
   = EksContainerResourceRequirementsProperty {limits :: (Prelude.Maybe JSON.Object),
                                               requests :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksContainerResourceRequirementsProperty ::
   EksContainerResourceRequirementsProperty
 mkEksContainerResourceRequirementsProperty

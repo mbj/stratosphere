@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ValidatorsProperty
   = ValidatorsProperty {content :: (Prelude.Maybe (Value Prelude.Text)),
                         type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkValidatorsProperty :: ValidatorsProperty
 mkValidatorsProperty
   = ValidatorsProperty

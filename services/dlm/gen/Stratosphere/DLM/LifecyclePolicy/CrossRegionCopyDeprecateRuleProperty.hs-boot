@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CrossRegionCopyDeprecateRuleProperty :: Prelude.Type
 instance ToResourceProperties CrossRegionCopyDeprecateRuleProperty
+instance Prelude.Eq CrossRegionCopyDeprecateRuleProperty
+instance Prelude.Show CrossRegionCopyDeprecateRuleProperty
 instance JSON.ToJSON CrossRegionCopyDeprecateRuleProperty

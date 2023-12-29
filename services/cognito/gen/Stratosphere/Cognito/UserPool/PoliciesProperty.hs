@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPool.PasswordPolicyProperty as Ex
 import Stratosphere.ResourceProperties
 data PoliciesProperty
   = PoliciesProperty {passwordPolicy :: (Prelude.Maybe PasswordPolicyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPoliciesProperty :: PoliciesProperty
 mkPoliciesProperty
   = PoliciesProperty {passwordPolicy = Prelude.Nothing}

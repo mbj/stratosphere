@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AxisLinearScaleProperty
   = AxisLinearScaleProperty {stepCount :: (Prelude.Maybe (Value Prelude.Double)),
                              stepSize :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAxisLinearScaleProperty :: AxisLinearScaleProperty
 mkAxisLinearScaleProperty
   = AxisLinearScaleProperty

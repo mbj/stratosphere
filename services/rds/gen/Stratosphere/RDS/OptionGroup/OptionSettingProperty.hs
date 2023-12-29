@@ -9,6 +9,7 @@ import Stratosphere.Value
 data OptionSettingProperty
   = OptionSettingProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                            value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionSettingProperty :: OptionSettingProperty
 mkOptionSettingProperty
   = OptionSettingProperty

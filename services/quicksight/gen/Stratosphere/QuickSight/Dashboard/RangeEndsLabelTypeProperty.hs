@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RangeEndsLabelTypeProperty
   = RangeEndsLabelTypeProperty {visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRangeEndsLabelTypeProperty :: RangeEndsLabelTypeProperty
 mkRangeEndsLabelTypeProperty
   = RangeEndsLabelTypeProperty {visibility = Prelude.Nothing}

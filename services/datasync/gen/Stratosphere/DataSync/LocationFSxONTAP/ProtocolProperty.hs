@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data ProtocolProperty
   = ProtocolProperty {nFS :: (Prelude.Maybe NFSProperty),
                       sMB :: (Prelude.Maybe SMBProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProtocolProperty :: ProtocolProperty
 mkProtocolProperty
   = ProtocolProperty {nFS = Prelude.Nothing, sMB = Prelude.Nothing}

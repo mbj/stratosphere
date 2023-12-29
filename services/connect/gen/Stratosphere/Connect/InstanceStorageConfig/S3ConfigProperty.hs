@@ -11,6 +11,7 @@ data S3ConfigProperty
   = S3ConfigProperty {bucketName :: (Value Prelude.Text),
                       bucketPrefix :: (Value Prelude.Text),
                       encryptionConfig :: (Prelude.Maybe EncryptionConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3ConfigProperty
 mkS3ConfigProperty bucketName bucketPrefix

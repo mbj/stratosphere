@@ -14,6 +14,7 @@ data OfflineStoreConfigProperty
                                 disableGlueTableCreation :: (Prelude.Maybe (Value Prelude.Bool)),
                                 s3StorageConfig :: S3StorageConfigProperty,
                                 tableFormat :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOfflineStoreConfigProperty ::
   S3StorageConfigProperty -> OfflineStoreConfigProperty
 mkOfflineStoreConfigProperty s3StorageConfig

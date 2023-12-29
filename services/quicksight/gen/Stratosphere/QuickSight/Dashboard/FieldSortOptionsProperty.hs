@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data FieldSortOptionsProperty
   = FieldSortOptionsProperty {columnSort :: (Prelude.Maybe ColumnSortProperty),
                               fieldSort :: (Prelude.Maybe FieldSortProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldSortOptionsProperty :: FieldSortOptionsProperty
 mkFieldSortOptionsProperty
   = FieldSortOptionsProperty

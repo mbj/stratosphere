@@ -11,6 +11,7 @@ data NetworkConfigProperty
   = NetworkConfigProperty {enableInterContainerTrafficEncryption :: (Prelude.Maybe (Value Prelude.Bool)),
                            enableNetworkIsolation :: (Prelude.Maybe (Value Prelude.Bool)),
                            vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigProperty :: NetworkConfigProperty
 mkNetworkConfigProperty
   = NetworkConfigProperty

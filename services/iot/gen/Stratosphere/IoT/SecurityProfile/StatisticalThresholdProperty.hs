@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatisticalThresholdProperty
   = StatisticalThresholdProperty {statistic :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatisticalThresholdProperty :: StatisticalThresholdProperty
 mkStatisticalThresholdProperty
   = StatisticalThresholdProperty {statistic = Prelude.Nothing}

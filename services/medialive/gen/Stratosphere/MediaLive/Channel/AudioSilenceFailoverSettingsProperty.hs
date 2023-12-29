@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AudioSilenceFailoverSettingsProperty
   = AudioSilenceFailoverSettingsProperty {audioSelectorName :: (Prelude.Maybe (Value Prelude.Text)),
                                           audioSilenceThresholdMsec :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioSilenceFailoverSettingsProperty ::
   AudioSilenceFailoverSettingsProperty
 mkAudioSilenceFailoverSettingsProperty

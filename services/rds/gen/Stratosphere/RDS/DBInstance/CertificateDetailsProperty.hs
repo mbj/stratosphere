@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CertificateDetailsProperty
   = CertificateDetailsProperty {cAIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                                 validTill :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateDetailsProperty :: CertificateDetailsProperty
 mkCertificateDetailsProperty
   = CertificateDetailsProperty

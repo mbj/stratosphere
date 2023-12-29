@@ -15,6 +15,7 @@ data ConfigRule
                 maximumExecutionFrequency :: (Prelude.Maybe (Value Prelude.Text)),
                 scope :: (Prelude.Maybe ScopeProperty),
                 source :: SourceProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigRule :: SourceProperty -> ConfigRule
 mkConfigRule source
   = ConfigRule

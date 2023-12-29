@@ -10,6 +10,7 @@ import Stratosphere.Value
 data FieldMapProperty
   = FieldMapProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                       objectTypeField :: (Prelude.Maybe ObjectTypeFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldMapProperty :: FieldMapProperty
 mkFieldMapProperty
   = FieldMapProperty

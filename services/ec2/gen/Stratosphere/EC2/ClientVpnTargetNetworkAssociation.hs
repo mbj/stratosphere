@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ClientVpnTargetNetworkAssociation
   = ClientVpnTargetNetworkAssociation {clientVpnEndpointId :: (Value Prelude.Text),
                                        subnetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientVpnTargetNetworkAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> ClientVpnTargetNetworkAssociation

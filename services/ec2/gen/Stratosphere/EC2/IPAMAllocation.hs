@@ -11,6 +11,7 @@ data IPAMAllocation
                     description :: (Prelude.Maybe (Value Prelude.Text)),
                     ipamPoolId :: (Value Prelude.Text),
                     netmaskLength :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAMAllocation :: Value Prelude.Text -> IPAMAllocation
 mkIPAMAllocation ipamPoolId
   = IPAMAllocation

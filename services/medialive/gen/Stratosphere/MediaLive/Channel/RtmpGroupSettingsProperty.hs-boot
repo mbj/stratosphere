@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RtmpGroupSettingsProperty :: Prelude.Type
 instance ToResourceProperties RtmpGroupSettingsProperty
+instance Prelude.Eq RtmpGroupSettingsProperty
+instance Prelude.Show RtmpGroupSettingsProperty
 instance JSON.ToJSON RtmpGroupSettingsProperty

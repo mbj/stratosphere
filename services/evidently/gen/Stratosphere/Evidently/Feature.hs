@@ -18,6 +18,7 @@ data Feature
              project :: (Value Prelude.Text),
              tags :: (Prelude.Maybe [Tag]),
              variations :: [VariationObjectProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFeature ::
   Value Prelude.Text
   -> Value Prelude.Text -> [VariationObjectProperty] -> Feature

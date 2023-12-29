@@ -13,6 +13,7 @@ data ParquetSerDeProperty
                           maxPaddingBytes :: (Prelude.Maybe (Value Prelude.Integer)),
                           pageSizeBytes :: (Prelude.Maybe (Value Prelude.Integer)),
                           writerVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParquetSerDeProperty :: ParquetSerDeProperty
 mkParquetSerDeProperty
   = ParquetSerDeProperty

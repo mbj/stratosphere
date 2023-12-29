@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PermissionsBoundaryProperty :: Prelude.Type
 instance ToResourceProperties PermissionsBoundaryProperty
+instance Prelude.Eq PermissionsBoundaryProperty
+instance Prelude.Show PermissionsBoundaryProperty
 instance JSON.ToJSON PermissionsBoundaryProperty

@@ -11,6 +11,7 @@ data CloudWatchLoggingOptionsProperty
   = CloudWatchLoggingOptionsProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                       logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                                       logStreamName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCloudWatchLoggingOptionsProperty ::
   CloudWatchLoggingOptionsProperty
 mkCloudWatchLoggingOptionsProperty

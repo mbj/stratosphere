@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccountGroupingProperty
   = AccountGroupingProperty {linkedAccountIds :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountGroupingProperty ::
   ValueList Prelude.Text -> AccountGroupingProperty
 mkAccountGroupingProperty linkedAccountIds

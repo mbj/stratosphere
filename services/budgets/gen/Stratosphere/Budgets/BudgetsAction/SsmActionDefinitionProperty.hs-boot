@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SsmActionDefinitionProperty :: Prelude.Type
 instance ToResourceProperties SsmActionDefinitionProperty
+instance Prelude.Eq SsmActionDefinitionProperty
+instance Prelude.Show SsmActionDefinitionProperty
 instance JSON.ToJSON SsmActionDefinitionProperty

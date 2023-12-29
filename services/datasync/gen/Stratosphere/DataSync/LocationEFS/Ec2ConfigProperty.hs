@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Ec2ConfigProperty
   = Ec2ConfigProperty {securityGroupArns :: (ValueList Prelude.Text),
                        subnetArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEc2ConfigProperty ::
   ValueList Prelude.Text -> Value Prelude.Text -> Ec2ConfigProperty
 mkEc2ConfigProperty securityGroupArns subnetArn

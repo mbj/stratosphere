@@ -16,6 +16,7 @@ data ConfigurationTemplate
                            platformArn :: (Prelude.Maybe (Value Prelude.Text)),
                            solutionStackName :: (Prelude.Maybe (Value Prelude.Text)),
                            sourceConfiguration :: (Prelude.Maybe SourceConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationTemplate ::
   Value Prelude.Text -> ConfigurationTemplate
 mkConfigurationTemplate applicationName

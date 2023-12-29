@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DeltaTimeProperty
   = DeltaTimeProperty {offsetSeconds :: (Value Prelude.Integer),
                        timeExpression :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeltaTimeProperty ::
   Value Prelude.Integer -> Value Prelude.Text -> DeltaTimeProperty
 mkDeltaTimeProperty offsetSeconds timeExpression

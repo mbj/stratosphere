@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ResourceCreationLimitPolicyProperty
   = ResourceCreationLimitPolicyProperty {newGameSessionsPerCreator :: (Prelude.Maybe (Value Prelude.Integer)),
                                          policyPeriodInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceCreationLimitPolicyProperty ::
   ResourceCreationLimitPolicyProperty
 mkResourceCreationLimitPolicyProperty

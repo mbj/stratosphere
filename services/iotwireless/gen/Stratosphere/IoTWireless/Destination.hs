@@ -14,6 +14,7 @@ data Destination
                  name :: (Value Prelude.Text),
                  roleArn :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestination ::
   Value Prelude.Text
   -> Value Prelude.Text

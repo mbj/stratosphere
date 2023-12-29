@@ -17,6 +17,7 @@ data ComponentProperty
                        properties :: (Prelude.Maybe (Prelude.Map Prelude.Text PropertyProperty)),
                        propertyGroups :: (Prelude.Maybe (Prelude.Map Prelude.Text PropertyGroupProperty)),
                        status :: (Prelude.Maybe StatusProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentProperty :: ComponentProperty
 mkComponentProperty
   = ComponentProperty

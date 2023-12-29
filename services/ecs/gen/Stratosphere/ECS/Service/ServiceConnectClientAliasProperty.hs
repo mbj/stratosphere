@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ServiceConnectClientAliasProperty
   = ServiceConnectClientAliasProperty {dnsName :: (Prelude.Maybe (Value Prelude.Text)),
                                        port :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceConnectClientAliasProperty ::
   Value Prelude.Integer -> ServiceConnectClientAliasProperty
 mkServiceConnectClientAliasProperty port

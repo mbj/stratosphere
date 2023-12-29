@@ -18,6 +18,7 @@ data Alarm
            notificationTriggers :: (Prelude.Maybe (ValueList Prelude.Text)),
            threshold :: (Value Prelude.Double),
            treatMissingData :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarm ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ApiKeyAuthParametersProperty
   = ApiKeyAuthParametersProperty {apiKeyName :: (Value Prelude.Text),
                                   apiKeyValue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApiKeyAuthParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ApiKeyAuthParametersProperty

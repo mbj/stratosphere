@@ -12,6 +12,7 @@ data ClientVpnAuthorizationRule
                                 clientVpnEndpointId :: (Value Prelude.Text),
                                 description :: (Prelude.Maybe (Value Prelude.Text)),
                                 targetNetworkCidr :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientVpnAuthorizationRule ::
   Value Prelude.Text
   -> Value Prelude.Text -> ClientVpnAuthorizationRule

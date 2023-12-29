@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PipeSourceDynamoDBStreamParametersProperty :: Prelude.Type
 instance ToResourceProperties PipeSourceDynamoDBStreamParametersProperty
+instance Prelude.Eq PipeSourceDynamoDBStreamParametersProperty
+instance Prelude.Show PipeSourceDynamoDBStreamParametersProperty
 instance JSON.ToJSON PipeSourceDynamoDBStreamParametersProperty

@@ -10,6 +10,7 @@ data BasicAuthConfigProperty
   = BasicAuthConfigProperty {enableBasicAuth :: (Prelude.Maybe (Value Prelude.Bool)),
                              password :: (Value Prelude.Text),
                              username :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBasicAuthConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> BasicAuthConfigProperty
 mkBasicAuthConfigProperty password username

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ModelExplainabilityBaselineConfigProperty :: Prelude.Type
 instance ToResourceProperties ModelExplainabilityBaselineConfigProperty
+instance Prelude.Eq ModelExplainabilityBaselineConfigProperty
+instance Prelude.Show ModelExplainabilityBaselineConfigProperty
 instance JSON.ToJSON ModelExplainabilityBaselineConfigProperty

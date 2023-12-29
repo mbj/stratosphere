@@ -17,6 +17,7 @@ data KinesisSettingsProperty
                              partitionIncludeSchemaTable :: (Prelude.Maybe (Value Prelude.Bool)),
                              serviceAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                              streamArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisSettingsProperty :: KinesisSettingsProperty
 mkKinesisSettingsProperty
   = KinesisSettingsProperty

@@ -10,6 +10,7 @@ data CanarySettingProperty
   = CanarySettingProperty {percentTraffic :: (Prelude.Maybe (Value Prelude.Double)),
                            stageVariableOverrides :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                            useStageCache :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCanarySettingProperty :: CanarySettingProperty
 mkCanarySettingProperty
   = CanarySettingProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BlockDeviceMappingProperty :: Prelude.Type
 instance ToResourceProperties BlockDeviceMappingProperty
+instance Prelude.Eq BlockDeviceMappingProperty
+instance Prelude.Show BlockDeviceMappingProperty
 instance JSON.ToJSON BlockDeviceMappingProperty

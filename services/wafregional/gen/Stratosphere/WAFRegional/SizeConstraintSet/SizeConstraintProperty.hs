@@ -13,6 +13,7 @@ data SizeConstraintProperty
                             fieldToMatch :: FieldToMatchProperty,
                             size :: (Value Prelude.Integer),
                             textTransformation :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSizeConstraintProperty ::
   Value Prelude.Text
   -> FieldToMatchProperty

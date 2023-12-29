@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaPackage.PackagingConfiguration.SpekeKeyP
 import Stratosphere.ResourceProperties
 data CmafEncryptionProperty
   = CmafEncryptionProperty {spekeKeyProvider :: SpekeKeyProviderProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCmafEncryptionProperty ::
   SpekeKeyProviderProperty -> CmafEncryptionProperty
 mkCmafEncryptionProperty spekeKeyProvider

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PortRangeFilterProperty :: Prelude.Type
 instance ToResourceProperties PortRangeFilterProperty
+instance Prelude.Eq PortRangeFilterProperty
+instance Prelude.Show PortRangeFilterProperty
 instance JSON.ToJSON PortRangeFilterProperty

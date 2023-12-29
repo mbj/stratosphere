@@ -13,6 +13,7 @@ data WebACL
             metricName :: (Value Prelude.Text),
             name :: (Value Prelude.Text),
             rules :: (Prelude.Maybe [ActivatedRuleProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebACL ::
   WafActionProperty
   -> Value Prelude.Text -> Value Prelude.Text -> WebACL

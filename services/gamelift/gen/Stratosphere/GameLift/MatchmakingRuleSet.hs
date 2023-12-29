@@ -11,6 +11,7 @@ data MatchmakingRuleSet
   = MatchmakingRuleSet {name :: (Value Prelude.Text),
                         ruleSetBody :: (Value Prelude.Text),
                         tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMatchmakingRuleSet ::
   Value Prelude.Text -> Value Prelude.Text -> MatchmakingRuleSet
 mkMatchmakingRuleSet name ruleSetBody

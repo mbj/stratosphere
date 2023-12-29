@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProvisionedCidrProperty :: Prelude.Type
 instance ToResourceProperties ProvisionedCidrProperty
+instance Prelude.Eq ProvisionedCidrProperty
+instance Prelude.Show ProvisionedCidrProperty
 instance JSON.ToJSON ProvisionedCidrProperty

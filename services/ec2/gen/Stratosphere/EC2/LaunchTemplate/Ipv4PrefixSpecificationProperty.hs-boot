@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Ipv4PrefixSpecificationProperty :: Prelude.Type
 instance ToResourceProperties Ipv4PrefixSpecificationProperty
+instance Prelude.Eq Ipv4PrefixSpecificationProperty
+instance Prelude.Show Ipv4PrefixSpecificationProperty
 instance JSON.ToJSON Ipv4PrefixSpecificationProperty

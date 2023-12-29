@@ -14,6 +14,7 @@ data RepositoryAssociation
                            owner :: (Prelude.Maybe (Value Prelude.Text)),
                            tags :: (Prelude.Maybe [Tag]),
                            type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRepositoryAssociation ::
   Value Prelude.Text -> Value Prelude.Text -> RepositoryAssociation
 mkRepositoryAssociation name type'

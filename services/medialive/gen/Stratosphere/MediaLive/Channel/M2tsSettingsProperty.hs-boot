@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data M2tsSettingsProperty :: Prelude.Type
 instance ToResourceProperties M2tsSettingsProperty
+instance Prelude.Eq M2tsSettingsProperty
+instance Prelude.Show M2tsSettingsProperty
 instance JSON.ToJSON M2tsSettingsProperty

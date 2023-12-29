@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SuspendedStateProperty :: Prelude.Type
 instance ToResourceProperties SuspendedStateProperty
+instance Prelude.Eq SuspendedStateProperty
+instance Prelude.Show SuspendedStateProperty
 instance JSON.ToJSON SuspendedStateProperty

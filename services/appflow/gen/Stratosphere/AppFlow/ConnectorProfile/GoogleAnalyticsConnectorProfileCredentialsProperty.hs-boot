@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GoogleAnalyticsConnectorProfileCredentialsProperty :: Prelude.Type
 instance ToResourceProperties GoogleAnalyticsConnectorProfileCredentialsProperty
+instance Prelude.Eq GoogleAnalyticsConnectorProfileCredentialsProperty
+instance Prelude.Show GoogleAnalyticsConnectorProfileCredentialsProperty
 instance JSON.ToJSON GoogleAnalyticsConnectorProfileCredentialsProperty

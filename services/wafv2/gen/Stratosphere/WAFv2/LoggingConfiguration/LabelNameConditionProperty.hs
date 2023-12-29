@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LabelNameConditionProperty
   = LabelNameConditionProperty {labelName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLabelNameConditionProperty ::
   Value Prelude.Text -> LabelNameConditionProperty
 mkLabelNameConditionProperty labelName

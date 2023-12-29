@@ -12,6 +12,7 @@ data IPAMResourceDiscoveryAssociation
   = IPAMResourceDiscoveryAssociation {ipamId :: (Value Prelude.Text),
                                       ipamResourceDiscoveryId :: (Value Prelude.Text),
                                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAMResourceDiscoveryAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> IPAMResourceDiscoveryAssociation

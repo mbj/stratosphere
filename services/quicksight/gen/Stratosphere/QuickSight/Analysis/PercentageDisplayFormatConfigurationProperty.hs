@@ -18,6 +18,7 @@ data PercentageDisplayFormatConfigurationProperty
                                                   prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                                   separatorConfiguration :: (Prelude.Maybe NumericSeparatorConfigurationProperty),
                                                   suffix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPercentageDisplayFormatConfigurationProperty ::
   PercentageDisplayFormatConfigurationProperty
 mkPercentageDisplayFormatConfigurationProperty

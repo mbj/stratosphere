@@ -16,6 +16,7 @@ data ParameterSliderControlProperty
                                     sourceParameterName :: (Value Prelude.Text),
                                     stepSize :: (Value Prelude.Double),
                                     title :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterSliderControlProperty ::
   Value Prelude.Double
   -> Value Prelude.Double

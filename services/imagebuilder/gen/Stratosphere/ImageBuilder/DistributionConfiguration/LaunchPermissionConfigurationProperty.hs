@@ -12,6 +12,7 @@ data LaunchPermissionConfigurationProperty
                                            organizationalUnitArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                                            userGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                                            userIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchPermissionConfigurationProperty ::
   LaunchPermissionConfigurationProperty
 mkLaunchPermissionConfigurationProperty

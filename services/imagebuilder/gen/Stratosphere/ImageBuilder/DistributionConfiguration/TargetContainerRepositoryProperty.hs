@@ -10,6 +10,7 @@ import Stratosphere.Value
 data TargetContainerRepositoryProperty
   = TargetContainerRepositoryProperty {repositoryName :: (Prelude.Maybe (Value Prelude.Text)),
                                        service :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetContainerRepositoryProperty ::
   TargetContainerRepositoryProperty
 mkTargetContainerRepositoryProperty

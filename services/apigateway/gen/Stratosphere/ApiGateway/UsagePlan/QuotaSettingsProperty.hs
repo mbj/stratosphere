@@ -10,6 +10,7 @@ data QuotaSettingsProperty
   = QuotaSettingsProperty {limit :: (Prelude.Maybe (Value Prelude.Integer)),
                            offset :: (Prelude.Maybe (Value Prelude.Integer)),
                            period :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQuotaSettingsProperty :: QuotaSettingsProperty
 mkQuotaSettingsProperty
   = QuotaSettingsProperty

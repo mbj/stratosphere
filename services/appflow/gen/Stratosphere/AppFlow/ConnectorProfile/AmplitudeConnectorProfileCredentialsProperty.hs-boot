@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AmplitudeConnectorProfileCredentialsProperty :: Prelude.Type
 instance ToResourceProperties AmplitudeConnectorProfileCredentialsProperty
+instance Prelude.Eq AmplitudeConnectorProfileCredentialsProperty
+instance Prelude.Show AmplitudeConnectorProfileCredentialsProperty
 instance JSON.ToJSON AmplitudeConnectorProfileCredentialsProperty

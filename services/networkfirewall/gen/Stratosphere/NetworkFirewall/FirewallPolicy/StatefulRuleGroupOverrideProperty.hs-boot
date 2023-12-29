@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StatefulRuleGroupOverrideProperty :: Prelude.Type
 instance ToResourceProperties StatefulRuleGroupOverrideProperty
+instance Prelude.Eq StatefulRuleGroupOverrideProperty
+instance Prelude.Show StatefulRuleGroupOverrideProperty
 instance JSON.ToJSON StatefulRuleGroupOverrideProperty

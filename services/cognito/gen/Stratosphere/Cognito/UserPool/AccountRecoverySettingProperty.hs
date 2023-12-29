@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPool.RecoveryOptionProperty as Ex
 import Stratosphere.ResourceProperties
 data AccountRecoverySettingProperty
   = AccountRecoverySettingProperty {recoveryMechanisms :: (Prelude.Maybe [RecoveryOptionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountRecoverySettingProperty :: AccountRecoverySettingProperty
 mkAccountRecoverySettingProperty
   = AccountRecoverySettingProperty

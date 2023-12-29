@@ -10,6 +10,7 @@ import Stratosphere.Value
 data RollingDateConfigurationProperty
   = RollingDateConfigurationProperty {dataSetIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                                       expression :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRollingDateConfigurationProperty ::
   Value Prelude.Text -> RollingDateConfigurationProperty
 mkRollingDateConfigurationProperty expression

@@ -14,6 +14,7 @@ data Function
               functionConfig :: FunctionConfigProperty,
               functionMetadata :: (Prelude.Maybe FunctionMetadataProperty),
               name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunction ::
   Value Prelude.Text
   -> FunctionConfigProperty -> Value Prelude.Text -> Function

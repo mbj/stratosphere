@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VCpuCountProperty
   = VCpuCountProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
                        min :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVCpuCountProperty :: VCpuCountProperty
 mkVCpuCountProperty
   = VCpuCountProperty {max = Prelude.Nothing, min = Prelude.Nothing}

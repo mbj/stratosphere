@@ -11,6 +11,7 @@ import Stratosphere.Value
 data EntityDetectorConfigurationProperty
   = EntityDetectorConfigurationProperty {allowedStatistics :: (Prelude.Maybe AllowedStatisticsProperty),
                                          entityTypes :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityDetectorConfigurationProperty ::
   ValueList Prelude.Text -> EntityDetectorConfigurationProperty
 mkEntityDetectorConfigurationProperty entityTypes

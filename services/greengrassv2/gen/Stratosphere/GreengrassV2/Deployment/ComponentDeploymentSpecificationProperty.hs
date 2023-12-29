@@ -13,6 +13,7 @@ data ComponentDeploymentSpecificationProperty
   = ComponentDeploymentSpecificationProperty {componentVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                               configurationUpdate :: (Prelude.Maybe ComponentConfigurationUpdateProperty),
                                               runWith :: (Prelude.Maybe ComponentRunWithProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentDeploymentSpecificationProperty ::
   ComponentDeploymentSpecificationProperty
 mkComponentDeploymentSpecificationProperty

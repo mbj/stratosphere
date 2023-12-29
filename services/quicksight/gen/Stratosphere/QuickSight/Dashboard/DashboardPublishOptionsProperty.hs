@@ -29,6 +29,7 @@ data DashboardPublishOptionsProperty
                                      visualAxisSortOption :: (Prelude.Maybe VisualAxisSortOptionProperty),
                                      visualMenuOption :: (Prelude.Maybe VisualMenuOptionProperty),
                                      visualPublishOptions :: (Prelude.Maybe DashboardVisualPublishOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboardPublishOptionsProperty ::
   DashboardPublishOptionsProperty
 mkDashboardPublishOptionsProperty

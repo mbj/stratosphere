@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BucketLevelProperty :: Prelude.Type
 instance ToResourceProperties BucketLevelProperty
+instance Prelude.Eq BucketLevelProperty
+instance Prelude.Show BucketLevelProperty
 instance JSON.ToJSON BucketLevelProperty

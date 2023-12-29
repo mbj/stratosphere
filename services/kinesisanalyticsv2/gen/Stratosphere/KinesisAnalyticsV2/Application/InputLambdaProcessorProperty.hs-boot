@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InputLambdaProcessorProperty :: Prelude.Type
 instance ToResourceProperties InputLambdaProcessorProperty
+instance Prelude.Eq InputLambdaProcessorProperty
+instance Prelude.Show InputLambdaProcessorProperty
 instance JSON.ToJSON InputLambdaProcessorProperty

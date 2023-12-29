@@ -11,6 +11,7 @@ data ResourceDefinition
   = ResourceDefinition {initialVersion :: (Prelude.Maybe ResourceDefinitionVersionProperty),
                         name :: (Value Prelude.Text),
                         tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDefinition :: Value Prelude.Text -> ResourceDefinition
 mkResourceDefinition name
   = ResourceDefinition

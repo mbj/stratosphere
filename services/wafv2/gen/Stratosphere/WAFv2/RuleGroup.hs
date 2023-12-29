@@ -22,6 +22,7 @@ data RuleGroup
                scope :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag]),
                visibilityConfig :: VisibilityConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroup ::
   Value Prelude.Integer
   -> Value Prelude.Text -> VisibilityConfigProperty -> RuleGroup

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PrimaryProperty
   = PrimaryProperty {healthCheck :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrimaryProperty :: Value Prelude.Text -> PrimaryProperty
 mkPrimaryProperty healthCheck
   = PrimaryProperty {healthCheck = healthCheck}

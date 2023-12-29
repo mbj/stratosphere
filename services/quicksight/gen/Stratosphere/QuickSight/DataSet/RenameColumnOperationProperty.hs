@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RenameColumnOperationProperty
   = RenameColumnOperationProperty {columnName :: (Value Prelude.Text),
                                    newColumnName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRenameColumnOperationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> RenameColumnOperationProperty

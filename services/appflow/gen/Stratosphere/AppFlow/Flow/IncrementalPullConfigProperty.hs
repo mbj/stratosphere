@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IncrementalPullConfigProperty
   = IncrementalPullConfigProperty {datetimeTypeFieldName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIncrementalPullConfigProperty :: IncrementalPullConfigProperty
 mkIncrementalPullConfigProperty
   = IncrementalPullConfigProperty

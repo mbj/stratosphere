@@ -14,6 +14,7 @@ data RedisSettingsProperty
                            serverName :: (Prelude.Maybe (Value Prelude.Text)),
                            sslCaCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
                            sslSecurityProtocol :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedisSettingsProperty :: RedisSettingsProperty
 mkRedisSettingsProperty
   = RedisSettingsProperty

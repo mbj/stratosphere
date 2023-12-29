@@ -12,6 +12,7 @@ data EmailConfigurationProperty
                                 from :: (Prelude.Maybe (Value Prelude.Text)),
                                 replyToEmailAddress :: (Prelude.Maybe (Value Prelude.Text)),
                                 sourceArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailConfigurationProperty :: EmailConfigurationProperty
 mkEmailConfigurationProperty
   = EmailConfigurationProperty

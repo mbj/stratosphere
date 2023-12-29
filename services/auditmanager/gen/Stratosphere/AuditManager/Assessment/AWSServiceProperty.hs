@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AWSServiceProperty
   = AWSServiceProperty {serviceName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAWSServiceProperty :: AWSServiceProperty
 mkAWSServiceProperty
   = AWSServiceProperty {serviceName = Prelude.Nothing}

@@ -23,6 +23,7 @@ data TopicFilterProperty
                          numericRangeFilter :: (Prelude.Maybe TopicNumericRangeFilterProperty),
                          operandFieldName :: (Value Prelude.Text),
                          relativeDateFilter :: (Prelude.Maybe TopicRelativeDateFilterProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicFilterProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TopicFilterProperty
 mkTopicFilterProperty filterName operandFieldName

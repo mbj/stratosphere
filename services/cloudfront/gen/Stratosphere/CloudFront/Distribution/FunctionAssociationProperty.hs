@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FunctionAssociationProperty
   = FunctionAssociationProperty {eventType :: (Prelude.Maybe (Value Prelude.Text)),
                                  functionARN :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionAssociationProperty :: FunctionAssociationProperty
 mkFunctionAssociationProperty
   = FunctionAssociationProperty

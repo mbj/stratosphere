@@ -15,6 +15,7 @@ data AccessPoint
                  policy :: (Prelude.Maybe JSON.Object),
                  publicAccessBlockConfiguration :: (Prelude.Maybe PublicAccessBlockConfigurationProperty),
                  vpcConfiguration :: (Prelude.Maybe VpcConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessPoint :: Value Prelude.Text -> AccessPoint
 mkAccessPoint bucket
   = AccessPoint

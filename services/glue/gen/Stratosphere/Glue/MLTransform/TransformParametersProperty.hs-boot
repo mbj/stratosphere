@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TransformParametersProperty :: Prelude.Type
 instance ToResourceProperties TransformParametersProperty
+instance Prelude.Eq TransformParametersProperty
+instance Prelude.Show TransformParametersProperty
 instance JSON.ToJSON TransformParametersProperty

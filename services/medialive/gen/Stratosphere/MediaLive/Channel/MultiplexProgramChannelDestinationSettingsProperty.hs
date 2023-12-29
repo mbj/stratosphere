@@ -10,6 +10,7 @@ import Stratosphere.Value
 data MultiplexProgramChannelDestinationSettingsProperty
   = MultiplexProgramChannelDestinationSettingsProperty {multiplexId :: (Prelude.Maybe (Value Prelude.Text)),
                                                         programName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMultiplexProgramChannelDestinationSettingsProperty ::
   MultiplexProgramChannelDestinationSettingsProperty
 mkMultiplexProgramChannelDestinationSettingsProperty

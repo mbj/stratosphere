@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HttpRetryPolicyProperty :: Prelude.Type
 instance ToResourceProperties HttpRetryPolicyProperty
+instance Prelude.Eq HttpRetryPolicyProperty
+instance Prelude.Show HttpRetryPolicyProperty
 instance JSON.ToJSON HttpRetryPolicyProperty

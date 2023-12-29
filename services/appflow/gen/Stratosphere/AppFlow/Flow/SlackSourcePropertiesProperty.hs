@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlackSourcePropertiesProperty
   = SlackSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlackSourcePropertiesProperty ::
   Value Prelude.Text -> SlackSourcePropertiesProperty
 mkSlackSourcePropertiesProperty object

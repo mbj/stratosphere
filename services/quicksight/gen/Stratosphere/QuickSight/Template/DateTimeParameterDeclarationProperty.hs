@@ -16,6 +16,7 @@ data DateTimeParameterDeclarationProperty
                                           name :: (Value Prelude.Text),
                                           timeGranularity :: (Prelude.Maybe (Value Prelude.Text)),
                                           valueWhenUnset :: (Prelude.Maybe DateTimeValueWhenUnsetConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimeParameterDeclarationProperty ::
   Value Prelude.Text -> DateTimeParameterDeclarationProperty
 mkDateTimeParameterDeclarationProperty name

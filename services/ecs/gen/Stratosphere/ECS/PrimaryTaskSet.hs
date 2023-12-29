@@ -10,6 +10,7 @@ data PrimaryTaskSet
   = PrimaryTaskSet {cluster :: (Value Prelude.Text),
                     service :: (Value Prelude.Text),
                     taskSetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrimaryTaskSet ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> PrimaryTaskSet

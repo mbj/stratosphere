@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data MixedInstancesPolicyProperty
   = MixedInstancesPolicyProperty {instancesDistribution :: (Prelude.Maybe InstancesDistributionProperty),
                                   launchTemplate :: LaunchTemplateProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMixedInstancesPolicyProperty ::
   LaunchTemplateProperty -> MixedInstancesPolicyProperty
 mkMixedInstancesPolicyProperty launchTemplate

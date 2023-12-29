@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DnsRecordProperty
   = DnsRecordProperty {tTL :: (Value Prelude.Double),
                        type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDnsRecordProperty ::
   Value Prelude.Double -> Value Prelude.Text -> DnsRecordProperty
 mkDnsRecordProperty tTL type'

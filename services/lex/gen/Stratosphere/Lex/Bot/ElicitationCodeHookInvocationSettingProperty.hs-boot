@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ElicitationCodeHookInvocationSettingProperty :: Prelude.Type
 instance ToResourceProperties ElicitationCodeHookInvocationSettingProperty
+instance Prelude.Eq ElicitationCodeHookInvocationSettingProperty
+instance Prelude.Show ElicitationCodeHookInvocationSettingProperty
 instance JSON.ToJSON ElicitationCodeHookInvocationSettingProperty

@@ -12,6 +12,7 @@ data DataStorageConfigProperty
   = DataStorageConfigProperty {contentType :: (Prelude.Maybe CaptureContentTypeHeaderProperty),
                                destination :: (Value Prelude.Text),
                                kmsKey :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataStorageConfigProperty ::
   Value Prelude.Text -> DataStorageConfigProperty
 mkDataStorageConfigProperty destination

@@ -10,6 +10,7 @@ data SqlServerParametersProperty
   = SqlServerParametersProperty {database :: (Value Prelude.Text),
                                  host :: (Value Prelude.Text),
                                  port :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSqlServerParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

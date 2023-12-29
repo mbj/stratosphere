@@ -16,6 +16,7 @@ data Repository
                 repositoryName :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag]),
                 upstreams :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRepository ::
   Value Prelude.Text -> Value Prelude.Text -> Repository
 mkRepository domainName repositoryName

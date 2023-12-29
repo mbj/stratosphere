@@ -9,6 +9,7 @@ import Stratosphere.Value
 data HeadersConfigProperty
   = HeadersConfigProperty {headerBehavior :: (Value Prelude.Text),
                            headers :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeadersConfigProperty ::
   Value Prelude.Text -> HeadersConfigProperty
 mkHeadersConfigProperty headerBehavior

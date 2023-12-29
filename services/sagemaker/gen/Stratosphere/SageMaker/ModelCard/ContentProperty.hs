@@ -20,6 +20,7 @@ data ContentProperty
                      modelOverview :: (Prelude.Maybe ModelOverviewProperty),
                      modelPackageDetails :: (Prelude.Maybe ModelPackageDetailsProperty),
                      trainingDetails :: (Prelude.Maybe TrainingDetailsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContentProperty :: ContentProperty
 mkContentProperty
   = ContentProperty

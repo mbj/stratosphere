@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WebsiteConfigurationProperty :: Prelude.Type
 instance ToResourceProperties WebsiteConfigurationProperty
+instance Prelude.Eq WebsiteConfigurationProperty
+instance Prelude.Show WebsiteConfigurationProperty
 instance JSON.ToJSON WebsiteConfigurationProperty

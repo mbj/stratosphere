@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data VdmOptionsProperty
   = VdmOptionsProperty {dashboardOptions :: (Prelude.Maybe DashboardOptionsProperty),
                         guardianOptions :: (Prelude.Maybe GuardianOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVdmOptionsProperty :: VdmOptionsProperty
 mkVdmOptionsProperty
   = VdmOptionsProperty

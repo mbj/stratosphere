@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.FilledMapConditionalForm
 import Stratosphere.ResourceProperties
 data FilledMapConditionalFormattingProperty
   = FilledMapConditionalFormattingProperty {conditionalFormattingOptions :: [FilledMapConditionalFormattingOptionProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilledMapConditionalFormattingProperty ::
   [FilledMapConditionalFormattingOptionProperty]
   -> FilledMapConditionalFormattingProperty

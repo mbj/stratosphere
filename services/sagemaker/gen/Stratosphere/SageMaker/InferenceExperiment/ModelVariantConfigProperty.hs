@@ -12,6 +12,7 @@ data ModelVariantConfigProperty
   = ModelVariantConfigProperty {infrastructureConfig :: ModelInfrastructureConfigProperty,
                                 modelName :: (Value Prelude.Text),
                                 variantName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelVariantConfigProperty ::
   ModelInfrastructureConfigProperty
   -> Value Prelude.Text

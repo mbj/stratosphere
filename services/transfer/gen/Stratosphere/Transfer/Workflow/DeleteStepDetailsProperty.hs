@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DeleteStepDetailsProperty
   = DeleteStepDetailsProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                                sourceFileLocation :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeleteStepDetailsProperty :: DeleteStepDetailsProperty
 mkDeleteStepDetailsProperty
   = DeleteStepDetailsProperty

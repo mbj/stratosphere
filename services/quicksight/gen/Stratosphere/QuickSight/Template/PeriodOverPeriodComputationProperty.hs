@@ -14,6 +14,7 @@ data PeriodOverPeriodComputationProperty
                                          name :: (Prelude.Maybe (Value Prelude.Text)),
                                          time :: DimensionFieldProperty,
                                          value :: (Prelude.Maybe MeasureFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPeriodOverPeriodComputationProperty ::
   Value Prelude.Text
   -> DimensionFieldProperty -> PeriodOverPeriodComputationProperty

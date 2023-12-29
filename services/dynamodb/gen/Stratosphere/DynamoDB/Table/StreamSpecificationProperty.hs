@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StreamSpecificationProperty
   = StreamSpecificationProperty {streamViewType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamSpecificationProperty ::
   Value Prelude.Text -> StreamSpecificationProperty
 mkStreamSpecificationProperty streamViewType

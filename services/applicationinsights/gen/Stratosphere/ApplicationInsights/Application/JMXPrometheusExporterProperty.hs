@@ -10,6 +10,7 @@ data JMXPrometheusExporterProperty
   = JMXPrometheusExporterProperty {hostPort :: (Prelude.Maybe (Value Prelude.Text)),
                                    jMXURL :: (Prelude.Maybe (Value Prelude.Text)),
                                    prometheusPort :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJMXPrometheusExporterProperty :: JMXPrometheusExporterProperty
 mkJMXPrometheusExporterProperty
   = JMXPrometheusExporterProperty

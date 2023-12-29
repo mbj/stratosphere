@@ -20,6 +20,7 @@ data FilterControlProperty
                            slider :: (Prelude.Maybe FilterSliderControlProperty),
                            textArea :: (Prelude.Maybe FilterTextAreaControlProperty),
                            textField :: (Prelude.Maybe FilterTextFieldControlProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterControlProperty :: FilterControlProperty
 mkFilterControlProperty
   = FilterControlProperty

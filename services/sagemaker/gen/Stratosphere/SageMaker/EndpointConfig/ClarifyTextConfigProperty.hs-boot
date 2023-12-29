@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ClarifyTextConfigProperty :: Prelude.Type
 instance ToResourceProperties ClarifyTextConfigProperty
+instance Prelude.Eq ClarifyTextConfigProperty
+instance Prelude.Show ClarifyTextConfigProperty
 instance JSON.ToJSON ClarifyTextConfigProperty

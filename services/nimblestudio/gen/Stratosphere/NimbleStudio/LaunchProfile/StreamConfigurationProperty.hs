@@ -21,6 +21,7 @@ data StreamConfigurationProperty
                                  sessionStorage :: (Prelude.Maybe StreamConfigurationSessionStorageProperty),
                                  streamingImageIds :: (ValueList Prelude.Text),
                                  volumeConfiguration :: (Prelude.Maybe VolumeConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamConfigurationProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text

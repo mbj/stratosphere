@@ -30,6 +30,7 @@ data TargetGroup
                  targets :: (Prelude.Maybe [TargetDescriptionProperty]),
                  unhealthyThresholdCount :: (Prelude.Maybe (Value Prelude.Integer)),
                  vpcId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroup :: TargetGroup
 mkTargetGroup
   = TargetGroup

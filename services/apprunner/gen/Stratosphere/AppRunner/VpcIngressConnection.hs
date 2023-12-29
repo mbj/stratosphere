@@ -13,6 +13,7 @@ data VpcIngressConnection
                           serviceArn :: (Value Prelude.Text),
                           tags :: (Prelude.Maybe [Tag]),
                           vpcIngressConnectionName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcIngressConnection ::
   IngressVpcConfigurationProperty
   -> Value Prelude.Text -> VpcIngressConnection

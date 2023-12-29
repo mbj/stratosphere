@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Comprehend.Flywheel.EntityTypesListItemProper
 import Stratosphere.ResourceProperties
 data EntityRecognitionConfigProperty
   = EntityRecognitionConfigProperty {entityTypes :: (Prelude.Maybe [EntityTypesListItemProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntityRecognitionConfigProperty ::
   EntityRecognitionConfigProperty
 mkEntityRecognitionConfigProperty

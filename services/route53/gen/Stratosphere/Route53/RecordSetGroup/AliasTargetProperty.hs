@@ -10,6 +10,7 @@ data AliasTargetProperty
   = AliasTargetProperty {dNSName :: (Value Prelude.Text),
                          evaluateTargetHealth :: (Prelude.Maybe (Value Prelude.Bool)),
                          hostedZoneId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAliasTargetProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AliasTargetProperty
 mkAliasTargetProperty dNSName hostedZoneId

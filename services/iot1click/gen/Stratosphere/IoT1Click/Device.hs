@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Device
   = Device {deviceId :: (Value Prelude.Text),
             enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDevice :: Value Prelude.Text -> Value Prelude.Bool -> Device
 mkDevice deviceId enabled
   = Device {deviceId = deviceId, enabled = enabled}

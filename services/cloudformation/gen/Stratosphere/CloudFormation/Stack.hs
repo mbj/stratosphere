@@ -13,6 +13,7 @@ data Stack
            tags :: (Prelude.Maybe [Tag]),
            templateURL :: (Value Prelude.Text),
            timeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStack :: Value Prelude.Text -> Stack
 mkStack templateURL
   = Stack

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data NielsenConfigurationProperty
   = NielsenConfigurationProperty {distributorId :: (Prelude.Maybe (Value Prelude.Text)),
                                   nielsenPcmToId3Tagging :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNielsenConfigurationProperty :: NielsenConfigurationProperty
 mkNielsenConfigurationProperty
   = NielsenConfigurationProperty

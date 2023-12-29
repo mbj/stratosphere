@@ -9,6 +9,7 @@ import Stratosphere.Value
 data IntegerRangeProperty
   = IntegerRangeProperty {maximum :: (Prelude.Maybe (Value Prelude.Integer)),
                           minimum :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegerRangeProperty :: IntegerRangeProperty
 mkIntegerRangeProperty
   = IntegerRangeProperty

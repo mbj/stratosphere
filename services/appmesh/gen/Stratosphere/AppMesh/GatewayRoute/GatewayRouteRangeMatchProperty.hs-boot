@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GatewayRouteRangeMatchProperty :: Prelude.Type
 instance ToResourceProperties GatewayRouteRangeMatchProperty
+instance Prelude.Eq GatewayRouteRangeMatchProperty
+instance Prelude.Show GatewayRouteRangeMatchProperty
 instance JSON.ToJSON GatewayRouteRangeMatchProperty

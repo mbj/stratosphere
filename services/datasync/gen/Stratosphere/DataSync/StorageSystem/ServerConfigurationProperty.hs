@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ServerConfigurationProperty
   = ServerConfigurationProperty {serverHostname :: (Value Prelude.Text),
                                  serverPort :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerConfigurationProperty ::
   Value Prelude.Text -> ServerConfigurationProperty
 mkServerConfigurationProperty serverHostname

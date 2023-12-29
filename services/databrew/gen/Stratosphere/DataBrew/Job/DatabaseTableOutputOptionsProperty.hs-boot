@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DatabaseTableOutputOptionsProperty :: Prelude.Type
 instance ToResourceProperties DatabaseTableOutputOptionsProperty
+instance Prelude.Eq DatabaseTableOutputOptionsProperty
+instance Prelude.Show DatabaseTableOutputOptionsProperty
 instance JSON.ToJSON DatabaseTableOutputOptionsProperty

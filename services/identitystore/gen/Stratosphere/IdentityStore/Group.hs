@@ -10,6 +10,7 @@ data Group
   = Group {description :: (Prelude.Maybe (Value Prelude.Text)),
            displayName :: (Value Prelude.Text),
            identityStoreId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGroup :: Value Prelude.Text -> Value Prelude.Text -> Group
 mkGroup displayName identityStoreId
   = Group

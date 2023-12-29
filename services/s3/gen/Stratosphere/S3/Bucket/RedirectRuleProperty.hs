@@ -12,6 +12,7 @@ data RedirectRuleProperty
                           protocol :: (Prelude.Maybe (Value Prelude.Text)),
                           replaceKeyPrefixWith :: (Prelude.Maybe (Value Prelude.Text)),
                           replaceKeyWith :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRedirectRuleProperty :: RedirectRuleProperty
 mkRedirectRuleProperty
   = RedirectRuleProperty

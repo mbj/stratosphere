@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BillingGroupPropertiesProperty :: Prelude.Type
 instance ToResourceProperties BillingGroupPropertiesProperty
+instance Prelude.Eq BillingGroupPropertiesProperty
+instance Prelude.Show BillingGroupPropertiesProperty
 instance JSON.ToJSON BillingGroupPropertiesProperty

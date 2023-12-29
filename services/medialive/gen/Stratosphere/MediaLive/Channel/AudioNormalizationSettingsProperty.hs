@@ -11,6 +11,7 @@ data AudioNormalizationSettingsProperty
   = AudioNormalizationSettingsProperty {algorithm :: (Prelude.Maybe (Value Prelude.Text)),
                                         algorithmControl :: (Prelude.Maybe (Value Prelude.Text)),
                                         targetLkfs :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioNormalizationSettingsProperty ::
   AudioNormalizationSettingsProperty
 mkAudioNormalizationSettingsProperty

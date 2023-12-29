@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Scte27DestinationSettingsProperty :: Prelude.Type
 instance ToResourceProperties Scte27DestinationSettingsProperty
+instance Prelude.Eq Scte27DestinationSettingsProperty
+instance Prelude.Show Scte27DestinationSettingsProperty
 instance JSON.ToJSON Scte27DestinationSettingsProperty

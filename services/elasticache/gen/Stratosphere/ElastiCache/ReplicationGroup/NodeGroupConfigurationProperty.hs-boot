@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NodeGroupConfigurationProperty :: Prelude.Type
 instance ToResourceProperties NodeGroupConfigurationProperty
+instance Prelude.Eq NodeGroupConfigurationProperty
+instance Prelude.Show NodeGroupConfigurationProperty
 instance JSON.ToJSON NodeGroupConfigurationProperty

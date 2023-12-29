@@ -17,6 +17,7 @@ data Authorizer
                 providerARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
                 restApiId :: (Value Prelude.Text),
                 type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthorizer ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Authorizer

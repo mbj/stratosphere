@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExcludedRuleProperty
   = ExcludedRuleProperty {name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExcludedRuleProperty ::
   Value Prelude.Text -> ExcludedRuleProperty
 mkExcludedRuleProperty name = ExcludedRuleProperty {name = name}

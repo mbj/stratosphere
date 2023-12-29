@@ -11,6 +11,7 @@ import Stratosphere.Value
 data CascadingControlSourceProperty
   = CascadingControlSourceProperty {columnToMatch :: (Prelude.Maybe ColumnIdentifierProperty),
                                     sourceSheetControlId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCascadingControlSourceProperty :: CascadingControlSourceProperty
 mkCascadingControlSourceProperty
   = CascadingControlSourceProperty

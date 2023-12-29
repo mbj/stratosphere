@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AutoTerminationPolicyProperty :: Prelude.Type
 instance ToResourceProperties AutoTerminationPolicyProperty
+instance Prelude.Eq AutoTerminationPolicyProperty
+instance Prelude.Show AutoTerminationPolicyProperty
 instance JSON.ToJSON AutoTerminationPolicyProperty

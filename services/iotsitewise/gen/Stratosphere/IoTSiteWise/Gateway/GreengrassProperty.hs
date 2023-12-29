@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GreengrassProperty
   = GreengrassProperty {groupArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGreengrassProperty :: Value Prelude.Text -> GreengrassProperty
 mkGreengrassProperty groupArn
   = GreengrassProperty {groupArn = groupArn}

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data KinesisFirehoseDestinationDetailsProperty :: Prelude.Type
 instance ToResourceProperties KinesisFirehoseDestinationDetailsProperty
+instance Prelude.Eq KinesisFirehoseDestinationDetailsProperty
+instance Prelude.Show KinesisFirehoseDestinationDetailsProperty
 instance JSON.ToJSON KinesisFirehoseDestinationDetailsProperty

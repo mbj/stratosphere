@@ -20,6 +20,7 @@ data FeatureGroup
                   recordIdentifierFeatureName :: (Value Prelude.Text),
                   roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFeatureGroup ::
   Value Prelude.Text
   -> [FeatureDefinitionProperty]

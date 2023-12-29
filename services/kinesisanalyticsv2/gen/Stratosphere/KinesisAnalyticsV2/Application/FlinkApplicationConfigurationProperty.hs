@@ -13,6 +13,7 @@ data FlinkApplicationConfigurationProperty
   = FlinkApplicationConfigurationProperty {checkpointConfiguration :: (Prelude.Maybe CheckpointConfigurationProperty),
                                            monitoringConfiguration :: (Prelude.Maybe MonitoringConfigurationProperty),
                                            parallelismConfiguration :: (Prelude.Maybe ParallelismConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlinkApplicationConfigurationProperty ::
   FlinkApplicationConfigurationProperty
 mkFlinkApplicationConfigurationProperty

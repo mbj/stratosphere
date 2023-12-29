@@ -13,6 +13,7 @@ data PlaceIndex
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 indexName :: (Value Prelude.Text),
                 pricingPlan :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPlaceIndex ::
   Value Prelude.Text -> Value Prelude.Text -> PlaceIndex
 mkPlaceIndex dataSource indexName

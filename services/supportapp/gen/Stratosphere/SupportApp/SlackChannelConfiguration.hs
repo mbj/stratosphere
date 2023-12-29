@@ -15,6 +15,7 @@ data SlackChannelConfiguration
                                notifyOnCreateOrReopenCase :: (Prelude.Maybe (Value Prelude.Bool)),
                                notifyOnResolveCase :: (Prelude.Maybe (Value Prelude.Bool)),
                                teamId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlackChannelConfiguration ::
   Value Prelude.Text
   -> Value Prelude.Text

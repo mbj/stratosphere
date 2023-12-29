@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RegistryProperty
   = RegistryProperty {arn :: (Prelude.Maybe (Value Prelude.Text)),
                       name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegistryProperty :: RegistryProperty
 mkRegistryProperty
   = RegistryProperty {arn = Prelude.Nothing, name = Prelude.Nothing}

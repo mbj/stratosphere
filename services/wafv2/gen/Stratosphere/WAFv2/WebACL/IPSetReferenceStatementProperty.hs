@@ -11,6 +11,7 @@ import Stratosphere.Value
 data IPSetReferenceStatementProperty
   = IPSetReferenceStatementProperty {arn :: (Value Prelude.Text),
                                      iPSetForwardedIPConfig :: (Prelude.Maybe IPSetForwardedIPConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPSetReferenceStatementProperty ::
   Value Prelude.Text -> IPSetReferenceStatementProperty
 mkIPSetReferenceStatementProperty arn

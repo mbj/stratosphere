@@ -13,6 +13,7 @@ data EbsBlockDeviceProperty
                             snapshotId :: (Prelude.Maybe (Value Prelude.Text)),
                             volumeSize :: (Prelude.Maybe (Value Prelude.Integer)),
                             volumeType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEbsBlockDeviceProperty :: EbsBlockDeviceProperty
 mkEbsBlockDeviceProperty
   = EbsBlockDeviceProperty

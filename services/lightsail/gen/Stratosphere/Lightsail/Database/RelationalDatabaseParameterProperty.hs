@@ -16,6 +16,7 @@ data RelationalDatabaseParameterProperty
                                          isModifiable :: (Prelude.Maybe (Value Prelude.Bool)),
                                          parameterName :: (Prelude.Maybe (Value Prelude.Text)),
                                          parameterValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRelationalDatabaseParameterProperty ::
   RelationalDatabaseParameterProperty
 mkRelationalDatabaseParameterProperty

@@ -10,6 +10,7 @@ data ResourcePermissionProperty
   = ResourcePermissionProperty {actions :: (ValueList Prelude.Text),
                                 principal :: (Value Prelude.Text),
                                 resource :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePermissionProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> ResourcePermissionProperty

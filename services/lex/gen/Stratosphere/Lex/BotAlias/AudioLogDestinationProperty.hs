@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Lex.BotAlias.S3BucketLogDestinationProperty a
 import Stratosphere.ResourceProperties
 data AudioLogDestinationProperty
   = AudioLogDestinationProperty {s3Bucket :: S3BucketLogDestinationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioLogDestinationProperty ::
   S3BucketLogDestinationProperty -> AudioLogDestinationProperty
 mkAudioLogDestinationProperty s3Bucket

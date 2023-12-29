@@ -13,6 +13,7 @@ data BlueGreenDeploymentConfigurationProperty
   = BlueGreenDeploymentConfigurationProperty {deploymentReadyOption :: (Prelude.Maybe DeploymentReadyOptionProperty),
                                               greenFleetProvisioningOption :: (Prelude.Maybe GreenFleetProvisioningOptionProperty),
                                               terminateBlueInstancesOnDeploymentSuccess :: (Prelude.Maybe BlueInstanceTerminationOptionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBlueGreenDeploymentConfigurationProperty ::
   BlueGreenDeploymentConfigurationProperty
 mkBlueGreenDeploymentConfigurationProperty

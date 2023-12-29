@@ -16,6 +16,7 @@ data AuthenticateCognitoConfigProperty
                                        userPoolArn :: (Value Prelude.Text),
                                        userPoolClientId :: (Value Prelude.Text),
                                        userPoolDomain :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthenticateCognitoConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

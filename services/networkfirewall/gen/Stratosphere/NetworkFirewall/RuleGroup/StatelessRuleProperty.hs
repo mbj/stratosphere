@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StatelessRuleProperty
   = StatelessRuleProperty {priority :: (Value Prelude.Integer),
                            ruleDefinition :: RuleDefinitionProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatelessRuleProperty ::
   Value Prelude.Integer
   -> RuleDefinitionProperty -> StatelessRuleProperty

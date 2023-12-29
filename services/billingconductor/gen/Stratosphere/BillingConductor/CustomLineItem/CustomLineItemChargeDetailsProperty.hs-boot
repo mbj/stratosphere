@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomLineItemChargeDetailsProperty :: Prelude.Type
 instance ToResourceProperties CustomLineItemChargeDetailsProperty
+instance Prelude.Eq CustomLineItemChargeDetailsProperty
+instance Prelude.Show CustomLineItemChargeDetailsProperty
 instance JSON.ToJSON CustomLineItemChargeDetailsProperty

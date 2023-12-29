@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceEnvironmentProperty
   = InferenceEnvironmentProperty {containerImage :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceEnvironmentProperty :: InferenceEnvironmentProperty
 mkInferenceEnvironmentProperty
   = InferenceEnvironmentProperty {containerImage = Prelude.Nothing}

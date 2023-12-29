@@ -15,6 +15,7 @@ data VideoCodecSettingsProperty
                                 h264Settings :: (Prelude.Maybe H264SettingsProperty),
                                 h265Settings :: (Prelude.Maybe H265SettingsProperty),
                                 mpeg2Settings :: (Prelude.Maybe Mpeg2SettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVideoCodecSettingsProperty :: VideoCodecSettingsProperty
 mkVideoCodecSettingsProperty
   = VideoCodecSettingsProperty

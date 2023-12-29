@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BatchScramSecret
   = BatchScramSecret {clusterArn :: (Value Prelude.Text),
                       secretArnList :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBatchScramSecret :: Value Prelude.Text -> BatchScramSecret
 mkBatchScramSecret clusterArn
   = BatchScramSecret

@@ -11,6 +11,7 @@ data MetadataPropertiesProperty
                                 generatedBy :: (Prelude.Maybe (Value Prelude.Text)),
                                 projectId :: (Prelude.Maybe (Value Prelude.Text)),
                                 repository :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetadataPropertiesProperty :: MetadataPropertiesProperty
 mkMetadataPropertiesProperty
   = MetadataPropertiesProperty

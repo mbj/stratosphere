@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CidrRoutingConfigProperty
   = CidrRoutingConfigProperty {collectionId :: (Value Prelude.Text),
                                locationName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCidrRoutingConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> CidrRoutingConfigProperty

@@ -10,6 +10,7 @@ data KinesisActionProperty
   = KinesisActionProperty {partitionKey :: (Prelude.Maybe (Value Prelude.Text)),
                            roleArn :: (Value Prelude.Text),
                            streamName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisActionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> KinesisActionProperty
 mkKinesisActionProperty roleArn streamName

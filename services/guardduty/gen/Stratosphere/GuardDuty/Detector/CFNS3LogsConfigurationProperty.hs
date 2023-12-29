@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CFNS3LogsConfigurationProperty
   = CFNS3LogsConfigurationProperty {enable :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNS3LogsConfigurationProperty :: CFNS3LogsConfigurationProperty
 mkCFNS3LogsConfigurationProperty
   = CFNS3LogsConfigurationProperty {enable = Prelude.Nothing}

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data PullThroughCacheRule
   = PullThroughCacheRule {ecrRepositoryPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                           upstreamRegistryUrl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPullThroughCacheRule :: PullThroughCacheRule
 mkPullThroughCacheRule
   = PullThroughCacheRule

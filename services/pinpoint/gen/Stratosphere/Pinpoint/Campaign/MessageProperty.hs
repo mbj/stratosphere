@@ -19,6 +19,7 @@ data MessageProperty
                      timeToLive :: (Prelude.Maybe (Value Prelude.Integer)),
                      title :: (Prelude.Maybe (Value Prelude.Text)),
                      url :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMessageProperty :: MessageProperty
 mkMessageProperty
   = MessageProperty

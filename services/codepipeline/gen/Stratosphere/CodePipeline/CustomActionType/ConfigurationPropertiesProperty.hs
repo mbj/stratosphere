@@ -15,6 +15,7 @@ data ConfigurationPropertiesProperty
                                      required :: (Value Prelude.Bool),
                                      secret :: (Value Prelude.Bool),
                                      type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationPropertiesProperty ::
   Value Prelude.Bool
   -> Value Prelude.Text

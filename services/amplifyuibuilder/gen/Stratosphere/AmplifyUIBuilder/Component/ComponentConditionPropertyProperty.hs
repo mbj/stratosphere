@@ -16,6 +16,7 @@ data ComponentConditionPropertyProperty
                                         operator :: (Prelude.Maybe (Value Prelude.Text)),
                                         property :: (Prelude.Maybe (Value Prelude.Text)),
                                         then' :: (Prelude.Maybe ComponentPropertyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentConditionPropertyProperty ::
   ComponentConditionPropertyProperty
 mkComponentConditionPropertyProperty

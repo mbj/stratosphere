@@ -14,6 +14,7 @@ data ServiceNetworkServiceAssociation
                                       serviceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                                       serviceNetworkIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNetworkServiceAssociation ::
   ServiceNetworkServiceAssociation
 mkServiceNetworkServiceAssociation

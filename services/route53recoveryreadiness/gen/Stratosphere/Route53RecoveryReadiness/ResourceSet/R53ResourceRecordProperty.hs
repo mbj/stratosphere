@@ -9,6 +9,7 @@ import Stratosphere.Value
 data R53ResourceRecordProperty
   = R53ResourceRecordProperty {domainName :: (Prelude.Maybe (Value Prelude.Text)),
                                recordSetId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkR53ResourceRecordProperty :: R53ResourceRecordProperty
 mkR53ResourceRecordProperty
   = R53ResourceRecordProperty

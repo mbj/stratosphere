@@ -17,6 +17,7 @@ data LoadBalancer
                   sessionStickinessLBCookieDurationSeconds :: (Prelude.Maybe (Value Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag]),
                   tlsPolicyName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancer ::
   Value Prelude.Integer -> Value Prelude.Text -> LoadBalancer
 mkLoadBalancer instancePort loadBalancerName

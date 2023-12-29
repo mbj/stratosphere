@@ -17,6 +17,7 @@ data ProvisioningTemplate
                           templateBody :: (Value Prelude.Text),
                           templateName :: (Prelude.Maybe (Value Prelude.Text)),
                           templateType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisioningTemplate ::
   Value Prelude.Text -> Value Prelude.Text -> ProvisioningTemplate
 mkProvisioningTemplate provisioningRoleArn templateBody

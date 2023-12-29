@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StackFleetAssociation
   = StackFleetAssociation {fleetName :: (Value Prelude.Text),
                            stackName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStackFleetAssociation ::
   Value Prelude.Text -> Value Prelude.Text -> StackFleetAssociation
 mkStackFleetAssociation fleetName stackName

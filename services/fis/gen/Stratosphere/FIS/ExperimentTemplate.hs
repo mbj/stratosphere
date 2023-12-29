@@ -18,6 +18,7 @@ data ExperimentTemplate
                         stopConditions :: [ExperimentTemplateStopConditionProperty],
                         tags :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
                         targets :: (Prelude.Map Prelude.Text ExperimentTemplateTargetProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplate ::
   Value Prelude.Text
   -> Value Prelude.Text

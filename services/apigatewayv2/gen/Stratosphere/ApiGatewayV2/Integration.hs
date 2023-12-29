@@ -26,6 +26,7 @@ data Integration
                  templateSelectionExpression :: (Prelude.Maybe (Value Prelude.Text)),
                  timeoutInMillis :: (Prelude.Maybe (Value Prelude.Integer)),
                  tlsConfig :: (Prelude.Maybe TlsConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIntegration ::
   Value Prelude.Text -> Value Prelude.Text -> Integration
 mkIntegration apiId integrationType

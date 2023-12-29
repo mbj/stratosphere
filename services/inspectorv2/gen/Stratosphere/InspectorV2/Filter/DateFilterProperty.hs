@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DateFilterProperty
   = DateFilterProperty {endInclusive :: (Prelude.Maybe (Value Prelude.Integer)),
                         startInclusive :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateFilterProperty :: DateFilterProperty
 mkDateFilterProperty
   = DateFilterProperty

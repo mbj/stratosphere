@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SpendProperty
   = SpendProperty {amount :: (Value Prelude.Double),
                    unit :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpendProperty ::
   Value Prelude.Double -> Value Prelude.Text -> SpendProperty
 mkSpendProperty amount unit

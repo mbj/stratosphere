@@ -20,6 +20,7 @@ data Route
            transitGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
            vpcEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
            vpcPeeringConnectionId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoute :: Value Prelude.Text -> Route
 mkRoute routeTableId
   = Route

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ThemeValueProperty
   = ThemeValueProperty {children :: (Prelude.Maybe [ThemeValuesProperty]),
                         value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThemeValueProperty :: ThemeValueProperty
 mkThemeValueProperty
   = ThemeValueProperty

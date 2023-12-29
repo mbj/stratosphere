@@ -14,6 +14,7 @@ data TransitGatewayPeeringAttachment
                                      peerTransitGatewayId :: (Value Prelude.Text),
                                      tags :: (Prelude.Maybe [Tag]),
                                      transitGatewayId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayPeeringAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text

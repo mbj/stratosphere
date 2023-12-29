@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AnchorDateConfigurationProperty
   = AnchorDateConfigurationProperty {anchorOption :: (Prelude.Maybe (Value Prelude.Text)),
                                      parameterName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnchorDateConfigurationProperty ::
   AnchorDateConfigurationProperty
 mkAnchorDateConfigurationProperty

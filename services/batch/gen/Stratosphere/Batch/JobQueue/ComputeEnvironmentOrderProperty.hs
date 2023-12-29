@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ComputeEnvironmentOrderProperty
   = ComputeEnvironmentOrderProperty {computeEnvironment :: (Value Prelude.Text),
                                      order :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeEnvironmentOrderProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> ComputeEnvironmentOrderProperty

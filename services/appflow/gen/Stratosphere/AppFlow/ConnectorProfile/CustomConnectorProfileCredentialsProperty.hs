@@ -17,6 +17,7 @@ data CustomConnectorProfileCredentialsProperty
                                                basic :: (Prelude.Maybe BasicAuthCredentialsProperty),
                                                custom :: (Prelude.Maybe CustomAuthCredentialsProperty),
                                                oauth2 :: (Prelude.Maybe OAuth2CredentialsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomConnectorProfileCredentialsProperty ::
   Value Prelude.Text -> CustomConnectorProfileCredentialsProperty
 mkCustomConnectorProfileCredentialsProperty authenticationType

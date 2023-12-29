@@ -12,6 +12,7 @@ data RoleMappingProperty
                          identityProvider :: (Prelude.Maybe (Value Prelude.Text)),
                          rulesConfiguration :: (Prelude.Maybe RulesConfigurationTypeProperty),
                          type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoleMappingProperty :: Value Prelude.Text -> RoleMappingProperty
 mkRoleMappingProperty type'
   = RoleMappingProperty

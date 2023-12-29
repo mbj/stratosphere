@@ -12,6 +12,7 @@ data SecurityConfig
                     name :: (Prelude.Maybe (Value Prelude.Text)),
                     samlOptions :: (Prelude.Maybe SamlConfigOptionsProperty),
                     type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityConfig :: SecurityConfig
 mkSecurityConfig
   = SecurityConfig

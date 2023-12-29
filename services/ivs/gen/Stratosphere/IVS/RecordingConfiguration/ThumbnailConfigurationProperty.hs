@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ThumbnailConfigurationProperty
   = ThumbnailConfigurationProperty {recordingMode :: (Value Prelude.Text),
                                     targetIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThumbnailConfigurationProperty ::
   Value Prelude.Text -> ThumbnailConfigurationProperty
 mkThumbnailConfigurationProperty recordingMode

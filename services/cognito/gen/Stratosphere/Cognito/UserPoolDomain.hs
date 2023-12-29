@@ -11,6 +11,7 @@ data UserPoolDomain
   = UserPoolDomain {customDomainConfig :: (Prelude.Maybe CustomDomainConfigTypeProperty),
                     domain :: (Value Prelude.Text),
                     userPoolId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolDomain ::
   Value Prelude.Text -> Value Prelude.Text -> UserPoolDomain
 mkUserPoolDomain domain userPoolId

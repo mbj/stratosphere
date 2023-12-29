@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VPNConnectionRoute
   = VPNConnectionRoute {destinationCidrBlock :: (Value Prelude.Text),
                         vpnConnectionId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPNConnectionRoute ::
   Value Prelude.Text -> Value Prelude.Text -> VPNConnectionRoute
 mkVPNConnectionRoute destinationCidrBlock vpnConnectionId

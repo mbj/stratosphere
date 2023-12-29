@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AudioSilenceFailoverSettingsProperty :: Prelude.Type
 instance ToResourceProperties AudioSilenceFailoverSettingsProperty
+instance Prelude.Eq AudioSilenceFailoverSettingsProperty
+instance Prelude.Show AudioSilenceFailoverSettingsProperty
 instance JSON.ToJSON AudioSilenceFailoverSettingsProperty

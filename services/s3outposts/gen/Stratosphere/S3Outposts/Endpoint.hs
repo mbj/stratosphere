@@ -12,6 +12,7 @@ data Endpoint
               outpostId :: (Value Prelude.Text),
               securityGroupId :: (Value Prelude.Text),
               subnetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpoint ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Endpoint

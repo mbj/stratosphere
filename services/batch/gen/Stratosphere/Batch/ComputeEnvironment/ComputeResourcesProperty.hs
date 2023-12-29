@@ -28,6 +28,7 @@ data ComputeResourcesProperty
                               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                               type' :: (Value Prelude.Text),
                               updateToLatestImageVersion :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeResourcesProperty ::
   Value Prelude.Integer
   -> ValueList Prelude.Text

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TagsProperty
   = TagsProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
                   value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTagsProperty :: TagsProperty
 mkTagsProperty
   = TagsProperty {key = Prelude.Nothing, value = Prelude.Nothing}

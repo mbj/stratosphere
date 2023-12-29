@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AdvancedEventSelectorProperty
   = AdvancedEventSelectorProperty {fieldSelectors :: [AdvancedFieldSelectorProperty],
                                    name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedEventSelectorProperty ::
   [AdvancedFieldSelectorProperty] -> AdvancedEventSelectorProperty
 mkAdvancedEventSelectorProperty fieldSelectors

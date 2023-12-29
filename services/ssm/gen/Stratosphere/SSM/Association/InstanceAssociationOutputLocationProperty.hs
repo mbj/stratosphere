@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SSM.Association.S3OutputLocationProperty as E
 import Stratosphere.ResourceProperties
 data InstanceAssociationOutputLocationProperty
   = InstanceAssociationOutputLocationProperty {s3Location :: (Prelude.Maybe S3OutputLocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceAssociationOutputLocationProperty ::
   InstanceAssociationOutputLocationProperty
 mkInstanceAssociationOutputLocationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VCpuCountRequestProperty :: Prelude.Type
 instance ToResourceProperties VCpuCountRequestProperty
+instance Prelude.Eq VCpuCountRequestProperty
+instance Prelude.Show VCpuCountRequestProperty
 instance JSON.ToJSON VCpuCountRequestProperty

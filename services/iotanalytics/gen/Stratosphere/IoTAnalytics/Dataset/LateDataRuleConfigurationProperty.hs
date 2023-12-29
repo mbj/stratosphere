@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.IoTAnalytics.Dataset.DeltaTimeSessionWindowCo
 import Stratosphere.ResourceProperties
 data LateDataRuleConfigurationProperty
   = LateDataRuleConfigurationProperty {deltaTimeSessionWindowConfiguration :: (Prelude.Maybe DeltaTimeSessionWindowConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLateDataRuleConfigurationProperty ::
   LateDataRuleConfigurationProperty
 mkLateDataRuleConfigurationProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ErrorProperty
   = ErrorProperty {code :: (Prelude.Maybe (Value Prelude.Text)),
                    message :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkErrorProperty :: ErrorProperty
 mkErrorProperty
   = ErrorProperty {code = Prelude.Nothing, message = Prelude.Nothing}

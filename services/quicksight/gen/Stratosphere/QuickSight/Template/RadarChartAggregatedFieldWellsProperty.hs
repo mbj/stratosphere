@@ -12,6 +12,7 @@ data RadarChartAggregatedFieldWellsProperty
   = RadarChartAggregatedFieldWellsProperty {category :: (Prelude.Maybe [DimensionFieldProperty]),
                                             color :: (Prelude.Maybe [DimensionFieldProperty]),
                                             values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRadarChartAggregatedFieldWellsProperty ::
   RadarChartAggregatedFieldWellsProperty
 mkRadarChartAggregatedFieldWellsProperty

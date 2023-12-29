@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BranchProperty
   = BranchProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
                     fullyQualifiedName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBranchProperty :: Value Prelude.Text -> BranchProperty
 mkBranchProperty fullyQualifiedName
   = BranchProperty

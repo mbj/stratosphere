@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SnowflakeConnectorProfileCredentialsProperty :: Prelude.Type
 instance ToResourceProperties SnowflakeConnectorProfileCredentialsProperty
+instance Prelude.Eq SnowflakeConnectorProfileCredentialsProperty
+instance Prelude.Show SnowflakeConnectorProfileCredentialsProperty
 instance JSON.ToJSON SnowflakeConnectorProfileCredentialsProperty

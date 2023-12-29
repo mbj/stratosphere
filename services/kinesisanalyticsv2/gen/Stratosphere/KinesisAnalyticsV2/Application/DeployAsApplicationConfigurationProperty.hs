@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.S3ContentBaseL
 import Stratosphere.ResourceProperties
 data DeployAsApplicationConfigurationProperty
   = DeployAsApplicationConfigurationProperty {s3ContentLocation :: S3ContentBaseLocationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployAsApplicationConfigurationProperty ::
   S3ContentBaseLocationProperty
   -> DeployAsApplicationConfigurationProperty

@@ -13,6 +13,7 @@ data ProvisioningArtifactPropertiesProperty
                                             info :: JSON.Object,
                                             name :: (Prelude.Maybe (Value Prelude.Text)),
                                             type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisioningArtifactPropertiesProperty ::
   JSON.Object -> ProvisioningArtifactPropertiesProperty
 mkProvisioningArtifactPropertiesProperty info

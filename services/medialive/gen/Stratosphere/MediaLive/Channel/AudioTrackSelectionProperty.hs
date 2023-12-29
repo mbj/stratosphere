@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data AudioTrackSelectionProperty
   = AudioTrackSelectionProperty {dolbyEDecode :: (Prelude.Maybe AudioDolbyEDecodeProperty),
                                  tracks :: (Prelude.Maybe [AudioTrackProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioTrackSelectionProperty :: AudioTrackSelectionProperty
 mkAudioTrackSelectionProperty
   = AudioTrackSelectionProperty

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ScrollBarOptionsProperty
   = ScrollBarOptionsProperty {visibility :: (Prelude.Maybe (Value Prelude.Text)),
                               visibleRange :: (Prelude.Maybe VisibleRangeOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScrollBarOptionsProperty :: ScrollBarOptionsProperty
 mkScrollBarOptionsProperty
   = ScrollBarOptionsProperty

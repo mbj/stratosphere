@@ -13,6 +13,7 @@ data ApiCache
               transitEncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
               ttl :: (Value Prelude.Double),
               type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApiCache ::
   Value Prelude.Text
   -> Value Prelude.Text

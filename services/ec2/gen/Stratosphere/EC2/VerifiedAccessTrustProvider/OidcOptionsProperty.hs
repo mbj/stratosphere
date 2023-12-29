@@ -14,6 +14,7 @@ data OidcOptionsProperty
                          scope :: (Prelude.Maybe (Value Prelude.Text)),
                          tokenEndpoint :: (Prelude.Maybe (Value Prelude.Text)),
                          userInfoEndpoint :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOidcOptionsProperty :: OidcOptionsProperty
 mkOidcOptionsProperty
   = OidcOptionsProperty

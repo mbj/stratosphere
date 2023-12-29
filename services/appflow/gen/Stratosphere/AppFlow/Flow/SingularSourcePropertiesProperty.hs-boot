@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SingularSourcePropertiesProperty :: Prelude.Type
 instance ToResourceProperties SingularSourcePropertiesProperty
+instance Prelude.Eq SingularSourcePropertiesProperty
+instance Prelude.Show SingularSourcePropertiesProperty
 instance JSON.ToJSON SingularSourcePropertiesProperty

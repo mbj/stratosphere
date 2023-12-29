@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VirtualGatewayPortMappingProperty :: Prelude.Type
 instance ToResourceProperties VirtualGatewayPortMappingProperty
+instance Prelude.Eq VirtualGatewayPortMappingProperty
+instance Prelude.Show VirtualGatewayPortMappingProperty
 instance JSON.ToJSON VirtualGatewayPortMappingProperty

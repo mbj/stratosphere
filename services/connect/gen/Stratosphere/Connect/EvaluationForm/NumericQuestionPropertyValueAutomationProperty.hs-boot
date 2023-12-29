@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NumericQuestionPropertyValueAutomationProperty :: Prelude.Type
 instance ToResourceProperties NumericQuestionPropertyValueAutomationProperty
+instance Prelude.Eq NumericQuestionPropertyValueAutomationProperty
+instance Prelude.Show NumericQuestionPropertyValueAutomationProperty
 instance JSON.ToJSON NumericQuestionPropertyValueAutomationProperty

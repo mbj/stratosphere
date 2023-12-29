@@ -12,6 +12,7 @@ data CustomMetric
                   metricName :: (Prelude.Maybe (Value Prelude.Text)),
                   metricType :: (Value Prelude.Text),
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomMetric :: Value Prelude.Text -> CustomMetric
 mkCustomMetric metricType
   = CustomMetric

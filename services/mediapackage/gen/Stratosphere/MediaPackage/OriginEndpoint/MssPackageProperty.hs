@@ -13,6 +13,7 @@ data MssPackageProperty
                         manifestWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                         segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                         streamSelection :: (Prelude.Maybe StreamSelectionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMssPackageProperty :: MssPackageProperty
 mkMssPackageProperty
   = MssPackageProperty

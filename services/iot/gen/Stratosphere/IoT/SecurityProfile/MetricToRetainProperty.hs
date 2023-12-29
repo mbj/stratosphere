@@ -11,6 +11,7 @@ import Stratosphere.Value
 data MetricToRetainProperty
   = MetricToRetainProperty {metric :: (Value Prelude.Text),
                             metricDimension :: (Prelude.Maybe MetricDimensionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricToRetainProperty ::
   Value Prelude.Text -> MetricToRetainProperty
 mkMetricToRetainProperty metric

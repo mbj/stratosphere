@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TlsValidationContextAcmTrustProperty
   = TlsValidationContextAcmTrustProperty {certificateAuthorityArns :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTlsValidationContextAcmTrustProperty ::
   ValueList Prelude.Text -> TlsValidationContextAcmTrustProperty
 mkTlsValidationContextAcmTrustProperty certificateAuthorityArns

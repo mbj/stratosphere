@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ConversationLogSettingsProperty
   = ConversationLogSettingsProperty {audioLogSettings :: (Prelude.Maybe [AudioLogSettingProperty]),
                                      textLogSettings :: (Prelude.Maybe [TextLogSettingProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConversationLogSettingsProperty ::
   ConversationLogSettingsProperty
 mkConversationLogSettingsProperty

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data QueryParameterProperty
   = QueryParameterProperty {match :: (Prelude.Maybe HttpQueryParameterMatchProperty),
                             name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryParameterProperty ::
   Value Prelude.Text -> QueryParameterProperty
 mkQueryParameterProperty name

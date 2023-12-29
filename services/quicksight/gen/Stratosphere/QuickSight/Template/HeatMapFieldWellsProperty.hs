@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.HeatMapAggregatedFieldWel
 import Stratosphere.ResourceProperties
 data HeatMapFieldWellsProperty
   = HeatMapFieldWellsProperty {heatMapAggregatedFieldWells :: (Prelude.Maybe HeatMapAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeatMapFieldWellsProperty :: HeatMapFieldWellsProperty
 mkHeatMapFieldWellsProperty
   = HeatMapFieldWellsProperty

@@ -40,6 +40,7 @@ data H265SettingsProperty
                           tier :: (Prelude.Maybe (Value Prelude.Text)),
                           timecodeBurninSettings :: (Prelude.Maybe TimecodeBurninSettingsProperty),
                           timecodeInsertion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkH265SettingsProperty :: H265SettingsProperty
 mkH265SettingsProperty
   = H265SettingsProperty

@@ -20,6 +20,7 @@ data KPIVisualProperty
                        subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                        title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                        visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKPIVisualProperty :: Value Prelude.Text -> KPIVisualProperty
 mkKPIVisualProperty visualId
   = KPIVisualProperty

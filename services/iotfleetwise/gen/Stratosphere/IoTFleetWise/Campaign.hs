@@ -28,6 +28,7 @@ data Campaign
               startTime :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe [Tag]),
               targetArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaign ::
   Value Prelude.Text
   -> CollectionSchemeProperty

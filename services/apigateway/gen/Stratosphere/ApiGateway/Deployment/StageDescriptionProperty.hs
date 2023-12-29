@@ -31,6 +31,7 @@ data StageDescriptionProperty
                               throttlingRateLimit :: (Prelude.Maybe (Value Prelude.Double)),
                               tracingEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                               variables :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStageDescriptionProperty :: StageDescriptionProperty
 mkStageDescriptionProperty
   = StageDescriptionProperty

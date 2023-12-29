@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MediaPackageOutputSettingsProperty
   = MediaPackageOutputSettingsProperty {}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaPackageOutputSettingsProperty ::
   MediaPackageOutputSettingsProperty
 mkMediaPackageOutputSettingsProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DecimalDatasetParameterDefaultValuesProperty
   = DecimalDatasetParameterDefaultValuesProperty {staticValues :: (Prelude.Maybe (ValueList Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDecimalDatasetParameterDefaultValuesProperty ::
   DecimalDatasetParameterDefaultValuesProperty
 mkDecimalDatasetParameterDefaultValuesProperty

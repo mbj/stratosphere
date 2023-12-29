@@ -16,6 +16,7 @@ data VpcAttachment
                    subnetArns :: (ValueList Prelude.Text),
                    tags :: (Prelude.Maybe [Tag]),
                    vpcArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcAttachment ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> Value Prelude.Text -> VpcAttachment

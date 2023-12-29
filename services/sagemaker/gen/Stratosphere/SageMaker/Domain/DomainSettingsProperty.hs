@@ -11,6 +11,7 @@ import Stratosphere.Value
 data DomainSettingsProperty
   = DomainSettingsProperty {rStudioServerProDomainSettings :: (Prelude.Maybe RStudioServerProDomainSettingsProperty),
                             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainSettingsProperty :: DomainSettingsProperty
 mkDomainSettingsProperty
   = DomainSettingsProperty

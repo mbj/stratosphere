@@ -11,6 +11,7 @@ import Stratosphere.Value
 data StreamConfigurationSessionStorageProperty
   = StreamConfigurationSessionStorageProperty {mode :: (ValueList Prelude.Text),
                                                root :: (Prelude.Maybe StreamingSessionStorageRootProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamConfigurationSessionStorageProperty ::
   ValueList Prelude.Text -> StreamConfigurationSessionStorageProperty
 mkStreamConfigurationSessionStorageProperty mode

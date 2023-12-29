@@ -12,6 +12,7 @@ data HealthCheckProperty
                          retries :: (Prelude.Maybe (Value Prelude.Integer)),
                          startPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
                          timeout :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHealthCheckProperty :: HealthCheckProperty
 mkHealthCheckProperty
   = HealthCheckProperty

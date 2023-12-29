@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.WebCrawlerBasicAuthenticati
 import Stratosphere.ResourceProperties
 data WebCrawlerAuthenticationConfigurationProperty
   = WebCrawlerAuthenticationConfigurationProperty {basicAuthentication :: (Prelude.Maybe [WebCrawlerBasicAuthenticationProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerAuthenticationConfigurationProperty ::
   WebCrawlerAuthenticationConfigurationProperty
 mkWebCrawlerAuthenticationConfigurationProperty

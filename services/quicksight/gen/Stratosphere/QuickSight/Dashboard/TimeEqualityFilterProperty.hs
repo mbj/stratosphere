@@ -14,6 +14,7 @@ data TimeEqualityFilterProperty
                                 parameterName :: (Prelude.Maybe (Value Prelude.Text)),
                                 timeGranularity :: (Prelude.Maybe (Value Prelude.Text)),
                                 value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeEqualityFilterProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text -> TimeEqualityFilterProperty

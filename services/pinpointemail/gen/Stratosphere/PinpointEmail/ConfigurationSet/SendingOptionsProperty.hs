@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SendingOptionsProperty
   = SendingOptionsProperty {sendingEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSendingOptionsProperty :: SendingOptionsProperty
 mkSendingOptionsProperty
   = SendingOptionsProperty {sendingEnabled = Prelude.Nothing}

@@ -16,6 +16,7 @@ data StageOverridesProperty
                             description :: (Prelude.Maybe (Value Prelude.Text)),
                             routeSettings :: (Prelude.Maybe JSON.Object),
                             stageVariables :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStageOverridesProperty :: StageOverridesProperty
 mkStageOverridesProperty
   = StageOverridesProperty

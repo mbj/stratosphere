@@ -30,6 +30,7 @@ data CacheBehaviorProperty
                            trustedKeyGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                            trustedSigners :: (Prelude.Maybe (ValueList Prelude.Text)),
                            viewerProtocolPolicy :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCacheBehaviorProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

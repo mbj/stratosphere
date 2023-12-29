@@ -15,6 +15,7 @@ data Project
              roleArn :: (Value Prelude.Text),
              sample :: (Prelude.Maybe SampleProperty),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProject ::
   Value Prelude.Text
   -> Value Prelude.Text

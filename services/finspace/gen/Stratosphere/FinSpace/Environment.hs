@@ -17,6 +17,7 @@ data Environment
                  name :: (Value Prelude.Text),
                  superuserParameters :: (Prelude.Maybe SuperuserParametersProperty),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment :: Value Prelude.Text -> Environment
 mkEnvironment name
   = Environment

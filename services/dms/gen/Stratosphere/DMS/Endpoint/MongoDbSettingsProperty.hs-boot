@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MongoDbSettingsProperty :: Prelude.Type
 instance ToResourceProperties MongoDbSettingsProperty
+instance Prelude.Eq MongoDbSettingsProperty
+instance Prelude.Show MongoDbSettingsProperty
 instance JSON.ToJSON MongoDbSettingsProperty

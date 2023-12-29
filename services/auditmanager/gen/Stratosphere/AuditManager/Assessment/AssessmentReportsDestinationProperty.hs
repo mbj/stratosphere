@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AssessmentReportsDestinationProperty
   = AssessmentReportsDestinationProperty {destination :: (Prelude.Maybe (Value Prelude.Text)),
                                           destinationType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssessmentReportsDestinationProperty ::
   AssessmentReportsDestinationProperty
 mkAssessmentReportsDestinationProperty

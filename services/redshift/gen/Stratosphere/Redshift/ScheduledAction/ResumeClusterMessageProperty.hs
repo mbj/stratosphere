@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResumeClusterMessageProperty
   = ResumeClusterMessageProperty {clusterIdentifier :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResumeClusterMessageProperty ::
   Value Prelude.Text -> ResumeClusterMessageProperty
 mkResumeClusterMessageProperty clusterIdentifier

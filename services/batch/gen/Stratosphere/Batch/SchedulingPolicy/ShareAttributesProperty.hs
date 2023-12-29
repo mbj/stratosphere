@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ShareAttributesProperty
   = ShareAttributesProperty {shareIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                              weightFactor :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkShareAttributesProperty :: ShareAttributesProperty
 mkShareAttributesProperty
   = ShareAttributesProperty

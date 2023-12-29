@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.KPIConditionalFormatting
 import Stratosphere.ResourceProperties
 data KPIConditionalFormattingProperty
   = KPIConditionalFormattingProperty {conditionalFormattingOptions :: (Prelude.Maybe [KPIConditionalFormattingOptionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKPIConditionalFormattingProperty ::
   KPIConditionalFormattingProperty
 mkKPIConditionalFormattingProperty

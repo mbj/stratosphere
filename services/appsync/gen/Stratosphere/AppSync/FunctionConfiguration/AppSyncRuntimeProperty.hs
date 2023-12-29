@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AppSyncRuntimeProperty
   = AppSyncRuntimeProperty {name :: (Value Prelude.Text),
                             runtimeVersion :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAppSyncRuntimeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AppSyncRuntimeProperty
 mkAppSyncRuntimeProperty name runtimeVersion

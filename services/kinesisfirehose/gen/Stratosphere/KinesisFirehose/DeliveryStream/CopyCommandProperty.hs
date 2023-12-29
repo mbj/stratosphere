@@ -10,6 +10,7 @@ data CopyCommandProperty
   = CopyCommandProperty {copyOptions :: (Prelude.Maybe (Value Prelude.Text)),
                          dataTableColumns :: (Prelude.Maybe (Value Prelude.Text)),
                          dataTableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCopyCommandProperty :: Value Prelude.Text -> CopyCommandProperty
 mkCopyCommandProperty dataTableName
   = CopyCommandProperty

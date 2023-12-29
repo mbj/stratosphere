@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TreeMapFieldWellsProperty :: Prelude.Type
 instance ToResourceProperties TreeMapFieldWellsProperty
+instance Prelude.Eq TreeMapFieldWellsProperty
+instance Prelude.Show TreeMapFieldWellsProperty
 instance JSON.ToJSON TreeMapFieldWellsProperty

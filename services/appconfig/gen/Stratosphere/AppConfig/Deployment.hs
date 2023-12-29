@@ -16,6 +16,7 @@ data Deployment
                 environmentId :: (Value Prelude.Text),
                 kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [TagsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeployment ::
   Value Prelude.Text
   -> Value Prelude.Text

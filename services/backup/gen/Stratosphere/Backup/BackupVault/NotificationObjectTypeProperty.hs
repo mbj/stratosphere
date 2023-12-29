@@ -10,6 +10,7 @@ import Stratosphere.Value
 data NotificationObjectTypeProperty
   = NotificationObjectTypeProperty {backupVaultEvents :: (ValueList Prelude.Text),
                                     sNSTopicArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationObjectTypeProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> NotificationObjectTypeProperty

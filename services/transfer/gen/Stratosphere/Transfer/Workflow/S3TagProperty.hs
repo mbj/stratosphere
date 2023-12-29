@@ -9,6 +9,7 @@ import Stratosphere.Value
 data S3TagProperty
   = S3TagProperty {key :: (Value Prelude.Text),
                    value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3TagProperty ::
   Value Prelude.Text -> Value Prelude.Text -> S3TagProperty
 mkS3TagProperty key value

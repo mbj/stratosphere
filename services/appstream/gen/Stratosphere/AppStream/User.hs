@@ -12,6 +12,7 @@ data User
           lastName :: (Prelude.Maybe (Value Prelude.Text)),
           messageAction :: (Prelude.Maybe (Value Prelude.Text)),
           userName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUser :: Value Prelude.Text -> Value Prelude.Text -> User
 mkUser authenticationType userName
   = User

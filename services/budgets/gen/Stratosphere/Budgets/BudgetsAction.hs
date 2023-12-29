@@ -18,6 +18,7 @@ data BudgetsAction
                    executionRoleArn :: (Value Prelude.Text),
                    notificationType :: (Value Prelude.Text),
                    subscribers :: [SubscriberProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBudgetsAction ::
   ActionThresholdProperty
   -> Value Prelude.Text

@@ -19,6 +19,7 @@ data EventVariableProperty
                            name :: (Prelude.Maybe (Value Prelude.Text)),
                            tags :: (Prelude.Maybe [Tag]),
                            variableType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventVariableProperty :: EventVariableProperty
 mkEventVariableProperty
   = EventVariableProperty

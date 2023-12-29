@@ -14,6 +14,7 @@ data DateTimeDatasetParameterProperty
                                       name :: (Value Prelude.Text),
                                       timeGranularity :: (Prelude.Maybe (Value Prelude.Text)),
                                       valueType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimeDatasetParameterProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

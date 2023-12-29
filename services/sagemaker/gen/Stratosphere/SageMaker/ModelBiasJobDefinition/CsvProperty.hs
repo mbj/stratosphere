@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CsvProperty
   = CsvProperty {header :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCsvProperty :: CsvProperty
 mkCsvProperty = CsvProperty {header = Prelude.Nothing}
 instance ToResourceProperties CsvProperty where

@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Greengrass.CoreDefinition.CoreProperty as Exp
 import Stratosphere.ResourceProperties
 data CoreDefinitionVersionProperty
   = CoreDefinitionVersionProperty {cores :: [CoreProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCoreDefinitionVersionProperty ::
   [CoreProperty] -> CoreDefinitionVersionProperty
 mkCoreDefinitionVersionProperty cores

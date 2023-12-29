@@ -20,6 +20,7 @@ data SamplingRuleProperty
                           serviceType :: (Value Prelude.Text),
                           uRLPath :: (Value Prelude.Text),
                           version :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSamplingRuleProperty ::
   Value Prelude.Double
   -> Value Prelude.Text

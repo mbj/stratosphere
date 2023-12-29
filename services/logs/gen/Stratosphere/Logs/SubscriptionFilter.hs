@@ -13,6 +13,7 @@ data SubscriptionFilter
                         filterPattern :: (Value Prelude.Text),
                         logGroupName :: (Value Prelude.Text),
                         roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriptionFilter ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> SubscriptionFilter

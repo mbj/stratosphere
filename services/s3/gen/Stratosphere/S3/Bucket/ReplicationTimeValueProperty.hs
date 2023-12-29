@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicationTimeValueProperty
   = ReplicationTimeValueProperty {minutes :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationTimeValueProperty ::
   Value Prelude.Integer -> ReplicationTimeValueProperty
 mkReplicationTimeValueProperty minutes

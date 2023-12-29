@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.ManagedBlockchain.Member.NetworkFabricConfigu
 import Stratosphere.ResourceProperties
 data NetworkFrameworkConfigurationProperty
   = NetworkFrameworkConfigurationProperty {networkFabricConfiguration :: (Prelude.Maybe NetworkFabricConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkFrameworkConfigurationProperty ::
   NetworkFrameworkConfigurationProperty
 mkNetworkFrameworkConfigurationProperty

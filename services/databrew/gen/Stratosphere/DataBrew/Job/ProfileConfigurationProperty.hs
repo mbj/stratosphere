@@ -15,6 +15,7 @@ data ProfileConfigurationProperty
                                   datasetStatisticsConfiguration :: (Prelude.Maybe StatisticsConfigurationProperty),
                                   entityDetectorConfiguration :: (Prelude.Maybe EntityDetectorConfigurationProperty),
                                   profileColumns :: (Prelude.Maybe [ColumnSelectorProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProfileConfigurationProperty :: ProfileConfigurationProperty
 mkProfileConfigurationProperty
   = ProfileConfigurationProperty

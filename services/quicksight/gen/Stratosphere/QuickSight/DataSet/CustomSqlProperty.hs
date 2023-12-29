@@ -12,6 +12,7 @@ data CustomSqlProperty
                        dataSourceArn :: (Value Prelude.Text),
                        name :: (Value Prelude.Text),
                        sqlQuery :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomSqlProperty ::
   [InputColumnProperty]
   -> Value Prelude.Text

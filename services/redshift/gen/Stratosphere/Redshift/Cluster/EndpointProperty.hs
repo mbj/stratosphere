@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EndpointProperty
   = EndpointProperty {address :: (Prelude.Maybe (Value Prelude.Text)),
                       port :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointProperty :: EndpointProperty
 mkEndpointProperty
   = EndpointProperty

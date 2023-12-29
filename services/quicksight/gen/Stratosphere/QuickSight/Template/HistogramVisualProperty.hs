@@ -17,6 +17,7 @@ data HistogramVisualProperty
                              subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                              title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                              visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHistogramVisualProperty ::
   Value Prelude.Text -> HistogramVisualProperty
 mkHistogramVisualProperty visualId

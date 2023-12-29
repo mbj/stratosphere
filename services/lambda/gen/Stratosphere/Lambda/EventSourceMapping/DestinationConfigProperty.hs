@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.OnFailureProperty a
 import Stratosphere.ResourceProperties
 data DestinationConfigProperty
   = DestinationConfigProperty {onFailure :: (Prelude.Maybe OnFailureProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigProperty :: DestinationConfigProperty
 mkDestinationConfigProperty
   = DestinationConfigProperty {onFailure = Prelude.Nothing}

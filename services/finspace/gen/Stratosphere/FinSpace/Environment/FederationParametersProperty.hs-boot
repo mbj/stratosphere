@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FederationParametersProperty :: Prelude.Type
 instance ToResourceProperties FederationParametersProperty
+instance Prelude.Eq FederationParametersProperty
+instance Prelude.Show FederationParametersProperty
 instance JSON.ToJSON FederationParametersProperty

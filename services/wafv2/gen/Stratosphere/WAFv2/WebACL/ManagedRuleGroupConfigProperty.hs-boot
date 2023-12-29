@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ManagedRuleGroupConfigProperty :: Prelude.Type
 instance ToResourceProperties ManagedRuleGroupConfigProperty
+instance Prelude.Eq ManagedRuleGroupConfigProperty
+instance Prelude.Show ManagedRuleGroupConfigProperty
 instance JSON.ToJSON ManagedRuleGroupConfigProperty

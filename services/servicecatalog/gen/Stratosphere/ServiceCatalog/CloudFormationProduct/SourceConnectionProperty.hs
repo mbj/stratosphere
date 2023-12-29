@@ -11,6 +11,7 @@ import Stratosphere.Value
 data SourceConnectionProperty
   = SourceConnectionProperty {connectionParameters :: ConnectionParametersProperty,
                               type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConnectionProperty ::
   ConnectionParametersProperty
   -> Value Prelude.Text -> SourceConnectionProperty

@@ -14,6 +14,7 @@ data NodeProperty
                   attribute :: (Prelude.Maybe AttributeProperty),
                   branch :: (Prelude.Maybe BranchProperty),
                   sensor :: (Prelude.Maybe SensorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNodeProperty :: NodeProperty
 mkNodeProperty
   = NodeProperty

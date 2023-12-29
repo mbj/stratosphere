@@ -11,6 +11,7 @@ data EmptyVisualProperty
   = EmptyVisualProperty {actions :: (Prelude.Maybe [VisualCustomActionProperty]),
                          dataSetIdentifier :: (Value Prelude.Text),
                          visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEmptyVisualProperty ::
   Value Prelude.Text -> Value Prelude.Text -> EmptyVisualProperty
 mkEmptyVisualProperty dataSetIdentifier visualId

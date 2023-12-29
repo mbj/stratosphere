@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OtaaV11Property :: Prelude.Type
 instance ToResourceProperties OtaaV11Property
+instance Prelude.Eq OtaaV11Property
+instance Prelude.Show OtaaV11Property
 instance JSON.ToJSON OtaaV11Property

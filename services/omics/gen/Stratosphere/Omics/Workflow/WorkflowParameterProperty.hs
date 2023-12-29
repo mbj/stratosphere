@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WorkflowParameterProperty
   = WorkflowParameterProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
                                optional :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflowParameterProperty :: WorkflowParameterProperty
 mkWorkflowParameterProperty
   = WorkflowParameterProperty

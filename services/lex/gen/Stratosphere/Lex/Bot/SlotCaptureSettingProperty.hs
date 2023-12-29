@@ -20,6 +20,7 @@ data SlotCaptureSettingProperty
                                 failureConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
                                 failureNextStep :: (Prelude.Maybe DialogStateProperty),
                                 failureResponse :: (Prelude.Maybe ResponseSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotCaptureSettingProperty :: SlotCaptureSettingProperty
 mkSlotCaptureSettingProperty
   = SlotCaptureSettingProperty

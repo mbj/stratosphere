@@ -13,6 +13,7 @@ data LoggingConfiguration
                           loggingFilter :: (Prelude.Maybe LoggingFilterProperty),
                           redactedFields :: (Prelude.Maybe [FieldToMatchProperty]),
                           resourceArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingConfiguration ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> LoggingConfiguration

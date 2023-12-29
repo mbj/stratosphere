@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DvbTdtSettingsProperty
   = DvbTdtSettingsProperty {repInterval :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDvbTdtSettingsProperty :: DvbTdtSettingsProperty
 mkDvbTdtSettingsProperty
   = DvbTdtSettingsProperty {repInterval = Prelude.Nothing}

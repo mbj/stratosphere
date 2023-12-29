@@ -26,6 +26,7 @@ data TopicColumnProperty
                          notAllowedAggregations :: (Prelude.Maybe (ValueList Prelude.Text)),
                          semanticType :: (Prelude.Maybe SemanticTypeProperty),
                          timeGranularity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicColumnProperty :: Value Prelude.Text -> TopicColumnProperty
 mkTopicColumnProperty columnName
   = TopicColumnProperty

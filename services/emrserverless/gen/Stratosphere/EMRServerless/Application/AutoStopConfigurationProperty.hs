@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AutoStopConfigurationProperty
   = AutoStopConfigurationProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                    idleTimeoutMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoStopConfigurationProperty :: AutoStopConfigurationProperty
 mkAutoStopConfigurationProperty
   = AutoStopConfigurationProperty

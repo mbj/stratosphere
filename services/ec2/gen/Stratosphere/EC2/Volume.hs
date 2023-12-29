@@ -20,6 +20,7 @@ data Volume
             tags :: (Prelude.Maybe [Tag]),
             throughput :: (Prelude.Maybe (Value Prelude.Integer)),
             volumeType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolume :: Value Prelude.Text -> Volume
 mkVolume availabilityZone
   = Volume

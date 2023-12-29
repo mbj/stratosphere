@@ -13,6 +13,7 @@ data Space
            spaceName :: (Value Prelude.Text),
            spaceSettings :: (Prelude.Maybe SpaceSettingsProperty),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpace :: Value Prelude.Text -> Value Prelude.Text -> Space
 mkSpace domainId spaceName
   = Space

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RangeProperty
   = RangeProperty {endTime :: (Value Prelude.Text),
                    startTime :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRangeProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RangeProperty
 mkRangeProperty endTime startTime

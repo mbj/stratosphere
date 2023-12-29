@@ -10,6 +10,7 @@ data SnowflakeParametersProperty
   = SnowflakeParametersProperty {database :: (Value Prelude.Text),
                                  host :: (Value Prelude.Text),
                                  warehouse :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSnowflakeParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

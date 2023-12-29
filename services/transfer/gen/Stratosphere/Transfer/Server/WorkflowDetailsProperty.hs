@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data WorkflowDetailsProperty
   = WorkflowDetailsProperty {onPartialUpload :: (Prelude.Maybe [WorkflowDetailProperty]),
                              onUpload :: (Prelude.Maybe [WorkflowDetailProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkflowDetailsProperty :: WorkflowDetailsProperty
 mkWorkflowDetailsProperty
   = WorkflowDetailsProperty

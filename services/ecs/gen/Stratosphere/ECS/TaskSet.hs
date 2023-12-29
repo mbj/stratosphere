@@ -21,6 +21,7 @@ data TaskSet
              service :: (Value Prelude.Text),
              serviceRegistries :: (Prelude.Maybe [ServiceRegistryProperty]),
              taskDefinition :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskSet ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> TaskSet

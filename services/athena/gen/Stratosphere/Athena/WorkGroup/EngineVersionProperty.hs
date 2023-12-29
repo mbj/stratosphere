@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EngineVersionProperty
   = EngineVersionProperty {effectiveEngineVersion :: (Prelude.Maybe (Value Prelude.Text)),
                            selectedEngineVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEngineVersionProperty :: EngineVersionProperty
 mkEngineVersionProperty
   = EngineVersionProperty

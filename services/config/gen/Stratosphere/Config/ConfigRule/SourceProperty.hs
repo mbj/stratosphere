@@ -13,6 +13,7 @@ data SourceProperty
                     owner :: (Value Prelude.Text),
                     sourceDetails :: (Prelude.Maybe [SourceDetailProperty]),
                     sourceIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceProperty :: Value Prelude.Text -> SourceProperty
 mkSourceProperty owner
   = SourceProperty

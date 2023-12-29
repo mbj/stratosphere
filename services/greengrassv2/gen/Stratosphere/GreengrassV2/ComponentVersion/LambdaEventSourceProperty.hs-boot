@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LambdaEventSourceProperty :: Prelude.Type
 instance ToResourceProperties LambdaEventSourceProperty
+instance Prelude.Eq LambdaEventSourceProperty
+instance Prelude.Show LambdaEventSourceProperty
 instance JSON.ToJSON LambdaEventSourceProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnomalyDetectorConfigProperty
   = AnomalyDetectorConfigProperty {anomalyDetectorFrequency :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAnomalyDetectorConfigProperty ::
   Value Prelude.Text -> AnomalyDetectorConfigProperty
 mkAnomalyDetectorConfigProperty anomalyDetectorFrequency

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SpotCapacityRebalanceProperty :: Prelude.Type
 instance ToResourceProperties SpotCapacityRebalanceProperty
+instance Prelude.Eq SpotCapacityRebalanceProperty
+instance Prelude.Show SpotCapacityRebalanceProperty
 instance JSON.ToJSON SpotCapacityRebalanceProperty

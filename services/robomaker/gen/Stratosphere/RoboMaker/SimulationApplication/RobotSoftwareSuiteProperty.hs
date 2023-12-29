@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RobotSoftwareSuiteProperty
   = RobotSoftwareSuiteProperty {name :: (Value Prelude.Text),
                                 version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRobotSoftwareSuiteProperty ::
   Value Prelude.Text -> RobotSoftwareSuiteProperty
 mkRobotSoftwareSuiteProperty name

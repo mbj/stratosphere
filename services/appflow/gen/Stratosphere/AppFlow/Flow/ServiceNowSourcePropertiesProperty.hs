@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceNowSourcePropertiesProperty
   = ServiceNowSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNowSourcePropertiesProperty ::
   Value Prelude.Text -> ServiceNowSourcePropertiesProperty
 mkServiceNowSourcePropertiesProperty object

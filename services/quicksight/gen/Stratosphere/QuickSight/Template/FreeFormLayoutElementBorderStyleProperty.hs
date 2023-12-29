@@ -10,6 +10,7 @@ import Stratosphere.Value
 data FreeFormLayoutElementBorderStyleProperty
   = FreeFormLayoutElementBorderStyleProperty {color :: (Prelude.Maybe (Value Prelude.Text)),
                                               visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFreeFormLayoutElementBorderStyleProperty ::
   FreeFormLayoutElementBorderStyleProperty
 mkFreeFormLayoutElementBorderStyleProperty

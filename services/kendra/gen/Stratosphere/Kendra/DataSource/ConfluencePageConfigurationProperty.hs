@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Kendra.DataSource.ConfluencePageToIndexFieldM
 import Stratosphere.ResourceProperties
 data ConfluencePageConfigurationProperty
   = ConfluencePageConfigurationProperty {pageFieldMappings :: (Prelude.Maybe [ConfluencePageToIndexFieldMappingProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfluencePageConfigurationProperty ::
   ConfluencePageConfigurationProperty
 mkConfluencePageConfigurationProperty

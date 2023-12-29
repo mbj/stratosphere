@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VirtualNodeSpecProperty :: Prelude.Type
 instance ToResourceProperties VirtualNodeSpecProperty
+instance Prelude.Eq VirtualNodeSpecProperty
+instance Prelude.Show VirtualNodeSpecProperty
 instance JSON.ToJSON VirtualNodeSpecProperty

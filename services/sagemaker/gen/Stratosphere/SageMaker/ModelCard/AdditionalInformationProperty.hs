@@ -10,6 +10,7 @@ data AdditionalInformationProperty
   = AdditionalInformationProperty {caveatsAndRecommendations :: (Prelude.Maybe (Value Prelude.Text)),
                                    customDetails :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                    ethicalConsiderations :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdditionalInformationProperty :: AdditionalInformationProperty
 mkAdditionalInformationProperty
   = AdditionalInformationProperty

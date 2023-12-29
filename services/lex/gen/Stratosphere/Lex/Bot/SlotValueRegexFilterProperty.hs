@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotValueRegexFilterProperty
   = SlotValueRegexFilterProperty {pattern :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotValueRegexFilterProperty ::
   Value Prelude.Text -> SlotValueRegexFilterProperty
 mkSlotValueRegexFilterProperty pattern

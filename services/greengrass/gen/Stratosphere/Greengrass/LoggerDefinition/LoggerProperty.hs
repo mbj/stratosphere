@@ -12,6 +12,7 @@ data LoggerProperty
                     level :: (Value Prelude.Text),
                     space :: (Prelude.Maybe (Value Prelude.Integer)),
                     type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggerProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

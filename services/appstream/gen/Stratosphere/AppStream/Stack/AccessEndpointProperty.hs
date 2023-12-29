@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AccessEndpointProperty
   = AccessEndpointProperty {endpointType :: (Value Prelude.Text),
                             vpceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessEndpointProperty ::
   Value Prelude.Text -> Value Prelude.Text -> AccessEndpointProperty
 mkAccessEndpointProperty endpointType vpceId

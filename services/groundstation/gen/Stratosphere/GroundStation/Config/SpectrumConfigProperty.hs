@@ -13,6 +13,7 @@ data SpectrumConfigProperty
   = SpectrumConfigProperty {bandwidth :: (Prelude.Maybe FrequencyBandwidthProperty),
                             centerFrequency :: (Prelude.Maybe FrequencyProperty),
                             polarization :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpectrumConfigProperty :: SpectrumConfigProperty
 mkSpectrumConfigProperty
   = SpectrumConfigProperty

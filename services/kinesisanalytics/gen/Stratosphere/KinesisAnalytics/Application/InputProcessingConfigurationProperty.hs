@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.KinesisAnalytics.Application.InputLambdaProce
 import Stratosphere.ResourceProperties
 data InputProcessingConfigurationProperty
   = InputProcessingConfigurationProperty {inputLambdaProcessor :: (Prelude.Maybe InputLambdaProcessorProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputProcessingConfigurationProperty ::
   InputProcessingConfigurationProperty
 mkInputProcessingConfigurationProperty

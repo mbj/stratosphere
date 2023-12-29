@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NetworkConfigProperty :: Prelude.Type
 instance ToResourceProperties NetworkConfigProperty
+instance Prelude.Eq NetworkConfigProperty
+instance Prelude.Show NetworkConfigProperty
 instance JSON.ToJSON NetworkConfigProperty

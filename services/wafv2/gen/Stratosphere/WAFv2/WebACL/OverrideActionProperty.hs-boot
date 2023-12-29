@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OverrideActionProperty :: Prelude.Type
 instance ToResourceProperties OverrideActionProperty
+instance Prelude.Eq OverrideActionProperty
+instance Prelude.Show OverrideActionProperty
 instance JSON.ToJSON OverrideActionProperty

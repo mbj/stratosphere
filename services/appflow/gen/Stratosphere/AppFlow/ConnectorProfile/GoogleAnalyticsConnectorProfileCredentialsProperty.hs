@@ -15,6 +15,7 @@ data GoogleAnalyticsConnectorProfileCredentialsProperty
                                                         clientSecret :: (Value Prelude.Text),
                                                         connectorOAuthRequest :: (Prelude.Maybe ConnectorOAuthRequestProperty),
                                                         refreshToken :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGoogleAnalyticsConnectorProfileCredentialsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

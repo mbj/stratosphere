@@ -13,6 +13,7 @@ data DataCatalogInputDefinitionProperty
                                         databaseName :: (Prelude.Maybe (Value Prelude.Text)),
                                         tableName :: (Prelude.Maybe (Value Prelude.Text)),
                                         tempDirectory :: (Prelude.Maybe S3LocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCatalogInputDefinitionProperty ::
   DataCatalogInputDefinitionProperty
 mkDataCatalogInputDefinitionProperty

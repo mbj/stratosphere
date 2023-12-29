@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReferenceDataSourceProperty :: Prelude.Type
 instance ToResourceProperties ReferenceDataSourceProperty
+instance Prelude.Eq ReferenceDataSourceProperty
+instance Prelude.Show ReferenceDataSourceProperty
 instance JSON.ToJSON ReferenceDataSourceProperty

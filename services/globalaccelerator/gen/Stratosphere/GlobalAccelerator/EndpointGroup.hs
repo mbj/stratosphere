@@ -19,6 +19,7 @@ data EndpointGroup
                    portOverrides :: (Prelude.Maybe [PortOverrideProperty]),
                    thresholdCount :: (Prelude.Maybe (Value Prelude.Integer)),
                    trafficDialPercentage :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointGroup ::
   Value Prelude.Text -> Value Prelude.Text -> EndpointGroup
 mkEndpointGroup endpointGroupRegion listenerArn

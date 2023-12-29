@@ -12,6 +12,7 @@ data Discoverer
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 sourceArn :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [TagsEntryProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDiscoverer :: Value Prelude.Text -> Discoverer
 mkDiscoverer sourceArn
   = Discoverer

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.ImmunityTimePropertyProperty 
 import Stratosphere.ResourceProperties
 data CaptchaConfigProperty
   = CaptchaConfigProperty {immunityTimeProperty :: (Prelude.Maybe ImmunityTimePropertyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptchaConfigProperty :: CaptchaConfigProperty
 mkCaptchaConfigProperty
   = CaptchaConfigProperty {immunityTimeProperty = Prelude.Nothing}

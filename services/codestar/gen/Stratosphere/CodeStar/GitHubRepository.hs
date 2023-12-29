@@ -16,6 +16,7 @@ data GitHubRepository
                       repositoryDescription :: (Prelude.Maybe (Value Prelude.Text)),
                       repositoryName :: (Value Prelude.Text),
                       repositoryOwner :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGitHubRepository ::
   Value Prelude.Text -> Value Prelude.Text -> GitHubRepository
 mkGitHubRepository repositoryName repositoryOwner

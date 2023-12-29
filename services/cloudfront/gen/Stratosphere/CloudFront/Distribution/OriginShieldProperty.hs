@@ -9,6 +9,7 @@ import Stratosphere.Value
 data OriginShieldProperty
   = OriginShieldProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                           originShieldRegion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginShieldProperty :: OriginShieldProperty
 mkOriginShieldProperty
   = OriginShieldProperty

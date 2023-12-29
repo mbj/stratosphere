@@ -10,6 +10,7 @@ import Stratosphere.Value
 data LoggingFilterProperty
   = LoggingFilterProperty {defaultBehavior :: (Value Prelude.Text),
                            filters :: [FilterProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingFilterProperty ::
   Value Prelude.Text -> [FilterProperty] -> LoggingFilterProperty
 mkLoggingFilterProperty defaultBehavior filters

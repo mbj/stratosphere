@@ -11,6 +11,7 @@ data AbortCriteriaProperty
                            failureType :: (Value Prelude.Text),
                            minNumberOfExecutedThings :: (Value Prelude.Integer),
                            thresholdPercentage :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAbortCriteriaProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

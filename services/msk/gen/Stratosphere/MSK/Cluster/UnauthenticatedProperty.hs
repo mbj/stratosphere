@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UnauthenticatedProperty
   = UnauthenticatedProperty {enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUnauthenticatedProperty ::
   Value Prelude.Bool -> UnauthenticatedProperty
 mkUnauthenticatedProperty enabled

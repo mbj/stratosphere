@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ComputeFarmConfigurationProperty
   = ComputeFarmConfigurationProperty {activeDirectoryUser :: (Prelude.Maybe (Value Prelude.Text)),
                                       endpoint :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComputeFarmConfigurationProperty ::
   ComputeFarmConfigurationProperty
 mkComputeFarmConfigurationProperty

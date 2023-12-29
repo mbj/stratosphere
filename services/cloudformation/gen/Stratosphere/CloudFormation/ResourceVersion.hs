@@ -12,6 +12,7 @@ data ResourceVersion
                      loggingConfig :: (Prelude.Maybe LoggingConfigProperty),
                      schemaHandlerPackage :: (Value Prelude.Text),
                      typeName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceVersion ::
   Value Prelude.Text -> Value Prelude.Text -> ResourceVersion
 mkResourceVersion schemaHandlerPackage typeName

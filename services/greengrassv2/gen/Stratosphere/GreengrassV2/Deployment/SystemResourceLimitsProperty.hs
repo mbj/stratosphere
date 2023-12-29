@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SystemResourceLimitsProperty
   = SystemResourceLimitsProperty {cpus :: (Prelude.Maybe (Value Prelude.Double)),
                                   memory :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSystemResourceLimitsProperty :: SystemResourceLimitsProperty
 mkSystemResourceLimitsProperty
   = SystemResourceLimitsProperty

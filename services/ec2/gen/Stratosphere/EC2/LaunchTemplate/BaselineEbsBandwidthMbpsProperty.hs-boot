@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BaselineEbsBandwidthMbpsProperty :: Prelude.Type
 instance ToResourceProperties BaselineEbsBandwidthMbpsProperty
+instance Prelude.Eq BaselineEbsBandwidthMbpsProperty
+instance Prelude.Show BaselineEbsBandwidthMbpsProperty
 instance JSON.ToJSON BaselineEbsBandwidthMbpsProperty

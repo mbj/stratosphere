@@ -13,6 +13,7 @@ data DemographicProperty
                          make :: (Prelude.Maybe SetDimensionProperty),
                          model :: (Prelude.Maybe SetDimensionProperty),
                          platform :: (Prelude.Maybe SetDimensionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDemographicProperty :: DemographicProperty
 mkDemographicProperty
   = DemographicProperty

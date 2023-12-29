@@ -13,6 +13,7 @@ data ScheduledActionTypeProperty
   = ScheduledActionTypeProperty {pauseCluster :: (Prelude.Maybe PauseClusterMessageProperty),
                                  resizeCluster :: (Prelude.Maybe ResizeClusterMessageProperty),
                                  resumeCluster :: (Prelude.Maybe ResumeClusterMessageProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduledActionTypeProperty :: ScheduledActionTypeProperty
 mkScheduledActionTypeProperty
   = ScheduledActionTypeProperty

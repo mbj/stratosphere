@@ -13,6 +13,7 @@ data UnaggregatedFieldProperty
   = UnaggregatedFieldProperty {column :: ColumnIdentifierProperty,
                                fieldId :: (Value Prelude.Text),
                                formatConfiguration :: (Prelude.Maybe FormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUnaggregatedFieldProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text -> UnaggregatedFieldProperty

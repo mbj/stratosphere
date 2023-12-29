@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ServerSideEncryptionByDefaultProperty
   = ServerSideEncryptionByDefaultProperty {kMSMasterKeyID :: (Prelude.Maybe (Value Prelude.Text)),
                                            sSEAlgorithm :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServerSideEncryptionByDefaultProperty ::
   Value Prelude.Text -> ServerSideEncryptionByDefaultProperty
 mkServerSideEncryptionByDefaultProperty sSEAlgorithm

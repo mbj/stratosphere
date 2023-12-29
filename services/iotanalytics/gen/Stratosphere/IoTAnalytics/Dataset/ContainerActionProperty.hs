@@ -14,6 +14,7 @@ data ContainerActionProperty
                              image :: (Value Prelude.Text),
                              resourceConfiguration :: ResourceConfigurationProperty,
                              variables :: (Prelude.Maybe [VariableProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

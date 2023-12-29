@@ -12,6 +12,7 @@ data Macro
            logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
            logRoleARN :: (Prelude.Maybe (Value Prelude.Text)),
            name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMacro :: Value Prelude.Text -> Value Prelude.Text -> Macro
 mkMacro functionName name
   = Macro

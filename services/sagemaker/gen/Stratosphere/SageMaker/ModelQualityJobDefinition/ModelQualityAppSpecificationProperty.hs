@@ -15,6 +15,7 @@ data ModelQualityAppSpecificationProperty
                                           postAnalyticsProcessorSourceUri :: (Prelude.Maybe (Value Prelude.Text)),
                                           problemType :: (Value Prelude.Text),
                                           recordPreprocessorSourceUri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelQualityAppSpecificationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ModelQualityAppSpecificationProperty

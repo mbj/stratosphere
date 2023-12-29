@@ -11,6 +11,7 @@ data SchedulingPolicy
   = SchedulingPolicy {fairsharePolicy :: (Prelude.Maybe FairsharePolicyProperty),
                       name :: (Prelude.Maybe (Value Prelude.Text)),
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchedulingPolicy :: SchedulingPolicy
 mkSchedulingPolicy
   = SchedulingPolicy

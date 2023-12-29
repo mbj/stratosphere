@@ -24,6 +24,7 @@ data VerifiedAccessEndpoint
                             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                             tags :: (Prelude.Maybe [Tag]),
                             verifiedAccessGroupId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVerifiedAccessEndpoint ::
   Value Prelude.Text
   -> Value Prelude.Text

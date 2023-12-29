@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AutoAdjustDataProperty
   = AutoAdjustDataProperty {autoAdjustType :: (Value Prelude.Text),
                             historicalOptions :: (Prelude.Maybe HistoricalOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoAdjustDataProperty ::
   Value Prelude.Text -> AutoAdjustDataProperty
 mkAutoAdjustDataProperty autoAdjustType

@@ -17,6 +17,7 @@ data PipeSourceDynamoDBStreamParametersProperty
                                                 onPartialBatchItemFailure :: (Prelude.Maybe (Value Prelude.Text)),
                                                 parallelizationFactor :: (Prelude.Maybe (Value Prelude.Integer)),
                                                 startingPosition :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceDynamoDBStreamParametersProperty ::
   Value Prelude.Text -> PipeSourceDynamoDBStreamParametersProperty
 mkPipeSourceDynamoDBStreamParametersProperty startingPosition

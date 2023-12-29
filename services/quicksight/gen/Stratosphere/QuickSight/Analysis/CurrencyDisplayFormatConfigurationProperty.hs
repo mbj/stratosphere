@@ -20,6 +20,7 @@ data CurrencyDisplayFormatConfigurationProperty
                                                 separatorConfiguration :: (Prelude.Maybe NumericSeparatorConfigurationProperty),
                                                 suffix :: (Prelude.Maybe (Value Prelude.Text)),
                                                 symbol :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCurrencyDisplayFormatConfigurationProperty ::
   CurrencyDisplayFormatConfigurationProperty
 mkCurrencyDisplayFormatConfigurationProperty

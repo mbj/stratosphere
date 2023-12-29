@@ -11,6 +11,7 @@ data RecoveryGroup
   = RecoveryGroup {cells :: (Prelude.Maybe (ValueList Prelude.Text)),
                    recoveryGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecoveryGroup :: RecoveryGroup
 mkRecoveryGroup
   = RecoveryGroup

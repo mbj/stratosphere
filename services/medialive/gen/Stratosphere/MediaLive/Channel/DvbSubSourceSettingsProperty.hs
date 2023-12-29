@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DvbSubSourceSettingsProperty
   = DvbSubSourceSettingsProperty {ocrLanguage :: (Prelude.Maybe (Value Prelude.Text)),
                                   pid :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDvbSubSourceSettingsProperty :: DvbSubSourceSettingsProperty
 mkDvbSubSourceSettingsProperty
   = DvbSubSourceSettingsProperty

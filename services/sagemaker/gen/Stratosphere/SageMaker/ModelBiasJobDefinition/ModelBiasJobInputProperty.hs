@@ -13,6 +13,7 @@ data ModelBiasJobInputProperty
   = ModelBiasJobInputProperty {batchTransformInput :: (Prelude.Maybe BatchTransformInputProperty),
                                endpointInput :: (Prelude.Maybe EndpointInputProperty),
                                groundTruthS3Input :: MonitoringGroundTruthS3InputProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModelBiasJobInputProperty ::
   MonitoringGroundTruthS3InputProperty -> ModelBiasJobInputProperty
 mkModelBiasJobInputProperty groundTruthS3Input

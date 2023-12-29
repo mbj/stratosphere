@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SourceProperty
   = SourceProperty {sourceData :: (Prelude.Maybe SourceDataProperty),
                     sourceType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceProperty :: SourceProperty
 mkSourceProperty
   = SourceProperty

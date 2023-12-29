@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OrganizationAdmin
   = OrganizationAdmin {accountId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrganizationAdmin :: Value Prelude.Text -> OrganizationAdmin
 mkOrganizationAdmin accountId
   = OrganizationAdmin {accountId = accountId}

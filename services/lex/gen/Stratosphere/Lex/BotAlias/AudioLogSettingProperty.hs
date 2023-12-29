@@ -11,6 +11,7 @@ import Stratosphere.Value
 data AudioLogSettingProperty
   = AudioLogSettingProperty {destination :: AudioLogDestinationProperty,
                              enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioLogSettingProperty ::
   AudioLogDestinationProperty
   -> Value Prelude.Bool -> AudioLogSettingProperty

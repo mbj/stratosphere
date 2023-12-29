@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AttributeGroupAssociation
   = AttributeGroupAssociation {application :: (Value Prelude.Text),
                                attributeGroup :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeGroupAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> AttributeGroupAssociation

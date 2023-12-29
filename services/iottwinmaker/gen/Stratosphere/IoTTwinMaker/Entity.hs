@@ -15,6 +15,7 @@ data Entity
             parentEntityId :: (Prelude.Maybe (Value Prelude.Text)),
             tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
             workspaceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntity :: Value Prelude.Text -> Value Prelude.Text -> Entity
 mkEntity entityName workspaceId
   = Entity

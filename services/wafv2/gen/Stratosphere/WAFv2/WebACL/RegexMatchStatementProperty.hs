@@ -13,6 +13,7 @@ data RegexMatchStatementProperty
   = RegexMatchStatementProperty {fieldToMatch :: FieldToMatchProperty,
                                  regexString :: (Value Prelude.Text),
                                  textTransformations :: [TextTransformationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegexMatchStatementProperty ::
   FieldToMatchProperty
   -> Value Prelude.Text

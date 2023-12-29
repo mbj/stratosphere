@@ -9,6 +9,7 @@ import Stratosphere.Value
 data StatefulEngineOptionsProperty
   = StatefulEngineOptionsProperty {ruleOrder :: (Prelude.Maybe (Value Prelude.Text)),
                                    streamExceptionPolicy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStatefulEngineOptionsProperty :: StatefulEngineOptionsProperty
 mkStatefulEngineOptionsProperty
   = StatefulEngineOptionsProperty

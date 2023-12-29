@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FindMatchesParametersProperty :: Prelude.Type
 instance ToResourceProperties FindMatchesParametersProperty
+instance Prelude.Eq FindMatchesParametersProperty
+instance Prelude.Show FindMatchesParametersProperty
 instance JSON.ToJSON FindMatchesParametersProperty

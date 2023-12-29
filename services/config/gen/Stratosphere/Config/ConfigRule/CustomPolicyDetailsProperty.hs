@@ -10,6 +10,7 @@ data CustomPolicyDetailsProperty
   = CustomPolicyDetailsProperty {enableDebugLogDelivery :: (Prelude.Maybe (Value Prelude.Bool)),
                                  policyRuntime :: (Prelude.Maybe (Value Prelude.Text)),
                                  policyText :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomPolicyDetailsProperty :: CustomPolicyDetailsProperty
 mkCustomPolicyDetailsProperty
   = CustomPolicyDetailsProperty

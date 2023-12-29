@@ -11,6 +11,7 @@ import Stratosphere.Value
 data TransformEncryptionProperty
   = TransformEncryptionProperty {mLUserDataEncryption :: (Prelude.Maybe MLUserDataEncryptionProperty),
                                  taskRunSecurityConfigurationName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformEncryptionProperty :: TransformEncryptionProperty
 mkTransformEncryptionProperty
   = TransformEncryptionProperty

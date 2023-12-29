@@ -13,6 +13,7 @@ data ConnectionPoolConfigurationInfoFormatProperty
                                                    maxConnectionsPercent :: (Prelude.Maybe (Value Prelude.Integer)),
                                                    maxIdleConnectionsPercent :: (Prelude.Maybe (Value Prelude.Integer)),
                                                    sessionPinningFilters :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionPoolConfigurationInfoFormatProperty ::
   ConnectionPoolConfigurationInfoFormatProperty
 mkConnectionPoolConfigurationInfoFormatProperty

@@ -12,6 +12,7 @@ data GeospatialCoordinateBoundsProperty
                                         north :: (Value Prelude.Double),
                                         south :: (Value Prelude.Double),
                                         west :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGeospatialCoordinateBoundsProperty ::
   Value Prelude.Double
   -> Value Prelude.Double

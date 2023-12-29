@@ -11,6 +11,7 @@ data CodeStarParametersProperty
                                 branch :: (Value Prelude.Text),
                                 connectionArn :: (Value Prelude.Text),
                                 repository :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeStarParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

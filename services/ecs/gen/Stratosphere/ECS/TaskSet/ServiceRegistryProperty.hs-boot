@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ServiceRegistryProperty :: Prelude.Type
 instance ToResourceProperties ServiceRegistryProperty
+instance Prelude.Eq ServiceRegistryProperty
+instance Prelude.Show ServiceRegistryProperty
 instance JSON.ToJSON ServiceRegistryProperty

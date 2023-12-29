@@ -14,6 +14,7 @@ data SendNotificationActionProperty
                                     deliveryMethod :: (Value Prelude.Text),
                                     recipient :: NotificationRecipientTypeProperty,
                                     subject :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSendNotificationActionProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

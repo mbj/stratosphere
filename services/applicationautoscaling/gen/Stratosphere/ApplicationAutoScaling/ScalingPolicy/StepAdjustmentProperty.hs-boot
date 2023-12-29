@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StepAdjustmentProperty :: Prelude.Type
 instance ToResourceProperties StepAdjustmentProperty
+instance Prelude.Eq StepAdjustmentProperty
+instance Prelude.Show StepAdjustmentProperty
 instance JSON.ToJSON StepAdjustmentProperty

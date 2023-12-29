@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LicenseSpecificationProperty
   = LicenseSpecificationProperty {licenseConfigurationArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLicenseSpecificationProperty ::
   Value Prelude.Text -> LicenseSpecificationProperty
 mkLicenseSpecificationProperty licenseConfigurationArn

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UploadSettingsProperty :: Prelude.Type
 instance ToResourceProperties UploadSettingsProperty
+instance Prelude.Eq UploadSettingsProperty
+instance Prelude.Show UploadSettingsProperty
 instance JSON.ToJSON UploadSettingsProperty

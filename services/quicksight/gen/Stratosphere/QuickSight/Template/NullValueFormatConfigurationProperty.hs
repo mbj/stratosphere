@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NullValueFormatConfigurationProperty
   = NullValueFormatConfigurationProperty {nullString :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNullValueFormatConfigurationProperty ::
   Value Prelude.Text -> NullValueFormatConfigurationProperty
 mkNullValueFormatConfigurationProperty nullString

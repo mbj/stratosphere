@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SessionAttributeProperty :: Prelude.Type
 instance ToResourceProperties SessionAttributeProperty
+instance Prelude.Eq SessionAttributeProperty
+instance Prelude.Show SessionAttributeProperty
 instance JSON.ToJSON SessionAttributeProperty

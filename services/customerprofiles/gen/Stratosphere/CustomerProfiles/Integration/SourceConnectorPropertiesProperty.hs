@@ -17,6 +17,7 @@ data SourceConnectorPropertiesProperty
                                        salesforce :: (Prelude.Maybe SalesforceSourcePropertiesProperty),
                                        serviceNow :: (Prelude.Maybe ServiceNowSourcePropertiesProperty),
                                        zendesk :: (Prelude.Maybe ZendeskSourcePropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceConnectorPropertiesProperty ::
   SourceConnectorPropertiesProperty
 mkSourceConnectorPropertiesProperty

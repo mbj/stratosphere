@@ -14,6 +14,7 @@ data DNSTargetResourceProperty
                                recordSetId :: (Prelude.Maybe (Value Prelude.Text)),
                                recordType :: (Prelude.Maybe (Value Prelude.Text)),
                                targetResource :: (Prelude.Maybe TargetResourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDNSTargetResourceProperty :: DNSTargetResourceProperty
 mkDNSTargetResourceProperty
   = DNSTargetResourceProperty

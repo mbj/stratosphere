@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataLakePrincipalProperty :: Prelude.Type
 instance ToResourceProperties DataLakePrincipalProperty
+instance Prelude.Eq DataLakePrincipalProperty
+instance Prelude.Show DataLakePrincipalProperty
 instance JSON.ToJSON DataLakePrincipalProperty

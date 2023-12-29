@@ -11,6 +11,7 @@ data SyncConfigProperty
   = SyncConfigProperty {conflictDetection :: (Value Prelude.Text),
                         conflictHandler :: (Prelude.Maybe (Value Prelude.Text)),
                         lambdaConflictHandlerConfig :: (Prelude.Maybe LambdaConflictHandlerConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSyncConfigProperty :: Value Prelude.Text -> SyncConfigProperty
 mkSyncConfigProperty conflictDetection
   = SyncConfigProperty

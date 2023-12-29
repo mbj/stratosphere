@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RemoveHeaderProperty
   = RemoveHeaderProperty {header :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRemoveHeaderProperty ::
   Value Prelude.Text -> RemoveHeaderProperty
 mkRemoveHeaderProperty header

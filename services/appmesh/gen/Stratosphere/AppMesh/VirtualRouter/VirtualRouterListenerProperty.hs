@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.AppMesh.VirtualRouter.PortMappingProperty as 
 import Stratosphere.ResourceProperties
 data VirtualRouterListenerProperty
   = VirtualRouterListenerProperty {portMapping :: PortMappingProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualRouterListenerProperty ::
   PortMappingProperty -> VirtualRouterListenerProperty
 mkVirtualRouterListenerProperty portMapping

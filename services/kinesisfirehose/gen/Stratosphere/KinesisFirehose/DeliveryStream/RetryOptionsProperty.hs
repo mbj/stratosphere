@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RetryOptionsProperty
   = RetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRetryOptionsProperty :: RetryOptionsProperty
 mkRetryOptionsProperty
   = RetryOptionsProperty {durationInSeconds = Prelude.Nothing}

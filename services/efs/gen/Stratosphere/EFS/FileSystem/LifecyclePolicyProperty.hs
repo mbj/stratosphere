@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LifecyclePolicyProperty
   = LifecyclePolicyProperty {transitionToIA :: (Prelude.Maybe (Value Prelude.Text)),
                              transitionToPrimaryStorageClass :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecyclePolicyProperty :: LifecyclePolicyProperty
 mkLifecyclePolicyProperty
   = LifecyclePolicyProperty

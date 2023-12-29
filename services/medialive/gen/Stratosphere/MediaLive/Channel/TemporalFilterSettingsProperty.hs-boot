@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TemporalFilterSettingsProperty :: Prelude.Type
 instance ToResourceProperties TemporalFilterSettingsProperty
+instance Prelude.Eq TemporalFilterSettingsProperty
+instance Prelude.Show TemporalFilterSettingsProperty
 instance JSON.ToJSON TemporalFilterSettingsProperty

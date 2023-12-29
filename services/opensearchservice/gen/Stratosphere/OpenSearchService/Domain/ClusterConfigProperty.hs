@@ -19,6 +19,7 @@ data ClusterConfigProperty
                            warmType :: (Prelude.Maybe (Value Prelude.Text)),
                            zoneAwarenessConfig :: (Prelude.Maybe ZoneAwarenessConfigProperty),
                            zoneAwarenessEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterConfigProperty :: ClusterConfigProperty
 mkClusterConfigProperty
   = ClusterConfigProperty

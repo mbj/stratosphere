@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Cognito.IdentityPoolRoleAttachment.MappingRul
 import Stratosphere.ResourceProperties
 data RulesConfigurationTypeProperty
   = RulesConfigurationTypeProperty {rules :: [MappingRuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRulesConfigurationTypeProperty ::
   [MappingRuleProperty] -> RulesConfigurationTypeProperty
 mkRulesConfigurationTypeProperty rules

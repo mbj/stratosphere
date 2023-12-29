@@ -26,6 +26,7 @@ data ComponentPropertyProperty
                                type' :: (Prelude.Maybe (Value Prelude.Text)),
                                userAttribute :: (Prelude.Maybe (Value Prelude.Text)),
                                value :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentPropertyProperty :: ComponentPropertyProperty
 mkComponentPropertyProperty
   = ComponentPropertyProperty

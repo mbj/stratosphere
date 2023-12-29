@@ -12,6 +12,7 @@ data PricingPlan
                  name :: (Value Prelude.Text),
                  pricingRuleArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPricingPlan :: Value Prelude.Text -> PricingPlan
 mkPricingPlan name
   = PricingPlan

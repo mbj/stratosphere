@@ -16,6 +16,7 @@ data Asset
            assetName :: (Value Prelude.Text),
            assetProperties :: (Prelude.Maybe [AssetPropertyProperty]),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAsset :: Value Prelude.Text -> Value Prelude.Text -> Asset
 mkAsset assetModelId assetName
   = Asset

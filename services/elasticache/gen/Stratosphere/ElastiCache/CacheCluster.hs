@@ -34,6 +34,7 @@ data CacheCluster
                   tags :: (Prelude.Maybe [Tag]),
                   transitEncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                   vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCacheCluster ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Integer -> CacheCluster

@@ -10,6 +10,7 @@ data DefaultRetentionProperty
   = DefaultRetentionProperty {days :: (Prelude.Maybe (Value Prelude.Integer)),
                               mode :: (Prelude.Maybe (Value Prelude.Text)),
                               years :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultRetentionProperty :: DefaultRetentionProperty
 mkDefaultRetentionProperty
   = DefaultRetentionProperty

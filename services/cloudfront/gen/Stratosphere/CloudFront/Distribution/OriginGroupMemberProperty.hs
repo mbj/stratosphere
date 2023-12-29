@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginGroupMemberProperty
   = OriginGroupMemberProperty {originId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginGroupMemberProperty ::
   Value Prelude.Text -> OriginGroupMemberProperty
 mkOriginGroupMemberProperty originId

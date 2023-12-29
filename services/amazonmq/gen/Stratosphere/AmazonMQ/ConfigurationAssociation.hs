@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ConfigurationAssociation
   = ConfigurationAssociation {broker :: (Value Prelude.Text),
                               configuration :: ConfigurationIdProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationAssociation ::
   Value Prelude.Text
   -> ConfigurationIdProperty -> ConfigurationAssociation

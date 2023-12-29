@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DocumentClassificationConfigProperty :: Prelude.Type
 instance ToResourceProperties DocumentClassificationConfigProperty
+instance Prelude.Eq DocumentClassificationConfigProperty
+instance Prelude.Show DocumentClassificationConfigProperty
 instance JSON.ToJSON DocumentClassificationConfigProperty

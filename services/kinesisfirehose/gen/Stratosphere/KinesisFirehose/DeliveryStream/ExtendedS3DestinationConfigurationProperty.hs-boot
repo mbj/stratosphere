@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ExtendedS3DestinationConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ExtendedS3DestinationConfigurationProperty
+instance Prelude.Eq ExtendedS3DestinationConfigurationProperty
+instance Prelude.Show ExtendedS3DestinationConfigurationProperty
 instance JSON.ToJSON ExtendedS3DestinationConfigurationProperty

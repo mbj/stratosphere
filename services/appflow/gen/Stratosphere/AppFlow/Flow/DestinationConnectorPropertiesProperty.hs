@@ -29,6 +29,7 @@ data DestinationConnectorPropertiesProperty
                                             snowflake :: (Prelude.Maybe SnowflakeDestinationPropertiesProperty),
                                             upsolver :: (Prelude.Maybe UpsolverDestinationPropertiesProperty),
                                             zendesk :: (Prelude.Maybe ZendeskDestinationPropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConnectorPropertiesProperty ::
   DestinationConnectorPropertiesProperty
 mkDestinationConnectorPropertiesProperty

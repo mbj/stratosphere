@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IPSetReferenceStatementProperty :: Prelude.Type
 instance ToResourceProperties IPSetReferenceStatementProperty
+instance Prelude.Eq IPSetReferenceStatementProperty
+instance Prelude.Show IPSetReferenceStatementProperty
 instance JSON.ToJSON IPSetReferenceStatementProperty

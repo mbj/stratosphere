@@ -11,6 +11,7 @@ data S3ActionProperty
                       kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                       objectKeyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                       topicArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ActionProperty :: Value Prelude.Text -> S3ActionProperty
 mkS3ActionProperty bucketName
   = S3ActionProperty

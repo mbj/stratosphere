@@ -16,6 +16,7 @@ data Channel
              id :: (Value Prelude.Text),
              ingressAccessLogs :: (Prelude.Maybe LogConfigurationProperty),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChannel :: Value Prelude.Text -> Channel
 mkChannel id
   = Channel

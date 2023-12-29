@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ScriptParameterKeyValueProperty :: Prelude.Type
 instance ToResourceProperties ScriptParameterKeyValueProperty
+instance Prelude.Eq ScriptParameterKeyValueProperty
+instance Prelude.Show ScriptParameterKeyValueProperty
 instance JSON.ToJSON ScriptParameterKeyValueProperty

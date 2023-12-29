@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.MonitoringSubscription.RealtimeMet
 import Stratosphere.ResourceProperties
 data MonitoringSubscriptionProperty
   = MonitoringSubscriptionProperty {realtimeMetricsSubscriptionConfig :: (Prelude.Maybe RealtimeMetricsSubscriptionConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringSubscriptionProperty :: MonitoringSubscriptionProperty
 mkMonitoringSubscriptionProperty
   = MonitoringSubscriptionProperty

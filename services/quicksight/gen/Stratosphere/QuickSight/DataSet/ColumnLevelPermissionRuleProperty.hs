@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ColumnLevelPermissionRuleProperty
   = ColumnLevelPermissionRuleProperty {columnNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                                        principals :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnLevelPermissionRuleProperty ::
   ColumnLevelPermissionRuleProperty
 mkColumnLevelPermissionRuleProperty

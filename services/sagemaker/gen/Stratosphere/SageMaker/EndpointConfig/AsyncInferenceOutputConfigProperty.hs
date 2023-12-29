@@ -13,6 +13,7 @@ data AsyncInferenceOutputConfigProperty
                                         notificationConfig :: (Prelude.Maybe AsyncInferenceNotificationConfigProperty),
                                         s3FailurePath :: (Prelude.Maybe (Value Prelude.Text)),
                                         s3OutputPath :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAsyncInferenceOutputConfigProperty ::
   AsyncInferenceOutputConfigProperty
 mkAsyncInferenceOutputConfigProperty

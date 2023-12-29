@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data HttpGatewayRouteProperty
   = HttpGatewayRouteProperty {action :: HttpGatewayRouteActionProperty,
                               match :: HttpGatewayRouteMatchProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteProperty ::
   HttpGatewayRouteActionProperty
   -> HttpGatewayRouteMatchProperty -> HttpGatewayRouteProperty

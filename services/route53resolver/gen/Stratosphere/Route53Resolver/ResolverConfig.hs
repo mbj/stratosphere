@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ResolverConfig
   = ResolverConfig {autodefinedReverseFlag :: (Value Prelude.Text),
                     resourceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResolverConfig ::
   Value Prelude.Text -> Value Prelude.Text -> ResolverConfig
 mkResolverConfig autodefinedReverseFlag resourceId

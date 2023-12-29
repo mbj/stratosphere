@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FederatedDatabaseProperty
   = FederatedDatabaseProperty {connectionName :: (Prelude.Maybe (Value Prelude.Text)),
                                identifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFederatedDatabaseProperty :: FederatedDatabaseProperty
 mkFederatedDatabaseProperty
   = FederatedDatabaseProperty

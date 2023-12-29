@@ -10,6 +10,7 @@ data DeviceProperty
   = DeviceProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
                     deviceName :: (Value Prelude.Text),
                     iotThingName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceProperty :: Value Prelude.Text -> DeviceProperty
 mkDeviceProperty deviceName
   = DeviceProperty

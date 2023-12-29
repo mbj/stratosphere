@@ -10,6 +10,7 @@ data OtaaV11Property
   = OtaaV11Property {appKey :: (Value Prelude.Text),
                      joinEui :: (Value Prelude.Text),
                      nwkKey :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOtaaV11Property ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> OtaaV11Property

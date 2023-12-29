@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BotVersionLocaleDetailsProperty :: Prelude.Type
 instance ToResourceProperties BotVersionLocaleDetailsProperty
+instance Prelude.Eq BotVersionLocaleDetailsProperty
+instance Prelude.Show BotVersionLocaleDetailsProperty
 instance JSON.ToJSON BotVersionLocaleDetailsProperty

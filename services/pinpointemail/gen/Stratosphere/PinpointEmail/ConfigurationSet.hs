@@ -18,6 +18,7 @@ data ConfigurationSet
                       sendingOptions :: (Prelude.Maybe SendingOptionsProperty),
                       tags :: (Prelude.Maybe [TagsProperty]),
                       trackingOptions :: (Prelude.Maybe TrackingOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationSet :: Value Prelude.Text -> ConfigurationSet
 mkConfigurationSet name
   = ConfigurationSet

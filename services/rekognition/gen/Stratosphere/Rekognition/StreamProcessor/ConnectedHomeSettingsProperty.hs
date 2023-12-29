@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ConnectedHomeSettingsProperty
   = ConnectedHomeSettingsProperty {labels :: (ValueList Prelude.Text),
                                    minConfidence :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectedHomeSettingsProperty ::
   ValueList Prelude.Text -> ConnectedHomeSettingsProperty
 mkConnectedHomeSettingsProperty labels

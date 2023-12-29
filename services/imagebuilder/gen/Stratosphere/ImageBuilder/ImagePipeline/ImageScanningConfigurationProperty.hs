@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ImageScanningConfigurationProperty
   = ImageScanningConfigurationProperty {ecrConfiguration :: (Prelude.Maybe EcrConfigurationProperty),
                                         imageScanningEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImageScanningConfigurationProperty ::
   ImageScanningConfigurationProperty
 mkImageScanningConfigurationProperty

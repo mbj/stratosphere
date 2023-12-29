@@ -11,6 +11,7 @@ data StudioSessionMapping
                           identityType :: (Value Prelude.Text),
                           sessionPolicyArn :: (Value Prelude.Text),
                           studioId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStudioSessionMapping ::
   Value Prelude.Text
   -> Value Prelude.Text

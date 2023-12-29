@@ -11,6 +11,7 @@ data ClusterConfigProperty
                            instanceType :: (Value Prelude.Text),
                            volumeKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                            volumeSizeInGB :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterConfigProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text

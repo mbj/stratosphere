@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CookiesProperty
   = CookiesProperty {forward :: (Value Prelude.Text),
                      whitelistedNames :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCookiesProperty :: Value Prelude.Text -> CookiesProperty
 mkCookiesProperty forward
   = CookiesProperty

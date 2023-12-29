@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ComponentPropertyBindingPropertiesProperty
   = ComponentPropertyBindingPropertiesProperty {field :: (Prelude.Maybe (Value Prelude.Text)),
                                                 property :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentPropertyBindingPropertiesProperty ::
   Value Prelude.Text -> ComponentPropertyBindingPropertiesProperty
 mkComponentPropertyBindingPropertiesProperty property

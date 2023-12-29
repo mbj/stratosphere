@@ -20,6 +20,7 @@ data RuleProperty
                   ruleId :: (Prelude.Maybe (Value Prelude.Text)),
                   ruleVersion :: (Prelude.Maybe (Value Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleProperty :: RuleProperty
 mkRuleProperty
   = RuleProperty

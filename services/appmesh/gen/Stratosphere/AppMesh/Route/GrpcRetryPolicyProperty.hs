@@ -14,6 +14,7 @@ data GrpcRetryPolicyProperty
                              maxRetries :: (Value Prelude.Integer),
                              perRetryTimeout :: DurationProperty,
                              tcpRetryEvents :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrpcRetryPolicyProperty ::
   Value Prelude.Integer
   -> DurationProperty -> GrpcRetryPolicyProperty

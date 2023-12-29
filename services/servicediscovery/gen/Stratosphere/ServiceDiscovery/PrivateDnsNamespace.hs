@@ -14,6 +14,7 @@ data PrivateDnsNamespace
                          properties :: (Prelude.Maybe PropertiesProperty),
                          tags :: (Prelude.Maybe [Tag]),
                          vpc :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrivateDnsNamespace ::
   Value Prelude.Text -> Value Prelude.Text -> PrivateDnsNamespace
 mkPrivateDnsNamespace name vpc

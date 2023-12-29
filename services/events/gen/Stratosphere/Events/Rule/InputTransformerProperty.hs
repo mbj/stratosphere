@@ -9,6 +9,7 @@ import Stratosphere.Value
 data InputTransformerProperty
   = InputTransformerProperty {inputPathsMap :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                               inputTemplate :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputTransformerProperty ::
   Value Prelude.Text -> InputTransformerProperty
 mkInputTransformerProperty inputTemplate

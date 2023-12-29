@@ -12,6 +12,7 @@ data PredicateProperty
                        operand :: (Prelude.Maybe (Value Prelude.Text)),
                        operator :: (Prelude.Maybe (Value Prelude.Text)),
                        or :: (Prelude.Maybe [PredicateProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredicateProperty :: PredicateProperty
 mkPredicateProperty
   = PredicateProperty

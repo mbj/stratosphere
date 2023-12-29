@@ -21,6 +21,7 @@ data DashboardVersionDefinitionProperty
                                         filterGroups :: (Prelude.Maybe [FilterGroupProperty]),
                                         parameterDeclarations :: (Prelude.Maybe [ParameterDeclarationProperty]),
                                         sheets :: (Prelude.Maybe [SheetDefinitionProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashboardVersionDefinitionProperty ::
   [DataSetIdentifierDeclarationProperty]
   -> DashboardVersionDefinitionProperty

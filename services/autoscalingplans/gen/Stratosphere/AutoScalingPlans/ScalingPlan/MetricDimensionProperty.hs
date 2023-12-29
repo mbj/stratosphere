@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MetricDimensionProperty
   = MetricDimensionProperty {name :: (Value Prelude.Text),
                              value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricDimensionProperty ::
   Value Prelude.Text -> Value Prelude.Text -> MetricDimensionProperty
 mkMetricDimensionProperty name value

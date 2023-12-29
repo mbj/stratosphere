@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ValidationConfigurationProperty
   = ValidationConfigurationProperty {rulesetArn :: (Value Prelude.Text),
                                      validationMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkValidationConfigurationProperty ::
   Value Prelude.Text -> ValidationConfigurationProperty
 mkValidationConfigurationProperty rulesetArn

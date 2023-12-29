@@ -17,6 +17,7 @@ data Key
          multiRegion :: (Prelude.Maybe (Value Prelude.Bool)),
          pendingWindowInDays :: (Prelude.Maybe (Value Prelude.Integer)),
          tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKey :: JSON.Object -> Key
 mkKey keyPolicy
   = Key

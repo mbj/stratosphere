@@ -10,6 +10,7 @@ data ReportDeliveryChannelProperty
   = ReportDeliveryChannelProperty {formats :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    s3BucketName :: (Value Prelude.Text),
                                    s3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReportDeliveryChannelProperty ::
   Value Prelude.Text -> ReportDeliveryChannelProperty
 mkReportDeliveryChannelProperty s3BucketName

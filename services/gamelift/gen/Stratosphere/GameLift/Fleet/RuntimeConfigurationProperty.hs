@@ -12,6 +12,7 @@ data RuntimeConfigurationProperty
   = RuntimeConfigurationProperty {gameSessionActivationTimeoutSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                   maxConcurrentGameSessionActivations :: (Prelude.Maybe (Value Prelude.Integer)),
                                   serverProcesses :: (Prelude.Maybe [ServerProcessProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuntimeConfigurationProperty :: RuntimeConfigurationProperty
 mkRuntimeConfigurationProperty
   = RuntimeConfigurationProperty

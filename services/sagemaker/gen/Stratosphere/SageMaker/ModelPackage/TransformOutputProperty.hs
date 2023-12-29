@@ -11,6 +11,7 @@ data TransformOutputProperty
                              assembleWith :: (Prelude.Maybe (Value Prelude.Text)),
                              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                              s3OutputPath :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformOutputProperty ::
   Value Prelude.Text -> TransformOutputProperty
 mkTransformOutputProperty s3OutputPath

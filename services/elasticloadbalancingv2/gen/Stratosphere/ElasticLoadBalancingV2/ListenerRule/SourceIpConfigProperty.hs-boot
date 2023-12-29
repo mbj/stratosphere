@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SourceIpConfigProperty :: Prelude.Type
 instance ToResourceProperties SourceIpConfigProperty
+instance Prelude.Eq SourceIpConfigProperty
+instance Prelude.Show SourceIpConfigProperty
 instance JSON.ToJSON SourceIpConfigProperty

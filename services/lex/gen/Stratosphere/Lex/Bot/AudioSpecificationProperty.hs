@@ -9,6 +9,7 @@ import Stratosphere.Value
 data AudioSpecificationProperty
   = AudioSpecificationProperty {endTimeoutMs :: (Value Prelude.Integer),
                                 maxLengthMs :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioSpecificationProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> AudioSpecificationProperty

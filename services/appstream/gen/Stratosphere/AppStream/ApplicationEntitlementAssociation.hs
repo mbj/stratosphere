@@ -11,6 +11,7 @@ data ApplicationEntitlementAssociation
   = ApplicationEntitlementAssociation {applicationIdentifier :: (Value Prelude.Text),
                                        entitlementName :: (Value Prelude.Text),
                                        stackName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationEntitlementAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text

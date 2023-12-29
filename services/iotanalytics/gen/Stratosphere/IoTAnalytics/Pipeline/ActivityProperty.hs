@@ -26,6 +26,7 @@ data ActivityProperty
                       math :: (Prelude.Maybe MathProperty),
                       removeAttributes :: (Prelude.Maybe RemoveAttributesProperty),
                       selectAttributes :: (Prelude.Maybe SelectAttributesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActivityProperty :: ActivityProperty
 mkActivityProperty
   = ActivityProperty

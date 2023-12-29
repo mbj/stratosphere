@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HttpActionHeaderProperty :: Prelude.Type
 instance ToResourceProperties HttpActionHeaderProperty
+instance Prelude.Eq HttpActionHeaderProperty
+instance Prelude.Show HttpActionHeaderProperty
 instance JSON.ToJSON HttpActionHeaderProperty

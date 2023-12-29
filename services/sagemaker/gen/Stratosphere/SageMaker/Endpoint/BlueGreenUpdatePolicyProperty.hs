@@ -12,6 +12,7 @@ data BlueGreenUpdatePolicyProperty
   = BlueGreenUpdatePolicyProperty {maximumExecutionTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                    terminationWaitInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                    trafficRoutingConfiguration :: TrafficRoutingConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBlueGreenUpdatePolicyProperty ::
   TrafficRoutingConfigProperty -> BlueGreenUpdatePolicyProperty
 mkBlueGreenUpdatePolicyProperty trafficRoutingConfiguration

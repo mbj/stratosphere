@@ -16,6 +16,7 @@ data DeploymentStrategy
                         name :: (Value Prelude.Text),
                         replicateTo :: (Value Prelude.Text),
                         tags :: (Prelude.Maybe [TagsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentStrategy ::
   Value Prelude.Double
   -> Value Prelude.Double

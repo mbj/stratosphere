@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MongoDBTargetProperty
   = MongoDBTargetProperty {connectionName :: (Prelude.Maybe (Value Prelude.Text)),
                            path :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMongoDBTargetProperty :: MongoDBTargetProperty
 mkMongoDBTargetProperty
   = MongoDBTargetProperty

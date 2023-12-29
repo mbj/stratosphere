@@ -14,6 +14,7 @@ data EventIntegration
                       eventFilter :: EventFilterProperty,
                       name :: (Value Prelude.Text),
                       tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventIntegration ::
   Value Prelude.Text
   -> EventFilterProperty -> Value Prelude.Text -> EventIntegration

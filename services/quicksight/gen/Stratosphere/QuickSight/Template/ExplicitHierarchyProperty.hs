@@ -13,6 +13,7 @@ data ExplicitHierarchyProperty
   = ExplicitHierarchyProperty {columns :: [ColumnIdentifierProperty],
                                drillDownFilters :: (Prelude.Maybe [DrillDownFilterProperty]),
                                hierarchyId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExplicitHierarchyProperty ::
   [ColumnIdentifierProperty]
   -> Value Prelude.Text -> ExplicitHierarchyProperty

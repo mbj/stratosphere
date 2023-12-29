@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CaptureContentTypeHeaderProperty :: Prelude.Type
 instance ToResourceProperties CaptureContentTypeHeaderProperty
+instance Prelude.Eq CaptureContentTypeHeaderProperty
+instance Prelude.Show CaptureContentTypeHeaderProperty
 instance JSON.ToJSON CaptureContentTypeHeaderProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetGroupInfoProperty
   = TargetGroupInfoProperty {name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetGroupInfoProperty :: TargetGroupInfoProperty
 mkTargetGroupInfoProperty
   = TargetGroupInfoProperty {name = Prelude.Nothing}

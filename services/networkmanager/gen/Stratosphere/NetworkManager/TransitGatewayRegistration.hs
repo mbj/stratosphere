@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TransitGatewayRegistration
   = TransitGatewayRegistration {globalNetworkId :: (Value Prelude.Text),
                                 transitGatewayArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayRegistration ::
   Value Prelude.Text
   -> Value Prelude.Text -> TransitGatewayRegistration

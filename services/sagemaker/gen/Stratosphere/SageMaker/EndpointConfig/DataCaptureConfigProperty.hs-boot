@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataCaptureConfigProperty :: Prelude.Type
 instance ToResourceProperties DataCaptureConfigProperty
+instance Prelude.Eq DataCaptureConfigProperty
+instance Prelude.Show DataCaptureConfigProperty
 instance JSON.ToJSON DataCaptureConfigProperty

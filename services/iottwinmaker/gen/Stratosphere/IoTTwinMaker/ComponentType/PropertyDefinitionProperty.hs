@@ -17,6 +17,7 @@ data PropertyDefinitionProperty
                                 isRequiredInEntity :: (Prelude.Maybe (Value Prelude.Bool)),
                                 isStoredExternally :: (Prelude.Maybe (Value Prelude.Bool)),
                                 isTimeSeries :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyDefinitionProperty :: PropertyDefinitionProperty
 mkPropertyDefinitionProperty
   = PropertyDefinitionProperty

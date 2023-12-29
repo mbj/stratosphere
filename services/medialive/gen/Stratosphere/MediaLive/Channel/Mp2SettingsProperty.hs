@@ -10,6 +10,7 @@ data Mp2SettingsProperty
   = Mp2SettingsProperty {bitrate :: (Prelude.Maybe (Value Prelude.Double)),
                          codingMode :: (Prelude.Maybe (Value Prelude.Text)),
                          sampleRate :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMp2SettingsProperty :: Mp2SettingsProperty
 mkMp2SettingsProperty
   = Mp2SettingsProperty

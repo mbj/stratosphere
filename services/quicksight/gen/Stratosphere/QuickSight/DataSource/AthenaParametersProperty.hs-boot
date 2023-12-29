@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AthenaParametersProperty :: Prelude.Type
 instance ToResourceProperties AthenaParametersProperty
+instance Prelude.Eq AthenaParametersProperty
+instance Prelude.Show AthenaParametersProperty
 instance JSON.ToJSON AthenaParametersProperty

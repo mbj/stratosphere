@@ -11,6 +11,7 @@ data WebCrawlerBasicAuthenticationProperty
   = WebCrawlerBasicAuthenticationProperty {credentials :: (Value Prelude.Text),
                                            host :: (Value Prelude.Text),
                                            port :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebCrawlerBasicAuthenticationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

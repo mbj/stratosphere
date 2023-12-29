@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomEmailSenderProperty :: Prelude.Type
 instance ToResourceProperties CustomEmailSenderProperty
+instance Prelude.Eq CustomEmailSenderProperty
+instance Prelude.Show CustomEmailSenderProperty
 instance JSON.ToJSON CustomEmailSenderProperty

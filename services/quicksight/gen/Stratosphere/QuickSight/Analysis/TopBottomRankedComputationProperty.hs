@@ -16,6 +16,7 @@ data TopBottomRankedComputationProperty
                                         resultSize :: (Prelude.Maybe (Value Prelude.Double)),
                                         type' :: (Value Prelude.Text),
                                         value :: (Prelude.Maybe MeasureFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopBottomRankedComputationProperty ::
   DimensionFieldProperty
   -> Value Prelude.Text

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VirtualServiceBackendProperty :: Prelude.Type
 instance ToResourceProperties VirtualServiceBackendProperty
+instance Prelude.Eq VirtualServiceBackendProperty
+instance Prelude.Show VirtualServiceBackendProperty
 instance JSON.ToJSON VirtualServiceBackendProperty

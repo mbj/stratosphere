@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data SAPODataConnectorProfileCredentialsProperty
   = SAPODataConnectorProfileCredentialsProperty {basicAuthCredentials :: (Prelude.Maybe BasicAuthCredentialsProperty),
                                                  oAuthCredentials :: (Prelude.Maybe OAuthCredentialsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSAPODataConnectorProfileCredentialsProperty ::
   SAPODataConnectorProfileCredentialsProperty
 mkSAPODataConnectorProfileCredentialsProperty

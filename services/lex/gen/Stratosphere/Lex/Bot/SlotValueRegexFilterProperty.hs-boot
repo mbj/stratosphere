@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SlotValueRegexFilterProperty :: Prelude.Type
 instance ToResourceProperties SlotValueRegexFilterProperty
+instance Prelude.Eq SlotValueRegexFilterProperty
+instance Prelude.Show SlotValueRegexFilterProperty
 instance JSON.ToJSON SlotValueRegexFilterProperty

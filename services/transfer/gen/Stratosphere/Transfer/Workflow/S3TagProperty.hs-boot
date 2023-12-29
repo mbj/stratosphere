@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data S3TagProperty :: Prelude.Type
 instance ToResourceProperties S3TagProperty
+instance Prelude.Eq S3TagProperty
+instance Prelude.Show S3TagProperty
 instance JSON.ToJSON S3TagProperty

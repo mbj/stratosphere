@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SourceDataProperty
   = SourceDataProperty {acmPcaArn :: (Prelude.Maybe (Value Prelude.Text)),
                         x509CertificateData :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceDataProperty :: SourceDataProperty
 mkSourceDataProperty
   = SourceDataProperty

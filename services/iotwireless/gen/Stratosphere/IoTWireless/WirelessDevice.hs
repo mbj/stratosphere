@@ -17,6 +17,7 @@ data WirelessDevice
                     tags :: (Prelude.Maybe [Tag]),
                     thingArn :: (Prelude.Maybe (Value Prelude.Text)),
                     type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWirelessDevice ::
   Value Prelude.Text -> Value Prelude.Text -> WirelessDevice
 mkWirelessDevice destinationName type'

@@ -10,6 +10,7 @@ data RotationRulesProperty
   = RotationRulesProperty {automaticallyAfterDays :: (Prelude.Maybe (Value Prelude.Integer)),
                            duration :: (Prelude.Maybe (Value Prelude.Text)),
                            scheduleExpression :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRotationRulesProperty :: RotationRulesProperty
 mkRotationRulesProperty
   = RotationRulesProperty

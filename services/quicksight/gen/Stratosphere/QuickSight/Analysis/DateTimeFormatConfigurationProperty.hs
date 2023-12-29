@@ -13,6 +13,7 @@ data DateTimeFormatConfigurationProperty
   = DateTimeFormatConfigurationProperty {dateTimeFormat :: (Prelude.Maybe (Value Prelude.Text)),
                                          nullValueFormatConfiguration :: (Prelude.Maybe NullValueFormatConfigurationProperty),
                                          numericFormatConfiguration :: (Prelude.Maybe NumericFormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateTimeFormatConfigurationProperty ::
   DateTimeFormatConfigurationProperty
 mkDateTimeFormatConfigurationProperty

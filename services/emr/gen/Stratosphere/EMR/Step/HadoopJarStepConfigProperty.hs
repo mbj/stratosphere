@@ -13,6 +13,7 @@ data HadoopJarStepConfigProperty
                                  jar :: (Value Prelude.Text),
                                  mainClass :: (Prelude.Maybe (Value Prelude.Text)),
                                  stepProperties :: (Prelude.Maybe [KeyValueProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHadoopJarStepConfigProperty ::
   Value Prelude.Text -> HadoopJarStepConfigProperty
 mkHadoopJarStepConfigProperty jar

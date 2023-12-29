@@ -10,6 +10,7 @@ data FieldProperty
   = FieldProperty {key :: (Value Prelude.Text),
                    refValue :: (Prelude.Maybe (Value Prelude.Text)),
                    stringValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldProperty :: Value Prelude.Text -> FieldProperty
 mkFieldProperty key
   = FieldProperty

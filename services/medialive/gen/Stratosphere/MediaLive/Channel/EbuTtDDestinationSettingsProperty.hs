@@ -12,6 +12,7 @@ data EbuTtDDestinationSettingsProperty
                                        fillLineGap :: (Prelude.Maybe (Value Prelude.Text)),
                                        fontFamily :: (Prelude.Maybe (Value Prelude.Text)),
                                        styleControl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEbuTtDDestinationSettingsProperty ::
   EbuTtDDestinationSettingsProperty
 mkEbuTtDDestinationSettingsProperty

@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data PropertyProperty
   = PropertyProperty {definition :: (Prelude.Maybe DefinitionProperty),
                       value :: (Prelude.Maybe DataValueProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyProperty :: PropertyProperty
 mkPropertyProperty
   = PropertyProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BgpOptionsProperty
   = BgpOptionsProperty {peerAsn :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBgpOptionsProperty :: BgpOptionsProperty
 mkBgpOptionsProperty
   = BgpOptionsProperty {peerAsn = Prelude.Nothing}

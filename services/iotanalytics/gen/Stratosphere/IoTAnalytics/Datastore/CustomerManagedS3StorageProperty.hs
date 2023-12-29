@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CustomerManagedS3StorageProperty
   = CustomerManagedS3StorageProperty {bucket :: (Value Prelude.Text),
                                       keyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomerManagedS3StorageProperty ::
   Value Prelude.Text -> CustomerManagedS3StorageProperty
 mkCustomerManagedS3StorageProperty bucket

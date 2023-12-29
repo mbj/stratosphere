@@ -10,6 +10,7 @@ data OAuth2PropertiesProperty
   = OAuth2PropertiesProperty {oAuth2GrantType :: (Prelude.Maybe (Value Prelude.Text)),
                               tokenUrl :: (Prelude.Maybe (Value Prelude.Text)),
                               tokenUrlCustomProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOAuth2PropertiesProperty :: OAuth2PropertiesProperty
 mkOAuth2PropertiesProperty
   = OAuth2PropertiesProperty

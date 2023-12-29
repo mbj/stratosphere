@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PointInTimeRecoverySpecificationProperty
   = PointInTimeRecoverySpecificationProperty {pointInTimeRecoveryEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPointInTimeRecoverySpecificationProperty ::
   PointInTimeRecoverySpecificationProperty
 mkPointInTimeRecoverySpecificationProperty

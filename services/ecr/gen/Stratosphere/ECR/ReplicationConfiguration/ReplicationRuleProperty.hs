@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ReplicationRuleProperty
   = ReplicationRuleProperty {destinations :: [ReplicationDestinationProperty],
                              repositoryFilters :: (Prelude.Maybe [RepositoryFilterProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationRuleProperty ::
   [ReplicationDestinationProperty] -> ReplicationRuleProperty
 mkReplicationRuleProperty destinations

@@ -12,6 +12,7 @@ data DialogStateProperty
   = DialogStateProperty {dialogAction :: (Prelude.Maybe DialogActionProperty),
                          intent :: (Prelude.Maybe IntentOverrideProperty),
                          sessionAttributes :: (Prelude.Maybe [SessionAttributeProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDialogStateProperty :: DialogStateProperty
 mkDialogStateProperty
   = DialogStateProperty

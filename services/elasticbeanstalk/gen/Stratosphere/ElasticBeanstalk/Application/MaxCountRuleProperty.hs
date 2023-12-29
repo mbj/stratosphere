@@ -10,6 +10,7 @@ data MaxCountRuleProperty
   = MaxCountRuleProperty {deleteSourceFromS3 :: (Prelude.Maybe (Value Prelude.Bool)),
                           enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                           maxCount :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaxCountRuleProperty :: MaxCountRuleProperty
 mkMaxCountRuleProperty
   = MaxCountRuleProperty

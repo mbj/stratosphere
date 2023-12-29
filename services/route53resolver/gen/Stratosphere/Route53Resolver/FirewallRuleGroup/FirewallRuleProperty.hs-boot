@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FirewallRuleProperty :: Prelude.Type
 instance ToResourceProperties FirewallRuleProperty
+instance Prelude.Eq FirewallRuleProperty
+instance Prelude.Show FirewallRuleProperty
 instance JSON.ToJSON FirewallRuleProperty

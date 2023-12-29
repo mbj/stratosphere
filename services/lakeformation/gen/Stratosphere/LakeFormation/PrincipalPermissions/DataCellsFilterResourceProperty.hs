@@ -12,6 +12,7 @@ data DataCellsFilterResourceProperty
                                      name :: (Value Prelude.Text),
                                      tableCatalogId :: (Value Prelude.Text),
                                      tableName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCellsFilterResourceProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

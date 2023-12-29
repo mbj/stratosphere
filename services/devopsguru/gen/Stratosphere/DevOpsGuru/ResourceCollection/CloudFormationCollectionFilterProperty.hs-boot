@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CloudFormationCollectionFilterProperty :: Prelude.Type
 instance ToResourceProperties CloudFormationCollectionFilterProperty
+instance Prelude.Eq CloudFormationCollectionFilterProperty
+instance Prelude.Show CloudFormationCollectionFilterProperty
 instance JSON.ToJSON CloudFormationCollectionFilterProperty

@@ -20,6 +20,7 @@ data BudgetDataProperty
                         plannedBudgetLimits :: (Prelude.Maybe JSON.Object),
                         timePeriod :: (Prelude.Maybe TimePeriodProperty),
                         timeUnit :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBudgetDataProperty ::
   Value Prelude.Text -> Value Prelude.Text -> BudgetDataProperty
 mkBudgetDataProperty budgetType timeUnit

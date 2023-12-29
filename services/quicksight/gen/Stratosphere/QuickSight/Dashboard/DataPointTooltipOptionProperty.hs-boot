@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataPointTooltipOptionProperty :: Prelude.Type
 instance ToResourceProperties DataPointTooltipOptionProperty
+instance Prelude.Eq DataPointTooltipOptionProperty
+instance Prelude.Show DataPointTooltipOptionProperty
 instance JSON.ToJSON DataPointTooltipOptionProperty

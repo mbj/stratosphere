@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TrainingEnvironmentProperty
   = TrainingEnvironmentProperty {containerImage :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrainingEnvironmentProperty :: TrainingEnvironmentProperty
 mkTrainingEnvironmentProperty
   = TrainingEnvironmentProperty {containerImage = Prelude.Nothing}

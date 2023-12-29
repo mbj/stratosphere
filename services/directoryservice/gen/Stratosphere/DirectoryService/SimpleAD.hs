@@ -16,6 +16,7 @@ data SimpleAD
               shortName :: (Prelude.Maybe (Value Prelude.Text)),
               size :: (Value Prelude.Text),
               vpcSettings :: VpcSettingsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSimpleAD ::
   Value Prelude.Text
   -> Value Prelude.Text -> VpcSettingsProperty -> SimpleAD

@@ -10,6 +10,7 @@ data HeaderConfigProperty
   = HeaderConfigProperty {alignment :: (Prelude.Maybe (Value Prelude.Text)),
                           header :: (Prelude.Maybe (Value Prelude.Text)),
                           textColor :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHeaderConfigProperty :: HeaderConfigProperty
 mkHeaderConfigProperty
   = HeaderConfigProperty

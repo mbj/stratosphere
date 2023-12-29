@@ -10,6 +10,7 @@ data SchemaIdProperty
   = SchemaIdProperty {registryName :: (Prelude.Maybe (Value Prelude.Text)),
                       schemaArn :: (Prelude.Maybe (Value Prelude.Text)),
                       schemaName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSchemaIdProperty :: SchemaIdProperty
 mkSchemaIdProperty
   = SchemaIdProperty

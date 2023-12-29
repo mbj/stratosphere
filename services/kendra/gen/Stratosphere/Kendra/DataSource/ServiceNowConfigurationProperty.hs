@@ -16,6 +16,7 @@ data ServiceNowConfigurationProperty
                                      secretArn :: (Value Prelude.Text),
                                      serviceCatalogConfiguration :: (Prelude.Maybe ServiceNowServiceCatalogConfigurationProperty),
                                      serviceNowBuildVersion :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceNowConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

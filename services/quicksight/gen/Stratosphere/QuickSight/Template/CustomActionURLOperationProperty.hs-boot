@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomActionURLOperationProperty :: Prelude.Type
 instance ToResourceProperties CustomActionURLOperationProperty
+instance Prelude.Eq CustomActionURLOperationProperty
+instance Prelude.Show CustomActionURLOperationProperty
 instance JSON.ToJSON CustomActionURLOperationProperty

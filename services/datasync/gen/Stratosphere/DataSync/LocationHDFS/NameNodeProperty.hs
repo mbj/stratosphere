@@ -9,6 +9,7 @@ import Stratosphere.Value
 data NameNodeProperty
   = NameNodeProperty {hostname :: (Value Prelude.Text),
                       port :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNameNodeProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> NameNodeProperty
 mkNameNodeProperty hostname port

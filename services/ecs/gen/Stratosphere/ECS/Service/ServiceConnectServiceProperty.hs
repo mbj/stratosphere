@@ -13,6 +13,7 @@ data ServiceConnectServiceProperty
                                    discoveryName :: (Prelude.Maybe (Value Prelude.Text)),
                                    ingressPortOverride :: (Prelude.Maybe (Value Prelude.Integer)),
                                    portName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceConnectServiceProperty ::
   Value Prelude.Text -> ServiceConnectServiceProperty
 mkServiceConnectServiceProperty portName

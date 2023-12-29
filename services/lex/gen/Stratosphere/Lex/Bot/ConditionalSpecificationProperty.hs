@@ -13,6 +13,7 @@ data ConditionalSpecificationProperty
   = ConditionalSpecificationProperty {conditionalBranches :: [ConditionalBranchProperty],
                                       defaultBranch :: DefaultConditionalBranchProperty,
                                       isActive :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionalSpecificationProperty ::
   [ConditionalBranchProperty]
   -> DefaultConditionalBranchProperty

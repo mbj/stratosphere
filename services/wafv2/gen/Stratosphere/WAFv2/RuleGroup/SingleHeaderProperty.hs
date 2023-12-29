@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleHeaderProperty
   = SingleHeaderProperty {name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSingleHeaderProperty ::
   Value Prelude.Text -> SingleHeaderProperty
 mkSingleHeaderProperty name = SingleHeaderProperty {name = name}

@@ -15,6 +15,7 @@ data BarChartSortConfigurationProperty
                                        colorSort :: (Prelude.Maybe [FieldSortOptionsProperty]),
                                        smallMultiplesLimitConfiguration :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                        smallMultiplesSort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBarChartSortConfigurationProperty ::
   BarChartSortConfigurationProperty
 mkBarChartSortConfigurationProperty

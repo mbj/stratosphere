@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.ManagedBlockchain.Member.ApprovalThresholdPol
 import Stratosphere.ResourceProperties
 data VotingPolicyProperty
   = VotingPolicyProperty {approvalThresholdPolicy :: (Prelude.Maybe ApprovalThresholdPolicyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVotingPolicyProperty :: VotingPolicyProperty
 mkVotingPolicyProperty
   = VotingPolicyProperty {approvalThresholdPolicy = Prelude.Nothing}

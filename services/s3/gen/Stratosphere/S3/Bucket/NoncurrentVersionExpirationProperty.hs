@@ -10,6 +10,7 @@ import Stratosphere.Value
 data NoncurrentVersionExpirationProperty
   = NoncurrentVersionExpirationProperty {newerNoncurrentVersions :: (Prelude.Maybe (Value Prelude.Integer)),
                                          noncurrentDays :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNoncurrentVersionExpirationProperty ::
   Value Prelude.Integer -> NoncurrentVersionExpirationProperty
 mkNoncurrentVersionExpirationProperty noncurrentDays

@@ -16,6 +16,7 @@ data SecurityGroupEgress
                          groupId :: (Value Prelude.Text),
                          ipProtocol :: (Value Prelude.Text),
                          toPort :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityGroupEgress ::
   Value Prelude.Text -> Value Prelude.Text -> SecurityGroupEgress
 mkSecurityGroupEgress groupId ipProtocol

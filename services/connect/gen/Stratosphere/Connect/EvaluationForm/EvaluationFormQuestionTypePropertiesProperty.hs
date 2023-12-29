@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data EvaluationFormQuestionTypePropertiesProperty
   = EvaluationFormQuestionTypePropertiesProperty {numeric :: (Prelude.Maybe EvaluationFormNumericQuestionPropertiesProperty),
                                                   singleSelect :: (Prelude.Maybe EvaluationFormSingleSelectQuestionPropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEvaluationFormQuestionTypePropertiesProperty ::
   EvaluationFormQuestionTypePropertiesProperty
 mkEvaluationFormQuestionTypePropertiesProperty

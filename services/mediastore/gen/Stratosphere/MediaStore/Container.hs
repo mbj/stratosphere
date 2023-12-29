@@ -17,6 +17,7 @@ data Container
                metricPolicy :: (Prelude.Maybe MetricPolicyProperty),
                policy :: (Prelude.Maybe (Value Prelude.Text)),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainer :: Value Prelude.Text -> Container
 mkContainer containerName
   = Container

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ContactTargetInfoProperty
   = ContactTargetInfoProperty {contactId :: (Value Prelude.Text),
                                isEssential :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContactTargetInfoProperty ::
   Value Prelude.Text
   -> Value Prelude.Bool -> ContactTargetInfoProperty

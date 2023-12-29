@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ContentSecurityPolicyProperty :: Prelude.Type
 instance ToResourceProperties ContentSecurityPolicyProperty
+instance Prelude.Eq ContentSecurityPolicyProperty
+instance Prelude.Show ContentSecurityPolicyProperty
 instance JSON.ToJSON ContentSecurityPolicyProperty

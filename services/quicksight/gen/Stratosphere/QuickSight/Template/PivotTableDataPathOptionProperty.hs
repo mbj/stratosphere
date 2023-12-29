@@ -11,6 +11,7 @@ import Stratosphere.Value
 data PivotTableDataPathOptionProperty
   = PivotTableDataPathOptionProperty {dataPathList :: [DataPathValueProperty],
                                       width :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableDataPathOptionProperty ::
   [DataPathValueProperty] -> PivotTableDataPathOptionProperty
 mkPivotTableDataPathOptionProperty dataPathList

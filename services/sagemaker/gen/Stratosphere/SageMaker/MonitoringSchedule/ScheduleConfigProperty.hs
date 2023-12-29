@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ScheduleConfigProperty
   = ScheduleConfigProperty {scheduleExpression :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScheduleConfigProperty ::
   Value Prelude.Text -> ScheduleConfigProperty
 mkScheduleConfigProperty scheduleExpression

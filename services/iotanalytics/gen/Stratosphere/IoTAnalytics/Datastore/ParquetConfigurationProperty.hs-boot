@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ParquetConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ParquetConfigurationProperty
+instance Prelude.Eq ParquetConfigurationProperty
+instance Prelude.Show ParquetConfigurationProperty
 instance JSON.ToJSON ParquetConfigurationProperty

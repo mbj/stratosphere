@@ -12,6 +12,7 @@ data Archive
              eventPattern :: (Prelude.Maybe JSON.Object),
              retentionDays :: (Prelude.Maybe (Value Prelude.Integer)),
              sourceArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArchive :: Value Prelude.Text -> Archive
 mkArchive sourceArn
   = Archive

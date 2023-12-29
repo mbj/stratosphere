@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisParametersProperty
   = KinesisParametersProperty {partitionKeyPath :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisParametersProperty ::
   Value Prelude.Text -> KinesisParametersProperty
 mkKinesisParametersProperty partitionKeyPath

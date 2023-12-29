@@ -15,6 +15,7 @@ data GrowthRateComputationProperty
                                    periodSize :: (Prelude.Maybe (Value Prelude.Double)),
                                    time :: DimensionFieldProperty,
                                    value :: (Prelude.Maybe MeasureFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGrowthRateComputationProperty ::
   Value Prelude.Text
   -> DimensionFieldProperty -> GrowthRateComputationProperty

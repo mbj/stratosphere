@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OwnershipControlsRuleProperty
   = OwnershipControlsRuleProperty {objectOwnership :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOwnershipControlsRuleProperty :: OwnershipControlsRuleProperty
 mkOwnershipControlsRuleProperty
   = OwnershipControlsRuleProperty {objectOwnership = Prelude.Nothing}

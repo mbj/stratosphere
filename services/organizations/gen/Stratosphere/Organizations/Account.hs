@@ -13,6 +13,7 @@ data Account
              parentIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              roleName :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccount :: Value Prelude.Text -> Value Prelude.Text -> Account
 mkAccount accountName email
   = Account

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AwsCloudMapServiceDiscoveryProperty :: Prelude.Type
 instance ToResourceProperties AwsCloudMapServiceDiscoveryProperty
+instance Prelude.Eq AwsCloudMapServiceDiscoveryProperty
+instance Prelude.Show AwsCloudMapServiceDiscoveryProperty
 instance JSON.ToJSON AwsCloudMapServiceDiscoveryProperty

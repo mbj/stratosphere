@@ -16,6 +16,7 @@ data TrafficMirrorSession
                           trafficMirrorFilterId :: (Value Prelude.Text),
                           trafficMirrorTargetId :: (Value Prelude.Text),
                           virtualNetworkId :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrafficMirrorSession ::
   Value Prelude.Text
   -> Value Prelude.Integer

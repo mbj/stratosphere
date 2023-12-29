@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AccessControlAllowOriginsProperty :: Prelude.Type
 instance ToResourceProperties AccessControlAllowOriginsProperty
+instance Prelude.Eq AccessControlAllowOriginsProperty
+instance Prelude.Show AccessControlAllowOriginsProperty
 instance JSON.ToJSON AccessControlAllowOriginsProperty

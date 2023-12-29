@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.ResourceSpecProperty as
 import Stratosphere.ResourceProperties
 data JupyterServerAppSettingsProperty
   = JupyterServerAppSettingsProperty {defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJupyterServerAppSettingsProperty ::
   JupyterServerAppSettingsProperty
 mkJupyterServerAppSettingsProperty

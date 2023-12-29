@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 data OverrideActionProperty
   = OverrideActionProperty {count :: (Prelude.Maybe JSON.Object),
                             none :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOverrideActionProperty :: OverrideActionProperty
 mkOverrideActionProperty
   = OverrideActionProperty

@@ -12,6 +12,7 @@ data PagerDutyConfigurationProperty
   = PagerDutyConfigurationProperty {name :: (Value Prelude.Text),
                                     pagerDutyIncidentConfiguration :: PagerDutyIncidentConfigurationProperty,
                                     secretId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPagerDutyConfigurationProperty ::
   Value Prelude.Text
   -> PagerDutyIncidentConfigurationProperty

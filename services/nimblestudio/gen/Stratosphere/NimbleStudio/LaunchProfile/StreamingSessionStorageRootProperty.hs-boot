@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StreamingSessionStorageRootProperty :: Prelude.Type
 instance ToResourceProperties StreamingSessionStorageRootProperty
+instance Prelude.Eq StreamingSessionStorageRootProperty
+instance Prelude.Show StreamingSessionStorageRootProperty
 instance JSON.ToJSON StreamingSessionStorageRootProperty

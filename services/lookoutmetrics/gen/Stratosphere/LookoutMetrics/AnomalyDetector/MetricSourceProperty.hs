@@ -16,6 +16,7 @@ data MetricSourceProperty
                           rDSSourceConfig :: (Prelude.Maybe RDSSourceConfigProperty),
                           redshiftSourceConfig :: (Prelude.Maybe RedshiftSourceConfigProperty),
                           s3SourceConfig :: (Prelude.Maybe S3SourceConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricSourceProperty :: MetricSourceProperty
 mkMetricSourceProperty
   = MetricSourceProperty

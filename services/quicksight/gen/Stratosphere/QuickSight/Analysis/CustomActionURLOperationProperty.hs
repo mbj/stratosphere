@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CustomActionURLOperationProperty
   = CustomActionURLOperationProperty {uRLTarget :: (Value Prelude.Text),
                                       uRLTemplate :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomActionURLOperationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> CustomActionURLOperationProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data InsightsConfigurationProperty
   = InsightsConfigurationProperty {insightsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                    notificationsEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInsightsConfigurationProperty :: InsightsConfigurationProperty
 mkInsightsConfigurationProperty
   = InsightsConfigurationProperty

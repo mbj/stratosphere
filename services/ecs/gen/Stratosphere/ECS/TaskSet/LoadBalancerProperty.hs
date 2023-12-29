@@ -11,6 +11,7 @@ data LoadBalancerProperty
                           containerPort :: (Prelude.Maybe (Value Prelude.Integer)),
                           loadBalancerName :: (Prelude.Maybe (Value Prelude.Text)),
                           targetGroupArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancerProperty :: LoadBalancerProperty
 mkLoadBalancerProperty
   = LoadBalancerProperty

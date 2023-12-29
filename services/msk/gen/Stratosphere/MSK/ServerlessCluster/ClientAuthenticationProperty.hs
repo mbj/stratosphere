@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MSK.ServerlessCluster.SaslProperty as Exports
 import Stratosphere.ResourceProperties
 data ClientAuthenticationProperty
   = ClientAuthenticationProperty {sasl :: SaslProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientAuthenticationProperty ::
   SaslProperty -> ClientAuthenticationProperty
 mkClientAuthenticationProperty sasl

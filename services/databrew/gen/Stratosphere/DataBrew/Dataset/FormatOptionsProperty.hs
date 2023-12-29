@@ -12,6 +12,7 @@ data FormatOptionsProperty
   = FormatOptionsProperty {csv :: (Prelude.Maybe CsvOptionsProperty),
                            excel :: (Prelude.Maybe ExcelOptionsProperty),
                            json :: (Prelude.Maybe JsonOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFormatOptionsProperty :: FormatOptionsProperty
 mkFormatOptionsProperty
   = FormatOptionsProperty

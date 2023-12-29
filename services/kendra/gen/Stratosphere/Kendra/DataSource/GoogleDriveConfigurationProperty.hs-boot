@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GoogleDriveConfigurationProperty :: Prelude.Type
 instance ToResourceProperties GoogleDriveConfigurationProperty
+instance Prelude.Eq GoogleDriveConfigurationProperty
+instance Prelude.Show GoogleDriveConfigurationProperty
 instance JSON.ToJSON GoogleDriveConfigurationProperty

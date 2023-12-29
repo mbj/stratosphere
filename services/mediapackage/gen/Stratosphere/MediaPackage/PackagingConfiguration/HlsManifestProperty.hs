@@ -14,6 +14,7 @@ data HlsManifestProperty
                          programDateTimeIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          repeatExtXKey :: (Prelude.Maybe (Value Prelude.Bool)),
                          streamSelection :: (Prelude.Maybe StreamSelectionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsManifestProperty :: HlsManifestProperty
 mkHlsManifestProperty
   = HlsManifestProperty

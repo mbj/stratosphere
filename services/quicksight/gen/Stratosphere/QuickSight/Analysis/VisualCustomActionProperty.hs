@@ -14,6 +14,7 @@ data VisualCustomActionProperty
                                 name :: (Value Prelude.Text),
                                 status :: (Prelude.Maybe (Value Prelude.Text)),
                                 trigger :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVisualCustomActionProperty ::
   [VisualCustomActionOperationProperty]
   -> Value Prelude.Text

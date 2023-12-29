@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HibernationOptionsProperty
   = HibernationOptionsProperty {configured :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHibernationOptionsProperty :: HibernationOptionsProperty
 mkHibernationOptionsProperty
   = HibernationOptionsProperty {configured = Prelude.Nothing}

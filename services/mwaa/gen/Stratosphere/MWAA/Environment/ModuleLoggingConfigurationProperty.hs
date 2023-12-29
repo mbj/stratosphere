@@ -11,6 +11,7 @@ data ModuleLoggingConfigurationProperty
   = ModuleLoggingConfigurationProperty {cloudWatchLogGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
                                         enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                         logLevel :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModuleLoggingConfigurationProperty ::
   ModuleLoggingConfigurationProperty
 mkModuleLoggingConfigurationProperty

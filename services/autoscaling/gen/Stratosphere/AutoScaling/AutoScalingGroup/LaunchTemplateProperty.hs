@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data LaunchTemplateProperty
   = LaunchTemplateProperty {launchTemplateSpecification :: LaunchTemplateSpecificationProperty,
                             overrides :: (Prelude.Maybe [LaunchTemplateOverridesProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLaunchTemplateProperty ::
   LaunchTemplateSpecificationProperty -> LaunchTemplateProperty
 mkLaunchTemplateProperty launchTemplateSpecification

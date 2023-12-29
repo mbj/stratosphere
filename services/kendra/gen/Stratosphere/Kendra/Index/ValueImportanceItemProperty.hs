@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ValueImportanceItemProperty
   = ValueImportanceItemProperty {key :: (Prelude.Maybe (Value Prelude.Text)),
                                  value :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkValueImportanceItemProperty :: ValueImportanceItemProperty
 mkValueImportanceItemProperty
   = ValueImportanceItemProperty

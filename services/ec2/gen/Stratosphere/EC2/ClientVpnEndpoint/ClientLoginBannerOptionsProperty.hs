@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ClientLoginBannerOptionsProperty
   = ClientLoginBannerOptionsProperty {bannerText :: (Prelude.Maybe (Value Prelude.Text)),
                                       enabled :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClientLoginBannerOptionsProperty ::
   Value Prelude.Bool -> ClientLoginBannerOptionsProperty
 mkClientLoginBannerOptionsProperty enabled

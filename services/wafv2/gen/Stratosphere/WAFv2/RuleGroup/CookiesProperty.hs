@@ -11,6 +11,7 @@ data CookiesProperty
   = CookiesProperty {matchPattern :: CookieMatchPatternProperty,
                      matchScope :: (Value Prelude.Text),
                      oversizeHandling :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCookiesProperty ::
   CookieMatchPatternProperty
   -> Value Prelude.Text -> Value Prelude.Text -> CookiesProperty

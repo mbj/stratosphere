@@ -13,6 +13,7 @@ data GridLayoutElementProperty
                                elementType :: (Value Prelude.Text),
                                rowIndex :: (Prelude.Maybe (Value Prelude.Double)),
                                rowSpan :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGridLayoutElementProperty ::
   Value Prelude.Double
   -> Value Prelude.Text

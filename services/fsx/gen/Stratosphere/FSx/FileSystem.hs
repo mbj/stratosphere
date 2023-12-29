@@ -25,6 +25,7 @@ data FileSystem
                 subnetIds :: (ValueList Prelude.Text),
                 tags :: (Prelude.Maybe [Tag]),
                 windowsConfiguration :: (Prelude.Maybe WindowsConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFileSystem ::
   Value Prelude.Text -> ValueList Prelude.Text -> FileSystem
 mkFileSystem fileSystemType subnetIds

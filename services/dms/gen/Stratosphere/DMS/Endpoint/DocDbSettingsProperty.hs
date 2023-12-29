@@ -12,6 +12,7 @@ data DocDbSettingsProperty
                            nestingLevel :: (Prelude.Maybe (Value Prelude.Text)),
                            secretsManagerAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                            secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocDbSettingsProperty :: DocDbSettingsProperty
 mkDocDbSettingsProperty
   = DocDbSettingsProperty

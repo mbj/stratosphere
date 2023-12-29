@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AutoBranchCreationConfigProperty :: Prelude.Type
 instance ToResourceProperties AutoBranchCreationConfigProperty
+instance Prelude.Eq AutoBranchCreationConfigProperty
+instance Prelude.Show AutoBranchCreationConfigProperty
 instance JSON.ToJSON AutoBranchCreationConfigProperty

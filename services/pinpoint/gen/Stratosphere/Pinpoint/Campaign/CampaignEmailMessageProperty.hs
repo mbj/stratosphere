@@ -11,6 +11,7 @@ data CampaignEmailMessageProperty
                                   fromAddress :: (Prelude.Maybe (Value Prelude.Text)),
                                   htmlBody :: (Prelude.Maybe (Value Prelude.Text)),
                                   title :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaignEmailMessageProperty :: CampaignEmailMessageProperty
 mkCampaignEmailMessageProperty
   = CampaignEmailMessageProperty

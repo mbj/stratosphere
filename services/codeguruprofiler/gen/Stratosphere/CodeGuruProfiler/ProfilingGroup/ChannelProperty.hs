@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ChannelProperty
   = ChannelProperty {channelId :: (Prelude.Maybe (Value Prelude.Text)),
                      channelUri :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkChannelProperty :: Value Prelude.Text -> ChannelProperty
 mkChannelProperty channelUri
   = ChannelProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ResourcePermissionProperty
   = ResourcePermissionProperty {actions :: (ValueList Prelude.Text),
                                 principal :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourcePermissionProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> ResourcePermissionProperty

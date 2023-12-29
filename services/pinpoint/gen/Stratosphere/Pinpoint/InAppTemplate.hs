@@ -14,6 +14,7 @@ data InAppTemplate
                    tags :: (Prelude.Maybe JSON.Object),
                    templateDescription :: (Prelude.Maybe (Value Prelude.Text)),
                    templateName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppTemplate :: Value Prelude.Text -> InAppTemplate
 mkInAppTemplate templateName
   = InAppTemplate

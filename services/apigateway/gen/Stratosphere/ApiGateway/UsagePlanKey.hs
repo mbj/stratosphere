@@ -10,6 +10,7 @@ data UsagePlanKey
   = UsagePlanKey {keyId :: (Value Prelude.Text),
                   keyType :: (Value Prelude.Text),
                   usagePlanId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUsagePlanKey ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> UsagePlanKey

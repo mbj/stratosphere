@@ -12,6 +12,7 @@ data ConditionBasedCollectionSchemeProperty
                                             expression :: (Value Prelude.Text),
                                             minimumTriggerIntervalMs :: (Prelude.Maybe (Value Prelude.Double)),
                                             triggerMode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionBasedCollectionSchemeProperty ::
   Value Prelude.Text -> ConditionBasedCollectionSchemeProperty
 mkConditionBasedCollectionSchemeProperty expression

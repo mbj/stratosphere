@@ -13,6 +13,7 @@ data EnvironmentProperty
                          execution :: (Prelude.Maybe ExecutionProperty),
                          resourceAccessPolicies :: (Prelude.Maybe [ResourceAccessPolicyProperty]),
                          variables :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentProperty :: EnvironmentProperty
 mkEnvironmentProperty
   = EnvironmentProperty

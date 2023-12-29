@@ -14,6 +14,7 @@ data HttpGatewayRouteHeaderMatchProperty
                                          range :: (Prelude.Maybe GatewayRouteRangeMatchProperty),
                                          regex :: (Prelude.Maybe (Value Prelude.Text)),
                                          suffix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpGatewayRouteHeaderMatchProperty ::
   HttpGatewayRouteHeaderMatchProperty
 mkHttpGatewayRouteHeaderMatchProperty

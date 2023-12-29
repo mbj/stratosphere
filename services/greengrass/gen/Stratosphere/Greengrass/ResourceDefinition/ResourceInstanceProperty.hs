@@ -12,6 +12,7 @@ data ResourceInstanceProperty
   = ResourceInstanceProperty {id :: (Value Prelude.Text),
                               name :: (Value Prelude.Text),
                               resourceDataContainer :: ResourceDataContainerProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceInstanceProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -12,6 +12,7 @@ data S3SourceProperty
   = S3SourceProperty {dataSourceArn :: (Value Prelude.Text),
                       inputColumns :: [InputColumnProperty],
                       uploadSettings :: (Prelude.Maybe UploadSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3SourceProperty ::
   Value Prelude.Text -> [InputColumnProperty] -> S3SourceProperty
 mkS3SourceProperty dataSourceArn inputColumns

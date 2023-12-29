@@ -14,6 +14,7 @@ data MonitoringScheduleConfigProperty
                                       monitoringJobDefinitionName :: (Prelude.Maybe (Value Prelude.Text)),
                                       monitoringType :: (Prelude.Maybe (Value Prelude.Text)),
                                       scheduleConfig :: (Prelude.Maybe ScheduleConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitoringScheduleConfigProperty ::
   MonitoringScheduleConfigProperty
 mkMonitoringScheduleConfigProperty

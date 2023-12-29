@@ -16,6 +16,7 @@ data ObdSignalProperty
                        scaling :: (Value Prelude.Text),
                        serviceMode :: (Value Prelude.Text),
                        startByte :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkObdSignalProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

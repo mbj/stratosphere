@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CapacityRebalanceProperty :: Prelude.Type
 instance ToResourceProperties CapacityRebalanceProperty
+instance Prelude.Eq CapacityRebalanceProperty
+instance Prelude.Show CapacityRebalanceProperty
 instance JSON.ToJSON CapacityRebalanceProperty

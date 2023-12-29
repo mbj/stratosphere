@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointEventBusProperty
   = EndpointEventBusProperty {eventBusArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointEventBusProperty ::
   Value Prelude.Text -> EndpointEventBusProperty
 mkEndpointEventBusProperty eventBusArn

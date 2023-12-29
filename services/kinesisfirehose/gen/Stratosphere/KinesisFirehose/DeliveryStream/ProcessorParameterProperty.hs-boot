@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProcessorParameterProperty :: Prelude.Type
 instance ToResourceProperties ProcessorParameterProperty
+instance Prelude.Eq ProcessorParameterProperty
+instance Prelude.Show ProcessorParameterProperty
 instance JSON.ToJSON ProcessorParameterProperty

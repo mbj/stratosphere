@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StreamConfigurationSessionBackupProperty
   = StreamConfigurationSessionBackupProperty {maxBackupsToRetain :: (Prelude.Maybe (Value Prelude.Double)),
                                               mode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamConfigurationSessionBackupProperty ::
   StreamConfigurationSessionBackupProperty
 mkStreamConfigurationSessionBackupProperty

@@ -16,6 +16,7 @@ data Application
                  sapInstanceNumber :: (Prelude.Maybe (Value Prelude.Text)),
                  sid :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication ::
   Value Prelude.Text -> Value Prelude.Text -> Application
 mkApplication applicationId applicationType

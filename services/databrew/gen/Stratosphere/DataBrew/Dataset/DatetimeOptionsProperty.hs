@@ -10,6 +10,7 @@ data DatetimeOptionsProperty
   = DatetimeOptionsProperty {format :: (Value Prelude.Text),
                              localeCode :: (Prelude.Maybe (Value Prelude.Text)),
                              timezoneOffset :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatetimeOptionsProperty ::
   Value Prelude.Text -> DatetimeOptionsProperty
 mkDatetimeOptionsProperty format

@@ -13,6 +13,7 @@ data LegendOptionsProperty
                            title :: (Prelude.Maybe LabelOptionsProperty),
                            visibility :: (Prelude.Maybe (Value Prelude.Text)),
                            width :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLegendOptionsProperty :: LegendOptionsProperty
 mkLegendOptionsProperty
   = LegendOptionsProperty

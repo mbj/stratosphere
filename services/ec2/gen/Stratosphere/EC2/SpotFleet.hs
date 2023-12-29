@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.SpotFleetRequestConfigDataPrope
 import Stratosphere.ResourceProperties
 data SpotFleet
   = SpotFleet {spotFleetRequestConfigData :: SpotFleetRequestConfigDataProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotFleet :: SpotFleetRequestConfigDataProperty -> SpotFleet
 mkSpotFleet spotFleetRequestConfigData
   = SpotFleet

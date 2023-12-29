@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ConnectionAlias
   = ConnectionAlias {connectionString :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionAlias :: Value Prelude.Text -> ConnectionAlias
 mkConnectionAlias connectionString
   = ConnectionAlias

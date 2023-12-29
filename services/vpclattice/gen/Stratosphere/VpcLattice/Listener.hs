@@ -15,6 +15,7 @@ data Listener
               protocol :: (Value Prelude.Text),
               serviceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkListener ::
   DefaultActionProperty -> Value Prelude.Text -> Listener
 mkListener defaultAction protocol

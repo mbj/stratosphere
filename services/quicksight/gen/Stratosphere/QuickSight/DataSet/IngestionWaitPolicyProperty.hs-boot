@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IngestionWaitPolicyProperty :: Prelude.Type
 instance ToResourceProperties IngestionWaitPolicyProperty
+instance Prelude.Eq IngestionWaitPolicyProperty
+instance Prelude.Show IngestionWaitPolicyProperty
 instance JSON.ToJSON IngestionWaitPolicyProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ResourceDownloadOwnerSettingProperty
   = ResourceDownloadOwnerSettingProperty {groupOwner :: (Value Prelude.Text),
                                           groupPermission :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDownloadOwnerSettingProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ResourceDownloadOwnerSettingProperty

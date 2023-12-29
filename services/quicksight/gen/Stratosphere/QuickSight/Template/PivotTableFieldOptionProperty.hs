@@ -10,6 +10,7 @@ data PivotTableFieldOptionProperty
   = PivotTableFieldOptionProperty {customLabel :: (Prelude.Maybe (Value Prelude.Text)),
                                    fieldId :: (Value Prelude.Text),
                                    visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableFieldOptionProperty ::
   Value Prelude.Text -> PivotTableFieldOptionProperty
 mkPivotTableFieldOptionProperty fieldId

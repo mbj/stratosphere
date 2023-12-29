@@ -11,6 +11,7 @@ import Stratosphere.Value
 data MarketoDestinationPropertiesProperty
   = MarketoDestinationPropertiesProperty {errorHandlingConfig :: (Prelude.Maybe ErrorHandlingConfigProperty),
                                           object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMarketoDestinationPropertiesProperty ::
   Value Prelude.Text -> MarketoDestinationPropertiesProperty
 mkMarketoDestinationPropertiesProperty object

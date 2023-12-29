@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LoggingInfoProperty :: Prelude.Type
 instance ToResourceProperties LoggingInfoProperty
+instance Prelude.Eq LoggingInfoProperty
+instance Prelude.Show LoggingInfoProperty
 instance JSON.ToJSON LoggingInfoProperty

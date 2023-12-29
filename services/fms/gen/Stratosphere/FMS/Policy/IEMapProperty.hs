@@ -9,6 +9,7 @@ import Stratosphere.Value
 data IEMapProperty
   = IEMapProperty {aCCOUNT :: (Prelude.Maybe (ValueList Prelude.Text)),
                    oRGUNIT :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIEMapProperty :: IEMapProperty
 mkIEMapProperty
   = IEMapProperty

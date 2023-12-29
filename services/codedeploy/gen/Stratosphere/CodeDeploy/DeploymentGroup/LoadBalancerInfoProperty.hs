@@ -13,6 +13,7 @@ data LoadBalancerInfoProperty
   = LoadBalancerInfoProperty {elbInfoList :: (Prelude.Maybe [ELBInfoProperty]),
                               targetGroupInfoList :: (Prelude.Maybe [TargetGroupInfoProperty]),
                               targetGroupPairInfoList :: (Prelude.Maybe [TargetGroupPairInfoProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoadBalancerInfoProperty :: LoadBalancerInfoProperty
 mkLoadBalancerInfoProperty
   = LoadBalancerInfoProperty

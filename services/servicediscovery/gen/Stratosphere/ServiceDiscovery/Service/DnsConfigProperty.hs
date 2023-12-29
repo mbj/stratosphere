@@ -11,6 +11,7 @@ data DnsConfigProperty
   = DnsConfigProperty {dnsRecords :: [DnsRecordProperty],
                        namespaceId :: (Prelude.Maybe (Value Prelude.Text)),
                        routingPolicy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDnsConfigProperty :: [DnsRecordProperty] -> DnsConfigProperty
 mkDnsConfigProperty dnsRecords
   = DnsConfigProperty

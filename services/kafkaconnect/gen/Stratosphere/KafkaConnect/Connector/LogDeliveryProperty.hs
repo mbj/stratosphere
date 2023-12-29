@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.WorkerLogDeliveryPrope
 import Stratosphere.ResourceProperties
 data LogDeliveryProperty
   = LogDeliveryProperty {workerLogDelivery :: WorkerLogDeliveryProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLogDeliveryProperty ::
   WorkerLogDeliveryProperty -> LogDeliveryProperty
 mkLogDeliveryProperty workerLogDelivery

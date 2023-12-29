@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Greengrass.LoggerDefinition.LoggerProperty as
 import Stratosphere.ResourceProperties
 data LoggerDefinitionVersionProperty
   = LoggerDefinitionVersionProperty {loggers :: [LoggerProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggerDefinitionVersionProperty ::
   [LoggerProperty] -> LoggerDefinitionVersionProperty
 mkLoggerDefinitionVersionProperty loggers

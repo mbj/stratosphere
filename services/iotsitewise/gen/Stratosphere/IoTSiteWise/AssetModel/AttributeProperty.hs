@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AttributeProperty
   = AttributeProperty {defaultValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAttributeProperty :: AttributeProperty
 mkAttributeProperty
   = AttributeProperty {defaultValue = Prelude.Nothing}

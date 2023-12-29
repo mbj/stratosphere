@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SAPODataConnectorProfileCredentialsProperty :: Prelude.Type
 instance ToResourceProperties SAPODataConnectorProfileCredentialsProperty
+instance Prelude.Eq SAPODataConnectorProfileCredentialsProperty
+instance Prelude.Show SAPODataConnectorProfileCredentialsProperty
 instance JSON.ToJSON SAPODataConnectorProfileCredentialsProperty

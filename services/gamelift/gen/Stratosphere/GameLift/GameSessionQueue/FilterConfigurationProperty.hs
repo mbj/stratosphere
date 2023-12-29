@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterConfigurationProperty
   = FilterConfigurationProperty {allowedLocations :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterConfigurationProperty :: FilterConfigurationProperty
 mkFilterConfigurationProperty
   = FilterConfigurationProperty {allowedLocations = Prelude.Nothing}

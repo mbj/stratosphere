@@ -10,6 +10,7 @@ data ImageConfigProperty
   = ImageConfigProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
                          entryPoint :: (Prelude.Maybe (ValueList Prelude.Text)),
                          workingDirectory :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkImageConfigProperty :: ImageConfigProperty
 mkImageConfigProperty
   = ImageConfigProperty

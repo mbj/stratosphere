@@ -10,6 +10,7 @@ data ServiceLinkedRole
   = ServiceLinkedRole {aWSServiceName :: (Value Prelude.Text),
                        customSuffix :: (Prelude.Maybe (Value Prelude.Text)),
                        description :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceLinkedRole :: Value Prelude.Text -> ServiceLinkedRole
 mkServiceLinkedRole aWSServiceName
   = ServiceLinkedRole

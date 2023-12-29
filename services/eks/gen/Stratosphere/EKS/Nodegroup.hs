@@ -30,6 +30,7 @@ data Nodegroup
                taints :: (Prelude.Maybe [TaintProperty]),
                updateConfig :: (Prelude.Maybe UpdateConfigProperty),
                version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNodegroup ::
   Value Prelude.Text
   -> Value Prelude.Text -> ValueList Prelude.Text -> Nodegroup

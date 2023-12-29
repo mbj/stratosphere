@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FailurePolicyProperty :: Prelude.Type
 instance ToResourceProperties FailurePolicyProperty
+instance Prelude.Eq FailurePolicyProperty
+instance Prelude.Show FailurePolicyProperty
 instance JSON.ToJSON FailurePolicyProperty

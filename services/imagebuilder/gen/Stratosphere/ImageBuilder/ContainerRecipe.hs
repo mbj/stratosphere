@@ -25,6 +25,7 @@ data ContainerRecipe
                      targetRepository :: TargetContainerRepositoryProperty,
                      version :: (Value Prelude.Text),
                      workingDirectory :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerRecipe ::
   [ComponentConfigurationProperty]
   -> Value Prelude.Text

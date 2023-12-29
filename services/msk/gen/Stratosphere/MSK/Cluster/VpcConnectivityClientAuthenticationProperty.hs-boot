@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data VpcConnectivityClientAuthenticationProperty :: Prelude.Type
 instance ToResourceProperties VpcConnectivityClientAuthenticationProperty
+instance Prelude.Eq VpcConnectivityClientAuthenticationProperty
+instance Prelude.Show VpcConnectivityClientAuthenticationProperty
 instance JSON.ToJSON VpcConnectivityClientAuthenticationProperty

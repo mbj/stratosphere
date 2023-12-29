@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TemplateVersionDefinitionProperty :: Prelude.Type
 instance ToResourceProperties TemplateVersionDefinitionProperty
+instance Prelude.Eq TemplateVersionDefinitionProperty
+instance Prelude.Show TemplateVersionDefinitionProperty
 instance JSON.ToJSON TemplateVersionDefinitionProperty

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ConnectorProfileConfigProperty
   = ConnectorProfileConfigProperty {connectorProfileCredentials :: (Prelude.Maybe ConnectorProfileCredentialsProperty),
                                     connectorProfileProperties :: (Prelude.Maybe ConnectorProfilePropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProfileConfigProperty :: ConnectorProfileConfigProperty
 mkConnectorProfileConfigProperty
   = ConnectorProfileConfigProperty

@@ -24,6 +24,7 @@ data Database
               relationalDatabaseParameters :: (Prelude.Maybe [RelationalDatabaseParameterProperty]),
               rotateMasterUserPassword :: (Prelude.Maybe (Value Prelude.Bool)),
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabase ::
   Value Prelude.Text
   -> Value Prelude.Text

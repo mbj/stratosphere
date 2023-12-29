@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CaptureContentTypeHeaderProperty
   = CaptureContentTypeHeaderProperty {csvContentTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       jsonContentTypes :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCaptureContentTypeHeaderProperty ::
   CaptureContentTypeHeaderProperty
 mkCaptureContentTypeHeaderProperty

@@ -10,6 +10,7 @@ data BodyConfigProperty
   = BodyConfigProperty {alignment :: (Prelude.Maybe (Value Prelude.Text)),
                         body :: (Prelude.Maybe (Value Prelude.Text)),
                         textColor :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBodyConfigProperty :: BodyConfigProperty
 mkBodyConfigProperty
   = BodyConfigProperty

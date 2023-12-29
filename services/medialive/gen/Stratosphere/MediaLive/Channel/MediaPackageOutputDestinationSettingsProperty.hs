@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MediaPackageOutputDestinationSettingsProperty
   = MediaPackageOutputDestinationSettingsProperty {channelId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMediaPackageOutputDestinationSettingsProperty ::
   MediaPackageOutputDestinationSettingsProperty
 mkMediaPackageOutputDestinationSettingsProperty

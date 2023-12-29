@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ResponseSpecificationProperty
   = ResponseSpecificationProperty {allowInterrupt :: (Prelude.Maybe (Value Prelude.Bool)),
                                    messageGroupsList :: [MessageGroupProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseSpecificationProperty ::
   [MessageGroupProperty] -> ResponseSpecificationProperty
 mkResponseSpecificationProperty messageGroupsList

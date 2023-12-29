@@ -13,6 +13,7 @@ data DataCatalog
                  parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                  tags :: (Prelude.Maybe [Tag]),
                  type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataCatalog ::
   Value Prelude.Text -> Value Prelude.Text -> DataCatalog
 mkDataCatalog name type'

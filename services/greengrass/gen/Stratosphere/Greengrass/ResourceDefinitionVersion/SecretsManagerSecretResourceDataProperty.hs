@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SecretsManagerSecretResourceDataProperty
   = SecretsManagerSecretResourceDataProperty {aRN :: (Value Prelude.Text),
                                               additionalStagingLabelsToDownload :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecretsManagerSecretResourceDataProperty ::
   Value Prelude.Text -> SecretsManagerSecretResourceDataProperty
 mkSecretsManagerSecretResourceDataProperty aRN

@@ -11,6 +11,7 @@ data AssetPropertyProperty
                            logicalId :: (Value Prelude.Text),
                            notificationState :: (Prelude.Maybe (Value Prelude.Text)),
                            unit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetPropertyProperty ::
   Value Prelude.Text -> AssetPropertyProperty
 mkAssetPropertyProperty logicalId

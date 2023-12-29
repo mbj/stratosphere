@@ -15,6 +15,7 @@ data PacketHeaderStatementRequestProperty
                                           sourceAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           sourcePorts :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           sourcePrefixLists :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPacketHeaderStatementRequestProperty ::
   PacketHeaderStatementRequestProperty
 mkPacketHeaderStatementRequestProperty

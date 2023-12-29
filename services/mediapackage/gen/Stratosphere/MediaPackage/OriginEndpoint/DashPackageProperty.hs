@@ -25,6 +25,7 @@ data DashPackageProperty
                          suggestedPresentationDelaySeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          utcTiming :: (Prelude.Maybe (Value Prelude.Text)),
                          utcTimingUri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashPackageProperty :: DashPackageProperty
 mkDashPackageProperty
   = DashPackageProperty

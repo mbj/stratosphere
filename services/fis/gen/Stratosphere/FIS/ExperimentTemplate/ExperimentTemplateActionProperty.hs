@@ -13,6 +13,7 @@ data ExperimentTemplateActionProperty
                                       parameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                       startAfter :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       targets :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateActionProperty ::
   Value Prelude.Text -> ExperimentTemplateActionProperty
 mkExperimentTemplateActionProperty actionId

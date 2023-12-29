@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AwsCloudMapInstanceAttributeProperty :: Prelude.Type
 instance ToResourceProperties AwsCloudMapInstanceAttributeProperty
+instance Prelude.Eq AwsCloudMapInstanceAttributeProperty
+instance Prelude.Show AwsCloudMapInstanceAttributeProperty
 instance JSON.ToJSON AwsCloudMapInstanceAttributeProperty

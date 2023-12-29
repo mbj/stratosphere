@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LBCookieStickinessPolicyProperty :: Prelude.Type
 instance ToResourceProperties LBCookieStickinessPolicyProperty
+instance Prelude.Eq LBCookieStickinessPolicyProperty
+instance Prelude.Show LBCookieStickinessPolicyProperty
 instance JSON.ToJSON LBCookieStickinessPolicyProperty

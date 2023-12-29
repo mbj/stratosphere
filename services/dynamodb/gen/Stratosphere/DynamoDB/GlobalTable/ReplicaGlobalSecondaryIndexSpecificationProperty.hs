@@ -14,6 +14,7 @@ data ReplicaGlobalSecondaryIndexSpecificationProperty
   = ReplicaGlobalSecondaryIndexSpecificationProperty {contributorInsightsSpecification :: (Prelude.Maybe ContributorInsightsSpecificationProperty),
                                                       indexName :: (Value Prelude.Text),
                                                       readProvisionedThroughputSettings :: (Prelude.Maybe ReadProvisionedThroughputSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaGlobalSecondaryIndexSpecificationProperty ::
   Value Prelude.Text
   -> ReplicaGlobalSecondaryIndexSpecificationProperty

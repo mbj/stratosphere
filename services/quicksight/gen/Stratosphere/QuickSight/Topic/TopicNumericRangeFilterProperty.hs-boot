@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TopicNumericRangeFilterProperty :: Prelude.Type
 instance ToResourceProperties TopicNumericRangeFilterProperty
+instance Prelude.Eq TopicNumericRangeFilterProperty
+instance Prelude.Show TopicNumericRangeFilterProperty
 instance JSON.ToJSON TopicNumericRangeFilterProperty

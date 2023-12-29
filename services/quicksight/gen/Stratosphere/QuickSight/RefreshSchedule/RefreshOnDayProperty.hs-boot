@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RefreshOnDayProperty :: Prelude.Type
 instance ToResourceProperties RefreshOnDayProperty
+instance Prelude.Eq RefreshOnDayProperty
+instance Prelude.Show RefreshOnDayProperty
 instance JSON.ToJSON RefreshOnDayProperty

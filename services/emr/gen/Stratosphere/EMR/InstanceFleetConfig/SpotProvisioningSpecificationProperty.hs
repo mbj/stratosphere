@@ -12,6 +12,7 @@ data SpotProvisioningSpecificationProperty
                                            blockDurationMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
                                            timeoutAction :: (Value Prelude.Text),
                                            timeoutDurationMinutes :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotProvisioningSpecificationProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> SpotProvisioningSpecificationProperty

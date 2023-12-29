@@ -21,6 +21,7 @@ data Pipe
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
           target :: (Value Prelude.Text),
           targetParameters :: (Prelude.Maybe PipeTargetParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipe ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Pipe

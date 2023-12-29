@@ -12,6 +12,7 @@ data PartitionInputProperty
   = PartitionInputProperty {parameters :: (Prelude.Maybe JSON.Object),
                             storageDescriptor :: (Prelude.Maybe StorageDescriptorProperty),
                             values :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPartitionInputProperty ::
   ValueList Prelude.Text -> PartitionInputProperty
 mkPartitionInputProperty values

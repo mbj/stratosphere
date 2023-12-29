@@ -11,6 +11,7 @@ data Permission
                 certificateAuthorityArn :: (Value Prelude.Text),
                 principal :: (Value Prelude.Text),
                 sourceAccount :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPermission ::
   ValueList Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Permission

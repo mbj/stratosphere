@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BaseScreenshotProperty :: Prelude.Type
 instance ToResourceProperties BaseScreenshotProperty
+instance Prelude.Eq BaseScreenshotProperty
+instance Prelude.Show BaseScreenshotProperty
 instance JSON.ToJSON BaseScreenshotProperty

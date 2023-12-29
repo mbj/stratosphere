@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FeatureActivationsProperty
   = FeatureActivationsProperty {inputPrepareScheduleActions :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFeatureActivationsProperty :: FeatureActivationsProperty
 mkFeatureActivationsProperty
   = FeatureActivationsProperty

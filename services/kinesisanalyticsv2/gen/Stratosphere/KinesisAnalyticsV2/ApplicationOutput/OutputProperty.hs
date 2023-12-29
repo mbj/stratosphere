@@ -16,6 +16,7 @@ data OutputProperty
                     kinesisStreamsOutput :: (Prelude.Maybe KinesisStreamsOutputProperty),
                     lambdaOutput :: (Prelude.Maybe LambdaOutputProperty),
                     name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputProperty :: DestinationSchemaProperty -> OutputProperty
 mkOutputProperty destinationSchema
   = OutputProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data WafActionProperty
   = WafActionProperty {type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWafActionProperty :: Value Prelude.Text -> WafActionProperty
 mkWafActionProperty type' = WafActionProperty {type' = type'}
 instance ToResourceProperties WafActionProperty where

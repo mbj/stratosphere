@@ -11,6 +11,7 @@ data Tracker
              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
              positionFiltering :: (Prelude.Maybe (Value Prelude.Text)),
              trackerName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTracker :: Value Prelude.Text -> Tracker
 mkTracker trackerName
   = Tracker

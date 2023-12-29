@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data LustreConfigurationProperty :: Prelude.Type
 instance ToResourceProperties LustreConfigurationProperty
+instance Prelude.Eq LustreConfigurationProperty
+instance Prelude.Show LustreConfigurationProperty
 instance JSON.ToJSON LustreConfigurationProperty

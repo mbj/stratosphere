@@ -13,6 +13,7 @@ data OperationPreferencesProperty
                                   maxConcurrentPercentage :: (Prelude.Maybe (Value Prelude.Integer)),
                                   regionConcurrencyType :: (Prelude.Maybe (Value Prelude.Text)),
                                   regionOrder :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOperationPreferencesProperty :: OperationPreferencesProperty
 mkOperationPreferencesProperty
   = OperationPreferencesProperty

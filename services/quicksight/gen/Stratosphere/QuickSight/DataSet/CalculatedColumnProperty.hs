@@ -10,6 +10,7 @@ data CalculatedColumnProperty
   = CalculatedColumnProperty {columnId :: (Value Prelude.Text),
                               columnName :: (Value Prelude.Text),
                               expression :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCalculatedColumnProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

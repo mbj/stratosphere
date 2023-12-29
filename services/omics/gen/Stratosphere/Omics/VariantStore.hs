@@ -14,6 +14,7 @@ data VariantStore
                   reference :: ReferenceItemProperty,
                   sseConfig :: (Prelude.Maybe SseConfigProperty),
                   tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVariantStore ::
   Value Prelude.Text -> ReferenceItemProperty -> VariantStore
 mkVariantStore name reference

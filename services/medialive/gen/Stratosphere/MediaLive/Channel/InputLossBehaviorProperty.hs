@@ -14,6 +14,7 @@ data InputLossBehaviorProperty
                                inputLossImageSlate :: (Prelude.Maybe InputLocationProperty),
                                inputLossImageType :: (Prelude.Maybe (Value Prelude.Text)),
                                repeatFrameMsec :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputLossBehaviorProperty :: InputLossBehaviorProperty
 mkInputLossBehaviorProperty
   = InputLossBehaviorProperty

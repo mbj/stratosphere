@@ -11,6 +11,7 @@ data KPIFieldWellsProperty
   = KPIFieldWellsProperty {targetValues :: (Prelude.Maybe [MeasureFieldProperty]),
                            trendGroups :: (Prelude.Maybe [DimensionFieldProperty]),
                            values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKPIFieldWellsProperty :: KPIFieldWellsProperty
 mkKPIFieldWellsProperty
   = KPIFieldWellsProperty

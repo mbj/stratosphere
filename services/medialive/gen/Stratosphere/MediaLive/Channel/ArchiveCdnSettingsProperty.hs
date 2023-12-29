@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ArchiveS3SettingsProperty a
 import Stratosphere.ResourceProperties
 data ArchiveCdnSettingsProperty
   = ArchiveCdnSettingsProperty {archiveS3Settings :: (Prelude.Maybe ArchiveS3SettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveCdnSettingsProperty :: ArchiveCdnSettingsProperty
 mkArchiveCdnSettingsProperty
   = ArchiveCdnSettingsProperty {archiveS3Settings = Prelude.Nothing}

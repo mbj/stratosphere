@@ -18,6 +18,7 @@ data CacheSettingsProperty
                            forwardedQueryStrings :: (Prelude.Maybe QueryStringObjectProperty),
                            maximumTTL :: (Prelude.Maybe (Value Prelude.Integer)),
                            minimumTTL :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCacheSettingsProperty :: CacheSettingsProperty
 mkCacheSettingsProperty
   = CacheSettingsProperty

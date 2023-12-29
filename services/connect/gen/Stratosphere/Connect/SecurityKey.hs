@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SecurityKey
   = SecurityKey {instanceId :: (Value Prelude.Text),
                  key :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSecurityKey ::
   Value Prelude.Text -> Value Prelude.Text -> SecurityKey
 mkSecurityKey instanceId key

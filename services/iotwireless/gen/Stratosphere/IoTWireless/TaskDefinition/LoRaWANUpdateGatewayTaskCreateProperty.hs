@@ -13,6 +13,7 @@ data LoRaWANUpdateGatewayTaskCreateProperty
                                             sigKeyCrc :: (Prelude.Maybe (Value Prelude.Integer)),
                                             updateSignature :: (Prelude.Maybe (Value Prelude.Text)),
                                             updateVersion :: (Prelude.Maybe LoRaWANGatewayVersionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoRaWANUpdateGatewayTaskCreateProperty ::
   LoRaWANUpdateGatewayTaskCreateProperty
 mkLoRaWANUpdateGatewayTaskCreateProperty

@@ -11,6 +11,7 @@ data ResponseInspectionHeaderProperty
   = ResponseInspectionHeaderProperty {failureValues :: (ValueList Prelude.Text),
                                       name :: (Value Prelude.Text),
                                       successValues :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionHeaderProperty ::
   ValueList Prelude.Text
   -> Value Prelude.Text

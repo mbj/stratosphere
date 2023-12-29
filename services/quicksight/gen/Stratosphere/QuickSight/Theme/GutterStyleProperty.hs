@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GutterStyleProperty
   = GutterStyleProperty {show :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGutterStyleProperty :: GutterStyleProperty
 mkGutterStyleProperty
   = GutterStyleProperty {show = Prelude.Nothing}

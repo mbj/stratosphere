@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data H265FilterSettingsProperty :: Prelude.Type
 instance ToResourceProperties H265FilterSettingsProperty
+instance Prelude.Eq H265FilterSettingsProperty
+instance Prelude.Show H265FilterSettingsProperty
 instance JSON.ToJSON H265FilterSettingsProperty

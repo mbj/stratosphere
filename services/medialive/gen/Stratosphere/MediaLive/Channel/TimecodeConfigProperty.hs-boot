@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TimecodeConfigProperty :: Prelude.Type
 instance ToResourceProperties TimecodeConfigProperty
+instance Prelude.Eq TimecodeConfigProperty
+instance Prelude.Show TimecodeConfigProperty
 instance JSON.ToJSON TimecodeConfigProperty

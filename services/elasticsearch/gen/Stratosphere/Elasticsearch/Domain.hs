@@ -33,6 +33,7 @@ data Domain
             snapshotOptions :: (Prelude.Maybe SnapshotOptionsProperty),
             tags :: (Prelude.Maybe [Tag]),
             vPCOptions :: (Prelude.Maybe VPCOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomain :: Domain
 mkDomain
   = Domain

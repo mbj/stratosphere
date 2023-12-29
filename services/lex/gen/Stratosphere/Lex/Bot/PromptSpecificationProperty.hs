@@ -15,6 +15,7 @@ data PromptSpecificationProperty
                                  messageGroupsList :: [MessageGroupProperty],
                                  messageSelectionStrategy :: (Prelude.Maybe (Value Prelude.Text)),
                                  promptAttemptsSpecification :: (Prelude.Maybe (Prelude.Map Prelude.Text PromptAttemptSpecificationProperty))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPromptSpecificationProperty ::
   Value Prelude.Integer
   -> [MessageGroupProperty] -> PromptSpecificationProperty

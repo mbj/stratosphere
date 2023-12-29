@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AddThingsToThingGroupParamsProperty
   = AddThingsToThingGroupParamsProperty {overrideDynamicGroups :: (Prelude.Maybe (Value Prelude.Bool)),
                                          thingGroupNames :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAddThingsToThingGroupParamsProperty ::
   ValueList Prelude.Text -> AddThingsToThingGroupParamsProperty
 mkAddThingsToThingGroupParamsProperty thingGroupNames

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HighAvailabilityConfigProperty
   = HighAvailabilityConfigProperty {desiredCapacity :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHighAvailabilityConfigProperty ::
   Value Prelude.Integer -> HighAvailabilityConfigProperty
 mkHighAvailabilityConfigProperty desiredCapacity

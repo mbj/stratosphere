@@ -10,6 +10,7 @@ data PrestoParametersProperty
   = PrestoParametersProperty {catalog :: (Value Prelude.Text),
                               host :: (Value Prelude.Text),
                               port :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPrestoParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DedicatedIpPool
   = DedicatedIpPool {poolName :: (Prelude.Maybe (Value Prelude.Text)),
                      tags :: (Prelude.Maybe [TagsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDedicatedIpPool :: DedicatedIpPool
 mkDedicatedIpPool
   = DedicatedIpPool

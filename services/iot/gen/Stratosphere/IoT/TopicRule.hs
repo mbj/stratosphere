@@ -12,6 +12,7 @@ data TopicRule
   = TopicRule {ruleName :: (Prelude.Maybe (Value Prelude.Text)),
                tags :: (Prelude.Maybe [Tag]),
                topicRulePayload :: TopicRulePayloadProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicRule :: TopicRulePayloadProperty -> TopicRule
 mkTopicRule topicRulePayload
   = TopicRule

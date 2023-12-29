@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeviceShadowEnrichProperty :: Prelude.Type
 instance ToResourceProperties DeviceShadowEnrichProperty
+instance Prelude.Eq DeviceShadowEnrichProperty
+instance Prelude.Show DeviceShadowEnrichProperty
 instance JSON.ToJSON DeviceShadowEnrichProperty

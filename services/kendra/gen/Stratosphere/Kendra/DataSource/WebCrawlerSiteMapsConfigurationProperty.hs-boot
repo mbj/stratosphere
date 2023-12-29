@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data WebCrawlerSiteMapsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties WebCrawlerSiteMapsConfigurationProperty
+instance Prelude.Eq WebCrawlerSiteMapsConfigurationProperty
+instance Prelude.Show WebCrawlerSiteMapsConfigurationProperty
 instance JSON.ToJSON WebCrawlerSiteMapsConfigurationProperty

@@ -13,6 +13,7 @@ data PardotConnectorProfileCredentialsProperty
                                                clientCredentialsArn :: (Prelude.Maybe (Value Prelude.Text)),
                                                connectorOAuthRequest :: (Prelude.Maybe ConnectorOAuthRequestProperty),
                                                refreshToken :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPardotConnectorProfileCredentialsProperty ::
   PardotConnectorProfileCredentialsProperty
 mkPardotConnectorProfileCredentialsProperty

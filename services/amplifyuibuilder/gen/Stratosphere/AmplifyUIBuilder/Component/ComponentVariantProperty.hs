@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ComponentVariantProperty
   = ComponentVariantProperty {overrides :: (Prelude.Maybe JSON.Object),
                               variantValues :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentVariantProperty :: ComponentVariantProperty
 mkComponentVariantProperty
   = ComponentVariantProperty

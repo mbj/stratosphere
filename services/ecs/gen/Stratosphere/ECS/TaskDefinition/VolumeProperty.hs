@@ -14,6 +14,7 @@ data VolumeProperty
                     eFSVolumeConfiguration :: (Prelude.Maybe EFSVolumeConfigurationProperty),
                     host :: (Prelude.Maybe HostVolumePropertiesProperty),
                     name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeProperty :: VolumeProperty
 mkVolumeProperty
   = VolumeProperty

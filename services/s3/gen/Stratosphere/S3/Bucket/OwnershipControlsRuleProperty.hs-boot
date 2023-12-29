@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OwnershipControlsRuleProperty :: Prelude.Type
 instance ToResourceProperties OwnershipControlsRuleProperty
+instance Prelude.Eq OwnershipControlsRuleProperty
+instance Prelude.Show OwnershipControlsRuleProperty
 instance JSON.ToJSON OwnershipControlsRuleProperty

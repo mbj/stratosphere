@@ -18,6 +18,7 @@ data EventDataStore
                     retentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
                     tags :: (Prelude.Maybe [Tag]),
                     terminationProtectionEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEventDataStore :: EventDataStore
 mkEventDataStore
   = EventDataStore

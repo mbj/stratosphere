@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FilterTagProperty :: Prelude.Type
 instance ToResourceProperties FilterTagProperty
+instance Prelude.Eq FilterTagProperty
+instance Prelude.Show FilterTagProperty
 instance JSON.ToJSON FilterTagProperty

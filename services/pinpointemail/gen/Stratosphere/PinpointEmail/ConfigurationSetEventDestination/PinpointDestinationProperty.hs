@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PinpointDestinationProperty
   = PinpointDestinationProperty {applicationArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPinpointDestinationProperty :: PinpointDestinationProperty
 mkPinpointDestinationProperty
   = PinpointDestinationProperty {applicationArn = Prelude.Nothing}

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.SSM.PatchBaseline.RuleProperty as Exports
 import Stratosphere.ResourceProperties
 data RuleGroupProperty
   = RuleGroupProperty {patchRules :: (Prelude.Maybe [RuleProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleGroupProperty :: RuleGroupProperty
 mkRuleGroupProperty
   = RuleGroupProperty {patchRules = Prelude.Nothing}

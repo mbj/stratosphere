@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UserAttributeUpdateSettingsProperty :: Prelude.Type
 instance ToResourceProperties UserAttributeUpdateSettingsProperty
+instance Prelude.Eq UserAttributeUpdateSettingsProperty
+instance Prelude.Show UserAttributeUpdateSettingsProperty
 instance JSON.ToJSON UserAttributeUpdateSettingsProperty

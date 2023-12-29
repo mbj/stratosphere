@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FieldLabelTypeProperty :: Prelude.Type
 instance ToResourceProperties FieldLabelTypeProperty
+instance Prelude.Eq FieldLabelTypeProperty
+instance Prelude.Show FieldLabelTypeProperty
 instance JSON.ToJSON FieldLabelTypeProperty

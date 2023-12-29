@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data GlobalTableBorderOptionsProperty
   = GlobalTableBorderOptionsProperty {sideSpecificBorder :: (Prelude.Maybe TableSideBorderOptionsProperty),
                                       uniformBorder :: (Prelude.Maybe TableBorderOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalTableBorderOptionsProperty ::
   GlobalTableBorderOptionsProperty
 mkGlobalTableBorderOptionsProperty

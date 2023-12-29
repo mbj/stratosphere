@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InsightConfigurationProperty :: Prelude.Type
 instance ToResourceProperties InsightConfigurationProperty
+instance Prelude.Eq InsightConfigurationProperty
+instance Prelude.Show InsightConfigurationProperty
 instance JSON.ToJSON InsightConfigurationProperty

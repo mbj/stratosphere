@@ -11,6 +11,7 @@ data InAppMessageHeaderConfigProperty
   = InAppMessageHeaderConfigProperty {alignment :: (Prelude.Maybe (Value Prelude.Text)),
                                       header :: (Prelude.Maybe (Value Prelude.Text)),
                                       textColor :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInAppMessageHeaderConfigProperty ::
   InAppMessageHeaderConfigProperty
 mkInAppMessageHeaderConfigProperty

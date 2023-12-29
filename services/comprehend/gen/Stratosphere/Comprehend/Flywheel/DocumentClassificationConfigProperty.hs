@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DocumentClassificationConfigProperty
   = DocumentClassificationConfigProperty {labels :: (Prelude.Maybe (ValueList Prelude.Text)),
                                           mode :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentClassificationConfigProperty ::
   Value Prelude.Text -> DocumentClassificationConfigProperty
 mkDocumentClassificationConfigProperty mode

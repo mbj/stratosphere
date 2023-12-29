@@ -21,6 +21,7 @@ data CapacityReservation
                          placementGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
                          tagSpecifications :: (Prelude.Maybe [TagSpecificationProperty]),
                          tenancy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservation ::
   Value Prelude.Text
   -> Value Prelude.Integer

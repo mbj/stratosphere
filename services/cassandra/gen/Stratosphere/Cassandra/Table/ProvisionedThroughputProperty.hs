@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ProvisionedThroughputProperty
   = ProvisionedThroughputProperty {readCapacityUnits :: (Value Prelude.Integer),
                                    writeCapacityUnits :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionedThroughputProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> ProvisionedThroughputProperty

@@ -11,6 +11,7 @@ data Link
           resourceTypes :: (ValueList Prelude.Text),
           sinkIdentifier :: (Value Prelude.Text),
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLink :: ValueList Prelude.Text -> Value Prelude.Text -> Link
 mkLink resourceTypes sinkIdentifier
   = Link

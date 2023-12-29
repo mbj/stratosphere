@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.IoTEvents.AlarmModel.SimpleRuleProperty as Ex
 import Stratosphere.ResourceProperties
 data AlarmRuleProperty
   = AlarmRuleProperty {simpleRule :: (Prelude.Maybe SimpleRuleProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAlarmRuleProperty :: AlarmRuleProperty
 mkAlarmRuleProperty
   = AlarmRuleProperty {simpleRule = Prelude.Nothing}

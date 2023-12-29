@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DkimAttributesProperty :: Prelude.Type
 instance ToResourceProperties DkimAttributesProperty
+instance Prelude.Eq DkimAttributesProperty
+instance Prelude.Show DkimAttributesProperty
 instance JSON.ToJSON DkimAttributesProperty

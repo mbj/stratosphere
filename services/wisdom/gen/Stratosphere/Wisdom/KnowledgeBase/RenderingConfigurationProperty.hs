@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RenderingConfigurationProperty
   = RenderingConfigurationProperty {templateUri :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRenderingConfigurationProperty :: RenderingConfigurationProperty
 mkRenderingConfigurationProperty
   = RenderingConfigurationProperty {templateUri = Prelude.Nothing}

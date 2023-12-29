@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ResponseInspectionStatusCodeProperty
   = ResponseInspectionStatusCodeProperty {failureCodes :: (ValueList Prelude.Integer),
                                           successCodes :: (ValueList Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResponseInspectionStatusCodeProperty ::
   ValueList Prelude.Integer
   -> ValueList Prelude.Integer

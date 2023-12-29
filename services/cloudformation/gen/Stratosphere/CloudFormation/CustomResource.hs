@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomResource
   = CustomResource {serviceToken :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomResource :: Value Prelude.Text -> CustomResource
 mkCustomResource serviceToken
   = CustomResource {serviceToken = serviceToken}

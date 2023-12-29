@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AmplitudeSourcePropertiesProperty
   = AmplitudeSourcePropertiesProperty {object :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAmplitudeSourcePropertiesProperty ::
   Value Prelude.Text -> AmplitudeSourcePropertiesProperty
 mkAmplitudeSourcePropertiesProperty object

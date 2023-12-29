@@ -10,6 +10,7 @@ data ContentProperty
   = ContentProperty {s3Bucket :: (Value Prelude.Text),
                      s3Key :: (Value Prelude.Text),
                      s3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContentProperty ::
   Value Prelude.Text -> Value Prelude.Text -> ContentProperty
 mkContentProperty s3Bucket s3Key

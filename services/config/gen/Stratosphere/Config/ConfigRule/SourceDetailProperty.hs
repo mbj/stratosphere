@@ -10,6 +10,7 @@ data SourceDetailProperty
   = SourceDetailProperty {eventSource :: (Value Prelude.Text),
                           maximumExecutionFrequency :: (Prelude.Maybe (Value Prelude.Text)),
                           messageType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSourceDetailProperty ::
   Value Prelude.Text -> Value Prelude.Text -> SourceDetailProperty
 mkSourceDetailProperty eventSource messageType

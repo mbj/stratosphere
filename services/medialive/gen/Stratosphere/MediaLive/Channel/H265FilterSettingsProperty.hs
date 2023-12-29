@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TemporalFilterSettingsPrope
 import Stratosphere.ResourceProperties
 data H265FilterSettingsProperty
   = H265FilterSettingsProperty {temporalFilterSettings :: (Prelude.Maybe TemporalFilterSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkH265FilterSettingsProperty :: H265FilterSettingsProperty
 mkH265FilterSettingsProperty
   = H265FilterSettingsProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AdvancedDataProtectionMetricsProperty
   = AdvancedDataProtectionMetricsProperty {isEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAdvancedDataProtectionMetricsProperty ::
   AdvancedDataProtectionMetricsProperty
 mkAdvancedDataProtectionMetricsProperty

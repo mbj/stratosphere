@@ -16,6 +16,7 @@ data RuleActionProperty
                         captcha :: (Prelude.Maybe CaptchaActionProperty),
                         challenge :: (Prelude.Maybe ChallengeActionProperty),
                         count :: (Prelude.Maybe CountActionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleActionProperty :: RuleActionProperty
 mkRuleActionProperty
   = RuleActionProperty

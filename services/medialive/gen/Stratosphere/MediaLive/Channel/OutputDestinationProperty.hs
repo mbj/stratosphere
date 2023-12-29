@@ -15,6 +15,7 @@ data OutputDestinationProperty
                                mediaPackageSettings :: (Prelude.Maybe [MediaPackageOutputDestinationSettingsProperty]),
                                multiplexSettings :: (Prelude.Maybe MultiplexProgramChannelDestinationSettingsProperty),
                                settings :: (Prelude.Maybe [OutputDestinationSettingsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputDestinationProperty :: OutputDestinationProperty
 mkOutputDestinationProperty
   = OutputDestinationProperty

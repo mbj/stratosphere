@@ -26,6 +26,7 @@ data DataSource
                 relationalDatabaseConfig :: (Prelude.Maybe RelationalDatabaseConfigProperty),
                 serviceRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                 type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSource ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> DataSource

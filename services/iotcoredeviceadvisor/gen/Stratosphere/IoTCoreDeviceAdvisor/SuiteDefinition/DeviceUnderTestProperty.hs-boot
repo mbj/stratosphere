@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DeviceUnderTestProperty :: Prelude.Type
 instance ToResourceProperties DeviceUnderTestProperty
+instance Prelude.Eq DeviceUnderTestProperty
+instance Prelude.Show DeviceUnderTestProperty
 instance JSON.ToJSON DeviceUnderTestProperty

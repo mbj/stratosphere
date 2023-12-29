@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SignatureValidityPeriodProperty
   = SignatureValidityPeriodProperty {type' :: (Prelude.Maybe (Value Prelude.Text)),
                                      value :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSignatureValidityPeriodProperty ::
   SignatureValidityPeriodProperty
 mkSignatureValidityPeriodProperty

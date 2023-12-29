@@ -18,6 +18,7 @@ data Flywheel
               modelType :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe [Tag]),
               taskConfig :: (Prelude.Maybe TaskConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFlywheel ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Flywheel

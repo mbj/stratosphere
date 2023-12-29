@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FecOutputSettingsProperty :: Prelude.Type
 instance ToResourceProperties FecOutputSettingsProperty
+instance Prelude.Eq FecOutputSettingsProperty
+instance Prelude.Show FecOutputSettingsProperty
 instance JSON.ToJSON FecOutputSettingsProperty

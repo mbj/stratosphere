@@ -11,6 +11,7 @@ import Stratosphere.Value
 data MagneticStoreWritePropertiesProperty
   = MagneticStoreWritePropertiesProperty {enableMagneticStoreWrites :: (Value Prelude.Bool),
                                           magneticStoreRejectedDataLocation :: (Prelude.Maybe MagneticStoreRejectedDataLocationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMagneticStoreWritePropertiesProperty ::
   Value Prelude.Bool -> MagneticStoreWritePropertiesProperty
 mkMagneticStoreWritePropertiesProperty enableMagneticStoreWrites

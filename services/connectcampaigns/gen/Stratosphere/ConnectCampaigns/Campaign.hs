@@ -15,6 +15,7 @@ data Campaign
               name :: (Value Prelude.Text),
               outboundCallConfig :: OutboundCallConfigProperty,
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaign ::
   Value Prelude.Text
   -> DialerConfigProperty

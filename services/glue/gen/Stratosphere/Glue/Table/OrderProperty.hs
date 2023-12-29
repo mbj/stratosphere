@@ -9,6 +9,7 @@ import Stratosphere.Value
 data OrderProperty
   = OrderProperty {column :: (Value Prelude.Text),
                    sortOrder :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOrderProperty ::
   Value Prelude.Text -> Value Prelude.Integer -> OrderProperty
 mkOrderProperty column sortOrder

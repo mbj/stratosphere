@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AdvancedRecognitionSettingProperty :: Prelude.Type
 instance ToResourceProperties AdvancedRecognitionSettingProperty
+instance Prelude.Eq AdvancedRecognitionSettingProperty
+instance Prelude.Show AdvancedRecognitionSettingProperty
 instance JSON.ToJSON AdvancedRecognitionSettingProperty

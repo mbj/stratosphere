@@ -18,6 +18,7 @@ data Device
             tags :: (Prelude.Maybe [Tag]),
             type' :: (Prelude.Maybe (Value Prelude.Text)),
             vendor :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDevice :: Value Prelude.Text -> Device
 mkDevice globalNetworkId
   = Device

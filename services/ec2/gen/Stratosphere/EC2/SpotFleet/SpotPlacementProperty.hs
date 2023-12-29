@@ -10,6 +10,7 @@ data SpotPlacementProperty
   = SpotPlacementProperty {availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
                            groupName :: (Prelude.Maybe (Value Prelude.Text)),
                            tenancy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpotPlacementProperty :: SpotPlacementProperty
 mkSpotPlacementProperty
   = SpotPlacementProperty

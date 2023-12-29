@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaConnectorProvisioningConfigProperty
   = LambdaConnectorProvisioningConfigProperty {lambdaArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaConnectorProvisioningConfigProperty ::
   Value Prelude.Text -> LambdaConnectorProvisioningConfigProperty
 mkLambdaConnectorProvisioningConfigProperty lambdaArn

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.NetworkFirewall.RuleGroup.IPSetReferencePrope
 import Stratosphere.ResourceProperties
 data ReferenceSetsProperty
   = ReferenceSetsProperty {iPSetReferences :: (Prelude.Maybe (Prelude.Map Prelude.Text IPSetReferenceProperty))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceSetsProperty :: ReferenceSetsProperty
 mkReferenceSetsProperty
   = ReferenceSetsProperty {iPSetReferences = Prelude.Nothing}

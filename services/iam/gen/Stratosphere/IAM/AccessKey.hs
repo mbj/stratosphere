@@ -10,6 +10,7 @@ data AccessKey
   = AccessKey {serial :: (Prelude.Maybe (Value Prelude.Integer)),
                status :: (Prelude.Maybe (Value Prelude.Text)),
                userName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessKey :: Value Prelude.Text -> AccessKey
 mkAccessKey userName
   = AccessKey

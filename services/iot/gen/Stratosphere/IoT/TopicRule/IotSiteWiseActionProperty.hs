@@ -11,6 +11,7 @@ import Stratosphere.Value
 data IotSiteWiseActionProperty
   = IotSiteWiseActionProperty {putAssetPropertyValueEntries :: [PutAssetPropertyValueEntryProperty],
                                roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIotSiteWiseActionProperty ::
   [PutAssetPropertyValueEntryProperty]
   -> Value Prelude.Text -> IotSiteWiseActionProperty

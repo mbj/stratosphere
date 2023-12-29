@@ -19,6 +19,7 @@ data ScatterPlotVisualProperty
                                subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                                title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                                visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScatterPlotVisualProperty ::
   Value Prelude.Text -> ScatterPlotVisualProperty
 mkScatterPlotVisualProperty visualId

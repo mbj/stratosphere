@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IoTJobRateIncreaseCriteriaProperty :: Prelude.Type
 instance ToResourceProperties IoTJobRateIncreaseCriteriaProperty
+instance Prelude.Eq IoTJobRateIncreaseCriteriaProperty
+instance Prelude.Show IoTJobRateIncreaseCriteriaProperty
 instance JSON.ToJSON IoTJobRateIncreaseCriteriaProperty

@@ -12,6 +12,7 @@ data FieldSeriesItemProperty
   = FieldSeriesItemProperty {axisBinding :: (Value Prelude.Text),
                              fieldId :: (Value Prelude.Text),
                              settings :: (Prelude.Maybe LineChartSeriesSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFieldSeriesItemProperty ::
   Value Prelude.Text -> Value Prelude.Text -> FieldSeriesItemProperty
 mkFieldSeriesItemProperty axisBinding fieldId

@@ -22,6 +22,7 @@ data Method
             requestValidatorId :: (Prelude.Maybe (Value Prelude.Text)),
             resourceId :: (Value Prelude.Text),
             restApiId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMethod ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Method

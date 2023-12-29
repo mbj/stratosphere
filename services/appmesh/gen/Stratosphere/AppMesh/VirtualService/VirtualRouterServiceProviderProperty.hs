@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualRouterServiceProviderProperty
   = VirtualRouterServiceProviderProperty {virtualRouterName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualRouterServiceProviderProperty ::
   Value Prelude.Text -> VirtualRouterServiceProviderProperty
 mkVirtualRouterServiceProviderProperty virtualRouterName

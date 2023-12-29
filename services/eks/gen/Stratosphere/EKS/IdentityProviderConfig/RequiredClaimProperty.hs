@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RequiredClaimProperty
   = RequiredClaimProperty {key :: (Value Prelude.Text),
                            value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRequiredClaimProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RequiredClaimProperty
 mkRequiredClaimProperty key value

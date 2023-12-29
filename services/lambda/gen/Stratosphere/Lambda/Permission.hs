@@ -15,6 +15,7 @@ data Permission
                 principalOrgID :: (Prelude.Maybe (Value Prelude.Text)),
                 sourceAccount :: (Prelude.Maybe (Value Prelude.Text)),
                 sourceArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPermission ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Permission

@@ -11,6 +11,7 @@ data ApiKey
             apiKeyId :: (Prelude.Maybe (Value Prelude.Text)),
             description :: (Prelude.Maybe (Value Prelude.Text)),
             expires :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApiKey :: Value Prelude.Text -> ApiKey
 mkApiKey apiId
   = ApiKey

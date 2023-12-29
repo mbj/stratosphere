@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StringAttributeConstraintsProperty :: Prelude.Type
 instance ToResourceProperties StringAttributeConstraintsProperty
+instance Prelude.Eq StringAttributeConstraintsProperty
+instance Prelude.Show StringAttributeConstraintsProperty
 instance JSON.ToJSON StringAttributeConstraintsProperty

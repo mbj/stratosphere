@@ -13,6 +13,7 @@ data StackInstancesProperty
   = StackInstancesProperty {deploymentTargets :: DeploymentTargetsProperty,
                             parameterOverrides :: (Prelude.Maybe [ParameterProperty]),
                             regions :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStackInstancesProperty ::
   DeploymentTargetsProperty
   -> ValueList Prelude.Text -> StackInstancesProperty

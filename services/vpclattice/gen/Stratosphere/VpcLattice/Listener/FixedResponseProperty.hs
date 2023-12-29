@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FixedResponseProperty
   = FixedResponseProperty {statusCode :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFixedResponseProperty ::
   Value Prelude.Integer -> FixedResponseProperty
 mkFixedResponseProperty statusCode

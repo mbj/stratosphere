@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SubnetRouteTableAssociation
   = SubnetRouteTableAssociation {routeTableId :: (Value Prelude.Text),
                                  subnetId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetRouteTableAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> SubnetRouteTableAssociation

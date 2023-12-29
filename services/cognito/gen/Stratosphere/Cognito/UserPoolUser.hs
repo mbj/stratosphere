@@ -16,6 +16,7 @@ data UserPoolUser
                   userPoolId :: (Value Prelude.Text),
                   username :: (Prelude.Maybe (Value Prelude.Text)),
                   validationData :: (Prelude.Maybe [AttributeTypeProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolUser :: Value Prelude.Text -> UserPoolUser
 mkUserPoolUser userPoolId
   = UserPoolUser

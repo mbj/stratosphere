@@ -12,6 +12,7 @@ data RoleAlias
                roleAlias :: (Prelude.Maybe (Value Prelude.Text)),
                roleArn :: (Value Prelude.Text),
                tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoleAlias :: Value Prelude.Text -> RoleAlias
 mkRoleAlias roleArn
   = RoleAlias

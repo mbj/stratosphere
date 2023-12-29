@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data RevocationConfigurationProperty
   = RevocationConfigurationProperty {crlConfiguration :: (Prelude.Maybe CrlConfigurationProperty),
                                      ocspConfiguration :: (Prelude.Maybe OcspConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRevocationConfigurationProperty ::
   RevocationConfigurationProperty
 mkRevocationConfigurationProperty

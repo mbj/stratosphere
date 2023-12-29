@@ -14,6 +14,7 @@ data IPAM
           description :: (Prelude.Maybe (Value Prelude.Text)),
           operatingRegions :: (Prelude.Maybe [IpamOperatingRegionProperty]),
           tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAM :: IPAM
 mkIPAM
   = IPAM

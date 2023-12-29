@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.InfrastructureConfiguration.S3Lo
 import Stratosphere.ResourceProperties
 data LoggingProperty
   = LoggingProperty {s3Logs :: (Prelude.Maybe S3LogsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingProperty :: LoggingProperty
 mkLoggingProperty = LoggingProperty {s3Logs = Prelude.Nothing}
 instance ToResourceProperties LoggingProperty where

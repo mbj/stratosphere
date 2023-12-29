@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VpcOptionsProperty
   = VpcOptionsProperty {applianceModeSupport :: (Prelude.Maybe (Value Prelude.Bool)),
                         ipv6Support :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcOptionsProperty :: VpcOptionsProperty
 mkVpcOptionsProperty
   = VpcOptionsProperty

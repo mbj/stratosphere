@@ -11,6 +11,7 @@ data ConfigurationRecorder
   = ConfigurationRecorder {name :: (Prelude.Maybe (Value Prelude.Text)),
                            recordingGroup :: (Prelude.Maybe RecordingGroupProperty),
                            roleARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationRecorder ::
   Value Prelude.Text -> ConfigurationRecorder
 mkConfigurationRecorder roleARN

@@ -12,6 +12,7 @@ data Model
            description :: (Prelude.Maybe (Value Prelude.Text)),
            name :: (Value Prelude.Text),
            schema :: JSON.Object}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkModel ::
   Value Prelude.Text -> Value Prelude.Text -> JSON.Object -> Model
 mkModel apiId name schema

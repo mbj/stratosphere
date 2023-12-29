@@ -12,6 +12,7 @@ data ClusterCapacityProviderAssociations
   = ClusterCapacityProviderAssociations {capacityProviders :: (ValueList Prelude.Text),
                                          cluster :: (Value Prelude.Text),
                                          defaultCapacityProviderStrategy :: [CapacityProviderStrategyProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkClusterCapacityProviderAssociations ::
   ValueList Prelude.Text
   -> Value Prelude.Text

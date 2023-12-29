@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CodeConfigurationProperty :: Prelude.Type
 instance ToResourceProperties CodeConfigurationProperty
+instance Prelude.Eq CodeConfigurationProperty
+instance Prelude.Show CodeConfigurationProperty
 instance JSON.ToJSON CodeConfigurationProperty

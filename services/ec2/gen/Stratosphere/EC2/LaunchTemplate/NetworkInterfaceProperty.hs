@@ -31,6 +31,7 @@ data NetworkInterfaceProperty
                               privateIpAddresses :: (Prelude.Maybe [PrivateIpAddProperty]),
                               secondaryPrivateIpAddressCount :: (Prelude.Maybe (Value Prelude.Integer)),
                               subnetId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkInterfaceProperty :: NetworkInterfaceProperty
 mkNetworkInterfaceProperty
   = NetworkInterfaceProperty

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ReplicationConfigurationProperty
   = ReplicationConfigurationProperty {role :: (Value Prelude.Text),
                                       rules :: [ReplicationRuleProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationConfigurationProperty ::
   Value Prelude.Text
   -> [ReplicationRuleProperty] -> ReplicationConfigurationProperty

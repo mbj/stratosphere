@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Hdr10SettingsProperty :: Prelude.Type
 instance ToResourceProperties Hdr10SettingsProperty
+instance Prelude.Eq Hdr10SettingsProperty
+instance Prelude.Show Hdr10SettingsProperty
 instance JSON.ToJSON Hdr10SettingsProperty

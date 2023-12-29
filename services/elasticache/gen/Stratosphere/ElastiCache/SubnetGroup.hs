@@ -12,6 +12,7 @@ data SubnetGroup
                  description :: (Value Prelude.Text),
                  subnetIds :: (ValueList Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetGroup ::
   Value Prelude.Text -> ValueList Prelude.Text -> SubnetGroup
 mkSubnetGroup description subnetIds

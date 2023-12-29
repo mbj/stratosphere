@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InforNexusConnectorProfilePropertiesProperty
   = InforNexusConnectorProfilePropertiesProperty {instanceUrl :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInforNexusConnectorProfilePropertiesProperty ::
   Value Prelude.Text -> InforNexusConnectorProfilePropertiesProperty
 mkInforNexusConnectorProfilePropertiesProperty instanceUrl

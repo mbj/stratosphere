@@ -25,6 +25,7 @@ data WebACL
             tags :: (Prelude.Maybe [Tag]),
             tokenDomains :: (Prelude.Maybe (ValueList Prelude.Text)),
             visibilityConfig :: VisibilityConfigProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWebACL ::
   DefaultActionProperty
   -> Value Prelude.Text -> VisibilityConfigProperty -> WebACL

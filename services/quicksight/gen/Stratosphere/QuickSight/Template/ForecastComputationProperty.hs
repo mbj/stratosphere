@@ -21,6 +21,7 @@ data ForecastComputationProperty
                                  time :: DimensionFieldProperty,
                                  upperBoundary :: (Prelude.Maybe (Value Prelude.Double)),
                                  value :: (Prelude.Maybe MeasureFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkForecastComputationProperty ::
   Value Prelude.Text
   -> DimensionFieldProperty -> ForecastComputationProperty

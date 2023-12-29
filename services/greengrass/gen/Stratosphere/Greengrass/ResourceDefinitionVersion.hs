@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ResourceDefinitionVersion
   = ResourceDefinitionVersion {resourceDefinitionId :: (Value Prelude.Text),
                                resources :: [ResourceInstanceProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceDefinitionVersion ::
   Value Prelude.Text
   -> [ResourceInstanceProperty] -> ResourceDefinitionVersion

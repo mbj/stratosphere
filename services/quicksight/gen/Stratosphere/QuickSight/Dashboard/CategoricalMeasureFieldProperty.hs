@@ -14,6 +14,7 @@ data CategoricalMeasureFieldProperty
                                      column :: ColumnIdentifierProperty,
                                      fieldId :: (Value Prelude.Text),
                                      formatConfiguration :: (Prelude.Maybe StringFormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCategoricalMeasureFieldProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text -> CategoricalMeasureFieldProperty

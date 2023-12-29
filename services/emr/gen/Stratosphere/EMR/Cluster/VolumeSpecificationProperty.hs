@@ -10,6 +10,7 @@ data VolumeSpecificationProperty
   = VolumeSpecificationProperty {iops :: (Prelude.Maybe (Value Prelude.Integer)),
                                  sizeInGB :: (Value Prelude.Integer),
                                  volumeType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeSpecificationProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> VolumeSpecificationProperty

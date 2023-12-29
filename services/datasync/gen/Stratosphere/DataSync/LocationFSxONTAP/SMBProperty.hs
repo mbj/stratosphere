@@ -12,6 +12,7 @@ data SMBProperty
                  mountOptions :: SmbMountOptionsProperty,
                  password :: (Value Prelude.Text),
                  user :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSMBProperty ::
   SmbMountOptionsProperty
   -> Value Prelude.Text -> Value Prelude.Text -> SMBProperty

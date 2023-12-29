@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OidcMemberDefinitionProperty
   = OidcMemberDefinitionProperty {oidcGroups :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOidcMemberDefinitionProperty ::
   ValueList Prelude.Text -> OidcMemberDefinitionProperty
 mkOidcMemberDefinitionProperty oidcGroups

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FontWeightProperty
   = FontWeightProperty {name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFontWeightProperty :: FontWeightProperty
 mkFontWeightProperty = FontWeightProperty {name = Prelude.Nothing}
 instance ToResourceProperties FontWeightProperty where

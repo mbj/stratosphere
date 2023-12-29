@@ -11,6 +11,7 @@ data S3LocationProperty
                         key :: (Value Prelude.Text),
                         objectVersion :: (Prelude.Maybe (Value Prelude.Text)),
                         roleArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3LocationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> S3LocationProperty

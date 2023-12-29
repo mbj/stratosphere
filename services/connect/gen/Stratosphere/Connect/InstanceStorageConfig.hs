@@ -18,6 +18,7 @@ data InstanceStorageConfig
                            resourceType :: (Value Prelude.Text),
                            s3Config :: (Prelude.Maybe S3ConfigProperty),
                            storageType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceStorageConfig ::
   Value Prelude.Text
   -> Value Prelude.Text

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VirtualNodeServiceProviderProperty
   = VirtualNodeServiceProviderProperty {virtualNodeName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualNodeServiceProviderProperty ::
   Value Prelude.Text -> VirtualNodeServiceProviderProperty
 mkVirtualNodeServiceProviderProperty virtualNodeName

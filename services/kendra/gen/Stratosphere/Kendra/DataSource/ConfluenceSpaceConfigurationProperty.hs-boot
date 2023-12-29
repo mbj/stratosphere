@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConfluenceSpaceConfigurationProperty :: Prelude.Type
 instance ToResourceProperties ConfluenceSpaceConfigurationProperty
+instance Prelude.Eq ConfluenceSpaceConfigurationProperty
+instance Prelude.Show ConfluenceSpaceConfigurationProperty
 instance JSON.ToJSON ConfluenceSpaceConfigurationProperty

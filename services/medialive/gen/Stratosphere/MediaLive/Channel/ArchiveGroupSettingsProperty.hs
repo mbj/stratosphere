@@ -13,6 +13,7 @@ data ArchiveGroupSettingsProperty
   = ArchiveGroupSettingsProperty {archiveCdnSettings :: (Prelude.Maybe ArchiveCdnSettingsProperty),
                                   destination :: (Prelude.Maybe OutputLocationRefProperty),
                                   rolloverInterval :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveGroupSettingsProperty :: ArchiveGroupSettingsProperty
 mkArchiveGroupSettingsProperty
   = ArchiveGroupSettingsProperty

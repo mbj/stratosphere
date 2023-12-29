@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IcmpProperty :: Prelude.Type
 instance ToResourceProperties IcmpProperty
+instance Prelude.Eq IcmpProperty
+instance Prelude.Show IcmpProperty
 instance JSON.ToJSON IcmpProperty

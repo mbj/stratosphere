@@ -15,6 +15,7 @@ data Service
              dnsEntry :: (Prelude.Maybe DnsEntryProperty),
              name :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkService :: Service
 mkService
   = Service

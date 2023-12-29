@@ -10,6 +10,7 @@ import Stratosphere.Value
 data StreamingImageEncryptionConfigurationProperty
   = StreamingImageEncryptionConfigurationProperty {keyArn :: (Prelude.Maybe (Value Prelude.Text)),
                                                    keyType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStreamingImageEncryptionConfigurationProperty ::
   Value Prelude.Text -> StreamingImageEncryptionConfigurationProperty
 mkStreamingImageEncryptionConfigurationProperty keyType

@@ -10,6 +10,7 @@ data IPAMPoolCidr
   = IPAMPoolCidr {cidr :: (Prelude.Maybe (Value Prelude.Text)),
                   ipamPoolId :: (Value Prelude.Text),
                   netmaskLength :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAMPoolCidr :: Value Prelude.Text -> IPAMPoolCidr
 mkIPAMPoolCidr ipamPoolId
   = IPAMPoolCidr

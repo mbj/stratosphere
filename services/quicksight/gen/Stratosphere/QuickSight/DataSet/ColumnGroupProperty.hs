@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.GeoSpatialColumnGroupPrope
 import Stratosphere.ResourceProperties
 data ColumnGroupProperty
   = ColumnGroupProperty {geoSpatialColumnGroup :: (Prelude.Maybe GeoSpatialColumnGroupProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkColumnGroupProperty :: ColumnGroupProperty
 mkColumnGroupProperty
   = ColumnGroupProperty {geoSpatialColumnGroup = Prelude.Nothing}

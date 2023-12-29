@@ -11,6 +11,7 @@ data UserPoolUICustomizationAttachment
   = UserPoolUICustomizationAttachment {cSS :: (Prelude.Maybe (Value Prelude.Text)),
                                        clientId :: (Value Prelude.Text),
                                        userPoolId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolUICustomizationAttachment ::
   Value Prelude.Text
   -> Value Prelude.Text -> UserPoolUICustomizationAttachment

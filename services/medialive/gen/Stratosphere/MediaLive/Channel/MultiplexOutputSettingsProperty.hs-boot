@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MultiplexOutputSettingsProperty :: Prelude.Type
 instance ToResourceProperties MultiplexOutputSettingsProperty
+instance Prelude.Eq MultiplexOutputSettingsProperty
+instance Prelude.Show MultiplexOutputSettingsProperty
 instance JSON.ToJSON MultiplexOutputSettingsProperty

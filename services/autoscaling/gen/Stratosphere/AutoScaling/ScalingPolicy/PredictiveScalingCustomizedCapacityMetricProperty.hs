@@ -10,6 +10,7 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.ScalingPolicy.MetricDataQueryProp
 import Stratosphere.ResourceProperties
 data PredictiveScalingCustomizedCapacityMetricProperty
   = PredictiveScalingCustomizedCapacityMetricProperty {metricDataQueries :: [MetricDataQueryProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPredictiveScalingCustomizedCapacityMetricProperty ::
   [MetricDataQueryProperty]
   -> PredictiveScalingCustomizedCapacityMetricProperty

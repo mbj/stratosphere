@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JSONMappingParametersProperty
   = JSONMappingParametersProperty {recordRowPath :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkJSONMappingParametersProperty ::
   Value Prelude.Text -> JSONMappingParametersProperty
 mkJSONMappingParametersProperty recordRowPath

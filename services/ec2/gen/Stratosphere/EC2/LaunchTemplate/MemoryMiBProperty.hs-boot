@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MemoryMiBProperty :: Prelude.Type
 instance ToResourceProperties MemoryMiBProperty
+instance Prelude.Eq MemoryMiBProperty
+instance Prelude.Show MemoryMiBProperty
 instance JSON.ToJSON MemoryMiBProperty

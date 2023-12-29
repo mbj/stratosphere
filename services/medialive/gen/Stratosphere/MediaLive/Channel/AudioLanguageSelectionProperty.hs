@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AudioLanguageSelectionProperty
   = AudioLanguageSelectionProperty {languageCode :: (Prelude.Maybe (Value Prelude.Text)),
                                     languageSelectionPolicy :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAudioLanguageSelectionProperty :: AudioLanguageSelectionProperty
 mkAudioLanguageSelectionProperty
   = AudioLanguageSelectionProperty

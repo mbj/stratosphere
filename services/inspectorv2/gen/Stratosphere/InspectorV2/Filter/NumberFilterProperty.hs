@@ -9,6 +9,7 @@ import Stratosphere.Value
 data NumberFilterProperty
   = NumberFilterProperty {lowerInclusive :: (Prelude.Maybe (Value Prelude.Double)),
                           upperInclusive :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumberFilterProperty :: NumberFilterProperty
 mkNumberFilterProperty
   = NumberFilterProperty

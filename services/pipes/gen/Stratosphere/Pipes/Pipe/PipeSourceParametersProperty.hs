@@ -23,6 +23,7 @@ data PipeSourceParametersProperty
                                   rabbitMQBrokerParameters :: (Prelude.Maybe PipeSourceRabbitMQBrokerParametersProperty),
                                   selfManagedKafkaParameters :: (Prelude.Maybe PipeSourceSelfManagedKafkaParametersProperty),
                                   sqsQueueParameters :: (Prelude.Maybe PipeSourceSqsQueueParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeSourceParametersProperty :: PipeSourceParametersProperty
 mkPipeSourceParametersProperty
   = PipeSourceParametersProperty

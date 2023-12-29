@@ -9,6 +9,7 @@ import Stratosphere.Value
 data FailurePolicyProperty
   = FailurePolicyProperty {rpoInSecs :: (Value Prelude.Integer),
                            rtoInSecs :: (Value Prelude.Integer)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFailurePolicyProperty ::
   Value Prelude.Integer
   -> Value Prelude.Integer -> FailurePolicyProperty

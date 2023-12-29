@@ -9,6 +9,7 @@ import Stratosphere.Value
 data QueryStringsConfigProperty
   = QueryStringsConfigProperty {queryStringBehavior :: (Value Prelude.Text),
                                 queryStrings :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueryStringsConfigProperty ::
   Value Prelude.Text -> QueryStringsConfigProperty
 mkQueryStringsConfigProperty queryStringBehavior

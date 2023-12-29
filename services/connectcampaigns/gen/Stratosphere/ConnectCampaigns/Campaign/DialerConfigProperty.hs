@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data DialerConfigProperty
   = DialerConfigProperty {predictiveDialerConfig :: (Prelude.Maybe PredictiveDialerConfigProperty),
                           progressiveDialerConfig :: (Prelude.Maybe ProgressiveDialerConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDialerConfigProperty :: DialerConfigProperty
 mkDialerConfigProperty
   = DialerConfigProperty

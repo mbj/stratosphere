@@ -19,6 +19,7 @@ data LineChartVisualProperty
                              subtitle :: (Prelude.Maybe VisualSubtitleLabelOptionsProperty),
                              title :: (Prelude.Maybe VisualTitleLabelOptionsProperty),
                              visualId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLineChartVisualProperty ::
   Value Prelude.Text -> LineChartVisualProperty
 mkLineChartVisualProperty visualId

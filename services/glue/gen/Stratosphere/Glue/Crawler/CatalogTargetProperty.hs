@@ -12,6 +12,7 @@ data CatalogTargetProperty
                            dlqEventQueueArn :: (Prelude.Maybe (Value Prelude.Text)),
                            eventQueueArn :: (Prelude.Maybe (Value Prelude.Text)),
                            tables :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCatalogTargetProperty :: CatalogTargetProperty
 mkCatalogTargetProperty
   = CatalogTargetProperty

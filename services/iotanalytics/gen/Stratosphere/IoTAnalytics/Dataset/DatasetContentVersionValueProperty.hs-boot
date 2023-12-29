@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DatasetContentVersionValueProperty :: Prelude.Type
 instance ToResourceProperties DatasetContentVersionValueProperty
+instance Prelude.Eq DatasetContentVersionValueProperty
+instance Prelude.Show DatasetContentVersionValueProperty
 instance JSON.ToJSON DatasetContentVersionValueProperty

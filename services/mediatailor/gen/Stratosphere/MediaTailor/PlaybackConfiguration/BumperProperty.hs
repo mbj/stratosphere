@@ -9,6 +9,7 @@ import Stratosphere.Value
 data BumperProperty
   = BumperProperty {endUrl :: (Prelude.Maybe (Value Prelude.Text)),
                     startUrl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkBumperProperty :: BumperProperty
 mkBumperProperty
   = BumperProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AuthenticationConfigurationProperty
   = AuthenticationConfigurationProperty {accessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                          connectionArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuthenticationConfigurationProperty ::
   AuthenticationConfigurationProperty
 mkAuthenticationConfigurationProperty

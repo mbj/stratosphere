@@ -10,6 +10,7 @@ import Stratosphere.Value
 data CrossRegionCopyDeprecateRuleProperty
   = CrossRegionCopyDeprecateRuleProperty {interval :: (Value Prelude.Integer),
                                           intervalUnit :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCrossRegionCopyDeprecateRuleProperty ::
   Value Prelude.Integer
   -> Value Prelude.Text -> CrossRegionCopyDeprecateRuleProperty

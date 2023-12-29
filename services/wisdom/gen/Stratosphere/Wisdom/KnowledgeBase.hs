@@ -18,6 +18,7 @@ data KnowledgeBase
                    serverSideEncryptionConfiguration :: (Prelude.Maybe ServerSideEncryptionConfigurationProperty),
                    sourceConfiguration :: (Prelude.Maybe SourceConfigurationProperty),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKnowledgeBase ::
   Value Prelude.Text -> Value Prelude.Text -> KnowledgeBase
 mkKnowledgeBase knowledgeBaseType name

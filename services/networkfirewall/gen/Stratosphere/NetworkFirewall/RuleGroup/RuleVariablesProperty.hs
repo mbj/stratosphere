@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data RuleVariablesProperty
   = RuleVariablesProperty {iPSets :: (Prelude.Maybe (Prelude.Map Prelude.Text IPSetProperty)),
                            portSets :: (Prelude.Maybe (Prelude.Map Prelude.Text PortSetProperty))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleVariablesProperty :: RuleVariablesProperty
 mkRuleVariablesProperty
   = RuleVariablesProperty

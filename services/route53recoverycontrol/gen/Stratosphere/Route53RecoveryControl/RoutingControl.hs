@@ -10,6 +10,7 @@ data RoutingControl
   = RoutingControl {clusterArn :: (Prelude.Maybe (Value Prelude.Text)),
                     controlPanelArn :: (Prelude.Maybe (Value Prelude.Text)),
                     name :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRoutingControl :: Value Prelude.Text -> RoutingControl
 mkRoutingControl name
   = RoutingControl

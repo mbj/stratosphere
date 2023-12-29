@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationSchemaProperty
   = DestinationSchemaProperty {recordFormatType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationSchemaProperty :: DestinationSchemaProperty
 mkDestinationSchemaProperty
   = DestinationSchemaProperty {recordFormatType = Prelude.Nothing}

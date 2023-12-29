@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PathComponentProperty :: Prelude.Type
 instance ToResourceProperties PathComponentProperty
+instance Prelude.Eq PathComponentProperty
+instance Prelude.Show PathComponentProperty
 instance JSON.ToJSON PathComponentProperty

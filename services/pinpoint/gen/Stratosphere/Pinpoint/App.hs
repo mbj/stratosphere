@@ -9,6 +9,7 @@ import Stratosphere.Value
 data App
   = App {name :: (Value Prelude.Text),
          tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApp :: Value Prelude.Text -> App
 mkApp name = App {name = name, tags = Prelude.Nothing}
 instance ToResourceProperties App where

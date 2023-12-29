@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data FunnelChartAggregatedFieldWellsProperty
   = FunnelChartAggregatedFieldWellsProperty {category :: (Prelude.Maybe [DimensionFieldProperty]),
                                              values :: (Prelude.Maybe [MeasureFieldProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFunnelChartAggregatedFieldWellsProperty ::
   FunnelChartAggregatedFieldWellsProperty
 mkFunnelChartAggregatedFieldWellsProperty

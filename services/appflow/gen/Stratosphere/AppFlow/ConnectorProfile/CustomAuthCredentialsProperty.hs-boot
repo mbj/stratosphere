@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CustomAuthCredentialsProperty :: Prelude.Type
 instance ToResourceProperties CustomAuthCredentialsProperty
+instance Prelude.Eq CustomAuthCredentialsProperty
+instance Prelude.Show CustomAuthCredentialsProperty
 instance JSON.ToJSON CustomAuthCredentialsProperty

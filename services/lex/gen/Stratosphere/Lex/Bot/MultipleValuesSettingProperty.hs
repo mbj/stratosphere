@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MultipleValuesSettingProperty
   = MultipleValuesSettingProperty {allowMultipleValues :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMultipleValuesSettingProperty :: MultipleValuesSettingProperty
 mkMultipleValuesSettingProperty
   = MultipleValuesSettingProperty

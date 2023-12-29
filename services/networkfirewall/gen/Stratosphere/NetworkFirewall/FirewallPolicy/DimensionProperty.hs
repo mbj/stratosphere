@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DimensionProperty
   = DimensionProperty {value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDimensionProperty :: Value Prelude.Text -> DimensionProperty
 mkDimensionProperty value = DimensionProperty {value = value}
 instance ToResourceProperties DimensionProperty where

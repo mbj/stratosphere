@@ -10,6 +10,7 @@ import Stratosphere.Value
 data IoTJobRateIncreaseCriteriaProperty
   = IoTJobRateIncreaseCriteriaProperty {numberOfNotifiedThings :: (Prelude.Maybe (Value Prelude.Integer)),
                                         numberOfSucceededThings :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIoTJobRateIncreaseCriteriaProperty ::
   IoTJobRateIncreaseCriteriaProperty
 mkIoTJobRateIncreaseCriteriaProperty

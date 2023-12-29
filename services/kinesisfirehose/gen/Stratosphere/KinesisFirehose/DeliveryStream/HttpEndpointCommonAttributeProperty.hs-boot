@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HttpEndpointCommonAttributeProperty :: Prelude.Type
 instance ToResourceProperties HttpEndpointCommonAttributeProperty
+instance Prelude.Eq HttpEndpointCommonAttributeProperty
+instance Prelude.Show HttpEndpointCommonAttributeProperty
 instance JSON.ToJSON HttpEndpointCommonAttributeProperty

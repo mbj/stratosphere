@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PinpointDestinationProperty :: Prelude.Type
 instance ToResourceProperties PinpointDestinationProperty
+instance Prelude.Eq PinpointDestinationProperty
+instance Prelude.Show PinpointDestinationProperty
 instance JSON.ToJSON PinpointDestinationProperty

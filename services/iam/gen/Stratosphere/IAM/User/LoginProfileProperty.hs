@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LoginProfileProperty
   = LoginProfileProperty {password :: (Value Prelude.Text),
                           passwordResetRequired :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLoginProfileProperty ::
   Value Prelude.Text -> LoginProfileProperty
 mkLoginProfileProperty password

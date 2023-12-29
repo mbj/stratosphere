@@ -13,6 +13,7 @@ data Accelerator
                  ipAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
                  name :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccelerator :: Value Prelude.Text -> Accelerator
 mkAccelerator name
   = Accelerator

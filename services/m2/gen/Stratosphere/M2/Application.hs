@@ -15,6 +15,7 @@ data Application
                  name :: (Value Prelude.Text),
                  roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication ::
   DefinitionProperty
   -> Value Prelude.Text -> Value Prelude.Text -> Application

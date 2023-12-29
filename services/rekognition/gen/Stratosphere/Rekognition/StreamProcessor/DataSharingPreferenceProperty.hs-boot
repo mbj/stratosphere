@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataSharingPreferenceProperty :: Prelude.Type
 instance ToResourceProperties DataSharingPreferenceProperty
+instance Prelude.Eq DataSharingPreferenceProperty
+instance Prelude.Show DataSharingPreferenceProperty
 instance JSON.ToJSON DataSharingPreferenceProperty

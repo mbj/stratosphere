@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FargatePlatformConfigurationProperty
   = FargatePlatformConfigurationProperty {platformVersion :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFargatePlatformConfigurationProperty ::
   FargatePlatformConfigurationProperty
 mkFargatePlatformConfigurationProperty

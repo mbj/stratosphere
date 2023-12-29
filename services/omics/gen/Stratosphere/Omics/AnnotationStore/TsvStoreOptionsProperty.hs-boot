@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TsvStoreOptionsProperty :: Prelude.Type
 instance ToResourceProperties TsvStoreOptionsProperty
+instance Prelude.Eq TsvStoreOptionsProperty
+instance Prelude.Show TsvStoreOptionsProperty
 instance JSON.ToJSON TsvStoreOptionsProperty

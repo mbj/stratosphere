@@ -10,6 +10,7 @@ import Stratosphere.Value
 data LateDataRuleProperty
   = LateDataRuleProperty {ruleConfiguration :: LateDataRuleConfigurationProperty,
                           ruleName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLateDataRuleProperty ::
   LateDataRuleConfigurationProperty -> LateDataRuleProperty
 mkLateDataRuleProperty ruleConfiguration

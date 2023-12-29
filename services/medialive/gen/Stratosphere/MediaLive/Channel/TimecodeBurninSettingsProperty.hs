@@ -11,6 +11,7 @@ data TimecodeBurninSettingsProperty
   = TimecodeBurninSettingsProperty {fontSize :: (Prelude.Maybe (Value Prelude.Text)),
                                     position :: (Prelude.Maybe (Value Prelude.Text)),
                                     prefix :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimecodeBurninSettingsProperty :: TimecodeBurninSettingsProperty
 mkTimecodeBurninSettingsProperty
   = TimecodeBurninSettingsProperty

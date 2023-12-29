@@ -10,6 +10,7 @@ data DnsServiceDiscoveryProperty
   = DnsServiceDiscoveryProperty {hostname :: (Value Prelude.Text),
                                  ipPreference :: (Prelude.Maybe (Value Prelude.Text)),
                                  responseType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDnsServiceDiscoveryProperty ::
   Value Prelude.Text -> DnsServiceDiscoveryProperty
 mkDnsServiceDiscoveryProperty hostname

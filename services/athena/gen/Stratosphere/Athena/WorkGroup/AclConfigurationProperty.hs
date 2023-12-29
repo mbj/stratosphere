@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AclConfigurationProperty
   = AclConfigurationProperty {s3AclOption :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAclConfigurationProperty ::
   Value Prelude.Text -> AclConfigurationProperty
 mkAclConfigurationProperty s3AclOption

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FastRestoreRuleProperty :: Prelude.Type
 instance ToResourceProperties FastRestoreRuleProperty
+instance Prelude.Eq FastRestoreRuleProperty
+instance Prelude.Show FastRestoreRuleProperty
 instance JSON.ToJSON FastRestoreRuleProperty

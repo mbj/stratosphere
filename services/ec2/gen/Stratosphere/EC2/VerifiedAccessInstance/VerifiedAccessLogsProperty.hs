@@ -13,6 +13,7 @@ data VerifiedAccessLogsProperty
   = VerifiedAccessLogsProperty {cloudWatchLogs :: (Prelude.Maybe CloudWatchLogsProperty),
                                 kinesisDataFirehose :: (Prelude.Maybe KinesisDataFirehoseProperty),
                                 s3 :: (Prelude.Maybe S3Property)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVerifiedAccessLogsProperty :: VerifiedAccessLogsProperty
 mkVerifiedAccessLogsProperty
   = VerifiedAccessLogsProperty

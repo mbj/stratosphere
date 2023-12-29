@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data IntegerParameterDeclarationProperty :: Prelude.Type
 instance ToResourceProperties IntegerParameterDeclarationProperty
+instance Prelude.Eq IntegerParameterDeclarationProperty
+instance Prelude.Show IntegerParameterDeclarationProperty
 instance JSON.ToJSON IntegerParameterDeclarationProperty

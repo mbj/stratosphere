@@ -10,6 +10,7 @@ data CampaignHookProperty
   = CampaignHookProperty {lambdaFunctionName :: (Prelude.Maybe (Value Prelude.Text)),
                           mode :: (Prelude.Maybe (Value Prelude.Text)),
                           webUrl :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCampaignHookProperty :: CampaignHookProperty
 mkCampaignHookProperty
   = CampaignHookProperty

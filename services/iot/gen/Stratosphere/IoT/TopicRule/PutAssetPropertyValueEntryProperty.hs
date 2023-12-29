@@ -14,6 +14,7 @@ data PutAssetPropertyValueEntryProperty
                                         propertyAlias :: (Prelude.Maybe (Value Prelude.Text)),
                                         propertyId :: (Prelude.Maybe (Value Prelude.Text)),
                                         propertyValues :: [AssetPropertyValueProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPutAssetPropertyValueEntryProperty ::
   [AssetPropertyValueProperty] -> PutAssetPropertyValueEntryProperty
 mkPutAssetPropertyValueEntryProperty propertyValues

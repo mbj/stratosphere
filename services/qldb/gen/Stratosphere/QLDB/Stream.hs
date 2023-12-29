@@ -16,6 +16,7 @@ data Stream
             roleArn :: (Value Prelude.Text),
             streamName :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStream ::
   Value Prelude.Text
   -> KinesisConfigurationProperty

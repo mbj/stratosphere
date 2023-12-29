@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TrainingHyperParameterProperty :: Prelude.Type
 instance ToResourceProperties TrainingHyperParameterProperty
+instance Prelude.Eq TrainingHyperParameterProperty
+instance Prelude.Show TrainingHyperParameterProperty
 instance JSON.ToJSON TrainingHyperParameterProperty

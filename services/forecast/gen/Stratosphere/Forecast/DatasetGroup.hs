@@ -12,6 +12,7 @@ data DatasetGroup
                   datasetGroupName :: (Value Prelude.Text),
                   domain :: (Value Prelude.Text),
                   tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatasetGroup ::
   Value Prelude.Text -> Value Prelude.Text -> DatasetGroup
 mkDatasetGroup datasetGroupName domain

@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data TemplateSourceEntityProperty
   = TemplateSourceEntityProperty {sourceAnalysis :: (Prelude.Maybe TemplateSourceAnalysisProperty),
                                   sourceTemplate :: (Prelude.Maybe TemplateSourceTemplateProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplateSourceEntityProperty :: TemplateSourceEntityProperty
 mkTemplateSourceEntityProperty
   = TemplateSourceEntityProperty

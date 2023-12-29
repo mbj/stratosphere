@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProjectBuildBatchConfigProperty :: Prelude.Type
 instance ToResourceProperties ProjectBuildBatchConfigProperty
+instance Prelude.Eq ProjectBuildBatchConfigProperty
+instance Prelude.Show ProjectBuildBatchConfigProperty
 instance JSON.ToJSON ProjectBuildBatchConfigProperty

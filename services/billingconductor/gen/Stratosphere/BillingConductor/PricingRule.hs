@@ -20,6 +20,7 @@ data PricingRule
                  tiering :: (Prelude.Maybe TieringProperty),
                  type' :: (Value Prelude.Text),
                  usageType :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPricingRule ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> PricingRule

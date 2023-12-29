@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ThingTypePropertiesProperty
   = ThingTypePropertiesProperty {searchableAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  thingTypeDescription :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThingTypePropertiesProperty :: ThingTypePropertiesProperty
 mkThingTypePropertiesProperty
   = ThingTypePropertiesProperty

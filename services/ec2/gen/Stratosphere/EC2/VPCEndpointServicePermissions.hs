@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VPCEndpointServicePermissions
   = VPCEndpointServicePermissions {allowedPrincipals :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    serviceId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCEndpointServicePermissions ::
   Value Prelude.Text -> VPCEndpointServicePermissions
 mkVPCEndpointServicePermissions serviceId

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ArchiveRetainRuleProperty :: Prelude.Type
 instance ToResourceProperties ArchiveRetainRuleProperty
+instance Prelude.Eq ArchiveRetainRuleProperty
+instance Prelude.Show ArchiveRetainRuleProperty
 instance JSON.ToJSON ArchiveRetainRuleProperty

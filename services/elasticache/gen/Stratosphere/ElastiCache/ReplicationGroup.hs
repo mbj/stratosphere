@@ -49,6 +49,7 @@ data ReplicationGroup
                       transitEncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                       transitEncryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
                       userGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicationGroup :: Value Prelude.Text -> ReplicationGroup
 mkReplicationGroup replicationGroupDescription
   = ReplicationGroup

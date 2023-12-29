@@ -13,6 +13,7 @@ data Entitlement
                  description :: (Prelude.Maybe (Value Prelude.Text)),
                  name :: (Value Prelude.Text),
                  stackName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEntitlement ::
   Value Prelude.Text
   -> [AttributeProperty]

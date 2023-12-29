@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PivotTableConditionalFormattingScopeProperty
   = PivotTableConditionalFormattingScopeProperty {role :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableConditionalFormattingScopeProperty ::
   PivotTableConditionalFormattingScopeProperty
 mkPivotTableConditionalFormattingScopeProperty

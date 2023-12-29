@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DataSetIdentifierDeclarationProperty :: Prelude.Type
 instance ToResourceProperties DataSetIdentifierDeclarationProperty
+instance Prelude.Eq DataSetIdentifierDeclarationProperty
+instance Prelude.Show DataSetIdentifierDeclarationProperty
 instance JSON.ToJSON DataSetIdentifierDeclarationProperty

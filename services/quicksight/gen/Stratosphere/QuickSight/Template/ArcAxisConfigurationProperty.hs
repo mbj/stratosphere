@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ArcAxisConfigurationProperty
   = ArcAxisConfigurationProperty {range :: (Prelude.Maybe ArcAxisDisplayRangeProperty),
                                   reserveRange :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArcAxisConfigurationProperty :: ArcAxisConfigurationProperty
 mkArcAxisConfigurationProperty
   = ArcAxisConfigurationProperty

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataSharingPreferenceProperty
   = DataSharingPreferenceProperty {optIn :: (Value Prelude.Bool)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSharingPreferenceProperty ::
   Value Prelude.Bool -> DataSharingPreferenceProperty
 mkDataSharingPreferenceProperty optIn

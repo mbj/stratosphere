@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ThirdPartyFirewallPolicyProperty
   = ThirdPartyFirewallPolicyProperty {firewallDeploymentModel :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThirdPartyFirewallPolicyProperty ::
   Value Prelude.Text -> ThirdPartyFirewallPolicyProperty
 mkThirdPartyFirewallPolicyProperty firewallDeploymentModel

@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ApplicationResourceLifecycleConfigProperty
   = ApplicationResourceLifecycleConfigProperty {serviceRole :: (Prelude.Maybe (Value Prelude.Text)),
                                                 versionLifecycleConfig :: (Prelude.Maybe ApplicationVersionLifecycleConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationResourceLifecycleConfigProperty ::
   ApplicationResourceLifecycleConfigProperty
 mkApplicationResourceLifecycleConfigProperty

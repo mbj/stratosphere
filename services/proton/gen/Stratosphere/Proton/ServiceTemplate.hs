@@ -14,6 +14,7 @@ data ServiceTemplate
                      name :: (Prelude.Maybe (Value Prelude.Text)),
                      pipelineProvisioning :: (Prelude.Maybe (Value Prelude.Text)),
                      tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceTemplate :: ServiceTemplate
 mkServiceTemplate
   = ServiceTemplate

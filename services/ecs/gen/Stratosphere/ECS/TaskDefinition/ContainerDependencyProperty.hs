@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ContainerDependencyProperty
   = ContainerDependencyProperty {condition :: (Prelude.Maybe (Value Prelude.Text)),
                                  containerName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkContainerDependencyProperty :: ContainerDependencyProperty
 mkContainerDependencyProperty
   = ContainerDependencyProperty

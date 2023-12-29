@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MSKAccessCredentialsProperty :: Prelude.Type
 instance ToResourceProperties MSKAccessCredentialsProperty
+instance Prelude.Eq MSKAccessCredentialsProperty
+instance Prelude.Show MSKAccessCredentialsProperty
 instance JSON.ToJSON MSKAccessCredentialsProperty

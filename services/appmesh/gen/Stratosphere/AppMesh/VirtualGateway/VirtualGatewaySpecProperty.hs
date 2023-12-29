@@ -13,6 +13,7 @@ data VirtualGatewaySpecProperty
   = VirtualGatewaySpecProperty {backendDefaults :: (Prelude.Maybe VirtualGatewayBackendDefaultsProperty),
                                 listeners :: [VirtualGatewayListenerProperty],
                                 logging :: (Prelude.Maybe VirtualGatewayLoggingProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVirtualGatewaySpecProperty ::
   [VirtualGatewayListenerProperty] -> VirtualGatewaySpecProperty
 mkVirtualGatewaySpecProperty listeners

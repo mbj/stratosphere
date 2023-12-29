@@ -11,6 +11,7 @@ data LabelOptionsProperty
   = LabelOptionsProperty {customLabel :: (Prelude.Maybe (Value Prelude.Text)),
                           fontConfiguration :: (Prelude.Maybe FontConfigurationProperty),
                           visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLabelOptionsProperty :: LabelOptionsProperty
 mkLabelOptionsProperty
   = LabelOptionsProperty

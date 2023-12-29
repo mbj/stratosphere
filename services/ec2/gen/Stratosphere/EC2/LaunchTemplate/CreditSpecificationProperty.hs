@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CreditSpecificationProperty
   = CreditSpecificationProperty {cpuCredits :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCreditSpecificationProperty :: CreditSpecificationProperty
 mkCreditSpecificationProperty
   = CreditSpecificationProperty {cpuCredits = Prelude.Nothing}

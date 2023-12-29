@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AccountTakeoverActionsTypeProperty :: Prelude.Type
 instance ToResourceProperties AccountTakeoverActionsTypeProperty
+instance Prelude.Eq AccountTakeoverActionsTypeProperty
+instance Prelude.Show AccountTakeoverActionsTypeProperty
 instance JSON.ToJSON AccountTakeoverActionsTypeProperty

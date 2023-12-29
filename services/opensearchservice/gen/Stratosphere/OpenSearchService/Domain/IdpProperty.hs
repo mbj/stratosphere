@@ -9,6 +9,7 @@ import Stratosphere.Value
 data IdpProperty
   = IdpProperty {entityId :: (Value Prelude.Text),
                  metadataContent :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIdpProperty ::
   Value Prelude.Text -> Value Prelude.Text -> IdpProperty
 mkIdpProperty entityId metadataContent

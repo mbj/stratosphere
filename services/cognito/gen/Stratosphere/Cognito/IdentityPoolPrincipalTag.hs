@@ -11,6 +11,7 @@ data IdentityPoolPrincipalTag
                               identityProviderName :: (Value Prelude.Text),
                               principalTags :: (Prelude.Maybe JSON.Object),
                               useDefaults :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityPoolPrincipalTag ::
   Value Prelude.Text
   -> Value Prelude.Text -> IdentityPoolPrincipalTag

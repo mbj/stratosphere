@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ServerCertificateSummaryProperty :: Prelude.Type
 instance ToResourceProperties ServerCertificateSummaryProperty
+instance Prelude.Eq ServerCertificateSummaryProperty
+instance Prelude.Show ServerCertificateSummaryProperty
 instance JSON.ToJSON ServerCertificateSummaryProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ComponentMonitoringSettingProperty :: Prelude.Type
 instance ToResourceProperties ComponentMonitoringSettingProperty
+instance Prelude.Eq ComponentMonitoringSettingProperty
+instance Prelude.Show ComponentMonitoringSettingProperty
 instance JSON.ToJSON ComponentMonitoringSettingProperty

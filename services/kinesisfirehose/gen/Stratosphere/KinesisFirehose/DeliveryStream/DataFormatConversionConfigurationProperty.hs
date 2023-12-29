@@ -15,6 +15,7 @@ data DataFormatConversionConfigurationProperty
                                                inputFormatConfiguration :: (Prelude.Maybe InputFormatConfigurationProperty),
                                                outputFormatConfiguration :: (Prelude.Maybe OutputFormatConfigurationProperty),
                                                schemaConfiguration :: (Prelude.Maybe SchemaConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataFormatConversionConfigurationProperty ::
   DataFormatConversionConfigurationProperty
 mkDataFormatConversionConfigurationProperty

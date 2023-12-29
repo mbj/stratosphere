@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WeightedTargetGroupProperty
   = WeightedTargetGroupProperty {targetGroupIdentifier :: (Value Prelude.Text),
                                  weight :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWeightedTargetGroupProperty ::
   Value Prelude.Text -> WeightedTargetGroupProperty
 mkWeightedTargetGroupProperty targetGroupIdentifier

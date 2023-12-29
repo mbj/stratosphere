@@ -14,6 +14,7 @@ data DashManifestProperty
                           profile :: (Prelude.Maybe (Value Prelude.Text)),
                           scteMarkersSource :: (Prelude.Maybe (Value Prelude.Text)),
                           streamSelection :: (Prelude.Maybe StreamSelectionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDashManifestProperty :: DashManifestProperty
 mkDashManifestProperty
   = DashManifestProperty

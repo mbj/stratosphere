@@ -11,6 +11,7 @@ data TransitGatewayRoute
                          destinationCidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
                          transitGatewayAttachmentId :: (Prelude.Maybe (Value Prelude.Text)),
                          transitGatewayRouteTableId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTransitGatewayRoute :: Value Prelude.Text -> TransitGatewayRoute
 mkTransitGatewayRoute transitGatewayRouteTableId
   = TransitGatewayRoute

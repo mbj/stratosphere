@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GeoSpatialColumnGroupProperty :: Prelude.Type
 instance ToResourceProperties GeoSpatialColumnGroupProperty
+instance Prelude.Eq GeoSpatialColumnGroupProperty
+instance Prelude.Show GeoSpatialColumnGroupProperty
 instance JSON.ToJSON GeoSpatialColumnGroupProperty

@@ -10,6 +10,7 @@ data OptionsProperty
   = OptionsProperty {applianceModeSupport :: (Prelude.Maybe (Value Prelude.Text)),
                      dnsSupport :: (Prelude.Maybe (Value Prelude.Text)),
                      ipv6Support :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionsProperty :: OptionsProperty
 mkOptionsProperty
   = OptionsProperty

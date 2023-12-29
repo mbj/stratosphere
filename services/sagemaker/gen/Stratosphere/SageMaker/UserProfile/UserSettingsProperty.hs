@@ -17,6 +17,7 @@ data UserSettingsProperty
                           rStudioServerProAppSettings :: (Prelude.Maybe RStudioServerProAppSettingsProperty),
                           securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                           sharingSettings :: (Prelude.Maybe SharingSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserSettingsProperty :: UserSettingsProperty
 mkUserSettingsProperty
   = UserSettingsProperty

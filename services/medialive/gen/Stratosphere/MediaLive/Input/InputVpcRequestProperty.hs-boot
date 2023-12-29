@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data InputVpcRequestProperty :: Prelude.Type
 instance ToResourceProperties InputVpcRequestProperty
+instance Prelude.Eq InputVpcRequestProperty
+instance Prelude.Show InputVpcRequestProperty
 instance JSON.ToJSON InputVpcRequestProperty

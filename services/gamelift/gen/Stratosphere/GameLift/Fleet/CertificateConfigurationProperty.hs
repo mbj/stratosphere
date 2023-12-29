@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CertificateConfigurationProperty
   = CertificateConfigurationProperty {certificateType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificateConfigurationProperty ::
   Value Prelude.Text -> CertificateConfigurationProperty
 mkCertificateConfigurationProperty certificateType

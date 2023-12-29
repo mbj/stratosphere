@@ -10,6 +10,7 @@ data RegistryPolicy
   = RegistryPolicy {policy :: JSON.Object,
                     registryName :: (Value Prelude.Text),
                     revisionId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRegistryPolicy ::
   JSON.Object -> Value Prelude.Text -> RegistryPolicy
 mkRegistryPolicy policy registryName

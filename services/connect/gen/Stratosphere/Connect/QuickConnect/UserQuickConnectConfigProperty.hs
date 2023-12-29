@@ -10,6 +10,7 @@ import Stratosphere.Value
 data UserQuickConnectConfigProperty
   = UserQuickConnectConfigProperty {contactFlowArn :: (Value Prelude.Text),
                                     userArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkUserQuickConnectConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> UserQuickConnectConfigProperty

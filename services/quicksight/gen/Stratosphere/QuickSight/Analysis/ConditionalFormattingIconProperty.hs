@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ConditionalFormattingIconProperty
   = ConditionalFormattingIconProperty {customCondition :: (Prelude.Maybe ConditionalFormattingCustomIconConditionProperty),
                                        iconSet :: (Prelude.Maybe ConditionalFormattingIconSetProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConditionalFormattingIconProperty ::
   ConditionalFormattingIconProperty
 mkConditionalFormattingIconProperty

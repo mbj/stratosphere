@@ -12,6 +12,7 @@ data ViewerCertificateProperty
                                iamCertificateId :: (Prelude.Maybe (Value Prelude.Text)),
                                minimumProtocolVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                sslSupportMethod :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkViewerCertificateProperty :: ViewerCertificateProperty
 mkViewerCertificateProperty
   = ViewerCertificateProperty

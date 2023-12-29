@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RegexPatternSetReferenceStatementProperty :: Prelude.Type
 instance ToResourceProperties RegexPatternSetReferenceStatementProperty
+instance Prelude.Eq RegexPatternSetReferenceStatementProperty
+instance Prelude.Show RegexPatternSetReferenceStatementProperty
 instance JSON.ToJSON RegexPatternSetReferenceStatementProperty

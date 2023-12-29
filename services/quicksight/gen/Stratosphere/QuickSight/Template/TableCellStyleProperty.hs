@@ -18,6 +18,7 @@ data TableCellStyleProperty
                             textWrap :: (Prelude.Maybe (Value Prelude.Text)),
                             verticalTextAlignment :: (Prelude.Maybe (Value Prelude.Text)),
                             visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableCellStyleProperty :: TableCellStyleProperty
 mkTableCellStyleProperty
   = TableCellStyleProperty

@@ -12,6 +12,7 @@ data TopicRelativeDateFilterProperty
   = TopicRelativeDateFilterProperty {constant :: (Prelude.Maybe TopicSingularFilterConstantProperty),
                                      relativeDateFilterFunction :: (Prelude.Maybe (Value Prelude.Text)),
                                      timeGranularity :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTopicRelativeDateFilterProperty ::
   TopicRelativeDateFilterProperty
 mkTopicRelativeDateFilterProperty

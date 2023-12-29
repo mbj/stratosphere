@@ -10,6 +10,7 @@ data DeviceProperty
   = DeviceProperty {containerPath :: (Prelude.Maybe (Value Prelude.Text)),
                     hostPath :: (Prelude.Maybe (Value Prelude.Text)),
                     permissions :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDeviceProperty :: DeviceProperty
 mkDeviceProperty
   = DeviceProperty

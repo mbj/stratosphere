@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TCPFlagFieldProperty
   = TCPFlagFieldProperty {flags :: (ValueList Prelude.Text),
                           masks :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTCPFlagFieldProperty ::
   ValueList Prelude.Text -> TCPFlagFieldProperty
 mkTCPFlagFieldProperty flags

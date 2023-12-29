@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data BrokerNodeGroupInfoProperty :: Prelude.Type
 instance ToResourceProperties BrokerNodeGroupInfoProperty
+instance Prelude.Eq BrokerNodeGroupInfoProperty
+instance Prelude.Show BrokerNodeGroupInfoProperty
 instance JSON.ToJSON BrokerNodeGroupInfoProperty

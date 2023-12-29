@@ -11,6 +11,7 @@ import Stratosphere.Value
 data NumericalAggregationFunctionProperty
   = NumericalAggregationFunctionProperty {percentileAggregation :: (Prelude.Maybe PercentileAggregationProperty),
                                           simpleNumericalAggregation :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericalAggregationFunctionProperty ::
   NumericalAggregationFunctionProperty
 mkNumericalAggregationFunctionProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data FilterSelectableValuesProperty :: Prelude.Type
 instance ToResourceProperties FilterSelectableValuesProperty
+instance Prelude.Eq FilterSelectableValuesProperty
+instance Prelude.Show FilterSelectableValuesProperty
 instance JSON.ToJSON FilterSelectableValuesProperty

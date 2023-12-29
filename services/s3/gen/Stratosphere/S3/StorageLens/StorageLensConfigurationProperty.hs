@@ -20,6 +20,7 @@ data StorageLensConfigurationProperty
                                       include :: (Prelude.Maybe BucketsAndRegionsProperty),
                                       isEnabled :: (Value Prelude.Bool),
                                       storageLensArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStorageLensConfigurationProperty ::
   AccountLevelProperty
   -> Value Prelude.Text

@@ -14,6 +14,7 @@ data LambdaContainerParamsProperty
                                    memorySizeInKB :: (Prelude.Maybe (Value Prelude.Integer)),
                                    mountROSysfs :: (Prelude.Maybe (Value Prelude.Bool)),
                                    volumes :: (Prelude.Maybe [LambdaVolumeMountProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLambdaContainerParamsProperty :: LambdaContainerParamsProperty
 mkLambdaContainerParamsProperty
   = LambdaContainerParamsProperty

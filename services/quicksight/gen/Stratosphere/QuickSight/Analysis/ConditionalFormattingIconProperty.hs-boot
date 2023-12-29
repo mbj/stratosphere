@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConditionalFormattingIconProperty :: Prelude.Type
 instance ToResourceProperties ConditionalFormattingIconProperty
+instance Prelude.Eq ConditionalFormattingIconProperty
+instance Prelude.Show ConditionalFormattingIconProperty
 instance JSON.ToJSON ConditionalFormattingIconProperty

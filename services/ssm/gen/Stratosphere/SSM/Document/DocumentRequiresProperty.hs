@@ -9,6 +9,7 @@ import Stratosphere.Value
 data DocumentRequiresProperty
   = DocumentRequiresProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                               version :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentRequiresProperty :: DocumentRequiresProperty
 mkDocumentRequiresProperty
   = DocumentRequiresProperty

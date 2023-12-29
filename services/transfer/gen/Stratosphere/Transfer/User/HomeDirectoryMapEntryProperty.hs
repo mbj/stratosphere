@@ -9,6 +9,7 @@ import Stratosphere.Value
 data HomeDirectoryMapEntryProperty
   = HomeDirectoryMapEntryProperty {entry :: (Value Prelude.Text),
                                    target :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHomeDirectoryMapEntryProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> HomeDirectoryMapEntryProperty

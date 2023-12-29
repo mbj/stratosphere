@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AccessControlExposeHeadersProperty
   = AccessControlExposeHeadersProperty {items :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessControlExposeHeadersProperty ::
   ValueList Prelude.Text -> AccessControlExposeHeadersProperty
 mkAccessControlExposeHeadersProperty items

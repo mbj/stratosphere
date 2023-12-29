@@ -10,6 +10,7 @@ data AWSAccountProperty
   = AWSAccountProperty {emailAddress :: (Prelude.Maybe (Value Prelude.Text)),
                         id :: (Prelude.Maybe (Value Prelude.Text)),
                         name :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAWSAccountProperty :: AWSAccountProperty
 mkAWSAccountProperty
   = AWSAccountProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RecencyProperty
   = RecencyProperty {duration :: (Value Prelude.Text),
                      recencyType :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRecencyProperty ::
   Value Prelude.Text -> Value Prelude.Text -> RecencyProperty
 mkRecencyProperty duration recencyType

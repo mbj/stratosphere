@@ -11,6 +11,7 @@ import Stratosphere.Value
 data StringDefaultValuesProperty
   = StringDefaultValuesProperty {dynamicValue :: (Prelude.Maybe DynamicDefaultValueProperty),
                                  staticValues :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkStringDefaultValuesProperty :: StringDefaultValuesProperty
 mkStringDefaultValuesProperty
   = StringDefaultValuesProperty

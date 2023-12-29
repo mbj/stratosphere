@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AddressProperty
   = AddressProperty {addressDefinition :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAddressProperty :: Value Prelude.Text -> AddressProperty
 mkAddressProperty addressDefinition
   = AddressProperty {addressDefinition = addressDefinition}

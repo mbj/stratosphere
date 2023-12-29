@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PredictiveScalingCustomizedScalingMetricProperty :: Prelude.Type
 instance ToResourceProperties PredictiveScalingCustomizedScalingMetricProperty
+instance Prelude.Eq PredictiveScalingCustomizedScalingMetricProperty
+instance Prelude.Show PredictiveScalingCustomizedScalingMetricProperty
 instance JSON.ToJSON PredictiveScalingCustomizedScalingMetricProperty

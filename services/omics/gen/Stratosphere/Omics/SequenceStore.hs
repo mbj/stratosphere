@@ -12,6 +12,7 @@ data SequenceStore
                    name :: (Value Prelude.Text),
                    sseConfig :: (Prelude.Maybe SseConfigProperty),
                    tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSequenceStore :: Value Prelude.Text -> SequenceStore
 mkSequenceStore name
   = SequenceStore

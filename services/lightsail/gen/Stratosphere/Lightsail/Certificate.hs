@@ -12,6 +12,7 @@ data Certificate
                  domainName :: (Value Prelude.Text),
                  subjectAlternativeNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCertificate ::
   Value Prelude.Text -> Value Prelude.Text -> Certificate
 mkCertificate certificateName domainName

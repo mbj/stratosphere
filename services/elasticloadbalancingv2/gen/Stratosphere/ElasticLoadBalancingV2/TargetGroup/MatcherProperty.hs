@@ -9,6 +9,7 @@ import Stratosphere.Value
 data MatcherProperty
   = MatcherProperty {grpcCode :: (Prelude.Maybe (Value Prelude.Text)),
                      httpCode :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMatcherProperty :: MatcherProperty
 mkMatcherProperty
   = MatcherProperty

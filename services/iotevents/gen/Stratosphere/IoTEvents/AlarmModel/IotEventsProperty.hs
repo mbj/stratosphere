@@ -10,6 +10,7 @@ import Stratosphere.Value
 data IotEventsProperty
   = IotEventsProperty {inputName :: (Value Prelude.Text),
                        payload :: (Prelude.Maybe PayloadProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkIotEventsProperty :: Value Prelude.Text -> IotEventsProperty
 mkIotEventsProperty inputName
   = IotEventsProperty

@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 data SlotTypeValueProperty
   = SlotTypeValueProperty {sampleValue :: SampleValueProperty,
                            synonyms :: (Prelude.Maybe [SampleValueProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSlotTypeValueProperty ::
   SampleValueProperty -> SlotTypeValueProperty
 mkSlotTypeValueProperty sampleValue

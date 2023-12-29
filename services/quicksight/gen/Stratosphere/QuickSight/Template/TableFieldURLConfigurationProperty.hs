@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data TableFieldURLConfigurationProperty
   = TableFieldURLConfigurationProperty {imageConfiguration :: (Prelude.Maybe TableFieldImageConfigurationProperty),
                                         linkConfiguration :: (Prelude.Maybe TableFieldLinkConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTableFieldURLConfigurationProperty ::
   TableFieldURLConfigurationProperty
 mkTableFieldURLConfigurationProperty

@@ -10,6 +10,7 @@ data FormStyleProperty
   = FormStyleProperty {horizontalGap :: (Prelude.Maybe FormStyleConfigProperty),
                        outerPadding :: (Prelude.Maybe FormStyleConfigProperty),
                        verticalGap :: (Prelude.Maybe FormStyleConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFormStyleProperty :: FormStyleProperty
 mkFormStyleProperty
   = FormStyleProperty

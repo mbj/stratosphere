@@ -10,6 +10,7 @@ import Stratosphere.Value
 data SizeConstraintSet
   = SizeConstraintSet {name :: (Value Prelude.Text),
                        sizeConstraints :: [SizeConstraintProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSizeConstraintSet ::
   Value Prelude.Text -> [SizeConstraintProperty] -> SizeConstraintSet
 mkSizeConstraintSet name sizeConstraints

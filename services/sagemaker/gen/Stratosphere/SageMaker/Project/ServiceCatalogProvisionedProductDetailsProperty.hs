@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ServiceCatalogProvisionedProductDetailsProperty
   = ServiceCatalogProvisionedProductDetailsProperty {provisionedProductId :: (Prelude.Maybe (Value Prelude.Text)),
                                                      provisionedProductStatusMessage :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkServiceCatalogProvisionedProductDetailsProperty ::
   ServiceCatalogProvisionedProductDetailsProperty
 mkServiceCatalogProvisionedProductDetailsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UdpOutputSettingsProperty :: Prelude.Type
 instance ToResourceProperties UdpOutputSettingsProperty
+instance Prelude.Eq UdpOutputSettingsProperty
+instance Prelude.Show UdpOutputSettingsProperty
 instance JSON.ToJSON UdpOutputSettingsProperty

@@ -12,6 +12,7 @@ data Pipeline
   = Pipeline {pipelineActivities :: [ActivityProperty],
               pipelineName :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeline :: [ActivityProperty] -> Pipeline
 mkPipeline pipelineActivities
   = Pipeline

@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SplunkRetryOptionsProperty
   = SplunkRetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSplunkRetryOptionsProperty :: SplunkRetryOptionsProperty
 mkSplunkRetryOptionsProperty
   = SplunkRetryOptionsProperty {durationInSeconds = Prelude.Nothing}

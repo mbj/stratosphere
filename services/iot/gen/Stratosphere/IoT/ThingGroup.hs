@@ -14,6 +14,7 @@ data ThingGroup
                 tags :: (Prelude.Maybe [Tag]),
                 thingGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                 thingGroupProperties :: (Prelude.Maybe ThingGroupPropertiesProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkThingGroup :: ThingGroup
 mkThingGroup
   = ThingGroup

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Fmp4HlsSettingsProperty :: Prelude.Type
 instance ToResourceProperties Fmp4HlsSettingsProperty
+instance Prelude.Eq Fmp4HlsSettingsProperty
+instance Prelude.Show Fmp4HlsSettingsProperty
 instance JSON.ToJSON Fmp4HlsSettingsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data StreamingImageEncryptionConfigurationProperty :: Prelude.Type
 instance ToResourceProperties StreamingImageEncryptionConfigurationProperty
+instance Prelude.Eq StreamingImageEncryptionConfigurationProperty
+instance Prelude.Show StreamingImageEncryptionConfigurationProperty
 instance JSON.ToJSON StreamingImageEncryptionConfigurationProperty

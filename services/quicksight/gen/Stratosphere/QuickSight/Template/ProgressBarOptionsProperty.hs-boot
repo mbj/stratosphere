@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProgressBarOptionsProperty :: Prelude.Type
 instance ToResourceProperties ProgressBarOptionsProperty
+instance Prelude.Eq ProgressBarOptionsProperty
+instance Prelude.Show ProgressBarOptionsProperty
 instance JSON.ToJSON ProgressBarOptionsProperty

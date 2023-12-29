@@ -14,6 +14,7 @@ data DefaultSpaceSettingsProperty
                                   jupyterServerAppSettings :: (Prelude.Maybe JupyterServerAppSettingsProperty),
                                   kernelGatewayAppSettings :: (Prelude.Maybe KernelGatewayAppSettingsProperty),
                                   securityGroups :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDefaultSpaceSettingsProperty ::
   Value Prelude.Text -> DefaultSpaceSettingsProperty
 mkDefaultSpaceSettingsProperty executionRole

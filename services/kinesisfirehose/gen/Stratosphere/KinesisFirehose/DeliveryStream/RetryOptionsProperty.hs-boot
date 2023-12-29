@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RetryOptionsProperty :: Prelude.Type
 instance ToResourceProperties RetryOptionsProperty
+instance Prelude.Eq RetryOptionsProperty
+instance Prelude.Show RetryOptionsProperty
 instance JSON.ToJSON RetryOptionsProperty

@@ -16,6 +16,7 @@ data Addon
            resolveConflicts :: (Prelude.Maybe (Value Prelude.Text)),
            serviceAccountRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAddon :: Value Prelude.Text -> Value Prelude.Text -> Addon
 mkAddon addonName clusterName
   = Addon

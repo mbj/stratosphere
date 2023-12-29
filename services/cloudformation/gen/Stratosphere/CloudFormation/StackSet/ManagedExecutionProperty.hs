@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManagedExecutionProperty
   = ManagedExecutionProperty {active :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkManagedExecutionProperty :: ManagedExecutionProperty
 mkManagedExecutionProperty
   = ManagedExecutionProperty {active = Prelude.Nothing}

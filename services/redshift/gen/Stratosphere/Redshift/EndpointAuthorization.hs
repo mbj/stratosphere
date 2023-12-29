@@ -11,6 +11,7 @@ data EndpointAuthorization
                            clusterIdentifier :: (Value Prelude.Text),
                            force :: (Prelude.Maybe (Value Prelude.Bool)),
                            vpcIds :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEndpointAuthorization ::
   Value Prelude.Text -> Value Prelude.Text -> EndpointAuthorization
 mkEndpointAuthorization account clusterIdentifier

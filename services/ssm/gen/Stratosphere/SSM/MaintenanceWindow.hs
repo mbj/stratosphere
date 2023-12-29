@@ -19,6 +19,7 @@ data MaintenanceWindow
                        scheduleTimezone :: (Prelude.Maybe (Value Prelude.Text)),
                        startDate :: (Prelude.Maybe (Value Prelude.Text)),
                        tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMaintenanceWindow ::
   Value Prelude.Bool
   -> Value Prelude.Integer

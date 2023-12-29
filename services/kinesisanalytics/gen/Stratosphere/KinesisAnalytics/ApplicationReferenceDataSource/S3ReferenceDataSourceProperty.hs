@@ -10,6 +10,7 @@ data S3ReferenceDataSourceProperty
   = S3ReferenceDataSourceProperty {bucketARN :: (Value Prelude.Text),
                                    fileKey :: (Value Prelude.Text),
                                    referenceRoleARN :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ReferenceDataSourceProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

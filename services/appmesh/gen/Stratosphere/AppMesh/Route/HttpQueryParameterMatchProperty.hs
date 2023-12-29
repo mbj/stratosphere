@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpQueryParameterMatchProperty
   = HttpQueryParameterMatchProperty {exact :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpQueryParameterMatchProperty ::
   HttpQueryParameterMatchProperty
 mkHttpQueryParameterMatchProperty

@@ -10,6 +10,7 @@ data DatabricksParametersProperty
   = DatabricksParametersProperty {host :: (Value Prelude.Text),
                                   port :: (Value Prelude.Double),
                                   sqlEndpointPath :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDatabricksParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Double

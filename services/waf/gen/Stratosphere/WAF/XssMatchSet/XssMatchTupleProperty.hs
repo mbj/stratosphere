@@ -10,6 +10,7 @@ import Stratosphere.Value
 data XssMatchTupleProperty
   = XssMatchTupleProperty {fieldToMatch :: FieldToMatchProperty,
                            textTransformation :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkXssMatchTupleProperty ::
   FieldToMatchProperty -> Value Prelude.Text -> XssMatchTupleProperty
 mkXssMatchTupleProperty fieldToMatch textTransformation

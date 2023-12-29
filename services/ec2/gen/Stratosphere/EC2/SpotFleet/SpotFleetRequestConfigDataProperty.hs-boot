@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SpotFleetRequestConfigDataProperty :: Prelude.Type
 instance ToResourceProperties SpotFleetRequestConfigDataProperty
+instance Prelude.Eq SpotFleetRequestConfigDataProperty
+instance Prelude.Show SpotFleetRequestConfigDataProperty
 instance JSON.ToJSON SpotFleetRequestConfigDataProperty

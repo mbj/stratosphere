@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ActionProperty
   = ActionProperty {operation :: (Value Prelude.Text),
                     parameters :: (Prelude.Maybe RecipeParametersProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkActionProperty :: Value Prelude.Text -> ActionProperty
 mkActionProperty operation
   = ActionProperty

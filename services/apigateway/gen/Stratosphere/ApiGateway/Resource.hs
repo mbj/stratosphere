@@ -10,6 +10,7 @@ data Resource
   = Resource {parentId :: (Value Prelude.Text),
               pathPart :: (Value Prelude.Text),
               restApiId :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResource ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> Resource

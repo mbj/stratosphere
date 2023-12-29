@@ -13,6 +13,7 @@ data CorsRuleProperty
                       exposedHeaders :: (Prelude.Maybe (ValueList Prelude.Text)),
                       id :: (Prelude.Maybe (Value Prelude.Text)),
                       maxAge :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCorsRuleProperty ::
   ValueList Prelude.Text
   -> ValueList Prelude.Text -> CorsRuleProperty

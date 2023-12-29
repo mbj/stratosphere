@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.SetParameterValueConfigu
 import Stratosphere.ResourceProperties
 data CustomActionSetParametersOperationProperty
   = CustomActionSetParametersOperationProperty {parameterValueConfigurations :: [SetParameterValueConfigurationProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomActionSetParametersOperationProperty ::
   [SetParameterValueConfigurationProperty]
   -> CustomActionSetParametersOperationProperty

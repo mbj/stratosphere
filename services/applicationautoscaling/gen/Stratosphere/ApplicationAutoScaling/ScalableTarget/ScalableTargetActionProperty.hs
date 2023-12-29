@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ScalableTargetActionProperty
   = ScalableTargetActionProperty {maxCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                   minCapacity :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScalableTargetActionProperty :: ScalableTargetActionProperty
 mkScalableTargetActionProperty
   = ScalableTargetActionProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data QueueQuickConnectConfigProperty
   = QueueQuickConnectConfigProperty {contactFlowArn :: (Value Prelude.Text),
                                      queueArn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueueQuickConnectConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> QueueQuickConnectConfigProperty

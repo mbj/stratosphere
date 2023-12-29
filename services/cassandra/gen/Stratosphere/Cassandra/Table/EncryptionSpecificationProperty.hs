@@ -10,6 +10,7 @@ import Stratosphere.Value
 data EncryptionSpecificationProperty
   = EncryptionSpecificationProperty {encryptionType :: (Value Prelude.Text),
                                      kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEncryptionSpecificationProperty ::
   Value Prelude.Text -> EncryptionSpecificationProperty
 mkEncryptionSpecificationProperty encryptionType

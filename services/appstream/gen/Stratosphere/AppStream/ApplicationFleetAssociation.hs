@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ApplicationFleetAssociation
   = ApplicationFleetAssociation {applicationArn :: (Value Prelude.Text),
                                  fleetName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApplicationFleetAssociation ::
   Value Prelude.Text
   -> Value Prelude.Text -> ApplicationFleetAssociation

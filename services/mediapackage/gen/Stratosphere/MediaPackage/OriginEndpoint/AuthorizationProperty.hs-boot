@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AuthorizationProperty :: Prelude.Type
 instance ToResourceProperties AuthorizationProperty
+instance Prelude.Eq AuthorizationProperty
+instance Prelude.Show AuthorizationProperty
 instance JSON.ToJSON AuthorizationProperty

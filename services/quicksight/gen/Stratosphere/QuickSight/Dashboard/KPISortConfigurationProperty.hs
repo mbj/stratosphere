@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.FieldSortOptionsProperty
 import Stratosphere.ResourceProperties
 data KPISortConfigurationProperty
   = KPISortConfigurationProperty {trendGroupSort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKPISortConfigurationProperty :: KPISortConfigurationProperty
 mkKPISortConfigurationProperty
   = KPISortConfigurationProperty {trendGroupSort = Prelude.Nothing}

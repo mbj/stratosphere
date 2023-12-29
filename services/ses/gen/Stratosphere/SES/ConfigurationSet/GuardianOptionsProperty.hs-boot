@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GuardianOptionsProperty :: Prelude.Type
 instance ToResourceProperties GuardianOptionsProperty
+instance Prelude.Eq GuardianOptionsProperty
+instance Prelude.Show GuardianOptionsProperty
 instance JSON.ToJSON GuardianOptionsProperty

@@ -11,6 +11,7 @@ data AuroraPostgreSqlParametersProperty
   = AuroraPostgreSqlParametersProperty {database :: (Value Prelude.Text),
                                         host :: (Value Prelude.Text),
                                         port :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAuroraPostgreSqlParametersProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

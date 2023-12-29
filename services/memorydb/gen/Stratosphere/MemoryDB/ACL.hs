@@ -11,6 +11,7 @@ data ACL
   = ACL {aCLName :: (Value Prelude.Text),
          tags :: (Prelude.Maybe [Tag]),
          userNames :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkACL :: Value Prelude.Text -> ACL
 mkACL aCLName
   = ACL

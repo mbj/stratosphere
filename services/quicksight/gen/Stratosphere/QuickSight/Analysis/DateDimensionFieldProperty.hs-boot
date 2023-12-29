@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DateDimensionFieldProperty :: Prelude.Type
 instance ToResourceProperties DateDimensionFieldProperty
+instance Prelude.Eq DateDimensionFieldProperty
+instance Prelude.Show DateDimensionFieldProperty
 instance JSON.ToJSON DateDimensionFieldProperty

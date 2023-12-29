@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RouteOverridesProperty :: Prelude.Type
 instance ToResourceProperties RouteOverridesProperty
+instance Prelude.Eq RouteOverridesProperty
+instance Prelude.Show RouteOverridesProperty
 instance JSON.ToJSON RouteOverridesProperty

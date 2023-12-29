@@ -15,6 +15,7 @@ data DateDimensionFieldProperty
                                 fieldId :: (Value Prelude.Text),
                                 formatConfiguration :: (Prelude.Maybe DateTimeFormatConfigurationProperty),
                                 hierarchyId :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDateDimensionFieldProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text -> DateDimensionFieldProperty

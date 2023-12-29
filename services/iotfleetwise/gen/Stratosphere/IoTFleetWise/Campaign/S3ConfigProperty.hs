@@ -11,6 +11,7 @@ data S3ConfigProperty
                       dataFormat :: (Prelude.Maybe (Value Prelude.Text)),
                       prefix :: (Prelude.Maybe (Value Prelude.Text)),
                       storageCompressionFormat :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkS3ConfigProperty :: Value Prelude.Text -> S3ConfigProperty
 mkS3ConfigProperty bucketArn
   = S3ConfigProperty

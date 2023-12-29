@@ -13,6 +13,7 @@ data TrainingDetailsProperty
   = TrainingDetailsProperty {objectiveFunction :: (Prelude.Maybe ObjectiveFunctionProperty),
                              trainingJobDetails :: (Prelude.Maybe TrainingJobDetailsProperty),
                              trainingObservations :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrainingDetailsProperty :: TrainingDetailsProperty
 mkTrainingDetailsProperty
   = TrainingDetailsProperty

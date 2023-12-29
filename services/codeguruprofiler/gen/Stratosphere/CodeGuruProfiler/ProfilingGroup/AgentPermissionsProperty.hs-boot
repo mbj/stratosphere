@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AgentPermissionsProperty :: Prelude.Type
 instance ToResourceProperties AgentPermissionsProperty
+instance Prelude.Eq AgentPermissionsProperty
+instance Prelude.Show AgentPermissionsProperty
 instance JSON.ToJSON AgentPermissionsProperty

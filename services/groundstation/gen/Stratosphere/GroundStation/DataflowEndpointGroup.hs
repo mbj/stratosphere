@@ -13,6 +13,7 @@ data DataflowEndpointGroup
                            contactPrePassDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                            endpointDetails :: [EndpointDetailsProperty],
                            tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataflowEndpointGroup ::
   [EndpointDetailsProperty] -> DataflowEndpointGroup
 mkDataflowEndpointGroup endpointDetails

@@ -13,6 +13,7 @@ data DBProxyTargetGroup
                         dBInstanceIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
                         dBProxyName :: (Value Prelude.Text),
                         targetGroupName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDBProxyTargetGroup ::
   Value Prelude.Text -> Value Prelude.Text -> DBProxyTargetGroup
 mkDBProxyTargetGroup dBProxyName targetGroupName

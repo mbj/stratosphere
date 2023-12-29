@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProvisionedCidrProperty
   = ProvisionedCidrProperty {cidr :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkProvisionedCidrProperty ::
   Value Prelude.Text -> ProvisionedCidrProperty
 mkProvisionedCidrProperty cidr

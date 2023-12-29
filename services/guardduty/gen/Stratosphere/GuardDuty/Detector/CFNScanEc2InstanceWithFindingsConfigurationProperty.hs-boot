@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CFNScanEc2InstanceWithFindingsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties CFNScanEc2InstanceWithFindingsConfigurationProperty
+instance Prelude.Eq CFNScanEc2InstanceWithFindingsConfigurationProperty
+instance Prelude.Show CFNScanEc2InstanceWithFindingsConfigurationProperty
 instance JSON.ToJSON CFNScanEc2InstanceWithFindingsConfigurationProperty

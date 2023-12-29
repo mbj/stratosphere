@@ -13,6 +13,7 @@ data ExecutionPlan
                    description :: (Prelude.Maybe (Value Prelude.Text)),
                    name :: (Value Prelude.Text),
                    tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkExecutionPlan :: Value Prelude.Text -> ExecutionPlan
 mkExecutionPlan name
   = ExecutionPlan

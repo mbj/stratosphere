@@ -24,6 +24,7 @@ data FreeFormLayoutElementProperty
                                    width :: (Value Prelude.Text),
                                    xAxisLocation :: (Value Prelude.Text),
                                    yAxisLocation :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFreeFormLayoutElementProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

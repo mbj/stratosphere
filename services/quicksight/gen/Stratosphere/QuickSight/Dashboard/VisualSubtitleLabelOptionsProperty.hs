@@ -11,6 +11,7 @@ import Stratosphere.Value
 data VisualSubtitleLabelOptionsProperty
   = VisualSubtitleLabelOptionsProperty {formatText :: (Prelude.Maybe LongFormatTextProperty),
                                         visibility :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkVisualSubtitleLabelOptionsProperty ::
   VisualSubtitleLabelOptionsProperty
 mkVisualSubtitleLabelOptionsProperty

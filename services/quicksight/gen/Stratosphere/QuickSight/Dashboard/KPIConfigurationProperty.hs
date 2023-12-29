@@ -13,6 +13,7 @@ data KPIConfigurationProperty
   = KPIConfigurationProperty {fieldWells :: (Prelude.Maybe KPIFieldWellsProperty),
                               kPIOptions :: (Prelude.Maybe KPIOptionsProperty),
                               sortConfiguration :: (Prelude.Maybe KPISortConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkKPIConfigurationProperty :: KPIConfigurationProperty
 mkKPIConfigurationProperty
   = KPIConfigurationProperty

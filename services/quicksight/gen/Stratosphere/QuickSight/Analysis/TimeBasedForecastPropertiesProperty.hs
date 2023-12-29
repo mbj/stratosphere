@@ -14,6 +14,7 @@ data TimeBasedForecastPropertiesProperty
                                          predictionInterval :: (Prelude.Maybe (Value Prelude.Double)),
                                          seasonality :: (Prelude.Maybe (Value Prelude.Double)),
                                          upperBoundary :: (Prelude.Maybe (Value Prelude.Double))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeBasedForecastPropertiesProperty ::
   TimeBasedForecastPropertiesProperty
 mkTimeBasedForecastPropertiesProperty

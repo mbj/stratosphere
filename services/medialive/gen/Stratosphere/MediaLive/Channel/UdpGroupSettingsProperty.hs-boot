@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data UdpGroupSettingsProperty :: Prelude.Type
 instance ToResourceProperties UdpGroupSettingsProperty
+instance Prelude.Eq UdpGroupSettingsProperty
+instance Prelude.Show UdpGroupSettingsProperty
 instance JSON.ToJSON UdpGroupSettingsProperty

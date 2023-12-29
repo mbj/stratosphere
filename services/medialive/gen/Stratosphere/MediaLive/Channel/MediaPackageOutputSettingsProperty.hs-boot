@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data MediaPackageOutputSettingsProperty :: Prelude.Type
 instance ToResourceProperties MediaPackageOutputSettingsProperty
+instance Prelude.Eq MediaPackageOutputSettingsProperty
+instance Prelude.Show MediaPackageOutputSettingsProperty
 instance JSON.ToJSON MediaPackageOutputSettingsProperty

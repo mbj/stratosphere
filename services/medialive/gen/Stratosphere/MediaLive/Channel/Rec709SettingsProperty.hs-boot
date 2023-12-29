@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data Rec709SettingsProperty :: Prelude.Type
 instance ToResourceProperties Rec709SettingsProperty
+instance Prelude.Eq Rec709SettingsProperty
+instance Prelude.Show Rec709SettingsProperty
 instance JSON.ToJSON Rec709SettingsProperty

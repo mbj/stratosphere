@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ReplicationTimeValueProperty :: Prelude.Type
 instance ToResourceProperties ReplicationTimeValueProperty
+instance Prelude.Eq ReplicationTimeValueProperty
+instance Prelude.Show ReplicationTimeValueProperty
 instance JSON.ToJSON ReplicationTimeValueProperty

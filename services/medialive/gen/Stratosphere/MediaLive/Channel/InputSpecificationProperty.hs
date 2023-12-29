@@ -10,6 +10,7 @@ data InputSpecificationProperty
   = InputSpecificationProperty {codec :: (Prelude.Maybe (Value Prelude.Text)),
                                 maximumBitrate :: (Prelude.Maybe (Value Prelude.Text)),
                                 resolution :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputSpecificationProperty :: InputSpecificationProperty
 mkInputSpecificationProperty
   = InputSpecificationProperty

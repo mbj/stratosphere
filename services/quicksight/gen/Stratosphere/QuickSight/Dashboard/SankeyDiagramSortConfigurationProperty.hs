@@ -12,6 +12,7 @@ data SankeyDiagramSortConfigurationProperty
   = SankeyDiagramSortConfigurationProperty {destinationItemsLimit :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                             sourceItemsLimit :: (Prelude.Maybe ItemsLimitConfigurationProperty),
                                             weightSort :: (Prelude.Maybe [FieldSortOptionsProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSankeyDiagramSortConfigurationProperty ::
   SankeyDiagramSortConfigurationProperty
 mkSankeyDiagramSortConfigurationProperty

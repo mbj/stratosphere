@@ -13,6 +13,7 @@ data CopyStepDetailsProperty
                              name :: (Prelude.Maybe (Value Prelude.Text)),
                              overwriteExisting :: (Prelude.Maybe (Value Prelude.Text)),
                              sourceFileLocation :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCopyStepDetailsProperty :: CopyStepDetailsProperty
 mkCopyStepDetailsProperty
   = CopyStepDetailsProperty

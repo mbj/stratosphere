@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OnPremisesTagSetListObjectProperty :: Prelude.Type
 instance ToResourceProperties OnPremisesTagSetListObjectProperty
+instance Prelude.Eq OnPremisesTagSetListObjectProperty
+instance Prelude.Show OnPremisesTagSetListObjectProperty
 instance JSON.ToJSON OnPremisesTagSetListObjectProperty

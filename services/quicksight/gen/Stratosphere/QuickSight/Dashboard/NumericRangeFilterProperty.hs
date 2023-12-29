@@ -20,6 +20,7 @@ data NumericRangeFilterProperty
                                 rangeMaximum :: (Prelude.Maybe NumericRangeFilterValueProperty),
                                 rangeMinimum :: (Prelude.Maybe NumericRangeFilterValueProperty),
                                 selectAllOptions :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericRangeFilterProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text

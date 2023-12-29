@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.Greengrass.SubscriptionDefinition.Subscriptio
 import Stratosphere.ResourceProperties
 data SubscriptionDefinitionVersionProperty
   = SubscriptionDefinitionVersionProperty {subscriptions :: [SubscriptionProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSubscriptionDefinitionVersionProperty ::
   [SubscriptionProperty] -> SubscriptionDefinitionVersionProperty
 mkSubscriptionDefinitionVersionProperty subscriptions

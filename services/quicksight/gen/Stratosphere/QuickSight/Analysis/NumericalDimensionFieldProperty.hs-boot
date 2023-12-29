@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NumericalDimensionFieldProperty :: Prelude.Type
 instance ToResourceProperties NumericalDimensionFieldProperty
+instance Prelude.Eq NumericalDimensionFieldProperty
+instance Prelude.Show NumericalDimensionFieldProperty
 instance JSON.ToJSON NumericalDimensionFieldProperty

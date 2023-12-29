@@ -11,6 +11,7 @@ data DimensionConfigurationProperty
   = DimensionConfigurationProperty {defaultDimensionValue :: (Value Prelude.Text),
                                     dimensionName :: (Value Prelude.Text),
                                     dimensionValueSource :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDimensionConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

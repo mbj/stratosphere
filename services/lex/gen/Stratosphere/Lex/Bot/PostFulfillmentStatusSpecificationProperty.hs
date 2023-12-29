@@ -19,6 +19,7 @@ data PostFulfillmentStatusSpecificationProperty
                                                 timeoutConditional :: (Prelude.Maybe ConditionalSpecificationProperty),
                                                 timeoutNextStep :: (Prelude.Maybe DialogStateProperty),
                                                 timeoutResponse :: (Prelude.Maybe ResponseSpecificationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPostFulfillmentStatusSpecificationProperty ::
   PostFulfillmentStatusSpecificationProperty
 mkPostFulfillmentStatusSpecificationProperty

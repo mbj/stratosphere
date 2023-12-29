@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 data DriftCheckModelDataQualityProperty
   = DriftCheckModelDataQualityProperty {constraints :: (Prelude.Maybe MetricsSourceProperty),
                                         statistics :: (Prelude.Maybe MetricsSourceProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDriftCheckModelDataQualityProperty ::
   DriftCheckModelDataQualityProperty
 mkDriftCheckModelDataQualityProperty

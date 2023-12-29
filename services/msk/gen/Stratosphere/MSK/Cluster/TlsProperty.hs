@@ -9,6 +9,7 @@ import Stratosphere.Value
 data TlsProperty
   = TlsProperty {certificateAuthorityArnList :: (Prelude.Maybe (ValueList Prelude.Text)),
                  enabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTlsProperty :: TlsProperty
 mkTlsProperty
   = TlsProperty

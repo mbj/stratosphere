@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data DropDownControlDisplayOptionsProperty
   = DropDownControlDisplayOptionsProperty {selectAllOptions :: (Prelude.Maybe ListControlSelectAllOptionsProperty),
                                            titleOptions :: (Prelude.Maybe LabelOptionsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDropDownControlDisplayOptionsProperty ::
   DropDownControlDisplayOptionsProperty
 mkDropDownControlDisplayOptionsProperty

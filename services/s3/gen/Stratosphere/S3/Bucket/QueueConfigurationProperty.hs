@@ -12,6 +12,7 @@ data QueueConfigurationProperty
   = QueueConfigurationProperty {event :: (Value Prelude.Text),
                                 filter :: (Prelude.Maybe NotificationFilterProperty),
                                 queue :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkQueueConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> QueueConfigurationProperty

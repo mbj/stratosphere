@@ -14,6 +14,7 @@ data DocumentMetadataConfigurationProperty
                                            relevance :: (Prelude.Maybe RelevanceProperty),
                                            search :: (Prelude.Maybe SearchProperty),
                                            type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocumentMetadataConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> DocumentMetadataConfigurationProperty

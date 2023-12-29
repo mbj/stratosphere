@@ -13,6 +13,7 @@ data DomainName
                 domainNameConfigurations :: (Prelude.Maybe [DomainNameConfigurationProperty]),
                 mutualTlsAuthentication :: (Prelude.Maybe MutualTlsAuthenticationProperty),
                 tags :: (Prelude.Maybe JSON.Object)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainName :: Value Prelude.Text -> DomainName
 mkDomainName domainName
   = DomainName

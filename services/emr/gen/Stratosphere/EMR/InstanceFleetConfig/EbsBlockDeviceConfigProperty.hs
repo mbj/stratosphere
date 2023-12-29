@@ -11,6 +11,7 @@ import Stratosphere.Value
 data EbsBlockDeviceConfigProperty
   = EbsBlockDeviceConfigProperty {volumeSpecification :: VolumeSpecificationProperty,
                                   volumesPerInstance :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEbsBlockDeviceConfigProperty ::
   VolumeSpecificationProperty -> EbsBlockDeviceConfigProperty
 mkEbsBlockDeviceConfigProperty volumeSpecification

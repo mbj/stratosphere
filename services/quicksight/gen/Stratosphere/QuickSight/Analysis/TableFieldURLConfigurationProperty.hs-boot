@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TableFieldURLConfigurationProperty :: Prelude.Type
 instance ToResourceProperties TableFieldURLConfigurationProperty
+instance Prelude.Eq TableFieldURLConfigurationProperty
+instance Prelude.Show TableFieldURLConfigurationProperty
 instance JSON.ToJSON TableFieldURLConfigurationProperty

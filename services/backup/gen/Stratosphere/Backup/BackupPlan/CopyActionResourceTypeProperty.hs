@@ -11,6 +11,7 @@ import Stratosphere.Value
 data CopyActionResourceTypeProperty
   = CopyActionResourceTypeProperty {destinationBackupVaultArn :: (Value Prelude.Text),
                                     lifecycle :: (Prelude.Maybe LifecycleResourceTypeProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCopyActionResourceTypeProperty ::
   Value Prelude.Text -> CopyActionResourceTypeProperty
 mkCopyActionResourceTypeProperty destinationBackupVaultArn

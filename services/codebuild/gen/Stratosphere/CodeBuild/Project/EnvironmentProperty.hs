@@ -17,6 +17,7 @@ data EnvironmentProperty
                          privilegedMode :: (Prelude.Maybe (Value Prelude.Bool)),
                          registryCredential :: (Prelude.Maybe RegistryCredentialProperty),
                          type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironmentProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> EnvironmentProperty

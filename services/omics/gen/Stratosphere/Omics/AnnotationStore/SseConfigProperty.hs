@@ -9,6 +9,7 @@ import Stratosphere.Value
 data SseConfigProperty
   = SseConfigProperty {keyArn :: (Prelude.Maybe (Value Prelude.Text)),
                        type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSseConfigProperty :: Value Prelude.Text -> SseConfigProperty
 mkSseConfigProperty type'
   = SseConfigProperty {type' = type', keyArn = Prelude.Nothing}

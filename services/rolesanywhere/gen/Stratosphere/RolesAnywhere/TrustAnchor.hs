@@ -13,6 +13,7 @@ data TrustAnchor
                  name :: (Value Prelude.Text),
                  source :: SourceProperty,
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkTrustAnchor ::
   Value Prelude.Text -> SourceProperty -> TrustAnchor
 mkTrustAnchor name source

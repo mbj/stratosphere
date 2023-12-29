@@ -11,6 +11,7 @@ data DomainValidationOptionProperty
   = DomainValidationOptionProperty {domainName :: (Value Prelude.Text),
                                     hostedZoneId :: (Prelude.Maybe (Value Prelude.Text)),
                                     validationDomain :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainValidationOptionProperty ::
   Value Prelude.Text -> DomainValidationOptionProperty
 mkDomainValidationOptionProperty domainName

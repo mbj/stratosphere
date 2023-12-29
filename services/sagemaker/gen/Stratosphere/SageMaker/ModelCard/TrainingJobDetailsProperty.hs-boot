@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data TrainingJobDetailsProperty :: Prelude.Type
 instance ToResourceProperties TrainingJobDetailsProperty
+instance Prelude.Eq TrainingJobDetailsProperty
+instance Prelude.Show TrainingJobDetailsProperty
 instance JSON.ToJSON TrainingJobDetailsProperty

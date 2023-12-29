@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties
 data ArchiveContainerSettingsProperty
   = ArchiveContainerSettingsProperty {m2tsSettings :: (Prelude.Maybe M2tsSettingsProperty),
                                       rawSettings :: (Prelude.Maybe RawSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkArchiveContainerSettingsProperty ::
   ArchiveContainerSettingsProperty
 mkArchiveContainerSettingsProperty

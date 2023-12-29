@@ -14,6 +14,7 @@ data HlsAkamaiSettingsProperty
                                restartDelay :: (Prelude.Maybe (Value Prelude.Integer)),
                                salt :: (Prelude.Maybe (Value Prelude.Text)),
                                token :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsAkamaiSettingsProperty :: HlsAkamaiSettingsProperty
 mkHlsAkamaiSettingsProperty
   = HlsAkamaiSettingsProperty

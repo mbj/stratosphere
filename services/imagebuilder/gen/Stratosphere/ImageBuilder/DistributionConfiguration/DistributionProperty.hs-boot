@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DistributionProperty :: Prelude.Type
 instance ToResourceProperties DistributionProperty
+instance Prelude.Eq DistributionProperty
+instance Prelude.Show DistributionProperty
 instance JSON.ToJSON DistributionProperty

@@ -28,6 +28,7 @@ data PieChartConfigurationProperty
                                    tooltip :: (Prelude.Maybe TooltipOptionsProperty),
                                    valueLabelOptions :: (Prelude.Maybe ChartAxisLabelOptionsProperty),
                                    visualPalette :: (Prelude.Maybe VisualPaletteProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPieChartConfigurationProperty :: PieChartConfigurationProperty
 mkPieChartConfigurationProperty
   = PieChartConfigurationProperty

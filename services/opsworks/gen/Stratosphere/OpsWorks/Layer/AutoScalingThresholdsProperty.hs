@@ -13,6 +13,7 @@ data AutoScalingThresholdsProperty
                                    loadThreshold :: (Prelude.Maybe (Value Prelude.Double)),
                                    memoryThreshold :: (Prelude.Maybe (Value Prelude.Double)),
                                    thresholdsWaitTime :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingThresholdsProperty :: AutoScalingThresholdsProperty
 mkAutoScalingThresholdsProperty
   = AutoScalingThresholdsProperty

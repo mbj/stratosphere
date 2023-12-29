@@ -12,6 +12,7 @@ data FrameCaptureSettingsProperty
   = FrameCaptureSettingsProperty {captureInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                                   captureIntervalUnits :: (Prelude.Maybe (Value Prelude.Text)),
                                   timecodeBurninSettings :: (Prelude.Maybe TimecodeBurninSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFrameCaptureSettingsProperty :: FrameCaptureSettingsProperty
 mkFrameCaptureSettingsProperty
   = FrameCaptureSettingsProperty

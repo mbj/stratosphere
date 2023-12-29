@@ -14,6 +14,7 @@ data PropertyTypeProperty
                           metric :: (Prelude.Maybe MetricProperty),
                           transform :: (Prelude.Maybe TransformProperty),
                           typeName :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkPropertyTypeProperty ::
   Value Prelude.Text -> PropertyTypeProperty
 mkPropertyTypeProperty typeName

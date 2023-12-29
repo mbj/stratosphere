@@ -13,6 +13,7 @@ data MetricDataItemsProperty
                              value :: JSON.Object,
                              xAxisName :: (Prelude.Maybe (ValueList Prelude.Text)),
                              yAxisName :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricDataItemsProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> JSON.Object -> MetricDataItemsProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data HpoResourceConfigProperty :: Prelude.Type
 instance ToResourceProperties HpoResourceConfigProperty
+instance Prelude.Eq HpoResourceConfigProperty
+instance Prelude.Show HpoResourceConfigProperty
 instance JSON.ToJSON HpoResourceConfigProperty

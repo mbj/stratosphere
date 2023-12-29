@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ProvisioningHookProperty :: Prelude.Type
 instance ToResourceProperties ProvisioningHookProperty
+instance Prelude.Eq ProvisioningHookProperty
+instance Prelude.Show ProvisioningHookProperty
 instance JSON.ToJSON ProvisioningHookProperty

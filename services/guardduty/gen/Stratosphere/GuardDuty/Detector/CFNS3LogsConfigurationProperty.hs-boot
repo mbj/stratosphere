@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data CFNS3LogsConfigurationProperty :: Prelude.Type
 instance ToResourceProperties CFNS3LogsConfigurationProperty
+instance Prelude.Eq CFNS3LogsConfigurationProperty
+instance Prelude.Show CFNS3LogsConfigurationProperty
 instance JSON.ToJSON CFNS3LogsConfigurationProperty

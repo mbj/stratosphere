@@ -19,6 +19,7 @@ data LustreConfigurationProperty
                                  importedFileChunkSize :: (Prelude.Maybe (Value Prelude.Integer)),
                                  perUnitStorageThroughput :: (Prelude.Maybe (Value Prelude.Integer)),
                                  weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLustreConfigurationProperty :: LustreConfigurationProperty
 mkLustreConfigurationProperty
   = LustreConfigurationProperty

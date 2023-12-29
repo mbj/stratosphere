@@ -20,6 +20,7 @@ data Document
               targetType :: (Prelude.Maybe (Value Prelude.Text)),
               updateMethod :: (Prelude.Maybe (Value Prelude.Text)),
               versionName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDocument :: JSON.Object -> Document
 mkDocument content
   = Document

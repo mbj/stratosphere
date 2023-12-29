@@ -9,6 +9,7 @@ import Stratosphere.Value
 data CoordinatesProperty
   = CoordinatesProperty {latitude :: (Value Prelude.Double),
                          longitude :: (Value Prelude.Double)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCoordinatesProperty ::
   Value Prelude.Double -> Value Prelude.Double -> CoordinatesProperty
 mkCoordinatesProperty latitude longitude

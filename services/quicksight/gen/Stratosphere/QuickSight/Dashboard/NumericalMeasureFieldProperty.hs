@@ -15,6 +15,7 @@ data NumericalMeasureFieldProperty
                                    column :: ColumnIdentifierProperty,
                                    fieldId :: (Value Prelude.Text),
                                    formatConfiguration :: (Prelude.Maybe NumberFormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkNumericalMeasureFieldProperty ::
   ColumnIdentifierProperty
   -> Value Prelude.Text -> NumericalMeasureFieldProperty

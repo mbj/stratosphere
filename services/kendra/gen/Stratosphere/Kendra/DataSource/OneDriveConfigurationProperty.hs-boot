@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data OneDriveConfigurationProperty :: Prelude.Type
 instance ToResourceProperties OneDriveConfigurationProperty
+instance Prelude.Eq OneDriveConfigurationProperty
+instance Prelude.Show OneDriveConfigurationProperty
 instance JSON.ToJSON OneDriveConfigurationProperty

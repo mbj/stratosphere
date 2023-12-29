@@ -14,6 +14,7 @@ data RateBasedStatementProperty
                                 forwardedIPConfig :: (Prelude.Maybe ForwardedIPConfigurationProperty),
                                 limit :: (Value Prelude.Integer),
                                 scopeDownStatement :: (Prelude.Maybe StatementProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkRateBasedStatementProperty ::
   Value Prelude.Text
   -> Value Prelude.Integer -> RateBasedStatementProperty

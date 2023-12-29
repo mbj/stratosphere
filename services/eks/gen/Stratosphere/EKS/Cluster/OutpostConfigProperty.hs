@@ -11,6 +11,7 @@ data OutpostConfigProperty
   = OutpostConfigProperty {controlPlaneInstanceType :: (Value Prelude.Text),
                            controlPlanePlacement :: (Prelude.Maybe ControlPlanePlacementProperty),
                            outpostArns :: (ValueList Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkOutpostConfigProperty ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> OutpostConfigProperty

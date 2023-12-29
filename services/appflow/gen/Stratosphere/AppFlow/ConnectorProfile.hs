@@ -14,6 +14,7 @@ data ConnectorProfile
                       connectorProfileName :: (Value Prelude.Text),
                       connectorType :: (Value Prelude.Text),
                       kMSArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectorProfile ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> ConnectorProfile

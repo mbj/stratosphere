@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RedshiftDataParametersProperty :: Prelude.Type
 instance ToResourceProperties RedshiftDataParametersProperty
+instance Prelude.Eq RedshiftDataParametersProperty
+instance Prelude.Show RedshiftDataParametersProperty
 instance JSON.ToJSON RedshiftDataParametersProperty

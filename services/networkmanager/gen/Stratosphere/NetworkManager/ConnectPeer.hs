@@ -15,6 +15,7 @@ data ConnectPeer
                  insideCidrBlocks :: (ValueList Prelude.Text),
                  peerAddress :: (Value Prelude.Text),
                  tags :: (Prelude.Maybe [Tag])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectPeer ::
   Value Prelude.Text
   -> ValueList Prelude.Text -> Value Prelude.Text -> ConnectPeer

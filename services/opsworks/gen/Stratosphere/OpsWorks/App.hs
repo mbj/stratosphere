@@ -23,6 +23,7 @@ data App
          sslConfiguration :: (Prelude.Maybe SslConfigurationProperty),
          stackId :: (Value Prelude.Text),
          type' :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkApp ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> App

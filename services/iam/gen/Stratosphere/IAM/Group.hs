@@ -12,6 +12,7 @@ data Group
            managedPolicyArns :: (Prelude.Maybe (ValueList Prelude.Text)),
            path :: (Prelude.Maybe (Value Prelude.Text)),
            policies :: (Prelude.Maybe [PolicyProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkGroup :: Group
 mkGroup
   = Group

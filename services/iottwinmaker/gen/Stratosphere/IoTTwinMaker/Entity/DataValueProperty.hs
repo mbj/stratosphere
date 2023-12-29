@@ -17,6 +17,7 @@ data DataValueProperty
                        mapValue :: (Prelude.Maybe (Prelude.Map Prelude.Text DataValueProperty)),
                        relationshipValue :: (Prelude.Maybe RelationshipValueProperty),
                        stringValue :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataValueProperty :: DataValueProperty
 mkDataValueProperty
   = DataValueProperty

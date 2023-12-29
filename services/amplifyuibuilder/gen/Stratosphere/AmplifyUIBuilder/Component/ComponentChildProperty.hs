@@ -15,6 +15,7 @@ data ComponentChildProperty
                             events :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentEventProperty)),
                             name :: (Value Prelude.Text),
                             properties :: (Prelude.Map Prelude.Text ComponentPropertyProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentChildProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

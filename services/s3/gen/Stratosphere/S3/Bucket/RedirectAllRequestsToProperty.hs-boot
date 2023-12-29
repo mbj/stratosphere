@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RedirectAllRequestsToProperty :: Prelude.Type
 instance ToResourceProperties RedirectAllRequestsToProperty
+instance Prelude.Eq RedirectAllRequestsToProperty
+instance Prelude.Show RedirectAllRequestsToProperty
 instance JSON.ToJSON RedirectAllRequestsToProperty

@@ -12,6 +12,7 @@ data CostCategory
                   ruleVersion :: (Value Prelude.Text),
                   rules :: (Value Prelude.Text),
                   splitChargeRules :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCostCategory ::
   Value Prelude.Text
   -> Value Prelude.Text -> Value Prelude.Text -> CostCategory

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data ElasticsearchConfigProperty
   = ElasticsearchConfigProperty {awsRegion :: (Value Prelude.Text),
                                  endpoint :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkElasticsearchConfigProperty ::
   Value Prelude.Text
   -> Value Prelude.Text -> ElasticsearchConfigProperty

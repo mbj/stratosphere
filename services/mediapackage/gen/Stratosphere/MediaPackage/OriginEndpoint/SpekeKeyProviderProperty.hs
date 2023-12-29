@@ -15,6 +15,7 @@ data SpekeKeyProviderProperty
                               roleArn :: (Value Prelude.Text),
                               systemIds :: (ValueList Prelude.Text),
                               url :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSpekeKeyProviderProperty ::
   Value Prelude.Text
   -> Value Prelude.Text

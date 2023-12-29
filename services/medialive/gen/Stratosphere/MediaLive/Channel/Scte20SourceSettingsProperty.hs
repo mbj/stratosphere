@@ -9,6 +9,7 @@ import Stratosphere.Value
 data Scte20SourceSettingsProperty
   = Scte20SourceSettingsProperty {convert608To708 :: (Prelude.Maybe (Value Prelude.Text)),
                                   source608ChannelNumber :: (Prelude.Maybe (Value Prelude.Integer))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkScte20SourceSettingsProperty :: Scte20SourceSettingsProperty
 mkScte20SourceSettingsProperty
   = Scte20SourceSettingsProperty

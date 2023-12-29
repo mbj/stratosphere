@@ -11,6 +11,7 @@ data Resource
               roleArn :: (Prelude.Maybe (Value Prelude.Text)),
               useServiceLinkedRole :: (Value Prelude.Bool),
               withFederation :: (Prelude.Maybe (Value Prelude.Bool))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkResource :: Value Prelude.Text -> Value Prelude.Bool -> Resource
 mkResource resourceArn useServiceLinkedRole
   = Resource

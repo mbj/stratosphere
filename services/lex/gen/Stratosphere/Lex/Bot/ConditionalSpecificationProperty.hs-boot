@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data ConditionalSpecificationProperty :: Prelude.Type
 instance ToResourceProperties ConditionalSpecificationProperty
+instance Prelude.Eq ConditionalSpecificationProperty
+instance Prelude.Show ConditionalSpecificationProperty
 instance JSON.ToJSON ConditionalSpecificationProperty

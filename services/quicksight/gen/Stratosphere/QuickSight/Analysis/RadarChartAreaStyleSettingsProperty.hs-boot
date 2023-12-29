@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RadarChartAreaStyleSettingsProperty :: Prelude.Type
 instance ToResourceProperties RadarChartAreaStyleSettingsProperty
+instance Prelude.Eq RadarChartAreaStyleSettingsProperty
+instance Prelude.Show RadarChartAreaStyleSettingsProperty
 instance JSON.ToJSON RadarChartAreaStyleSettingsProperty

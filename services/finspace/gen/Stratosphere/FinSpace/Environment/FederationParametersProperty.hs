@@ -15,6 +15,7 @@ data FederationParametersProperty
                                   federationURN :: (Prelude.Maybe (Value Prelude.Text)),
                                   samlMetadataDocument :: (Prelude.Maybe (Value Prelude.Text)),
                                   samlMetadataURL :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkFederationParametersProperty :: FederationParametersProperty
 mkFederationParametersProperty
   = FederationParametersProperty

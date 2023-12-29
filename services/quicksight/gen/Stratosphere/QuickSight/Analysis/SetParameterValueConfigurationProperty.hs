@@ -11,6 +11,7 @@ import Stratosphere.Value
 data SetParameterValueConfigurationProperty
   = SetParameterValueConfigurationProperty {destinationParameterName :: (Value Prelude.Text),
                                             value :: DestinationParameterValueConfigurationProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSetParameterValueConfigurationProperty ::
   Value Prelude.Text
   -> DestinationParameterValueConfigurationProperty

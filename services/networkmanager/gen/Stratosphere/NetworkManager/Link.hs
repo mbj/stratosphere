@@ -16,6 +16,7 @@ data Link
           siteId :: (Value Prelude.Text),
           tags :: (Prelude.Maybe [Tag]),
           type' :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLink ::
   BandwidthProperty
   -> Value Prelude.Text -> Value Prelude.Text -> Link

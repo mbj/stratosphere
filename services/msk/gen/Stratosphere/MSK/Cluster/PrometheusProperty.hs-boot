@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data PrometheusProperty :: Prelude.Type
 instance ToResourceProperties PrometheusProperty
+instance Prelude.Eq PrometheusProperty
+instance Prelude.Show PrometheusProperty
 instance JSON.ToJSON PrometheusProperty

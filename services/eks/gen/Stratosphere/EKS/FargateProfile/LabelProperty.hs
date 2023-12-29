@@ -9,6 +9,7 @@ import Stratosphere.Value
 data LabelProperty
   = LabelProperty {key :: (Value Prelude.Text),
                    value :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkLabelProperty ::
   Value Prelude.Text -> Value Prelude.Text -> LabelProperty
 mkLabelProperty key value

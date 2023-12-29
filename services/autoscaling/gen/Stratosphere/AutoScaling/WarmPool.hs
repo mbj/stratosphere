@@ -13,6 +13,7 @@ data WarmPool
               maxGroupPreparedCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
               minSize :: (Prelude.Maybe (Value Prelude.Integer)),
               poolState :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkWarmPool :: Value Prelude.Text -> WarmPool
 mkWarmPool autoScalingGroupName
   = WarmPool

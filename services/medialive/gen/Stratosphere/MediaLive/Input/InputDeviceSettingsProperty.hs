@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InputDeviceSettingsProperty
   = InputDeviceSettingsProperty {id :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkInputDeviceSettingsProperty :: InputDeviceSettingsProperty
 mkInputDeviceSettingsProperty
   = InputDeviceSettingsProperty {id = Prelude.Nothing}

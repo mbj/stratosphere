@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MapConfigurationProperty
   = MapConfigurationProperty {style :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkMapConfigurationProperty ::
   Value Prelude.Text -> MapConfigurationProperty
 mkMapConfigurationProperty style

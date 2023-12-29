@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data NoncurrentVersionExpirationProperty :: Prelude.Type
 instance ToResourceProperties NoncurrentVersionExpirationProperty
+instance Prelude.Eq NoncurrentVersionExpirationProperty
+instance Prelude.Show NoncurrentVersionExpirationProperty
 instance JSON.ToJSON NoncurrentVersionExpirationProperty

@@ -13,6 +13,7 @@ data DirectoryConfig
                      directoryName :: (Value Prelude.Text),
                      organizationalUnitDistinguishedNames :: (ValueList Prelude.Text),
                      serviceAccountCredentials :: ServiceAccountCredentialsProperty}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDirectoryConfig ::
   Value Prelude.Text
   -> ValueList Prelude.Text

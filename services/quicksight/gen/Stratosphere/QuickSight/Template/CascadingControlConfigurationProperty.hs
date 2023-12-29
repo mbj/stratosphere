@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.CascadingControlSourcePro
 import Stratosphere.ResourceProperties
 data CascadingControlConfigurationProperty
   = CascadingControlConfigurationProperty {sourceControls :: (Prelude.Maybe [CascadingControlSourceProperty])}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCascadingControlConfigurationProperty ::
   CascadingControlConfigurationProperty
 mkCascadingControlConfigurationProperty

@@ -13,6 +13,7 @@ data DataSecurityConfigProperty
                                 modelKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                                 volumeKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                                 vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSecurityConfigProperty :: DataSecurityConfigProperty
 mkDataSecurityConfigProperty
   = DataSecurityConfigProperty

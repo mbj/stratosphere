@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data RotationRulesProperty :: Prelude.Type
 instance ToResourceProperties RotationRulesProperty
+instance Prelude.Eq RotationRulesProperty
+instance Prelude.Show RotationRulesProperty
 instance JSON.ToJSON RotationRulesProperty

@@ -10,6 +10,7 @@ import Stratosphere.Value
 data ConfigurationParameterProperty
   = ConfigurationParameterProperty {name :: (Prelude.Maybe (Value Prelude.Text)),
                                     values :: (Prelude.Maybe (ValueList Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationParameterProperty :: ConfigurationParameterProperty
 mkConfigurationParameterProperty
   = ConfigurationParameterProperty

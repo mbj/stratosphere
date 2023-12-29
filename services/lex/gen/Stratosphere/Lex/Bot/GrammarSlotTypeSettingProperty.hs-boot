@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data GrammarSlotTypeSettingProperty :: Prelude.Type
 instance ToResourceProperties GrammarSlotTypeSettingProperty
+instance Prelude.Eq GrammarSlotTypeSettingProperty
+instance Prelude.Show GrammarSlotTypeSettingProperty
 instance JSON.ToJSON GrammarSlotTypeSettingProperty

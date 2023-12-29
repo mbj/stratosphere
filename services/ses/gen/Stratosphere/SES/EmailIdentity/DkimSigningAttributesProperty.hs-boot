@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data DkimSigningAttributesProperty :: Prelude.Type
 instance ToResourceProperties DkimSigningAttributesProperty
+instance Prelude.Eq DkimSigningAttributesProperty
+instance Prelude.Show DkimSigningAttributesProperty
 instance JSON.ToJSON DkimSigningAttributesProperty

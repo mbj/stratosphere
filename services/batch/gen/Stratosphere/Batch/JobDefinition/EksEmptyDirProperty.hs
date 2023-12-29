@@ -9,6 +9,7 @@ import Stratosphere.Value
 data EksEmptyDirProperty
   = EksEmptyDirProperty {medium :: (Prelude.Maybe (Value Prelude.Text)),
                          sizeLimit :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkEksEmptyDirProperty :: EksEmptyDirProperty
 mkEksEmptyDirProperty
   = EksEmptyDirProperty

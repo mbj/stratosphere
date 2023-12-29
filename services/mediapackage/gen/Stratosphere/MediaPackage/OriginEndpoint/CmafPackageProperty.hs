@@ -15,6 +15,7 @@ data CmafPackageProperty
                          segmentDurationSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                          segmentPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                          streamSelection :: (Prelude.Maybe StreamSelectionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkCmafPackageProperty :: CmafPackageProperty
 mkCmafPackageProperty
   = CmafPackageProperty

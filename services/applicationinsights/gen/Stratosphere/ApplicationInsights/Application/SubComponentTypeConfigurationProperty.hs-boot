@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data SubComponentTypeConfigurationProperty :: Prelude.Type
 instance ToResourceProperties SubComponentTypeConfigurationProperty
+instance Prelude.Eq SubComponentTypeConfigurationProperty
+instance Prelude.Show SubComponentTypeConfigurationProperty
 instance JSON.ToJSON SubComponentTypeConfigurationProperty

@@ -4,4 +4,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.ResourceProperties
 data AvailConfigurationProperty :: Prelude.Type
 instance ToResourceProperties AvailConfigurationProperty
+instance Prelude.Eq AvailConfigurationProperty
+instance Prelude.Show AvailConfigurationProperty
 instance JSON.ToJSON AvailConfigurationProperty

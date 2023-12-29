@@ -10,6 +10,7 @@ data SemanticEntityTypeProperty
   = SemanticEntityTypeProperty {subTypeName :: (Prelude.Maybe (Value Prelude.Text)),
                                 typeName :: (Prelude.Maybe (Value Prelude.Text)),
                                 typeParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+  deriving stock (Prelude.Eq, Prelude.Show)
 mkSemanticEntityTypeProperty :: SemanticEntityTypeProperty
 mkSemanticEntityTypeProperty
   = SemanticEntityTypeProperty
