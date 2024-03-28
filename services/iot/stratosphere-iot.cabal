@@ -36,10 +36,12 @@ library
       Stratosphere.IoT.CACertificate
       Stratosphere.IoT.CACertificate.RegistrationConfigProperty
       Stratosphere.IoT.Certificate
+      Stratosphere.IoT.CertificateProvider
       Stratosphere.IoT.CustomMetric
       Stratosphere.IoT.Dimension
       Stratosphere.IoT.DomainConfiguration
       Stratosphere.IoT.DomainConfiguration.AuthorizerConfigProperty
+      Stratosphere.IoT.DomainConfiguration.ServerCertificateConfigProperty
       Stratosphere.IoT.DomainConfiguration.ServerCertificateSummaryProperty
       Stratosphere.IoT.DomainConfiguration.TlsConfigProperty
       Stratosphere.IoT.FleetMetric
@@ -77,9 +79,12 @@ library
       Stratosphere.IoT.SecurityProfile.BehaviorProperty
       Stratosphere.IoT.SecurityProfile.MachineLearningDetectionConfigProperty
       Stratosphere.IoT.SecurityProfile.MetricDimensionProperty
+      Stratosphere.IoT.SecurityProfile.MetricsExportConfigProperty
       Stratosphere.IoT.SecurityProfile.MetricToRetainProperty
       Stratosphere.IoT.SecurityProfile.MetricValueProperty
       Stratosphere.IoT.SecurityProfile.StatisticalThresholdProperty
+      Stratosphere.IoT.SoftwarePackage
+      Stratosphere.IoT.SoftwarePackageVersion
       Stratosphere.IoT.Thing
       Stratosphere.IoT.Thing.AttributePayloadProperty
       Stratosphere.IoT.ThingGroup
@@ -106,6 +111,7 @@ library
       Stratosphere.IoT.TopicRule.IotAnalyticsActionProperty
       Stratosphere.IoT.TopicRule.IotEventsActionProperty
       Stratosphere.IoT.TopicRule.IotSiteWiseActionProperty
+      Stratosphere.IoT.TopicRule.KafkaActionHeaderProperty
       Stratosphere.IoT.TopicRule.KafkaActionProperty
       Stratosphere.IoT.TopicRule.KinesisActionProperty
       Stratosphere.IoT.TopicRule.LambdaActionProperty

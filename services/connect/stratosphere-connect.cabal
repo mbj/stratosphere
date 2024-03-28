@@ -57,21 +57,36 @@ library
       Stratosphere.Connect.InstanceStorageConfig.S3ConfigProperty
       Stratosphere.Connect.IntegrationAssociation
       Stratosphere.Connect.PhoneNumber
+      Stratosphere.Connect.PredefinedAttribute
+      Stratosphere.Connect.PredefinedAttribute.ValuesProperty
       Stratosphere.Connect.Prompt
+      Stratosphere.Connect.Queue
+      Stratosphere.Connect.Queue.OutboundCallerConfigProperty
       Stratosphere.Connect.QuickConnect
       Stratosphere.Connect.QuickConnect.PhoneNumberQuickConnectConfigProperty
       Stratosphere.Connect.QuickConnect.QueueQuickConnectConfigProperty
       Stratosphere.Connect.QuickConnect.QuickConnectConfigProperty
       Stratosphere.Connect.QuickConnect.UserQuickConnectConfigProperty
+      Stratosphere.Connect.RoutingProfile
+      Stratosphere.Connect.RoutingProfile.CrossChannelBehaviorProperty
+      Stratosphere.Connect.RoutingProfile.MediaConcurrencyProperty
+      Stratosphere.Connect.RoutingProfile.RoutingProfileQueueConfigProperty
+      Stratosphere.Connect.RoutingProfile.RoutingProfileQueueReferenceProperty
       Stratosphere.Connect.Rule
       Stratosphere.Connect.Rule.ActionsProperty
+      Stratosphere.Connect.Rule.CreateCaseActionProperty
       Stratosphere.Connect.Rule.EventBridgeActionProperty
+      Stratosphere.Connect.Rule.FieldProperty
+      Stratosphere.Connect.Rule.FieldValueProperty
       Stratosphere.Connect.Rule.NotificationRecipientTypeProperty
       Stratosphere.Connect.Rule.ReferenceProperty
       Stratosphere.Connect.Rule.RuleTriggerEventSourceProperty
       Stratosphere.Connect.Rule.SendNotificationActionProperty
       Stratosphere.Connect.Rule.TaskActionProperty
+      Stratosphere.Connect.Rule.UpdateCaseActionProperty
       Stratosphere.Connect.SecurityKey
+      Stratosphere.Connect.SecurityProfile
+      Stratosphere.Connect.SecurityProfile.ApplicationProperty
       Stratosphere.Connect.TaskTemplate
       Stratosphere.Connect.TaskTemplate.ConstraintsProperty
       Stratosphere.Connect.TaskTemplate.DefaultFieldValueProperty
@@ -80,10 +95,14 @@ library
       Stratosphere.Connect.TaskTemplate.InvisibleFieldInfoProperty
       Stratosphere.Connect.TaskTemplate.ReadOnlyFieldInfoProperty
       Stratosphere.Connect.TaskTemplate.RequiredFieldInfoProperty
+      Stratosphere.Connect.TrafficDistributionGroup
       Stratosphere.Connect.User
       Stratosphere.Connect.User.UserIdentityInfoProperty
       Stratosphere.Connect.User.UserPhoneConfigProperty
+      Stratosphere.Connect.User.UserProficiencyProperty
       Stratosphere.Connect.UserHierarchyGroup
+      Stratosphere.Connect.View
+      Stratosphere.Connect.ViewVersion
   other-modules:
       Paths_stratosphere_connect
   hs-source-dirs:

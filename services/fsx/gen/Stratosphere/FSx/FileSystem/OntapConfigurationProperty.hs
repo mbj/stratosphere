@@ -15,9 +15,11 @@ data OntapConfigurationProperty
                                 diskIopsConfiguration :: (Prelude.Maybe DiskIopsConfigurationProperty),
                                 endpointIpAddressRange :: (Prelude.Maybe (Value Prelude.Text)),
                                 fsxAdminPassword :: (Prelude.Maybe (Value Prelude.Text)),
+                                hAPairs :: (Prelude.Maybe (Value Prelude.Integer)),
                                 preferredSubnetId :: (Prelude.Maybe (Value Prelude.Text)),
                                 routeTableIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 throughputCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
+                                throughputCapacityPerHAPair :: (Prelude.Maybe (Value Prelude.Integer)),
                                 weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOntapConfigurationProperty ::
@@ -29,10 +31,11 @@ mkOntapConfigurationProperty deploymentType
        dailyAutomaticBackupStartTime = Prelude.Nothing,
        diskIopsConfiguration = Prelude.Nothing,
        endpointIpAddressRange = Prelude.Nothing,
-       fsxAdminPassword = Prelude.Nothing,
+       fsxAdminPassword = Prelude.Nothing, hAPairs = Prelude.Nothing,
        preferredSubnetId = Prelude.Nothing,
        routeTableIds = Prelude.Nothing,
        throughputCapacity = Prelude.Nothing,
+       throughputCapacityPerHAPair = Prelude.Nothing,
        weeklyMaintenanceStartTime = Prelude.Nothing}
 instance ToResourceProperties OntapConfigurationProperty where
   toResourceProperties OntapConfigurationProperty {..}
@@ -52,9 +55,12 @@ instance ToResourceProperties OntapConfigurationProperty where
                                (JSON..=) "EndpointIpAddressRange"
                                  Prelude.<$> endpointIpAddressRange,
                                (JSON..=) "FsxAdminPassword" Prelude.<$> fsxAdminPassword,
+                               (JSON..=) "HAPairs" Prelude.<$> hAPairs,
                                (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
                                (JSON..=) "RouteTableIds" Prelude.<$> routeTableIds,
                                (JSON..=) "ThroughputCapacity" Prelude.<$> throughputCapacity,
+                               (JSON..=) "ThroughputCapacityPerHAPair"
+                                 Prelude.<$> throughputCapacityPerHAPair,
                                (JSON..=) "WeeklyMaintenanceStartTime"
                                  Prelude.<$> weeklyMaintenanceStartTime]))}
 instance JSON.ToJSON OntapConfigurationProperty where
@@ -73,9 +79,12 @@ instance JSON.ToJSON OntapConfigurationProperty where
                   (JSON..=) "EndpointIpAddressRange"
                     Prelude.<$> endpointIpAddressRange,
                   (JSON..=) "FsxAdminPassword" Prelude.<$> fsxAdminPassword,
+                  (JSON..=) "HAPairs" Prelude.<$> hAPairs,
                   (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
                   (JSON..=) "RouteTableIds" Prelude.<$> routeTableIds,
                   (JSON..=) "ThroughputCapacity" Prelude.<$> throughputCapacity,
+                  (JSON..=) "ThroughputCapacityPerHAPair"
+                    Prelude.<$> throughputCapacityPerHAPair,
                   (JSON..=) "WeeklyMaintenanceStartTime"
                     Prelude.<$> weeklyMaintenanceStartTime])))
 instance Property "AutomaticBackupRetentionDays" OntapConfigurationProperty where
@@ -107,6 +116,10 @@ instance Property "FsxAdminPassword" OntapConfigurationProperty where
   set newValue OntapConfigurationProperty {..}
     = OntapConfigurationProperty
         {fsxAdminPassword = Prelude.pure newValue, ..}
+instance Property "HAPairs" OntapConfigurationProperty where
+  type PropertyType "HAPairs" OntapConfigurationProperty = Value Prelude.Integer
+  set newValue OntapConfigurationProperty {..}
+    = OntapConfigurationProperty {hAPairs = Prelude.pure newValue, ..}
 instance Property "PreferredSubnetId" OntapConfigurationProperty where
   type PropertyType "PreferredSubnetId" OntapConfigurationProperty = Value Prelude.Text
   set newValue OntapConfigurationProperty {..}
@@ -122,6 +135,11 @@ instance Property "ThroughputCapacity" OntapConfigurationProperty where
   set newValue OntapConfigurationProperty {..}
     = OntapConfigurationProperty
         {throughputCapacity = Prelude.pure newValue, ..}
+instance Property "ThroughputCapacityPerHAPair" OntapConfigurationProperty where
+  type PropertyType "ThroughputCapacityPerHAPair" OntapConfigurationProperty = Value Prelude.Integer
+  set newValue OntapConfigurationProperty {..}
+    = OntapConfigurationProperty
+        {throughputCapacityPerHAPair = Prelude.pure newValue, ..}
 instance Property "WeeklyMaintenanceStartTime" OntapConfigurationProperty where
   type PropertyType "WeeklyMaintenanceStartTime" OntapConfigurationProperty = Value Prelude.Text
   set newValue OntapConfigurationProperty {..}

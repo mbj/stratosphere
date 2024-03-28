@@ -1,0 +1,9 @@
+module Stratosphere.MediaTailor.Channel.LogConfigurationForChannelProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LogConfigurationForChannelProperty :: Prelude.Type
+instance ToResourceProperties LogConfigurationForChannelProperty
+instance Prelude.Eq LogConfigurationForChannelProperty
+instance Prelude.Show LogConfigurationForChannelProperty
+instance JSON.ToJSON LogConfigurationForChannelProperty

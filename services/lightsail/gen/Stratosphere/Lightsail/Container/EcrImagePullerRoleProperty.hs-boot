@@ -1,0 +1,9 @@
+module Stratosphere.Lightsail.Container.EcrImagePullerRoleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EcrImagePullerRoleProperty :: Prelude.Type
+instance ToResourceProperties EcrImagePullerRoleProperty
+instance Prelude.Eq EcrImagePullerRoleProperty
+instance Prelude.Show EcrImagePullerRoleProperty
+instance JSON.ToJSON EcrImagePullerRoleProperty

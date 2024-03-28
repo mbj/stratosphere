@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.ConfiguredTable.AggregationConstraintProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AggregationConstraintProperty :: Prelude.Type
+instance ToResourceProperties AggregationConstraintProperty
+instance Prelude.Eq AggregationConstraintProperty
+instance Prelude.Show AggregationConstraintProperty
+instance JSON.ToJSON AggregationConstraintProperty

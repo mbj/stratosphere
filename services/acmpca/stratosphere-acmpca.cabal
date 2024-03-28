@@ -44,6 +44,7 @@ library
       Stratosphere.ACMPCA.CertificateAuthority.AccessDescriptionProperty
       Stratosphere.ACMPCA.CertificateAuthority.AccessMethodProperty
       Stratosphere.ACMPCA.CertificateAuthority.CrlConfigurationProperty
+      Stratosphere.ACMPCA.CertificateAuthority.CrlDistributionPointExtensionConfigurationProperty
       Stratosphere.ACMPCA.CertificateAuthority.CsrExtensionsProperty
       Stratosphere.ACMPCA.CertificateAuthority.CustomAttributeProperty
       Stratosphere.ACMPCA.CertificateAuthority.EdiPartyNameProperty

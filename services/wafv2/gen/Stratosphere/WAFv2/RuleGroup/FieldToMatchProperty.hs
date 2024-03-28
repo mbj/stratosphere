@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.BodyProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.CookiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.HeadersProperty as Exports
+import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.JA3FingerprintProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.JsonBodyProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.SingleHeaderProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.RuleGroup.SingleQueryArgumentProperty as Exports
@@ -16,6 +17,7 @@ data FieldToMatchProperty
                           body :: (Prelude.Maybe BodyProperty),
                           cookies :: (Prelude.Maybe CookiesProperty),
                           headers :: (Prelude.Maybe HeadersProperty),
+                          jA3Fingerprint :: (Prelude.Maybe JA3FingerprintProperty),
                           jsonBody :: (Prelude.Maybe JsonBodyProperty),
                           method :: (Prelude.Maybe JSON.Object),
                           queryString :: (Prelude.Maybe JSON.Object),
@@ -28,8 +30,9 @@ mkFieldToMatchProperty
   = FieldToMatchProperty
       {allQueryArguments = Prelude.Nothing, body = Prelude.Nothing,
        cookies = Prelude.Nothing, headers = Prelude.Nothing,
-       jsonBody = Prelude.Nothing, method = Prelude.Nothing,
-       queryString = Prelude.Nothing, singleHeader = Prelude.Nothing,
+       jA3Fingerprint = Prelude.Nothing, jsonBody = Prelude.Nothing,
+       method = Prelude.Nothing, queryString = Prelude.Nothing,
+       singleHeader = Prelude.Nothing,
        singleQueryArgument = Prelude.Nothing, uriPath = Prelude.Nothing}
 instance ToResourceProperties FieldToMatchProperty where
   toResourceProperties FieldToMatchProperty {..}
@@ -42,6 +45,7 @@ instance ToResourceProperties FieldToMatchProperty where
                             (JSON..=) "Body" Prelude.<$> body,
                             (JSON..=) "Cookies" Prelude.<$> cookies,
                             (JSON..=) "Headers" Prelude.<$> headers,
+                            (JSON..=) "JA3Fingerprint" Prelude.<$> jA3Fingerprint,
                             (JSON..=) "JsonBody" Prelude.<$> jsonBody,
                             (JSON..=) "Method" Prelude.<$> method,
                             (JSON..=) "QueryString" Prelude.<$> queryString,
@@ -57,6 +61,7 @@ instance JSON.ToJSON FieldToMatchProperty where
                (JSON..=) "Body" Prelude.<$> body,
                (JSON..=) "Cookies" Prelude.<$> cookies,
                (JSON..=) "Headers" Prelude.<$> headers,
+               (JSON..=) "JA3Fingerprint" Prelude.<$> jA3Fingerprint,
                (JSON..=) "JsonBody" Prelude.<$> jsonBody,
                (JSON..=) "Method" Prelude.<$> method,
                (JSON..=) "QueryString" Prelude.<$> queryString,
@@ -80,6 +85,10 @@ instance Property "Headers" FieldToMatchProperty where
   type PropertyType "Headers" FieldToMatchProperty = HeadersProperty
   set newValue FieldToMatchProperty {..}
     = FieldToMatchProperty {headers = Prelude.pure newValue, ..}
+instance Property "JA3Fingerprint" FieldToMatchProperty where
+  type PropertyType "JA3Fingerprint" FieldToMatchProperty = JA3FingerprintProperty
+  set newValue FieldToMatchProperty {..}
+    = FieldToMatchProperty {jA3Fingerprint = Prelude.pure newValue, ..}
 instance Property "JsonBody" FieldToMatchProperty where
   type PropertyType "JsonBody" FieldToMatchProperty = JsonBodyProperty
   set newValue FieldToMatchProperty {..}

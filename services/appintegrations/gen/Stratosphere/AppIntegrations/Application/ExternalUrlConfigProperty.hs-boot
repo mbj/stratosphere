@@ -1,0 +1,9 @@
+module Stratosphere.AppIntegrations.Application.ExternalUrlConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExternalUrlConfigProperty :: Prelude.Type
+instance ToResourceProperties ExternalUrlConfigProperty
+instance Prelude.Eq ExternalUrlConfigProperty
+instance Prelude.Show ExternalUrlConfigProperty
+instance JSON.ToJSON ExternalUrlConfigProperty

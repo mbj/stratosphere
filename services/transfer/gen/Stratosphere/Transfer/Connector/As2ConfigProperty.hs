@@ -7,7 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data As2ConfigProperty
-  = As2ConfigProperty {compression :: (Prelude.Maybe (Value Prelude.Text)),
+  = As2ConfigProperty {basicAuthSecretId :: (Prelude.Maybe (Value Prelude.Text)),
+                       compression :: (Prelude.Maybe (Value Prelude.Text)),
                        encryptionAlgorithm :: (Prelude.Maybe (Value Prelude.Text)),
                        localProfileId :: (Prelude.Maybe (Value Prelude.Text)),
                        mdnResponse :: (Prelude.Maybe (Value Prelude.Text)),
@@ -19,7 +20,8 @@ data As2ConfigProperty
 mkAs2ConfigProperty :: As2ConfigProperty
 mkAs2ConfigProperty
   = As2ConfigProperty
-      {compression = Prelude.Nothing,
+      {basicAuthSecretId = Prelude.Nothing,
+       compression = Prelude.Nothing,
        encryptionAlgorithm = Prelude.Nothing,
        localProfileId = Prelude.Nothing, mdnResponse = Prelude.Nothing,
        mdnSigningAlgorithm = Prelude.Nothing,
@@ -33,7 +35,8 @@ instance ToResourceProperties As2ConfigProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Compression" Prelude.<$> compression,
+                           [(JSON..=) "BasicAuthSecretId" Prelude.<$> basicAuthSecretId,
+                            (JSON..=) "Compression" Prelude.<$> compression,
                             (JSON..=) "EncryptionAlgorithm" Prelude.<$> encryptionAlgorithm,
                             (JSON..=) "LocalProfileId" Prelude.<$> localProfileId,
                             (JSON..=) "MdnResponse" Prelude.<$> mdnResponse,
@@ -46,7 +49,8 @@ instance JSON.ToJSON As2ConfigProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Compression" Prelude.<$> compression,
+              [(JSON..=) "BasicAuthSecretId" Prelude.<$> basicAuthSecretId,
+               (JSON..=) "Compression" Prelude.<$> compression,
                (JSON..=) "EncryptionAlgorithm" Prelude.<$> encryptionAlgorithm,
                (JSON..=) "LocalProfileId" Prelude.<$> localProfileId,
                (JSON..=) "MdnResponse" Prelude.<$> mdnResponse,
@@ -54,6 +58,10 @@ instance JSON.ToJSON As2ConfigProperty where
                (JSON..=) "MessageSubject" Prelude.<$> messageSubject,
                (JSON..=) "PartnerProfileId" Prelude.<$> partnerProfileId,
                (JSON..=) "SigningAlgorithm" Prelude.<$> signingAlgorithm]))
+instance Property "BasicAuthSecretId" As2ConfigProperty where
+  type PropertyType "BasicAuthSecretId" As2ConfigProperty = Value Prelude.Text
+  set newValue As2ConfigProperty {..}
+    = As2ConfigProperty {basicAuthSecretId = Prelude.pure newValue, ..}
 instance Property "Compression" As2ConfigProperty where
   type PropertyType "Compression" As2ConfigProperty = Value Prelude.Text
   set newValue As2ConfigProperty {..}

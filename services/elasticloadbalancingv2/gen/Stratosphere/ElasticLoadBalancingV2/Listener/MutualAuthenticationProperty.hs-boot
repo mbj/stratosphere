@@ -1,0 +1,9 @@
+module Stratosphere.ElasticLoadBalancingV2.Listener.MutualAuthenticationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MutualAuthenticationProperty :: Prelude.Type
+instance ToResourceProperties MutualAuthenticationProperty
+instance Prelude.Eq MutualAuthenticationProperty
+instance Prelude.Show MutualAuthenticationProperty
+instance JSON.ToJSON MutualAuthenticationProperty

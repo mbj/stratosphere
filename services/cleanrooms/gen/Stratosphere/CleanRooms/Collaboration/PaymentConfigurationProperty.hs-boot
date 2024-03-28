@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.Collaboration.PaymentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PaymentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PaymentConfigurationProperty
+instance Prelude.Eq PaymentConfigurationProperty
+instance Prelude.Show PaymentConfigurationProperty
+instance JSON.ToJSON PaymentConfigurationProperty

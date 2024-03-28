@@ -12,7 +12,7 @@ data ScalableTarget
   = ScalableTarget {maxCapacity :: (Value Prelude.Integer),
                     minCapacity :: (Value Prelude.Integer),
                     resourceId :: (Value Prelude.Text),
-                    roleARN :: (Value Prelude.Text),
+                    roleARN :: (Prelude.Maybe (Value Prelude.Text)),
                     scalableDimension :: (Value Prelude.Text),
                     scheduledActions :: (Prelude.Maybe [ScheduledActionProperty]),
                     serviceNamespace :: (Value Prelude.Text),
@@ -22,20 +22,17 @@ mkScalableTarget ::
   Value Prelude.Integer
   -> Value Prelude.Integer
      -> Value Prelude.Text
-        -> Value Prelude.Text
-           -> Value Prelude.Text -> Value Prelude.Text -> ScalableTarget
+        -> Value Prelude.Text -> Value Prelude.Text -> ScalableTarget
 mkScalableTarget
   maxCapacity
   minCapacity
   resourceId
-  roleARN
   scalableDimension
   serviceNamespace
   = ScalableTarget
       {maxCapacity = maxCapacity, minCapacity = minCapacity,
-       resourceId = resourceId, roleARN = roleARN,
-       scalableDimension = scalableDimension,
-       serviceNamespace = serviceNamespace,
+       resourceId = resourceId, scalableDimension = scalableDimension,
+       serviceNamespace = serviceNamespace, roleARN = Prelude.Nothing,
        scheduledActions = Prelude.Nothing,
        suspendedState = Prelude.Nothing}
 instance ToResourceProperties ScalableTarget where
@@ -47,11 +44,11 @@ instance ToResourceProperties ScalableTarget where
                         ((Prelude.<>)
                            ["MaxCapacity" JSON..= maxCapacity,
                             "MinCapacity" JSON..= minCapacity, "ResourceId" JSON..= resourceId,
-                            "RoleARN" JSON..= roleARN,
                             "ScalableDimension" JSON..= scalableDimension,
                             "ServiceNamespace" JSON..= serviceNamespace]
                            (Prelude.catMaybes
-                              [(JSON..=) "ScheduledActions" Prelude.<$> scheduledActions,
+                              [(JSON..=) "RoleARN" Prelude.<$> roleARN,
+                               (JSON..=) "ScheduledActions" Prelude.<$> scheduledActions,
                                (JSON..=) "SuspendedState" Prelude.<$> suspendedState]))}
 instance JSON.ToJSON ScalableTarget where
   toJSON ScalableTarget {..}
@@ -60,11 +57,11 @@ instance JSON.ToJSON ScalableTarget where
            ((Prelude.<>)
               ["MaxCapacity" JSON..= maxCapacity,
                "MinCapacity" JSON..= minCapacity, "ResourceId" JSON..= resourceId,
-               "RoleARN" JSON..= roleARN,
                "ScalableDimension" JSON..= scalableDimension,
                "ServiceNamespace" JSON..= serviceNamespace]
               (Prelude.catMaybes
-                 [(JSON..=) "ScheduledActions" Prelude.<$> scheduledActions,
+                 [(JSON..=) "RoleARN" Prelude.<$> roleARN,
+                  (JSON..=) "ScheduledActions" Prelude.<$> scheduledActions,
                   (JSON..=) "SuspendedState" Prelude.<$> suspendedState])))
 instance Property "MaxCapacity" ScalableTarget where
   type PropertyType "MaxCapacity" ScalableTarget = Value Prelude.Integer
@@ -81,7 +78,7 @@ instance Property "ResourceId" ScalableTarget where
 instance Property "RoleARN" ScalableTarget where
   type PropertyType "RoleARN" ScalableTarget = Value Prelude.Text
   set newValue ScalableTarget {..}
-    = ScalableTarget {roleARN = newValue, ..}
+    = ScalableTarget {roleARN = Prelude.pure newValue, ..}
 instance Property "ScalableDimension" ScalableTarget where
   type PropertyType "ScalableDimension" ScalableTarget = Value Prelude.Text
   set newValue ScalableTarget {..}

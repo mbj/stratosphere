@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodeBuild.Project.EnvironmentVariableProperty as Exports
+import {-# SOURCE #-} Stratosphere.CodeBuild.Project.ProjectFleetProperty as Exports
 import {-# SOURCE #-} Stratosphere.CodeBuild.Project.RegistryCredentialProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -12,6 +13,7 @@ data EnvironmentProperty
   = EnvironmentProperty {certificate :: (Prelude.Maybe (Value Prelude.Text)),
                          computeType :: (Value Prelude.Text),
                          environmentVariables :: (Prelude.Maybe [EnvironmentVariableProperty]),
+                         fleet :: (Prelude.Maybe ProjectFleetProperty),
                          image :: (Value Prelude.Text),
                          imagePullCredentialsType :: (Prelude.Maybe (Value Prelude.Text)),
                          privilegedMode :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -25,7 +27,7 @@ mkEnvironmentProperty computeType image type'
   = EnvironmentProperty
       {computeType = computeType, image = image, type' = type',
        certificate = Prelude.Nothing,
-       environmentVariables = Prelude.Nothing,
+       environmentVariables = Prelude.Nothing, fleet = Prelude.Nothing,
        imagePullCredentialsType = Prelude.Nothing,
        privilegedMode = Prelude.Nothing,
        registryCredential = Prelude.Nothing}
@@ -41,6 +43,7 @@ instance ToResourceProperties EnvironmentProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "Certificate" Prelude.<$> certificate,
                                (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
+                               (JSON..=) "Fleet" Prelude.<$> fleet,
                                (JSON..=) "ImagePullCredentialsType"
                                  Prelude.<$> imagePullCredentialsType,
                                (JSON..=) "PrivilegedMode" Prelude.<$> privilegedMode,
@@ -55,6 +58,7 @@ instance JSON.ToJSON EnvironmentProperty where
               (Prelude.catMaybes
                  [(JSON..=) "Certificate" Prelude.<$> certificate,
                   (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
+                  (JSON..=) "Fleet" Prelude.<$> fleet,
                   (JSON..=) "ImagePullCredentialsType"
                     Prelude.<$> imagePullCredentialsType,
                   (JSON..=) "PrivilegedMode" Prelude.<$> privilegedMode,
@@ -72,6 +76,10 @@ instance Property "EnvironmentVariables" EnvironmentProperty where
   set newValue EnvironmentProperty {..}
     = EnvironmentProperty
         {environmentVariables = Prelude.pure newValue, ..}
+instance Property "Fleet" EnvironmentProperty where
+  type PropertyType "Fleet" EnvironmentProperty = ProjectFleetProperty
+  set newValue EnvironmentProperty {..}
+    = EnvironmentProperty {fleet = Prelude.pure newValue, ..}
 instance Property "Image" EnvironmentProperty where
   type PropertyType "Image" EnvironmentProperty = Value Prelude.Text
   set newValue EnvironmentProperty {..}

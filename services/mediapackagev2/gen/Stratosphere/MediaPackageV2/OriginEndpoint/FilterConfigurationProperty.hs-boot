@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.FilterConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FilterConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FilterConfigurationProperty
+instance Prelude.Eq FilterConfigurationProperty
+instance Prelude.Show FilterConfigurationProperty
+instance JSON.ToJSON FilterConfigurationProperty

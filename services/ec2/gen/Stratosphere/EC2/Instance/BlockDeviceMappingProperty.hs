@@ -6,13 +6,12 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.Instance.EbsProperty as Exports
-import {-# SOURCE #-} Stratosphere.EC2.Instance.NoDeviceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BlockDeviceMappingProperty
   = BlockDeviceMappingProperty {deviceName :: (Value Prelude.Text),
                                 ebs :: (Prelude.Maybe EbsProperty),
-                                noDevice :: (Prelude.Maybe NoDeviceProperty),
+                                noDevice :: (Prelude.Maybe JSON.Object),
                                 virtualName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBlockDeviceMappingProperty ::
@@ -52,7 +51,7 @@ instance Property "Ebs" BlockDeviceMappingProperty where
   set newValue BlockDeviceMappingProperty {..}
     = BlockDeviceMappingProperty {ebs = Prelude.pure newValue, ..}
 instance Property "NoDevice" BlockDeviceMappingProperty where
-  type PropertyType "NoDevice" BlockDeviceMappingProperty = NoDeviceProperty
+  type PropertyType "NoDevice" BlockDeviceMappingProperty = JSON.Object
   set newValue BlockDeviceMappingProperty {..}
     = BlockDeviceMappingProperty {noDevice = Prelude.pure newValue, ..}
 instance Property "VirtualName" BlockDeviceMappingProperty where

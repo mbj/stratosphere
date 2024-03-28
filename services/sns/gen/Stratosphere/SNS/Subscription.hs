@@ -15,6 +15,7 @@ data Subscription
                   rawMessageDelivery :: (Prelude.Maybe (Value Prelude.Bool)),
                   redrivePolicy :: (Prelude.Maybe JSON.Object),
                   region :: (Prelude.Maybe (Value Prelude.Text)),
+                  replayPolicy :: (Prelude.Maybe JSON.Object),
                   subscriptionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                   topicArn :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -28,6 +29,7 @@ mkSubscription protocol topicArn
        filterPolicyScope = Prelude.Nothing,
        rawMessageDelivery = Prelude.Nothing,
        redrivePolicy = Prelude.Nothing, region = Prelude.Nothing,
+       replayPolicy = Prelude.Nothing,
        subscriptionRoleArn = Prelude.Nothing}
 instance ToResourceProperties Subscription where
   toResourceProperties Subscription {..}
@@ -44,6 +46,7 @@ instance ToResourceProperties Subscription where
                                (JSON..=) "RawMessageDelivery" Prelude.<$> rawMessageDelivery,
                                (JSON..=) "RedrivePolicy" Prelude.<$> redrivePolicy,
                                (JSON..=) "Region" Prelude.<$> region,
+                               (JSON..=) "ReplayPolicy" Prelude.<$> replayPolicy,
                                (JSON..=) "SubscriptionRoleArn" Prelude.<$> subscriptionRoleArn]))}
 instance JSON.ToJSON Subscription where
   toJSON Subscription {..}
@@ -59,6 +62,7 @@ instance JSON.ToJSON Subscription where
                   (JSON..=) "RawMessageDelivery" Prelude.<$> rawMessageDelivery,
                   (JSON..=) "RedrivePolicy" Prelude.<$> redrivePolicy,
                   (JSON..=) "Region" Prelude.<$> region,
+                  (JSON..=) "ReplayPolicy" Prelude.<$> replayPolicy,
                   (JSON..=) "SubscriptionRoleArn" Prelude.<$> subscriptionRoleArn])))
 instance Property "DeliveryPolicy" Subscription where
   type PropertyType "DeliveryPolicy" Subscription = JSON.Object
@@ -92,6 +96,10 @@ instance Property "Region" Subscription where
   type PropertyType "Region" Subscription = Value Prelude.Text
   set newValue Subscription {..}
     = Subscription {region = Prelude.pure newValue, ..}
+instance Property "ReplayPolicy" Subscription where
+  type PropertyType "ReplayPolicy" Subscription = JSON.Object
+  set newValue Subscription {..}
+    = Subscription {replayPolicy = Prelude.pure newValue, ..}
 instance Property "SubscriptionRoleArn" Subscription where
   type PropertyType "SubscriptionRoleArn" Subscription = Value Prelude.Text
   set newValue Subscription {..}

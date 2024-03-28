@@ -8,28 +8,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CFNKubernetesAuditLogsConfigurationProperty
-  = CFNKubernetesAuditLogsConfigurationProperty {enable :: (Prelude.Maybe (Value Prelude.Bool))}
+  = CFNKubernetesAuditLogsConfigurationProperty {enable :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCFNKubernetesAuditLogsConfigurationProperty ::
-  CFNKubernetesAuditLogsConfigurationProperty
-mkCFNKubernetesAuditLogsConfigurationProperty
-  = CFNKubernetesAuditLogsConfigurationProperty
-      {enable = Prelude.Nothing}
+  Value Prelude.Bool -> CFNKubernetesAuditLogsConfigurationProperty
+mkCFNKubernetesAuditLogsConfigurationProperty enable
+  = CFNKubernetesAuditLogsConfigurationProperty {enable = enable}
 instance ToResourceProperties CFNKubernetesAuditLogsConfigurationProperty where
   toResourceProperties
     CFNKubernetesAuditLogsConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::GuardDuty::Detector.CFNKubernetesAuditLogsConfiguration",
          supportsTags = Prelude.False,
-         properties = Prelude.fromList
-                        (Prelude.catMaybes [(JSON..=) "Enable" Prelude.<$> enable])}
+         properties = ["Enable" JSON..= enable]}
 instance JSON.ToJSON CFNKubernetesAuditLogsConfigurationProperty where
   toJSON CFNKubernetesAuditLogsConfigurationProperty {..}
-    = JSON.object
-        (Prelude.fromList
-           (Prelude.catMaybes [(JSON..=) "Enable" Prelude.<$> enable]))
+    = JSON.object ["Enable" JSON..= enable]
 instance Property "Enable" CFNKubernetesAuditLogsConfigurationProperty where
   type PropertyType "Enable" CFNKubernetesAuditLogsConfigurationProperty = Value Prelude.Bool
   set newValue CFNKubernetesAuditLogsConfigurationProperty {}
     = CFNKubernetesAuditLogsConfigurationProperty
-        {enable = Prelude.pure newValue, ..}
+        {enable = newValue, ..}

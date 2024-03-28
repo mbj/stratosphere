@@ -5,10 +5,12 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTTwinMaker.Entity.ComponentProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoTTwinMaker.Entity.CompositeComponentProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Entity
   = Entity {components :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentProperty)),
+            compositeComponents :: (Prelude.Maybe (Prelude.Map Prelude.Text CompositeComponentProperty)),
             description :: (Prelude.Maybe (Value Prelude.Text)),
             entityId :: (Prelude.Maybe (Value Prelude.Text)),
             entityName :: (Value Prelude.Text),
@@ -20,9 +22,10 @@ mkEntity :: Value Prelude.Text -> Value Prelude.Text -> Entity
 mkEntity entityName workspaceId
   = Entity
       {entityName = entityName, workspaceId = workspaceId,
-       components = Prelude.Nothing, description = Prelude.Nothing,
-       entityId = Prelude.Nothing, parentEntityId = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       components = Prelude.Nothing,
+       compositeComponents = Prelude.Nothing,
+       description = Prelude.Nothing, entityId = Prelude.Nothing,
+       parentEntityId = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Entity where
   toResourceProperties Entity {..}
     = ResourceProperties
@@ -34,6 +37,7 @@ instance ToResourceProperties Entity where
                             "WorkspaceId" JSON..= workspaceId]
                            (Prelude.catMaybes
                               [(JSON..=) "Components" Prelude.<$> components,
+                               (JSON..=) "CompositeComponents" Prelude.<$> compositeComponents,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "EntityId" Prelude.<$> entityId,
                                (JSON..=) "ParentEntityId" Prelude.<$> parentEntityId,
@@ -47,6 +51,7 @@ instance JSON.ToJSON Entity where
                "WorkspaceId" JSON..= workspaceId]
               (Prelude.catMaybes
                  [(JSON..=) "Components" Prelude.<$> components,
+                  (JSON..=) "CompositeComponents" Prelude.<$> compositeComponents,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "EntityId" Prelude.<$> entityId,
                   (JSON..=) "ParentEntityId" Prelude.<$> parentEntityId,
@@ -55,6 +60,10 @@ instance Property "Components" Entity where
   type PropertyType "Components" Entity = Prelude.Map Prelude.Text ComponentProperty
   set newValue Entity {..}
     = Entity {components = Prelude.pure newValue, ..}
+instance Property "CompositeComponents" Entity where
+  type PropertyType "CompositeComponents" Entity = Prelude.Map Prelude.Text CompositeComponentProperty
+  set newValue Entity {..}
+    = Entity {compositeComponents = Prelude.pure newValue, ..}
 instance Property "Description" Entity where
   type PropertyType "Description" Entity = Value Prelude.Text
   set newValue Entity {..}

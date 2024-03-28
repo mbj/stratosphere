@@ -1,0 +1,9 @@
+module Stratosphere.Glue.TableOptimizer.TableOptimizerConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TableOptimizerConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TableOptimizerConfigurationProperty
+instance Prelude.Eq TableOptimizerConfigurationProperty
+instance Prelude.Show TableOptimizerConfigurationProperty
+instance JSON.ToJSON TableOptimizerConfigurationProperty

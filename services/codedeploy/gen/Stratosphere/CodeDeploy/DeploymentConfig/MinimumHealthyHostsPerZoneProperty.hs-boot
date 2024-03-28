@@ -1,0 +1,9 @@
+module Stratosphere.CodeDeploy.DeploymentConfig.MinimumHealthyHostsPerZoneProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MinimumHealthyHostsPerZoneProperty :: Prelude.Type
+instance ToResourceProperties MinimumHealthyHostsPerZoneProperty
+instance Prelude.Eq MinimumHealthyHostsPerZoneProperty
+instance Prelude.Show MinimumHealthyHostsPerZoneProperty
+instance JSON.ToJSON MinimumHealthyHostsPerZoneProperty

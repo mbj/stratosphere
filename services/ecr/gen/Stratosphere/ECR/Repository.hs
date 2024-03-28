@@ -11,7 +11,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Repository
-  = Repository {encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+  = Repository {emptyOnDelete :: (Prelude.Maybe (Value Prelude.Bool)),
+                encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
                 imageScanningConfiguration :: (Prelude.Maybe ImageScanningConfigurationProperty),
                 imageTagMutability :: (Prelude.Maybe (Value Prelude.Text)),
                 lifecyclePolicy :: (Prelude.Maybe LifecyclePolicyProperty),
@@ -22,7 +23,8 @@ data Repository
 mkRepository :: Repository
 mkRepository
   = Repository
-      {encryptionConfiguration = Prelude.Nothing,
+      {emptyOnDelete = Prelude.Nothing,
+       encryptionConfiguration = Prelude.Nothing,
        imageScanningConfiguration = Prelude.Nothing,
        imageTagMutability = Prelude.Nothing,
        lifecyclePolicy = Prelude.Nothing,
@@ -34,7 +36,8 @@ instance ToResourceProperties Repository where
         {awsType = "AWS::ECR::Repository", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "EncryptionConfiguration"
+                           [(JSON..=) "EmptyOnDelete" Prelude.<$> emptyOnDelete,
+                            (JSON..=) "EncryptionConfiguration"
                               Prelude.<$> encryptionConfiguration,
                             (JSON..=) "ImageScanningConfiguration"
                               Prelude.<$> imageScanningConfiguration,
@@ -48,7 +51,8 @@ instance JSON.ToJSON Repository where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "EncryptionConfiguration"
+              [(JSON..=) "EmptyOnDelete" Prelude.<$> emptyOnDelete,
+               (JSON..=) "EncryptionConfiguration"
                  Prelude.<$> encryptionConfiguration,
                (JSON..=) "ImageScanningConfiguration"
                  Prelude.<$> imageScanningConfiguration,
@@ -57,6 +61,10 @@ instance JSON.ToJSON Repository where
                (JSON..=) "RepositoryName" Prelude.<$> repositoryName,
                (JSON..=) "RepositoryPolicyText" Prelude.<$> repositoryPolicyText,
                (JSON..=) "Tags" Prelude.<$> tags]))
+instance Property "EmptyOnDelete" Repository where
+  type PropertyType "EmptyOnDelete" Repository = Value Prelude.Bool
+  set newValue Repository {..}
+    = Repository {emptyOnDelete = Prelude.pure newValue, ..}
 instance Property "EncryptionConfiguration" Repository where
   type PropertyType "EncryptionConfiguration" Repository = EncryptionConfigurationProperty
   set newValue Repository {..}

@@ -1,0 +1,9 @@
+module Stratosphere.Cassandra.Table.TargetTrackingScalingPolicyConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetTrackingScalingPolicyConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TargetTrackingScalingPolicyConfigurationProperty
+instance Prelude.Eq TargetTrackingScalingPolicyConfigurationProperty
+instance Prelude.Show TargetTrackingScalingPolicyConfigurationProperty
+instance JSON.ToJSON TargetTrackingScalingPolicyConfigurationProperty

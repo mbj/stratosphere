@@ -1,0 +1,9 @@
+module Stratosphere.DMS.MigrationProject.SchemaConversionApplicationAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SchemaConversionApplicationAttributesProperty :: Prelude.Type
+instance ToResourceProperties SchemaConversionApplicationAttributesProperty
+instance Prelude.Eq SchemaConversionApplicationAttributesProperty
+instance Prelude.Show SchemaConversionApplicationAttributesProperty
+instance JSON.ToJSON SchemaConversionApplicationAttributesProperty

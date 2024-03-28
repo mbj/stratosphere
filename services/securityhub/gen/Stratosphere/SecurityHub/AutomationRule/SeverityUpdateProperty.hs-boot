@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRule.SeverityUpdateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SeverityUpdateProperty :: Prelude.Type
+instance ToResourceProperties SeverityUpdateProperty
+instance Prelude.Eq SeverityUpdateProperty
+instance Prelude.Show SeverityUpdateProperty
+instance JSON.ToJSON SeverityUpdateProperty

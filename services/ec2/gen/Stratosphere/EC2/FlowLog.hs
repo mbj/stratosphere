@@ -9,7 +9,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data FlowLog
-  = FlowLog {deliverLogsPermissionArn :: (Prelude.Maybe (Value Prelude.Text)),
+  = FlowLog {deliverCrossAccountRole :: (Prelude.Maybe (Value Prelude.Text)),
+             deliverLogsPermissionArn :: (Prelude.Maybe (Value Prelude.Text)),
              destinationOptions :: (Prelude.Maybe DestinationOptionsProperty),
              logDestination :: (Prelude.Maybe (Value Prelude.Text)),
              logDestinationType :: (Prelude.Maybe (Value Prelude.Text)),
@@ -25,6 +26,7 @@ mkFlowLog :: Value Prelude.Text -> Value Prelude.Text -> FlowLog
 mkFlowLog resourceId resourceType
   = FlowLog
       {resourceId = resourceId, resourceType = resourceType,
+       deliverCrossAccountRole = Prelude.Nothing,
        deliverLogsPermissionArn = Prelude.Nothing,
        destinationOptions = Prelude.Nothing,
        logDestination = Prelude.Nothing,
@@ -41,7 +43,9 @@ instance ToResourceProperties FlowLog where
                            ["ResourceId" JSON..= resourceId,
                             "ResourceType" JSON..= resourceType]
                            (Prelude.catMaybes
-                              [(JSON..=) "DeliverLogsPermissionArn"
+                              [(JSON..=) "DeliverCrossAccountRole"
+                                 Prelude.<$> deliverCrossAccountRole,
+                               (JSON..=) "DeliverLogsPermissionArn"
                                  Prelude.<$> deliverLogsPermissionArn,
                                (JSON..=) "DestinationOptions" Prelude.<$> destinationOptions,
                                (JSON..=) "LogDestination" Prelude.<$> logDestination,
@@ -60,7 +64,9 @@ instance JSON.ToJSON FlowLog where
               ["ResourceId" JSON..= resourceId,
                "ResourceType" JSON..= resourceType]
               (Prelude.catMaybes
-                 [(JSON..=) "DeliverLogsPermissionArn"
+                 [(JSON..=) "DeliverCrossAccountRole"
+                    Prelude.<$> deliverCrossAccountRole,
+                  (JSON..=) "DeliverLogsPermissionArn"
                     Prelude.<$> deliverLogsPermissionArn,
                   (JSON..=) "DestinationOptions" Prelude.<$> destinationOptions,
                   (JSON..=) "LogDestination" Prelude.<$> logDestination,
@@ -71,6 +77,10 @@ instance JSON.ToJSON FlowLog where
                     Prelude.<$> maxAggregationInterval,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TrafficType" Prelude.<$> trafficType])))
+instance Property "DeliverCrossAccountRole" FlowLog where
+  type PropertyType "DeliverCrossAccountRole" FlowLog = Value Prelude.Text
+  set newValue FlowLog {..}
+    = FlowLog {deliverCrossAccountRole = Prelude.pure newValue, ..}
 instance Property "DeliverLogsPermissionArn" FlowLog where
   type PropertyType "DeliverLogsPermissionArn" FlowLog = Value Prelude.Text
   set newValue FlowLog {..}

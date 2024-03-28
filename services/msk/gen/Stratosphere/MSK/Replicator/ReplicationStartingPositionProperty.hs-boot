@@ -1,0 +1,9 @@
+module Stratosphere.MSK.Replicator.ReplicationStartingPositionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplicationStartingPositionProperty :: Prelude.Type
+instance ToResourceProperties ReplicationStartingPositionProperty
+instance Prelude.Eq ReplicationStartingPositionProperty
+instance Prelude.Show ReplicationStartingPositionProperty
+instance JSON.ToJSON ReplicationStartingPositionProperty

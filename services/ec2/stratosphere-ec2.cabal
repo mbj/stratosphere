@@ -89,17 +89,18 @@ library
       Stratosphere.EC2.Instance.LaunchTemplateSpecificationProperty
       Stratosphere.EC2.Instance.LicenseSpecificationProperty
       Stratosphere.EC2.Instance.NetworkInterfaceProperty
-      Stratosphere.EC2.Instance.NoDeviceProperty
       Stratosphere.EC2.Instance.PrivateDnsNameOptionsProperty
       Stratosphere.EC2.Instance.PrivateIpAddressSpecificationProperty
       Stratosphere.EC2.Instance.SsmAssociationProperty
       Stratosphere.EC2.Instance.VolumeProperty
+      Stratosphere.EC2.InstanceConnectEndpoint
       Stratosphere.EC2.InternetGateway
       Stratosphere.EC2.IPAM
       Stratosphere.EC2.IPAM.IpamOperatingRegionProperty
       Stratosphere.EC2.IPAMAllocation
       Stratosphere.EC2.IPAMPool
       Stratosphere.EC2.IPAMPool.ProvisionedCidrProperty
+      Stratosphere.EC2.IPAMPool.SourceResourceProperty
       Stratosphere.EC2.IPAMPoolCidr
       Stratosphere.EC2.IPAMResourceDiscovery
       Stratosphere.EC2.IPAMResourceDiscovery.IpamOperatingRegionProperty
@@ -113,10 +114,13 @@ library
       Stratosphere.EC2.LaunchTemplate.BlockDeviceMappingProperty
       Stratosphere.EC2.LaunchTemplate.CapacityReservationSpecificationProperty
       Stratosphere.EC2.LaunchTemplate.CapacityReservationTargetProperty
+      Stratosphere.EC2.LaunchTemplate.ConnectionTrackingSpecificationProperty
       Stratosphere.EC2.LaunchTemplate.CpuOptionsProperty
       Stratosphere.EC2.LaunchTemplate.CreditSpecificationProperty
       Stratosphere.EC2.LaunchTemplate.EbsProperty
       Stratosphere.EC2.LaunchTemplate.ElasticGpuSpecificationProperty
+      Stratosphere.EC2.LaunchTemplate.EnaSrdSpecificationProperty
+      Stratosphere.EC2.LaunchTemplate.EnaSrdUdpSpecificationProperty
       Stratosphere.EC2.LaunchTemplate.EnclaveOptionsProperty
       Stratosphere.EC2.LaunchTemplate.HibernationOptionsProperty
       Stratosphere.EC2.LaunchTemplate.IamInstanceProfileProperty
@@ -178,9 +182,14 @@ library
       Stratosphere.EC2.NetworkInsightsPath.FilterPortRangeProperty
       Stratosphere.EC2.NetworkInsightsPath.PathFilterProperty
       Stratosphere.EC2.NetworkInterface
+      Stratosphere.EC2.NetworkInterface.ConnectionTrackingSpecificationProperty
       Stratosphere.EC2.NetworkInterface.InstanceIpv6AddressProperty
+      Stratosphere.EC2.NetworkInterface.Ipv4PrefixSpecificationProperty
+      Stratosphere.EC2.NetworkInterface.Ipv6PrefixSpecificationProperty
       Stratosphere.EC2.NetworkInterface.PrivateIpAddressSpecificationProperty
       Stratosphere.EC2.NetworkInterfaceAttachment
+      Stratosphere.EC2.NetworkInterfaceAttachment.EnaSrdSpecificationProperty
+      Stratosphere.EC2.NetworkInterfaceAttachment.EnaSrdUdpSpecificationProperty
       Stratosphere.EC2.NetworkInterfacePermission
       Stratosphere.EC2.NetworkPerformanceMetricSubscription
       Stratosphere.EC2.PlacementGroup
@@ -193,6 +202,7 @@ library
       Stratosphere.EC2.SecurityGroup.IngressProperty
       Stratosphere.EC2.SecurityGroupEgress
       Stratosphere.EC2.SecurityGroupIngress
+      Stratosphere.EC2.SnapshotBlockPublicAccess
       Stratosphere.EC2.SpotFleet
       Stratosphere.EC2.SpotFleet.AcceleratorCountRequestProperty
       Stratosphere.EC2.SpotFleet.AcceleratorTotalMemoryMiBRequestProperty
@@ -257,7 +267,9 @@ library
       Stratosphere.EC2.VerifiedAccessEndpoint
       Stratosphere.EC2.VerifiedAccessEndpoint.LoadBalancerOptionsProperty
       Stratosphere.EC2.VerifiedAccessEndpoint.NetworkInterfaceOptionsProperty
+      Stratosphere.EC2.VerifiedAccessEndpoint.SseSpecificationProperty
       Stratosphere.EC2.VerifiedAccessGroup
+      Stratosphere.EC2.VerifiedAccessGroup.SseSpecificationProperty
       Stratosphere.EC2.VerifiedAccessInstance
       Stratosphere.EC2.VerifiedAccessInstance.CloudWatchLogsProperty
       Stratosphere.EC2.VerifiedAccessInstance.KinesisDataFirehoseProperty
@@ -267,6 +279,7 @@ library
       Stratosphere.EC2.VerifiedAccessTrustProvider
       Stratosphere.EC2.VerifiedAccessTrustProvider.DeviceOptionsProperty
       Stratosphere.EC2.VerifiedAccessTrustProvider.OidcOptionsProperty
+      Stratosphere.EC2.VerifiedAccessTrustProvider.SseSpecificationProperty
       Stratosphere.EC2.Volume
       Stratosphere.EC2.VolumeAttachment
       Stratosphere.EC2.VPC

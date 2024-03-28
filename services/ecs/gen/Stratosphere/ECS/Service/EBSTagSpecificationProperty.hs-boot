@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.EBSTagSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EBSTagSpecificationProperty :: Prelude.Type
+instance ToResourceProperties EBSTagSpecificationProperty
+instance Prelude.Eq EBSTagSpecificationProperty
+instance Prelude.Show EBSTagSpecificationProperty
+instance JSON.ToJSON EBSTagSpecificationProperty

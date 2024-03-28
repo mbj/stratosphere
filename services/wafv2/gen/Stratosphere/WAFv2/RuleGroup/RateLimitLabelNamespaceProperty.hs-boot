@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.RuleGroup.RateLimitLabelNamespaceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RateLimitLabelNamespaceProperty :: Prelude.Type
+instance ToResourceProperties RateLimitLabelNamespaceProperty
+instance Prelude.Eq RateLimitLabelNamespaceProperty
+instance Prelude.Show RateLimitLabelNamespaceProperty
+instance JSON.ToJSON RateLimitLabelNamespaceProperty

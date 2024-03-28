@@ -6,16 +6,19 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.PivotTableDataPathOptionProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.PivotTableFieldCollapseStateOptionProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.PivotTableFieldOptionProperty as Exports
 import Stratosphere.ResourceProperties
 data PivotTableFieldOptionsProperty
-  = PivotTableFieldOptionsProperty {dataPathOptions :: (Prelude.Maybe [PivotTableDataPathOptionProperty]),
+  = PivotTableFieldOptionsProperty {collapseStateOptions :: (Prelude.Maybe [PivotTableFieldCollapseStateOptionProperty]),
+                                    dataPathOptions :: (Prelude.Maybe [PivotTableDataPathOptionProperty]),
                                     selectedFieldOptions :: (Prelude.Maybe [PivotTableFieldOptionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableFieldOptionsProperty :: PivotTableFieldOptionsProperty
 mkPivotTableFieldOptionsProperty
   = PivotTableFieldOptionsProperty
-      {dataPathOptions = Prelude.Nothing,
+      {collapseStateOptions = Prelude.Nothing,
+       dataPathOptions = Prelude.Nothing,
        selectedFieldOptions = Prelude.Nothing}
 instance ToResourceProperties PivotTableFieldOptionsProperty where
   toResourceProperties PivotTableFieldOptionsProperty {..}
@@ -24,7 +27,8 @@ instance ToResourceProperties PivotTableFieldOptionsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "DataPathOptions" Prelude.<$> dataPathOptions,
+                           [(JSON..=) "CollapseStateOptions" Prelude.<$> collapseStateOptions,
+                            (JSON..=) "DataPathOptions" Prelude.<$> dataPathOptions,
                             (JSON..=) "SelectedFieldOptions"
                               Prelude.<$> selectedFieldOptions])}
 instance JSON.ToJSON PivotTableFieldOptionsProperty where
@@ -32,9 +36,15 @@ instance JSON.ToJSON PivotTableFieldOptionsProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "DataPathOptions" Prelude.<$> dataPathOptions,
+              [(JSON..=) "CollapseStateOptions" Prelude.<$> collapseStateOptions,
+               (JSON..=) "DataPathOptions" Prelude.<$> dataPathOptions,
                (JSON..=) "SelectedFieldOptions"
                  Prelude.<$> selectedFieldOptions]))
+instance Property "CollapseStateOptions" PivotTableFieldOptionsProperty where
+  type PropertyType "CollapseStateOptions" PivotTableFieldOptionsProperty = [PivotTableFieldCollapseStateOptionProperty]
+  set newValue PivotTableFieldOptionsProperty {..}
+    = PivotTableFieldOptionsProperty
+        {collapseStateOptions = Prelude.pure newValue, ..}
 instance Property "DataPathOptions" PivotTableFieldOptionsProperty where
   type PropertyType "DataPathOptions" PivotTableFieldOptionsProperty = [PivotTableDataPathOptionProperty]
   set newValue PivotTableFieldOptionsProperty {..}

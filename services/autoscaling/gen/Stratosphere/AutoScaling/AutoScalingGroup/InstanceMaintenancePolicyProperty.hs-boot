@@ -1,0 +1,9 @@
+module Stratosphere.AutoScaling.AutoScalingGroup.InstanceMaintenancePolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceMaintenancePolicyProperty :: Prelude.Type
+instance ToResourceProperties InstanceMaintenancePolicyProperty
+instance Prelude.Eq InstanceMaintenancePolicyProperty
+instance Prelude.Show InstanceMaintenancePolicyProperty
+instance JSON.ToJSON InstanceMaintenancePolicyProperty

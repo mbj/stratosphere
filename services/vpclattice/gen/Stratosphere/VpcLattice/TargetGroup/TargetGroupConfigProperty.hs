@@ -11,44 +11,47 @@ import Stratosphere.Value
 data TargetGroupConfigProperty
   = TargetGroupConfigProperty {healthCheck :: (Prelude.Maybe HealthCheckConfigProperty),
                                ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
-                               port :: (Value Prelude.Integer),
-                               protocol :: (Value Prelude.Text),
+                               lambdaEventStructureVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                               port :: (Prelude.Maybe (Value Prelude.Integer)),
+                               protocol :: (Prelude.Maybe (Value Prelude.Text)),
                                protocolVersion :: (Prelude.Maybe (Value Prelude.Text)),
-                               vpcIdentifier :: (Value Prelude.Text)}
+                               vpcIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkTargetGroupConfigProperty ::
-  Value Prelude.Integer
-  -> Value Prelude.Text
-     -> Value Prelude.Text -> TargetGroupConfigProperty
-mkTargetGroupConfigProperty port protocol vpcIdentifier
+mkTargetGroupConfigProperty :: TargetGroupConfigProperty
+mkTargetGroupConfigProperty
   = TargetGroupConfigProperty
-      {port = port, protocol = protocol, vpcIdentifier = vpcIdentifier,
-       healthCheck = Prelude.Nothing, ipAddressType = Prelude.Nothing,
-       protocolVersion = Prelude.Nothing}
+      {healthCheck = Prelude.Nothing, ipAddressType = Prelude.Nothing,
+       lambdaEventStructureVersion = Prelude.Nothing,
+       port = Prelude.Nothing, protocol = Prelude.Nothing,
+       protocolVersion = Prelude.Nothing, vpcIdentifier = Prelude.Nothing}
 instance ToResourceProperties TargetGroupConfigProperty where
   toResourceProperties TargetGroupConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::VpcLattice::TargetGroup.TargetGroupConfig",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["Port" JSON..= port, "Protocol" JSON..= protocol,
-                            "VpcIdentifier" JSON..= vpcIdentifier]
-                           (Prelude.catMaybes
-                              [(JSON..=) "HealthCheck" Prelude.<$> healthCheck,
-                               (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
-                               (JSON..=) "ProtocolVersion" Prelude.<$> protocolVersion]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "HealthCheck" Prelude.<$> healthCheck,
+                            (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
+                            (JSON..=) "LambdaEventStructureVersion"
+                              Prelude.<$> lambdaEventStructureVersion,
+                            (JSON..=) "Port" Prelude.<$> port,
+                            (JSON..=) "Protocol" Prelude.<$> protocol,
+                            (JSON..=) "ProtocolVersion" Prelude.<$> protocolVersion,
+                            (JSON..=) "VpcIdentifier" Prelude.<$> vpcIdentifier])}
 instance JSON.ToJSON TargetGroupConfigProperty where
   toJSON TargetGroupConfigProperty {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["Port" JSON..= port, "Protocol" JSON..= protocol,
-               "VpcIdentifier" JSON..= vpcIdentifier]
-              (Prelude.catMaybes
-                 [(JSON..=) "HealthCheck" Prelude.<$> healthCheck,
-                  (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
-                  (JSON..=) "ProtocolVersion" Prelude.<$> protocolVersion])))
+           (Prelude.catMaybes
+              [(JSON..=) "HealthCheck" Prelude.<$> healthCheck,
+               (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
+               (JSON..=) "LambdaEventStructureVersion"
+                 Prelude.<$> lambdaEventStructureVersion,
+               (JSON..=) "Port" Prelude.<$> port,
+               (JSON..=) "Protocol" Prelude.<$> protocol,
+               (JSON..=) "ProtocolVersion" Prelude.<$> protocolVersion,
+               (JSON..=) "VpcIdentifier" Prelude.<$> vpcIdentifier]))
 instance Property "HealthCheck" TargetGroupConfigProperty where
   type PropertyType "HealthCheck" TargetGroupConfigProperty = HealthCheckConfigProperty
   set newValue TargetGroupConfigProperty {..}
@@ -59,14 +62,19 @@ instance Property "IpAddressType" TargetGroupConfigProperty where
   set newValue TargetGroupConfigProperty {..}
     = TargetGroupConfigProperty
         {ipAddressType = Prelude.pure newValue, ..}
+instance Property "LambdaEventStructureVersion" TargetGroupConfigProperty where
+  type PropertyType "LambdaEventStructureVersion" TargetGroupConfigProperty = Value Prelude.Text
+  set newValue TargetGroupConfigProperty {..}
+    = TargetGroupConfigProperty
+        {lambdaEventStructureVersion = Prelude.pure newValue, ..}
 instance Property "Port" TargetGroupConfigProperty where
   type PropertyType "Port" TargetGroupConfigProperty = Value Prelude.Integer
   set newValue TargetGroupConfigProperty {..}
-    = TargetGroupConfigProperty {port = newValue, ..}
+    = TargetGroupConfigProperty {port = Prelude.pure newValue, ..}
 instance Property "Protocol" TargetGroupConfigProperty where
   type PropertyType "Protocol" TargetGroupConfigProperty = Value Prelude.Text
   set newValue TargetGroupConfigProperty {..}
-    = TargetGroupConfigProperty {protocol = newValue, ..}
+    = TargetGroupConfigProperty {protocol = Prelude.pure newValue, ..}
 instance Property "ProtocolVersion" TargetGroupConfigProperty where
   type PropertyType "ProtocolVersion" TargetGroupConfigProperty = Value Prelude.Text
   set newValue TargetGroupConfigProperty {..}
@@ -75,4 +83,5 @@ instance Property "ProtocolVersion" TargetGroupConfigProperty where
 instance Property "VpcIdentifier" TargetGroupConfigProperty where
   type PropertyType "VpcIdentifier" TargetGroupConfigProperty = Value Prelude.Text
   set newValue TargetGroupConfigProperty {..}
-    = TargetGroupConfigProperty {vpcIdentifier = newValue, ..}
+    = TargetGroupConfigProperty
+        {vpcIdentifier = Prelude.pure newValue, ..}

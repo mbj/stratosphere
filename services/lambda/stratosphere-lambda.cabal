@@ -55,6 +55,7 @@ library
       Stratosphere.Lambda.Function.EphemeralStorageProperty
       Stratosphere.Lambda.Function.FileSystemConfigProperty
       Stratosphere.Lambda.Function.ImageConfigProperty
+      Stratosphere.Lambda.Function.LoggingConfigProperty
       Stratosphere.Lambda.Function.RuntimeManagementConfigProperty
       Stratosphere.Lambda.Function.SnapStartProperty
       Stratosphere.Lambda.Function.SnapStartResponseProperty
@@ -68,6 +69,7 @@ library
       Stratosphere.Lambda.Url.CorsProperty
       Stratosphere.Lambda.Version
       Stratosphere.Lambda.Version.ProvisionedConcurrencyConfigurationProperty
+      Stratosphere.Lambda.Version.RuntimePolicyProperty
   other-modules:
       Paths_stratosphere_lambda
   hs-source-dirs:

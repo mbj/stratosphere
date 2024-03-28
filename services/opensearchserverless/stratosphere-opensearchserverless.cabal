@@ -27,6 +27,7 @@ library
   exposed-modules:
       Stratosphere.OpenSearchServerless.AccessPolicy
       Stratosphere.OpenSearchServerless.Collection
+      Stratosphere.OpenSearchServerless.LifecyclePolicy
       Stratosphere.OpenSearchServerless.SecurityConfig
       Stratosphere.OpenSearchServerless.SecurityConfig.SamlConfigOptionsProperty
       Stratosphere.OpenSearchServerless.SecurityPolicy

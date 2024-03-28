@@ -1,0 +1,9 @@
+module Stratosphere.AppFlow.Flow.DataTransferApiProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataTransferApiProperty :: Prelude.Type
+instance ToResourceProperties DataTransferApiProperty
+instance Prelude.Eq DataTransferApiProperty
+instance Prelude.Show DataTransferApiProperty
+instance JSON.ToJSON DataTransferApiProperty

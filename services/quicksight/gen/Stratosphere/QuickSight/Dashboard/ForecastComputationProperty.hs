@@ -18,23 +18,22 @@ data ForecastComputationProperty
                                  periodsForward :: (Prelude.Maybe (Value Prelude.Double)),
                                  predictionInterval :: (Prelude.Maybe (Value Prelude.Double)),
                                  seasonality :: (Prelude.Maybe (Value Prelude.Text)),
-                                 time :: DimensionFieldProperty,
+                                 time :: (Prelude.Maybe DimensionFieldProperty),
                                  upperBoundary :: (Prelude.Maybe (Value Prelude.Double)),
                                  value :: (Prelude.Maybe MeasureFieldProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkForecastComputationProperty ::
-  Value Prelude.Text
-  -> DimensionFieldProperty -> ForecastComputationProperty
-mkForecastComputationProperty computationId time
+  Value Prelude.Text -> ForecastComputationProperty
+mkForecastComputationProperty computationId
   = ForecastComputationProperty
-      {computationId = computationId, time = time,
+      {computationId = computationId,
        customSeasonalityValue = Prelude.Nothing,
        lowerBoundary = Prelude.Nothing, name = Prelude.Nothing,
        periodsBackward = Prelude.Nothing,
        periodsForward = Prelude.Nothing,
        predictionInterval = Prelude.Nothing,
-       seasonality = Prelude.Nothing, upperBoundary = Prelude.Nothing,
-       value = Prelude.Nothing}
+       seasonality = Prelude.Nothing, time = Prelude.Nothing,
+       upperBoundary = Prelude.Nothing, value = Prelude.Nothing}
 instance ToResourceProperties ForecastComputationProperty where
   toResourceProperties ForecastComputationProperty {..}
     = ResourceProperties
@@ -42,7 +41,7 @@ instance ToResourceProperties ForecastComputationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ComputationId" JSON..= computationId, "Time" JSON..= time]
+                           ["ComputationId" JSON..= computationId]
                            (Prelude.catMaybes
                               [(JSON..=) "CustomSeasonalityValue"
                                  Prelude.<$> customSeasonalityValue,
@@ -52,6 +51,7 @@ instance ToResourceProperties ForecastComputationProperty where
                                (JSON..=) "PeriodsForward" Prelude.<$> periodsForward,
                                (JSON..=) "PredictionInterval" Prelude.<$> predictionInterval,
                                (JSON..=) "Seasonality" Prelude.<$> seasonality,
+                               (JSON..=) "Time" Prelude.<$> time,
                                (JSON..=) "UpperBoundary" Prelude.<$> upperBoundary,
                                (JSON..=) "Value" Prelude.<$> value]))}
 instance JSON.ToJSON ForecastComputationProperty where
@@ -59,7 +59,7 @@ instance JSON.ToJSON ForecastComputationProperty where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ComputationId" JSON..= computationId, "Time" JSON..= time]
+              ["ComputationId" JSON..= computationId]
               (Prelude.catMaybes
                  [(JSON..=) "CustomSeasonalityValue"
                     Prelude.<$> customSeasonalityValue,
@@ -69,6 +69,7 @@ instance JSON.ToJSON ForecastComputationProperty where
                   (JSON..=) "PeriodsForward" Prelude.<$> periodsForward,
                   (JSON..=) "PredictionInterval" Prelude.<$> predictionInterval,
                   (JSON..=) "Seasonality" Prelude.<$> seasonality,
+                  (JSON..=) "Time" Prelude.<$> time,
                   (JSON..=) "UpperBoundary" Prelude.<$> upperBoundary,
                   (JSON..=) "Value" Prelude.<$> value])))
 instance Property "ComputationId" ForecastComputationProperty where
@@ -112,7 +113,7 @@ instance Property "Seasonality" ForecastComputationProperty where
 instance Property "Time" ForecastComputationProperty where
   type PropertyType "Time" ForecastComputationProperty = DimensionFieldProperty
   set newValue ForecastComputationProperty {..}
-    = ForecastComputationProperty {time = newValue, ..}
+    = ForecastComputationProperty {time = Prelude.pure newValue, ..}
 instance Property "UpperBoundary" ForecastComputationProperty where
   type PropertyType "UpperBoundary" ForecastComputationProperty = Value Prelude.Double
   set newValue ForecastComputationProperty {..}

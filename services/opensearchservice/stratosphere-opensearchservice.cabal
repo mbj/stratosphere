@@ -29,6 +29,7 @@ library
       Stratosphere.OpenSearchService.Domain.AdvancedSecurityOptionsInputProperty
       Stratosphere.OpenSearchService.Domain.ClusterConfigProperty
       Stratosphere.OpenSearchService.Domain.CognitoOptionsProperty
+      Stratosphere.OpenSearchService.Domain.ColdStorageOptionsProperty
       Stratosphere.OpenSearchService.Domain.DomainEndpointOptionsProperty
       Stratosphere.OpenSearchService.Domain.EBSOptionsProperty
       Stratosphere.OpenSearchService.Domain.EncryptionAtRestOptionsProperty

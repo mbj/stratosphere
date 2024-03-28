@@ -10,6 +10,8 @@ data M3u8SettingsProperty
   = M3u8SettingsProperty {audioFramesPerPes :: (Prelude.Maybe (Value Prelude.Integer)),
                           audioPids :: (Prelude.Maybe (Value Prelude.Text)),
                           ecmPid :: (Prelude.Maybe (Value Prelude.Text)),
+                          klvBehavior :: (Prelude.Maybe (Value Prelude.Text)),
+                          klvDataPids :: (Prelude.Maybe (Value Prelude.Text)),
                           nielsenId3Behavior :: (Prelude.Maybe (Value Prelude.Text)),
                           patInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                           pcrControl :: (Prelude.Maybe (Value Prelude.Text)),
@@ -29,7 +31,9 @@ mkM3u8SettingsProperty :: M3u8SettingsProperty
 mkM3u8SettingsProperty
   = M3u8SettingsProperty
       {audioFramesPerPes = Prelude.Nothing, audioPids = Prelude.Nothing,
-       ecmPid = Prelude.Nothing, nielsenId3Behavior = Prelude.Nothing,
+       ecmPid = Prelude.Nothing, klvBehavior = Prelude.Nothing,
+       klvDataPids = Prelude.Nothing,
+       nielsenId3Behavior = Prelude.Nothing,
        patInterval = Prelude.Nothing, pcrControl = Prelude.Nothing,
        pcrPeriod = Prelude.Nothing, pcrPid = Prelude.Nothing,
        pmtInterval = Prelude.Nothing, pmtPid = Prelude.Nothing,
@@ -48,6 +52,8 @@ instance ToResourceProperties M3u8SettingsProperty where
                            [(JSON..=) "AudioFramesPerPes" Prelude.<$> audioFramesPerPes,
                             (JSON..=) "AudioPids" Prelude.<$> audioPids,
                             (JSON..=) "EcmPid" Prelude.<$> ecmPid,
+                            (JSON..=) "KlvBehavior" Prelude.<$> klvBehavior,
+                            (JSON..=) "KlvDataPids" Prelude.<$> klvDataPids,
                             (JSON..=) "NielsenId3Behavior" Prelude.<$> nielsenId3Behavior,
                             (JSON..=) "PatInterval" Prelude.<$> patInterval,
                             (JSON..=) "PcrControl" Prelude.<$> pcrControl,
@@ -71,6 +77,8 @@ instance JSON.ToJSON M3u8SettingsProperty where
               [(JSON..=) "AudioFramesPerPes" Prelude.<$> audioFramesPerPes,
                (JSON..=) "AudioPids" Prelude.<$> audioPids,
                (JSON..=) "EcmPid" Prelude.<$> ecmPid,
+               (JSON..=) "KlvBehavior" Prelude.<$> klvBehavior,
+               (JSON..=) "KlvDataPids" Prelude.<$> klvDataPids,
                (JSON..=) "NielsenId3Behavior" Prelude.<$> nielsenId3Behavior,
                (JSON..=) "PatInterval" Prelude.<$> patInterval,
                (JSON..=) "PcrControl" Prelude.<$> pcrControl,
@@ -99,6 +107,14 @@ instance Property "EcmPid" M3u8SettingsProperty where
   type PropertyType "EcmPid" M3u8SettingsProperty = Value Prelude.Text
   set newValue M3u8SettingsProperty {..}
     = M3u8SettingsProperty {ecmPid = Prelude.pure newValue, ..}
+instance Property "KlvBehavior" M3u8SettingsProperty where
+  type PropertyType "KlvBehavior" M3u8SettingsProperty = Value Prelude.Text
+  set newValue M3u8SettingsProperty {..}
+    = M3u8SettingsProperty {klvBehavior = Prelude.pure newValue, ..}
+instance Property "KlvDataPids" M3u8SettingsProperty where
+  type PropertyType "KlvDataPids" M3u8SettingsProperty = Value Prelude.Text
+  set newValue M3u8SettingsProperty {..}
+    = M3u8SettingsProperty {klvDataPids = Prelude.pure newValue, ..}
 instance Property "NielsenId3Behavior" M3u8SettingsProperty where
   type PropertyType "NielsenId3Behavior" M3u8SettingsProperty = Value Prelude.Text
   set newValue M3u8SettingsProperty {..}

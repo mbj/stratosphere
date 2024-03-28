@@ -1,9 +1,10 @@
 module Stratosphere.EC2.VerifiedAccessGroup (
-        VerifiedAccessGroup(..), mkVerifiedAccessGroup
+        module Exports, VerifiedAccessGroup(..), mkVerifiedAccessGroup
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessGroup.SseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -11,6 +12,7 @@ data VerifiedAccessGroup
   = VerifiedAccessGroup {description :: (Prelude.Maybe (Value Prelude.Text)),
                          policyDocument :: (Prelude.Maybe (Value Prelude.Text)),
                          policyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                         sseSpecification :: (Prelude.Maybe SseSpecificationProperty),
                          tags :: (Prelude.Maybe [Tag]),
                          verifiedAccessInstanceId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -19,7 +21,8 @@ mkVerifiedAccessGroup verifiedAccessInstanceId
   = VerifiedAccessGroup
       {verifiedAccessInstanceId = verifiedAccessInstanceId,
        description = Prelude.Nothing, policyDocument = Prelude.Nothing,
-       policyEnabled = Prelude.Nothing, tags = Prelude.Nothing}
+       policyEnabled = Prelude.Nothing,
+       sseSpecification = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties VerifiedAccessGroup where
   toResourceProperties VerifiedAccessGroup {..}
     = ResourceProperties
@@ -32,6 +35,7 @@ instance ToResourceProperties VerifiedAccessGroup where
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "PolicyDocument" Prelude.<$> policyDocument,
                                (JSON..=) "PolicyEnabled" Prelude.<$> policyEnabled,
+                               (JSON..=) "SseSpecification" Prelude.<$> sseSpecification,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON VerifiedAccessGroup where
   toJSON VerifiedAccessGroup {..}
@@ -43,6 +47,7 @@ instance JSON.ToJSON VerifiedAccessGroup where
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "PolicyDocument" Prelude.<$> policyDocument,
                   (JSON..=) "PolicyEnabled" Prelude.<$> policyEnabled,
+                  (JSON..=) "SseSpecification" Prelude.<$> sseSpecification,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" VerifiedAccessGroup where
   type PropertyType "Description" VerifiedAccessGroup = Value Prelude.Text
@@ -56,6 +61,11 @@ instance Property "PolicyEnabled" VerifiedAccessGroup where
   type PropertyType "PolicyEnabled" VerifiedAccessGroup = Value Prelude.Bool
   set newValue VerifiedAccessGroup {..}
     = VerifiedAccessGroup {policyEnabled = Prelude.pure newValue, ..}
+instance Property "SseSpecification" VerifiedAccessGroup where
+  type PropertyType "SseSpecification" VerifiedAccessGroup = SseSpecificationProperty
+  set newValue VerifiedAccessGroup {..}
+    = VerifiedAccessGroup
+        {sseSpecification = Prelude.pure newValue, ..}
 instance Property "Tags" VerifiedAccessGroup where
   type PropertyType "Tags" VerifiedAccessGroup = [Tag]
   set newValue VerifiedAccessGroup {..}

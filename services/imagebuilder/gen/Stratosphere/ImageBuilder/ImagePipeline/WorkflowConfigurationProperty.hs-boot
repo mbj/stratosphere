@@ -1,0 +1,9 @@
+module Stratosphere.ImageBuilder.ImagePipeline.WorkflowConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WorkflowConfigurationProperty :: Prelude.Type
+instance ToResourceProperties WorkflowConfigurationProperty
+instance Prelude.Eq WorkflowConfigurationProperty
+instance Prelude.Show WorkflowConfigurationProperty
+instance JSON.ToJSON WorkflowConfigurationProperty

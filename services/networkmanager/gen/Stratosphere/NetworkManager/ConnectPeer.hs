@@ -12,18 +12,19 @@ data ConnectPeer
   = ConnectPeer {bgpOptions :: (Prelude.Maybe BgpOptionsProperty),
                  connectAttachmentId :: (Value Prelude.Text),
                  coreNetworkAddress :: (Prelude.Maybe (Value Prelude.Text)),
-                 insideCidrBlocks :: (ValueList Prelude.Text),
+                 insideCidrBlocks :: (Prelude.Maybe (ValueList Prelude.Text)),
                  peerAddress :: (Value Prelude.Text),
+                 subnetArn :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectPeer ::
-  Value Prelude.Text
-  -> ValueList Prelude.Text -> Value Prelude.Text -> ConnectPeer
-mkConnectPeer connectAttachmentId insideCidrBlocks peerAddress
+  Value Prelude.Text -> Value Prelude.Text -> ConnectPeer
+mkConnectPeer connectAttachmentId peerAddress
   = ConnectPeer
       {connectAttachmentId = connectAttachmentId,
-       insideCidrBlocks = insideCidrBlocks, peerAddress = peerAddress,
-       bgpOptions = Prelude.Nothing, coreNetworkAddress = Prelude.Nothing,
+       peerAddress = peerAddress, bgpOptions = Prelude.Nothing,
+       coreNetworkAddress = Prelude.Nothing,
+       insideCidrBlocks = Prelude.Nothing, subnetArn = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties ConnectPeer where
   toResourceProperties ConnectPeer {..}
@@ -33,11 +34,12 @@ instance ToResourceProperties ConnectPeer where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ConnectAttachmentId" JSON..= connectAttachmentId,
-                            "InsideCidrBlocks" JSON..= insideCidrBlocks,
                             "PeerAddress" JSON..= peerAddress]
                            (Prelude.catMaybes
                               [(JSON..=) "BgpOptions" Prelude.<$> bgpOptions,
                                (JSON..=) "CoreNetworkAddress" Prelude.<$> coreNetworkAddress,
+                               (JSON..=) "InsideCidrBlocks" Prelude.<$> insideCidrBlocks,
+                               (JSON..=) "SubnetArn" Prelude.<$> subnetArn,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON ConnectPeer where
   toJSON ConnectPeer {..}
@@ -45,11 +47,12 @@ instance JSON.ToJSON ConnectPeer where
         (Prelude.fromList
            ((Prelude.<>)
               ["ConnectAttachmentId" JSON..= connectAttachmentId,
-               "InsideCidrBlocks" JSON..= insideCidrBlocks,
                "PeerAddress" JSON..= peerAddress]
               (Prelude.catMaybes
                  [(JSON..=) "BgpOptions" Prelude.<$> bgpOptions,
                   (JSON..=) "CoreNetworkAddress" Prelude.<$> coreNetworkAddress,
+                  (JSON..=) "InsideCidrBlocks" Prelude.<$> insideCidrBlocks,
+                  (JSON..=) "SubnetArn" Prelude.<$> subnetArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "BgpOptions" ConnectPeer where
   type PropertyType "BgpOptions" ConnectPeer = BgpOptionsProperty
@@ -66,11 +69,15 @@ instance Property "CoreNetworkAddress" ConnectPeer where
 instance Property "InsideCidrBlocks" ConnectPeer where
   type PropertyType "InsideCidrBlocks" ConnectPeer = ValueList Prelude.Text
   set newValue ConnectPeer {..}
-    = ConnectPeer {insideCidrBlocks = newValue, ..}
+    = ConnectPeer {insideCidrBlocks = Prelude.pure newValue, ..}
 instance Property "PeerAddress" ConnectPeer where
   type PropertyType "PeerAddress" ConnectPeer = Value Prelude.Text
   set newValue ConnectPeer {..}
     = ConnectPeer {peerAddress = newValue, ..}
+instance Property "SubnetArn" ConnectPeer where
+  type PropertyType "SubnetArn" ConnectPeer = Value Prelude.Text
+  set newValue ConnectPeer {..}
+    = ConnectPeer {subnetArn = Prelude.pure newValue, ..}
 instance Property "Tags" ConnectPeer where
   type PropertyType "Tags" ConnectPeer = [Tag]
   set newValue ConnectPeer {..}

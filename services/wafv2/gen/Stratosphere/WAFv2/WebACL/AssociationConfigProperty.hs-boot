@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.WebACL.AssociationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AssociationConfigProperty :: Prelude.Type
+instance ToResourceProperties AssociationConfigProperty
+instance Prelude.Eq AssociationConfigProperty
+instance Prelude.Show AssociationConfigProperty
+instance JSON.ToJSON AssociationConfigProperty

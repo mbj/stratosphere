@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.DataSource.RelationalFilterConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RelationalFilterConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RelationalFilterConfigurationProperty
+instance Prelude.Eq RelationalFilterConfigurationProperty
+instance Prelude.Show RelationalFilterConfigurationProperty
+instance JSON.ToJSON RelationalFilterConfigurationProperty

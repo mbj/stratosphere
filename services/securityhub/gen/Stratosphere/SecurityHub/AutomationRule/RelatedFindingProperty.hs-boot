@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRule.RelatedFindingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RelatedFindingProperty :: Prelude.Type
+instance ToResourceProperties RelatedFindingProperty
+instance Prelude.Eq RelatedFindingProperty
+instance Prelude.Show RelatedFindingProperty
+instance JSON.ToJSON RelatedFindingProperty

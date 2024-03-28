@@ -1,0 +1,29 @@
+module Stratosphere.Connect.Rule.UpdateCaseActionProperty (
+        module Exports, UpdateCaseActionProperty(..),
+        mkUpdateCaseActionProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Connect.Rule.FieldProperty as Exports
+import Stratosphere.ResourceProperties
+data UpdateCaseActionProperty
+  = UpdateCaseActionProperty {fields :: [FieldProperty]}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkUpdateCaseActionProperty ::
+  [FieldProperty] -> UpdateCaseActionProperty
+mkUpdateCaseActionProperty fields
+  = UpdateCaseActionProperty {fields = fields}
+instance ToResourceProperties UpdateCaseActionProperty where
+  toResourceProperties UpdateCaseActionProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Connect::Rule.UpdateCaseAction",
+         supportsTags = Prelude.False,
+         properties = ["Fields" JSON..= fields]}
+instance JSON.ToJSON UpdateCaseActionProperty where
+  toJSON UpdateCaseActionProperty {..}
+    = JSON.object ["Fields" JSON..= fields]
+instance Property "Fields" UpdateCaseActionProperty where
+  type PropertyType "Fields" UpdateCaseActionProperty = [FieldProperty]
+  set newValue UpdateCaseActionProperty {}
+    = UpdateCaseActionProperty {fields = newValue, ..}

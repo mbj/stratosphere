@@ -1,0 +1,9 @@
+module Stratosphere.ControlTower.EnabledControl.EnabledControlParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EnabledControlParameterProperty :: Prelude.Type
+instance ToResourceProperties EnabledControlParameterProperty
+instance Prelude.Eq EnabledControlParameterProperty
+instance Prelude.Show EnabledControlParameterProperty
+instance JSON.ToJSON EnabledControlParameterProperty

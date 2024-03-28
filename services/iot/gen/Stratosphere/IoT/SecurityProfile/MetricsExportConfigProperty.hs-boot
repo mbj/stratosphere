@@ -1,0 +1,9 @@
+module Stratosphere.IoT.SecurityProfile.MetricsExportConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetricsExportConfigProperty :: Prelude.Type
+instance ToResourceProperties MetricsExportConfigProperty
+instance Prelude.Eq MetricsExportConfigProperty
+instance Prelude.Show MetricsExportConfigProperty
+instance JSON.ToJSON MetricsExportConfigProperty

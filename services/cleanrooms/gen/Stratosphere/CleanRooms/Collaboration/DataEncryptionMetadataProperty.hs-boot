@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.Collaboration.DataEncryptionMetadataProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataEncryptionMetadataProperty :: Prelude.Type
+instance ToResourceProperties DataEncryptionMetadataProperty
+instance Prelude.Eq DataEncryptionMetadataProperty
+instance Prelude.Show DataEncryptionMetadataProperty
+instance JSON.ToJSON DataEncryptionMetadataProperty

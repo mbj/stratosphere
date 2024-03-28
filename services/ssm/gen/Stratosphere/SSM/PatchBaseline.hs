@@ -15,6 +15,7 @@ data PatchBaseline
                    approvedPatches :: (Prelude.Maybe (ValueList Prelude.Text)),
                    approvedPatchesComplianceLevel :: (Prelude.Maybe (Value Prelude.Text)),
                    approvedPatchesEnableNonSecurity :: (Prelude.Maybe (Value Prelude.Bool)),
+                   defaultBaseline :: (Prelude.Maybe (Value Prelude.Bool)),
                    description :: (Prelude.Maybe (Value Prelude.Text)),
                    globalFilters :: (Prelude.Maybe PatchFilterGroupProperty),
                    name :: (Value Prelude.Text),
@@ -32,9 +33,9 @@ mkPatchBaseline name
        approvedPatches = Prelude.Nothing,
        approvedPatchesComplianceLevel = Prelude.Nothing,
        approvedPatchesEnableNonSecurity = Prelude.Nothing,
-       description = Prelude.Nothing, globalFilters = Prelude.Nothing,
-       operatingSystem = Prelude.Nothing, patchGroups = Prelude.Nothing,
-       rejectedPatches = Prelude.Nothing,
+       defaultBaseline = Prelude.Nothing, description = Prelude.Nothing,
+       globalFilters = Prelude.Nothing, operatingSystem = Prelude.Nothing,
+       patchGroups = Prelude.Nothing, rejectedPatches = Prelude.Nothing,
        rejectedPatchesAction = Prelude.Nothing, sources = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties PatchBaseline where
@@ -51,6 +52,7 @@ instance ToResourceProperties PatchBaseline where
                                  Prelude.<$> approvedPatchesComplianceLevel,
                                (JSON..=) "ApprovedPatchesEnableNonSecurity"
                                  Prelude.<$> approvedPatchesEnableNonSecurity,
+                               (JSON..=) "DefaultBaseline" Prelude.<$> defaultBaseline,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "GlobalFilters" Prelude.<$> globalFilters,
                                (JSON..=) "OperatingSystem" Prelude.<$> operatingSystem,
@@ -73,6 +75,7 @@ instance JSON.ToJSON PatchBaseline where
                     Prelude.<$> approvedPatchesComplianceLevel,
                   (JSON..=) "ApprovedPatchesEnableNonSecurity"
                     Prelude.<$> approvedPatchesEnableNonSecurity,
+                  (JSON..=) "DefaultBaseline" Prelude.<$> defaultBaseline,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "GlobalFilters" Prelude.<$> globalFilters,
                   (JSON..=) "OperatingSystem" Prelude.<$> operatingSystem,
@@ -100,6 +103,10 @@ instance Property "ApprovedPatchesEnableNonSecurity" PatchBaseline where
   set newValue PatchBaseline {..}
     = PatchBaseline
         {approvedPatchesEnableNonSecurity = Prelude.pure newValue, ..}
+instance Property "DefaultBaseline" PatchBaseline where
+  type PropertyType "DefaultBaseline" PatchBaseline = Value Prelude.Bool
+  set newValue PatchBaseline {..}
+    = PatchBaseline {defaultBaseline = Prelude.pure newValue, ..}
 instance Property "Description" PatchBaseline where
   type PropertyType "Description" PatchBaseline = Value Prelude.Text
   set newValue PatchBaseline {..}

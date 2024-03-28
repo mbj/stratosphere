@@ -26,8 +26,10 @@ flag development
 library
   exposed-modules:
       Stratosphere.AccessAnalyzer.Analyzer
+      Stratosphere.AccessAnalyzer.Analyzer.AnalyzerConfigurationProperty
       Stratosphere.AccessAnalyzer.Analyzer.ArchiveRuleProperty
       Stratosphere.AccessAnalyzer.Analyzer.FilterProperty
+      Stratosphere.AccessAnalyzer.Analyzer.UnusedAccessConfigurationProperty
   other-modules:
       Paths_stratosphere_accessanalyzer
   hs-source-dirs:

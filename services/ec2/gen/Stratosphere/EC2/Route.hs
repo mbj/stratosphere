@@ -8,8 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Route
   = Route {carrierGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+           coreNetworkArn :: (Prelude.Maybe (Value Prelude.Text)),
            destinationCidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
            destinationIpv6CidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+           destinationPrefixListId :: (Prelude.Maybe (Value Prelude.Text)),
            egressOnlyInternetGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
            gatewayId :: (Prelude.Maybe (Value Prelude.Text)),
            instanceId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -25,8 +27,10 @@ mkRoute :: Value Prelude.Text -> Route
 mkRoute routeTableId
   = Route
       {routeTableId = routeTableId, carrierGatewayId = Prelude.Nothing,
+       coreNetworkArn = Prelude.Nothing,
        destinationCidrBlock = Prelude.Nothing,
        destinationIpv6CidrBlock = Prelude.Nothing,
+       destinationPrefixListId = Prelude.Nothing,
        egressOnlyInternetGatewayId = Prelude.Nothing,
        gatewayId = Prelude.Nothing, instanceId = Prelude.Nothing,
        localGatewayId = Prelude.Nothing, natGatewayId = Prelude.Nothing,
@@ -43,9 +47,12 @@ instance ToResourceProperties Route where
                            ["RouteTableId" JSON..= routeTableId]
                            (Prelude.catMaybes
                               [(JSON..=) "CarrierGatewayId" Prelude.<$> carrierGatewayId,
+                               (JSON..=) "CoreNetworkArn" Prelude.<$> coreNetworkArn,
                                (JSON..=) "DestinationCidrBlock" Prelude.<$> destinationCidrBlock,
                                (JSON..=) "DestinationIpv6CidrBlock"
                                  Prelude.<$> destinationIpv6CidrBlock,
+                               (JSON..=) "DestinationPrefixListId"
+                                 Prelude.<$> destinationPrefixListId,
                                (JSON..=) "EgressOnlyInternetGatewayId"
                                  Prelude.<$> egressOnlyInternetGatewayId,
                                (JSON..=) "GatewayId" Prelude.<$> gatewayId,
@@ -65,9 +72,12 @@ instance JSON.ToJSON Route where
               ["RouteTableId" JSON..= routeTableId]
               (Prelude.catMaybes
                  [(JSON..=) "CarrierGatewayId" Prelude.<$> carrierGatewayId,
+                  (JSON..=) "CoreNetworkArn" Prelude.<$> coreNetworkArn,
                   (JSON..=) "DestinationCidrBlock" Prelude.<$> destinationCidrBlock,
                   (JSON..=) "DestinationIpv6CidrBlock"
                     Prelude.<$> destinationIpv6CidrBlock,
+                  (JSON..=) "DestinationPrefixListId"
+                    Prelude.<$> destinationPrefixListId,
                   (JSON..=) "EgressOnlyInternetGatewayId"
                     Prelude.<$> egressOnlyInternetGatewayId,
                   (JSON..=) "GatewayId" Prelude.<$> gatewayId,
@@ -83,6 +93,10 @@ instance Property "CarrierGatewayId" Route where
   type PropertyType "CarrierGatewayId" Route = Value Prelude.Text
   set newValue Route {..}
     = Route {carrierGatewayId = Prelude.pure newValue, ..}
+instance Property "CoreNetworkArn" Route where
+  type PropertyType "CoreNetworkArn" Route = Value Prelude.Text
+  set newValue Route {..}
+    = Route {coreNetworkArn = Prelude.pure newValue, ..}
 instance Property "DestinationCidrBlock" Route where
   type PropertyType "DestinationCidrBlock" Route = Value Prelude.Text
   set newValue Route {..}
@@ -91,6 +105,10 @@ instance Property "DestinationIpv6CidrBlock" Route where
   type PropertyType "DestinationIpv6CidrBlock" Route = Value Prelude.Text
   set newValue Route {..}
     = Route {destinationIpv6CidrBlock = Prelude.pure newValue, ..}
+instance Property "DestinationPrefixListId" Route where
+  type PropertyType "DestinationPrefixListId" Route = Value Prelude.Text
+  set newValue Route {..}
+    = Route {destinationPrefixListId = Prelude.pure newValue, ..}
 instance Property "EgressOnlyInternetGatewayId" Route where
   type PropertyType "EgressOnlyInternetGatewayId" Route = Value Prelude.Text
   set newValue Route {..}

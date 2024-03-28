@@ -4,6 +4,7 @@ module Stratosphere.RolesAnywhere.TrustAnchor (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.RolesAnywhere.TrustAnchor.NotificationSettingProperty as Exports
 import {-# SOURCE #-} Stratosphere.RolesAnywhere.TrustAnchor.SourceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -11,6 +12,7 @@ import Stratosphere.Value
 data TrustAnchor
   = TrustAnchor {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                  name :: (Value Prelude.Text),
+                 notificationSettings :: (Prelude.Maybe [NotificationSettingProperty]),
                  source :: SourceProperty,
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -19,7 +21,7 @@ mkTrustAnchor ::
 mkTrustAnchor name source
   = TrustAnchor
       {name = name, source = source, enabled = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       notificationSettings = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties TrustAnchor where
   toResourceProperties TrustAnchor {..}
     = ResourceProperties
@@ -30,6 +32,7 @@ instance ToResourceProperties TrustAnchor where
                            ["Name" JSON..= name, "Source" JSON..= source]
                            (Prelude.catMaybes
                               [(JSON..=) "Enabled" Prelude.<$> enabled,
+                               (JSON..=) "NotificationSettings" Prelude.<$> notificationSettings,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON TrustAnchor where
   toJSON TrustAnchor {..}
@@ -39,6 +42,7 @@ instance JSON.ToJSON TrustAnchor where
               ["Name" JSON..= name, "Source" JSON..= source]
               (Prelude.catMaybes
                  [(JSON..=) "Enabled" Prelude.<$> enabled,
+                  (JSON..=) "NotificationSettings" Prelude.<$> notificationSettings,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Enabled" TrustAnchor where
   type PropertyType "Enabled" TrustAnchor = Value Prelude.Bool
@@ -47,6 +51,10 @@ instance Property "Enabled" TrustAnchor where
 instance Property "Name" TrustAnchor where
   type PropertyType "Name" TrustAnchor = Value Prelude.Text
   set newValue TrustAnchor {..} = TrustAnchor {name = newValue, ..}
+instance Property "NotificationSettings" TrustAnchor where
+  type PropertyType "NotificationSettings" TrustAnchor = [NotificationSettingProperty]
+  set newValue TrustAnchor {..}
+    = TrustAnchor {notificationSettings = Prelude.pure newValue, ..}
 instance Property "Source" TrustAnchor where
   type PropertyType "Source" TrustAnchor = SourceProperty
   set newValue TrustAnchor {..} = TrustAnchor {source = newValue, ..}

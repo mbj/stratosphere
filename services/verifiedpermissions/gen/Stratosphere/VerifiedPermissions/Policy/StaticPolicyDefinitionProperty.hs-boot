@@ -1,0 +1,9 @@
+module Stratosphere.VerifiedPermissions.Policy.StaticPolicyDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StaticPolicyDefinitionProperty :: Prelude.Type
+instance ToResourceProperties StaticPolicyDefinitionProperty
+instance Prelude.Eq StaticPolicyDefinitionProperty
+instance Prelude.Show StaticPolicyDefinitionProperty
+instance JSON.ToJSON StaticPolicyDefinitionProperty

@@ -12,6 +12,7 @@ data SAPODataConnectorProfilePropertiesProperty
   = SAPODataConnectorProfilePropertiesProperty {applicationHostUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                                 applicationServicePath :: (Prelude.Maybe (Value Prelude.Text)),
                                                 clientNumber :: (Prelude.Maybe (Value Prelude.Text)),
+                                                disableSSO :: (Prelude.Maybe (Value Prelude.Bool)),
                                                 logonLanguage :: (Prelude.Maybe (Value Prelude.Text)),
                                                 oAuthProperties :: (Prelude.Maybe OAuthPropertiesProperty),
                                                 portNumber :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -23,8 +24,9 @@ mkSAPODataConnectorProfilePropertiesProperty
   = SAPODataConnectorProfilePropertiesProperty
       {applicationHostUrl = Prelude.Nothing,
        applicationServicePath = Prelude.Nothing,
-       clientNumber = Prelude.Nothing, logonLanguage = Prelude.Nothing,
-       oAuthProperties = Prelude.Nothing, portNumber = Prelude.Nothing,
+       clientNumber = Prelude.Nothing, disableSSO = Prelude.Nothing,
+       logonLanguage = Prelude.Nothing, oAuthProperties = Prelude.Nothing,
+       portNumber = Prelude.Nothing,
        privateLinkServiceName = Prelude.Nothing}
 instance ToResourceProperties SAPODataConnectorProfilePropertiesProperty where
   toResourceProperties
@@ -38,6 +40,7 @@ instance ToResourceProperties SAPODataConnectorProfilePropertiesProperty where
                             (JSON..=) "ApplicationServicePath"
                               Prelude.<$> applicationServicePath,
                             (JSON..=) "ClientNumber" Prelude.<$> clientNumber,
+                            (JSON..=) "DisableSSO" Prelude.<$> disableSSO,
                             (JSON..=) "LogonLanguage" Prelude.<$> logonLanguage,
                             (JSON..=) "OAuthProperties" Prelude.<$> oAuthProperties,
                             (JSON..=) "PortNumber" Prelude.<$> portNumber,
@@ -52,6 +55,7 @@ instance JSON.ToJSON SAPODataConnectorProfilePropertiesProperty where
                (JSON..=) "ApplicationServicePath"
                  Prelude.<$> applicationServicePath,
                (JSON..=) "ClientNumber" Prelude.<$> clientNumber,
+               (JSON..=) "DisableSSO" Prelude.<$> disableSSO,
                (JSON..=) "LogonLanguage" Prelude.<$> logonLanguage,
                (JSON..=) "OAuthProperties" Prelude.<$> oAuthProperties,
                (JSON..=) "PortNumber" Prelude.<$> portNumber,
@@ -72,6 +76,11 @@ instance Property "ClientNumber" SAPODataConnectorProfilePropertiesProperty wher
   set newValue SAPODataConnectorProfilePropertiesProperty {..}
     = SAPODataConnectorProfilePropertiesProperty
         {clientNumber = Prelude.pure newValue, ..}
+instance Property "DisableSSO" SAPODataConnectorProfilePropertiesProperty where
+  type PropertyType "DisableSSO" SAPODataConnectorProfilePropertiesProperty = Value Prelude.Bool
+  set newValue SAPODataConnectorProfilePropertiesProperty {..}
+    = SAPODataConnectorProfilePropertiesProperty
+        {disableSSO = Prelude.pure newValue, ..}
 instance Property "LogonLanguage" SAPODataConnectorProfilePropertiesProperty where
   type PropertyType "LogonLanguage" SAPODataConnectorProfilePropertiesProperty = Value Prelude.Text
   set newValue SAPODataConnectorProfilePropertiesProperty {..}

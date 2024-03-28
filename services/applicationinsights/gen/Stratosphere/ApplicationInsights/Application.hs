@@ -11,7 +11,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Application
-  = Application {autoConfigurationEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = Application {attachMissingPermission :: (Prelude.Maybe (Value Prelude.Bool)),
+                 autoConfigurationEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                  cWEMonitorEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                  componentMonitoringSettings :: (Prelude.Maybe [ComponentMonitoringSettingProperty]),
                  customComponents :: (Prelude.Maybe [CustomComponentProperty]),
@@ -26,6 +27,7 @@ mkApplication :: Value Prelude.Text -> Application
 mkApplication resourceGroupName
   = Application
       {resourceGroupName = resourceGroupName,
+       attachMissingPermission = Prelude.Nothing,
        autoConfigurationEnabled = Prelude.Nothing,
        cWEMonitorEnabled = Prelude.Nothing,
        componentMonitoringSettings = Prelude.Nothing,
@@ -42,7 +44,9 @@ instance ToResourceProperties Application where
                         ((Prelude.<>)
                            ["ResourceGroupName" JSON..= resourceGroupName]
                            (Prelude.catMaybes
-                              [(JSON..=) "AutoConfigurationEnabled"
+                              [(JSON..=) "AttachMissingPermission"
+                                 Prelude.<$> attachMissingPermission,
+                               (JSON..=) "AutoConfigurationEnabled"
                                  Prelude.<$> autoConfigurationEnabled,
                                (JSON..=) "CWEMonitorEnabled" Prelude.<$> cWEMonitorEnabled,
                                (JSON..=) "ComponentMonitoringSettings"
@@ -60,7 +64,9 @@ instance JSON.ToJSON Application where
            ((Prelude.<>)
               ["ResourceGroupName" JSON..= resourceGroupName]
               (Prelude.catMaybes
-                 [(JSON..=) "AutoConfigurationEnabled"
+                 [(JSON..=) "AttachMissingPermission"
+                    Prelude.<$> attachMissingPermission,
+                  (JSON..=) "AutoConfigurationEnabled"
                     Prelude.<$> autoConfigurationEnabled,
                   (JSON..=) "CWEMonitorEnabled" Prelude.<$> cWEMonitorEnabled,
                   (JSON..=) "ComponentMonitoringSettings"
@@ -71,6 +77,10 @@ instance JSON.ToJSON Application where
                   (JSON..=) "OpsCenterEnabled" Prelude.<$> opsCenterEnabled,
                   (JSON..=) "OpsItemSNSTopicArn" Prelude.<$> opsItemSNSTopicArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "AttachMissingPermission" Application where
+  type PropertyType "AttachMissingPermission" Application = Value Prelude.Bool
+  set newValue Application {..}
+    = Application {attachMissingPermission = Prelude.pure newValue, ..}
 instance Property "AutoConfigurationEnabled" Application where
   type PropertyType "AutoConfigurationEnabled" Application = Value Prelude.Bool
   set newValue Application {..}

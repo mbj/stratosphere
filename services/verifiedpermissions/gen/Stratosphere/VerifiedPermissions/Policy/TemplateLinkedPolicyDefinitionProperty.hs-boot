@@ -1,0 +1,9 @@
+module Stratosphere.VerifiedPermissions.Policy.TemplateLinkedPolicyDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TemplateLinkedPolicyDefinitionProperty :: Prelude.Type
+instance ToResourceProperties TemplateLinkedPolicyDefinitionProperty
+instance Prelude.Eq TemplateLinkedPolicyDefinitionProperty
+instance Prelude.Show TemplateLinkedPolicyDefinitionProperty
+instance JSON.ToJSON TemplateLinkedPolicyDefinitionProperty

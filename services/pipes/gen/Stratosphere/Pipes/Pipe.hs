@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeEnrichmentParametersProperty as Exports
+import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeLogConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeSourceParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeTargetParametersProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,7 @@ data Pipe
           desiredState :: (Prelude.Maybe (Value Prelude.Text)),
           enrichment :: (Prelude.Maybe (Value Prelude.Text)),
           enrichmentParameters :: (Prelude.Maybe PipeEnrichmentParametersProperty),
+          logConfiguration :: (Prelude.Maybe PipeLogConfigurationProperty),
           name :: (Prelude.Maybe (Value Prelude.Text)),
           roleArn :: (Value Prelude.Text),
           source :: (Value Prelude.Text),
@@ -30,7 +32,8 @@ mkPipe roleArn source target
       {roleArn = roleArn, source = source, target = target,
        description = Prelude.Nothing, desiredState = Prelude.Nothing,
        enrichment = Prelude.Nothing,
-       enrichmentParameters = Prelude.Nothing, name = Prelude.Nothing,
+       enrichmentParameters = Prelude.Nothing,
+       logConfiguration = Prelude.Nothing, name = Prelude.Nothing,
        sourceParameters = Prelude.Nothing, tags = Prelude.Nothing,
        targetParameters = Prelude.Nothing}
 instance ToResourceProperties Pipe where
@@ -46,6 +49,7 @@ instance ToResourceProperties Pipe where
                                (JSON..=) "DesiredState" Prelude.<$> desiredState,
                                (JSON..=) "Enrichment" Prelude.<$> enrichment,
                                (JSON..=) "EnrichmentParameters" Prelude.<$> enrichmentParameters,
+                               (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "SourceParameters" Prelude.<$> sourceParameters,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -62,6 +66,7 @@ instance JSON.ToJSON Pipe where
                   (JSON..=) "DesiredState" Prelude.<$> desiredState,
                   (JSON..=) "Enrichment" Prelude.<$> enrichment,
                   (JSON..=) "EnrichmentParameters" Prelude.<$> enrichmentParameters,
+                  (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "SourceParameters" Prelude.<$> sourceParameters,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -82,6 +87,10 @@ instance Property "EnrichmentParameters" Pipe where
   type PropertyType "EnrichmentParameters" Pipe = PipeEnrichmentParametersProperty
   set newValue Pipe {..}
     = Pipe {enrichmentParameters = Prelude.pure newValue, ..}
+instance Property "LogConfiguration" Pipe where
+  type PropertyType "LogConfiguration" Pipe = PipeLogConfigurationProperty
+  set newValue Pipe {..}
+    = Pipe {logConfiguration = Prelude.pure newValue, ..}
 instance Property "Name" Pipe where
   type PropertyType "Name" Pipe = Value Prelude.Text
   set newValue Pipe {..} = Pipe {name = Prelude.pure newValue, ..}

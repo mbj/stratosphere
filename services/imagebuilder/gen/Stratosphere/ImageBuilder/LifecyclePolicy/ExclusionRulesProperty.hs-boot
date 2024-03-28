@@ -1,0 +1,9 @@
+module Stratosphere.ImageBuilder.LifecyclePolicy.ExclusionRulesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExclusionRulesProperty :: Prelude.Type
+instance ToResourceProperties ExclusionRulesProperty
+instance Prelude.Eq ExclusionRulesProperty
+instance Prelude.Show ExclusionRulesProperty
+instance JSON.ToJSON ExclusionRulesProperty

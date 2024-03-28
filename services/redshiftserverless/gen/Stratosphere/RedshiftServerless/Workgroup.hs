@@ -12,6 +12,7 @@ data Workgroup
   = Workgroup {baseCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                configParameters :: (Prelude.Maybe [ConfigParameterProperty]),
                enhancedVpcRouting :: (Prelude.Maybe (Value Prelude.Bool)),
+               maxCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                namespaceName :: (Prelude.Maybe (Value Prelude.Text)),
                port :: (Prelude.Maybe (Value Prelude.Integer)),
                publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -26,8 +27,8 @@ mkWorkgroup workgroupName
       {workgroupName = workgroupName, baseCapacity = Prelude.Nothing,
        configParameters = Prelude.Nothing,
        enhancedVpcRouting = Prelude.Nothing,
-       namespaceName = Prelude.Nothing, port = Prelude.Nothing,
-       publiclyAccessible = Prelude.Nothing,
+       maxCapacity = Prelude.Nothing, namespaceName = Prelude.Nothing,
+       port = Prelude.Nothing, publiclyAccessible = Prelude.Nothing,
        securityGroupIds = Prelude.Nothing, subnetIds = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Workgroup where
@@ -42,6 +43,7 @@ instance ToResourceProperties Workgroup where
                               [(JSON..=) "BaseCapacity" Prelude.<$> baseCapacity,
                                (JSON..=) "ConfigParameters" Prelude.<$> configParameters,
                                (JSON..=) "EnhancedVpcRouting" Prelude.<$> enhancedVpcRouting,
+                               (JSON..=) "MaxCapacity" Prelude.<$> maxCapacity,
                                (JSON..=) "NamespaceName" Prelude.<$> namespaceName,
                                (JSON..=) "Port" Prelude.<$> port,
                                (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
@@ -58,6 +60,7 @@ instance JSON.ToJSON Workgroup where
                  [(JSON..=) "BaseCapacity" Prelude.<$> baseCapacity,
                   (JSON..=) "ConfigParameters" Prelude.<$> configParameters,
                   (JSON..=) "EnhancedVpcRouting" Prelude.<$> enhancedVpcRouting,
+                  (JSON..=) "MaxCapacity" Prelude.<$> maxCapacity,
                   (JSON..=) "NamespaceName" Prelude.<$> namespaceName,
                   (JSON..=) "Port" Prelude.<$> port,
                   (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
@@ -76,6 +79,10 @@ instance Property "EnhancedVpcRouting" Workgroup where
   type PropertyType "EnhancedVpcRouting" Workgroup = Value Prelude.Bool
   set newValue Workgroup {..}
     = Workgroup {enhancedVpcRouting = Prelude.pure newValue, ..}
+instance Property "MaxCapacity" Workgroup where
+  type PropertyType "MaxCapacity" Workgroup = Value Prelude.Integer
+  set newValue Workgroup {..}
+    = Workgroup {maxCapacity = Prelude.pure newValue, ..}
 instance Property "NamespaceName" Workgroup where
   type PropertyType "NamespaceName" Workgroup = Value Prelude.Text
   set newValue Workgroup {..}

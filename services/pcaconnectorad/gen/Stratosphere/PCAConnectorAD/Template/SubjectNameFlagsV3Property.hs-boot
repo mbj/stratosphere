@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorAD.Template.SubjectNameFlagsV3Property where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SubjectNameFlagsV3Property :: Prelude.Type
+instance ToResourceProperties SubjectNameFlagsV3Property
+instance Prelude.Eq SubjectNameFlagsV3Property
+instance Prelude.Show SubjectNameFlagsV3Property
+instance JSON.ToJSON SubjectNameFlagsV3Property

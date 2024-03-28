@@ -30,6 +30,7 @@ data DBCluster
                domain :: (Prelude.Maybe (Value Prelude.Text)),
                domainIAMRoleName :: (Prelude.Maybe (Value Prelude.Text)),
                enableCloudwatchLogsExports :: (Prelude.Maybe (ValueList Prelude.Text)),
+               enableGlobalWriteForwarding :: (Prelude.Maybe (Value Prelude.Bool)),
                enableHttpEndpoint :: (Prelude.Maybe (Value Prelude.Bool)),
                enableIAMDatabaseAuthentication :: (Prelude.Maybe (Value Prelude.Bool)),
                engine :: (Prelude.Maybe (Value Prelude.Text)),
@@ -85,6 +86,7 @@ mkDBCluster
        deletionProtection = Prelude.Nothing, domain = Prelude.Nothing,
        domainIAMRoleName = Prelude.Nothing,
        enableCloudwatchLogsExports = Prelude.Nothing,
+       enableGlobalWriteForwarding = Prelude.Nothing,
        enableHttpEndpoint = Prelude.Nothing,
        enableIAMDatabaseAuthentication = Prelude.Nothing,
        engine = Prelude.Nothing, engineMode = Prelude.Nothing,
@@ -143,6 +145,8 @@ instance ToResourceProperties DBCluster where
                             (JSON..=) "DomainIAMRoleName" Prelude.<$> domainIAMRoleName,
                             (JSON..=) "EnableCloudwatchLogsExports"
                               Prelude.<$> enableCloudwatchLogsExports,
+                            (JSON..=) "EnableGlobalWriteForwarding"
+                              Prelude.<$> enableGlobalWriteForwarding,
                             (JSON..=) "EnableHttpEndpoint" Prelude.<$> enableHttpEndpoint,
                             (JSON..=) "EnableIAMDatabaseAuthentication"
                               Prelude.<$> enableIAMDatabaseAuthentication,
@@ -219,6 +223,8 @@ instance JSON.ToJSON DBCluster where
                (JSON..=) "DomainIAMRoleName" Prelude.<$> domainIAMRoleName,
                (JSON..=) "EnableCloudwatchLogsExports"
                  Prelude.<$> enableCloudwatchLogsExports,
+               (JSON..=) "EnableGlobalWriteForwarding"
+                 Prelude.<$> enableGlobalWriteForwarding,
                (JSON..=) "EnableHttpEndpoint" Prelude.<$> enableHttpEndpoint,
                (JSON..=) "EnableIAMDatabaseAuthentication"
                  Prelude.<$> enableIAMDatabaseAuthentication,
@@ -341,6 +347,11 @@ instance Property "EnableCloudwatchLogsExports" DBCluster where
   set newValue DBCluster {..}
     = DBCluster
         {enableCloudwatchLogsExports = Prelude.pure newValue, ..}
+instance Property "EnableGlobalWriteForwarding" DBCluster where
+  type PropertyType "EnableGlobalWriteForwarding" DBCluster = Value Prelude.Bool
+  set newValue DBCluster {..}
+    = DBCluster
+        {enableGlobalWriteForwarding = Prelude.pure newValue, ..}
 instance Property "EnableHttpEndpoint" DBCluster where
   type PropertyType "EnableHttpEndpoint" DBCluster = Value Prelude.Bool
   set newValue DBCluster {..}

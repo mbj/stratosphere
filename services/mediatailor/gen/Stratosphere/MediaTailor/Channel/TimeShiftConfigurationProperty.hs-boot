@@ -1,0 +1,9 @@
+module Stratosphere.MediaTailor.Channel.TimeShiftConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TimeShiftConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TimeShiftConfigurationProperty
+instance Prelude.Eq TimeShiftConfigurationProperty
+instance Prelude.Show TimeShiftConfigurationProperty
+instance JSON.ToJSON TimeShiftConfigurationProperty

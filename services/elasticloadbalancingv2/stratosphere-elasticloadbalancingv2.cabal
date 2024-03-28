@@ -32,6 +32,7 @@ library
       Stratosphere.ElasticLoadBalancingV2.Listener.CertificateProperty
       Stratosphere.ElasticLoadBalancingV2.Listener.FixedResponseConfigProperty
       Stratosphere.ElasticLoadBalancingV2.Listener.ForwardConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.Listener.MutualAuthenticationProperty
       Stratosphere.ElasticLoadBalancingV2.Listener.RedirectConfigProperty
       Stratosphere.ElasticLoadBalancingV2.Listener.TargetGroupStickinessConfigProperty
       Stratosphere.ElasticLoadBalancingV2.Listener.TargetGroupTupleProperty
@@ -61,6 +62,10 @@ library
       Stratosphere.ElasticLoadBalancingV2.TargetGroup.MatcherProperty
       Stratosphere.ElasticLoadBalancingV2.TargetGroup.TargetDescriptionProperty
       Stratosphere.ElasticLoadBalancingV2.TargetGroup.TargetGroupAttributeProperty
+      Stratosphere.ElasticLoadBalancingV2.TrustStore
+      Stratosphere.ElasticLoadBalancingV2.TrustStoreRevocation
+      Stratosphere.ElasticLoadBalancingV2.TrustStoreRevocation.RevocationContentProperty
+      Stratosphere.ElasticLoadBalancingV2.TrustStoreRevocation.TrustStoreRevocationProperty
   other-modules:
       Paths_stratosphere_elasticloadbalancingv2
   hs-source-dirs:

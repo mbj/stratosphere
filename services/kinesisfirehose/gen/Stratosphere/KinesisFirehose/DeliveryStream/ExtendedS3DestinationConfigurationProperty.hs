@@ -19,10 +19,12 @@ data ExtendedS3DestinationConfigurationProperty
                                                 bufferingHints :: (Prelude.Maybe BufferingHintsProperty),
                                                 cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
                                                 compressionFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                                customTimeZone :: (Prelude.Maybe (Value Prelude.Text)),
                                                 dataFormatConversionConfiguration :: (Prelude.Maybe DataFormatConversionConfigurationProperty),
                                                 dynamicPartitioningConfiguration :: (Prelude.Maybe DynamicPartitioningConfigurationProperty),
                                                 encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
                                                 errorOutputPrefix :: (Prelude.Maybe (Value Prelude.Text)),
+                                                fileExtension :: (Prelude.Maybe (Value Prelude.Text)),
                                                 prefix :: (Prelude.Maybe (Value Prelude.Text)),
                                                 processingConfiguration :: (Prelude.Maybe ProcessingConfigurationProperty),
                                                 roleARN :: (Value Prelude.Text),
@@ -38,10 +40,12 @@ mkExtendedS3DestinationConfigurationProperty bucketARN roleARN
        bufferingHints = Prelude.Nothing,
        cloudWatchLoggingOptions = Prelude.Nothing,
        compressionFormat = Prelude.Nothing,
+       customTimeZone = Prelude.Nothing,
        dataFormatConversionConfiguration = Prelude.Nothing,
        dynamicPartitioningConfiguration = Prelude.Nothing,
        encryptionConfiguration = Prelude.Nothing,
-       errorOutputPrefix = Prelude.Nothing, prefix = Prelude.Nothing,
+       errorOutputPrefix = Prelude.Nothing,
+       fileExtension = Prelude.Nothing, prefix = Prelude.Nothing,
        processingConfiguration = Prelude.Nothing,
        s3BackupConfiguration = Prelude.Nothing,
        s3BackupMode = Prelude.Nothing}
@@ -59,6 +63,7 @@ instance ToResourceProperties ExtendedS3DestinationConfigurationProperty where
                                (JSON..=) "CloudWatchLoggingOptions"
                                  Prelude.<$> cloudWatchLoggingOptions,
                                (JSON..=) "CompressionFormat" Prelude.<$> compressionFormat,
+                               (JSON..=) "CustomTimeZone" Prelude.<$> customTimeZone,
                                (JSON..=) "DataFormatConversionConfiguration"
                                  Prelude.<$> dataFormatConversionConfiguration,
                                (JSON..=) "DynamicPartitioningConfiguration"
@@ -66,6 +71,7 @@ instance ToResourceProperties ExtendedS3DestinationConfigurationProperty where
                                (JSON..=) "EncryptionConfiguration"
                                  Prelude.<$> encryptionConfiguration,
                                (JSON..=) "ErrorOutputPrefix" Prelude.<$> errorOutputPrefix,
+                               (JSON..=) "FileExtension" Prelude.<$> fileExtension,
                                (JSON..=) "Prefix" Prelude.<$> prefix,
                                (JSON..=) "ProcessingConfiguration"
                                  Prelude.<$> processingConfiguration,
@@ -83,6 +89,7 @@ instance JSON.ToJSON ExtendedS3DestinationConfigurationProperty where
                   (JSON..=) "CloudWatchLoggingOptions"
                     Prelude.<$> cloudWatchLoggingOptions,
                   (JSON..=) "CompressionFormat" Prelude.<$> compressionFormat,
+                  (JSON..=) "CustomTimeZone" Prelude.<$> customTimeZone,
                   (JSON..=) "DataFormatConversionConfiguration"
                     Prelude.<$> dataFormatConversionConfiguration,
                   (JSON..=) "DynamicPartitioningConfiguration"
@@ -90,6 +97,7 @@ instance JSON.ToJSON ExtendedS3DestinationConfigurationProperty where
                   (JSON..=) "EncryptionConfiguration"
                     Prelude.<$> encryptionConfiguration,
                   (JSON..=) "ErrorOutputPrefix" Prelude.<$> errorOutputPrefix,
+                  (JSON..=) "FileExtension" Prelude.<$> fileExtension,
                   (JSON..=) "Prefix" Prelude.<$> prefix,
                   (JSON..=) "ProcessingConfiguration"
                     Prelude.<$> processingConfiguration,
@@ -116,6 +124,11 @@ instance Property "CompressionFormat" ExtendedS3DestinationConfigurationProperty
   set newValue ExtendedS3DestinationConfigurationProperty {..}
     = ExtendedS3DestinationConfigurationProperty
         {compressionFormat = Prelude.pure newValue, ..}
+instance Property "CustomTimeZone" ExtendedS3DestinationConfigurationProperty where
+  type PropertyType "CustomTimeZone" ExtendedS3DestinationConfigurationProperty = Value Prelude.Text
+  set newValue ExtendedS3DestinationConfigurationProperty {..}
+    = ExtendedS3DestinationConfigurationProperty
+        {customTimeZone = Prelude.pure newValue, ..}
 instance Property "DataFormatConversionConfiguration" ExtendedS3DestinationConfigurationProperty where
   type PropertyType "DataFormatConversionConfiguration" ExtendedS3DestinationConfigurationProperty = DataFormatConversionConfigurationProperty
   set newValue ExtendedS3DestinationConfigurationProperty {..}
@@ -136,6 +149,11 @@ instance Property "ErrorOutputPrefix" ExtendedS3DestinationConfigurationProperty
   set newValue ExtendedS3DestinationConfigurationProperty {..}
     = ExtendedS3DestinationConfigurationProperty
         {errorOutputPrefix = Prelude.pure newValue, ..}
+instance Property "FileExtension" ExtendedS3DestinationConfigurationProperty where
+  type PropertyType "FileExtension" ExtendedS3DestinationConfigurationProperty = Value Prelude.Text
+  set newValue ExtendedS3DestinationConfigurationProperty {..}
+    = ExtendedS3DestinationConfigurationProperty
+        {fileExtension = Prelude.pure newValue, ..}
 instance Property "Prefix" ExtendedS3DestinationConfigurationProperty where
   type PropertyType "Prefix" ExtendedS3DestinationConfigurationProperty = Value Prelude.Text
   set newValue ExtendedS3DestinationConfigurationProperty {..}

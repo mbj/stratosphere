@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Multiplex.MultiplexOutputDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MultiplexOutputDestinationProperty :: Prelude.Type
+instance ToResourceProperties MultiplexOutputDestinationProperty
+instance Prelude.Eq MultiplexOutputDestinationProperty
+instance Prelude.Show MultiplexOutputDestinationProperty
+instance JSON.ToJSON MultiplexOutputDestinationProperty

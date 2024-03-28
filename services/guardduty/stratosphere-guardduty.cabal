@@ -27,20 +27,24 @@ library
   exposed-modules:
       Stratosphere.GuardDuty.Detector
       Stratosphere.GuardDuty.Detector.CFNDataSourceConfigurationsProperty
+      Stratosphere.GuardDuty.Detector.CFNFeatureAdditionalConfigurationProperty
+      Stratosphere.GuardDuty.Detector.CFNFeatureConfigurationProperty
       Stratosphere.GuardDuty.Detector.CFNKubernetesAuditLogsConfigurationProperty
       Stratosphere.GuardDuty.Detector.CFNKubernetesConfigurationProperty
       Stratosphere.GuardDuty.Detector.CFNMalwareProtectionConfigurationProperty
       Stratosphere.GuardDuty.Detector.CFNS3LogsConfigurationProperty
       Stratosphere.GuardDuty.Detector.CFNScanEc2InstanceWithFindingsConfigurationProperty
-      Stratosphere.GuardDuty.Detector.FeatureAdditionalConfigurationProperty
-      Stratosphere.GuardDuty.Detector.FeatureConfigurationsProperty
+      Stratosphere.GuardDuty.Detector.TagItemProperty
       Stratosphere.GuardDuty.Filter
       Stratosphere.GuardDuty.Filter.ConditionProperty
       Stratosphere.GuardDuty.Filter.FindingCriteriaProperty
+      Stratosphere.GuardDuty.Filter.TagItemProperty
       Stratosphere.GuardDuty.IPSet
+      Stratosphere.GuardDuty.IPSet.TagItemProperty
       Stratosphere.GuardDuty.Master
       Stratosphere.GuardDuty.Member
       Stratosphere.GuardDuty.ThreatIntelSet
+      Stratosphere.GuardDuty.ThreatIntelSet.TagItemProperty
   other-modules:
       Paths_stratosphere_guardduty
   hs-source-dirs:

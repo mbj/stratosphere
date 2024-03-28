@@ -66,6 +66,14 @@ library
       Stratosphere.NetworkFirewall.RuleGroup.StatelessRuleProperty
       Stratosphere.NetworkFirewall.RuleGroup.StatelessRulesAndCustomActionsProperty
       Stratosphere.NetworkFirewall.RuleGroup.TCPFlagFieldProperty
+      Stratosphere.NetworkFirewall.TLSInspectionConfiguration
+      Stratosphere.NetworkFirewall.TLSInspectionConfiguration.AddressProperty
+      Stratosphere.NetworkFirewall.TLSInspectionConfiguration.CheckCertificateRevocationStatusProperty
+      Stratosphere.NetworkFirewall.TLSInspectionConfiguration.PortRangeProperty
+      Stratosphere.NetworkFirewall.TLSInspectionConfiguration.ServerCertificateConfigurationProperty
+      Stratosphere.NetworkFirewall.TLSInspectionConfiguration.ServerCertificateProperty
+      Stratosphere.NetworkFirewall.TLSInspectionConfiguration.ServerCertificateScopeProperty
+      Stratosphere.NetworkFirewall.TLSInspectionConfiguration.TLSInspectionConfigurationProperty
   other-modules:
       Paths_stratosphere_networkfirewall
   hs-source-dirs:

@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.Listener.ActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.Listener.CertificateProperty as Exports
+import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.Listener.MutualAuthenticationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Listener
@@ -13,6 +14,7 @@ data Listener
               certificates :: (Prelude.Maybe [CertificateProperty]),
               defaultActions :: [ActionProperty],
               loadBalancerArn :: (Value Prelude.Text),
+              mutualAuthentication :: (Prelude.Maybe MutualAuthenticationProperty),
               port :: (Prelude.Maybe (Value Prelude.Integer)),
               protocol :: (Prelude.Maybe (Value Prelude.Text)),
               sslPolicy :: (Prelude.Maybe (Value Prelude.Text))}
@@ -22,7 +24,8 @@ mkListener defaultActions loadBalancerArn
   = Listener
       {defaultActions = defaultActions,
        loadBalancerArn = loadBalancerArn, alpnPolicy = Prelude.Nothing,
-       certificates = Prelude.Nothing, port = Prelude.Nothing,
+       certificates = Prelude.Nothing,
+       mutualAuthentication = Prelude.Nothing, port = Prelude.Nothing,
        protocol = Prelude.Nothing, sslPolicy = Prelude.Nothing}
 instance ToResourceProperties Listener where
   toResourceProperties Listener {..}
@@ -36,6 +39,7 @@ instance ToResourceProperties Listener where
                            (Prelude.catMaybes
                               [(JSON..=) "AlpnPolicy" Prelude.<$> alpnPolicy,
                                (JSON..=) "Certificates" Prelude.<$> certificates,
+                               (JSON..=) "MutualAuthentication" Prelude.<$> mutualAuthentication,
                                (JSON..=) "Port" Prelude.<$> port,
                                (JSON..=) "Protocol" Prelude.<$> protocol,
                                (JSON..=) "SslPolicy" Prelude.<$> sslPolicy]))}
@@ -49,6 +53,7 @@ instance JSON.ToJSON Listener where
               (Prelude.catMaybes
                  [(JSON..=) "AlpnPolicy" Prelude.<$> alpnPolicy,
                   (JSON..=) "Certificates" Prelude.<$> certificates,
+                  (JSON..=) "MutualAuthentication" Prelude.<$> mutualAuthentication,
                   (JSON..=) "Port" Prelude.<$> port,
                   (JSON..=) "Protocol" Prelude.<$> protocol,
                   (JSON..=) "SslPolicy" Prelude.<$> sslPolicy])))
@@ -68,6 +73,10 @@ instance Property "LoadBalancerArn" Listener where
   type PropertyType "LoadBalancerArn" Listener = Value Prelude.Text
   set newValue Listener {..}
     = Listener {loadBalancerArn = newValue, ..}
+instance Property "MutualAuthentication" Listener where
+  type PropertyType "MutualAuthentication" Listener = MutualAuthenticationProperty
+  set newValue Listener {..}
+    = Listener {mutualAuthentication = Prelude.pure newValue, ..}
 instance Property "Port" Listener where
   type PropertyType "Port" Listener = Value Prelude.Integer
   set newValue Listener {..}

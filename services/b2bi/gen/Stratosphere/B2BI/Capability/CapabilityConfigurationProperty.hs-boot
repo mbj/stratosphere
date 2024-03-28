@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Capability.CapabilityConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapabilityConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CapabilityConfigurationProperty
+instance Prelude.Eq CapabilityConfigurationProperty
+instance Prelude.Show CapabilityConfigurationProperty
+instance JSON.ToJSON CapabilityConfigurationProperty

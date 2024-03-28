@@ -25,6 +25,9 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.Athena.CapacityReservation
+      Stratosphere.Athena.CapacityReservation.CapacityAssignmentConfigurationProperty
+      Stratosphere.Athena.CapacityReservation.CapacityAssignmentProperty
       Stratosphere.Athena.DataCatalog
       Stratosphere.Athena.NamedQuery
       Stratosphere.Athena.PreparedStatement

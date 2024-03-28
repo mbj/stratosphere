@@ -4,12 +4,14 @@ module Stratosphere.SageMaker.AppImageConfig (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SageMaker.AppImageConfig.JupyterLabAppImageConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.AppImageConfig.KernelGatewayImageConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data AppImageConfig
   = AppImageConfig {appImageConfigName :: (Value Prelude.Text),
+                    jupyterLabAppImageConfig :: (Prelude.Maybe JupyterLabAppImageConfigProperty),
                     kernelGatewayImageConfig :: (Prelude.Maybe KernelGatewayImageConfigProperty),
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -17,6 +19,7 @@ mkAppImageConfig :: Value Prelude.Text -> AppImageConfig
 mkAppImageConfig appImageConfigName
   = AppImageConfig
       {appImageConfigName = appImageConfigName,
+       jupyterLabAppImageConfig = Prelude.Nothing,
        kernelGatewayImageConfig = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties AppImageConfig where
   toResourceProperties AppImageConfig {..}
@@ -27,7 +30,9 @@ instance ToResourceProperties AppImageConfig where
                         ((Prelude.<>)
                            ["AppImageConfigName" JSON..= appImageConfigName]
                            (Prelude.catMaybes
-                              [(JSON..=) "KernelGatewayImageConfig"
+                              [(JSON..=) "JupyterLabAppImageConfig"
+                                 Prelude.<$> jupyterLabAppImageConfig,
+                               (JSON..=) "KernelGatewayImageConfig"
                                  Prelude.<$> kernelGatewayImageConfig,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON AppImageConfig where
@@ -37,13 +42,20 @@ instance JSON.ToJSON AppImageConfig where
            ((Prelude.<>)
               ["AppImageConfigName" JSON..= appImageConfigName]
               (Prelude.catMaybes
-                 [(JSON..=) "KernelGatewayImageConfig"
+                 [(JSON..=) "JupyterLabAppImageConfig"
+                    Prelude.<$> jupyterLabAppImageConfig,
+                  (JSON..=) "KernelGatewayImageConfig"
                     Prelude.<$> kernelGatewayImageConfig,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AppImageConfigName" AppImageConfig where
   type PropertyType "AppImageConfigName" AppImageConfig = Value Prelude.Text
   set newValue AppImageConfig {..}
     = AppImageConfig {appImageConfigName = newValue, ..}
+instance Property "JupyterLabAppImageConfig" AppImageConfig where
+  type PropertyType "JupyterLabAppImageConfig" AppImageConfig = JupyterLabAppImageConfigProperty
+  set newValue AppImageConfig {..}
+    = AppImageConfig
+        {jupyterLabAppImageConfig = Prelude.pure newValue, ..}
 instance Property "KernelGatewayImageConfig" AppImageConfig where
   type PropertyType "KernelGatewayImageConfig" AppImageConfig = KernelGatewayImageConfigProperty
   set newValue AppImageConfig {..}

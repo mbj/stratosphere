@@ -26,6 +26,12 @@ flag development
 library
   exposed-modules:
       Stratosphere.DMS.Certificate
+      Stratosphere.DMS.DataProvider
+      Stratosphere.DMS.DataProvider.MicrosoftSqlServerSettingsProperty
+      Stratosphere.DMS.DataProvider.MySqlSettingsProperty
+      Stratosphere.DMS.DataProvider.OracleSettingsProperty
+      Stratosphere.DMS.DataProvider.PostgreSqlSettingsProperty
+      Stratosphere.DMS.DataProvider.SettingsProperty
       Stratosphere.DMS.Endpoint
       Stratosphere.DMS.Endpoint.DocDbSettingsProperty
       Stratosphere.DMS.Endpoint.DynamoDbSettingsProperty
@@ -45,6 +51,12 @@ library
       Stratosphere.DMS.Endpoint.S3SettingsProperty
       Stratosphere.DMS.Endpoint.SybaseSettingsProperty
       Stratosphere.DMS.EventSubscription
+      Stratosphere.DMS.InstanceProfile
+      Stratosphere.DMS.MigrationProject
+      Stratosphere.DMS.MigrationProject.DataProviderDescriptorProperty
+      Stratosphere.DMS.MigrationProject.SchemaConversionApplicationAttributesProperty
+      Stratosphere.DMS.ReplicationConfig
+      Stratosphere.DMS.ReplicationConfig.ComputeConfigProperty
       Stratosphere.DMS.ReplicationInstance
       Stratosphere.DMS.ReplicationSubnetGroup
       Stratosphere.DMS.ReplicationTask

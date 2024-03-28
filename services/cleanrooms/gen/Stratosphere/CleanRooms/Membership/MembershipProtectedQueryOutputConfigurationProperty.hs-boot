@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.Membership.MembershipProtectedQueryOutputConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MembershipProtectedQueryOutputConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MembershipProtectedQueryOutputConfigurationProperty
+instance Prelude.Eq MembershipProtectedQueryOutputConfigurationProperty
+instance Prelude.Show MembershipProtectedQueryOutputConfigurationProperty
+instance JSON.ToJSON MembershipProtectedQueryOutputConfigurationProperty

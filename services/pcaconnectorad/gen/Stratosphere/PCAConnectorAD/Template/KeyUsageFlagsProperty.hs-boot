@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorAD.Template.KeyUsageFlagsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KeyUsageFlagsProperty :: Prelude.Type
+instance ToResourceProperties KeyUsageFlagsProperty
+instance Prelude.Eq KeyUsageFlagsProperty
+instance Prelude.Show KeyUsageFlagsProperty
+instance JSON.ToJSON KeyUsageFlagsProperty

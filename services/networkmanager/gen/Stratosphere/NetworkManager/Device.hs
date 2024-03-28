@@ -4,12 +4,14 @@ module Stratosphere.NetworkManager.Device (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.NetworkManager.Device.AWSLocationProperty as Exports
 import {-# SOURCE #-} Stratosphere.NetworkManager.Device.LocationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Device
-  = Device {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = Device {aWSLocation :: (Prelude.Maybe AWSLocationProperty),
+            description :: (Prelude.Maybe (Value Prelude.Text)),
             globalNetworkId :: (Value Prelude.Text),
             location :: (Prelude.Maybe LocationProperty),
             model :: (Prelude.Maybe (Value Prelude.Text)),
@@ -22,11 +24,11 @@ data Device
 mkDevice :: Value Prelude.Text -> Device
 mkDevice globalNetworkId
   = Device
-      {globalNetworkId = globalNetworkId, description = Prelude.Nothing,
-       location = Prelude.Nothing, model = Prelude.Nothing,
-       serialNumber = Prelude.Nothing, siteId = Prelude.Nothing,
-       tags = Prelude.Nothing, type' = Prelude.Nothing,
-       vendor = Prelude.Nothing}
+      {globalNetworkId = globalNetworkId, aWSLocation = Prelude.Nothing,
+       description = Prelude.Nothing, location = Prelude.Nothing,
+       model = Prelude.Nothing, serialNumber = Prelude.Nothing,
+       siteId = Prelude.Nothing, tags = Prelude.Nothing,
+       type' = Prelude.Nothing, vendor = Prelude.Nothing}
 instance ToResourceProperties Device where
   toResourceProperties Device {..}
     = ResourceProperties
@@ -36,7 +38,8 @@ instance ToResourceProperties Device where
                         ((Prelude.<>)
                            ["GlobalNetworkId" JSON..= globalNetworkId]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "AWSLocation" Prelude.<$> aWSLocation,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "Location" Prelude.<$> location,
                                (JSON..=) "Model" Prelude.<$> model,
                                (JSON..=) "SerialNumber" Prelude.<$> serialNumber,
@@ -51,7 +54,8 @@ instance JSON.ToJSON Device where
            ((Prelude.<>)
               ["GlobalNetworkId" JSON..= globalNetworkId]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "AWSLocation" Prelude.<$> aWSLocation,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Location" Prelude.<$> location,
                   (JSON..=) "Model" Prelude.<$> model,
                   (JSON..=) "SerialNumber" Prelude.<$> serialNumber,
@@ -59,6 +63,10 @@ instance JSON.ToJSON Device where
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "Type" Prelude.<$> type',
                   (JSON..=) "Vendor" Prelude.<$> vendor])))
+instance Property "AWSLocation" Device where
+  type PropertyType "AWSLocation" Device = AWSLocationProperty
+  set newValue Device {..}
+    = Device {aWSLocation = Prelude.pure newValue, ..}
 instance Property "Description" Device where
   type PropertyType "Description" Device = Value Prelude.Text
   set newValue Device {..}

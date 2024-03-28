@@ -38,6 +38,7 @@ data DeploymentGroup
                      outdatedInstancesStrategy :: (Prelude.Maybe (Value Prelude.Text)),
                      serviceRoleArn :: (Value Prelude.Text),
                      tags :: (Prelude.Maybe [Tag]),
+                     terminationHookEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                      triggerConfigurations :: (Prelude.Maybe [TriggerConfigProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentGroup ::
@@ -59,7 +60,8 @@ mkDeploymentGroup applicationName serviceRoleArn
        onPremisesInstanceTagFilters = Prelude.Nothing,
        onPremisesTagSet = Prelude.Nothing,
        outdatedInstancesStrategy = Prelude.Nothing,
-       tags = Prelude.Nothing, triggerConfigurations = Prelude.Nothing}
+       tags = Prelude.Nothing, terminationHookEnabled = Prelude.Nothing,
+       triggerConfigurations = Prelude.Nothing}
 instance ToResourceProperties DeploymentGroup where
   toResourceProperties DeploymentGroup {..}
     = ResourceProperties
@@ -90,6 +92,8 @@ instance ToResourceProperties DeploymentGroup where
                                (JSON..=) "OutdatedInstancesStrategy"
                                  Prelude.<$> outdatedInstancesStrategy,
                                (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "TerminationHookEnabled"
+                                 Prelude.<$> terminationHookEnabled,
                                (JSON..=) "TriggerConfigurations"
                                  Prelude.<$> triggerConfigurations]))}
 instance JSON.ToJSON DeploymentGroup where
@@ -120,6 +124,8 @@ instance JSON.ToJSON DeploymentGroup where
                   (JSON..=) "OutdatedInstancesStrategy"
                     Prelude.<$> outdatedInstancesStrategy,
                   (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "TerminationHookEnabled"
+                    Prelude.<$> terminationHookEnabled,
                   (JSON..=) "TriggerConfigurations"
                     Prelude.<$> triggerConfigurations])))
 instance Property "AlarmConfiguration" DeploymentGroup where
@@ -199,6 +205,11 @@ instance Property "Tags" DeploymentGroup where
   type PropertyType "Tags" DeploymentGroup = [Tag]
   set newValue DeploymentGroup {..}
     = DeploymentGroup {tags = Prelude.pure newValue, ..}
+instance Property "TerminationHookEnabled" DeploymentGroup where
+  type PropertyType "TerminationHookEnabled" DeploymentGroup = Value Prelude.Bool
+  set newValue DeploymentGroup {..}
+    = DeploymentGroup
+        {terminationHookEnabled = Prelude.pure newValue, ..}
 instance Property "TriggerConfigurations" DeploymentGroup where
   type PropertyType "TriggerConfigurations" DeploymentGroup = [TriggerConfigProperty]
   set newValue DeploymentGroup {..}

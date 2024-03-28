@@ -33,6 +33,7 @@ library
       Stratosphere.BillingConductor.CustomLineItem.CustomLineItemChargeDetailsProperty
       Stratosphere.BillingConductor.CustomLineItem.CustomLineItemFlatChargeDetailsProperty
       Stratosphere.BillingConductor.CustomLineItem.CustomLineItemPercentageChargeDetailsProperty
+      Stratosphere.BillingConductor.CustomLineItem.LineItemFilterProperty
       Stratosphere.BillingConductor.PricingPlan
       Stratosphere.BillingConductor.PricingRule
       Stratosphere.BillingConductor.PricingRule.FreeTierProperty

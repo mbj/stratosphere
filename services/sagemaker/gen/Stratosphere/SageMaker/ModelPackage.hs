@@ -10,27 +10,21 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.InferenceSpecification
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.MetadataPropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelMetricsProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelPackageStatusDetailsProperty as Exports
-import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelPackageStatusItemProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.SourceAlgorithmSpecificationProperty as Exports
-import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.UserContextProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ValidationSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ModelPackage
-  = ModelPackage {additionalInferenceSpecificationDefinition :: (Prelude.Maybe AdditionalInferenceSpecificationDefinitionProperty),
-                  additionalInferenceSpecifications :: (Prelude.Maybe [AdditionalInferenceSpecificationDefinitionProperty]),
+  = ModelPackage {additionalInferenceSpecifications :: (Prelude.Maybe [AdditionalInferenceSpecificationDefinitionProperty]),
                   additionalInferenceSpecificationsToAdd :: (Prelude.Maybe [AdditionalInferenceSpecificationDefinitionProperty]),
                   approvalDescription :: (Prelude.Maybe (Value Prelude.Text)),
                   certifyForMarketplace :: (Prelude.Maybe (Value Prelude.Bool)),
                   clientToken :: (Prelude.Maybe (Value Prelude.Text)),
-                  createdBy :: (Prelude.Maybe UserContextProperty),
                   customerMetadataProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                   domain :: (Prelude.Maybe (Value Prelude.Text)),
                   driftCheckBaselines :: (Prelude.Maybe DriftCheckBaselinesProperty),
-                  environment :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                   inferenceSpecification :: (Prelude.Maybe InferenceSpecificationProperty),
-                  lastModifiedBy :: (Prelude.Maybe UserContextProperty),
                   lastModifiedTime :: (Prelude.Maybe (Value Prelude.Text)),
                   metadataProperties :: (Prelude.Maybe MetadataPropertiesProperty),
                   modelApprovalStatus :: (Prelude.Maybe (Value Prelude.Text)),
@@ -39,9 +33,9 @@ data ModelPackage
                   modelPackageGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                   modelPackageName :: (Prelude.Maybe (Value Prelude.Text)),
                   modelPackageStatusDetails :: (Prelude.Maybe ModelPackageStatusDetailsProperty),
-                  modelPackageStatusItem :: (Prelude.Maybe ModelPackageStatusItemProperty),
                   modelPackageVersion :: (Prelude.Maybe (Value Prelude.Integer)),
                   samplePayloadUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                  skipModelValidation :: (Prelude.Maybe (Value Prelude.Text)),
                   sourceAlgorithmSpecification :: (Prelude.Maybe SourceAlgorithmSpecificationProperty),
                   tags :: (Prelude.Maybe [Tag]),
                   task :: (Prelude.Maybe (Value Prelude.Text)),
@@ -50,17 +44,14 @@ data ModelPackage
 mkModelPackage :: ModelPackage
 mkModelPackage
   = ModelPackage
-      {additionalInferenceSpecificationDefinition = Prelude.Nothing,
-       additionalInferenceSpecifications = Prelude.Nothing,
+      {additionalInferenceSpecifications = Prelude.Nothing,
        additionalInferenceSpecificationsToAdd = Prelude.Nothing,
        approvalDescription = Prelude.Nothing,
        certifyForMarketplace = Prelude.Nothing,
-       clientToken = Prelude.Nothing, createdBy = Prelude.Nothing,
+       clientToken = Prelude.Nothing,
        customerMetadataProperties = Prelude.Nothing,
        domain = Prelude.Nothing, driftCheckBaselines = Prelude.Nothing,
-       environment = Prelude.Nothing,
        inferenceSpecification = Prelude.Nothing,
-       lastModifiedBy = Prelude.Nothing,
        lastModifiedTime = Prelude.Nothing,
        metadataProperties = Prelude.Nothing,
        modelApprovalStatus = Prelude.Nothing,
@@ -69,9 +60,9 @@ mkModelPackage
        modelPackageGroupName = Prelude.Nothing,
        modelPackageName = Prelude.Nothing,
        modelPackageStatusDetails = Prelude.Nothing,
-       modelPackageStatusItem = Prelude.Nothing,
        modelPackageVersion = Prelude.Nothing,
        samplePayloadUrl = Prelude.Nothing,
+       skipModelValidation = Prelude.Nothing,
        sourceAlgorithmSpecification = Prelude.Nothing,
        tags = Prelude.Nothing, task = Prelude.Nothing,
        validationSpecification = Prelude.Nothing}
@@ -82,9 +73,7 @@ instance ToResourceProperties ModelPackage where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "AdditionalInferenceSpecificationDefinition"
-                              Prelude.<$> additionalInferenceSpecificationDefinition,
-                            (JSON..=) "AdditionalInferenceSpecifications"
+                           [(JSON..=) "AdditionalInferenceSpecifications"
                               Prelude.<$> additionalInferenceSpecifications,
                             (JSON..=) "AdditionalInferenceSpecificationsToAdd"
                               Prelude.<$> additionalInferenceSpecificationsToAdd,
@@ -92,15 +81,12 @@ instance ToResourceProperties ModelPackage where
                             (JSON..=) "CertifyForMarketplace"
                               Prelude.<$> certifyForMarketplace,
                             (JSON..=) "ClientToken" Prelude.<$> clientToken,
-                            (JSON..=) "CreatedBy" Prelude.<$> createdBy,
                             (JSON..=) "CustomerMetadataProperties"
                               Prelude.<$> customerMetadataProperties,
                             (JSON..=) "Domain" Prelude.<$> domain,
                             (JSON..=) "DriftCheckBaselines" Prelude.<$> driftCheckBaselines,
-                            (JSON..=) "Environment" Prelude.<$> environment,
                             (JSON..=) "InferenceSpecification"
                               Prelude.<$> inferenceSpecification,
-                            (JSON..=) "LastModifiedBy" Prelude.<$> lastModifiedBy,
                             (JSON..=) "LastModifiedTime" Prelude.<$> lastModifiedTime,
                             (JSON..=) "MetadataProperties" Prelude.<$> metadataProperties,
                             (JSON..=) "ModelApprovalStatus" Prelude.<$> modelApprovalStatus,
@@ -112,10 +98,9 @@ instance ToResourceProperties ModelPackage where
                             (JSON..=) "ModelPackageName" Prelude.<$> modelPackageName,
                             (JSON..=) "ModelPackageStatusDetails"
                               Prelude.<$> modelPackageStatusDetails,
-                            (JSON..=) "ModelPackageStatusItem"
-                              Prelude.<$> modelPackageStatusItem,
                             (JSON..=) "ModelPackageVersion" Prelude.<$> modelPackageVersion,
                             (JSON..=) "SamplePayloadUrl" Prelude.<$> samplePayloadUrl,
+                            (JSON..=) "SkipModelValidation" Prelude.<$> skipModelValidation,
                             (JSON..=) "SourceAlgorithmSpecification"
                               Prelude.<$> sourceAlgorithmSpecification,
                             (JSON..=) "Tags" Prelude.<$> tags,
@@ -127,9 +112,7 @@ instance JSON.ToJSON ModelPackage where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "AdditionalInferenceSpecificationDefinition"
-                 Prelude.<$> additionalInferenceSpecificationDefinition,
-               (JSON..=) "AdditionalInferenceSpecifications"
+              [(JSON..=) "AdditionalInferenceSpecifications"
                  Prelude.<$> additionalInferenceSpecifications,
                (JSON..=) "AdditionalInferenceSpecificationsToAdd"
                  Prelude.<$> additionalInferenceSpecificationsToAdd,
@@ -137,15 +120,12 @@ instance JSON.ToJSON ModelPackage where
                (JSON..=) "CertifyForMarketplace"
                  Prelude.<$> certifyForMarketplace,
                (JSON..=) "ClientToken" Prelude.<$> clientToken,
-               (JSON..=) "CreatedBy" Prelude.<$> createdBy,
                (JSON..=) "CustomerMetadataProperties"
                  Prelude.<$> customerMetadataProperties,
                (JSON..=) "Domain" Prelude.<$> domain,
                (JSON..=) "DriftCheckBaselines" Prelude.<$> driftCheckBaselines,
-               (JSON..=) "Environment" Prelude.<$> environment,
                (JSON..=) "InferenceSpecification"
                  Prelude.<$> inferenceSpecification,
-               (JSON..=) "LastModifiedBy" Prelude.<$> lastModifiedBy,
                (JSON..=) "LastModifiedTime" Prelude.<$> lastModifiedTime,
                (JSON..=) "MetadataProperties" Prelude.<$> metadataProperties,
                (JSON..=) "ModelApprovalStatus" Prelude.<$> modelApprovalStatus,
@@ -157,23 +137,15 @@ instance JSON.ToJSON ModelPackage where
                (JSON..=) "ModelPackageName" Prelude.<$> modelPackageName,
                (JSON..=) "ModelPackageStatusDetails"
                  Prelude.<$> modelPackageStatusDetails,
-               (JSON..=) "ModelPackageStatusItem"
-                 Prelude.<$> modelPackageStatusItem,
                (JSON..=) "ModelPackageVersion" Prelude.<$> modelPackageVersion,
                (JSON..=) "SamplePayloadUrl" Prelude.<$> samplePayloadUrl,
+               (JSON..=) "SkipModelValidation" Prelude.<$> skipModelValidation,
                (JSON..=) "SourceAlgorithmSpecification"
                  Prelude.<$> sourceAlgorithmSpecification,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "Task" Prelude.<$> task,
                (JSON..=) "ValidationSpecification"
                  Prelude.<$> validationSpecification]))
-instance Property "AdditionalInferenceSpecificationDefinition" ModelPackage where
-  type PropertyType "AdditionalInferenceSpecificationDefinition" ModelPackage = AdditionalInferenceSpecificationDefinitionProperty
-  set newValue ModelPackage {..}
-    = ModelPackage
-        {additionalInferenceSpecificationDefinition = Prelude.pure
-                                                        newValue,
-         ..}
 instance Property "AdditionalInferenceSpecifications" ModelPackage where
   type PropertyType "AdditionalInferenceSpecifications" ModelPackage = [AdditionalInferenceSpecificationDefinitionProperty]
   set newValue ModelPackage {..}
@@ -197,10 +169,6 @@ instance Property "ClientToken" ModelPackage where
   type PropertyType "ClientToken" ModelPackage = Value Prelude.Text
   set newValue ModelPackage {..}
     = ModelPackage {clientToken = Prelude.pure newValue, ..}
-instance Property "CreatedBy" ModelPackage where
-  type PropertyType "CreatedBy" ModelPackage = UserContextProperty
-  set newValue ModelPackage {..}
-    = ModelPackage {createdBy = Prelude.pure newValue, ..}
 instance Property "CustomerMetadataProperties" ModelPackage where
   type PropertyType "CustomerMetadataProperties" ModelPackage = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue ModelPackage {..}
@@ -214,18 +182,10 @@ instance Property "DriftCheckBaselines" ModelPackage where
   type PropertyType "DriftCheckBaselines" ModelPackage = DriftCheckBaselinesProperty
   set newValue ModelPackage {..}
     = ModelPackage {driftCheckBaselines = Prelude.pure newValue, ..}
-instance Property "Environment" ModelPackage where
-  type PropertyType "Environment" ModelPackage = Prelude.Map Prelude.Text (Value Prelude.Text)
-  set newValue ModelPackage {..}
-    = ModelPackage {environment = Prelude.pure newValue, ..}
 instance Property "InferenceSpecification" ModelPackage where
   type PropertyType "InferenceSpecification" ModelPackage = InferenceSpecificationProperty
   set newValue ModelPackage {..}
     = ModelPackage {inferenceSpecification = Prelude.pure newValue, ..}
-instance Property "LastModifiedBy" ModelPackage where
-  type PropertyType "LastModifiedBy" ModelPackage = UserContextProperty
-  set newValue ModelPackage {..}
-    = ModelPackage {lastModifiedBy = Prelude.pure newValue, ..}
 instance Property "LastModifiedTime" ModelPackage where
   type PropertyType "LastModifiedTime" ModelPackage = Value Prelude.Text
   set newValue ModelPackage {..}
@@ -260,10 +220,6 @@ instance Property "ModelPackageStatusDetails" ModelPackage where
   set newValue ModelPackage {..}
     = ModelPackage
         {modelPackageStatusDetails = Prelude.pure newValue, ..}
-instance Property "ModelPackageStatusItem" ModelPackage where
-  type PropertyType "ModelPackageStatusItem" ModelPackage = ModelPackageStatusItemProperty
-  set newValue ModelPackage {..}
-    = ModelPackage {modelPackageStatusItem = Prelude.pure newValue, ..}
 instance Property "ModelPackageVersion" ModelPackage where
   type PropertyType "ModelPackageVersion" ModelPackage = Value Prelude.Integer
   set newValue ModelPackage {..}
@@ -272,6 +228,10 @@ instance Property "SamplePayloadUrl" ModelPackage where
   type PropertyType "SamplePayloadUrl" ModelPackage = Value Prelude.Text
   set newValue ModelPackage {..}
     = ModelPackage {samplePayloadUrl = Prelude.pure newValue, ..}
+instance Property "SkipModelValidation" ModelPackage where
+  type PropertyType "SkipModelValidation" ModelPackage = Value Prelude.Text
+  set newValue ModelPackage {..}
+    = ModelPackage {skipModelValidation = Prelude.pure newValue, ..}
 instance Property "SourceAlgorithmSpecification" ModelPackage where
   type PropertyType "SourceAlgorithmSpecification" ModelPackage = SourceAlgorithmSpecificationProperty
   set newValue ModelPackage {..}

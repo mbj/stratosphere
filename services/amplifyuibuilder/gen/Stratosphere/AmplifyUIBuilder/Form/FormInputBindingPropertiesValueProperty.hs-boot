@@ -1,0 +1,9 @@
+module Stratosphere.AmplifyUIBuilder.Form.FormInputBindingPropertiesValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FormInputBindingPropertiesValueProperty :: Prelude.Type
+instance ToResourceProperties FormInputBindingPropertiesValueProperty
+instance Prelude.Eq FormInputBindingPropertiesValueProperty
+instance Prelude.Show FormInputBindingPropertiesValueProperty
+instance JSON.ToJSON FormInputBindingPropertiesValueProperty

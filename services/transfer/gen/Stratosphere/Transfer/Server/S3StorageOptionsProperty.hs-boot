@@ -1,0 +1,9 @@
+module Stratosphere.Transfer.Server.S3StorageOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3StorageOptionsProperty :: Prelude.Type
+instance ToResourceProperties S3StorageOptionsProperty
+instance Prelude.Eq S3StorageOptionsProperty
+instance Prelude.Show S3StorageOptionsProperty
+instance JSON.ToJSON S3StorageOptionsProperty

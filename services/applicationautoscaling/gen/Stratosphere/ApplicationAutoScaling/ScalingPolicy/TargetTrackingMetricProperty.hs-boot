@@ -1,0 +1,9 @@
+module Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTrackingMetricProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetTrackingMetricProperty :: Prelude.Type
+instance ToResourceProperties TargetTrackingMetricProperty
+instance Prelude.Eq TargetTrackingMetricProperty
+instance Prelude.Show TargetTrackingMetricProperty
+instance JSON.ToJSON TargetTrackingMetricProperty

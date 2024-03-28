@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorAD.Template.CertificateValidityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CertificateValidityProperty :: Prelude.Type
+instance ToResourceProperties CertificateValidityProperty
+instance Prelude.Eq CertificateValidityProperty
+instance Prelude.Show CertificateValidityProperty
+instance JSON.ToJSON CertificateValidityProperty

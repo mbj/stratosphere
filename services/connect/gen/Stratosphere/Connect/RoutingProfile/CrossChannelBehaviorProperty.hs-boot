@@ -1,0 +1,9 @@
+module Stratosphere.Connect.RoutingProfile.CrossChannelBehaviorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CrossChannelBehaviorProperty :: Prelude.Type
+instance ToResourceProperties CrossChannelBehaviorProperty
+instance Prelude.Eq CrossChannelBehaviorProperty
+instance Prelude.Show CrossChannelBehaviorProperty
+instance JSON.ToJSON CrossChannelBehaviorProperty

@@ -25,6 +25,11 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.S3.AccessGrant
+      Stratosphere.S3.AccessGrant.AccessGrantsLocationConfigurationProperty
+      Stratosphere.S3.AccessGrant.GranteeProperty
+      Stratosphere.S3.AccessGrantsInstance
+      Stratosphere.S3.AccessGrantsLocation
       Stratosphere.S3.AccessPoint
       Stratosphere.S3.AccessPoint.PublicAccessBlockConfigurationProperty
       Stratosphere.S3.AccessPoint.VpcConfigurationProperty
@@ -58,6 +63,7 @@ library
       Stratosphere.S3.Bucket.ObjectLockRuleProperty
       Stratosphere.S3.Bucket.OwnershipControlsProperty
       Stratosphere.S3.Bucket.OwnershipControlsRuleProperty
+      Stratosphere.S3.Bucket.PartitionedPrefixProperty
       Stratosphere.S3.Bucket.PublicAccessBlockConfigurationProperty
       Stratosphere.S3.Bucket.QueueConfigurationProperty
       Stratosphere.S3.Bucket.RedirectAllRequestsToProperty
@@ -80,6 +86,7 @@ library
       Stratosphere.S3.Bucket.SseKmsEncryptedObjectsProperty
       Stratosphere.S3.Bucket.StorageClassAnalysisProperty
       Stratosphere.S3.Bucket.TagFilterProperty
+      Stratosphere.S3.Bucket.TargetObjectKeyFormatProperty
       Stratosphere.S3.Bucket.TieringProperty
       Stratosphere.S3.Bucket.TopicConfigurationProperty
       Stratosphere.S3.Bucket.TransitionProperty
@@ -109,6 +116,14 @@ library
       Stratosphere.S3.StorageLens.SelectionCriteriaProperty
       Stratosphere.S3.StorageLens.SSEKMSProperty
       Stratosphere.S3.StorageLens.StorageLensConfigurationProperty
+      Stratosphere.S3.StorageLens.StorageLensGroupLevelProperty
+      Stratosphere.S3.StorageLens.StorageLensGroupSelectionCriteriaProperty
+      Stratosphere.S3.StorageLensGroup
+      Stratosphere.S3.StorageLensGroup.AndProperty
+      Stratosphere.S3.StorageLensGroup.FilterProperty
+      Stratosphere.S3.StorageLensGroup.MatchObjectAgeProperty
+      Stratosphere.S3.StorageLensGroup.MatchObjectSizeProperty
+      Stratosphere.S3.StorageLensGroup.OrProperty
   other-modules:
       Paths_stratosphere_s3
   hs-source-dirs:

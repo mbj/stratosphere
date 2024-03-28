@@ -1,0 +1,9 @@
+module Stratosphere.WorkSpacesWeb.UserSettings.CookieSynchronizationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CookieSynchronizationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CookieSynchronizationConfigurationProperty
+instance Prelude.Eq CookieSynchronizationConfigurationProperty
+instance Prelude.Show CookieSynchronizationConfigurationProperty
+instance JSON.ToJSON CookieSynchronizationConfigurationProperty

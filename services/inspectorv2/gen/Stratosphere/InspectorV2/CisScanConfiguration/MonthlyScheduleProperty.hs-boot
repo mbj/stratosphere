@@ -1,0 +1,9 @@
+module Stratosphere.InspectorV2.CisScanConfiguration.MonthlyScheduleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MonthlyScheduleProperty :: Prelude.Type
+instance ToResourceProperties MonthlyScheduleProperty
+instance Prelude.Eq MonthlyScheduleProperty
+instance Prelude.Show MonthlyScheduleProperty
+instance JSON.ToJSON MonthlyScheduleProperty

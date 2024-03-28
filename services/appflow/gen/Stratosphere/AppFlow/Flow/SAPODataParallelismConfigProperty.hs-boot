@@ -1,0 +1,9 @@
+module Stratosphere.AppFlow.Flow.SAPODataParallelismConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SAPODataParallelismConfigProperty :: Prelude.Type
+instance ToResourceProperties SAPODataParallelismConfigProperty
+instance Prelude.Eq SAPODataParallelismConfigProperty
+instance Prelude.Show SAPODataParallelismConfigProperty
+instance JSON.ToJSON SAPODataParallelismConfigProperty

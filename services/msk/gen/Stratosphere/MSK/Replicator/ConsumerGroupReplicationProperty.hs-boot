@@ -1,0 +1,9 @@
+module Stratosphere.MSK.Replicator.ConsumerGroupReplicationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConsumerGroupReplicationProperty :: Prelude.Type
+instance ToResourceProperties ConsumerGroupReplicationProperty
+instance Prelude.Eq ConsumerGroupReplicationProperty
+instance Prelude.Show ConsumerGroupReplicationProperty
+instance JSON.ToJSON ConsumerGroupReplicationProperty

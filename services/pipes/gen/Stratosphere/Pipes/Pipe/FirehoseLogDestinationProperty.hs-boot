@@ -1,0 +1,9 @@
+module Stratosphere.Pipes.Pipe.FirehoseLogDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FirehoseLogDestinationProperty :: Prelude.Type
+instance ToResourceProperties FirehoseLogDestinationProperty
+instance Prelude.Eq FirehoseLogDestinationProperty
+instance Prelude.Show FirehoseLogDestinationProperty
+instance JSON.ToJSON FirehoseLogDestinationProperty

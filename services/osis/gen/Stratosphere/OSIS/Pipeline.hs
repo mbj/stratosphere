@@ -4,13 +4,17 @@ module Stratosphere.OSIS.Pipeline (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.BufferOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.EncryptionAtRestOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.LogPublishingOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.VpcOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Pipeline
-  = Pipeline {logPublishingOptions :: (Prelude.Maybe LogPublishingOptionsProperty),
+  = Pipeline {bufferOptions :: (Prelude.Maybe BufferOptionsProperty),
+              encryptionAtRestOptions :: (Prelude.Maybe EncryptionAtRestOptionsProperty),
+              logPublishingOptions :: (Prelude.Maybe LogPublishingOptionsProperty),
               maxUnits :: (Value Prelude.Integer),
               minUnits :: (Value Prelude.Integer),
               pipelineConfigurationBody :: (Value Prelude.Text),
@@ -26,7 +30,8 @@ mkPipeline maxUnits minUnits pipelineConfigurationBody pipelineName
   = Pipeline
       {maxUnits = maxUnits, minUnits = minUnits,
        pipelineConfigurationBody = pipelineConfigurationBody,
-       pipelineName = pipelineName,
+       pipelineName = pipelineName, bufferOptions = Prelude.Nothing,
+       encryptionAtRestOptions = Prelude.Nothing,
        logPublishingOptions = Prelude.Nothing, tags = Prelude.Nothing,
        vpcOptions = Prelude.Nothing}
 instance ToResourceProperties Pipeline where
@@ -39,7 +44,10 @@ instance ToResourceProperties Pipeline where
                             "PipelineConfigurationBody" JSON..= pipelineConfigurationBody,
                             "PipelineName" JSON..= pipelineName]
                            (Prelude.catMaybes
-                              [(JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
+                              [(JSON..=) "BufferOptions" Prelude.<$> bufferOptions,
+                               (JSON..=) "EncryptionAtRestOptions"
+                                 Prelude.<$> encryptionAtRestOptions,
+                               (JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "VpcOptions" Prelude.<$> vpcOptions]))}
 instance JSON.ToJSON Pipeline where
@@ -51,9 +59,20 @@ instance JSON.ToJSON Pipeline where
                "PipelineConfigurationBody" JSON..= pipelineConfigurationBody,
                "PipelineName" JSON..= pipelineName]
               (Prelude.catMaybes
-                 [(JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
+                 [(JSON..=) "BufferOptions" Prelude.<$> bufferOptions,
+                  (JSON..=) "EncryptionAtRestOptions"
+                    Prelude.<$> encryptionAtRestOptions,
+                  (JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "VpcOptions" Prelude.<$> vpcOptions])))
+instance Property "BufferOptions" Pipeline where
+  type PropertyType "BufferOptions" Pipeline = BufferOptionsProperty
+  set newValue Pipeline {..}
+    = Pipeline {bufferOptions = Prelude.pure newValue, ..}
+instance Property "EncryptionAtRestOptions" Pipeline where
+  type PropertyType "EncryptionAtRestOptions" Pipeline = EncryptionAtRestOptionsProperty
+  set newValue Pipeline {..}
+    = Pipeline {encryptionAtRestOptions = Prelude.pure newValue, ..}
 instance Property "LogPublishingOptions" Pipeline where
   type PropertyType "LogPublishingOptions" Pipeline = LogPublishingOptionsProperty
   set newValue Pipeline {..}

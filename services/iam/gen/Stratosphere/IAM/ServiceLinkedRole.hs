@@ -7,14 +7,14 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ServiceLinkedRole
-  = ServiceLinkedRole {aWSServiceName :: (Value Prelude.Text),
+  = ServiceLinkedRole {aWSServiceName :: (Prelude.Maybe (Value Prelude.Text)),
                        customSuffix :: (Prelude.Maybe (Value Prelude.Text)),
                        description :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkServiceLinkedRole :: Value Prelude.Text -> ServiceLinkedRole
-mkServiceLinkedRole aWSServiceName
+mkServiceLinkedRole :: ServiceLinkedRole
+mkServiceLinkedRole
   = ServiceLinkedRole
-      {aWSServiceName = aWSServiceName, customSuffix = Prelude.Nothing,
+      {aWSServiceName = Prelude.Nothing, customSuffix = Prelude.Nothing,
        description = Prelude.Nothing}
 instance ToResourceProperties ServiceLinkedRole where
   toResourceProperties ServiceLinkedRole {..}
@@ -22,24 +22,22 @@ instance ToResourceProperties ServiceLinkedRole where
         {awsType = "AWS::IAM::ServiceLinkedRole",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["AWSServiceName" JSON..= aWSServiceName]
-                           (Prelude.catMaybes
-                              [(JSON..=) "CustomSuffix" Prelude.<$> customSuffix,
-                               (JSON..=) "Description" Prelude.<$> description]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "AWSServiceName" Prelude.<$> aWSServiceName,
+                            (JSON..=) "CustomSuffix" Prelude.<$> customSuffix,
+                            (JSON..=) "Description" Prelude.<$> description])}
 instance JSON.ToJSON ServiceLinkedRole where
   toJSON ServiceLinkedRole {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["AWSServiceName" JSON..= aWSServiceName]
-              (Prelude.catMaybes
-                 [(JSON..=) "CustomSuffix" Prelude.<$> customSuffix,
-                  (JSON..=) "Description" Prelude.<$> description])))
+           (Prelude.catMaybes
+              [(JSON..=) "AWSServiceName" Prelude.<$> aWSServiceName,
+               (JSON..=) "CustomSuffix" Prelude.<$> customSuffix,
+               (JSON..=) "Description" Prelude.<$> description]))
 instance Property "AWSServiceName" ServiceLinkedRole where
   type PropertyType "AWSServiceName" ServiceLinkedRole = Value Prelude.Text
   set newValue ServiceLinkedRole {..}
-    = ServiceLinkedRole {aWSServiceName = newValue, ..}
+    = ServiceLinkedRole {aWSServiceName = Prelude.pure newValue, ..}
 instance Property "CustomSuffix" ServiceLinkedRole where
   type PropertyType "CustomSuffix" ServiceLinkedRole = Value Prelude.Text
   set newValue ServiceLinkedRole {..}

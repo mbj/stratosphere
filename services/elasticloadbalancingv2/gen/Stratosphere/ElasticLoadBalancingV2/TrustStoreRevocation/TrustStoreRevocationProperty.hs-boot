@@ -1,0 +1,9 @@
+module Stratosphere.ElasticLoadBalancingV2.TrustStoreRevocation.TrustStoreRevocationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TrustStoreRevocationProperty :: Prelude.Type
+instance ToResourceProperties TrustStoreRevocationProperty
+instance Prelude.Eq TrustStoreRevocationProperty
+instance Prelude.Show TrustStoreRevocationProperty
+instance JSON.ToJSON TrustStoreRevocationProperty

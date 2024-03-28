@@ -26,6 +26,7 @@ flag development
 library
   exposed-modules:
       Stratosphere.ConnectCampaigns.Campaign
+      Stratosphere.ConnectCampaigns.Campaign.AgentlessDialerConfigProperty
       Stratosphere.ConnectCampaigns.Campaign.AnswerMachineDetectionConfigProperty
       Stratosphere.ConnectCampaigns.Campaign.DialerConfigProperty
       Stratosphere.ConnectCampaigns.Campaign.OutboundCallConfigProperty

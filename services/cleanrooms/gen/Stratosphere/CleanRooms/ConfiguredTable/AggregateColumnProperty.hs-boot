@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.ConfiguredTable.AggregateColumnProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AggregateColumnProperty :: Prelude.Type
+instance ToResourceProperties AggregateColumnProperty
+instance Prelude.Eq AggregateColumnProperty
+instance Prelude.Show AggregateColumnProperty
+instance JSON.ToJSON AggregateColumnProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data RunGroup
   = RunGroup {maxCpus :: (Prelude.Maybe (Value Prelude.Double)),
               maxDuration :: (Prelude.Maybe (Value Prelude.Double)),
+              maxGpus :: (Prelude.Maybe (Value Prelude.Double)),
               maxRuns :: (Prelude.Maybe (Value Prelude.Double)),
               name :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
@@ -17,8 +18,8 @@ mkRunGroup :: RunGroup
 mkRunGroup
   = RunGroup
       {maxCpus = Prelude.Nothing, maxDuration = Prelude.Nothing,
-       maxRuns = Prelude.Nothing, name = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       maxGpus = Prelude.Nothing, maxRuns = Prelude.Nothing,
+       name = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties RunGroup where
   toResourceProperties RunGroup {..}
     = ResourceProperties
@@ -27,6 +28,7 @@ instance ToResourceProperties RunGroup where
                         (Prelude.catMaybes
                            [(JSON..=) "MaxCpus" Prelude.<$> maxCpus,
                             (JSON..=) "MaxDuration" Prelude.<$> maxDuration,
+                            (JSON..=) "MaxGpus" Prelude.<$> maxGpus,
                             (JSON..=) "MaxRuns" Prelude.<$> maxRuns,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "Tags" Prelude.<$> tags])}
@@ -37,6 +39,7 @@ instance JSON.ToJSON RunGroup where
            (Prelude.catMaybes
               [(JSON..=) "MaxCpus" Prelude.<$> maxCpus,
                (JSON..=) "MaxDuration" Prelude.<$> maxDuration,
+               (JSON..=) "MaxGpus" Prelude.<$> maxGpus,
                (JSON..=) "MaxRuns" Prelude.<$> maxRuns,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "Tags" Prelude.<$> tags]))
@@ -48,6 +51,10 @@ instance Property "MaxDuration" RunGroup where
   type PropertyType "MaxDuration" RunGroup = Value Prelude.Double
   set newValue RunGroup {..}
     = RunGroup {maxDuration = Prelude.pure newValue, ..}
+instance Property "MaxGpus" RunGroup where
+  type PropertyType "MaxGpus" RunGroup = Value Prelude.Double
+  set newValue RunGroup {..}
+    = RunGroup {maxGpus = Prelude.pure newValue, ..}
 instance Property "MaxRuns" RunGroup where
   type PropertyType "MaxRuns" RunGroup = Value Prelude.Double
   set newValue RunGroup {..}

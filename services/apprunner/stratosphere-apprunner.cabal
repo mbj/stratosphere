@@ -25,6 +25,7 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.AppRunner.AutoScalingConfiguration
       Stratosphere.AppRunner.ObservabilityConfiguration
       Stratosphere.AppRunner.ObservabilityConfiguration.TraceConfigurationProperty
       Stratosphere.AppRunner.Service

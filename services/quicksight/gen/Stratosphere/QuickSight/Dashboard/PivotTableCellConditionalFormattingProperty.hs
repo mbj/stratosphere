@@ -12,6 +12,7 @@ import Stratosphere.Value
 data PivotTableCellConditionalFormattingProperty
   = PivotTableCellConditionalFormattingProperty {fieldId :: (Value Prelude.Text),
                                                  scope :: (Prelude.Maybe PivotTableConditionalFormattingScopeProperty),
+                                                 scopes :: (Prelude.Maybe [PivotTableConditionalFormattingScopeProperty]),
                                                  textFormat :: (Prelude.Maybe TextConditionalFormatProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPivotTableCellConditionalFormattingProperty ::
@@ -19,7 +20,7 @@ mkPivotTableCellConditionalFormattingProperty ::
 mkPivotTableCellConditionalFormattingProperty fieldId
   = PivotTableCellConditionalFormattingProperty
       {fieldId = fieldId, scope = Prelude.Nothing,
-       textFormat = Prelude.Nothing}
+       scopes = Prelude.Nothing, textFormat = Prelude.Nothing}
 instance ToResourceProperties PivotTableCellConditionalFormattingProperty where
   toResourceProperties
     PivotTableCellConditionalFormattingProperty {..}
@@ -31,6 +32,7 @@ instance ToResourceProperties PivotTableCellConditionalFormattingProperty where
                            ["FieldId" JSON..= fieldId]
                            (Prelude.catMaybes
                               [(JSON..=) "Scope" Prelude.<$> scope,
+                               (JSON..=) "Scopes" Prelude.<$> scopes,
                                (JSON..=) "TextFormat" Prelude.<$> textFormat]))}
 instance JSON.ToJSON PivotTableCellConditionalFormattingProperty where
   toJSON PivotTableCellConditionalFormattingProperty {..}
@@ -40,6 +42,7 @@ instance JSON.ToJSON PivotTableCellConditionalFormattingProperty where
               ["FieldId" JSON..= fieldId]
               (Prelude.catMaybes
                  [(JSON..=) "Scope" Prelude.<$> scope,
+                  (JSON..=) "Scopes" Prelude.<$> scopes,
                   (JSON..=) "TextFormat" Prelude.<$> textFormat])))
 instance Property "FieldId" PivotTableCellConditionalFormattingProperty where
   type PropertyType "FieldId" PivotTableCellConditionalFormattingProperty = Value Prelude.Text
@@ -51,6 +54,11 @@ instance Property "Scope" PivotTableCellConditionalFormattingProperty where
   set newValue PivotTableCellConditionalFormattingProperty {..}
     = PivotTableCellConditionalFormattingProperty
         {scope = Prelude.pure newValue, ..}
+instance Property "Scopes" PivotTableCellConditionalFormattingProperty where
+  type PropertyType "Scopes" PivotTableCellConditionalFormattingProperty = [PivotTableConditionalFormattingScopeProperty]
+  set newValue PivotTableCellConditionalFormattingProperty {..}
+    = PivotTableCellConditionalFormattingProperty
+        {scopes = Prelude.pure newValue, ..}
 instance Property "TextFormat" PivotTableCellConditionalFormattingProperty where
   type PropertyType "TextFormat" PivotTableCellConditionalFormattingProperty = TextConditionalFormatProperty
   set newValue PivotTableCellConditionalFormattingProperty {..}

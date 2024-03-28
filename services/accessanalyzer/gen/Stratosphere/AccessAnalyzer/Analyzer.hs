@@ -4,12 +4,14 @@ module Stratosphere.AccessAnalyzer.Analyzer (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AccessAnalyzer.Analyzer.AnalyzerConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.AccessAnalyzer.Analyzer.ArchiveRuleProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Analyzer
-  = Analyzer {analyzerName :: (Prelude.Maybe (Value Prelude.Text)),
+  = Analyzer {analyzerConfiguration :: (Prelude.Maybe AnalyzerConfigurationProperty),
+              analyzerName :: (Prelude.Maybe (Value Prelude.Text)),
               archiveRules :: (Prelude.Maybe [ArchiveRuleProperty]),
               tags :: (Prelude.Maybe [Tag]),
               type' :: (Value Prelude.Text)}
@@ -17,8 +19,9 @@ data Analyzer
 mkAnalyzer :: Value Prelude.Text -> Analyzer
 mkAnalyzer type'
   = Analyzer
-      {type' = type', analyzerName = Prelude.Nothing,
-       archiveRules = Prelude.Nothing, tags = Prelude.Nothing}
+      {type' = type', analyzerConfiguration = Prelude.Nothing,
+       analyzerName = Prelude.Nothing, archiveRules = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Analyzer where
   toResourceProperties Analyzer {..}
     = ResourceProperties
@@ -28,7 +31,9 @@ instance ToResourceProperties Analyzer where
                         ((Prelude.<>)
                            ["Type" JSON..= type']
                            (Prelude.catMaybes
-                              [(JSON..=) "AnalyzerName" Prelude.<$> analyzerName,
+                              [(JSON..=) "AnalyzerConfiguration"
+                                 Prelude.<$> analyzerConfiguration,
+                               (JSON..=) "AnalyzerName" Prelude.<$> analyzerName,
                                (JSON..=) "ArchiveRules" Prelude.<$> archiveRules,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Analyzer where
@@ -38,9 +43,15 @@ instance JSON.ToJSON Analyzer where
            ((Prelude.<>)
               ["Type" JSON..= type']
               (Prelude.catMaybes
-                 [(JSON..=) "AnalyzerName" Prelude.<$> analyzerName,
+                 [(JSON..=) "AnalyzerConfiguration"
+                    Prelude.<$> analyzerConfiguration,
+                  (JSON..=) "AnalyzerName" Prelude.<$> analyzerName,
                   (JSON..=) "ArchiveRules" Prelude.<$> archiveRules,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "AnalyzerConfiguration" Analyzer where
+  type PropertyType "AnalyzerConfiguration" Analyzer = AnalyzerConfigurationProperty
+  set newValue Analyzer {..}
+    = Analyzer {analyzerConfiguration = Prelude.pure newValue, ..}
 instance Property "AnalyzerName" Analyzer where
   type PropertyType "AnalyzerName" Analyzer = Value Prelude.Text
   set newValue Analyzer {..}

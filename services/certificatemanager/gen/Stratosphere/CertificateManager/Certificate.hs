@@ -13,6 +13,7 @@ data Certificate
                  certificateTransparencyLoggingPreference :: (Prelude.Maybe (Value Prelude.Text)),
                  domainName :: (Value Prelude.Text),
                  domainValidationOptions :: (Prelude.Maybe [DomainValidationOptionProperty]),
+                 keyAlgorithm :: (Prelude.Maybe (Value Prelude.Text)),
                  subjectAlternativeNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag]),
                  validationMethod :: (Prelude.Maybe (Value Prelude.Text))}
@@ -24,6 +25,7 @@ mkCertificate domainName
        certificateAuthorityArn = Prelude.Nothing,
        certificateTransparencyLoggingPreference = Prelude.Nothing,
        domainValidationOptions = Prelude.Nothing,
+       keyAlgorithm = Prelude.Nothing,
        subjectAlternativeNames = Prelude.Nothing, tags = Prelude.Nothing,
        validationMethod = Prelude.Nothing}
 instance ToResourceProperties Certificate where
@@ -41,6 +43,7 @@ instance ToResourceProperties Certificate where
                                  Prelude.<$> certificateTransparencyLoggingPreference,
                                (JSON..=) "DomainValidationOptions"
                                  Prelude.<$> domainValidationOptions,
+                               (JSON..=) "KeyAlgorithm" Prelude.<$> keyAlgorithm,
                                (JSON..=) "SubjectAlternativeNames"
                                  Prelude.<$> subjectAlternativeNames,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -58,6 +61,7 @@ instance JSON.ToJSON Certificate where
                     Prelude.<$> certificateTransparencyLoggingPreference,
                   (JSON..=) "DomainValidationOptions"
                     Prelude.<$> domainValidationOptions,
+                  (JSON..=) "KeyAlgorithm" Prelude.<$> keyAlgorithm,
                   (JSON..=) "SubjectAlternativeNames"
                     Prelude.<$> subjectAlternativeNames,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -80,6 +84,10 @@ instance Property "DomainValidationOptions" Certificate where
   type PropertyType "DomainValidationOptions" Certificate = [DomainValidationOptionProperty]
   set newValue Certificate {..}
     = Certificate {domainValidationOptions = Prelude.pure newValue, ..}
+instance Property "KeyAlgorithm" Certificate where
+  type PropertyType "KeyAlgorithm" Certificate = Value Prelude.Text
+  set newValue Certificate {..}
+    = Certificate {keyAlgorithm = Prelude.pure newValue, ..}
 instance Property "SubjectAlternativeNames" Certificate where
   type PropertyType "SubjectAlternativeNames" Certificate = ValueList Prelude.Text
   set newValue Certificate {..}

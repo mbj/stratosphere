@@ -13,18 +13,19 @@ import Stratosphere.Value
 data Model
   = Model {containers :: (Prelude.Maybe [ContainerDefinitionProperty]),
            enableNetworkIsolation :: (Prelude.Maybe (Value Prelude.Bool)),
-           executionRoleArn :: (Value Prelude.Text),
+           executionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
            inferenceExecutionConfig :: (Prelude.Maybe InferenceExecutionConfigProperty),
            modelName :: (Prelude.Maybe (Value Prelude.Text)),
            primaryContainer :: (Prelude.Maybe ContainerDefinitionProperty),
            tags :: (Prelude.Maybe [Tag]),
            vpcConfig :: (Prelude.Maybe VpcConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkModel :: Value Prelude.Text -> Model
-mkModel executionRoleArn
+mkModel :: Model
+mkModel
   = Model
-      {executionRoleArn = executionRoleArn, containers = Prelude.Nothing,
+      {containers = Prelude.Nothing,
        enableNetworkIsolation = Prelude.Nothing,
+       executionRoleArn = Prelude.Nothing,
        inferenceExecutionConfig = Prelude.Nothing,
        modelName = Prelude.Nothing, primaryContainer = Prelude.Nothing,
        tags = Prelude.Nothing, vpcConfig = Prelude.Nothing}
@@ -33,34 +34,32 @@ instance ToResourceProperties Model where
     = ResourceProperties
         {awsType = "AWS::SageMaker::Model", supportsTags = Prelude.True,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["ExecutionRoleArn" JSON..= executionRoleArn]
-                           (Prelude.catMaybes
-                              [(JSON..=) "Containers" Prelude.<$> containers,
-                               (JSON..=) "EnableNetworkIsolation"
-                                 Prelude.<$> enableNetworkIsolation,
-                               (JSON..=) "InferenceExecutionConfig"
-                                 Prelude.<$> inferenceExecutionConfig,
-                               (JSON..=) "ModelName" Prelude.<$> modelName,
-                               (JSON..=) "PrimaryContainer" Prelude.<$> primaryContainer,
-                               (JSON..=) "Tags" Prelude.<$> tags,
-                               (JSON..=) "VpcConfig" Prelude.<$> vpcConfig]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "Containers" Prelude.<$> containers,
+                            (JSON..=) "EnableNetworkIsolation"
+                              Prelude.<$> enableNetworkIsolation,
+                            (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
+                            (JSON..=) "InferenceExecutionConfig"
+                              Prelude.<$> inferenceExecutionConfig,
+                            (JSON..=) "ModelName" Prelude.<$> modelName,
+                            (JSON..=) "PrimaryContainer" Prelude.<$> primaryContainer,
+                            (JSON..=) "Tags" Prelude.<$> tags,
+                            (JSON..=) "VpcConfig" Prelude.<$> vpcConfig])}
 instance JSON.ToJSON Model where
   toJSON Model {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["ExecutionRoleArn" JSON..= executionRoleArn]
-              (Prelude.catMaybes
-                 [(JSON..=) "Containers" Prelude.<$> containers,
-                  (JSON..=) "EnableNetworkIsolation"
-                    Prelude.<$> enableNetworkIsolation,
-                  (JSON..=) "InferenceExecutionConfig"
-                    Prelude.<$> inferenceExecutionConfig,
-                  (JSON..=) "ModelName" Prelude.<$> modelName,
-                  (JSON..=) "PrimaryContainer" Prelude.<$> primaryContainer,
-                  (JSON..=) "Tags" Prelude.<$> tags,
-                  (JSON..=) "VpcConfig" Prelude.<$> vpcConfig])))
+           (Prelude.catMaybes
+              [(JSON..=) "Containers" Prelude.<$> containers,
+               (JSON..=) "EnableNetworkIsolation"
+                 Prelude.<$> enableNetworkIsolation,
+               (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
+               (JSON..=) "InferenceExecutionConfig"
+                 Prelude.<$> inferenceExecutionConfig,
+               (JSON..=) "ModelName" Prelude.<$> modelName,
+               (JSON..=) "PrimaryContainer" Prelude.<$> primaryContainer,
+               (JSON..=) "Tags" Prelude.<$> tags,
+               (JSON..=) "VpcConfig" Prelude.<$> vpcConfig]))
 instance Property "Containers" Model where
   type PropertyType "Containers" Model = [ContainerDefinitionProperty]
   set newValue Model {..}
@@ -71,7 +70,8 @@ instance Property "EnableNetworkIsolation" Model where
     = Model {enableNetworkIsolation = Prelude.pure newValue, ..}
 instance Property "ExecutionRoleArn" Model where
   type PropertyType "ExecutionRoleArn" Model = Value Prelude.Text
-  set newValue Model {..} = Model {executionRoleArn = newValue, ..}
+  set newValue Model {..}
+    = Model {executionRoleArn = Prelude.pure newValue, ..}
 instance Property "InferenceExecutionConfig" Model where
   type PropertyType "InferenceExecutionConfig" Model = InferenceExecutionConfigProperty
   set newValue Model {..}

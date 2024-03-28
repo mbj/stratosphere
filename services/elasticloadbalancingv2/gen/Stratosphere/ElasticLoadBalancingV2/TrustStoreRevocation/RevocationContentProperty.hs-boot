@@ -1,0 +1,9 @@
+module Stratosphere.ElasticLoadBalancingV2.TrustStoreRevocation.RevocationContentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RevocationContentProperty :: Prelude.Type
+instance ToResourceProperties RevocationContentProperty
+instance Prelude.Eq RevocationContentProperty
+instance Prelude.Show RevocationContentProperty
+instance JSON.ToJSON RevocationContentProperty

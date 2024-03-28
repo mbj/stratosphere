@@ -6,17 +6,20 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ImageBuilder.Image.ImageScanningConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ImageBuilder.Image.ImageTestsConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ImageBuilder.Image.WorkflowConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Image
   = Image {containerRecipeArn :: (Prelude.Maybe (Value Prelude.Text)),
            distributionConfigurationArn :: (Prelude.Maybe (Value Prelude.Text)),
            enhancedImageMetadataEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+           executionRole :: (Prelude.Maybe (Value Prelude.Text)),
            imageRecipeArn :: (Prelude.Maybe (Value Prelude.Text)),
            imageScanningConfiguration :: (Prelude.Maybe ImageScanningConfigurationProperty),
            imageTestsConfiguration :: (Prelude.Maybe ImageTestsConfigurationProperty),
            infrastructureConfigurationArn :: (Value Prelude.Text),
-           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
+           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+           workflows :: (Prelude.Maybe [WorkflowConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkImage :: Value Prelude.Text -> Image
 mkImage infrastructureConfigurationArn
@@ -25,9 +28,10 @@ mkImage infrastructureConfigurationArn
        containerRecipeArn = Prelude.Nothing,
        distributionConfigurationArn = Prelude.Nothing,
        enhancedImageMetadataEnabled = Prelude.Nothing,
-       imageRecipeArn = Prelude.Nothing,
+       executionRole = Prelude.Nothing, imageRecipeArn = Prelude.Nothing,
        imageScanningConfiguration = Prelude.Nothing,
-       imageTestsConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
+       imageTestsConfiguration = Prelude.Nothing, tags = Prelude.Nothing,
+       workflows = Prelude.Nothing}
 instance ToResourceProperties Image where
   toResourceProperties Image {..}
     = ResourceProperties
@@ -42,12 +46,14 @@ instance ToResourceProperties Image where
                                  Prelude.<$> distributionConfigurationArn,
                                (JSON..=) "EnhancedImageMetadataEnabled"
                                  Prelude.<$> enhancedImageMetadataEnabled,
+                               (JSON..=) "ExecutionRole" Prelude.<$> executionRole,
                                (JSON..=) "ImageRecipeArn" Prelude.<$> imageRecipeArn,
                                (JSON..=) "ImageScanningConfiguration"
                                  Prelude.<$> imageScanningConfiguration,
                                (JSON..=) "ImageTestsConfiguration"
                                  Prelude.<$> imageTestsConfiguration,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "Workflows" Prelude.<$> workflows]))}
 instance JSON.ToJSON Image where
   toJSON Image {..}
     = JSON.object
@@ -61,12 +67,14 @@ instance JSON.ToJSON Image where
                     Prelude.<$> distributionConfigurationArn,
                   (JSON..=) "EnhancedImageMetadataEnabled"
                     Prelude.<$> enhancedImageMetadataEnabled,
+                  (JSON..=) "ExecutionRole" Prelude.<$> executionRole,
                   (JSON..=) "ImageRecipeArn" Prelude.<$> imageRecipeArn,
                   (JSON..=) "ImageScanningConfiguration"
                     Prelude.<$> imageScanningConfiguration,
                   (JSON..=) "ImageTestsConfiguration"
                     Prelude.<$> imageTestsConfiguration,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "Workflows" Prelude.<$> workflows])))
 instance Property "ContainerRecipeArn" Image where
   type PropertyType "ContainerRecipeArn" Image = Value Prelude.Text
   set newValue Image {..}
@@ -79,6 +87,10 @@ instance Property "EnhancedImageMetadataEnabled" Image where
   type PropertyType "EnhancedImageMetadataEnabled" Image = Value Prelude.Bool
   set newValue Image {..}
     = Image {enhancedImageMetadataEnabled = Prelude.pure newValue, ..}
+instance Property "ExecutionRole" Image where
+  type PropertyType "ExecutionRole" Image = Value Prelude.Text
+  set newValue Image {..}
+    = Image {executionRole = Prelude.pure newValue, ..}
 instance Property "ImageRecipeArn" Image where
   type PropertyType "ImageRecipeArn" Image = Value Prelude.Text
   set newValue Image {..}
@@ -98,3 +110,7 @@ instance Property "InfrastructureConfigurationArn" Image where
 instance Property "Tags" Image where
   type PropertyType "Tags" Image = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue Image {..} = Image {tags = Prelude.pure newValue, ..}
+instance Property "Workflows" Image where
+  type PropertyType "Workflows" Image = [WorkflowConfigurationProperty]
+  set newValue Image {..}
+    = Image {workflows = Prelude.pure newValue, ..}

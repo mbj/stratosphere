@@ -10,7 +10,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LoadBalancer
-  = LoadBalancer {ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
+  = LoadBalancer {enforceSecurityGroupInboundRulesOnPrivateLinkTraffic :: (Prelude.Maybe (Value Prelude.Text)),
+                  ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
                   loadBalancerAttributes :: (Prelude.Maybe [LoadBalancerAttributeProperty]),
                   name :: (Prelude.Maybe (Value Prelude.Text)),
                   scheme :: (Prelude.Maybe (Value Prelude.Text)),
@@ -23,7 +24,8 @@ data LoadBalancer
 mkLoadBalancer :: LoadBalancer
 mkLoadBalancer
   = LoadBalancer
-      {ipAddressType = Prelude.Nothing,
+      {enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = Prelude.Nothing,
+       ipAddressType = Prelude.Nothing,
        loadBalancerAttributes = Prelude.Nothing, name = Prelude.Nothing,
        scheme = Prelude.Nothing, securityGroups = Prelude.Nothing,
        subnetMappings = Prelude.Nothing, subnets = Prelude.Nothing,
@@ -35,7 +37,9 @@ instance ToResourceProperties LoadBalancer where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
+                           [(JSON..=) "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
+                              Prelude.<$> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
+                            (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                             (JSON..=) "LoadBalancerAttributes"
                               Prelude.<$> loadBalancerAttributes,
                             (JSON..=) "Name" Prelude.<$> name,
@@ -50,7 +54,9 @@ instance JSON.ToJSON LoadBalancer where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
+              [(JSON..=) "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
+                 Prelude.<$> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
+               (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                (JSON..=) "LoadBalancerAttributes"
                  Prelude.<$> loadBalancerAttributes,
                (JSON..=) "Name" Prelude.<$> name,
@@ -60,6 +66,13 @@ instance JSON.ToJSON LoadBalancer where
                (JSON..=) "Subnets" Prelude.<$> subnets,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "Type" Prelude.<$> type']))
+instance Property "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" LoadBalancer where
+  type PropertyType "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" LoadBalancer = Value Prelude.Text
+  set newValue LoadBalancer {..}
+    = LoadBalancer
+        {enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = Prelude.pure
+                                                                  newValue,
+         ..}
 instance Property "IpAddressType" LoadBalancer where
   type PropertyType "IpAddressType" LoadBalancer = Value Prelude.Text
   set newValue LoadBalancer {..}

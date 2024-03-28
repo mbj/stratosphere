@@ -1,0 +1,9 @@
+module Stratosphere.InternetMonitor.Monitor.HealthEventsConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HealthEventsConfigProperty :: Prelude.Type
+instance ToResourceProperties HealthEventsConfigProperty
+instance Prelude.Eq HealthEventsConfigProperty
+instance Prelude.Show HealthEventsConfigProperty
+instance JSON.ToJSON HealthEventsConfigProperty

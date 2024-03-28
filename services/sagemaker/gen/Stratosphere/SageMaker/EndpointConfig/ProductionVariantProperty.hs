@@ -5,6 +5,8 @@ module Stratosphere.SageMaker.EndpointConfig.ProductionVariantProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.ManagedInstanceScalingProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.RoutingConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.EndpointConfig.ServerlessConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -13,31 +15,29 @@ data ProductionVariantProperty
                                containerStartupHealthCheckTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                enableSSMAccess :: (Prelude.Maybe (Value Prelude.Bool)),
                                initialInstanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
-                               initialVariantWeight :: (Value Prelude.Double),
+                               initialVariantWeight :: (Prelude.Maybe (Value Prelude.Double)),
                                instanceType :: (Prelude.Maybe (Value Prelude.Text)),
+                               managedInstanceScaling :: (Prelude.Maybe ManagedInstanceScalingProperty),
                                modelDataDownloadTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
-                               modelName :: (Value Prelude.Text),
+                               modelName :: (Prelude.Maybe (Value Prelude.Text)),
+                               routingConfig :: (Prelude.Maybe RoutingConfigProperty),
                                serverlessConfig :: (Prelude.Maybe ServerlessConfigProperty),
                                variantName :: (Value Prelude.Text),
                                volumeSizeInGB :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProductionVariantProperty ::
-  Value Prelude.Double
-  -> Value Prelude.Text
-     -> Value Prelude.Text -> ProductionVariantProperty
-mkProductionVariantProperty
-  initialVariantWeight
-  modelName
-  variantName
+  Value Prelude.Text -> ProductionVariantProperty
+mkProductionVariantProperty variantName
   = ProductionVariantProperty
-      {initialVariantWeight = initialVariantWeight,
-       modelName = modelName, variantName = variantName,
-       acceleratorType = Prelude.Nothing,
+      {variantName = variantName, acceleratorType = Prelude.Nothing,
        containerStartupHealthCheckTimeoutInSeconds = Prelude.Nothing,
        enableSSMAccess = Prelude.Nothing,
        initialInstanceCount = Prelude.Nothing,
+       initialVariantWeight = Prelude.Nothing,
        instanceType = Prelude.Nothing,
+       managedInstanceScaling = Prelude.Nothing,
        modelDataDownloadTimeoutInSeconds = Prelude.Nothing,
+       modelName = Prelude.Nothing, routingConfig = Prelude.Nothing,
        serverlessConfig = Prelude.Nothing,
        volumeSizeInGB = Prelude.Nothing}
 instance ToResourceProperties ProductionVariantProperty where
@@ -47,17 +47,21 @@ instance ToResourceProperties ProductionVariantProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["InitialVariantWeight" JSON..= initialVariantWeight,
-                            "ModelName" JSON..= modelName, "VariantName" JSON..= variantName]
+                           ["VariantName" JSON..= variantName]
                            (Prelude.catMaybes
                               [(JSON..=) "AcceleratorType" Prelude.<$> acceleratorType,
                                (JSON..=) "ContainerStartupHealthCheckTimeoutInSeconds"
                                  Prelude.<$> containerStartupHealthCheckTimeoutInSeconds,
                                (JSON..=) "EnableSSMAccess" Prelude.<$> enableSSMAccess,
                                (JSON..=) "InitialInstanceCount" Prelude.<$> initialInstanceCount,
+                               (JSON..=) "InitialVariantWeight" Prelude.<$> initialVariantWeight,
                                (JSON..=) "InstanceType" Prelude.<$> instanceType,
+                               (JSON..=) "ManagedInstanceScaling"
+                                 Prelude.<$> managedInstanceScaling,
                                (JSON..=) "ModelDataDownloadTimeoutInSeconds"
                                  Prelude.<$> modelDataDownloadTimeoutInSeconds,
+                               (JSON..=) "ModelName" Prelude.<$> modelName,
+                               (JSON..=) "RoutingConfig" Prelude.<$> routingConfig,
                                (JSON..=) "ServerlessConfig" Prelude.<$> serverlessConfig,
                                (JSON..=) "VolumeSizeInGB" Prelude.<$> volumeSizeInGB]))}
 instance JSON.ToJSON ProductionVariantProperty where
@@ -65,17 +69,21 @@ instance JSON.ToJSON ProductionVariantProperty where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["InitialVariantWeight" JSON..= initialVariantWeight,
-               "ModelName" JSON..= modelName, "VariantName" JSON..= variantName]
+              ["VariantName" JSON..= variantName]
               (Prelude.catMaybes
                  [(JSON..=) "AcceleratorType" Prelude.<$> acceleratorType,
                   (JSON..=) "ContainerStartupHealthCheckTimeoutInSeconds"
                     Prelude.<$> containerStartupHealthCheckTimeoutInSeconds,
                   (JSON..=) "EnableSSMAccess" Prelude.<$> enableSSMAccess,
                   (JSON..=) "InitialInstanceCount" Prelude.<$> initialInstanceCount,
+                  (JSON..=) "InitialVariantWeight" Prelude.<$> initialVariantWeight,
                   (JSON..=) "InstanceType" Prelude.<$> instanceType,
+                  (JSON..=) "ManagedInstanceScaling"
+                    Prelude.<$> managedInstanceScaling,
                   (JSON..=) "ModelDataDownloadTimeoutInSeconds"
                     Prelude.<$> modelDataDownloadTimeoutInSeconds,
+                  (JSON..=) "ModelName" Prelude.<$> modelName,
+                  (JSON..=) "RoutingConfig" Prelude.<$> routingConfig,
                   (JSON..=) "ServerlessConfig" Prelude.<$> serverlessConfig,
                   (JSON..=) "VolumeSizeInGB" Prelude.<$> volumeSizeInGB])))
 instance Property "AcceleratorType" ProductionVariantProperty where
@@ -103,12 +111,18 @@ instance Property "InitialInstanceCount" ProductionVariantProperty where
 instance Property "InitialVariantWeight" ProductionVariantProperty where
   type PropertyType "InitialVariantWeight" ProductionVariantProperty = Value Prelude.Double
   set newValue ProductionVariantProperty {..}
-    = ProductionVariantProperty {initialVariantWeight = newValue, ..}
+    = ProductionVariantProperty
+        {initialVariantWeight = Prelude.pure newValue, ..}
 instance Property "InstanceType" ProductionVariantProperty where
   type PropertyType "InstanceType" ProductionVariantProperty = Value Prelude.Text
   set newValue ProductionVariantProperty {..}
     = ProductionVariantProperty
         {instanceType = Prelude.pure newValue, ..}
+instance Property "ManagedInstanceScaling" ProductionVariantProperty where
+  type PropertyType "ManagedInstanceScaling" ProductionVariantProperty = ManagedInstanceScalingProperty
+  set newValue ProductionVariantProperty {..}
+    = ProductionVariantProperty
+        {managedInstanceScaling = Prelude.pure newValue, ..}
 instance Property "ModelDataDownloadTimeoutInSeconds" ProductionVariantProperty where
   type PropertyType "ModelDataDownloadTimeoutInSeconds" ProductionVariantProperty = Value Prelude.Integer
   set newValue ProductionVariantProperty {..}
@@ -117,7 +131,12 @@ instance Property "ModelDataDownloadTimeoutInSeconds" ProductionVariantProperty 
 instance Property "ModelName" ProductionVariantProperty where
   type PropertyType "ModelName" ProductionVariantProperty = Value Prelude.Text
   set newValue ProductionVariantProperty {..}
-    = ProductionVariantProperty {modelName = newValue, ..}
+    = ProductionVariantProperty {modelName = Prelude.pure newValue, ..}
+instance Property "RoutingConfig" ProductionVariantProperty where
+  type PropertyType "RoutingConfig" ProductionVariantProperty = RoutingConfigProperty
+  set newValue ProductionVariantProperty {..}
+    = ProductionVariantProperty
+        {routingConfig = Prelude.pure newValue, ..}
 instance Property "ServerlessConfig" ProductionVariantProperty where
   type PropertyType "ServerlessConfig" ProductionVariantProperty = ServerlessConfigProperty
   set newValue ProductionVariantProperty {..}

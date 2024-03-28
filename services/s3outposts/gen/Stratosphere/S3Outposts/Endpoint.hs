@@ -1,14 +1,16 @@
 module Stratosphere.S3Outposts.Endpoint (
-        Endpoint(..), mkEndpoint
+        module Exports, Endpoint(..), mkEndpoint
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.S3Outposts.Endpoint.FailedReasonProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Endpoint
   = Endpoint {accessType :: (Prelude.Maybe (Value Prelude.Text)),
               customerOwnedIpv4Pool :: (Prelude.Maybe (Value Prelude.Text)),
+              failedReason :: (Prelude.Maybe FailedReasonProperty),
               outpostId :: (Value Prelude.Text),
               securityGroupId :: (Value Prelude.Text),
               subnetId :: (Value Prelude.Text)}
@@ -20,7 +22,8 @@ mkEndpoint outpostId securityGroupId subnetId
   = Endpoint
       {outpostId = outpostId, securityGroupId = securityGroupId,
        subnetId = subnetId, accessType = Prelude.Nothing,
-       customerOwnedIpv4Pool = Prelude.Nothing}
+       customerOwnedIpv4Pool = Prelude.Nothing,
+       failedReason = Prelude.Nothing}
 instance ToResourceProperties Endpoint where
   toResourceProperties Endpoint {..}
     = ResourceProperties
@@ -34,7 +37,8 @@ instance ToResourceProperties Endpoint where
                            (Prelude.catMaybes
                               [(JSON..=) "AccessType" Prelude.<$> accessType,
                                (JSON..=) "CustomerOwnedIpv4Pool"
-                                 Prelude.<$> customerOwnedIpv4Pool]))}
+                                 Prelude.<$> customerOwnedIpv4Pool,
+                               (JSON..=) "FailedReason" Prelude.<$> failedReason]))}
 instance JSON.ToJSON Endpoint where
   toJSON Endpoint {..}
     = JSON.object
@@ -46,7 +50,8 @@ instance JSON.ToJSON Endpoint where
               (Prelude.catMaybes
                  [(JSON..=) "AccessType" Prelude.<$> accessType,
                   (JSON..=) "CustomerOwnedIpv4Pool"
-                    Prelude.<$> customerOwnedIpv4Pool])))
+                    Prelude.<$> customerOwnedIpv4Pool,
+                  (JSON..=) "FailedReason" Prelude.<$> failedReason])))
 instance Property "AccessType" Endpoint where
   type PropertyType "AccessType" Endpoint = Value Prelude.Text
   set newValue Endpoint {..}
@@ -55,6 +60,10 @@ instance Property "CustomerOwnedIpv4Pool" Endpoint where
   type PropertyType "CustomerOwnedIpv4Pool" Endpoint = Value Prelude.Text
   set newValue Endpoint {..}
     = Endpoint {customerOwnedIpv4Pool = Prelude.pure newValue, ..}
+instance Property "FailedReason" Endpoint where
+  type PropertyType "FailedReason" Endpoint = FailedReasonProperty
+  set newValue Endpoint {..}
+    = Endpoint {failedReason = Prelude.pure newValue, ..}
 instance Property "OutpostId" Endpoint where
   type PropertyType "OutpostId" Endpoint = Value Prelude.Text
   set newValue Endpoint {..} = Endpoint {outpostId = newValue, ..}

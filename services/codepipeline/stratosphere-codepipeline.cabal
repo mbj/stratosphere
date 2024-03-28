@@ -36,10 +36,18 @@ library
       Stratosphere.CodePipeline.Pipeline.ArtifactStoreProperty
       Stratosphere.CodePipeline.Pipeline.BlockerDeclarationProperty
       Stratosphere.CodePipeline.Pipeline.EncryptionKeyProperty
+      Stratosphere.CodePipeline.Pipeline.GitBranchFilterCriteriaProperty
+      Stratosphere.CodePipeline.Pipeline.GitConfigurationProperty
+      Stratosphere.CodePipeline.Pipeline.GitFilePathFilterCriteriaProperty
+      Stratosphere.CodePipeline.Pipeline.GitPullRequestFilterProperty
+      Stratosphere.CodePipeline.Pipeline.GitPushFilterProperty
+      Stratosphere.CodePipeline.Pipeline.GitTagFilterCriteriaProperty
       Stratosphere.CodePipeline.Pipeline.InputArtifactProperty
       Stratosphere.CodePipeline.Pipeline.OutputArtifactProperty
+      Stratosphere.CodePipeline.Pipeline.PipelineTriggerDeclarationProperty
       Stratosphere.CodePipeline.Pipeline.StageDeclarationProperty
       Stratosphere.CodePipeline.Pipeline.StageTransitionProperty
+      Stratosphere.CodePipeline.Pipeline.VariableDeclarationProperty
       Stratosphere.CodePipeline.Webhook
       Stratosphere.CodePipeline.Webhook.WebhookAuthConfigurationProperty
       Stratosphere.CodePipeline.Webhook.WebhookFilterRuleProperty

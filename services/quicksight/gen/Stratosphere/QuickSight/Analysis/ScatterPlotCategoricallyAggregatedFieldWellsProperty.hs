@@ -11,6 +11,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.MeasureFieldProperty as E
 import Stratosphere.ResourceProperties
 data ScatterPlotCategoricallyAggregatedFieldWellsProperty
   = ScatterPlotCategoricallyAggregatedFieldWellsProperty {category :: (Prelude.Maybe [DimensionFieldProperty]),
+                                                          label :: (Prelude.Maybe [DimensionFieldProperty]),
                                                           size :: (Prelude.Maybe [MeasureFieldProperty]),
                                                           xAxis :: (Prelude.Maybe [MeasureFieldProperty]),
                                                           yAxis :: (Prelude.Maybe [MeasureFieldProperty])}
@@ -19,8 +20,9 @@ mkScatterPlotCategoricallyAggregatedFieldWellsProperty ::
   ScatterPlotCategoricallyAggregatedFieldWellsProperty
 mkScatterPlotCategoricallyAggregatedFieldWellsProperty
   = ScatterPlotCategoricallyAggregatedFieldWellsProperty
-      {category = Prelude.Nothing, size = Prelude.Nothing,
-       xAxis = Prelude.Nothing, yAxis = Prelude.Nothing}
+      {category = Prelude.Nothing, label = Prelude.Nothing,
+       size = Prelude.Nothing, xAxis = Prelude.Nothing,
+       yAxis = Prelude.Nothing}
 instance ToResourceProperties ScatterPlotCategoricallyAggregatedFieldWellsProperty where
   toResourceProperties
     ScatterPlotCategoricallyAggregatedFieldWellsProperty {..}
@@ -30,6 +32,7 @@ instance ToResourceProperties ScatterPlotCategoricallyAggregatedFieldWellsProper
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Category" Prelude.<$> category,
+                            (JSON..=) "Label" Prelude.<$> label,
                             (JSON..=) "Size" Prelude.<$> size,
                             (JSON..=) "XAxis" Prelude.<$> xAxis,
                             (JSON..=) "YAxis" Prelude.<$> yAxis])}
@@ -39,6 +42,7 @@ instance JSON.ToJSON ScatterPlotCategoricallyAggregatedFieldWellsProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "Category" Prelude.<$> category,
+               (JSON..=) "Label" Prelude.<$> label,
                (JSON..=) "Size" Prelude.<$> size,
                (JSON..=) "XAxis" Prelude.<$> xAxis,
                (JSON..=) "YAxis" Prelude.<$> yAxis]))
@@ -49,6 +53,13 @@ instance Property "Category" ScatterPlotCategoricallyAggregatedFieldWellsPropert
     ScatterPlotCategoricallyAggregatedFieldWellsProperty {..}
     = ScatterPlotCategoricallyAggregatedFieldWellsProperty
         {category = Prelude.pure newValue, ..}
+instance Property "Label" ScatterPlotCategoricallyAggregatedFieldWellsProperty where
+  type PropertyType "Label" ScatterPlotCategoricallyAggregatedFieldWellsProperty = [DimensionFieldProperty]
+  set
+    newValue
+    ScatterPlotCategoricallyAggregatedFieldWellsProperty {..}
+    = ScatterPlotCategoricallyAggregatedFieldWellsProperty
+        {label = Prelude.pure newValue, ..}
 instance Property "Size" ScatterPlotCategoricallyAggregatedFieldWellsProperty where
   type PropertyType "Size" ScatterPlotCategoricallyAggregatedFieldWellsProperty = [MeasureFieldProperty]
   set

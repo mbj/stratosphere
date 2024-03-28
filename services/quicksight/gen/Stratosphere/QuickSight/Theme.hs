@@ -11,33 +11,37 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Theme
   = Theme {awsAccountId :: (Value Prelude.Text),
-           baseThemeId :: (Prelude.Maybe (Value Prelude.Text)),
-           configuration :: (Prelude.Maybe ThemeConfigurationProperty),
-           name :: (Prelude.Maybe (Value Prelude.Text)),
+           baseThemeId :: (Value Prelude.Text),
+           configuration :: ThemeConfigurationProperty,
+           name :: (Value Prelude.Text),
            permissions :: (Prelude.Maybe [ResourcePermissionProperty]),
            tags :: (Prelude.Maybe [Tag]),
            themeId :: (Value Prelude.Text),
            versionDescription :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkTheme :: Value Prelude.Text -> Value Prelude.Text -> Theme
-mkTheme awsAccountId themeId
+mkTheme ::
+  Value Prelude.Text
+  -> Value Prelude.Text
+     -> ThemeConfigurationProperty
+        -> Value Prelude.Text -> Value Prelude.Text -> Theme
+mkTheme awsAccountId baseThemeId configuration name themeId
   = Theme
-      {awsAccountId = awsAccountId, themeId = themeId,
-       baseThemeId = Prelude.Nothing, configuration = Prelude.Nothing,
-       name = Prelude.Nothing, permissions = Prelude.Nothing,
-       tags = Prelude.Nothing, versionDescription = Prelude.Nothing}
+      {awsAccountId = awsAccountId, baseThemeId = baseThemeId,
+       configuration = configuration, name = name, themeId = themeId,
+       permissions = Prelude.Nothing, tags = Prelude.Nothing,
+       versionDescription = Prelude.Nothing}
 instance ToResourceProperties Theme where
   toResourceProperties Theme {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Theme", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["AwsAccountId" JSON..= awsAccountId, "ThemeId" JSON..= themeId]
+                           ["AwsAccountId" JSON..= awsAccountId,
+                            "BaseThemeId" JSON..= baseThemeId,
+                            "Configuration" JSON..= configuration, "Name" JSON..= name,
+                            "ThemeId" JSON..= themeId]
                            (Prelude.catMaybes
-                              [(JSON..=) "BaseThemeId" Prelude.<$> baseThemeId,
-                               (JSON..=) "Configuration" Prelude.<$> configuration,
-                               (JSON..=) "Name" Prelude.<$> name,
-                               (JSON..=) "Permissions" Prelude.<$> permissions,
+                              [(JSON..=) "Permissions" Prelude.<$> permissions,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "VersionDescription" Prelude.<$> versionDescription]))}
 instance JSON.ToJSON Theme where
@@ -45,12 +49,12 @@ instance JSON.ToJSON Theme where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["AwsAccountId" JSON..= awsAccountId, "ThemeId" JSON..= themeId]
+              ["AwsAccountId" JSON..= awsAccountId,
+               "BaseThemeId" JSON..= baseThemeId,
+               "Configuration" JSON..= configuration, "Name" JSON..= name,
+               "ThemeId" JSON..= themeId]
               (Prelude.catMaybes
-                 [(JSON..=) "BaseThemeId" Prelude.<$> baseThemeId,
-                  (JSON..=) "Configuration" Prelude.<$> configuration,
-                  (JSON..=) "Name" Prelude.<$> name,
-                  (JSON..=) "Permissions" Prelude.<$> permissions,
+                 [(JSON..=) "Permissions" Prelude.<$> permissions,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "VersionDescription" Prelude.<$> versionDescription])))
 instance Property "AwsAccountId" Theme where
@@ -58,15 +62,13 @@ instance Property "AwsAccountId" Theme where
   set newValue Theme {..} = Theme {awsAccountId = newValue, ..}
 instance Property "BaseThemeId" Theme where
   type PropertyType "BaseThemeId" Theme = Value Prelude.Text
-  set newValue Theme {..}
-    = Theme {baseThemeId = Prelude.pure newValue, ..}
+  set newValue Theme {..} = Theme {baseThemeId = newValue, ..}
 instance Property "Configuration" Theme where
   type PropertyType "Configuration" Theme = ThemeConfigurationProperty
-  set newValue Theme {..}
-    = Theme {configuration = Prelude.pure newValue, ..}
+  set newValue Theme {..} = Theme {configuration = newValue, ..}
 instance Property "Name" Theme where
   type PropertyType "Name" Theme = Value Prelude.Text
-  set newValue Theme {..} = Theme {name = Prelude.pure newValue, ..}
+  set newValue Theme {..} = Theme {name = newValue, ..}
 instance Property "Permissions" Theme where
   type PropertyType "Permissions" Theme = [ResourcePermissionProperty]
   set newValue Theme {..}

@@ -5,12 +5,14 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.TableCellStyleProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.TotalAggregationOptionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TotalOptionsProperty
   = TotalOptionsProperty {customLabel :: (Prelude.Maybe (Value Prelude.Text)),
                           placement :: (Prelude.Maybe (Value Prelude.Text)),
                           scrollStatus :: (Prelude.Maybe (Value Prelude.Text)),
+                          totalAggregationOptions :: (Prelude.Maybe [TotalAggregationOptionProperty]),
                           totalCellStyle :: (Prelude.Maybe TableCellStyleProperty),
                           totalsVisibility :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -18,7 +20,9 @@ mkTotalOptionsProperty :: TotalOptionsProperty
 mkTotalOptionsProperty
   = TotalOptionsProperty
       {customLabel = Prelude.Nothing, placement = Prelude.Nothing,
-       scrollStatus = Prelude.Nothing, totalCellStyle = Prelude.Nothing,
+       scrollStatus = Prelude.Nothing,
+       totalAggregationOptions = Prelude.Nothing,
+       totalCellStyle = Prelude.Nothing,
        totalsVisibility = Prelude.Nothing}
 instance ToResourceProperties TotalOptionsProperty where
   toResourceProperties TotalOptionsProperty {..}
@@ -30,6 +34,8 @@ instance ToResourceProperties TotalOptionsProperty where
                            [(JSON..=) "CustomLabel" Prelude.<$> customLabel,
                             (JSON..=) "Placement" Prelude.<$> placement,
                             (JSON..=) "ScrollStatus" Prelude.<$> scrollStatus,
+                            (JSON..=) "TotalAggregationOptions"
+                              Prelude.<$> totalAggregationOptions,
                             (JSON..=) "TotalCellStyle" Prelude.<$> totalCellStyle,
                             (JSON..=) "TotalsVisibility" Prelude.<$> totalsVisibility])}
 instance JSON.ToJSON TotalOptionsProperty where
@@ -40,6 +46,8 @@ instance JSON.ToJSON TotalOptionsProperty where
               [(JSON..=) "CustomLabel" Prelude.<$> customLabel,
                (JSON..=) "Placement" Prelude.<$> placement,
                (JSON..=) "ScrollStatus" Prelude.<$> scrollStatus,
+               (JSON..=) "TotalAggregationOptions"
+                 Prelude.<$> totalAggregationOptions,
                (JSON..=) "TotalCellStyle" Prelude.<$> totalCellStyle,
                (JSON..=) "TotalsVisibility" Prelude.<$> totalsVisibility]))
 instance Property "CustomLabel" TotalOptionsProperty where
@@ -54,6 +62,11 @@ instance Property "ScrollStatus" TotalOptionsProperty where
   type PropertyType "ScrollStatus" TotalOptionsProperty = Value Prelude.Text
   set newValue TotalOptionsProperty {..}
     = TotalOptionsProperty {scrollStatus = Prelude.pure newValue, ..}
+instance Property "TotalAggregationOptions" TotalOptionsProperty where
+  type PropertyType "TotalAggregationOptions" TotalOptionsProperty = [TotalAggregationOptionProperty]
+  set newValue TotalOptionsProperty {..}
+    = TotalOptionsProperty
+        {totalAggregationOptions = Prelude.pure newValue, ..}
 instance Property "TotalCellStyle" TotalOptionsProperty where
   type PropertyType "TotalCellStyle" TotalOptionsProperty = TableCellStyleProperty
   set newValue TotalOptionsProperty {..}

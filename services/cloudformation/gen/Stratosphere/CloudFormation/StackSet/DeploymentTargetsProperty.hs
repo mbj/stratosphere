@@ -9,12 +9,14 @@ import Stratosphere.Value
 data DeploymentTargetsProperty
   = DeploymentTargetsProperty {accountFilterType :: (Prelude.Maybe (Value Prelude.Text)),
                                accounts :: (Prelude.Maybe (ValueList Prelude.Text)),
+                               accountsUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                organizationalUnitIds :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentTargetsProperty :: DeploymentTargetsProperty
 mkDeploymentTargetsProperty
   = DeploymentTargetsProperty
       {accountFilterType = Prelude.Nothing, accounts = Prelude.Nothing,
+       accountsUrl = Prelude.Nothing,
        organizationalUnitIds = Prelude.Nothing}
 instance ToResourceProperties DeploymentTargetsProperty where
   toResourceProperties DeploymentTargetsProperty {..}
@@ -25,6 +27,7 @@ instance ToResourceProperties DeploymentTargetsProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "AccountFilterType" Prelude.<$> accountFilterType,
                             (JSON..=) "Accounts" Prelude.<$> accounts,
+                            (JSON..=) "AccountsUrl" Prelude.<$> accountsUrl,
                             (JSON..=) "OrganizationalUnitIds"
                               Prelude.<$> organizationalUnitIds])}
 instance JSON.ToJSON DeploymentTargetsProperty where
@@ -34,6 +37,7 @@ instance JSON.ToJSON DeploymentTargetsProperty where
            (Prelude.catMaybes
               [(JSON..=) "AccountFilterType" Prelude.<$> accountFilterType,
                (JSON..=) "Accounts" Prelude.<$> accounts,
+               (JSON..=) "AccountsUrl" Prelude.<$> accountsUrl,
                (JSON..=) "OrganizationalUnitIds"
                  Prelude.<$> organizationalUnitIds]))
 instance Property "AccountFilterType" DeploymentTargetsProperty where
@@ -45,6 +49,11 @@ instance Property "Accounts" DeploymentTargetsProperty where
   type PropertyType "Accounts" DeploymentTargetsProperty = ValueList Prelude.Text
   set newValue DeploymentTargetsProperty {..}
     = DeploymentTargetsProperty {accounts = Prelude.pure newValue, ..}
+instance Property "AccountsUrl" DeploymentTargetsProperty where
+  type PropertyType "AccountsUrl" DeploymentTargetsProperty = Value Prelude.Text
+  set newValue DeploymentTargetsProperty {..}
+    = DeploymentTargetsProperty
+        {accountsUrl = Prelude.pure newValue, ..}
 instance Property "OrganizationalUnitIds" DeploymentTargetsProperty where
   type PropertyType "OrganizationalUnitIds" DeploymentTargetsProperty = ValueList Prelude.Text
   set newValue DeploymentTargetsProperty {..}

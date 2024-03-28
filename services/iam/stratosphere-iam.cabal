@@ -28,18 +28,21 @@ library
       Stratosphere.IAM.AccessKey
       Stratosphere.IAM.Group
       Stratosphere.IAM.Group.PolicyProperty
+      Stratosphere.IAM.GroupPolicy
       Stratosphere.IAM.InstanceProfile
       Stratosphere.IAM.ManagedPolicy
       Stratosphere.IAM.OIDCProvider
       Stratosphere.IAM.Policy
       Stratosphere.IAM.Role
       Stratosphere.IAM.Role.PolicyProperty
+      Stratosphere.IAM.RolePolicy
       Stratosphere.IAM.SAMLProvider
       Stratosphere.IAM.ServerCertificate
       Stratosphere.IAM.ServiceLinkedRole
       Stratosphere.IAM.User
       Stratosphere.IAM.User.LoginProfileProperty
       Stratosphere.IAM.User.PolicyProperty
+      Stratosphere.IAM.UserPolicy
       Stratosphere.IAM.UserToGroupAddition
       Stratosphere.IAM.VirtualMFADevice
   other-modules:

@@ -8,7 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Namespace
-  = Namespace {adminUserPassword :: (Prelude.Maybe (Value Prelude.Text)),
+  = Namespace {adminPasswordSecretKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+               adminUserPassword :: (Prelude.Maybe (Value Prelude.Text)),
                adminUsername :: (Prelude.Maybe (Value Prelude.Text)),
                dbName :: (Prelude.Maybe (Value Prelude.Text)),
                defaultIamRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -17,20 +18,28 @@ data Namespace
                iamRoles :: (Prelude.Maybe (ValueList Prelude.Text)),
                kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                logExports :: (Prelude.Maybe (ValueList Prelude.Text)),
+               manageAdminPassword :: (Prelude.Maybe (Value Prelude.Bool)),
                namespaceName :: (Value Prelude.Text),
+               namespaceResourcePolicy :: (Prelude.Maybe JSON.Object),
+               redshiftIdcApplicationArn :: (Prelude.Maybe (Value Prelude.Text)),
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNamespace :: Value Prelude.Text -> Namespace
 mkNamespace namespaceName
   = Namespace
       {namespaceName = namespaceName,
+       adminPasswordSecretKmsKeyId = Prelude.Nothing,
        adminUserPassword = Prelude.Nothing,
        adminUsername = Prelude.Nothing, dbName = Prelude.Nothing,
        defaultIamRoleArn = Prelude.Nothing,
        finalSnapshotName = Prelude.Nothing,
        finalSnapshotRetentionPeriod = Prelude.Nothing,
        iamRoles = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
-       logExports = Prelude.Nothing, tags = Prelude.Nothing}
+       logExports = Prelude.Nothing,
+       manageAdminPassword = Prelude.Nothing,
+       namespaceResourcePolicy = Prelude.Nothing,
+       redshiftIdcApplicationArn = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Namespace where
   toResourceProperties Namespace {..}
     = ResourceProperties
@@ -40,7 +49,9 @@ instance ToResourceProperties Namespace where
                         ((Prelude.<>)
                            ["NamespaceName" JSON..= namespaceName]
                            (Prelude.catMaybes
-                              [(JSON..=) "AdminUserPassword" Prelude.<$> adminUserPassword,
+                              [(JSON..=) "AdminPasswordSecretKmsKeyId"
+                                 Prelude.<$> adminPasswordSecretKmsKeyId,
+                               (JSON..=) "AdminUserPassword" Prelude.<$> adminUserPassword,
                                (JSON..=) "AdminUsername" Prelude.<$> adminUsername,
                                (JSON..=) "DbName" Prelude.<$> dbName,
                                (JSON..=) "DefaultIamRoleArn" Prelude.<$> defaultIamRoleArn,
@@ -50,6 +61,11 @@ instance ToResourceProperties Namespace where
                                (JSON..=) "IamRoles" Prelude.<$> iamRoles,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                                (JSON..=) "LogExports" Prelude.<$> logExports,
+                               (JSON..=) "ManageAdminPassword" Prelude.<$> manageAdminPassword,
+                               (JSON..=) "NamespaceResourcePolicy"
+                                 Prelude.<$> namespaceResourcePolicy,
+                               (JSON..=) "RedshiftIdcApplicationArn"
+                                 Prelude.<$> redshiftIdcApplicationArn,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Namespace where
   toJSON Namespace {..}
@@ -58,7 +74,9 @@ instance JSON.ToJSON Namespace where
            ((Prelude.<>)
               ["NamespaceName" JSON..= namespaceName]
               (Prelude.catMaybes
-                 [(JSON..=) "AdminUserPassword" Prelude.<$> adminUserPassword,
+                 [(JSON..=) "AdminPasswordSecretKmsKeyId"
+                    Prelude.<$> adminPasswordSecretKmsKeyId,
+                  (JSON..=) "AdminUserPassword" Prelude.<$> adminUserPassword,
                   (JSON..=) "AdminUsername" Prelude.<$> adminUsername,
                   (JSON..=) "DbName" Prelude.<$> dbName,
                   (JSON..=) "DefaultIamRoleArn" Prelude.<$> defaultIamRoleArn,
@@ -68,7 +86,17 @@ instance JSON.ToJSON Namespace where
                   (JSON..=) "IamRoles" Prelude.<$> iamRoles,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                   (JSON..=) "LogExports" Prelude.<$> logExports,
+                  (JSON..=) "ManageAdminPassword" Prelude.<$> manageAdminPassword,
+                  (JSON..=) "NamespaceResourcePolicy"
+                    Prelude.<$> namespaceResourcePolicy,
+                  (JSON..=) "RedshiftIdcApplicationArn"
+                    Prelude.<$> redshiftIdcApplicationArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "AdminPasswordSecretKmsKeyId" Namespace where
+  type PropertyType "AdminPasswordSecretKmsKeyId" Namespace = Value Prelude.Text
+  set newValue Namespace {..}
+    = Namespace
+        {adminPasswordSecretKmsKeyId = Prelude.pure newValue, ..}
 instance Property "AdminUserPassword" Namespace where
   type PropertyType "AdminUserPassword" Namespace = Value Prelude.Text
   set newValue Namespace {..}
@@ -106,10 +134,22 @@ instance Property "LogExports" Namespace where
   type PropertyType "LogExports" Namespace = ValueList Prelude.Text
   set newValue Namespace {..}
     = Namespace {logExports = Prelude.pure newValue, ..}
+instance Property "ManageAdminPassword" Namespace where
+  type PropertyType "ManageAdminPassword" Namespace = Value Prelude.Bool
+  set newValue Namespace {..}
+    = Namespace {manageAdminPassword = Prelude.pure newValue, ..}
 instance Property "NamespaceName" Namespace where
   type PropertyType "NamespaceName" Namespace = Value Prelude.Text
   set newValue Namespace {..}
     = Namespace {namespaceName = newValue, ..}
+instance Property "NamespaceResourcePolicy" Namespace where
+  type PropertyType "NamespaceResourcePolicy" Namespace = JSON.Object
+  set newValue Namespace {..}
+    = Namespace {namespaceResourcePolicy = Prelude.pure newValue, ..}
+instance Property "RedshiftIdcApplicationArn" Namespace where
+  type PropertyType "RedshiftIdcApplicationArn" Namespace = Value Prelude.Text
+  set newValue Namespace {..}
+    = Namespace {redshiftIdcApplicationArn = Prelude.pure newValue, ..}
 instance Property "Tags" Namespace where
   type PropertyType "Tags" Namespace = [Tag]
   set newValue Namespace {..}

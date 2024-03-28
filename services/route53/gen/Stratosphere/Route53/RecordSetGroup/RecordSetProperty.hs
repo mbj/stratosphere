@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Route53.RecordSetGroup.AliasTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Route53.RecordSetGroup.CidrRoutingConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Route53.RecordSetGroup.GeoLocationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Route53.RecordSetGroup.GeoProximityLocationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RecordSetProperty
@@ -14,6 +15,7 @@ data RecordSetProperty
                        cidrRoutingConfig :: (Prelude.Maybe CidrRoutingConfigProperty),
                        failover :: (Prelude.Maybe (Value Prelude.Text)),
                        geoLocation :: (Prelude.Maybe GeoLocationProperty),
+                       geoProximityLocation :: (Prelude.Maybe GeoProximityLocationProperty),
                        healthCheckId :: (Prelude.Maybe (Value Prelude.Text)),
                        hostedZoneId :: (Prelude.Maybe (Value Prelude.Text)),
                        hostedZoneName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -32,8 +34,10 @@ mkRecordSetProperty name type'
   = RecordSetProperty
       {name = name, type' = type', aliasTarget = Prelude.Nothing,
        cidrRoutingConfig = Prelude.Nothing, failover = Prelude.Nothing,
-       geoLocation = Prelude.Nothing, healthCheckId = Prelude.Nothing,
-       hostedZoneId = Prelude.Nothing, hostedZoneName = Prelude.Nothing,
+       geoLocation = Prelude.Nothing,
+       geoProximityLocation = Prelude.Nothing,
+       healthCheckId = Prelude.Nothing, hostedZoneId = Prelude.Nothing,
+       hostedZoneName = Prelude.Nothing,
        multiValueAnswer = Prelude.Nothing, region = Prelude.Nothing,
        resourceRecords = Prelude.Nothing, setIdentifier = Prelude.Nothing,
        tTL = Prelude.Nothing, weight = Prelude.Nothing}
@@ -50,6 +54,7 @@ instance ToResourceProperties RecordSetProperty where
                                (JSON..=) "CidrRoutingConfig" Prelude.<$> cidrRoutingConfig,
                                (JSON..=) "Failover" Prelude.<$> failover,
                                (JSON..=) "GeoLocation" Prelude.<$> geoLocation,
+                               (JSON..=) "GeoProximityLocation" Prelude.<$> geoProximityLocation,
                                (JSON..=) "HealthCheckId" Prelude.<$> healthCheckId,
                                (JSON..=) "HostedZoneId" Prelude.<$> hostedZoneId,
                                (JSON..=) "HostedZoneName" Prelude.<$> hostedZoneName,
@@ -70,6 +75,7 @@ instance JSON.ToJSON RecordSetProperty where
                   (JSON..=) "CidrRoutingConfig" Prelude.<$> cidrRoutingConfig,
                   (JSON..=) "Failover" Prelude.<$> failover,
                   (JSON..=) "GeoLocation" Prelude.<$> geoLocation,
+                  (JSON..=) "GeoProximityLocation" Prelude.<$> geoProximityLocation,
                   (JSON..=) "HealthCheckId" Prelude.<$> healthCheckId,
                   (JSON..=) "HostedZoneId" Prelude.<$> hostedZoneId,
                   (JSON..=) "HostedZoneName" Prelude.<$> hostedZoneName,
@@ -95,6 +101,11 @@ instance Property "GeoLocation" RecordSetProperty where
   type PropertyType "GeoLocation" RecordSetProperty = GeoLocationProperty
   set newValue RecordSetProperty {..}
     = RecordSetProperty {geoLocation = Prelude.pure newValue, ..}
+instance Property "GeoProximityLocation" RecordSetProperty where
+  type PropertyType "GeoProximityLocation" RecordSetProperty = GeoProximityLocationProperty
+  set newValue RecordSetProperty {..}
+    = RecordSetProperty
+        {geoProximityLocation = Prelude.pure newValue, ..}
 instance Property "HealthCheckId" RecordSetProperty where
   type PropertyType "HealthCheckId" RecordSetProperty = Value Prelude.Text
   set newValue RecordSetProperty {..}

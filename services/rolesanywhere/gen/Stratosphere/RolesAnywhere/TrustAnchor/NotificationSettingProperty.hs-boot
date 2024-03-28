@@ -1,0 +1,9 @@
+module Stratosphere.RolesAnywhere.TrustAnchor.NotificationSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NotificationSettingProperty :: Prelude.Type
+instance ToResourceProperties NotificationSettingProperty
+instance Prelude.Eq NotificationSettingProperty
+instance Prelude.Show NotificationSettingProperty
+instance JSON.ToJSON NotificationSettingProperty

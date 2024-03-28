@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.TableCellStyleProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.TotalAggregationOptionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PivotTotalOptionsProperty
@@ -13,6 +14,7 @@ data PivotTotalOptionsProperty
                                metricHeaderCellStyle :: (Prelude.Maybe TableCellStyleProperty),
                                placement :: (Prelude.Maybe (Value Prelude.Text)),
                                scrollStatus :: (Prelude.Maybe (Value Prelude.Text)),
+                               totalAggregationOptions :: (Prelude.Maybe [TotalAggregationOptionProperty]),
                                totalCellStyle :: (Prelude.Maybe TableCellStyleProperty),
                                totalsVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                                valueCellStyle :: (Prelude.Maybe TableCellStyleProperty)}
@@ -23,6 +25,7 @@ mkPivotTotalOptionsProperty
       {customLabel = Prelude.Nothing,
        metricHeaderCellStyle = Prelude.Nothing,
        placement = Prelude.Nothing, scrollStatus = Prelude.Nothing,
+       totalAggregationOptions = Prelude.Nothing,
        totalCellStyle = Prelude.Nothing,
        totalsVisibility = Prelude.Nothing,
        valueCellStyle = Prelude.Nothing}
@@ -38,6 +41,8 @@ instance ToResourceProperties PivotTotalOptionsProperty where
                               Prelude.<$> metricHeaderCellStyle,
                             (JSON..=) "Placement" Prelude.<$> placement,
                             (JSON..=) "ScrollStatus" Prelude.<$> scrollStatus,
+                            (JSON..=) "TotalAggregationOptions"
+                              Prelude.<$> totalAggregationOptions,
                             (JSON..=) "TotalCellStyle" Prelude.<$> totalCellStyle,
                             (JSON..=) "TotalsVisibility" Prelude.<$> totalsVisibility,
                             (JSON..=) "ValueCellStyle" Prelude.<$> valueCellStyle])}
@@ -51,6 +56,8 @@ instance JSON.ToJSON PivotTotalOptionsProperty where
                  Prelude.<$> metricHeaderCellStyle,
                (JSON..=) "Placement" Prelude.<$> placement,
                (JSON..=) "ScrollStatus" Prelude.<$> scrollStatus,
+               (JSON..=) "TotalAggregationOptions"
+                 Prelude.<$> totalAggregationOptions,
                (JSON..=) "TotalCellStyle" Prelude.<$> totalCellStyle,
                (JSON..=) "TotalsVisibility" Prelude.<$> totalsVisibility,
                (JSON..=) "ValueCellStyle" Prelude.<$> valueCellStyle]))
@@ -73,6 +80,11 @@ instance Property "ScrollStatus" PivotTotalOptionsProperty where
   set newValue PivotTotalOptionsProperty {..}
     = PivotTotalOptionsProperty
         {scrollStatus = Prelude.pure newValue, ..}
+instance Property "TotalAggregationOptions" PivotTotalOptionsProperty where
+  type PropertyType "TotalAggregationOptions" PivotTotalOptionsProperty = [TotalAggregationOptionProperty]
+  set newValue PivotTotalOptionsProperty {..}
+    = PivotTotalOptionsProperty
+        {totalAggregationOptions = Prelude.pure newValue, ..}
 instance Property "TotalCellStyle" PivotTotalOptionsProperty where
   type PropertyType "TotalCellStyle" PivotTotalOptionsProperty = TableCellStyleProperty
   set newValue PivotTotalOptionsProperty {..}

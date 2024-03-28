@@ -1,15 +1,17 @@
 module Stratosphere.Cognito.IdentityPoolRoleAttachment (
-        IdentityPoolRoleAttachment(..), mkIdentityPoolRoleAttachment
+        module Exports, IdentityPoolRoleAttachment(..),
+        mkIdentityPoolRoleAttachment
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Cognito.IdentityPoolRoleAttachment.RoleMappingProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdentityPoolRoleAttachment
   = IdentityPoolRoleAttachment {identityPoolId :: (Value Prelude.Text),
-                                roleMappings :: (Prelude.Maybe JSON.Object),
-                                roles :: (Prelude.Maybe JSON.Object)}
+                                roleMappings :: (Prelude.Maybe (Prelude.Map Prelude.Text RoleMappingProperty)),
+                                roles :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityPoolRoleAttachment ::
   Value Prelude.Text -> IdentityPoolRoleAttachment
@@ -42,11 +44,11 @@ instance Property "IdentityPoolId" IdentityPoolRoleAttachment where
   set newValue IdentityPoolRoleAttachment {..}
     = IdentityPoolRoleAttachment {identityPoolId = newValue, ..}
 instance Property "RoleMappings" IdentityPoolRoleAttachment where
-  type PropertyType "RoleMappings" IdentityPoolRoleAttachment = JSON.Object
+  type PropertyType "RoleMappings" IdentityPoolRoleAttachment = Prelude.Map Prelude.Text RoleMappingProperty
   set newValue IdentityPoolRoleAttachment {..}
     = IdentityPoolRoleAttachment
         {roleMappings = Prelude.pure newValue, ..}
 instance Property "Roles" IdentityPoolRoleAttachment where
-  type PropertyType "Roles" IdentityPoolRoleAttachment = JSON.Object
+  type PropertyType "Roles" IdentityPoolRoleAttachment = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue IdentityPoolRoleAttachment {..}
     = IdentityPoolRoleAttachment {roles = Prelude.pure newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.AppFlow.Flow.SAPODataPaginationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SAPODataPaginationConfigProperty :: Prelude.Type
+instance ToResourceProperties SAPODataPaginationConfigProperty
+instance Prelude.Eq SAPODataPaginationConfigProperty
+instance Prelude.Show SAPODataPaginationConfigProperty
+instance JSON.ToJSON SAPODataPaginationConfigProperty

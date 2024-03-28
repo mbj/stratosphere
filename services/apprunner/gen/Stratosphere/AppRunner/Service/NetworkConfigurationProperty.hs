@@ -8,15 +8,18 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppRunner.Service.EgressConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppRunner.Service.IngressConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Value
 data NetworkConfigurationProperty
   = NetworkConfigurationProperty {egressConfiguration :: (Prelude.Maybe EgressConfigurationProperty),
-                                  ingressConfiguration :: (Prelude.Maybe IngressConfigurationProperty)}
+                                  ingressConfiguration :: (Prelude.Maybe IngressConfigurationProperty),
+                                  ipAddressType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNetworkConfigurationProperty :: NetworkConfigurationProperty
 mkNetworkConfigurationProperty
   = NetworkConfigurationProperty
       {egressConfiguration = Prelude.Nothing,
-       ingressConfiguration = Prelude.Nothing}
+       ingressConfiguration = Prelude.Nothing,
+       ipAddressType = Prelude.Nothing}
 instance ToResourceProperties NetworkConfigurationProperty where
   toResourceProperties NetworkConfigurationProperty {..}
     = ResourceProperties
@@ -25,16 +28,16 @@ instance ToResourceProperties NetworkConfigurationProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EgressConfiguration" Prelude.<$> egressConfiguration,
-                            (JSON..=) "IngressConfiguration"
-                              Prelude.<$> ingressConfiguration])}
+                            (JSON..=) "IngressConfiguration" Prelude.<$> ingressConfiguration,
+                            (JSON..=) "IpAddressType" Prelude.<$> ipAddressType])}
 instance JSON.ToJSON NetworkConfigurationProperty where
   toJSON NetworkConfigurationProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "EgressConfiguration" Prelude.<$> egressConfiguration,
-               (JSON..=) "IngressConfiguration"
-                 Prelude.<$> ingressConfiguration]))
+               (JSON..=) "IngressConfiguration" Prelude.<$> ingressConfiguration,
+               (JSON..=) "IpAddressType" Prelude.<$> ipAddressType]))
 instance Property "EgressConfiguration" NetworkConfigurationProperty where
   type PropertyType "EgressConfiguration" NetworkConfigurationProperty = EgressConfigurationProperty
   set newValue NetworkConfigurationProperty {..}
@@ -45,3 +48,8 @@ instance Property "IngressConfiguration" NetworkConfigurationProperty where
   set newValue NetworkConfigurationProperty {..}
     = NetworkConfigurationProperty
         {ingressConfiguration = Prelude.pure newValue, ..}
+instance Property "IpAddressType" NetworkConfigurationProperty where
+  type PropertyType "IpAddressType" NetworkConfigurationProperty = Value Prelude.Text
+  set newValue NetworkConfigurationProperty {..}
+    = NetworkConfigurationProperty
+        {ipAddressType = Prelude.pure newValue, ..}

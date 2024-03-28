@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.Collaboration.MemberSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MemberSpecificationProperty :: Prelude.Type
+instance ToResourceProperties MemberSpecificationProperty
+instance Prelude.Eq MemberSpecificationProperty
+instance Prelude.Show MemberSpecificationProperty
+instance JSON.ToJSON MemberSpecificationProperty

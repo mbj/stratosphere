@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.BridgeSource.BridgeNetworkSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BridgeNetworkSourceProperty :: Prelude.Type
+instance ToResourceProperties BridgeNetworkSourceProperty
+instance Prelude.Eq BridgeNetworkSourceProperty
+instance Prelude.Show BridgeNetworkSourceProperty
+instance JSON.ToJSON BridgeNetworkSourceProperty

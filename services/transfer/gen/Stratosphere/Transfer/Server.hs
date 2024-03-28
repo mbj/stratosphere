@@ -8,6 +8,8 @@ import {-# SOURCE #-} Stratosphere.Transfer.Server.EndpointDetailsProperty as Ex
 import {-# SOURCE #-} Stratosphere.Transfer.Server.IdentityProviderDetailsProperty as Exports
 import {-# SOURCE #-} Stratosphere.Transfer.Server.ProtocolProperty as Exports
 import {-# SOURCE #-} Stratosphere.Transfer.Server.ProtocolDetailsProperty as Exports
+import {-# SOURCE #-} Stratosphere.Transfer.Server.S3StorageOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.Transfer.Server.StructuredLogDestinationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Transfer.Server.WorkflowDetailsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -24,7 +26,9 @@ data Server
             preAuthenticationLoginBanner :: (Prelude.Maybe (Value Prelude.Text)),
             protocolDetails :: (Prelude.Maybe ProtocolDetailsProperty),
             protocols :: (Prelude.Maybe [ProtocolProperty]),
+            s3StorageOptions :: (Prelude.Maybe S3StorageOptionsProperty),
             securityPolicyName :: (Prelude.Maybe (Value Prelude.Text)),
+            structuredLogDestinations :: (Prelude.Maybe [StructuredLogDestinationProperty]),
             tags :: (Prelude.Maybe [Tag]),
             workflowDetails :: (Prelude.Maybe WorkflowDetailsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -39,8 +43,10 @@ mkServer
        postAuthenticationLoginBanner = Prelude.Nothing,
        preAuthenticationLoginBanner = Prelude.Nothing,
        protocolDetails = Prelude.Nothing, protocols = Prelude.Nothing,
-       securityPolicyName = Prelude.Nothing, tags = Prelude.Nothing,
-       workflowDetails = Prelude.Nothing}
+       s3StorageOptions = Prelude.Nothing,
+       securityPolicyName = Prelude.Nothing,
+       structuredLogDestinations = Prelude.Nothing,
+       tags = Prelude.Nothing, workflowDetails = Prelude.Nothing}
 instance ToResourceProperties Server where
   toResourceProperties Server {..}
     = ResourceProperties
@@ -61,7 +67,10 @@ instance ToResourceProperties Server where
                               Prelude.<$> preAuthenticationLoginBanner,
                             (JSON..=) "ProtocolDetails" Prelude.<$> protocolDetails,
                             (JSON..=) "Protocols" Prelude.<$> protocols,
+                            (JSON..=) "S3StorageOptions" Prelude.<$> s3StorageOptions,
                             (JSON..=) "SecurityPolicyName" Prelude.<$> securityPolicyName,
+                            (JSON..=) "StructuredLogDestinations"
+                              Prelude.<$> structuredLogDestinations,
                             (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "WorkflowDetails" Prelude.<$> workflowDetails])}
 instance JSON.ToJSON Server where
@@ -83,7 +92,10 @@ instance JSON.ToJSON Server where
                  Prelude.<$> preAuthenticationLoginBanner,
                (JSON..=) "ProtocolDetails" Prelude.<$> protocolDetails,
                (JSON..=) "Protocols" Prelude.<$> protocols,
+               (JSON..=) "S3StorageOptions" Prelude.<$> s3StorageOptions,
                (JSON..=) "SecurityPolicyName" Prelude.<$> securityPolicyName,
+               (JSON..=) "StructuredLogDestinations"
+                 Prelude.<$> structuredLogDestinations,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "WorkflowDetails" Prelude.<$> workflowDetails]))
 instance Property "Certificate" Server where
@@ -131,10 +143,18 @@ instance Property "Protocols" Server where
   type PropertyType "Protocols" Server = [ProtocolProperty]
   set newValue Server {..}
     = Server {protocols = Prelude.pure newValue, ..}
+instance Property "S3StorageOptions" Server where
+  type PropertyType "S3StorageOptions" Server = S3StorageOptionsProperty
+  set newValue Server {..}
+    = Server {s3StorageOptions = Prelude.pure newValue, ..}
 instance Property "SecurityPolicyName" Server where
   type PropertyType "SecurityPolicyName" Server = Value Prelude.Text
   set newValue Server {..}
     = Server {securityPolicyName = Prelude.pure newValue, ..}
+instance Property "StructuredLogDestinations" Server where
+  type PropertyType "StructuredLogDestinations" Server = [StructuredLogDestinationProperty]
+  set newValue Server {..}
+    = Server {structuredLogDestinations = Prelude.pure newValue, ..}
 instance Property "Tags" Server where
   type PropertyType "Tags" Server = [Tag]
   set newValue Server {..}

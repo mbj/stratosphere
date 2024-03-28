@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorAD.Template.TemplateDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TemplateDefinitionProperty :: Prelude.Type
+instance ToResourceProperties TemplateDefinitionProperty
+instance Prelude.Eq TemplateDefinitionProperty
+instance Prelude.Show TemplateDefinitionProperty
+instance JSON.ToJSON TemplateDefinitionProperty

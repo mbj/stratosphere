@@ -26,6 +26,10 @@ flag development
 library
   exposed-modules:
       Stratosphere.CodeArtifact.Domain
+      Stratosphere.CodeArtifact.PackageGroup
+      Stratosphere.CodeArtifact.PackageGroup.OriginConfigurationProperty
+      Stratosphere.CodeArtifact.PackageGroup.RestrictionsProperty
+      Stratosphere.CodeArtifact.PackageGroup.RestrictionTypeProperty
       Stratosphere.CodeArtifact.Repository
   other-modules:
       Paths_stratosphere_codeartifact

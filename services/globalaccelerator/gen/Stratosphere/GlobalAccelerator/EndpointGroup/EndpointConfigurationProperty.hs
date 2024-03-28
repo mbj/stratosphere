@@ -7,7 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointConfigurationProperty
-  = EndpointConfigurationProperty {clientIPPreservationEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+  = EndpointConfigurationProperty {attachmentArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                   clientIPPreservationEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                    endpointId :: (Value Prelude.Text),
                                    weight :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -15,7 +16,7 @@ mkEndpointConfigurationProperty ::
   Value Prelude.Text -> EndpointConfigurationProperty
 mkEndpointConfigurationProperty endpointId
   = EndpointConfigurationProperty
-      {endpointId = endpointId,
+      {endpointId = endpointId, attachmentArn = Prelude.Nothing,
        clientIPPreservationEnabled = Prelude.Nothing,
        weight = Prelude.Nothing}
 instance ToResourceProperties EndpointConfigurationProperty where
@@ -27,7 +28,8 @@ instance ToResourceProperties EndpointConfigurationProperty where
                         ((Prelude.<>)
                            ["EndpointId" JSON..= endpointId]
                            (Prelude.catMaybes
-                              [(JSON..=) "ClientIPPreservationEnabled"
+                              [(JSON..=) "AttachmentArn" Prelude.<$> attachmentArn,
+                               (JSON..=) "ClientIPPreservationEnabled"
                                  Prelude.<$> clientIPPreservationEnabled,
                                (JSON..=) "Weight" Prelude.<$> weight]))}
 instance JSON.ToJSON EndpointConfigurationProperty where
@@ -37,9 +39,15 @@ instance JSON.ToJSON EndpointConfigurationProperty where
            ((Prelude.<>)
               ["EndpointId" JSON..= endpointId]
               (Prelude.catMaybes
-                 [(JSON..=) "ClientIPPreservationEnabled"
+                 [(JSON..=) "AttachmentArn" Prelude.<$> attachmentArn,
+                  (JSON..=) "ClientIPPreservationEnabled"
                     Prelude.<$> clientIPPreservationEnabled,
                   (JSON..=) "Weight" Prelude.<$> weight])))
+instance Property "AttachmentArn" EndpointConfigurationProperty where
+  type PropertyType "AttachmentArn" EndpointConfigurationProperty = Value Prelude.Text
+  set newValue EndpointConfigurationProperty {..}
+    = EndpointConfigurationProperty
+        {attachmentArn = Prelude.pure newValue, ..}
 instance Property "ClientIPPreservationEnabled" EndpointConfigurationProperty where
   type PropertyType "ClientIPPreservationEnabled" EndpointConfigurationProperty = Value Prelude.Bool
   set newValue EndpointConfigurationProperty {..}

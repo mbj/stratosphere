@@ -1,19 +1,23 @@
 module Stratosphere.Cassandra.Keyspace (
-        Keyspace(..), mkKeyspace
+        module Exports, Keyspace(..), mkKeyspace
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Cassandra.Keyspace.ReplicationSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Keyspace
   = Keyspace {keyspaceName :: (Prelude.Maybe (Value Prelude.Text)),
+              replicationSpecification :: (Prelude.Maybe ReplicationSpecificationProperty),
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKeyspace :: Keyspace
 mkKeyspace
-  = Keyspace {keyspaceName = Prelude.Nothing, tags = Prelude.Nothing}
+  = Keyspace
+      {keyspaceName = Prelude.Nothing,
+       replicationSpecification = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Keyspace where
   toResourceProperties Keyspace {..}
     = ResourceProperties
@@ -21,6 +25,8 @@ instance ToResourceProperties Keyspace where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "KeyspaceName" Prelude.<$> keyspaceName,
+                            (JSON..=) "ReplicationSpecification"
+                              Prelude.<$> replicationSpecification,
                             (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON Keyspace where
   toJSON Keyspace {..}
@@ -28,11 +34,17 @@ instance JSON.ToJSON Keyspace where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "KeyspaceName" Prelude.<$> keyspaceName,
+               (JSON..=) "ReplicationSpecification"
+                 Prelude.<$> replicationSpecification,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "KeyspaceName" Keyspace where
   type PropertyType "KeyspaceName" Keyspace = Value Prelude.Text
   set newValue Keyspace {..}
     = Keyspace {keyspaceName = Prelude.pure newValue, ..}
+instance Property "ReplicationSpecification" Keyspace where
+  type PropertyType "ReplicationSpecification" Keyspace = ReplicationSpecificationProperty
+  set newValue Keyspace {..}
+    = Keyspace {replicationSpecification = Prelude.pure newValue, ..}
 instance Property "Tags" Keyspace where
   type PropertyType "Tags" Keyspace = [Tag]
   set newValue Keyspace {..}

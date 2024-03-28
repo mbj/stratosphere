@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.KPIComparisonValueConditionalFormattingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KPIComparisonValueConditionalFormattingProperty :: Prelude.Type
+instance ToResourceProperties KPIComparisonValueConditionalFormattingProperty
+instance Prelude.Eq KPIComparisonValueConditionalFormattingProperty
+instance Prelude.Show KPIComparisonValueConditionalFormattingProperty
+instance JSON.ToJSON KPIComparisonValueConditionalFormattingProperty

@@ -7,32 +7,32 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Member
-  = Member {detectorId :: (Value Prelude.Text),
+  = Member {detectorId :: (Prelude.Maybe (Value Prelude.Text)),
             disableEmailNotification :: (Prelude.Maybe (Value Prelude.Bool)),
             email :: (Value Prelude.Text),
-            memberId :: (Value Prelude.Text),
+            memberId :: (Prelude.Maybe (Value Prelude.Text)),
             message :: (Prelude.Maybe (Value Prelude.Text)),
             status :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkMember ::
-  Value Prelude.Text
-  -> Value Prelude.Text -> Value Prelude.Text -> Member
-mkMember detectorId email memberId
+mkMember :: Value Prelude.Text -> Member
+mkMember email
   = Member
-      {detectorId = detectorId, email = email, memberId = memberId,
+      {email = email, detectorId = Prelude.Nothing,
        disableEmailNotification = Prelude.Nothing,
-       message = Prelude.Nothing, status = Prelude.Nothing}
+       memberId = Prelude.Nothing, message = Prelude.Nothing,
+       status = Prelude.Nothing}
 instance ToResourceProperties Member where
   toResourceProperties Member {..}
     = ResourceProperties
         {awsType = "AWS::GuardDuty::Member", supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["DetectorId" JSON..= detectorId, "Email" JSON..= email,
-                            "MemberId" JSON..= memberId]
+                           ["Email" JSON..= email]
                            (Prelude.catMaybes
-                              [(JSON..=) "DisableEmailNotification"
+                              [(JSON..=) "DetectorId" Prelude.<$> detectorId,
+                               (JSON..=) "DisableEmailNotification"
                                  Prelude.<$> disableEmailNotification,
+                               (JSON..=) "MemberId" Prelude.<$> memberId,
                                (JSON..=) "Message" Prelude.<$> message,
                                (JSON..=) "Status" Prelude.<$> status]))}
 instance JSON.ToJSON Member where
@@ -40,16 +40,18 @@ instance JSON.ToJSON Member where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["DetectorId" JSON..= detectorId, "Email" JSON..= email,
-               "MemberId" JSON..= memberId]
+              ["Email" JSON..= email]
               (Prelude.catMaybes
-                 [(JSON..=) "DisableEmailNotification"
+                 [(JSON..=) "DetectorId" Prelude.<$> detectorId,
+                  (JSON..=) "DisableEmailNotification"
                     Prelude.<$> disableEmailNotification,
+                  (JSON..=) "MemberId" Prelude.<$> memberId,
                   (JSON..=) "Message" Prelude.<$> message,
                   (JSON..=) "Status" Prelude.<$> status])))
 instance Property "DetectorId" Member where
   type PropertyType "DetectorId" Member = Value Prelude.Text
-  set newValue Member {..} = Member {detectorId = newValue, ..}
+  set newValue Member {..}
+    = Member {detectorId = Prelude.pure newValue, ..}
 instance Property "DisableEmailNotification" Member where
   type PropertyType "DisableEmailNotification" Member = Value Prelude.Bool
   set newValue Member {..}
@@ -59,7 +61,8 @@ instance Property "Email" Member where
   set newValue Member {..} = Member {email = newValue, ..}
 instance Property "MemberId" Member where
   type PropertyType "MemberId" Member = Value Prelude.Text
-  set newValue Member {..} = Member {memberId = newValue, ..}
+  set newValue Member {..}
+    = Member {memberId = Prelude.pure newValue, ..}
 instance Property "Message" Member where
   type PropertyType "Message" Member = Value Prelude.Text
   set newValue Member {..}

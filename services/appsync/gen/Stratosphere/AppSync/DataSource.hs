@@ -21,6 +21,7 @@ data DataSource
                 eventBridgeConfig :: (Prelude.Maybe EventBridgeConfigProperty),
                 httpConfig :: (Prelude.Maybe HttpConfigProperty),
                 lambdaConfig :: (Prelude.Maybe LambdaConfigProperty),
+                metricsConfig :: (Prelude.Maybe (Value Prelude.Text)),
                 name :: (Value Prelude.Text),
                 openSearchServiceConfig :: (Prelude.Maybe OpenSearchServiceConfigProperty),
                 relationalDatabaseConfig :: (Prelude.Maybe RelationalDatabaseConfigProperty),
@@ -36,7 +37,7 @@ mkDataSource apiId name type'
        description = Prelude.Nothing, dynamoDBConfig = Prelude.Nothing,
        elasticsearchConfig = Prelude.Nothing,
        eventBridgeConfig = Prelude.Nothing, httpConfig = Prelude.Nothing,
-       lambdaConfig = Prelude.Nothing,
+       lambdaConfig = Prelude.Nothing, metricsConfig = Prelude.Nothing,
        openSearchServiceConfig = Prelude.Nothing,
        relationalDatabaseConfig = Prelude.Nothing,
        serviceRoleArn = Prelude.Nothing}
@@ -55,6 +56,7 @@ instance ToResourceProperties DataSource where
                                (JSON..=) "EventBridgeConfig" Prelude.<$> eventBridgeConfig,
                                (JSON..=) "HttpConfig" Prelude.<$> httpConfig,
                                (JSON..=) "LambdaConfig" Prelude.<$> lambdaConfig,
+                               (JSON..=) "MetricsConfig" Prelude.<$> metricsConfig,
                                (JSON..=) "OpenSearchServiceConfig"
                                  Prelude.<$> openSearchServiceConfig,
                                (JSON..=) "RelationalDatabaseConfig"
@@ -73,6 +75,7 @@ instance JSON.ToJSON DataSource where
                   (JSON..=) "EventBridgeConfig" Prelude.<$> eventBridgeConfig,
                   (JSON..=) "HttpConfig" Prelude.<$> httpConfig,
                   (JSON..=) "LambdaConfig" Prelude.<$> lambdaConfig,
+                  (JSON..=) "MetricsConfig" Prelude.<$> metricsConfig,
                   (JSON..=) "OpenSearchServiceConfig"
                     Prelude.<$> openSearchServiceConfig,
                   (JSON..=) "RelationalDatabaseConfig"
@@ -105,6 +108,10 @@ instance Property "LambdaConfig" DataSource where
   type PropertyType "LambdaConfig" DataSource = LambdaConfigProperty
   set newValue DataSource {..}
     = DataSource {lambdaConfig = Prelude.pure newValue, ..}
+instance Property "MetricsConfig" DataSource where
+  type PropertyType "MetricsConfig" DataSource = Value Prelude.Text
+  set newValue DataSource {..}
+    = DataSource {metricsConfig = Prelude.pure newValue, ..}
 instance Property "Name" DataSource where
   type PropertyType "Name" DataSource = Value Prelude.Text
   set newValue DataSource {..} = DataSource {name = newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.ImageBuilder.LifecyclePolicy.ResourceSelectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResourceSelectionProperty :: Prelude.Type
+instance ToResourceProperties ResourceSelectionProperty
+instance Prelude.Eq ResourceSelectionProperty
+instance Prelude.Show ResourceSelectionProperty
+instance JSON.ToJSON ResourceSelectionProperty

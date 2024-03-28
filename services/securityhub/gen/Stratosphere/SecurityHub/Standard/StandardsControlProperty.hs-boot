@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.Standard.StandardsControlProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StandardsControlProperty :: Prelude.Type
+instance ToResourceProperties StandardsControlProperty
+instance Prelude.Eq StandardsControlProperty
+instance Prelude.Show StandardsControlProperty
+instance JSON.ToJSON StandardsControlProperty

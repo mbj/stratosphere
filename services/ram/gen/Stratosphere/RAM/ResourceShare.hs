@@ -13,6 +13,7 @@ data ResourceShare
                    permissionArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                    principals :: (Prelude.Maybe (ValueList Prelude.Text)),
                    resourceArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                   sources :: (Prelude.Maybe (ValueList Prelude.Text)),
                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResourceShare :: Value Prelude.Text -> ResourceShare
@@ -20,7 +21,8 @@ mkResourceShare name
   = ResourceShare
       {name = name, allowExternalPrincipals = Prelude.Nothing,
        permissionArns = Prelude.Nothing, principals = Prelude.Nothing,
-       resourceArns = Prelude.Nothing, tags = Prelude.Nothing}
+       resourceArns = Prelude.Nothing, sources = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties ResourceShare where
   toResourceProperties ResourceShare {..}
     = ResourceProperties
@@ -34,6 +36,7 @@ instance ToResourceProperties ResourceShare where
                                (JSON..=) "PermissionArns" Prelude.<$> permissionArns,
                                (JSON..=) "Principals" Prelude.<$> principals,
                                (JSON..=) "ResourceArns" Prelude.<$> resourceArns,
+                               (JSON..=) "Sources" Prelude.<$> sources,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON ResourceShare where
   toJSON ResourceShare {..}
@@ -47,6 +50,7 @@ instance JSON.ToJSON ResourceShare where
                   (JSON..=) "PermissionArns" Prelude.<$> permissionArns,
                   (JSON..=) "Principals" Prelude.<$> principals,
                   (JSON..=) "ResourceArns" Prelude.<$> resourceArns,
+                  (JSON..=) "Sources" Prelude.<$> sources,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AllowExternalPrincipals" ResourceShare where
   type PropertyType "AllowExternalPrincipals" ResourceShare = Value Prelude.Bool
@@ -69,6 +73,10 @@ instance Property "ResourceArns" ResourceShare where
   type PropertyType "ResourceArns" ResourceShare = ValueList Prelude.Text
   set newValue ResourceShare {..}
     = ResourceShare {resourceArns = Prelude.pure newValue, ..}
+instance Property "Sources" ResourceShare where
+  type PropertyType "Sources" ResourceShare = ValueList Prelude.Text
+  set newValue ResourceShare {..}
+    = ResourceShare {sources = Prelude.pure newValue, ..}
 instance Property "Tags" ResourceShare where
   type PropertyType "Tags" ResourceShare = [Tag]
   set newValue ResourceShare {..}

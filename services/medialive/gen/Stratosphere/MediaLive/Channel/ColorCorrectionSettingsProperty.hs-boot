@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.ColorCorrectionSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ColorCorrectionSettingsProperty :: Prelude.Type
+instance ToResourceProperties ColorCorrectionSettingsProperty
+instance Prelude.Eq ColorCorrectionSettingsProperty
+instance Prelude.Show ColorCorrectionSettingsProperty
+instance JSON.ToJSON ColorCorrectionSettingsProperty

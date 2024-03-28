@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cognito.UserPool.CustomEmailSenderProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cognito.UserPool.CustomSMSSenderProperty as Exports
+import {-# SOURCE #-} Stratosphere.Cognito.UserPool.PreTokenGenerationConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LambdaConfigProperty
@@ -20,6 +21,7 @@ data LambdaConfigProperty
                           preAuthentication :: (Prelude.Maybe (Value Prelude.Text)),
                           preSignUp :: (Prelude.Maybe (Value Prelude.Text)),
                           preTokenGeneration :: (Prelude.Maybe (Value Prelude.Text)),
+                          preTokenGenerationConfig :: (Prelude.Maybe PreTokenGenerationConfigProperty),
                           userMigration :: (Prelude.Maybe (Value Prelude.Text)),
                           verifyAuthChallengeResponse :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -34,6 +36,7 @@ mkLambdaConfigProperty
        postConfirmation = Prelude.Nothing,
        preAuthentication = Prelude.Nothing, preSignUp = Prelude.Nothing,
        preTokenGeneration = Prelude.Nothing,
+       preTokenGenerationConfig = Prelude.Nothing,
        userMigration = Prelude.Nothing,
        verifyAuthChallengeResponse = Prelude.Nothing}
 instance ToResourceProperties LambdaConfigProperty where
@@ -54,6 +57,8 @@ instance ToResourceProperties LambdaConfigProperty where
                             (JSON..=) "PreAuthentication" Prelude.<$> preAuthentication,
                             (JSON..=) "PreSignUp" Prelude.<$> preSignUp,
                             (JSON..=) "PreTokenGeneration" Prelude.<$> preTokenGeneration,
+                            (JSON..=) "PreTokenGenerationConfig"
+                              Prelude.<$> preTokenGenerationConfig,
                             (JSON..=) "UserMigration" Prelude.<$> userMigration,
                             (JSON..=) "VerifyAuthChallengeResponse"
                               Prelude.<$> verifyAuthChallengeResponse])}
@@ -73,6 +78,8 @@ instance JSON.ToJSON LambdaConfigProperty where
                (JSON..=) "PreAuthentication" Prelude.<$> preAuthentication,
                (JSON..=) "PreSignUp" Prelude.<$> preSignUp,
                (JSON..=) "PreTokenGeneration" Prelude.<$> preTokenGeneration,
+               (JSON..=) "PreTokenGenerationConfig"
+                 Prelude.<$> preTokenGenerationConfig,
                (JSON..=) "UserMigration" Prelude.<$> userMigration,
                (JSON..=) "VerifyAuthChallengeResponse"
                  Prelude.<$> verifyAuthChallengeResponse]))
@@ -128,6 +135,11 @@ instance Property "PreTokenGeneration" LambdaConfigProperty where
   set newValue LambdaConfigProperty {..}
     = LambdaConfigProperty
         {preTokenGeneration = Prelude.pure newValue, ..}
+instance Property "PreTokenGenerationConfig" LambdaConfigProperty where
+  type PropertyType "PreTokenGenerationConfig" LambdaConfigProperty = PreTokenGenerationConfigProperty
+  set newValue LambdaConfigProperty {..}
+    = LambdaConfigProperty
+        {preTokenGenerationConfig = Prelude.pure newValue, ..}
 instance Property "UserMigration" LambdaConfigProperty where
   type PropertyType "UserMigration" LambdaConfigProperty = Value Prelude.Text
   set newValue LambdaConfigProperty {..}

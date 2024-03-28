@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.AttributeAggregationFunctionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AttributeAggregationFunctionProperty :: Prelude.Type
+instance ToResourceProperties AttributeAggregationFunctionProperty
+instance Prelude.Eq AttributeAggregationFunctionProperty
+instance Prelude.Show AttributeAggregationFunctionProperty
+instance JSON.ToJSON AttributeAggregationFunctionProperty

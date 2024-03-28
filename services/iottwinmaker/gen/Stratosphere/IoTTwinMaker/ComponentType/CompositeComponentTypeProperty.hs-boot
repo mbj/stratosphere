@@ -1,0 +1,9 @@
+module Stratosphere.IoTTwinMaker.ComponentType.CompositeComponentTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CompositeComponentTypeProperty :: Prelude.Type
+instance ToResourceProperties CompositeComponentTypeProperty
+instance Prelude.Eq CompositeComponentTypeProperty
+instance Prelude.Show CompositeComponentTypeProperty
+instance JSON.ToJSON CompositeComponentTypeProperty

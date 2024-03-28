@@ -29,6 +29,7 @@ library
       Stratosphere.DocDB.DBClusterParameterGroup
       Stratosphere.DocDB.DBInstance
       Stratosphere.DocDB.DBSubnetGroup
+      Stratosphere.DocDB.EventSubscription
   other-modules:
       Paths_stratosphere_docdb
   hs-source-dirs:

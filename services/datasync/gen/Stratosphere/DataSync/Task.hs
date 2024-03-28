@@ -5,7 +5,9 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DataSync.Task.FilterRuleProperty as Exports
+import {-# SOURCE #-} Stratosphere.DataSync.Task.ManifestConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.DataSync.Task.OptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.DataSync.Task.TaskReportConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.DataSync.Task.TaskScheduleProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -15,11 +17,13 @@ data Task
           destinationLocationArn :: (Value Prelude.Text),
           excludes :: (Prelude.Maybe [FilterRuleProperty]),
           includes :: (Prelude.Maybe [FilterRuleProperty]),
+          manifestConfig :: (Prelude.Maybe ManifestConfigProperty),
           name :: (Prelude.Maybe (Value Prelude.Text)),
           options :: (Prelude.Maybe OptionsProperty),
           schedule :: (Prelude.Maybe TaskScheduleProperty),
           sourceLocationArn :: (Value Prelude.Text),
-          tags :: (Prelude.Maybe [Tag])}
+          tags :: (Prelude.Maybe [Tag]),
+          taskReportConfig :: (Prelude.Maybe TaskReportConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTask :: Value Prelude.Text -> Value Prelude.Text -> Task
 mkTask destinationLocationArn sourceLocationArn
@@ -28,8 +32,9 @@ mkTask destinationLocationArn sourceLocationArn
        sourceLocationArn = sourceLocationArn,
        cloudWatchLogGroupArn = Prelude.Nothing,
        excludes = Prelude.Nothing, includes = Prelude.Nothing,
-       name = Prelude.Nothing, options = Prelude.Nothing,
-       schedule = Prelude.Nothing, tags = Prelude.Nothing}
+       manifestConfig = Prelude.Nothing, name = Prelude.Nothing,
+       options = Prelude.Nothing, schedule = Prelude.Nothing,
+       tags = Prelude.Nothing, taskReportConfig = Prelude.Nothing}
 instance ToResourceProperties Task where
   toResourceProperties Task {..}
     = ResourceProperties
@@ -43,10 +48,12 @@ instance ToResourceProperties Task where
                                  Prelude.<$> cloudWatchLogGroupArn,
                                (JSON..=) "Excludes" Prelude.<$> excludes,
                                (JSON..=) "Includes" Prelude.<$> includes,
+                               (JSON..=) "ManifestConfig" Prelude.<$> manifestConfig,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "Options" Prelude.<$> options,
                                (JSON..=) "Schedule" Prelude.<$> schedule,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "TaskReportConfig" Prelude.<$> taskReportConfig]))}
 instance JSON.ToJSON Task where
   toJSON Task {..}
     = JSON.object
@@ -59,10 +66,12 @@ instance JSON.ToJSON Task where
                     Prelude.<$> cloudWatchLogGroupArn,
                   (JSON..=) "Excludes" Prelude.<$> excludes,
                   (JSON..=) "Includes" Prelude.<$> includes,
+                  (JSON..=) "ManifestConfig" Prelude.<$> manifestConfig,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "Options" Prelude.<$> options,
                   (JSON..=) "Schedule" Prelude.<$> schedule,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "TaskReportConfig" Prelude.<$> taskReportConfig])))
 instance Property "CloudWatchLogGroupArn" Task where
   type PropertyType "CloudWatchLogGroupArn" Task = Value Prelude.Text
   set newValue Task {..}
@@ -79,6 +88,10 @@ instance Property "Includes" Task where
   type PropertyType "Includes" Task = [FilterRuleProperty]
   set newValue Task {..}
     = Task {includes = Prelude.pure newValue, ..}
+instance Property "ManifestConfig" Task where
+  type PropertyType "ManifestConfig" Task = ManifestConfigProperty
+  set newValue Task {..}
+    = Task {manifestConfig = Prelude.pure newValue, ..}
 instance Property "Name" Task where
   type PropertyType "Name" Task = Value Prelude.Text
   set newValue Task {..} = Task {name = Prelude.pure newValue, ..}
@@ -95,3 +108,7 @@ instance Property "SourceLocationArn" Task where
 instance Property "Tags" Task where
   type PropertyType "Tags" Task = [Tag]
   set newValue Task {..} = Task {tags = Prelude.pure newValue, ..}
+instance Property "TaskReportConfig" Task where
+  type PropertyType "TaskReportConfig" Task = TaskReportConfigProperty
+  set newValue Task {..}
+    = Task {taskReportConfig = Prelude.pure newValue, ..}

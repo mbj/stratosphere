@@ -7,11 +7,13 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.AlarmMetricProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.LogProperty as Exports
+import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.ProcessProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.WindowsEventProperty as Exports
 import Stratosphere.ResourceProperties
 data SubComponentConfigurationDetailsProperty
   = SubComponentConfigurationDetailsProperty {alarmMetrics :: (Prelude.Maybe [AlarmMetricProperty]),
                                               logs :: (Prelude.Maybe [LogProperty]),
+                                              processes :: (Prelude.Maybe [ProcessProperty]),
                                               windowsEvents :: (Prelude.Maybe [WindowsEventProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubComponentConfigurationDetailsProperty ::
@@ -19,7 +21,7 @@ mkSubComponentConfigurationDetailsProperty ::
 mkSubComponentConfigurationDetailsProperty
   = SubComponentConfigurationDetailsProperty
       {alarmMetrics = Prelude.Nothing, logs = Prelude.Nothing,
-       windowsEvents = Prelude.Nothing}
+       processes = Prelude.Nothing, windowsEvents = Prelude.Nothing}
 instance ToResourceProperties SubComponentConfigurationDetailsProperty where
   toResourceProperties SubComponentConfigurationDetailsProperty {..}
     = ResourceProperties
@@ -29,6 +31,7 @@ instance ToResourceProperties SubComponentConfigurationDetailsProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "AlarmMetrics" Prelude.<$> alarmMetrics,
                             (JSON..=) "Logs" Prelude.<$> logs,
+                            (JSON..=) "Processes" Prelude.<$> processes,
                             (JSON..=) "WindowsEvents" Prelude.<$> windowsEvents])}
 instance JSON.ToJSON SubComponentConfigurationDetailsProperty where
   toJSON SubComponentConfigurationDetailsProperty {..}
@@ -37,6 +40,7 @@ instance JSON.ToJSON SubComponentConfigurationDetailsProperty where
            (Prelude.catMaybes
               [(JSON..=) "AlarmMetrics" Prelude.<$> alarmMetrics,
                (JSON..=) "Logs" Prelude.<$> logs,
+               (JSON..=) "Processes" Prelude.<$> processes,
                (JSON..=) "WindowsEvents" Prelude.<$> windowsEvents]))
 instance Property "AlarmMetrics" SubComponentConfigurationDetailsProperty where
   type PropertyType "AlarmMetrics" SubComponentConfigurationDetailsProperty = [AlarmMetricProperty]
@@ -48,6 +52,11 @@ instance Property "Logs" SubComponentConfigurationDetailsProperty where
   set newValue SubComponentConfigurationDetailsProperty {..}
     = SubComponentConfigurationDetailsProperty
         {logs = Prelude.pure newValue, ..}
+instance Property "Processes" SubComponentConfigurationDetailsProperty where
+  type PropertyType "Processes" SubComponentConfigurationDetailsProperty = [ProcessProperty]
+  set newValue SubComponentConfigurationDetailsProperty {..}
+    = SubComponentConfigurationDetailsProperty
+        {processes = Prelude.pure newValue, ..}
 instance Property "WindowsEvents" SubComponentConfigurationDetailsProperty where
   type PropertyType "WindowsEvents" SubComponentConfigurationDetailsProperty = [WindowsEventProperty]
   set newValue SubComponentConfigurationDetailsProperty {..}

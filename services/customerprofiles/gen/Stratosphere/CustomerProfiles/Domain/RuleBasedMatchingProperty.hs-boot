@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.Domain.RuleBasedMatchingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RuleBasedMatchingProperty :: Prelude.Type
+instance ToResourceProperties RuleBasedMatchingProperty
+instance Prelude.Eq RuleBasedMatchingProperty
+instance Prelude.Show RuleBasedMatchingProperty
+instance JSON.ToJSON RuleBasedMatchingProperty

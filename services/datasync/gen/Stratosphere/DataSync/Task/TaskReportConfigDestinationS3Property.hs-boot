@@ -1,0 +1,9 @@
+module Stratosphere.DataSync.Task.TaskReportConfigDestinationS3Property where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TaskReportConfigDestinationS3Property :: Prelude.Type
+instance ToResourceProperties TaskReportConfigDestinationS3Property
+instance Prelude.Eq TaskReportConfigDestinationS3Property
+instance Prelude.Show TaskReportConfigDestinationS3Property
+instance JSON.ToJSON TaskReportConfigDestinationS3Property

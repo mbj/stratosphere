@@ -11,6 +11,7 @@ import Stratosphere.Value
 data Workspace
   = Workspace {alertManagerDefinition :: (Prelude.Maybe (Value Prelude.Text)),
                alias :: (Prelude.Maybe (Value Prelude.Text)),
+               kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                loggingConfiguration :: (Prelude.Maybe LoggingConfigurationProperty),
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -18,6 +19,7 @@ mkWorkspace :: Workspace
 mkWorkspace
   = Workspace
       {alertManagerDefinition = Prelude.Nothing, alias = Prelude.Nothing,
+       kmsKeyArn = Prelude.Nothing,
        loggingConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Workspace where
   toResourceProperties Workspace {..}
@@ -28,6 +30,7 @@ instance ToResourceProperties Workspace where
                            [(JSON..=) "AlertManagerDefinition"
                               Prelude.<$> alertManagerDefinition,
                             (JSON..=) "Alias" Prelude.<$> alias,
+                            (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                             (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
                             (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON Workspace where
@@ -38,6 +41,7 @@ instance JSON.ToJSON Workspace where
               [(JSON..=) "AlertManagerDefinition"
                  Prelude.<$> alertManagerDefinition,
                (JSON..=) "Alias" Prelude.<$> alias,
+               (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "AlertManagerDefinition" Workspace where
@@ -48,6 +52,10 @@ instance Property "Alias" Workspace where
   type PropertyType "Alias" Workspace = Value Prelude.Text
   set newValue Workspace {..}
     = Workspace {alias = Prelude.pure newValue, ..}
+instance Property "KmsKeyArn" Workspace where
+  type PropertyType "KmsKeyArn" Workspace = Value Prelude.Text
+  set newValue Workspace {..}
+    = Workspace {kmsKeyArn = Prelude.pure newValue, ..}
 instance Property "LoggingConfiguration" Workspace where
   type PropertyType "LoggingConfiguration" Workspace = LoggingConfigurationProperty
   set newValue Workspace {..}

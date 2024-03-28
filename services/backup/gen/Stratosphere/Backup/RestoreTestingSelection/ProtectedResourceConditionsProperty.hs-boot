@@ -1,0 +1,9 @@
+module Stratosphere.Backup.RestoreTestingSelection.ProtectedResourceConditionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProtectedResourceConditionsProperty :: Prelude.Type
+instance ToResourceProperties ProtectedResourceConditionsProperty
+instance Prelude.Eq ProtectedResourceConditionsProperty
+instance Prelude.Show ProtectedResourceConditionsProperty
+instance JSON.ToJSON ProtectedResourceConditionsProperty

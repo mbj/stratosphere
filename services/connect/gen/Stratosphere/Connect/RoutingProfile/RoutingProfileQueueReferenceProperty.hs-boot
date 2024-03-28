@@ -1,0 +1,9 @@
+module Stratosphere.Connect.RoutingProfile.RoutingProfileQueueReferenceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RoutingProfileQueueReferenceProperty :: Prelude.Type
+instance ToResourceProperties RoutingProfileQueueReferenceProperty
+instance Prelude.Eq RoutingProfileQueueReferenceProperty
+instance Prelude.Show RoutingProfileQueueReferenceProperty
+instance JSON.ToJSON RoutingProfileQueueReferenceProperty

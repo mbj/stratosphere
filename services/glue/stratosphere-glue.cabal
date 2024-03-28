@@ -37,13 +37,16 @@ library
       Stratosphere.Glue.Crawler.CatalogTargetProperty
       Stratosphere.Glue.Crawler.DeltaTargetProperty
       Stratosphere.Glue.Crawler.DynamoDBTargetProperty
+      Stratosphere.Glue.Crawler.IcebergTargetProperty
       Stratosphere.Glue.Crawler.JdbcTargetProperty
+      Stratosphere.Glue.Crawler.LakeFormationConfigurationProperty
       Stratosphere.Glue.Crawler.MongoDBTargetProperty
       Stratosphere.Glue.Crawler.RecrawlPolicyProperty
       Stratosphere.Glue.Crawler.S3TargetProperty
       Stratosphere.Glue.Crawler.ScheduleProperty
       Stratosphere.Glue.Crawler.SchemaChangePolicyProperty
       Stratosphere.Glue.Crawler.TargetsProperty
+      Stratosphere.Glue.CustomEntityType
       Stratosphere.Glue.Database
       Stratosphere.Glue.Database.DatabaseIdentifierProperty
       Stratosphere.Glue.Database.DatabaseInputProperty
@@ -54,6 +57,8 @@ library
       Stratosphere.Glue.DataCatalogEncryptionSettings.ConnectionPasswordEncryptionProperty
       Stratosphere.Glue.DataCatalogEncryptionSettings.DataCatalogEncryptionSettingsProperty
       Stratosphere.Glue.DataCatalogEncryptionSettings.EncryptionAtRestProperty
+      Stratosphere.Glue.DataQualityRuleset
+      Stratosphere.Glue.DataQualityRuleset.DataQualityTargetTableProperty
       Stratosphere.Glue.DevEndpoint
       Stratosphere.Glue.Job
       Stratosphere.Glue.Job.ConnectionsListProperty
@@ -91,6 +96,9 @@ library
       Stratosphere.Glue.SecurityConfiguration.S3EncryptionsProperty
       Stratosphere.Glue.Table
       Stratosphere.Glue.Table.ColumnProperty
+      Stratosphere.Glue.Table.IcebergInputProperty
+      Stratosphere.Glue.Table.MetadataOperationProperty
+      Stratosphere.Glue.Table.OpenTableFormatInputProperty
       Stratosphere.Glue.Table.OrderProperty
       Stratosphere.Glue.Table.SchemaIdProperty
       Stratosphere.Glue.Table.SchemaReferenceProperty
@@ -99,6 +107,8 @@ library
       Stratosphere.Glue.Table.StorageDescriptorProperty
       Stratosphere.Glue.Table.TableIdentifierProperty
       Stratosphere.Glue.Table.TableInputProperty
+      Stratosphere.Glue.TableOptimizer
+      Stratosphere.Glue.TableOptimizer.TableOptimizerConfigurationProperty
       Stratosphere.Glue.Trigger
       Stratosphere.Glue.Trigger.ActionProperty
       Stratosphere.Glue.Trigger.ConditionProperty

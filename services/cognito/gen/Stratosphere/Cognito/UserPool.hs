@@ -39,7 +39,7 @@ data UserPool
               userAttributeUpdateSettings :: (Prelude.Maybe UserAttributeUpdateSettingsProperty),
               userPoolAddOns :: (Prelude.Maybe UserPoolAddOnsProperty),
               userPoolName :: (Prelude.Maybe (Value Prelude.Text)),
-              userPoolTags :: (Prelude.Maybe JSON.Object),
+              userPoolTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
               usernameAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
               usernameConfiguration :: (Prelude.Maybe UsernameConfigurationProperty),
               verificationMessageTemplate :: (Prelude.Maybe VerificationMessageTemplateProperty)}
@@ -229,7 +229,7 @@ instance Property "UserPoolName" UserPool where
   set newValue UserPool {..}
     = UserPool {userPoolName = Prelude.pure newValue, ..}
 instance Property "UserPoolTags" UserPool where
-  type PropertyType "UserPoolTags" UserPool = JSON.Object
+  type PropertyType "UserPoolTags" UserPool = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue UserPool {..}
     = UserPool {userPoolTags = Prelude.pure newValue, ..}
 instance Property "UsernameAttributes" UserPool where

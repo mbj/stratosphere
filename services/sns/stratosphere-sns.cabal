@@ -27,7 +27,9 @@ library
   exposed-modules:
       Stratosphere.SNS.Subscription
       Stratosphere.SNS.Topic
+      Stratosphere.SNS.Topic.LoggingConfigProperty
       Stratosphere.SNS.Topic.SubscriptionProperty
+      Stratosphere.SNS.TopicInlinePolicy
       Stratosphere.SNS.TopicPolicy
   other-modules:
       Paths_stratosphere_sns

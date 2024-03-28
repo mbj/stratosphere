@@ -22,7 +22,9 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.S3ParametersProperty as
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.SnowflakeParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.SparkParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.SqlServerParametersProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.StarburstParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.TeradataParametersProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.DataSource.TrinoParametersProperty as Exports
 import Stratosphere.ResourceProperties
 data DataSourceParametersProperty
   = DataSourceParametersProperty {amazonElasticsearchParameters :: (Prelude.Maybe AmazonElasticsearchParametersProperty),
@@ -42,7 +44,9 @@ data DataSourceParametersProperty
                                   snowflakeParameters :: (Prelude.Maybe SnowflakeParametersProperty),
                                   sparkParameters :: (Prelude.Maybe SparkParametersProperty),
                                   sqlServerParameters :: (Prelude.Maybe SqlServerParametersProperty),
-                                  teradataParameters :: (Prelude.Maybe TeradataParametersProperty)}
+                                  starburstParameters :: (Prelude.Maybe StarburstParametersProperty),
+                                  teradataParameters :: (Prelude.Maybe TeradataParametersProperty),
+                                  trinoParameters :: (Prelude.Maybe TrinoParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataSourceParametersProperty :: DataSourceParametersProperty
 mkDataSourceParametersProperty
@@ -64,7 +68,9 @@ mkDataSourceParametersProperty
        snowflakeParameters = Prelude.Nothing,
        sparkParameters = Prelude.Nothing,
        sqlServerParameters = Prelude.Nothing,
-       teradataParameters = Prelude.Nothing}
+       starburstParameters = Prelude.Nothing,
+       teradataParameters = Prelude.Nothing,
+       trinoParameters = Prelude.Nothing}
 instance ToResourceProperties DataSourceParametersProperty where
   toResourceProperties DataSourceParametersProperty {..}
     = ResourceProperties
@@ -92,7 +98,9 @@ instance ToResourceProperties DataSourceParametersProperty where
                             (JSON..=) "SnowflakeParameters" Prelude.<$> snowflakeParameters,
                             (JSON..=) "SparkParameters" Prelude.<$> sparkParameters,
                             (JSON..=) "SqlServerParameters" Prelude.<$> sqlServerParameters,
-                            (JSON..=) "TeradataParameters" Prelude.<$> teradataParameters])}
+                            (JSON..=) "StarburstParameters" Prelude.<$> starburstParameters,
+                            (JSON..=) "TeradataParameters" Prelude.<$> teradataParameters,
+                            (JSON..=) "TrinoParameters" Prelude.<$> trinoParameters])}
 instance JSON.ToJSON DataSourceParametersProperty where
   toJSON DataSourceParametersProperty {..}
     = JSON.object
@@ -118,7 +126,9 @@ instance JSON.ToJSON DataSourceParametersProperty where
                (JSON..=) "SnowflakeParameters" Prelude.<$> snowflakeParameters,
                (JSON..=) "SparkParameters" Prelude.<$> sparkParameters,
                (JSON..=) "SqlServerParameters" Prelude.<$> sqlServerParameters,
-               (JSON..=) "TeradataParameters" Prelude.<$> teradataParameters]))
+               (JSON..=) "StarburstParameters" Prelude.<$> starburstParameters,
+               (JSON..=) "TeradataParameters" Prelude.<$> teradataParameters,
+               (JSON..=) "TrinoParameters" Prelude.<$> trinoParameters]))
 instance Property "AmazonElasticsearchParameters" DataSourceParametersProperty where
   type PropertyType "AmazonElasticsearchParameters" DataSourceParametersProperty = AmazonElasticsearchParametersProperty
   set newValue DataSourceParametersProperty {..}
@@ -204,8 +214,18 @@ instance Property "SqlServerParameters" DataSourceParametersProperty where
   set newValue DataSourceParametersProperty {..}
     = DataSourceParametersProperty
         {sqlServerParameters = Prelude.pure newValue, ..}
+instance Property "StarburstParameters" DataSourceParametersProperty where
+  type PropertyType "StarburstParameters" DataSourceParametersProperty = StarburstParametersProperty
+  set newValue DataSourceParametersProperty {..}
+    = DataSourceParametersProperty
+        {starburstParameters = Prelude.pure newValue, ..}
 instance Property "TeradataParameters" DataSourceParametersProperty where
   type PropertyType "TeradataParameters" DataSourceParametersProperty = TeradataParametersProperty
   set newValue DataSourceParametersProperty {..}
     = DataSourceParametersProperty
         {teradataParameters = Prelude.pure newValue, ..}
+instance Property "TrinoParameters" DataSourceParametersProperty where
+  type PropertyType "TrinoParameters" DataSourceParametersProperty = TrinoParametersProperty
+  set newValue DataSourceParametersProperty {..}
+    = DataSourceParametersProperty
+        {trinoParameters = Prelude.pure newValue, ..}

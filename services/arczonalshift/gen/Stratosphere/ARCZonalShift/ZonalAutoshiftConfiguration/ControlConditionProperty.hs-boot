@@ -1,0 +1,9 @@
+module Stratosphere.ARCZonalShift.ZonalAutoshiftConfiguration.ControlConditionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ControlConditionProperty :: Prelude.Type
+instance ToResourceProperties ControlConditionProperty
+instance Prelude.Eq ControlConditionProperty
+instance Prelude.Show ControlConditionProperty
+instance JSON.ToJSON ControlConditionProperty

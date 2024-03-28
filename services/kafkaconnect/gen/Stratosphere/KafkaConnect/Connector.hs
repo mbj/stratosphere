@@ -12,6 +12,7 @@ import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.LogDeliveryProperty as
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.PluginProperty as Exports
 import {-# SOURCE #-} Stratosphere.KafkaConnect.Connector.WorkerConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data Connector
   = Connector {capacity :: CapacityProperty,
@@ -25,6 +26,7 @@ data Connector
                logDelivery :: (Prelude.Maybe LogDeliveryProperty),
                plugins :: [PluginProperty],
                serviceExecutionRoleArn :: (Value Prelude.Text),
+               tags :: (Prelude.Maybe [Tag]),
                workerConfiguration :: (Prelude.Maybe WorkerConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnector ::
@@ -55,13 +57,13 @@ mkConnector
        kafkaConnectVersion = kafkaConnectVersion, plugins = plugins,
        serviceExecutionRoleArn = serviceExecutionRoleArn,
        connectorDescription = Prelude.Nothing,
-       logDelivery = Prelude.Nothing,
+       logDelivery = Prelude.Nothing, tags = Prelude.Nothing,
        workerConfiguration = Prelude.Nothing}
 instance ToResourceProperties Connector where
   toResourceProperties Connector {..}
     = ResourceProperties
         {awsType = "AWS::KafkaConnect::Connector",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Capacity" JSON..= capacity,
@@ -78,6 +80,7 @@ instance ToResourceProperties Connector where
                            (Prelude.catMaybes
                               [(JSON..=) "ConnectorDescription" Prelude.<$> connectorDescription,
                                (JSON..=) "LogDelivery" Prelude.<$> logDelivery,
+                               (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "WorkerConfiguration" Prelude.<$> workerConfiguration]))}
 instance JSON.ToJSON Connector where
   toJSON Connector {..}
@@ -98,6 +101,7 @@ instance JSON.ToJSON Connector where
               (Prelude.catMaybes
                  [(JSON..=) "ConnectorDescription" Prelude.<$> connectorDescription,
                   (JSON..=) "LogDelivery" Prelude.<$> logDelivery,
+                  (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "WorkerConfiguration" Prelude.<$> workerConfiguration])))
 instance Property "Capacity" Connector where
   type PropertyType "Capacity" Connector = CapacityProperty
@@ -141,6 +145,10 @@ instance Property "ServiceExecutionRoleArn" Connector where
   type PropertyType "ServiceExecutionRoleArn" Connector = Value Prelude.Text
   set newValue Connector {..}
     = Connector {serviceExecutionRoleArn = newValue, ..}
+instance Property "Tags" Connector where
+  type PropertyType "Tags" Connector = [Tag]
+  set newValue Connector {..}
+    = Connector {tags = Prelude.pure newValue, ..}
 instance Property "WorkerConfiguration" Connector where
   type PropertyType "WorkerConfiguration" Connector = WorkerConfigurationProperty
   set newValue Connector {..}

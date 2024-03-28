@@ -4,8 +4,8 @@ module Stratosphere.GameLift.GameSessionQueue (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.GameLift.GameSessionQueue.DestinationProperty as Exports
 import {-# SOURCE #-} Stratosphere.GameLift.GameSessionQueue.FilterConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.GameLift.GameSessionQueue.GameSessionQueueDestinationProperty as Exports
 import {-# SOURCE #-} Stratosphere.GameLift.GameSessionQueue.PlayerLatencyPolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.GameLift.GameSessionQueue.PriorityConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -13,7 +13,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data GameSessionQueue
   = GameSessionQueue {customEventData :: (Prelude.Maybe (Value Prelude.Text)),
-                      destinations :: (Prelude.Maybe [DestinationProperty]),
+                      destinations :: (Prelude.Maybe [GameSessionQueueDestinationProperty]),
                       filterConfiguration :: (Prelude.Maybe FilterConfigurationProperty),
                       name :: (Value Prelude.Text),
                       notificationTarget :: (Prelude.Maybe (Value Prelude.Text)),
@@ -73,7 +73,7 @@ instance Property "CustomEventData" GameSessionQueue where
   set newValue GameSessionQueue {..}
     = GameSessionQueue {customEventData = Prelude.pure newValue, ..}
 instance Property "Destinations" GameSessionQueue where
-  type PropertyType "Destinations" GameSessionQueue = [DestinationProperty]
+  type PropertyType "Destinations" GameSessionQueue = [GameSessionQueueDestinationProperty]
   set newValue GameSessionQueue {..}
     = GameSessionQueue {destinations = Prelude.pure newValue, ..}
 instance Property "FilterConfiguration" GameSessionQueue where

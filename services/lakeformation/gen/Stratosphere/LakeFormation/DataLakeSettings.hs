@@ -13,10 +13,12 @@ import Stratosphere.Value
 data DataLakeSettings
   = DataLakeSettings {admins :: (Prelude.Maybe AdminsProperty),
                       allowExternalDataFiltering :: (Prelude.Maybe (Value Prelude.Bool)),
+                      allowFullTableExternalDataAccess :: (Prelude.Maybe (Value Prelude.Bool)),
                       authorizedSessionTagValueList :: (Prelude.Maybe (ValueList Prelude.Text)),
                       createDatabaseDefaultPermissions :: (Prelude.Maybe CreateDatabaseDefaultPermissionsProperty),
                       createTableDefaultPermissions :: (Prelude.Maybe CreateTableDefaultPermissionsProperty),
                       externalDataFilteringAllowList :: (Prelude.Maybe ExternalDataFilteringAllowListProperty),
+                      mutationType :: (Prelude.Maybe (Value Prelude.Text)),
                       parameters :: (Prelude.Maybe JSON.Object),
                       trustedResourceOwners :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -25,11 +27,12 @@ mkDataLakeSettings
   = DataLakeSettings
       {admins = Prelude.Nothing,
        allowExternalDataFiltering = Prelude.Nothing,
+       allowFullTableExternalDataAccess = Prelude.Nothing,
        authorizedSessionTagValueList = Prelude.Nothing,
        createDatabaseDefaultPermissions = Prelude.Nothing,
        createTableDefaultPermissions = Prelude.Nothing,
        externalDataFilteringAllowList = Prelude.Nothing,
-       parameters = Prelude.Nothing,
+       mutationType = Prelude.Nothing, parameters = Prelude.Nothing,
        trustedResourceOwners = Prelude.Nothing}
 instance ToResourceProperties DataLakeSettings where
   toResourceProperties DataLakeSettings {..}
@@ -41,6 +44,8 @@ instance ToResourceProperties DataLakeSettings where
                            [(JSON..=) "Admins" Prelude.<$> admins,
                             (JSON..=) "AllowExternalDataFiltering"
                               Prelude.<$> allowExternalDataFiltering,
+                            (JSON..=) "AllowFullTableExternalDataAccess"
+                              Prelude.<$> allowFullTableExternalDataAccess,
                             (JSON..=) "AuthorizedSessionTagValueList"
                               Prelude.<$> authorizedSessionTagValueList,
                             (JSON..=) "CreateDatabaseDefaultPermissions"
@@ -49,6 +54,7 @@ instance ToResourceProperties DataLakeSettings where
                               Prelude.<$> createTableDefaultPermissions,
                             (JSON..=) "ExternalDataFilteringAllowList"
                               Prelude.<$> externalDataFilteringAllowList,
+                            (JSON..=) "MutationType" Prelude.<$> mutationType,
                             (JSON..=) "Parameters" Prelude.<$> parameters,
                             (JSON..=) "TrustedResourceOwners"
                               Prelude.<$> trustedResourceOwners])}
@@ -60,6 +66,8 @@ instance JSON.ToJSON DataLakeSettings where
               [(JSON..=) "Admins" Prelude.<$> admins,
                (JSON..=) "AllowExternalDataFiltering"
                  Prelude.<$> allowExternalDataFiltering,
+               (JSON..=) "AllowFullTableExternalDataAccess"
+                 Prelude.<$> allowFullTableExternalDataAccess,
                (JSON..=) "AuthorizedSessionTagValueList"
                  Prelude.<$> authorizedSessionTagValueList,
                (JSON..=) "CreateDatabaseDefaultPermissions"
@@ -68,6 +76,7 @@ instance JSON.ToJSON DataLakeSettings where
                  Prelude.<$> createTableDefaultPermissions,
                (JSON..=) "ExternalDataFilteringAllowList"
                  Prelude.<$> externalDataFilteringAllowList,
+               (JSON..=) "MutationType" Prelude.<$> mutationType,
                (JSON..=) "Parameters" Prelude.<$> parameters,
                (JSON..=) "TrustedResourceOwners"
                  Prelude.<$> trustedResourceOwners]))
@@ -80,6 +89,11 @@ instance Property "AllowExternalDataFiltering" DataLakeSettings where
   set newValue DataLakeSettings {..}
     = DataLakeSettings
         {allowExternalDataFiltering = Prelude.pure newValue, ..}
+instance Property "AllowFullTableExternalDataAccess" DataLakeSettings where
+  type PropertyType "AllowFullTableExternalDataAccess" DataLakeSettings = Value Prelude.Bool
+  set newValue DataLakeSettings {..}
+    = DataLakeSettings
+        {allowFullTableExternalDataAccess = Prelude.pure newValue, ..}
 instance Property "AuthorizedSessionTagValueList" DataLakeSettings where
   type PropertyType "AuthorizedSessionTagValueList" DataLakeSettings = ValueList Prelude.Text
   set newValue DataLakeSettings {..}
@@ -100,6 +114,10 @@ instance Property "ExternalDataFilteringAllowList" DataLakeSettings where
   set newValue DataLakeSettings {..}
     = DataLakeSettings
         {externalDataFilteringAllowList = Prelude.pure newValue, ..}
+instance Property "MutationType" DataLakeSettings where
+  type PropertyType "MutationType" DataLakeSettings = Value Prelude.Text
+  set newValue DataLakeSettings {..}
+    = DataLakeSettings {mutationType = Prelude.pure newValue, ..}
 instance Property "Parameters" DataLakeSettings where
   type PropertyType "Parameters" DataLakeSettings = JSON.Object
   set newValue DataLakeSettings {..}

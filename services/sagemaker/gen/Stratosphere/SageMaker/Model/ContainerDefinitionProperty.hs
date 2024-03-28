@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Model.ImageConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.Model.ModelDataSourceProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.Model.MultiModelConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -16,6 +17,7 @@ data ContainerDefinitionProperty
                                  imageConfig :: (Prelude.Maybe ImageConfigProperty),
                                  inferenceSpecificationName :: (Prelude.Maybe (Value Prelude.Text)),
                                  mode :: (Prelude.Maybe (Value Prelude.Text)),
+                                 modelDataSource :: (Prelude.Maybe ModelDataSourceProperty),
                                  modelDataUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                  modelPackageName :: (Prelude.Maybe (Value Prelude.Text)),
                                  multiModelConfig :: (Prelude.Maybe MultiModelConfigProperty)}
@@ -27,8 +29,8 @@ mkContainerDefinitionProperty
        environment = Prelude.Nothing, image = Prelude.Nothing,
        imageConfig = Prelude.Nothing,
        inferenceSpecificationName = Prelude.Nothing,
-       mode = Prelude.Nothing, modelDataUrl = Prelude.Nothing,
-       modelPackageName = Prelude.Nothing,
+       mode = Prelude.Nothing, modelDataSource = Prelude.Nothing,
+       modelDataUrl = Prelude.Nothing, modelPackageName = Prelude.Nothing,
        multiModelConfig = Prelude.Nothing}
 instance ToResourceProperties ContainerDefinitionProperty where
   toResourceProperties ContainerDefinitionProperty {..}
@@ -44,6 +46,7 @@ instance ToResourceProperties ContainerDefinitionProperty where
                             (JSON..=) "InferenceSpecificationName"
                               Prelude.<$> inferenceSpecificationName,
                             (JSON..=) "Mode" Prelude.<$> mode,
+                            (JSON..=) "ModelDataSource" Prelude.<$> modelDataSource,
                             (JSON..=) "ModelDataUrl" Prelude.<$> modelDataUrl,
                             (JSON..=) "ModelPackageName" Prelude.<$> modelPackageName,
                             (JSON..=) "MultiModelConfig" Prelude.<$> multiModelConfig])}
@@ -59,6 +62,7 @@ instance JSON.ToJSON ContainerDefinitionProperty where
                (JSON..=) "InferenceSpecificationName"
                  Prelude.<$> inferenceSpecificationName,
                (JSON..=) "Mode" Prelude.<$> mode,
+               (JSON..=) "ModelDataSource" Prelude.<$> modelDataSource,
                (JSON..=) "ModelDataUrl" Prelude.<$> modelDataUrl,
                (JSON..=) "ModelPackageName" Prelude.<$> modelPackageName,
                (JSON..=) "MultiModelConfig" Prelude.<$> multiModelConfig]))
@@ -90,6 +94,11 @@ instance Property "Mode" ContainerDefinitionProperty where
   type PropertyType "Mode" ContainerDefinitionProperty = Value Prelude.Text
   set newValue ContainerDefinitionProperty {..}
     = ContainerDefinitionProperty {mode = Prelude.pure newValue, ..}
+instance Property "ModelDataSource" ContainerDefinitionProperty where
+  type PropertyType "ModelDataSource" ContainerDefinitionProperty = ModelDataSourceProperty
+  set newValue ContainerDefinitionProperty {..}
+    = ContainerDefinitionProperty
+        {modelDataSource = Prelude.pure newValue, ..}
 instance Property "ModelDataUrl" ContainerDefinitionProperty where
   type PropertyType "ModelDataUrl" ContainerDefinitionProperty = Value Prelude.Text
   set newValue ContainerDefinitionProperty {..}

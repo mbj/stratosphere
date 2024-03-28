@@ -12,7 +12,7 @@ data Parameter
                description :: (Prelude.Maybe (Value Prelude.Text)),
                name :: (Prelude.Maybe (Value Prelude.Text)),
                policies :: (Prelude.Maybe (Value Prelude.Text)),
-               tags :: (Prelude.Maybe JSON.Object),
+               tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                tier :: (Prelude.Maybe (Value Prelude.Text)),
                type' :: (Value Prelude.Text),
                value :: (Value Prelude.Text)}
@@ -75,7 +75,7 @@ instance Property "Policies" Parameter where
   set newValue Parameter {..}
     = Parameter {policies = Prelude.pure newValue, ..}
 instance Property "Tags" Parameter where
-  type PropertyType "Tags" Parameter = JSON.Object
+  type PropertyType "Tags" Parameter = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue Parameter {..}
     = Parameter {tags = Prelude.pure newValue, ..}
 instance Property "Tier" Parameter where
