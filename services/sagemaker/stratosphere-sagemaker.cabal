@@ -28,7 +28,10 @@ library
       Stratosphere.SageMaker.App
       Stratosphere.SageMaker.App.ResourceSpecProperty
       Stratosphere.SageMaker.AppImageConfig
+      Stratosphere.SageMaker.AppImageConfig.ContainerConfigProperty
+      Stratosphere.SageMaker.AppImageConfig.CustomImageContainerEnvironmentVariableProperty
       Stratosphere.SageMaker.AppImageConfig.FileSystemConfigProperty
+      Stratosphere.SageMaker.AppImageConfig.JupyterLabAppImageConfigProperty
       Stratosphere.SageMaker.AppImageConfig.KernelGatewayImageConfigProperty
       Stratosphere.SageMaker.AppImageConfig.KernelSpecProperty
       Stratosphere.SageMaker.CodeRepository
@@ -57,9 +60,18 @@ library
       Stratosphere.SageMaker.DeviceFleet
       Stratosphere.SageMaker.DeviceFleet.EdgeOutputConfigProperty
       Stratosphere.SageMaker.Domain
+      Stratosphere.SageMaker.Domain.CodeEditorAppSettingsProperty
+      Stratosphere.SageMaker.Domain.CodeRepositoryProperty
+      Stratosphere.SageMaker.Domain.CustomFileSystemConfigProperty
       Stratosphere.SageMaker.Domain.CustomImageProperty
+      Stratosphere.SageMaker.Domain.CustomPosixUserConfigProperty
+      Stratosphere.SageMaker.Domain.DefaultEbsStorageSettingsProperty
       Stratosphere.SageMaker.Domain.DefaultSpaceSettingsProperty
+      Stratosphere.SageMaker.Domain.DefaultSpaceStorageSettingsProperty
+      Stratosphere.SageMaker.Domain.DockerSettingsProperty
       Stratosphere.SageMaker.Domain.DomainSettingsProperty
+      Stratosphere.SageMaker.Domain.EFSFileSystemConfigProperty
+      Stratosphere.SageMaker.Domain.JupyterLabAppSettingsProperty
       Stratosphere.SageMaker.Domain.JupyterServerAppSettingsProperty
       Stratosphere.SageMaker.Domain.KernelGatewayAppSettingsProperty
       Stratosphere.SageMaker.Domain.ResourceSpecProperty
@@ -74,6 +86,7 @@ library
       Stratosphere.SageMaker.Endpoint.BlueGreenUpdatePolicyProperty
       Stratosphere.SageMaker.Endpoint.CapacitySizeProperty
       Stratosphere.SageMaker.Endpoint.DeploymentConfigProperty
+      Stratosphere.SageMaker.Endpoint.RollingUpdatePolicyProperty
       Stratosphere.SageMaker.Endpoint.TrafficRoutingConfigProperty
       Stratosphere.SageMaker.Endpoint.VariantPropertyProperty
       Stratosphere.SageMaker.EndpointConfig
@@ -92,8 +105,11 @@ library
       Stratosphere.SageMaker.EndpointConfig.ClarifyTextConfigProperty
       Stratosphere.SageMaker.EndpointConfig.DataCaptureConfigProperty
       Stratosphere.SageMaker.EndpointConfig.ExplainerConfigProperty
+      Stratosphere.SageMaker.EndpointConfig.ManagedInstanceScalingProperty
       Stratosphere.SageMaker.EndpointConfig.ProductionVariantProperty
+      Stratosphere.SageMaker.EndpointConfig.RoutingConfigProperty
       Stratosphere.SageMaker.EndpointConfig.ServerlessConfigProperty
+      Stratosphere.SageMaker.EndpointConfig.VpcConfigProperty
       Stratosphere.SageMaker.FeatureGroup
       Stratosphere.SageMaker.FeatureGroup.DataCatalogConfigProperty
       Stratosphere.SageMaker.FeatureGroup.FeatureDefinitionProperty
@@ -101,8 +117,17 @@ library
       Stratosphere.SageMaker.FeatureGroup.OnlineStoreConfigProperty
       Stratosphere.SageMaker.FeatureGroup.OnlineStoreSecurityConfigProperty
       Stratosphere.SageMaker.FeatureGroup.S3StorageConfigProperty
+      Stratosphere.SageMaker.FeatureGroup.ThroughputConfigProperty
+      Stratosphere.SageMaker.FeatureGroup.TtlDurationProperty
       Stratosphere.SageMaker.Image
       Stratosphere.SageMaker.ImageVersion
+      Stratosphere.SageMaker.InferenceComponent
+      Stratosphere.SageMaker.InferenceComponent.DeployedImageProperty
+      Stratosphere.SageMaker.InferenceComponent.InferenceComponentComputeResourceRequirementsProperty
+      Stratosphere.SageMaker.InferenceComponent.InferenceComponentContainerSpecificationProperty
+      Stratosphere.SageMaker.InferenceComponent.InferenceComponentRuntimeConfigProperty
+      Stratosphere.SageMaker.InferenceComponent.InferenceComponentSpecificationProperty
+      Stratosphere.SageMaker.InferenceComponent.InferenceComponentStartupParametersProperty
       Stratosphere.SageMaker.InferenceExperiment
       Stratosphere.SageMaker.InferenceExperiment.CaptureContentTypeHeaderProperty
       Stratosphere.SageMaker.InferenceExperiment.DataStorageConfigProperty
@@ -117,8 +142,11 @@ library
       Stratosphere.SageMaker.Model.ContainerDefinitionProperty
       Stratosphere.SageMaker.Model.ImageConfigProperty
       Stratosphere.SageMaker.Model.InferenceExecutionConfigProperty
+      Stratosphere.SageMaker.Model.ModelAccessConfigProperty
+      Stratosphere.SageMaker.Model.ModelDataSourceProperty
       Stratosphere.SageMaker.Model.MultiModelConfigProperty
       Stratosphere.SageMaker.Model.RepositoryAuthConfigProperty
+      Stratosphere.SageMaker.Model.S3DataSourceProperty
       Stratosphere.SageMaker.Model.VpcConfigProperty
       Stratosphere.SageMaker.ModelBiasJobDefinition
       Stratosphere.SageMaker.ModelBiasJobDefinition.BatchTransformInputProperty
@@ -209,7 +237,6 @@ library
       Stratosphere.SageMaker.ModelPackage.TransformJobDefinitionProperty
       Stratosphere.SageMaker.ModelPackage.TransformOutputProperty
       Stratosphere.SageMaker.ModelPackage.TransformResourcesProperty
-      Stratosphere.SageMaker.ModelPackage.UserContextProperty
       Stratosphere.SageMaker.ModelPackage.ValidationProfileProperty
       Stratosphere.SageMaker.ModelPackage.ValidationSpecificationProperty
       Stratosphere.SageMaker.ModelPackageGroup
@@ -268,13 +295,30 @@ library
       Stratosphere.SageMaker.Project.ServiceCatalogProvisionedProductDetailsProperty
       Stratosphere.SageMaker.Project.ServiceCatalogProvisioningDetailsProperty
       Stratosphere.SageMaker.Space
+      Stratosphere.SageMaker.Space.CodeRepositoryProperty
+      Stratosphere.SageMaker.Space.CustomFileSystemProperty
       Stratosphere.SageMaker.Space.CustomImageProperty
+      Stratosphere.SageMaker.Space.EbsStorageSettingsProperty
+      Stratosphere.SageMaker.Space.EFSFileSystemProperty
       Stratosphere.SageMaker.Space.JupyterServerAppSettingsProperty
       Stratosphere.SageMaker.Space.KernelGatewayAppSettingsProperty
+      Stratosphere.SageMaker.Space.OwnershipSettingsProperty
       Stratosphere.SageMaker.Space.ResourceSpecProperty
+      Stratosphere.SageMaker.Space.SpaceCodeEditorAppSettingsProperty
+      Stratosphere.SageMaker.Space.SpaceJupyterLabAppSettingsProperty
       Stratosphere.SageMaker.Space.SpaceSettingsProperty
+      Stratosphere.SageMaker.Space.SpaceSharingSettingsProperty
+      Stratosphere.SageMaker.Space.SpaceStorageSettingsProperty
       Stratosphere.SageMaker.UserProfile
+      Stratosphere.SageMaker.UserProfile.CodeEditorAppSettingsProperty
+      Stratosphere.SageMaker.UserProfile.CodeRepositoryProperty
+      Stratosphere.SageMaker.UserProfile.CustomFileSystemConfigProperty
       Stratosphere.SageMaker.UserProfile.CustomImageProperty
+      Stratosphere.SageMaker.UserProfile.CustomPosixUserConfigProperty
+      Stratosphere.SageMaker.UserProfile.DefaultEbsStorageSettingsProperty
+      Stratosphere.SageMaker.UserProfile.DefaultSpaceStorageSettingsProperty
+      Stratosphere.SageMaker.UserProfile.EFSFileSystemConfigProperty
+      Stratosphere.SageMaker.UserProfile.JupyterLabAppSettingsProperty
       Stratosphere.SageMaker.UserProfile.JupyterServerAppSettingsProperty
       Stratosphere.SageMaker.UserProfile.KernelGatewayAppSettingsProperty
       Stratosphere.SageMaker.UserProfile.ResourceSpecProperty

@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorAD.Connector.VpcInformationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VpcInformationProperty :: Prelude.Type
+instance ToResourceProperties VpcInformationProperty
+instance Prelude.Eq VpcInformationProperty
+instance Prelude.Show VpcInformationProperty
+instance JSON.ToJSON VpcInformationProperty

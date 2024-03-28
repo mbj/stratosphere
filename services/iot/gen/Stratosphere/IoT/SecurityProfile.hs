@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.SecurityProfile.AlertTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoT.SecurityProfile.BehaviorProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoT.SecurityProfile.MetricToRetainProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoT.SecurityProfile.MetricsExportConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -14,6 +15,7 @@ data SecurityProfile
   = SecurityProfile {additionalMetricsToRetainV2 :: (Prelude.Maybe [MetricToRetainProperty]),
                      alertTargets :: (Prelude.Maybe (Prelude.Map Prelude.Text AlertTargetProperty)),
                      behaviors :: (Prelude.Maybe [BehaviorProperty]),
+                     metricsExportConfig :: (Prelude.Maybe MetricsExportConfigProperty),
                      securityProfileDescription :: (Prelude.Maybe (Value Prelude.Text)),
                      securityProfileName :: (Prelude.Maybe (Value Prelude.Text)),
                      tags :: (Prelude.Maybe [Tag]),
@@ -24,6 +26,7 @@ mkSecurityProfile
   = SecurityProfile
       {additionalMetricsToRetainV2 = Prelude.Nothing,
        alertTargets = Prelude.Nothing, behaviors = Prelude.Nothing,
+       metricsExportConfig = Prelude.Nothing,
        securityProfileDescription = Prelude.Nothing,
        securityProfileName = Prelude.Nothing, tags = Prelude.Nothing,
        targetArns = Prelude.Nothing}
@@ -38,6 +41,7 @@ instance ToResourceProperties SecurityProfile where
                               Prelude.<$> additionalMetricsToRetainV2,
                             (JSON..=) "AlertTargets" Prelude.<$> alertTargets,
                             (JSON..=) "Behaviors" Prelude.<$> behaviors,
+                            (JSON..=) "MetricsExportConfig" Prelude.<$> metricsExportConfig,
                             (JSON..=) "SecurityProfileDescription"
                               Prelude.<$> securityProfileDescription,
                             (JSON..=) "SecurityProfileName" Prelude.<$> securityProfileName,
@@ -52,6 +56,7 @@ instance JSON.ToJSON SecurityProfile where
                  Prelude.<$> additionalMetricsToRetainV2,
                (JSON..=) "AlertTargets" Prelude.<$> alertTargets,
                (JSON..=) "Behaviors" Prelude.<$> behaviors,
+               (JSON..=) "MetricsExportConfig" Prelude.<$> metricsExportConfig,
                (JSON..=) "SecurityProfileDescription"
                  Prelude.<$> securityProfileDescription,
                (JSON..=) "SecurityProfileName" Prelude.<$> securityProfileName,
@@ -70,6 +75,10 @@ instance Property "Behaviors" SecurityProfile where
   type PropertyType "Behaviors" SecurityProfile = [BehaviorProperty]
   set newValue SecurityProfile {..}
     = SecurityProfile {behaviors = Prelude.pure newValue, ..}
+instance Property "MetricsExportConfig" SecurityProfile where
+  type PropertyType "MetricsExportConfig" SecurityProfile = MetricsExportConfigProperty
+  set newValue SecurityProfile {..}
+    = SecurityProfile {metricsExportConfig = Prelude.pure newValue, ..}
 instance Property "SecurityProfileDescription" SecurityProfile where
   type PropertyType "SecurityProfileDescription" SecurityProfile = Value Prelude.Text
   set newValue SecurityProfile {..}

@@ -1,0 +1,9 @@
+module Stratosphere.IoT.TopicRule.KafkaActionHeaderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KafkaActionHeaderProperty :: Prelude.Type
+instance ToResourceProperties KafkaActionHeaderProperty
+instance Prelude.Eq KafkaActionHeaderProperty
+instance Prelude.Show KafkaActionHeaderProperty
+instance JSON.ToJSON KafkaActionHeaderProperty

@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.DataSource.RedshiftStorageProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedshiftStorageProperty :: Prelude.Type
+instance ToResourceProperties RedshiftStorageProperty
+instance Prelude.Eq RedshiftStorageProperty
+instance Prelude.Show RedshiftStorageProperty
+instance JSON.ToJSON RedshiftStorageProperty

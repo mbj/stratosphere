@@ -1,0 +1,9 @@
+module Stratosphere.KafkaConnect.CustomPlugin.CustomPluginFileDescriptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomPluginFileDescriptionProperty :: Prelude.Type
+instance ToResourceProperties CustomPluginFileDescriptionProperty
+instance Prelude.Eq CustomPluginFileDescriptionProperty
+instance Prelude.Show CustomPluginFileDescriptionProperty
+instance JSON.ToJSON CustomPluginFileDescriptionProperty

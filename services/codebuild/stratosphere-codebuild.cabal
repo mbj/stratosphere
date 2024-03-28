@@ -25,6 +25,7 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.CodeBuild.Fleet
       Stratosphere.CodeBuild.Project
       Stratosphere.CodeBuild.Project.ArtifactsProperty
       Stratosphere.CodeBuild.Project.BatchRestrictionsProperty
@@ -38,6 +39,7 @@ library
       Stratosphere.CodeBuild.Project.ProjectBuildBatchConfigProperty
       Stratosphere.CodeBuild.Project.ProjectCacheProperty
       Stratosphere.CodeBuild.Project.ProjectFileSystemLocationProperty
+      Stratosphere.CodeBuild.Project.ProjectFleetProperty
       Stratosphere.CodeBuild.Project.ProjectSourceVersionProperty
       Stratosphere.CodeBuild.Project.ProjectTriggersProperty
       Stratosphere.CodeBuild.Project.RegistryCredentialProperty

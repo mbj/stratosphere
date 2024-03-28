@@ -7,30 +7,26 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataLakePrincipalProperty
-  = DataLakePrincipalProperty {dataLakePrincipalIdentifier :: (Prelude.Maybe (Value Prelude.Text))}
+  = DataLakePrincipalProperty {dataLakePrincipalIdentifier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkDataLakePrincipalProperty :: DataLakePrincipalProperty
-mkDataLakePrincipalProperty
+mkDataLakePrincipalProperty ::
+  Value Prelude.Text -> DataLakePrincipalProperty
+mkDataLakePrincipalProperty dataLakePrincipalIdentifier
   = DataLakePrincipalProperty
-      {dataLakePrincipalIdentifier = Prelude.Nothing}
+      {dataLakePrincipalIdentifier = dataLakePrincipalIdentifier}
 instance ToResourceProperties DataLakePrincipalProperty where
   toResourceProperties DataLakePrincipalProperty {..}
     = ResourceProperties
         {awsType = "AWS::LakeFormation::DataLakeSettings.DataLakePrincipal",
          supportsTags = Prelude.False,
-         properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "DataLakePrincipalIdentifier"
-                              Prelude.<$> dataLakePrincipalIdentifier])}
+         properties = ["DataLakePrincipalIdentifier"
+                         JSON..= dataLakePrincipalIdentifier]}
 instance JSON.ToJSON DataLakePrincipalProperty where
   toJSON DataLakePrincipalProperty {..}
     = JSON.object
-        (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "DataLakePrincipalIdentifier"
-                 Prelude.<$> dataLakePrincipalIdentifier]))
+        ["DataLakePrincipalIdentifier" JSON..= dataLakePrincipalIdentifier]
 instance Property "DataLakePrincipalIdentifier" DataLakePrincipalProperty where
   type PropertyType "DataLakePrincipalIdentifier" DataLakePrincipalProperty = Value Prelude.Text
   set newValue DataLakePrincipalProperty {}
     = DataLakePrincipalProperty
-        {dataLakePrincipalIdentifier = Prelude.pure newValue, ..}
+        {dataLakePrincipalIdentifier = newValue, ..}

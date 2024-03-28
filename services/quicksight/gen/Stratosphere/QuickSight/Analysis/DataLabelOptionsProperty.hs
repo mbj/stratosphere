@@ -18,6 +18,7 @@ data DataLabelOptionsProperty
                               measureLabelVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                               overlap :: (Prelude.Maybe (Value Prelude.Text)),
                               position :: (Prelude.Maybe (Value Prelude.Text)),
+                              totalsVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                               visibility :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDataLabelOptionsProperty :: DataLabelOptionsProperty
@@ -29,7 +30,7 @@ mkDataLabelOptionsProperty
        labelFontConfiguration = Prelude.Nothing,
        measureLabelVisibility = Prelude.Nothing,
        overlap = Prelude.Nothing, position = Prelude.Nothing,
-       visibility = Prelude.Nothing}
+       totalsVisibility = Prelude.Nothing, visibility = Prelude.Nothing}
 instance ToResourceProperties DataLabelOptionsProperty where
   toResourceProperties DataLabelOptionsProperty {..}
     = ResourceProperties
@@ -48,6 +49,7 @@ instance ToResourceProperties DataLabelOptionsProperty where
                               Prelude.<$> measureLabelVisibility,
                             (JSON..=) "Overlap" Prelude.<$> overlap,
                             (JSON..=) "Position" Prelude.<$> position,
+                            (JSON..=) "TotalsVisibility" Prelude.<$> totalsVisibility,
                             (JSON..=) "Visibility" Prelude.<$> visibility])}
 instance JSON.ToJSON DataLabelOptionsProperty where
   toJSON DataLabelOptionsProperty {..}
@@ -65,6 +67,7 @@ instance JSON.ToJSON DataLabelOptionsProperty where
                  Prelude.<$> measureLabelVisibility,
                (JSON..=) "Overlap" Prelude.<$> overlap,
                (JSON..=) "Position" Prelude.<$> position,
+               (JSON..=) "TotalsVisibility" Prelude.<$> totalsVisibility,
                (JSON..=) "Visibility" Prelude.<$> visibility]))
 instance Property "CategoryLabelVisibility" DataLabelOptionsProperty where
   type PropertyType "CategoryLabelVisibility" DataLabelOptionsProperty = Value Prelude.Text
@@ -103,6 +106,11 @@ instance Property "Position" DataLabelOptionsProperty where
   type PropertyType "Position" DataLabelOptionsProperty = Value Prelude.Text
   set newValue DataLabelOptionsProperty {..}
     = DataLabelOptionsProperty {position = Prelude.pure newValue, ..}
+instance Property "TotalsVisibility" DataLabelOptionsProperty where
+  type PropertyType "TotalsVisibility" DataLabelOptionsProperty = Value Prelude.Text
+  set newValue DataLabelOptionsProperty {..}
+    = DataLabelOptionsProperty
+        {totalsVisibility = Prelude.pure newValue, ..}
 instance Property "Visibility" DataLabelOptionsProperty where
   type PropertyType "Visibility" DataLabelOptionsProperty = Value Prelude.Text
   set newValue DataLabelOptionsProperty {..}

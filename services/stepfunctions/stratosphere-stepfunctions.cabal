@@ -34,6 +34,10 @@ library
       Stratosphere.StepFunctions.StateMachine.S3LocationProperty
       Stratosphere.StepFunctions.StateMachine.TagsEntryProperty
       Stratosphere.StepFunctions.StateMachine.TracingConfigurationProperty
+      Stratosphere.StepFunctions.StateMachineAlias
+      Stratosphere.StepFunctions.StateMachineAlias.DeploymentPreferenceProperty
+      Stratosphere.StepFunctions.StateMachineAlias.RoutingConfigurationVersionProperty
+      Stratosphere.StepFunctions.StateMachineVersion
   other-modules:
       Paths_stratosphere_stepfunctions
   hs-source-dirs:

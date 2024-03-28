@@ -46,6 +46,11 @@ library
       Stratosphere.Backup.ReportPlan
       Stratosphere.Backup.ReportPlan.ReportDeliveryChannelProperty
       Stratosphere.Backup.ReportPlan.ReportSettingProperty
+      Stratosphere.Backup.RestoreTestingPlan
+      Stratosphere.Backup.RestoreTestingPlan.RestoreTestingRecoveryPointSelectionProperty
+      Stratosphere.Backup.RestoreTestingSelection
+      Stratosphere.Backup.RestoreTestingSelection.KeyValueProperty
+      Stratosphere.Backup.RestoreTestingSelection.ProtectedResourceConditionsProperty
   other-modules:
       Paths_stratosphere_backup
   hs-source-dirs:

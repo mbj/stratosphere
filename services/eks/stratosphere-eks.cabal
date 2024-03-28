@@ -25,8 +25,12 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.EKS.AccessEntry
+      Stratosphere.EKS.AccessEntry.AccessPolicyProperty
+      Stratosphere.EKS.AccessEntry.AccessScopeProperty
       Stratosphere.EKS.Addon
       Stratosphere.EKS.Cluster
+      Stratosphere.EKS.Cluster.AccessConfigProperty
       Stratosphere.EKS.Cluster.ClusterLoggingProperty
       Stratosphere.EKS.Cluster.ControlPlanePlacementProperty
       Stratosphere.EKS.Cluster.EncryptionConfigProperty
@@ -48,6 +52,7 @@ library
       Stratosphere.EKS.Nodegroup.ScalingConfigProperty
       Stratosphere.EKS.Nodegroup.TaintProperty
       Stratosphere.EKS.Nodegroup.UpdateConfigProperty
+      Stratosphere.EKS.PodIdentityAssociation
   other-modules:
       Paths_stratosphere_eks
   hs-source-dirs:

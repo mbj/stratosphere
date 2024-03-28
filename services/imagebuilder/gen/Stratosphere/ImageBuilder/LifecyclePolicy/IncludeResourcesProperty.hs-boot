@@ -1,0 +1,9 @@
+module Stratosphere.ImageBuilder.LifecyclePolicy.IncludeResourcesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IncludeResourcesProperty :: Prelude.Type
+instance ToResourceProperties IncludeResourcesProperty
+instance Prelude.Eq IncludeResourcesProperty
+instance Prelude.Show IncludeResourcesProperty
+instance JSON.ToJSON IncludeResourcesProperty

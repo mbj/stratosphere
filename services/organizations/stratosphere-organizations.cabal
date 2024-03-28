@@ -26,6 +26,7 @@ flag development
 library
   exposed-modules:
       Stratosphere.Organizations.Account
+      Stratosphere.Organizations.Organization
       Stratosphere.Organizations.OrganizationalUnit
       Stratosphere.Organizations.Policy
       Stratosphere.Organizations.ResourcePolicy

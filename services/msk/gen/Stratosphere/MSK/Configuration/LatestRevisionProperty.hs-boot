@@ -1,0 +1,9 @@
+module Stratosphere.MSK.Configuration.LatestRevisionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LatestRevisionProperty :: Prelude.Type
+instance ToResourceProperties LatestRevisionProperty
+instance Prelude.Eq LatestRevisionProperty
+instance Prelude.Show LatestRevisionProperty
+instance JSON.ToJSON LatestRevisionProperty

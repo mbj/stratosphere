@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.ContainerPropertiesProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EcsPropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksPropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.NodePropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.RetryStrategyProperty as Exports
@@ -13,6 +14,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobDefinition
   = JobDefinition {containerProperties :: (Prelude.Maybe ContainerPropertiesProperty),
+                   ecsProperties :: (Prelude.Maybe EcsPropertiesProperty),
                    eksProperties :: (Prelude.Maybe EksPropertiesProperty),
                    jobDefinitionName :: (Prelude.Maybe (Value Prelude.Text)),
                    nodeProperties :: (Prelude.Maybe NodePropertiesProperty),
@@ -29,7 +31,7 @@ mkJobDefinition :: Value Prelude.Text -> JobDefinition
 mkJobDefinition type'
   = JobDefinition
       {type' = type', containerProperties = Prelude.Nothing,
-       eksProperties = Prelude.Nothing,
+       ecsProperties = Prelude.Nothing, eksProperties = Prelude.Nothing,
        jobDefinitionName = Prelude.Nothing,
        nodeProperties = Prelude.Nothing, parameters = Prelude.Nothing,
        platformCapabilities = Prelude.Nothing,
@@ -46,6 +48,7 @@ instance ToResourceProperties JobDefinition where
                            ["Type" JSON..= type']
                            (Prelude.catMaybes
                               [(JSON..=) "ContainerProperties" Prelude.<$> containerProperties,
+                               (JSON..=) "EcsProperties" Prelude.<$> ecsProperties,
                                (JSON..=) "EksProperties" Prelude.<$> eksProperties,
                                (JSON..=) "JobDefinitionName" Prelude.<$> jobDefinitionName,
                                (JSON..=) "NodeProperties" Prelude.<$> nodeProperties,
@@ -64,6 +67,7 @@ instance JSON.ToJSON JobDefinition where
               ["Type" JSON..= type']
               (Prelude.catMaybes
                  [(JSON..=) "ContainerProperties" Prelude.<$> containerProperties,
+                  (JSON..=) "EcsProperties" Prelude.<$> ecsProperties,
                   (JSON..=) "EksProperties" Prelude.<$> eksProperties,
                   (JSON..=) "JobDefinitionName" Prelude.<$> jobDefinitionName,
                   (JSON..=) "NodeProperties" Prelude.<$> nodeProperties,
@@ -78,6 +82,10 @@ instance Property "ContainerProperties" JobDefinition where
   type PropertyType "ContainerProperties" JobDefinition = ContainerPropertiesProperty
   set newValue JobDefinition {..}
     = JobDefinition {containerProperties = Prelude.pure newValue, ..}
+instance Property "EcsProperties" JobDefinition where
+  type PropertyType "EcsProperties" JobDefinition = EcsPropertiesProperty
+  set newValue JobDefinition {..}
+    = JobDefinition {ecsProperties = Prelude.pure newValue, ..}
 instance Property "EksProperties" JobDefinition where
   type PropertyType "EksProperties" JobDefinition = EksPropertiesProperty
   set newValue JobDefinition {..}

@@ -1,0 +1,9 @@
+module Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingTechniquesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdMappingTechniquesProperty :: Prelude.Type
+instance ToResourceProperties IdMappingTechniquesProperty
+instance Prelude.Eq IdMappingTechniquesProperty
+instance Prelude.Show IdMappingTechniquesProperty
+instance JSON.ToJSON IdMappingTechniquesProperty

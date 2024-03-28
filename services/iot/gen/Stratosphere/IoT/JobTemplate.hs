@@ -16,6 +16,7 @@ import Stratosphere.Value
 data JobTemplate
   = JobTemplate {abortConfig :: (Prelude.Maybe AbortConfigProperty),
                  description :: (Value Prelude.Text),
+                 destinationPackageVersions :: (Prelude.Maybe (ValueList Prelude.Text)),
                  document :: (Prelude.Maybe (Value Prelude.Text)),
                  documentSource :: (Prelude.Maybe (Value Prelude.Text)),
                  jobArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -32,8 +33,10 @@ mkJobTemplate ::
 mkJobTemplate description jobTemplateId
   = JobTemplate
       {description = description, jobTemplateId = jobTemplateId,
-       abortConfig = Prelude.Nothing, document = Prelude.Nothing,
-       documentSource = Prelude.Nothing, jobArn = Prelude.Nothing,
+       abortConfig = Prelude.Nothing,
+       destinationPackageVersions = Prelude.Nothing,
+       document = Prelude.Nothing, documentSource = Prelude.Nothing,
+       jobArn = Prelude.Nothing,
        jobExecutionsRetryConfig = Prelude.Nothing,
        jobExecutionsRolloutConfig = Prelude.Nothing,
        maintenanceWindows = Prelude.Nothing,
@@ -49,6 +52,8 @@ instance ToResourceProperties JobTemplate where
                             "JobTemplateId" JSON..= jobTemplateId]
                            (Prelude.catMaybes
                               [(JSON..=) "AbortConfig" Prelude.<$> abortConfig,
+                               (JSON..=) "DestinationPackageVersions"
+                                 Prelude.<$> destinationPackageVersions,
                                (JSON..=) "Document" Prelude.<$> document,
                                (JSON..=) "DocumentSource" Prelude.<$> documentSource,
                                (JSON..=) "JobArn" Prelude.<$> jobArn,
@@ -69,6 +74,8 @@ instance JSON.ToJSON JobTemplate where
                "JobTemplateId" JSON..= jobTemplateId]
               (Prelude.catMaybes
                  [(JSON..=) "AbortConfig" Prelude.<$> abortConfig,
+                  (JSON..=) "DestinationPackageVersions"
+                    Prelude.<$> destinationPackageVersions,
                   (JSON..=) "Document" Prelude.<$> document,
                   (JSON..=) "DocumentSource" Prelude.<$> documentSource,
                   (JSON..=) "JobArn" Prelude.<$> jobArn,
@@ -88,6 +95,11 @@ instance Property "Description" JobTemplate where
   type PropertyType "Description" JobTemplate = Value Prelude.Text
   set newValue JobTemplate {..}
     = JobTemplate {description = newValue, ..}
+instance Property "DestinationPackageVersions" JobTemplate where
+  type PropertyType "DestinationPackageVersions" JobTemplate = ValueList Prelude.Text
+  set newValue JobTemplate {..}
+    = JobTemplate
+        {destinationPackageVersions = Prelude.pure newValue, ..}
 instance Property "Document" JobTemplate where
   type PropertyType "Document" JobTemplate = Value Prelude.Text
   set newValue JobTemplate {..}

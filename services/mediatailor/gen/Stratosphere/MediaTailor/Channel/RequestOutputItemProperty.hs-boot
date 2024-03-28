@@ -1,0 +1,9 @@
+module Stratosphere.MediaTailor.Channel.RequestOutputItemProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RequestOutputItemProperty :: Prelude.Type
+instance ToResourceProperties RequestOutputItemProperty
+instance Prelude.Eq RequestOutputItemProperty
+instance Prelude.Show RequestOutputItemProperty
+instance JSON.ToJSON RequestOutputItemProperty

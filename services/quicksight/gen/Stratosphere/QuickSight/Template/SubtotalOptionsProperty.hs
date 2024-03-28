@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.PivotTableFieldSubtotalOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.TableCellStyleProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.TableStyleTargetProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SubtotalOptionsProperty
@@ -14,6 +15,7 @@ data SubtotalOptionsProperty
                              fieldLevel :: (Prelude.Maybe (Value Prelude.Text)),
                              fieldLevelOptions :: (Prelude.Maybe [PivotTableFieldSubtotalOptionsProperty]),
                              metricHeaderCellStyle :: (Prelude.Maybe TableCellStyleProperty),
+                             styleTargets :: (Prelude.Maybe [TableStyleTargetProperty]),
                              totalCellStyle :: (Prelude.Maybe TableCellStyleProperty),
                              totalsVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                              valueCellStyle :: (Prelude.Maybe TableCellStyleProperty)}
@@ -24,7 +26,7 @@ mkSubtotalOptionsProperty
       {customLabel = Prelude.Nothing, fieldLevel = Prelude.Nothing,
        fieldLevelOptions = Prelude.Nothing,
        metricHeaderCellStyle = Prelude.Nothing,
-       totalCellStyle = Prelude.Nothing,
+       styleTargets = Prelude.Nothing, totalCellStyle = Prelude.Nothing,
        totalsVisibility = Prelude.Nothing,
        valueCellStyle = Prelude.Nothing}
 instance ToResourceProperties SubtotalOptionsProperty where
@@ -39,6 +41,7 @@ instance ToResourceProperties SubtotalOptionsProperty where
                             (JSON..=) "FieldLevelOptions" Prelude.<$> fieldLevelOptions,
                             (JSON..=) "MetricHeaderCellStyle"
                               Prelude.<$> metricHeaderCellStyle,
+                            (JSON..=) "StyleTargets" Prelude.<$> styleTargets,
                             (JSON..=) "TotalCellStyle" Prelude.<$> totalCellStyle,
                             (JSON..=) "TotalsVisibility" Prelude.<$> totalsVisibility,
                             (JSON..=) "ValueCellStyle" Prelude.<$> valueCellStyle])}
@@ -52,6 +55,7 @@ instance JSON.ToJSON SubtotalOptionsProperty where
                (JSON..=) "FieldLevelOptions" Prelude.<$> fieldLevelOptions,
                (JSON..=) "MetricHeaderCellStyle"
                  Prelude.<$> metricHeaderCellStyle,
+               (JSON..=) "StyleTargets" Prelude.<$> styleTargets,
                (JSON..=) "TotalCellStyle" Prelude.<$> totalCellStyle,
                (JSON..=) "TotalsVisibility" Prelude.<$> totalsVisibility,
                (JSON..=) "ValueCellStyle" Prelude.<$> valueCellStyle]))
@@ -73,6 +77,11 @@ instance Property "MetricHeaderCellStyle" SubtotalOptionsProperty where
   set newValue SubtotalOptionsProperty {..}
     = SubtotalOptionsProperty
         {metricHeaderCellStyle = Prelude.pure newValue, ..}
+instance Property "StyleTargets" SubtotalOptionsProperty where
+  type PropertyType "StyleTargets" SubtotalOptionsProperty = [TableStyleTargetProperty]
+  set newValue SubtotalOptionsProperty {..}
+    = SubtotalOptionsProperty
+        {styleTargets = Prelude.pure newValue, ..}
 instance Property "TotalCellStyle" SubtotalOptionsProperty where
   type PropertyType "TotalCellStyle" SubtotalOptionsProperty = TableCellStyleProperty
   set newValue SubtotalOptionsProperty {..}

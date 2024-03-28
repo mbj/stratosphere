@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeRoleConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnowflakeRoleConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SnowflakeRoleConfigurationProperty
+instance Prelude.Eq SnowflakeRoleConfigurationProperty
+instance Prelude.Show SnowflakeRoleConfigurationProperty
+instance JSON.ToJSON SnowflakeRoleConfigurationProperty

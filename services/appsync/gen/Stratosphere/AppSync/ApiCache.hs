@@ -10,6 +10,7 @@ data ApiCache
   = ApiCache {apiCachingBehavior :: (Value Prelude.Text),
               apiId :: (Value Prelude.Text),
               atRestEncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+              healthMetricsConfig :: (Prelude.Maybe (Value Prelude.Text)),
               transitEncryptionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
               ttl :: (Value Prelude.Double),
               type' :: (Value Prelude.Text)}
@@ -22,6 +23,7 @@ mkApiCache apiCachingBehavior apiId ttl type'
   = ApiCache
       {apiCachingBehavior = apiCachingBehavior, apiId = apiId, ttl = ttl,
        type' = type', atRestEncryptionEnabled = Prelude.Nothing,
+       healthMetricsConfig = Prelude.Nothing,
        transitEncryptionEnabled = Prelude.Nothing}
 instance ToResourceProperties ApiCache where
   toResourceProperties ApiCache {..}
@@ -34,6 +36,7 @@ instance ToResourceProperties ApiCache where
                            (Prelude.catMaybes
                               [(JSON..=) "AtRestEncryptionEnabled"
                                  Prelude.<$> atRestEncryptionEnabled,
+                               (JSON..=) "HealthMetricsConfig" Prelude.<$> healthMetricsConfig,
                                (JSON..=) "TransitEncryptionEnabled"
                                  Prelude.<$> transitEncryptionEnabled]))}
 instance JSON.ToJSON ApiCache where
@@ -46,6 +49,7 @@ instance JSON.ToJSON ApiCache where
               (Prelude.catMaybes
                  [(JSON..=) "AtRestEncryptionEnabled"
                     Prelude.<$> atRestEncryptionEnabled,
+                  (JSON..=) "HealthMetricsConfig" Prelude.<$> healthMetricsConfig,
                   (JSON..=) "TransitEncryptionEnabled"
                     Prelude.<$> transitEncryptionEnabled])))
 instance Property "ApiCachingBehavior" ApiCache where
@@ -59,6 +63,10 @@ instance Property "AtRestEncryptionEnabled" ApiCache where
   type PropertyType "AtRestEncryptionEnabled" ApiCache = Value Prelude.Bool
   set newValue ApiCache {..}
     = ApiCache {atRestEncryptionEnabled = Prelude.pure newValue, ..}
+instance Property "HealthMetricsConfig" ApiCache where
+  type PropertyType "HealthMetricsConfig" ApiCache = Value Prelude.Text
+  set newValue ApiCache {..}
+    = ApiCache {healthMetricsConfig = Prelude.pure newValue, ..}
 instance Property "TransitEncryptionEnabled" ApiCache where
   type PropertyType "TransitEncryptionEnabled" ApiCache = Value Prelude.Bool
   set newValue ApiCache {..}

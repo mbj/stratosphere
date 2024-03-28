@@ -6,49 +6,48 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.MetricDimensionProperty as Exports
+import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTrackingMetricDataQueryProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomizedMetricSpecificationProperty
   = CustomizedMetricSpecificationProperty {dimensions :: (Prelude.Maybe [MetricDimensionProperty]),
-                                           metricName :: (Value Prelude.Text),
-                                           namespace :: (Value Prelude.Text),
-                                           statistic :: (Value Prelude.Text),
+                                           metricName :: (Prelude.Maybe (Value Prelude.Text)),
+                                           metrics :: (Prelude.Maybe [TargetTrackingMetricDataQueryProperty]),
+                                           namespace :: (Prelude.Maybe (Value Prelude.Text)),
+                                           statistic :: (Prelude.Maybe (Value Prelude.Text)),
                                            unit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomizedMetricSpecificationProperty ::
-  Value Prelude.Text
-  -> Value Prelude.Text
-     -> Value Prelude.Text -> CustomizedMetricSpecificationProperty
+  CustomizedMetricSpecificationProperty
 mkCustomizedMetricSpecificationProperty
-  metricName
-  namespace
-  statistic
   = CustomizedMetricSpecificationProperty
-      {metricName = metricName, namespace = namespace,
-       statistic = statistic, dimensions = Prelude.Nothing,
-       unit = Prelude.Nothing}
+      {dimensions = Prelude.Nothing, metricName = Prelude.Nothing,
+       metrics = Prelude.Nothing, namespace = Prelude.Nothing,
+       statistic = Prelude.Nothing, unit = Prelude.Nothing}
 instance ToResourceProperties CustomizedMetricSpecificationProperty where
   toResourceProperties CustomizedMetricSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApplicationAutoScaling::ScalingPolicy.CustomizedMetricSpecification",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["MetricName" JSON..= metricName, "Namespace" JSON..= namespace,
-                            "Statistic" JSON..= statistic]
-                           (Prelude.catMaybes
-                              [(JSON..=) "Dimensions" Prelude.<$> dimensions,
-                               (JSON..=) "Unit" Prelude.<$> unit]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "Dimensions" Prelude.<$> dimensions,
+                            (JSON..=) "MetricName" Prelude.<$> metricName,
+                            (JSON..=) "Metrics" Prelude.<$> metrics,
+                            (JSON..=) "Namespace" Prelude.<$> namespace,
+                            (JSON..=) "Statistic" Prelude.<$> statistic,
+                            (JSON..=) "Unit" Prelude.<$> unit])}
 instance JSON.ToJSON CustomizedMetricSpecificationProperty where
   toJSON CustomizedMetricSpecificationProperty {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["MetricName" JSON..= metricName, "Namespace" JSON..= namespace,
-               "Statistic" JSON..= statistic]
-              (Prelude.catMaybes
-                 [(JSON..=) "Dimensions" Prelude.<$> dimensions,
-                  (JSON..=) "Unit" Prelude.<$> unit])))
+           (Prelude.catMaybes
+              [(JSON..=) "Dimensions" Prelude.<$> dimensions,
+               (JSON..=) "MetricName" Prelude.<$> metricName,
+               (JSON..=) "Metrics" Prelude.<$> metrics,
+               (JSON..=) "Namespace" Prelude.<$> namespace,
+               (JSON..=) "Statistic" Prelude.<$> statistic,
+               (JSON..=) "Unit" Prelude.<$> unit]))
 instance Property "Dimensions" CustomizedMetricSpecificationProperty where
   type PropertyType "Dimensions" CustomizedMetricSpecificationProperty = [MetricDimensionProperty]
   set newValue CustomizedMetricSpecificationProperty {..}
@@ -57,15 +56,23 @@ instance Property "Dimensions" CustomizedMetricSpecificationProperty where
 instance Property "MetricName" CustomizedMetricSpecificationProperty where
   type PropertyType "MetricName" CustomizedMetricSpecificationProperty = Value Prelude.Text
   set newValue CustomizedMetricSpecificationProperty {..}
-    = CustomizedMetricSpecificationProperty {metricName = newValue, ..}
+    = CustomizedMetricSpecificationProperty
+        {metricName = Prelude.pure newValue, ..}
+instance Property "Metrics" CustomizedMetricSpecificationProperty where
+  type PropertyType "Metrics" CustomizedMetricSpecificationProperty = [TargetTrackingMetricDataQueryProperty]
+  set newValue CustomizedMetricSpecificationProperty {..}
+    = CustomizedMetricSpecificationProperty
+        {metrics = Prelude.pure newValue, ..}
 instance Property "Namespace" CustomizedMetricSpecificationProperty where
   type PropertyType "Namespace" CustomizedMetricSpecificationProperty = Value Prelude.Text
   set newValue CustomizedMetricSpecificationProperty {..}
-    = CustomizedMetricSpecificationProperty {namespace = newValue, ..}
+    = CustomizedMetricSpecificationProperty
+        {namespace = Prelude.pure newValue, ..}
 instance Property "Statistic" CustomizedMetricSpecificationProperty where
   type PropertyType "Statistic" CustomizedMetricSpecificationProperty = Value Prelude.Text
   set newValue CustomizedMetricSpecificationProperty {..}
-    = CustomizedMetricSpecificationProperty {statistic = newValue, ..}
+    = CustomizedMetricSpecificationProperty
+        {statistic = Prelude.pure newValue, ..}
 instance Property "Unit" CustomizedMetricSpecificationProperty where
   type PropertyType "Unit" CustomizedMetricSpecificationProperty = Value Prelude.Text
   set newValue CustomizedMetricSpecificationProperty {..}

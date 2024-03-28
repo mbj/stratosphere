@@ -12,6 +12,7 @@ data RtmpGroupSettingsProperty
                                cacheFullBehavior :: (Prelude.Maybe (Value Prelude.Text)),
                                cacheLength :: (Prelude.Maybe (Value Prelude.Integer)),
                                captionData :: (Prelude.Maybe (Value Prelude.Text)),
+                               includeFillerNalUnits :: (Prelude.Maybe (Value Prelude.Text)),
                                inputLossAction :: (Prelude.Maybe (Value Prelude.Text)),
                                restartDelay :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -21,8 +22,9 @@ mkRtmpGroupSettingsProperty
       {adMarkers = Prelude.Nothing,
        authenticationScheme = Prelude.Nothing,
        cacheFullBehavior = Prelude.Nothing, cacheLength = Prelude.Nothing,
-       captionData = Prelude.Nothing, inputLossAction = Prelude.Nothing,
-       restartDelay = Prelude.Nothing}
+       captionData = Prelude.Nothing,
+       includeFillerNalUnits = Prelude.Nothing,
+       inputLossAction = Prelude.Nothing, restartDelay = Prelude.Nothing}
 instance ToResourceProperties RtmpGroupSettingsProperty where
   toResourceProperties RtmpGroupSettingsProperty {..}
     = ResourceProperties
@@ -35,6 +37,8 @@ instance ToResourceProperties RtmpGroupSettingsProperty where
                             (JSON..=) "CacheFullBehavior" Prelude.<$> cacheFullBehavior,
                             (JSON..=) "CacheLength" Prelude.<$> cacheLength,
                             (JSON..=) "CaptionData" Prelude.<$> captionData,
+                            (JSON..=) "IncludeFillerNalUnits"
+                              Prelude.<$> includeFillerNalUnits,
                             (JSON..=) "InputLossAction" Prelude.<$> inputLossAction,
                             (JSON..=) "RestartDelay" Prelude.<$> restartDelay])}
 instance JSON.ToJSON RtmpGroupSettingsProperty where
@@ -47,6 +51,8 @@ instance JSON.ToJSON RtmpGroupSettingsProperty where
                (JSON..=) "CacheFullBehavior" Prelude.<$> cacheFullBehavior,
                (JSON..=) "CacheLength" Prelude.<$> cacheLength,
                (JSON..=) "CaptionData" Prelude.<$> captionData,
+               (JSON..=) "IncludeFillerNalUnits"
+                 Prelude.<$> includeFillerNalUnits,
                (JSON..=) "InputLossAction" Prelude.<$> inputLossAction,
                (JSON..=) "RestartDelay" Prelude.<$> restartDelay]))
 instance Property "AdMarkers" RtmpGroupSettingsProperty where
@@ -73,6 +79,11 @@ instance Property "CaptionData" RtmpGroupSettingsProperty where
   set newValue RtmpGroupSettingsProperty {..}
     = RtmpGroupSettingsProperty
         {captionData = Prelude.pure newValue, ..}
+instance Property "IncludeFillerNalUnits" RtmpGroupSettingsProperty where
+  type PropertyType "IncludeFillerNalUnits" RtmpGroupSettingsProperty = Value Prelude.Text
+  set newValue RtmpGroupSettingsProperty {..}
+    = RtmpGroupSettingsProperty
+        {includeFillerNalUnits = Prelude.pure newValue, ..}
 instance Property "InputLossAction" RtmpGroupSettingsProperty where
   type PropertyType "InputLossAction" RtmpGroupSettingsProperty = Value Prelude.Text
   set newValue RtmpGroupSettingsProperty {..}

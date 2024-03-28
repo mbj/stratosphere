@@ -10,7 +10,8 @@ import Stratosphere.Value
 data CastColumnTypeOperationProperty
   = CastColumnTypeOperationProperty {columnName :: (Value Prelude.Text),
                                      format :: (Prelude.Maybe (Value Prelude.Text)),
-                                     newColumnType :: (Value Prelude.Text)}
+                                     newColumnType :: (Value Prelude.Text),
+                                     subType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCastColumnTypeOperationProperty ::
   Value Prelude.Text
@@ -18,7 +19,7 @@ mkCastColumnTypeOperationProperty ::
 mkCastColumnTypeOperationProperty columnName newColumnType
   = CastColumnTypeOperationProperty
       {columnName = columnName, newColumnType = newColumnType,
-       format = Prelude.Nothing}
+       format = Prelude.Nothing, subType = Prelude.Nothing}
 instance ToResourceProperties CastColumnTypeOperationProperty where
   toResourceProperties CastColumnTypeOperationProperty {..}
     = ResourceProperties
@@ -28,7 +29,9 @@ instance ToResourceProperties CastColumnTypeOperationProperty where
                         ((Prelude.<>)
                            ["ColumnName" JSON..= columnName,
                             "NewColumnType" JSON..= newColumnType]
-                           (Prelude.catMaybes [(JSON..=) "Format" Prelude.<$> format]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "Format" Prelude.<$> format,
+                               (JSON..=) "SubType" Prelude.<$> subType]))}
 instance JSON.ToJSON CastColumnTypeOperationProperty where
   toJSON CastColumnTypeOperationProperty {..}
     = JSON.object
@@ -36,7 +39,9 @@ instance JSON.ToJSON CastColumnTypeOperationProperty where
            ((Prelude.<>)
               ["ColumnName" JSON..= columnName,
                "NewColumnType" JSON..= newColumnType]
-              (Prelude.catMaybes [(JSON..=) "Format" Prelude.<$> format])))
+              (Prelude.catMaybes
+                 [(JSON..=) "Format" Prelude.<$> format,
+                  (JSON..=) "SubType" Prelude.<$> subType])))
 instance Property "ColumnName" CastColumnTypeOperationProperty where
   type PropertyType "ColumnName" CastColumnTypeOperationProperty = Value Prelude.Text
   set newValue CastColumnTypeOperationProperty {..}
@@ -50,3 +55,8 @@ instance Property "NewColumnType" CastColumnTypeOperationProperty where
   type PropertyType "NewColumnType" CastColumnTypeOperationProperty = Value Prelude.Text
   set newValue CastColumnTypeOperationProperty {..}
     = CastColumnTypeOperationProperty {newColumnType = newValue, ..}
+instance Property "SubType" CastColumnTypeOperationProperty where
+  type PropertyType "SubType" CastColumnTypeOperationProperty = Value Prelude.Text
+  set newValue CastColumnTypeOperationProperty {..}
+    = CastColumnTypeOperationProperty
+        {subType = Prelude.pure newValue, ..}

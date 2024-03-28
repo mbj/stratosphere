@@ -7,7 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Resource
-  = Resource {resourceArn :: (Value Prelude.Text),
+  = Resource {hybridAccessEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+              resourceArn :: (Value Prelude.Text),
               roleArn :: (Prelude.Maybe (Value Prelude.Text)),
               useServiceLinkedRole :: (Value Prelude.Bool),
               withFederation :: (Prelude.Maybe (Value Prelude.Bool))}
@@ -17,7 +18,8 @@ mkResource resourceArn useServiceLinkedRole
   = Resource
       {resourceArn = resourceArn,
        useServiceLinkedRole = useServiceLinkedRole,
-       roleArn = Prelude.Nothing, withFederation = Prelude.Nothing}
+       hybridAccessEnabled = Prelude.Nothing, roleArn = Prelude.Nothing,
+       withFederation = Prelude.Nothing}
 instance ToResourceProperties Resource where
   toResourceProperties Resource {..}
     = ResourceProperties
@@ -28,7 +30,8 @@ instance ToResourceProperties Resource where
                            ["ResourceArn" JSON..= resourceArn,
                             "UseServiceLinkedRole" JSON..= useServiceLinkedRole]
                            (Prelude.catMaybes
-                              [(JSON..=) "RoleArn" Prelude.<$> roleArn,
+                              [(JSON..=) "HybridAccessEnabled" Prelude.<$> hybridAccessEnabled,
+                               (JSON..=) "RoleArn" Prelude.<$> roleArn,
                                (JSON..=) "WithFederation" Prelude.<$> withFederation]))}
 instance JSON.ToJSON Resource where
   toJSON Resource {..}
@@ -38,8 +41,13 @@ instance JSON.ToJSON Resource where
               ["ResourceArn" JSON..= resourceArn,
                "UseServiceLinkedRole" JSON..= useServiceLinkedRole]
               (Prelude.catMaybes
-                 [(JSON..=) "RoleArn" Prelude.<$> roleArn,
+                 [(JSON..=) "HybridAccessEnabled" Prelude.<$> hybridAccessEnabled,
+                  (JSON..=) "RoleArn" Prelude.<$> roleArn,
                   (JSON..=) "WithFederation" Prelude.<$> withFederation])))
+instance Property "HybridAccessEnabled" Resource where
+  type PropertyType "HybridAccessEnabled" Resource = Value Prelude.Bool
+  set newValue Resource {..}
+    = Resource {hybridAccessEnabled = Prelude.pure newValue, ..}
 instance Property "ResourceArn" Resource where
   type PropertyType "ResourceArn" Resource = Value Prelude.Text
   set newValue Resource {..} = Resource {resourceArn = newValue, ..}

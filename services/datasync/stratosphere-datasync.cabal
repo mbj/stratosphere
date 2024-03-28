@@ -26,6 +26,8 @@ flag development
 library
   exposed-modules:
       Stratosphere.DataSync.Agent
+      Stratosphere.DataSync.LocationAzureBlob
+      Stratosphere.DataSync.LocationAzureBlob.AzureBlobSasConfigurationProperty
       Stratosphere.DataSync.LocationEFS
       Stratosphere.DataSync.LocationEFS.Ec2ConfigProperty
       Stratosphere.DataSync.LocationFSxLustre
@@ -55,9 +57,20 @@ library
       Stratosphere.DataSync.StorageSystem.ServerConfigurationProperty
       Stratosphere.DataSync.StorageSystem.ServerCredentialsProperty
       Stratosphere.DataSync.Task
+      Stratosphere.DataSync.Task.DeletedProperty
+      Stratosphere.DataSync.Task.DestinationProperty
       Stratosphere.DataSync.Task.FilterRuleProperty
+      Stratosphere.DataSync.Task.ManifestConfigProperty
+      Stratosphere.DataSync.Task.ManifestConfigSourceS3Property
       Stratosphere.DataSync.Task.OptionsProperty
+      Stratosphere.DataSync.Task.OverridesProperty
+      Stratosphere.DataSync.Task.SkippedProperty
+      Stratosphere.DataSync.Task.SourceProperty
+      Stratosphere.DataSync.Task.TaskReportConfigDestinationS3Property
+      Stratosphere.DataSync.Task.TaskReportConfigProperty
       Stratosphere.DataSync.Task.TaskScheduleProperty
+      Stratosphere.DataSync.Task.TransferredProperty
+      Stratosphere.DataSync.Task.VerifiedProperty
   other-modules:
       Paths_stratosphere_datasync
   hs-source-dirs:

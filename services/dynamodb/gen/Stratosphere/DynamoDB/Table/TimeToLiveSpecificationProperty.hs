@@ -8,30 +8,37 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TimeToLiveSpecificationProperty
-  = TimeToLiveSpecificationProperty {attributeName :: (Value Prelude.Text),
+  = TimeToLiveSpecificationProperty {attributeName :: (Prelude.Maybe (Value Prelude.Text)),
                                      enabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTimeToLiveSpecificationProperty ::
-  Value Prelude.Text
-  -> Value Prelude.Bool -> TimeToLiveSpecificationProperty
-mkTimeToLiveSpecificationProperty attributeName enabled
+  Value Prelude.Bool -> TimeToLiveSpecificationProperty
+mkTimeToLiveSpecificationProperty enabled
   = TimeToLiveSpecificationProperty
-      {attributeName = attributeName, enabled = enabled}
+      {enabled = enabled, attributeName = Prelude.Nothing}
 instance ToResourceProperties TimeToLiveSpecificationProperty where
   toResourceProperties TimeToLiveSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.TimeToLiveSpecification",
          supportsTags = Prelude.False,
-         properties = ["AttributeName" JSON..= attributeName,
-                       "Enabled" JSON..= enabled]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Enabled" JSON..= enabled]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AttributeName" Prelude.<$> attributeName]))}
 instance JSON.ToJSON TimeToLiveSpecificationProperty where
   toJSON TimeToLiveSpecificationProperty {..}
     = JSON.object
-        ["AttributeName" JSON..= attributeName, "Enabled" JSON..= enabled]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Enabled" JSON..= enabled]
+              (Prelude.catMaybes
+                 [(JSON..=) "AttributeName" Prelude.<$> attributeName])))
 instance Property "AttributeName" TimeToLiveSpecificationProperty where
   type PropertyType "AttributeName" TimeToLiveSpecificationProperty = Value Prelude.Text
   set newValue TimeToLiveSpecificationProperty {..}
-    = TimeToLiveSpecificationProperty {attributeName = newValue, ..}
+    = TimeToLiveSpecificationProperty
+        {attributeName = Prelude.pure newValue, ..}
 instance Property "Enabled" TimeToLiveSpecificationProperty where
   type PropertyType "Enabled" TimeToLiveSpecificationProperty = Value Prelude.Bool
   set newValue TimeToLiveSpecificationProperty {..}

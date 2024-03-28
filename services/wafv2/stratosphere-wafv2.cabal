@@ -31,10 +31,8 @@ library
       Stratosphere.WAFv2.LoggingConfiguration.ConditionProperty
       Stratosphere.WAFv2.LoggingConfiguration.FieldToMatchProperty
       Stratosphere.WAFv2.LoggingConfiguration.FilterProperty
-      Stratosphere.WAFv2.LoggingConfiguration.JsonBodyProperty
       Stratosphere.WAFv2.LoggingConfiguration.LabelNameConditionProperty
       Stratosphere.WAFv2.LoggingConfiguration.LoggingFilterProperty
-      Stratosphere.WAFv2.LoggingConfiguration.MatchPatternProperty
       Stratosphere.WAFv2.LoggingConfiguration.SingleHeaderProperty
       Stratosphere.WAFv2.RegexPatternSet
       Stratosphere.WAFv2.RuleGroup
@@ -62,6 +60,7 @@ library
       Stratosphere.WAFv2.RuleGroup.ImmunityTimePropertyProperty
       Stratosphere.WAFv2.RuleGroup.IPSetForwardedIPConfigurationProperty
       Stratosphere.WAFv2.RuleGroup.IPSetReferenceStatementProperty
+      Stratosphere.WAFv2.RuleGroup.JA3FingerprintProperty
       Stratosphere.WAFv2.RuleGroup.JsonBodyProperty
       Stratosphere.WAFv2.RuleGroup.JsonMatchPatternProperty
       Stratosphere.WAFv2.RuleGroup.LabelMatchStatementProperty
@@ -69,7 +68,14 @@ library
       Stratosphere.WAFv2.RuleGroup.LabelSummaryProperty
       Stratosphere.WAFv2.RuleGroup.NotStatementProperty
       Stratosphere.WAFv2.RuleGroup.OrStatementProperty
+      Stratosphere.WAFv2.RuleGroup.RateBasedStatementCustomKeyProperty
       Stratosphere.WAFv2.RuleGroup.RateBasedStatementProperty
+      Stratosphere.WAFv2.RuleGroup.RateLimitCookieProperty
+      Stratosphere.WAFv2.RuleGroup.RateLimitHeaderProperty
+      Stratosphere.WAFv2.RuleGroup.RateLimitLabelNamespaceProperty
+      Stratosphere.WAFv2.RuleGroup.RateLimitQueryArgumentProperty
+      Stratosphere.WAFv2.RuleGroup.RateLimitQueryStringProperty
+      Stratosphere.WAFv2.RuleGroup.RateLimitUriPathProperty
       Stratosphere.WAFv2.RuleGroup.RegexMatchStatementProperty
       Stratosphere.WAFv2.RuleGroup.RegexPatternSetReferenceStatementProperty
       Stratosphere.WAFv2.RuleGroup.RuleActionProperty
@@ -85,6 +91,8 @@ library
       Stratosphere.WAFv2.WebACL
       Stratosphere.WAFv2.WebACL.AllowActionProperty
       Stratosphere.WAFv2.WebACL.AndStatementProperty
+      Stratosphere.WAFv2.WebACL.AssociationConfigProperty
+      Stratosphere.WAFv2.WebACL.AWSManagedRulesACFPRuleSetProperty
       Stratosphere.WAFv2.WebACL.AWSManagedRulesATPRuleSetProperty
       Stratosphere.WAFv2.WebACL.AWSManagedRulesBotControlRuleSetProperty
       Stratosphere.WAFv2.WebACL.BlockActionProperty
@@ -112,6 +120,7 @@ library
       Stratosphere.WAFv2.WebACL.ImmunityTimePropertyProperty
       Stratosphere.WAFv2.WebACL.IPSetForwardedIPConfigurationProperty
       Stratosphere.WAFv2.WebACL.IPSetReferenceStatementProperty
+      Stratosphere.WAFv2.WebACL.JA3FingerprintProperty
       Stratosphere.WAFv2.WebACL.JsonBodyProperty
       Stratosphere.WAFv2.WebACL.JsonMatchPatternProperty
       Stratosphere.WAFv2.WebACL.LabelMatchStatementProperty
@@ -121,9 +130,18 @@ library
       Stratosphere.WAFv2.WebACL.NotStatementProperty
       Stratosphere.WAFv2.WebACL.OrStatementProperty
       Stratosphere.WAFv2.WebACL.OverrideActionProperty
+      Stratosphere.WAFv2.WebACL.RateBasedStatementCustomKeyProperty
       Stratosphere.WAFv2.WebACL.RateBasedStatementProperty
+      Stratosphere.WAFv2.WebACL.RateLimitCookieProperty
+      Stratosphere.WAFv2.WebACL.RateLimitHeaderProperty
+      Stratosphere.WAFv2.WebACL.RateLimitLabelNamespaceProperty
+      Stratosphere.WAFv2.WebACL.RateLimitQueryArgumentProperty
+      Stratosphere.WAFv2.WebACL.RateLimitQueryStringProperty
+      Stratosphere.WAFv2.WebACL.RateLimitUriPathProperty
       Stratosphere.WAFv2.WebACL.RegexMatchStatementProperty
       Stratosphere.WAFv2.WebACL.RegexPatternSetReferenceStatementProperty
+      Stratosphere.WAFv2.WebACL.RequestBodyAssociatedResourceTypeConfigProperty
+      Stratosphere.WAFv2.WebACL.RequestInspectionACFPProperty
       Stratosphere.WAFv2.WebACL.RequestInspectionProperty
       Stratosphere.WAFv2.WebACL.ResponseInspectionBodyContainsProperty
       Stratosphere.WAFv2.WebACL.ResponseInspectionHeaderProperty

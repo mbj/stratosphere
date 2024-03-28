@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Space.OwnershipSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OwnershipSettingsProperty :: Prelude.Type
+instance ToResourceProperties OwnershipSettingsProperty
+instance Prelude.Eq OwnershipSettingsProperty
+instance Prelude.Show OwnershipSettingsProperty
+instance JSON.ToJSON OwnershipSettingsProperty

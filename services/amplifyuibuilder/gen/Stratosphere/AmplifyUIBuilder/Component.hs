@@ -14,81 +14,70 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Component
   = Component {appId :: (Prelude.Maybe (Value Prelude.Text)),
-               bindingProperties :: (Prelude.Map Prelude.Text ComponentBindingPropertiesValueProperty),
+               bindingProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentBindingPropertiesValueProperty)),
                children :: (Prelude.Maybe [ComponentChildProperty]),
                collectionProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentDataConfigurationProperty)),
-               componentType :: (Value Prelude.Text),
+               componentType :: (Prelude.Maybe (Value Prelude.Text)),
                environmentName :: (Prelude.Maybe (Value Prelude.Text)),
                events :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentEventProperty)),
-               name :: (Value Prelude.Text),
-               overrides :: JSON.Object,
-               properties :: (Prelude.Map Prelude.Text ComponentPropertyProperty),
+               name :: (Prelude.Maybe (Value Prelude.Text)),
+               overrides :: (Prelude.Maybe JSON.Object),
+               properties :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentPropertyProperty)),
                schemaVersion :: (Prelude.Maybe (Value Prelude.Text)),
                sourceId :: (Prelude.Maybe (Value Prelude.Text)),
                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
-               variants :: [ComponentVariantProperty]}
+               variants :: (Prelude.Maybe [ComponentVariantProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkComponent ::
-  Prelude.Map Prelude.Text ComponentBindingPropertiesValueProperty
-  -> Value Prelude.Text
-     -> Value Prelude.Text
-        -> JSON.Object
-           -> Prelude.Map Prelude.Text ComponentPropertyProperty
-              -> [ComponentVariantProperty] -> Component
+mkComponent :: Component
 mkComponent
-  bindingProperties
-  componentType
-  name
-  overrides
-  properties
-  variants
   = Component
-      {bindingProperties = bindingProperties,
-       componentType = componentType, name = name, overrides = overrides,
-       properties = properties, variants = variants,
-       appId = Prelude.Nothing, children = Prelude.Nothing,
-       collectionProperties = Prelude.Nothing,
-       environmentName = Prelude.Nothing, events = Prelude.Nothing,
+      {appId = Prelude.Nothing, bindingProperties = Prelude.Nothing,
+       children = Prelude.Nothing, collectionProperties = Prelude.Nothing,
+       componentType = Prelude.Nothing, environmentName = Prelude.Nothing,
+       events = Prelude.Nothing, name = Prelude.Nothing,
+       overrides = Prelude.Nothing, properties = Prelude.Nothing,
        schemaVersion = Prelude.Nothing, sourceId = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       tags = Prelude.Nothing, variants = Prelude.Nothing}
 instance ToResourceProperties Component where
   toResourceProperties Component {..}
     = ResourceProperties
         {awsType = "AWS::AmplifyUIBuilder::Component",
          supportsTags = Prelude.True,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["BindingProperties" JSON..= bindingProperties,
-                            "ComponentType" JSON..= componentType, "Name" JSON..= name,
-                            "Overrides" JSON..= overrides, "Properties" JSON..= properties,
-                            "Variants" JSON..= variants]
-                           (Prelude.catMaybes
-                              [(JSON..=) "AppId" Prelude.<$> appId,
-                               (JSON..=) "Children" Prelude.<$> children,
-                               (JSON..=) "CollectionProperties" Prelude.<$> collectionProperties,
-                               (JSON..=) "EnvironmentName" Prelude.<$> environmentName,
-                               (JSON..=) "Events" Prelude.<$> events,
-                               (JSON..=) "SchemaVersion" Prelude.<$> schemaVersion,
-                               (JSON..=) "SourceId" Prelude.<$> sourceId,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "AppId" Prelude.<$> appId,
+                            (JSON..=) "BindingProperties" Prelude.<$> bindingProperties,
+                            (JSON..=) "Children" Prelude.<$> children,
+                            (JSON..=) "CollectionProperties" Prelude.<$> collectionProperties,
+                            (JSON..=) "ComponentType" Prelude.<$> componentType,
+                            (JSON..=) "EnvironmentName" Prelude.<$> environmentName,
+                            (JSON..=) "Events" Prelude.<$> events,
+                            (JSON..=) "Name" Prelude.<$> name,
+                            (JSON..=) "Overrides" Prelude.<$> overrides,
+                            (JSON..=) "Properties" Prelude.<$> properties,
+                            (JSON..=) "SchemaVersion" Prelude.<$> schemaVersion,
+                            (JSON..=) "SourceId" Prelude.<$> sourceId,
+                            (JSON..=) "Tags" Prelude.<$> tags,
+                            (JSON..=) "Variants" Prelude.<$> variants])}
 instance JSON.ToJSON Component where
   toJSON Component {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["BindingProperties" JSON..= bindingProperties,
-               "ComponentType" JSON..= componentType, "Name" JSON..= name,
-               "Overrides" JSON..= overrides, "Properties" JSON..= properties,
-               "Variants" JSON..= variants]
-              (Prelude.catMaybes
-                 [(JSON..=) "AppId" Prelude.<$> appId,
-                  (JSON..=) "Children" Prelude.<$> children,
-                  (JSON..=) "CollectionProperties" Prelude.<$> collectionProperties,
-                  (JSON..=) "EnvironmentName" Prelude.<$> environmentName,
-                  (JSON..=) "Events" Prelude.<$> events,
-                  (JSON..=) "SchemaVersion" Prelude.<$> schemaVersion,
-                  (JSON..=) "SourceId" Prelude.<$> sourceId,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+           (Prelude.catMaybes
+              [(JSON..=) "AppId" Prelude.<$> appId,
+               (JSON..=) "BindingProperties" Prelude.<$> bindingProperties,
+               (JSON..=) "Children" Prelude.<$> children,
+               (JSON..=) "CollectionProperties" Prelude.<$> collectionProperties,
+               (JSON..=) "ComponentType" Prelude.<$> componentType,
+               (JSON..=) "EnvironmentName" Prelude.<$> environmentName,
+               (JSON..=) "Events" Prelude.<$> events,
+               (JSON..=) "Name" Prelude.<$> name,
+               (JSON..=) "Overrides" Prelude.<$> overrides,
+               (JSON..=) "Properties" Prelude.<$> properties,
+               (JSON..=) "SchemaVersion" Prelude.<$> schemaVersion,
+               (JSON..=) "SourceId" Prelude.<$> sourceId,
+               (JSON..=) "Tags" Prelude.<$> tags,
+               (JSON..=) "Variants" Prelude.<$> variants]))
 instance Property "AppId" Component where
   type PropertyType "AppId" Component = Value Prelude.Text
   set newValue Component {..}
@@ -96,7 +85,7 @@ instance Property "AppId" Component where
 instance Property "BindingProperties" Component where
   type PropertyType "BindingProperties" Component = Prelude.Map Prelude.Text ComponentBindingPropertiesValueProperty
   set newValue Component {..}
-    = Component {bindingProperties = newValue, ..}
+    = Component {bindingProperties = Prelude.pure newValue, ..}
 instance Property "Children" Component where
   type PropertyType "Children" Component = [ComponentChildProperty]
   set newValue Component {..}
@@ -108,7 +97,7 @@ instance Property "CollectionProperties" Component where
 instance Property "ComponentType" Component where
   type PropertyType "ComponentType" Component = Value Prelude.Text
   set newValue Component {..}
-    = Component {componentType = newValue, ..}
+    = Component {componentType = Prelude.pure newValue, ..}
 instance Property "EnvironmentName" Component where
   type PropertyType "EnvironmentName" Component = Value Prelude.Text
   set newValue Component {..}
@@ -119,13 +108,16 @@ instance Property "Events" Component where
     = Component {events = Prelude.pure newValue, ..}
 instance Property "Name" Component where
   type PropertyType "Name" Component = Value Prelude.Text
-  set newValue Component {..} = Component {name = newValue, ..}
+  set newValue Component {..}
+    = Component {name = Prelude.pure newValue, ..}
 instance Property "Overrides" Component where
   type PropertyType "Overrides" Component = JSON.Object
-  set newValue Component {..} = Component {overrides = newValue, ..}
+  set newValue Component {..}
+    = Component {overrides = Prelude.pure newValue, ..}
 instance Property "Properties" Component where
   type PropertyType "Properties" Component = Prelude.Map Prelude.Text ComponentPropertyProperty
-  set newValue Component {..} = Component {properties = newValue, ..}
+  set newValue Component {..}
+    = Component {properties = Prelude.pure newValue, ..}
 instance Property "SchemaVersion" Component where
   type PropertyType "SchemaVersion" Component = Value Prelude.Text
   set newValue Component {..}
@@ -140,4 +132,5 @@ instance Property "Tags" Component where
     = Component {tags = Prelude.pure newValue, ..}
 instance Property "Variants" Component where
   type PropertyType "Variants" Component = [ComponentVariantProperty]
-  set newValue Component {..} = Component {variants = newValue, ..}
+  set newValue Component {..}
+    = Component {variants = Prelude.pure newValue, ..}

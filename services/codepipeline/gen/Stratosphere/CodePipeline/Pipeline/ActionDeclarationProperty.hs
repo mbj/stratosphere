@@ -19,7 +19,8 @@ data ActionDeclarationProperty
                                outputArtifacts :: (Prelude.Maybe [OutputArtifactProperty]),
                                region :: (Prelude.Maybe (Value Prelude.Text)),
                                roleArn :: (Prelude.Maybe (Value Prelude.Text)),
-                               runOrder :: (Prelude.Maybe (Value Prelude.Integer))}
+                               runOrder :: (Prelude.Maybe (Value Prelude.Integer)),
+                               timeoutInMinutes :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionDeclarationProperty ::
   ActionTypeIdProperty
@@ -30,7 +31,7 @@ mkActionDeclarationProperty actionTypeId name
        configuration = Prelude.Nothing, inputArtifacts = Prelude.Nothing,
        namespace = Prelude.Nothing, outputArtifacts = Prelude.Nothing,
        region = Prelude.Nothing, roleArn = Prelude.Nothing,
-       runOrder = Prelude.Nothing}
+       runOrder = Prelude.Nothing, timeoutInMinutes = Prelude.Nothing}
 instance ToResourceProperties ActionDeclarationProperty where
   toResourceProperties ActionDeclarationProperty {..}
     = ResourceProperties
@@ -46,7 +47,8 @@ instance ToResourceProperties ActionDeclarationProperty where
                                (JSON..=) "OutputArtifacts" Prelude.<$> outputArtifacts,
                                (JSON..=) "Region" Prelude.<$> region,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn,
-                               (JSON..=) "RunOrder" Prelude.<$> runOrder]))}
+                               (JSON..=) "RunOrder" Prelude.<$> runOrder,
+                               (JSON..=) "TimeoutInMinutes" Prelude.<$> timeoutInMinutes]))}
 instance JSON.ToJSON ActionDeclarationProperty where
   toJSON ActionDeclarationProperty {..}
     = JSON.object
@@ -60,7 +62,8 @@ instance JSON.ToJSON ActionDeclarationProperty where
                   (JSON..=) "OutputArtifacts" Prelude.<$> outputArtifacts,
                   (JSON..=) "Region" Prelude.<$> region,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn,
-                  (JSON..=) "RunOrder" Prelude.<$> runOrder])))
+                  (JSON..=) "RunOrder" Prelude.<$> runOrder,
+                  (JSON..=) "TimeoutInMinutes" Prelude.<$> timeoutInMinutes])))
 instance Property "ActionTypeId" ActionDeclarationProperty where
   type PropertyType "ActionTypeId" ActionDeclarationProperty = ActionTypeIdProperty
   set newValue ActionDeclarationProperty {..}
@@ -100,3 +103,8 @@ instance Property "RunOrder" ActionDeclarationProperty where
   type PropertyType "RunOrder" ActionDeclarationProperty = Value Prelude.Integer
   set newValue ActionDeclarationProperty {..}
     = ActionDeclarationProperty {runOrder = Prelude.pure newValue, ..}
+instance Property "TimeoutInMinutes" ActionDeclarationProperty where
+  type PropertyType "TimeoutInMinutes" ActionDeclarationProperty = Value Prelude.Integer
+  set newValue ActionDeclarationProperty {..}
+    = ActionDeclarationProperty
+        {timeoutInMinutes = Prelude.pure newValue, ..}

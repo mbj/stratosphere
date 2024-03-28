@@ -27,7 +27,9 @@ library
   exposed-modules:
       Stratosphere.Config.AggregationAuthorization
       Stratosphere.Config.ConfigRule
+      Stratosphere.Config.ConfigRule.ComplianceProperty
       Stratosphere.Config.ConfigRule.CustomPolicyDetailsProperty
+      Stratosphere.Config.ConfigRule.EvaluationModeConfigurationProperty
       Stratosphere.Config.ConfigRule.ScopeProperty
       Stratosphere.Config.ConfigRule.SourceDetailProperty
       Stratosphere.Config.ConfigRule.SourceProperty
@@ -35,7 +37,11 @@ library
       Stratosphere.Config.ConfigurationAggregator.AccountAggregationSourceProperty
       Stratosphere.Config.ConfigurationAggregator.OrganizationAggregationSourceProperty
       Stratosphere.Config.ConfigurationRecorder
+      Stratosphere.Config.ConfigurationRecorder.ExclusionByResourceTypesProperty
       Stratosphere.Config.ConfigurationRecorder.RecordingGroupProperty
+      Stratosphere.Config.ConfigurationRecorder.RecordingModeOverrideProperty
+      Stratosphere.Config.ConfigurationRecorder.RecordingModeProperty
+      Stratosphere.Config.ConfigurationRecorder.RecordingStrategyProperty
       Stratosphere.Config.ConformancePack
       Stratosphere.Config.ConformancePack.ConformancePackInputParameterProperty
       Stratosphere.Config.ConformancePack.TemplateSSMDocumentDetailsProperty

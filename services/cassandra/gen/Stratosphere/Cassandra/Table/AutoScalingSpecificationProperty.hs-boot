@@ -1,0 +1,9 @@
+module Stratosphere.Cassandra.Table.AutoScalingSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoScalingSpecificationProperty :: Prelude.Type
+instance ToResourceProperties AutoScalingSpecificationProperty
+instance Prelude.Eq AutoScalingSpecificationProperty
+instance Prelude.Show AutoScalingSpecificationProperty
+instance JSON.ToJSON AutoScalingSpecificationProperty

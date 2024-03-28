@@ -27,6 +27,7 @@ library
   exposed-modules:
       Stratosphere.HealthLake.FHIRDatastore
       Stratosphere.HealthLake.FHIRDatastore.CreatedAtProperty
+      Stratosphere.HealthLake.FHIRDatastore.IdentityProviderConfigurationProperty
       Stratosphere.HealthLake.FHIRDatastore.KmsEncryptionConfigProperty
       Stratosphere.HealthLake.FHIRDatastore.PreloadDataConfigProperty
       Stratosphere.HealthLake.FHIRDatastore.SseConfigurationProperty

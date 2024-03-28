@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.InferenceComponent.DeployedImageProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeployedImageProperty :: Prelude.Type
+instance ToResourceProperties DeployedImageProperty
+instance Prelude.Eq DeployedImageProperty
+instance Prelude.Show DeployedImageProperty
+instance JSON.ToJSON DeployedImageProperty

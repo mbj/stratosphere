@@ -1,0 +1,9 @@
+module Stratosphere.Backup.RestoreTestingPlan.RestoreTestingRecoveryPointSelectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RestoreTestingRecoveryPointSelectionProperty :: Prelude.Type
+instance ToResourceProperties RestoreTestingRecoveryPointSelectionProperty
+instance Prelude.Eq RestoreTestingRecoveryPointSelectionProperty
+instance Prelude.Show RestoreTestingRecoveryPointSelectionProperty
+instance JSON.ToJSON RestoreTestingRecoveryPointSelectionProperty

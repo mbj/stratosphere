@@ -7,7 +7,9 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NamespaceProperty
-  = NamespaceProperty {adminUsername :: (Prelude.Maybe (Value Prelude.Text)),
+  = NamespaceProperty {adminPasswordSecretArn :: (Prelude.Maybe (Value Prelude.Text)),
+                       adminPasswordSecretKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                       adminUsername :: (Prelude.Maybe (Value Prelude.Text)),
                        creationDate :: (Prelude.Maybe (Value Prelude.Text)),
                        dbName :: (Prelude.Maybe (Value Prelude.Text)),
                        defaultIamRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -22,7 +24,9 @@ data NamespaceProperty
 mkNamespaceProperty :: NamespaceProperty
 mkNamespaceProperty
   = NamespaceProperty
-      {adminUsername = Prelude.Nothing, creationDate = Prelude.Nothing,
+      {adminPasswordSecretArn = Prelude.Nothing,
+       adminPasswordSecretKmsKeyId = Prelude.Nothing,
+       adminUsername = Prelude.Nothing, creationDate = Prelude.Nothing,
        dbName = Prelude.Nothing, defaultIamRoleArn = Prelude.Nothing,
        iamRoles = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
        logExports = Prelude.Nothing, namespaceArn = Prelude.Nothing,
@@ -35,7 +39,11 @@ instance ToResourceProperties NamespaceProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "AdminUsername" Prelude.<$> adminUsername,
+                           [(JSON..=) "AdminPasswordSecretArn"
+                              Prelude.<$> adminPasswordSecretArn,
+                            (JSON..=) "AdminPasswordSecretKmsKeyId"
+                              Prelude.<$> adminPasswordSecretKmsKeyId,
+                            (JSON..=) "AdminUsername" Prelude.<$> adminUsername,
                             (JSON..=) "CreationDate" Prelude.<$> creationDate,
                             (JSON..=) "DbName" Prelude.<$> dbName,
                             (JSON..=) "DefaultIamRoleArn" Prelude.<$> defaultIamRoleArn,
@@ -51,7 +59,11 @@ instance JSON.ToJSON NamespaceProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "AdminUsername" Prelude.<$> adminUsername,
+              [(JSON..=) "AdminPasswordSecretArn"
+                 Prelude.<$> adminPasswordSecretArn,
+               (JSON..=) "AdminPasswordSecretKmsKeyId"
+                 Prelude.<$> adminPasswordSecretKmsKeyId,
+               (JSON..=) "AdminUsername" Prelude.<$> adminUsername,
                (JSON..=) "CreationDate" Prelude.<$> creationDate,
                (JSON..=) "DbName" Prelude.<$> dbName,
                (JSON..=) "DefaultIamRoleArn" Prelude.<$> defaultIamRoleArn,
@@ -62,6 +74,16 @@ instance JSON.ToJSON NamespaceProperty where
                (JSON..=) "NamespaceId" Prelude.<$> namespaceId,
                (JSON..=) "NamespaceName" Prelude.<$> namespaceName,
                (JSON..=) "Status" Prelude.<$> status]))
+instance Property "AdminPasswordSecretArn" NamespaceProperty where
+  type PropertyType "AdminPasswordSecretArn" NamespaceProperty = Value Prelude.Text
+  set newValue NamespaceProperty {..}
+    = NamespaceProperty
+        {adminPasswordSecretArn = Prelude.pure newValue, ..}
+instance Property "AdminPasswordSecretKmsKeyId" NamespaceProperty where
+  type PropertyType "AdminPasswordSecretKmsKeyId" NamespaceProperty = Value Prelude.Text
+  set newValue NamespaceProperty {..}
+    = NamespaceProperty
+        {adminPasswordSecretKmsKeyId = Prelude.pure newValue, ..}
 instance Property "AdminUsername" NamespaceProperty where
   type PropertyType "AdminUsername" NamespaceProperty = Value Prelude.Text
   set newValue NamespaceProperty {..}

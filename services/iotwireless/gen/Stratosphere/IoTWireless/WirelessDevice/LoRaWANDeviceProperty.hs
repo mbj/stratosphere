@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTWireless.WirelessDevice.AbpV10xProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTWireless.WirelessDevice.AbpV11Property as Exports
+import {-# SOURCE #-} Stratosphere.IoTWireless.WirelessDevice.FPortsProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTWireless.WirelessDevice.OtaaV10xProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTWireless.WirelessDevice.OtaaV11Property as Exports
 import Stratosphere.ResourceProperties
@@ -15,6 +16,7 @@ data LoRaWANDeviceProperty
                            abpV11 :: (Prelude.Maybe AbpV11Property),
                            devEui :: (Prelude.Maybe (Value Prelude.Text)),
                            deviceProfileId :: (Prelude.Maybe (Value Prelude.Text)),
+                           fPorts :: (Prelude.Maybe FPortsProperty),
                            otaaV10x :: (Prelude.Maybe OtaaV10xProperty),
                            otaaV11 :: (Prelude.Maybe OtaaV11Property),
                            serviceProfileId :: (Prelude.Maybe (Value Prelude.Text))}
@@ -24,8 +26,8 @@ mkLoRaWANDeviceProperty
   = LoRaWANDeviceProperty
       {abpV10x = Prelude.Nothing, abpV11 = Prelude.Nothing,
        devEui = Prelude.Nothing, deviceProfileId = Prelude.Nothing,
-       otaaV10x = Prelude.Nothing, otaaV11 = Prelude.Nothing,
-       serviceProfileId = Prelude.Nothing}
+       fPorts = Prelude.Nothing, otaaV10x = Prelude.Nothing,
+       otaaV11 = Prelude.Nothing, serviceProfileId = Prelude.Nothing}
 instance ToResourceProperties LoRaWANDeviceProperty where
   toResourceProperties LoRaWANDeviceProperty {..}
     = ResourceProperties
@@ -37,6 +39,7 @@ instance ToResourceProperties LoRaWANDeviceProperty where
                             (JSON..=) "AbpV11" Prelude.<$> abpV11,
                             (JSON..=) "DevEui" Prelude.<$> devEui,
                             (JSON..=) "DeviceProfileId" Prelude.<$> deviceProfileId,
+                            (JSON..=) "FPorts" Prelude.<$> fPorts,
                             (JSON..=) "OtaaV10x" Prelude.<$> otaaV10x,
                             (JSON..=) "OtaaV11" Prelude.<$> otaaV11,
                             (JSON..=) "ServiceProfileId" Prelude.<$> serviceProfileId])}
@@ -49,6 +52,7 @@ instance JSON.ToJSON LoRaWANDeviceProperty where
                (JSON..=) "AbpV11" Prelude.<$> abpV11,
                (JSON..=) "DevEui" Prelude.<$> devEui,
                (JSON..=) "DeviceProfileId" Prelude.<$> deviceProfileId,
+               (JSON..=) "FPorts" Prelude.<$> fPorts,
                (JSON..=) "OtaaV10x" Prelude.<$> otaaV10x,
                (JSON..=) "OtaaV11" Prelude.<$> otaaV11,
                (JSON..=) "ServiceProfileId" Prelude.<$> serviceProfileId]))
@@ -69,6 +73,10 @@ instance Property "DeviceProfileId" LoRaWANDeviceProperty where
   set newValue LoRaWANDeviceProperty {..}
     = LoRaWANDeviceProperty
         {deviceProfileId = Prelude.pure newValue, ..}
+instance Property "FPorts" LoRaWANDeviceProperty where
+  type PropertyType "FPorts" LoRaWANDeviceProperty = FPortsProperty
+  set newValue LoRaWANDeviceProperty {..}
+    = LoRaWANDeviceProperty {fPorts = Prelude.pure newValue, ..}
 instance Property "OtaaV10x" LoRaWANDeviceProperty where
   type PropertyType "OtaaV10x" LoRaWANDeviceProperty = OtaaV10xProperty
   set newValue LoRaWANDeviceProperty {..}

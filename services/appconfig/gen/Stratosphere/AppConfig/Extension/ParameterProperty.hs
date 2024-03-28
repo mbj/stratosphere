@@ -8,12 +8,14 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ParameterProperty
   = ParameterProperty {description :: (Prelude.Maybe (Value Prelude.Text)),
+                       dynamic :: (Prelude.Maybe (Value Prelude.Bool)),
                        required :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkParameterProperty :: Value Prelude.Bool -> ParameterProperty
 mkParameterProperty required
   = ParameterProperty
-      {required = required, description = Prelude.Nothing}
+      {required = required, description = Prelude.Nothing,
+       dynamic = Prelude.Nothing}
 instance ToResourceProperties ParameterProperty where
   toResourceProperties ParameterProperty {..}
     = ResourceProperties
@@ -23,7 +25,8 @@ instance ToResourceProperties ParameterProperty where
                         ((Prelude.<>)
                            ["Required" JSON..= required]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description]))}
+                              [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "Dynamic" Prelude.<$> dynamic]))}
 instance JSON.ToJSON ParameterProperty where
   toJSON ParameterProperty {..}
     = JSON.object
@@ -31,11 +34,16 @@ instance JSON.ToJSON ParameterProperty where
            ((Prelude.<>)
               ["Required" JSON..= required]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description])))
+                 [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "Dynamic" Prelude.<$> dynamic])))
 instance Property "Description" ParameterProperty where
   type PropertyType "Description" ParameterProperty = Value Prelude.Text
   set newValue ParameterProperty {..}
     = ParameterProperty {description = Prelude.pure newValue, ..}
+instance Property "Dynamic" ParameterProperty where
+  type PropertyType "Dynamic" ParameterProperty = Value Prelude.Bool
+  set newValue ParameterProperty {..}
+    = ParameterProperty {dynamic = Prelude.pure newValue, ..}
 instance Property "Required" ParameterProperty where
   type PropertyType "Required" ParameterProperty = Value Prelude.Bool
   set newValue ParameterProperty {..}

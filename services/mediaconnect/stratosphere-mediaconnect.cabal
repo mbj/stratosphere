@@ -25,11 +25,30 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.MediaConnect.Bridge
+      Stratosphere.MediaConnect.Bridge.BridgeFlowSourceProperty
+      Stratosphere.MediaConnect.Bridge.BridgeNetworkOutputProperty
+      Stratosphere.MediaConnect.Bridge.BridgeNetworkSourceProperty
+      Stratosphere.MediaConnect.Bridge.BridgeOutputProperty
+      Stratosphere.MediaConnect.Bridge.BridgeSourceProperty
+      Stratosphere.MediaConnect.Bridge.EgressGatewayBridgeProperty
+      Stratosphere.MediaConnect.Bridge.FailoverConfigProperty
+      Stratosphere.MediaConnect.Bridge.IngressGatewayBridgeProperty
+      Stratosphere.MediaConnect.Bridge.SourcePriorityProperty
+      Stratosphere.MediaConnect.Bridge.VpcInterfaceAttachmentProperty
+      Stratosphere.MediaConnect.BridgeOutput
+      Stratosphere.MediaConnect.BridgeOutput.BridgeNetworkOutputProperty
+      Stratosphere.MediaConnect.BridgeSource
+      Stratosphere.MediaConnect.BridgeSource.BridgeFlowSourceProperty
+      Stratosphere.MediaConnect.BridgeSource.BridgeNetworkSourceProperty
+      Stratosphere.MediaConnect.BridgeSource.VpcInterfaceAttachmentProperty
       Stratosphere.MediaConnect.Flow
       Stratosphere.MediaConnect.Flow.EncryptionProperty
       Stratosphere.MediaConnect.Flow.FailoverConfigProperty
+      Stratosphere.MediaConnect.Flow.GatewayBridgeSourceProperty
       Stratosphere.MediaConnect.Flow.SourcePriorityProperty
       Stratosphere.MediaConnect.Flow.SourceProperty
+      Stratosphere.MediaConnect.Flow.VpcInterfaceAttachmentProperty
       Stratosphere.MediaConnect.FlowEntitlement
       Stratosphere.MediaConnect.FlowEntitlement.EncryptionProperty
       Stratosphere.MediaConnect.FlowOutput
@@ -37,7 +56,11 @@ library
       Stratosphere.MediaConnect.FlowOutput.VpcInterfaceAttachmentProperty
       Stratosphere.MediaConnect.FlowSource
       Stratosphere.MediaConnect.FlowSource.EncryptionProperty
+      Stratosphere.MediaConnect.FlowSource.GatewayBridgeSourceProperty
+      Stratosphere.MediaConnect.FlowSource.VpcInterfaceAttachmentProperty
       Stratosphere.MediaConnect.FlowVpcInterface
+      Stratosphere.MediaConnect.Gateway
+      Stratosphere.MediaConnect.Gateway.GatewayNetworkProperty
   other-modules:
       Paths_stratosphere_mediaconnect
   hs-source-dirs:

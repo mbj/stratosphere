@@ -12,18 +12,17 @@ data Destination
                  expression :: (Value Prelude.Text),
                  expressionType :: (Value Prelude.Text),
                  name :: (Value Prelude.Text),
-                 roleArn :: (Value Prelude.Text),
+                 roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestination ::
   Value Prelude.Text
-  -> Value Prelude.Text
-     -> Value Prelude.Text -> Value Prelude.Text -> Destination
-mkDestination expression expressionType name roleArn
+  -> Value Prelude.Text -> Value Prelude.Text -> Destination
+mkDestination expression expressionType name
   = Destination
       {expression = expression, expressionType = expressionType,
-       name = name, roleArn = roleArn, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       name = name, description = Prelude.Nothing,
+       roleArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Destination where
   toResourceProperties Destination {..}
     = ResourceProperties
@@ -32,10 +31,10 @@ instance ToResourceProperties Destination where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Expression" JSON..= expression,
-                            "ExpressionType" JSON..= expressionType, "Name" JSON..= name,
-                            "RoleArn" JSON..= roleArn]
+                            "ExpressionType" JSON..= expressionType, "Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "RoleArn" Prelude.<$> roleArn,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Destination where
   toJSON Destination {..}
@@ -43,10 +42,10 @@ instance JSON.ToJSON Destination where
         (Prelude.fromList
            ((Prelude.<>)
               ["Expression" JSON..= expression,
-               "ExpressionType" JSON..= expressionType, "Name" JSON..= name,
-               "RoleArn" JSON..= roleArn]
+               "ExpressionType" JSON..= expressionType, "Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "RoleArn" Prelude.<$> roleArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" Destination where
   type PropertyType "Description" Destination = Value Prelude.Text
@@ -66,7 +65,7 @@ instance Property "Name" Destination where
 instance Property "RoleArn" Destination where
   type PropertyType "RoleArn" Destination = Value Prelude.Text
   set newValue Destination {..}
-    = Destination {roleArn = newValue, ..}
+    = Destination {roleArn = Prelude.pure newValue, ..}
 instance Property "Tags" Destination where
   type PropertyType "Tags" Destination = [Tag]
   set newValue Destination {..}

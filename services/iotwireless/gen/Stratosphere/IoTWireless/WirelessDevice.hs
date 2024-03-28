@@ -14,6 +14,7 @@ data WirelessDevice
                     lastUplinkReceivedAt :: (Prelude.Maybe (Value Prelude.Text)),
                     loRaWAN :: (Prelude.Maybe LoRaWANDeviceProperty),
                     name :: (Prelude.Maybe (Value Prelude.Text)),
+                    positioning :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag]),
                     thingArn :: (Prelude.Maybe (Value Prelude.Text)),
                     type' :: (Value Prelude.Text)}
@@ -25,8 +26,8 @@ mkWirelessDevice destinationName type'
       {destinationName = destinationName, type' = type',
        description = Prelude.Nothing,
        lastUplinkReceivedAt = Prelude.Nothing, loRaWAN = Prelude.Nothing,
-       name = Prelude.Nothing, tags = Prelude.Nothing,
-       thingArn = Prelude.Nothing}
+       name = Prelude.Nothing, positioning = Prelude.Nothing,
+       tags = Prelude.Nothing, thingArn = Prelude.Nothing}
 instance ToResourceProperties WirelessDevice where
   toResourceProperties WirelessDevice {..}
     = ResourceProperties
@@ -40,6 +41,7 @@ instance ToResourceProperties WirelessDevice where
                                (JSON..=) "LastUplinkReceivedAt" Prelude.<$> lastUplinkReceivedAt,
                                (JSON..=) "LoRaWAN" Prelude.<$> loRaWAN,
                                (JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "Positioning" Prelude.<$> positioning,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "ThingArn" Prelude.<$> thingArn]))}
 instance JSON.ToJSON WirelessDevice where
@@ -53,6 +55,7 @@ instance JSON.ToJSON WirelessDevice where
                   (JSON..=) "LastUplinkReceivedAt" Prelude.<$> lastUplinkReceivedAt,
                   (JSON..=) "LoRaWAN" Prelude.<$> loRaWAN,
                   (JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "Positioning" Prelude.<$> positioning,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "ThingArn" Prelude.<$> thingArn])))
 instance Property "Description" WirelessDevice where
@@ -75,6 +78,10 @@ instance Property "Name" WirelessDevice where
   type PropertyType "Name" WirelessDevice = Value Prelude.Text
   set newValue WirelessDevice {..}
     = WirelessDevice {name = Prelude.pure newValue, ..}
+instance Property "Positioning" WirelessDevice where
+  type PropertyType "Positioning" WirelessDevice = Value Prelude.Text
+  set newValue WirelessDevice {..}
+    = WirelessDevice {positioning = Prelude.pure newValue, ..}
 instance Property "Tags" WirelessDevice where
   type PropertyType "Tags" WirelessDevice = [Tag]
   set newValue WirelessDevice {..}

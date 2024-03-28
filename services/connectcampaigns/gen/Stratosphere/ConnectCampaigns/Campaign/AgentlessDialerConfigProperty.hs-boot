@@ -1,0 +1,9 @@
+module Stratosphere.ConnectCampaigns.Campaign.AgentlessDialerConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AgentlessDialerConfigProperty :: Prelude.Type
+instance ToResourceProperties AgentlessDialerConfigProperty
+instance Prelude.Eq AgentlessDialerConfigProperty
+instance Prelude.Show AgentlessDialerConfigProperty
+instance JSON.ToJSON AgentlessDialerConfigProperty

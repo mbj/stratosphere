@@ -8,7 +8,8 @@ import {-# SOURCE #-} Stratosphere.Omics.Workflow.WorkflowParameterProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Workflow
-  = Workflow {definitionUri :: (Prelude.Maybe (Value Prelude.Text)),
+  = Workflow {accelerators :: (Prelude.Maybe (Value Prelude.Text)),
+              definitionUri :: (Prelude.Maybe (Value Prelude.Text)),
               description :: (Prelude.Maybe (Value Prelude.Text)),
               engine :: (Prelude.Maybe (Value Prelude.Text)),
               main :: (Prelude.Maybe (Value Prelude.Text)),
@@ -20,9 +21,10 @@ data Workflow
 mkWorkflow :: Workflow
 mkWorkflow
   = Workflow
-      {definitionUri = Prelude.Nothing, description = Prelude.Nothing,
-       engine = Prelude.Nothing, main = Prelude.Nothing,
-       name = Prelude.Nothing, parameterTemplate = Prelude.Nothing,
+      {accelerators = Prelude.Nothing, definitionUri = Prelude.Nothing,
+       description = Prelude.Nothing, engine = Prelude.Nothing,
+       main = Prelude.Nothing, name = Prelude.Nothing,
+       parameterTemplate = Prelude.Nothing,
        storageCapacity = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Workflow where
   toResourceProperties Workflow {..}
@@ -30,7 +32,8 @@ instance ToResourceProperties Workflow where
         {awsType = "AWS::Omics::Workflow", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "DefinitionUri" Prelude.<$> definitionUri,
+                           [(JSON..=) "Accelerators" Prelude.<$> accelerators,
+                            (JSON..=) "DefinitionUri" Prelude.<$> definitionUri,
                             (JSON..=) "Description" Prelude.<$> description,
                             (JSON..=) "Engine" Prelude.<$> engine,
                             (JSON..=) "Main" Prelude.<$> main,
@@ -43,7 +46,8 @@ instance JSON.ToJSON Workflow where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "DefinitionUri" Prelude.<$> definitionUri,
+              [(JSON..=) "Accelerators" Prelude.<$> accelerators,
+               (JSON..=) "DefinitionUri" Prelude.<$> definitionUri,
                (JSON..=) "Description" Prelude.<$> description,
                (JSON..=) "Engine" Prelude.<$> engine,
                (JSON..=) "Main" Prelude.<$> main,
@@ -51,6 +55,10 @@ instance JSON.ToJSON Workflow where
                (JSON..=) "ParameterTemplate" Prelude.<$> parameterTemplate,
                (JSON..=) "StorageCapacity" Prelude.<$> storageCapacity,
                (JSON..=) "Tags" Prelude.<$> tags]))
+instance Property "Accelerators" Workflow where
+  type PropertyType "Accelerators" Workflow = Value Prelude.Text
+  set newValue Workflow {..}
+    = Workflow {accelerators = Prelude.pure newValue, ..}
 instance Property "DefinitionUri" Workflow where
   type PropertyType "DefinitionUri" Workflow = Value Prelude.Text
   set newValue Workflow {..}

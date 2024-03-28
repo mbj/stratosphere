@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.ECS.TaskSet.NetworkConfigurationProperty as E
 import {-# SOURCE #-} Stratosphere.ECS.TaskSet.ScaleProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskSet.ServiceRegistryProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data TaskSet
   = TaskSet {cluster :: (Value Prelude.Text),
@@ -20,6 +21,7 @@ data TaskSet
              scale :: (Prelude.Maybe ScaleProperty),
              service :: (Value Prelude.Text),
              serviceRegistries :: (Prelude.Maybe [ServiceRegistryProperty]),
+             tags :: (Prelude.Maybe [Tag]),
              taskDefinition :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTaskSet ::
@@ -32,11 +34,11 @@ mkTaskSet cluster service taskDefinition
        launchType = Prelude.Nothing, loadBalancers = Prelude.Nothing,
        networkConfiguration = Prelude.Nothing,
        platformVersion = Prelude.Nothing, scale = Prelude.Nothing,
-       serviceRegistries = Prelude.Nothing}
+       serviceRegistries = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties TaskSet where
   toResourceProperties TaskSet {..}
     = ResourceProperties
-        {awsType = "AWS::ECS::TaskSet", supportsTags = Prelude.False,
+        {awsType = "AWS::ECS::TaskSet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Cluster" JSON..= cluster, "Service" JSON..= service,
@@ -48,7 +50,8 @@ instance ToResourceProperties TaskSet where
                                (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
                                (JSON..=) "PlatformVersion" Prelude.<$> platformVersion,
                                (JSON..=) "Scale" Prelude.<$> scale,
-                               (JSON..=) "ServiceRegistries" Prelude.<$> serviceRegistries]))}
+                               (JSON..=) "ServiceRegistries" Prelude.<$> serviceRegistries,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON TaskSet where
   toJSON TaskSet {..}
     = JSON.object
@@ -63,7 +66,8 @@ instance JSON.ToJSON TaskSet where
                   (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
                   (JSON..=) "PlatformVersion" Prelude.<$> platformVersion,
                   (JSON..=) "Scale" Prelude.<$> scale,
-                  (JSON..=) "ServiceRegistries" Prelude.<$> serviceRegistries])))
+                  (JSON..=) "ServiceRegistries" Prelude.<$> serviceRegistries,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Cluster" TaskSet where
   type PropertyType "Cluster" TaskSet = Value Prelude.Text
   set newValue TaskSet {..} = TaskSet {cluster = newValue, ..}
@@ -98,6 +102,10 @@ instance Property "ServiceRegistries" TaskSet where
   type PropertyType "ServiceRegistries" TaskSet = [ServiceRegistryProperty]
   set newValue TaskSet {..}
     = TaskSet {serviceRegistries = Prelude.pure newValue, ..}
+instance Property "Tags" TaskSet where
+  type PropertyType "Tags" TaskSet = [Tag]
+  set newValue TaskSet {..}
+    = TaskSet {tags = Prelude.pure newValue, ..}
 instance Property "TaskDefinition" TaskSet where
   type PropertyType "TaskDefinition" TaskSet = Value Prelude.Text
   set newValue TaskSet {..} = TaskSet {taskDefinition = newValue, ..}

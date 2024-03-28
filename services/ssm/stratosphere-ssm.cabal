@@ -50,7 +50,6 @@ library
       Stratosphere.SSM.PatchBaseline.PatchFilterGroupProperty
       Stratosphere.SSM.PatchBaseline.PatchFilterProperty
       Stratosphere.SSM.PatchBaseline.PatchSourceProperty
-      Stratosphere.SSM.PatchBaseline.PatchStringDateProperty
       Stratosphere.SSM.PatchBaseline.RuleGroupProperty
       Stratosphere.SSM.PatchBaseline.RuleProperty
       Stratosphere.SSM.ResourceDataSync

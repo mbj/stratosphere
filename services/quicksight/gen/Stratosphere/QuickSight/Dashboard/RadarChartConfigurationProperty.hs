@@ -18,6 +18,7 @@ data RadarChartConfigurationProperty
   = RadarChartConfigurationProperty {alternateBandColorsVisibility :: (Prelude.Maybe (Value Prelude.Text)),
                                      alternateBandEvenColor :: (Prelude.Maybe (Value Prelude.Text)),
                                      alternateBandOddColor :: (Prelude.Maybe (Value Prelude.Text)),
+                                     axesRangeScale :: (Prelude.Maybe (Value Prelude.Text)),
                                      baseSeriesSettings :: (Prelude.Maybe RadarChartSeriesSettingsProperty),
                                      categoryAxis :: (Prelude.Maybe AxisDisplayOptionsProperty),
                                      categoryLabelOptions :: (Prelude.Maybe ChartAxisLabelOptionsProperty),
@@ -37,6 +38,7 @@ mkRadarChartConfigurationProperty
       {alternateBandColorsVisibility = Prelude.Nothing,
        alternateBandEvenColor = Prelude.Nothing,
        alternateBandOddColor = Prelude.Nothing,
+       axesRangeScale = Prelude.Nothing,
        baseSeriesSettings = Prelude.Nothing,
        categoryAxis = Prelude.Nothing,
        categoryLabelOptions = Prelude.Nothing,
@@ -57,6 +59,7 @@ instance ToResourceProperties RadarChartConfigurationProperty where
                               Prelude.<$> alternateBandEvenColor,
                             (JSON..=) "AlternateBandOddColor"
                               Prelude.<$> alternateBandOddColor,
+                            (JSON..=) "AxesRangeScale" Prelude.<$> axesRangeScale,
                             (JSON..=) "BaseSeriesSettings" Prelude.<$> baseSeriesSettings,
                             (JSON..=) "CategoryAxis" Prelude.<$> categoryAxis,
                             (JSON..=) "CategoryLabelOptions" Prelude.<$> categoryLabelOptions,
@@ -79,6 +82,7 @@ instance JSON.ToJSON RadarChartConfigurationProperty where
                  Prelude.<$> alternateBandEvenColor,
                (JSON..=) "AlternateBandOddColor"
                  Prelude.<$> alternateBandOddColor,
+               (JSON..=) "AxesRangeScale" Prelude.<$> axesRangeScale,
                (JSON..=) "BaseSeriesSettings" Prelude.<$> baseSeriesSettings,
                (JSON..=) "CategoryAxis" Prelude.<$> categoryAxis,
                (JSON..=) "CategoryLabelOptions" Prelude.<$> categoryLabelOptions,
@@ -105,6 +109,11 @@ instance Property "AlternateBandOddColor" RadarChartConfigurationProperty where
   set newValue RadarChartConfigurationProperty {..}
     = RadarChartConfigurationProperty
         {alternateBandOddColor = Prelude.pure newValue, ..}
+instance Property "AxesRangeScale" RadarChartConfigurationProperty where
+  type PropertyType "AxesRangeScale" RadarChartConfigurationProperty = Value Prelude.Text
+  set newValue RadarChartConfigurationProperty {..}
+    = RadarChartConfigurationProperty
+        {axesRangeScale = Prelude.pure newValue, ..}
 instance Property "BaseSeriesSettings" RadarChartConfigurationProperty where
   type PropertyType "BaseSeriesSettings" RadarChartConfigurationProperty = RadarChartSeriesSettingsProperty
   set newValue RadarChartConfigurationProperty {..}

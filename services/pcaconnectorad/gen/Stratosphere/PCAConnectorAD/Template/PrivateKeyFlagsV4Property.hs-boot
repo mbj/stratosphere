@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorAD.Template.PrivateKeyFlagsV4Property where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PrivateKeyFlagsV4Property :: Prelude.Type
+instance ToResourceProperties PrivateKeyFlagsV4Property
+instance Prelude.Eq PrivateKeyFlagsV4Property
+instance Prelude.Show PrivateKeyFlagsV4Property
+instance JSON.ToJSON PrivateKeyFlagsV4Property

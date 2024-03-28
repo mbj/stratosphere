@@ -17,6 +17,7 @@ data BackupRuleResourceTypeProperty
                                     recoveryPointTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                     ruleName :: (Value Prelude.Text),
                                     scheduleExpression :: (Prelude.Maybe (Value Prelude.Text)),
+                                    scheduleExpressionTimezone :: (Prelude.Maybe (Value Prelude.Text)),
                                     startWindowMinutes :: (Prelude.Maybe (Value Prelude.Double)),
                                     targetBackupVault :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -31,6 +32,7 @@ mkBackupRuleResourceTypeProperty ruleName targetBackupVault
        enableContinuousBackup = Prelude.Nothing,
        lifecycle = Prelude.Nothing, recoveryPointTags = Prelude.Nothing,
        scheduleExpression = Prelude.Nothing,
+       scheduleExpressionTimezone = Prelude.Nothing,
        startWindowMinutes = Prelude.Nothing}
 instance ToResourceProperties BackupRuleResourceTypeProperty where
   toResourceProperties BackupRuleResourceTypeProperty {..}
@@ -50,6 +52,8 @@ instance ToResourceProperties BackupRuleResourceTypeProperty where
                                (JSON..=) "Lifecycle" Prelude.<$> lifecycle,
                                (JSON..=) "RecoveryPointTags" Prelude.<$> recoveryPointTags,
                                (JSON..=) "ScheduleExpression" Prelude.<$> scheduleExpression,
+                               (JSON..=) "ScheduleExpressionTimezone"
+                                 Prelude.<$> scheduleExpressionTimezone,
                                (JSON..=) "StartWindowMinutes" Prelude.<$> startWindowMinutes]))}
 instance JSON.ToJSON BackupRuleResourceTypeProperty where
   toJSON BackupRuleResourceTypeProperty {..}
@@ -67,6 +71,8 @@ instance JSON.ToJSON BackupRuleResourceTypeProperty where
                   (JSON..=) "Lifecycle" Prelude.<$> lifecycle,
                   (JSON..=) "RecoveryPointTags" Prelude.<$> recoveryPointTags,
                   (JSON..=) "ScheduleExpression" Prelude.<$> scheduleExpression,
+                  (JSON..=) "ScheduleExpressionTimezone"
+                    Prelude.<$> scheduleExpressionTimezone,
                   (JSON..=) "StartWindowMinutes" Prelude.<$> startWindowMinutes])))
 instance Property "CompletionWindowMinutes" BackupRuleResourceTypeProperty where
   type PropertyType "CompletionWindowMinutes" BackupRuleResourceTypeProperty = Value Prelude.Double
@@ -102,6 +108,11 @@ instance Property "ScheduleExpression" BackupRuleResourceTypeProperty where
   set newValue BackupRuleResourceTypeProperty {..}
     = BackupRuleResourceTypeProperty
         {scheduleExpression = Prelude.pure newValue, ..}
+instance Property "ScheduleExpressionTimezone" BackupRuleResourceTypeProperty where
+  type PropertyType "ScheduleExpressionTimezone" BackupRuleResourceTypeProperty = Value Prelude.Text
+  set newValue BackupRuleResourceTypeProperty {..}
+    = BackupRuleResourceTypeProperty
+        {scheduleExpressionTimezone = Prelude.pure newValue, ..}
 instance Property "StartWindowMinutes" BackupRuleResourceTypeProperty where
   type PropertyType "StartWindowMinutes" BackupRuleResourceTypeProperty = Value Prelude.Double
   set newValue BackupRuleResourceTypeProperty {..}

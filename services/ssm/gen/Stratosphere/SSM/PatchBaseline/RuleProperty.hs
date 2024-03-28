@@ -5,12 +5,11 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SSM.PatchBaseline.PatchFilterGroupProperty as Exports
-import {-# SOURCE #-} Stratosphere.SSM.PatchBaseline.PatchStringDateProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleProperty
   = RuleProperty {approveAfterDays :: (Prelude.Maybe (Value Prelude.Integer)),
-                  approveUntilDate :: (Prelude.Maybe PatchStringDateProperty),
+                  approveUntilDate :: (Prelude.Maybe (Value Prelude.Text)),
                   complianceLevel :: (Prelude.Maybe (Value Prelude.Text)),
                   enableNonSecurity :: (Prelude.Maybe (Value Prelude.Bool)),
                   patchFilterGroup :: (Prelude.Maybe PatchFilterGroupProperty)}
@@ -50,7 +49,7 @@ instance Property "ApproveAfterDays" RuleProperty where
   set newValue RuleProperty {..}
     = RuleProperty {approveAfterDays = Prelude.pure newValue, ..}
 instance Property "ApproveUntilDate" RuleProperty where
-  type PropertyType "ApproveUntilDate" RuleProperty = PatchStringDateProperty
+  type PropertyType "ApproveUntilDate" RuleProperty = Value Prelude.Text
   set newValue RuleProperty {..}
     = RuleProperty {approveUntilDate = Prelude.pure newValue, ..}
 instance Property "ComplianceLevel" RuleProperty where

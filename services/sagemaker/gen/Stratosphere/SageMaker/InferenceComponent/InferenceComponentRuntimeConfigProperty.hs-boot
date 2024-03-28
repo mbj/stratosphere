@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.InferenceComponent.InferenceComponentRuntimeConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InferenceComponentRuntimeConfigProperty :: Prelude.Type
+instance ToResourceProperties InferenceComponentRuntimeConfigProperty
+instance Prelude.Eq InferenceComponentRuntimeConfigProperty
+instance Prelude.Show InferenceComponentRuntimeConfigProperty
+instance JSON.ToJSON InferenceComponentRuntimeConfigProperty

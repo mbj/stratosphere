@@ -1,0 +1,9 @@
+module Stratosphere.EntityResolution.MatchingWorkflow.OutputAttributeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OutputAttributeProperty :: Prelude.Type
+instance ToResourceProperties OutputAttributeProperty
+instance Prelude.Eq OutputAttributeProperty
+instance Prelude.Show OutputAttributeProperty
+instance JSON.ToJSON OutputAttributeProperty

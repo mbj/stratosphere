@@ -44,6 +44,11 @@ library
       Stratosphere.KafkaConnect.Connector.VpcProperty
       Stratosphere.KafkaConnect.Connector.WorkerConfigurationProperty
       Stratosphere.KafkaConnect.Connector.WorkerLogDeliveryProperty
+      Stratosphere.KafkaConnect.CustomPlugin
+      Stratosphere.KafkaConnect.CustomPlugin.CustomPluginFileDescriptionProperty
+      Stratosphere.KafkaConnect.CustomPlugin.CustomPluginLocationProperty
+      Stratosphere.KafkaConnect.CustomPlugin.S3LocationProperty
+      Stratosphere.KafkaConnect.WorkerConfiguration
   other-modules:
       Paths_stratosphere_kafkaconnect
   hs-source-dirs:

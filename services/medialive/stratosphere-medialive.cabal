@@ -64,6 +64,8 @@ library
       Stratosphere.MediaLive.Channel.CaptionSelectorProperty
       Stratosphere.MediaLive.Channel.CaptionSelectorSettingsProperty
       Stratosphere.MediaLive.Channel.CdiInputSpecificationProperty
+      Stratosphere.MediaLive.Channel.ColorCorrectionProperty
+      Stratosphere.MediaLive.Channel.ColorCorrectionSettingsProperty
       Stratosphere.MediaLive.Channel.ColorSpacePassthroughSettingsProperty
       Stratosphere.MediaLive.Channel.DolbyVision81SettingsProperty
       Stratosphere.MediaLive.Channel.DvbNitSettingsProperty
@@ -78,6 +80,7 @@ library
       Stratosphere.MediaLive.Channel.EmbeddedPlusScte20DestinationSettingsProperty
       Stratosphere.MediaLive.Channel.EmbeddedSourceSettingsProperty
       Stratosphere.MediaLive.Channel.EncoderSettingsProperty
+      Stratosphere.MediaLive.Channel.EpochLockingSettingsProperty
       Stratosphere.MediaLive.Channel.EsamProperty
       Stratosphere.MediaLive.Channel.FailoverConditionProperty
       Stratosphere.MediaLive.Channel.FailoverConditionSettingsProperty
@@ -144,9 +147,11 @@ library
       Stratosphere.MediaLive.Channel.OutputGroupProperty
       Stratosphere.MediaLive.Channel.OutputGroupSettingsProperty
       Stratosphere.MediaLive.Channel.OutputLocationRefProperty
+      Stratosphere.MediaLive.Channel.OutputLockingSettingsProperty
       Stratosphere.MediaLive.Channel.OutputProperty
       Stratosphere.MediaLive.Channel.OutputSettingsProperty
       Stratosphere.MediaLive.Channel.PassThroughSettingsProperty
+      Stratosphere.MediaLive.Channel.PipelineLockingSettingsProperty
       Stratosphere.MediaLive.Channel.RawSettingsProperty
       Stratosphere.MediaLive.Channel.Rec601SettingsProperty
       Stratosphere.MediaLive.Channel.Rec709SettingsProperty
@@ -166,6 +171,7 @@ library
       Stratosphere.MediaLive.Channel.TeletextDestinationSettingsProperty
       Stratosphere.MediaLive.Channel.TeletextSourceSettingsProperty
       Stratosphere.MediaLive.Channel.TemporalFilterSettingsProperty
+      Stratosphere.MediaLive.Channel.ThumbnailConfigurationProperty
       Stratosphere.MediaLive.Channel.TimecodeBurninSettingsProperty
       Stratosphere.MediaLive.Channel.TimecodeConfigProperty
       Stratosphere.MediaLive.Channel.TtmlDestinationSettingsProperty
@@ -192,6 +198,18 @@ library
       Stratosphere.MediaLive.Input.MediaConnectFlowRequestProperty
       Stratosphere.MediaLive.InputSecurityGroup
       Stratosphere.MediaLive.InputSecurityGroup.InputWhitelistRuleCidrProperty
+      Stratosphere.MediaLive.Multiplex
+      Stratosphere.MediaLive.Multiplex.MultiplexMediaConnectOutputDestinationSettingsProperty
+      Stratosphere.MediaLive.Multiplex.MultiplexOutputDestinationProperty
+      Stratosphere.MediaLive.Multiplex.MultiplexSettingsProperty
+      Stratosphere.MediaLive.Multiplex.TagsProperty
+      Stratosphere.MediaLive.Multiplexprogram
+      Stratosphere.MediaLive.Multiplexprogram.MultiplexProgramPacketIdentifiersMapProperty
+      Stratosphere.MediaLive.Multiplexprogram.MultiplexProgramPipelineDetailProperty
+      Stratosphere.MediaLive.Multiplexprogram.MultiplexProgramServiceDescriptorProperty
+      Stratosphere.MediaLive.Multiplexprogram.MultiplexProgramSettingsProperty
+      Stratosphere.MediaLive.Multiplexprogram.MultiplexStatmuxVideoSettingsProperty
+      Stratosphere.MediaLive.Multiplexprogram.MultiplexVideoSettingsProperty
   other-modules:
       Paths_stratosphere_medialive
   hs-source-dirs:

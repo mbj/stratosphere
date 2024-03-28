@@ -1,0 +1,9 @@
+module Stratosphere.CloudFront.ContinuousDeploymentPolicy.SingleWeightPolicyConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SingleWeightPolicyConfigProperty :: Prelude.Type
+instance ToResourceProperties SingleWeightPolicyConfigProperty
+instance Prelude.Eq SingleWeightPolicyConfigProperty
+instance Prelude.Show SingleWeightPolicyConfigProperty
+instance JSON.ToJSON SingleWeightPolicyConfigProperty

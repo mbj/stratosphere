@@ -1,0 +1,9 @@
+module Stratosphere.MediaTailor.SourceLocation.AccessConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AccessConfigurationProperty
+instance Prelude.Eq AccessConfigurationProperty
+instance Prelude.Show AccessConfigurationProperty
+instance JSON.ToJSON AccessConfigurationProperty

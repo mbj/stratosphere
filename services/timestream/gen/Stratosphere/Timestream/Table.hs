@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Timestream.Table.MagneticStoreWritePropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.Timestream.Table.RetentionPropertiesProperty as Exports
+import {-# SOURCE #-} Stratosphere.Timestream.Table.SchemaProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -13,6 +14,7 @@ data Table
   = Table {databaseName :: (Value Prelude.Text),
            magneticStoreWriteProperties :: (Prelude.Maybe MagneticStoreWritePropertiesProperty),
            retentionProperties :: (Prelude.Maybe RetentionPropertiesProperty),
+           schema :: (Prelude.Maybe SchemaProperty),
            tableName :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -21,8 +23,8 @@ mkTable databaseName
   = Table
       {databaseName = databaseName,
        magneticStoreWriteProperties = Prelude.Nothing,
-       retentionProperties = Prelude.Nothing, tableName = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       retentionProperties = Prelude.Nothing, schema = Prelude.Nothing,
+       tableName = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Table where
   toResourceProperties Table {..}
     = ResourceProperties
@@ -34,6 +36,7 @@ instance ToResourceProperties Table where
                               [(JSON..=) "MagneticStoreWriteProperties"
                                  Prelude.<$> magneticStoreWriteProperties,
                                (JSON..=) "RetentionProperties" Prelude.<$> retentionProperties,
+                               (JSON..=) "Schema" Prelude.<$> schema,
                                (JSON..=) "TableName" Prelude.<$> tableName,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Table where
@@ -46,6 +49,7 @@ instance JSON.ToJSON Table where
                  [(JSON..=) "MagneticStoreWriteProperties"
                     Prelude.<$> magneticStoreWriteProperties,
                   (JSON..=) "RetentionProperties" Prelude.<$> retentionProperties,
+                  (JSON..=) "Schema" Prelude.<$> schema,
                   (JSON..=) "TableName" Prelude.<$> tableName,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "DatabaseName" Table where
@@ -59,6 +63,10 @@ instance Property "RetentionProperties" Table where
   type PropertyType "RetentionProperties" Table = RetentionPropertiesProperty
   set newValue Table {..}
     = Table {retentionProperties = Prelude.pure newValue, ..}
+instance Property "Schema" Table where
+  type PropertyType "Schema" Table = SchemaProperty
+  set newValue Table {..}
+    = Table {schema = Prelude.pure newValue, ..}
 instance Property "TableName" Table where
   type PropertyType "TableName" Table = Value Prelude.Text
   set newValue Table {..}

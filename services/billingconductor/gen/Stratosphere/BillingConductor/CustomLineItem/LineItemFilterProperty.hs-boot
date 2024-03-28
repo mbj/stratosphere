@@ -1,0 +1,9 @@
+module Stratosphere.BillingConductor.CustomLineItem.LineItemFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LineItemFilterProperty :: Prelude.Type
+instance ToResourceProperties LineItemFilterProperty
+instance Prelude.Eq LineItemFilterProperty
+instance Prelude.Show LineItemFilterProperty
+instance JSON.ToJSON LineItemFilterProperty

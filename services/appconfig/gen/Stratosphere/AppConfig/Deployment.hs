@@ -4,6 +4,7 @@ module Stratosphere.AppConfig.Deployment (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AppConfig.Deployment.DynamicExtensionParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppConfig.Deployment.TagsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -13,6 +14,7 @@ data Deployment
                 configurationVersion :: (Value Prelude.Text),
                 deploymentStrategyId :: (Value Prelude.Text),
                 description :: (Prelude.Maybe (Value Prelude.Text)),
+                dynamicExtensionParameters :: (Prelude.Maybe [DynamicExtensionParametersProperty]),
                 environmentId :: (Value Prelude.Text),
                 kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [TagsProperty])}
@@ -34,6 +36,7 @@ mkDeployment
        configurationVersion = configurationVersion,
        deploymentStrategyId = deploymentStrategyId,
        environmentId = environmentId, description = Prelude.Nothing,
+       dynamicExtensionParameters = Prelude.Nothing,
        kmsKeyIdentifier = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Deployment where
   toResourceProperties Deployment {..}
@@ -49,6 +52,8 @@ instance ToResourceProperties Deployment where
                             "EnvironmentId" JSON..= environmentId]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "DynamicExtensionParameters"
+                                 Prelude.<$> dynamicExtensionParameters,
                                (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Deployment where
@@ -63,6 +68,8 @@ instance JSON.ToJSON Deployment where
                "EnvironmentId" JSON..= environmentId]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "DynamicExtensionParameters"
+                    Prelude.<$> dynamicExtensionParameters,
                   (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ApplicationId" Deployment where
@@ -85,6 +92,11 @@ instance Property "Description" Deployment where
   type PropertyType "Description" Deployment = Value Prelude.Text
   set newValue Deployment {..}
     = Deployment {description = Prelude.pure newValue, ..}
+instance Property "DynamicExtensionParameters" Deployment where
+  type PropertyType "DynamicExtensionParameters" Deployment = [DynamicExtensionParametersProperty]
+  set newValue Deployment {..}
+    = Deployment
+        {dynamicExtensionParameters = Prelude.pure newValue, ..}
 instance Property "EnvironmentId" Deployment where
   type PropertyType "EnvironmentId" Deployment = Value Prelude.Text
   set newValue Deployment {..}

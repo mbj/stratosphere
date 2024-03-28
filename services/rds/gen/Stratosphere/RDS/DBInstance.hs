@@ -17,6 +17,7 @@ data DBInstance
                 allowMajorVersionUpgrade :: (Prelude.Maybe (Value Prelude.Bool)),
                 associatedRoles :: (Prelude.Maybe [DBInstanceRoleProperty]),
                 autoMinorVersionUpgrade :: (Prelude.Maybe (Value Prelude.Bool)),
+                automaticBackupReplicationRegion :: (Prelude.Maybe (Value Prelude.Text)),
                 availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
                 backupRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
                 cACertificateIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
@@ -34,10 +35,15 @@ data DBInstance
                 dBSecurityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                 dBSnapshotIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 dBSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                dedicatedLogVolume :: (Prelude.Maybe (Value Prelude.Bool)),
                 deleteAutomatedBackups :: (Prelude.Maybe (Value Prelude.Bool)),
                 deletionProtection :: (Prelude.Maybe (Value Prelude.Bool)),
                 domain :: (Prelude.Maybe (Value Prelude.Text)),
+                domainAuthSecretArn :: (Prelude.Maybe (Value Prelude.Text)),
+                domainDnsIps :: (Prelude.Maybe (ValueList Prelude.Text)),
+                domainFqdn :: (Prelude.Maybe (Value Prelude.Text)),
                 domainIAMRoleName :: (Prelude.Maybe (Value Prelude.Text)),
+                domainOu :: (Prelude.Maybe (Value Prelude.Text)),
                 enableCloudwatchLogsExports :: (Prelude.Maybe (ValueList Prelude.Text)),
                 enableIAMDatabaseAuthentication :: (Prelude.Maybe (Value Prelude.Bool)),
                 enablePerformanceInsights :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -89,6 +95,7 @@ mkDBInstance
        allowMajorVersionUpgrade = Prelude.Nothing,
        associatedRoles = Prelude.Nothing,
        autoMinorVersionUpgrade = Prelude.Nothing,
+       automaticBackupReplicationRegion = Prelude.Nothing,
        availabilityZone = Prelude.Nothing,
        backupRetentionPeriod = Prelude.Nothing,
        cACertificateIdentifier = Prelude.Nothing,
@@ -105,9 +112,12 @@ mkDBInstance
        dBSecurityGroups = Prelude.Nothing,
        dBSnapshotIdentifier = Prelude.Nothing,
        dBSubnetGroupName = Prelude.Nothing,
+       dedicatedLogVolume = Prelude.Nothing,
        deleteAutomatedBackups = Prelude.Nothing,
        deletionProtection = Prelude.Nothing, domain = Prelude.Nothing,
-       domainIAMRoleName = Prelude.Nothing,
+       domainAuthSecretArn = Prelude.Nothing,
+       domainDnsIps = Prelude.Nothing, domainFqdn = Prelude.Nothing,
+       domainIAMRoleName = Prelude.Nothing, domainOu = Prelude.Nothing,
        enableCloudwatchLogsExports = Prelude.Nothing,
        enableIAMDatabaseAuthentication = Prelude.Nothing,
        enablePerformanceInsights = Prelude.Nothing,
@@ -153,6 +163,8 @@ instance ToResourceProperties DBInstance where
                             (JSON..=) "AssociatedRoles" Prelude.<$> associatedRoles,
                             (JSON..=) "AutoMinorVersionUpgrade"
                               Prelude.<$> autoMinorVersionUpgrade,
+                            (JSON..=) "AutomaticBackupReplicationRegion"
+                              Prelude.<$> automaticBackupReplicationRegion,
                             (JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
                             (JSON..=) "BackupRetentionPeriod"
                               Prelude.<$> backupRetentionPeriod,
@@ -175,11 +187,16 @@ instance ToResourceProperties DBInstance where
                             (JSON..=) "DBSecurityGroups" Prelude.<$> dBSecurityGroups,
                             (JSON..=) "DBSnapshotIdentifier" Prelude.<$> dBSnapshotIdentifier,
                             (JSON..=) "DBSubnetGroupName" Prelude.<$> dBSubnetGroupName,
+                            (JSON..=) "DedicatedLogVolume" Prelude.<$> dedicatedLogVolume,
                             (JSON..=) "DeleteAutomatedBackups"
                               Prelude.<$> deleteAutomatedBackups,
                             (JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,
                             (JSON..=) "Domain" Prelude.<$> domain,
+                            (JSON..=) "DomainAuthSecretArn" Prelude.<$> domainAuthSecretArn,
+                            (JSON..=) "DomainDnsIps" Prelude.<$> domainDnsIps,
+                            (JSON..=) "DomainFqdn" Prelude.<$> domainFqdn,
                             (JSON..=) "DomainIAMRoleName" Prelude.<$> domainIAMRoleName,
+                            (JSON..=) "DomainOu" Prelude.<$> domainOu,
                             (JSON..=) "EnableCloudwatchLogsExports"
                               Prelude.<$> enableCloudwatchLogsExports,
                             (JSON..=) "EnableIAMDatabaseAuthentication"
@@ -248,6 +265,8 @@ instance JSON.ToJSON DBInstance where
                (JSON..=) "AssociatedRoles" Prelude.<$> associatedRoles,
                (JSON..=) "AutoMinorVersionUpgrade"
                  Prelude.<$> autoMinorVersionUpgrade,
+               (JSON..=) "AutomaticBackupReplicationRegion"
+                 Prelude.<$> automaticBackupReplicationRegion,
                (JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
                (JSON..=) "BackupRetentionPeriod"
                  Prelude.<$> backupRetentionPeriod,
@@ -270,11 +289,16 @@ instance JSON.ToJSON DBInstance where
                (JSON..=) "DBSecurityGroups" Prelude.<$> dBSecurityGroups,
                (JSON..=) "DBSnapshotIdentifier" Prelude.<$> dBSnapshotIdentifier,
                (JSON..=) "DBSubnetGroupName" Prelude.<$> dBSubnetGroupName,
+               (JSON..=) "DedicatedLogVolume" Prelude.<$> dedicatedLogVolume,
                (JSON..=) "DeleteAutomatedBackups"
                  Prelude.<$> deleteAutomatedBackups,
                (JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,
                (JSON..=) "Domain" Prelude.<$> domain,
+               (JSON..=) "DomainAuthSecretArn" Prelude.<$> domainAuthSecretArn,
+               (JSON..=) "DomainDnsIps" Prelude.<$> domainDnsIps,
+               (JSON..=) "DomainFqdn" Prelude.<$> domainFqdn,
                (JSON..=) "DomainIAMRoleName" Prelude.<$> domainIAMRoleName,
+               (JSON..=) "DomainOu" Prelude.<$> domainOu,
                (JSON..=) "EnableCloudwatchLogsExports"
                  Prelude.<$> enableCloudwatchLogsExports,
                (JSON..=) "EnableIAMDatabaseAuthentication"
@@ -348,6 +372,11 @@ instance Property "AutoMinorVersionUpgrade" DBInstance where
   type PropertyType "AutoMinorVersionUpgrade" DBInstance = Value Prelude.Bool
   set newValue DBInstance {..}
     = DBInstance {autoMinorVersionUpgrade = Prelude.pure newValue, ..}
+instance Property "AutomaticBackupReplicationRegion" DBInstance where
+  type PropertyType "AutomaticBackupReplicationRegion" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance
+        {automaticBackupReplicationRegion = Prelude.pure newValue, ..}
 instance Property "AvailabilityZone" DBInstance where
   type PropertyType "AvailabilityZone" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
@@ -418,6 +447,10 @@ instance Property "DBSubnetGroupName" DBInstance where
   type PropertyType "DBSubnetGroupName" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {dBSubnetGroupName = Prelude.pure newValue, ..}
+instance Property "DedicatedLogVolume" DBInstance where
+  type PropertyType "DedicatedLogVolume" DBInstance = Value Prelude.Bool
+  set newValue DBInstance {..}
+    = DBInstance {dedicatedLogVolume = Prelude.pure newValue, ..}
 instance Property "DeleteAutomatedBackups" DBInstance where
   type PropertyType "DeleteAutomatedBackups" DBInstance = Value Prelude.Bool
   set newValue DBInstance {..}
@@ -430,10 +463,26 @@ instance Property "Domain" DBInstance where
   type PropertyType "Domain" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {domain = Prelude.pure newValue, ..}
+instance Property "DomainAuthSecretArn" DBInstance where
+  type PropertyType "DomainAuthSecretArn" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance {domainAuthSecretArn = Prelude.pure newValue, ..}
+instance Property "DomainDnsIps" DBInstance where
+  type PropertyType "DomainDnsIps" DBInstance = ValueList Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance {domainDnsIps = Prelude.pure newValue, ..}
+instance Property "DomainFqdn" DBInstance where
+  type PropertyType "DomainFqdn" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance {domainFqdn = Prelude.pure newValue, ..}
 instance Property "DomainIAMRoleName" DBInstance where
   type PropertyType "DomainIAMRoleName" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {domainIAMRoleName = Prelude.pure newValue, ..}
+instance Property "DomainOu" DBInstance where
+  type PropertyType "DomainOu" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance {domainOu = Prelude.pure newValue, ..}
 instance Property "EnableCloudwatchLogsExports" DBInstance where
   type PropertyType "EnableCloudwatchLogsExports" DBInstance = ValueList Prelude.Text
   set newValue DBInstance {..}

@@ -25,6 +25,7 @@ data Fleet
            imageName :: (Prelude.Maybe (Value Prelude.Text)),
            instanceType :: (Value Prelude.Text),
            maxConcurrentSessions :: (Prelude.Maybe (Value Prelude.Integer)),
+           maxSessionsPerInstance :: (Prelude.Maybe (Value Prelude.Integer)),
            maxUserDurationInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
            name :: (Value Prelude.Text),
            platform :: (Prelude.Maybe (Value Prelude.Text)),
@@ -46,6 +47,7 @@ mkFleet instanceType name
        idleDisconnectTimeoutInSeconds = Prelude.Nothing,
        imageArn = Prelude.Nothing, imageName = Prelude.Nothing,
        maxConcurrentSessions = Prelude.Nothing,
+       maxSessionsPerInstance = Prelude.Nothing,
        maxUserDurationInSeconds = Prelude.Nothing,
        platform = Prelude.Nothing,
        sessionScriptS3Location = Prelude.Nothing,
@@ -76,6 +78,8 @@ instance ToResourceProperties Fleet where
                                (JSON..=) "ImageName" Prelude.<$> imageName,
                                (JSON..=) "MaxConcurrentSessions"
                                  Prelude.<$> maxConcurrentSessions,
+                               (JSON..=) "MaxSessionsPerInstance"
+                                 Prelude.<$> maxSessionsPerInstance,
                                (JSON..=) "MaxUserDurationInSeconds"
                                  Prelude.<$> maxUserDurationInSeconds,
                                (JSON..=) "Platform" Prelude.<$> platform,
@@ -109,6 +113,8 @@ instance JSON.ToJSON Fleet where
                   (JSON..=) "ImageName" Prelude.<$> imageName,
                   (JSON..=) "MaxConcurrentSessions"
                     Prelude.<$> maxConcurrentSessions,
+                  (JSON..=) "MaxSessionsPerInstance"
+                    Prelude.<$> maxSessionsPerInstance,
                   (JSON..=) "MaxUserDurationInSeconds"
                     Prelude.<$> maxUserDurationInSeconds,
                   (JSON..=) "Platform" Prelude.<$> platform,
@@ -171,6 +177,10 @@ instance Property "MaxConcurrentSessions" Fleet where
   type PropertyType "MaxConcurrentSessions" Fleet = Value Prelude.Integer
   set newValue Fleet {..}
     = Fleet {maxConcurrentSessions = Prelude.pure newValue, ..}
+instance Property "MaxSessionsPerInstance" Fleet where
+  type PropertyType "MaxSessionsPerInstance" Fleet = Value Prelude.Integer
+  set newValue Fleet {..}
+    = Fleet {maxSessionsPerInstance = Prelude.pure newValue, ..}
 instance Property "MaxUserDurationInSeconds" Fleet where
   type PropertyType "MaxUserDurationInSeconds" Fleet = Value Prelude.Integer
   set newValue Fleet {..}

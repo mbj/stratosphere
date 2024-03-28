@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.AnalysisDefaultsProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.AssetOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.CalculatedFieldProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.ColumnConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.DataSetIdentifierDeclarationProperty as Exports
@@ -19,6 +20,7 @@ data AnalysisDefinitionProperty
                                 columnConfigurations :: (Prelude.Maybe [ColumnConfigurationProperty]),
                                 dataSetIdentifierDeclarations :: [DataSetIdentifierDeclarationProperty],
                                 filterGroups :: (Prelude.Maybe [FilterGroupProperty]),
+                                options :: (Prelude.Maybe AssetOptionsProperty),
                                 parameterDeclarations :: (Prelude.Maybe [ParameterDeclarationProperty]),
                                 sheets :: (Prelude.Maybe [SheetDefinitionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -31,7 +33,7 @@ mkAnalysisDefinitionProperty dataSetIdentifierDeclarations
        analysisDefaults = Prelude.Nothing,
        calculatedFields = Prelude.Nothing,
        columnConfigurations = Prelude.Nothing,
-       filterGroups = Prelude.Nothing,
+       filterGroups = Prelude.Nothing, options = Prelude.Nothing,
        parameterDeclarations = Prelude.Nothing, sheets = Prelude.Nothing}
 instance ToResourceProperties AnalysisDefinitionProperty where
   toResourceProperties AnalysisDefinitionProperty {..}
@@ -47,6 +49,7 @@ instance ToResourceProperties AnalysisDefinitionProperty where
                                (JSON..=) "CalculatedFields" Prelude.<$> calculatedFields,
                                (JSON..=) "ColumnConfigurations" Prelude.<$> columnConfigurations,
                                (JSON..=) "FilterGroups" Prelude.<$> filterGroups,
+                               (JSON..=) "Options" Prelude.<$> options,
                                (JSON..=) "ParameterDeclarations"
                                  Prelude.<$> parameterDeclarations,
                                (JSON..=) "Sheets" Prelude.<$> sheets]))}
@@ -62,6 +65,7 @@ instance JSON.ToJSON AnalysisDefinitionProperty where
                   (JSON..=) "CalculatedFields" Prelude.<$> calculatedFields,
                   (JSON..=) "ColumnConfigurations" Prelude.<$> columnConfigurations,
                   (JSON..=) "FilterGroups" Prelude.<$> filterGroups,
+                  (JSON..=) "Options" Prelude.<$> options,
                   (JSON..=) "ParameterDeclarations"
                     Prelude.<$> parameterDeclarations,
                   (JSON..=) "Sheets" Prelude.<$> sheets])))
@@ -90,6 +94,10 @@ instance Property "FilterGroups" AnalysisDefinitionProperty where
   set newValue AnalysisDefinitionProperty {..}
     = AnalysisDefinitionProperty
         {filterGroups = Prelude.pure newValue, ..}
+instance Property "Options" AnalysisDefinitionProperty where
+  type PropertyType "Options" AnalysisDefinitionProperty = AssetOptionsProperty
+  set newValue AnalysisDefinitionProperty {..}
+    = AnalysisDefinitionProperty {options = Prelude.pure newValue, ..}
 instance Property "ParameterDeclarations" AnalysisDefinitionProperty where
   type PropertyType "ParameterDeclarations" AnalysisDefinitionProperty = [ParameterDeclarationProperty]
   set newValue AnalysisDefinitionProperty {..}

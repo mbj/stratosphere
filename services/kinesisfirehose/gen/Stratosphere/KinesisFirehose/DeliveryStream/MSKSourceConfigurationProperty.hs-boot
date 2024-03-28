@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.MSKSourceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MSKSourceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MSKSourceConfigurationProperty
+instance Prelude.Eq MSKSourceConfigurationProperty
+instance Prelude.Show MSKSourceConfigurationProperty
+instance JSON.ToJSON MSKSourceConfigurationProperty

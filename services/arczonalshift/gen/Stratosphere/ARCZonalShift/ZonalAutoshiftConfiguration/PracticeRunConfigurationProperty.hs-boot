@@ -1,0 +1,9 @@
+module Stratosphere.ARCZonalShift.ZonalAutoshiftConfiguration.PracticeRunConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PracticeRunConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PracticeRunConfigurationProperty
+instance Prelude.Eq PracticeRunConfigurationProperty
+instance Prelude.Show PracticeRunConfigurationProperty
+instance JSON.ToJSON PracticeRunConfigurationProperty

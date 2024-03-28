@@ -1,0 +1,9 @@
+module Stratosphere.S3.StorageLensGroup.MatchObjectSizeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MatchObjectSizeProperty :: Prelude.Type
+instance ToResourceProperties MatchObjectSizeProperty
+instance Prelude.Eq MatchObjectSizeProperty
+instance Prelude.Show MatchObjectSizeProperty
+instance JSON.ToJSON MatchObjectSizeProperty

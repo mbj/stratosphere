@@ -10,11 +10,13 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AvailBlankingProperty as Ex
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AvailConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.BlackoutSlateProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.CaptionDescriptionProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ColorCorrectionSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FeatureActivationsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.GlobalConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MotionGraphicsConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.NielsenConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputGroupProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ThumbnailConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.TimecodeConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VideoDescriptionProperty as Exports
 import Stratosphere.ResourceProperties
@@ -24,11 +26,13 @@ data EncoderSettingsProperty
                              availConfiguration :: (Prelude.Maybe AvailConfigurationProperty),
                              blackoutSlate :: (Prelude.Maybe BlackoutSlateProperty),
                              captionDescriptions :: (Prelude.Maybe [CaptionDescriptionProperty]),
+                             colorCorrectionSettings :: (Prelude.Maybe ColorCorrectionSettingsProperty),
                              featureActivations :: (Prelude.Maybe FeatureActivationsProperty),
                              globalConfiguration :: (Prelude.Maybe GlobalConfigurationProperty),
                              motionGraphicsConfiguration :: (Prelude.Maybe MotionGraphicsConfigurationProperty),
                              nielsenConfiguration :: (Prelude.Maybe NielsenConfigurationProperty),
                              outputGroups :: (Prelude.Maybe [OutputGroupProperty]),
+                             thumbnailConfiguration :: (Prelude.Maybe ThumbnailConfigurationProperty),
                              timecodeConfig :: (Prelude.Maybe TimecodeConfigProperty),
                              videoDescriptions :: (Prelude.Maybe [VideoDescriptionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -40,11 +44,14 @@ mkEncoderSettingsProperty
        availConfiguration = Prelude.Nothing,
        blackoutSlate = Prelude.Nothing,
        captionDescriptions = Prelude.Nothing,
+       colorCorrectionSettings = Prelude.Nothing,
        featureActivations = Prelude.Nothing,
        globalConfiguration = Prelude.Nothing,
        motionGraphicsConfiguration = Prelude.Nothing,
        nielsenConfiguration = Prelude.Nothing,
-       outputGroups = Prelude.Nothing, timecodeConfig = Prelude.Nothing,
+       outputGroups = Prelude.Nothing,
+       thumbnailConfiguration = Prelude.Nothing,
+       timecodeConfig = Prelude.Nothing,
        videoDescriptions = Prelude.Nothing}
 instance ToResourceProperties EncoderSettingsProperty where
   toResourceProperties EncoderSettingsProperty {..}
@@ -58,12 +65,16 @@ instance ToResourceProperties EncoderSettingsProperty where
                             (JSON..=) "AvailConfiguration" Prelude.<$> availConfiguration,
                             (JSON..=) "BlackoutSlate" Prelude.<$> blackoutSlate,
                             (JSON..=) "CaptionDescriptions" Prelude.<$> captionDescriptions,
+                            (JSON..=) "ColorCorrectionSettings"
+                              Prelude.<$> colorCorrectionSettings,
                             (JSON..=) "FeatureActivations" Prelude.<$> featureActivations,
                             (JSON..=) "GlobalConfiguration" Prelude.<$> globalConfiguration,
                             (JSON..=) "MotionGraphicsConfiguration"
                               Prelude.<$> motionGraphicsConfiguration,
                             (JSON..=) "NielsenConfiguration" Prelude.<$> nielsenConfiguration,
                             (JSON..=) "OutputGroups" Prelude.<$> outputGroups,
+                            (JSON..=) "ThumbnailConfiguration"
+                              Prelude.<$> thumbnailConfiguration,
                             (JSON..=) "TimecodeConfig" Prelude.<$> timecodeConfig,
                             (JSON..=) "VideoDescriptions" Prelude.<$> videoDescriptions])}
 instance JSON.ToJSON EncoderSettingsProperty where
@@ -76,12 +87,16 @@ instance JSON.ToJSON EncoderSettingsProperty where
                (JSON..=) "AvailConfiguration" Prelude.<$> availConfiguration,
                (JSON..=) "BlackoutSlate" Prelude.<$> blackoutSlate,
                (JSON..=) "CaptionDescriptions" Prelude.<$> captionDescriptions,
+               (JSON..=) "ColorCorrectionSettings"
+                 Prelude.<$> colorCorrectionSettings,
                (JSON..=) "FeatureActivations" Prelude.<$> featureActivations,
                (JSON..=) "GlobalConfiguration" Prelude.<$> globalConfiguration,
                (JSON..=) "MotionGraphicsConfiguration"
                  Prelude.<$> motionGraphicsConfiguration,
                (JSON..=) "NielsenConfiguration" Prelude.<$> nielsenConfiguration,
                (JSON..=) "OutputGroups" Prelude.<$> outputGroups,
+               (JSON..=) "ThumbnailConfiguration"
+                 Prelude.<$> thumbnailConfiguration,
                (JSON..=) "TimecodeConfig" Prelude.<$> timecodeConfig,
                (JSON..=) "VideoDescriptions" Prelude.<$> videoDescriptions]))
 instance Property "AudioDescriptions" EncoderSettingsProperty where
@@ -109,6 +124,11 @@ instance Property "CaptionDescriptions" EncoderSettingsProperty where
   set newValue EncoderSettingsProperty {..}
     = EncoderSettingsProperty
         {captionDescriptions = Prelude.pure newValue, ..}
+instance Property "ColorCorrectionSettings" EncoderSettingsProperty where
+  type PropertyType "ColorCorrectionSettings" EncoderSettingsProperty = ColorCorrectionSettingsProperty
+  set newValue EncoderSettingsProperty {..}
+    = EncoderSettingsProperty
+        {colorCorrectionSettings = Prelude.pure newValue, ..}
 instance Property "FeatureActivations" EncoderSettingsProperty where
   type PropertyType "FeatureActivations" EncoderSettingsProperty = FeatureActivationsProperty
   set newValue EncoderSettingsProperty {..}
@@ -134,6 +154,11 @@ instance Property "OutputGroups" EncoderSettingsProperty where
   set newValue EncoderSettingsProperty {..}
     = EncoderSettingsProperty
         {outputGroups = Prelude.pure newValue, ..}
+instance Property "ThumbnailConfiguration" EncoderSettingsProperty where
+  type PropertyType "ThumbnailConfiguration" EncoderSettingsProperty = ThumbnailConfigurationProperty
+  set newValue EncoderSettingsProperty {..}
+    = EncoderSettingsProperty
+        {thumbnailConfiguration = Prelude.pure newValue, ..}
 instance Property "TimecodeConfig" EncoderSettingsProperty where
   type PropertyType "TimecodeConfig" EncoderSettingsProperty = TimecodeConfigProperty
   set newValue EncoderSettingsProperty {..}

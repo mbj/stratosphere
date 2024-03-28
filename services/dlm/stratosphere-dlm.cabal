@@ -34,17 +34,24 @@ library
       Stratosphere.DLM.LifecyclePolicy.CrossRegionCopyDeprecateRuleProperty
       Stratosphere.DLM.LifecyclePolicy.CrossRegionCopyRetainRuleProperty
       Stratosphere.DLM.LifecyclePolicy.CrossRegionCopyRuleProperty
+      Stratosphere.DLM.LifecyclePolicy.CrossRegionCopyTargetProperty
+      Stratosphere.DLM.LifecyclePolicy.CrossRegionCopyTargetsProperty
       Stratosphere.DLM.LifecyclePolicy.DeprecateRuleProperty
       Stratosphere.DLM.LifecyclePolicy.EncryptionConfigurationProperty
       Stratosphere.DLM.LifecyclePolicy.EventParametersProperty
       Stratosphere.DLM.LifecyclePolicy.EventSourceProperty
+      Stratosphere.DLM.LifecyclePolicy.ExcludeTagsProperty
+      Stratosphere.DLM.LifecyclePolicy.ExcludeVolumeTypesListProperty
+      Stratosphere.DLM.LifecyclePolicy.ExclusionsProperty
       Stratosphere.DLM.LifecyclePolicy.FastRestoreRuleProperty
       Stratosphere.DLM.LifecyclePolicy.ParametersProperty
       Stratosphere.DLM.LifecyclePolicy.PolicyDetailsProperty
       Stratosphere.DLM.LifecyclePolicy.RetainRuleProperty
       Stratosphere.DLM.LifecyclePolicy.RetentionArchiveTierProperty
       Stratosphere.DLM.LifecyclePolicy.ScheduleProperty
+      Stratosphere.DLM.LifecyclePolicy.ScriptProperty
       Stratosphere.DLM.LifecyclePolicy.ShareRuleProperty
+      Stratosphere.DLM.LifecyclePolicy.VolumeTypeValuesProperty
   other-modules:
       Paths_stratosphere_dlm
   hs-source-dirs:

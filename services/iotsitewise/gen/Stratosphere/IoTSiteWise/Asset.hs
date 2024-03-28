@@ -11,6 +11,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Asset
   = Asset {assetDescription :: (Prelude.Maybe (Value Prelude.Text)),
+           assetExternalId :: (Prelude.Maybe (Value Prelude.Text)),
            assetHierarchies :: (Prelude.Maybe [AssetHierarchyProperty]),
            assetModelId :: (Value Prelude.Text),
            assetName :: (Value Prelude.Text),
@@ -22,6 +23,7 @@ mkAsset assetModelId assetName
   = Asset
       {assetModelId = assetModelId, assetName = assetName,
        assetDescription = Prelude.Nothing,
+       assetExternalId = Prelude.Nothing,
        assetHierarchies = Prelude.Nothing,
        assetProperties = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Asset where
@@ -34,6 +36,7 @@ instance ToResourceProperties Asset where
                             "AssetName" JSON..= assetName]
                            (Prelude.catMaybes
                               [(JSON..=) "AssetDescription" Prelude.<$> assetDescription,
+                               (JSON..=) "AssetExternalId" Prelude.<$> assetExternalId,
                                (JSON..=) "AssetHierarchies" Prelude.<$> assetHierarchies,
                                (JSON..=) "AssetProperties" Prelude.<$> assetProperties,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -46,6 +49,7 @@ instance JSON.ToJSON Asset where
                "AssetName" JSON..= assetName]
               (Prelude.catMaybes
                  [(JSON..=) "AssetDescription" Prelude.<$> assetDescription,
+                  (JSON..=) "AssetExternalId" Prelude.<$> assetExternalId,
                   (JSON..=) "AssetHierarchies" Prelude.<$> assetHierarchies,
                   (JSON..=) "AssetProperties" Prelude.<$> assetProperties,
                   (JSON..=) "Tags" Prelude.<$> tags])))
@@ -53,6 +57,10 @@ instance Property "AssetDescription" Asset where
   type PropertyType "AssetDescription" Asset = Value Prelude.Text
   set newValue Asset {..}
     = Asset {assetDescription = Prelude.pure newValue, ..}
+instance Property "AssetExternalId" Asset where
+  type PropertyType "AssetExternalId" Asset = Value Prelude.Text
+  set newValue Asset {..}
+    = Asset {assetExternalId = Prelude.pure newValue, ..}
 instance Property "AssetHierarchies" Asset where
   type PropertyType "AssetHierarchies" Asset = [AssetHierarchyProperty]
   set newValue Asset {..}

@@ -11,6 +11,8 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.PointInTimeRecoverySpeci
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReadProvisionedThroughputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReplicaSSESpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReplicaStreamSpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ResourcePolicyProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -22,6 +24,8 @@ data ReplicaSpecificationProperty
                                   pointInTimeRecoverySpecification :: (Prelude.Maybe PointInTimeRecoverySpecificationProperty),
                                   readProvisionedThroughputSettings :: (Prelude.Maybe ReadProvisionedThroughputSettingsProperty),
                                   region :: (Value Prelude.Text),
+                                  replicaStreamSpecification :: (Prelude.Maybe ReplicaStreamSpecificationProperty),
+                                  resourcePolicy :: (Prelude.Maybe ResourcePolicyProperty),
                                   sSESpecification :: (Prelude.Maybe ReplicaSSESpecificationProperty),
                                   tableClass :: (Prelude.Maybe (Value Prelude.Text)),
                                   tags :: (Prelude.Maybe [Tag])}
@@ -37,6 +41,8 @@ mkReplicaSpecificationProperty region
        kinesisStreamSpecification = Prelude.Nothing,
        pointInTimeRecoverySpecification = Prelude.Nothing,
        readProvisionedThroughputSettings = Prelude.Nothing,
+       replicaStreamSpecification = Prelude.Nothing,
+       resourcePolicy = Prelude.Nothing,
        sSESpecification = Prelude.Nothing, tableClass = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties ReplicaSpecificationProperty where
@@ -60,6 +66,9 @@ instance ToResourceProperties ReplicaSpecificationProperty where
                                  Prelude.<$> pointInTimeRecoverySpecification,
                                (JSON..=) "ReadProvisionedThroughputSettings"
                                  Prelude.<$> readProvisionedThroughputSettings,
+                               (JSON..=) "ReplicaStreamSpecification"
+                                 Prelude.<$> replicaStreamSpecification,
+                               (JSON..=) "ResourcePolicy" Prelude.<$> resourcePolicy,
                                (JSON..=) "SSESpecification" Prelude.<$> sSESpecification,
                                (JSON..=) "TableClass" Prelude.<$> tableClass,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -82,6 +91,9 @@ instance JSON.ToJSON ReplicaSpecificationProperty where
                     Prelude.<$> pointInTimeRecoverySpecification,
                   (JSON..=) "ReadProvisionedThroughputSettings"
                     Prelude.<$> readProvisionedThroughputSettings,
+                  (JSON..=) "ReplicaStreamSpecification"
+                    Prelude.<$> replicaStreamSpecification,
+                  (JSON..=) "ResourcePolicy" Prelude.<$> resourcePolicy,
                   (JSON..=) "SSESpecification" Prelude.<$> sSESpecification,
                   (JSON..=) "TableClass" Prelude.<$> tableClass,
                   (JSON..=) "Tags" Prelude.<$> tags])))
@@ -119,6 +131,16 @@ instance Property "Region" ReplicaSpecificationProperty where
   type PropertyType "Region" ReplicaSpecificationProperty = Value Prelude.Text
   set newValue ReplicaSpecificationProperty {..}
     = ReplicaSpecificationProperty {region = newValue, ..}
+instance Property "ReplicaStreamSpecification" ReplicaSpecificationProperty where
+  type PropertyType "ReplicaStreamSpecification" ReplicaSpecificationProperty = ReplicaStreamSpecificationProperty
+  set newValue ReplicaSpecificationProperty {..}
+    = ReplicaSpecificationProperty
+        {replicaStreamSpecification = Prelude.pure newValue, ..}
+instance Property "ResourcePolicy" ReplicaSpecificationProperty where
+  type PropertyType "ResourcePolicy" ReplicaSpecificationProperty = ResourcePolicyProperty
+  set newValue ReplicaSpecificationProperty {..}
+    = ReplicaSpecificationProperty
+        {resourcePolicy = Prelude.pure newValue, ..}
 instance Property "SSESpecification" ReplicaSpecificationProperty where
   type PropertyType "SSESpecification" ReplicaSpecificationProperty = ReplicaSSESpecificationProperty
   set newValue ReplicaSpecificationProperty {..}

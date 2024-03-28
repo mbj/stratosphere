@@ -14,7 +14,8 @@ data ComponentChildProperty
                             componentType :: (Value Prelude.Text),
                             events :: (Prelude.Maybe (Prelude.Map Prelude.Text ComponentEventProperty)),
                             name :: (Value Prelude.Text),
-                            properties :: (Prelude.Map Prelude.Text ComponentPropertyProperty)}
+                            properties :: (Prelude.Map Prelude.Text ComponentPropertyProperty),
+                            sourceId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentChildProperty ::
   Value Prelude.Text
@@ -25,7 +26,7 @@ mkComponentChildProperty componentType name properties
   = ComponentChildProperty
       {componentType = componentType, name = name,
        properties = properties, children = Prelude.Nothing,
-       events = Prelude.Nothing}
+       events = Prelude.Nothing, sourceId = Prelude.Nothing}
 instance ToResourceProperties ComponentChildProperty where
   toResourceProperties ComponentChildProperty {..}
     = ResourceProperties
@@ -37,7 +38,8 @@ instance ToResourceProperties ComponentChildProperty where
                             "Properties" JSON..= properties]
                            (Prelude.catMaybes
                               [(JSON..=) "Children" Prelude.<$> children,
-                               (JSON..=) "Events" Prelude.<$> events]))}
+                               (JSON..=) "Events" Prelude.<$> events,
+                               (JSON..=) "SourceId" Prelude.<$> sourceId]))}
 instance JSON.ToJSON ComponentChildProperty where
   toJSON ComponentChildProperty {..}
     = JSON.object
@@ -47,7 +49,8 @@ instance JSON.ToJSON ComponentChildProperty where
                "Properties" JSON..= properties]
               (Prelude.catMaybes
                  [(JSON..=) "Children" Prelude.<$> children,
-                  (JSON..=) "Events" Prelude.<$> events])))
+                  (JSON..=) "Events" Prelude.<$> events,
+                  (JSON..=) "SourceId" Prelude.<$> sourceId])))
 instance Property "Children" ComponentChildProperty where
   type PropertyType "Children" ComponentChildProperty = [ComponentChildProperty]
   set newValue ComponentChildProperty {..}
@@ -68,3 +71,7 @@ instance Property "Properties" ComponentChildProperty where
   type PropertyType "Properties" ComponentChildProperty = Prelude.Map Prelude.Text ComponentPropertyProperty
   set newValue ComponentChildProperty {..}
     = ComponentChildProperty {properties = newValue, ..}
+instance Property "SourceId" ComponentChildProperty where
+  type PropertyType "SourceId" ComponentChildProperty = Value Prelude.Text
+  set newValue ComponentChildProperty {..}
+    = ComponentChildProperty {sourceId = Prelude.pure newValue, ..}

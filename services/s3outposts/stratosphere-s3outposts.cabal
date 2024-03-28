@@ -36,6 +36,7 @@ library
       Stratosphere.S3Outposts.Bucket.RuleProperty
       Stratosphere.S3Outposts.BucketPolicy
       Stratosphere.S3Outposts.Endpoint
+      Stratosphere.S3Outposts.Endpoint.FailedReasonProperty
       Stratosphere.S3Outposts.Endpoint.NetworkInterfaceProperty
   other-modules:
       Paths_stratosphere_s3outposts

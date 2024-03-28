@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.WebACL.RateBasedStatementCustomKeyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RateBasedStatementCustomKeyProperty :: Prelude.Type
+instance ToResourceProperties RateBasedStatementCustomKeyProperty
+instance Prelude.Eq RateBasedStatementCustomKeyProperty
+instance Prelude.Show RateBasedStatementCustomKeyProperty
+instance JSON.ToJSON RateBasedStatementCustomKeyProperty

@@ -8,13 +8,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LifecycleResourceTypeProperty
   = LifecycleResourceTypeProperty {deleteAfterDays :: (Prelude.Maybe (Value Prelude.Double)),
-                                   moveToColdStorageAfterDays :: (Prelude.Maybe (Value Prelude.Double))}
+                                   moveToColdStorageAfterDays :: (Prelude.Maybe (Value Prelude.Double)),
+                                   optInToArchiveForSupportedResources :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecycleResourceTypeProperty :: LifecycleResourceTypeProperty
 mkLifecycleResourceTypeProperty
   = LifecycleResourceTypeProperty
       {deleteAfterDays = Prelude.Nothing,
-       moveToColdStorageAfterDays = Prelude.Nothing}
+       moveToColdStorageAfterDays = Prelude.Nothing,
+       optInToArchiveForSupportedResources = Prelude.Nothing}
 instance ToResourceProperties LifecycleResourceTypeProperty where
   toResourceProperties LifecycleResourceTypeProperty {..}
     = ResourceProperties
@@ -24,7 +26,9 @@ instance ToResourceProperties LifecycleResourceTypeProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "DeleteAfterDays" Prelude.<$> deleteAfterDays,
                             (JSON..=) "MoveToColdStorageAfterDays"
-                              Prelude.<$> moveToColdStorageAfterDays])}
+                              Prelude.<$> moveToColdStorageAfterDays,
+                            (JSON..=) "OptInToArchiveForSupportedResources"
+                              Prelude.<$> optInToArchiveForSupportedResources])}
 instance JSON.ToJSON LifecycleResourceTypeProperty where
   toJSON LifecycleResourceTypeProperty {..}
     = JSON.object
@@ -32,7 +36,9 @@ instance JSON.ToJSON LifecycleResourceTypeProperty where
            (Prelude.catMaybes
               [(JSON..=) "DeleteAfterDays" Prelude.<$> deleteAfterDays,
                (JSON..=) "MoveToColdStorageAfterDays"
-                 Prelude.<$> moveToColdStorageAfterDays]))
+                 Prelude.<$> moveToColdStorageAfterDays,
+               (JSON..=) "OptInToArchiveForSupportedResources"
+                 Prelude.<$> optInToArchiveForSupportedResources]))
 instance Property "DeleteAfterDays" LifecycleResourceTypeProperty where
   type PropertyType "DeleteAfterDays" LifecycleResourceTypeProperty = Value Prelude.Double
   set newValue LifecycleResourceTypeProperty {..}
@@ -43,3 +49,8 @@ instance Property "MoveToColdStorageAfterDays" LifecycleResourceTypeProperty whe
   set newValue LifecycleResourceTypeProperty {..}
     = LifecycleResourceTypeProperty
         {moveToColdStorageAfterDays = Prelude.pure newValue, ..}
+instance Property "OptInToArchiveForSupportedResources" LifecycleResourceTypeProperty where
+  type PropertyType "OptInToArchiveForSupportedResources" LifecycleResourceTypeProperty = Value Prelude.Bool
+  set newValue LifecycleResourceTypeProperty {..}
+    = LifecycleResourceTypeProperty
+        {optInToArchiveForSupportedResources = Prelude.pure newValue, ..}

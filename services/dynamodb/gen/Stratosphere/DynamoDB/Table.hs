@@ -13,6 +13,7 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.Table.KinesisStreamSpecificationProp
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.LocalSecondaryIndexProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.PointInTimeRecoverySpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.ProvisionedThroughputProperty as Exports
+import {-# SOURCE #-} Stratosphere.DynamoDB.Table.ResourcePolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.SSESpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.StreamSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.TimeToLiveSpecificationProperty as Exports
@@ -31,6 +32,7 @@ data Table
            localSecondaryIndexes :: (Prelude.Maybe [LocalSecondaryIndexProperty]),
            pointInTimeRecoverySpecification :: (Prelude.Maybe PointInTimeRecoverySpecificationProperty),
            provisionedThroughput :: (Prelude.Maybe ProvisionedThroughputProperty),
+           resourcePolicy :: (Prelude.Maybe ResourcePolicyProperty),
            sSESpecification :: (Prelude.Maybe SSESpecificationProperty),
            streamSpecification :: (Prelude.Maybe StreamSpecificationProperty),
            tableClass :: (Prelude.Maybe (Value Prelude.Text)),
@@ -51,6 +53,7 @@ mkTable keySchema
        localSecondaryIndexes = Prelude.Nothing,
        pointInTimeRecoverySpecification = Prelude.Nothing,
        provisionedThroughput = Prelude.Nothing,
+       resourcePolicy = Prelude.Nothing,
        sSESpecification = Prelude.Nothing,
        streamSpecification = Prelude.Nothing,
        tableClass = Prelude.Nothing, tableName = Prelude.Nothing,
@@ -81,6 +84,7 @@ instance ToResourceProperties Table where
                                  Prelude.<$> pointInTimeRecoverySpecification,
                                (JSON..=) "ProvisionedThroughput"
                                  Prelude.<$> provisionedThroughput,
+                               (JSON..=) "ResourcePolicy" Prelude.<$> resourcePolicy,
                                (JSON..=) "SSESpecification" Prelude.<$> sSESpecification,
                                (JSON..=) "StreamSpecification" Prelude.<$> streamSpecification,
                                (JSON..=) "TableClass" Prelude.<$> tableClass,
@@ -113,6 +117,7 @@ instance JSON.ToJSON Table where
                     Prelude.<$> pointInTimeRecoverySpecification,
                   (JSON..=) "ProvisionedThroughput"
                     Prelude.<$> provisionedThroughput,
+                  (JSON..=) "ResourcePolicy" Prelude.<$> resourcePolicy,
                   (JSON..=) "SSESpecification" Prelude.<$> sSESpecification,
                   (JSON..=) "StreamSpecification" Prelude.<$> streamSpecification,
                   (JSON..=) "TableClass" Prelude.<$> tableClass,
@@ -165,6 +170,10 @@ instance Property "ProvisionedThroughput" Table where
   type PropertyType "ProvisionedThroughput" Table = ProvisionedThroughputProperty
   set newValue Table {..}
     = Table {provisionedThroughput = Prelude.pure newValue, ..}
+instance Property "ResourcePolicy" Table where
+  type PropertyType "ResourcePolicy" Table = ResourcePolicyProperty
+  set newValue Table {..}
+    = Table {resourcePolicy = Prelude.pure newValue, ..}
 instance Property "SSESpecification" Table where
   type PropertyType "SSESpecification" Table = SSESpecificationProperty
   set newValue Table {..}

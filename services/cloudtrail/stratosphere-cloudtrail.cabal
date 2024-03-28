@@ -30,6 +30,7 @@ library
       Stratosphere.CloudTrail.EventDataStore
       Stratosphere.CloudTrail.EventDataStore.AdvancedEventSelectorProperty
       Stratosphere.CloudTrail.EventDataStore.AdvancedFieldSelectorProperty
+      Stratosphere.CloudTrail.EventDataStore.InsightSelectorProperty
       Stratosphere.CloudTrail.ResourcePolicy
       Stratosphere.CloudTrail.Trail
       Stratosphere.CloudTrail.Trail.AdvancedEventSelectorProperty

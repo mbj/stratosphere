@@ -1,0 +1,9 @@
+module Stratosphere.MediaTailor.SourceLocation.SegmentDeliveryConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SegmentDeliveryConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SegmentDeliveryConfigurationProperty
+instance Prelude.Eq SegmentDeliveryConfigurationProperty
+instance Prelude.Show SegmentDeliveryConfigurationProperty
+instance JSON.ToJSON SegmentDeliveryConfigurationProperty

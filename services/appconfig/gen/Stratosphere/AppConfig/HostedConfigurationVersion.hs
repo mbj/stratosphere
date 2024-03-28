@@ -12,7 +12,7 @@ data HostedConfigurationVersion
                                 content :: (Value Prelude.Text),
                                 contentType :: (Value Prelude.Text),
                                 description :: (Prelude.Maybe (Value Prelude.Text)),
-                                latestVersionNumber :: (Prelude.Maybe (Value Prelude.Double)),
+                                latestVersionNumber :: (Prelude.Maybe (Value Prelude.Integer)),
                                 versionLabel :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHostedConfigurationVersion ::
@@ -80,7 +80,7 @@ instance Property "Description" HostedConfigurationVersion where
     = HostedConfigurationVersion
         {description = Prelude.pure newValue, ..}
 instance Property "LatestVersionNumber" HostedConfigurationVersion where
-  type PropertyType "LatestVersionNumber" HostedConfigurationVersion = Value Prelude.Double
+  type PropertyType "LatestVersionNumber" HostedConfigurationVersion = Value Prelude.Integer
   set newValue HostedConfigurationVersion {..}
     = HostedConfigurationVersion
         {latestVersionNumber = Prelude.pure newValue, ..}

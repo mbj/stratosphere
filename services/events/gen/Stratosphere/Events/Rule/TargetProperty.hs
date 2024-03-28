@@ -4,6 +4,7 @@ module Stratosphere.Events.Rule.TargetProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Events.Rule.AppSyncParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.Events.Rule.BatchParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.Events.Rule.DeadLetterConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Events.Rule.EcsParametersProperty as Exports
@@ -18,7 +19,8 @@ import {-# SOURCE #-} Stratosphere.Events.Rule.SqsParametersProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TargetProperty
-  = TargetProperty {arn :: (Value Prelude.Text),
+  = TargetProperty {appSyncParameters :: (Prelude.Maybe AppSyncParametersProperty),
+                    arn :: (Value Prelude.Text),
                     batchParameters :: (Prelude.Maybe BatchParametersProperty),
                     deadLetterConfig :: (Prelude.Maybe DeadLetterConfigProperty),
                     ecsParameters :: (Prelude.Maybe EcsParametersProperty),
@@ -39,7 +41,8 @@ mkTargetProperty ::
   Value Prelude.Text -> Value Prelude.Text -> TargetProperty
 mkTargetProperty arn id
   = TargetProperty
-      {arn = arn, id = id, batchParameters = Prelude.Nothing,
+      {arn = arn, id = id, appSyncParameters = Prelude.Nothing,
+       batchParameters = Prelude.Nothing,
        deadLetterConfig = Prelude.Nothing,
        ecsParameters = Prelude.Nothing, httpParameters = Prelude.Nothing,
        input = Prelude.Nothing, inputPath = Prelude.Nothing,
@@ -59,7 +62,8 @@ instance ToResourceProperties TargetProperty where
                         ((Prelude.<>)
                            ["Arn" JSON..= arn, "Id" JSON..= id]
                            (Prelude.catMaybes
-                              [(JSON..=) "BatchParameters" Prelude.<$> batchParameters,
+                              [(JSON..=) "AppSyncParameters" Prelude.<$> appSyncParameters,
+                               (JSON..=) "BatchParameters" Prelude.<$> batchParameters,
                                (JSON..=) "DeadLetterConfig" Prelude.<$> deadLetterConfig,
                                (JSON..=) "EcsParameters" Prelude.<$> ecsParameters,
                                (JSON..=) "HttpParameters" Prelude.<$> httpParameters,
@@ -82,7 +86,8 @@ instance JSON.ToJSON TargetProperty where
            ((Prelude.<>)
               ["Arn" JSON..= arn, "Id" JSON..= id]
               (Prelude.catMaybes
-                 [(JSON..=) "BatchParameters" Prelude.<$> batchParameters,
+                 [(JSON..=) "AppSyncParameters" Prelude.<$> appSyncParameters,
+                  (JSON..=) "BatchParameters" Prelude.<$> batchParameters,
                   (JSON..=) "DeadLetterConfig" Prelude.<$> deadLetterConfig,
                   (JSON..=) "EcsParameters" Prelude.<$> ecsParameters,
                   (JSON..=) "HttpParameters" Prelude.<$> httpParameters,
@@ -98,6 +103,10 @@ instance JSON.ToJSON TargetProperty where
                   (JSON..=) "SageMakerPipelineParameters"
                     Prelude.<$> sageMakerPipelineParameters,
                   (JSON..=) "SqsParameters" Prelude.<$> sqsParameters])))
+instance Property "AppSyncParameters" TargetProperty where
+  type PropertyType "AppSyncParameters" TargetProperty = AppSyncParametersProperty
+  set newValue TargetProperty {..}
+    = TargetProperty {appSyncParameters = Prelude.pure newValue, ..}
 instance Property "Arn" TargetProperty where
   type PropertyType "Arn" TargetProperty = Value Prelude.Text
   set newValue TargetProperty {..}

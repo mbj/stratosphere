@@ -10,29 +10,24 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.MeasureFieldProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopBottomMoversComputationProperty
-  = TopBottomMoversComputationProperty {category :: DimensionFieldProperty,
+  = TopBottomMoversComputationProperty {category :: (Prelude.Maybe DimensionFieldProperty),
                                         computationId :: (Value Prelude.Text),
                                         moverSize :: (Prelude.Maybe (Value Prelude.Double)),
                                         name :: (Prelude.Maybe (Value Prelude.Text)),
                                         sortOrder :: (Prelude.Maybe (Value Prelude.Text)),
-                                        time :: DimensionFieldProperty,
+                                        time :: (Prelude.Maybe DimensionFieldProperty),
                                         type' :: (Value Prelude.Text),
                                         value :: (Prelude.Maybe MeasureFieldProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopBottomMoversComputationProperty ::
-  DimensionFieldProperty
-  -> Value Prelude.Text
-     -> DimensionFieldProperty
-        -> Value Prelude.Text -> TopBottomMoversComputationProperty
-mkTopBottomMoversComputationProperty
-  category
-  computationId
-  time
-  type'
+  Value Prelude.Text
+  -> Value Prelude.Text -> TopBottomMoversComputationProperty
+mkTopBottomMoversComputationProperty computationId type'
   = TopBottomMoversComputationProperty
-      {category = category, computationId = computationId, time = time,
-       type' = type', moverSize = Prelude.Nothing, name = Prelude.Nothing,
-       sortOrder = Prelude.Nothing, value = Prelude.Nothing}
+      {computationId = computationId, type' = type',
+       category = Prelude.Nothing, moverSize = Prelude.Nothing,
+       name = Prelude.Nothing, sortOrder = Prelude.Nothing,
+       time = Prelude.Nothing, value = Prelude.Nothing}
 instance ToResourceProperties TopBottomMoversComputationProperty where
   toResourceProperties TopBottomMoversComputationProperty {..}
     = ResourceProperties
@@ -40,31 +35,32 @@ instance ToResourceProperties TopBottomMoversComputationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Category" JSON..= category,
-                            "ComputationId" JSON..= computationId, "Time" JSON..= time,
-                            "Type" JSON..= type']
+                           ["ComputationId" JSON..= computationId, "Type" JSON..= type']
                            (Prelude.catMaybes
-                              [(JSON..=) "MoverSize" Prelude.<$> moverSize,
+                              [(JSON..=) "Category" Prelude.<$> category,
+                               (JSON..=) "MoverSize" Prelude.<$> moverSize,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "SortOrder" Prelude.<$> sortOrder,
+                               (JSON..=) "Time" Prelude.<$> time,
                                (JSON..=) "Value" Prelude.<$> value]))}
 instance JSON.ToJSON TopBottomMoversComputationProperty where
   toJSON TopBottomMoversComputationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Category" JSON..= category,
-               "ComputationId" JSON..= computationId, "Time" JSON..= time,
-               "Type" JSON..= type']
+              ["ComputationId" JSON..= computationId, "Type" JSON..= type']
               (Prelude.catMaybes
-                 [(JSON..=) "MoverSize" Prelude.<$> moverSize,
+                 [(JSON..=) "Category" Prelude.<$> category,
+                  (JSON..=) "MoverSize" Prelude.<$> moverSize,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "SortOrder" Prelude.<$> sortOrder,
+                  (JSON..=) "Time" Prelude.<$> time,
                   (JSON..=) "Value" Prelude.<$> value])))
 instance Property "Category" TopBottomMoversComputationProperty where
   type PropertyType "Category" TopBottomMoversComputationProperty = DimensionFieldProperty
   set newValue TopBottomMoversComputationProperty {..}
-    = TopBottomMoversComputationProperty {category = newValue, ..}
+    = TopBottomMoversComputationProperty
+        {category = Prelude.pure newValue, ..}
 instance Property "ComputationId" TopBottomMoversComputationProperty where
   type PropertyType "ComputationId" TopBottomMoversComputationProperty = Value Prelude.Text
   set newValue TopBottomMoversComputationProperty {..}
@@ -87,7 +83,8 @@ instance Property "SortOrder" TopBottomMoversComputationProperty where
 instance Property "Time" TopBottomMoversComputationProperty where
   type PropertyType "Time" TopBottomMoversComputationProperty = DimensionFieldProperty
   set newValue TopBottomMoversComputationProperty {..}
-    = TopBottomMoversComputationProperty {time = newValue, ..}
+    = TopBottomMoversComputationProperty
+        {time = Prelude.pure newValue, ..}
 instance Property "Type" TopBottomMoversComputationProperty where
   type PropertyType "Type" TopBottomMoversComputationProperty = Value Prelude.Text
   set newValue TopBottomMoversComputationProperty {..}

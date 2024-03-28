@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Space.SpaceJupyterLabAppSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpaceJupyterLabAppSettingsProperty :: Prelude.Type
+instance ToResourceProperties SpaceJupyterLabAppSettingsProperty
+instance Prelude.Eq SpaceJupyterLabAppSettingsProperty
+instance Prelude.Show SpaceJupyterLabAppSettingsProperty
+instance JSON.ToJSON SpaceJupyterLabAppSettingsProperty

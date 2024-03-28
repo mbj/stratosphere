@@ -4,13 +4,16 @@ module Stratosphere.SNS.Topic (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SNS.Topic.LoggingConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.SNS.Topic.SubscriptionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Topic
-  = Topic {contentBasedDeduplication :: (Prelude.Maybe (Value Prelude.Bool)),
+  = Topic {archivePolicy :: (Prelude.Maybe JSON.Object),
+           contentBasedDeduplication :: (Prelude.Maybe (Value Prelude.Bool)),
            dataProtectionPolicy :: (Prelude.Maybe JSON.Object),
+           deliveryStatusLogging :: (Prelude.Maybe [LoggingConfigProperty]),
            displayName :: (Prelude.Maybe (Value Prelude.Text)),
            fifoTopic :: (Prelude.Maybe (Value Prelude.Bool)),
            kmsMasterKeyId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -23,8 +26,10 @@ data Topic
 mkTopic :: Topic
 mkTopic
   = Topic
-      {contentBasedDeduplication = Prelude.Nothing,
+      {archivePolicy = Prelude.Nothing,
+       contentBasedDeduplication = Prelude.Nothing,
        dataProtectionPolicy = Prelude.Nothing,
+       deliveryStatusLogging = Prelude.Nothing,
        displayName = Prelude.Nothing, fifoTopic = Prelude.Nothing,
        kmsMasterKeyId = Prelude.Nothing,
        signatureVersion = Prelude.Nothing, subscription = Prelude.Nothing,
@@ -36,9 +41,12 @@ instance ToResourceProperties Topic where
         {awsType = "AWS::SNS::Topic", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "ContentBasedDeduplication"
+                           [(JSON..=) "ArchivePolicy" Prelude.<$> archivePolicy,
+                            (JSON..=) "ContentBasedDeduplication"
                               Prelude.<$> contentBasedDeduplication,
                             (JSON..=) "DataProtectionPolicy" Prelude.<$> dataProtectionPolicy,
+                            (JSON..=) "DeliveryStatusLogging"
+                              Prelude.<$> deliveryStatusLogging,
                             (JSON..=) "DisplayName" Prelude.<$> displayName,
                             (JSON..=) "FifoTopic" Prelude.<$> fifoTopic,
                             (JSON..=) "KmsMasterKeyId" Prelude.<$> kmsMasterKeyId,
@@ -52,9 +60,12 @@ instance JSON.ToJSON Topic where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "ContentBasedDeduplication"
+              [(JSON..=) "ArchivePolicy" Prelude.<$> archivePolicy,
+               (JSON..=) "ContentBasedDeduplication"
                  Prelude.<$> contentBasedDeduplication,
                (JSON..=) "DataProtectionPolicy" Prelude.<$> dataProtectionPolicy,
+               (JSON..=) "DeliveryStatusLogging"
+                 Prelude.<$> deliveryStatusLogging,
                (JSON..=) "DisplayName" Prelude.<$> displayName,
                (JSON..=) "FifoTopic" Prelude.<$> fifoTopic,
                (JSON..=) "KmsMasterKeyId" Prelude.<$> kmsMasterKeyId,
@@ -63,6 +74,10 @@ instance JSON.ToJSON Topic where
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "TopicName" Prelude.<$> topicName,
                (JSON..=) "TracingConfig" Prelude.<$> tracingConfig]))
+instance Property "ArchivePolicy" Topic where
+  type PropertyType "ArchivePolicy" Topic = JSON.Object
+  set newValue Topic {..}
+    = Topic {archivePolicy = Prelude.pure newValue, ..}
 instance Property "ContentBasedDeduplication" Topic where
   type PropertyType "ContentBasedDeduplication" Topic = Value Prelude.Bool
   set newValue Topic {..}
@@ -71,6 +86,10 @@ instance Property "DataProtectionPolicy" Topic where
   type PropertyType "DataProtectionPolicy" Topic = JSON.Object
   set newValue Topic {..}
     = Topic {dataProtectionPolicy = Prelude.pure newValue, ..}
+instance Property "DeliveryStatusLogging" Topic where
+  type PropertyType "DeliveryStatusLogging" Topic = [LoggingConfigProperty]
+  set newValue Topic {..}
+    = Topic {deliveryStatusLogging = Prelude.pure newValue, ..}
 instance Property "DisplayName" Topic where
   type PropertyType "DisplayName" Topic = Value Prelude.Text
   set newValue Topic {..}

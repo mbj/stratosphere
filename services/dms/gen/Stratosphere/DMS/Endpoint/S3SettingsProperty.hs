@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3SettingsProperty
   = S3SettingsProperty {addColumnName :: (Prelude.Maybe (Value Prelude.Bool)),
+                        addTrailingPaddingCharacter :: (Prelude.Maybe (Value Prelude.Bool)),
                         bucketFolder :: (Prelude.Maybe (Value Prelude.Text)),
                         bucketName :: (Prelude.Maybe (Value Prelude.Text)),
                         cannedAclForObjects :: (Prelude.Maybe (Value Prelude.Text)),
@@ -31,7 +32,9 @@ data S3SettingsProperty
                         enableStatistics :: (Prelude.Maybe (Value Prelude.Bool)),
                         encodingType :: (Prelude.Maybe (Value Prelude.Text)),
                         encryptionMode :: (Prelude.Maybe (Value Prelude.Text)),
+                        expectedBucketOwner :: (Prelude.Maybe (Value Prelude.Text)),
                         externalTableDefinition :: (Prelude.Maybe (Value Prelude.Text)),
+                        glueCatalogGeneration :: (Prelude.Maybe (Value Prelude.Bool)),
                         ignoreHeaderRows :: (Prelude.Maybe (Value Prelude.Integer)),
                         includeOpForFullLoad :: (Prelude.Maybe (Value Prelude.Bool)),
                         maxFileSize :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -49,8 +52,9 @@ data S3SettingsProperty
 mkS3SettingsProperty :: S3SettingsProperty
 mkS3SettingsProperty
   = S3SettingsProperty
-      {addColumnName = Prelude.Nothing, bucketFolder = Prelude.Nothing,
-       bucketName = Prelude.Nothing,
+      {addColumnName = Prelude.Nothing,
+       addTrailingPaddingCharacter = Prelude.Nothing,
+       bucketFolder = Prelude.Nothing, bucketName = Prelude.Nothing,
        cannedAclForObjects = Prelude.Nothing,
        cdcInsertsAndUpdates = Prelude.Nothing,
        cdcInsertsOnly = Prelude.Nothing,
@@ -67,7 +71,9 @@ mkS3SettingsProperty
        dictPageSizeLimit = Prelude.Nothing,
        enableStatistics = Prelude.Nothing, encodingType = Prelude.Nothing,
        encryptionMode = Prelude.Nothing,
+       expectedBucketOwner = Prelude.Nothing,
        externalTableDefinition = Prelude.Nothing,
+       glueCatalogGeneration = Prelude.Nothing,
        ignoreHeaderRows = Prelude.Nothing,
        includeOpForFullLoad = Prelude.Nothing,
        maxFileSize = Prelude.Nothing,
@@ -88,6 +94,8 @@ instance ToResourceProperties S3SettingsProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AddColumnName" Prelude.<$> addColumnName,
+                            (JSON..=) "AddTrailingPaddingCharacter"
+                              Prelude.<$> addTrailingPaddingCharacter,
                             (JSON..=) "BucketFolder" Prelude.<$> bucketFolder,
                             (JSON..=) "BucketName" Prelude.<$> bucketName,
                             (JSON..=) "CannedAclForObjects" Prelude.<$> cannedAclForObjects,
@@ -114,8 +122,11 @@ instance ToResourceProperties S3SettingsProperty where
                             (JSON..=) "EnableStatistics" Prelude.<$> enableStatistics,
                             (JSON..=) "EncodingType" Prelude.<$> encodingType,
                             (JSON..=) "EncryptionMode" Prelude.<$> encryptionMode,
+                            (JSON..=) "ExpectedBucketOwner" Prelude.<$> expectedBucketOwner,
                             (JSON..=) "ExternalTableDefinition"
                               Prelude.<$> externalTableDefinition,
+                            (JSON..=) "GlueCatalogGeneration"
+                              Prelude.<$> glueCatalogGeneration,
                             (JSON..=) "IgnoreHeaderRows" Prelude.<$> ignoreHeaderRows,
                             (JSON..=) "IncludeOpForFullLoad" Prelude.<$> includeOpForFullLoad,
                             (JSON..=) "MaxFileSize" Prelude.<$> maxFileSize,
@@ -138,6 +149,8 @@ instance JSON.ToJSON S3SettingsProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "AddColumnName" Prelude.<$> addColumnName,
+               (JSON..=) "AddTrailingPaddingCharacter"
+                 Prelude.<$> addTrailingPaddingCharacter,
                (JSON..=) "BucketFolder" Prelude.<$> bucketFolder,
                (JSON..=) "BucketName" Prelude.<$> bucketName,
                (JSON..=) "CannedAclForObjects" Prelude.<$> cannedAclForObjects,
@@ -164,8 +177,11 @@ instance JSON.ToJSON S3SettingsProperty where
                (JSON..=) "EnableStatistics" Prelude.<$> enableStatistics,
                (JSON..=) "EncodingType" Prelude.<$> encodingType,
                (JSON..=) "EncryptionMode" Prelude.<$> encryptionMode,
+               (JSON..=) "ExpectedBucketOwner" Prelude.<$> expectedBucketOwner,
                (JSON..=) "ExternalTableDefinition"
                  Prelude.<$> externalTableDefinition,
+               (JSON..=) "GlueCatalogGeneration"
+                 Prelude.<$> glueCatalogGeneration,
                (JSON..=) "IgnoreHeaderRows" Prelude.<$> ignoreHeaderRows,
                (JSON..=) "IncludeOpForFullLoad" Prelude.<$> includeOpForFullLoad,
                (JSON..=) "MaxFileSize" Prelude.<$> maxFileSize,
@@ -186,6 +202,11 @@ instance Property "AddColumnName" S3SettingsProperty where
   type PropertyType "AddColumnName" S3SettingsProperty = Value Prelude.Bool
   set newValue S3SettingsProperty {..}
     = S3SettingsProperty {addColumnName = Prelude.pure newValue, ..}
+instance Property "AddTrailingPaddingCharacter" S3SettingsProperty where
+  type PropertyType "AddTrailingPaddingCharacter" S3SettingsProperty = Value Prelude.Bool
+  set newValue S3SettingsProperty {..}
+    = S3SettingsProperty
+        {addTrailingPaddingCharacter = Prelude.pure newValue, ..}
 instance Property "BucketFolder" S3SettingsProperty where
   type PropertyType "BucketFolder" S3SettingsProperty = Value Prelude.Text
   set newValue S3SettingsProperty {..}
@@ -286,11 +307,21 @@ instance Property "EncryptionMode" S3SettingsProperty where
   type PropertyType "EncryptionMode" S3SettingsProperty = Value Prelude.Text
   set newValue S3SettingsProperty {..}
     = S3SettingsProperty {encryptionMode = Prelude.pure newValue, ..}
+instance Property "ExpectedBucketOwner" S3SettingsProperty where
+  type PropertyType "ExpectedBucketOwner" S3SettingsProperty = Value Prelude.Text
+  set newValue S3SettingsProperty {..}
+    = S3SettingsProperty
+        {expectedBucketOwner = Prelude.pure newValue, ..}
 instance Property "ExternalTableDefinition" S3SettingsProperty where
   type PropertyType "ExternalTableDefinition" S3SettingsProperty = Value Prelude.Text
   set newValue S3SettingsProperty {..}
     = S3SettingsProperty
         {externalTableDefinition = Prelude.pure newValue, ..}
+instance Property "GlueCatalogGeneration" S3SettingsProperty where
+  type PropertyType "GlueCatalogGeneration" S3SettingsProperty = Value Prelude.Bool
+  set newValue S3SettingsProperty {..}
+    = S3SettingsProperty
+        {glueCatalogGeneration = Prelude.pure newValue, ..}
 instance Property "IgnoreHeaderRows" S3SettingsProperty where
   type PropertyType "IgnoreHeaderRows" S3SettingsProperty = Value Prelude.Integer
   set newValue S3SettingsProperty {..}

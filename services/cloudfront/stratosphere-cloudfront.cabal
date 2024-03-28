@@ -37,7 +37,9 @@ library
       Stratosphere.CloudFront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfigProperty
       Stratosphere.CloudFront.ContinuousDeploymentPolicy.SessionStickinessConfigProperty
       Stratosphere.CloudFront.ContinuousDeploymentPolicy.SingleHeaderConfigProperty
+      Stratosphere.CloudFront.ContinuousDeploymentPolicy.SingleHeaderPolicyConfigProperty
       Stratosphere.CloudFront.ContinuousDeploymentPolicy.SingleWeightConfigProperty
+      Stratosphere.CloudFront.ContinuousDeploymentPolicy.SingleWeightPolicyConfigProperty
       Stratosphere.CloudFront.ContinuousDeploymentPolicy.TrafficConfigProperty
       Stratosphere.CloudFront.Distribution
       Stratosphere.CloudFront.Distribution.CacheBehaviorProperty
@@ -68,8 +70,11 @@ library
       Stratosphere.CloudFront.Function
       Stratosphere.CloudFront.Function.FunctionConfigProperty
       Stratosphere.CloudFront.Function.FunctionMetadataProperty
+      Stratosphere.CloudFront.Function.KeyValueStoreAssociationProperty
       Stratosphere.CloudFront.KeyGroup
       Stratosphere.CloudFront.KeyGroup.KeyGroupConfigProperty
+      Stratosphere.CloudFront.KeyValueStore
+      Stratosphere.CloudFront.KeyValueStore.ImportSourceProperty
       Stratosphere.CloudFront.MonitoringSubscription
       Stratosphere.CloudFront.MonitoringSubscription.MonitoringSubscriptionProperty
       Stratosphere.CloudFront.MonitoringSubscription.RealtimeMetricsSubscriptionConfigProperty

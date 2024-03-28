@@ -11,13 +11,17 @@ data Studio
   = Studio {authMode :: (Value Prelude.Text),
             defaultS3Location :: (Value Prelude.Text),
             description :: (Prelude.Maybe (Value Prelude.Text)),
+            encryptionKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
             engineSecurityGroupId :: (Value Prelude.Text),
+            idcInstanceArn :: (Prelude.Maybe (Value Prelude.Text)),
+            idcUserAssignment :: (Prelude.Maybe (Value Prelude.Text)),
             idpAuthUrl :: (Prelude.Maybe (Value Prelude.Text)),
             idpRelayStateParameterName :: (Prelude.Maybe (Value Prelude.Text)),
             name :: (Value Prelude.Text),
             serviceRole :: (Value Prelude.Text),
             subnetIds :: (ValueList Prelude.Text),
             tags :: (Prelude.Maybe [Tag]),
+            trustedIdentityPropagationEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
             userRole :: (Prelude.Maybe (Value Prelude.Text)),
             vpcId :: (Value Prelude.Text),
             workspaceSecurityGroupId :: (Value Prelude.Text)}
@@ -44,9 +48,13 @@ mkStudio
        engineSecurityGroupId = engineSecurityGroupId, name = name,
        serviceRole = serviceRole, subnetIds = subnetIds, vpcId = vpcId,
        workspaceSecurityGroupId = workspaceSecurityGroupId,
-       description = Prelude.Nothing, idpAuthUrl = Prelude.Nothing,
+       description = Prelude.Nothing, encryptionKeyArn = Prelude.Nothing,
+       idcInstanceArn = Prelude.Nothing,
+       idcUserAssignment = Prelude.Nothing, idpAuthUrl = Prelude.Nothing,
        idpRelayStateParameterName = Prelude.Nothing,
-       tags = Prelude.Nothing, userRole = Prelude.Nothing}
+       tags = Prelude.Nothing,
+       trustedIdentityPropagationEnabled = Prelude.Nothing,
+       userRole = Prelude.Nothing}
 instance ToResourceProperties Studio where
   toResourceProperties Studio {..}
     = ResourceProperties
@@ -61,10 +69,15 @@ instance ToResourceProperties Studio where
                             "WorkspaceSecurityGroupId" JSON..= workspaceSecurityGroupId]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "EncryptionKeyArn" Prelude.<$> encryptionKeyArn,
+                               (JSON..=) "IdcInstanceArn" Prelude.<$> idcInstanceArn,
+                               (JSON..=) "IdcUserAssignment" Prelude.<$> idcUserAssignment,
                                (JSON..=) "IdpAuthUrl" Prelude.<$> idpAuthUrl,
                                (JSON..=) "IdpRelayStateParameterName"
                                  Prelude.<$> idpRelayStateParameterName,
                                (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "TrustedIdentityPropagationEnabled"
+                                 Prelude.<$> trustedIdentityPropagationEnabled,
                                (JSON..=) "UserRole" Prelude.<$> userRole]))}
 instance JSON.ToJSON Studio where
   toJSON Studio {..}
@@ -79,10 +92,15 @@ instance JSON.ToJSON Studio where
                "WorkspaceSecurityGroupId" JSON..= workspaceSecurityGroupId]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "EncryptionKeyArn" Prelude.<$> encryptionKeyArn,
+                  (JSON..=) "IdcInstanceArn" Prelude.<$> idcInstanceArn,
+                  (JSON..=) "IdcUserAssignment" Prelude.<$> idcUserAssignment,
                   (JSON..=) "IdpAuthUrl" Prelude.<$> idpAuthUrl,
                   (JSON..=) "IdpRelayStateParameterName"
                     Prelude.<$> idpRelayStateParameterName,
                   (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "TrustedIdentityPropagationEnabled"
+                    Prelude.<$> trustedIdentityPropagationEnabled,
                   (JSON..=) "UserRole" Prelude.<$> userRole])))
 instance Property "AuthMode" Studio where
   type PropertyType "AuthMode" Studio = Value Prelude.Text
@@ -95,10 +113,22 @@ instance Property "Description" Studio where
   type PropertyType "Description" Studio = Value Prelude.Text
   set newValue Studio {..}
     = Studio {description = Prelude.pure newValue, ..}
+instance Property "EncryptionKeyArn" Studio where
+  type PropertyType "EncryptionKeyArn" Studio = Value Prelude.Text
+  set newValue Studio {..}
+    = Studio {encryptionKeyArn = Prelude.pure newValue, ..}
 instance Property "EngineSecurityGroupId" Studio where
   type PropertyType "EngineSecurityGroupId" Studio = Value Prelude.Text
   set newValue Studio {..}
     = Studio {engineSecurityGroupId = newValue, ..}
+instance Property "IdcInstanceArn" Studio where
+  type PropertyType "IdcInstanceArn" Studio = Value Prelude.Text
+  set newValue Studio {..}
+    = Studio {idcInstanceArn = Prelude.pure newValue, ..}
+instance Property "IdcUserAssignment" Studio where
+  type PropertyType "IdcUserAssignment" Studio = Value Prelude.Text
+  set newValue Studio {..}
+    = Studio {idcUserAssignment = Prelude.pure newValue, ..}
 instance Property "IdpAuthUrl" Studio where
   type PropertyType "IdpAuthUrl" Studio = Value Prelude.Text
   set newValue Studio {..}
@@ -120,6 +150,11 @@ instance Property "Tags" Studio where
   type PropertyType "Tags" Studio = [Tag]
   set newValue Studio {..}
     = Studio {tags = Prelude.pure newValue, ..}
+instance Property "TrustedIdentityPropagationEnabled" Studio where
+  type PropertyType "TrustedIdentityPropagationEnabled" Studio = Value Prelude.Bool
+  set newValue Studio {..}
+    = Studio
+        {trustedIdentityPropagationEnabled = Prelude.pure newValue, ..}
 instance Property "UserRole" Studio where
   type PropertyType "UserRole" Studio = Value Prelude.Text
   set newValue Studio {..}

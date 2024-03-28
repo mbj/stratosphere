@@ -17,8 +17,7 @@ data ModelPackageContainerDefinitionProperty
                                              imageDigest :: (Prelude.Maybe (Value Prelude.Text)),
                                              modelDataUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                              modelInput :: (Prelude.Maybe ModelInputProperty),
-                                             nearestModelName :: (Prelude.Maybe (Value Prelude.Text)),
-                                             productId :: (Prelude.Maybe (Value Prelude.Text))}
+                                             nearestModelName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageContainerDefinitionProperty ::
   Value Prelude.Text -> ModelPackageContainerDefinitionProperty
@@ -28,7 +27,7 @@ mkModelPackageContainerDefinitionProperty image
        environment = Prelude.Nothing, framework = Prelude.Nothing,
        frameworkVersion = Prelude.Nothing, imageDigest = Prelude.Nothing,
        modelDataUrl = Prelude.Nothing, modelInput = Prelude.Nothing,
-       nearestModelName = Prelude.Nothing, productId = Prelude.Nothing}
+       nearestModelName = Prelude.Nothing}
 instance ToResourceProperties ModelPackageContainerDefinitionProperty where
   toResourceProperties ModelPackageContainerDefinitionProperty {..}
     = ResourceProperties
@@ -45,8 +44,7 @@ instance ToResourceProperties ModelPackageContainerDefinitionProperty where
                                (JSON..=) "ImageDigest" Prelude.<$> imageDigest,
                                (JSON..=) "ModelDataUrl" Prelude.<$> modelDataUrl,
                                (JSON..=) "ModelInput" Prelude.<$> modelInput,
-                               (JSON..=) "NearestModelName" Prelude.<$> nearestModelName,
-                               (JSON..=) "ProductId" Prelude.<$> productId]))}
+                               (JSON..=) "NearestModelName" Prelude.<$> nearestModelName]))}
 instance JSON.ToJSON ModelPackageContainerDefinitionProperty where
   toJSON ModelPackageContainerDefinitionProperty {..}
     = JSON.object
@@ -61,8 +59,7 @@ instance JSON.ToJSON ModelPackageContainerDefinitionProperty where
                   (JSON..=) "ImageDigest" Prelude.<$> imageDigest,
                   (JSON..=) "ModelDataUrl" Prelude.<$> modelDataUrl,
                   (JSON..=) "ModelInput" Prelude.<$> modelInput,
-                  (JSON..=) "NearestModelName" Prelude.<$> nearestModelName,
-                  (JSON..=) "ProductId" Prelude.<$> productId])))
+                  (JSON..=) "NearestModelName" Prelude.<$> nearestModelName])))
 instance Property "ContainerHostname" ModelPackageContainerDefinitionProperty where
   type PropertyType "ContainerHostname" ModelPackageContainerDefinitionProperty = Value Prelude.Text
   set newValue ModelPackageContainerDefinitionProperty {..}
@@ -107,8 +104,3 @@ instance Property "NearestModelName" ModelPackageContainerDefinitionProperty whe
   set newValue ModelPackageContainerDefinitionProperty {..}
     = ModelPackageContainerDefinitionProperty
         {nearestModelName = Prelude.pure newValue, ..}
-instance Property "ProductId" ModelPackageContainerDefinitionProperty where
-  type PropertyType "ProductId" ModelPackageContainerDefinitionProperty = Value Prelude.Text
-  set newValue ModelPackageContainerDefinitionProperty {..}
-    = ModelPackageContainerDefinitionProperty
-        {productId = Prelude.pure newValue, ..}

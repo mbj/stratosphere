@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRule.WorkflowUpdateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WorkflowUpdateProperty :: Prelude.Type
+instance ToResourceProperties WorkflowUpdateProperty
+instance Prelude.Eq WorkflowUpdateProperty
+instance Prelude.Show WorkflowUpdateProperty
+instance JSON.ToJSON WorkflowUpdateProperty

@@ -8,9 +8,11 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.LabelOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.ListControlSearchOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.ListControlSelectAllOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.SheetControlInfoIconLabelOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data ListControlDisplayOptionsProperty
-  = ListControlDisplayOptionsProperty {searchOptions :: (Prelude.Maybe ListControlSearchOptionsProperty),
+  = ListControlDisplayOptionsProperty {infoIconLabelOptions :: (Prelude.Maybe SheetControlInfoIconLabelOptionsProperty),
+                                       searchOptions :: (Prelude.Maybe ListControlSearchOptionsProperty),
                                        selectAllOptions :: (Prelude.Maybe ListControlSelectAllOptionsProperty),
                                        titleOptions :: (Prelude.Maybe LabelOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -18,7 +20,8 @@ mkListControlDisplayOptionsProperty ::
   ListControlDisplayOptionsProperty
 mkListControlDisplayOptionsProperty
   = ListControlDisplayOptionsProperty
-      {searchOptions = Prelude.Nothing,
+      {infoIconLabelOptions = Prelude.Nothing,
+       searchOptions = Prelude.Nothing,
        selectAllOptions = Prelude.Nothing, titleOptions = Prelude.Nothing}
 instance ToResourceProperties ListControlDisplayOptionsProperty where
   toResourceProperties ListControlDisplayOptionsProperty {..}
@@ -27,7 +30,8 @@ instance ToResourceProperties ListControlDisplayOptionsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "SearchOptions" Prelude.<$> searchOptions,
+                           [(JSON..=) "InfoIconLabelOptions" Prelude.<$> infoIconLabelOptions,
+                            (JSON..=) "SearchOptions" Prelude.<$> searchOptions,
                             (JSON..=) "SelectAllOptions" Prelude.<$> selectAllOptions,
                             (JSON..=) "TitleOptions" Prelude.<$> titleOptions])}
 instance JSON.ToJSON ListControlDisplayOptionsProperty where
@@ -35,9 +39,15 @@ instance JSON.ToJSON ListControlDisplayOptionsProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "SearchOptions" Prelude.<$> searchOptions,
+              [(JSON..=) "InfoIconLabelOptions" Prelude.<$> infoIconLabelOptions,
+               (JSON..=) "SearchOptions" Prelude.<$> searchOptions,
                (JSON..=) "SelectAllOptions" Prelude.<$> selectAllOptions,
                (JSON..=) "TitleOptions" Prelude.<$> titleOptions]))
+instance Property "InfoIconLabelOptions" ListControlDisplayOptionsProperty where
+  type PropertyType "InfoIconLabelOptions" ListControlDisplayOptionsProperty = SheetControlInfoIconLabelOptionsProperty
+  set newValue ListControlDisplayOptionsProperty {..}
+    = ListControlDisplayOptionsProperty
+        {infoIconLabelOptions = Prelude.pure newValue, ..}
 instance Property "SearchOptions" ListControlDisplayOptionsProperty where
   type PropertyType "SearchOptions" ListControlDisplayOptionsProperty = ListControlSearchOptionsProperty
   set newValue ListControlDisplayOptionsProperty {..}

@@ -26,6 +26,7 @@ flag development
 library
   exposed-modules:
       Stratosphere.IoTTwinMaker.ComponentType
+      Stratosphere.IoTTwinMaker.ComponentType.CompositeComponentTypeProperty
       Stratosphere.IoTTwinMaker.ComponentType.DataConnectorProperty
       Stratosphere.IoTTwinMaker.ComponentType.DataTypeProperty
       Stratosphere.IoTTwinMaker.ComponentType.DataValueProperty
@@ -39,6 +40,7 @@ library
       Stratosphere.IoTTwinMaker.ComponentType.StatusProperty
       Stratosphere.IoTTwinMaker.Entity
       Stratosphere.IoTTwinMaker.Entity.ComponentProperty
+      Stratosphere.IoTTwinMaker.Entity.CompositeComponentProperty
       Stratosphere.IoTTwinMaker.Entity.DataTypeProperty
       Stratosphere.IoTTwinMaker.Entity.DataValueProperty
       Stratosphere.IoTTwinMaker.Entity.DefinitionProperty

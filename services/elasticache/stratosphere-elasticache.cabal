@@ -43,6 +43,11 @@ library
       Stratosphere.ElastiCache.ReplicationGroup.NodeGroupConfigurationProperty
       Stratosphere.ElastiCache.SecurityGroup
       Stratosphere.ElastiCache.SecurityGroupIngress
+      Stratosphere.ElastiCache.ServerlessCache
+      Stratosphere.ElastiCache.ServerlessCache.CacheUsageLimitsProperty
+      Stratosphere.ElastiCache.ServerlessCache.DataStorageProperty
+      Stratosphere.ElastiCache.ServerlessCache.ECPUPerSecondProperty
+      Stratosphere.ElastiCache.ServerlessCache.EndpointProperty
       Stratosphere.ElastiCache.SubnetGroup
       Stratosphere.ElastiCache.User
       Stratosphere.ElastiCache.User.AuthenticationModeProperty

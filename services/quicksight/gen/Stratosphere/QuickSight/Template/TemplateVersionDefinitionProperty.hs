@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.AnalysisDefaultsProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.AssetOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.CalculatedFieldProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.ColumnConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.DataSetConfigurationProperty as Exports
@@ -19,6 +20,7 @@ data TemplateVersionDefinitionProperty
                                        columnConfigurations :: (Prelude.Maybe [ColumnConfigurationProperty]),
                                        dataSetConfigurations :: [DataSetConfigurationProperty],
                                        filterGroups :: (Prelude.Maybe [FilterGroupProperty]),
+                                       options :: (Prelude.Maybe AssetOptionsProperty),
                                        parameterDeclarations :: (Prelude.Maybe [ParameterDeclarationProperty]),
                                        sheets :: (Prelude.Maybe [SheetDefinitionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -30,7 +32,7 @@ mkTemplateVersionDefinitionProperty dataSetConfigurations
        analysisDefaults = Prelude.Nothing,
        calculatedFields = Prelude.Nothing,
        columnConfigurations = Prelude.Nothing,
-       filterGroups = Prelude.Nothing,
+       filterGroups = Prelude.Nothing, options = Prelude.Nothing,
        parameterDeclarations = Prelude.Nothing, sheets = Prelude.Nothing}
 instance ToResourceProperties TemplateVersionDefinitionProperty where
   toResourceProperties TemplateVersionDefinitionProperty {..}
@@ -45,6 +47,7 @@ instance ToResourceProperties TemplateVersionDefinitionProperty where
                                (JSON..=) "CalculatedFields" Prelude.<$> calculatedFields,
                                (JSON..=) "ColumnConfigurations" Prelude.<$> columnConfigurations,
                                (JSON..=) "FilterGroups" Prelude.<$> filterGroups,
+                               (JSON..=) "Options" Prelude.<$> options,
                                (JSON..=) "ParameterDeclarations"
                                  Prelude.<$> parameterDeclarations,
                                (JSON..=) "Sheets" Prelude.<$> sheets]))}
@@ -59,6 +62,7 @@ instance JSON.ToJSON TemplateVersionDefinitionProperty where
                   (JSON..=) "CalculatedFields" Prelude.<$> calculatedFields,
                   (JSON..=) "ColumnConfigurations" Prelude.<$> columnConfigurations,
                   (JSON..=) "FilterGroups" Prelude.<$> filterGroups,
+                  (JSON..=) "Options" Prelude.<$> options,
                   (JSON..=) "ParameterDeclarations"
                     Prelude.<$> parameterDeclarations,
                   (JSON..=) "Sheets" Prelude.<$> sheets])))
@@ -87,6 +91,11 @@ instance Property "FilterGroups" TemplateVersionDefinitionProperty where
   set newValue TemplateVersionDefinitionProperty {..}
     = TemplateVersionDefinitionProperty
         {filterGroups = Prelude.pure newValue, ..}
+instance Property "Options" TemplateVersionDefinitionProperty where
+  type PropertyType "Options" TemplateVersionDefinitionProperty = AssetOptionsProperty
+  set newValue TemplateVersionDefinitionProperty {..}
+    = TemplateVersionDefinitionProperty
+        {options = Prelude.pure newValue, ..}
 instance Property "ParameterDeclarations" TemplateVersionDefinitionProperty where
   type PropertyType "ParameterDeclarations" TemplateVersionDefinitionProperty = [ParameterDeclarationProperty]
   set newValue TemplateVersionDefinitionProperty {..}

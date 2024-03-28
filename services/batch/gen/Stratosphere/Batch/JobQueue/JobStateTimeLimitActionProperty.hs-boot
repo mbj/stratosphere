@@ -1,0 +1,9 @@
+module Stratosphere.Batch.JobQueue.JobStateTimeLimitActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data JobStateTimeLimitActionProperty :: Prelude.Type
+instance ToResourceProperties JobStateTimeLimitActionProperty
+instance Prelude.Eq JobStateTimeLimitActionProperty
+instance Prelude.Show JobStateTimeLimitActionProperty
+instance JSON.ToJSON JobStateTimeLimitActionProperty

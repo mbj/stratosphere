@@ -10,13 +10,21 @@ import Stratosphere.Value
 data MicrosoftSqlServerSettingsProperty
   = MicrosoftSqlServerSettingsProperty {bcpPacketSize :: (Prelude.Maybe (Value Prelude.Integer)),
                                         controlTablesFileGroup :: (Prelude.Maybe (Value Prelude.Text)),
+                                        databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+                                        forceLobLookup :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        password :: (Prelude.Maybe (Value Prelude.Text)),
+                                        port :: (Prelude.Maybe (Value Prelude.Integer)),
                                         querySingleAlwaysOnNode :: (Prelude.Maybe (Value Prelude.Bool)),
                                         readBackupOnly :: (Prelude.Maybe (Value Prelude.Bool)),
                                         safeguardPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                                         secretsManagerAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                         secretsManagerSecretId :: (Prelude.Maybe (Value Prelude.Text)),
+                                        serverName :: (Prelude.Maybe (Value Prelude.Text)),
+                                        tlogAccessMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                        trimSpaceInChar :: (Prelude.Maybe (Value Prelude.Bool)),
                                         useBcpFullLoad :: (Prelude.Maybe (Value Prelude.Bool)),
-                                        useThirdPartyBackupDevice :: (Prelude.Maybe (Value Prelude.Bool))}
+                                        useThirdPartyBackupDevice :: (Prelude.Maybe (Value Prelude.Bool)),
+                                        username :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMicrosoftSqlServerSettingsProperty ::
   MicrosoftSqlServerSettingsProperty
@@ -24,13 +32,18 @@ mkMicrosoftSqlServerSettingsProperty
   = MicrosoftSqlServerSettingsProperty
       {bcpPacketSize = Prelude.Nothing,
        controlTablesFileGroup = Prelude.Nothing,
+       databaseName = Prelude.Nothing, forceLobLookup = Prelude.Nothing,
+       password = Prelude.Nothing, port = Prelude.Nothing,
        querySingleAlwaysOnNode = Prelude.Nothing,
        readBackupOnly = Prelude.Nothing,
        safeguardPolicy = Prelude.Nothing,
        secretsManagerAccessRoleArn = Prelude.Nothing,
        secretsManagerSecretId = Prelude.Nothing,
+       serverName = Prelude.Nothing, tlogAccessMode = Prelude.Nothing,
+       trimSpaceInChar = Prelude.Nothing,
        useBcpFullLoad = Prelude.Nothing,
-       useThirdPartyBackupDevice = Prelude.Nothing}
+       useThirdPartyBackupDevice = Prelude.Nothing,
+       username = Prelude.Nothing}
 instance ToResourceProperties MicrosoftSqlServerSettingsProperty where
   toResourceProperties MicrosoftSqlServerSettingsProperty {..}
     = ResourceProperties
@@ -41,6 +54,10 @@ instance ToResourceProperties MicrosoftSqlServerSettingsProperty where
                            [(JSON..=) "BcpPacketSize" Prelude.<$> bcpPacketSize,
                             (JSON..=) "ControlTablesFileGroup"
                               Prelude.<$> controlTablesFileGroup,
+                            (JSON..=) "DatabaseName" Prelude.<$> databaseName,
+                            (JSON..=) "ForceLobLookup" Prelude.<$> forceLobLookup,
+                            (JSON..=) "Password" Prelude.<$> password,
+                            (JSON..=) "Port" Prelude.<$> port,
                             (JSON..=) "QuerySingleAlwaysOnNode"
                               Prelude.<$> querySingleAlwaysOnNode,
                             (JSON..=) "ReadBackupOnly" Prelude.<$> readBackupOnly,
@@ -49,9 +66,13 @@ instance ToResourceProperties MicrosoftSqlServerSettingsProperty where
                               Prelude.<$> secretsManagerAccessRoleArn,
                             (JSON..=) "SecretsManagerSecretId"
                               Prelude.<$> secretsManagerSecretId,
+                            (JSON..=) "ServerName" Prelude.<$> serverName,
+                            (JSON..=) "TlogAccessMode" Prelude.<$> tlogAccessMode,
+                            (JSON..=) "TrimSpaceInChar" Prelude.<$> trimSpaceInChar,
                             (JSON..=) "UseBcpFullLoad" Prelude.<$> useBcpFullLoad,
                             (JSON..=) "UseThirdPartyBackupDevice"
-                              Prelude.<$> useThirdPartyBackupDevice])}
+                              Prelude.<$> useThirdPartyBackupDevice,
+                            (JSON..=) "Username" Prelude.<$> username])}
 instance JSON.ToJSON MicrosoftSqlServerSettingsProperty where
   toJSON MicrosoftSqlServerSettingsProperty {..}
     = JSON.object
@@ -60,6 +81,10 @@ instance JSON.ToJSON MicrosoftSqlServerSettingsProperty where
               [(JSON..=) "BcpPacketSize" Prelude.<$> bcpPacketSize,
                (JSON..=) "ControlTablesFileGroup"
                  Prelude.<$> controlTablesFileGroup,
+               (JSON..=) "DatabaseName" Prelude.<$> databaseName,
+               (JSON..=) "ForceLobLookup" Prelude.<$> forceLobLookup,
+               (JSON..=) "Password" Prelude.<$> password,
+               (JSON..=) "Port" Prelude.<$> port,
                (JSON..=) "QuerySingleAlwaysOnNode"
                  Prelude.<$> querySingleAlwaysOnNode,
                (JSON..=) "ReadBackupOnly" Prelude.<$> readBackupOnly,
@@ -68,9 +93,13 @@ instance JSON.ToJSON MicrosoftSqlServerSettingsProperty where
                  Prelude.<$> secretsManagerAccessRoleArn,
                (JSON..=) "SecretsManagerSecretId"
                  Prelude.<$> secretsManagerSecretId,
+               (JSON..=) "ServerName" Prelude.<$> serverName,
+               (JSON..=) "TlogAccessMode" Prelude.<$> tlogAccessMode,
+               (JSON..=) "TrimSpaceInChar" Prelude.<$> trimSpaceInChar,
                (JSON..=) "UseBcpFullLoad" Prelude.<$> useBcpFullLoad,
                (JSON..=) "UseThirdPartyBackupDevice"
-                 Prelude.<$> useThirdPartyBackupDevice]))
+                 Prelude.<$> useThirdPartyBackupDevice,
+               (JSON..=) "Username" Prelude.<$> username]))
 instance Property "BcpPacketSize" MicrosoftSqlServerSettingsProperty where
   type PropertyType "BcpPacketSize" MicrosoftSqlServerSettingsProperty = Value Prelude.Integer
   set newValue MicrosoftSqlServerSettingsProperty {..}
@@ -81,6 +110,26 @@ instance Property "ControlTablesFileGroup" MicrosoftSqlServerSettingsProperty wh
   set newValue MicrosoftSqlServerSettingsProperty {..}
     = MicrosoftSqlServerSettingsProperty
         {controlTablesFileGroup = Prelude.pure newValue, ..}
+instance Property "DatabaseName" MicrosoftSqlServerSettingsProperty where
+  type PropertyType "DatabaseName" MicrosoftSqlServerSettingsProperty = Value Prelude.Text
+  set newValue MicrosoftSqlServerSettingsProperty {..}
+    = MicrosoftSqlServerSettingsProperty
+        {databaseName = Prelude.pure newValue, ..}
+instance Property "ForceLobLookup" MicrosoftSqlServerSettingsProperty where
+  type PropertyType "ForceLobLookup" MicrosoftSqlServerSettingsProperty = Value Prelude.Bool
+  set newValue MicrosoftSqlServerSettingsProperty {..}
+    = MicrosoftSqlServerSettingsProperty
+        {forceLobLookup = Prelude.pure newValue, ..}
+instance Property "Password" MicrosoftSqlServerSettingsProperty where
+  type PropertyType "Password" MicrosoftSqlServerSettingsProperty = Value Prelude.Text
+  set newValue MicrosoftSqlServerSettingsProperty {..}
+    = MicrosoftSqlServerSettingsProperty
+        {password = Prelude.pure newValue, ..}
+instance Property "Port" MicrosoftSqlServerSettingsProperty where
+  type PropertyType "Port" MicrosoftSqlServerSettingsProperty = Value Prelude.Integer
+  set newValue MicrosoftSqlServerSettingsProperty {..}
+    = MicrosoftSqlServerSettingsProperty
+        {port = Prelude.pure newValue, ..}
 instance Property "QuerySingleAlwaysOnNode" MicrosoftSqlServerSettingsProperty where
   type PropertyType "QuerySingleAlwaysOnNode" MicrosoftSqlServerSettingsProperty = Value Prelude.Bool
   set newValue MicrosoftSqlServerSettingsProperty {..}
@@ -106,6 +155,21 @@ instance Property "SecretsManagerSecretId" MicrosoftSqlServerSettingsProperty wh
   set newValue MicrosoftSqlServerSettingsProperty {..}
     = MicrosoftSqlServerSettingsProperty
         {secretsManagerSecretId = Prelude.pure newValue, ..}
+instance Property "ServerName" MicrosoftSqlServerSettingsProperty where
+  type PropertyType "ServerName" MicrosoftSqlServerSettingsProperty = Value Prelude.Text
+  set newValue MicrosoftSqlServerSettingsProperty {..}
+    = MicrosoftSqlServerSettingsProperty
+        {serverName = Prelude.pure newValue, ..}
+instance Property "TlogAccessMode" MicrosoftSqlServerSettingsProperty where
+  type PropertyType "TlogAccessMode" MicrosoftSqlServerSettingsProperty = Value Prelude.Text
+  set newValue MicrosoftSqlServerSettingsProperty {..}
+    = MicrosoftSqlServerSettingsProperty
+        {tlogAccessMode = Prelude.pure newValue, ..}
+instance Property "TrimSpaceInChar" MicrosoftSqlServerSettingsProperty where
+  type PropertyType "TrimSpaceInChar" MicrosoftSqlServerSettingsProperty = Value Prelude.Bool
+  set newValue MicrosoftSqlServerSettingsProperty {..}
+    = MicrosoftSqlServerSettingsProperty
+        {trimSpaceInChar = Prelude.pure newValue, ..}
 instance Property "UseBcpFullLoad" MicrosoftSqlServerSettingsProperty where
   type PropertyType "UseBcpFullLoad" MicrosoftSqlServerSettingsProperty = Value Prelude.Bool
   set newValue MicrosoftSqlServerSettingsProperty {..}
@@ -116,3 +180,8 @@ instance Property "UseThirdPartyBackupDevice" MicrosoftSqlServerSettingsProperty
   set newValue MicrosoftSqlServerSettingsProperty {..}
     = MicrosoftSqlServerSettingsProperty
         {useThirdPartyBackupDevice = Prelude.pure newValue, ..}
+instance Property "Username" MicrosoftSqlServerSettingsProperty where
+  type PropertyType "Username" MicrosoftSqlServerSettingsProperty = Value Prelude.Text
+  set newValue MicrosoftSqlServerSettingsProperty {..}
+    = MicrosoftSqlServerSettingsProperty
+        {username = Prelude.pure newValue, ..}

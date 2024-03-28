@@ -8,15 +8,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssetPropertyProperty
   = AssetPropertyProperty {alias :: (Prelude.Maybe (Value Prelude.Text)),
-                           logicalId :: (Value Prelude.Text),
+                           externalId :: (Prelude.Maybe (Value Prelude.Text)),
+                           id :: (Prelude.Maybe (Value Prelude.Text)),
+                           logicalId :: (Prelude.Maybe (Value Prelude.Text)),
                            notificationState :: (Prelude.Maybe (Value Prelude.Text)),
                            unit :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkAssetPropertyProperty ::
-  Value Prelude.Text -> AssetPropertyProperty
-mkAssetPropertyProperty logicalId
+mkAssetPropertyProperty :: AssetPropertyProperty
+mkAssetPropertyProperty
   = AssetPropertyProperty
-      {logicalId = logicalId, alias = Prelude.Nothing,
+      {alias = Prelude.Nothing, externalId = Prelude.Nothing,
+       id = Prelude.Nothing, logicalId = Prelude.Nothing,
        notificationState = Prelude.Nothing, unit = Prelude.Nothing}
 instance ToResourceProperties AssetPropertyProperty where
   toResourceProperties AssetPropertyProperty {..}
@@ -24,30 +26,40 @@ instance ToResourceProperties AssetPropertyProperty where
         {awsType = "AWS::IoTSiteWise::Asset.AssetProperty",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["LogicalId" JSON..= logicalId]
-                           (Prelude.catMaybes
-                              [(JSON..=) "Alias" Prelude.<$> alias,
-                               (JSON..=) "NotificationState" Prelude.<$> notificationState,
-                               (JSON..=) "Unit" Prelude.<$> unit]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "Alias" Prelude.<$> alias,
+                            (JSON..=) "ExternalId" Prelude.<$> externalId,
+                            (JSON..=) "Id" Prelude.<$> id,
+                            (JSON..=) "LogicalId" Prelude.<$> logicalId,
+                            (JSON..=) "NotificationState" Prelude.<$> notificationState,
+                            (JSON..=) "Unit" Prelude.<$> unit])}
 instance JSON.ToJSON AssetPropertyProperty where
   toJSON AssetPropertyProperty {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["LogicalId" JSON..= logicalId]
-              (Prelude.catMaybes
-                 [(JSON..=) "Alias" Prelude.<$> alias,
-                  (JSON..=) "NotificationState" Prelude.<$> notificationState,
-                  (JSON..=) "Unit" Prelude.<$> unit])))
+           (Prelude.catMaybes
+              [(JSON..=) "Alias" Prelude.<$> alias,
+               (JSON..=) "ExternalId" Prelude.<$> externalId,
+               (JSON..=) "Id" Prelude.<$> id,
+               (JSON..=) "LogicalId" Prelude.<$> logicalId,
+               (JSON..=) "NotificationState" Prelude.<$> notificationState,
+               (JSON..=) "Unit" Prelude.<$> unit]))
 instance Property "Alias" AssetPropertyProperty where
   type PropertyType "Alias" AssetPropertyProperty = Value Prelude.Text
   set newValue AssetPropertyProperty {..}
     = AssetPropertyProperty {alias = Prelude.pure newValue, ..}
+instance Property "ExternalId" AssetPropertyProperty where
+  type PropertyType "ExternalId" AssetPropertyProperty = Value Prelude.Text
+  set newValue AssetPropertyProperty {..}
+    = AssetPropertyProperty {externalId = Prelude.pure newValue, ..}
+instance Property "Id" AssetPropertyProperty where
+  type PropertyType "Id" AssetPropertyProperty = Value Prelude.Text
+  set newValue AssetPropertyProperty {..}
+    = AssetPropertyProperty {id = Prelude.pure newValue, ..}
 instance Property "LogicalId" AssetPropertyProperty where
   type PropertyType "LogicalId" AssetPropertyProperty = Value Prelude.Text
   set newValue AssetPropertyProperty {..}
-    = AssetPropertyProperty {logicalId = newValue, ..}
+    = AssetPropertyProperty {logicalId = Prelude.pure newValue, ..}
 instance Property "NotificationState" AssetPropertyProperty where
   type PropertyType "NotificationState" AssetPropertyProperty = Value Prelude.Text
   set newValue AssetPropertyProperty {..}

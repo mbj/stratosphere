@@ -10,7 +10,8 @@ import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.ResponseInspectionProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AWSManagedRulesATPRuleSetProperty
-  = AWSManagedRulesATPRuleSetProperty {loginPath :: (Value Prelude.Text),
+  = AWSManagedRulesATPRuleSetProperty {enableRegexInPath :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       loginPath :: (Value Prelude.Text),
                                        requestInspection :: (Prelude.Maybe RequestInspectionProperty),
                                        responseInspection :: (Prelude.Maybe ResponseInspectionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -18,7 +19,8 @@ mkAWSManagedRulesATPRuleSetProperty ::
   Value Prelude.Text -> AWSManagedRulesATPRuleSetProperty
 mkAWSManagedRulesATPRuleSetProperty loginPath
   = AWSManagedRulesATPRuleSetProperty
-      {loginPath = loginPath, requestInspection = Prelude.Nothing,
+      {loginPath = loginPath, enableRegexInPath = Prelude.Nothing,
+       requestInspection = Prelude.Nothing,
        responseInspection = Prelude.Nothing}
 instance ToResourceProperties AWSManagedRulesATPRuleSetProperty where
   toResourceProperties AWSManagedRulesATPRuleSetProperty {..}
@@ -29,7 +31,8 @@ instance ToResourceProperties AWSManagedRulesATPRuleSetProperty where
                         ((Prelude.<>)
                            ["LoginPath" JSON..= loginPath]
                            (Prelude.catMaybes
-                              [(JSON..=) "RequestInspection" Prelude.<$> requestInspection,
+                              [(JSON..=) "EnableRegexInPath" Prelude.<$> enableRegexInPath,
+                               (JSON..=) "RequestInspection" Prelude.<$> requestInspection,
                                (JSON..=) "ResponseInspection" Prelude.<$> responseInspection]))}
 instance JSON.ToJSON AWSManagedRulesATPRuleSetProperty where
   toJSON AWSManagedRulesATPRuleSetProperty {..}
@@ -38,8 +41,14 @@ instance JSON.ToJSON AWSManagedRulesATPRuleSetProperty where
            ((Prelude.<>)
               ["LoginPath" JSON..= loginPath]
               (Prelude.catMaybes
-                 [(JSON..=) "RequestInspection" Prelude.<$> requestInspection,
+                 [(JSON..=) "EnableRegexInPath" Prelude.<$> enableRegexInPath,
+                  (JSON..=) "RequestInspection" Prelude.<$> requestInspection,
                   (JSON..=) "ResponseInspection" Prelude.<$> responseInspection])))
+instance Property "EnableRegexInPath" AWSManagedRulesATPRuleSetProperty where
+  type PropertyType "EnableRegexInPath" AWSManagedRulesATPRuleSetProperty = Value Prelude.Bool
+  set newValue AWSManagedRulesATPRuleSetProperty {..}
+    = AWSManagedRulesATPRuleSetProperty
+        {enableRegexInPath = Prelude.pure newValue, ..}
 instance Property "LoginPath" AWSManagedRulesATPRuleSetProperty where
   type PropertyType "LoginPath" AWSManagedRulesATPRuleSetProperty = Value Prelude.Text
   set newValue AWSManagedRulesATPRuleSetProperty {..}

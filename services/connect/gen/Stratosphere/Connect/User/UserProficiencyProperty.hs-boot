@@ -1,0 +1,9 @@
+module Stratosphere.Connect.User.UserProficiencyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UserProficiencyProperty :: Prelude.Type
+instance ToResourceProperties UserProficiencyProperty
+instance Prelude.Eq UserProficiencyProperty
+instance Prelude.Show UserProficiencyProperty
+instance JSON.ToJSON UserProficiencyProperty

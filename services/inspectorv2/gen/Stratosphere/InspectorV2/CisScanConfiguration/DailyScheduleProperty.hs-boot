@@ -1,0 +1,9 @@
+module Stratosphere.InspectorV2.CisScanConfiguration.DailyScheduleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DailyScheduleProperty :: Prelude.Type
+instance ToResourceProperties DailyScheduleProperty
+instance Prelude.Eq DailyScheduleProperty
+instance Prelude.Show DailyScheduleProperty
+instance JSON.ToJSON DailyScheduleProperty

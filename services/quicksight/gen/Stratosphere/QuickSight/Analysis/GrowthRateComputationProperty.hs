@@ -13,16 +13,15 @@ data GrowthRateComputationProperty
   = GrowthRateComputationProperty {computationId :: (Value Prelude.Text),
                                    name :: (Prelude.Maybe (Value Prelude.Text)),
                                    periodSize :: (Prelude.Maybe (Value Prelude.Double)),
-                                   time :: DimensionFieldProperty,
+                                   time :: (Prelude.Maybe DimensionFieldProperty),
                                    value :: (Prelude.Maybe MeasureFieldProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGrowthRateComputationProperty ::
-  Value Prelude.Text
-  -> DimensionFieldProperty -> GrowthRateComputationProperty
-mkGrowthRateComputationProperty computationId time
+  Value Prelude.Text -> GrowthRateComputationProperty
+mkGrowthRateComputationProperty computationId
   = GrowthRateComputationProperty
-      {computationId = computationId, time = time,
-       name = Prelude.Nothing, periodSize = Prelude.Nothing,
+      {computationId = computationId, name = Prelude.Nothing,
+       periodSize = Prelude.Nothing, time = Prelude.Nothing,
        value = Prelude.Nothing}
 instance ToResourceProperties GrowthRateComputationProperty where
   toResourceProperties GrowthRateComputationProperty {..}
@@ -31,20 +30,22 @@ instance ToResourceProperties GrowthRateComputationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ComputationId" JSON..= computationId, "Time" JSON..= time]
+                           ["ComputationId" JSON..= computationId]
                            (Prelude.catMaybes
                               [(JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "PeriodSize" Prelude.<$> periodSize,
+                               (JSON..=) "Time" Prelude.<$> time,
                                (JSON..=) "Value" Prelude.<$> value]))}
 instance JSON.ToJSON GrowthRateComputationProperty where
   toJSON GrowthRateComputationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ComputationId" JSON..= computationId, "Time" JSON..= time]
+              ["ComputationId" JSON..= computationId]
               (Prelude.catMaybes
                  [(JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "PeriodSize" Prelude.<$> periodSize,
+                  (JSON..=) "Time" Prelude.<$> time,
                   (JSON..=) "Value" Prelude.<$> value])))
 instance Property "ComputationId" GrowthRateComputationProperty where
   type PropertyType "ComputationId" GrowthRateComputationProperty = Value Prelude.Text
@@ -62,7 +63,7 @@ instance Property "PeriodSize" GrowthRateComputationProperty where
 instance Property "Time" GrowthRateComputationProperty where
   type PropertyType "Time" GrowthRateComputationProperty = DimensionFieldProperty
   set newValue GrowthRateComputationProperty {..}
-    = GrowthRateComputationProperty {time = newValue, ..}
+    = GrowthRateComputationProperty {time = Prelude.pure newValue, ..}
 instance Property "Value" GrowthRateComputationProperty where
   type PropertyType "Value" GrowthRateComputationProperty = MeasureFieldProperty
   set newValue GrowthRateComputationProperty {..}

@@ -26,7 +26,9 @@ flag development
 library
   exposed-modules:
       Stratosphere.InternetMonitor.Monitor
+      Stratosphere.InternetMonitor.Monitor.HealthEventsConfigProperty
       Stratosphere.InternetMonitor.Monitor.InternetMeasurementsLogDeliveryProperty
+      Stratosphere.InternetMonitor.Monitor.LocalHealthEventsConfigProperty
       Stratosphere.InternetMonitor.Monitor.S3ConfigProperty
   other-modules:
       Paths_stratosphere_internetmonitor

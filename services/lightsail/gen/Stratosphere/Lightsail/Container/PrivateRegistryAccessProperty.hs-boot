@@ -1,0 +1,9 @@
+module Stratosphere.Lightsail.Container.PrivateRegistryAccessProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PrivateRegistryAccessProperty :: Prelude.Type
+instance ToResourceProperties PrivateRegistryAccessProperty
+instance Prelude.Eq PrivateRegistryAccessProperty
+instance Prelude.Show PrivateRegistryAccessProperty
+instance JSON.ToJSON PrivateRegistryAccessProperty

@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppSync.GraphQLApi.AdditionalAuthenticationProviderProperty as Exports
+import {-# SOURCE #-} Stratosphere.AppSync.GraphQLApi.EnhancedMetricsConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppSync.GraphQLApi.LambdaAuthorizerConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppSync.GraphQLApi.LogConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppSync.GraphQLApi.OpenIDConnectConfigProperty as Exports
@@ -16,12 +17,17 @@ data GraphQLApi
   = GraphQLApi {additionalAuthenticationProviders :: (Prelude.Maybe [AdditionalAuthenticationProviderProperty]),
                 apiType :: (Prelude.Maybe (Value Prelude.Text)),
                 authenticationType :: (Value Prelude.Text),
+                enhancedMetricsConfig :: (Prelude.Maybe EnhancedMetricsConfigProperty),
+                environmentVariables :: (Prelude.Maybe JSON.Object),
+                introspectionConfig :: (Prelude.Maybe (Value Prelude.Text)),
                 lambdaAuthorizerConfig :: (Prelude.Maybe LambdaAuthorizerConfigProperty),
                 logConfig :: (Prelude.Maybe LogConfigProperty),
                 mergedApiExecutionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                 name :: (Value Prelude.Text),
                 openIDConnectConfig :: (Prelude.Maybe OpenIDConnectConfigProperty),
                 ownerContact :: (Prelude.Maybe (Value Prelude.Text)),
+                queryDepthLimit :: (Prelude.Maybe (Value Prelude.Integer)),
+                resolverCountLimit :: (Prelude.Maybe (Value Prelude.Integer)),
                 tags :: (Prelude.Maybe [Tag]),
                 userPoolConfig :: (Prelude.Maybe UserPoolConfigProperty),
                 visibility :: (Prelude.Maybe (Value Prelude.Text)),
@@ -33,12 +39,15 @@ mkGraphQLApi authenticationType name
   = GraphQLApi
       {authenticationType = authenticationType, name = name,
        additionalAuthenticationProviders = Prelude.Nothing,
-       apiType = Prelude.Nothing,
+       apiType = Prelude.Nothing, enhancedMetricsConfig = Prelude.Nothing,
+       environmentVariables = Prelude.Nothing,
+       introspectionConfig = Prelude.Nothing,
        lambdaAuthorizerConfig = Prelude.Nothing,
        logConfig = Prelude.Nothing,
        mergedApiExecutionRoleArn = Prelude.Nothing,
        openIDConnectConfig = Prelude.Nothing,
-       ownerContact = Prelude.Nothing, tags = Prelude.Nothing,
+       ownerContact = Prelude.Nothing, queryDepthLimit = Prelude.Nothing,
+       resolverCountLimit = Prelude.Nothing, tags = Prelude.Nothing,
        userPoolConfig = Prelude.Nothing, visibility = Prelude.Nothing,
        xrayEnabled = Prelude.Nothing}
 instance ToResourceProperties GraphQLApi where
@@ -53,6 +62,10 @@ instance ToResourceProperties GraphQLApi where
                               [(JSON..=) "AdditionalAuthenticationProviders"
                                  Prelude.<$> additionalAuthenticationProviders,
                                (JSON..=) "ApiType" Prelude.<$> apiType,
+                               (JSON..=) "EnhancedMetricsConfig"
+                                 Prelude.<$> enhancedMetricsConfig,
+                               (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
+                               (JSON..=) "IntrospectionConfig" Prelude.<$> introspectionConfig,
                                (JSON..=) "LambdaAuthorizerConfig"
                                  Prelude.<$> lambdaAuthorizerConfig,
                                (JSON..=) "LogConfig" Prelude.<$> logConfig,
@@ -60,6 +73,8 @@ instance ToResourceProperties GraphQLApi where
                                  Prelude.<$> mergedApiExecutionRoleArn,
                                (JSON..=) "OpenIDConnectConfig" Prelude.<$> openIDConnectConfig,
                                (JSON..=) "OwnerContact" Prelude.<$> ownerContact,
+                               (JSON..=) "QueryDepthLimit" Prelude.<$> queryDepthLimit,
+                               (JSON..=) "ResolverCountLimit" Prelude.<$> resolverCountLimit,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "UserPoolConfig" Prelude.<$> userPoolConfig,
                                (JSON..=) "Visibility" Prelude.<$> visibility,
@@ -75,6 +90,10 @@ instance JSON.ToJSON GraphQLApi where
                  [(JSON..=) "AdditionalAuthenticationProviders"
                     Prelude.<$> additionalAuthenticationProviders,
                   (JSON..=) "ApiType" Prelude.<$> apiType,
+                  (JSON..=) "EnhancedMetricsConfig"
+                    Prelude.<$> enhancedMetricsConfig,
+                  (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
+                  (JSON..=) "IntrospectionConfig" Prelude.<$> introspectionConfig,
                   (JSON..=) "LambdaAuthorizerConfig"
                     Prelude.<$> lambdaAuthorizerConfig,
                   (JSON..=) "LogConfig" Prelude.<$> logConfig,
@@ -82,6 +101,8 @@ instance JSON.ToJSON GraphQLApi where
                     Prelude.<$> mergedApiExecutionRoleArn,
                   (JSON..=) "OpenIDConnectConfig" Prelude.<$> openIDConnectConfig,
                   (JSON..=) "OwnerContact" Prelude.<$> ownerContact,
+                  (JSON..=) "QueryDepthLimit" Prelude.<$> queryDepthLimit,
+                  (JSON..=) "ResolverCountLimit" Prelude.<$> resolverCountLimit,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "UserPoolConfig" Prelude.<$> userPoolConfig,
                   (JSON..=) "Visibility" Prelude.<$> visibility,
@@ -99,6 +120,18 @@ instance Property "AuthenticationType" GraphQLApi where
   type PropertyType "AuthenticationType" GraphQLApi = Value Prelude.Text
   set newValue GraphQLApi {..}
     = GraphQLApi {authenticationType = newValue, ..}
+instance Property "EnhancedMetricsConfig" GraphQLApi where
+  type PropertyType "EnhancedMetricsConfig" GraphQLApi = EnhancedMetricsConfigProperty
+  set newValue GraphQLApi {..}
+    = GraphQLApi {enhancedMetricsConfig = Prelude.pure newValue, ..}
+instance Property "EnvironmentVariables" GraphQLApi where
+  type PropertyType "EnvironmentVariables" GraphQLApi = JSON.Object
+  set newValue GraphQLApi {..}
+    = GraphQLApi {environmentVariables = Prelude.pure newValue, ..}
+instance Property "IntrospectionConfig" GraphQLApi where
+  type PropertyType "IntrospectionConfig" GraphQLApi = Value Prelude.Text
+  set newValue GraphQLApi {..}
+    = GraphQLApi {introspectionConfig = Prelude.pure newValue, ..}
 instance Property "LambdaAuthorizerConfig" GraphQLApi where
   type PropertyType "LambdaAuthorizerConfig" GraphQLApi = LambdaAuthorizerConfigProperty
   set newValue GraphQLApi {..}
@@ -123,6 +156,14 @@ instance Property "OwnerContact" GraphQLApi where
   type PropertyType "OwnerContact" GraphQLApi = Value Prelude.Text
   set newValue GraphQLApi {..}
     = GraphQLApi {ownerContact = Prelude.pure newValue, ..}
+instance Property "QueryDepthLimit" GraphQLApi where
+  type PropertyType "QueryDepthLimit" GraphQLApi = Value Prelude.Integer
+  set newValue GraphQLApi {..}
+    = GraphQLApi {queryDepthLimit = Prelude.pure newValue, ..}
+instance Property "ResolverCountLimit" GraphQLApi where
+  type PropertyType "ResolverCountLimit" GraphQLApi = Value Prelude.Integer
+  set newValue GraphQLApi {..}
+    = GraphQLApi {resolverCountLimit = Prelude.pure newValue, ..}
 instance Property "Tags" GraphQLApi where
   type PropertyType "Tags" GraphQLApi = [Tag]
   set newValue GraphQLApi {..}

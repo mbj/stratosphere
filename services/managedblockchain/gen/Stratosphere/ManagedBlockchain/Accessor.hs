@@ -9,11 +9,14 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Accessor
   = Accessor {accessorType :: (Value Prelude.Text),
+              networkType :: (Prelude.Maybe (Value Prelude.Text)),
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessor :: Value Prelude.Text -> Accessor
 mkAccessor accessorType
-  = Accessor {accessorType = accessorType, tags = Prelude.Nothing}
+  = Accessor
+      {accessorType = accessorType, networkType = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Accessor where
   toResourceProperties Accessor {..}
     = ResourceProperties
@@ -22,17 +25,25 @@ instance ToResourceProperties Accessor where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccessorType" JSON..= accessorType]
-                           (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "NetworkType" Prelude.<$> networkType,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Accessor where
   toJSON Accessor {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
               ["AccessorType" JSON..= accessorType]
-              (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])))
+              (Prelude.catMaybes
+                 [(JSON..=) "NetworkType" Prelude.<$> networkType,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AccessorType" Accessor where
   type PropertyType "AccessorType" Accessor = Value Prelude.Text
   set newValue Accessor {..} = Accessor {accessorType = newValue, ..}
+instance Property "NetworkType" Accessor where
+  type PropertyType "NetworkType" Accessor = Value Prelude.Text
+  set newValue Accessor {..}
+    = Accessor {networkType = Prelude.pure newValue, ..}
 instance Property "Tags" Accessor where
   type PropertyType "Tags" Accessor = [Tag]
   set newValue Accessor {..}

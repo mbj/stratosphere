@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BehaviorProperty
   = BehaviorProperty {criteria :: (Prelude.Maybe BehaviorCriteriaProperty),
+                      exportMetric :: (Prelude.Maybe (Value Prelude.Bool)),
                       metric :: (Prelude.Maybe (Value Prelude.Text)),
                       metricDimension :: (Prelude.Maybe MetricDimensionProperty),
                       name :: (Value Prelude.Text),
@@ -18,7 +19,8 @@ data BehaviorProperty
 mkBehaviorProperty :: Value Prelude.Text -> BehaviorProperty
 mkBehaviorProperty name
   = BehaviorProperty
-      {name = name, criteria = Prelude.Nothing, metric = Prelude.Nothing,
+      {name = name, criteria = Prelude.Nothing,
+       exportMetric = Prelude.Nothing, metric = Prelude.Nothing,
        metricDimension = Prelude.Nothing,
        suppressAlerts = Prelude.Nothing}
 instance ToResourceProperties BehaviorProperty where
@@ -31,6 +33,7 @@ instance ToResourceProperties BehaviorProperty where
                            ["Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "Criteria" Prelude.<$> criteria,
+                               (JSON..=) "ExportMetric" Prelude.<$> exportMetric,
                                (JSON..=) "Metric" Prelude.<$> metric,
                                (JSON..=) "MetricDimension" Prelude.<$> metricDimension,
                                (JSON..=) "SuppressAlerts" Prelude.<$> suppressAlerts]))}
@@ -42,6 +45,7 @@ instance JSON.ToJSON BehaviorProperty where
               ["Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "Criteria" Prelude.<$> criteria,
+                  (JSON..=) "ExportMetric" Prelude.<$> exportMetric,
                   (JSON..=) "Metric" Prelude.<$> metric,
                   (JSON..=) "MetricDimension" Prelude.<$> metricDimension,
                   (JSON..=) "SuppressAlerts" Prelude.<$> suppressAlerts])))
@@ -49,6 +53,10 @@ instance Property "Criteria" BehaviorProperty where
   type PropertyType "Criteria" BehaviorProperty = BehaviorCriteriaProperty
   set newValue BehaviorProperty {..}
     = BehaviorProperty {criteria = Prelude.pure newValue, ..}
+instance Property "ExportMetric" BehaviorProperty where
+  type PropertyType "ExportMetric" BehaviorProperty = Value Prelude.Bool
+  set newValue BehaviorProperty {..}
+    = BehaviorProperty {exportMetric = Prelude.pure newValue, ..}
 instance Property "Metric" BehaviorProperty where
   type PropertyType "Metric" BehaviorProperty = Value Prelude.Text
   set newValue BehaviorProperty {..}

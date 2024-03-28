@@ -1,0 +1,9 @@
+module Stratosphere.EntityResolution.MatchingWorkflow.ProviderPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProviderPropertiesProperty :: Prelude.Type
+instance ToResourceProperties ProviderPropertiesProperty
+instance Prelude.Eq ProviderPropertiesProperty
+instance Prelude.Show ProviderPropertiesProperty
+instance JSON.ToJSON ProviderPropertiesProperty

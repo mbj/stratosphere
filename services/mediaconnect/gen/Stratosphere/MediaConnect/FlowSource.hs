@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaConnect.FlowSource.EncryptionProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaConnect.FlowSource.GatewayBridgeSourceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FlowSource
@@ -12,6 +13,7 @@ data FlowSource
                 description :: (Value Prelude.Text),
                 entitlementArn :: (Prelude.Maybe (Value Prelude.Text)),
                 flowArn :: (Prelude.Maybe (Value Prelude.Text)),
+                gatewayBridgeSource :: (Prelude.Maybe GatewayBridgeSourceProperty),
                 ingestPort :: (Prelude.Maybe (Value Prelude.Integer)),
                 maxBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
                 maxLatency :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -32,10 +34,10 @@ mkFlowSource description name
   = FlowSource
       {description = description, name = name,
        decryption = Prelude.Nothing, entitlementArn = Prelude.Nothing,
-       flowArn = Prelude.Nothing, ingestPort = Prelude.Nothing,
-       maxBitrate = Prelude.Nothing, maxLatency = Prelude.Nothing,
-       minLatency = Prelude.Nothing, protocol = Prelude.Nothing,
-       senderControlPort = Prelude.Nothing,
+       flowArn = Prelude.Nothing, gatewayBridgeSource = Prelude.Nothing,
+       ingestPort = Prelude.Nothing, maxBitrate = Prelude.Nothing,
+       maxLatency = Prelude.Nothing, minLatency = Prelude.Nothing,
+       protocol = Prelude.Nothing, senderControlPort = Prelude.Nothing,
        senderIpAddress = Prelude.Nothing,
        sourceListenerAddress = Prelude.Nothing,
        sourceListenerPort = Prelude.Nothing, streamId = Prelude.Nothing,
@@ -53,6 +55,7 @@ instance ToResourceProperties FlowSource where
                               [(JSON..=) "Decryption" Prelude.<$> decryption,
                                (JSON..=) "EntitlementArn" Prelude.<$> entitlementArn,
                                (JSON..=) "FlowArn" Prelude.<$> flowArn,
+                               (JSON..=) "GatewayBridgeSource" Prelude.<$> gatewayBridgeSource,
                                (JSON..=) "IngestPort" Prelude.<$> ingestPort,
                                (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
                                (JSON..=) "MaxLatency" Prelude.<$> maxLatency,
@@ -76,6 +79,7 @@ instance JSON.ToJSON FlowSource where
                  [(JSON..=) "Decryption" Prelude.<$> decryption,
                   (JSON..=) "EntitlementArn" Prelude.<$> entitlementArn,
                   (JSON..=) "FlowArn" Prelude.<$> flowArn,
+                  (JSON..=) "GatewayBridgeSource" Prelude.<$> gatewayBridgeSource,
                   (JSON..=) "IngestPort" Prelude.<$> ingestPort,
                   (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
                   (JSON..=) "MaxLatency" Prelude.<$> maxLatency,
@@ -105,6 +109,10 @@ instance Property "FlowArn" FlowSource where
   type PropertyType "FlowArn" FlowSource = Value Prelude.Text
   set newValue FlowSource {..}
     = FlowSource {flowArn = Prelude.pure newValue, ..}
+instance Property "GatewayBridgeSource" FlowSource where
+  type PropertyType "GatewayBridgeSource" FlowSource = GatewayBridgeSourceProperty
+  set newValue FlowSource {..}
+    = FlowSource {gatewayBridgeSource = Prelude.pure newValue, ..}
 instance Property "IngestPort" FlowSource where
   type PropertyType "IngestPort" FlowSource = Value Prelude.Integer
   set newValue FlowSource {..}

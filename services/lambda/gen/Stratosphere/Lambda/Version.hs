@@ -5,20 +5,23 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lambda.Version.ProvisionedConcurrencyConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Lambda.Version.RuntimePolicyProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Version
   = Version {codeSha256 :: (Prelude.Maybe (Value Prelude.Text)),
              description :: (Prelude.Maybe (Value Prelude.Text)),
              functionName :: (Value Prelude.Text),
-             provisionedConcurrencyConfig :: (Prelude.Maybe ProvisionedConcurrencyConfigurationProperty)}
+             provisionedConcurrencyConfig :: (Prelude.Maybe ProvisionedConcurrencyConfigurationProperty),
+             runtimePolicy :: (Prelude.Maybe RuntimePolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVersion :: Value Prelude.Text -> Version
 mkVersion functionName
   = Version
       {functionName = functionName, codeSha256 = Prelude.Nothing,
        description = Prelude.Nothing,
-       provisionedConcurrencyConfig = Prelude.Nothing}
+       provisionedConcurrencyConfig = Prelude.Nothing,
+       runtimePolicy = Prelude.Nothing}
 instance ToResourceProperties Version where
   toResourceProperties Version {..}
     = ResourceProperties
@@ -30,7 +33,8 @@ instance ToResourceProperties Version where
                               [(JSON..=) "CodeSha256" Prelude.<$> codeSha256,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "ProvisionedConcurrencyConfig"
-                                 Prelude.<$> provisionedConcurrencyConfig]))}
+                                 Prelude.<$> provisionedConcurrencyConfig,
+                               (JSON..=) "RuntimePolicy" Prelude.<$> runtimePolicy]))}
 instance JSON.ToJSON Version where
   toJSON Version {..}
     = JSON.object
@@ -41,7 +45,8 @@ instance JSON.ToJSON Version where
                  [(JSON..=) "CodeSha256" Prelude.<$> codeSha256,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "ProvisionedConcurrencyConfig"
-                    Prelude.<$> provisionedConcurrencyConfig])))
+                    Prelude.<$> provisionedConcurrencyConfig,
+                  (JSON..=) "RuntimePolicy" Prelude.<$> runtimePolicy])))
 instance Property "CodeSha256" Version where
   type PropertyType "CodeSha256" Version = Value Prelude.Text
   set newValue Version {..}
@@ -58,3 +63,7 @@ instance Property "ProvisionedConcurrencyConfig" Version where
   set newValue Version {..}
     = Version
         {provisionedConcurrencyConfig = Prelude.pure newValue, ..}
+instance Property "RuntimePolicy" Version where
+  type PropertyType "RuntimePolicy" Version = RuntimePolicyProperty
+  set newValue Version {..}
+    = Version {runtimePolicy = Prelude.pure newValue, ..}

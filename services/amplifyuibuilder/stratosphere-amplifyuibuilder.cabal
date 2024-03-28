@@ -49,6 +49,9 @@ library
       Stratosphere.AmplifyUIBuilder.Form.FormButtonProperty
       Stratosphere.AmplifyUIBuilder.Form.FormCTAProperty
       Stratosphere.AmplifyUIBuilder.Form.FormDataTypeConfigProperty
+      Stratosphere.AmplifyUIBuilder.Form.FormInputBindingPropertiesValuePropertiesProperty
+      Stratosphere.AmplifyUIBuilder.Form.FormInputBindingPropertiesValueProperty
+      Stratosphere.AmplifyUIBuilder.Form.FormInputValuePropertyBindingPropertiesProperty
       Stratosphere.AmplifyUIBuilder.Form.FormInputValuePropertyProperty
       Stratosphere.AmplifyUIBuilder.Form.FormStyleConfigProperty
       Stratosphere.AmplifyUIBuilder.Form.FormStyleProperty

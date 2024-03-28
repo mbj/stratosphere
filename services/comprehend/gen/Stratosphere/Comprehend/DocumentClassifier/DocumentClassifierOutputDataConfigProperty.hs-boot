@@ -1,0 +1,9 @@
+module Stratosphere.Comprehend.DocumentClassifier.DocumentClassifierOutputDataConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DocumentClassifierOutputDataConfigProperty :: Prelude.Type
+instance ToResourceProperties DocumentClassifierOutputDataConfigProperty
+instance Prelude.Eq DocumentClassifierOutputDataConfigProperty
+instance Prelude.Show DocumentClassifierOutputDataConfigProperty
+instance JSON.ToJSON DocumentClassifierOutputDataConfigProperty

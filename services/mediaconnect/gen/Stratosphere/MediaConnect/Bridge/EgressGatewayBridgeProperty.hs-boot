@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.Bridge.EgressGatewayBridgeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EgressGatewayBridgeProperty :: Prelude.Type
+instance ToResourceProperties EgressGatewayBridgeProperty
+instance Prelude.Eq EgressGatewayBridgeProperty
+instance Prelude.Show EgressGatewayBridgeProperty
+instance JSON.ToJSON EgressGatewayBridgeProperty

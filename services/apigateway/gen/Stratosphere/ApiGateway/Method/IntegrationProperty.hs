@@ -20,13 +20,13 @@ data IntegrationProperty
                          requestParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                          requestTemplates :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                          timeoutInMillis :: (Prelude.Maybe (Value Prelude.Integer)),
-                         type' :: (Prelude.Maybe (Value Prelude.Text)),
+                         type' :: (Value Prelude.Text),
                          uri :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkIntegrationProperty :: IntegrationProperty
-mkIntegrationProperty
+mkIntegrationProperty :: Value Prelude.Text -> IntegrationProperty
+mkIntegrationProperty type'
   = IntegrationProperty
-      {cacheKeyParameters = Prelude.Nothing,
+      {type' = type', cacheKeyParameters = Prelude.Nothing,
        cacheNamespace = Prelude.Nothing, connectionId = Prelude.Nothing,
        connectionType = Prelude.Nothing,
        contentHandling = Prelude.Nothing, credentials = Prelude.Nothing,
@@ -35,50 +35,51 @@ mkIntegrationProperty
        passthroughBehavior = Prelude.Nothing,
        requestParameters = Prelude.Nothing,
        requestTemplates = Prelude.Nothing,
-       timeoutInMillis = Prelude.Nothing, type' = Prelude.Nothing,
-       uri = Prelude.Nothing}
+       timeoutInMillis = Prelude.Nothing, uri = Prelude.Nothing}
 instance ToResourceProperties IntegrationProperty where
   toResourceProperties IntegrationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ApiGateway::Method.Integration",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "CacheKeyParameters" Prelude.<$> cacheKeyParameters,
-                            (JSON..=) "CacheNamespace" Prelude.<$> cacheNamespace,
-                            (JSON..=) "ConnectionId" Prelude.<$> connectionId,
-                            (JSON..=) "ConnectionType" Prelude.<$> connectionType,
-                            (JSON..=) "ContentHandling" Prelude.<$> contentHandling,
-                            (JSON..=) "Credentials" Prelude.<$> credentials,
-                            (JSON..=) "IntegrationHttpMethod"
-                              Prelude.<$> integrationHttpMethod,
-                            (JSON..=) "IntegrationResponses" Prelude.<$> integrationResponses,
-                            (JSON..=) "PassthroughBehavior" Prelude.<$> passthroughBehavior,
-                            (JSON..=) "RequestParameters" Prelude.<$> requestParameters,
-                            (JSON..=) "RequestTemplates" Prelude.<$> requestTemplates,
-                            (JSON..=) "TimeoutInMillis" Prelude.<$> timeoutInMillis,
-                            (JSON..=) "Type" Prelude.<$> type',
-                            (JSON..=) "Uri" Prelude.<$> uri])}
+                        ((Prelude.<>)
+                           ["Type" JSON..= type']
+                           (Prelude.catMaybes
+                              [(JSON..=) "CacheKeyParameters" Prelude.<$> cacheKeyParameters,
+                               (JSON..=) "CacheNamespace" Prelude.<$> cacheNamespace,
+                               (JSON..=) "ConnectionId" Prelude.<$> connectionId,
+                               (JSON..=) "ConnectionType" Prelude.<$> connectionType,
+                               (JSON..=) "ContentHandling" Prelude.<$> contentHandling,
+                               (JSON..=) "Credentials" Prelude.<$> credentials,
+                               (JSON..=) "IntegrationHttpMethod"
+                                 Prelude.<$> integrationHttpMethod,
+                               (JSON..=) "IntegrationResponses" Prelude.<$> integrationResponses,
+                               (JSON..=) "PassthroughBehavior" Prelude.<$> passthroughBehavior,
+                               (JSON..=) "RequestParameters" Prelude.<$> requestParameters,
+                               (JSON..=) "RequestTemplates" Prelude.<$> requestTemplates,
+                               (JSON..=) "TimeoutInMillis" Prelude.<$> timeoutInMillis,
+                               (JSON..=) "Uri" Prelude.<$> uri]))}
 instance JSON.ToJSON IntegrationProperty where
   toJSON IntegrationProperty {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "CacheKeyParameters" Prelude.<$> cacheKeyParameters,
-               (JSON..=) "CacheNamespace" Prelude.<$> cacheNamespace,
-               (JSON..=) "ConnectionId" Prelude.<$> connectionId,
-               (JSON..=) "ConnectionType" Prelude.<$> connectionType,
-               (JSON..=) "ContentHandling" Prelude.<$> contentHandling,
-               (JSON..=) "Credentials" Prelude.<$> credentials,
-               (JSON..=) "IntegrationHttpMethod"
-                 Prelude.<$> integrationHttpMethod,
-               (JSON..=) "IntegrationResponses" Prelude.<$> integrationResponses,
-               (JSON..=) "PassthroughBehavior" Prelude.<$> passthroughBehavior,
-               (JSON..=) "RequestParameters" Prelude.<$> requestParameters,
-               (JSON..=) "RequestTemplates" Prelude.<$> requestTemplates,
-               (JSON..=) "TimeoutInMillis" Prelude.<$> timeoutInMillis,
-               (JSON..=) "Type" Prelude.<$> type',
-               (JSON..=) "Uri" Prelude.<$> uri]))
+           ((Prelude.<>)
+              ["Type" JSON..= type']
+              (Prelude.catMaybes
+                 [(JSON..=) "CacheKeyParameters" Prelude.<$> cacheKeyParameters,
+                  (JSON..=) "CacheNamespace" Prelude.<$> cacheNamespace,
+                  (JSON..=) "ConnectionId" Prelude.<$> connectionId,
+                  (JSON..=) "ConnectionType" Prelude.<$> connectionType,
+                  (JSON..=) "ContentHandling" Prelude.<$> contentHandling,
+                  (JSON..=) "Credentials" Prelude.<$> credentials,
+                  (JSON..=) "IntegrationHttpMethod"
+                    Prelude.<$> integrationHttpMethod,
+                  (JSON..=) "IntegrationResponses" Prelude.<$> integrationResponses,
+                  (JSON..=) "PassthroughBehavior" Prelude.<$> passthroughBehavior,
+                  (JSON..=) "RequestParameters" Prelude.<$> requestParameters,
+                  (JSON..=) "RequestTemplates" Prelude.<$> requestTemplates,
+                  (JSON..=) "TimeoutInMillis" Prelude.<$> timeoutInMillis,
+                  (JSON..=) "Uri" Prelude.<$> uri])))
 instance Property "CacheKeyParameters" IntegrationProperty where
   type PropertyType "CacheKeyParameters" IntegrationProperty = ValueList Prelude.Text
   set newValue IntegrationProperty {..}
@@ -136,7 +137,7 @@ instance Property "TimeoutInMillis" IntegrationProperty where
 instance Property "Type" IntegrationProperty where
   type PropertyType "Type" IntegrationProperty = Value Prelude.Text
   set newValue IntegrationProperty {..}
-    = IntegrationProperty {type' = Prelude.pure newValue, ..}
+    = IntegrationProperty {type' = newValue, ..}
 instance Property "Uri" IntegrationProperty where
   type PropertyType "Uri" IntegrationProperty = Value Prelude.Text
   set newValue IntegrationProperty {..}

@@ -1,21 +1,24 @@
 module Stratosphere.AppFlow.Flow.CustomConnectorSourcePropertiesProperty (
-        CustomConnectorSourcePropertiesProperty(..),
+        module Exports, CustomConnectorSourcePropertiesProperty(..),
         mkCustomConnectorSourcePropertiesProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AppFlow.Flow.DataTransferApiProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomConnectorSourcePropertiesProperty
   = CustomConnectorSourcePropertiesProperty {customProperties :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                                             dataTransferApi :: (Prelude.Maybe DataTransferApiProperty),
                                              entityName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomConnectorSourcePropertiesProperty ::
   Value Prelude.Text -> CustomConnectorSourcePropertiesProperty
 mkCustomConnectorSourcePropertiesProperty entityName
   = CustomConnectorSourcePropertiesProperty
-      {entityName = entityName, customProperties = Prelude.Nothing}
+      {entityName = entityName, customProperties = Prelude.Nothing,
+       dataTransferApi = Prelude.Nothing}
 instance ToResourceProperties CustomConnectorSourcePropertiesProperty where
   toResourceProperties CustomConnectorSourcePropertiesProperty {..}
     = ResourceProperties
@@ -25,7 +28,8 @@ instance ToResourceProperties CustomConnectorSourcePropertiesProperty where
                         ((Prelude.<>)
                            ["EntityName" JSON..= entityName]
                            (Prelude.catMaybes
-                              [(JSON..=) "CustomProperties" Prelude.<$> customProperties]))}
+                              [(JSON..=) "CustomProperties" Prelude.<$> customProperties,
+                               (JSON..=) "DataTransferApi" Prelude.<$> dataTransferApi]))}
 instance JSON.ToJSON CustomConnectorSourcePropertiesProperty where
   toJSON CustomConnectorSourcePropertiesProperty {..}
     = JSON.object
@@ -33,12 +37,18 @@ instance JSON.ToJSON CustomConnectorSourcePropertiesProperty where
            ((Prelude.<>)
               ["EntityName" JSON..= entityName]
               (Prelude.catMaybes
-                 [(JSON..=) "CustomProperties" Prelude.<$> customProperties])))
+                 [(JSON..=) "CustomProperties" Prelude.<$> customProperties,
+                  (JSON..=) "DataTransferApi" Prelude.<$> dataTransferApi])))
 instance Property "CustomProperties" CustomConnectorSourcePropertiesProperty where
   type PropertyType "CustomProperties" CustomConnectorSourcePropertiesProperty = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue CustomConnectorSourcePropertiesProperty {..}
     = CustomConnectorSourcePropertiesProperty
         {customProperties = Prelude.pure newValue, ..}
+instance Property "DataTransferApi" CustomConnectorSourcePropertiesProperty where
+  type PropertyType "DataTransferApi" CustomConnectorSourcePropertiesProperty = DataTransferApiProperty
+  set newValue CustomConnectorSourcePropertiesProperty {..}
+    = CustomConnectorSourcePropertiesProperty
+        {dataTransferApi = Prelude.pure newValue, ..}
 instance Property "EntityName" CustomConnectorSourcePropertiesProperty where
   type PropertyType "EntityName" CustomConnectorSourcePropertiesProperty = Value Prelude.Text
   set newValue CustomConnectorSourcePropertiesProperty {..}

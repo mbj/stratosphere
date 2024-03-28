@@ -9,7 +9,9 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.DimensionFieldProperty as
 import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.MeasureFieldProperty as Exports
 import Stratosphere.ResourceProperties
 data ScatterPlotUnaggregatedFieldWellsProperty
-  = ScatterPlotUnaggregatedFieldWellsProperty {size :: (Prelude.Maybe [MeasureFieldProperty]),
+  = ScatterPlotUnaggregatedFieldWellsProperty {category :: (Prelude.Maybe [DimensionFieldProperty]),
+                                               label :: (Prelude.Maybe [DimensionFieldProperty]),
+                                               size :: (Prelude.Maybe [MeasureFieldProperty]),
                                                xAxis :: (Prelude.Maybe [DimensionFieldProperty]),
                                                yAxis :: (Prelude.Maybe [DimensionFieldProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -17,7 +19,8 @@ mkScatterPlotUnaggregatedFieldWellsProperty ::
   ScatterPlotUnaggregatedFieldWellsProperty
 mkScatterPlotUnaggregatedFieldWellsProperty
   = ScatterPlotUnaggregatedFieldWellsProperty
-      {size = Prelude.Nothing, xAxis = Prelude.Nothing,
+      {category = Prelude.Nothing, label = Prelude.Nothing,
+       size = Prelude.Nothing, xAxis = Prelude.Nothing,
        yAxis = Prelude.Nothing}
 instance ToResourceProperties ScatterPlotUnaggregatedFieldWellsProperty where
   toResourceProperties ScatterPlotUnaggregatedFieldWellsProperty {..}
@@ -26,7 +29,9 @@ instance ToResourceProperties ScatterPlotUnaggregatedFieldWellsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Size" Prelude.<$> size,
+                           [(JSON..=) "Category" Prelude.<$> category,
+                            (JSON..=) "Label" Prelude.<$> label,
+                            (JSON..=) "Size" Prelude.<$> size,
                             (JSON..=) "XAxis" Prelude.<$> xAxis,
                             (JSON..=) "YAxis" Prelude.<$> yAxis])}
 instance JSON.ToJSON ScatterPlotUnaggregatedFieldWellsProperty where
@@ -34,9 +39,21 @@ instance JSON.ToJSON ScatterPlotUnaggregatedFieldWellsProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Size" Prelude.<$> size,
+              [(JSON..=) "Category" Prelude.<$> category,
+               (JSON..=) "Label" Prelude.<$> label,
+               (JSON..=) "Size" Prelude.<$> size,
                (JSON..=) "XAxis" Prelude.<$> xAxis,
                (JSON..=) "YAxis" Prelude.<$> yAxis]))
+instance Property "Category" ScatterPlotUnaggregatedFieldWellsProperty where
+  type PropertyType "Category" ScatterPlotUnaggregatedFieldWellsProperty = [DimensionFieldProperty]
+  set newValue ScatterPlotUnaggregatedFieldWellsProperty {..}
+    = ScatterPlotUnaggregatedFieldWellsProperty
+        {category = Prelude.pure newValue, ..}
+instance Property "Label" ScatterPlotUnaggregatedFieldWellsProperty where
+  type PropertyType "Label" ScatterPlotUnaggregatedFieldWellsProperty = [DimensionFieldProperty]
+  set newValue ScatterPlotUnaggregatedFieldWellsProperty {..}
+    = ScatterPlotUnaggregatedFieldWellsProperty
+        {label = Prelude.pure newValue, ..}
 instance Property "Size" ScatterPlotUnaggregatedFieldWellsProperty where
   type PropertyType "Size" ScatterPlotUnaggregatedFieldWellsProperty = [MeasureFieldProperty]
   set newValue ScatterPlotUnaggregatedFieldWellsProperty {..}

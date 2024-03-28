@@ -5,13 +5,15 @@ module Stratosphere.WAFv2.WebACL.ManagedRuleGroupConfigProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.AWSManagedRulesACFPRuleSetProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.AWSManagedRulesATPRuleSetProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.AWSManagedRulesBotControlRuleSetProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.FieldIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ManagedRuleGroupConfigProperty
-  = ManagedRuleGroupConfigProperty {aWSManagedRulesATPRuleSet :: (Prelude.Maybe AWSManagedRulesATPRuleSetProperty),
+  = ManagedRuleGroupConfigProperty {aWSManagedRulesACFPRuleSet :: (Prelude.Maybe AWSManagedRulesACFPRuleSetProperty),
+                                    aWSManagedRulesATPRuleSet :: (Prelude.Maybe AWSManagedRulesATPRuleSetProperty),
                                     aWSManagedRulesBotControlRuleSet :: (Prelude.Maybe AWSManagedRulesBotControlRuleSetProperty),
                                     loginPath :: (Prelude.Maybe (Value Prelude.Text)),
                                     passwordField :: (Prelude.Maybe FieldIdentifierProperty),
@@ -21,7 +23,8 @@ data ManagedRuleGroupConfigProperty
 mkManagedRuleGroupConfigProperty :: ManagedRuleGroupConfigProperty
 mkManagedRuleGroupConfigProperty
   = ManagedRuleGroupConfigProperty
-      {aWSManagedRulesATPRuleSet = Prelude.Nothing,
+      {aWSManagedRulesACFPRuleSet = Prelude.Nothing,
+       aWSManagedRulesATPRuleSet = Prelude.Nothing,
        aWSManagedRulesBotControlRuleSet = Prelude.Nothing,
        loginPath = Prelude.Nothing, passwordField = Prelude.Nothing,
        payloadType = Prelude.Nothing, usernameField = Prelude.Nothing}
@@ -32,7 +35,9 @@ instance ToResourceProperties ManagedRuleGroupConfigProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "AWSManagedRulesATPRuleSet"
+                           [(JSON..=) "AWSManagedRulesACFPRuleSet"
+                              Prelude.<$> aWSManagedRulesACFPRuleSet,
+                            (JSON..=) "AWSManagedRulesATPRuleSet"
                               Prelude.<$> aWSManagedRulesATPRuleSet,
                             (JSON..=) "AWSManagedRulesBotControlRuleSet"
                               Prelude.<$> aWSManagedRulesBotControlRuleSet,
@@ -45,7 +50,9 @@ instance JSON.ToJSON ManagedRuleGroupConfigProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "AWSManagedRulesATPRuleSet"
+              [(JSON..=) "AWSManagedRulesACFPRuleSet"
+                 Prelude.<$> aWSManagedRulesACFPRuleSet,
+               (JSON..=) "AWSManagedRulesATPRuleSet"
                  Prelude.<$> aWSManagedRulesATPRuleSet,
                (JSON..=) "AWSManagedRulesBotControlRuleSet"
                  Prelude.<$> aWSManagedRulesBotControlRuleSet,
@@ -53,6 +60,11 @@ instance JSON.ToJSON ManagedRuleGroupConfigProperty where
                (JSON..=) "PasswordField" Prelude.<$> passwordField,
                (JSON..=) "PayloadType" Prelude.<$> payloadType,
                (JSON..=) "UsernameField" Prelude.<$> usernameField]))
+instance Property "AWSManagedRulesACFPRuleSet" ManagedRuleGroupConfigProperty where
+  type PropertyType "AWSManagedRulesACFPRuleSet" ManagedRuleGroupConfigProperty = AWSManagedRulesACFPRuleSetProperty
+  set newValue ManagedRuleGroupConfigProperty {..}
+    = ManagedRuleGroupConfigProperty
+        {aWSManagedRulesACFPRuleSet = Prelude.pure newValue, ..}
 instance Property "AWSManagedRulesATPRuleSet" ManagedRuleGroupConfigProperty where
   type PropertyType "AWSManagedRulesATPRuleSet" ManagedRuleGroupConfigProperty = AWSManagedRulesATPRuleSetProperty
   set newValue ManagedRuleGroupConfigProperty {..}

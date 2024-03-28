@@ -12,6 +12,7 @@ data Channel
              insecureIngest :: (Prelude.Maybe (Value Prelude.Bool)),
              latencyMode :: (Prelude.Maybe (Value Prelude.Text)),
              name :: (Prelude.Maybe (Value Prelude.Text)),
+             preset :: (Prelude.Maybe (Value Prelude.Text)),
              recordingConfigurationArn :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag]),
              type' :: (Prelude.Maybe (Value Prelude.Text))}
@@ -21,6 +22,7 @@ mkChannel
   = Channel
       {authorized = Prelude.Nothing, insecureIngest = Prelude.Nothing,
        latencyMode = Prelude.Nothing, name = Prelude.Nothing,
+       preset = Prelude.Nothing,
        recordingConfigurationArn = Prelude.Nothing,
        tags = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties Channel where
@@ -33,6 +35,7 @@ instance ToResourceProperties Channel where
                             (JSON..=) "InsecureIngest" Prelude.<$> insecureIngest,
                             (JSON..=) "LatencyMode" Prelude.<$> latencyMode,
                             (JSON..=) "Name" Prelude.<$> name,
+                            (JSON..=) "Preset" Prelude.<$> preset,
                             (JSON..=) "RecordingConfigurationArn"
                               Prelude.<$> recordingConfigurationArn,
                             (JSON..=) "Tags" Prelude.<$> tags,
@@ -46,6 +49,7 @@ instance JSON.ToJSON Channel where
                (JSON..=) "InsecureIngest" Prelude.<$> insecureIngest,
                (JSON..=) "LatencyMode" Prelude.<$> latencyMode,
                (JSON..=) "Name" Prelude.<$> name,
+               (JSON..=) "Preset" Prelude.<$> preset,
                (JSON..=) "RecordingConfigurationArn"
                  Prelude.<$> recordingConfigurationArn,
                (JSON..=) "Tags" Prelude.<$> tags,
@@ -66,6 +70,10 @@ instance Property "Name" Channel where
   type PropertyType "Name" Channel = Value Prelude.Text
   set newValue Channel {..}
     = Channel {name = Prelude.pure newValue, ..}
+instance Property "Preset" Channel where
+  type PropertyType "Preset" Channel = Value Prelude.Text
+  set newValue Channel {..}
+    = Channel {preset = Prelude.pure newValue, ..}
 instance Property "RecordingConfigurationArn" Channel where
   type PropertyType "RecordingConfigurationArn" Channel = Value Prelude.Text
   set newValue Channel {..}

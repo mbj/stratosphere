@@ -1,0 +1,9 @@
+module Stratosphere.MSK.Replicator.KafkaClusterClientVpcConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KafkaClusterClientVpcConfigProperty :: Prelude.Type
+instance ToResourceProperties KafkaClusterClientVpcConfigProperty
+instance Prelude.Eq KafkaClusterClientVpcConfigProperty
+instance Prelude.Show KafkaClusterClientVpcConfigProperty
+instance JSON.ToJSON KafkaClusterClientVpcConfigProperty

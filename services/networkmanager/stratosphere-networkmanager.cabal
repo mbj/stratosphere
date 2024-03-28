@@ -37,6 +37,7 @@ library
       Stratosphere.NetworkManager.CoreNetwork.CoreNetworkSegmentProperty
       Stratosphere.NetworkManager.CustomerGatewayAssociation
       Stratosphere.NetworkManager.Device
+      Stratosphere.NetworkManager.Device.AWSLocationProperty
       Stratosphere.NetworkManager.Device.LocationProperty
       Stratosphere.NetworkManager.GlobalNetwork
       Stratosphere.NetworkManager.Link

@@ -11,6 +11,9 @@ import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.HAClusterProm
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.HANAPrometheusExporterProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.JMXPrometheusExporterProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.LogProperty as Exports
+import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.NetWeaverPrometheusExporterProperty as Exports
+import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.ProcessProperty as Exports
+import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.SQLServerPrometheusExporterProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationInsights.Application.WindowsEventProperty as Exports
 import Stratosphere.ResourceProperties
 data ConfigurationDetailsProperty
@@ -20,6 +23,9 @@ data ConfigurationDetailsProperty
                                   hANAPrometheusExporter :: (Prelude.Maybe HANAPrometheusExporterProperty),
                                   jMXPrometheusExporter :: (Prelude.Maybe JMXPrometheusExporterProperty),
                                   logs :: (Prelude.Maybe [LogProperty]),
+                                  netWeaverPrometheusExporter :: (Prelude.Maybe NetWeaverPrometheusExporterProperty),
+                                  processes :: (Prelude.Maybe [ProcessProperty]),
+                                  sQLServerPrometheusExporter :: (Prelude.Maybe SQLServerPrometheusExporterProperty),
                                   windowsEvents :: (Prelude.Maybe [WindowsEventProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfigurationDetailsProperty :: ConfigurationDetailsProperty
@@ -29,6 +35,9 @@ mkConfigurationDetailsProperty
        hAClusterPrometheusExporter = Prelude.Nothing,
        hANAPrometheusExporter = Prelude.Nothing,
        jMXPrometheusExporter = Prelude.Nothing, logs = Prelude.Nothing,
+       netWeaverPrometheusExporter = Prelude.Nothing,
+       processes = Prelude.Nothing,
+       sQLServerPrometheusExporter = Prelude.Nothing,
        windowsEvents = Prelude.Nothing}
 instance ToResourceProperties ConfigurationDetailsProperty where
   toResourceProperties ConfigurationDetailsProperty {..}
@@ -46,6 +55,11 @@ instance ToResourceProperties ConfigurationDetailsProperty where
                             (JSON..=) "JMXPrometheusExporter"
                               Prelude.<$> jMXPrometheusExporter,
                             (JSON..=) "Logs" Prelude.<$> logs,
+                            (JSON..=) "NetWeaverPrometheusExporter"
+                              Prelude.<$> netWeaverPrometheusExporter,
+                            (JSON..=) "Processes" Prelude.<$> processes,
+                            (JSON..=) "SQLServerPrometheusExporter"
+                              Prelude.<$> sQLServerPrometheusExporter,
                             (JSON..=) "WindowsEvents" Prelude.<$> windowsEvents])}
 instance JSON.ToJSON ConfigurationDetailsProperty where
   toJSON ConfigurationDetailsProperty {..}
@@ -61,6 +75,11 @@ instance JSON.ToJSON ConfigurationDetailsProperty where
                (JSON..=) "JMXPrometheusExporter"
                  Prelude.<$> jMXPrometheusExporter,
                (JSON..=) "Logs" Prelude.<$> logs,
+               (JSON..=) "NetWeaverPrometheusExporter"
+                 Prelude.<$> netWeaverPrometheusExporter,
+               (JSON..=) "Processes" Prelude.<$> processes,
+               (JSON..=) "SQLServerPrometheusExporter"
+                 Prelude.<$> sQLServerPrometheusExporter,
                (JSON..=) "WindowsEvents" Prelude.<$> windowsEvents]))
 instance Property "AlarmMetrics" ConfigurationDetailsProperty where
   type PropertyType "AlarmMetrics" ConfigurationDetailsProperty = [AlarmMetricProperty]
@@ -90,6 +109,21 @@ instance Property "Logs" ConfigurationDetailsProperty where
   type PropertyType "Logs" ConfigurationDetailsProperty = [LogProperty]
   set newValue ConfigurationDetailsProperty {..}
     = ConfigurationDetailsProperty {logs = Prelude.pure newValue, ..}
+instance Property "NetWeaverPrometheusExporter" ConfigurationDetailsProperty where
+  type PropertyType "NetWeaverPrometheusExporter" ConfigurationDetailsProperty = NetWeaverPrometheusExporterProperty
+  set newValue ConfigurationDetailsProperty {..}
+    = ConfigurationDetailsProperty
+        {netWeaverPrometheusExporter = Prelude.pure newValue, ..}
+instance Property "Processes" ConfigurationDetailsProperty where
+  type PropertyType "Processes" ConfigurationDetailsProperty = [ProcessProperty]
+  set newValue ConfigurationDetailsProperty {..}
+    = ConfigurationDetailsProperty
+        {processes = Prelude.pure newValue, ..}
+instance Property "SQLServerPrometheusExporter" ConfigurationDetailsProperty where
+  type PropertyType "SQLServerPrometheusExporter" ConfigurationDetailsProperty = SQLServerPrometheusExporterProperty
+  set newValue ConfigurationDetailsProperty {..}
+    = ConfigurationDetailsProperty
+        {sQLServerPrometheusExporter = Prelude.pure newValue, ..}
 instance Property "WindowsEvents" ConfigurationDetailsProperty where
   type PropertyType "WindowsEvents" ConfigurationDetailsProperty = [WindowsEventProperty]
   set newValue ConfigurationDetailsProperty {..}

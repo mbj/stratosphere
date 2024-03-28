@@ -28,7 +28,8 @@ data JobFlowInstancesConfigProperty
                                     serviceAccessSecurityGroup :: (Prelude.Maybe (Value Prelude.Text)),
                                     taskInstanceFleets :: (Prelude.Maybe [InstanceFleetConfigProperty]),
                                     taskInstanceGroups :: (Prelude.Maybe [InstanceGroupConfigProperty]),
-                                    terminationProtected :: (Prelude.Maybe (Value Prelude.Bool))}
+                                    terminationProtected :: (Prelude.Maybe (Value Prelude.Bool)),
+                                    unhealthyNodeReplacement :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJobFlowInstancesConfigProperty :: JobFlowInstancesConfigProperty
 mkJobFlowInstancesConfigProperty
@@ -47,7 +48,8 @@ mkJobFlowInstancesConfigProperty
        serviceAccessSecurityGroup = Prelude.Nothing,
        taskInstanceFleets = Prelude.Nothing,
        taskInstanceGroups = Prelude.Nothing,
-       terminationProtected = Prelude.Nothing}
+       terminationProtected = Prelude.Nothing,
+       unhealthyNodeReplacement = Prelude.Nothing}
 instance ToResourceProperties JobFlowInstancesConfigProperty where
   toResourceProperties JobFlowInstancesConfigProperty {..}
     = ResourceProperties
@@ -78,8 +80,9 @@ instance ToResourceProperties JobFlowInstancesConfigProperty where
                               Prelude.<$> serviceAccessSecurityGroup,
                             (JSON..=) "TaskInstanceFleets" Prelude.<$> taskInstanceFleets,
                             (JSON..=) "TaskInstanceGroups" Prelude.<$> taskInstanceGroups,
-                            (JSON..=) "TerminationProtected"
-                              Prelude.<$> terminationProtected])}
+                            (JSON..=) "TerminationProtected" Prelude.<$> terminationProtected,
+                            (JSON..=) "UnhealthyNodeReplacement"
+                              Prelude.<$> unhealthyNodeReplacement])}
 instance JSON.ToJSON JobFlowInstancesConfigProperty where
   toJSON JobFlowInstancesConfigProperty {..}
     = JSON.object
@@ -108,8 +111,9 @@ instance JSON.ToJSON JobFlowInstancesConfigProperty where
                  Prelude.<$> serviceAccessSecurityGroup,
                (JSON..=) "TaskInstanceFleets" Prelude.<$> taskInstanceFleets,
                (JSON..=) "TaskInstanceGroups" Prelude.<$> taskInstanceGroups,
-               (JSON..=) "TerminationProtected"
-                 Prelude.<$> terminationProtected]))
+               (JSON..=) "TerminationProtected" Prelude.<$> terminationProtected,
+               (JSON..=) "UnhealthyNodeReplacement"
+                 Prelude.<$> unhealthyNodeReplacement]))
 instance Property "AdditionalMasterSecurityGroups" JobFlowInstancesConfigProperty where
   type PropertyType "AdditionalMasterSecurityGroups" JobFlowInstancesConfigProperty = ValueList Prelude.Text
   set newValue JobFlowInstancesConfigProperty {..}
@@ -200,3 +204,8 @@ instance Property "TerminationProtected" JobFlowInstancesConfigProperty where
   set newValue JobFlowInstancesConfigProperty {..}
     = JobFlowInstancesConfigProperty
         {terminationProtected = Prelude.pure newValue, ..}
+instance Property "UnhealthyNodeReplacement" JobFlowInstancesConfigProperty where
+  type PropertyType "UnhealthyNodeReplacement" JobFlowInstancesConfigProperty = Value Prelude.Bool
+  set newValue JobFlowInstancesConfigProperty {..}
+    = JobFlowInstancesConfigProperty
+        {unhealthyNodeReplacement = Prelude.pure newValue, ..}

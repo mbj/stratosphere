@@ -38,6 +38,9 @@ library
       Stratosphere.ApplicationInsights.Application.LogPatternProperty
       Stratosphere.ApplicationInsights.Application.LogPatternSetProperty
       Stratosphere.ApplicationInsights.Application.LogProperty
+      Stratosphere.ApplicationInsights.Application.NetWeaverPrometheusExporterProperty
+      Stratosphere.ApplicationInsights.Application.ProcessProperty
+      Stratosphere.ApplicationInsights.Application.SQLServerPrometheusExporterProperty
       Stratosphere.ApplicationInsights.Application.SubComponentConfigurationDetailsProperty
       Stratosphere.ApplicationInsights.Application.SubComponentTypeConfigurationProperty
       Stratosphere.ApplicationInsights.Application.WindowsEventProperty

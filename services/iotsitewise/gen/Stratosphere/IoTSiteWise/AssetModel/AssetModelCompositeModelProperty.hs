@@ -9,9 +9,14 @@ import {-# SOURCE #-} Stratosphere.IoTSiteWise.AssetModel.AssetModelPropertyProp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AssetModelCompositeModelProperty
-  = AssetModelCompositeModelProperty {compositeModelProperties :: (Prelude.Maybe [AssetModelPropertyProperty]),
+  = AssetModelCompositeModelProperty {composedAssetModelId :: (Prelude.Maybe (Value Prelude.Text)),
+                                      compositeModelProperties :: (Prelude.Maybe [AssetModelPropertyProperty]),
                                       description :: (Prelude.Maybe (Value Prelude.Text)),
+                                      externalId :: (Prelude.Maybe (Value Prelude.Text)),
+                                      id :: (Prelude.Maybe (Value Prelude.Text)),
                                       name :: (Value Prelude.Text),
+                                      parentAssetModelCompositeModelExternalId :: (Prelude.Maybe (Value Prelude.Text)),
+                                      path :: (Prelude.Maybe (ValueList Prelude.Text)),
                                       type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetModelCompositeModelProperty ::
@@ -20,8 +25,12 @@ mkAssetModelCompositeModelProperty ::
 mkAssetModelCompositeModelProperty name type'
   = AssetModelCompositeModelProperty
       {name = name, type' = type',
+       composedAssetModelId = Prelude.Nothing,
        compositeModelProperties = Prelude.Nothing,
-       description = Prelude.Nothing}
+       description = Prelude.Nothing, externalId = Prelude.Nothing,
+       id = Prelude.Nothing,
+       parentAssetModelCompositeModelExternalId = Prelude.Nothing,
+       path = Prelude.Nothing}
 instance ToResourceProperties AssetModelCompositeModelProperty where
   toResourceProperties AssetModelCompositeModelProperty {..}
     = ResourceProperties
@@ -31,9 +40,15 @@ instance ToResourceProperties AssetModelCompositeModelProperty where
                         ((Prelude.<>)
                            ["Name" JSON..= name, "Type" JSON..= type']
                            (Prelude.catMaybes
-                              [(JSON..=) "CompositeModelProperties"
+                              [(JSON..=) "ComposedAssetModelId" Prelude.<$> composedAssetModelId,
+                               (JSON..=) "CompositeModelProperties"
                                  Prelude.<$> compositeModelProperties,
-                               (JSON..=) "Description" Prelude.<$> description]))}
+                               (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "ExternalId" Prelude.<$> externalId,
+                               (JSON..=) "Id" Prelude.<$> id,
+                               (JSON..=) "ParentAssetModelCompositeModelExternalId"
+                                 Prelude.<$> parentAssetModelCompositeModelExternalId,
+                               (JSON..=) "Path" Prelude.<$> path]))}
 instance JSON.ToJSON AssetModelCompositeModelProperty where
   toJSON AssetModelCompositeModelProperty {..}
     = JSON.object
@@ -41,9 +56,20 @@ instance JSON.ToJSON AssetModelCompositeModelProperty where
            ((Prelude.<>)
               ["Name" JSON..= name, "Type" JSON..= type']
               (Prelude.catMaybes
-                 [(JSON..=) "CompositeModelProperties"
+                 [(JSON..=) "ComposedAssetModelId" Prelude.<$> composedAssetModelId,
+                  (JSON..=) "CompositeModelProperties"
                     Prelude.<$> compositeModelProperties,
-                  (JSON..=) "Description" Prelude.<$> description])))
+                  (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "ExternalId" Prelude.<$> externalId,
+                  (JSON..=) "Id" Prelude.<$> id,
+                  (JSON..=) "ParentAssetModelCompositeModelExternalId"
+                    Prelude.<$> parentAssetModelCompositeModelExternalId,
+                  (JSON..=) "Path" Prelude.<$> path])))
+instance Property "ComposedAssetModelId" AssetModelCompositeModelProperty where
+  type PropertyType "ComposedAssetModelId" AssetModelCompositeModelProperty = Value Prelude.Text
+  set newValue AssetModelCompositeModelProperty {..}
+    = AssetModelCompositeModelProperty
+        {composedAssetModelId = Prelude.pure newValue, ..}
 instance Property "CompositeModelProperties" AssetModelCompositeModelProperty where
   type PropertyType "CompositeModelProperties" AssetModelCompositeModelProperty = [AssetModelPropertyProperty]
   set newValue AssetModelCompositeModelProperty {..}
@@ -54,10 +80,30 @@ instance Property "Description" AssetModelCompositeModelProperty where
   set newValue AssetModelCompositeModelProperty {..}
     = AssetModelCompositeModelProperty
         {description = Prelude.pure newValue, ..}
+instance Property "ExternalId" AssetModelCompositeModelProperty where
+  type PropertyType "ExternalId" AssetModelCompositeModelProperty = Value Prelude.Text
+  set newValue AssetModelCompositeModelProperty {..}
+    = AssetModelCompositeModelProperty
+        {externalId = Prelude.pure newValue, ..}
+instance Property "Id" AssetModelCompositeModelProperty where
+  type PropertyType "Id" AssetModelCompositeModelProperty = Value Prelude.Text
+  set newValue AssetModelCompositeModelProperty {..}
+    = AssetModelCompositeModelProperty {id = Prelude.pure newValue, ..}
 instance Property "Name" AssetModelCompositeModelProperty where
   type PropertyType "Name" AssetModelCompositeModelProperty = Value Prelude.Text
   set newValue AssetModelCompositeModelProperty {..}
     = AssetModelCompositeModelProperty {name = newValue, ..}
+instance Property "ParentAssetModelCompositeModelExternalId" AssetModelCompositeModelProperty where
+  type PropertyType "ParentAssetModelCompositeModelExternalId" AssetModelCompositeModelProperty = Value Prelude.Text
+  set newValue AssetModelCompositeModelProperty {..}
+    = AssetModelCompositeModelProperty
+        {parentAssetModelCompositeModelExternalId = Prelude.pure newValue,
+         ..}
+instance Property "Path" AssetModelCompositeModelProperty where
+  type PropertyType "Path" AssetModelCompositeModelProperty = ValueList Prelude.Text
+  set newValue AssetModelCompositeModelProperty {..}
+    = AssetModelCompositeModelProperty
+        {path = Prelude.pure newValue, ..}
 instance Property "Type" AssetModelCompositeModelProperty where
   type PropertyType "Type" AssetModelCompositeModelProperty = Value Prelude.Text
   set newValue AssetModelCompositeModelProperty {..}

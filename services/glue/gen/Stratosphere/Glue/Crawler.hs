@@ -4,6 +4,7 @@ module Stratosphere.Glue.Crawler (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Glue.Crawler.LakeFormationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.RecrawlPolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.ScheduleProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.SchemaChangePolicyProperty as Exports
@@ -16,6 +17,7 @@ data Crawler
              crawlerSecurityConfiguration :: (Prelude.Maybe (Value Prelude.Text)),
              databaseName :: (Prelude.Maybe (Value Prelude.Text)),
              description :: (Prelude.Maybe (Value Prelude.Text)),
+             lakeFormationConfiguration :: (Prelude.Maybe LakeFormationConfigurationProperty),
              name :: (Prelude.Maybe (Value Prelude.Text)),
              recrawlPolicy :: (Prelude.Maybe RecrawlPolicyProperty),
              role :: (Value Prelude.Text),
@@ -32,6 +34,7 @@ mkCrawler role targets
        configuration = Prelude.Nothing,
        crawlerSecurityConfiguration = Prelude.Nothing,
        databaseName = Prelude.Nothing, description = Prelude.Nothing,
+       lakeFormationConfiguration = Prelude.Nothing,
        name = Prelude.Nothing, recrawlPolicy = Prelude.Nothing,
        schedule = Prelude.Nothing, schemaChangePolicy = Prelude.Nothing,
        tablePrefix = Prelude.Nothing, tags = Prelude.Nothing}
@@ -49,6 +52,8 @@ instance ToResourceProperties Crawler where
                                  Prelude.<$> crawlerSecurityConfiguration,
                                (JSON..=) "DatabaseName" Prelude.<$> databaseName,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "LakeFormationConfiguration"
+                                 Prelude.<$> lakeFormationConfiguration,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "RecrawlPolicy" Prelude.<$> recrawlPolicy,
                                (JSON..=) "Schedule" Prelude.<$> schedule,
@@ -68,6 +73,8 @@ instance JSON.ToJSON Crawler where
                     Prelude.<$> crawlerSecurityConfiguration,
                   (JSON..=) "DatabaseName" Prelude.<$> databaseName,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "LakeFormationConfiguration"
+                    Prelude.<$> lakeFormationConfiguration,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "RecrawlPolicy" Prelude.<$> recrawlPolicy,
                   (JSON..=) "Schedule" Prelude.<$> schedule,
@@ -95,6 +102,10 @@ instance Property "Description" Crawler where
   type PropertyType "Description" Crawler = Value Prelude.Text
   set newValue Crawler {..}
     = Crawler {description = Prelude.pure newValue, ..}
+instance Property "LakeFormationConfiguration" Crawler where
+  type PropertyType "LakeFormationConfiguration" Crawler = LakeFormationConfigurationProperty
+  set newValue Crawler {..}
+    = Crawler {lakeFormationConfiguration = Prelude.pure newValue, ..}
 instance Property "Name" Crawler where
   type PropertyType "Name" Crawler = Value Prelude.Text
   set newValue Crawler {..}

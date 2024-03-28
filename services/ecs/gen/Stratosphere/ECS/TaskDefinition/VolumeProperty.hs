@@ -10,7 +10,8 @@ import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.HostVolumePropertiesProper
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VolumeProperty
-  = VolumeProperty {dockerVolumeConfiguration :: (Prelude.Maybe DockerVolumeConfigurationProperty),
+  = VolumeProperty {configuredAtLaunch :: (Prelude.Maybe (Value Prelude.Bool)),
+                    dockerVolumeConfiguration :: (Prelude.Maybe DockerVolumeConfigurationProperty),
                     eFSVolumeConfiguration :: (Prelude.Maybe EFSVolumeConfigurationProperty),
                     host :: (Prelude.Maybe HostVolumePropertiesProperty),
                     name :: (Prelude.Maybe (Value Prelude.Text))}
@@ -18,7 +19,8 @@ data VolumeProperty
 mkVolumeProperty :: VolumeProperty
 mkVolumeProperty
   = VolumeProperty
-      {dockerVolumeConfiguration = Prelude.Nothing,
+      {configuredAtLaunch = Prelude.Nothing,
+       dockerVolumeConfiguration = Prelude.Nothing,
        eFSVolumeConfiguration = Prelude.Nothing, host = Prelude.Nothing,
        name = Prelude.Nothing}
 instance ToResourceProperties VolumeProperty where
@@ -28,7 +30,8 @@ instance ToResourceProperties VolumeProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "DockerVolumeConfiguration"
+                           [(JSON..=) "ConfiguredAtLaunch" Prelude.<$> configuredAtLaunch,
+                            (JSON..=) "DockerVolumeConfiguration"
                               Prelude.<$> dockerVolumeConfiguration,
                             (JSON..=) "EFSVolumeConfiguration"
                               Prelude.<$> eFSVolumeConfiguration,
@@ -39,12 +42,17 @@ instance JSON.ToJSON VolumeProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "DockerVolumeConfiguration"
+              [(JSON..=) "ConfiguredAtLaunch" Prelude.<$> configuredAtLaunch,
+               (JSON..=) "DockerVolumeConfiguration"
                  Prelude.<$> dockerVolumeConfiguration,
                (JSON..=) "EFSVolumeConfiguration"
                  Prelude.<$> eFSVolumeConfiguration,
                (JSON..=) "Host" Prelude.<$> host,
                (JSON..=) "Name" Prelude.<$> name]))
+instance Property "ConfiguredAtLaunch" VolumeProperty where
+  type PropertyType "ConfiguredAtLaunch" VolumeProperty = Value Prelude.Bool
+  set newValue VolumeProperty {..}
+    = VolumeProperty {configuredAtLaunch = Prelude.pure newValue, ..}
 instance Property "DockerVolumeConfiguration" VolumeProperty where
   type PropertyType "DockerVolumeConfiguration" VolumeProperty = DockerVolumeConfigurationProperty
   set newValue VolumeProperty {..}

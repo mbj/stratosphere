@@ -9,6 +9,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SequenceStore
   = SequenceStore {description :: (Prelude.Maybe (Value Prelude.Text)),
+                   fallbackLocation :: (Prelude.Maybe (Value Prelude.Text)),
                    name :: (Value Prelude.Text),
                    sseConfig :: (Prelude.Maybe SseConfigProperty),
                    tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
@@ -17,7 +18,8 @@ mkSequenceStore :: Value Prelude.Text -> SequenceStore
 mkSequenceStore name
   = SequenceStore
       {name = name, description = Prelude.Nothing,
-       sseConfig = Prelude.Nothing, tags = Prelude.Nothing}
+       fallbackLocation = Prelude.Nothing, sseConfig = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties SequenceStore where
   toResourceProperties SequenceStore {..}
     = ResourceProperties
@@ -28,6 +30,7 @@ instance ToResourceProperties SequenceStore where
                            ["Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "FallbackLocation" Prelude.<$> fallbackLocation,
                                (JSON..=) "SseConfig" Prelude.<$> sseConfig,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON SequenceStore where
@@ -38,12 +41,17 @@ instance JSON.ToJSON SequenceStore where
               ["Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "FallbackLocation" Prelude.<$> fallbackLocation,
                   (JSON..=) "SseConfig" Prelude.<$> sseConfig,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" SequenceStore where
   type PropertyType "Description" SequenceStore = Value Prelude.Text
   set newValue SequenceStore {..}
     = SequenceStore {description = Prelude.pure newValue, ..}
+instance Property "FallbackLocation" SequenceStore where
+  type PropertyType "FallbackLocation" SequenceStore = Value Prelude.Text
+  set newValue SequenceStore {..}
+    = SequenceStore {fallbackLocation = Prelude.pure newValue, ..}
 instance Property "Name" SequenceStore where
   type PropertyType "Name" SequenceStore = Value Prelude.Text
   set newValue SequenceStore {..}

@@ -1,0 +1,9 @@
+module Stratosphere.FSx.Volume.AggregateConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AggregateConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AggregateConfigurationProperty
+instance Prelude.Eq AggregateConfigurationProperty
+instance Prelude.Show AggregateConfigurationProperty
+instance JSON.ToJSON AggregateConfigurationProperty

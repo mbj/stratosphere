@@ -23,6 +23,7 @@ data TopicColumnProperty
                          defaultFormatting :: (Prelude.Maybe DefaultFormattingProperty),
                          isIncludedInTopic :: (Prelude.Maybe (Value Prelude.Bool)),
                          neverAggregateInFilter :: (Prelude.Maybe (Value Prelude.Bool)),
+                         nonAdditive :: (Prelude.Maybe (Value Prelude.Bool)),
                          notAllowedAggregations :: (Prelude.Maybe (ValueList Prelude.Text)),
                          semanticType :: (Prelude.Maybe SemanticTypeProperty),
                          timeGranularity :: (Prelude.Maybe (Value Prelude.Text))}
@@ -41,6 +42,7 @@ mkTopicColumnProperty columnName
        defaultFormatting = Prelude.Nothing,
        isIncludedInTopic = Prelude.Nothing,
        neverAggregateInFilter = Prelude.Nothing,
+       nonAdditive = Prelude.Nothing,
        notAllowedAggregations = Prelude.Nothing,
        semanticType = Prelude.Nothing, timeGranularity = Prelude.Nothing}
 instance ToResourceProperties TopicColumnProperty where
@@ -64,6 +66,7 @@ instance ToResourceProperties TopicColumnProperty where
                                (JSON..=) "IsIncludedInTopic" Prelude.<$> isIncludedInTopic,
                                (JSON..=) "NeverAggregateInFilter"
                                  Prelude.<$> neverAggregateInFilter,
+                               (JSON..=) "NonAdditive" Prelude.<$> nonAdditive,
                                (JSON..=) "NotAllowedAggregations"
                                  Prelude.<$> notAllowedAggregations,
                                (JSON..=) "SemanticType" Prelude.<$> semanticType,
@@ -87,6 +90,7 @@ instance JSON.ToJSON TopicColumnProperty where
                   (JSON..=) "IsIncludedInTopic" Prelude.<$> isIncludedInTopic,
                   (JSON..=) "NeverAggregateInFilter"
                     Prelude.<$> neverAggregateInFilter,
+                  (JSON..=) "NonAdditive" Prelude.<$> nonAdditive,
                   (JSON..=) "NotAllowedAggregations"
                     Prelude.<$> notAllowedAggregations,
                   (JSON..=) "SemanticType" Prelude.<$> semanticType,
@@ -147,6 +151,10 @@ instance Property "NeverAggregateInFilter" TopicColumnProperty where
   set newValue TopicColumnProperty {..}
     = TopicColumnProperty
         {neverAggregateInFilter = Prelude.pure newValue, ..}
+instance Property "NonAdditive" TopicColumnProperty where
+  type PropertyType "NonAdditive" TopicColumnProperty = Value Prelude.Bool
+  set newValue TopicColumnProperty {..}
+    = TopicColumnProperty {nonAdditive = Prelude.pure newValue, ..}
 instance Property "NotAllowedAggregations" TopicColumnProperty where
   type PropertyType "NotAllowedAggregations" TopicColumnProperty = ValueList Prelude.Text
   set newValue TopicColumnProperty {..}

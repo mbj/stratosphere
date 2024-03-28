@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.WebACL.RateLimitCookieProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RateLimitCookieProperty :: Prelude.Type
+instance ToResourceProperties RateLimitCookieProperty
+instance Prelude.Eq RateLimitCookieProperty
+instance Prelude.Show RateLimitCookieProperty
+instance JSON.ToJSON RateLimitCookieProperty

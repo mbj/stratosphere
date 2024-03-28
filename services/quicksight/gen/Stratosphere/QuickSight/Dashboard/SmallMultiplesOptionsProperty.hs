@@ -6,19 +6,23 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.PanelConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.SmallMultiplesAxisPropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SmallMultiplesOptionsProperty
   = SmallMultiplesOptionsProperty {maxVisibleColumns :: (Prelude.Maybe (Value Prelude.Double)),
                                    maxVisibleRows :: (Prelude.Maybe (Value Prelude.Double)),
-                                   panelConfiguration :: (Prelude.Maybe PanelConfigurationProperty)}
+                                   panelConfiguration :: (Prelude.Maybe PanelConfigurationProperty),
+                                   xAxis :: (Prelude.Maybe SmallMultiplesAxisPropertiesProperty),
+                                   yAxis :: (Prelude.Maybe SmallMultiplesAxisPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSmallMultiplesOptionsProperty :: SmallMultiplesOptionsProperty
 mkSmallMultiplesOptionsProperty
   = SmallMultiplesOptionsProperty
       {maxVisibleColumns = Prelude.Nothing,
        maxVisibleRows = Prelude.Nothing,
-       panelConfiguration = Prelude.Nothing}
+       panelConfiguration = Prelude.Nothing, xAxis = Prelude.Nothing,
+       yAxis = Prelude.Nothing}
 instance ToResourceProperties SmallMultiplesOptionsProperty where
   toResourceProperties SmallMultiplesOptionsProperty {..}
     = ResourceProperties
@@ -28,7 +32,9 @@ instance ToResourceProperties SmallMultiplesOptionsProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "MaxVisibleColumns" Prelude.<$> maxVisibleColumns,
                             (JSON..=) "MaxVisibleRows" Prelude.<$> maxVisibleRows,
-                            (JSON..=) "PanelConfiguration" Prelude.<$> panelConfiguration])}
+                            (JSON..=) "PanelConfiguration" Prelude.<$> panelConfiguration,
+                            (JSON..=) "XAxis" Prelude.<$> xAxis,
+                            (JSON..=) "YAxis" Prelude.<$> yAxis])}
 instance JSON.ToJSON SmallMultiplesOptionsProperty where
   toJSON SmallMultiplesOptionsProperty {..}
     = JSON.object
@@ -36,7 +42,9 @@ instance JSON.ToJSON SmallMultiplesOptionsProperty where
            (Prelude.catMaybes
               [(JSON..=) "MaxVisibleColumns" Prelude.<$> maxVisibleColumns,
                (JSON..=) "MaxVisibleRows" Prelude.<$> maxVisibleRows,
-               (JSON..=) "PanelConfiguration" Prelude.<$> panelConfiguration]))
+               (JSON..=) "PanelConfiguration" Prelude.<$> panelConfiguration,
+               (JSON..=) "XAxis" Prelude.<$> xAxis,
+               (JSON..=) "YAxis" Prelude.<$> yAxis]))
 instance Property "MaxVisibleColumns" SmallMultiplesOptionsProperty where
   type PropertyType "MaxVisibleColumns" SmallMultiplesOptionsProperty = Value Prelude.Double
   set newValue SmallMultiplesOptionsProperty {..}
@@ -52,3 +60,11 @@ instance Property "PanelConfiguration" SmallMultiplesOptionsProperty where
   set newValue SmallMultiplesOptionsProperty {..}
     = SmallMultiplesOptionsProperty
         {panelConfiguration = Prelude.pure newValue, ..}
+instance Property "XAxis" SmallMultiplesOptionsProperty where
+  type PropertyType "XAxis" SmallMultiplesOptionsProperty = SmallMultiplesAxisPropertiesProperty
+  set newValue SmallMultiplesOptionsProperty {..}
+    = SmallMultiplesOptionsProperty {xAxis = Prelude.pure newValue, ..}
+instance Property "YAxis" SmallMultiplesOptionsProperty where
+  type PropertyType "YAxis" SmallMultiplesOptionsProperty = SmallMultiplesAxisPropertiesProperty
+  set newValue SmallMultiplesOptionsProperty {..}
+    = SmallMultiplesOptionsProperty {yAxis = Prelude.pure newValue, ..}

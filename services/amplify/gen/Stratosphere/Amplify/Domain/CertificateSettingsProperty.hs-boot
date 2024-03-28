@@ -1,0 +1,9 @@
+module Stratosphere.Amplify.Domain.CertificateSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CertificateSettingsProperty :: Prelude.Type
+instance ToResourceProperties CertificateSettingsProperty
+instance Prelude.Eq CertificateSettingsProperty
+instance Prelude.Show CertificateSettingsProperty
+instance JSON.ToJSON CertificateSettingsProperty

@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorAD.Template.GeneralFlagsV3Property where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeneralFlagsV3Property :: Prelude.Type
+instance ToResourceProperties GeneralFlagsV3Property
+instance Prelude.Eq GeneralFlagsV3Property
+instance Prelude.Show GeneralFlagsV3Property
+instance JSON.ToJSON GeneralFlagsV3Property

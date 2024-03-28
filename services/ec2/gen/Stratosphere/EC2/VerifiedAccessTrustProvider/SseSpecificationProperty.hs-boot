@@ -1,0 +1,9 @@
+module Stratosphere.EC2.VerifiedAccessTrustProvider.SseSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SseSpecificationProperty :: Prelude.Type
+instance ToResourceProperties SseSpecificationProperty
+instance Prelude.Eq SseSpecificationProperty
+instance Prelude.Show SseSpecificationProperty
+instance JSON.ToJSON SseSpecificationProperty

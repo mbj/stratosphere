@@ -1,0 +1,9 @@
+module Stratosphere.Batch.JobDefinition.EcsTaskPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EcsTaskPropertiesProperty :: Prelude.Type
+instance ToResourceProperties EcsTaskPropertiesProperty
+instance Prelude.Eq EcsTaskPropertiesProperty
+instance Prelude.Show EcsTaskPropertiesProperty
+instance JSON.ToJSON EcsTaskPropertiesProperty

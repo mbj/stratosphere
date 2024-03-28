@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.LowLatencyHlsManifestConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LowLatencyHlsManifestConfigurationProperty :: Prelude.Type
+instance ToResourceProperties LowLatencyHlsManifestConfigurationProperty
+instance Prelude.Eq LowLatencyHlsManifestConfigurationProperty
+instance Prelude.Show LowLatencyHlsManifestConfigurationProperty
+instance JSON.ToJSON LowLatencyHlsManifestConfigurationProperty

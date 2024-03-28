@@ -45,6 +45,7 @@ library
       Stratosphere.ECS.Service.DeploymentCircuitBreakerProperty
       Stratosphere.ECS.Service.DeploymentConfigurationProperty
       Stratosphere.ECS.Service.DeploymentControllerProperty
+      Stratosphere.ECS.Service.EBSTagSpecificationProperty
       Stratosphere.ECS.Service.LoadBalancerProperty
       Stratosphere.ECS.Service.LogConfigurationProperty
       Stratosphere.ECS.Service.NetworkConfigurationProperty
@@ -54,7 +55,12 @@ library
       Stratosphere.ECS.Service.ServiceConnectClientAliasProperty
       Stratosphere.ECS.Service.ServiceConnectConfigurationProperty
       Stratosphere.ECS.Service.ServiceConnectServiceProperty
+      Stratosphere.ECS.Service.ServiceConnectTlsCertificateAuthorityProperty
+      Stratosphere.ECS.Service.ServiceConnectTlsConfigurationProperty
+      Stratosphere.ECS.Service.ServiceManagedEBSVolumeConfigurationProperty
       Stratosphere.ECS.Service.ServiceRegistryProperty
+      Stratosphere.ECS.Service.ServiceVolumeConfigurationProperty
+      Stratosphere.ECS.Service.TimeoutConfigurationProperty
       Stratosphere.ECS.TaskDefinition
       Stratosphere.ECS.TaskDefinition.AuthorizationConfigProperty
       Stratosphere.ECS.TaskDefinition.ContainerDefinitionProperty

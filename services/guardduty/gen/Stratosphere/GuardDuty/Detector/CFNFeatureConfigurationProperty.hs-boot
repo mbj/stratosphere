@@ -1,0 +1,9 @@
+module Stratosphere.GuardDuty.Detector.CFNFeatureConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CFNFeatureConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CFNFeatureConfigurationProperty
+instance Prelude.Eq CFNFeatureConfigurationProperty
+instance Prelude.Show CFNFeatureConfigurationProperty
+instance JSON.ToJSON CFNFeatureConfigurationProperty

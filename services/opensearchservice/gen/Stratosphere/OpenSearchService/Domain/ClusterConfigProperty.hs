@@ -4,11 +4,13 @@ module Stratosphere.OpenSearchService.Domain.ClusterConfigProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.ColdStorageOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.ZoneAwarenessConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ClusterConfigProperty
-  = ClusterConfigProperty {dedicatedMasterCount :: (Prelude.Maybe (Value Prelude.Integer)),
+  = ClusterConfigProperty {coldStorageOptions :: (Prelude.Maybe ColdStorageOptionsProperty),
+                           dedicatedMasterCount :: (Prelude.Maybe (Value Prelude.Integer)),
                            dedicatedMasterEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                            dedicatedMasterType :: (Prelude.Maybe (Value Prelude.Text)),
                            instanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -23,7 +25,8 @@ data ClusterConfigProperty
 mkClusterConfigProperty :: ClusterConfigProperty
 mkClusterConfigProperty
   = ClusterConfigProperty
-      {dedicatedMasterCount = Prelude.Nothing,
+      {coldStorageOptions = Prelude.Nothing,
+       dedicatedMasterCount = Prelude.Nothing,
        dedicatedMasterEnabled = Prelude.Nothing,
        dedicatedMasterType = Prelude.Nothing,
        instanceCount = Prelude.Nothing, instanceType = Prelude.Nothing,
@@ -38,7 +41,8 @@ instance ToResourceProperties ClusterConfigProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "DedicatedMasterCount" Prelude.<$> dedicatedMasterCount,
+                           [(JSON..=) "ColdStorageOptions" Prelude.<$> coldStorageOptions,
+                            (JSON..=) "DedicatedMasterCount" Prelude.<$> dedicatedMasterCount,
                             (JSON..=) "DedicatedMasterEnabled"
                               Prelude.<$> dedicatedMasterEnabled,
                             (JSON..=) "DedicatedMasterType" Prelude.<$> dedicatedMasterType,
@@ -57,7 +61,8 @@ instance JSON.ToJSON ClusterConfigProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "DedicatedMasterCount" Prelude.<$> dedicatedMasterCount,
+              [(JSON..=) "ColdStorageOptions" Prelude.<$> coldStorageOptions,
+               (JSON..=) "DedicatedMasterCount" Prelude.<$> dedicatedMasterCount,
                (JSON..=) "DedicatedMasterEnabled"
                  Prelude.<$> dedicatedMasterEnabled,
                (JSON..=) "DedicatedMasterType" Prelude.<$> dedicatedMasterType,
@@ -71,6 +76,11 @@ instance JSON.ToJSON ClusterConfigProperty where
                (JSON..=) "ZoneAwarenessConfig" Prelude.<$> zoneAwarenessConfig,
                (JSON..=) "ZoneAwarenessEnabled"
                  Prelude.<$> zoneAwarenessEnabled]))
+instance Property "ColdStorageOptions" ClusterConfigProperty where
+  type PropertyType "ColdStorageOptions" ClusterConfigProperty = ColdStorageOptionsProperty
+  set newValue ClusterConfigProperty {..}
+    = ClusterConfigProperty
+        {coldStorageOptions = Prelude.pure newValue, ..}
 instance Property "DedicatedMasterCount" ClusterConfigProperty where
   type PropertyType "DedicatedMasterCount" ClusterConfigProperty = Value Prelude.Integer
   set newValue ClusterConfigProperty {..}

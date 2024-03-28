@@ -16,6 +16,7 @@ data ComponentBindingPropertiesValuePropertiesProperty
                                                        key :: (Prelude.Maybe (Value Prelude.Text)),
                                                        model :: (Prelude.Maybe (Value Prelude.Text)),
                                                        predicates :: (Prelude.Maybe [PredicateProperty]),
+                                                       slotName :: (Prelude.Maybe (Value Prelude.Text)),
                                                        userAttribute :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkComponentBindingPropertiesValuePropertiesProperty ::
@@ -25,7 +26,7 @@ mkComponentBindingPropertiesValuePropertiesProperty
       {bucket = Prelude.Nothing, defaultValue = Prelude.Nothing,
        field = Prelude.Nothing, key = Prelude.Nothing,
        model = Prelude.Nothing, predicates = Prelude.Nothing,
-       userAttribute = Prelude.Nothing}
+       slotName = Prelude.Nothing, userAttribute = Prelude.Nothing}
 instance ToResourceProperties ComponentBindingPropertiesValuePropertiesProperty where
   toResourceProperties
     ComponentBindingPropertiesValuePropertiesProperty {..}
@@ -40,6 +41,7 @@ instance ToResourceProperties ComponentBindingPropertiesValuePropertiesProperty 
                             (JSON..=) "Key" Prelude.<$> key,
                             (JSON..=) "Model" Prelude.<$> model,
                             (JSON..=) "Predicates" Prelude.<$> predicates,
+                            (JSON..=) "SlotName" Prelude.<$> slotName,
                             (JSON..=) "UserAttribute" Prelude.<$> userAttribute])}
 instance JSON.ToJSON ComponentBindingPropertiesValuePropertiesProperty where
   toJSON ComponentBindingPropertiesValuePropertiesProperty {..}
@@ -52,6 +54,7 @@ instance JSON.ToJSON ComponentBindingPropertiesValuePropertiesProperty where
                (JSON..=) "Key" Prelude.<$> key,
                (JSON..=) "Model" Prelude.<$> model,
                (JSON..=) "Predicates" Prelude.<$> predicates,
+               (JSON..=) "SlotName" Prelude.<$> slotName,
                (JSON..=) "UserAttribute" Prelude.<$> userAttribute]))
 instance Property "Bucket" ComponentBindingPropertiesValuePropertiesProperty where
   type PropertyType "Bucket" ComponentBindingPropertiesValuePropertiesProperty = Value Prelude.Text
@@ -83,6 +86,11 @@ instance Property "Predicates" ComponentBindingPropertiesValuePropertiesProperty
   set newValue ComponentBindingPropertiesValuePropertiesProperty {..}
     = ComponentBindingPropertiesValuePropertiesProperty
         {predicates = Prelude.pure newValue, ..}
+instance Property "SlotName" ComponentBindingPropertiesValuePropertiesProperty where
+  type PropertyType "SlotName" ComponentBindingPropertiesValuePropertiesProperty = Value Prelude.Text
+  set newValue ComponentBindingPropertiesValuePropertiesProperty {..}
+    = ComponentBindingPropertiesValuePropertiesProperty
+        {slotName = Prelude.pure newValue, ..}
 instance Property "UserAttribute" ComponentBindingPropertiesValuePropertiesProperty where
   type PropertyType "UserAttribute" ComponentBindingPropertiesValuePropertiesProperty = Value Prelude.Text
   set newValue ComponentBindingPropertiesValuePropertiesProperty {..}

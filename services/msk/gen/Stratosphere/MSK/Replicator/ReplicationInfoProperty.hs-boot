@@ -1,0 +1,9 @@
+module Stratosphere.MSK.Replicator.ReplicationInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplicationInfoProperty :: Prelude.Type
+instance ToResourceProperties ReplicationInfoProperty
+instance Prelude.Eq ReplicationInfoProperty
+instance Prelude.Show ReplicationInfoProperty
+instance JSON.ToJSON ReplicationInfoProperty

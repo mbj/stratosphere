@@ -6,13 +6,15 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentConfig.MinimumHealthyHostsProperty as Exports
 import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentConfig.TrafficRoutingConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.CodeDeploy.DeploymentConfig.ZonalConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeploymentConfig
   = DeploymentConfig {computePlatform :: (Prelude.Maybe (Value Prelude.Text)),
                       deploymentConfigName :: (Prelude.Maybe (Value Prelude.Text)),
                       minimumHealthyHosts :: (Prelude.Maybe MinimumHealthyHostsProperty),
-                      trafficRoutingConfig :: (Prelude.Maybe TrafficRoutingConfigProperty)}
+                      trafficRoutingConfig :: (Prelude.Maybe TrafficRoutingConfigProperty),
+                      zonalConfig :: (Prelude.Maybe ZonalConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentConfig :: DeploymentConfig
 mkDeploymentConfig
@@ -20,7 +22,8 @@ mkDeploymentConfig
       {computePlatform = Prelude.Nothing,
        deploymentConfigName = Prelude.Nothing,
        minimumHealthyHosts = Prelude.Nothing,
-       trafficRoutingConfig = Prelude.Nothing}
+       trafficRoutingConfig = Prelude.Nothing,
+       zonalConfig = Prelude.Nothing}
 instance ToResourceProperties DeploymentConfig where
   toResourceProperties DeploymentConfig {..}
     = ResourceProperties
@@ -31,8 +34,8 @@ instance ToResourceProperties DeploymentConfig where
                            [(JSON..=) "ComputePlatform" Prelude.<$> computePlatform,
                             (JSON..=) "DeploymentConfigName" Prelude.<$> deploymentConfigName,
                             (JSON..=) "MinimumHealthyHosts" Prelude.<$> minimumHealthyHosts,
-                            (JSON..=) "TrafficRoutingConfig"
-                              Prelude.<$> trafficRoutingConfig])}
+                            (JSON..=) "TrafficRoutingConfig" Prelude.<$> trafficRoutingConfig,
+                            (JSON..=) "ZonalConfig" Prelude.<$> zonalConfig])}
 instance JSON.ToJSON DeploymentConfig where
   toJSON DeploymentConfig {..}
     = JSON.object
@@ -41,8 +44,8 @@ instance JSON.ToJSON DeploymentConfig where
               [(JSON..=) "ComputePlatform" Prelude.<$> computePlatform,
                (JSON..=) "DeploymentConfigName" Prelude.<$> deploymentConfigName,
                (JSON..=) "MinimumHealthyHosts" Prelude.<$> minimumHealthyHosts,
-               (JSON..=) "TrafficRoutingConfig"
-                 Prelude.<$> trafficRoutingConfig]))
+               (JSON..=) "TrafficRoutingConfig" Prelude.<$> trafficRoutingConfig,
+               (JSON..=) "ZonalConfig" Prelude.<$> zonalConfig]))
 instance Property "ComputePlatform" DeploymentConfig where
   type PropertyType "ComputePlatform" DeploymentConfig = Value Prelude.Text
   set newValue DeploymentConfig {..}
@@ -62,3 +65,7 @@ instance Property "TrafficRoutingConfig" DeploymentConfig where
   set newValue DeploymentConfig {..}
     = DeploymentConfig
         {trafficRoutingConfig = Prelude.pure newValue, ..}
+instance Property "ZonalConfig" DeploymentConfig where
+  type PropertyType "ZonalConfig" DeploymentConfig = ZonalConfigProperty
+  set newValue DeploymentConfig {..}
+    = DeploymentConfig {zonalConfig = Prelude.pure newValue, ..}

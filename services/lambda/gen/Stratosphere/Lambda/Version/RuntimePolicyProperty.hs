@@ -1,0 +1,45 @@
+module Stratosphere.Lambda.Version.RuntimePolicyProperty (
+        RuntimePolicyProperty(..), mkRuntimePolicyProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data RuntimePolicyProperty
+  = RuntimePolicyProperty {runtimeVersionArn :: (Prelude.Maybe (Value Prelude.Text)),
+                           updateRuntimeOn :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkRuntimePolicyProperty ::
+  Value Prelude.Text -> RuntimePolicyProperty
+mkRuntimePolicyProperty updateRuntimeOn
+  = RuntimePolicyProperty
+      {updateRuntimeOn = updateRuntimeOn,
+       runtimeVersionArn = Prelude.Nothing}
+instance ToResourceProperties RuntimePolicyProperty where
+  toResourceProperties RuntimePolicyProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Lambda::Version.RuntimePolicy",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["UpdateRuntimeOn" JSON..= updateRuntimeOn]
+                           (Prelude.catMaybes
+                              [(JSON..=) "RuntimeVersionArn" Prelude.<$> runtimeVersionArn]))}
+instance JSON.ToJSON RuntimePolicyProperty where
+  toJSON RuntimePolicyProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["UpdateRuntimeOn" JSON..= updateRuntimeOn]
+              (Prelude.catMaybes
+                 [(JSON..=) "RuntimeVersionArn" Prelude.<$> runtimeVersionArn])))
+instance Property "RuntimeVersionArn" RuntimePolicyProperty where
+  type PropertyType "RuntimeVersionArn" RuntimePolicyProperty = Value Prelude.Text
+  set newValue RuntimePolicyProperty {..}
+    = RuntimePolicyProperty
+        {runtimeVersionArn = Prelude.pure newValue, ..}
+instance Property "UpdateRuntimeOn" RuntimePolicyProperty where
+  type PropertyType "UpdateRuntimeOn" RuntimePolicyProperty = Value Prelude.Text
+  set newValue RuntimePolicyProperty {..}
+    = RuntimePolicyProperty {updateRuntimeOn = newValue, ..}
