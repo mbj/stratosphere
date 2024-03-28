@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.KPISparklineOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KPISparklineOptionsProperty :: Prelude.Type
+instance ToResourceProperties KPISparklineOptionsProperty
+instance Prelude.Eq KPISparklineOptionsProperty
+instance Prelude.Show KPISparklineOptionsProperty
+instance JSON.ToJSON KPISparklineOptionsProperty

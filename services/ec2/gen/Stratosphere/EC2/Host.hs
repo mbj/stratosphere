@@ -7,7 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Host
-  = Host {autoPlacement :: (Prelude.Maybe (Value Prelude.Text)),
+  = Host {assetId :: (Prelude.Maybe (Value Prelude.Text)),
+          autoPlacement :: (Prelude.Maybe (Value Prelude.Text)),
           availabilityZone :: (Value Prelude.Text),
           hostMaintenance :: (Prelude.Maybe (Value Prelude.Text)),
           hostRecovery :: (Prelude.Maybe (Value Prelude.Text)),
@@ -18,7 +19,7 @@ data Host
 mkHost :: Value Prelude.Text -> Host
 mkHost availabilityZone
   = Host
-      {availabilityZone = availabilityZone,
+      {availabilityZone = availabilityZone, assetId = Prelude.Nothing,
        autoPlacement = Prelude.Nothing, hostMaintenance = Prelude.Nothing,
        hostRecovery = Prelude.Nothing, instanceFamily = Prelude.Nothing,
        instanceType = Prelude.Nothing, outpostArn = Prelude.Nothing}
@@ -30,7 +31,8 @@ instance ToResourceProperties Host where
                         ((Prelude.<>)
                            ["AvailabilityZone" JSON..= availabilityZone]
                            (Prelude.catMaybes
-                              [(JSON..=) "AutoPlacement" Prelude.<$> autoPlacement,
+                              [(JSON..=) "AssetId" Prelude.<$> assetId,
+                               (JSON..=) "AutoPlacement" Prelude.<$> autoPlacement,
                                (JSON..=) "HostMaintenance" Prelude.<$> hostMaintenance,
                                (JSON..=) "HostRecovery" Prelude.<$> hostRecovery,
                                (JSON..=) "InstanceFamily" Prelude.<$> instanceFamily,
@@ -43,12 +45,16 @@ instance JSON.ToJSON Host where
            ((Prelude.<>)
               ["AvailabilityZone" JSON..= availabilityZone]
               (Prelude.catMaybes
-                 [(JSON..=) "AutoPlacement" Prelude.<$> autoPlacement,
+                 [(JSON..=) "AssetId" Prelude.<$> assetId,
+                  (JSON..=) "AutoPlacement" Prelude.<$> autoPlacement,
                   (JSON..=) "HostMaintenance" Prelude.<$> hostMaintenance,
                   (JSON..=) "HostRecovery" Prelude.<$> hostRecovery,
                   (JSON..=) "InstanceFamily" Prelude.<$> instanceFamily,
                   (JSON..=) "InstanceType" Prelude.<$> instanceType,
                   (JSON..=) "OutpostArn" Prelude.<$> outpostArn])))
+instance Property "AssetId" Host where
+  type PropertyType "AssetId" Host = Value Prelude.Text
+  set newValue Host {..} = Host {assetId = Prelude.pure newValue, ..}
 instance Property "AutoPlacement" Host where
   type PropertyType "AutoPlacement" Host = Value Prelude.Text
   set newValue Host {..}

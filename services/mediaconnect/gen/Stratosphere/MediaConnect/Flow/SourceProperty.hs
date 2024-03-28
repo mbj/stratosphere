@@ -5,12 +5,14 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.EncryptionProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.GatewayBridgeSourceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceProperty
   = SourceProperty {decryption :: (Prelude.Maybe EncryptionProperty),
                     description :: (Prelude.Maybe (Value Prelude.Text)),
                     entitlementArn :: (Prelude.Maybe (Value Prelude.Text)),
+                    gatewayBridgeSource :: (Prelude.Maybe GatewayBridgeSourceProperty),
                     ingestIp :: (Prelude.Maybe (Value Prelude.Text)),
                     ingestPort :: (Prelude.Maybe (Value Prelude.Integer)),
                     maxBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -32,7 +34,8 @@ mkSourceProperty :: SourceProperty
 mkSourceProperty
   = SourceProperty
       {decryption = Prelude.Nothing, description = Prelude.Nothing,
-       entitlementArn = Prelude.Nothing, ingestIp = Prelude.Nothing,
+       entitlementArn = Prelude.Nothing,
+       gatewayBridgeSource = Prelude.Nothing, ingestIp = Prelude.Nothing,
        ingestPort = Prelude.Nothing, maxBitrate = Prelude.Nothing,
        maxLatency = Prelude.Nothing, minLatency = Prelude.Nothing,
        name = Prelude.Nothing, protocol = Prelude.Nothing,
@@ -53,6 +56,7 @@ instance ToResourceProperties SourceProperty where
                            [(JSON..=) "Decryption" Prelude.<$> decryption,
                             (JSON..=) "Description" Prelude.<$> description,
                             (JSON..=) "EntitlementArn" Prelude.<$> entitlementArn,
+                            (JSON..=) "GatewayBridgeSource" Prelude.<$> gatewayBridgeSource,
                             (JSON..=) "IngestIp" Prelude.<$> ingestIp,
                             (JSON..=) "IngestPort" Prelude.<$> ingestPort,
                             (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
@@ -78,6 +82,7 @@ instance JSON.ToJSON SourceProperty where
               [(JSON..=) "Decryption" Prelude.<$> decryption,
                (JSON..=) "Description" Prelude.<$> description,
                (JSON..=) "EntitlementArn" Prelude.<$> entitlementArn,
+               (JSON..=) "GatewayBridgeSource" Prelude.<$> gatewayBridgeSource,
                (JSON..=) "IngestIp" Prelude.<$> ingestIp,
                (JSON..=) "IngestPort" Prelude.<$> ingestPort,
                (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
@@ -107,6 +112,10 @@ instance Property "EntitlementArn" SourceProperty where
   type PropertyType "EntitlementArn" SourceProperty = Value Prelude.Text
   set newValue SourceProperty {..}
     = SourceProperty {entitlementArn = Prelude.pure newValue, ..}
+instance Property "GatewayBridgeSource" SourceProperty where
+  type PropertyType "GatewayBridgeSource" SourceProperty = GatewayBridgeSourceProperty
+  set newValue SourceProperty {..}
+    = SourceProperty {gatewayBridgeSource = Prelude.pure newValue, ..}
 instance Property "IngestIp" SourceProperty where
   type PropertyType "IngestIp" SourceProperty = Value Prelude.Text
   set newValue SourceProperty {..}

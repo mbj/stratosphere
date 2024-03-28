@@ -39,9 +39,13 @@ data Cluster
              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
              loggingProperties :: (Prelude.Maybe LoggingPropertiesProperty),
              maintenanceTrackName :: (Prelude.Maybe (Value Prelude.Text)),
+             manageMasterPassword :: (Prelude.Maybe (Value Prelude.Bool)),
              manualSnapshotRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
-             masterUserPassword :: (Value Prelude.Text),
+             masterPasswordSecretKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+             masterUserPassword :: (Prelude.Maybe (Value Prelude.Text)),
              masterUsername :: (Value Prelude.Text),
+             multiAZ :: (Prelude.Maybe (Value Prelude.Bool)),
+             namespaceResourcePolicy :: (Prelude.Maybe JSON.Object),
              nodeType :: (Value Prelude.Text),
              numberOfNodes :: (Prelude.Maybe (Value Prelude.Integer)),
              ownerAccount :: (Prelude.Maybe (Value Prelude.Text)),
@@ -62,17 +66,10 @@ data Cluster
 mkCluster ::
   Value Prelude.Text
   -> Value Prelude.Text
-     -> Value Prelude.Text
-        -> Value Prelude.Text -> Value Prelude.Text -> Cluster
-mkCluster
-  clusterType
-  dBName
-  masterUserPassword
-  masterUsername
-  nodeType
+     -> Value Prelude.Text -> Value Prelude.Text -> Cluster
+mkCluster clusterType dBName masterUsername nodeType
   = Cluster
       {clusterType = clusterType, dBName = dBName,
-       masterUserPassword = masterUserPassword,
        masterUsername = masterUsername, nodeType = nodeType,
        allowVersionUpgrade = Prelude.Nothing,
        aquaConfigurationStatus = Prelude.Nothing,
@@ -97,7 +94,11 @@ mkCluster
        iamRoles = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
        loggingProperties = Prelude.Nothing,
        maintenanceTrackName = Prelude.Nothing,
+       manageMasterPassword = Prelude.Nothing,
        manualSnapshotRetentionPeriod = Prelude.Nothing,
+       masterPasswordSecretKmsKeyId = Prelude.Nothing,
+       masterUserPassword = Prelude.Nothing, multiAZ = Prelude.Nothing,
+       namespaceResourcePolicy = Prelude.Nothing,
        numberOfNodes = Prelude.Nothing, ownerAccount = Prelude.Nothing,
        port = Prelude.Nothing,
        preferredMaintenanceWindow = Prelude.Nothing,
@@ -117,7 +118,6 @@ instance ToResourceProperties Cluster where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ClusterType" JSON..= clusterType, "DBName" JSON..= dBName,
-                            "MasterUserPassword" JSON..= masterUserPassword,
                             "MasterUsername" JSON..= masterUsername,
                             "NodeType" JSON..= nodeType]
                            (Prelude.catMaybes
@@ -160,8 +160,15 @@ instance ToResourceProperties Cluster where
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                                (JSON..=) "LoggingProperties" Prelude.<$> loggingProperties,
                                (JSON..=) "MaintenanceTrackName" Prelude.<$> maintenanceTrackName,
+                               (JSON..=) "ManageMasterPassword" Prelude.<$> manageMasterPassword,
                                (JSON..=) "ManualSnapshotRetentionPeriod"
                                  Prelude.<$> manualSnapshotRetentionPeriod,
+                               (JSON..=) "MasterPasswordSecretKmsKeyId"
+                                 Prelude.<$> masterPasswordSecretKmsKeyId,
+                               (JSON..=) "MasterUserPassword" Prelude.<$> masterUserPassword,
+                               (JSON..=) "MultiAZ" Prelude.<$> multiAZ,
+                               (JSON..=) "NamespaceResourcePolicy"
+                                 Prelude.<$> namespaceResourcePolicy,
                                (JSON..=) "NumberOfNodes" Prelude.<$> numberOfNodes,
                                (JSON..=) "OwnerAccount" Prelude.<$> ownerAccount,
                                (JSON..=) "Port" Prelude.<$> port,
@@ -187,7 +194,6 @@ instance JSON.ToJSON Cluster where
         (Prelude.fromList
            ((Prelude.<>)
               ["ClusterType" JSON..= clusterType, "DBName" JSON..= dBName,
-               "MasterUserPassword" JSON..= masterUserPassword,
                "MasterUsername" JSON..= masterUsername,
                "NodeType" JSON..= nodeType]
               (Prelude.catMaybes
@@ -230,8 +236,15 @@ instance JSON.ToJSON Cluster where
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                   (JSON..=) "LoggingProperties" Prelude.<$> loggingProperties,
                   (JSON..=) "MaintenanceTrackName" Prelude.<$> maintenanceTrackName,
+                  (JSON..=) "ManageMasterPassword" Prelude.<$> manageMasterPassword,
                   (JSON..=) "ManualSnapshotRetentionPeriod"
                     Prelude.<$> manualSnapshotRetentionPeriod,
+                  (JSON..=) "MasterPasswordSecretKmsKeyId"
+                    Prelude.<$> masterPasswordSecretKmsKeyId,
+                  (JSON..=) "MasterUserPassword" Prelude.<$> masterUserPassword,
+                  (JSON..=) "MultiAZ" Prelude.<$> multiAZ,
+                  (JSON..=) "NamespaceResourcePolicy"
+                    Prelude.<$> namespaceResourcePolicy,
                   (JSON..=) "NumberOfNodes" Prelude.<$> numberOfNodes,
                   (JSON..=) "OwnerAccount" Prelude.<$> ownerAccount,
                   (JSON..=) "Port" Prelude.<$> port,
@@ -368,18 +381,35 @@ instance Property "MaintenanceTrackName" Cluster where
   type PropertyType "MaintenanceTrackName" Cluster = Value Prelude.Text
   set newValue Cluster {..}
     = Cluster {maintenanceTrackName = Prelude.pure newValue, ..}
+instance Property "ManageMasterPassword" Cluster where
+  type PropertyType "ManageMasterPassword" Cluster = Value Prelude.Bool
+  set newValue Cluster {..}
+    = Cluster {manageMasterPassword = Prelude.pure newValue, ..}
 instance Property "ManualSnapshotRetentionPeriod" Cluster where
   type PropertyType "ManualSnapshotRetentionPeriod" Cluster = Value Prelude.Integer
   set newValue Cluster {..}
     = Cluster
         {manualSnapshotRetentionPeriod = Prelude.pure newValue, ..}
+instance Property "MasterPasswordSecretKmsKeyId" Cluster where
+  type PropertyType "MasterPasswordSecretKmsKeyId" Cluster = Value Prelude.Text
+  set newValue Cluster {..}
+    = Cluster
+        {masterPasswordSecretKmsKeyId = Prelude.pure newValue, ..}
 instance Property "MasterUserPassword" Cluster where
   type PropertyType "MasterUserPassword" Cluster = Value Prelude.Text
   set newValue Cluster {..}
-    = Cluster {masterUserPassword = newValue, ..}
+    = Cluster {masterUserPassword = Prelude.pure newValue, ..}
 instance Property "MasterUsername" Cluster where
   type PropertyType "MasterUsername" Cluster = Value Prelude.Text
   set newValue Cluster {..} = Cluster {masterUsername = newValue, ..}
+instance Property "MultiAZ" Cluster where
+  type PropertyType "MultiAZ" Cluster = Value Prelude.Bool
+  set newValue Cluster {..}
+    = Cluster {multiAZ = Prelude.pure newValue, ..}
+instance Property "NamespaceResourcePolicy" Cluster where
+  type PropertyType "NamespaceResourcePolicy" Cluster = JSON.Object
+  set newValue Cluster {..}
+    = Cluster {namespaceResourcePolicy = Prelude.pure newValue, ..}
 instance Property "NodeType" Cluster where
   type PropertyType "NodeType" Cluster = Value Prelude.Text
   set newValue Cluster {..} = Cluster {nodeType = newValue, ..}

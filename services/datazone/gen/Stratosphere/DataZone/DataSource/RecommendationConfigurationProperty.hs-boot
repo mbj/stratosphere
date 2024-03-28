@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.DataSource.RecommendationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RecommendationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RecommendationConfigurationProperty
+instance Prelude.Eq RecommendationConfigurationProperty
+instance Prelude.Show RecommendationConfigurationProperty
+instance JSON.ToJSON RecommendationConfigurationProperty

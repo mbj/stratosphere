@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.AttributeDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AttributeDetailsProperty :: Prelude.Type
+instance ToResourceProperties AttributeDetailsProperty
+instance Prelude.Eq AttributeDetailsProperty
+instance Prelude.Show AttributeDetailsProperty
+instance JSON.ToJSON AttributeDetailsProperty

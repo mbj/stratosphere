@@ -13,9 +13,11 @@ import Stratosphere.Value
 data AssetModel
   = AssetModel {assetModelCompositeModels :: (Prelude.Maybe [AssetModelCompositeModelProperty]),
                 assetModelDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                assetModelExternalId :: (Prelude.Maybe (Value Prelude.Text)),
                 assetModelHierarchies :: (Prelude.Maybe [AssetModelHierarchyProperty]),
                 assetModelName :: (Value Prelude.Text),
                 assetModelProperties :: (Prelude.Maybe [AssetModelPropertyProperty]),
+                assetModelType :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAssetModel :: Value Prelude.Text -> AssetModel
@@ -24,8 +26,10 @@ mkAssetModel assetModelName
       {assetModelName = assetModelName,
        assetModelCompositeModels = Prelude.Nothing,
        assetModelDescription = Prelude.Nothing,
+       assetModelExternalId = Prelude.Nothing,
        assetModelHierarchies = Prelude.Nothing,
-       assetModelProperties = Prelude.Nothing, tags = Prelude.Nothing}
+       assetModelProperties = Prelude.Nothing,
+       assetModelType = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties AssetModel where
   toResourceProperties AssetModel {..}
     = ResourceProperties
@@ -39,9 +43,11 @@ instance ToResourceProperties AssetModel where
                                  Prelude.<$> assetModelCompositeModels,
                                (JSON..=) "AssetModelDescription"
                                  Prelude.<$> assetModelDescription,
+                               (JSON..=) "AssetModelExternalId" Prelude.<$> assetModelExternalId,
                                (JSON..=) "AssetModelHierarchies"
                                  Prelude.<$> assetModelHierarchies,
                                (JSON..=) "AssetModelProperties" Prelude.<$> assetModelProperties,
+                               (JSON..=) "AssetModelType" Prelude.<$> assetModelType,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON AssetModel where
   toJSON AssetModel {..}
@@ -54,9 +60,11 @@ instance JSON.ToJSON AssetModel where
                     Prelude.<$> assetModelCompositeModels,
                   (JSON..=) "AssetModelDescription"
                     Prelude.<$> assetModelDescription,
+                  (JSON..=) "AssetModelExternalId" Prelude.<$> assetModelExternalId,
                   (JSON..=) "AssetModelHierarchies"
                     Prelude.<$> assetModelHierarchies,
                   (JSON..=) "AssetModelProperties" Prelude.<$> assetModelProperties,
+                  (JSON..=) "AssetModelType" Prelude.<$> assetModelType,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AssetModelCompositeModels" AssetModel where
   type PropertyType "AssetModelCompositeModels" AssetModel = [AssetModelCompositeModelProperty]
@@ -67,6 +75,10 @@ instance Property "AssetModelDescription" AssetModel where
   type PropertyType "AssetModelDescription" AssetModel = Value Prelude.Text
   set newValue AssetModel {..}
     = AssetModel {assetModelDescription = Prelude.pure newValue, ..}
+instance Property "AssetModelExternalId" AssetModel where
+  type PropertyType "AssetModelExternalId" AssetModel = Value Prelude.Text
+  set newValue AssetModel {..}
+    = AssetModel {assetModelExternalId = Prelude.pure newValue, ..}
 instance Property "AssetModelHierarchies" AssetModel where
   type PropertyType "AssetModelHierarchies" AssetModel = [AssetModelHierarchyProperty]
   set newValue AssetModel {..}
@@ -79,6 +91,10 @@ instance Property "AssetModelProperties" AssetModel where
   type PropertyType "AssetModelProperties" AssetModel = [AssetModelPropertyProperty]
   set newValue AssetModel {..}
     = AssetModel {assetModelProperties = Prelude.pure newValue, ..}
+instance Property "AssetModelType" AssetModel where
+  type PropertyType "AssetModelType" AssetModel = Value Prelude.Text
+  set newValue AssetModel {..}
+    = AssetModel {assetModelType = Prelude.pure newValue, ..}
 instance Property "Tags" AssetModel where
   type PropertyType "Tags" AssetModel = [Tag]
   set newValue AssetModel {..}

@@ -19,6 +19,7 @@ data Resolver
               fieldName :: (Value Prelude.Text),
               kind :: (Prelude.Maybe (Value Prelude.Text)),
               maxBatchSize :: (Prelude.Maybe (Value Prelude.Integer)),
+              metricsConfig :: (Prelude.Maybe (Value Prelude.Text)),
               pipelineConfig :: (Prelude.Maybe PipelineConfigProperty),
               requestMappingTemplate :: (Prelude.Maybe (Value Prelude.Text)),
               requestMappingTemplateS3Location :: (Prelude.Maybe (Value Prelude.Text)),
@@ -37,7 +38,7 @@ mkResolver apiId fieldName typeName
        cachingConfig = Prelude.Nothing, code = Prelude.Nothing,
        codeS3Location = Prelude.Nothing, dataSourceName = Prelude.Nothing,
        kind = Prelude.Nothing, maxBatchSize = Prelude.Nothing,
-       pipelineConfig = Prelude.Nothing,
+       metricsConfig = Prelude.Nothing, pipelineConfig = Prelude.Nothing,
        requestMappingTemplate = Prelude.Nothing,
        requestMappingTemplateS3Location = Prelude.Nothing,
        responseMappingTemplate = Prelude.Nothing,
@@ -58,6 +59,7 @@ instance ToResourceProperties Resolver where
                                (JSON..=) "DataSourceName" Prelude.<$> dataSourceName,
                                (JSON..=) "Kind" Prelude.<$> kind,
                                (JSON..=) "MaxBatchSize" Prelude.<$> maxBatchSize,
+                               (JSON..=) "MetricsConfig" Prelude.<$> metricsConfig,
                                (JSON..=) "PipelineConfig" Prelude.<$> pipelineConfig,
                                (JSON..=) "RequestMappingTemplate"
                                  Prelude.<$> requestMappingTemplate,
@@ -83,6 +85,7 @@ instance JSON.ToJSON Resolver where
                   (JSON..=) "DataSourceName" Prelude.<$> dataSourceName,
                   (JSON..=) "Kind" Prelude.<$> kind,
                   (JSON..=) "MaxBatchSize" Prelude.<$> maxBatchSize,
+                  (JSON..=) "MetricsConfig" Prelude.<$> metricsConfig,
                   (JSON..=) "PipelineConfig" Prelude.<$> pipelineConfig,
                   (JSON..=) "RequestMappingTemplate"
                     Prelude.<$> requestMappingTemplate,
@@ -124,6 +127,10 @@ instance Property "MaxBatchSize" Resolver where
   type PropertyType "MaxBatchSize" Resolver = Value Prelude.Integer
   set newValue Resolver {..}
     = Resolver {maxBatchSize = Prelude.pure newValue, ..}
+instance Property "MetricsConfig" Resolver where
+  type PropertyType "MetricsConfig" Resolver = Value Prelude.Text
+  set newValue Resolver {..}
+    = Resolver {metricsConfig = Prelude.pure newValue, ..}
 instance Property "PipelineConfig" Resolver where
   type PropertyType "PipelineConfig" Resolver = PipelineConfigProperty
   set newValue Resolver {..}

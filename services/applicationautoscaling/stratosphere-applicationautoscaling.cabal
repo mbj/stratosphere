@@ -35,6 +35,10 @@ library
       Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredefinedMetricSpecificationProperty
       Stratosphere.ApplicationAutoScaling.ScalingPolicy.StepAdjustmentProperty
       Stratosphere.ApplicationAutoScaling.ScalingPolicy.StepScalingPolicyConfigurationProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTrackingMetricDataQueryProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTrackingMetricDimensionProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTrackingMetricProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTrackingMetricStatProperty
       Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty
   other-modules:
       Paths_stratosphere_applicationautoscaling

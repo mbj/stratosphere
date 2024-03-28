@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.DataSource.RedshiftCredentialConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedshiftCredentialConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RedshiftCredentialConfigurationProperty
+instance Prelude.Eq RedshiftCredentialConfigurationProperty
+instance Prelude.Show RedshiftCredentialConfigurationProperty
+instance JSON.ToJSON RedshiftCredentialConfigurationProperty

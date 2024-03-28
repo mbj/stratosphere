@@ -11,24 +11,18 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricComparisonComputationProperty
   = MetricComparisonComputationProperty {computationId :: (Value Prelude.Text),
-                                         fromValue :: MeasureFieldProperty,
+                                         fromValue :: (Prelude.Maybe MeasureFieldProperty),
                                          name :: (Prelude.Maybe (Value Prelude.Text)),
-                                         targetValue :: MeasureFieldProperty,
-                                         time :: DimensionFieldProperty}
+                                         targetValue :: (Prelude.Maybe MeasureFieldProperty),
+                                         time :: (Prelude.Maybe DimensionFieldProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricComparisonComputationProperty ::
-  Value Prelude.Text
-  -> MeasureFieldProperty
-     -> MeasureFieldProperty
-        -> DimensionFieldProperty -> MetricComparisonComputationProperty
-mkMetricComparisonComputationProperty
-  computationId
-  fromValue
-  targetValue
-  time
+  Value Prelude.Text -> MetricComparisonComputationProperty
+mkMetricComparisonComputationProperty computationId
   = MetricComparisonComputationProperty
-      {computationId = computationId, fromValue = fromValue,
-       targetValue = targetValue, time = time, name = Prelude.Nothing}
+      {computationId = computationId, fromValue = Prelude.Nothing,
+       name = Prelude.Nothing, targetValue = Prelude.Nothing,
+       time = Prelude.Nothing}
 instance ToResourceProperties MetricComparisonComputationProperty where
   toResourceProperties MetricComparisonComputationProperty {..}
     = ResourceProperties
@@ -36,19 +30,23 @@ instance ToResourceProperties MetricComparisonComputationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ComputationId" JSON..= computationId,
-                            "FromValue" JSON..= fromValue, "TargetValue" JSON..= targetValue,
-                            "Time" JSON..= time]
-                           (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name]))}
+                           ["ComputationId" JSON..= computationId]
+                           (Prelude.catMaybes
+                              [(JSON..=) "FromValue" Prelude.<$> fromValue,
+                               (JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "TargetValue" Prelude.<$> targetValue,
+                               (JSON..=) "Time" Prelude.<$> time]))}
 instance JSON.ToJSON MetricComparisonComputationProperty where
   toJSON MetricComparisonComputationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ComputationId" JSON..= computationId,
-               "FromValue" JSON..= fromValue, "TargetValue" JSON..= targetValue,
-               "Time" JSON..= time]
-              (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name])))
+              ["ComputationId" JSON..= computationId]
+              (Prelude.catMaybes
+                 [(JSON..=) "FromValue" Prelude.<$> fromValue,
+                  (JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "TargetValue" Prelude.<$> targetValue,
+                  (JSON..=) "Time" Prelude.<$> time])))
 instance Property "ComputationId" MetricComparisonComputationProperty where
   type PropertyType "ComputationId" MetricComparisonComputationProperty = Value Prelude.Text
   set newValue MetricComparisonComputationProperty {..}
@@ -57,7 +55,8 @@ instance Property "ComputationId" MetricComparisonComputationProperty where
 instance Property "FromValue" MetricComparisonComputationProperty where
   type PropertyType "FromValue" MetricComparisonComputationProperty = MeasureFieldProperty
   set newValue MetricComparisonComputationProperty {..}
-    = MetricComparisonComputationProperty {fromValue = newValue, ..}
+    = MetricComparisonComputationProperty
+        {fromValue = Prelude.pure newValue, ..}
 instance Property "Name" MetricComparisonComputationProperty where
   type PropertyType "Name" MetricComparisonComputationProperty = Value Prelude.Text
   set newValue MetricComparisonComputationProperty {..}
@@ -66,8 +65,10 @@ instance Property "Name" MetricComparisonComputationProperty where
 instance Property "TargetValue" MetricComparisonComputationProperty where
   type PropertyType "TargetValue" MetricComparisonComputationProperty = MeasureFieldProperty
   set newValue MetricComparisonComputationProperty {..}
-    = MetricComparisonComputationProperty {targetValue = newValue, ..}
+    = MetricComparisonComputationProperty
+        {targetValue = Prelude.pure newValue, ..}
 instance Property "Time" MetricComparisonComputationProperty where
   type PropertyType "Time" MetricComparisonComputationProperty = DimensionFieldProperty
   set newValue MetricComparisonComputationProperty {..}
-    = MetricComparisonComputationProperty {time = newValue, ..}
+    = MetricComparisonComputationProperty
+        {time = Prelude.pure newValue, ..}

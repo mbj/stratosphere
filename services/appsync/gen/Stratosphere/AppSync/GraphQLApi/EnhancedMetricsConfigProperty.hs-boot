@@ -1,0 +1,9 @@
+module Stratosphere.AppSync.GraphQLApi.EnhancedMetricsConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EnhancedMetricsConfigProperty :: Prelude.Type
+instance ToResourceProperties EnhancedMetricsConfigProperty
+instance Prelude.Eq EnhancedMetricsConfigProperty
+instance Prelude.Show EnhancedMetricsConfigProperty
+instance JSON.ToJSON EnhancedMetricsConfigProperty

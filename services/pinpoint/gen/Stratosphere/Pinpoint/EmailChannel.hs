@@ -12,6 +12,7 @@ data EmailChannel
                   enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                   fromAddress :: (Value Prelude.Text),
                   identity :: (Value Prelude.Text),
+                  orchestrationSendingRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                   roleArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailChannel ::
@@ -21,7 +22,9 @@ mkEmailChannel applicationId fromAddress identity
   = EmailChannel
       {applicationId = applicationId, fromAddress = fromAddress,
        identity = identity, configurationSet = Prelude.Nothing,
-       enabled = Prelude.Nothing, roleArn = Prelude.Nothing}
+       enabled = Prelude.Nothing,
+       orchestrationSendingRoleArn = Prelude.Nothing,
+       roleArn = Prelude.Nothing}
 instance ToResourceProperties EmailChannel where
   toResourceProperties EmailChannel {..}
     = ResourceProperties
@@ -34,6 +37,8 @@ instance ToResourceProperties EmailChannel where
                            (Prelude.catMaybes
                               [(JSON..=) "ConfigurationSet" Prelude.<$> configurationSet,
                                (JSON..=) "Enabled" Prelude.<$> enabled,
+                               (JSON..=) "OrchestrationSendingRoleArn"
+                                 Prelude.<$> orchestrationSendingRoleArn,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn]))}
 instance JSON.ToJSON EmailChannel where
   toJSON EmailChannel {..}
@@ -45,6 +50,8 @@ instance JSON.ToJSON EmailChannel where
               (Prelude.catMaybes
                  [(JSON..=) "ConfigurationSet" Prelude.<$> configurationSet,
                   (JSON..=) "Enabled" Prelude.<$> enabled,
+                  (JSON..=) "OrchestrationSendingRoleArn"
+                    Prelude.<$> orchestrationSendingRoleArn,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn])))
 instance Property "ApplicationId" EmailChannel where
   type PropertyType "ApplicationId" EmailChannel = Value Prelude.Text
@@ -66,6 +73,11 @@ instance Property "Identity" EmailChannel where
   type PropertyType "Identity" EmailChannel = Value Prelude.Text
   set newValue EmailChannel {..}
     = EmailChannel {identity = newValue, ..}
+instance Property "OrchestrationSendingRoleArn" EmailChannel where
+  type PropertyType "OrchestrationSendingRoleArn" EmailChannel = Value Prelude.Text
+  set newValue EmailChannel {..}
+    = EmailChannel
+        {orchestrationSendingRoleArn = Prelude.pure newValue, ..}
 instance Property "RoleArn" EmailChannel where
   type PropertyType "RoleArn" EmailChannel = Value Prelude.Text
   set newValue EmailChannel {..}

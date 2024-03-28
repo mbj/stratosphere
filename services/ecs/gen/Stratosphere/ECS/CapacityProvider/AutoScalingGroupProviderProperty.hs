@@ -10,6 +10,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoScalingGroupProviderProperty
   = AutoScalingGroupProviderProperty {autoScalingGroupArn :: (Value Prelude.Text),
+                                      managedDraining :: (Prelude.Maybe (Value Prelude.Text)),
                                       managedScaling :: (Prelude.Maybe ManagedScalingProperty),
                                       managedTerminationProtection :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -18,6 +19,7 @@ mkAutoScalingGroupProviderProperty ::
 mkAutoScalingGroupProviderProperty autoScalingGroupArn
   = AutoScalingGroupProviderProperty
       {autoScalingGroupArn = autoScalingGroupArn,
+       managedDraining = Prelude.Nothing,
        managedScaling = Prelude.Nothing,
        managedTerminationProtection = Prelude.Nothing}
 instance ToResourceProperties AutoScalingGroupProviderProperty where
@@ -29,7 +31,8 @@ instance ToResourceProperties AutoScalingGroupProviderProperty where
                         ((Prelude.<>)
                            ["AutoScalingGroupArn" JSON..= autoScalingGroupArn]
                            (Prelude.catMaybes
-                              [(JSON..=) "ManagedScaling" Prelude.<$> managedScaling,
+                              [(JSON..=) "ManagedDraining" Prelude.<$> managedDraining,
+                               (JSON..=) "ManagedScaling" Prelude.<$> managedScaling,
                                (JSON..=) "ManagedTerminationProtection"
                                  Prelude.<$> managedTerminationProtection]))}
 instance JSON.ToJSON AutoScalingGroupProviderProperty where
@@ -39,7 +42,8 @@ instance JSON.ToJSON AutoScalingGroupProviderProperty where
            ((Prelude.<>)
               ["AutoScalingGroupArn" JSON..= autoScalingGroupArn]
               (Prelude.catMaybes
-                 [(JSON..=) "ManagedScaling" Prelude.<$> managedScaling,
+                 [(JSON..=) "ManagedDraining" Prelude.<$> managedDraining,
+                  (JSON..=) "ManagedScaling" Prelude.<$> managedScaling,
                   (JSON..=) "ManagedTerminationProtection"
                     Prelude.<$> managedTerminationProtection])))
 instance Property "AutoScalingGroupArn" AutoScalingGroupProviderProperty where
@@ -47,6 +51,11 @@ instance Property "AutoScalingGroupArn" AutoScalingGroupProviderProperty where
   set newValue AutoScalingGroupProviderProperty {..}
     = AutoScalingGroupProviderProperty
         {autoScalingGroupArn = newValue, ..}
+instance Property "ManagedDraining" AutoScalingGroupProviderProperty where
+  type PropertyType "ManagedDraining" AutoScalingGroupProviderProperty = Value Prelude.Text
+  set newValue AutoScalingGroupProviderProperty {..}
+    = AutoScalingGroupProviderProperty
+        {managedDraining = Prelude.pure newValue, ..}
 instance Property "ManagedScaling" AutoScalingGroupProviderProperty where
   type PropertyType "ManagedScaling" AutoScalingGroupProviderProperty = ManagedScalingProperty
   set newValue AutoScalingGroupProviderProperty {..}

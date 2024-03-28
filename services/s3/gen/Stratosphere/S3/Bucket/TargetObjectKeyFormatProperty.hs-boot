@@ -1,0 +1,9 @@
+module Stratosphere.S3.Bucket.TargetObjectKeyFormatProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetObjectKeyFormatProperty :: Prelude.Type
+instance ToResourceProperties TargetObjectKeyFormatProperty
+instance Prelude.Eq TargetObjectKeyFormatProperty
+instance Prelude.Show TargetObjectKeyFormatProperty
+instance JSON.ToJSON TargetObjectKeyFormatProperty

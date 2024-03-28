@@ -6,17 +6,21 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.FeatureGroup.OnlineStoreSecurityConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.FeatureGroup.TtlDurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OnlineStoreConfigProperty
   = OnlineStoreConfigProperty {enableOnlineStore :: (Prelude.Maybe (Value Prelude.Bool)),
-                               securityConfig :: (Prelude.Maybe OnlineStoreSecurityConfigProperty)}
+                               securityConfig :: (Prelude.Maybe OnlineStoreSecurityConfigProperty),
+                               storageType :: (Prelude.Maybe (Value Prelude.Text)),
+                               ttlDuration :: (Prelude.Maybe TtlDurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOnlineStoreConfigProperty :: OnlineStoreConfigProperty
 mkOnlineStoreConfigProperty
   = OnlineStoreConfigProperty
       {enableOnlineStore = Prelude.Nothing,
-       securityConfig = Prelude.Nothing}
+       securityConfig = Prelude.Nothing, storageType = Prelude.Nothing,
+       ttlDuration = Prelude.Nothing}
 instance ToResourceProperties OnlineStoreConfigProperty where
   toResourceProperties OnlineStoreConfigProperty {..}
     = ResourceProperties
@@ -25,14 +29,18 @@ instance ToResourceProperties OnlineStoreConfigProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "EnableOnlineStore" Prelude.<$> enableOnlineStore,
-                            (JSON..=) "SecurityConfig" Prelude.<$> securityConfig])}
+                            (JSON..=) "SecurityConfig" Prelude.<$> securityConfig,
+                            (JSON..=) "StorageType" Prelude.<$> storageType,
+                            (JSON..=) "TtlDuration" Prelude.<$> ttlDuration])}
 instance JSON.ToJSON OnlineStoreConfigProperty where
   toJSON OnlineStoreConfigProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "EnableOnlineStore" Prelude.<$> enableOnlineStore,
-               (JSON..=) "SecurityConfig" Prelude.<$> securityConfig]))
+               (JSON..=) "SecurityConfig" Prelude.<$> securityConfig,
+               (JSON..=) "StorageType" Prelude.<$> storageType,
+               (JSON..=) "TtlDuration" Prelude.<$> ttlDuration]))
 instance Property "EnableOnlineStore" OnlineStoreConfigProperty where
   type PropertyType "EnableOnlineStore" OnlineStoreConfigProperty = Value Prelude.Bool
   set newValue OnlineStoreConfigProperty {..}
@@ -43,3 +51,13 @@ instance Property "SecurityConfig" OnlineStoreConfigProperty where
   set newValue OnlineStoreConfigProperty {..}
     = OnlineStoreConfigProperty
         {securityConfig = Prelude.pure newValue, ..}
+instance Property "StorageType" OnlineStoreConfigProperty where
+  type PropertyType "StorageType" OnlineStoreConfigProperty = Value Prelude.Text
+  set newValue OnlineStoreConfigProperty {..}
+    = OnlineStoreConfigProperty
+        {storageType = Prelude.pure newValue, ..}
+instance Property "TtlDuration" OnlineStoreConfigProperty where
+  type PropertyType "TtlDuration" OnlineStoreConfigProperty = TtlDurationProperty
+  set newValue OnlineStoreConfigProperty {..}
+    = OnlineStoreConfigProperty
+        {ttlDuration = Prelude.pure newValue, ..}

@@ -11,6 +11,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Repository
   = Repository {code :: (Prelude.Maybe CodeProperty),
+                kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                 repositoryDescription :: (Prelude.Maybe (Value Prelude.Text)),
                 repositoryName :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag]),
@@ -20,6 +21,7 @@ mkRepository :: Value Prelude.Text -> Repository
 mkRepository repositoryName
   = Repository
       {repositoryName = repositoryName, code = Prelude.Nothing,
+       kmsKeyId = Prelude.Nothing,
        repositoryDescription = Prelude.Nothing, tags = Prelude.Nothing,
        triggers = Prelude.Nothing}
 instance ToResourceProperties Repository where
@@ -32,6 +34,7 @@ instance ToResourceProperties Repository where
                            ["RepositoryName" JSON..= repositoryName]
                            (Prelude.catMaybes
                               [(JSON..=) "Code" Prelude.<$> code,
+                               (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                                (JSON..=) "RepositoryDescription"
                                  Prelude.<$> repositoryDescription,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -44,6 +47,7 @@ instance JSON.ToJSON Repository where
               ["RepositoryName" JSON..= repositoryName]
               (Prelude.catMaybes
                  [(JSON..=) "Code" Prelude.<$> code,
+                  (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                   (JSON..=) "RepositoryDescription"
                     Prelude.<$> repositoryDescription,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -52,6 +56,10 @@ instance Property "Code" Repository where
   type PropertyType "Code" Repository = CodeProperty
   set newValue Repository {..}
     = Repository {code = Prelude.pure newValue, ..}
+instance Property "KmsKeyId" Repository where
+  type PropertyType "KmsKeyId" Repository = Value Prelude.Text
+  set newValue Repository {..}
+    = Repository {kmsKeyId = Prelude.pure newValue, ..}
 instance Property "RepositoryDescription" Repository where
   type PropertyType "RepositoryDescription" Repository = Value Prelude.Text
   set newValue Repository {..}

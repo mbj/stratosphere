@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.DataSource.RedshiftRunConfigurationInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedshiftRunConfigurationInputProperty :: Prelude.Type
+instance ToResourceProperties RedshiftRunConfigurationInputProperty
+instance Prelude.Eq RedshiftRunConfigurationInputProperty
+instance Prelude.Show RedshiftRunConfigurationInputProperty
+instance JSON.ToJSON RedshiftRunConfigurationInputProperty

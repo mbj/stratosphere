@@ -1,0 +1,9 @@
+module Stratosphere.ResilienceHub.App.PermissionModelProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PermissionModelProperty :: Prelude.Type
+instance ToResourceProperties PermissionModelProperty
+instance Prelude.Eq PermissionModelProperty
+instance Prelude.Show PermissionModelProperty
+instance JSON.ToJSON PermissionModelProperty

@@ -4,16 +4,16 @@ module Stratosphere.AppConfig.Environment (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.AppConfig.Environment.MonitorsProperty as Exports
-import {-# SOURCE #-} Stratosphere.AppConfig.Environment.TagsProperty as Exports
+import {-# SOURCE #-} Stratosphere.AppConfig.Environment.MonitorProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data Environment
   = Environment {applicationId :: (Value Prelude.Text),
                  description :: (Prelude.Maybe (Value Prelude.Text)),
-                 monitors :: (Prelude.Maybe [MonitorsProperty]),
+                 monitors :: (Prelude.Maybe [MonitorProperty]),
                  name :: (Value Prelude.Text),
-                 tags :: (Prelude.Maybe [TagsProperty])}
+                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment ::
   Value Prelude.Text -> Value Prelude.Text -> Environment
@@ -53,13 +53,13 @@ instance Property "Description" Environment where
   set newValue Environment {..}
     = Environment {description = Prelude.pure newValue, ..}
 instance Property "Monitors" Environment where
-  type PropertyType "Monitors" Environment = [MonitorsProperty]
+  type PropertyType "Monitors" Environment = [MonitorProperty]
   set newValue Environment {..}
     = Environment {monitors = Prelude.pure newValue, ..}
 instance Property "Name" Environment where
   type PropertyType "Name" Environment = Value Prelude.Text
   set newValue Environment {..} = Environment {name = newValue, ..}
 instance Property "Tags" Environment where
-  type PropertyType "Tags" Environment = [TagsProperty]
+  type PropertyType "Tags" Environment = [Tag]
   set newValue Environment {..}
     = Environment {tags = Prelude.pure newValue, ..}

@@ -6,13 +6,15 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Macie.FindingsFilter.FindingCriteriaProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data FindingsFilter
   = FindingsFilter {action :: (Prelude.Maybe (Value Prelude.Text)),
                     description :: (Prelude.Maybe (Value Prelude.Text)),
                     findingCriteria :: FindingCriteriaProperty,
                     name :: (Value Prelude.Text),
-                    position :: (Prelude.Maybe (Value Prelude.Integer))}
+                    position :: (Prelude.Maybe (Value Prelude.Integer)),
+                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFindingsFilter ::
   FindingCriteriaProperty -> Value Prelude.Text -> FindingsFilter
@@ -20,19 +22,20 @@ mkFindingsFilter findingCriteria name
   = FindingsFilter
       {findingCriteria = findingCriteria, name = name,
        action = Prelude.Nothing, description = Prelude.Nothing,
-       position = Prelude.Nothing}
+       position = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties FindingsFilter where
   toResourceProperties FindingsFilter {..}
     = ResourceProperties
         {awsType = "AWS::Macie::FindingsFilter",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FindingCriteria" JSON..= findingCriteria, "Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "Action" Prelude.<$> action,
                                (JSON..=) "Description" Prelude.<$> description,
-                               (JSON..=) "Position" Prelude.<$> position]))}
+                               (JSON..=) "Position" Prelude.<$> position,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON FindingsFilter where
   toJSON FindingsFilter {..}
     = JSON.object
@@ -42,7 +45,8 @@ instance JSON.ToJSON FindingsFilter where
               (Prelude.catMaybes
                  [(JSON..=) "Action" Prelude.<$> action,
                   (JSON..=) "Description" Prelude.<$> description,
-                  (JSON..=) "Position" Prelude.<$> position])))
+                  (JSON..=) "Position" Prelude.<$> position,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Action" FindingsFilter where
   type PropertyType "Action" FindingsFilter = Value Prelude.Text
   set newValue FindingsFilter {..}
@@ -63,3 +67,7 @@ instance Property "Position" FindingsFilter where
   type PropertyType "Position" FindingsFilter = Value Prelude.Integer
   set newValue FindingsFilter {..}
     = FindingsFilter {position = Prelude.pure newValue, ..}
+instance Property "Tags" FindingsFilter where
+  type PropertyType "Tags" FindingsFilter = [Tag]
+  set newValue FindingsFilter {..}
+    = FindingsFilter {tags = Prelude.pure newValue, ..}

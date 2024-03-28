@@ -6,9 +6,11 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.AutoStartConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.AutoStopConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ConfigurationObjectProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ImageConfigurationInputProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.InitialCapacityConfigKeyValuePairProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.MaximumAllowedResourcesProperty as Exports
+import {-# SOURCE #-} Stratosphere.EMRServerless.Application.MonitoringConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.NetworkConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.WorkerTypeSpecificationInputProperty as Exports
 import Stratosphere.ResourceProperties
@@ -21,9 +23,11 @@ data Application
                  imageConfiguration :: (Prelude.Maybe ImageConfigurationInputProperty),
                  initialCapacity :: (Prelude.Maybe [InitialCapacityConfigKeyValuePairProperty]),
                  maximumCapacity :: (Prelude.Maybe MaximumAllowedResourcesProperty),
+                 monitoringConfiguration :: (Prelude.Maybe MonitoringConfigurationProperty),
                  name :: (Prelude.Maybe (Value Prelude.Text)),
                  networkConfiguration :: (Prelude.Maybe NetworkConfigurationProperty),
                  releaseLabel :: (Value Prelude.Text),
+                 runtimeConfiguration :: (Prelude.Maybe [ConfigurationObjectProperty]),
                  tags :: (Prelude.Maybe [Tag]),
                  type' :: (Value Prelude.Text),
                  workerTypeSpecifications :: (Prelude.Maybe (Prelude.Map Prelude.Text WorkerTypeSpecificationInputProperty))}
@@ -38,8 +42,10 @@ mkApplication releaseLabel type'
        autoStopConfiguration = Prelude.Nothing,
        imageConfiguration = Prelude.Nothing,
        initialCapacity = Prelude.Nothing,
-       maximumCapacity = Prelude.Nothing, name = Prelude.Nothing,
-       networkConfiguration = Prelude.Nothing, tags = Prelude.Nothing,
+       maximumCapacity = Prelude.Nothing,
+       monitoringConfiguration = Prelude.Nothing, name = Prelude.Nothing,
+       networkConfiguration = Prelude.Nothing,
+       runtimeConfiguration = Prelude.Nothing, tags = Prelude.Nothing,
        workerTypeSpecifications = Prelude.Nothing}
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
@@ -58,8 +64,11 @@ instance ToResourceProperties Application where
                                (JSON..=) "ImageConfiguration" Prelude.<$> imageConfiguration,
                                (JSON..=) "InitialCapacity" Prelude.<$> initialCapacity,
                                (JSON..=) "MaximumCapacity" Prelude.<$> maximumCapacity,
+                               (JSON..=) "MonitoringConfiguration"
+                                 Prelude.<$> monitoringConfiguration,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
+                               (JSON..=) "RuntimeConfiguration" Prelude.<$> runtimeConfiguration,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "WorkerTypeSpecifications"
                                  Prelude.<$> workerTypeSpecifications]))}
@@ -78,8 +87,11 @@ instance JSON.ToJSON Application where
                   (JSON..=) "ImageConfiguration" Prelude.<$> imageConfiguration,
                   (JSON..=) "InitialCapacity" Prelude.<$> initialCapacity,
                   (JSON..=) "MaximumCapacity" Prelude.<$> maximumCapacity,
+                  (JSON..=) "MonitoringConfiguration"
+                    Prelude.<$> monitoringConfiguration,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
+                  (JSON..=) "RuntimeConfiguration" Prelude.<$> runtimeConfiguration,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "WorkerTypeSpecifications"
                     Prelude.<$> workerTypeSpecifications])))
@@ -107,6 +119,10 @@ instance Property "MaximumCapacity" Application where
   type PropertyType "MaximumCapacity" Application = MaximumAllowedResourcesProperty
   set newValue Application {..}
     = Application {maximumCapacity = Prelude.pure newValue, ..}
+instance Property "MonitoringConfiguration" Application where
+  type PropertyType "MonitoringConfiguration" Application = MonitoringConfigurationProperty
+  set newValue Application {..}
+    = Application {monitoringConfiguration = Prelude.pure newValue, ..}
 instance Property "Name" Application where
   type PropertyType "Name" Application = Value Prelude.Text
   set newValue Application {..}
@@ -119,6 +135,10 @@ instance Property "ReleaseLabel" Application where
   type PropertyType "ReleaseLabel" Application = Value Prelude.Text
   set newValue Application {..}
     = Application {releaseLabel = newValue, ..}
+instance Property "RuntimeConfiguration" Application where
+  type PropertyType "RuntimeConfiguration" Application = [ConfigurationObjectProperty]
+  set newValue Application {..}
+    = Application {runtimeConfiguration = Prelude.pure newValue, ..}
 instance Property "Tags" Application where
   type PropertyType "Tags" Application = [Tag]
   set newValue Application {..}

@@ -1,0 +1,9 @@
+module Stratosphere.EMRServerless.Application.ManagedPersistenceMonitoringConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedPersistenceMonitoringConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ManagedPersistenceMonitoringConfigurationProperty
+instance Prelude.Eq ManagedPersistenceMonitoringConfigurationProperty
+instance Prelude.Show ManagedPersistenceMonitoringConfigurationProperty
+instance JSON.ToJSON ManagedPersistenceMonitoringConfigurationProperty

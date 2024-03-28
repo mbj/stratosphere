@@ -1,0 +1,9 @@
+module Stratosphere.EMR.Cluster.PlacementGroupConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PlacementGroupConfigProperty :: Prelude.Type
+instance ToResourceProperties PlacementGroupConfigProperty
+instance Prelude.Eq PlacementGroupConfigProperty
+instance Prelude.Show PlacementGroupConfigProperty
+instance JSON.ToJSON PlacementGroupConfigProperty

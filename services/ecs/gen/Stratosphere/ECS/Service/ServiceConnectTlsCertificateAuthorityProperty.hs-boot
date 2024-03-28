@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.ServiceConnectTlsCertificateAuthorityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceConnectTlsCertificateAuthorityProperty :: Prelude.Type
+instance ToResourceProperties ServiceConnectTlsCertificateAuthorityProperty
+instance Prelude.Eq ServiceConnectTlsCertificateAuthorityProperty
+instance Prelude.Show ServiceConnectTlsCertificateAuthorityProperty
+instance JSON.ToJSON ServiceConnectTlsCertificateAuthorityProperty

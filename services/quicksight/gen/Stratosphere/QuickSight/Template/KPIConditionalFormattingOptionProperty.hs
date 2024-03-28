@@ -5,18 +5,23 @@ module Stratosphere.QuickSight.Template.KPIConditionalFormattingOptionProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.KPIActualValueConditionalFormattingProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.KPIComparisonValueConditionalFormattingProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.KPIPrimaryValueConditionalFormattingProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.KPIProgressBarConditionalFormattingProperty as Exports
 import Stratosphere.ResourceProperties
 data KPIConditionalFormattingOptionProperty
-  = KPIConditionalFormattingOptionProperty {primaryValue :: (Prelude.Maybe KPIPrimaryValueConditionalFormattingProperty),
+  = KPIConditionalFormattingOptionProperty {actualValue :: (Prelude.Maybe KPIActualValueConditionalFormattingProperty),
+                                            comparisonValue :: (Prelude.Maybe KPIComparisonValueConditionalFormattingProperty),
+                                            primaryValue :: (Prelude.Maybe KPIPrimaryValueConditionalFormattingProperty),
                                             progressBar :: (Prelude.Maybe KPIProgressBarConditionalFormattingProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKPIConditionalFormattingOptionProperty ::
   KPIConditionalFormattingOptionProperty
 mkKPIConditionalFormattingOptionProperty
   = KPIConditionalFormattingOptionProperty
-      {primaryValue = Prelude.Nothing, progressBar = Prelude.Nothing}
+      {actualValue = Prelude.Nothing, comparisonValue = Prelude.Nothing,
+       primaryValue = Prelude.Nothing, progressBar = Prelude.Nothing}
 instance ToResourceProperties KPIConditionalFormattingOptionProperty where
   toResourceProperties KPIConditionalFormattingOptionProperty {..}
     = ResourceProperties
@@ -24,15 +29,29 @@ instance ToResourceProperties KPIConditionalFormattingOptionProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "PrimaryValue" Prelude.<$> primaryValue,
+                           [(JSON..=) "ActualValue" Prelude.<$> actualValue,
+                            (JSON..=) "ComparisonValue" Prelude.<$> comparisonValue,
+                            (JSON..=) "PrimaryValue" Prelude.<$> primaryValue,
                             (JSON..=) "ProgressBar" Prelude.<$> progressBar])}
 instance JSON.ToJSON KPIConditionalFormattingOptionProperty where
   toJSON KPIConditionalFormattingOptionProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "PrimaryValue" Prelude.<$> primaryValue,
+              [(JSON..=) "ActualValue" Prelude.<$> actualValue,
+               (JSON..=) "ComparisonValue" Prelude.<$> comparisonValue,
+               (JSON..=) "PrimaryValue" Prelude.<$> primaryValue,
                (JSON..=) "ProgressBar" Prelude.<$> progressBar]))
+instance Property "ActualValue" KPIConditionalFormattingOptionProperty where
+  type PropertyType "ActualValue" KPIConditionalFormattingOptionProperty = KPIActualValueConditionalFormattingProperty
+  set newValue KPIConditionalFormattingOptionProperty {..}
+    = KPIConditionalFormattingOptionProperty
+        {actualValue = Prelude.pure newValue, ..}
+instance Property "ComparisonValue" KPIConditionalFormattingOptionProperty where
+  type PropertyType "ComparisonValue" KPIConditionalFormattingOptionProperty = KPIComparisonValueConditionalFormattingProperty
+  set newValue KPIConditionalFormattingOptionProperty {..}
+    = KPIConditionalFormattingOptionProperty
+        {comparisonValue = Prelude.pure newValue, ..}
 instance Property "PrimaryValue" KPIConditionalFormattingOptionProperty where
   type PropertyType "PrimaryValue" KPIConditionalFormattingOptionProperty = KPIPrimaryValueConditionalFormattingProperty
   set newValue KPIConditionalFormattingOptionProperty {..}

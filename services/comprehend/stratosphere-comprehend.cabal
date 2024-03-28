@@ -25,6 +25,13 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.Comprehend.DocumentClassifier
+      Stratosphere.Comprehend.DocumentClassifier.AugmentedManifestsListItemProperty
+      Stratosphere.Comprehend.DocumentClassifier.DocumentClassifierDocumentsProperty
+      Stratosphere.Comprehend.DocumentClassifier.DocumentClassifierInputDataConfigProperty
+      Stratosphere.Comprehend.DocumentClassifier.DocumentClassifierOutputDataConfigProperty
+      Stratosphere.Comprehend.DocumentClassifier.DocumentReaderConfigProperty
+      Stratosphere.Comprehend.DocumentClassifier.VpcConfigProperty
       Stratosphere.Comprehend.Flywheel
       Stratosphere.Comprehend.Flywheel.DataSecurityConfigProperty
       Stratosphere.Comprehend.Flywheel.DocumentClassificationConfigProperty

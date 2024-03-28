@@ -5,17 +5,20 @@ module Stratosphere.SageMaker.Domain.DomainSettingsProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SageMaker.Domain.DockerSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.Domain.RStudioServerProDomainSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DomainSettingsProperty
-  = DomainSettingsProperty {rStudioServerProDomainSettings :: (Prelude.Maybe RStudioServerProDomainSettingsProperty),
+  = DomainSettingsProperty {dockerSettings :: (Prelude.Maybe DockerSettingsProperty),
+                            rStudioServerProDomainSettings :: (Prelude.Maybe RStudioServerProDomainSettingsProperty),
                             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainSettingsProperty :: DomainSettingsProperty
 mkDomainSettingsProperty
   = DomainSettingsProperty
-      {rStudioServerProDomainSettings = Prelude.Nothing,
+      {dockerSettings = Prelude.Nothing,
+       rStudioServerProDomainSettings = Prelude.Nothing,
        securityGroupIds = Prelude.Nothing}
 instance ToResourceProperties DomainSettingsProperty where
   toResourceProperties DomainSettingsProperty {..}
@@ -24,7 +27,8 @@ instance ToResourceProperties DomainSettingsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "RStudioServerProDomainSettings"
+                           [(JSON..=) "DockerSettings" Prelude.<$> dockerSettings,
+                            (JSON..=) "RStudioServerProDomainSettings"
                               Prelude.<$> rStudioServerProDomainSettings,
                             (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds])}
 instance JSON.ToJSON DomainSettingsProperty where
@@ -32,9 +36,15 @@ instance JSON.ToJSON DomainSettingsProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "RStudioServerProDomainSettings"
+              [(JSON..=) "DockerSettings" Prelude.<$> dockerSettings,
+               (JSON..=) "RStudioServerProDomainSettings"
                  Prelude.<$> rStudioServerProDomainSettings,
                (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds]))
+instance Property "DockerSettings" DomainSettingsProperty where
+  type PropertyType "DockerSettings" DomainSettingsProperty = DockerSettingsProperty
+  set newValue DomainSettingsProperty {..}
+    = DomainSettingsProperty
+        {dockerSettings = Prelude.pure newValue, ..}
 instance Property "RStudioServerProDomainSettings" DomainSettingsProperty where
   type PropertyType "RStudioServerProDomainSettings" DomainSettingsProperty = RStudioServerProDomainSettingsProperty
   set newValue DomainSettingsProperty {..}

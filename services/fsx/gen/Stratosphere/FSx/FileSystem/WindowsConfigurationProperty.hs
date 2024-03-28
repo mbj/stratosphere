@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FSx.FileSystem.AuditLogConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.FSx.FileSystem.DiskIopsConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.FSx.FileSystem.SelfManagedActiveDirectoryConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -17,6 +18,7 @@ data WindowsConfigurationProperty
                                   copyTagsToBackups :: (Prelude.Maybe (Value Prelude.Bool)),
                                   dailyAutomaticBackupStartTime :: (Prelude.Maybe (Value Prelude.Text)),
                                   deploymentType :: (Prelude.Maybe (Value Prelude.Text)),
+                                  diskIopsConfiguration :: (Prelude.Maybe DiskIopsConfigurationProperty),
                                   preferredSubnetId :: (Prelude.Maybe (Value Prelude.Text)),
                                   selfManagedActiveDirectoryConfiguration :: (Prelude.Maybe SelfManagedActiveDirectoryConfigurationProperty),
                                   throughputCapacity :: (Value Prelude.Integer),
@@ -33,6 +35,7 @@ mkWindowsConfigurationProperty throughputCapacity
        copyTagsToBackups = Prelude.Nothing,
        dailyAutomaticBackupStartTime = Prelude.Nothing,
        deploymentType = Prelude.Nothing,
+       diskIopsConfiguration = Prelude.Nothing,
        preferredSubnetId = Prelude.Nothing,
        selfManagedActiveDirectoryConfiguration = Prelude.Nothing,
        weeklyMaintenanceStartTime = Prelude.Nothing}
@@ -55,6 +58,8 @@ instance ToResourceProperties WindowsConfigurationProperty where
                                (JSON..=) "DailyAutomaticBackupStartTime"
                                  Prelude.<$> dailyAutomaticBackupStartTime,
                                (JSON..=) "DeploymentType" Prelude.<$> deploymentType,
+                               (JSON..=) "DiskIopsConfiguration"
+                                 Prelude.<$> diskIopsConfiguration,
                                (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
                                (JSON..=) "SelfManagedActiveDirectoryConfiguration"
                                  Prelude.<$> selfManagedActiveDirectoryConfiguration,
@@ -77,6 +82,8 @@ instance JSON.ToJSON WindowsConfigurationProperty where
                   (JSON..=) "DailyAutomaticBackupStartTime"
                     Prelude.<$> dailyAutomaticBackupStartTime,
                   (JSON..=) "DeploymentType" Prelude.<$> deploymentType,
+                  (JSON..=) "DiskIopsConfiguration"
+                    Prelude.<$> diskIopsConfiguration,
                   (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
                   (JSON..=) "SelfManagedActiveDirectoryConfiguration"
                     Prelude.<$> selfManagedActiveDirectoryConfiguration,
@@ -117,6 +124,11 @@ instance Property "DeploymentType" WindowsConfigurationProperty where
   set newValue WindowsConfigurationProperty {..}
     = WindowsConfigurationProperty
         {deploymentType = Prelude.pure newValue, ..}
+instance Property "DiskIopsConfiguration" WindowsConfigurationProperty where
+  type PropertyType "DiskIopsConfiguration" WindowsConfigurationProperty = DiskIopsConfigurationProperty
+  set newValue WindowsConfigurationProperty {..}
+    = WindowsConfigurationProperty
+        {diskIopsConfiguration = Prelude.pure newValue, ..}
 instance Property "PreferredSubnetId" WindowsConfigurationProperty where
   type PropertyType "PreferredSubnetId" WindowsConfigurationProperty = Value Prelude.Text
   set newValue WindowsConfigurationProperty {..}

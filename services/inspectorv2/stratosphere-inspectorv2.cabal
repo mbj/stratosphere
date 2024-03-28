@@ -25,6 +25,13 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.InspectorV2.CisScanConfiguration
+      Stratosphere.InspectorV2.CisScanConfiguration.CisTargetsProperty
+      Stratosphere.InspectorV2.CisScanConfiguration.DailyScheduleProperty
+      Stratosphere.InspectorV2.CisScanConfiguration.MonthlyScheduleProperty
+      Stratosphere.InspectorV2.CisScanConfiguration.ScheduleProperty
+      Stratosphere.InspectorV2.CisScanConfiguration.TimeProperty
+      Stratosphere.InspectorV2.CisScanConfiguration.WeeklyScheduleProperty
       Stratosphere.InspectorV2.Filter
       Stratosphere.InspectorV2.Filter.DateFilterProperty
       Stratosphere.InspectorV2.Filter.FilterCriteriaProperty

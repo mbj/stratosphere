@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputLossBehaviorProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputLockingSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlobalConfigurationProperty
@@ -13,6 +14,7 @@ data GlobalConfigurationProperty
                                  inputEndAction :: (Prelude.Maybe (Value Prelude.Text)),
                                  inputLossBehavior :: (Prelude.Maybe InputLossBehaviorProperty),
                                  outputLockingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                 outputLockingSettings :: (Prelude.Maybe OutputLockingSettingsProperty),
                                  outputTimingSource :: (Prelude.Maybe (Value Prelude.Text)),
                                  supportLowFramerateInputs :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -23,6 +25,7 @@ mkGlobalConfigurationProperty
        inputEndAction = Prelude.Nothing,
        inputLossBehavior = Prelude.Nothing,
        outputLockingMode = Prelude.Nothing,
+       outputLockingSettings = Prelude.Nothing,
        outputTimingSource = Prelude.Nothing,
        supportLowFramerateInputs = Prelude.Nothing}
 instance ToResourceProperties GlobalConfigurationProperty where
@@ -36,6 +39,8 @@ instance ToResourceProperties GlobalConfigurationProperty where
                             (JSON..=) "InputEndAction" Prelude.<$> inputEndAction,
                             (JSON..=) "InputLossBehavior" Prelude.<$> inputLossBehavior,
                             (JSON..=) "OutputLockingMode" Prelude.<$> outputLockingMode,
+                            (JSON..=) "OutputLockingSettings"
+                              Prelude.<$> outputLockingSettings,
                             (JSON..=) "OutputTimingSource" Prelude.<$> outputTimingSource,
                             (JSON..=) "SupportLowFramerateInputs"
                               Prelude.<$> supportLowFramerateInputs])}
@@ -48,6 +53,8 @@ instance JSON.ToJSON GlobalConfigurationProperty where
                (JSON..=) "InputEndAction" Prelude.<$> inputEndAction,
                (JSON..=) "InputLossBehavior" Prelude.<$> inputLossBehavior,
                (JSON..=) "OutputLockingMode" Prelude.<$> outputLockingMode,
+               (JSON..=) "OutputLockingSettings"
+                 Prelude.<$> outputLockingSettings,
                (JSON..=) "OutputTimingSource" Prelude.<$> outputTimingSource,
                (JSON..=) "SupportLowFramerateInputs"
                  Prelude.<$> supportLowFramerateInputs]))
@@ -71,6 +78,11 @@ instance Property "OutputLockingMode" GlobalConfigurationProperty where
   set newValue GlobalConfigurationProperty {..}
     = GlobalConfigurationProperty
         {outputLockingMode = Prelude.pure newValue, ..}
+instance Property "OutputLockingSettings" GlobalConfigurationProperty where
+  type PropertyType "OutputLockingSettings" GlobalConfigurationProperty = OutputLockingSettingsProperty
+  set newValue GlobalConfigurationProperty {..}
+    = GlobalConfigurationProperty
+        {outputLockingSettings = Prelude.pure newValue, ..}
 instance Property "OutputTimingSource" GlobalConfigurationProperty where
   type PropertyType "OutputTimingSource" GlobalConfigurationProperty = Value Prelude.Text
   set newValue GlobalConfigurationProperty {..}

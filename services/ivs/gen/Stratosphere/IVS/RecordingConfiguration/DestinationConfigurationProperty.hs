@@ -8,22 +8,25 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IVS.RecordingConfiguration.S3DestinationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data DestinationConfigurationProperty
-  = DestinationConfigurationProperty {s3 :: S3DestinationConfigurationProperty}
+  = DestinationConfigurationProperty {s3 :: (Prelude.Maybe S3DestinationConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDestinationConfigurationProperty ::
-  S3DestinationConfigurationProperty
-  -> DestinationConfigurationProperty
-mkDestinationConfigurationProperty s3
-  = DestinationConfigurationProperty {s3 = s3}
+  DestinationConfigurationProperty
+mkDestinationConfigurationProperty
+  = DestinationConfigurationProperty {s3 = Prelude.Nothing}
 instance ToResourceProperties DestinationConfigurationProperty where
   toResourceProperties DestinationConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::IVS::RecordingConfiguration.DestinationConfiguration",
-         supportsTags = Prelude.False, properties = ["S3" JSON..= s3]}
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        (Prelude.catMaybes [(JSON..=) "S3" Prelude.<$> s3])}
 instance JSON.ToJSON DestinationConfigurationProperty where
   toJSON DestinationConfigurationProperty {..}
-    = JSON.object ["S3" JSON..= s3]
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes [(JSON..=) "S3" Prelude.<$> s3]))
 instance Property "S3" DestinationConfigurationProperty where
   type PropertyType "S3" DestinationConfigurationProperty = S3DestinationConfigurationProperty
   set newValue DestinationConfigurationProperty {}
-    = DestinationConfigurationProperty {s3 = newValue, ..}
+    = DestinationConfigurationProperty {s3 = Prelude.pure newValue, ..}

@@ -11,8 +11,10 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchD
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ExtendedS3DestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointDestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.KinesisStreamSourceConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.MSKSourceConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.RedshiftDestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeDestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SplunkDestinationConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -27,8 +29,10 @@ data DeliveryStream
                     extendedS3DestinationConfiguration :: (Prelude.Maybe ExtendedS3DestinationConfigurationProperty),
                     httpEndpointDestinationConfiguration :: (Prelude.Maybe HttpEndpointDestinationConfigurationProperty),
                     kinesisStreamSourceConfiguration :: (Prelude.Maybe KinesisStreamSourceConfigurationProperty),
+                    mSKSourceConfiguration :: (Prelude.Maybe MSKSourceConfigurationProperty),
                     redshiftDestinationConfiguration :: (Prelude.Maybe RedshiftDestinationConfigurationProperty),
                     s3DestinationConfiguration :: (Prelude.Maybe S3DestinationConfigurationProperty),
+                    snowflakeDestinationConfiguration :: (Prelude.Maybe SnowflakeDestinationConfigurationProperty),
                     splunkDestinationConfiguration :: (Prelude.Maybe SplunkDestinationConfigurationProperty),
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -44,8 +48,10 @@ mkDeliveryStream
        extendedS3DestinationConfiguration = Prelude.Nothing,
        httpEndpointDestinationConfiguration = Prelude.Nothing,
        kinesisStreamSourceConfiguration = Prelude.Nothing,
+       mSKSourceConfiguration = Prelude.Nothing,
        redshiftDestinationConfiguration = Prelude.Nothing,
        s3DestinationConfiguration = Prelude.Nothing,
+       snowflakeDestinationConfiguration = Prelude.Nothing,
        splunkDestinationConfiguration = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties DeliveryStream where
@@ -71,10 +77,14 @@ instance ToResourceProperties DeliveryStream where
                               Prelude.<$> httpEndpointDestinationConfiguration,
                             (JSON..=) "KinesisStreamSourceConfiguration"
                               Prelude.<$> kinesisStreamSourceConfiguration,
+                            (JSON..=) "MSKSourceConfiguration"
+                              Prelude.<$> mSKSourceConfiguration,
                             (JSON..=) "RedshiftDestinationConfiguration"
                               Prelude.<$> redshiftDestinationConfiguration,
                             (JSON..=) "S3DestinationConfiguration"
                               Prelude.<$> s3DestinationConfiguration,
+                            (JSON..=) "SnowflakeDestinationConfiguration"
+                              Prelude.<$> snowflakeDestinationConfiguration,
                             (JSON..=) "SplunkDestinationConfiguration"
                               Prelude.<$> splunkDestinationConfiguration,
                             (JSON..=) "Tags" Prelude.<$> tags])}
@@ -99,10 +109,14 @@ instance JSON.ToJSON DeliveryStream where
                  Prelude.<$> httpEndpointDestinationConfiguration,
                (JSON..=) "KinesisStreamSourceConfiguration"
                  Prelude.<$> kinesisStreamSourceConfiguration,
+               (JSON..=) "MSKSourceConfiguration"
+                 Prelude.<$> mSKSourceConfiguration,
                (JSON..=) "RedshiftDestinationConfiguration"
                  Prelude.<$> redshiftDestinationConfiguration,
                (JSON..=) "S3DestinationConfiguration"
                  Prelude.<$> s3DestinationConfiguration,
+               (JSON..=) "SnowflakeDestinationConfiguration"
+                 Prelude.<$> snowflakeDestinationConfiguration,
                (JSON..=) "SplunkDestinationConfiguration"
                  Prelude.<$> splunkDestinationConfiguration,
                (JSON..=) "Tags" Prelude.<$> tags]))
@@ -155,6 +169,11 @@ instance Property "KinesisStreamSourceConfiguration" DeliveryStream where
   set newValue DeliveryStream {..}
     = DeliveryStream
         {kinesisStreamSourceConfiguration = Prelude.pure newValue, ..}
+instance Property "MSKSourceConfiguration" DeliveryStream where
+  type PropertyType "MSKSourceConfiguration" DeliveryStream = MSKSourceConfigurationProperty
+  set newValue DeliveryStream {..}
+    = DeliveryStream
+        {mSKSourceConfiguration = Prelude.pure newValue, ..}
 instance Property "RedshiftDestinationConfiguration" DeliveryStream where
   type PropertyType "RedshiftDestinationConfiguration" DeliveryStream = RedshiftDestinationConfigurationProperty
   set newValue DeliveryStream {..}
@@ -165,6 +184,11 @@ instance Property "S3DestinationConfiguration" DeliveryStream where
   set newValue DeliveryStream {..}
     = DeliveryStream
         {s3DestinationConfiguration = Prelude.pure newValue, ..}
+instance Property "SnowflakeDestinationConfiguration" DeliveryStream where
+  type PropertyType "SnowflakeDestinationConfiguration" DeliveryStream = SnowflakeDestinationConfigurationProperty
+  set newValue DeliveryStream {..}
+    = DeliveryStream
+        {snowflakeDestinationConfiguration = Prelude.pure newValue, ..}
 instance Property "SplunkDestinationConfiguration" DeliveryStream where
   type PropertyType "SplunkDestinationConfiguration" DeliveryStream = SplunkDestinationConfigurationProperty
   set newValue DeliveryStream {..}

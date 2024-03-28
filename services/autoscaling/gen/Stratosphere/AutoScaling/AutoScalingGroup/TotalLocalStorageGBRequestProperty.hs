@@ -8,8 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TotalLocalStorageGBRequestProperty
-  = TotalLocalStorageGBRequestProperty {max :: (Prelude.Maybe (Value Prelude.Integer)),
-                                        min :: (Prelude.Maybe (Value Prelude.Integer))}
+  = TotalLocalStorageGBRequestProperty {max :: (Prelude.Maybe (Value Prelude.Double)),
+                                        min :: (Prelude.Maybe (Value Prelude.Double))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTotalLocalStorageGBRequestProperty ::
   TotalLocalStorageGBRequestProperty
@@ -33,12 +33,12 @@ instance JSON.ToJSON TotalLocalStorageGBRequestProperty where
               [(JSON..=) "Max" Prelude.<$> max,
                (JSON..=) "Min" Prelude.<$> min]))
 instance Property "Max" TotalLocalStorageGBRequestProperty where
-  type PropertyType "Max" TotalLocalStorageGBRequestProperty = Value Prelude.Integer
+  type PropertyType "Max" TotalLocalStorageGBRequestProperty = Value Prelude.Double
   set newValue TotalLocalStorageGBRequestProperty {..}
     = TotalLocalStorageGBRequestProperty
         {max = Prelude.pure newValue, ..}
 instance Property "Min" TotalLocalStorageGBRequestProperty where
-  type PropertyType "Min" TotalLocalStorageGBRequestProperty = Value Prelude.Integer
+  type PropertyType "Min" TotalLocalStorageGBRequestProperty = Value Prelude.Double
   set newValue TotalLocalStorageGBRequestProperty {..}
     = TotalLocalStorageGBRequestProperty
         {min = Prelude.pure newValue, ..}

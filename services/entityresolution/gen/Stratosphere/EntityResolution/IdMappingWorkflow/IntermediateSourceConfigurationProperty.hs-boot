@@ -1,0 +1,9 @@
+module Stratosphere.EntityResolution.IdMappingWorkflow.IntermediateSourceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IntermediateSourceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties IntermediateSourceConfigurationProperty
+instance Prelude.Eq IntermediateSourceConfigurationProperty
+instance Prelude.Show IntermediateSourceConfigurationProperty
+instance JSON.ToJSON IntermediateSourceConfigurationProperty

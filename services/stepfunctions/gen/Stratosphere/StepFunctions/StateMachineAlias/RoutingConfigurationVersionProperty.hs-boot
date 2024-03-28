@@ -1,0 +1,9 @@
+module Stratosphere.StepFunctions.StateMachineAlias.RoutingConfigurationVersionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RoutingConfigurationVersionProperty :: Prelude.Type
+instance ToResourceProperties RoutingConfigurationVersionProperty
+instance Prelude.Eq RoutingConfigurationVersionProperty
+instance Prelude.Show RoutingConfigurationVersionProperty
+instance JSON.ToJSON RoutingConfigurationVersionProperty

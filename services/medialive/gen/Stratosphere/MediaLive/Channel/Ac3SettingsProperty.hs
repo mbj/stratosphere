@@ -7,7 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Ac3SettingsProperty
-  = Ac3SettingsProperty {bitrate :: (Prelude.Maybe (Value Prelude.Double)),
+  = Ac3SettingsProperty {attenuationControl :: (Prelude.Maybe (Value Prelude.Text)),
+                         bitrate :: (Prelude.Maybe (Value Prelude.Double)),
                          bitstreamMode :: (Prelude.Maybe (Value Prelude.Text)),
                          codingMode :: (Prelude.Maybe (Value Prelude.Text)),
                          dialnorm :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -18,10 +19,10 @@ data Ac3SettingsProperty
 mkAc3SettingsProperty :: Ac3SettingsProperty
 mkAc3SettingsProperty
   = Ac3SettingsProperty
-      {bitrate = Prelude.Nothing, bitstreamMode = Prelude.Nothing,
-       codingMode = Prelude.Nothing, dialnorm = Prelude.Nothing,
-       drcProfile = Prelude.Nothing, lfeFilter = Prelude.Nothing,
-       metadataControl = Prelude.Nothing}
+      {attenuationControl = Prelude.Nothing, bitrate = Prelude.Nothing,
+       bitstreamMode = Prelude.Nothing, codingMode = Prelude.Nothing,
+       dialnorm = Prelude.Nothing, drcProfile = Prelude.Nothing,
+       lfeFilter = Prelude.Nothing, metadataControl = Prelude.Nothing}
 instance ToResourceProperties Ac3SettingsProperty where
   toResourceProperties Ac3SettingsProperty {..}
     = ResourceProperties
@@ -29,7 +30,8 @@ instance ToResourceProperties Ac3SettingsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Bitrate" Prelude.<$> bitrate,
+                           [(JSON..=) "AttenuationControl" Prelude.<$> attenuationControl,
+                            (JSON..=) "Bitrate" Prelude.<$> bitrate,
                             (JSON..=) "BitstreamMode" Prelude.<$> bitstreamMode,
                             (JSON..=) "CodingMode" Prelude.<$> codingMode,
                             (JSON..=) "Dialnorm" Prelude.<$> dialnorm,
@@ -41,13 +43,19 @@ instance JSON.ToJSON Ac3SettingsProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Bitrate" Prelude.<$> bitrate,
+              [(JSON..=) "AttenuationControl" Prelude.<$> attenuationControl,
+               (JSON..=) "Bitrate" Prelude.<$> bitrate,
                (JSON..=) "BitstreamMode" Prelude.<$> bitstreamMode,
                (JSON..=) "CodingMode" Prelude.<$> codingMode,
                (JSON..=) "Dialnorm" Prelude.<$> dialnorm,
                (JSON..=) "DrcProfile" Prelude.<$> drcProfile,
                (JSON..=) "LfeFilter" Prelude.<$> lfeFilter,
                (JSON..=) "MetadataControl" Prelude.<$> metadataControl]))
+instance Property "AttenuationControl" Ac3SettingsProperty where
+  type PropertyType "AttenuationControl" Ac3SettingsProperty = Value Prelude.Text
+  set newValue Ac3SettingsProperty {..}
+    = Ac3SettingsProperty
+        {attenuationControl = Prelude.pure newValue, ..}
 instance Property "Bitrate" Ac3SettingsProperty where
   type PropertyType "Bitrate" Ac3SettingsProperty = Value Prelude.Double
   set newValue Ac3SettingsProperty {..}

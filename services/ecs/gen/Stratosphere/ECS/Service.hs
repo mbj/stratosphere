@@ -13,6 +13,7 @@ import {-# SOURCE #-} Stratosphere.ECS.Service.PlacementConstraintProperty as Ex
 import {-# SOURCE #-} Stratosphere.ECS.Service.PlacementStrategyProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceConnectConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceRegistryProperty as Exports
+import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceVolumeConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -38,7 +39,8 @@ data Service
              serviceName :: (Prelude.Maybe (Value Prelude.Text)),
              serviceRegistries :: (Prelude.Maybe [ServiceRegistryProperty]),
              tags :: (Prelude.Maybe [Tag]),
-             taskDefinition :: (Prelude.Maybe (Value Prelude.Text))}
+             taskDefinition :: (Prelude.Maybe (Value Prelude.Text)),
+             volumeConfigurations :: (Prelude.Maybe [ServiceVolumeConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkService :: Service
 mkService
@@ -59,7 +61,8 @@ mkService
        role = Prelude.Nothing, schedulingStrategy = Prelude.Nothing,
        serviceConnectConfiguration = Prelude.Nothing,
        serviceName = Prelude.Nothing, serviceRegistries = Prelude.Nothing,
-       tags = Prelude.Nothing, taskDefinition = Prelude.Nothing}
+       tags = Prelude.Nothing, taskDefinition = Prelude.Nothing,
+       volumeConfigurations = Prelude.Nothing}
 instance ToResourceProperties Service where
   toResourceProperties Service {..}
     = ResourceProperties
@@ -91,7 +94,9 @@ instance ToResourceProperties Service where
                             (JSON..=) "ServiceName" Prelude.<$> serviceName,
                             (JSON..=) "ServiceRegistries" Prelude.<$> serviceRegistries,
                             (JSON..=) "Tags" Prelude.<$> tags,
-                            (JSON..=) "TaskDefinition" Prelude.<$> taskDefinition])}
+                            (JSON..=) "TaskDefinition" Prelude.<$> taskDefinition,
+                            (JSON..=) "VolumeConfigurations"
+                              Prelude.<$> volumeConfigurations])}
 instance JSON.ToJSON Service where
   toJSON Service {..}
     = JSON.object
@@ -122,7 +127,9 @@ instance JSON.ToJSON Service where
                (JSON..=) "ServiceName" Prelude.<$> serviceName,
                (JSON..=) "ServiceRegistries" Prelude.<$> serviceRegistries,
                (JSON..=) "Tags" Prelude.<$> tags,
-               (JSON..=) "TaskDefinition" Prelude.<$> taskDefinition]))
+               (JSON..=) "TaskDefinition" Prelude.<$> taskDefinition,
+               (JSON..=) "VolumeConfigurations"
+                 Prelude.<$> volumeConfigurations]))
 instance Property "CapacityProviderStrategy" Service where
   type PropertyType "CapacityProviderStrategy" Service = [CapacityProviderStrategyItemProperty]
   set newValue Service {..}
@@ -212,3 +219,7 @@ instance Property "TaskDefinition" Service where
   type PropertyType "TaskDefinition" Service = Value Prelude.Text
   set newValue Service {..}
     = Service {taskDefinition = Prelude.pure newValue, ..}
+instance Property "VolumeConfigurations" Service where
+  type PropertyType "VolumeConfigurations" Service = [ServiceVolumeConfigurationProperty]
+  set newValue Service {..}
+    = Service {volumeConfigurations = Prelude.pure newValue, ..}

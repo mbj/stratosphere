@@ -9,42 +9,40 @@ import {-# SOURCE #-} Stratosphere.Connect.InstanceStorageConfig.EncryptionConfi
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KinesisVideoStreamConfigProperty
-  = KinesisVideoStreamConfigProperty {encryptionConfig :: (Prelude.Maybe EncryptionConfigProperty),
+  = KinesisVideoStreamConfigProperty {encryptionConfig :: EncryptionConfigProperty,
                                       prefix :: (Value Prelude.Text),
                                       retentionPeriodHours :: (Value Prelude.Double)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKinesisVideoStreamConfigProperty ::
-  Value Prelude.Text
-  -> Value Prelude.Double -> KinesisVideoStreamConfigProperty
-mkKinesisVideoStreamConfigProperty prefix retentionPeriodHours
+  EncryptionConfigProperty
+  -> Value Prelude.Text
+     -> Value Prelude.Double -> KinesisVideoStreamConfigProperty
+mkKinesisVideoStreamConfigProperty
+  encryptionConfig
+  prefix
+  retentionPeriodHours
   = KinesisVideoStreamConfigProperty
-      {prefix = prefix, retentionPeriodHours = retentionPeriodHours,
-       encryptionConfig = Prelude.Nothing}
+      {encryptionConfig = encryptionConfig, prefix = prefix,
+       retentionPeriodHours = retentionPeriodHours}
 instance ToResourceProperties KinesisVideoStreamConfigProperty where
   toResourceProperties KinesisVideoStreamConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::Connect::InstanceStorageConfig.KinesisVideoStreamConfig",
          supportsTags = Prelude.False,
-         properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["Prefix" JSON..= prefix,
-                            "RetentionPeriodHours" JSON..= retentionPeriodHours]
-                           (Prelude.catMaybes
-                              [(JSON..=) "EncryptionConfig" Prelude.<$> encryptionConfig]))}
+         properties = ["EncryptionConfig" JSON..= encryptionConfig,
+                       "Prefix" JSON..= prefix,
+                       "RetentionPeriodHours" JSON..= retentionPeriodHours]}
 instance JSON.ToJSON KinesisVideoStreamConfigProperty where
   toJSON KinesisVideoStreamConfigProperty {..}
     = JSON.object
-        (Prelude.fromList
-           ((Prelude.<>)
-              ["Prefix" JSON..= prefix,
-               "RetentionPeriodHours" JSON..= retentionPeriodHours]
-              (Prelude.catMaybes
-                 [(JSON..=) "EncryptionConfig" Prelude.<$> encryptionConfig])))
+        ["EncryptionConfig" JSON..= encryptionConfig,
+         "Prefix" JSON..= prefix,
+         "RetentionPeriodHours" JSON..= retentionPeriodHours]
 instance Property "EncryptionConfig" KinesisVideoStreamConfigProperty where
   type PropertyType "EncryptionConfig" KinesisVideoStreamConfigProperty = EncryptionConfigProperty
   set newValue KinesisVideoStreamConfigProperty {..}
     = KinesisVideoStreamConfigProperty
-        {encryptionConfig = Prelude.pure newValue, ..}
+        {encryptionConfig = newValue, ..}
 instance Property "Prefix" KinesisVideoStreamConfigProperty where
   type PropertyType "Prefix" KinesisVideoStreamConfigProperty = Value Prelude.Text
   set newValue KinesisVideoStreamConfigProperty {..}

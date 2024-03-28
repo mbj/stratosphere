@@ -1,0 +1,9 @@
+module Stratosphere.VerifiedPermissions.Policy.EntityIdentifierProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EntityIdentifierProperty :: Prelude.Type
+instance ToResourceProperties EntityIdentifierProperty
+instance Prelude.Eq EntityIdentifierProperty
+instance Prelude.Show EntityIdentifierProperty
+instance JSON.ToJSON EntityIdentifierProperty

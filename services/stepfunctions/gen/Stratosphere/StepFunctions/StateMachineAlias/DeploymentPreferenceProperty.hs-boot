@@ -1,0 +1,9 @@
+module Stratosphere.StepFunctions.StateMachineAlias.DeploymentPreferenceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeploymentPreferenceProperty :: Prelude.Type
+instance ToResourceProperties DeploymentPreferenceProperty
+instance Prelude.Eq DeploymentPreferenceProperty
+instance Prelude.Show DeploymentPreferenceProperty
+instance JSON.ToJSON DeploymentPreferenceProperty

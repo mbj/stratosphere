@@ -10,6 +10,8 @@ import Stratosphere.Value
 data DBInstance
   = DBInstance {autoMinorVersionUpgrade :: (Prelude.Maybe (Value Prelude.Bool)),
                 availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+                cACertificateIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                certificateRotationRestart :: (Prelude.Maybe (Value Prelude.Bool)),
                 dBClusterIdentifier :: (Value Prelude.Text),
                 dBInstanceClass :: (Value Prelude.Text),
                 dBInstanceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
@@ -25,6 +27,8 @@ mkDBInstance dBClusterIdentifier dBInstanceClass
        dBInstanceClass = dBInstanceClass,
        autoMinorVersionUpgrade = Prelude.Nothing,
        availabilityZone = Prelude.Nothing,
+       cACertificateIdentifier = Prelude.Nothing,
+       certificateRotationRestart = Prelude.Nothing,
        dBInstanceIdentifier = Prelude.Nothing,
        enablePerformanceInsights = Prelude.Nothing,
        preferredMaintenanceWindow = Prelude.Nothing,
@@ -41,6 +45,10 @@ instance ToResourceProperties DBInstance where
                               [(JSON..=) "AutoMinorVersionUpgrade"
                                  Prelude.<$> autoMinorVersionUpgrade,
                                (JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
+                               (JSON..=) "CACertificateIdentifier"
+                                 Prelude.<$> cACertificateIdentifier,
+                               (JSON..=) "CertificateRotationRestart"
+                                 Prelude.<$> certificateRotationRestart,
                                (JSON..=) "DBInstanceIdentifier" Prelude.<$> dBInstanceIdentifier,
                                (JSON..=) "EnablePerformanceInsights"
                                  Prelude.<$> enablePerformanceInsights,
@@ -58,6 +66,10 @@ instance JSON.ToJSON DBInstance where
                  [(JSON..=) "AutoMinorVersionUpgrade"
                     Prelude.<$> autoMinorVersionUpgrade,
                   (JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
+                  (JSON..=) "CACertificateIdentifier"
+                    Prelude.<$> cACertificateIdentifier,
+                  (JSON..=) "CertificateRotationRestart"
+                    Prelude.<$> certificateRotationRestart,
                   (JSON..=) "DBInstanceIdentifier" Prelude.<$> dBInstanceIdentifier,
                   (JSON..=) "EnablePerformanceInsights"
                     Prelude.<$> enablePerformanceInsights,
@@ -72,6 +84,15 @@ instance Property "AvailabilityZone" DBInstance where
   type PropertyType "AvailabilityZone" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {availabilityZone = Prelude.pure newValue, ..}
+instance Property "CACertificateIdentifier" DBInstance where
+  type PropertyType "CACertificateIdentifier" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance {cACertificateIdentifier = Prelude.pure newValue, ..}
+instance Property "CertificateRotationRestart" DBInstance where
+  type PropertyType "CertificateRotationRestart" DBInstance = Value Prelude.Bool
+  set newValue DBInstance {..}
+    = DBInstance
+        {certificateRotationRestart = Prelude.pure newValue, ..}
 instance Property "DBClusterIdentifier" DBInstance where
   type PropertyType "DBClusterIdentifier" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}

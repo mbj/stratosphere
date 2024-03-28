@@ -10,7 +10,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Template.MeasureFieldProperty as E
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopBottomRankedComputationProperty
-  = TopBottomRankedComputationProperty {category :: DimensionFieldProperty,
+  = TopBottomRankedComputationProperty {category :: (Prelude.Maybe DimensionFieldProperty),
                                         computationId :: (Value Prelude.Text),
                                         name :: (Prelude.Maybe (Value Prelude.Text)),
                                         resultSize :: (Prelude.Maybe (Value Prelude.Double)),
@@ -18,14 +18,13 @@ data TopBottomRankedComputationProperty
                                         value :: (Prelude.Maybe MeasureFieldProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTopBottomRankedComputationProperty ::
-  DimensionFieldProperty
-  -> Value Prelude.Text
-     -> Value Prelude.Text -> TopBottomRankedComputationProperty
-mkTopBottomRankedComputationProperty category computationId type'
+  Value Prelude.Text
+  -> Value Prelude.Text -> TopBottomRankedComputationProperty
+mkTopBottomRankedComputationProperty computationId type'
   = TopBottomRankedComputationProperty
-      {category = category, computationId = computationId, type' = type',
-       name = Prelude.Nothing, resultSize = Prelude.Nothing,
-       value = Prelude.Nothing}
+      {computationId = computationId, type' = type',
+       category = Prelude.Nothing, name = Prelude.Nothing,
+       resultSize = Prelude.Nothing, value = Prelude.Nothing}
 instance ToResourceProperties TopBottomRankedComputationProperty where
   toResourceProperties TopBottomRankedComputationProperty {..}
     = ResourceProperties
@@ -33,10 +32,10 @@ instance ToResourceProperties TopBottomRankedComputationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Category" JSON..= category,
-                            "ComputationId" JSON..= computationId, "Type" JSON..= type']
+                           ["ComputationId" JSON..= computationId, "Type" JSON..= type']
                            (Prelude.catMaybes
-                              [(JSON..=) "Name" Prelude.<$> name,
+                              [(JSON..=) "Category" Prelude.<$> category,
+                               (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "ResultSize" Prelude.<$> resultSize,
                                (JSON..=) "Value" Prelude.<$> value]))}
 instance JSON.ToJSON TopBottomRankedComputationProperty where
@@ -44,16 +43,17 @@ instance JSON.ToJSON TopBottomRankedComputationProperty where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Category" JSON..= category,
-               "ComputationId" JSON..= computationId, "Type" JSON..= type']
+              ["ComputationId" JSON..= computationId, "Type" JSON..= type']
               (Prelude.catMaybes
-                 [(JSON..=) "Name" Prelude.<$> name,
+                 [(JSON..=) "Category" Prelude.<$> category,
+                  (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "ResultSize" Prelude.<$> resultSize,
                   (JSON..=) "Value" Prelude.<$> value])))
 instance Property "Category" TopBottomRankedComputationProperty where
   type PropertyType "Category" TopBottomRankedComputationProperty = DimensionFieldProperty
   set newValue TopBottomRankedComputationProperty {..}
-    = TopBottomRankedComputationProperty {category = newValue, ..}
+    = TopBottomRankedComputationProperty
+        {category = Prelude.pure newValue, ..}
 instance Property "ComputationId" TopBottomRankedComputationProperty where
   type PropertyType "ComputationId" TopBottomRankedComputationProperty = Value Prelude.Text
   set newValue TopBottomRankedComputationProperty {..}

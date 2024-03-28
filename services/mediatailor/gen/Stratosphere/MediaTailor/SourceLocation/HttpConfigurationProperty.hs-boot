@@ -1,0 +1,9 @@
+module Stratosphere.MediaTailor.SourceLocation.HttpConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HttpConfigurationProperty :: Prelude.Type
+instance ToResourceProperties HttpConfigurationProperty
+instance Prelude.Eq HttpConfigurationProperty
+instance Prelude.Show HttpConfigurationProperty
+instance JSON.ToJSON HttpConfigurationProperty

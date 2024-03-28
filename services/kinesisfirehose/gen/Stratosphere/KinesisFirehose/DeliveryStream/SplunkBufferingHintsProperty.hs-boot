@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.SplunkBufferingHintsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SplunkBufferingHintsProperty :: Prelude.Type
+instance ToResourceProperties SplunkBufferingHintsProperty
+instance Prelude.Eq SplunkBufferingHintsProperty
+instance Prelude.Show SplunkBufferingHintsProperty
+instance JSON.ToJSON SplunkBufferingHintsProperty

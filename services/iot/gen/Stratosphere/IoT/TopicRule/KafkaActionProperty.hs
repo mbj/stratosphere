@@ -1,14 +1,16 @@
 module Stratosphere.IoT.TopicRule.KafkaActionProperty (
-        KafkaActionProperty(..), mkKafkaActionProperty
+        module Exports, KafkaActionProperty(..), mkKafkaActionProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.IoT.TopicRule.KafkaActionHeaderProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KafkaActionProperty
   = KafkaActionProperty {clientProperties :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
                          destinationArn :: (Value Prelude.Text),
+                         headers :: (Prelude.Maybe [KafkaActionHeaderProperty]),
                          key :: (Prelude.Maybe (Value Prelude.Text)),
                          partition :: (Prelude.Maybe (Value Prelude.Text)),
                          topic :: (Value Prelude.Text)}
@@ -20,7 +22,8 @@ mkKafkaActionProperty clientProperties destinationArn topic
   = KafkaActionProperty
       {clientProperties = clientProperties,
        destinationArn = destinationArn, topic = topic,
-       key = Prelude.Nothing, partition = Prelude.Nothing}
+       headers = Prelude.Nothing, key = Prelude.Nothing,
+       partition = Prelude.Nothing}
 instance ToResourceProperties KafkaActionProperty where
   toResourceProperties KafkaActionProperty {..}
     = ResourceProperties
@@ -31,7 +34,8 @@ instance ToResourceProperties KafkaActionProperty where
                            ["ClientProperties" JSON..= clientProperties,
                             "DestinationArn" JSON..= destinationArn, "Topic" JSON..= topic]
                            (Prelude.catMaybes
-                              [(JSON..=) "Key" Prelude.<$> key,
+                              [(JSON..=) "Headers" Prelude.<$> headers,
+                               (JSON..=) "Key" Prelude.<$> key,
                                (JSON..=) "Partition" Prelude.<$> partition]))}
 instance JSON.ToJSON KafkaActionProperty where
   toJSON KafkaActionProperty {..}
@@ -41,7 +45,8 @@ instance JSON.ToJSON KafkaActionProperty where
               ["ClientProperties" JSON..= clientProperties,
                "DestinationArn" JSON..= destinationArn, "Topic" JSON..= topic]
               (Prelude.catMaybes
-                 [(JSON..=) "Key" Prelude.<$> key,
+                 [(JSON..=) "Headers" Prelude.<$> headers,
+                  (JSON..=) "Key" Prelude.<$> key,
                   (JSON..=) "Partition" Prelude.<$> partition])))
 instance Property "ClientProperties" KafkaActionProperty where
   type PropertyType "ClientProperties" KafkaActionProperty = Prelude.Map Prelude.Text (Value Prelude.Text)
@@ -51,6 +56,10 @@ instance Property "DestinationArn" KafkaActionProperty where
   type PropertyType "DestinationArn" KafkaActionProperty = Value Prelude.Text
   set newValue KafkaActionProperty {..}
     = KafkaActionProperty {destinationArn = newValue, ..}
+instance Property "Headers" KafkaActionProperty where
+  type PropertyType "Headers" KafkaActionProperty = [KafkaActionHeaderProperty]
+  set newValue KafkaActionProperty {..}
+    = KafkaActionProperty {headers = Prelude.pure newValue, ..}
 instance Property "Key" KafkaActionProperty where
   type PropertyType "Key" KafkaActionProperty = Value Prelude.Text
   set newValue KafkaActionProperty {..}

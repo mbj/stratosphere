@@ -11,17 +11,16 @@ import Stratosphere.Value
 data PrefixList
   = PrefixList {addressFamily :: (Value Prelude.Text),
                 entries :: (Prelude.Maybe [EntryProperty]),
-                maxEntries :: (Value Prelude.Integer),
+                maxEntries :: (Prelude.Maybe (Value Prelude.Integer)),
                 prefixListName :: (Value Prelude.Text),
                 tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPrefixList ::
-  Value Prelude.Text
-  -> Value Prelude.Integer -> Value Prelude.Text -> PrefixList
-mkPrefixList addressFamily maxEntries prefixListName
+  Value Prelude.Text -> Value Prelude.Text -> PrefixList
+mkPrefixList addressFamily prefixListName
   = PrefixList
-      {addressFamily = addressFamily, maxEntries = maxEntries,
-       prefixListName = prefixListName, entries = Prelude.Nothing,
+      {addressFamily = addressFamily, prefixListName = prefixListName,
+       entries = Prelude.Nothing, maxEntries = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties PrefixList where
   toResourceProperties PrefixList {..}
@@ -30,10 +29,10 @@ instance ToResourceProperties PrefixList where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AddressFamily" JSON..= addressFamily,
-                            "MaxEntries" JSON..= maxEntries,
                             "PrefixListName" JSON..= prefixListName]
                            (Prelude.catMaybes
                               [(JSON..=) "Entries" Prelude.<$> entries,
+                               (JSON..=) "MaxEntries" Prelude.<$> maxEntries,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON PrefixList where
   toJSON PrefixList {..}
@@ -41,10 +40,10 @@ instance JSON.ToJSON PrefixList where
         (Prelude.fromList
            ((Prelude.<>)
               ["AddressFamily" JSON..= addressFamily,
-               "MaxEntries" JSON..= maxEntries,
                "PrefixListName" JSON..= prefixListName]
               (Prelude.catMaybes
                  [(JSON..=) "Entries" Prelude.<$> entries,
+                  (JSON..=) "MaxEntries" Prelude.<$> maxEntries,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AddressFamily" PrefixList where
   type PropertyType "AddressFamily" PrefixList = Value Prelude.Text
@@ -57,7 +56,7 @@ instance Property "Entries" PrefixList where
 instance Property "MaxEntries" PrefixList where
   type PropertyType "MaxEntries" PrefixList = Value Prelude.Integer
   set newValue PrefixList {..}
-    = PrefixList {maxEntries = newValue, ..}
+    = PrefixList {maxEntries = Prelude.pure newValue, ..}
 instance Property "PrefixListName" PrefixList where
   type PropertyType "PrefixListName" PrefixList = Value Prelude.Text
   set newValue PrefixList {..}

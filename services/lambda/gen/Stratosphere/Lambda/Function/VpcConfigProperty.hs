@@ -7,13 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data VpcConfigProperty
-  = VpcConfigProperty {securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = VpcConfigProperty {ipv6AllowedForDualStack :: (Prelude.Maybe (Value Prelude.Bool)),
+                       securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                        subnetIds :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVpcConfigProperty :: VpcConfigProperty
 mkVpcConfigProperty
   = VpcConfigProperty
-      {securityGroupIds = Prelude.Nothing, subnetIds = Prelude.Nothing}
+      {ipv6AllowedForDualStack = Prelude.Nothing,
+       securityGroupIds = Prelude.Nothing, subnetIds = Prelude.Nothing}
 instance ToResourceProperties VpcConfigProperty where
   toResourceProperties VpcConfigProperty {..}
     = ResourceProperties
@@ -21,15 +23,24 @@ instance ToResourceProperties VpcConfigProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
+                           [(JSON..=) "Ipv6AllowedForDualStack"
+                              Prelude.<$> ipv6AllowedForDualStack,
+                            (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
                             (JSON..=) "SubnetIds" Prelude.<$> subnetIds])}
 instance JSON.ToJSON VpcConfigProperty where
   toJSON VpcConfigProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
+              [(JSON..=) "Ipv6AllowedForDualStack"
+                 Prelude.<$> ipv6AllowedForDualStack,
+               (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
                (JSON..=) "SubnetIds" Prelude.<$> subnetIds]))
+instance Property "Ipv6AllowedForDualStack" VpcConfigProperty where
+  type PropertyType "Ipv6AllowedForDualStack" VpcConfigProperty = Value Prelude.Bool
+  set newValue VpcConfigProperty {..}
+    = VpcConfigProperty
+        {ipv6AllowedForDualStack = Prelude.pure newValue, ..}
 instance Property "SecurityGroupIds" VpcConfigProperty where
   type PropertyType "SecurityGroupIds" VpcConfigProperty = ValueList Prelude.Text
   set newValue VpcConfigProperty {..}

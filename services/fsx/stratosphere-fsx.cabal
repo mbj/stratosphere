@@ -46,11 +46,16 @@ library
       Stratosphere.FSx.StorageVirtualMachine.ActiveDirectoryConfigurationProperty
       Stratosphere.FSx.StorageVirtualMachine.SelfManagedActiveDirectoryConfigurationProperty
       Stratosphere.FSx.Volume
+      Stratosphere.FSx.Volume.AggregateConfigurationProperty
+      Stratosphere.FSx.Volume.AutocommitPeriodProperty
       Stratosphere.FSx.Volume.ClientConfigurationsProperty
       Stratosphere.FSx.Volume.NfsExportsProperty
       Stratosphere.FSx.Volume.OntapConfigurationProperty
       Stratosphere.FSx.Volume.OpenZFSConfigurationProperty
       Stratosphere.FSx.Volume.OriginSnapshotProperty
+      Stratosphere.FSx.Volume.RetentionPeriodProperty
+      Stratosphere.FSx.Volume.SnaplockConfigurationProperty
+      Stratosphere.FSx.Volume.SnaplockRetentionPeriodProperty
       Stratosphere.FSx.Volume.TieringPolicyProperty
       Stratosphere.FSx.Volume.UserAndGroupQuotasProperty
   other-modules:

@@ -4,12 +4,16 @@ module Stratosphere.InternetMonitor.Monitor (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.InternetMonitor.Monitor.HealthEventsConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.InternetMonitor.Monitor.InternetMeasurementsLogDeliveryProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Monitor
-  = Monitor {internetMeasurementsLogDelivery :: (Prelude.Maybe InternetMeasurementsLogDeliveryProperty),
+  = Monitor {healthEventsConfig :: (Prelude.Maybe HealthEventsConfigProperty),
+             includeLinkedAccounts :: (Prelude.Maybe (Value Prelude.Bool)),
+             internetMeasurementsLogDelivery :: (Prelude.Maybe InternetMeasurementsLogDeliveryProperty),
+             linkedAccountId :: (Prelude.Maybe (Value Prelude.Text)),
              maxCityNetworksToMonitor :: (Prelude.Maybe (Value Prelude.Integer)),
              monitorName :: (Value Prelude.Text),
              resources :: (Prelude.Maybe (ValueList Prelude.Text)),
@@ -22,8 +26,10 @@ data Monitor
 mkMonitor :: Value Prelude.Text -> Monitor
 mkMonitor monitorName
   = Monitor
-      {monitorName = monitorName,
+      {monitorName = monitorName, healthEventsConfig = Prelude.Nothing,
+       includeLinkedAccounts = Prelude.Nothing,
        internetMeasurementsLogDelivery = Prelude.Nothing,
+       linkedAccountId = Prelude.Nothing,
        maxCityNetworksToMonitor = Prelude.Nothing,
        resources = Prelude.Nothing, resourcesToAdd = Prelude.Nothing,
        resourcesToRemove = Prelude.Nothing, status = Prelude.Nothing,
@@ -38,8 +44,12 @@ instance ToResourceProperties Monitor where
                         ((Prelude.<>)
                            ["MonitorName" JSON..= monitorName]
                            (Prelude.catMaybes
-                              [(JSON..=) "InternetMeasurementsLogDelivery"
+                              [(JSON..=) "HealthEventsConfig" Prelude.<$> healthEventsConfig,
+                               (JSON..=) "IncludeLinkedAccounts"
+                                 Prelude.<$> includeLinkedAccounts,
+                               (JSON..=) "InternetMeasurementsLogDelivery"
                                  Prelude.<$> internetMeasurementsLogDelivery,
+                               (JSON..=) "LinkedAccountId" Prelude.<$> linkedAccountId,
                                (JSON..=) "MaxCityNetworksToMonitor"
                                  Prelude.<$> maxCityNetworksToMonitor,
                                (JSON..=) "Resources" Prelude.<$> resources,
@@ -56,8 +66,12 @@ instance JSON.ToJSON Monitor where
            ((Prelude.<>)
               ["MonitorName" JSON..= monitorName]
               (Prelude.catMaybes
-                 [(JSON..=) "InternetMeasurementsLogDelivery"
+                 [(JSON..=) "HealthEventsConfig" Prelude.<$> healthEventsConfig,
+                  (JSON..=) "IncludeLinkedAccounts"
+                    Prelude.<$> includeLinkedAccounts,
+                  (JSON..=) "InternetMeasurementsLogDelivery"
                     Prelude.<$> internetMeasurementsLogDelivery,
+                  (JSON..=) "LinkedAccountId" Prelude.<$> linkedAccountId,
                   (JSON..=) "MaxCityNetworksToMonitor"
                     Prelude.<$> maxCityNetworksToMonitor,
                   (JSON..=) "Resources" Prelude.<$> resources,
@@ -67,11 +81,23 @@ instance JSON.ToJSON Monitor where
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TrafficPercentageToMonitor"
                     Prelude.<$> trafficPercentageToMonitor])))
+instance Property "HealthEventsConfig" Monitor where
+  type PropertyType "HealthEventsConfig" Monitor = HealthEventsConfigProperty
+  set newValue Monitor {..}
+    = Monitor {healthEventsConfig = Prelude.pure newValue, ..}
+instance Property "IncludeLinkedAccounts" Monitor where
+  type PropertyType "IncludeLinkedAccounts" Monitor = Value Prelude.Bool
+  set newValue Monitor {..}
+    = Monitor {includeLinkedAccounts = Prelude.pure newValue, ..}
 instance Property "InternetMeasurementsLogDelivery" Monitor where
   type PropertyType "InternetMeasurementsLogDelivery" Monitor = InternetMeasurementsLogDeliveryProperty
   set newValue Monitor {..}
     = Monitor
         {internetMeasurementsLogDelivery = Prelude.pure newValue, ..}
+instance Property "LinkedAccountId" Monitor where
+  type PropertyType "LinkedAccountId" Monitor = Value Prelude.Text
+  set newValue Monitor {..}
+    = Monitor {linkedAccountId = Prelude.pure newValue, ..}
 instance Property "MaxCityNetworksToMonitor" Monitor where
   type PropertyType "MaxCityNetworksToMonitor" Monitor = Value Prelude.Integer
   set newValue Monitor {..}

@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.WebACL.RateLimitQueryStringProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RateLimitQueryStringProperty :: Prelude.Type
+instance ToResourceProperties RateLimitQueryStringProperty
+instance Prelude.Eq RateLimitQueryStringProperty
+instance Prelude.Show RateLimitQueryStringProperty
+instance JSON.ToJSON RateLimitQueryStringProperty

@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.CatalogTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.DeltaTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.DynamoDBTargetProperty as Exports
+import {-# SOURCE #-} Stratosphere.Glue.Crawler.IcebergTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.JdbcTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.MongoDBTargetProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Crawler.S3TargetProperty as Exports
@@ -15,6 +16,7 @@ data TargetsProperty
   = TargetsProperty {catalogTargets :: (Prelude.Maybe [CatalogTargetProperty]),
                      deltaTargets :: (Prelude.Maybe [DeltaTargetProperty]),
                      dynamoDBTargets :: (Prelude.Maybe [DynamoDBTargetProperty]),
+                     icebergTargets :: (Prelude.Maybe [IcebergTargetProperty]),
                      jdbcTargets :: (Prelude.Maybe [JdbcTargetProperty]),
                      mongoDBTargets :: (Prelude.Maybe [MongoDBTargetProperty]),
                      s3Targets :: (Prelude.Maybe [S3TargetProperty])}
@@ -23,7 +25,8 @@ mkTargetsProperty :: TargetsProperty
 mkTargetsProperty
   = TargetsProperty
       {catalogTargets = Prelude.Nothing, deltaTargets = Prelude.Nothing,
-       dynamoDBTargets = Prelude.Nothing, jdbcTargets = Prelude.Nothing,
+       dynamoDBTargets = Prelude.Nothing,
+       icebergTargets = Prelude.Nothing, jdbcTargets = Prelude.Nothing,
        mongoDBTargets = Prelude.Nothing, s3Targets = Prelude.Nothing}
 instance ToResourceProperties TargetsProperty where
   toResourceProperties TargetsProperty {..}
@@ -35,6 +38,7 @@ instance ToResourceProperties TargetsProperty where
                            [(JSON..=) "CatalogTargets" Prelude.<$> catalogTargets,
                             (JSON..=) "DeltaTargets" Prelude.<$> deltaTargets,
                             (JSON..=) "DynamoDBTargets" Prelude.<$> dynamoDBTargets,
+                            (JSON..=) "IcebergTargets" Prelude.<$> icebergTargets,
                             (JSON..=) "JdbcTargets" Prelude.<$> jdbcTargets,
                             (JSON..=) "MongoDBTargets" Prelude.<$> mongoDBTargets,
                             (JSON..=) "S3Targets" Prelude.<$> s3Targets])}
@@ -46,6 +50,7 @@ instance JSON.ToJSON TargetsProperty where
               [(JSON..=) "CatalogTargets" Prelude.<$> catalogTargets,
                (JSON..=) "DeltaTargets" Prelude.<$> deltaTargets,
                (JSON..=) "DynamoDBTargets" Prelude.<$> dynamoDBTargets,
+               (JSON..=) "IcebergTargets" Prelude.<$> icebergTargets,
                (JSON..=) "JdbcTargets" Prelude.<$> jdbcTargets,
                (JSON..=) "MongoDBTargets" Prelude.<$> mongoDBTargets,
                (JSON..=) "S3Targets" Prelude.<$> s3Targets]))
@@ -61,6 +66,10 @@ instance Property "DynamoDBTargets" TargetsProperty where
   type PropertyType "DynamoDBTargets" TargetsProperty = [DynamoDBTargetProperty]
   set newValue TargetsProperty {..}
     = TargetsProperty {dynamoDBTargets = Prelude.pure newValue, ..}
+instance Property "IcebergTargets" TargetsProperty where
+  type PropertyType "IcebergTargets" TargetsProperty = [IcebergTargetProperty]
+  set newValue TargetsProperty {..}
+    = TargetsProperty {icebergTargets = Prelude.pure newValue, ..}
 instance Property "JdbcTargets" TargetsProperty where
   type PropertyType "JdbcTargets" TargetsProperty = [JdbcTargetProperty]
   set newValue TargetsProperty {..}

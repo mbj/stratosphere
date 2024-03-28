@@ -4,17 +4,20 @@ module Stratosphere.ConnectCampaigns.Campaign.DialerConfigProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ConnectCampaigns.Campaign.AgentlessDialerConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.ConnectCampaigns.Campaign.PredictiveDialerConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.ConnectCampaigns.Campaign.ProgressiveDialerConfigProperty as Exports
 import Stratosphere.ResourceProperties
 data DialerConfigProperty
-  = DialerConfigProperty {predictiveDialerConfig :: (Prelude.Maybe PredictiveDialerConfigProperty),
+  = DialerConfigProperty {agentlessDialerConfig :: (Prelude.Maybe AgentlessDialerConfigProperty),
+                          predictiveDialerConfig :: (Prelude.Maybe PredictiveDialerConfigProperty),
                           progressiveDialerConfig :: (Prelude.Maybe ProgressiveDialerConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDialerConfigProperty :: DialerConfigProperty
 mkDialerConfigProperty
   = DialerConfigProperty
-      {predictiveDialerConfig = Prelude.Nothing,
+      {agentlessDialerConfig = Prelude.Nothing,
+       predictiveDialerConfig = Prelude.Nothing,
        progressiveDialerConfig = Prelude.Nothing}
 instance ToResourceProperties DialerConfigProperty where
   toResourceProperties DialerConfigProperty {..}
@@ -23,7 +26,9 @@ instance ToResourceProperties DialerConfigProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "PredictiveDialerConfig"
+                           [(JSON..=) "AgentlessDialerConfig"
+                              Prelude.<$> agentlessDialerConfig,
+                            (JSON..=) "PredictiveDialerConfig"
                               Prelude.<$> predictiveDialerConfig,
                             (JSON..=) "ProgressiveDialerConfig"
                               Prelude.<$> progressiveDialerConfig])}
@@ -32,10 +37,17 @@ instance JSON.ToJSON DialerConfigProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "PredictiveDialerConfig"
+              [(JSON..=) "AgentlessDialerConfig"
+                 Prelude.<$> agentlessDialerConfig,
+               (JSON..=) "PredictiveDialerConfig"
                  Prelude.<$> predictiveDialerConfig,
                (JSON..=) "ProgressiveDialerConfig"
                  Prelude.<$> progressiveDialerConfig]))
+instance Property "AgentlessDialerConfig" DialerConfigProperty where
+  type PropertyType "AgentlessDialerConfig" DialerConfigProperty = AgentlessDialerConfigProperty
+  set newValue DialerConfigProperty {..}
+    = DialerConfigProperty
+        {agentlessDialerConfig = Prelude.pure newValue, ..}
 instance Property "PredictiveDialerConfig" DialerConfigProperty where
   type PropertyType "PredictiveDialerConfig" DialerConfigProperty = PredictiveDialerConfigProperty
   set newValue DialerConfigProperty {..}

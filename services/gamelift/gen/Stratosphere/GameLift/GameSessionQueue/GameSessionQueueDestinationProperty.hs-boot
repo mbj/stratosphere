@@ -1,0 +1,9 @@
+module Stratosphere.GameLift.GameSessionQueue.GameSessionQueueDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GameSessionQueueDestinationProperty :: Prelude.Type
+instance ToResourceProperties GameSessionQueueDestinationProperty
+instance Prelude.Eq GameSessionQueueDestinationProperty
+instance Prelude.Show GameSessionQueueDestinationProperty
+instance JSON.ToJSON GameSessionQueueDestinationProperty

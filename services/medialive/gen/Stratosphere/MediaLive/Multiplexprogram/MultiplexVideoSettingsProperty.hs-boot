@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Multiplexprogram.MultiplexVideoSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MultiplexVideoSettingsProperty :: Prelude.Type
+instance ToResourceProperties MultiplexVideoSettingsProperty
+instance Prelude.Eq MultiplexVideoSettingsProperty
+instance Prelude.Show MultiplexVideoSettingsProperty
+instance JSON.ToJSON MultiplexVideoSettingsProperty

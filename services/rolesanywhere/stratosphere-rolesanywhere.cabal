@@ -28,6 +28,7 @@ library
       Stratosphere.RolesAnywhere.CRL
       Stratosphere.RolesAnywhere.Profile
       Stratosphere.RolesAnywhere.TrustAnchor
+      Stratosphere.RolesAnywhere.TrustAnchor.NotificationSettingProperty
       Stratosphere.RolesAnywhere.TrustAnchor.SourceDataProperty
       Stratosphere.RolesAnywhere.TrustAnchor.SourceProperty
   other-modules:

@@ -18,7 +18,7 @@ data Method
             methodResponses :: (Prelude.Maybe [MethodResponseProperty]),
             operationName :: (Prelude.Maybe (Value Prelude.Text)),
             requestModels :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
-            requestParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Bool))),
+            requestParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
             requestValidatorId :: (Prelude.Maybe (Value Prelude.Text)),
             resourceId :: (Value Prelude.Text),
             restApiId :: (Value Prelude.Text)}
@@ -110,7 +110,7 @@ instance Property "RequestModels" Method where
   set newValue Method {..}
     = Method {requestModels = Prelude.pure newValue, ..}
 instance Property "RequestParameters" Method where
-  type PropertyType "RequestParameters" Method = Prelude.Map Prelude.Text (Value Prelude.Bool)
+  type PropertyType "RequestParameters" Method = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue Method {..}
     = Method {requestParameters = Prelude.pure newValue, ..}
 instance Property "RequestValidatorId" Method where

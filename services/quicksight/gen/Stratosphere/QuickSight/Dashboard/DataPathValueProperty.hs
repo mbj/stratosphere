@@ -1,36 +1,49 @@
 module Stratosphere.QuickSight.Dashboard.DataPathValueProperty (
-        DataPathValueProperty(..), mkDataPathValueProperty
+        module Exports, DataPathValueProperty(..), mkDataPathValueProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.DataPathTypeProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DataPathValueProperty
-  = DataPathValueProperty {fieldId :: (Value Prelude.Text),
-                           fieldValue :: (Value Prelude.Text)}
+  = DataPathValueProperty {dataPathType :: (Prelude.Maybe DataPathTypeProperty),
+                           fieldId :: (Prelude.Maybe (Value Prelude.Text)),
+                           fieldValue :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkDataPathValueProperty ::
-  Value Prelude.Text -> Value Prelude.Text -> DataPathValueProperty
-mkDataPathValueProperty fieldId fieldValue
+mkDataPathValueProperty :: DataPathValueProperty
+mkDataPathValueProperty
   = DataPathValueProperty
-      {fieldId = fieldId, fieldValue = fieldValue}
+      {dataPathType = Prelude.Nothing, fieldId = Prelude.Nothing,
+       fieldValue = Prelude.Nothing}
 instance ToResourceProperties DataPathValueProperty where
   toResourceProperties DataPathValueProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.DataPathValue",
          supportsTags = Prelude.False,
-         properties = ["FieldId" JSON..= fieldId,
-                       "FieldValue" JSON..= fieldValue]}
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "DataPathType" Prelude.<$> dataPathType,
+                            (JSON..=) "FieldId" Prelude.<$> fieldId,
+                            (JSON..=) "FieldValue" Prelude.<$> fieldValue])}
 instance JSON.ToJSON DataPathValueProperty where
   toJSON DataPathValueProperty {..}
     = JSON.object
-        ["FieldId" JSON..= fieldId, "FieldValue" JSON..= fieldValue]
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "DataPathType" Prelude.<$> dataPathType,
+               (JSON..=) "FieldId" Prelude.<$> fieldId,
+               (JSON..=) "FieldValue" Prelude.<$> fieldValue]))
+instance Property "DataPathType" DataPathValueProperty where
+  type PropertyType "DataPathType" DataPathValueProperty = DataPathTypeProperty
+  set newValue DataPathValueProperty {..}
+    = DataPathValueProperty {dataPathType = Prelude.pure newValue, ..}
 instance Property "FieldId" DataPathValueProperty where
   type PropertyType "FieldId" DataPathValueProperty = Value Prelude.Text
   set newValue DataPathValueProperty {..}
-    = DataPathValueProperty {fieldId = newValue, ..}
+    = DataPathValueProperty {fieldId = Prelude.pure newValue, ..}
 instance Property "FieldValue" DataPathValueProperty where
   type PropertyType "FieldValue" DataPathValueProperty = Value Prelude.Text
   set newValue DataPathValueProperty {..}
-    = DataPathValueProperty {fieldValue = newValue, ..}
+    = DataPathValueProperty {fieldValue = Prelude.pure newValue, ..}

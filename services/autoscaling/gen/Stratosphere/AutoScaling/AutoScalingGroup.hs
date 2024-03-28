@@ -4,6 +4,7 @@ module Stratosphere.AutoScaling.AutoScalingGroup (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.InstanceMaintenancePolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.LaunchTemplateSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.LifecycleHookSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.MetricsCollectionProperty as Exports
@@ -24,6 +25,7 @@ data AutoScalingGroup
                       healthCheckGracePeriod :: (Prelude.Maybe (Value Prelude.Integer)),
                       healthCheckType :: (Prelude.Maybe (Value Prelude.Text)),
                       instanceId :: (Prelude.Maybe (Value Prelude.Text)),
+                      instanceMaintenancePolicy :: (Prelude.Maybe InstanceMaintenancePolicyProperty),
                       launchConfigurationName :: (Prelude.Maybe (Value Prelude.Text)),
                       launchTemplate :: (Prelude.Maybe LaunchTemplateSpecificationProperty),
                       lifecycleHookSpecificationList :: (Prelude.Maybe [LifecycleHookSpecificationProperty]),
@@ -56,6 +58,7 @@ mkAutoScalingGroup maxSize minSize
        desiredCapacityType = Prelude.Nothing,
        healthCheckGracePeriod = Prelude.Nothing,
        healthCheckType = Prelude.Nothing, instanceId = Prelude.Nothing,
+       instanceMaintenancePolicy = Prelude.Nothing,
        launchConfigurationName = Prelude.Nothing,
        launchTemplate = Prelude.Nothing,
        lifecycleHookSpecificationList = Prelude.Nothing,
@@ -92,6 +95,8 @@ instance ToResourceProperties AutoScalingGroup where
                                  Prelude.<$> healthCheckGracePeriod,
                                (JSON..=) "HealthCheckType" Prelude.<$> healthCheckType,
                                (JSON..=) "InstanceId" Prelude.<$> instanceId,
+                               (JSON..=) "InstanceMaintenancePolicy"
+                                 Prelude.<$> instanceMaintenancePolicy,
                                (JSON..=) "LaunchConfigurationName"
                                  Prelude.<$> launchConfigurationName,
                                (JSON..=) "LaunchTemplate" Prelude.<$> launchTemplate,
@@ -131,6 +136,8 @@ instance JSON.ToJSON AutoScalingGroup where
                     Prelude.<$> healthCheckGracePeriod,
                   (JSON..=) "HealthCheckType" Prelude.<$> healthCheckType,
                   (JSON..=) "InstanceId" Prelude.<$> instanceId,
+                  (JSON..=) "InstanceMaintenancePolicy"
+                    Prelude.<$> instanceMaintenancePolicy,
                   (JSON..=) "LaunchConfigurationName"
                     Prelude.<$> launchConfigurationName,
                   (JSON..=) "LaunchTemplate" Prelude.<$> launchTemplate,
@@ -198,6 +205,11 @@ instance Property "InstanceId" AutoScalingGroup where
   type PropertyType "InstanceId" AutoScalingGroup = Value Prelude.Text
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup {instanceId = Prelude.pure newValue, ..}
+instance Property "InstanceMaintenancePolicy" AutoScalingGroup where
+  type PropertyType "InstanceMaintenancePolicy" AutoScalingGroup = InstanceMaintenancePolicyProperty
+  set newValue AutoScalingGroup {..}
+    = AutoScalingGroup
+        {instanceMaintenancePolicy = Prelude.pure newValue, ..}
 instance Property "LaunchConfigurationName" AutoScalingGroup where
   type PropertyType "LaunchConfigurationName" AutoScalingGroup = Value Prelude.Text
   set newValue AutoScalingGroup {..}

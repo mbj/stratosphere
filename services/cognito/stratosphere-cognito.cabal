@@ -34,6 +34,9 @@ library
       Stratosphere.Cognito.IdentityPoolRoleAttachment.MappingRuleProperty
       Stratosphere.Cognito.IdentityPoolRoleAttachment.RoleMappingProperty
       Stratosphere.Cognito.IdentityPoolRoleAttachment.RulesConfigurationTypeProperty
+      Stratosphere.Cognito.LogDeliveryConfiguration
+      Stratosphere.Cognito.LogDeliveryConfiguration.CloudWatchLogsConfigurationProperty
+      Stratosphere.Cognito.LogDeliveryConfiguration.LogConfigurationProperty
       Stratosphere.Cognito.UserPool
       Stratosphere.Cognito.UserPool.AccountRecoverySettingProperty
       Stratosphere.Cognito.UserPool.AdminCreateUserConfigProperty
@@ -46,6 +49,7 @@ library
       Stratosphere.Cognito.UserPool.NumberAttributeConstraintsProperty
       Stratosphere.Cognito.UserPool.PasswordPolicyProperty
       Stratosphere.Cognito.UserPool.PoliciesProperty
+      Stratosphere.Cognito.UserPool.PreTokenGenerationConfigProperty
       Stratosphere.Cognito.UserPool.RecoveryOptionProperty
       Stratosphere.Cognito.UserPool.SchemaAttributeProperty
       Stratosphere.Cognito.UserPool.SmsConfigurationProperty

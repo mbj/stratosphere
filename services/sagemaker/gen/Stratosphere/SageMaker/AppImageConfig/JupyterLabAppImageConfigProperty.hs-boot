@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.AppImageConfig.JupyterLabAppImageConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data JupyterLabAppImageConfigProperty :: Prelude.Type
+instance ToResourceProperties JupyterLabAppImageConfigProperty
+instance Prelude.Eq JupyterLabAppImageConfigProperty
+instance Prelude.Show JupyterLabAppImageConfigProperty
+instance JSON.ToJSON JupyterLabAppImageConfigProperty

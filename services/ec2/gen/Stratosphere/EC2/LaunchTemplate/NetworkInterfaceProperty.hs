@@ -5,6 +5,8 @@ module Stratosphere.EC2.LaunchTemplate.NetworkInterfaceProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.ConnectionTrackingSpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.EnaSrdSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.Ipv4PrefixSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.Ipv6AddProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.Ipv6PrefixSpecificationProperty as Exports
@@ -14,9 +16,11 @@ import Stratosphere.Value
 data NetworkInterfaceProperty
   = NetworkInterfaceProperty {associateCarrierIpAddress :: (Prelude.Maybe (Value Prelude.Bool)),
                               associatePublicIpAddress :: (Prelude.Maybe (Value Prelude.Bool)),
+                              connectionTrackingSpecification :: (Prelude.Maybe ConnectionTrackingSpecificationProperty),
                               deleteOnTermination :: (Prelude.Maybe (Value Prelude.Bool)),
                               description :: (Prelude.Maybe (Value Prelude.Text)),
                               deviceIndex :: (Prelude.Maybe (Value Prelude.Integer)),
+                              enaSrdSpecification :: (Prelude.Maybe EnaSrdSpecificationProperty),
                               groups :: (Prelude.Maybe (ValueList Prelude.Text)),
                               interfaceType :: (Prelude.Maybe (Value Prelude.Text)),
                               ipv4PrefixCount :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -27,6 +31,7 @@ data NetworkInterfaceProperty
                               ipv6Prefixes :: (Prelude.Maybe [Ipv6PrefixSpecificationProperty]),
                               networkCardIndex :: (Prelude.Maybe (Value Prelude.Integer)),
                               networkInterfaceId :: (Prelude.Maybe (Value Prelude.Text)),
+                              primaryIpv6 :: (Prelude.Maybe (Value Prelude.Bool)),
                               privateIpAddress :: (Prelude.Maybe (Value Prelude.Text)),
                               privateIpAddresses :: (Prelude.Maybe [PrivateIpAddProperty]),
                               secondaryPrivateIpAddressCount :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -37,15 +42,16 @@ mkNetworkInterfaceProperty
   = NetworkInterfaceProperty
       {associateCarrierIpAddress = Prelude.Nothing,
        associatePublicIpAddress = Prelude.Nothing,
+       connectionTrackingSpecification = Prelude.Nothing,
        deleteOnTermination = Prelude.Nothing,
        description = Prelude.Nothing, deviceIndex = Prelude.Nothing,
-       groups = Prelude.Nothing, interfaceType = Prelude.Nothing,
-       ipv4PrefixCount = Prelude.Nothing, ipv4Prefixes = Prelude.Nothing,
-       ipv6AddressCount = Prelude.Nothing,
+       enaSrdSpecification = Prelude.Nothing, groups = Prelude.Nothing,
+       interfaceType = Prelude.Nothing, ipv4PrefixCount = Prelude.Nothing,
+       ipv4Prefixes = Prelude.Nothing, ipv6AddressCount = Prelude.Nothing,
        ipv6Addresses = Prelude.Nothing, ipv6PrefixCount = Prelude.Nothing,
        ipv6Prefixes = Prelude.Nothing, networkCardIndex = Prelude.Nothing,
        networkInterfaceId = Prelude.Nothing,
-       privateIpAddress = Prelude.Nothing,
+       primaryIpv6 = Prelude.Nothing, privateIpAddress = Prelude.Nothing,
        privateIpAddresses = Prelude.Nothing,
        secondaryPrivateIpAddressCount = Prelude.Nothing,
        subnetId = Prelude.Nothing}
@@ -60,9 +66,12 @@ instance ToResourceProperties NetworkInterfaceProperty where
                               Prelude.<$> associateCarrierIpAddress,
                             (JSON..=) "AssociatePublicIpAddress"
                               Prelude.<$> associatePublicIpAddress,
+                            (JSON..=) "ConnectionTrackingSpecification"
+                              Prelude.<$> connectionTrackingSpecification,
                             (JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,
                             (JSON..=) "Description" Prelude.<$> description,
                             (JSON..=) "DeviceIndex" Prelude.<$> deviceIndex,
+                            (JSON..=) "EnaSrdSpecification" Prelude.<$> enaSrdSpecification,
                             (JSON..=) "Groups" Prelude.<$> groups,
                             (JSON..=) "InterfaceType" Prelude.<$> interfaceType,
                             (JSON..=) "Ipv4PrefixCount" Prelude.<$> ipv4PrefixCount,
@@ -73,6 +82,7 @@ instance ToResourceProperties NetworkInterfaceProperty where
                             (JSON..=) "Ipv6Prefixes" Prelude.<$> ipv6Prefixes,
                             (JSON..=) "NetworkCardIndex" Prelude.<$> networkCardIndex,
                             (JSON..=) "NetworkInterfaceId" Prelude.<$> networkInterfaceId,
+                            (JSON..=) "PrimaryIpv6" Prelude.<$> primaryIpv6,
                             (JSON..=) "PrivateIpAddress" Prelude.<$> privateIpAddress,
                             (JSON..=) "PrivateIpAddresses" Prelude.<$> privateIpAddresses,
                             (JSON..=) "SecondaryPrivateIpAddressCount"
@@ -87,9 +97,12 @@ instance JSON.ToJSON NetworkInterfaceProperty where
                  Prelude.<$> associateCarrierIpAddress,
                (JSON..=) "AssociatePublicIpAddress"
                  Prelude.<$> associatePublicIpAddress,
+               (JSON..=) "ConnectionTrackingSpecification"
+                 Prelude.<$> connectionTrackingSpecification,
                (JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,
                (JSON..=) "Description" Prelude.<$> description,
                (JSON..=) "DeviceIndex" Prelude.<$> deviceIndex,
+               (JSON..=) "EnaSrdSpecification" Prelude.<$> enaSrdSpecification,
                (JSON..=) "Groups" Prelude.<$> groups,
                (JSON..=) "InterfaceType" Prelude.<$> interfaceType,
                (JSON..=) "Ipv4PrefixCount" Prelude.<$> ipv4PrefixCount,
@@ -100,6 +113,7 @@ instance JSON.ToJSON NetworkInterfaceProperty where
                (JSON..=) "Ipv6Prefixes" Prelude.<$> ipv6Prefixes,
                (JSON..=) "NetworkCardIndex" Prelude.<$> networkCardIndex,
                (JSON..=) "NetworkInterfaceId" Prelude.<$> networkInterfaceId,
+               (JSON..=) "PrimaryIpv6" Prelude.<$> primaryIpv6,
                (JSON..=) "PrivateIpAddress" Prelude.<$> privateIpAddress,
                (JSON..=) "PrivateIpAddresses" Prelude.<$> privateIpAddresses,
                (JSON..=) "SecondaryPrivateIpAddressCount"
@@ -115,6 +129,11 @@ instance Property "AssociatePublicIpAddress" NetworkInterfaceProperty where
   set newValue NetworkInterfaceProperty {..}
     = NetworkInterfaceProperty
         {associatePublicIpAddress = Prelude.pure newValue, ..}
+instance Property "ConnectionTrackingSpecification" NetworkInterfaceProperty where
+  type PropertyType "ConnectionTrackingSpecification" NetworkInterfaceProperty = ConnectionTrackingSpecificationProperty
+  set newValue NetworkInterfaceProperty {..}
+    = NetworkInterfaceProperty
+        {connectionTrackingSpecification = Prelude.pure newValue, ..}
 instance Property "DeleteOnTermination" NetworkInterfaceProperty where
   type PropertyType "DeleteOnTermination" NetworkInterfaceProperty = Value Prelude.Bool
   set newValue NetworkInterfaceProperty {..}
@@ -130,6 +149,11 @@ instance Property "DeviceIndex" NetworkInterfaceProperty where
   set newValue NetworkInterfaceProperty {..}
     = NetworkInterfaceProperty
         {deviceIndex = Prelude.pure newValue, ..}
+instance Property "EnaSrdSpecification" NetworkInterfaceProperty where
+  type PropertyType "EnaSrdSpecification" NetworkInterfaceProperty = EnaSrdSpecificationProperty
+  set newValue NetworkInterfaceProperty {..}
+    = NetworkInterfaceProperty
+        {enaSrdSpecification = Prelude.pure newValue, ..}
 instance Property "Groups" NetworkInterfaceProperty where
   type PropertyType "Groups" NetworkInterfaceProperty = ValueList Prelude.Text
   set newValue NetworkInterfaceProperty {..}
@@ -179,6 +203,11 @@ instance Property "NetworkInterfaceId" NetworkInterfaceProperty where
   set newValue NetworkInterfaceProperty {..}
     = NetworkInterfaceProperty
         {networkInterfaceId = Prelude.pure newValue, ..}
+instance Property "PrimaryIpv6" NetworkInterfaceProperty where
+  type PropertyType "PrimaryIpv6" NetworkInterfaceProperty = Value Prelude.Bool
+  set newValue NetworkInterfaceProperty {..}
+    = NetworkInterfaceProperty
+        {primaryIpv6 = Prelude.pure newValue, ..}
 instance Property "PrivateIpAddress" NetworkInterfaceProperty where
   type PropertyType "PrivateIpAddress" NetworkInterfaceProperty = Value Prelude.Text
   set newValue NetworkInterfaceProperty {..}

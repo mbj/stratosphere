@@ -12,6 +12,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data VerifiedAccessInstance
   = VerifiedAccessInstance {description :: (Prelude.Maybe (Value Prelude.Text)),
+                            fipsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                             loggingConfigurations :: (Prelude.Maybe VerifiedAccessLogsProperty),
                             tags :: (Prelude.Maybe [Tag]),
                             verifiedAccessTrustProviderIds :: (Prelude.Maybe (ValueList Prelude.Text)),
@@ -20,7 +21,7 @@ data VerifiedAccessInstance
 mkVerifiedAccessInstance :: VerifiedAccessInstance
 mkVerifiedAccessInstance
   = VerifiedAccessInstance
-      {description = Prelude.Nothing,
+      {description = Prelude.Nothing, fipsEnabled = Prelude.Nothing,
        loggingConfigurations = Prelude.Nothing, tags = Prelude.Nothing,
        verifiedAccessTrustProviderIds = Prelude.Nothing,
        verifiedAccessTrustProviders = Prelude.Nothing}
@@ -32,6 +33,7 @@ instance ToResourceProperties VerifiedAccessInstance where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,
+                            (JSON..=) "FipsEnabled" Prelude.<$> fipsEnabled,
                             (JSON..=) "LoggingConfigurations"
                               Prelude.<$> loggingConfigurations,
                             (JSON..=) "Tags" Prelude.<$> tags,
@@ -45,6 +47,7 @@ instance JSON.ToJSON VerifiedAccessInstance where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "Description" Prelude.<$> description,
+               (JSON..=) "FipsEnabled" Prelude.<$> fipsEnabled,
                (JSON..=) "LoggingConfigurations"
                  Prelude.<$> loggingConfigurations,
                (JSON..=) "Tags" Prelude.<$> tags,
@@ -56,6 +59,10 @@ instance Property "Description" VerifiedAccessInstance where
   type PropertyType "Description" VerifiedAccessInstance = Value Prelude.Text
   set newValue VerifiedAccessInstance {..}
     = VerifiedAccessInstance {description = Prelude.pure newValue, ..}
+instance Property "FipsEnabled" VerifiedAccessInstance where
+  type PropertyType "FipsEnabled" VerifiedAccessInstance = Value Prelude.Bool
+  set newValue VerifiedAccessInstance {..}
+    = VerifiedAccessInstance {fipsEnabled = Prelude.pure newValue, ..}
 instance Property "LoggingConfigurations" VerifiedAccessInstance where
   type PropertyType "LoggingConfigurations" VerifiedAccessInstance = VerifiedAccessLogsProperty
   set newValue VerifiedAccessInstance {..}

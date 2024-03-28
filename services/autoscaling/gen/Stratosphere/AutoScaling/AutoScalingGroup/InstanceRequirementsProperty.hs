@@ -31,20 +31,24 @@ data InstanceRequirementsProperty
                                   instanceGenerations :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   localStorage :: (Prelude.Maybe (Value Prelude.Text)),
                                   localStorageTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  maxSpotPriceAsPercentageOfOptimalOnDemandPrice :: (Prelude.Maybe (Value Prelude.Integer)),
                                   memoryGiBPerVCpu :: (Prelude.Maybe MemoryGiBPerVCpuRequestProperty),
-                                  memoryMiB :: (Prelude.Maybe MemoryMiBRequestProperty),
+                                  memoryMiB :: MemoryMiBRequestProperty,
                                   networkBandwidthGbps :: (Prelude.Maybe NetworkBandwidthGbpsRequestProperty),
                                   networkInterfaceCount :: (Prelude.Maybe NetworkInterfaceCountRequestProperty),
                                   onDemandMaxPricePercentageOverLowestPrice :: (Prelude.Maybe (Value Prelude.Integer)),
                                   requireHibernateSupport :: (Prelude.Maybe (Value Prelude.Bool)),
                                   spotMaxPricePercentageOverLowestPrice :: (Prelude.Maybe (Value Prelude.Integer)),
                                   totalLocalStorageGB :: (Prelude.Maybe TotalLocalStorageGBRequestProperty),
-                                  vCpuCount :: (Prelude.Maybe VCpuCountRequestProperty)}
+                                  vCpuCount :: VCpuCountRequestProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkInstanceRequirementsProperty :: InstanceRequirementsProperty
-mkInstanceRequirementsProperty
+mkInstanceRequirementsProperty ::
+  MemoryMiBRequestProperty
+  -> VCpuCountRequestProperty -> InstanceRequirementsProperty
+mkInstanceRequirementsProperty memoryMiB vCpuCount
   = InstanceRequirementsProperty
-      {acceleratorCount = Prelude.Nothing,
+      {memoryMiB = memoryMiB, vCpuCount = vCpuCount,
+       acceleratorCount = Prelude.Nothing,
        acceleratorManufacturers = Prelude.Nothing,
        acceleratorNames = Prelude.Nothing,
        acceleratorTotalMemoryMiB = Prelude.Nothing,
@@ -58,87 +62,92 @@ mkInstanceRequirementsProperty
        instanceGenerations = Prelude.Nothing,
        localStorage = Prelude.Nothing,
        localStorageTypes = Prelude.Nothing,
-       memoryGiBPerVCpu = Prelude.Nothing, memoryMiB = Prelude.Nothing,
+       maxSpotPriceAsPercentageOfOptimalOnDemandPrice = Prelude.Nothing,
+       memoryGiBPerVCpu = Prelude.Nothing,
        networkBandwidthGbps = Prelude.Nothing,
        networkInterfaceCount = Prelude.Nothing,
        onDemandMaxPricePercentageOverLowestPrice = Prelude.Nothing,
        requireHibernateSupport = Prelude.Nothing,
        spotMaxPricePercentageOverLowestPrice = Prelude.Nothing,
-       totalLocalStorageGB = Prelude.Nothing, vCpuCount = Prelude.Nothing}
+       totalLocalStorageGB = Prelude.Nothing}
 instance ToResourceProperties InstanceRequirementsProperty where
   toResourceProperties InstanceRequirementsProperty {..}
     = ResourceProperties
         {awsType = "AWS::AutoScaling::AutoScalingGroup.InstanceRequirements",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "AcceleratorCount" Prelude.<$> acceleratorCount,
-                            (JSON..=) "AcceleratorManufacturers"
-                              Prelude.<$> acceleratorManufacturers,
-                            (JSON..=) "AcceleratorNames" Prelude.<$> acceleratorNames,
-                            (JSON..=) "AcceleratorTotalMemoryMiB"
-                              Prelude.<$> acceleratorTotalMemoryMiB,
-                            (JSON..=) "AcceleratorTypes" Prelude.<$> acceleratorTypes,
-                            (JSON..=) "AllowedInstanceTypes" Prelude.<$> allowedInstanceTypes,
-                            (JSON..=) "BareMetal" Prelude.<$> bareMetal,
-                            (JSON..=) "BaselineEbsBandwidthMbps"
-                              Prelude.<$> baselineEbsBandwidthMbps,
-                            (JSON..=) "BurstablePerformance" Prelude.<$> burstablePerformance,
-                            (JSON..=) "CpuManufacturers" Prelude.<$> cpuManufacturers,
-                            (JSON..=) "ExcludedInstanceTypes"
-                              Prelude.<$> excludedInstanceTypes,
-                            (JSON..=) "InstanceGenerations" Prelude.<$> instanceGenerations,
-                            (JSON..=) "LocalStorage" Prelude.<$> localStorage,
-                            (JSON..=) "LocalStorageTypes" Prelude.<$> localStorageTypes,
-                            (JSON..=) "MemoryGiBPerVCpu" Prelude.<$> memoryGiBPerVCpu,
-                            (JSON..=) "MemoryMiB" Prelude.<$> memoryMiB,
-                            (JSON..=) "NetworkBandwidthGbps" Prelude.<$> networkBandwidthGbps,
-                            (JSON..=) "NetworkInterfaceCount"
-                              Prelude.<$> networkInterfaceCount,
-                            (JSON..=) "OnDemandMaxPricePercentageOverLowestPrice"
-                              Prelude.<$> onDemandMaxPricePercentageOverLowestPrice,
-                            (JSON..=) "RequireHibernateSupport"
-                              Prelude.<$> requireHibernateSupport,
-                            (JSON..=) "SpotMaxPricePercentageOverLowestPrice"
-                              Prelude.<$> spotMaxPricePercentageOverLowestPrice,
-                            (JSON..=) "TotalLocalStorageGB" Prelude.<$> totalLocalStorageGB,
-                            (JSON..=) "VCpuCount" Prelude.<$> vCpuCount])}
+                        ((Prelude.<>)
+                           ["MemoryMiB" JSON..= memoryMiB, "VCpuCount" JSON..= vCpuCount]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AcceleratorCount" Prelude.<$> acceleratorCount,
+                               (JSON..=) "AcceleratorManufacturers"
+                                 Prelude.<$> acceleratorManufacturers,
+                               (JSON..=) "AcceleratorNames" Prelude.<$> acceleratorNames,
+                               (JSON..=) "AcceleratorTotalMemoryMiB"
+                                 Prelude.<$> acceleratorTotalMemoryMiB,
+                               (JSON..=) "AcceleratorTypes" Prelude.<$> acceleratorTypes,
+                               (JSON..=) "AllowedInstanceTypes" Prelude.<$> allowedInstanceTypes,
+                               (JSON..=) "BareMetal" Prelude.<$> bareMetal,
+                               (JSON..=) "BaselineEbsBandwidthMbps"
+                                 Prelude.<$> baselineEbsBandwidthMbps,
+                               (JSON..=) "BurstablePerformance" Prelude.<$> burstablePerformance,
+                               (JSON..=) "CpuManufacturers" Prelude.<$> cpuManufacturers,
+                               (JSON..=) "ExcludedInstanceTypes"
+                                 Prelude.<$> excludedInstanceTypes,
+                               (JSON..=) "InstanceGenerations" Prelude.<$> instanceGenerations,
+                               (JSON..=) "LocalStorage" Prelude.<$> localStorage,
+                               (JSON..=) "LocalStorageTypes" Prelude.<$> localStorageTypes,
+                               (JSON..=) "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice"
+                                 Prelude.<$> maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
+                               (JSON..=) "MemoryGiBPerVCpu" Prelude.<$> memoryGiBPerVCpu,
+                               (JSON..=) "NetworkBandwidthGbps" Prelude.<$> networkBandwidthGbps,
+                               (JSON..=) "NetworkInterfaceCount"
+                                 Prelude.<$> networkInterfaceCount,
+                               (JSON..=) "OnDemandMaxPricePercentageOverLowestPrice"
+                                 Prelude.<$> onDemandMaxPricePercentageOverLowestPrice,
+                               (JSON..=) "RequireHibernateSupport"
+                                 Prelude.<$> requireHibernateSupport,
+                               (JSON..=) "SpotMaxPricePercentageOverLowestPrice"
+                                 Prelude.<$> spotMaxPricePercentageOverLowestPrice,
+                               (JSON..=) "TotalLocalStorageGB" Prelude.<$> totalLocalStorageGB]))}
 instance JSON.ToJSON InstanceRequirementsProperty where
   toJSON InstanceRequirementsProperty {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "AcceleratorCount" Prelude.<$> acceleratorCount,
-               (JSON..=) "AcceleratorManufacturers"
-                 Prelude.<$> acceleratorManufacturers,
-               (JSON..=) "AcceleratorNames" Prelude.<$> acceleratorNames,
-               (JSON..=) "AcceleratorTotalMemoryMiB"
-                 Prelude.<$> acceleratorTotalMemoryMiB,
-               (JSON..=) "AcceleratorTypes" Prelude.<$> acceleratorTypes,
-               (JSON..=) "AllowedInstanceTypes" Prelude.<$> allowedInstanceTypes,
-               (JSON..=) "BareMetal" Prelude.<$> bareMetal,
-               (JSON..=) "BaselineEbsBandwidthMbps"
-                 Prelude.<$> baselineEbsBandwidthMbps,
-               (JSON..=) "BurstablePerformance" Prelude.<$> burstablePerformance,
-               (JSON..=) "CpuManufacturers" Prelude.<$> cpuManufacturers,
-               (JSON..=) "ExcludedInstanceTypes"
-                 Prelude.<$> excludedInstanceTypes,
-               (JSON..=) "InstanceGenerations" Prelude.<$> instanceGenerations,
-               (JSON..=) "LocalStorage" Prelude.<$> localStorage,
-               (JSON..=) "LocalStorageTypes" Prelude.<$> localStorageTypes,
-               (JSON..=) "MemoryGiBPerVCpu" Prelude.<$> memoryGiBPerVCpu,
-               (JSON..=) "MemoryMiB" Prelude.<$> memoryMiB,
-               (JSON..=) "NetworkBandwidthGbps" Prelude.<$> networkBandwidthGbps,
-               (JSON..=) "NetworkInterfaceCount"
-                 Prelude.<$> networkInterfaceCount,
-               (JSON..=) "OnDemandMaxPricePercentageOverLowestPrice"
-                 Prelude.<$> onDemandMaxPricePercentageOverLowestPrice,
-               (JSON..=) "RequireHibernateSupport"
-                 Prelude.<$> requireHibernateSupport,
-               (JSON..=) "SpotMaxPricePercentageOverLowestPrice"
-                 Prelude.<$> spotMaxPricePercentageOverLowestPrice,
-               (JSON..=) "TotalLocalStorageGB" Prelude.<$> totalLocalStorageGB,
-               (JSON..=) "VCpuCount" Prelude.<$> vCpuCount]))
+           ((Prelude.<>)
+              ["MemoryMiB" JSON..= memoryMiB, "VCpuCount" JSON..= vCpuCount]
+              (Prelude.catMaybes
+                 [(JSON..=) "AcceleratorCount" Prelude.<$> acceleratorCount,
+                  (JSON..=) "AcceleratorManufacturers"
+                    Prelude.<$> acceleratorManufacturers,
+                  (JSON..=) "AcceleratorNames" Prelude.<$> acceleratorNames,
+                  (JSON..=) "AcceleratorTotalMemoryMiB"
+                    Prelude.<$> acceleratorTotalMemoryMiB,
+                  (JSON..=) "AcceleratorTypes" Prelude.<$> acceleratorTypes,
+                  (JSON..=) "AllowedInstanceTypes" Prelude.<$> allowedInstanceTypes,
+                  (JSON..=) "BareMetal" Prelude.<$> bareMetal,
+                  (JSON..=) "BaselineEbsBandwidthMbps"
+                    Prelude.<$> baselineEbsBandwidthMbps,
+                  (JSON..=) "BurstablePerformance" Prelude.<$> burstablePerformance,
+                  (JSON..=) "CpuManufacturers" Prelude.<$> cpuManufacturers,
+                  (JSON..=) "ExcludedInstanceTypes"
+                    Prelude.<$> excludedInstanceTypes,
+                  (JSON..=) "InstanceGenerations" Prelude.<$> instanceGenerations,
+                  (JSON..=) "LocalStorage" Prelude.<$> localStorage,
+                  (JSON..=) "LocalStorageTypes" Prelude.<$> localStorageTypes,
+                  (JSON..=) "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice"
+                    Prelude.<$> maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
+                  (JSON..=) "MemoryGiBPerVCpu" Prelude.<$> memoryGiBPerVCpu,
+                  (JSON..=) "NetworkBandwidthGbps" Prelude.<$> networkBandwidthGbps,
+                  (JSON..=) "NetworkInterfaceCount"
+                    Prelude.<$> networkInterfaceCount,
+                  (JSON..=) "OnDemandMaxPricePercentageOverLowestPrice"
+                    Prelude.<$> onDemandMaxPricePercentageOverLowestPrice,
+                  (JSON..=) "RequireHibernateSupport"
+                    Prelude.<$> requireHibernateSupport,
+                  (JSON..=) "SpotMaxPricePercentageOverLowestPrice"
+                    Prelude.<$> spotMaxPricePercentageOverLowestPrice,
+                  (JSON..=) "TotalLocalStorageGB" Prelude.<$> totalLocalStorageGB])))
 instance Property "AcceleratorCount" InstanceRequirementsProperty where
   type PropertyType "AcceleratorCount" InstanceRequirementsProperty = AcceleratorCountRequestProperty
   set newValue InstanceRequirementsProperty {..}
@@ -209,6 +218,13 @@ instance Property "LocalStorageTypes" InstanceRequirementsProperty where
   set newValue InstanceRequirementsProperty {..}
     = InstanceRequirementsProperty
         {localStorageTypes = Prelude.pure newValue, ..}
+instance Property "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" InstanceRequirementsProperty where
+  type PropertyType "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" InstanceRequirementsProperty = Value Prelude.Integer
+  set newValue InstanceRequirementsProperty {..}
+    = InstanceRequirementsProperty
+        {maxSpotPriceAsPercentageOfOptimalOnDemandPrice = Prelude.pure
+                                                            newValue,
+         ..}
 instance Property "MemoryGiBPerVCpu" InstanceRequirementsProperty where
   type PropertyType "MemoryGiBPerVCpu" InstanceRequirementsProperty = MemoryGiBPerVCpuRequestProperty
   set newValue InstanceRequirementsProperty {..}
@@ -217,8 +233,7 @@ instance Property "MemoryGiBPerVCpu" InstanceRequirementsProperty where
 instance Property "MemoryMiB" InstanceRequirementsProperty where
   type PropertyType "MemoryMiB" InstanceRequirementsProperty = MemoryMiBRequestProperty
   set newValue InstanceRequirementsProperty {..}
-    = InstanceRequirementsProperty
-        {memoryMiB = Prelude.pure newValue, ..}
+    = InstanceRequirementsProperty {memoryMiB = newValue, ..}
 instance Property "NetworkBandwidthGbps" InstanceRequirementsProperty where
   type PropertyType "NetworkBandwidthGbps" InstanceRequirementsProperty = NetworkBandwidthGbpsRequestProperty
   set newValue InstanceRequirementsProperty {..}
@@ -253,5 +268,4 @@ instance Property "TotalLocalStorageGB" InstanceRequirementsProperty where
 instance Property "VCpuCount" InstanceRequirementsProperty where
   type PropertyType "VCpuCount" InstanceRequirementsProperty = VCpuCountRequestProperty
   set newValue InstanceRequirementsProperty {..}
-    = InstanceRequirementsProperty
-        {vCpuCount = Prelude.pure newValue, ..}
+    = InstanceRequirementsProperty {vCpuCount = newValue, ..}

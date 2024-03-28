@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.Domain.S3ExportingConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3ExportingConfigProperty :: Prelude.Type
+instance ToResourceProperties S3ExportingConfigProperty
+instance Prelude.Eq S3ExportingConfigProperty
+instance Prelude.Show S3ExportingConfigProperty
+instance JSON.ToJSON S3ExportingConfigProperty

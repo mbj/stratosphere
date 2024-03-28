@@ -4,23 +4,30 @@ module Stratosphere.Connect.Rule.ActionsProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Connect.Rule.CreateCaseActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.Rule.EventBridgeActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.Rule.SendNotificationActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.Rule.TaskActionProperty as Exports
+import {-# SOURCE #-} Stratosphere.Connect.Rule.UpdateCaseActionProperty as Exports
 import Stratosphere.ResourceProperties
 data ActionsProperty
   = ActionsProperty {assignContactCategoryActions :: (Prelude.Maybe JSON.Object),
+                     createCaseActions :: (Prelude.Maybe [CreateCaseActionProperty]),
+                     endAssociatedTasksActions :: (Prelude.Maybe JSON.Object),
                      eventBridgeActions :: (Prelude.Maybe [EventBridgeActionProperty]),
                      sendNotificationActions :: (Prelude.Maybe [SendNotificationActionProperty]),
-                     taskActions :: (Prelude.Maybe [TaskActionProperty])}
+                     taskActions :: (Prelude.Maybe [TaskActionProperty]),
+                     updateCaseActions :: (Prelude.Maybe [UpdateCaseActionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActionsProperty :: ActionsProperty
 mkActionsProperty
   = ActionsProperty
       {assignContactCategoryActions = Prelude.Nothing,
+       createCaseActions = Prelude.Nothing,
+       endAssociatedTasksActions = Prelude.Nothing,
        eventBridgeActions = Prelude.Nothing,
        sendNotificationActions = Prelude.Nothing,
-       taskActions = Prelude.Nothing}
+       taskActions = Prelude.Nothing, updateCaseActions = Prelude.Nothing}
 instance ToResourceProperties ActionsProperty where
   toResourceProperties ActionsProperty {..}
     = ResourceProperties
@@ -30,10 +37,14 @@ instance ToResourceProperties ActionsProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "AssignContactCategoryActions"
                               Prelude.<$> assignContactCategoryActions,
+                            (JSON..=) "CreateCaseActions" Prelude.<$> createCaseActions,
+                            (JSON..=) "EndAssociatedTasksActions"
+                              Prelude.<$> endAssociatedTasksActions,
                             (JSON..=) "EventBridgeActions" Prelude.<$> eventBridgeActions,
                             (JSON..=) "SendNotificationActions"
                               Prelude.<$> sendNotificationActions,
-                            (JSON..=) "TaskActions" Prelude.<$> taskActions])}
+                            (JSON..=) "TaskActions" Prelude.<$> taskActions,
+                            (JSON..=) "UpdateCaseActions" Prelude.<$> updateCaseActions])}
 instance JSON.ToJSON ActionsProperty where
   toJSON ActionsProperty {..}
     = JSON.object
@@ -41,15 +52,28 @@ instance JSON.ToJSON ActionsProperty where
            (Prelude.catMaybes
               [(JSON..=) "AssignContactCategoryActions"
                  Prelude.<$> assignContactCategoryActions,
+               (JSON..=) "CreateCaseActions" Prelude.<$> createCaseActions,
+               (JSON..=) "EndAssociatedTasksActions"
+                 Prelude.<$> endAssociatedTasksActions,
                (JSON..=) "EventBridgeActions" Prelude.<$> eventBridgeActions,
                (JSON..=) "SendNotificationActions"
                  Prelude.<$> sendNotificationActions,
-               (JSON..=) "TaskActions" Prelude.<$> taskActions]))
+               (JSON..=) "TaskActions" Prelude.<$> taskActions,
+               (JSON..=) "UpdateCaseActions" Prelude.<$> updateCaseActions]))
 instance Property "AssignContactCategoryActions" ActionsProperty where
   type PropertyType "AssignContactCategoryActions" ActionsProperty = JSON.Object
   set newValue ActionsProperty {..}
     = ActionsProperty
         {assignContactCategoryActions = Prelude.pure newValue, ..}
+instance Property "CreateCaseActions" ActionsProperty where
+  type PropertyType "CreateCaseActions" ActionsProperty = [CreateCaseActionProperty]
+  set newValue ActionsProperty {..}
+    = ActionsProperty {createCaseActions = Prelude.pure newValue, ..}
+instance Property "EndAssociatedTasksActions" ActionsProperty where
+  type PropertyType "EndAssociatedTasksActions" ActionsProperty = JSON.Object
+  set newValue ActionsProperty {..}
+    = ActionsProperty
+        {endAssociatedTasksActions = Prelude.pure newValue, ..}
 instance Property "EventBridgeActions" ActionsProperty where
   type PropertyType "EventBridgeActions" ActionsProperty = [EventBridgeActionProperty]
   set newValue ActionsProperty {..}
@@ -63,3 +87,7 @@ instance Property "TaskActions" ActionsProperty where
   type PropertyType "TaskActions" ActionsProperty = [TaskActionProperty]
   set newValue ActionsProperty {..}
     = ActionsProperty {taskActions = Prelude.pure newValue, ..}
+instance Property "UpdateCaseActions" ActionsProperty where
+  type PropertyType "UpdateCaseActions" ActionsProperty = [UpdateCaseActionProperty]
+  set newValue ActionsProperty {..}
+    = ActionsProperty {updateCaseActions = Prelude.pure newValue, ..}

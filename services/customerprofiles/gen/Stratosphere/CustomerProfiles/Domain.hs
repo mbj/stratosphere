@@ -1,25 +1,30 @@
 module Stratosphere.CustomerProfiles.Domain (
-        Domain(..), mkDomain
+        module Exports, Domain(..), mkDomain
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.CustomerProfiles.Domain.MatchingProperty as Exports
+import {-# SOURCE #-} Stratosphere.CustomerProfiles.Domain.RuleBasedMatchingProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Domain
   = Domain {deadLetterQueueUrl :: (Prelude.Maybe (Value Prelude.Text)),
             defaultEncryptionKey :: (Prelude.Maybe (Value Prelude.Text)),
-            defaultExpirationDays :: (Prelude.Maybe (Value Prelude.Integer)),
+            defaultExpirationDays :: (Value Prelude.Integer),
             domainName :: (Value Prelude.Text),
+            matching :: (Prelude.Maybe MatchingProperty),
+            ruleBasedMatching :: (Prelude.Maybe RuleBasedMatchingProperty),
             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkDomain :: Value Prelude.Text -> Domain
-mkDomain domainName
+mkDomain :: Value Prelude.Integer -> Value Prelude.Text -> Domain
+mkDomain defaultExpirationDays domainName
   = Domain
-      {domainName = domainName, deadLetterQueueUrl = Prelude.Nothing,
-       defaultEncryptionKey = Prelude.Nothing,
-       defaultExpirationDays = Prelude.Nothing, tags = Prelude.Nothing}
+      {defaultExpirationDays = defaultExpirationDays,
+       domainName = domainName, deadLetterQueueUrl = Prelude.Nothing,
+       defaultEncryptionKey = Prelude.Nothing, matching = Prelude.Nothing,
+       ruleBasedMatching = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Domain where
   toResourceProperties Domain {..}
     = ResourceProperties
@@ -27,24 +32,26 @@ instance ToResourceProperties Domain where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["DomainName" JSON..= domainName]
+                           ["DefaultExpirationDays" JSON..= defaultExpirationDays,
+                            "DomainName" JSON..= domainName]
                            (Prelude.catMaybes
                               [(JSON..=) "DeadLetterQueueUrl" Prelude.<$> deadLetterQueueUrl,
                                (JSON..=) "DefaultEncryptionKey" Prelude.<$> defaultEncryptionKey,
-                               (JSON..=) "DefaultExpirationDays"
-                                 Prelude.<$> defaultExpirationDays,
+                               (JSON..=) "Matching" Prelude.<$> matching,
+                               (JSON..=) "RuleBasedMatching" Prelude.<$> ruleBasedMatching,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Domain where
   toJSON Domain {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["DomainName" JSON..= domainName]
+              ["DefaultExpirationDays" JSON..= defaultExpirationDays,
+               "DomainName" JSON..= domainName]
               (Prelude.catMaybes
                  [(JSON..=) "DeadLetterQueueUrl" Prelude.<$> deadLetterQueueUrl,
                   (JSON..=) "DefaultEncryptionKey" Prelude.<$> defaultEncryptionKey,
-                  (JSON..=) "DefaultExpirationDays"
-                    Prelude.<$> defaultExpirationDays,
+                  (JSON..=) "Matching" Prelude.<$> matching,
+                  (JSON..=) "RuleBasedMatching" Prelude.<$> ruleBasedMatching,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "DeadLetterQueueUrl" Domain where
   type PropertyType "DeadLetterQueueUrl" Domain = Value Prelude.Text
@@ -57,10 +64,18 @@ instance Property "DefaultEncryptionKey" Domain where
 instance Property "DefaultExpirationDays" Domain where
   type PropertyType "DefaultExpirationDays" Domain = Value Prelude.Integer
   set newValue Domain {..}
-    = Domain {defaultExpirationDays = Prelude.pure newValue, ..}
+    = Domain {defaultExpirationDays = newValue, ..}
 instance Property "DomainName" Domain where
   type PropertyType "DomainName" Domain = Value Prelude.Text
   set newValue Domain {..} = Domain {domainName = newValue, ..}
+instance Property "Matching" Domain where
+  type PropertyType "Matching" Domain = MatchingProperty
+  set newValue Domain {..}
+    = Domain {matching = Prelude.pure newValue, ..}
+instance Property "RuleBasedMatching" Domain where
+  type PropertyType "RuleBasedMatching" Domain = RuleBasedMatchingProperty
+  set newValue Domain {..}
+    = Domain {ruleBasedMatching = Prelude.pure newValue, ..}
 instance Property "Tags" Domain where
   type PropertyType "Tags" Domain = [Tag]
   set newValue Domain {..}

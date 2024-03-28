@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessTrustProvider.DeviceOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessTrustProvider.OidcOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessTrustProvider.SseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -16,6 +17,7 @@ data VerifiedAccessTrustProvider
                                  deviceTrustProviderType :: (Prelude.Maybe (Value Prelude.Text)),
                                  oidcOptions :: (Prelude.Maybe OidcOptionsProperty),
                                  policyReferenceName :: (Value Prelude.Text),
+                                 sseSpecification :: (Prelude.Maybe SseSpecificationProperty),
                                  tags :: (Prelude.Maybe [Tag]),
                                  trustProviderType :: (Value Prelude.Text),
                                  userTrustProviderType :: (Prelude.Maybe (Value Prelude.Text))}
@@ -29,8 +31,8 @@ mkVerifiedAccessTrustProvider policyReferenceName trustProviderType
        trustProviderType = trustProviderType,
        description = Prelude.Nothing, deviceOptions = Prelude.Nothing,
        deviceTrustProviderType = Prelude.Nothing,
-       oidcOptions = Prelude.Nothing, tags = Prelude.Nothing,
-       userTrustProviderType = Prelude.Nothing}
+       oidcOptions = Prelude.Nothing, sseSpecification = Prelude.Nothing,
+       tags = Prelude.Nothing, userTrustProviderType = Prelude.Nothing}
 instance ToResourceProperties VerifiedAccessTrustProvider where
   toResourceProperties VerifiedAccessTrustProvider {..}
     = ResourceProperties
@@ -46,6 +48,7 @@ instance ToResourceProperties VerifiedAccessTrustProvider where
                                (JSON..=) "DeviceTrustProviderType"
                                  Prelude.<$> deviceTrustProviderType,
                                (JSON..=) "OidcOptions" Prelude.<$> oidcOptions,
+                               (JSON..=) "SseSpecification" Prelude.<$> sseSpecification,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "UserTrustProviderType"
                                  Prelude.<$> userTrustProviderType]))}
@@ -62,6 +65,7 @@ instance JSON.ToJSON VerifiedAccessTrustProvider where
                   (JSON..=) "DeviceTrustProviderType"
                     Prelude.<$> deviceTrustProviderType,
                   (JSON..=) "OidcOptions" Prelude.<$> oidcOptions,
+                  (JSON..=) "SseSpecification" Prelude.<$> sseSpecification,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "UserTrustProviderType"
                     Prelude.<$> userTrustProviderType])))
@@ -89,6 +93,11 @@ instance Property "PolicyReferenceName" VerifiedAccessTrustProvider where
   type PropertyType "PolicyReferenceName" VerifiedAccessTrustProvider = Value Prelude.Text
   set newValue VerifiedAccessTrustProvider {..}
     = VerifiedAccessTrustProvider {policyReferenceName = newValue, ..}
+instance Property "SseSpecification" VerifiedAccessTrustProvider where
+  type PropertyType "SseSpecification" VerifiedAccessTrustProvider = SseSpecificationProperty
+  set newValue VerifiedAccessTrustProvider {..}
+    = VerifiedAccessTrustProvider
+        {sseSpecification = Prelude.pure newValue, ..}
 instance Property "Tags" VerifiedAccessTrustProvider where
   type PropertyType "Tags" VerifiedAccessTrustProvider = [Tag]
   set newValue VerifiedAccessTrustProvider {..}

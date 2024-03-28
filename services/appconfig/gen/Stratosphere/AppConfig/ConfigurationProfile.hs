@@ -11,6 +11,7 @@ import Stratosphere.Value
 data ConfigurationProfile
   = ConfigurationProfile {applicationId :: (Value Prelude.Text),
                           description :: (Prelude.Maybe (Value Prelude.Text)),
+                          kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                           locationUri :: (Value Prelude.Text),
                           name :: (Value Prelude.Text),
                           retrievalRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -25,6 +26,7 @@ mkConfigurationProfile applicationId locationUri name
   = ConfigurationProfile
       {applicationId = applicationId, locationUri = locationUri,
        name = name, description = Prelude.Nothing,
+       kmsKeyIdentifier = Prelude.Nothing,
        retrievalRoleArn = Prelude.Nothing, tags = Prelude.Nothing,
        type' = Prelude.Nothing, validators = Prelude.Nothing}
 instance ToResourceProperties ConfigurationProfile where
@@ -38,6 +40,7 @@ instance ToResourceProperties ConfigurationProfile where
                             "LocationUri" JSON..= locationUri, "Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
                                (JSON..=) "RetrievalRoleArn" Prelude.<$> retrievalRoleArn,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "Type" Prelude.<$> type',
@@ -51,6 +54,7 @@ instance JSON.ToJSON ConfigurationProfile where
                "LocationUri" JSON..= locationUri, "Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
                   (JSON..=) "RetrievalRoleArn" Prelude.<$> retrievalRoleArn,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "Type" Prelude.<$> type',
@@ -63,6 +67,11 @@ instance Property "Description" ConfigurationProfile where
   type PropertyType "Description" ConfigurationProfile = Value Prelude.Text
   set newValue ConfigurationProfile {..}
     = ConfigurationProfile {description = Prelude.pure newValue, ..}
+instance Property "KmsKeyIdentifier" ConfigurationProfile where
+  type PropertyType "KmsKeyIdentifier" ConfigurationProfile = Value Prelude.Text
+  set newValue ConfigurationProfile {..}
+    = ConfigurationProfile
+        {kmsKeyIdentifier = Prelude.pure newValue, ..}
 instance Property "LocationUri" ConfigurationProfile where
   type PropertyType "LocationUri" ConfigurationProfile = Value Prelude.Text
   set newValue ConfigurationProfile {..}

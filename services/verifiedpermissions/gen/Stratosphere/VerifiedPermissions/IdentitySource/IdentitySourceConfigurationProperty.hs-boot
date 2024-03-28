@@ -1,0 +1,9 @@
+module Stratosphere.VerifiedPermissions.IdentitySource.IdentitySourceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdentitySourceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties IdentitySourceConfigurationProperty
+instance Prelude.Eq IdentitySourceConfigurationProperty
+instance Prelude.Show IdentitySourceConfigurationProperty
+instance JSON.ToJSON IdentitySourceConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Space.SpaceCodeEditorAppSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpaceCodeEditorAppSettingsProperty :: Prelude.Type
+instance ToResourceProperties SpaceCodeEditorAppSettingsProperty
+instance Prelude.Eq SpaceCodeEditorAppSettingsProperty
+instance Prelude.Show SpaceCodeEditorAppSettingsProperty
+instance JSON.ToJSON SpaceCodeEditorAppSettingsProperty

@@ -7,13 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LifecyclePolicyProperty
-  = LifecyclePolicyProperty {transitionToIA :: (Prelude.Maybe (Value Prelude.Text)),
+  = LifecyclePolicyProperty {transitionToArchive :: (Prelude.Maybe (Value Prelude.Text)),
+                             transitionToIA :: (Prelude.Maybe (Value Prelude.Text)),
                              transitionToPrimaryStorageClass :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLifecyclePolicyProperty :: LifecyclePolicyProperty
 mkLifecyclePolicyProperty
   = LifecyclePolicyProperty
-      {transitionToIA = Prelude.Nothing,
+      {transitionToArchive = Prelude.Nothing,
+       transitionToIA = Prelude.Nothing,
        transitionToPrimaryStorageClass = Prelude.Nothing}
 instance ToResourceProperties LifecyclePolicyProperty where
   toResourceProperties LifecyclePolicyProperty {..}
@@ -22,7 +24,8 @@ instance ToResourceProperties LifecyclePolicyProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "TransitionToIA" Prelude.<$> transitionToIA,
+                           [(JSON..=) "TransitionToArchive" Prelude.<$> transitionToArchive,
+                            (JSON..=) "TransitionToIA" Prelude.<$> transitionToIA,
                             (JSON..=) "TransitionToPrimaryStorageClass"
                               Prelude.<$> transitionToPrimaryStorageClass])}
 instance JSON.ToJSON LifecyclePolicyProperty where
@@ -30,9 +33,15 @@ instance JSON.ToJSON LifecyclePolicyProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "TransitionToIA" Prelude.<$> transitionToIA,
+              [(JSON..=) "TransitionToArchive" Prelude.<$> transitionToArchive,
+               (JSON..=) "TransitionToIA" Prelude.<$> transitionToIA,
                (JSON..=) "TransitionToPrimaryStorageClass"
                  Prelude.<$> transitionToPrimaryStorageClass]))
+instance Property "TransitionToArchive" LifecyclePolicyProperty where
+  type PropertyType "TransitionToArchive" LifecyclePolicyProperty = Value Prelude.Text
+  set newValue LifecyclePolicyProperty {..}
+    = LifecyclePolicyProperty
+        {transitionToArchive = Prelude.pure newValue, ..}
 instance Property "TransitionToIA" LifecyclePolicyProperty where
   type PropertyType "TransitionToIA" LifecyclePolicyProperty = Value Prelude.Text
   set newValue LifecyclePolicyProperty {..}

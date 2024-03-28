@@ -8,21 +8,21 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data PhoneNumber
-  = PhoneNumber {countryCode :: (Value Prelude.Text),
+  = PhoneNumber {countryCode :: (Prelude.Maybe (Value Prelude.Text)),
                  description :: (Prelude.Maybe (Value Prelude.Text)),
                  prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                 sourcePhoneNumberArn :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag]),
                  targetArn :: (Value Prelude.Text),
-                 type' :: (Value Prelude.Text)}
+                 type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkPhoneNumber ::
-  Value Prelude.Text
-  -> Value Prelude.Text -> Value Prelude.Text -> PhoneNumber
-mkPhoneNumber countryCode targetArn type'
+mkPhoneNumber :: Value Prelude.Text -> PhoneNumber
+mkPhoneNumber targetArn
   = PhoneNumber
-      {countryCode = countryCode, targetArn = targetArn, type' = type',
+      {targetArn = targetArn, countryCode = Prelude.Nothing,
        description = Prelude.Nothing, prefix = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       sourcePhoneNumberArn = Prelude.Nothing, tags = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties PhoneNumber where
   toResourceProperties PhoneNumber {..}
     = ResourceProperties
@@ -30,27 +30,31 @@ instance ToResourceProperties PhoneNumber where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["CountryCode" JSON..= countryCode, "TargetArn" JSON..= targetArn,
-                            "Type" JSON..= type']
+                           ["TargetArn" JSON..= targetArn]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "CountryCode" Prelude.<$> countryCode,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "Prefix" Prelude.<$> prefix,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                               (JSON..=) "SourcePhoneNumberArn" Prelude.<$> sourcePhoneNumberArn,
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "Type" Prelude.<$> type']))}
 instance JSON.ToJSON PhoneNumber where
   toJSON PhoneNumber {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["CountryCode" JSON..= countryCode, "TargetArn" JSON..= targetArn,
-               "Type" JSON..= type']
+              ["TargetArn" JSON..= targetArn]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "CountryCode" Prelude.<$> countryCode,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Prefix" Prelude.<$> prefix,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+                  (JSON..=) "SourcePhoneNumberArn" Prelude.<$> sourcePhoneNumberArn,
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "Type" Prelude.<$> type'])))
 instance Property "CountryCode" PhoneNumber where
   type PropertyType "CountryCode" PhoneNumber = Value Prelude.Text
   set newValue PhoneNumber {..}
-    = PhoneNumber {countryCode = newValue, ..}
+    = PhoneNumber {countryCode = Prelude.pure newValue, ..}
 instance Property "Description" PhoneNumber where
   type PropertyType "Description" PhoneNumber = Value Prelude.Text
   set newValue PhoneNumber {..}
@@ -59,6 +63,10 @@ instance Property "Prefix" PhoneNumber where
   type PropertyType "Prefix" PhoneNumber = Value Prelude.Text
   set newValue PhoneNumber {..}
     = PhoneNumber {prefix = Prelude.pure newValue, ..}
+instance Property "SourcePhoneNumberArn" PhoneNumber where
+  type PropertyType "SourcePhoneNumberArn" PhoneNumber = Value Prelude.Text
+  set newValue PhoneNumber {..}
+    = PhoneNumber {sourcePhoneNumberArn = Prelude.pure newValue, ..}
 instance Property "Tags" PhoneNumber where
   type PropertyType "Tags" PhoneNumber = [Tag]
   set newValue PhoneNumber {..}
@@ -69,4 +77,5 @@ instance Property "TargetArn" PhoneNumber where
     = PhoneNumber {targetArn = newValue, ..}
 instance Property "Type" PhoneNumber where
   type PropertyType "Type" PhoneNumber = Value Prelude.Text
-  set newValue PhoneNumber {..} = PhoneNumber {type' = newValue, ..}
+  set newValue PhoneNumber {..}
+    = PhoneNumber {type' = Prelude.pure newValue, ..}

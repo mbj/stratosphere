@@ -30,6 +30,7 @@ data Domain
             eBSOptions :: (Prelude.Maybe EBSOptionsProperty),
             encryptionAtRestOptions :: (Prelude.Maybe EncryptionAtRestOptionsProperty),
             engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
+            iPAddressType :: (Prelude.Maybe (Value Prelude.Text)),
             logPublishingOptions :: (Prelude.Maybe (Prelude.Map Prelude.Text LogPublishingOptionProperty)),
             nodeToNodeEncryptionOptions :: (Prelude.Maybe NodeToNodeEncryptionOptionsProperty),
             offPeakWindowOptions :: (Prelude.Maybe OffPeakWindowOptionsProperty),
@@ -48,7 +49,7 @@ mkDomain
        domainEndpointOptions = Prelude.Nothing,
        domainName = Prelude.Nothing, eBSOptions = Prelude.Nothing,
        encryptionAtRestOptions = Prelude.Nothing,
-       engineVersion = Prelude.Nothing,
+       engineVersion = Prelude.Nothing, iPAddressType = Prelude.Nothing,
        logPublishingOptions = Prelude.Nothing,
        nodeToNodeEncryptionOptions = Prelude.Nothing,
        offPeakWindowOptions = Prelude.Nothing,
@@ -75,6 +76,7 @@ instance ToResourceProperties Domain where
                             (JSON..=) "EncryptionAtRestOptions"
                               Prelude.<$> encryptionAtRestOptions,
                             (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
+                            (JSON..=) "IPAddressType" Prelude.<$> iPAddressType,
                             (JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
                             (JSON..=) "NodeToNodeEncryptionOptions"
                               Prelude.<$> nodeToNodeEncryptionOptions,
@@ -102,6 +104,7 @@ instance JSON.ToJSON Domain where
                (JSON..=) "EncryptionAtRestOptions"
                  Prelude.<$> encryptionAtRestOptions,
                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
+               (JSON..=) "IPAddressType" Prelude.<$> iPAddressType,
                (JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
                (JSON..=) "NodeToNodeEncryptionOptions"
                  Prelude.<$> nodeToNodeEncryptionOptions,
@@ -151,6 +154,10 @@ instance Property "EngineVersion" Domain where
   type PropertyType "EngineVersion" Domain = Value Prelude.Text
   set newValue Domain {..}
     = Domain {engineVersion = Prelude.pure newValue, ..}
+instance Property "IPAddressType" Domain where
+  type PropertyType "IPAddressType" Domain = Value Prelude.Text
+  set newValue Domain {..}
+    = Domain {iPAddressType = Prelude.pure newValue, ..}
 instance Property "LogPublishingOptions" Domain where
   type PropertyType "LogPublishingOptions" Domain = Prelude.Map Prelude.Text LogPublishingOptionProperty
   set newValue Domain {..}

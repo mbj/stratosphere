@@ -26,12 +26,18 @@ flag development
 library
   exposed-modules:
       Stratosphere.Cassandra.Keyspace
+      Stratosphere.Cassandra.Keyspace.ReplicationSpecificationProperty
       Stratosphere.Cassandra.Table
+      Stratosphere.Cassandra.Table.AutoScalingSettingProperty
+      Stratosphere.Cassandra.Table.AutoScalingSpecificationProperty
       Stratosphere.Cassandra.Table.BillingModeProperty
       Stratosphere.Cassandra.Table.ClusteringKeyColumnProperty
       Stratosphere.Cassandra.Table.ColumnProperty
       Stratosphere.Cassandra.Table.EncryptionSpecificationProperty
       Stratosphere.Cassandra.Table.ProvisionedThroughputProperty
+      Stratosphere.Cassandra.Table.ReplicaSpecificationProperty
+      Stratosphere.Cassandra.Table.ScalingPolicyProperty
+      Stratosphere.Cassandra.Table.TargetTrackingScalingPolicyConfigurationProperty
   other-modules:
       Paths_stratosphere_cassandra
   hs-source-dirs:

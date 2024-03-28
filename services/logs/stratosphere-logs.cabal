@@ -25,7 +25,12 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.Logs.AccountPolicy
+      Stratosphere.Logs.Delivery
+      Stratosphere.Logs.DeliveryDestination
+      Stratosphere.Logs.DeliverySource
       Stratosphere.Logs.Destination
+      Stratosphere.Logs.LogAnomalyDetector
       Stratosphere.Logs.LogGroup
       Stratosphere.Logs.LogStream
       Stratosphere.Logs.MetricFilter

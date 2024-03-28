@@ -10,6 +10,7 @@ data PredicateProperty
   = PredicateProperty {and :: (Prelude.Maybe [PredicateProperty]),
                        field :: (Prelude.Maybe (Value Prelude.Text)),
                        operand :: (Prelude.Maybe (Value Prelude.Text)),
+                       operandType :: (Prelude.Maybe (Value Prelude.Text)),
                        operator :: (Prelude.Maybe (Value Prelude.Text)),
                        or :: (Prelude.Maybe [PredicateProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -17,8 +18,8 @@ mkPredicateProperty :: PredicateProperty
 mkPredicateProperty
   = PredicateProperty
       {and = Prelude.Nothing, field = Prelude.Nothing,
-       operand = Prelude.Nothing, operator = Prelude.Nothing,
-       or = Prelude.Nothing}
+       operand = Prelude.Nothing, operandType = Prelude.Nothing,
+       operator = Prelude.Nothing, or = Prelude.Nothing}
 instance ToResourceProperties PredicateProperty where
   toResourceProperties PredicateProperty {..}
     = ResourceProperties
@@ -29,6 +30,7 @@ instance ToResourceProperties PredicateProperty where
                            [(JSON..=) "And" Prelude.<$> and,
                             (JSON..=) "Field" Prelude.<$> field,
                             (JSON..=) "Operand" Prelude.<$> operand,
+                            (JSON..=) "OperandType" Prelude.<$> operandType,
                             (JSON..=) "Operator" Prelude.<$> operator,
                             (JSON..=) "Or" Prelude.<$> or])}
 instance JSON.ToJSON PredicateProperty where
@@ -39,6 +41,7 @@ instance JSON.ToJSON PredicateProperty where
               [(JSON..=) "And" Prelude.<$> and,
                (JSON..=) "Field" Prelude.<$> field,
                (JSON..=) "Operand" Prelude.<$> operand,
+               (JSON..=) "OperandType" Prelude.<$> operandType,
                (JSON..=) "Operator" Prelude.<$> operator,
                (JSON..=) "Or" Prelude.<$> or]))
 instance Property "And" PredicateProperty where
@@ -53,6 +56,10 @@ instance Property "Operand" PredicateProperty where
   type PropertyType "Operand" PredicateProperty = Value Prelude.Text
   set newValue PredicateProperty {..}
     = PredicateProperty {operand = Prelude.pure newValue, ..}
+instance Property "OperandType" PredicateProperty where
+  type PropertyType "OperandType" PredicateProperty = Value Prelude.Text
+  set newValue PredicateProperty {..}
+    = PredicateProperty {operandType = Prelude.pure newValue, ..}
 instance Property "Operator" PredicateProperty where
   type PropertyType "Operator" PredicateProperty = Value Prelude.Text
   set newValue PredicateProperty {..}

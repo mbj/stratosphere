@@ -10,6 +10,7 @@ import Stratosphere.Value
 data DHCPOptions
   = DHCPOptions {domainName :: (Prelude.Maybe (Value Prelude.Text)),
                  domainNameServers :: (Prelude.Maybe (ValueList Prelude.Text)),
+                 ipv6AddressPreferredLeaseTime :: (Prelude.Maybe (Value Prelude.Integer)),
                  netbiosNameServers :: (Prelude.Maybe (ValueList Prelude.Text)),
                  netbiosNodeType :: (Prelude.Maybe (Value Prelude.Integer)),
                  ntpServers :: (Prelude.Maybe (ValueList Prelude.Text)),
@@ -19,6 +20,7 @@ mkDHCPOptions :: DHCPOptions
 mkDHCPOptions
   = DHCPOptions
       {domainName = Prelude.Nothing, domainNameServers = Prelude.Nothing,
+       ipv6AddressPreferredLeaseTime = Prelude.Nothing,
        netbiosNameServers = Prelude.Nothing,
        netbiosNodeType = Prelude.Nothing, ntpServers = Prelude.Nothing,
        tags = Prelude.Nothing}
@@ -30,6 +32,8 @@ instance ToResourceProperties DHCPOptions where
                         (Prelude.catMaybes
                            [(JSON..=) "DomainName" Prelude.<$> domainName,
                             (JSON..=) "DomainNameServers" Prelude.<$> domainNameServers,
+                            (JSON..=) "Ipv6AddressPreferredLeaseTime"
+                              Prelude.<$> ipv6AddressPreferredLeaseTime,
                             (JSON..=) "NetbiosNameServers" Prelude.<$> netbiosNameServers,
                             (JSON..=) "NetbiosNodeType" Prelude.<$> netbiosNodeType,
                             (JSON..=) "NtpServers" Prelude.<$> ntpServers,
@@ -41,6 +45,8 @@ instance JSON.ToJSON DHCPOptions where
            (Prelude.catMaybes
               [(JSON..=) "DomainName" Prelude.<$> domainName,
                (JSON..=) "DomainNameServers" Prelude.<$> domainNameServers,
+               (JSON..=) "Ipv6AddressPreferredLeaseTime"
+                 Prelude.<$> ipv6AddressPreferredLeaseTime,
                (JSON..=) "NetbiosNameServers" Prelude.<$> netbiosNameServers,
                (JSON..=) "NetbiosNodeType" Prelude.<$> netbiosNodeType,
                (JSON..=) "NtpServers" Prelude.<$> ntpServers,
@@ -53,6 +59,11 @@ instance Property "DomainNameServers" DHCPOptions where
   type PropertyType "DomainNameServers" DHCPOptions = ValueList Prelude.Text
   set newValue DHCPOptions {..}
     = DHCPOptions {domainNameServers = Prelude.pure newValue, ..}
+instance Property "Ipv6AddressPreferredLeaseTime" DHCPOptions where
+  type PropertyType "Ipv6AddressPreferredLeaseTime" DHCPOptions = Value Prelude.Integer
+  set newValue DHCPOptions {..}
+    = DHCPOptions
+        {ipv6AddressPreferredLeaseTime = Prelude.pure newValue, ..}
 instance Property "NetbiosNameServers" DHCPOptions where
   type PropertyType "NetbiosNameServers" DHCPOptions = ValueList Prelude.Text
   set newValue DHCPOptions {..}

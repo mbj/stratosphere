@@ -9,13 +9,15 @@ import Stratosphere.Value
 data OptionsProperty
   = OptionsProperty {applianceModeSupport :: (Prelude.Maybe (Value Prelude.Text)),
                      dnsSupport :: (Prelude.Maybe (Value Prelude.Text)),
-                     ipv6Support :: (Prelude.Maybe (Value Prelude.Text))}
+                     ipv6Support :: (Prelude.Maybe (Value Prelude.Text)),
+                     securityGroupReferencingSupport :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOptionsProperty :: OptionsProperty
 mkOptionsProperty
   = OptionsProperty
       {applianceModeSupport = Prelude.Nothing,
-       dnsSupport = Prelude.Nothing, ipv6Support = Prelude.Nothing}
+       dnsSupport = Prelude.Nothing, ipv6Support = Prelude.Nothing,
+       securityGroupReferencingSupport = Prelude.Nothing}
 instance ToResourceProperties OptionsProperty where
   toResourceProperties OptionsProperty {..}
     = ResourceProperties
@@ -25,7 +27,9 @@ instance ToResourceProperties OptionsProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "ApplianceModeSupport" Prelude.<$> applianceModeSupport,
                             (JSON..=) "DnsSupport" Prelude.<$> dnsSupport,
-                            (JSON..=) "Ipv6Support" Prelude.<$> ipv6Support])}
+                            (JSON..=) "Ipv6Support" Prelude.<$> ipv6Support,
+                            (JSON..=) "SecurityGroupReferencingSupport"
+                              Prelude.<$> securityGroupReferencingSupport])}
 instance JSON.ToJSON OptionsProperty where
   toJSON OptionsProperty {..}
     = JSON.object
@@ -33,7 +37,9 @@ instance JSON.ToJSON OptionsProperty where
            (Prelude.catMaybes
               [(JSON..=) "ApplianceModeSupport" Prelude.<$> applianceModeSupport,
                (JSON..=) "DnsSupport" Prelude.<$> dnsSupport,
-               (JSON..=) "Ipv6Support" Prelude.<$> ipv6Support]))
+               (JSON..=) "Ipv6Support" Prelude.<$> ipv6Support,
+               (JSON..=) "SecurityGroupReferencingSupport"
+                 Prelude.<$> securityGroupReferencingSupport]))
 instance Property "ApplianceModeSupport" OptionsProperty where
   type PropertyType "ApplianceModeSupport" OptionsProperty = Value Prelude.Text
   set newValue OptionsProperty {..}
@@ -47,3 +53,8 @@ instance Property "Ipv6Support" OptionsProperty where
   type PropertyType "Ipv6Support" OptionsProperty = Value Prelude.Text
   set newValue OptionsProperty {..}
     = OptionsProperty {ipv6Support = Prelude.pure newValue, ..}
+instance Property "SecurityGroupReferencingSupport" OptionsProperty where
+  type PropertyType "SecurityGroupReferencingSupport" OptionsProperty = Value Prelude.Text
+  set newValue OptionsProperty {..}
+    = OptionsProperty
+        {securityGroupReferencingSupport = Prelude.pure newValue, ..}

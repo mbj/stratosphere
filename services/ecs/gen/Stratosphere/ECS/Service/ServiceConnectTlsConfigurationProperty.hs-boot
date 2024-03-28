@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.ServiceConnectTlsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceConnectTlsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ServiceConnectTlsConfigurationProperty
+instance Prelude.Eq ServiceConnectTlsConfigurationProperty
+instance Prelude.Show ServiceConnectTlsConfigurationProperty
+instance JSON.ToJSON ServiceConnectTlsConfigurationProperty

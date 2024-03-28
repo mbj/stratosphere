@@ -1,0 +1,9 @@
+module Stratosphere.ACMPCA.CertificateAuthority.CrlDistributionPointExtensionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CrlDistributionPointExtensionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CrlDistributionPointExtensionConfigurationProperty
+instance Prelude.Eq CrlDistributionPointExtensionConfigurationProperty
+instance Prelude.Show CrlDistributionPointExtensionConfigurationProperty
+instance JSON.ToJSON CrlDistributionPointExtensionConfigurationProperty

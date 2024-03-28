@@ -8,29 +8,24 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EventBridgeConfigurationProperty
-  = EventBridgeConfigurationProperty {eventBridgeEnabled :: (Prelude.Maybe (Value Prelude.Bool))}
+  = EventBridgeConfigurationProperty {eventBridgeEnabled :: (Value Prelude.Bool)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeConfigurationProperty ::
-  EventBridgeConfigurationProperty
-mkEventBridgeConfigurationProperty
+  Value Prelude.Bool -> EventBridgeConfigurationProperty
+mkEventBridgeConfigurationProperty eventBridgeEnabled
   = EventBridgeConfigurationProperty
-      {eventBridgeEnabled = Prelude.Nothing}
+      {eventBridgeEnabled = eventBridgeEnabled}
 instance ToResourceProperties EventBridgeConfigurationProperty where
   toResourceProperties EventBridgeConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::S3::Bucket.EventBridgeConfiguration",
          supportsTags = Prelude.False,
-         properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "EventBridgeEnabled" Prelude.<$> eventBridgeEnabled])}
+         properties = ["EventBridgeEnabled" JSON..= eventBridgeEnabled]}
 instance JSON.ToJSON EventBridgeConfigurationProperty where
   toJSON EventBridgeConfigurationProperty {..}
-    = JSON.object
-        (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "EventBridgeEnabled" Prelude.<$> eventBridgeEnabled]))
+    = JSON.object ["EventBridgeEnabled" JSON..= eventBridgeEnabled]
 instance Property "EventBridgeEnabled" EventBridgeConfigurationProperty where
   type PropertyType "EventBridgeEnabled" EventBridgeConfigurationProperty = Value Prelude.Bool
   set newValue EventBridgeConfigurationProperty {}
     = EventBridgeConfigurationProperty
-        {eventBridgeEnabled = Prelude.pure newValue, ..}
+        {eventBridgeEnabled = newValue, ..}

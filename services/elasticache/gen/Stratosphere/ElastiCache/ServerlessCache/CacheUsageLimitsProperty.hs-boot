@@ -1,0 +1,9 @@
+module Stratosphere.ElastiCache.ServerlessCache.CacheUsageLimitsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CacheUsageLimitsProperty :: Prelude.Type
+instance ToResourceProperties CacheUsageLimitsProperty
+instance Prelude.Eq CacheUsageLimitsProperty
+instance Prelude.Show CacheUsageLimitsProperty
+instance JSON.ToJSON CacheUsageLimitsProperty

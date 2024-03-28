@@ -25,6 +25,8 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.Location.APIKey
+      Stratosphere.Location.APIKey.ApiKeyRestrictionsProperty
       Stratosphere.Location.GeofenceCollection
       Stratosphere.Location.Map
       Stratosphere.Location.Map.MapConfigurationProperty

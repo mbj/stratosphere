@@ -29,6 +29,7 @@ library
       Stratosphere.Transfer.Certificate
       Stratosphere.Transfer.Connector
       Stratosphere.Transfer.Connector.As2ConfigProperty
+      Stratosphere.Transfer.Connector.SftpConfigProperty
       Stratosphere.Transfer.Profile
       Stratosphere.Transfer.Server
       Stratosphere.Transfer.Server.As2TransportProperty
@@ -36,6 +37,8 @@ library
       Stratosphere.Transfer.Server.IdentityProviderDetailsProperty
       Stratosphere.Transfer.Server.ProtocolDetailsProperty
       Stratosphere.Transfer.Server.ProtocolProperty
+      Stratosphere.Transfer.Server.S3StorageOptionsProperty
+      Stratosphere.Transfer.Server.StructuredLogDestinationProperty
       Stratosphere.Transfer.Server.WorkflowDetailProperty
       Stratosphere.Transfer.Server.WorkflowDetailsProperty
       Stratosphere.Transfer.User

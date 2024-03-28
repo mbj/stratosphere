@@ -29,6 +29,7 @@ library
       Stratosphere.Route53Resolver.FirewallRuleGroup
       Stratosphere.Route53Resolver.FirewallRuleGroup.FirewallRuleProperty
       Stratosphere.Route53Resolver.FirewallRuleGroupAssociation
+      Stratosphere.Route53Resolver.OutpostResolver
       Stratosphere.Route53Resolver.ResolverConfig
       Stratosphere.Route53Resolver.ResolverDNSSECConfig
       Stratosphere.Route53Resolver.ResolverEndpoint

@@ -41,11 +41,15 @@ library
       Stratosphere.Route53.RecordSet
       Stratosphere.Route53.RecordSet.AliasTargetProperty
       Stratosphere.Route53.RecordSet.CidrRoutingConfigProperty
+      Stratosphere.Route53.RecordSet.CoordinatesProperty
       Stratosphere.Route53.RecordSet.GeoLocationProperty
+      Stratosphere.Route53.RecordSet.GeoProximityLocationProperty
       Stratosphere.Route53.RecordSetGroup
       Stratosphere.Route53.RecordSetGroup.AliasTargetProperty
       Stratosphere.Route53.RecordSetGroup.CidrRoutingConfigProperty
+      Stratosphere.Route53.RecordSetGroup.CoordinatesProperty
       Stratosphere.Route53.RecordSetGroup.GeoLocationProperty
+      Stratosphere.Route53.RecordSetGroup.GeoProximityLocationProperty
       Stratosphere.Route53.RecordSetGroup.RecordSetProperty
   other-modules:
       Paths_stratosphere_route53

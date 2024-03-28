@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.GeospatialHeatmapColorScaleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialHeatmapColorScaleProperty :: Prelude.Type
+instance ToResourceProperties GeospatialHeatmapColorScaleProperty
+instance Prelude.Eq GeospatialHeatmapColorScaleProperty
+instance Prelude.Show GeospatialHeatmapColorScaleProperty
+instance JSON.ToJSON GeospatialHeatmapColorScaleProperty

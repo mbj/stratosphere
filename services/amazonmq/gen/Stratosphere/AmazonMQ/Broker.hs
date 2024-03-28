@@ -18,6 +18,8 @@ data Broker
             autoMinorVersionUpgrade :: (Value Prelude.Bool),
             brokerName :: (Value Prelude.Text),
             configuration :: (Prelude.Maybe ConfigurationIdProperty),
+            dataReplicationMode :: (Prelude.Maybe (Value Prelude.Text)),
+            dataReplicationPrimaryBrokerArn :: (Prelude.Maybe (Value Prelude.Text)),
             deploymentMode :: (Value Prelude.Text),
             encryptionOptions :: (Prelude.Maybe EncryptionOptionsProperty),
             engineType :: (Value Prelude.Text),
@@ -58,6 +60,8 @@ mkBroker
        publiclyAccessible = publiclyAccessible, users = users,
        authenticationStrategy = Prelude.Nothing,
        configuration = Prelude.Nothing,
+       dataReplicationMode = Prelude.Nothing,
+       dataReplicationPrimaryBrokerArn = Prelude.Nothing,
        encryptionOptions = Prelude.Nothing,
        ldapServerMetadata = Prelude.Nothing, logs = Prelude.Nothing,
        maintenanceWindowStartTime = Prelude.Nothing,
@@ -81,6 +85,9 @@ instance ToResourceProperties Broker where
                               [(JSON..=) "AuthenticationStrategy"
                                  Prelude.<$> authenticationStrategy,
                                (JSON..=) "Configuration" Prelude.<$> configuration,
+                               (JSON..=) "DataReplicationMode" Prelude.<$> dataReplicationMode,
+                               (JSON..=) "DataReplicationPrimaryBrokerArn"
+                                 Prelude.<$> dataReplicationPrimaryBrokerArn,
                                (JSON..=) "EncryptionOptions" Prelude.<$> encryptionOptions,
                                (JSON..=) "LdapServerMetadata" Prelude.<$> ldapServerMetadata,
                                (JSON..=) "Logs" Prelude.<$> logs,
@@ -107,6 +114,9 @@ instance JSON.ToJSON Broker where
                  [(JSON..=) "AuthenticationStrategy"
                     Prelude.<$> authenticationStrategy,
                   (JSON..=) "Configuration" Prelude.<$> configuration,
+                  (JSON..=) "DataReplicationMode" Prelude.<$> dataReplicationMode,
+                  (JSON..=) "DataReplicationPrimaryBrokerArn"
+                    Prelude.<$> dataReplicationPrimaryBrokerArn,
                   (JSON..=) "EncryptionOptions" Prelude.<$> encryptionOptions,
                   (JSON..=) "LdapServerMetadata" Prelude.<$> ldapServerMetadata,
                   (JSON..=) "Logs" Prelude.<$> logs,
@@ -131,6 +141,15 @@ instance Property "Configuration" Broker where
   type PropertyType "Configuration" Broker = ConfigurationIdProperty
   set newValue Broker {..}
     = Broker {configuration = Prelude.pure newValue, ..}
+instance Property "DataReplicationMode" Broker where
+  type PropertyType "DataReplicationMode" Broker = Value Prelude.Text
+  set newValue Broker {..}
+    = Broker {dataReplicationMode = Prelude.pure newValue, ..}
+instance Property "DataReplicationPrimaryBrokerArn" Broker where
+  type PropertyType "DataReplicationPrimaryBrokerArn" Broker = Value Prelude.Text
+  set newValue Broker {..}
+    = Broker
+        {dataReplicationPrimaryBrokerArn = Prelude.pure newValue, ..}
 instance Property "DeploymentMode" Broker where
   type PropertyType "DeploymentMode" Broker = Value Prelude.Text
   set newValue Broker {..} = Broker {deploymentMode = newValue, ..}

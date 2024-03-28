@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.Channel.IngestEndpointProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IngestEndpointProperty :: Prelude.Type
+instance ToResourceProperties IngestEndpointProperty
+instance Prelude.Eq IngestEndpointProperty
+instance Prelude.Show IngestEndpointProperty
+instance JSON.ToJSON IngestEndpointProperty

@@ -4,6 +4,7 @@ module Stratosphere.HealthLake.FHIRDatastore (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.HealthLake.FHIRDatastore.IdentityProviderConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.HealthLake.FHIRDatastore.PreloadDataConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.HealthLake.FHIRDatastore.SseConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -12,6 +13,7 @@ import Stratosphere.Value
 data FHIRDatastore
   = FHIRDatastore {datastoreName :: (Prelude.Maybe (Value Prelude.Text)),
                    datastoreTypeVersion :: (Value Prelude.Text),
+                   identityProviderConfiguration :: (Prelude.Maybe IdentityProviderConfigurationProperty),
                    preloadDataConfig :: (Prelude.Maybe PreloadDataConfigProperty),
                    sseConfiguration :: (Prelude.Maybe SseConfigurationProperty),
                    tags :: (Prelude.Maybe [Tag])}
@@ -21,6 +23,7 @@ mkFHIRDatastore datastoreTypeVersion
   = FHIRDatastore
       {datastoreTypeVersion = datastoreTypeVersion,
        datastoreName = Prelude.Nothing,
+       identityProviderConfiguration = Prelude.Nothing,
        preloadDataConfig = Prelude.Nothing,
        sseConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties FHIRDatastore where
@@ -33,6 +36,8 @@ instance ToResourceProperties FHIRDatastore where
                            ["DatastoreTypeVersion" JSON..= datastoreTypeVersion]
                            (Prelude.catMaybes
                               [(JSON..=) "DatastoreName" Prelude.<$> datastoreName,
+                               (JSON..=) "IdentityProviderConfiguration"
+                                 Prelude.<$> identityProviderConfiguration,
                                (JSON..=) "PreloadDataConfig" Prelude.<$> preloadDataConfig,
                                (JSON..=) "SseConfiguration" Prelude.<$> sseConfiguration,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -44,6 +49,8 @@ instance JSON.ToJSON FHIRDatastore where
               ["DatastoreTypeVersion" JSON..= datastoreTypeVersion]
               (Prelude.catMaybes
                  [(JSON..=) "DatastoreName" Prelude.<$> datastoreName,
+                  (JSON..=) "IdentityProviderConfiguration"
+                    Prelude.<$> identityProviderConfiguration,
                   (JSON..=) "PreloadDataConfig" Prelude.<$> preloadDataConfig,
                   (JSON..=) "SseConfiguration" Prelude.<$> sseConfiguration,
                   (JSON..=) "Tags" Prelude.<$> tags])))
@@ -55,6 +62,11 @@ instance Property "DatastoreTypeVersion" FHIRDatastore where
   type PropertyType "DatastoreTypeVersion" FHIRDatastore = Value Prelude.Text
   set newValue FHIRDatastore {..}
     = FHIRDatastore {datastoreTypeVersion = newValue, ..}
+instance Property "IdentityProviderConfiguration" FHIRDatastore where
+  type PropertyType "IdentityProviderConfiguration" FHIRDatastore = IdentityProviderConfigurationProperty
+  set newValue FHIRDatastore {..}
+    = FHIRDatastore
+        {identityProviderConfiguration = Prelude.pure newValue, ..}
 instance Property "PreloadDataConfig" FHIRDatastore where
   type PropertyType "PreloadDataConfig" FHIRDatastore = PreloadDataConfigProperty
   set newValue FHIRDatastore {..}

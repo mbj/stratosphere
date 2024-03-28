@@ -9,7 +9,7 @@ import Stratosphere.Value
 data UserPoolGroup
   = UserPoolGroup {description :: (Prelude.Maybe (Value Prelude.Text)),
                    groupName :: (Prelude.Maybe (Value Prelude.Text)),
-                   precedence :: (Prelude.Maybe (Value Prelude.Double)),
+                   precedence :: (Prelude.Maybe (Value Prelude.Integer)),
                    roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                    userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -52,7 +52,7 @@ instance Property "GroupName" UserPoolGroup where
   set newValue UserPoolGroup {..}
     = UserPoolGroup {groupName = Prelude.pure newValue, ..}
 instance Property "Precedence" UserPoolGroup where
-  type PropertyType "Precedence" UserPoolGroup = Value Prelude.Double
+  type PropertyType "Precedence" UserPoolGroup = Value Prelude.Integer
   set newValue UserPoolGroup {..}
     = UserPoolGroup {precedence = Prelude.pure newValue, ..}
 instance Property "RoleArn" UserPoolGroup where

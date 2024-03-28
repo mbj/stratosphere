@@ -28,8 +28,8 @@ library
       Stratosphere.ResourceExplorer2.DefaultViewAssociation
       Stratosphere.ResourceExplorer2.Index
       Stratosphere.ResourceExplorer2.View
-      Stratosphere.ResourceExplorer2.View.FiltersProperty
       Stratosphere.ResourceExplorer2.View.IncludedPropertyProperty
+      Stratosphere.ResourceExplorer2.View.SearchFilterProperty
   other-modules:
       Paths_stratosphere_resourceexplorer2
   hs-source-dirs:

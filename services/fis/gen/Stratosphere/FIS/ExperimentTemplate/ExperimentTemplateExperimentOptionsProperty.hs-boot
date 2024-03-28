@@ -1,0 +1,9 @@
+module Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateExperimentOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExperimentTemplateExperimentOptionsProperty :: Prelude.Type
+instance ToResourceProperties ExperimentTemplateExperimentOptionsProperty
+instance Prelude.Eq ExperimentTemplateExperimentOptionsProperty
+instance Prelude.Show ExperimentTemplateExperimentOptionsProperty
+instance JSON.ToJSON ExperimentTemplateExperimentOptionsProperty

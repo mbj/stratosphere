@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessEndpoint.LoadBalancerOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessEndpoint.NetworkInterfaceOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessEndpoint.SseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -22,6 +23,7 @@ data VerifiedAccessEndpoint
                             policyDocument :: (Prelude.Maybe (Value Prelude.Text)),
                             policyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                             securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+                            sseSpecification :: (Prelude.Maybe SseSpecificationProperty),
                             tags :: (Prelude.Maybe [Tag]),
                             verifiedAccessGroupId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -50,7 +52,8 @@ mkVerifiedAccessEndpoint
        loadBalancerOptions = Prelude.Nothing,
        networkInterfaceOptions = Prelude.Nothing,
        policyDocument = Prelude.Nothing, policyEnabled = Prelude.Nothing,
-       securityGroupIds = Prelude.Nothing, tags = Prelude.Nothing}
+       securityGroupIds = Prelude.Nothing,
+       sseSpecification = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties VerifiedAccessEndpoint where
   toResourceProperties VerifiedAccessEndpoint {..}
     = ResourceProperties
@@ -72,6 +75,7 @@ instance ToResourceProperties VerifiedAccessEndpoint where
                                (JSON..=) "PolicyDocument" Prelude.<$> policyDocument,
                                (JSON..=) "PolicyEnabled" Prelude.<$> policyEnabled,
                                (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
+                               (JSON..=) "SseSpecification" Prelude.<$> sseSpecification,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON VerifiedAccessEndpoint where
   toJSON VerifiedAccessEndpoint {..}
@@ -92,6 +96,7 @@ instance JSON.ToJSON VerifiedAccessEndpoint where
                   (JSON..=) "PolicyDocument" Prelude.<$> policyDocument,
                   (JSON..=) "PolicyEnabled" Prelude.<$> policyEnabled,
                   (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
+                  (JSON..=) "SseSpecification" Prelude.<$> sseSpecification,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ApplicationDomain" VerifiedAccessEndpoint where
   type PropertyType "ApplicationDomain" VerifiedAccessEndpoint = Value Prelude.Text
@@ -142,6 +147,11 @@ instance Property "SecurityGroupIds" VerifiedAccessEndpoint where
   set newValue VerifiedAccessEndpoint {..}
     = VerifiedAccessEndpoint
         {securityGroupIds = Prelude.pure newValue, ..}
+instance Property "SseSpecification" VerifiedAccessEndpoint where
+  type PropertyType "SseSpecification" VerifiedAccessEndpoint = SseSpecificationProperty
+  set newValue VerifiedAccessEndpoint {..}
+    = VerifiedAccessEndpoint
+        {sseSpecification = Prelude.pure newValue, ..}
 instance Property "Tags" VerifiedAccessEndpoint where
   type PropertyType "Tags" VerifiedAccessEndpoint = [Tag]
   set newValue VerifiedAccessEndpoint {..}

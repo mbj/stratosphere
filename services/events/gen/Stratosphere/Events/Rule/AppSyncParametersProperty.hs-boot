@@ -1,0 +1,9 @@
+module Stratosphere.Events.Rule.AppSyncParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AppSyncParametersProperty :: Prelude.Type
+instance ToResourceProperties AppSyncParametersProperty
+instance Prelude.Eq AppSyncParametersProperty
+instance Prelude.Show AppSyncParametersProperty
+instance JSON.ToJSON AppSyncParametersProperty

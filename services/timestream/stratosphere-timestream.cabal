@@ -41,8 +41,10 @@ library
       Stratosphere.Timestream.Table
       Stratosphere.Timestream.Table.MagneticStoreRejectedDataLocationProperty
       Stratosphere.Timestream.Table.MagneticStoreWritePropertiesProperty
+      Stratosphere.Timestream.Table.PartitionKeyProperty
       Stratosphere.Timestream.Table.RetentionPropertiesProperty
       Stratosphere.Timestream.Table.S3ConfigurationProperty
+      Stratosphere.Timestream.Table.SchemaProperty
   other-modules:
       Paths_stratosphere_timestream
   hs-source-dirs:

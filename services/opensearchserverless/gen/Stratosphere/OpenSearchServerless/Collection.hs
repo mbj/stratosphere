@@ -10,6 +10,7 @@ import Stratosphere.Value
 data Collection
   = Collection {description :: (Prelude.Maybe (Value Prelude.Text)),
                 name :: (Value Prelude.Text),
+                standbyReplicas :: (Prelude.Maybe (Value Prelude.Text)),
                 tags :: (Prelude.Maybe [Tag]),
                 type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -17,7 +18,8 @@ mkCollection :: Value Prelude.Text -> Collection
 mkCollection name
   = Collection
       {name = name, description = Prelude.Nothing,
-       tags = Prelude.Nothing, type' = Prelude.Nothing}
+       standbyReplicas = Prelude.Nothing, tags = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties Collection where
   toResourceProperties Collection {..}
     = ResourceProperties
@@ -28,6 +30,7 @@ instance ToResourceProperties Collection where
                            ["Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "StandbyReplicas" Prelude.<$> standbyReplicas,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "Type" Prelude.<$> type']))}
 instance JSON.ToJSON Collection where
@@ -38,6 +41,7 @@ instance JSON.ToJSON Collection where
               ["Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "StandbyReplicas" Prelude.<$> standbyReplicas,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "Type" Prelude.<$> type'])))
 instance Property "Description" Collection where
@@ -47,6 +51,10 @@ instance Property "Description" Collection where
 instance Property "Name" Collection where
   type PropertyType "Name" Collection = Value Prelude.Text
   set newValue Collection {..} = Collection {name = newValue, ..}
+instance Property "StandbyReplicas" Collection where
+  type PropertyType "StandbyReplicas" Collection = Value Prelude.Text
+  set newValue Collection {..}
+    = Collection {standbyReplicas = Prelude.pure newValue, ..}
 instance Property "Tags" Collection where
   type PropertyType "Tags" Collection = [Tag]
   set newValue Collection {..}

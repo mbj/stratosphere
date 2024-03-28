@@ -9,16 +9,15 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.DimensionFieldProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UniqueValuesComputationProperty
-  = UniqueValuesComputationProperty {category :: DimensionFieldProperty,
+  = UniqueValuesComputationProperty {category :: (Prelude.Maybe DimensionFieldProperty),
                                      computationId :: (Value Prelude.Text),
                                      name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUniqueValuesComputationProperty ::
-  DimensionFieldProperty
-  -> Value Prelude.Text -> UniqueValuesComputationProperty
-mkUniqueValuesComputationProperty category computationId
+  Value Prelude.Text -> UniqueValuesComputationProperty
+mkUniqueValuesComputationProperty computationId
   = UniqueValuesComputationProperty
-      {category = category, computationId = computationId,
+      {computationId = computationId, category = Prelude.Nothing,
        name = Prelude.Nothing}
 instance ToResourceProperties UniqueValuesComputationProperty where
   toResourceProperties UniqueValuesComputationProperty {..}
@@ -27,21 +26,24 @@ instance ToResourceProperties UniqueValuesComputationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Category" JSON..= category,
-                            "ComputationId" JSON..= computationId]
-                           (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name]))}
+                           ["ComputationId" JSON..= computationId]
+                           (Prelude.catMaybes
+                              [(JSON..=) "Category" Prelude.<$> category,
+                               (JSON..=) "Name" Prelude.<$> name]))}
 instance JSON.ToJSON UniqueValuesComputationProperty where
   toJSON UniqueValuesComputationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Category" JSON..= category,
-               "ComputationId" JSON..= computationId]
-              (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name])))
+              ["ComputationId" JSON..= computationId]
+              (Prelude.catMaybes
+                 [(JSON..=) "Category" Prelude.<$> category,
+                  (JSON..=) "Name" Prelude.<$> name])))
 instance Property "Category" UniqueValuesComputationProperty where
   type PropertyType "Category" UniqueValuesComputationProperty = DimensionFieldProperty
   set newValue UniqueValuesComputationProperty {..}
-    = UniqueValuesComputationProperty {category = newValue, ..}
+    = UniqueValuesComputationProperty
+        {category = Prelude.pure newValue, ..}
 instance Property "ComputationId" UniqueValuesComputationProperty where
   type PropertyType "ComputationId" UniqueValuesComputationProperty = Value Prelude.Text
   set newValue UniqueValuesComputationProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Capability.EdiConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EdiConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EdiConfigurationProperty
+instance Prelude.Eq EdiConfigurationProperty
+instance Prelude.Show EdiConfigurationProperty
+instance JSON.ToJSON EdiConfigurationProperty

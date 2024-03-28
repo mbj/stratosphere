@@ -8,11 +8,13 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.CloudWatchLoggingOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ProcessingConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SplunkBufferingHintsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SplunkRetryOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SplunkDestinationConfigurationProperty
-  = SplunkDestinationConfigurationProperty {cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
+  = SplunkDestinationConfigurationProperty {bufferingHints :: (Prelude.Maybe SplunkBufferingHintsProperty),
+                                            cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
                                             hECAcknowledgmentTimeoutInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                             hECEndpoint :: (Value Prelude.Text),
                                             hECEndpointType :: (Value Prelude.Text),
@@ -36,6 +38,7 @@ mkSplunkDestinationConfigurationProperty
   = SplunkDestinationConfigurationProperty
       {hECEndpoint = hECEndpoint, hECEndpointType = hECEndpointType,
        hECToken = hECToken, s3Configuration = s3Configuration,
+       bufferingHints = Prelude.Nothing,
        cloudWatchLoggingOptions = Prelude.Nothing,
        hECAcknowledgmentTimeoutInSeconds = Prelude.Nothing,
        processingConfiguration = Prelude.Nothing,
@@ -52,7 +55,8 @@ instance ToResourceProperties SplunkDestinationConfigurationProperty where
                             "HECToken" JSON..= hECToken,
                             "S3Configuration" JSON..= s3Configuration]
                            (Prelude.catMaybes
-                              [(JSON..=) "CloudWatchLoggingOptions"
+                              [(JSON..=) "BufferingHints" Prelude.<$> bufferingHints,
+                               (JSON..=) "CloudWatchLoggingOptions"
                                  Prelude.<$> cloudWatchLoggingOptions,
                                (JSON..=) "HECAcknowledgmentTimeoutInSeconds"
                                  Prelude.<$> hECAcknowledgmentTimeoutInSeconds,
@@ -70,7 +74,8 @@ instance JSON.ToJSON SplunkDestinationConfigurationProperty where
                "HECToken" JSON..= hECToken,
                "S3Configuration" JSON..= s3Configuration]
               (Prelude.catMaybes
-                 [(JSON..=) "CloudWatchLoggingOptions"
+                 [(JSON..=) "BufferingHints" Prelude.<$> bufferingHints,
+                  (JSON..=) "CloudWatchLoggingOptions"
                     Prelude.<$> cloudWatchLoggingOptions,
                   (JSON..=) "HECAcknowledgmentTimeoutInSeconds"
                     Prelude.<$> hECAcknowledgmentTimeoutInSeconds,
@@ -78,6 +83,11 @@ instance JSON.ToJSON SplunkDestinationConfigurationProperty where
                     Prelude.<$> processingConfiguration,
                   (JSON..=) "RetryOptions" Prelude.<$> retryOptions,
                   (JSON..=) "S3BackupMode" Prelude.<$> s3BackupMode])))
+instance Property "BufferingHints" SplunkDestinationConfigurationProperty where
+  type PropertyType "BufferingHints" SplunkDestinationConfigurationProperty = SplunkBufferingHintsProperty
+  set newValue SplunkDestinationConfigurationProperty {..}
+    = SplunkDestinationConfigurationProperty
+        {bufferingHints = Prelude.pure newValue, ..}
 instance Property "CloudWatchLoggingOptions" SplunkDestinationConfigurationProperty where
   type PropertyType "CloudWatchLoggingOptions" SplunkDestinationConfigurationProperty = CloudWatchLoggingOptionsProperty
   set newValue SplunkDestinationConfigurationProperty {..}

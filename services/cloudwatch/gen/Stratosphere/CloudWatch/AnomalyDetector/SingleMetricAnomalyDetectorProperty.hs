@@ -9,7 +9,8 @@ import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.DimensionProperty 
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SingleMetricAnomalyDetectorProperty
-  = SingleMetricAnomalyDetectorProperty {dimensions :: (Prelude.Maybe [DimensionProperty]),
+  = SingleMetricAnomalyDetectorProperty {accountId :: (Prelude.Maybe (Value Prelude.Text)),
+                                         dimensions :: (Prelude.Maybe [DimensionProperty]),
                                          metricName :: (Prelude.Maybe (Value Prelude.Text)),
                                          namespace :: (Prelude.Maybe (Value Prelude.Text)),
                                          stat :: (Prelude.Maybe (Value Prelude.Text))}
@@ -18,8 +19,9 @@ mkSingleMetricAnomalyDetectorProperty ::
   SingleMetricAnomalyDetectorProperty
 mkSingleMetricAnomalyDetectorProperty
   = SingleMetricAnomalyDetectorProperty
-      {dimensions = Prelude.Nothing, metricName = Prelude.Nothing,
-       namespace = Prelude.Nothing, stat = Prelude.Nothing}
+      {accountId = Prelude.Nothing, dimensions = Prelude.Nothing,
+       metricName = Prelude.Nothing, namespace = Prelude.Nothing,
+       stat = Prelude.Nothing}
 instance ToResourceProperties SingleMetricAnomalyDetectorProperty where
   toResourceProperties SingleMetricAnomalyDetectorProperty {..}
     = ResourceProperties
@@ -27,7 +29,8 @@ instance ToResourceProperties SingleMetricAnomalyDetectorProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Dimensions" Prelude.<$> dimensions,
+                           [(JSON..=) "AccountId" Prelude.<$> accountId,
+                            (JSON..=) "Dimensions" Prelude.<$> dimensions,
                             (JSON..=) "MetricName" Prelude.<$> metricName,
                             (JSON..=) "Namespace" Prelude.<$> namespace,
                             (JSON..=) "Stat" Prelude.<$> stat])}
@@ -36,10 +39,16 @@ instance JSON.ToJSON SingleMetricAnomalyDetectorProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Dimensions" Prelude.<$> dimensions,
+              [(JSON..=) "AccountId" Prelude.<$> accountId,
+               (JSON..=) "Dimensions" Prelude.<$> dimensions,
                (JSON..=) "MetricName" Prelude.<$> metricName,
                (JSON..=) "Namespace" Prelude.<$> namespace,
                (JSON..=) "Stat" Prelude.<$> stat]))
+instance Property "AccountId" SingleMetricAnomalyDetectorProperty where
+  type PropertyType "AccountId" SingleMetricAnomalyDetectorProperty = Value Prelude.Text
+  set newValue SingleMetricAnomalyDetectorProperty {..}
+    = SingleMetricAnomalyDetectorProperty
+        {accountId = Prelude.pure newValue, ..}
 instance Property "Dimensions" SingleMetricAnomalyDetectorProperty where
   type PropertyType "Dimensions" SingleMetricAnomalyDetectorProperty = [DimensionProperty]
   set newValue SingleMetricAnomalyDetectorProperty {..}

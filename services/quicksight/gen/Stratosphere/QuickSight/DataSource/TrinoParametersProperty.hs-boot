@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.DataSource.TrinoParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TrinoParametersProperty :: Prelude.Type
+instance ToResourceProperties TrinoParametersProperty
+instance Prelude.Eq TrinoParametersProperty
+instance Prelude.Show TrinoParametersProperty
+instance JSON.ToJSON TrinoParametersProperty

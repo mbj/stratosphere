@@ -10,38 +10,42 @@ import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.ColumnIdentifierProperty
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AggregationSortConfigurationProperty
-  = AggregationSortConfigurationProperty {aggregationFunction :: AggregationFunctionProperty,
+  = AggregationSortConfigurationProperty {aggregationFunction :: (Prelude.Maybe AggregationFunctionProperty),
                                           column :: ColumnIdentifierProperty,
                                           sortDirection :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAggregationSortConfigurationProperty ::
-  AggregationFunctionProperty
-  -> ColumnIdentifierProperty
-     -> Value Prelude.Text -> AggregationSortConfigurationProperty
-mkAggregationSortConfigurationProperty
-  aggregationFunction
-  column
-  sortDirection
+  ColumnIdentifierProperty
+  -> Value Prelude.Text -> AggregationSortConfigurationProperty
+mkAggregationSortConfigurationProperty column sortDirection
   = AggregationSortConfigurationProperty
-      {aggregationFunction = aggregationFunction, column = column,
-       sortDirection = sortDirection}
+      {column = column, sortDirection = sortDirection,
+       aggregationFunction = Prelude.Nothing}
 instance ToResourceProperties AggregationSortConfigurationProperty where
   toResourceProperties AggregationSortConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.AggregationSortConfiguration",
          supportsTags = Prelude.False,
-         properties = ["AggregationFunction" JSON..= aggregationFunction,
-                       "Column" JSON..= column, "SortDirection" JSON..= sortDirection]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Column" JSON..= column, "SortDirection" JSON..= sortDirection]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AggregationFunction"
+                                 Prelude.<$> aggregationFunction]))}
 instance JSON.ToJSON AggregationSortConfigurationProperty where
   toJSON AggregationSortConfigurationProperty {..}
     = JSON.object
-        ["AggregationFunction" JSON..= aggregationFunction,
-         "Column" JSON..= column, "SortDirection" JSON..= sortDirection]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Column" JSON..= column, "SortDirection" JSON..= sortDirection]
+              (Prelude.catMaybes
+                 [(JSON..=) "AggregationFunction"
+                    Prelude.<$> aggregationFunction])))
 instance Property "AggregationFunction" AggregationSortConfigurationProperty where
   type PropertyType "AggregationFunction" AggregationSortConfigurationProperty = AggregationFunctionProperty
   set newValue AggregationSortConfigurationProperty {..}
     = AggregationSortConfigurationProperty
-        {aggregationFunction = newValue, ..}
+        {aggregationFunction = Prelude.pure newValue, ..}
 instance Property "Column" AggregationSortConfigurationProperty where
   type PropertyType "Column" AggregationSortConfigurationProperty = ColumnIdentifierProperty
   set newValue AggregationSortConfigurationProperty {..}

@@ -27,10 +27,12 @@ library
   exposed-modules:
       Stratosphere.CodeDeploy.Application
       Stratosphere.CodeDeploy.DeploymentConfig
+      Stratosphere.CodeDeploy.DeploymentConfig.MinimumHealthyHostsPerZoneProperty
       Stratosphere.CodeDeploy.DeploymentConfig.MinimumHealthyHostsProperty
       Stratosphere.CodeDeploy.DeploymentConfig.TimeBasedCanaryProperty
       Stratosphere.CodeDeploy.DeploymentConfig.TimeBasedLinearProperty
       Stratosphere.CodeDeploy.DeploymentConfig.TrafficRoutingConfigProperty
+      Stratosphere.CodeDeploy.DeploymentConfig.ZonalConfigProperty
       Stratosphere.CodeDeploy.DeploymentGroup
       Stratosphere.CodeDeploy.DeploymentGroup.AlarmConfigurationProperty
       Stratosphere.CodeDeploy.DeploymentGroup.AlarmProperty

@@ -25,7 +25,26 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.CustomerProfiles.CalculatedAttributeDefinition
+      Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.AttributeDetailsProperty
+      Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.AttributeItemProperty
+      Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ConditionsProperty
+      Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.RangeProperty
+      Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ThresholdProperty
       Stratosphere.CustomerProfiles.Domain
+      Stratosphere.CustomerProfiles.Domain.AttributeTypesSelectorProperty
+      Stratosphere.CustomerProfiles.Domain.AutoMergingProperty
+      Stratosphere.CustomerProfiles.Domain.ConflictResolutionProperty
+      Stratosphere.CustomerProfiles.Domain.ConsolidationProperty
+      Stratosphere.CustomerProfiles.Domain.DomainStatsProperty
+      Stratosphere.CustomerProfiles.Domain.ExportingConfigProperty
+      Stratosphere.CustomerProfiles.Domain.JobScheduleProperty
+      Stratosphere.CustomerProfiles.Domain.MatchingProperty
+      Stratosphere.CustomerProfiles.Domain.MatchingRuleProperty
+      Stratosphere.CustomerProfiles.Domain.RuleBasedMatchingProperty
+      Stratosphere.CustomerProfiles.Domain.S3ExportingConfigProperty
+      Stratosphere.CustomerProfiles.EventStream
+      Stratosphere.CustomerProfiles.EventStream.DestinationDetailsProperty
       Stratosphere.CustomerProfiles.Integration
       Stratosphere.CustomerProfiles.Integration.ConnectorOperatorProperty
       Stratosphere.CustomerProfiles.Integration.FlowDefinitionProperty

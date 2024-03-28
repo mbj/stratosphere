@@ -1,0 +1,9 @@
+module Stratosphere.S3.StorageLensGroup.MatchObjectAgeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MatchObjectAgeProperty :: Prelude.Type
+instance ToResourceProperties MatchObjectAgeProperty
+instance Prelude.Eq MatchObjectAgeProperty
+instance Prelude.Show MatchObjectAgeProperty
+instance JSON.ToJSON MatchObjectAgeProperty

@@ -21,8 +21,8 @@ data RuleProperty
                   noncurrentVersionExpirationInDays :: (Prelude.Maybe (Value Prelude.Integer)),
                   noncurrentVersionTransition :: (Prelude.Maybe NoncurrentVersionTransitionProperty),
                   noncurrentVersionTransitions :: (Prelude.Maybe [NoncurrentVersionTransitionProperty]),
-                  objectSizeGreaterThan :: (Prelude.Maybe (Value Prelude.Integer)),
-                  objectSizeLessThan :: (Prelude.Maybe (Value Prelude.Integer)),
+                  objectSizeGreaterThan :: (Prelude.Maybe (Value Prelude.Text)),
+                  objectSizeLessThan :: (Prelude.Maybe (Value Prelude.Text)),
                   prefix :: (Prelude.Maybe (Value Prelude.Text)),
                   status :: (Value Prelude.Text),
                   tagFilters :: (Prelude.Maybe [TagFilterProperty]),
@@ -146,11 +146,11 @@ instance Property "NoncurrentVersionTransitions" RuleProperty where
     = RuleProperty
         {noncurrentVersionTransitions = Prelude.pure newValue, ..}
 instance Property "ObjectSizeGreaterThan" RuleProperty where
-  type PropertyType "ObjectSizeGreaterThan" RuleProperty = Value Prelude.Integer
+  type PropertyType "ObjectSizeGreaterThan" RuleProperty = Value Prelude.Text
   set newValue RuleProperty {..}
     = RuleProperty {objectSizeGreaterThan = Prelude.pure newValue, ..}
 instance Property "ObjectSizeLessThan" RuleProperty where
-  type PropertyType "ObjectSizeLessThan" RuleProperty = Value Prelude.Integer
+  type PropertyType "ObjectSizeLessThan" RuleProperty = Value Prelude.Text
   set newValue RuleProperty {..}
     = RuleProperty {objectSizeLessThan = Prelude.pure newValue, ..}
 instance Property "Prefix" RuleProperty where

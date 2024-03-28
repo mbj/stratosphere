@@ -43,10 +43,10 @@ library
       Stratosphere.Events.Endpoint.RoutingConfigProperty
       Stratosphere.Events.Endpoint.SecondaryProperty
       Stratosphere.Events.EventBus
-      Stratosphere.Events.EventBus.TagEntryProperty
       Stratosphere.Events.EventBusPolicy
       Stratosphere.Events.EventBusPolicy.ConditionProperty
       Stratosphere.Events.Rule
+      Stratosphere.Events.Rule.AppSyncParametersProperty
       Stratosphere.Events.Rule.AwsVpcConfigurationProperty
       Stratosphere.Events.Rule.BatchArrayPropertiesProperty
       Stratosphere.Events.Rule.BatchParametersProperty
@@ -67,7 +67,6 @@ library
       Stratosphere.Events.Rule.SageMakerPipelineParameterProperty
       Stratosphere.Events.Rule.SageMakerPipelineParametersProperty
       Stratosphere.Events.Rule.SqsParametersProperty
-      Stratosphere.Events.Rule.TagProperty
       Stratosphere.Events.Rule.TargetProperty
   other-modules:
       Paths_stratosphere_events

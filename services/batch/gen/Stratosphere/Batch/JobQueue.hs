@@ -5,11 +5,13 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobQueue.ComputeEnvironmentOrderProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobQueue.JobStateTimeLimitActionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JobQueue
   = JobQueue {computeEnvironmentOrder :: [ComputeEnvironmentOrderProperty],
               jobQueueName :: (Prelude.Maybe (Value Prelude.Text)),
+              jobStateTimeLimitActions :: (Prelude.Maybe [JobStateTimeLimitActionProperty]),
               priority :: (Value Prelude.Integer),
               schedulingPolicyArn :: (Prelude.Maybe (Value Prelude.Text)),
               state :: (Prelude.Maybe (Value Prelude.Text)),
@@ -22,6 +24,7 @@ mkJobQueue computeEnvironmentOrder priority
   = JobQueue
       {computeEnvironmentOrder = computeEnvironmentOrder,
        priority = priority, jobQueueName = Prelude.Nothing,
+       jobStateTimeLimitActions = Prelude.Nothing,
        schedulingPolicyArn = Prelude.Nothing, state = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties JobQueue where
@@ -34,6 +37,8 @@ instance ToResourceProperties JobQueue where
                             "Priority" JSON..= priority]
                            (Prelude.catMaybes
                               [(JSON..=) "JobQueueName" Prelude.<$> jobQueueName,
+                               (JSON..=) "JobStateTimeLimitActions"
+                                 Prelude.<$> jobStateTimeLimitActions,
                                (JSON..=) "SchedulingPolicyArn" Prelude.<$> schedulingPolicyArn,
                                (JSON..=) "State" Prelude.<$> state,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -46,6 +51,8 @@ instance JSON.ToJSON JobQueue where
                "Priority" JSON..= priority]
               (Prelude.catMaybes
                  [(JSON..=) "JobQueueName" Prelude.<$> jobQueueName,
+                  (JSON..=) "JobStateTimeLimitActions"
+                    Prelude.<$> jobStateTimeLimitActions,
                   (JSON..=) "SchedulingPolicyArn" Prelude.<$> schedulingPolicyArn,
                   (JSON..=) "State" Prelude.<$> state,
                   (JSON..=) "Tags" Prelude.<$> tags])))
@@ -57,6 +64,10 @@ instance Property "JobQueueName" JobQueue where
   type PropertyType "JobQueueName" JobQueue = Value Prelude.Text
   set newValue JobQueue {..}
     = JobQueue {jobQueueName = Prelude.pure newValue, ..}
+instance Property "JobStateTimeLimitActions" JobQueue where
+  type PropertyType "JobStateTimeLimitActions" JobQueue = [JobStateTimeLimitActionProperty]
+  set newValue JobQueue {..}
+    = JobQueue {jobStateTimeLimitActions = Prelude.pure newValue, ..}
 instance Property "Priority" JobQueue where
   type PropertyType "Priority" JobQueue = Value Prelude.Integer
   set newValue JobQueue {..} = JobQueue {priority = newValue, ..}

@@ -9,14 +9,16 @@ import {-# SOURCE #-} Stratosphere.IoT.SecurityProfile.MetricDimensionProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MetricToRetainProperty
-  = MetricToRetainProperty {metric :: (Value Prelude.Text),
+  = MetricToRetainProperty {exportMetric :: (Prelude.Maybe (Value Prelude.Bool)),
+                            metric :: (Value Prelude.Text),
                             metricDimension :: (Prelude.Maybe MetricDimensionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMetricToRetainProperty ::
   Value Prelude.Text -> MetricToRetainProperty
 mkMetricToRetainProperty metric
   = MetricToRetainProperty
-      {metric = metric, metricDimension = Prelude.Nothing}
+      {metric = metric, exportMetric = Prelude.Nothing,
+       metricDimension = Prelude.Nothing}
 instance ToResourceProperties MetricToRetainProperty where
   toResourceProperties MetricToRetainProperty {..}
     = ResourceProperties
@@ -26,7 +28,8 @@ instance ToResourceProperties MetricToRetainProperty where
                         ((Prelude.<>)
                            ["Metric" JSON..= metric]
                            (Prelude.catMaybes
-                              [(JSON..=) "MetricDimension" Prelude.<$> metricDimension]))}
+                              [(JSON..=) "ExportMetric" Prelude.<$> exportMetric,
+                               (JSON..=) "MetricDimension" Prelude.<$> metricDimension]))}
 instance JSON.ToJSON MetricToRetainProperty where
   toJSON MetricToRetainProperty {..}
     = JSON.object
@@ -34,7 +37,12 @@ instance JSON.ToJSON MetricToRetainProperty where
            ((Prelude.<>)
               ["Metric" JSON..= metric]
               (Prelude.catMaybes
-                 [(JSON..=) "MetricDimension" Prelude.<$> metricDimension])))
+                 [(JSON..=) "ExportMetric" Prelude.<$> exportMetric,
+                  (JSON..=) "MetricDimension" Prelude.<$> metricDimension])))
+instance Property "ExportMetric" MetricToRetainProperty where
+  type PropertyType "ExportMetric" MetricToRetainProperty = Value Prelude.Bool
+  set newValue MetricToRetainProperty {..}
+    = MetricToRetainProperty {exportMetric = Prelude.pure newValue, ..}
 instance Property "Metric" MetricToRetainProperty where
   type PropertyType "Metric" MetricToRetainProperty = Value Prelude.Text
   set newValue MetricToRetainProperty {..}

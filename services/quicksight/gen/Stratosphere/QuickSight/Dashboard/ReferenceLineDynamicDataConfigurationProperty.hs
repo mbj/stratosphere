@@ -12,34 +12,37 @@ import Stratosphere.ResourceProperties
 data ReferenceLineDynamicDataConfigurationProperty
   = ReferenceLineDynamicDataConfigurationProperty {calculation :: NumericalAggregationFunctionProperty,
                                                    column :: ColumnIdentifierProperty,
-                                                   measureAggregationFunction :: AggregationFunctionProperty}
+                                                   measureAggregationFunction :: (Prelude.Maybe AggregationFunctionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReferenceLineDynamicDataConfigurationProperty ::
   NumericalAggregationFunctionProperty
   -> ColumnIdentifierProperty
-     -> AggregationFunctionProperty
-        -> ReferenceLineDynamicDataConfigurationProperty
-mkReferenceLineDynamicDataConfigurationProperty
-  calculation
-  column
-  measureAggregationFunction
+     -> ReferenceLineDynamicDataConfigurationProperty
+mkReferenceLineDynamicDataConfigurationProperty calculation column
   = ReferenceLineDynamicDataConfigurationProperty
       {calculation = calculation, column = column,
-       measureAggregationFunction = measureAggregationFunction}
+       measureAggregationFunction = Prelude.Nothing}
 instance ToResourceProperties ReferenceLineDynamicDataConfigurationProperty where
   toResourceProperties
     ReferenceLineDynamicDataConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::Dashboard.ReferenceLineDynamicDataConfiguration",
          supportsTags = Prelude.False,
-         properties = ["Calculation" JSON..= calculation,
-                       "Column" JSON..= column,
-                       "MeasureAggregationFunction" JSON..= measureAggregationFunction]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Calculation" JSON..= calculation, "Column" JSON..= column]
+                           (Prelude.catMaybes
+                              [(JSON..=) "MeasureAggregationFunction"
+                                 Prelude.<$> measureAggregationFunction]))}
 instance JSON.ToJSON ReferenceLineDynamicDataConfigurationProperty where
   toJSON ReferenceLineDynamicDataConfigurationProperty {..}
     = JSON.object
-        ["Calculation" JSON..= calculation, "Column" JSON..= column,
-         "MeasureAggregationFunction" JSON..= measureAggregationFunction]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Calculation" JSON..= calculation, "Column" JSON..= column]
+              (Prelude.catMaybes
+                 [(JSON..=) "MeasureAggregationFunction"
+                    Prelude.<$> measureAggregationFunction])))
 instance Property "Calculation" ReferenceLineDynamicDataConfigurationProperty where
   type PropertyType "Calculation" ReferenceLineDynamicDataConfigurationProperty = NumericalAggregationFunctionProperty
   set newValue ReferenceLineDynamicDataConfigurationProperty {..}
@@ -54,4 +57,4 @@ instance Property "MeasureAggregationFunction" ReferenceLineDynamicDataConfigura
   type PropertyType "MeasureAggregationFunction" ReferenceLineDynamicDataConfigurationProperty = AggregationFunctionProperty
   set newValue ReferenceLineDynamicDataConfigurationProperty {..}
     = ReferenceLineDynamicDataConfigurationProperty
-        {measureAggregationFunction = newValue, ..}
+        {measureAggregationFunction = Prelude.pure newValue, ..}

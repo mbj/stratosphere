@@ -14,6 +14,7 @@ data MatchmakingConfiguration
                               acceptanceTimeoutSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                               additionalPlayerCount :: (Prelude.Maybe (Value Prelude.Integer)),
                               backfillMode :: (Prelude.Maybe (Value Prelude.Text)),
+                              creationTime :: (Prelude.Maybe (Value Prelude.Text)),
                               customEventData :: (Prelude.Maybe (Value Prelude.Text)),
                               description :: (Prelude.Maybe (Value Prelude.Text)),
                               flexMatchMode :: (Prelude.Maybe (Value Prelude.Text)),
@@ -23,6 +24,7 @@ data MatchmakingConfiguration
                               name :: (Value Prelude.Text),
                               notificationTarget :: (Prelude.Maybe (Value Prelude.Text)),
                               requestTimeoutSeconds :: (Value Prelude.Integer),
+                              ruleSetArn :: (Prelude.Maybe (Value Prelude.Text)),
                               ruleSetName :: (Value Prelude.Text),
                               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -42,12 +44,13 @@ mkMatchmakingConfiguration
        ruleSetName = ruleSetName,
        acceptanceTimeoutSeconds = Prelude.Nothing,
        additionalPlayerCount = Prelude.Nothing,
-       backfillMode = Prelude.Nothing, customEventData = Prelude.Nothing,
-       description = Prelude.Nothing, flexMatchMode = Prelude.Nothing,
-       gameProperties = Prelude.Nothing,
+       backfillMode = Prelude.Nothing, creationTime = Prelude.Nothing,
+       customEventData = Prelude.Nothing, description = Prelude.Nothing,
+       flexMatchMode = Prelude.Nothing, gameProperties = Prelude.Nothing,
        gameSessionData = Prelude.Nothing,
        gameSessionQueueArns = Prelude.Nothing,
-       notificationTarget = Prelude.Nothing, tags = Prelude.Nothing}
+       notificationTarget = Prelude.Nothing, ruleSetArn = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties MatchmakingConfiguration where
   toResourceProperties MatchmakingConfiguration {..}
     = ResourceProperties
@@ -65,6 +68,7 @@ instance ToResourceProperties MatchmakingConfiguration where
                                (JSON..=) "AdditionalPlayerCount"
                                  Prelude.<$> additionalPlayerCount,
                                (JSON..=) "BackfillMode" Prelude.<$> backfillMode,
+                               (JSON..=) "CreationTime" Prelude.<$> creationTime,
                                (JSON..=) "CustomEventData" Prelude.<$> customEventData,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "FlexMatchMode" Prelude.<$> flexMatchMode,
@@ -72,6 +76,7 @@ instance ToResourceProperties MatchmakingConfiguration where
                                (JSON..=) "GameSessionData" Prelude.<$> gameSessionData,
                                (JSON..=) "GameSessionQueueArns" Prelude.<$> gameSessionQueueArns,
                                (JSON..=) "NotificationTarget" Prelude.<$> notificationTarget,
+                               (JSON..=) "RuleSetArn" Prelude.<$> ruleSetArn,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON MatchmakingConfiguration where
   toJSON MatchmakingConfiguration {..}
@@ -88,6 +93,7 @@ instance JSON.ToJSON MatchmakingConfiguration where
                   (JSON..=) "AdditionalPlayerCount"
                     Prelude.<$> additionalPlayerCount,
                   (JSON..=) "BackfillMode" Prelude.<$> backfillMode,
+                  (JSON..=) "CreationTime" Prelude.<$> creationTime,
                   (JSON..=) "CustomEventData" Prelude.<$> customEventData,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "FlexMatchMode" Prelude.<$> flexMatchMode,
@@ -95,6 +101,7 @@ instance JSON.ToJSON MatchmakingConfiguration where
                   (JSON..=) "GameSessionData" Prelude.<$> gameSessionData,
                   (JSON..=) "GameSessionQueueArns" Prelude.<$> gameSessionQueueArns,
                   (JSON..=) "NotificationTarget" Prelude.<$> notificationTarget,
+                  (JSON..=) "RuleSetArn" Prelude.<$> ruleSetArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AcceptanceRequired" MatchmakingConfiguration where
   type PropertyType "AcceptanceRequired" MatchmakingConfiguration = Value Prelude.Bool
@@ -115,6 +122,11 @@ instance Property "BackfillMode" MatchmakingConfiguration where
   set newValue MatchmakingConfiguration {..}
     = MatchmakingConfiguration
         {backfillMode = Prelude.pure newValue, ..}
+instance Property "CreationTime" MatchmakingConfiguration where
+  type PropertyType "CreationTime" MatchmakingConfiguration = Value Prelude.Text
+  set newValue MatchmakingConfiguration {..}
+    = MatchmakingConfiguration
+        {creationTime = Prelude.pure newValue, ..}
 instance Property "CustomEventData" MatchmakingConfiguration where
   type PropertyType "CustomEventData" MatchmakingConfiguration = Value Prelude.Text
   set newValue MatchmakingConfiguration {..}
@@ -158,6 +170,10 @@ instance Property "RequestTimeoutSeconds" MatchmakingConfiguration where
   type PropertyType "RequestTimeoutSeconds" MatchmakingConfiguration = Value Prelude.Integer
   set newValue MatchmakingConfiguration {..}
     = MatchmakingConfiguration {requestTimeoutSeconds = newValue, ..}
+instance Property "RuleSetArn" MatchmakingConfiguration where
+  type PropertyType "RuleSetArn" MatchmakingConfiguration = Value Prelude.Text
+  set newValue MatchmakingConfiguration {..}
+    = MatchmakingConfiguration {ruleSetArn = Prelude.pure newValue, ..}
 instance Property "RuleSetName" MatchmakingConfiguration where
   type PropertyType "RuleSetName" MatchmakingConfiguration = Value Prelude.Text
   set newValue MatchmakingConfiguration {..}

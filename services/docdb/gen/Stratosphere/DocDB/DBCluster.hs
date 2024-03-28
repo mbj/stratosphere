@@ -28,6 +28,7 @@ data DBCluster
                snapshotIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                sourceDBClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                storageEncrypted :: (Prelude.Maybe (Value Prelude.Bool)),
+               storageType :: (Prelude.Maybe (Value Prelude.Text)),
                tags :: (Prelude.Maybe [Tag]),
                useLatestRestorableTime :: (Prelude.Maybe (Value Prelude.Bool)),
                vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
@@ -51,8 +52,8 @@ mkDBCluster
        restoreToTime = Prelude.Nothing, restoreType = Prelude.Nothing,
        snapshotIdentifier = Prelude.Nothing,
        sourceDBClusterIdentifier = Prelude.Nothing,
-       storageEncrypted = Prelude.Nothing, tags = Prelude.Nothing,
-       useLatestRestorableTime = Prelude.Nothing,
+       storageEncrypted = Prelude.Nothing, storageType = Prelude.Nothing,
+       tags = Prelude.Nothing, useLatestRestorableTime = Prelude.Nothing,
        vpcSecurityGroupIds = Prelude.Nothing}
 instance ToResourceProperties DBCluster where
   toResourceProperties DBCluster {..}
@@ -86,6 +87,7 @@ instance ToResourceProperties DBCluster where
                             (JSON..=) "SourceDBClusterIdentifier"
                               Prelude.<$> sourceDBClusterIdentifier,
                             (JSON..=) "StorageEncrypted" Prelude.<$> storageEncrypted,
+                            (JSON..=) "StorageType" Prelude.<$> storageType,
                             (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "UseLatestRestorableTime"
                               Prelude.<$> useLatestRestorableTime,
@@ -121,6 +123,7 @@ instance JSON.ToJSON DBCluster where
                (JSON..=) "SourceDBClusterIdentifier"
                  Prelude.<$> sourceDBClusterIdentifier,
                (JSON..=) "StorageEncrypted" Prelude.<$> storageEncrypted,
+               (JSON..=) "StorageType" Prelude.<$> storageType,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "UseLatestRestorableTime"
                  Prelude.<$> useLatestRestorableTime,
@@ -208,6 +211,10 @@ instance Property "StorageEncrypted" DBCluster where
   type PropertyType "StorageEncrypted" DBCluster = Value Prelude.Bool
   set newValue DBCluster {..}
     = DBCluster {storageEncrypted = Prelude.pure newValue, ..}
+instance Property "StorageType" DBCluster where
+  type PropertyType "StorageType" DBCluster = Value Prelude.Text
+  set newValue DBCluster {..}
+    = DBCluster {storageType = Prelude.pure newValue, ..}
 instance Property "Tags" DBCluster where
   type PropertyType "Tags" DBCluster = [Tag]
   set newValue DBCluster {..}

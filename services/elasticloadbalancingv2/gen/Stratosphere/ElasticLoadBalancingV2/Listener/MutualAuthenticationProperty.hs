@@ -1,0 +1,52 @@
+module Stratosphere.ElasticLoadBalancingV2.Listener.MutualAuthenticationProperty (
+        MutualAuthenticationProperty(..), mkMutualAuthenticationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data MutualAuthenticationProperty
+  = MutualAuthenticationProperty {ignoreClientCertificateExpiry :: (Prelude.Maybe (Value Prelude.Bool)),
+                                  mode :: (Prelude.Maybe (Value Prelude.Text)),
+                                  trustStoreArn :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkMutualAuthenticationProperty :: MutualAuthenticationProperty
+mkMutualAuthenticationProperty
+  = MutualAuthenticationProperty
+      {ignoreClientCertificateExpiry = Prelude.Nothing,
+       mode = Prelude.Nothing, trustStoreArn = Prelude.Nothing}
+instance ToResourceProperties MutualAuthenticationProperty where
+  toResourceProperties MutualAuthenticationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::ElasticLoadBalancingV2::Listener.MutualAuthentication",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "IgnoreClientCertificateExpiry"
+                              Prelude.<$> ignoreClientCertificateExpiry,
+                            (JSON..=) "Mode" Prelude.<$> mode,
+                            (JSON..=) "TrustStoreArn" Prelude.<$> trustStoreArn])}
+instance JSON.ToJSON MutualAuthenticationProperty where
+  toJSON MutualAuthenticationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "IgnoreClientCertificateExpiry"
+                 Prelude.<$> ignoreClientCertificateExpiry,
+               (JSON..=) "Mode" Prelude.<$> mode,
+               (JSON..=) "TrustStoreArn" Prelude.<$> trustStoreArn]))
+instance Property "IgnoreClientCertificateExpiry" MutualAuthenticationProperty where
+  type PropertyType "IgnoreClientCertificateExpiry" MutualAuthenticationProperty = Value Prelude.Bool
+  set newValue MutualAuthenticationProperty {..}
+    = MutualAuthenticationProperty
+        {ignoreClientCertificateExpiry = Prelude.pure newValue, ..}
+instance Property "Mode" MutualAuthenticationProperty where
+  type PropertyType "Mode" MutualAuthenticationProperty = Value Prelude.Text
+  set newValue MutualAuthenticationProperty {..}
+    = MutualAuthenticationProperty {mode = Prelude.pure newValue, ..}
+instance Property "TrustStoreArn" MutualAuthenticationProperty where
+  type PropertyType "TrustStoreArn" MutualAuthenticationProperty = Value Prelude.Text
+  set newValue MutualAuthenticationProperty {..}
+    = MutualAuthenticationProperty
+        {trustStoreArn = Prelude.pure newValue, ..}

@@ -4,6 +4,8 @@ module Stratosphere.ResilienceHub.App (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ResilienceHub.App.EventSubscriptionProperty as Exports
+import {-# SOURCE #-} Stratosphere.ResilienceHub.App.PermissionModelProperty as Exports
 import {-# SOURCE #-} Stratosphere.ResilienceHub.App.ResourceMappingProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -11,7 +13,9 @@ data App
   = App {appAssessmentSchedule :: (Prelude.Maybe (Value Prelude.Text)),
          appTemplateBody :: (Value Prelude.Text),
          description :: (Prelude.Maybe (Value Prelude.Text)),
+         eventSubscriptions :: (Prelude.Maybe [EventSubscriptionProperty]),
          name :: (Value Prelude.Text),
+         permissionModel :: (Prelude.Maybe PermissionModelProperty),
          resiliencyPolicyArn :: (Prelude.Maybe (Value Prelude.Text)),
          resourceMappings :: [ResourceMappingProperty],
          tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
@@ -25,6 +29,8 @@ mkApp appTemplateBody name resourceMappings
        resourceMappings = resourceMappings,
        appAssessmentSchedule = Prelude.Nothing,
        description = Prelude.Nothing,
+       eventSubscriptions = Prelude.Nothing,
+       permissionModel = Prelude.Nothing,
        resiliencyPolicyArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties App where
   toResourceProperties App {..}
@@ -38,6 +44,8 @@ instance ToResourceProperties App where
                               [(JSON..=) "AppAssessmentSchedule"
                                  Prelude.<$> appAssessmentSchedule,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "EventSubscriptions" Prelude.<$> eventSubscriptions,
+                               (JSON..=) "PermissionModel" Prelude.<$> permissionModel,
                                (JSON..=) "ResiliencyPolicyArn" Prelude.<$> resiliencyPolicyArn,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON App where
@@ -51,6 +59,8 @@ instance JSON.ToJSON App where
                  [(JSON..=) "AppAssessmentSchedule"
                     Prelude.<$> appAssessmentSchedule,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "EventSubscriptions" Prelude.<$> eventSubscriptions,
+                  (JSON..=) "PermissionModel" Prelude.<$> permissionModel,
                   (JSON..=) "ResiliencyPolicyArn" Prelude.<$> resiliencyPolicyArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AppAssessmentSchedule" App where
@@ -64,9 +74,17 @@ instance Property "Description" App where
   type PropertyType "Description" App = Value Prelude.Text
   set newValue App {..}
     = App {description = Prelude.pure newValue, ..}
+instance Property "EventSubscriptions" App where
+  type PropertyType "EventSubscriptions" App = [EventSubscriptionProperty]
+  set newValue App {..}
+    = App {eventSubscriptions = Prelude.pure newValue, ..}
 instance Property "Name" App where
   type PropertyType "Name" App = Value Prelude.Text
   set newValue App {..} = App {name = newValue, ..}
+instance Property "PermissionModel" App where
+  type PropertyType "PermissionModel" App = PermissionModelProperty
+  set newValue App {..}
+    = App {permissionModel = Prelude.pure newValue, ..}
 instance Property "ResiliencyPolicyArn" App where
   type PropertyType "ResiliencyPolicyArn" App = Value Prelude.Text
   set newValue App {..}

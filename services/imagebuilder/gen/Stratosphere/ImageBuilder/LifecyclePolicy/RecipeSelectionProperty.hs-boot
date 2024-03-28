@@ -1,0 +1,9 @@
+module Stratosphere.ImageBuilder.LifecyclePolicy.RecipeSelectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RecipeSelectionProperty :: Prelude.Type
+instance ToResourceProperties RecipeSelectionProperty
+instance Prelude.Eq RecipeSelectionProperty
+instance Prelude.Show RecipeSelectionProperty
+instance JSON.ToJSON RecipeSelectionProperty

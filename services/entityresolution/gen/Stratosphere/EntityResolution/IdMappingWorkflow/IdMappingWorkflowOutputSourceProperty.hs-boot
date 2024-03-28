@@ -1,0 +1,9 @@
+module Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingWorkflowOutputSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdMappingWorkflowOutputSourceProperty :: Prelude.Type
+instance ToResourceProperties IdMappingWorkflowOutputSourceProperty
+instance Prelude.Eq IdMappingWorkflowOutputSourceProperty
+instance Prelude.Show IdMappingWorkflowOutputSourceProperty
+instance JSON.ToJSON IdMappingWorkflowOutputSourceProperty

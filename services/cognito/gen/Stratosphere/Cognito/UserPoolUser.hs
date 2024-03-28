@@ -8,7 +8,7 @@ import {-# SOURCE #-} Stratosphere.Cognito.UserPoolUser.AttributeTypeProperty as
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolUser
-  = UserPoolUser {clientMetadata :: (Prelude.Maybe JSON.Object),
+  = UserPoolUser {clientMetadata :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                   desiredDeliveryMediums :: (Prelude.Maybe (ValueList Prelude.Text)),
                   forceAliasCreation :: (Prelude.Maybe (Value Prelude.Bool)),
                   messageAction :: (Prelude.Maybe (Value Prelude.Text)),
@@ -58,7 +58,7 @@ instance JSON.ToJSON UserPoolUser where
                   (JSON..=) "Username" Prelude.<$> username,
                   (JSON..=) "ValidationData" Prelude.<$> validationData])))
 instance Property "ClientMetadata" UserPoolUser where
-  type PropertyType "ClientMetadata" UserPoolUser = JSON.Object
+  type PropertyType "ClientMetadata" UserPoolUser = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue UserPoolUser {..}
     = UserPoolUser {clientMetadata = Prelude.pure newValue, ..}
 instance Property "DesiredDeliveryMediums" UserPoolUser where

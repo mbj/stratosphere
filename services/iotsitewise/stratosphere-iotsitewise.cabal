@@ -44,6 +44,7 @@ library
       Stratosphere.IoTSiteWise.AssetModel.ExpressionVariableProperty
       Stratosphere.IoTSiteWise.AssetModel.MetricProperty
       Stratosphere.IoTSiteWise.AssetModel.MetricWindowProperty
+      Stratosphere.IoTSiteWise.AssetModel.PropertyPathDefinitionProperty
       Stratosphere.IoTSiteWise.AssetModel.PropertyTypeProperty
       Stratosphere.IoTSiteWise.AssetModel.TransformProperty
       Stratosphere.IoTSiteWise.AssetModel.TumblingWindowProperty
@@ -54,6 +55,7 @@ library
       Stratosphere.IoTSiteWise.Gateway.GatewayPlatformProperty
       Stratosphere.IoTSiteWise.Gateway.GreengrassProperty
       Stratosphere.IoTSiteWise.Gateway.GreengrassV2Property
+      Stratosphere.IoTSiteWise.Gateway.SiemensIEProperty
       Stratosphere.IoTSiteWise.Portal
       Stratosphere.IoTSiteWise.Portal.AlarmsProperty
       Stratosphere.IoTSiteWise.Project

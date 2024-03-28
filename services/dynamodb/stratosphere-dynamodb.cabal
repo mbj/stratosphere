@@ -39,6 +39,8 @@ library
       Stratosphere.DynamoDB.GlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty
       Stratosphere.DynamoDB.GlobalTable.ReplicaSpecificationProperty
       Stratosphere.DynamoDB.GlobalTable.ReplicaSSESpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.ReplicaStreamSpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.ResourcePolicyProperty
       Stratosphere.DynamoDB.GlobalTable.SSESpecificationProperty
       Stratosphere.DynamoDB.GlobalTable.StreamSpecificationProperty
       Stratosphere.DynamoDB.GlobalTable.TargetTrackingScalingPolicyConfigurationProperty
@@ -57,6 +59,7 @@ library
       Stratosphere.DynamoDB.Table.PointInTimeRecoverySpecificationProperty
       Stratosphere.DynamoDB.Table.ProjectionProperty
       Stratosphere.DynamoDB.Table.ProvisionedThroughputProperty
+      Stratosphere.DynamoDB.Table.ResourcePolicyProperty
       Stratosphere.DynamoDB.Table.S3BucketSourceProperty
       Stratosphere.DynamoDB.Table.SSESpecificationProperty
       Stratosphere.DynamoDB.Table.StreamSpecificationProperty

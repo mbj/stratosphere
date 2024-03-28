@@ -1,0 +1,9 @@
+module Stratosphere.EMRServerless.Application.S3MonitoringConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3MonitoringConfigurationProperty :: Prelude.Type
+instance ToResourceProperties S3MonitoringConfigurationProperty
+instance Prelude.Eq S3MonitoringConfigurationProperty
+instance Prelude.Show S3MonitoringConfigurationProperty
+instance JSON.ToJSON S3MonitoringConfigurationProperty

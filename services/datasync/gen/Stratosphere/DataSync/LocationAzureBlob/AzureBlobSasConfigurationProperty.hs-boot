@@ -1,0 +1,9 @@
+module Stratosphere.DataSync.LocationAzureBlob.AzureBlobSasConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AzureBlobSasConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AzureBlobSasConfigurationProperty
+instance Prelude.Eq AzureBlobSasConfigurationProperty
+instance Prelude.Show AzureBlobSasConfigurationProperty
+instance JSON.ToJSON AzureBlobSasConfigurationProperty

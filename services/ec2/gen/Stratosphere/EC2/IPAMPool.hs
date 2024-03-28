@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.IPAMPool.ProvisionedCidrProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.IPAMPool.SourceResourceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -23,6 +24,7 @@ data IPAMPool
               publicIpSource :: (Prelude.Maybe (Value Prelude.Text)),
               publiclyAdvertisable :: (Prelude.Maybe (Value Prelude.Bool)),
               sourceIpamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
+              sourceResource :: (Prelude.Maybe SourceResourceProperty),
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAMPool :: Value Prelude.Text -> Value Prelude.Text -> IPAMPool
@@ -38,7 +40,8 @@ mkIPAMPool addressFamily ipamScopeId
        provisionedCidrs = Prelude.Nothing,
        publicIpSource = Prelude.Nothing,
        publiclyAdvertisable = Prelude.Nothing,
-       sourceIpamPoolId = Prelude.Nothing, tags = Prelude.Nothing}
+       sourceIpamPoolId = Prelude.Nothing,
+       sourceResource = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties IPAMPool where
   toResourceProperties IPAMPool {..}
     = ResourceProperties
@@ -64,6 +67,7 @@ instance ToResourceProperties IPAMPool where
                                (JSON..=) "PublicIpSource" Prelude.<$> publicIpSource,
                                (JSON..=) "PubliclyAdvertisable" Prelude.<$> publiclyAdvertisable,
                                (JSON..=) "SourceIpamPoolId" Prelude.<$> sourceIpamPoolId,
+                               (JSON..=) "SourceResource" Prelude.<$> sourceResource,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON IPAMPool where
   toJSON IPAMPool {..}
@@ -89,6 +93,7 @@ instance JSON.ToJSON IPAMPool where
                   (JSON..=) "PublicIpSource" Prelude.<$> publicIpSource,
                   (JSON..=) "PubliclyAdvertisable" Prelude.<$> publiclyAdvertisable,
                   (JSON..=) "SourceIpamPoolId" Prelude.<$> sourceIpamPoolId,
+                  (JSON..=) "SourceResource" Prelude.<$> sourceResource,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AddressFamily" IPAMPool where
   type PropertyType "AddressFamily" IPAMPool = Value Prelude.Text
@@ -146,6 +151,10 @@ instance Property "SourceIpamPoolId" IPAMPool where
   type PropertyType "SourceIpamPoolId" IPAMPool = Value Prelude.Text
   set newValue IPAMPool {..}
     = IPAMPool {sourceIpamPoolId = Prelude.pure newValue, ..}
+instance Property "SourceResource" IPAMPool where
+  type PropertyType "SourceResource" IPAMPool = SourceResourceProperty
+  set newValue IPAMPool {..}
+    = IPAMPool {sourceResource = Prelude.pure newValue, ..}
 instance Property "Tags" IPAMPool where
   type PropertyType "Tags" IPAMPool = [Tag]
   set newValue IPAMPool {..}

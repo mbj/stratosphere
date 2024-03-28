@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.ServiceVolumeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceVolumeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ServiceVolumeConfigurationProperty
+instance Prelude.Eq ServiceVolumeConfigurationProperty
+instance Prelude.Show ServiceVolumeConfigurationProperty
+instance JSON.ToJSON ServiceVolumeConfigurationProperty

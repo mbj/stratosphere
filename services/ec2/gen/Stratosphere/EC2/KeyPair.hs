@@ -8,7 +8,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data KeyPair
-  = KeyPair {keyName :: (Value Prelude.Text),
+  = KeyPair {keyFormat :: (Prelude.Maybe (Value Prelude.Text)),
+             keyName :: (Value Prelude.Text),
              keyType :: (Prelude.Maybe (Value Prelude.Text)),
              publicKeyMaterial :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag])}
@@ -16,8 +17,9 @@ data KeyPair
 mkKeyPair :: Value Prelude.Text -> KeyPair
 mkKeyPair keyName
   = KeyPair
-      {keyName = keyName, keyType = Prelude.Nothing,
-       publicKeyMaterial = Prelude.Nothing, tags = Prelude.Nothing}
+      {keyName = keyName, keyFormat = Prelude.Nothing,
+       keyType = Prelude.Nothing, publicKeyMaterial = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties KeyPair where
   toResourceProperties KeyPair {..}
     = ResourceProperties
@@ -26,7 +28,8 @@ instance ToResourceProperties KeyPair where
                         ((Prelude.<>)
                            ["KeyName" JSON..= keyName]
                            (Prelude.catMaybes
-                              [(JSON..=) "KeyType" Prelude.<$> keyType,
+                              [(JSON..=) "KeyFormat" Prelude.<$> keyFormat,
+                               (JSON..=) "KeyType" Prelude.<$> keyType,
                                (JSON..=) "PublicKeyMaterial" Prelude.<$> publicKeyMaterial,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON KeyPair where
@@ -36,9 +39,14 @@ instance JSON.ToJSON KeyPair where
            ((Prelude.<>)
               ["KeyName" JSON..= keyName]
               (Prelude.catMaybes
-                 [(JSON..=) "KeyType" Prelude.<$> keyType,
+                 [(JSON..=) "KeyFormat" Prelude.<$> keyFormat,
+                  (JSON..=) "KeyType" Prelude.<$> keyType,
                   (JSON..=) "PublicKeyMaterial" Prelude.<$> publicKeyMaterial,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "KeyFormat" KeyPair where
+  type PropertyType "KeyFormat" KeyPair = Value Prelude.Text
+  set newValue KeyPair {..}
+    = KeyPair {keyFormat = Prelude.pure newValue, ..}
 instance Property "KeyName" KeyPair where
   type PropertyType "KeyName" KeyPair = Value Prelude.Text
   set newValue KeyPair {..} = KeyPair {keyName = newValue, ..}

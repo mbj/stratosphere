@@ -12,6 +12,7 @@ data Faq
   = Faq {description :: (Prelude.Maybe (Value Prelude.Text)),
          fileFormat :: (Prelude.Maybe (Value Prelude.Text)),
          indexId :: (Value Prelude.Text),
+         languageCode :: (Prelude.Maybe (Value Prelude.Text)),
          name :: (Value Prelude.Text),
          roleArn :: (Value Prelude.Text),
          s3Path :: S3PathProperty,
@@ -25,7 +26,8 @@ mkFaq indexId name roleArn s3Path
   = Faq
       {indexId = indexId, name = name, roleArn = roleArn,
        s3Path = s3Path, description = Prelude.Nothing,
-       fileFormat = Prelude.Nothing, tags = Prelude.Nothing}
+       fileFormat = Prelude.Nothing, languageCode = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Faq where
   toResourceProperties Faq {..}
     = ResourceProperties
@@ -37,6 +39,7 @@ instance ToResourceProperties Faq where
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "FileFormat" Prelude.<$> fileFormat,
+                               (JSON..=) "LanguageCode" Prelude.<$> languageCode,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Faq where
   toJSON Faq {..}
@@ -48,6 +51,7 @@ instance JSON.ToJSON Faq where
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "FileFormat" Prelude.<$> fileFormat,
+                  (JSON..=) "LanguageCode" Prelude.<$> languageCode,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" Faq where
   type PropertyType "Description" Faq = Value Prelude.Text
@@ -60,6 +64,10 @@ instance Property "FileFormat" Faq where
 instance Property "IndexId" Faq where
   type PropertyType "IndexId" Faq = Value Prelude.Text
   set newValue Faq {..} = Faq {indexId = newValue, ..}
+instance Property "LanguageCode" Faq where
+  type PropertyType "LanguageCode" Faq = Value Prelude.Text
+  set newValue Faq {..}
+    = Faq {languageCode = Prelude.pure newValue, ..}
 instance Property "Name" Faq where
   type PropertyType "Name" Faq = Value Prelude.Text
   set newValue Faq {..} = Faq {name = newValue, ..}

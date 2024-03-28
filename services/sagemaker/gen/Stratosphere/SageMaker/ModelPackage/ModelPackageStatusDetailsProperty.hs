@@ -8,41 +8,29 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelPackageStatusItemProperty as Exports
 import Stratosphere.ResourceProperties
 data ModelPackageStatusDetailsProperty
-  = ModelPackageStatusDetailsProperty {imageScanStatuses :: (Prelude.Maybe [ModelPackageStatusItemProperty]),
-                                       validationStatuses :: [ModelPackageStatusItemProperty]}
+  = ModelPackageStatusDetailsProperty {validationStatuses :: (Prelude.Maybe [ModelPackageStatusItemProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkModelPackageStatusDetailsProperty ::
-  [ModelPackageStatusItemProperty]
-  -> ModelPackageStatusDetailsProperty
-mkModelPackageStatusDetailsProperty validationStatuses
+  ModelPackageStatusDetailsProperty
+mkModelPackageStatusDetailsProperty
   = ModelPackageStatusDetailsProperty
-      {validationStatuses = validationStatuses,
-       imageScanStatuses = Prelude.Nothing}
+      {validationStatuses = Prelude.Nothing}
 instance ToResourceProperties ModelPackageStatusDetailsProperty where
   toResourceProperties ModelPackageStatusDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::ModelPackage.ModelPackageStatusDetails",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["ValidationStatuses" JSON..= validationStatuses]
-                           (Prelude.catMaybes
-                              [(JSON..=) "ImageScanStatuses" Prelude.<$> imageScanStatuses]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "ValidationStatuses" Prelude.<$> validationStatuses])}
 instance JSON.ToJSON ModelPackageStatusDetailsProperty where
   toJSON ModelPackageStatusDetailsProperty {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["ValidationStatuses" JSON..= validationStatuses]
-              (Prelude.catMaybes
-                 [(JSON..=) "ImageScanStatuses" Prelude.<$> imageScanStatuses])))
-instance Property "ImageScanStatuses" ModelPackageStatusDetailsProperty where
-  type PropertyType "ImageScanStatuses" ModelPackageStatusDetailsProperty = [ModelPackageStatusItemProperty]
-  set newValue ModelPackageStatusDetailsProperty {..}
-    = ModelPackageStatusDetailsProperty
-        {imageScanStatuses = Prelude.pure newValue, ..}
+           (Prelude.catMaybes
+              [(JSON..=) "ValidationStatuses" Prelude.<$> validationStatuses]))
 instance Property "ValidationStatuses" ModelPackageStatusDetailsProperty where
   type PropertyType "ValidationStatuses" ModelPackageStatusDetailsProperty = [ModelPackageStatusItemProperty]
-  set newValue ModelPackageStatusDetailsProperty {..}
+  set newValue ModelPackageStatusDetailsProperty {}
     = ModelPackageStatusDetailsProperty
-        {validationStatuses = newValue, ..}
+        {validationStatuses = Prelude.pure newValue, ..}

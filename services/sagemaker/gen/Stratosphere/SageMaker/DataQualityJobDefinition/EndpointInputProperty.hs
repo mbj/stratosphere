@@ -8,6 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EndpointInputProperty
   = EndpointInputProperty {endpointName :: (Value Prelude.Text),
+                           excludeFeaturesAttribute :: (Prelude.Maybe (Value Prelude.Text)),
                            localPath :: (Value Prelude.Text),
                            s3DataDistributionType :: (Prelude.Maybe (Value Prelude.Text)),
                            s3InputMode :: (Prelude.Maybe (Value Prelude.Text))}
@@ -17,6 +18,7 @@ mkEndpointInputProperty ::
 mkEndpointInputProperty endpointName localPath
   = EndpointInputProperty
       {endpointName = endpointName, localPath = localPath,
+       excludeFeaturesAttribute = Prelude.Nothing,
        s3DataDistributionType = Prelude.Nothing,
        s3InputMode = Prelude.Nothing}
 instance ToResourceProperties EndpointInputProperty where
@@ -29,7 +31,9 @@ instance ToResourceProperties EndpointInputProperty where
                            ["EndpointName" JSON..= endpointName,
                             "LocalPath" JSON..= localPath]
                            (Prelude.catMaybes
-                              [(JSON..=) "S3DataDistributionType"
+                              [(JSON..=) "ExcludeFeaturesAttribute"
+                                 Prelude.<$> excludeFeaturesAttribute,
+                               (JSON..=) "S3DataDistributionType"
                                  Prelude.<$> s3DataDistributionType,
                                (JSON..=) "S3InputMode" Prelude.<$> s3InputMode]))}
 instance JSON.ToJSON EndpointInputProperty where
@@ -40,13 +44,20 @@ instance JSON.ToJSON EndpointInputProperty where
               ["EndpointName" JSON..= endpointName,
                "LocalPath" JSON..= localPath]
               (Prelude.catMaybes
-                 [(JSON..=) "S3DataDistributionType"
+                 [(JSON..=) "ExcludeFeaturesAttribute"
+                    Prelude.<$> excludeFeaturesAttribute,
+                  (JSON..=) "S3DataDistributionType"
                     Prelude.<$> s3DataDistributionType,
                   (JSON..=) "S3InputMode" Prelude.<$> s3InputMode])))
 instance Property "EndpointName" EndpointInputProperty where
   type PropertyType "EndpointName" EndpointInputProperty = Value Prelude.Text
   set newValue EndpointInputProperty {..}
     = EndpointInputProperty {endpointName = newValue, ..}
+instance Property "ExcludeFeaturesAttribute" EndpointInputProperty where
+  type PropertyType "ExcludeFeaturesAttribute" EndpointInputProperty = Value Prelude.Text
+  set newValue EndpointInputProperty {..}
+    = EndpointInputProperty
+        {excludeFeaturesAttribute = Prelude.pure newValue, ..}
 instance Property "LocalPath" EndpointInputProperty where
   type PropertyType "LocalPath" EndpointInputProperty = Value Prelude.Text
   set newValue EndpointInputProperty {..}

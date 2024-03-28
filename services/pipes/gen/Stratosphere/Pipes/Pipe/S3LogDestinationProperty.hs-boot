@@ -1,0 +1,9 @@
+module Stratosphere.Pipes.Pipe.S3LogDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3LogDestinationProperty :: Prelude.Type
+instance ToResourceProperties S3LogDestinationProperty
+instance Prelude.Eq S3LogDestinationProperty
+instance Prelude.Show S3LogDestinationProperty
+instance JSON.ToJSON S3LogDestinationProperty

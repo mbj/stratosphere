@@ -1,0 +1,9 @@
+module Stratosphere.Config.ConfigurationRecorder.RecordingModeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RecordingModeProperty :: Prelude.Type
+instance ToResourceProperties RecordingModeProperty
+instance Prelude.Eq RecordingModeProperty
+instance Prelude.Show RecordingModeProperty
+instance JSON.ToJSON RecordingModeProperty

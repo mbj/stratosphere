@@ -12,7 +12,7 @@ data DomainName
   = DomainName {domainName :: (Value Prelude.Text),
                 domainNameConfigurations :: (Prelude.Maybe [DomainNameConfigurationProperty]),
                 mutualTlsAuthentication :: (Prelude.Maybe MutualTlsAuthenticationProperty),
-                tags :: (Prelude.Maybe JSON.Object)}
+                tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainName :: Value Prelude.Text -> DomainName
 mkDomainName domainName
@@ -59,6 +59,6 @@ instance Property "MutualTlsAuthentication" DomainName where
   set newValue DomainName {..}
     = DomainName {mutualTlsAuthentication = Prelude.pure newValue, ..}
 instance Property "Tags" DomainName where
-  type PropertyType "Tags" DomainName = JSON.Object
+  type PropertyType "Tags" DomainName = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue DomainName {..}
     = DomainName {tags = Prelude.pure newValue, ..}

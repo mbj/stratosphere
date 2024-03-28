@@ -10,6 +10,7 @@ import Stratosphere.Value
 data LogGroup
   = LogGroup {dataProtectionPolicy :: (Prelude.Maybe JSON.Object),
               kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+              logGroupClass :: (Prelude.Maybe (Value Prelude.Text)),
               logGroupName :: (Prelude.Maybe (Value Prelude.Text)),
               retentionInDays :: (Prelude.Maybe (Value Prelude.Integer)),
               tags :: (Prelude.Maybe [Tag])}
@@ -18,8 +19,9 @@ mkLogGroup :: LogGroup
 mkLogGroup
   = LogGroup
       {dataProtectionPolicy = Prelude.Nothing,
-       kmsKeyId = Prelude.Nothing, logGroupName = Prelude.Nothing,
-       retentionInDays = Prelude.Nothing, tags = Prelude.Nothing}
+       kmsKeyId = Prelude.Nothing, logGroupClass = Prelude.Nothing,
+       logGroupName = Prelude.Nothing, retentionInDays = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties LogGroup where
   toResourceProperties LogGroup {..}
     = ResourceProperties
@@ -28,6 +30,7 @@ instance ToResourceProperties LogGroup where
                         (Prelude.catMaybes
                            [(JSON..=) "DataProtectionPolicy" Prelude.<$> dataProtectionPolicy,
                             (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                            (JSON..=) "LogGroupClass" Prelude.<$> logGroupClass,
                             (JSON..=) "LogGroupName" Prelude.<$> logGroupName,
                             (JSON..=) "RetentionInDays" Prelude.<$> retentionInDays,
                             (JSON..=) "Tags" Prelude.<$> tags])}
@@ -38,6 +41,7 @@ instance JSON.ToJSON LogGroup where
            (Prelude.catMaybes
               [(JSON..=) "DataProtectionPolicy" Prelude.<$> dataProtectionPolicy,
                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+               (JSON..=) "LogGroupClass" Prelude.<$> logGroupClass,
                (JSON..=) "LogGroupName" Prelude.<$> logGroupName,
                (JSON..=) "RetentionInDays" Prelude.<$> retentionInDays,
                (JSON..=) "Tags" Prelude.<$> tags]))
@@ -49,6 +53,10 @@ instance Property "KmsKeyId" LogGroup where
   type PropertyType "KmsKeyId" LogGroup = Value Prelude.Text
   set newValue LogGroup {..}
     = LogGroup {kmsKeyId = Prelude.pure newValue, ..}
+instance Property "LogGroupClass" LogGroup where
+  type PropertyType "LogGroupClass" LogGroup = Value Prelude.Text
+  set newValue LogGroup {..}
+    = LogGroup {logGroupClass = Prelude.pure newValue, ..}
 instance Property "LogGroupName" LogGroup where
   type PropertyType "LogGroupName" LogGroup = Value Prelude.Text
   set newValue LogGroup {..}

@@ -12,7 +12,9 @@ import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.LinuxParametersProperty a
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.LogConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.MountPointsProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.NetworkConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.RepositoryCredentialsProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.ResourceRequirementProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.RuntimePlatformProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.SecretProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.UlimitProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.VolumesProperty as Exports
@@ -34,7 +36,9 @@ data ContainerPropertiesProperty
                                  networkConfiguration :: (Prelude.Maybe NetworkConfigurationProperty),
                                  privileged :: (Prelude.Maybe (Value Prelude.Bool)),
                                  readonlyRootFilesystem :: (Prelude.Maybe (Value Prelude.Bool)),
+                                 repositoryCredentials :: (Prelude.Maybe RepositoryCredentialsProperty),
                                  resourceRequirements :: (Prelude.Maybe [ResourceRequirementProperty]),
+                                 runtimePlatform :: (Prelude.Maybe RuntimePlatformProperty),
                                  secrets :: (Prelude.Maybe [SecretProperty]),
                                  ulimits :: (Prelude.Maybe [UlimitProperty]),
                                  user :: (Prelude.Maybe (Value Prelude.Text)),
@@ -56,7 +60,9 @@ mkContainerPropertiesProperty image
        networkConfiguration = Prelude.Nothing,
        privileged = Prelude.Nothing,
        readonlyRootFilesystem = Prelude.Nothing,
-       resourceRequirements = Prelude.Nothing, secrets = Prelude.Nothing,
+       repositoryCredentials = Prelude.Nothing,
+       resourceRequirements = Prelude.Nothing,
+       runtimePlatform = Prelude.Nothing, secrets = Prelude.Nothing,
        ulimits = Prelude.Nothing, user = Prelude.Nothing,
        vcpus = Prelude.Nothing, volumes = Prelude.Nothing}
 instance ToResourceProperties ContainerPropertiesProperty where
@@ -84,7 +90,10 @@ instance ToResourceProperties ContainerPropertiesProperty where
                                (JSON..=) "Privileged" Prelude.<$> privileged,
                                (JSON..=) "ReadonlyRootFilesystem"
                                  Prelude.<$> readonlyRootFilesystem,
+                               (JSON..=) "RepositoryCredentials"
+                                 Prelude.<$> repositoryCredentials,
                                (JSON..=) "ResourceRequirements" Prelude.<$> resourceRequirements,
+                               (JSON..=) "RuntimePlatform" Prelude.<$> runtimePlatform,
                                (JSON..=) "Secrets" Prelude.<$> secrets,
                                (JSON..=) "Ulimits" Prelude.<$> ulimits,
                                (JSON..=) "User" Prelude.<$> user,
@@ -113,7 +122,10 @@ instance JSON.ToJSON ContainerPropertiesProperty where
                   (JSON..=) "Privileged" Prelude.<$> privileged,
                   (JSON..=) "ReadonlyRootFilesystem"
                     Prelude.<$> readonlyRootFilesystem,
+                  (JSON..=) "RepositoryCredentials"
+                    Prelude.<$> repositoryCredentials,
                   (JSON..=) "ResourceRequirements" Prelude.<$> resourceRequirements,
+                  (JSON..=) "RuntimePlatform" Prelude.<$> runtimePlatform,
                   (JSON..=) "Secrets" Prelude.<$> secrets,
                   (JSON..=) "Ulimits" Prelude.<$> ulimits,
                   (JSON..=) "User" Prelude.<$> user,
@@ -191,11 +203,21 @@ instance Property "ReadonlyRootFilesystem" ContainerPropertiesProperty where
   set newValue ContainerPropertiesProperty {..}
     = ContainerPropertiesProperty
         {readonlyRootFilesystem = Prelude.pure newValue, ..}
+instance Property "RepositoryCredentials" ContainerPropertiesProperty where
+  type PropertyType "RepositoryCredentials" ContainerPropertiesProperty = RepositoryCredentialsProperty
+  set newValue ContainerPropertiesProperty {..}
+    = ContainerPropertiesProperty
+        {repositoryCredentials = Prelude.pure newValue, ..}
 instance Property "ResourceRequirements" ContainerPropertiesProperty where
   type PropertyType "ResourceRequirements" ContainerPropertiesProperty = [ResourceRequirementProperty]
   set newValue ContainerPropertiesProperty {..}
     = ContainerPropertiesProperty
         {resourceRequirements = Prelude.pure newValue, ..}
+instance Property "RuntimePlatform" ContainerPropertiesProperty where
+  type PropertyType "RuntimePlatform" ContainerPropertiesProperty = RuntimePlatformProperty
+  set newValue ContainerPropertiesProperty {..}
+    = ContainerPropertiesProperty
+        {runtimePlatform = Prelude.pure newValue, ..}
 instance Property "Secrets" ContainerPropertiesProperty where
   type PropertyType "Secrets" ContainerPropertiesProperty = [SecretProperty]
   set newValue ContainerPropertiesProperty {..}

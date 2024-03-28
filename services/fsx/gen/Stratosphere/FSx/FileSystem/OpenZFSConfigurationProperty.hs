@@ -16,8 +16,11 @@ data OpenZFSConfigurationProperty
                                   dailyAutomaticBackupStartTime :: (Prelude.Maybe (Value Prelude.Text)),
                                   deploymentType :: (Value Prelude.Text),
                                   diskIopsConfiguration :: (Prelude.Maybe DiskIopsConfigurationProperty),
+                                  endpointIpAddressRange :: (Prelude.Maybe (Value Prelude.Text)),
                                   options :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  preferredSubnetId :: (Prelude.Maybe (Value Prelude.Text)),
                                   rootVolumeConfiguration :: (Prelude.Maybe RootVolumeConfigurationProperty),
+                                  routeTableIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   throughputCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                   weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -30,8 +33,11 @@ mkOpenZFSConfigurationProperty deploymentType
        copyTagsToBackups = Prelude.Nothing,
        copyTagsToVolumes = Prelude.Nothing,
        dailyAutomaticBackupStartTime = Prelude.Nothing,
-       diskIopsConfiguration = Prelude.Nothing, options = Prelude.Nothing,
+       diskIopsConfiguration = Prelude.Nothing,
+       endpointIpAddressRange = Prelude.Nothing,
+       options = Prelude.Nothing, preferredSubnetId = Prelude.Nothing,
        rootVolumeConfiguration = Prelude.Nothing,
+       routeTableIds = Prelude.Nothing,
        throughputCapacity = Prelude.Nothing,
        weeklyMaintenanceStartTime = Prelude.Nothing}
 instance ToResourceProperties OpenZFSConfigurationProperty where
@@ -51,9 +57,13 @@ instance ToResourceProperties OpenZFSConfigurationProperty where
                                  Prelude.<$> dailyAutomaticBackupStartTime,
                                (JSON..=) "DiskIopsConfiguration"
                                  Prelude.<$> diskIopsConfiguration,
+                               (JSON..=) "EndpointIpAddressRange"
+                                 Prelude.<$> endpointIpAddressRange,
                                (JSON..=) "Options" Prelude.<$> options,
+                               (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
                                (JSON..=) "RootVolumeConfiguration"
                                  Prelude.<$> rootVolumeConfiguration,
+                               (JSON..=) "RouteTableIds" Prelude.<$> routeTableIds,
                                (JSON..=) "ThroughputCapacity" Prelude.<$> throughputCapacity,
                                (JSON..=) "WeeklyMaintenanceStartTime"
                                  Prelude.<$> weeklyMaintenanceStartTime]))}
@@ -72,9 +82,13 @@ instance JSON.ToJSON OpenZFSConfigurationProperty where
                     Prelude.<$> dailyAutomaticBackupStartTime,
                   (JSON..=) "DiskIopsConfiguration"
                     Prelude.<$> diskIopsConfiguration,
+                  (JSON..=) "EndpointIpAddressRange"
+                    Prelude.<$> endpointIpAddressRange,
                   (JSON..=) "Options" Prelude.<$> options,
+                  (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
                   (JSON..=) "RootVolumeConfiguration"
                     Prelude.<$> rootVolumeConfiguration,
+                  (JSON..=) "RouteTableIds" Prelude.<$> routeTableIds,
                   (JSON..=) "ThroughputCapacity" Prelude.<$> throughputCapacity,
                   (JSON..=) "WeeklyMaintenanceStartTime"
                     Prelude.<$> weeklyMaintenanceStartTime])))
@@ -107,16 +121,31 @@ instance Property "DiskIopsConfiguration" OpenZFSConfigurationProperty where
   set newValue OpenZFSConfigurationProperty {..}
     = OpenZFSConfigurationProperty
         {diskIopsConfiguration = Prelude.pure newValue, ..}
+instance Property "EndpointIpAddressRange" OpenZFSConfigurationProperty where
+  type PropertyType "EndpointIpAddressRange" OpenZFSConfigurationProperty = Value Prelude.Text
+  set newValue OpenZFSConfigurationProperty {..}
+    = OpenZFSConfigurationProperty
+        {endpointIpAddressRange = Prelude.pure newValue, ..}
 instance Property "Options" OpenZFSConfigurationProperty where
   type PropertyType "Options" OpenZFSConfigurationProperty = ValueList Prelude.Text
   set newValue OpenZFSConfigurationProperty {..}
     = OpenZFSConfigurationProperty
         {options = Prelude.pure newValue, ..}
+instance Property "PreferredSubnetId" OpenZFSConfigurationProperty where
+  type PropertyType "PreferredSubnetId" OpenZFSConfigurationProperty = Value Prelude.Text
+  set newValue OpenZFSConfigurationProperty {..}
+    = OpenZFSConfigurationProperty
+        {preferredSubnetId = Prelude.pure newValue, ..}
 instance Property "RootVolumeConfiguration" OpenZFSConfigurationProperty where
   type PropertyType "RootVolumeConfiguration" OpenZFSConfigurationProperty = RootVolumeConfigurationProperty
   set newValue OpenZFSConfigurationProperty {..}
     = OpenZFSConfigurationProperty
         {rootVolumeConfiguration = Prelude.pure newValue, ..}
+instance Property "RouteTableIds" OpenZFSConfigurationProperty where
+  type PropertyType "RouteTableIds" OpenZFSConfigurationProperty = ValueList Prelude.Text
+  set newValue OpenZFSConfigurationProperty {..}
+    = OpenZFSConfigurationProperty
+        {routeTableIds = Prelude.pure newValue, ..}
 instance Property "ThroughputCapacity" OpenZFSConfigurationProperty where
   type PropertyType "ThroughputCapacity" OpenZFSConfigurationProperty = Value Prelude.Integer
   set newValue OpenZFSConfigurationProperty {..}

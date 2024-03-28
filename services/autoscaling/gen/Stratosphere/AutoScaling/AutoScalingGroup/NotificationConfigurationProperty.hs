@@ -9,10 +9,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NotificationConfigurationProperty
   = NotificationConfigurationProperty {notificationTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
-                                       topicARN :: (Value Prelude.Text)}
+                                       topicARN :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNotificationConfigurationProperty ::
-  Value Prelude.Text -> NotificationConfigurationProperty
+  ValueList Prelude.Text -> NotificationConfigurationProperty
 mkNotificationConfigurationProperty topicARN
   = NotificationConfigurationProperty
       {topicARN = topicARN, notificationTypes = Prelude.Nothing}
@@ -40,6 +40,6 @@ instance Property "NotificationTypes" NotificationConfigurationProperty where
     = NotificationConfigurationProperty
         {notificationTypes = Prelude.pure newValue, ..}
 instance Property "TopicARN" NotificationConfigurationProperty where
-  type PropertyType "TopicARN" NotificationConfigurationProperty = Value Prelude.Text
+  type PropertyType "TopicARN" NotificationConfigurationProperty = ValueList Prelude.Text
   set newValue NotificationConfigurationProperty {..}
     = NotificationConfigurationProperty {topicARN = newValue, ..}

@@ -37,15 +37,17 @@ library
       Stratosphere.GameLift.Fleet.LocationConfigurationProperty
       Stratosphere.GameLift.Fleet.ResourceCreationLimitPolicyProperty
       Stratosphere.GameLift.Fleet.RuntimeConfigurationProperty
+      Stratosphere.GameLift.Fleet.ScalingPolicyProperty
       Stratosphere.GameLift.Fleet.ServerProcessProperty
+      Stratosphere.GameLift.Fleet.TargetConfigurationProperty
       Stratosphere.GameLift.GameServerGroup
       Stratosphere.GameLift.GameServerGroup.AutoScalingPolicyProperty
       Stratosphere.GameLift.GameServerGroup.InstanceDefinitionProperty
       Stratosphere.GameLift.GameServerGroup.LaunchTemplateProperty
       Stratosphere.GameLift.GameServerGroup.TargetTrackingConfigurationProperty
       Stratosphere.GameLift.GameSessionQueue
-      Stratosphere.GameLift.GameSessionQueue.DestinationProperty
       Stratosphere.GameLift.GameSessionQueue.FilterConfigurationProperty
+      Stratosphere.GameLift.GameSessionQueue.GameSessionQueueDestinationProperty
       Stratosphere.GameLift.GameSessionQueue.PlayerLatencyPolicyProperty
       Stratosphere.GameLift.GameSessionQueue.PriorityConfigurationProperty
       Stratosphere.GameLift.Location

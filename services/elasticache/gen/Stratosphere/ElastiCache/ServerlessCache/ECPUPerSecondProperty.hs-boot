@@ -1,0 +1,9 @@
+module Stratosphere.ElastiCache.ServerlessCache.ECPUPerSecondProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ECPUPerSecondProperty :: Prelude.Type
+instance ToResourceProperties ECPUPerSecondProperty
+instance Prelude.Eq ECPUPerSecondProperty
+instance Prelude.Show ECPUPerSecondProperty
+instance JSON.ToJSON ECPUPerSecondProperty

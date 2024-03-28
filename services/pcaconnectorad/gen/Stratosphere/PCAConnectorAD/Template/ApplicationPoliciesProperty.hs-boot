@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorAD.Template.ApplicationPoliciesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ApplicationPoliciesProperty :: Prelude.Type
+instance ToResourceProperties ApplicationPoliciesProperty
+instance Prelude.Eq ApplicationPoliciesProperty
+instance Prelude.Show ApplicationPoliciesProperty
+instance JSON.ToJSON ApplicationPoliciesProperty

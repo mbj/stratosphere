@@ -1,0 +1,9 @@
+module Stratosphere.Comprehend.DocumentClassifier.AugmentedManifestsListItemProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AugmentedManifestsListItemProperty :: Prelude.Type
+instance ToResourceProperties AugmentedManifestsListItemProperty
+instance Prelude.Eq AugmentedManifestsListItemProperty
+instance Prelude.Show AugmentedManifestsListItemProperty
+instance JSON.ToJSON AugmentedManifestsListItemProperty

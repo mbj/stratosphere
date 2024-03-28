@@ -20,7 +20,8 @@ data FirewallPolicyProperty
                             statelessCustomActions :: (Prelude.Maybe [CustomActionProperty]),
                             statelessDefaultActions :: (ValueList Prelude.Text),
                             statelessFragmentDefaultActions :: (ValueList Prelude.Text),
-                            statelessRuleGroupReferences :: (Prelude.Maybe [StatelessRuleGroupReferenceProperty])}
+                            statelessRuleGroupReferences :: (Prelude.Maybe [StatelessRuleGroupReferenceProperty]),
+                            tLSInspectionConfigurationArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallPolicyProperty ::
   ValueList Prelude.Text
@@ -36,7 +37,8 @@ mkFirewallPolicyProperty
        statefulEngineOptions = Prelude.Nothing,
        statefulRuleGroupReferences = Prelude.Nothing,
        statelessCustomActions = Prelude.Nothing,
-       statelessRuleGroupReferences = Prelude.Nothing}
+       statelessRuleGroupReferences = Prelude.Nothing,
+       tLSInspectionConfigurationArn = Prelude.Nothing}
 instance ToResourceProperties FirewallPolicyProperty where
   toResourceProperties FirewallPolicyProperty {..}
     = ResourceProperties
@@ -58,7 +60,9 @@ instance ToResourceProperties FirewallPolicyProperty where
                                (JSON..=) "StatelessCustomActions"
                                  Prelude.<$> statelessCustomActions,
                                (JSON..=) "StatelessRuleGroupReferences"
-                                 Prelude.<$> statelessRuleGroupReferences]))}
+                                 Prelude.<$> statelessRuleGroupReferences,
+                               (JSON..=) "TLSInspectionConfigurationArn"
+                                 Prelude.<$> tLSInspectionConfigurationArn]))}
 instance JSON.ToJSON FirewallPolicyProperty where
   toJSON FirewallPolicyProperty {..}
     = JSON.object
@@ -78,7 +82,9 @@ instance JSON.ToJSON FirewallPolicyProperty where
                   (JSON..=) "StatelessCustomActions"
                     Prelude.<$> statelessCustomActions,
                   (JSON..=) "StatelessRuleGroupReferences"
-                    Prelude.<$> statelessRuleGroupReferences])))
+                    Prelude.<$> statelessRuleGroupReferences,
+                  (JSON..=) "TLSInspectionConfigurationArn"
+                    Prelude.<$> tLSInspectionConfigurationArn])))
 instance Property "PolicyVariables" FirewallPolicyProperty where
   type PropertyType "PolicyVariables" FirewallPolicyProperty = PolicyVariablesProperty
   set newValue FirewallPolicyProperty {..}
@@ -118,3 +124,8 @@ instance Property "StatelessRuleGroupReferences" FirewallPolicyProperty where
   set newValue FirewallPolicyProperty {..}
     = FirewallPolicyProperty
         {statelessRuleGroupReferences = Prelude.pure newValue, ..}
+instance Property "TLSInspectionConfigurationArn" FirewallPolicyProperty where
+  type PropertyType "TLSInspectionConfigurationArn" FirewallPolicyProperty = Value Prelude.Text
+  set newValue FirewallPolicyProperty {..}
+    = FirewallPolicyProperty
+        {tLSInspectionConfigurationArn = Prelude.pure newValue, ..}

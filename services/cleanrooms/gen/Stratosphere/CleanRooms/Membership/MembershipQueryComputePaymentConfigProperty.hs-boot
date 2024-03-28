@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.Membership.MembershipQueryComputePaymentConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MembershipQueryComputePaymentConfigProperty :: Prelude.Type
+instance ToResourceProperties MembershipQueryComputePaymentConfigProperty
+instance Prelude.Eq MembershipQueryComputePaymentConfigProperty
+instance Prelude.Show MembershipQueryComputePaymentConfigProperty
+instance JSON.ToJSON MembershipQueryComputePaymentConfigProperty

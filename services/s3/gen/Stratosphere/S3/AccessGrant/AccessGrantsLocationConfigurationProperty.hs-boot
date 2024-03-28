@@ -1,0 +1,9 @@
+module Stratosphere.S3.AccessGrant.AccessGrantsLocationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessGrantsLocationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AccessGrantsLocationConfigurationProperty
+instance Prelude.Eq AccessGrantsLocationConfigurationProperty
+instance Prelude.Show AccessGrantsLocationConfigurationProperty
+instance JSON.ToJSON AccessGrantsLocationConfigurationProperty

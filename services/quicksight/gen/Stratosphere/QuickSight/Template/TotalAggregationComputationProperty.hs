@@ -11,15 +11,14 @@ import Stratosphere.Value
 data TotalAggregationComputationProperty
   = TotalAggregationComputationProperty {computationId :: (Value Prelude.Text),
                                          name :: (Prelude.Maybe (Value Prelude.Text)),
-                                         value :: MeasureFieldProperty}
+                                         value :: (Prelude.Maybe MeasureFieldProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTotalAggregationComputationProperty ::
-  Value Prelude.Text
-  -> MeasureFieldProperty -> TotalAggregationComputationProperty
-mkTotalAggregationComputationProperty computationId value
+  Value Prelude.Text -> TotalAggregationComputationProperty
+mkTotalAggregationComputationProperty computationId
   = TotalAggregationComputationProperty
-      {computationId = computationId, value = value,
-       name = Prelude.Nothing}
+      {computationId = computationId, name = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties TotalAggregationComputationProperty where
   toResourceProperties TotalAggregationComputationProperty {..}
     = ResourceProperties
@@ -27,15 +26,19 @@ instance ToResourceProperties TotalAggregationComputationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ComputationId" JSON..= computationId, "Value" JSON..= value]
-                           (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name]))}
+                           ["ComputationId" JSON..= computationId]
+                           (Prelude.catMaybes
+                              [(JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "Value" Prelude.<$> value]))}
 instance JSON.ToJSON TotalAggregationComputationProperty where
   toJSON TotalAggregationComputationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ComputationId" JSON..= computationId, "Value" JSON..= value]
-              (Prelude.catMaybes [(JSON..=) "Name" Prelude.<$> name])))
+              ["ComputationId" JSON..= computationId]
+              (Prelude.catMaybes
+                 [(JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "Value" Prelude.<$> value])))
 instance Property "ComputationId" TotalAggregationComputationProperty where
   type PropertyType "ComputationId" TotalAggregationComputationProperty = Value Prelude.Text
   set newValue TotalAggregationComputationProperty {..}
@@ -49,4 +52,5 @@ instance Property "Name" TotalAggregationComputationProperty where
 instance Property "Value" TotalAggregationComputationProperty where
   type PropertyType "Value" TotalAggregationComputationProperty = MeasureFieldProperty
   set newValue TotalAggregationComputationProperty {..}
-    = TotalAggregationComputationProperty {value = newValue, ..}
+    = TotalAggregationComputationProperty
+        {value = Prelude.pure newValue, ..}

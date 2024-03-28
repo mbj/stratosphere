@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.ResourcePermissionProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.TemplateSourceEntityProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Template.TemplateVersionDefinitionProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Template.ValidationStrategyProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -18,6 +19,7 @@ data Template
               sourceEntity :: (Prelude.Maybe TemplateSourceEntityProperty),
               tags :: (Prelude.Maybe [Tag]),
               templateId :: (Value Prelude.Text),
+              validationStrategy :: (Prelude.Maybe ValidationStrategyProperty),
               versionDescription :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTemplate :: Value Prelude.Text -> Value Prelude.Text -> Template
@@ -26,7 +28,8 @@ mkTemplate awsAccountId templateId
       {awsAccountId = awsAccountId, templateId = templateId,
        definition = Prelude.Nothing, name = Prelude.Nothing,
        permissions = Prelude.Nothing, sourceEntity = Prelude.Nothing,
-       tags = Prelude.Nothing, versionDescription = Prelude.Nothing}
+       tags = Prelude.Nothing, validationStrategy = Prelude.Nothing,
+       versionDescription = Prelude.Nothing}
 instance ToResourceProperties Template where
   toResourceProperties Template {..}
     = ResourceProperties
@@ -42,6 +45,7 @@ instance ToResourceProperties Template where
                                (JSON..=) "Permissions" Prelude.<$> permissions,
                                (JSON..=) "SourceEntity" Prelude.<$> sourceEntity,
                                (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "ValidationStrategy" Prelude.<$> validationStrategy,
                                (JSON..=) "VersionDescription" Prelude.<$> versionDescription]))}
 instance JSON.ToJSON Template where
   toJSON Template {..}
@@ -56,6 +60,7 @@ instance JSON.ToJSON Template where
                   (JSON..=) "Permissions" Prelude.<$> permissions,
                   (JSON..=) "SourceEntity" Prelude.<$> sourceEntity,
                   (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "ValidationStrategy" Prelude.<$> validationStrategy,
                   (JSON..=) "VersionDescription" Prelude.<$> versionDescription])))
 instance Property "AwsAccountId" Template where
   type PropertyType "AwsAccountId" Template = Value Prelude.Text
@@ -83,6 +88,10 @@ instance Property "Tags" Template where
 instance Property "TemplateId" Template where
   type PropertyType "TemplateId" Template = Value Prelude.Text
   set newValue Template {..} = Template {templateId = newValue, ..}
+instance Property "ValidationStrategy" Template where
+  type PropertyType "ValidationStrategy" Template = ValidationStrategyProperty
+  set newValue Template {..}
+    = Template {validationStrategy = Prelude.pure newValue, ..}
 instance Property "VersionDescription" Template where
   type PropertyType "VersionDescription" Template = Value Prelude.Text
   set newValue Template {..}

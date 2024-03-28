@@ -1,0 +1,9 @@
+module Stratosphere.Comprehend.DocumentClassifier.DocumentReaderConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DocumentReaderConfigProperty :: Prelude.Type
+instance ToResourceProperties DocumentReaderConfigProperty
+instance Prelude.Eq DocumentReaderConfigProperty
+instance Prelude.Show DocumentReaderConfigProperty
+instance JSON.ToJSON DocumentReaderConfigProperty

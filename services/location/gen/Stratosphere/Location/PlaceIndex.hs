@@ -6,13 +6,15 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Location.PlaceIndex.DataSourceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data PlaceIndex
   = PlaceIndex {dataSource :: (Value Prelude.Text),
                 dataSourceConfiguration :: (Prelude.Maybe DataSourceConfigurationProperty),
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 indexName :: (Value Prelude.Text),
-                pricingPlan :: (Prelude.Maybe (Value Prelude.Text))}
+                pricingPlan :: (Prelude.Maybe (Value Prelude.Text)),
+                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPlaceIndex ::
   Value Prelude.Text -> Value Prelude.Text -> PlaceIndex
@@ -20,12 +22,13 @@ mkPlaceIndex dataSource indexName
   = PlaceIndex
       {dataSource = dataSource, indexName = indexName,
        dataSourceConfiguration = Prelude.Nothing,
-       description = Prelude.Nothing, pricingPlan = Prelude.Nothing}
+       description = Prelude.Nothing, pricingPlan = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties PlaceIndex where
   toResourceProperties PlaceIndex {..}
     = ResourceProperties
         {awsType = "AWS::Location::PlaceIndex",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DataSource" JSON..= dataSource, "IndexName" JSON..= indexName]
@@ -33,7 +36,8 @@ instance ToResourceProperties PlaceIndex where
                               [(JSON..=) "DataSourceConfiguration"
                                  Prelude.<$> dataSourceConfiguration,
                                (JSON..=) "Description" Prelude.<$> description,
-                               (JSON..=) "PricingPlan" Prelude.<$> pricingPlan]))}
+                               (JSON..=) "PricingPlan" Prelude.<$> pricingPlan,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON PlaceIndex where
   toJSON PlaceIndex {..}
     = JSON.object
@@ -44,7 +48,8 @@ instance JSON.ToJSON PlaceIndex where
                  [(JSON..=) "DataSourceConfiguration"
                     Prelude.<$> dataSourceConfiguration,
                   (JSON..=) "Description" Prelude.<$> description,
-                  (JSON..=) "PricingPlan" Prelude.<$> pricingPlan])))
+                  (JSON..=) "PricingPlan" Prelude.<$> pricingPlan,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "DataSource" PlaceIndex where
   type PropertyType "DataSource" PlaceIndex = Value Prelude.Text
   set newValue PlaceIndex {..}
@@ -65,3 +70,7 @@ instance Property "PricingPlan" PlaceIndex where
   type PropertyType "PricingPlan" PlaceIndex = Value Prelude.Text
   set newValue PlaceIndex {..}
     = PlaceIndex {pricingPlan = Prelude.pure newValue, ..}
+instance Property "Tags" PlaceIndex where
+  type PropertyType "Tags" PlaceIndex = [Tag]
+  set newValue PlaceIndex {..}
+    = PlaceIndex {tags = Prelude.pure newValue, ..}

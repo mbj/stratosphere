@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.ConfiguredTable.ConfiguredTableAnalysisRulePolicyV1Property where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConfiguredTableAnalysisRulePolicyV1Property :: Prelude.Type
+instance ToResourceProperties ConfiguredTableAnalysisRulePolicyV1Property
+instance Prelude.Eq ConfiguredTableAnalysisRulePolicyV1Property
+instance Prelude.Show ConfiguredTableAnalysisRulePolicyV1Property
+instance JSON.ToJSON ConfiguredTableAnalysisRulePolicyV1Property

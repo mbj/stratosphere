@@ -1,0 +1,9 @@
+module Stratosphere.HealthLake.FHIRDatastore.IdentityProviderConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdentityProviderConfigurationProperty :: Prelude.Type
+instance ToResourceProperties IdentityProviderConfigurationProperty
+instance Prelude.Eq IdentityProviderConfigurationProperty
+instance Prelude.Show IdentityProviderConfigurationProperty
+instance JSON.ToJSON IdentityProviderConfigurationProperty

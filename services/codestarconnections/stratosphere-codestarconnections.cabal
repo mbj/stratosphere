@@ -26,6 +26,8 @@ flag development
 library
   exposed-modules:
       Stratosphere.CodeStarConnections.Connection
+      Stratosphere.CodeStarConnections.RepositoryLink
+      Stratosphere.CodeStarConnections.SyncConfiguration
   other-modules:
       Paths_stratosphere_codestarconnections
   hs-source-dirs:

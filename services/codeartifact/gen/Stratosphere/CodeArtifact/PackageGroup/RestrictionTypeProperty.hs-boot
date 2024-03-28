@@ -1,0 +1,9 @@
+module Stratosphere.CodeArtifact.PackageGroup.RestrictionTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RestrictionTypeProperty :: Prelude.Type
+instance ToResourceProperties RestrictionTypeProperty
+instance Prelude.Eq RestrictionTypeProperty
+instance Prelude.Show RestrictionTypeProperty
+instance JSON.ToJSON RestrictionTypeProperty

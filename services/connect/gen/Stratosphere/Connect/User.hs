@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.User.UserIdentityInfoProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.User.UserPhoneConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.Connect.User.UserProficiencyProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -19,6 +20,7 @@ data User
           routingProfileArn :: (Value Prelude.Text),
           securityProfileArns :: (ValueList Prelude.Text),
           tags :: (Prelude.Maybe [Tag]),
+          userProficiencies :: (Prelude.Maybe [UserProficiencyProperty]),
           username :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUser ::
@@ -39,7 +41,7 @@ mkUser
        directoryUserId = Prelude.Nothing,
        hierarchyGroupArn = Prelude.Nothing,
        identityInfo = Prelude.Nothing, password = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       tags = Prelude.Nothing, userProficiencies = Prelude.Nothing}
 instance ToResourceProperties User where
   toResourceProperties User {..}
     = ResourceProperties
@@ -56,7 +58,8 @@ instance ToResourceProperties User where
                                (JSON..=) "HierarchyGroupArn" Prelude.<$> hierarchyGroupArn,
                                (JSON..=) "IdentityInfo" Prelude.<$> identityInfo,
                                (JSON..=) "Password" Prelude.<$> password,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "UserProficiencies" Prelude.<$> userProficiencies]))}
 instance JSON.ToJSON User where
   toJSON User {..}
     = JSON.object
@@ -72,7 +75,8 @@ instance JSON.ToJSON User where
                   (JSON..=) "HierarchyGroupArn" Prelude.<$> hierarchyGroupArn,
                   (JSON..=) "IdentityInfo" Prelude.<$> identityInfo,
                   (JSON..=) "Password" Prelude.<$> password,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "UserProficiencies" Prelude.<$> userProficiencies])))
 instance Property "DirectoryUserId" User where
   type PropertyType "DirectoryUserId" User = Value Prelude.Text
   set newValue User {..}
@@ -104,6 +108,10 @@ instance Property "SecurityProfileArns" User where
 instance Property "Tags" User where
   type PropertyType "Tags" User = [Tag]
   set newValue User {..} = User {tags = Prelude.pure newValue, ..}
+instance Property "UserProficiencies" User where
+  type PropertyType "UserProficiencies" User = [UserProficiencyProperty]
+  set newValue User {..}
+    = User {userProficiencies = Prelude.pure newValue, ..}
 instance Property "Username" User where
   type PropertyType "Username" User = Value Prelude.Text
   set newValue User {..} = User {username = newValue, ..}

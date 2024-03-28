@@ -1,0 +1,9 @@
+module Stratosphere.NetworkFirewall.TLSInspectionConfiguration.ServerCertificateScopeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServerCertificateScopeProperty :: Prelude.Type
+instance ToResourceProperties ServerCertificateScopeProperty
+instance Prelude.Eq ServerCertificateScopeProperty
+instance Prelude.Show ServerCertificateScopeProperty
+instance JSON.ToJSON ServerCertificateScopeProperty

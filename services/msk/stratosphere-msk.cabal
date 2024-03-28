@@ -60,6 +60,15 @@ library
       Stratosphere.MSK.Cluster.VpcConnectivityTlsProperty
       Stratosphere.MSK.ClusterPolicy
       Stratosphere.MSK.Configuration
+      Stratosphere.MSK.Configuration.LatestRevisionProperty
+      Stratosphere.MSK.Replicator
+      Stratosphere.MSK.Replicator.AmazonMskClusterProperty
+      Stratosphere.MSK.Replicator.ConsumerGroupReplicationProperty
+      Stratosphere.MSK.Replicator.KafkaClusterClientVpcConfigProperty
+      Stratosphere.MSK.Replicator.KafkaClusterProperty
+      Stratosphere.MSK.Replicator.ReplicationInfoProperty
+      Stratosphere.MSK.Replicator.ReplicationStartingPositionProperty
+      Stratosphere.MSK.Replicator.TopicReplicationProperty
       Stratosphere.MSK.ServerlessCluster
       Stratosphere.MSK.ServerlessCluster.ClientAuthenticationProperty
       Stratosphere.MSK.ServerlessCluster.IamProperty

@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorAD.TemplateGroupAccessControlEntry.AccessRightsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessRightsProperty :: Prelude.Type
+instance ToResourceProperties AccessRightsProperty
+instance Prelude.Eq AccessRightsProperty
+instance Prelude.Show AccessRightsProperty
+instance JSON.ToJSON AccessRightsProperty

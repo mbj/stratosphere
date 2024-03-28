@@ -1,0 +1,9 @@
+module Stratosphere.IoTSiteWise.AssetModel.PropertyPathDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PropertyPathDefinitionProperty :: Prelude.Type
+instance ToResourceProperties PropertyPathDefinitionProperty
+instance Prelude.Eq PropertyPathDefinitionProperty
+instance Prelude.Show PropertyPathDefinitionProperty
+instance JSON.ToJSON PropertyPathDefinitionProperty

@@ -1,0 +1,9 @@
+module Stratosphere.FSx.Volume.SnaplockConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnaplockConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SnaplockConfigurationProperty
+instance Prelude.Eq SnaplockConfigurationProperty
+instance Prelude.Show SnaplockConfigurationProperty
+instance JSON.ToJSON SnaplockConfigurationProperty

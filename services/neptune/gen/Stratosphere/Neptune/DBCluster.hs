@@ -17,6 +17,7 @@ data DBCluster
                dBClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                dBClusterParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                dBInstanceParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+               dBPort :: (Prelude.Maybe (Value Prelude.Integer)),
                dBSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                deletionProtection :: (Prelude.Maybe (Value Prelude.Bool)),
                enableCloudwatchLogsExports :: (Prelude.Maybe (ValueList Prelude.Text)),
@@ -45,7 +46,7 @@ mkDBCluster
        dBClusterIdentifier = Prelude.Nothing,
        dBClusterParameterGroupName = Prelude.Nothing,
        dBInstanceParameterGroupName = Prelude.Nothing,
-       dBSubnetGroupName = Prelude.Nothing,
+       dBPort = Prelude.Nothing, dBSubnetGroupName = Prelude.Nothing,
        deletionProtection = Prelude.Nothing,
        enableCloudwatchLogsExports = Prelude.Nothing,
        engineVersion = Prelude.Nothing, iamAuthEnabled = Prelude.Nothing,
@@ -75,6 +76,7 @@ instance ToResourceProperties DBCluster where
                               Prelude.<$> dBClusterParameterGroupName,
                             (JSON..=) "DBInstanceParameterGroupName"
                               Prelude.<$> dBInstanceParameterGroupName,
+                            (JSON..=) "DBPort" Prelude.<$> dBPort,
                             (JSON..=) "DBSubnetGroupName" Prelude.<$> dBSubnetGroupName,
                             (JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,
                             (JSON..=) "EnableCloudwatchLogsExports"
@@ -113,6 +115,7 @@ instance JSON.ToJSON DBCluster where
                  Prelude.<$> dBClusterParameterGroupName,
                (JSON..=) "DBInstanceParameterGroupName"
                  Prelude.<$> dBInstanceParameterGroupName,
+               (JSON..=) "DBPort" Prelude.<$> dBPort,
                (JSON..=) "DBSubnetGroupName" Prelude.<$> dBSubnetGroupName,
                (JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,
                (JSON..=) "EnableCloudwatchLogsExports"
@@ -166,6 +169,10 @@ instance Property "DBInstanceParameterGroupName" DBCluster where
   set newValue DBCluster {..}
     = DBCluster
         {dBInstanceParameterGroupName = Prelude.pure newValue, ..}
+instance Property "DBPort" DBCluster where
+  type PropertyType "DBPort" DBCluster = Value Prelude.Integer
+  set newValue DBCluster {..}
+    = DBCluster {dBPort = Prelude.pure newValue, ..}
 instance Property "DBSubnetGroupName" DBCluster where
   type PropertyType "DBSubnetGroupName" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}

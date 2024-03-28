@@ -11,6 +11,7 @@ import {-# SOURCE #-} Stratosphere.EMR.Cluster.ConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.JobFlowInstancesConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.KerberosAttributesProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.ManagedScalingPolicyProperty as Exports
+import {-# SOURCE #-} Stratosphere.EMR.Cluster.PlacementGroupConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMR.Cluster.StepConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -23,7 +24,9 @@ data Cluster
              bootstrapActions :: (Prelude.Maybe [BootstrapActionConfigProperty]),
              configurations :: (Prelude.Maybe [ConfigurationProperty]),
              customAmiId :: (Prelude.Maybe (Value Prelude.Text)),
+             ebsRootVolumeIops :: (Prelude.Maybe (Value Prelude.Integer)),
              ebsRootVolumeSize :: (Prelude.Maybe (Value Prelude.Integer)),
+             ebsRootVolumeThroughput :: (Prelude.Maybe (Value Prelude.Integer)),
              instances :: JobFlowInstancesConfigProperty,
              jobFlowRole :: (Value Prelude.Text),
              kerberosAttributes :: (Prelude.Maybe KerberosAttributesProperty),
@@ -32,6 +35,7 @@ data Cluster
              managedScalingPolicy :: (Prelude.Maybe ManagedScalingPolicyProperty),
              name :: (Value Prelude.Text),
              oSReleaseLabel :: (Prelude.Maybe (Value Prelude.Text)),
+             placementGroupConfigs :: (Prelude.Maybe [PlacementGroupConfigProperty]),
              releaseLabel :: (Prelude.Maybe (Value Prelude.Text)),
              scaleDownBehavior :: (Prelude.Maybe (Value Prelude.Text)),
              securityConfiguration :: (Prelude.Maybe (Value Prelude.Text)),
@@ -53,11 +57,15 @@ mkCluster instances jobFlowRole name serviceRole
        autoTerminationPolicy = Prelude.Nothing,
        bootstrapActions = Prelude.Nothing,
        configurations = Prelude.Nothing, customAmiId = Prelude.Nothing,
+       ebsRootVolumeIops = Prelude.Nothing,
        ebsRootVolumeSize = Prelude.Nothing,
+       ebsRootVolumeThroughput = Prelude.Nothing,
        kerberosAttributes = Prelude.Nothing,
        logEncryptionKmsKeyId = Prelude.Nothing, logUri = Prelude.Nothing,
        managedScalingPolicy = Prelude.Nothing,
-       oSReleaseLabel = Prelude.Nothing, releaseLabel = Prelude.Nothing,
+       oSReleaseLabel = Prelude.Nothing,
+       placementGroupConfigs = Prelude.Nothing,
+       releaseLabel = Prelude.Nothing,
        scaleDownBehavior = Prelude.Nothing,
        securityConfiguration = Prelude.Nothing,
        stepConcurrencyLevel = Prelude.Nothing, steps = Prelude.Nothing,
@@ -79,13 +87,18 @@ instance ToResourceProperties Cluster where
                                (JSON..=) "BootstrapActions" Prelude.<$> bootstrapActions,
                                (JSON..=) "Configurations" Prelude.<$> configurations,
                                (JSON..=) "CustomAmiId" Prelude.<$> customAmiId,
+                               (JSON..=) "EbsRootVolumeIops" Prelude.<$> ebsRootVolumeIops,
                                (JSON..=) "EbsRootVolumeSize" Prelude.<$> ebsRootVolumeSize,
+                               (JSON..=) "EbsRootVolumeThroughput"
+                                 Prelude.<$> ebsRootVolumeThroughput,
                                (JSON..=) "KerberosAttributes" Prelude.<$> kerberosAttributes,
                                (JSON..=) "LogEncryptionKmsKeyId"
                                  Prelude.<$> logEncryptionKmsKeyId,
                                (JSON..=) "LogUri" Prelude.<$> logUri,
                                (JSON..=) "ManagedScalingPolicy" Prelude.<$> managedScalingPolicy,
                                (JSON..=) "OSReleaseLabel" Prelude.<$> oSReleaseLabel,
+                               (JSON..=) "PlacementGroupConfigs"
+                                 Prelude.<$> placementGroupConfigs,
                                (JSON..=) "ReleaseLabel" Prelude.<$> releaseLabel,
                                (JSON..=) "ScaleDownBehavior" Prelude.<$> scaleDownBehavior,
                                (JSON..=) "SecurityConfiguration"
@@ -110,13 +123,18 @@ instance JSON.ToJSON Cluster where
                   (JSON..=) "BootstrapActions" Prelude.<$> bootstrapActions,
                   (JSON..=) "Configurations" Prelude.<$> configurations,
                   (JSON..=) "CustomAmiId" Prelude.<$> customAmiId,
+                  (JSON..=) "EbsRootVolumeIops" Prelude.<$> ebsRootVolumeIops,
                   (JSON..=) "EbsRootVolumeSize" Prelude.<$> ebsRootVolumeSize,
+                  (JSON..=) "EbsRootVolumeThroughput"
+                    Prelude.<$> ebsRootVolumeThroughput,
                   (JSON..=) "KerberosAttributes" Prelude.<$> kerberosAttributes,
                   (JSON..=) "LogEncryptionKmsKeyId"
                     Prelude.<$> logEncryptionKmsKeyId,
                   (JSON..=) "LogUri" Prelude.<$> logUri,
                   (JSON..=) "ManagedScalingPolicy" Prelude.<$> managedScalingPolicy,
                   (JSON..=) "OSReleaseLabel" Prelude.<$> oSReleaseLabel,
+                  (JSON..=) "PlacementGroupConfigs"
+                    Prelude.<$> placementGroupConfigs,
                   (JSON..=) "ReleaseLabel" Prelude.<$> releaseLabel,
                   (JSON..=) "ScaleDownBehavior" Prelude.<$> scaleDownBehavior,
                   (JSON..=) "SecurityConfiguration"
@@ -153,10 +171,18 @@ instance Property "CustomAmiId" Cluster where
   type PropertyType "CustomAmiId" Cluster = Value Prelude.Text
   set newValue Cluster {..}
     = Cluster {customAmiId = Prelude.pure newValue, ..}
+instance Property "EbsRootVolumeIops" Cluster where
+  type PropertyType "EbsRootVolumeIops" Cluster = Value Prelude.Integer
+  set newValue Cluster {..}
+    = Cluster {ebsRootVolumeIops = Prelude.pure newValue, ..}
 instance Property "EbsRootVolumeSize" Cluster where
   type PropertyType "EbsRootVolumeSize" Cluster = Value Prelude.Integer
   set newValue Cluster {..}
     = Cluster {ebsRootVolumeSize = Prelude.pure newValue, ..}
+instance Property "EbsRootVolumeThroughput" Cluster where
+  type PropertyType "EbsRootVolumeThroughput" Cluster = Value Prelude.Integer
+  set newValue Cluster {..}
+    = Cluster {ebsRootVolumeThroughput = Prelude.pure newValue, ..}
 instance Property "Instances" Cluster where
   type PropertyType "Instances" Cluster = JobFlowInstancesConfigProperty
   set newValue Cluster {..} = Cluster {instances = newValue, ..}
@@ -186,6 +212,10 @@ instance Property "OSReleaseLabel" Cluster where
   type PropertyType "OSReleaseLabel" Cluster = Value Prelude.Text
   set newValue Cluster {..}
     = Cluster {oSReleaseLabel = Prelude.pure newValue, ..}
+instance Property "PlacementGroupConfigs" Cluster where
+  type PropertyType "PlacementGroupConfigs" Cluster = [PlacementGroupConfigProperty]
+  set newValue Cluster {..}
+    = Cluster {placementGroupConfigs = Prelude.pure newValue, ..}
 instance Property "ReleaseLabel" Cluster where
   type PropertyType "ReleaseLabel" Cluster = Value Prelude.Text
   set newValue Cluster {..}

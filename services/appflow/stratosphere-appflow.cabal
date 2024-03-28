@@ -79,6 +79,7 @@ library
       Stratosphere.AppFlow.Flow.CustomConnectorDestinationPropertiesProperty
       Stratosphere.AppFlow.Flow.CustomConnectorSourcePropertiesProperty
       Stratosphere.AppFlow.Flow.DatadogSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.DataTransferApiProperty
       Stratosphere.AppFlow.Flow.DestinationConnectorPropertiesProperty
       Stratosphere.AppFlow.Flow.DestinationFlowConfigProperty
       Stratosphere.AppFlow.Flow.DynatraceSourcePropertiesProperty
@@ -102,6 +103,8 @@ library
       Stratosphere.AppFlow.Flow.SalesforceDestinationPropertiesProperty
       Stratosphere.AppFlow.Flow.SalesforceSourcePropertiesProperty
       Stratosphere.AppFlow.Flow.SAPODataDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.SAPODataPaginationConfigProperty
+      Stratosphere.AppFlow.Flow.SAPODataParallelismConfigProperty
       Stratosphere.AppFlow.Flow.SAPODataSourcePropertiesProperty
       Stratosphere.AppFlow.Flow.ScheduledTriggerPropertiesProperty
       Stratosphere.AppFlow.Flow.ServiceNowSourcePropertiesProperty

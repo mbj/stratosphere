@@ -1,0 +1,9 @@
+module Stratosphere.Cassandra.Keyspace.ReplicationSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplicationSpecificationProperty :: Prelude.Type
+instance ToResourceProperties ReplicationSpecificationProperty
+instance Prelude.Eq ReplicationSpecificationProperty
+instance Prelude.Show ReplicationSpecificationProperty
+instance JSON.ToJSON ReplicationSpecificationProperty

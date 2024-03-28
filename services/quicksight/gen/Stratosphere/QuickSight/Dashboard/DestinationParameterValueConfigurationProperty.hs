@@ -5,12 +5,14 @@ module Stratosphere.QuickSight.Dashboard.DestinationParameterValueConfigurationP
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.ColumnIdentifierProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.CustomValuesConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationParameterValueConfigurationProperty
   = DestinationParameterValueConfigurationProperty {customValuesConfiguration :: (Prelude.Maybe CustomValuesConfigurationProperty),
                                                     selectAllValueOptions :: (Prelude.Maybe (Value Prelude.Text)),
+                                                    sourceColumn :: (Prelude.Maybe ColumnIdentifierProperty),
                                                     sourceField :: (Prelude.Maybe (Value Prelude.Text)),
                                                     sourceParameterName :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -20,7 +22,7 @@ mkDestinationParameterValueConfigurationProperty
   = DestinationParameterValueConfigurationProperty
       {customValuesConfiguration = Prelude.Nothing,
        selectAllValueOptions = Prelude.Nothing,
-       sourceField = Prelude.Nothing,
+       sourceColumn = Prelude.Nothing, sourceField = Prelude.Nothing,
        sourceParameterName = Prelude.Nothing}
 instance ToResourceProperties DestinationParameterValueConfigurationProperty where
   toResourceProperties
@@ -34,6 +36,7 @@ instance ToResourceProperties DestinationParameterValueConfigurationProperty whe
                               Prelude.<$> customValuesConfiguration,
                             (JSON..=) "SelectAllValueOptions"
                               Prelude.<$> selectAllValueOptions,
+                            (JSON..=) "SourceColumn" Prelude.<$> sourceColumn,
                             (JSON..=) "SourceField" Prelude.<$> sourceField,
                             (JSON..=) "SourceParameterName" Prelude.<$> sourceParameterName])}
 instance JSON.ToJSON DestinationParameterValueConfigurationProperty where
@@ -45,6 +48,7 @@ instance JSON.ToJSON DestinationParameterValueConfigurationProperty where
                  Prelude.<$> customValuesConfiguration,
                (JSON..=) "SelectAllValueOptions"
                  Prelude.<$> selectAllValueOptions,
+               (JSON..=) "SourceColumn" Prelude.<$> sourceColumn,
                (JSON..=) "SourceField" Prelude.<$> sourceField,
                (JSON..=) "SourceParameterName" Prelude.<$> sourceParameterName]))
 instance Property "CustomValuesConfiguration" DestinationParameterValueConfigurationProperty where
@@ -57,6 +61,11 @@ instance Property "SelectAllValueOptions" DestinationParameterValueConfiguration
   set newValue DestinationParameterValueConfigurationProperty {..}
     = DestinationParameterValueConfigurationProperty
         {selectAllValueOptions = Prelude.pure newValue, ..}
+instance Property "SourceColumn" DestinationParameterValueConfigurationProperty where
+  type PropertyType "SourceColumn" DestinationParameterValueConfigurationProperty = ColumnIdentifierProperty
+  set newValue DestinationParameterValueConfigurationProperty {..}
+    = DestinationParameterValueConfigurationProperty
+        {sourceColumn = Prelude.pure newValue, ..}
 instance Property "SourceField" DestinationParameterValueConfigurationProperty where
   type PropertyType "SourceField" DestinationParameterValueConfigurationProperty = Value Prelude.Text
   set newValue DestinationParameterValueConfigurationProperty {..}

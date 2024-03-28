@@ -13,7 +13,8 @@ data FirewallRuleProperty
                           blockOverrideTtl :: (Prelude.Maybe (Value Prelude.Integer)),
                           blockResponse :: (Prelude.Maybe (Value Prelude.Text)),
                           firewallDomainListId :: (Value Prelude.Text),
-                          priority :: (Value Prelude.Integer)}
+                          priority :: (Value Prelude.Integer),
+                          qtype :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallRuleProperty ::
   Value Prelude.Text
@@ -25,7 +26,7 @@ mkFirewallRuleProperty action firewallDomainListId priority
        priority = priority, blockOverrideDnsType = Prelude.Nothing,
        blockOverrideDomain = Prelude.Nothing,
        blockOverrideTtl = Prelude.Nothing,
-       blockResponse = Prelude.Nothing}
+       blockResponse = Prelude.Nothing, qtype = Prelude.Nothing}
 instance ToResourceProperties FirewallRuleProperty where
   toResourceProperties FirewallRuleProperty {..}
     = ResourceProperties
@@ -40,7 +41,8 @@ instance ToResourceProperties FirewallRuleProperty where
                               [(JSON..=) "BlockOverrideDnsType" Prelude.<$> blockOverrideDnsType,
                                (JSON..=) "BlockOverrideDomain" Prelude.<$> blockOverrideDomain,
                                (JSON..=) "BlockOverrideTtl" Prelude.<$> blockOverrideTtl,
-                               (JSON..=) "BlockResponse" Prelude.<$> blockResponse]))}
+                               (JSON..=) "BlockResponse" Prelude.<$> blockResponse,
+                               (JSON..=) "Qtype" Prelude.<$> qtype]))}
 instance JSON.ToJSON FirewallRuleProperty where
   toJSON FirewallRuleProperty {..}
     = JSON.object
@@ -53,7 +55,8 @@ instance JSON.ToJSON FirewallRuleProperty where
                  [(JSON..=) "BlockOverrideDnsType" Prelude.<$> blockOverrideDnsType,
                   (JSON..=) "BlockOverrideDomain" Prelude.<$> blockOverrideDomain,
                   (JSON..=) "BlockOverrideTtl" Prelude.<$> blockOverrideTtl,
-                  (JSON..=) "BlockResponse" Prelude.<$> blockResponse])))
+                  (JSON..=) "BlockResponse" Prelude.<$> blockResponse,
+                  (JSON..=) "Qtype" Prelude.<$> qtype])))
 instance Property "Action" FirewallRuleProperty where
   type PropertyType "Action" FirewallRuleProperty = Value Prelude.Text
   set newValue FirewallRuleProperty {..}
@@ -85,3 +88,7 @@ instance Property "Priority" FirewallRuleProperty where
   type PropertyType "Priority" FirewallRuleProperty = Value Prelude.Integer
   set newValue FirewallRuleProperty {..}
     = FirewallRuleProperty {priority = newValue, ..}
+instance Property "Qtype" FirewallRuleProperty where
+  type PropertyType "Qtype" FirewallRuleProperty = Value Prelude.Text
+  set newValue FirewallRuleProperty {..}
+    = FirewallRuleProperty {qtype = Prelude.pure newValue, ..}

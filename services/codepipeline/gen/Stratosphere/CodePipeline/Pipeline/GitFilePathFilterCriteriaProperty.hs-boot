@@ -1,0 +1,9 @@
+module Stratosphere.CodePipeline.Pipeline.GitFilePathFilterCriteriaProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GitFilePathFilterCriteriaProperty :: Prelude.Type
+instance ToResourceProperties GitFilePathFilterCriteriaProperty
+instance Prelude.Eq GitFilePathFilterCriteriaProperty
+instance Prelude.Show GitFilePathFilterCriteriaProperty
+instance JSON.ToJSON GitFilePathFilterCriteriaProperty

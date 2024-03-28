@@ -11,18 +11,19 @@ data RedshiftDataParametersProperty
   = RedshiftDataParametersProperty {database :: (Value Prelude.Text),
                                     dbUser :: (Prelude.Maybe (Value Prelude.Text)),
                                     secretManagerArn :: (Prelude.Maybe (Value Prelude.Text)),
-                                    sql :: (Value Prelude.Text),
+                                    sql :: (Prelude.Maybe (Value Prelude.Text)),
+                                    sqls :: (Prelude.Maybe (ValueList Prelude.Text)),
                                     statementName :: (Prelude.Maybe (Value Prelude.Text)),
                                     withEvent :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRedshiftDataParametersProperty ::
-  Value Prelude.Text
-  -> Value Prelude.Text -> RedshiftDataParametersProperty
-mkRedshiftDataParametersProperty database sql
+  Value Prelude.Text -> RedshiftDataParametersProperty
+mkRedshiftDataParametersProperty database
   = RedshiftDataParametersProperty
-      {database = database, sql = sql, dbUser = Prelude.Nothing,
-       secretManagerArn = Prelude.Nothing,
-       statementName = Prelude.Nothing, withEvent = Prelude.Nothing}
+      {database = database, dbUser = Prelude.Nothing,
+       secretManagerArn = Prelude.Nothing, sql = Prelude.Nothing,
+       sqls = Prelude.Nothing, statementName = Prelude.Nothing,
+       withEvent = Prelude.Nothing}
 instance ToResourceProperties RedshiftDataParametersProperty where
   toResourceProperties RedshiftDataParametersProperty {..}
     = ResourceProperties
@@ -30,10 +31,11 @@ instance ToResourceProperties RedshiftDataParametersProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Database" JSON..= database, "Sql" JSON..= sql]
+                           ["Database" JSON..= database]
                            (Prelude.catMaybes
                               [(JSON..=) "DbUser" Prelude.<$> dbUser,
                                (JSON..=) "SecretManagerArn" Prelude.<$> secretManagerArn,
+                               (JSON..=) "Sql" Prelude.<$> sql, (JSON..=) "Sqls" Prelude.<$> sqls,
                                (JSON..=) "StatementName" Prelude.<$> statementName,
                                (JSON..=) "WithEvent" Prelude.<$> withEvent]))}
 instance JSON.ToJSON RedshiftDataParametersProperty where
@@ -41,10 +43,11 @@ instance JSON.ToJSON RedshiftDataParametersProperty where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Database" JSON..= database, "Sql" JSON..= sql]
+              ["Database" JSON..= database]
               (Prelude.catMaybes
                  [(JSON..=) "DbUser" Prelude.<$> dbUser,
                   (JSON..=) "SecretManagerArn" Prelude.<$> secretManagerArn,
+                  (JSON..=) "Sql" Prelude.<$> sql, (JSON..=) "Sqls" Prelude.<$> sqls,
                   (JSON..=) "StatementName" Prelude.<$> statementName,
                   (JSON..=) "WithEvent" Prelude.<$> withEvent])))
 instance Property "Database" RedshiftDataParametersProperty where
@@ -64,7 +67,11 @@ instance Property "SecretManagerArn" RedshiftDataParametersProperty where
 instance Property "Sql" RedshiftDataParametersProperty where
   type PropertyType "Sql" RedshiftDataParametersProperty = Value Prelude.Text
   set newValue RedshiftDataParametersProperty {..}
-    = RedshiftDataParametersProperty {sql = newValue, ..}
+    = RedshiftDataParametersProperty {sql = Prelude.pure newValue, ..}
+instance Property "Sqls" RedshiftDataParametersProperty where
+  type PropertyType "Sqls" RedshiftDataParametersProperty = ValueList Prelude.Text
+  set newValue RedshiftDataParametersProperty {..}
+    = RedshiftDataParametersProperty {sqls = Prelude.pure newValue, ..}
 instance Property "StatementName" RedshiftDataParametersProperty where
   type PropertyType "StatementName" RedshiftDataParametersProperty = Value Prelude.Text
   set newValue RedshiftDataParametersProperty {..}

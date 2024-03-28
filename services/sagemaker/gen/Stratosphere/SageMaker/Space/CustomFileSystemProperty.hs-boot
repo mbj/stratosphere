@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Space.CustomFileSystemProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomFileSystemProperty :: Prelude.Type
+instance ToResourceProperties CustomFileSystemProperty
+instance Prelude.Eq CustomFileSystemProperty
+instance Prelude.Show CustomFileSystemProperty
+instance JSON.ToJSON CustomFileSystemProperty

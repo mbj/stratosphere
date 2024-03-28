@@ -11,17 +11,16 @@ import Stratosphere.Value
 data OutboundCallConfigProperty
   = OutboundCallConfigProperty {answerMachineDetectionConfig :: (Prelude.Maybe AnswerMachineDetectionConfigProperty),
                                 connectContactFlowArn :: (Value Prelude.Text),
-                                connectQueueArn :: (Value Prelude.Text),
+                                connectQueueArn :: (Prelude.Maybe (Value Prelude.Text)),
                                 connectSourcePhoneNumber :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutboundCallConfigProperty ::
-  Value Prelude.Text
-  -> Value Prelude.Text -> OutboundCallConfigProperty
-mkOutboundCallConfigProperty connectContactFlowArn connectQueueArn
+  Value Prelude.Text -> OutboundCallConfigProperty
+mkOutboundCallConfigProperty connectContactFlowArn
   = OutboundCallConfigProperty
       {connectContactFlowArn = connectContactFlowArn,
-       connectQueueArn = connectQueueArn,
        answerMachineDetectionConfig = Prelude.Nothing,
+       connectQueueArn = Prelude.Nothing,
        connectSourcePhoneNumber = Prelude.Nothing}
 instance ToResourceProperties OutboundCallConfigProperty where
   toResourceProperties OutboundCallConfigProperty {..}
@@ -30,11 +29,11 @@ instance ToResourceProperties OutboundCallConfigProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ConnectContactFlowArn" JSON..= connectContactFlowArn,
-                            "ConnectQueueArn" JSON..= connectQueueArn]
+                           ["ConnectContactFlowArn" JSON..= connectContactFlowArn]
                            (Prelude.catMaybes
                               [(JSON..=) "AnswerMachineDetectionConfig"
                                  Prelude.<$> answerMachineDetectionConfig,
+                               (JSON..=) "ConnectQueueArn" Prelude.<$> connectQueueArn,
                                (JSON..=) "ConnectSourcePhoneNumber"
                                  Prelude.<$> connectSourcePhoneNumber]))}
 instance JSON.ToJSON OutboundCallConfigProperty where
@@ -42,11 +41,11 @@ instance JSON.ToJSON OutboundCallConfigProperty where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ConnectContactFlowArn" JSON..= connectContactFlowArn,
-               "ConnectQueueArn" JSON..= connectQueueArn]
+              ["ConnectContactFlowArn" JSON..= connectContactFlowArn]
               (Prelude.catMaybes
                  [(JSON..=) "AnswerMachineDetectionConfig"
                     Prelude.<$> answerMachineDetectionConfig,
+                  (JSON..=) "ConnectQueueArn" Prelude.<$> connectQueueArn,
                   (JSON..=) "ConnectSourcePhoneNumber"
                     Prelude.<$> connectSourcePhoneNumber])))
 instance Property "AnswerMachineDetectionConfig" OutboundCallConfigProperty where
@@ -61,7 +60,8 @@ instance Property "ConnectContactFlowArn" OutboundCallConfigProperty where
 instance Property "ConnectQueueArn" OutboundCallConfigProperty where
   type PropertyType "ConnectQueueArn" OutboundCallConfigProperty = Value Prelude.Text
   set newValue OutboundCallConfigProperty {..}
-    = OutboundCallConfigProperty {connectQueueArn = newValue, ..}
+    = OutboundCallConfigProperty
+        {connectQueueArn = Prelude.pure newValue, ..}
 instance Property "ConnectSourcePhoneNumber" OutboundCallConfigProperty where
   type PropertyType "ConnectSourcePhoneNumber" OutboundCallConfigProperty = Value Prelude.Text
   set newValue OutboundCallConfigProperty {..}

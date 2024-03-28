@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.EpochLockingSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EpochLockingSettingsProperty :: Prelude.Type
+instance ToResourceProperties EpochLockingSettingsProperty
+instance Prelude.Eq EpochLockingSettingsProperty
+instance Prelude.Show EpochLockingSettingsProperty
+instance JSON.ToJSON EpochLockingSettingsProperty

@@ -48,6 +48,7 @@ library
       Stratosphere.AppSync.GraphQLApi
       Stratosphere.AppSync.GraphQLApi.AdditionalAuthenticationProviderProperty
       Stratosphere.AppSync.GraphQLApi.CognitoUserPoolConfigProperty
+      Stratosphere.AppSync.GraphQLApi.EnhancedMetricsConfigProperty
       Stratosphere.AppSync.GraphQLApi.LambdaAuthorizerConfigProperty
       Stratosphere.AppSync.GraphQLApi.LogConfigProperty
       Stratosphere.AppSync.GraphQLApi.OpenIDConnectConfigProperty

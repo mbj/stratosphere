@@ -10,6 +10,7 @@ import Stratosphere.Value
 data FilterListConfigurationProperty
   = FilterListConfigurationProperty {categoryValues :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      matchOperator :: (Value Prelude.Text),
+                                     nullOption :: (Prelude.Maybe (Value Prelude.Text)),
                                      selectAllOptions :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilterListConfigurationProperty ::
@@ -17,7 +18,7 @@ mkFilterListConfigurationProperty ::
 mkFilterListConfigurationProperty matchOperator
   = FilterListConfigurationProperty
       {matchOperator = matchOperator, categoryValues = Prelude.Nothing,
-       selectAllOptions = Prelude.Nothing}
+       nullOption = Prelude.Nothing, selectAllOptions = Prelude.Nothing}
 instance ToResourceProperties FilterListConfigurationProperty where
   toResourceProperties FilterListConfigurationProperty {..}
     = ResourceProperties
@@ -28,6 +29,7 @@ instance ToResourceProperties FilterListConfigurationProperty where
                            ["MatchOperator" JSON..= matchOperator]
                            (Prelude.catMaybes
                               [(JSON..=) "CategoryValues" Prelude.<$> categoryValues,
+                               (JSON..=) "NullOption" Prelude.<$> nullOption,
                                (JSON..=) "SelectAllOptions" Prelude.<$> selectAllOptions]))}
 instance JSON.ToJSON FilterListConfigurationProperty where
   toJSON FilterListConfigurationProperty {..}
@@ -37,6 +39,7 @@ instance JSON.ToJSON FilterListConfigurationProperty where
               ["MatchOperator" JSON..= matchOperator]
               (Prelude.catMaybes
                  [(JSON..=) "CategoryValues" Prelude.<$> categoryValues,
+                  (JSON..=) "NullOption" Prelude.<$> nullOption,
                   (JSON..=) "SelectAllOptions" Prelude.<$> selectAllOptions])))
 instance Property "CategoryValues" FilterListConfigurationProperty where
   type PropertyType "CategoryValues" FilterListConfigurationProperty = ValueList Prelude.Text
@@ -47,6 +50,11 @@ instance Property "MatchOperator" FilterListConfigurationProperty where
   type PropertyType "MatchOperator" FilterListConfigurationProperty = Value Prelude.Text
   set newValue FilterListConfigurationProperty {..}
     = FilterListConfigurationProperty {matchOperator = newValue, ..}
+instance Property "NullOption" FilterListConfigurationProperty where
+  type PropertyType "NullOption" FilterListConfigurationProperty = Value Prelude.Text
+  set newValue FilterListConfigurationProperty {..}
+    = FilterListConfigurationProperty
+        {nullOption = Prelude.pure newValue, ..}
 instance Property "SelectAllOptions" FilterListConfigurationProperty where
   type PropertyType "SelectAllOptions" FilterListConfigurationProperty = Value Prelude.Text
   set newValue FilterListConfigurationProperty {..}

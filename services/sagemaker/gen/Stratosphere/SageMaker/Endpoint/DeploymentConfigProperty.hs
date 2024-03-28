@@ -7,37 +7,41 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.AutoRollbackConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.BlueGreenUpdatePolicyProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.Endpoint.RollingUpdatePolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data DeploymentConfigProperty
   = DeploymentConfigProperty {autoRollbackConfiguration :: (Prelude.Maybe AutoRollbackConfigProperty),
-                              blueGreenUpdatePolicy :: BlueGreenUpdatePolicyProperty}
+                              blueGreenUpdatePolicy :: (Prelude.Maybe BlueGreenUpdatePolicyProperty),
+                              rollingUpdatePolicy :: (Prelude.Maybe RollingUpdatePolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkDeploymentConfigProperty ::
-  BlueGreenUpdatePolicyProperty -> DeploymentConfigProperty
-mkDeploymentConfigProperty blueGreenUpdatePolicy
+mkDeploymentConfigProperty :: DeploymentConfigProperty
+mkDeploymentConfigProperty
   = DeploymentConfigProperty
-      {blueGreenUpdatePolicy = blueGreenUpdatePolicy,
-       autoRollbackConfiguration = Prelude.Nothing}
+      {autoRollbackConfiguration = Prelude.Nothing,
+       blueGreenUpdatePolicy = Prelude.Nothing,
+       rollingUpdatePolicy = Prelude.Nothing}
 instance ToResourceProperties DeploymentConfigProperty where
   toResourceProperties DeploymentConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Endpoint.DeploymentConfig",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["BlueGreenUpdatePolicy" JSON..= blueGreenUpdatePolicy]
-                           (Prelude.catMaybes
-                              [(JSON..=) "AutoRollbackConfiguration"
-                                 Prelude.<$> autoRollbackConfiguration]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "AutoRollbackConfiguration"
+                              Prelude.<$> autoRollbackConfiguration,
+                            (JSON..=) "BlueGreenUpdatePolicy"
+                              Prelude.<$> blueGreenUpdatePolicy,
+                            (JSON..=) "RollingUpdatePolicy" Prelude.<$> rollingUpdatePolicy])}
 instance JSON.ToJSON DeploymentConfigProperty where
   toJSON DeploymentConfigProperty {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["BlueGreenUpdatePolicy" JSON..= blueGreenUpdatePolicy]
-              (Prelude.catMaybes
-                 [(JSON..=) "AutoRollbackConfiguration"
-                    Prelude.<$> autoRollbackConfiguration])))
+           (Prelude.catMaybes
+              [(JSON..=) "AutoRollbackConfiguration"
+                 Prelude.<$> autoRollbackConfiguration,
+               (JSON..=) "BlueGreenUpdatePolicy"
+                 Prelude.<$> blueGreenUpdatePolicy,
+               (JSON..=) "RollingUpdatePolicy" Prelude.<$> rollingUpdatePolicy]))
 instance Property "AutoRollbackConfiguration" DeploymentConfigProperty where
   type PropertyType "AutoRollbackConfiguration" DeploymentConfigProperty = AutoRollbackConfigProperty
   set newValue DeploymentConfigProperty {..}
@@ -46,4 +50,10 @@ instance Property "AutoRollbackConfiguration" DeploymentConfigProperty where
 instance Property "BlueGreenUpdatePolicy" DeploymentConfigProperty where
   type PropertyType "BlueGreenUpdatePolicy" DeploymentConfigProperty = BlueGreenUpdatePolicyProperty
   set newValue DeploymentConfigProperty {..}
-    = DeploymentConfigProperty {blueGreenUpdatePolicy = newValue, ..}
+    = DeploymentConfigProperty
+        {blueGreenUpdatePolicy = Prelude.pure newValue, ..}
+instance Property "RollingUpdatePolicy" DeploymentConfigProperty where
+  type PropertyType "RollingUpdatePolicy" DeploymentConfigProperty = RollingUpdatePolicyProperty
+  set newValue DeploymentConfigProperty {..}
+    = DeploymentConfigProperty
+        {rollingUpdatePolicy = Prelude.pure newValue, ..}

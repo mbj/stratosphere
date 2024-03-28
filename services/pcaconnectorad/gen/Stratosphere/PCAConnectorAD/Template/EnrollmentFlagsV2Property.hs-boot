@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorAD.Template.EnrollmentFlagsV2Property where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EnrollmentFlagsV2Property :: Prelude.Type
+instance ToResourceProperties EnrollmentFlagsV2Property
+instance Prelude.Eq EnrollmentFlagsV2Property
+instance Prelude.Show EnrollmentFlagsV2Property
+instance JSON.ToJSON EnrollmentFlagsV2Property

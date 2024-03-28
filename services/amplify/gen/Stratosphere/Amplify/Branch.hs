@@ -4,6 +4,7 @@ module Stratosphere.Amplify.Branch (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Amplify.Branch.BackendProperty as Exports
 import {-# SOURCE #-} Stratosphere.Amplify.Branch.BasicAuthConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Amplify.Branch.EnvironmentVariableProperty as Exports
 import Stratosphere.ResourceProperties
@@ -11,6 +12,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Branch
   = Branch {appId :: (Value Prelude.Text),
+            backend :: (Prelude.Maybe BackendProperty),
             basicAuthConfig :: (Prelude.Maybe BasicAuthConfigProperty),
             branchName :: (Value Prelude.Text),
             buildSpec :: (Prelude.Maybe (Value Prelude.Text)),
@@ -27,7 +29,7 @@ data Branch
 mkBranch :: Value Prelude.Text -> Value Prelude.Text -> Branch
 mkBranch appId branchName
   = Branch
-      {appId = appId, branchName = branchName,
+      {appId = appId, branchName = branchName, backend = Prelude.Nothing,
        basicAuthConfig = Prelude.Nothing, buildSpec = Prelude.Nothing,
        description = Prelude.Nothing, enableAutoBuild = Prelude.Nothing,
        enablePerformanceMode = Prelude.Nothing,
@@ -44,7 +46,8 @@ instance ToResourceProperties Branch where
                         ((Prelude.<>)
                            ["AppId" JSON..= appId, "BranchName" JSON..= branchName]
                            (Prelude.catMaybes
-                              [(JSON..=) "BasicAuthConfig" Prelude.<$> basicAuthConfig,
+                              [(JSON..=) "Backend" Prelude.<$> backend,
+                               (JSON..=) "BasicAuthConfig" Prelude.<$> basicAuthConfig,
                                (JSON..=) "BuildSpec" Prelude.<$> buildSpec,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "EnableAutoBuild" Prelude.<$> enableAutoBuild,
@@ -65,7 +68,8 @@ instance JSON.ToJSON Branch where
            ((Prelude.<>)
               ["AppId" JSON..= appId, "BranchName" JSON..= branchName]
               (Prelude.catMaybes
-                 [(JSON..=) "BasicAuthConfig" Prelude.<$> basicAuthConfig,
+                 [(JSON..=) "Backend" Prelude.<$> backend,
+                  (JSON..=) "BasicAuthConfig" Prelude.<$> basicAuthConfig,
                   (JSON..=) "BuildSpec" Prelude.<$> buildSpec,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "EnableAutoBuild" Prelude.<$> enableAutoBuild,
@@ -82,6 +86,10 @@ instance JSON.ToJSON Branch where
 instance Property "AppId" Branch where
   type PropertyType "AppId" Branch = Value Prelude.Text
   set newValue Branch {..} = Branch {appId = newValue, ..}
+instance Property "Backend" Branch where
+  type PropertyType "Backend" Branch = BackendProperty
+  set newValue Branch {..}
+    = Branch {backend = Prelude.pure newValue, ..}
 instance Property "BasicAuthConfig" Branch where
   type PropertyType "BasicAuthConfig" Branch = BasicAuthConfigProperty
   set newValue Branch {..}

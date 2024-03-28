@@ -1,0 +1,9 @@
+module Stratosphere.CloudFront.ContinuousDeploymentPolicy.SingleHeaderPolicyConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SingleHeaderPolicyConfigProperty :: Prelude.Type
+instance ToResourceProperties SingleHeaderPolicyConfigProperty
+instance Prelude.Eq SingleHeaderPolicyConfigProperty
+instance Prelude.Show SingleHeaderPolicyConfigProperty
+instance JSON.ToJSON SingleHeaderPolicyConfigProperty

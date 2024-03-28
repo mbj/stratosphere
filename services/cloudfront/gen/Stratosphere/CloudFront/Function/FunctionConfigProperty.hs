@@ -1,34 +1,53 @@
 module Stratosphere.CloudFront.Function.FunctionConfigProperty (
-        FunctionConfigProperty(..), mkFunctionConfigProperty
+        module Exports, FunctionConfigProperty(..),
+        mkFunctionConfigProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.CloudFront.Function.KeyValueStoreAssociationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FunctionConfigProperty
   = FunctionConfigProperty {comment :: (Value Prelude.Text),
+                            keyValueStoreAssociations :: (Prelude.Maybe [KeyValueStoreAssociationProperty]),
                             runtime :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFunctionConfigProperty ::
   Value Prelude.Text -> Value Prelude.Text -> FunctionConfigProperty
 mkFunctionConfigProperty comment runtime
-  = FunctionConfigProperty {comment = comment, runtime = runtime}
+  = FunctionConfigProperty
+      {comment = comment, runtime = runtime,
+       keyValueStoreAssociations = Prelude.Nothing}
 instance ToResourceProperties FunctionConfigProperty where
   toResourceProperties FunctionConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::CloudFront::Function.FunctionConfig",
          supportsTags = Prelude.False,
-         properties = ["Comment" JSON..= comment,
-                       "Runtime" JSON..= runtime]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Comment" JSON..= comment, "Runtime" JSON..= runtime]
+                           (Prelude.catMaybes
+                              [(JSON..=) "KeyValueStoreAssociations"
+                                 Prelude.<$> keyValueStoreAssociations]))}
 instance JSON.ToJSON FunctionConfigProperty where
   toJSON FunctionConfigProperty {..}
     = JSON.object
-        ["Comment" JSON..= comment, "Runtime" JSON..= runtime]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Comment" JSON..= comment, "Runtime" JSON..= runtime]
+              (Prelude.catMaybes
+                 [(JSON..=) "KeyValueStoreAssociations"
+                    Prelude.<$> keyValueStoreAssociations])))
 instance Property "Comment" FunctionConfigProperty where
   type PropertyType "Comment" FunctionConfigProperty = Value Prelude.Text
   set newValue FunctionConfigProperty {..}
     = FunctionConfigProperty {comment = newValue, ..}
+instance Property "KeyValueStoreAssociations" FunctionConfigProperty where
+  type PropertyType "KeyValueStoreAssociations" FunctionConfigProperty = [KeyValueStoreAssociationProperty]
+  set newValue FunctionConfigProperty {..}
+    = FunctionConfigProperty
+        {keyValueStoreAssociations = Prelude.pure newValue, ..}
 instance Property "Runtime" FunctionConfigProperty where
   type PropertyType "Runtime" FunctionConfigProperty = Value Prelude.Text
   set newValue FunctionConfigProperty {..}

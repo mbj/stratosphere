@@ -5,18 +5,21 @@ module Stratosphere.QuickSight.Analysis.AggregationFunctionProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.AttributeAggregationFunctionProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.NumericalAggregationFunctionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AggregationFunctionProperty
-  = AggregationFunctionProperty {categoricalAggregationFunction :: (Prelude.Maybe (Value Prelude.Text)),
+  = AggregationFunctionProperty {attributeAggregationFunction :: (Prelude.Maybe AttributeAggregationFunctionProperty),
+                                 categoricalAggregationFunction :: (Prelude.Maybe (Value Prelude.Text)),
                                  dateAggregationFunction :: (Prelude.Maybe (Value Prelude.Text)),
                                  numericalAggregationFunction :: (Prelude.Maybe NumericalAggregationFunctionProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAggregationFunctionProperty :: AggregationFunctionProperty
 mkAggregationFunctionProperty
   = AggregationFunctionProperty
-      {categoricalAggregationFunction = Prelude.Nothing,
+      {attributeAggregationFunction = Prelude.Nothing,
+       categoricalAggregationFunction = Prelude.Nothing,
        dateAggregationFunction = Prelude.Nothing,
        numericalAggregationFunction = Prelude.Nothing}
 instance ToResourceProperties AggregationFunctionProperty where
@@ -26,7 +29,9 @@ instance ToResourceProperties AggregationFunctionProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "CategoricalAggregationFunction"
+                           [(JSON..=) "AttributeAggregationFunction"
+                              Prelude.<$> attributeAggregationFunction,
+                            (JSON..=) "CategoricalAggregationFunction"
                               Prelude.<$> categoricalAggregationFunction,
                             (JSON..=) "DateAggregationFunction"
                               Prelude.<$> dateAggregationFunction,
@@ -37,12 +42,19 @@ instance JSON.ToJSON AggregationFunctionProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "CategoricalAggregationFunction"
+              [(JSON..=) "AttributeAggregationFunction"
+                 Prelude.<$> attributeAggregationFunction,
+               (JSON..=) "CategoricalAggregationFunction"
                  Prelude.<$> categoricalAggregationFunction,
                (JSON..=) "DateAggregationFunction"
                  Prelude.<$> dateAggregationFunction,
                (JSON..=) "NumericalAggregationFunction"
                  Prelude.<$> numericalAggregationFunction]))
+instance Property "AttributeAggregationFunction" AggregationFunctionProperty where
+  type PropertyType "AttributeAggregationFunction" AggregationFunctionProperty = AttributeAggregationFunctionProperty
+  set newValue AggregationFunctionProperty {..}
+    = AggregationFunctionProperty
+        {attributeAggregationFunction = Prelude.pure newValue, ..}
 instance Property "CategoricalAggregationFunction" AggregationFunctionProperty where
   type PropertyType "CategoricalAggregationFunction" AggregationFunctionProperty = Value Prelude.Text
   set newValue AggregationFunctionProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.AppImageConfig.ContainerConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContainerConfigProperty :: Prelude.Type
+instance ToResourceProperties ContainerConfigProperty
+instance Prelude.Eq ContainerConfigProperty
+instance Prelude.Show ContainerConfigProperty
+instance JSON.ToJSON ContainerConfigProperty

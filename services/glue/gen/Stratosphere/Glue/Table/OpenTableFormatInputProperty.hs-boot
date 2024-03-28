@@ -1,0 +1,9 @@
+module Stratosphere.Glue.Table.OpenTableFormatInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenTableFormatInputProperty :: Prelude.Type
+instance ToResourceProperties OpenTableFormatInputProperty
+instance Prelude.Eq OpenTableFormatInputProperty
+instance Prelude.Show OpenTableFormatInputProperty
+instance JSON.ToJSON OpenTableFormatInputProperty

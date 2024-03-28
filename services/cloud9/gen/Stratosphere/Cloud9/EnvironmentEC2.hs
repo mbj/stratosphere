@@ -12,7 +12,7 @@ data EnvironmentEC2
   = EnvironmentEC2 {automaticStopTimeMinutes :: (Prelude.Maybe (Value Prelude.Integer)),
                     connectionType :: (Prelude.Maybe (Value Prelude.Text)),
                     description :: (Prelude.Maybe (Value Prelude.Text)),
-                    imageId :: (Prelude.Maybe (Value Prelude.Text)),
+                    imageId :: (Value Prelude.Text),
                     instanceType :: (Value Prelude.Text),
                     name :: (Prelude.Maybe (Value Prelude.Text)),
                     ownerArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -20,15 +20,16 @@ data EnvironmentEC2
                     subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkEnvironmentEC2 :: Value Prelude.Text -> EnvironmentEC2
-mkEnvironmentEC2 instanceType
+mkEnvironmentEC2 ::
+  Value Prelude.Text -> Value Prelude.Text -> EnvironmentEC2
+mkEnvironmentEC2 imageId instanceType
   = EnvironmentEC2
-      {instanceType = instanceType,
+      {imageId = imageId, instanceType = instanceType,
        automaticStopTimeMinutes = Prelude.Nothing,
        connectionType = Prelude.Nothing, description = Prelude.Nothing,
-       imageId = Prelude.Nothing, name = Prelude.Nothing,
-       ownerArn = Prelude.Nothing, repositories = Prelude.Nothing,
-       subnetId = Prelude.Nothing, tags = Prelude.Nothing}
+       name = Prelude.Nothing, ownerArn = Prelude.Nothing,
+       repositories = Prelude.Nothing, subnetId = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties EnvironmentEC2 where
   toResourceProperties EnvironmentEC2 {..}
     = ResourceProperties
@@ -36,13 +37,12 @@ instance ToResourceProperties EnvironmentEC2 where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["InstanceType" JSON..= instanceType]
+                           ["ImageId" JSON..= imageId, "InstanceType" JSON..= instanceType]
                            (Prelude.catMaybes
                               [(JSON..=) "AutomaticStopTimeMinutes"
                                  Prelude.<$> automaticStopTimeMinutes,
                                (JSON..=) "ConnectionType" Prelude.<$> connectionType,
                                (JSON..=) "Description" Prelude.<$> description,
-                               (JSON..=) "ImageId" Prelude.<$> imageId,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "OwnerArn" Prelude.<$> ownerArn,
                                (JSON..=) "Repositories" Prelude.<$> repositories,
@@ -53,13 +53,12 @@ instance JSON.ToJSON EnvironmentEC2 where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["InstanceType" JSON..= instanceType]
+              ["ImageId" JSON..= imageId, "InstanceType" JSON..= instanceType]
               (Prelude.catMaybes
                  [(JSON..=) "AutomaticStopTimeMinutes"
                     Prelude.<$> automaticStopTimeMinutes,
                   (JSON..=) "ConnectionType" Prelude.<$> connectionType,
                   (JSON..=) "Description" Prelude.<$> description,
-                  (JSON..=) "ImageId" Prelude.<$> imageId,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "OwnerArn" Prelude.<$> ownerArn,
                   (JSON..=) "Repositories" Prelude.<$> repositories,
@@ -81,7 +80,7 @@ instance Property "Description" EnvironmentEC2 where
 instance Property "ImageId" EnvironmentEC2 where
   type PropertyType "ImageId" EnvironmentEC2 = Value Prelude.Text
   set newValue EnvironmentEC2 {..}
-    = EnvironmentEC2 {imageId = Prelude.pure newValue, ..}
+    = EnvironmentEC2 {imageId = newValue, ..}
 instance Property "InstanceType" EnvironmentEC2 where
   type PropertyType "InstanceType" EnvironmentEC2 = Value Prelude.Text
   set newValue EnvironmentEC2 {..}

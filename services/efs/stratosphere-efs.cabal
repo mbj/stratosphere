@@ -33,7 +33,10 @@ library
       Stratosphere.EFS.FileSystem
       Stratosphere.EFS.FileSystem.BackupPolicyProperty
       Stratosphere.EFS.FileSystem.ElasticFileSystemTagProperty
+      Stratosphere.EFS.FileSystem.FileSystemProtectionProperty
       Stratosphere.EFS.FileSystem.LifecyclePolicyProperty
+      Stratosphere.EFS.FileSystem.ReplicationConfigurationProperty
+      Stratosphere.EFS.FileSystem.ReplicationDestinationProperty
       Stratosphere.EFS.MountTarget
   other-modules:
       Paths_stratosphere_efs

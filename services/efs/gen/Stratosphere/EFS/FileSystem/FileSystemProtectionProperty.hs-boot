@@ -1,0 +1,9 @@
+module Stratosphere.EFS.FileSystem.FileSystemProtectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FileSystemProtectionProperty :: Prelude.Type
+instance ToResourceProperties FileSystemProtectionProperty
+instance Prelude.Eq FileSystemProtectionProperty
+instance Prelude.Show FileSystemProtectionProperty
+instance JSON.ToJSON FileSystemProtectionProperty

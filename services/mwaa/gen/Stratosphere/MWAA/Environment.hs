@@ -12,6 +12,7 @@ data Environment
   = Environment {airflowConfigurationOptions :: (Prelude.Maybe JSON.Object),
                  airflowVersion :: (Prelude.Maybe (Value Prelude.Text)),
                  dagS3Path :: (Prelude.Maybe (Value Prelude.Text)),
+                 endpointManagement :: (Prelude.Maybe (Value Prelude.Text)),
                  environmentClass :: (Prelude.Maybe (Value Prelude.Text)),
                  executionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                  kmsKey :: (Prelude.Maybe (Value Prelude.Text)),
@@ -37,6 +38,7 @@ mkEnvironment name
   = Environment
       {name = name, airflowConfigurationOptions = Prelude.Nothing,
        airflowVersion = Prelude.Nothing, dagS3Path = Prelude.Nothing,
+       endpointManagement = Prelude.Nothing,
        environmentClass = Prelude.Nothing,
        executionRoleArn = Prelude.Nothing, kmsKey = Prelude.Nothing,
        loggingConfiguration = Prelude.Nothing,
@@ -63,6 +65,7 @@ instance ToResourceProperties Environment where
                                  Prelude.<$> airflowConfigurationOptions,
                                (JSON..=) "AirflowVersion" Prelude.<$> airflowVersion,
                                (JSON..=) "DagS3Path" Prelude.<$> dagS3Path,
+                               (JSON..=) "EndpointManagement" Prelude.<$> endpointManagement,
                                (JSON..=) "EnvironmentClass" Prelude.<$> environmentClass,
                                (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                                (JSON..=) "KmsKey" Prelude.<$> kmsKey,
@@ -96,6 +99,7 @@ instance JSON.ToJSON Environment where
                     Prelude.<$> airflowConfigurationOptions,
                   (JSON..=) "AirflowVersion" Prelude.<$> airflowVersion,
                   (JSON..=) "DagS3Path" Prelude.<$> dagS3Path,
+                  (JSON..=) "EndpointManagement" Prelude.<$> endpointManagement,
                   (JSON..=) "EnvironmentClass" Prelude.<$> environmentClass,
                   (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                   (JSON..=) "KmsKey" Prelude.<$> kmsKey,
@@ -131,6 +135,10 @@ instance Property "DagS3Path" Environment where
   type PropertyType "DagS3Path" Environment = Value Prelude.Text
   set newValue Environment {..}
     = Environment {dagS3Path = Prelude.pure newValue, ..}
+instance Property "EndpointManagement" Environment where
+  type PropertyType "EndpointManagement" Environment = Value Prelude.Text
+  set newValue Environment {..}
+    = Environment {endpointManagement = Prelude.pure newValue, ..}
 instance Property "EnvironmentClass" Environment where
   type PropertyType "EnvironmentClass" Environment = Value Prelude.Text
   set newValue Environment {..}

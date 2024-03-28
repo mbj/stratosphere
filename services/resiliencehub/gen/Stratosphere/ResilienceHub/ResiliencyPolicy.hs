@@ -4,19 +4,19 @@ module Stratosphere.ResilienceHub.ResiliencyPolicy (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.ResilienceHub.ResiliencyPolicy.FailurePolicyProperty as Exports
+import {-# SOURCE #-} Stratosphere.ResilienceHub.ResiliencyPolicy.PolicyMapProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ResiliencyPolicy
   = ResiliencyPolicy {dataLocationConstraint :: (Prelude.Maybe (Value Prelude.Text)),
-                      policy :: (Prelude.Map Prelude.Text FailurePolicyProperty),
+                      policy :: PolicyMapProperty,
                       policyDescription :: (Prelude.Maybe (Value Prelude.Text)),
                       policyName :: (Value Prelude.Text),
                       tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                       tier :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkResiliencyPolicy ::
-  Prelude.Map Prelude.Text FailurePolicyProperty
+  PolicyMapProperty
   -> Value Prelude.Text -> Value Prelude.Text -> ResiliencyPolicy
 mkResiliencyPolicy policy policyName tier
   = ResiliencyPolicy
@@ -55,7 +55,7 @@ instance Property "DataLocationConstraint" ResiliencyPolicy where
     = ResiliencyPolicy
         {dataLocationConstraint = Prelude.pure newValue, ..}
 instance Property "Policy" ResiliencyPolicy where
-  type PropertyType "Policy" ResiliencyPolicy = Prelude.Map Prelude.Text FailurePolicyProperty
+  type PropertyType "Policy" ResiliencyPolicy = PolicyMapProperty
   set newValue ResiliencyPolicy {..}
     = ResiliencyPolicy {policy = newValue, ..}
 instance Property "PolicyDescription" ResiliencyPolicy where

@@ -9,13 +9,15 @@ import {-# SOURCE #-} Stratosphere.S3.StorageLens.AdvancedCostOptimizationMetric
 import {-# SOURCE #-} Stratosphere.S3.StorageLens.AdvancedDataProtectionMetricsProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.StorageLens.BucketLevelProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.StorageLens.DetailedStatusCodesMetricsProperty as Exports
+import {-# SOURCE #-} Stratosphere.S3.StorageLens.StorageLensGroupLevelProperty as Exports
 import Stratosphere.ResourceProperties
 data AccountLevelProperty
   = AccountLevelProperty {activityMetrics :: (Prelude.Maybe ActivityMetricsProperty),
                           advancedCostOptimizationMetrics :: (Prelude.Maybe AdvancedCostOptimizationMetricsProperty),
                           advancedDataProtectionMetrics :: (Prelude.Maybe AdvancedDataProtectionMetricsProperty),
                           bucketLevel :: BucketLevelProperty,
-                          detailedStatusCodesMetrics :: (Prelude.Maybe DetailedStatusCodesMetricsProperty)}
+                          detailedStatusCodesMetrics :: (Prelude.Maybe DetailedStatusCodesMetricsProperty),
+                          storageLensGroupLevel :: (Prelude.Maybe StorageLensGroupLevelProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccountLevelProperty ::
   BucketLevelProperty -> AccountLevelProperty
@@ -24,7 +26,8 @@ mkAccountLevelProperty bucketLevel
       {bucketLevel = bucketLevel, activityMetrics = Prelude.Nothing,
        advancedCostOptimizationMetrics = Prelude.Nothing,
        advancedDataProtectionMetrics = Prelude.Nothing,
-       detailedStatusCodesMetrics = Prelude.Nothing}
+       detailedStatusCodesMetrics = Prelude.Nothing,
+       storageLensGroupLevel = Prelude.Nothing}
 instance ToResourceProperties AccountLevelProperty where
   toResourceProperties AccountLevelProperty {..}
     = ResourceProperties
@@ -40,7 +43,9 @@ instance ToResourceProperties AccountLevelProperty where
                                (JSON..=) "AdvancedDataProtectionMetrics"
                                  Prelude.<$> advancedDataProtectionMetrics,
                                (JSON..=) "DetailedStatusCodesMetrics"
-                                 Prelude.<$> detailedStatusCodesMetrics]))}
+                                 Prelude.<$> detailedStatusCodesMetrics,
+                               (JSON..=) "StorageLensGroupLevel"
+                                 Prelude.<$> storageLensGroupLevel]))}
 instance JSON.ToJSON AccountLevelProperty where
   toJSON AccountLevelProperty {..}
     = JSON.object
@@ -54,7 +59,9 @@ instance JSON.ToJSON AccountLevelProperty where
                   (JSON..=) "AdvancedDataProtectionMetrics"
                     Prelude.<$> advancedDataProtectionMetrics,
                   (JSON..=) "DetailedStatusCodesMetrics"
-                    Prelude.<$> detailedStatusCodesMetrics])))
+                    Prelude.<$> detailedStatusCodesMetrics,
+                  (JSON..=) "StorageLensGroupLevel"
+                    Prelude.<$> storageLensGroupLevel])))
 instance Property "ActivityMetrics" AccountLevelProperty where
   type PropertyType "ActivityMetrics" AccountLevelProperty = ActivityMetricsProperty
   set newValue AccountLevelProperty {..}
@@ -79,3 +86,8 @@ instance Property "DetailedStatusCodesMetrics" AccountLevelProperty where
   set newValue AccountLevelProperty {..}
     = AccountLevelProperty
         {detailedStatusCodesMetrics = Prelude.pure newValue, ..}
+instance Property "StorageLensGroupLevel" AccountLevelProperty where
+  type PropertyType "StorageLensGroupLevel" AccountLevelProperty = StorageLensGroupLevelProperty
+  set newValue AccountLevelProperty {..}
+    = AccountLevelProperty
+        {storageLensGroupLevel = Prelude.pure newValue, ..}

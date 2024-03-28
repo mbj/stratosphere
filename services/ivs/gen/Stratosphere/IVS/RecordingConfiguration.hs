@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IVS.RecordingConfiguration.DestinationConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.IVS.RecordingConfiguration.RenditionConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.IVS.RecordingConfiguration.ThumbnailConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -14,6 +15,7 @@ data RecordingConfiguration
   = RecordingConfiguration {destinationConfiguration :: DestinationConfigurationProperty,
                             name :: (Prelude.Maybe (Value Prelude.Text)),
                             recordingReconnectWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
+                            renditionConfiguration :: (Prelude.Maybe RenditionConfigurationProperty),
                             tags :: (Prelude.Maybe [Tag]),
                             thumbnailConfiguration :: (Prelude.Maybe ThumbnailConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -24,7 +26,8 @@ mkRecordingConfiguration destinationConfiguration
       {destinationConfiguration = destinationConfiguration,
        name = Prelude.Nothing,
        recordingReconnectWindowSeconds = Prelude.Nothing,
-       tags = Prelude.Nothing, thumbnailConfiguration = Prelude.Nothing}
+       renditionConfiguration = Prelude.Nothing, tags = Prelude.Nothing,
+       thumbnailConfiguration = Prelude.Nothing}
 instance ToResourceProperties RecordingConfiguration where
   toResourceProperties RecordingConfiguration {..}
     = ResourceProperties
@@ -37,6 +40,8 @@ instance ToResourceProperties RecordingConfiguration where
                               [(JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "RecordingReconnectWindowSeconds"
                                  Prelude.<$> recordingReconnectWindowSeconds,
+                               (JSON..=) "RenditionConfiguration"
+                                 Prelude.<$> renditionConfiguration,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "ThumbnailConfiguration"
                                  Prelude.<$> thumbnailConfiguration]))}
@@ -50,6 +55,8 @@ instance JSON.ToJSON RecordingConfiguration where
                  [(JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "RecordingReconnectWindowSeconds"
                     Prelude.<$> recordingReconnectWindowSeconds,
+                  (JSON..=) "RenditionConfiguration"
+                    Prelude.<$> renditionConfiguration,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "ThumbnailConfiguration"
                     Prelude.<$> thumbnailConfiguration])))
@@ -66,6 +73,11 @@ instance Property "RecordingReconnectWindowSeconds" RecordingConfiguration where
   set newValue RecordingConfiguration {..}
     = RecordingConfiguration
         {recordingReconnectWindowSeconds = Prelude.pure newValue, ..}
+instance Property "RenditionConfiguration" RecordingConfiguration where
+  type PropertyType "RenditionConfiguration" RecordingConfiguration = RenditionConfigurationProperty
+  set newValue RecordingConfiguration {..}
+    = RecordingConfiguration
+        {renditionConfiguration = Prelude.pure newValue, ..}
 instance Property "Tags" RecordingConfiguration where
   type PropertyType "Tags" RecordingConfiguration = [Tag]
   set newValue RecordingConfiguration {..}

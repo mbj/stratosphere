@@ -46,6 +46,7 @@ library
       Stratosphere.EMR.Cluster.ManagedScalingPolicyProperty
       Stratosphere.EMR.Cluster.MetricDimensionProperty
       Stratosphere.EMR.Cluster.OnDemandProvisioningSpecificationProperty
+      Stratosphere.EMR.Cluster.PlacementGroupConfigProperty
       Stratosphere.EMR.Cluster.PlacementTypeProperty
       Stratosphere.EMR.Cluster.ScalingActionProperty
       Stratosphere.EMR.Cluster.ScalingConstraintsProperty
@@ -84,6 +85,7 @@ library
       Stratosphere.EMR.Step.KeyValueProperty
       Stratosphere.EMR.Studio
       Stratosphere.EMR.StudioSessionMapping
+      Stratosphere.EMR.WALWorkspace
   other-modules:
       Paths_stratosphere_emr
   hs-source-dirs:

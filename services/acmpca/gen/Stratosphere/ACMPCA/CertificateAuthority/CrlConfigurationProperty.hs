@@ -1,13 +1,16 @@
 module Stratosphere.ACMPCA.CertificateAuthority.CrlConfigurationProperty (
-        CrlConfigurationProperty(..), mkCrlConfigurationProperty
+        module Exports, CrlConfigurationProperty(..),
+        mkCrlConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ACMPCA.CertificateAuthority.CrlDistributionPointExtensionConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CrlConfigurationProperty
-  = CrlConfigurationProperty {customCname :: (Prelude.Maybe (Value Prelude.Text)),
+  = CrlConfigurationProperty {crlDistributionPointExtensionConfiguration :: (Prelude.Maybe CrlDistributionPointExtensionConfigurationProperty),
+                              customCname :: (Prelude.Maybe (Value Prelude.Text)),
                               enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                               expirationInDays :: (Prelude.Maybe (Value Prelude.Integer)),
                               s3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -16,7 +19,8 @@ data CrlConfigurationProperty
 mkCrlConfigurationProperty :: CrlConfigurationProperty
 mkCrlConfigurationProperty
   = CrlConfigurationProperty
-      {customCname = Prelude.Nothing, enabled = Prelude.Nothing,
+      {crlDistributionPointExtensionConfiguration = Prelude.Nothing,
+       customCname = Prelude.Nothing, enabled = Prelude.Nothing,
        expirationInDays = Prelude.Nothing, s3BucketName = Prelude.Nothing,
        s3ObjectAcl = Prelude.Nothing}
 instance ToResourceProperties CrlConfigurationProperty where
@@ -26,7 +30,9 @@ instance ToResourceProperties CrlConfigurationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "CustomCname" Prelude.<$> customCname,
+                           [(JSON..=) "CrlDistributionPointExtensionConfiguration"
+                              Prelude.<$> crlDistributionPointExtensionConfiguration,
+                            (JSON..=) "CustomCname" Prelude.<$> customCname,
                             (JSON..=) "Enabled" Prelude.<$> enabled,
                             (JSON..=) "ExpirationInDays" Prelude.<$> expirationInDays,
                             (JSON..=) "S3BucketName" Prelude.<$> s3BucketName,
@@ -36,11 +42,20 @@ instance JSON.ToJSON CrlConfigurationProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "CustomCname" Prelude.<$> customCname,
+              [(JSON..=) "CrlDistributionPointExtensionConfiguration"
+                 Prelude.<$> crlDistributionPointExtensionConfiguration,
+               (JSON..=) "CustomCname" Prelude.<$> customCname,
                (JSON..=) "Enabled" Prelude.<$> enabled,
                (JSON..=) "ExpirationInDays" Prelude.<$> expirationInDays,
                (JSON..=) "S3BucketName" Prelude.<$> s3BucketName,
                (JSON..=) "S3ObjectAcl" Prelude.<$> s3ObjectAcl]))
+instance Property "CrlDistributionPointExtensionConfiguration" CrlConfigurationProperty where
+  type PropertyType "CrlDistributionPointExtensionConfiguration" CrlConfigurationProperty = CrlDistributionPointExtensionConfigurationProperty
+  set newValue CrlConfigurationProperty {..}
+    = CrlConfigurationProperty
+        {crlDistributionPointExtensionConfiguration = Prelude.pure
+                                                        newValue,
+         ..}
 instance Property "CustomCname" CrlConfigurationProperty where
   type PropertyType "CustomCname" CrlConfigurationProperty = Value Prelude.Text
   set newValue CrlConfigurationProperty {..}

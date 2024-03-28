@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.UserProfile.CodeEditorAppSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CodeEditorAppSettingsProperty :: Prelude.Type
+instance ToResourceProperties CodeEditorAppSettingsProperty
+instance Prelude.Eq CodeEditorAppSettingsProperty
+instance Prelude.Show CodeEditorAppSettingsProperty
+instance JSON.ToJSON CodeEditorAppSettingsProperty

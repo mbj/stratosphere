@@ -4,13 +4,14 @@ module Stratosphere.ResourceExplorer2.View (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.ResourceExplorer2.View.FiltersProperty as Exports
 import {-# SOURCE #-} Stratosphere.ResourceExplorer2.View.IncludedPropertyProperty as Exports
+import {-# SOURCE #-} Stratosphere.ResourceExplorer2.View.SearchFilterProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data View
-  = View {filters :: (Prelude.Maybe FiltersProperty),
+  = View {filters :: (Prelude.Maybe SearchFilterProperty),
           includedProperties :: (Prelude.Maybe [IncludedPropertyProperty]),
+          scope :: (Prelude.Maybe (Value Prelude.Text)),
           tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
           viewName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -18,7 +19,8 @@ mkView :: Value Prelude.Text -> View
 mkView viewName
   = View
       {viewName = viewName, filters = Prelude.Nothing,
-       includedProperties = Prelude.Nothing, tags = Prelude.Nothing}
+       includedProperties = Prelude.Nothing, scope = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties View where
   toResourceProperties View {..}
     = ResourceProperties
@@ -30,6 +32,7 @@ instance ToResourceProperties View where
                            (Prelude.catMaybes
                               [(JSON..=) "Filters" Prelude.<$> filters,
                                (JSON..=) "IncludedProperties" Prelude.<$> includedProperties,
+                               (JSON..=) "Scope" Prelude.<$> scope,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON View where
   toJSON View {..}
@@ -40,14 +43,18 @@ instance JSON.ToJSON View where
               (Prelude.catMaybes
                  [(JSON..=) "Filters" Prelude.<$> filters,
                   (JSON..=) "IncludedProperties" Prelude.<$> includedProperties,
+                  (JSON..=) "Scope" Prelude.<$> scope,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Filters" View where
-  type PropertyType "Filters" View = FiltersProperty
+  type PropertyType "Filters" View = SearchFilterProperty
   set newValue View {..} = View {filters = Prelude.pure newValue, ..}
 instance Property "IncludedProperties" View where
   type PropertyType "IncludedProperties" View = [IncludedPropertyProperty]
   set newValue View {..}
     = View {includedProperties = Prelude.pure newValue, ..}
+instance Property "Scope" View where
+  type PropertyType "Scope" View = Value Prelude.Text
+  set newValue View {..} = View {scope = Prelude.pure newValue, ..}
 instance Property "Tags" View where
   type PropertyType "Tags" View = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue View {..} = View {tags = Prelude.pure newValue, ..}

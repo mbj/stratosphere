@@ -4,15 +4,18 @@ module Stratosphere.Cassandra.Table (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Cassandra.Table.AutoScalingSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.BillingModeProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.ClusteringKeyColumnProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.ColumnProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cassandra.Table.EncryptionSpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Cassandra.Table.ReplicaSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Table
-  = Table {billingMode :: (Prelude.Maybe BillingModeProperty),
+  = Table {autoScalingSpecifications :: (Prelude.Maybe AutoScalingSpecificationProperty),
+           billingMode :: (Prelude.Maybe BillingModeProperty),
            clientSideTimestampsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
            clusteringKeyColumns :: (Prelude.Maybe [ClusteringKeyColumnProperty]),
            defaultTimeToLive :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -21,6 +24,7 @@ data Table
            partitionKeyColumns :: [ColumnProperty],
            pointInTimeRecoveryEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
            regularColumns :: (Prelude.Maybe [ColumnProperty]),
+           replicaSpecifications :: (Prelude.Maybe [ReplicaSpecificationProperty]),
            tableName :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -29,14 +33,16 @@ mkTable keyspaceName partitionKeyColumns
   = Table
       {keyspaceName = keyspaceName,
        partitionKeyColumns = partitionKeyColumns,
+       autoScalingSpecifications = Prelude.Nothing,
        billingMode = Prelude.Nothing,
        clientSideTimestampsEnabled = Prelude.Nothing,
        clusteringKeyColumns = Prelude.Nothing,
        defaultTimeToLive = Prelude.Nothing,
        encryptionSpecification = Prelude.Nothing,
        pointInTimeRecoveryEnabled = Prelude.Nothing,
-       regularColumns = Prelude.Nothing, tableName = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       regularColumns = Prelude.Nothing,
+       replicaSpecifications = Prelude.Nothing,
+       tableName = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Table where
   toResourceProperties Table {..}
     = ResourceProperties
@@ -46,7 +52,9 @@ instance ToResourceProperties Table where
                            ["KeyspaceName" JSON..= keyspaceName,
                             "PartitionKeyColumns" JSON..= partitionKeyColumns]
                            (Prelude.catMaybes
-                              [(JSON..=) "BillingMode" Prelude.<$> billingMode,
+                              [(JSON..=) "AutoScalingSpecifications"
+                                 Prelude.<$> autoScalingSpecifications,
+                               (JSON..=) "BillingMode" Prelude.<$> billingMode,
                                (JSON..=) "ClientSideTimestampsEnabled"
                                  Prelude.<$> clientSideTimestampsEnabled,
                                (JSON..=) "ClusteringKeyColumns" Prelude.<$> clusteringKeyColumns,
@@ -56,6 +64,8 @@ instance ToResourceProperties Table where
                                (JSON..=) "PointInTimeRecoveryEnabled"
                                  Prelude.<$> pointInTimeRecoveryEnabled,
                                (JSON..=) "RegularColumns" Prelude.<$> regularColumns,
+                               (JSON..=) "ReplicaSpecifications"
+                                 Prelude.<$> replicaSpecifications,
                                (JSON..=) "TableName" Prelude.<$> tableName,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Table where
@@ -66,7 +76,9 @@ instance JSON.ToJSON Table where
               ["KeyspaceName" JSON..= keyspaceName,
                "PartitionKeyColumns" JSON..= partitionKeyColumns]
               (Prelude.catMaybes
-                 [(JSON..=) "BillingMode" Prelude.<$> billingMode,
+                 [(JSON..=) "AutoScalingSpecifications"
+                    Prelude.<$> autoScalingSpecifications,
+                  (JSON..=) "BillingMode" Prelude.<$> billingMode,
                   (JSON..=) "ClientSideTimestampsEnabled"
                     Prelude.<$> clientSideTimestampsEnabled,
                   (JSON..=) "ClusteringKeyColumns" Prelude.<$> clusteringKeyColumns,
@@ -76,8 +88,14 @@ instance JSON.ToJSON Table where
                   (JSON..=) "PointInTimeRecoveryEnabled"
                     Prelude.<$> pointInTimeRecoveryEnabled,
                   (JSON..=) "RegularColumns" Prelude.<$> regularColumns,
+                  (JSON..=) "ReplicaSpecifications"
+                    Prelude.<$> replicaSpecifications,
                   (JSON..=) "TableName" Prelude.<$> tableName,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "AutoScalingSpecifications" Table where
+  type PropertyType "AutoScalingSpecifications" Table = AutoScalingSpecificationProperty
+  set newValue Table {..}
+    = Table {autoScalingSpecifications = Prelude.pure newValue, ..}
 instance Property "BillingMode" Table where
   type PropertyType "BillingMode" Table = BillingModeProperty
   set newValue Table {..}
@@ -113,6 +131,10 @@ instance Property "RegularColumns" Table where
   type PropertyType "RegularColumns" Table = [ColumnProperty]
   set newValue Table {..}
     = Table {regularColumns = Prelude.pure newValue, ..}
+instance Property "ReplicaSpecifications" Table where
+  type PropertyType "ReplicaSpecifications" Table = [ReplicaSpecificationProperty]
+  set newValue Table {..}
+    = Table {replicaSpecifications = Prelude.pure newValue, ..}
 instance Property "TableName" Table where
   type PropertyType "TableName" Table = Value Prelude.Text
   set newValue Table {..}

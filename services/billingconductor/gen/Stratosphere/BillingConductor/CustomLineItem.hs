@@ -10,7 +10,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data CustomLineItem
-  = CustomLineItem {billingGroupArn :: (Value Prelude.Text),
+  = CustomLineItem {accountId :: (Prelude.Maybe (Value Prelude.Text)),
+                    billingGroupArn :: (Value Prelude.Text),
                     billingPeriodRange :: (Prelude.Maybe BillingPeriodRangeProperty),
                     customLineItemChargeDetails :: (Prelude.Maybe CustomLineItemChargeDetailsProperty),
                     description :: (Prelude.Maybe (Value Prelude.Text)),
@@ -22,7 +23,7 @@ mkCustomLineItem ::
 mkCustomLineItem billingGroupArn name
   = CustomLineItem
       {billingGroupArn = billingGroupArn, name = name,
-       billingPeriodRange = Prelude.Nothing,
+       accountId = Prelude.Nothing, billingPeriodRange = Prelude.Nothing,
        customLineItemChargeDetails = Prelude.Nothing,
        description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties CustomLineItem where
@@ -34,7 +35,8 @@ instance ToResourceProperties CustomLineItem where
                         ((Prelude.<>)
                            ["BillingGroupArn" JSON..= billingGroupArn, "Name" JSON..= name]
                            (Prelude.catMaybes
-                              [(JSON..=) "BillingPeriodRange" Prelude.<$> billingPeriodRange,
+                              [(JSON..=) "AccountId" Prelude.<$> accountId,
+                               (JSON..=) "BillingPeriodRange" Prelude.<$> billingPeriodRange,
                                (JSON..=) "CustomLineItemChargeDetails"
                                  Prelude.<$> customLineItemChargeDetails,
                                (JSON..=) "Description" Prelude.<$> description,
@@ -46,11 +48,16 @@ instance JSON.ToJSON CustomLineItem where
            ((Prelude.<>)
               ["BillingGroupArn" JSON..= billingGroupArn, "Name" JSON..= name]
               (Prelude.catMaybes
-                 [(JSON..=) "BillingPeriodRange" Prelude.<$> billingPeriodRange,
+                 [(JSON..=) "AccountId" Prelude.<$> accountId,
+                  (JSON..=) "BillingPeriodRange" Prelude.<$> billingPeriodRange,
                   (JSON..=) "CustomLineItemChargeDetails"
                     Prelude.<$> customLineItemChargeDetails,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "AccountId" CustomLineItem where
+  type PropertyType "AccountId" CustomLineItem = Value Prelude.Text
+  set newValue CustomLineItem {..}
+    = CustomLineItem {accountId = Prelude.pure newValue, ..}
 instance Property "BillingGroupArn" CustomLineItem where
   type PropertyType "BillingGroupArn" CustomLineItem = Value Prelude.Text
   set newValue CustomLineItem {..}

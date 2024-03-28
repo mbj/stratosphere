@@ -48,6 +48,8 @@ library
       Stratosphere.IoTWireless.WirelessDevice
       Stratosphere.IoTWireless.WirelessDevice.AbpV10xProperty
       Stratosphere.IoTWireless.WirelessDevice.AbpV11Property
+      Stratosphere.IoTWireless.WirelessDevice.ApplicationProperty
+      Stratosphere.IoTWireless.WirelessDevice.FPortsProperty
       Stratosphere.IoTWireless.WirelessDevice.LoRaWANDeviceProperty
       Stratosphere.IoTWireless.WirelessDevice.OtaaV10xProperty
       Stratosphere.IoTWireless.WirelessDevice.OtaaV11Property

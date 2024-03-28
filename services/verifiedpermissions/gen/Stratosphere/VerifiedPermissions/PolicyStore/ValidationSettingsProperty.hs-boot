@@ -1,0 +1,9 @@
+module Stratosphere.VerifiedPermissions.PolicyStore.ValidationSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ValidationSettingsProperty :: Prelude.Type
+instance ToResourceProperties ValidationSettingsProperty
+instance Prelude.Eq ValidationSettingsProperty
+instance Prelude.Show ValidationSettingsProperty
+instance JSON.ToJSON ValidationSettingsProperty

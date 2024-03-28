@@ -1,0 +1,9 @@
+module Stratosphere.S3.Bucket.PartitionedPrefixProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PartitionedPrefixProperty :: Prelude.Type
+instance ToResourceProperties PartitionedPrefixProperty
+instance Prelude.Eq PartitionedPrefixProperty
+instance Prelude.Show PartitionedPrefixProperty
+instance JSON.ToJSON PartitionedPrefixProperty

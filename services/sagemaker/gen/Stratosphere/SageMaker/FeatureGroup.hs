@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.FeatureGroup.FeatureDefinitionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.FeatureGroup.OfflineStoreConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.FeatureGroup.OnlineStoreConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.FeatureGroup.ThroughputConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -19,7 +20,8 @@ data FeatureGroup
                   onlineStoreConfig :: (Prelude.Maybe OnlineStoreConfigProperty),
                   recordIdentifierFeatureName :: (Value Prelude.Text),
                   roleArn :: (Prelude.Maybe (Value Prelude.Text)),
-                  tags :: (Prelude.Maybe [Tag])}
+                  tags :: (Prelude.Maybe [Tag]),
+                  throughputConfig :: (Prelude.Maybe ThroughputConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFeatureGroup ::
   Value Prelude.Text
@@ -38,7 +40,7 @@ mkFeatureGroup
        description = Prelude.Nothing,
        offlineStoreConfig = Prelude.Nothing,
        onlineStoreConfig = Prelude.Nothing, roleArn = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       tags = Prelude.Nothing, throughputConfig = Prelude.Nothing}
 instance ToResourceProperties FeatureGroup where
   toResourceProperties FeatureGroup {..}
     = ResourceProperties
@@ -55,7 +57,8 @@ instance ToResourceProperties FeatureGroup where
                                (JSON..=) "OfflineStoreConfig" Prelude.<$> offlineStoreConfig,
                                (JSON..=) "OnlineStoreConfig" Prelude.<$> onlineStoreConfig,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "ThroughputConfig" Prelude.<$> throughputConfig]))}
 instance JSON.ToJSON FeatureGroup where
   toJSON FeatureGroup {..}
     = JSON.object
@@ -70,7 +73,8 @@ instance JSON.ToJSON FeatureGroup where
                   (JSON..=) "OfflineStoreConfig" Prelude.<$> offlineStoreConfig,
                   (JSON..=) "OnlineStoreConfig" Prelude.<$> onlineStoreConfig,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "ThroughputConfig" Prelude.<$> throughputConfig])))
 instance Property "Description" FeatureGroup where
   type PropertyType "Description" FeatureGroup = Value Prelude.Text
   set newValue FeatureGroup {..}
@@ -107,3 +111,7 @@ instance Property "Tags" FeatureGroup where
   type PropertyType "Tags" FeatureGroup = [Tag]
   set newValue FeatureGroup {..}
     = FeatureGroup {tags = Prelude.pure newValue, ..}
+instance Property "ThroughputConfig" FeatureGroup where
+  type PropertyType "ThroughputConfig" FeatureGroup = ThroughputConfigProperty
+  set newValue FeatureGroup {..}
+    = FeatureGroup {throughputConfig = Prelude.pure newValue, ..}

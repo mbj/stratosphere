@@ -25,6 +25,7 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.RDS.CustomDBEngineVersion
       Stratosphere.RDS.DBCluster
       Stratosphere.RDS.DBCluster.DBClusterRoleProperty
       Stratosphere.RDS.DBCluster.EndpointProperty
@@ -53,6 +54,7 @@ library
       Stratosphere.RDS.DBSubnetGroup
       Stratosphere.RDS.EventSubscription
       Stratosphere.RDS.GlobalCluster
+      Stratosphere.RDS.Integration
       Stratosphere.RDS.OptionGroup
       Stratosphere.RDS.OptionGroup.OptionConfigurationProperty
       Stratosphere.RDS.OptionGroup.OptionSettingProperty

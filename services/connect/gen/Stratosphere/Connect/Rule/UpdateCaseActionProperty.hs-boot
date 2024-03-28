@@ -1,0 +1,9 @@
+module Stratosphere.Connect.Rule.UpdateCaseActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UpdateCaseActionProperty :: Prelude.Type
+instance ToResourceProperties UpdateCaseActionProperty
+instance Prelude.Eq UpdateCaseActionProperty
+instance Prelude.Show UpdateCaseActionProperty
+instance JSON.ToJSON UpdateCaseActionProperty

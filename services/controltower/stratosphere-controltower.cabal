@@ -25,7 +25,11 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.ControlTower.EnabledBaseline
+      Stratosphere.ControlTower.EnabledBaseline.ParameterProperty
       Stratosphere.ControlTower.EnabledControl
+      Stratosphere.ControlTower.EnabledControl.EnabledControlParameterProperty
+      Stratosphere.ControlTower.LandingZone
   other-modules:
       Paths_stratosphere_controltower
   hs-source-dirs:

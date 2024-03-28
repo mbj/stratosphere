@@ -34,6 +34,7 @@ library
       Stratosphere.Pipes.Pipe.BatchResourceRequirementProperty
       Stratosphere.Pipes.Pipe.BatchRetryStrategyProperty
       Stratosphere.Pipes.Pipe.CapacityProviderStrategyItemProperty
+      Stratosphere.Pipes.Pipe.CloudwatchLogsLogDestinationProperty
       Stratosphere.Pipes.Pipe.DeadLetterConfigProperty
       Stratosphere.Pipes.Pipe.EcsContainerOverrideProperty
       Stratosphere.Pipes.Pipe.EcsEnvironmentFileProperty
@@ -44,11 +45,13 @@ library
       Stratosphere.Pipes.Pipe.EcsTaskOverrideProperty
       Stratosphere.Pipes.Pipe.FilterCriteriaProperty
       Stratosphere.Pipes.Pipe.FilterProperty
+      Stratosphere.Pipes.Pipe.FirehoseLogDestinationProperty
       Stratosphere.Pipes.Pipe.MQBrokerAccessCredentialsProperty
       Stratosphere.Pipes.Pipe.MSKAccessCredentialsProperty
       Stratosphere.Pipes.Pipe.NetworkConfigurationProperty
       Stratosphere.Pipes.Pipe.PipeEnrichmentHttpParametersProperty
       Stratosphere.Pipes.Pipe.PipeEnrichmentParametersProperty
+      Stratosphere.Pipes.Pipe.PipeLogConfigurationProperty
       Stratosphere.Pipes.Pipe.PipeSourceActiveMQBrokerParametersProperty
       Stratosphere.Pipes.Pipe.PipeSourceDynamoDBStreamParametersProperty
       Stratosphere.Pipes.Pipe.PipeSourceKinesisStreamParametersProperty
@@ -71,6 +74,7 @@ library
       Stratosphere.Pipes.Pipe.PipeTargetStateMachineParametersProperty
       Stratosphere.Pipes.Pipe.PlacementConstraintProperty
       Stratosphere.Pipes.Pipe.PlacementStrategyProperty
+      Stratosphere.Pipes.Pipe.S3LogDestinationProperty
       Stratosphere.Pipes.Pipe.SageMakerPipelineParameterProperty
       Stratosphere.Pipes.Pipe.SelfManagedKafkaAccessConfigurationCredentialsProperty
       Stratosphere.Pipes.Pipe.SelfManagedKafkaAccessConfigurationVpcProperty

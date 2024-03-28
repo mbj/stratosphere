@@ -28,11 +28,13 @@ library
       Stratosphere.FIS.ExperimentTemplate
       Stratosphere.FIS.ExperimentTemplate.CloudWatchLogsConfigurationProperty
       Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateActionProperty
+      Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateExperimentOptionsProperty
       Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateLogConfigurationProperty
       Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateStopConditionProperty
       Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateTargetFilterProperty
       Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateTargetProperty
       Stratosphere.FIS.ExperimentTemplate.S3ConfigurationProperty
+      Stratosphere.FIS.TargetAccountConfiguration
   other-modules:
       Paths_stratosphere_fis
   hs-source-dirs:

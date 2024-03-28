@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Space.SpaceSharingSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpaceSharingSettingsProperty :: Prelude.Type
+instance ToResourceProperties SpaceSharingSettingsProperty
+instance Prelude.Eq SpaceSharingSettingsProperty
+instance Prelude.Show SpaceSharingSettingsProperty
+instance JSON.ToJSON SpaceSharingSettingsProperty

@@ -29,6 +29,7 @@ library
       Stratosphere.AutoScaling.AutoScalingGroup.AcceleratorCountRequestProperty
       Stratosphere.AutoScaling.AutoScalingGroup.AcceleratorTotalMemoryMiBRequestProperty
       Stratosphere.AutoScaling.AutoScalingGroup.BaselineEbsBandwidthMbpsRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.InstanceMaintenancePolicyProperty
       Stratosphere.AutoScaling.AutoScalingGroup.InstanceRequirementsProperty
       Stratosphere.AutoScaling.AutoScalingGroup.InstancesDistributionProperty
       Stratosphere.AutoScaling.AutoScalingGroup.LaunchTemplateOverridesProperty

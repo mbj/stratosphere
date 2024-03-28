@@ -1,0 +1,9 @@
+module Stratosphere.Athena.CapacityReservation.CapacityAssignmentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapacityAssignmentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CapacityAssignmentConfigurationProperty
+instance Prelude.Eq CapacityAssignmentConfigurationProperty
+instance Prelude.Show CapacityAssignmentConfigurationProperty
+instance JSON.ToJSON CapacityAssignmentConfigurationProperty

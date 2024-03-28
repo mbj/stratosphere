@@ -22,6 +22,7 @@ data Workspace
                organizationRoleName :: (Prelude.Maybe (Value Prelude.Text)),
                organizationalUnits :: (Prelude.Maybe (ValueList Prelude.Text)),
                permissionType :: (Value Prelude.Text),
+               pluginAdminEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                samlConfiguration :: (Prelude.Maybe SamlConfigurationProperty),
                stackSetName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -43,7 +44,8 @@ mkWorkspace
        networkAccessControl = Prelude.Nothing,
        notificationDestinations = Prelude.Nothing,
        organizationRoleName = Prelude.Nothing,
-       organizationalUnits = Prelude.Nothing, roleArn = Prelude.Nothing,
+       organizationalUnits = Prelude.Nothing,
+       pluginAdminEnabled = Prelude.Nothing, roleArn = Prelude.Nothing,
        samlConfiguration = Prelude.Nothing,
        stackSetName = Prelude.Nothing, vpcConfiguration = Prelude.Nothing}
 instance ToResourceProperties Workspace where
@@ -66,6 +68,7 @@ instance ToResourceProperties Workspace where
                                  Prelude.<$> notificationDestinations,
                                (JSON..=) "OrganizationRoleName" Prelude.<$> organizationRoleName,
                                (JSON..=) "OrganizationalUnits" Prelude.<$> organizationalUnits,
+                               (JSON..=) "PluginAdminEnabled" Prelude.<$> pluginAdminEnabled,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn,
                                (JSON..=) "SamlConfiguration" Prelude.<$> samlConfiguration,
                                (JSON..=) "StackSetName" Prelude.<$> stackSetName,
@@ -89,6 +92,7 @@ instance JSON.ToJSON Workspace where
                     Prelude.<$> notificationDestinations,
                   (JSON..=) "OrganizationRoleName" Prelude.<$> organizationRoleName,
                   (JSON..=) "OrganizationalUnits" Prelude.<$> organizationalUnits,
+                  (JSON..=) "PluginAdminEnabled" Prelude.<$> pluginAdminEnabled,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn,
                   (JSON..=) "SamlConfiguration" Prelude.<$> samlConfiguration,
                   (JSON..=) "StackSetName" Prelude.<$> stackSetName,
@@ -141,6 +145,10 @@ instance Property "PermissionType" Workspace where
   type PropertyType "PermissionType" Workspace = Value Prelude.Text
   set newValue Workspace {..}
     = Workspace {permissionType = newValue, ..}
+instance Property "PluginAdminEnabled" Workspace where
+  type PropertyType "PluginAdminEnabled" Workspace = Value Prelude.Bool
+  set newValue Workspace {..}
+    = Workspace {pluginAdminEnabled = Prelude.pure newValue, ..}
 instance Property "RoleArn" Workspace where
   type PropertyType "RoleArn" Workspace = Value Prelude.Text
   set newValue Workspace {..}

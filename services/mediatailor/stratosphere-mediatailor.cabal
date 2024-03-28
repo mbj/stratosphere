@@ -25,6 +25,16 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.MediaTailor.Channel
+      Stratosphere.MediaTailor.Channel.DashPlaylistSettingsProperty
+      Stratosphere.MediaTailor.Channel.HlsPlaylistSettingsProperty
+      Stratosphere.MediaTailor.Channel.LogConfigurationForChannelProperty
+      Stratosphere.MediaTailor.Channel.RequestOutputItemProperty
+      Stratosphere.MediaTailor.Channel.SlateSourceProperty
+      Stratosphere.MediaTailor.Channel.TimeShiftConfigurationProperty
+      Stratosphere.MediaTailor.ChannelPolicy
+      Stratosphere.MediaTailor.LiveSource
+      Stratosphere.MediaTailor.LiveSource.HttpPackageConfigurationProperty
       Stratosphere.MediaTailor.PlaybackConfiguration
       Stratosphere.MediaTailor.PlaybackConfiguration.AdMarkerPassthroughProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.AvailSuppressionProperty
@@ -34,6 +44,14 @@ library
       Stratosphere.MediaTailor.PlaybackConfiguration.HlsConfigurationProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.LivePreRollConfigurationProperty
       Stratosphere.MediaTailor.PlaybackConfiguration.ManifestProcessingRulesProperty
+      Stratosphere.MediaTailor.SourceLocation
+      Stratosphere.MediaTailor.SourceLocation.AccessConfigurationProperty
+      Stratosphere.MediaTailor.SourceLocation.DefaultSegmentDeliveryConfigurationProperty
+      Stratosphere.MediaTailor.SourceLocation.HttpConfigurationProperty
+      Stratosphere.MediaTailor.SourceLocation.SecretsManagerAccessTokenConfigurationProperty
+      Stratosphere.MediaTailor.SourceLocation.SegmentDeliveryConfigurationProperty
+      Stratosphere.MediaTailor.VodSource
+      Stratosphere.MediaTailor.VodSource.HttpPackageConfigurationProperty
   other-modules:
       Paths_stratosphere_mediatailor
   hs-source-dirs:

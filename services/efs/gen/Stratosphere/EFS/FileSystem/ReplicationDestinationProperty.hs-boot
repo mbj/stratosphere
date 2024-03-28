@@ -1,0 +1,9 @@
+module Stratosphere.EFS.FileSystem.ReplicationDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplicationDestinationProperty :: Prelude.Type
+instance ToResourceProperties ReplicationDestinationProperty
+instance Prelude.Eq ReplicationDestinationProperty
+instance Prelude.Show ReplicationDestinationProperty
+instance JSON.ToJSON ReplicationDestinationProperty

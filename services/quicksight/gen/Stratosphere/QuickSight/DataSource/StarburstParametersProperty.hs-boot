@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.DataSource.StarburstParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StarburstParametersProperty :: Prelude.Type
+instance ToResourceProperties StarburstParametersProperty
+instance Prelude.Eq StarburstParametersProperty
+instance Prelude.Show StarburstParametersProperty
+instance JSON.ToJSON StarburstParametersProperty

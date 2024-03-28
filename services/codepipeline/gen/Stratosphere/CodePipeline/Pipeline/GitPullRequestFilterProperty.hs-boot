@@ -1,0 +1,9 @@
+module Stratosphere.CodePipeline.Pipeline.GitPullRequestFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GitPullRequestFilterProperty :: Prelude.Type
+instance ToResourceProperties GitPullRequestFilterProperty
+instance Prelude.Eq GitPullRequestFilterProperty
+instance Prelude.Show GitPullRequestFilterProperty
+instance JSON.ToJSON GitPullRequestFilterProperty

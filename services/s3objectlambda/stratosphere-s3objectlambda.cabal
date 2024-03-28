@@ -30,7 +30,6 @@ library
       Stratosphere.S3ObjectLambda.AccessPoint.AwsLambdaProperty
       Stratosphere.S3ObjectLambda.AccessPoint.ContentTransformationProperty
       Stratosphere.S3ObjectLambda.AccessPoint.ObjectLambdaConfigurationProperty
-      Stratosphere.S3ObjectLambda.AccessPoint.PolicyStatusProperty
       Stratosphere.S3ObjectLambda.AccessPoint.PublicAccessBlockConfigurationProperty
       Stratosphere.S3ObjectLambda.AccessPoint.TransformationConfigurationProperty
       Stratosphere.S3ObjectLambda.AccessPointPolicy

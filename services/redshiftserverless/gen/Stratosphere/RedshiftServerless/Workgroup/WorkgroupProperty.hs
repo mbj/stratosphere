@@ -14,6 +14,7 @@ data WorkgroupProperty
                        creationDate :: (Prelude.Maybe (Value Prelude.Text)),
                        endpoint :: (Prelude.Maybe EndpointProperty),
                        enhancedVpcRouting :: (Prelude.Maybe (Value Prelude.Bool)),
+                       maxCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                        namespaceName :: (Prelude.Maybe (Value Prelude.Text)),
                        publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
                        securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
@@ -29,7 +30,7 @@ mkWorkgroupProperty
       {baseCapacity = Prelude.Nothing,
        configParameters = Prelude.Nothing, creationDate = Prelude.Nothing,
        endpoint = Prelude.Nothing, enhancedVpcRouting = Prelude.Nothing,
-       namespaceName = Prelude.Nothing,
+       maxCapacity = Prelude.Nothing, namespaceName = Prelude.Nothing,
        publiclyAccessible = Prelude.Nothing,
        securityGroupIds = Prelude.Nothing, status = Prelude.Nothing,
        subnetIds = Prelude.Nothing, workgroupArn = Prelude.Nothing,
@@ -46,6 +47,7 @@ instance ToResourceProperties WorkgroupProperty where
                             (JSON..=) "CreationDate" Prelude.<$> creationDate,
                             (JSON..=) "Endpoint" Prelude.<$> endpoint,
                             (JSON..=) "EnhancedVpcRouting" Prelude.<$> enhancedVpcRouting,
+                            (JSON..=) "MaxCapacity" Prelude.<$> maxCapacity,
                             (JSON..=) "NamespaceName" Prelude.<$> namespaceName,
                             (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
                             (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
@@ -64,6 +66,7 @@ instance JSON.ToJSON WorkgroupProperty where
                (JSON..=) "CreationDate" Prelude.<$> creationDate,
                (JSON..=) "Endpoint" Prelude.<$> endpoint,
                (JSON..=) "EnhancedVpcRouting" Prelude.<$> enhancedVpcRouting,
+               (JSON..=) "MaxCapacity" Prelude.<$> maxCapacity,
                (JSON..=) "NamespaceName" Prelude.<$> namespaceName,
                (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
                (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
@@ -93,6 +96,10 @@ instance Property "EnhancedVpcRouting" WorkgroupProperty where
   set newValue WorkgroupProperty {..}
     = WorkgroupProperty
         {enhancedVpcRouting = Prelude.pure newValue, ..}
+instance Property "MaxCapacity" WorkgroupProperty where
+  type PropertyType "MaxCapacity" WorkgroupProperty = Value Prelude.Integer
+  set newValue WorkgroupProperty {..}
+    = WorkgroupProperty {maxCapacity = Prelude.pure newValue, ..}
 instance Property "NamespaceName" WorkgroupProperty where
   type PropertyType "NamespaceName" WorkgroupProperty = Value Prelude.Text
   set newValue WorkgroupProperty {..}

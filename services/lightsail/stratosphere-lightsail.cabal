@@ -32,9 +32,11 @@ library
       Stratosphere.Lightsail.Container
       Stratosphere.Lightsail.Container.ContainerProperty
       Stratosphere.Lightsail.Container.ContainerServiceDeploymentProperty
+      Stratosphere.Lightsail.Container.EcrImagePullerRoleProperty
       Stratosphere.Lightsail.Container.EnvironmentVariableProperty
       Stratosphere.Lightsail.Container.HealthCheckConfigProperty
       Stratosphere.Lightsail.Container.PortInfoProperty
+      Stratosphere.Lightsail.Container.PrivateRegistryAccessProperty
       Stratosphere.Lightsail.Container.PublicDomainNameProperty
       Stratosphere.Lightsail.Container.PublicEndpointProperty
       Stratosphere.Lightsail.Database

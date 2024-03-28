@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.TimeoutConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TimeoutConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TimeoutConfigurationProperty
+instance Prelude.Eq TimeoutConfigurationProperty
+instance Prelude.Show TimeoutConfigurationProperty
+instance JSON.ToJSON TimeoutConfigurationProperty

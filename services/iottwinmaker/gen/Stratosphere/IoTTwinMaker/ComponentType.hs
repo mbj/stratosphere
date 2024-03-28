@@ -4,6 +4,7 @@ module Stratosphere.IoTTwinMaker.ComponentType (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.IoTTwinMaker.ComponentType.CompositeComponentTypeProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTTwinMaker.ComponentType.FunctionProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTTwinMaker.ComponentType.PropertyDefinitionProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTTwinMaker.ComponentType.PropertyGroupProperty as Exports
@@ -11,6 +12,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ComponentType
   = ComponentType {componentTypeId :: (Value Prelude.Text),
+                   compositeComponentTypes :: (Prelude.Maybe (Prelude.Map Prelude.Text CompositeComponentTypeProperty)),
                    description :: (Prelude.Maybe (Value Prelude.Text)),
                    extendsFrom :: (Prelude.Maybe (ValueList Prelude.Text)),
                    functions :: (Prelude.Maybe (Prelude.Map Prelude.Text FunctionProperty)),
@@ -25,6 +27,7 @@ mkComponentType ::
 mkComponentType componentTypeId workspaceId
   = ComponentType
       {componentTypeId = componentTypeId, workspaceId = workspaceId,
+       compositeComponentTypes = Prelude.Nothing,
        description = Prelude.Nothing, extendsFrom = Prelude.Nothing,
        functions = Prelude.Nothing, isSingleton = Prelude.Nothing,
        propertyDefinitions = Prelude.Nothing,
@@ -39,7 +42,9 @@ instance ToResourceProperties ComponentType where
                            ["ComponentTypeId" JSON..= componentTypeId,
                             "WorkspaceId" JSON..= workspaceId]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "CompositeComponentTypes"
+                                 Prelude.<$> compositeComponentTypes,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "ExtendsFrom" Prelude.<$> extendsFrom,
                                (JSON..=) "Functions" Prelude.<$> functions,
                                (JSON..=) "IsSingleton" Prelude.<$> isSingleton,
@@ -54,7 +59,9 @@ instance JSON.ToJSON ComponentType where
               ["ComponentTypeId" JSON..= componentTypeId,
                "WorkspaceId" JSON..= workspaceId]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "CompositeComponentTypes"
+                    Prelude.<$> compositeComponentTypes,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "ExtendsFrom" Prelude.<$> extendsFrom,
                   (JSON..=) "Functions" Prelude.<$> functions,
                   (JSON..=) "IsSingleton" Prelude.<$> isSingleton,
@@ -65,6 +72,11 @@ instance Property "ComponentTypeId" ComponentType where
   type PropertyType "ComponentTypeId" ComponentType = Value Prelude.Text
   set newValue ComponentType {..}
     = ComponentType {componentTypeId = newValue, ..}
+instance Property "CompositeComponentTypes" ComponentType where
+  type PropertyType "CompositeComponentTypes" ComponentType = Prelude.Map Prelude.Text CompositeComponentTypeProperty
+  set newValue ComponentType {..}
+    = ComponentType
+        {compositeComponentTypes = Prelude.pure newValue, ..}
 instance Property "Description" ComponentType where
   type PropertyType "Description" ComponentType = Value Prelude.Text
   set newValue ComponentType {..}

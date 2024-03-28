@@ -1,0 +1,9 @@
+module Stratosphere.CodePipeline.Pipeline.VariableDeclarationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VariableDeclarationProperty :: Prelude.Type
+instance ToResourceProperties VariableDeclarationProperty
+instance Prelude.Eq VariableDeclarationProperty
+instance Prelude.Show VariableDeclarationProperty
+instance JSON.ToJSON VariableDeclarationProperty

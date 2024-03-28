@@ -12,18 +12,18 @@ import Stratosphere.Value
 data MaximumMinimumComputationProperty
   = MaximumMinimumComputationProperty {computationId :: (Value Prelude.Text),
                                        name :: (Prelude.Maybe (Value Prelude.Text)),
-                                       time :: DimensionFieldProperty,
+                                       time :: (Prelude.Maybe DimensionFieldProperty),
                                        type' :: (Value Prelude.Text),
                                        value :: (Prelude.Maybe MeasureFieldProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMaximumMinimumComputationProperty ::
   Value Prelude.Text
-  -> DimensionFieldProperty
-     -> Value Prelude.Text -> MaximumMinimumComputationProperty
-mkMaximumMinimumComputationProperty computationId time type'
+  -> Value Prelude.Text -> MaximumMinimumComputationProperty
+mkMaximumMinimumComputationProperty computationId type'
   = MaximumMinimumComputationProperty
-      {computationId = computationId, time = time, type' = type',
-       name = Prelude.Nothing, value = Prelude.Nothing}
+      {computationId = computationId, type' = type',
+       name = Prelude.Nothing, time = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties MaximumMinimumComputationProperty where
   toResourceProperties MaximumMinimumComputationProperty {..}
     = ResourceProperties
@@ -31,20 +31,20 @@ instance ToResourceProperties MaximumMinimumComputationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ComputationId" JSON..= computationId, "Time" JSON..= time,
-                            "Type" JSON..= type']
+                           ["ComputationId" JSON..= computationId, "Type" JSON..= type']
                            (Prelude.catMaybes
                               [(JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "Time" Prelude.<$> time,
                                (JSON..=) "Value" Prelude.<$> value]))}
 instance JSON.ToJSON MaximumMinimumComputationProperty where
   toJSON MaximumMinimumComputationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ComputationId" JSON..= computationId, "Time" JSON..= time,
-               "Type" JSON..= type']
+              ["ComputationId" JSON..= computationId, "Type" JSON..= type']
               (Prelude.catMaybes
                  [(JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "Time" Prelude.<$> time,
                   (JSON..=) "Value" Prelude.<$> value])))
 instance Property "ComputationId" MaximumMinimumComputationProperty where
   type PropertyType "ComputationId" MaximumMinimumComputationProperty = Value Prelude.Text
@@ -58,7 +58,8 @@ instance Property "Name" MaximumMinimumComputationProperty where
 instance Property "Time" MaximumMinimumComputationProperty where
   type PropertyType "Time" MaximumMinimumComputationProperty = DimensionFieldProperty
   set newValue MaximumMinimumComputationProperty {..}
-    = MaximumMinimumComputationProperty {time = newValue, ..}
+    = MaximumMinimumComputationProperty
+        {time = Prelude.pure newValue, ..}
 instance Property "Type" MaximumMinimumComputationProperty where
   type PropertyType "Type" MaximumMinimumComputationProperty = Value Prelude.Text
   set newValue MaximumMinimumComputationProperty {..}

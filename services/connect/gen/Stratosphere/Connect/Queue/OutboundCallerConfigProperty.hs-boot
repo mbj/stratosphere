@@ -1,0 +1,9 @@
+module Stratosphere.Connect.Queue.OutboundCallerConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OutboundCallerConfigProperty :: Prelude.Type
+instance ToResourceProperties OutboundCallerConfigProperty
+instance Prelude.Eq OutboundCallerConfigProperty
+instance Prelude.Show OutboundCallerConfigProperty
+instance JSON.ToJSON OutboundCallerConfigProperty

@@ -9,6 +9,7 @@ import Stratosphere.Value
 data VolumeSpecificationProperty
   = VolumeSpecificationProperty {iops :: (Prelude.Maybe (Value Prelude.Integer)),
                                  sizeInGB :: (Value Prelude.Integer),
+                                 throughput :: (Prelude.Maybe (Value Prelude.Integer)),
                                  volumeType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVolumeSpecificationProperty ::
@@ -17,7 +18,7 @@ mkVolumeSpecificationProperty ::
 mkVolumeSpecificationProperty sizeInGB volumeType
   = VolumeSpecificationProperty
       {sizeInGB = sizeInGB, volumeType = volumeType,
-       iops = Prelude.Nothing}
+       iops = Prelude.Nothing, throughput = Prelude.Nothing}
 instance ToResourceProperties VolumeSpecificationProperty where
   toResourceProperties VolumeSpecificationProperty {..}
     = ResourceProperties
@@ -26,14 +27,18 @@ instance ToResourceProperties VolumeSpecificationProperty where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["SizeInGB" JSON..= sizeInGB, "VolumeType" JSON..= volumeType]
-                           (Prelude.catMaybes [(JSON..=) "Iops" Prelude.<$> iops]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "Iops" Prelude.<$> iops,
+                               (JSON..=) "Throughput" Prelude.<$> throughput]))}
 instance JSON.ToJSON VolumeSpecificationProperty where
   toJSON VolumeSpecificationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
               ["SizeInGB" JSON..= sizeInGB, "VolumeType" JSON..= volumeType]
-              (Prelude.catMaybes [(JSON..=) "Iops" Prelude.<$> iops])))
+              (Prelude.catMaybes
+                 [(JSON..=) "Iops" Prelude.<$> iops,
+                  (JSON..=) "Throughput" Prelude.<$> throughput])))
 instance Property "Iops" VolumeSpecificationProperty where
   type PropertyType "Iops" VolumeSpecificationProperty = Value Prelude.Integer
   set newValue VolumeSpecificationProperty {..}
@@ -42,6 +47,11 @@ instance Property "SizeInGB" VolumeSpecificationProperty where
   type PropertyType "SizeInGB" VolumeSpecificationProperty = Value Prelude.Integer
   set newValue VolumeSpecificationProperty {..}
     = VolumeSpecificationProperty {sizeInGB = newValue, ..}
+instance Property "Throughput" VolumeSpecificationProperty where
+  type PropertyType "Throughput" VolumeSpecificationProperty = Value Prelude.Integer
+  set newValue VolumeSpecificationProperty {..}
+    = VolumeSpecificationProperty
+        {throughput = Prelude.pure newValue, ..}
 instance Property "VolumeType" VolumeSpecificationProperty where
   type PropertyType "VolumeType" VolumeSpecificationProperty = Value Prelude.Text
   set newValue VolumeSpecificationProperty {..}

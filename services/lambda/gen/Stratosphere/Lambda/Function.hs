@@ -10,6 +10,7 @@ import {-# SOURCE #-} Stratosphere.Lambda.Function.EnvironmentProperty as Export
 import {-# SOURCE #-} Stratosphere.Lambda.Function.EphemeralStorageProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.Function.FileSystemConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.Function.ImageConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.Lambda.Function.LoggingConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.Function.RuntimeManagementConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.Function.SnapStartProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.Function.TracingConfigProperty as Exports
@@ -31,6 +32,7 @@ data Function
               imageConfig :: (Prelude.Maybe ImageConfigProperty),
               kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
               layers :: (Prelude.Maybe (ValueList Prelude.Text)),
+              loggingConfig :: (Prelude.Maybe LoggingConfigProperty),
               memorySize :: (Prelude.Maybe (Value Prelude.Integer)),
               packageType :: (Prelude.Maybe (Value Prelude.Text)),
               reservedConcurrentExecutions :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -53,8 +55,8 @@ mkFunction code role
        fileSystemConfigs = Prelude.Nothing,
        functionName = Prelude.Nothing, handler = Prelude.Nothing,
        imageConfig = Prelude.Nothing, kmsKeyArn = Prelude.Nothing,
-       layers = Prelude.Nothing, memorySize = Prelude.Nothing,
-       packageType = Prelude.Nothing,
+       layers = Prelude.Nothing, loggingConfig = Prelude.Nothing,
+       memorySize = Prelude.Nothing, packageType = Prelude.Nothing,
        reservedConcurrentExecutions = Prelude.Nothing,
        runtime = Prelude.Nothing,
        runtimeManagementConfig = Prelude.Nothing,
@@ -81,6 +83,7 @@ instance ToResourceProperties Function where
                                (JSON..=) "ImageConfig" Prelude.<$> imageConfig,
                                (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                                (JSON..=) "Layers" Prelude.<$> layers,
+                               (JSON..=) "LoggingConfig" Prelude.<$> loggingConfig,
                                (JSON..=) "MemorySize" Prelude.<$> memorySize,
                                (JSON..=) "PackageType" Prelude.<$> packageType,
                                (JSON..=) "ReservedConcurrentExecutions"
@@ -112,6 +115,7 @@ instance JSON.ToJSON Function where
                   (JSON..=) "ImageConfig" Prelude.<$> imageConfig,
                   (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                   (JSON..=) "Layers" Prelude.<$> layers,
+                  (JSON..=) "LoggingConfig" Prelude.<$> loggingConfig,
                   (JSON..=) "MemorySize" Prelude.<$> memorySize,
                   (JSON..=) "PackageType" Prelude.<$> packageType,
                   (JSON..=) "ReservedConcurrentExecutions"
@@ -175,6 +179,10 @@ instance Property "Layers" Function where
   type PropertyType "Layers" Function = ValueList Prelude.Text
   set newValue Function {..}
     = Function {layers = Prelude.pure newValue, ..}
+instance Property "LoggingConfig" Function where
+  type PropertyType "LoggingConfig" Function = LoggingConfigProperty
+  set newValue Function {..}
+    = Function {loggingConfig = Prelude.pure newValue, ..}
 instance Property "MemorySize" Function where
   type PropertyType "MemorySize" Function = Value Prelude.Integer
   set newValue Function {..}

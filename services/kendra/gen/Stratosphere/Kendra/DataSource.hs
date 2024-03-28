@@ -14,6 +14,7 @@ data DataSource
                 dataSourceConfiguration :: (Prelude.Maybe DataSourceConfigurationProperty),
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 indexId :: (Value Prelude.Text),
+                languageCode :: (Prelude.Maybe (Value Prelude.Text)),
                 name :: (Value Prelude.Text),
                 roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                 schedule :: (Prelude.Maybe (Value Prelude.Text)),
@@ -28,8 +29,9 @@ mkDataSource indexId name type'
       {indexId = indexId, name = name, type' = type',
        customDocumentEnrichmentConfiguration = Prelude.Nothing,
        dataSourceConfiguration = Prelude.Nothing,
-       description = Prelude.Nothing, roleArn = Prelude.Nothing,
-       schedule = Prelude.Nothing, tags = Prelude.Nothing}
+       description = Prelude.Nothing, languageCode = Prelude.Nothing,
+       roleArn = Prelude.Nothing, schedule = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties DataSource where
   toResourceProperties DataSource {..}
     = ResourceProperties
@@ -44,6 +46,7 @@ instance ToResourceProperties DataSource where
                                (JSON..=) "DataSourceConfiguration"
                                  Prelude.<$> dataSourceConfiguration,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "LanguageCode" Prelude.<$> languageCode,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn,
                                (JSON..=) "Schedule" Prelude.<$> schedule,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -60,6 +63,7 @@ instance JSON.ToJSON DataSource where
                   (JSON..=) "DataSourceConfiguration"
                     Prelude.<$> dataSourceConfiguration,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "LanguageCode" Prelude.<$> languageCode,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn,
                   (JSON..=) "Schedule" Prelude.<$> schedule,
                   (JSON..=) "Tags" Prelude.<$> tags])))
@@ -79,6 +83,10 @@ instance Property "Description" DataSource where
 instance Property "IndexId" DataSource where
   type PropertyType "IndexId" DataSource = Value Prelude.Text
   set newValue DataSource {..} = DataSource {indexId = newValue, ..}
+instance Property "LanguageCode" DataSource where
+  type PropertyType "LanguageCode" DataSource = Value Prelude.Text
+  set newValue DataSource {..}
+    = DataSource {languageCode = Prelude.pure newValue, ..}
 instance Property "Name" DataSource where
   type PropertyType "Name" DataSource = Value Prelude.Text
   set newValue DataSource {..} = DataSource {name = newValue, ..}

@@ -12,7 +12,8 @@ import Stratosphere.Value
 data CodeRepositoryProperty
   = CodeRepositoryProperty {codeConfiguration :: (Prelude.Maybe CodeConfigurationProperty),
                             repositoryUrl :: (Value Prelude.Text),
-                            sourceCodeVersion :: SourceCodeVersionProperty}
+                            sourceCodeVersion :: SourceCodeVersionProperty,
+                            sourceDirectory :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeRepositoryProperty ::
   Value Prelude.Text
@@ -21,7 +22,8 @@ mkCodeRepositoryProperty repositoryUrl sourceCodeVersion
   = CodeRepositoryProperty
       {repositoryUrl = repositoryUrl,
        sourceCodeVersion = sourceCodeVersion,
-       codeConfiguration = Prelude.Nothing}
+       codeConfiguration = Prelude.Nothing,
+       sourceDirectory = Prelude.Nothing}
 instance ToResourceProperties CodeRepositoryProperty where
   toResourceProperties CodeRepositoryProperty {..}
     = ResourceProperties
@@ -32,7 +34,8 @@ instance ToResourceProperties CodeRepositoryProperty where
                            ["RepositoryUrl" JSON..= repositoryUrl,
                             "SourceCodeVersion" JSON..= sourceCodeVersion]
                            (Prelude.catMaybes
-                              [(JSON..=) "CodeConfiguration" Prelude.<$> codeConfiguration]))}
+                              [(JSON..=) "CodeConfiguration" Prelude.<$> codeConfiguration,
+                               (JSON..=) "SourceDirectory" Prelude.<$> sourceDirectory]))}
 instance JSON.ToJSON CodeRepositoryProperty where
   toJSON CodeRepositoryProperty {..}
     = JSON.object
@@ -41,7 +44,8 @@ instance JSON.ToJSON CodeRepositoryProperty where
               ["RepositoryUrl" JSON..= repositoryUrl,
                "SourceCodeVersion" JSON..= sourceCodeVersion]
               (Prelude.catMaybes
-                 [(JSON..=) "CodeConfiguration" Prelude.<$> codeConfiguration])))
+                 [(JSON..=) "CodeConfiguration" Prelude.<$> codeConfiguration,
+                  (JSON..=) "SourceDirectory" Prelude.<$> sourceDirectory])))
 instance Property "CodeConfiguration" CodeRepositoryProperty where
   type PropertyType "CodeConfiguration" CodeRepositoryProperty = CodeConfigurationProperty
   set newValue CodeRepositoryProperty {..}
@@ -55,3 +59,8 @@ instance Property "SourceCodeVersion" CodeRepositoryProperty where
   type PropertyType "SourceCodeVersion" CodeRepositoryProperty = SourceCodeVersionProperty
   set newValue CodeRepositoryProperty {..}
     = CodeRepositoryProperty {sourceCodeVersion = newValue, ..}
+instance Property "SourceDirectory" CodeRepositoryProperty where
+  type PropertyType "SourceDirectory" CodeRepositoryProperty = Value Prelude.Text
+  set newValue CodeRepositoryProperty {..}
+    = CodeRepositoryProperty
+        {sourceDirectory = Prelude.pure newValue, ..}

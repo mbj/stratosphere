@@ -25,6 +25,9 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.AppIntegrations.Application
+      Stratosphere.AppIntegrations.Application.ApplicationSourceConfigProperty
+      Stratosphere.AppIntegrations.Application.ExternalUrlConfigProperty
       Stratosphere.AppIntegrations.DataIntegration
       Stratosphere.AppIntegrations.DataIntegration.FileConfigurationProperty
       Stratosphere.AppIntegrations.DataIntegration.ScheduleConfigProperty

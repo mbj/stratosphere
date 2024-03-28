@@ -28,6 +28,9 @@ library
       Stratosphere.AppStream.AppBlock
       Stratosphere.AppStream.AppBlock.S3LocationProperty
       Stratosphere.AppStream.AppBlock.ScriptDetailsProperty
+      Stratosphere.AppStream.AppBlockBuilder
+      Stratosphere.AppStream.AppBlockBuilder.AccessEndpointProperty
+      Stratosphere.AppStream.AppBlockBuilder.VpcConfigProperty
       Stratosphere.AppStream.Application
       Stratosphere.AppStream.Application.S3LocationProperty
       Stratosphere.AppStream.ApplicationEntitlementAssociation

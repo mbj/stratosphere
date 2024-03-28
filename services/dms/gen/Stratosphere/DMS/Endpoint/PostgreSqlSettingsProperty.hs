@@ -8,7 +8,9 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PostgreSqlSettingsProperty
   = PostgreSqlSettingsProperty {afterConnectScript :: (Prelude.Maybe (Value Prelude.Text)),
+                                babelfishDatabaseName :: (Prelude.Maybe (Value Prelude.Text)),
                                 captureDdls :: (Prelude.Maybe (Value Prelude.Bool)),
+                                databaseMode :: (Prelude.Maybe (Value Prelude.Text)),
                                 ddlArtifactsSchema :: (Prelude.Maybe (Value Prelude.Text)),
                                 executeTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                 failTasksOnLobTruncation :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -26,7 +28,8 @@ mkPostgreSqlSettingsProperty :: PostgreSqlSettingsProperty
 mkPostgreSqlSettingsProperty
   = PostgreSqlSettingsProperty
       {afterConnectScript = Prelude.Nothing,
-       captureDdls = Prelude.Nothing,
+       babelfishDatabaseName = Prelude.Nothing,
+       captureDdls = Prelude.Nothing, databaseMode = Prelude.Nothing,
        ddlArtifactsSchema = Prelude.Nothing,
        executeTimeout = Prelude.Nothing,
        failTasksOnLobTruncation = Prelude.Nothing,
@@ -46,7 +49,10 @@ instance ToResourceProperties PostgreSqlSettingsProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AfterConnectScript" Prelude.<$> afterConnectScript,
+                            (JSON..=) "BabelfishDatabaseName"
+                              Prelude.<$> babelfishDatabaseName,
                             (JSON..=) "CaptureDdls" Prelude.<$> captureDdls,
+                            (JSON..=) "DatabaseMode" Prelude.<$> databaseMode,
                             (JSON..=) "DdlArtifactsSchema" Prelude.<$> ddlArtifactsSchema,
                             (JSON..=) "ExecuteTimeout" Prelude.<$> executeTimeout,
                             (JSON..=) "FailTasksOnLobTruncation"
@@ -68,7 +74,10 @@ instance JSON.ToJSON PostgreSqlSettingsProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "AfterConnectScript" Prelude.<$> afterConnectScript,
+               (JSON..=) "BabelfishDatabaseName"
+                 Prelude.<$> babelfishDatabaseName,
                (JSON..=) "CaptureDdls" Prelude.<$> captureDdls,
+               (JSON..=) "DatabaseMode" Prelude.<$> databaseMode,
                (JSON..=) "DdlArtifactsSchema" Prelude.<$> ddlArtifactsSchema,
                (JSON..=) "ExecuteTimeout" Prelude.<$> executeTimeout,
                (JSON..=) "FailTasksOnLobTruncation"
@@ -89,11 +98,21 @@ instance Property "AfterConnectScript" PostgreSqlSettingsProperty where
   set newValue PostgreSqlSettingsProperty {..}
     = PostgreSqlSettingsProperty
         {afterConnectScript = Prelude.pure newValue, ..}
+instance Property "BabelfishDatabaseName" PostgreSqlSettingsProperty where
+  type PropertyType "BabelfishDatabaseName" PostgreSqlSettingsProperty = Value Prelude.Text
+  set newValue PostgreSqlSettingsProperty {..}
+    = PostgreSqlSettingsProperty
+        {babelfishDatabaseName = Prelude.pure newValue, ..}
 instance Property "CaptureDdls" PostgreSqlSettingsProperty where
   type PropertyType "CaptureDdls" PostgreSqlSettingsProperty = Value Prelude.Bool
   set newValue PostgreSqlSettingsProperty {..}
     = PostgreSqlSettingsProperty
         {captureDdls = Prelude.pure newValue, ..}
+instance Property "DatabaseMode" PostgreSqlSettingsProperty where
+  type PropertyType "DatabaseMode" PostgreSqlSettingsProperty = Value Prelude.Text
+  set newValue PostgreSqlSettingsProperty {..}
+    = PostgreSqlSettingsProperty
+        {databaseMode = Prelude.pure newValue, ..}
 instance Property "DdlArtifactsSchema" PostgreSqlSettingsProperty where
   type PropertyType "DdlArtifactsSchema" PostgreSqlSettingsProperty = Value Prelude.Text
   set newValue PostgreSqlSettingsProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.AppImageConfig.CustomImageContainerEnvironmentVariableProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomImageContainerEnvironmentVariableProperty :: Prelude.Type
+instance ToResourceProperties CustomImageContainerEnvironmentVariableProperty
+instance Prelude.Eq CustomImageContainerEnvironmentVariableProperty
+instance Prelude.Show CustomImageContainerEnvironmentVariableProperty
+instance JSON.ToJSON CustomImageContainerEnvironmentVariableProperty

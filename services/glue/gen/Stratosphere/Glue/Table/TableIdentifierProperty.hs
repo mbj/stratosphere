@@ -9,13 +9,14 @@ import Stratosphere.Value
 data TableIdentifierProperty
   = TableIdentifierProperty {catalogId :: (Prelude.Maybe (Value Prelude.Text)),
                              databaseName :: (Prelude.Maybe (Value Prelude.Text)),
-                             name :: (Prelude.Maybe (Value Prelude.Text))}
+                             name :: (Prelude.Maybe (Value Prelude.Text)),
+                             region :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTableIdentifierProperty :: TableIdentifierProperty
 mkTableIdentifierProperty
   = TableIdentifierProperty
       {catalogId = Prelude.Nothing, databaseName = Prelude.Nothing,
-       name = Prelude.Nothing}
+       name = Prelude.Nothing, region = Prelude.Nothing}
 instance ToResourceProperties TableIdentifierProperty where
   toResourceProperties TableIdentifierProperty {..}
     = ResourceProperties
@@ -25,7 +26,8 @@ instance ToResourceProperties TableIdentifierProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "CatalogId" Prelude.<$> catalogId,
                             (JSON..=) "DatabaseName" Prelude.<$> databaseName,
-                            (JSON..=) "Name" Prelude.<$> name])}
+                            (JSON..=) "Name" Prelude.<$> name,
+                            (JSON..=) "Region" Prelude.<$> region])}
 instance JSON.ToJSON TableIdentifierProperty where
   toJSON TableIdentifierProperty {..}
     = JSON.object
@@ -33,7 +35,8 @@ instance JSON.ToJSON TableIdentifierProperty where
            (Prelude.catMaybes
               [(JSON..=) "CatalogId" Prelude.<$> catalogId,
                (JSON..=) "DatabaseName" Prelude.<$> databaseName,
-               (JSON..=) "Name" Prelude.<$> name]))
+               (JSON..=) "Name" Prelude.<$> name,
+               (JSON..=) "Region" Prelude.<$> region]))
 instance Property "CatalogId" TableIdentifierProperty where
   type PropertyType "CatalogId" TableIdentifierProperty = Value Prelude.Text
   set newValue TableIdentifierProperty {..}
@@ -47,3 +50,7 @@ instance Property "Name" TableIdentifierProperty where
   type PropertyType "Name" TableIdentifierProperty = Value Prelude.Text
   set newValue TableIdentifierProperty {..}
     = TableIdentifierProperty {name = Prelude.pure newValue, ..}
+instance Property "Region" TableIdentifierProperty where
+  type PropertyType "Region" TableIdentifierProperty = Value Prelude.Text
+  set newValue TableIdentifierProperty {..}
+    = TableIdentifierProperty {region = Prelude.pure newValue, ..}

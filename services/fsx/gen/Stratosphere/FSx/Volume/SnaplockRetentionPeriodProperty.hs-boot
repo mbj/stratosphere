@@ -1,0 +1,9 @@
+module Stratosphere.FSx.Volume.SnaplockRetentionPeriodProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnaplockRetentionPeriodProperty :: Prelude.Type
+instance ToResourceProperties SnaplockRetentionPeriodProperty
+instance Prelude.Eq SnaplockRetentionPeriodProperty
+instance Prelude.Show SnaplockRetentionPeriodProperty
+instance JSON.ToJSON SnaplockRetentionPeriodProperty

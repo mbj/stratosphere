@@ -1,0 +1,9 @@
+module Stratosphere.DynamoDB.GlobalTable.ReplicaStreamSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplicaStreamSpecificationProperty :: Prelude.Type
+instance ToResourceProperties ReplicaStreamSpecificationProperty
+instance Prelude.Eq ReplicaStreamSpecificationProperty
+instance Prelude.Show ReplicaStreamSpecificationProperty
+instance JSON.ToJSON ReplicaStreamSpecificationProperty

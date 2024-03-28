@@ -13,16 +13,19 @@ data PodPropertiesProperty
   = PodPropertiesProperty {containers :: (Prelude.Maybe [EksContainerProperty]),
                            dnsPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                            hostNetwork :: (Prelude.Maybe (Value Prelude.Bool)),
+                           initContainers :: (Prelude.Maybe [EksContainerProperty]),
                            metadata :: (Prelude.Maybe MetadataProperty),
                            serviceAccountName :: (Prelude.Maybe (Value Prelude.Text)),
+                           shareProcessNamespace :: (Prelude.Maybe (Value Prelude.Bool)),
                            volumes :: (Prelude.Maybe [EksVolumeProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPodPropertiesProperty :: PodPropertiesProperty
 mkPodPropertiesProperty
   = PodPropertiesProperty
       {containers = Prelude.Nothing, dnsPolicy = Prelude.Nothing,
-       hostNetwork = Prelude.Nothing, metadata = Prelude.Nothing,
-       serviceAccountName = Prelude.Nothing, volumes = Prelude.Nothing}
+       hostNetwork = Prelude.Nothing, initContainers = Prelude.Nothing,
+       metadata = Prelude.Nothing, serviceAccountName = Prelude.Nothing,
+       shareProcessNamespace = Prelude.Nothing, volumes = Prelude.Nothing}
 instance ToResourceProperties PodPropertiesProperty where
   toResourceProperties PodPropertiesProperty {..}
     = ResourceProperties
@@ -33,8 +36,11 @@ instance ToResourceProperties PodPropertiesProperty where
                            [(JSON..=) "Containers" Prelude.<$> containers,
                             (JSON..=) "DnsPolicy" Prelude.<$> dnsPolicy,
                             (JSON..=) "HostNetwork" Prelude.<$> hostNetwork,
+                            (JSON..=) "InitContainers" Prelude.<$> initContainers,
                             (JSON..=) "Metadata" Prelude.<$> metadata,
                             (JSON..=) "ServiceAccountName" Prelude.<$> serviceAccountName,
+                            (JSON..=) "ShareProcessNamespace"
+                              Prelude.<$> shareProcessNamespace,
                             (JSON..=) "Volumes" Prelude.<$> volumes])}
 instance JSON.ToJSON PodPropertiesProperty where
   toJSON PodPropertiesProperty {..}
@@ -44,8 +50,11 @@ instance JSON.ToJSON PodPropertiesProperty where
               [(JSON..=) "Containers" Prelude.<$> containers,
                (JSON..=) "DnsPolicy" Prelude.<$> dnsPolicy,
                (JSON..=) "HostNetwork" Prelude.<$> hostNetwork,
+               (JSON..=) "InitContainers" Prelude.<$> initContainers,
                (JSON..=) "Metadata" Prelude.<$> metadata,
                (JSON..=) "ServiceAccountName" Prelude.<$> serviceAccountName,
+               (JSON..=) "ShareProcessNamespace"
+                 Prelude.<$> shareProcessNamespace,
                (JSON..=) "Volumes" Prelude.<$> volumes]))
 instance Property "Containers" PodPropertiesProperty where
   type PropertyType "Containers" PodPropertiesProperty = [EksContainerProperty]
@@ -59,6 +68,11 @@ instance Property "HostNetwork" PodPropertiesProperty where
   type PropertyType "HostNetwork" PodPropertiesProperty = Value Prelude.Bool
   set newValue PodPropertiesProperty {..}
     = PodPropertiesProperty {hostNetwork = Prelude.pure newValue, ..}
+instance Property "InitContainers" PodPropertiesProperty where
+  type PropertyType "InitContainers" PodPropertiesProperty = [EksContainerProperty]
+  set newValue PodPropertiesProperty {..}
+    = PodPropertiesProperty
+        {initContainers = Prelude.pure newValue, ..}
 instance Property "Metadata" PodPropertiesProperty where
   type PropertyType "Metadata" PodPropertiesProperty = MetadataProperty
   set newValue PodPropertiesProperty {..}
@@ -68,6 +82,11 @@ instance Property "ServiceAccountName" PodPropertiesProperty where
   set newValue PodPropertiesProperty {..}
     = PodPropertiesProperty
         {serviceAccountName = Prelude.pure newValue, ..}
+instance Property "ShareProcessNamespace" PodPropertiesProperty where
+  type PropertyType "ShareProcessNamespace" PodPropertiesProperty = Value Prelude.Bool
+  set newValue PodPropertiesProperty {..}
+    = PodPropertiesProperty
+        {shareProcessNamespace = Prelude.pure newValue, ..}
 instance Property "Volumes" PodPropertiesProperty where
   type PropertyType "Volumes" PodPropertiesProperty = [EksVolumeProperty]
   set newValue PodPropertiesProperty {..}

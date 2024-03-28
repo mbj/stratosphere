@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.Gateway.GatewayNetworkProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GatewayNetworkProperty :: Prelude.Type
+instance ToResourceProperties GatewayNetworkProperty
+instance Prelude.Eq GatewayNetworkProperty
+instance Prelude.Show GatewayNetworkProperty
+instance JSON.ToJSON GatewayNetworkProperty

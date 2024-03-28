@@ -9,53 +9,35 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data IPAM
-  = IPAM {defaultResourceDiscoveryAssociationId :: (Prelude.Maybe (Value Prelude.Text)),
-          defaultResourceDiscoveryId :: (Prelude.Maybe (Value Prelude.Text)),
-          description :: (Prelude.Maybe (Value Prelude.Text)),
+  = IPAM {description :: (Prelude.Maybe (Value Prelude.Text)),
           operatingRegions :: (Prelude.Maybe [IpamOperatingRegionProperty]),
-          tags :: (Prelude.Maybe [Tag])}
+          tags :: (Prelude.Maybe [Tag]),
+          tier :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIPAM :: IPAM
 mkIPAM
   = IPAM
-      {defaultResourceDiscoveryAssociationId = Prelude.Nothing,
-       defaultResourceDiscoveryId = Prelude.Nothing,
-       description = Prelude.Nothing, operatingRegions = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {description = Prelude.Nothing, operatingRegions = Prelude.Nothing,
+       tags = Prelude.Nothing, tier = Prelude.Nothing}
 instance ToResourceProperties IPAM where
   toResourceProperties IPAM {..}
     = ResourceProperties
         {awsType = "AWS::EC2::IPAM", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "DefaultResourceDiscoveryAssociationId"
-                              Prelude.<$> defaultResourceDiscoveryAssociationId,
-                            (JSON..=) "DefaultResourceDiscoveryId"
-                              Prelude.<$> defaultResourceDiscoveryId,
-                            (JSON..=) "Description" Prelude.<$> description,
+                           [(JSON..=) "Description" Prelude.<$> description,
                             (JSON..=) "OperatingRegions" Prelude.<$> operatingRegions,
-                            (JSON..=) "Tags" Prelude.<$> tags])}
+                            (JSON..=) "Tags" Prelude.<$> tags,
+                            (JSON..=) "Tier" Prelude.<$> tier])}
 instance JSON.ToJSON IPAM where
   toJSON IPAM {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "DefaultResourceDiscoveryAssociationId"
-                 Prelude.<$> defaultResourceDiscoveryAssociationId,
-               (JSON..=) "DefaultResourceDiscoveryId"
-                 Prelude.<$> defaultResourceDiscoveryId,
-               (JSON..=) "Description" Prelude.<$> description,
+              [(JSON..=) "Description" Prelude.<$> description,
                (JSON..=) "OperatingRegions" Prelude.<$> operatingRegions,
-               (JSON..=) "Tags" Prelude.<$> tags]))
-instance Property "DefaultResourceDiscoveryAssociationId" IPAM where
-  type PropertyType "DefaultResourceDiscoveryAssociationId" IPAM = Value Prelude.Text
-  set newValue IPAM {..}
-    = IPAM
-        {defaultResourceDiscoveryAssociationId = Prelude.pure newValue, ..}
-instance Property "DefaultResourceDiscoveryId" IPAM where
-  type PropertyType "DefaultResourceDiscoveryId" IPAM = Value Prelude.Text
-  set newValue IPAM {..}
-    = IPAM {defaultResourceDiscoveryId = Prelude.pure newValue, ..}
+               (JSON..=) "Tags" Prelude.<$> tags,
+               (JSON..=) "Tier" Prelude.<$> tier]))
 instance Property "Description" IPAM where
   type PropertyType "Description" IPAM = Value Prelude.Text
   set newValue IPAM {..}
@@ -67,3 +49,6 @@ instance Property "OperatingRegions" IPAM where
 instance Property "Tags" IPAM where
   type PropertyType "Tags" IPAM = [Tag]
   set newValue IPAM {..} = IPAM {tags = Prelude.pure newValue, ..}
+instance Property "Tier" IPAM where
+  type PropertyType "Tier" IPAM = Value Prelude.Text
+  set newValue IPAM {..} = IPAM {tier = Prelude.pure newValue, ..}

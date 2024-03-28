@@ -31,6 +31,7 @@ data InstanceRequirementsProperty
                                   instanceGenerations :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   localStorage :: (Prelude.Maybe (Value Prelude.Text)),
                                   localStorageTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                  maxSpotPriceAsPercentageOfOptimalOnDemandPrice :: (Prelude.Maybe (Value Prelude.Integer)),
                                   memoryGiBPerVCpu :: (Prelude.Maybe MemoryGiBPerVCpuProperty),
                                   memoryMiB :: (Prelude.Maybe MemoryMiBProperty),
                                   networkBandwidthGbps :: (Prelude.Maybe NetworkBandwidthGbpsProperty),
@@ -58,6 +59,7 @@ mkInstanceRequirementsProperty
        instanceGenerations = Prelude.Nothing,
        localStorage = Prelude.Nothing,
        localStorageTypes = Prelude.Nothing,
+       maxSpotPriceAsPercentageOfOptimalOnDemandPrice = Prelude.Nothing,
        memoryGiBPerVCpu = Prelude.Nothing, memoryMiB = Prelude.Nothing,
        networkBandwidthGbps = Prelude.Nothing,
        networkInterfaceCount = Prelude.Nothing,
@@ -90,6 +92,8 @@ instance ToResourceProperties InstanceRequirementsProperty where
                             (JSON..=) "InstanceGenerations" Prelude.<$> instanceGenerations,
                             (JSON..=) "LocalStorage" Prelude.<$> localStorage,
                             (JSON..=) "LocalStorageTypes" Prelude.<$> localStorageTypes,
+                            (JSON..=) "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice"
+                              Prelude.<$> maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
                             (JSON..=) "MemoryGiBPerVCpu" Prelude.<$> memoryGiBPerVCpu,
                             (JSON..=) "MemoryMiB" Prelude.<$> memoryMiB,
                             (JSON..=) "NetworkBandwidthGbps" Prelude.<$> networkBandwidthGbps,
@@ -126,6 +130,8 @@ instance JSON.ToJSON InstanceRequirementsProperty where
                (JSON..=) "InstanceGenerations" Prelude.<$> instanceGenerations,
                (JSON..=) "LocalStorage" Prelude.<$> localStorage,
                (JSON..=) "LocalStorageTypes" Prelude.<$> localStorageTypes,
+               (JSON..=) "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice"
+                 Prelude.<$> maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
                (JSON..=) "MemoryGiBPerVCpu" Prelude.<$> memoryGiBPerVCpu,
                (JSON..=) "MemoryMiB" Prelude.<$> memoryMiB,
                (JSON..=) "NetworkBandwidthGbps" Prelude.<$> networkBandwidthGbps,
@@ -209,6 +215,13 @@ instance Property "LocalStorageTypes" InstanceRequirementsProperty where
   set newValue InstanceRequirementsProperty {..}
     = InstanceRequirementsProperty
         {localStorageTypes = Prelude.pure newValue, ..}
+instance Property "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" InstanceRequirementsProperty where
+  type PropertyType "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" InstanceRequirementsProperty = Value Prelude.Integer
+  set newValue InstanceRequirementsProperty {..}
+    = InstanceRequirementsProperty
+        {maxSpotPriceAsPercentageOfOptimalOnDemandPrice = Prelude.pure
+                                                            newValue,
+         ..}
 instance Property "MemoryGiBPerVCpu" InstanceRequirementsProperty where
   type PropertyType "MemoryGiBPerVCpu" InstanceRequirementsProperty = MemoryGiBPerVCpuProperty
   set newValue InstanceRequirementsProperty {..}

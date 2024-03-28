@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.AnalysisDefaultsProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.AssetOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.CalculatedFieldProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.ColumnConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.DataSetIdentifierDeclarationProperty as Exports
@@ -19,6 +20,7 @@ data DashboardVersionDefinitionProperty
                                         columnConfigurations :: (Prelude.Maybe [ColumnConfigurationProperty]),
                                         dataSetIdentifierDeclarations :: [DataSetIdentifierDeclarationProperty],
                                         filterGroups :: (Prelude.Maybe [FilterGroupProperty]),
+                                        options :: (Prelude.Maybe AssetOptionsProperty),
                                         parameterDeclarations :: (Prelude.Maybe [ParameterDeclarationProperty]),
                                         sheets :: (Prelude.Maybe [SheetDefinitionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -31,7 +33,7 @@ mkDashboardVersionDefinitionProperty dataSetIdentifierDeclarations
        analysisDefaults = Prelude.Nothing,
        calculatedFields = Prelude.Nothing,
        columnConfigurations = Prelude.Nothing,
-       filterGroups = Prelude.Nothing,
+       filterGroups = Prelude.Nothing, options = Prelude.Nothing,
        parameterDeclarations = Prelude.Nothing, sheets = Prelude.Nothing}
 instance ToResourceProperties DashboardVersionDefinitionProperty where
   toResourceProperties DashboardVersionDefinitionProperty {..}
@@ -47,6 +49,7 @@ instance ToResourceProperties DashboardVersionDefinitionProperty where
                                (JSON..=) "CalculatedFields" Prelude.<$> calculatedFields,
                                (JSON..=) "ColumnConfigurations" Prelude.<$> columnConfigurations,
                                (JSON..=) "FilterGroups" Prelude.<$> filterGroups,
+                               (JSON..=) "Options" Prelude.<$> options,
                                (JSON..=) "ParameterDeclarations"
                                  Prelude.<$> parameterDeclarations,
                                (JSON..=) "Sheets" Prelude.<$> sheets]))}
@@ -62,6 +65,7 @@ instance JSON.ToJSON DashboardVersionDefinitionProperty where
                   (JSON..=) "CalculatedFields" Prelude.<$> calculatedFields,
                   (JSON..=) "ColumnConfigurations" Prelude.<$> columnConfigurations,
                   (JSON..=) "FilterGroups" Prelude.<$> filterGroups,
+                  (JSON..=) "Options" Prelude.<$> options,
                   (JSON..=) "ParameterDeclarations"
                     Prelude.<$> parameterDeclarations,
                   (JSON..=) "Sheets" Prelude.<$> sheets])))
@@ -90,6 +94,11 @@ instance Property "FilterGroups" DashboardVersionDefinitionProperty where
   set newValue DashboardVersionDefinitionProperty {..}
     = DashboardVersionDefinitionProperty
         {filterGroups = Prelude.pure newValue, ..}
+instance Property "Options" DashboardVersionDefinitionProperty where
+  type PropertyType "Options" DashboardVersionDefinitionProperty = AssetOptionsProperty
+  set newValue DashboardVersionDefinitionProperty {..}
+    = DashboardVersionDefinitionProperty
+        {options = Prelude.pure newValue, ..}
 instance Property "ParameterDeclarations" DashboardVersionDefinitionProperty where
   type PropertyType "ParameterDeclarations" DashboardVersionDefinitionProperty = [ParameterDeclarationProperty]
   set newValue DashboardVersionDefinitionProperty {..}

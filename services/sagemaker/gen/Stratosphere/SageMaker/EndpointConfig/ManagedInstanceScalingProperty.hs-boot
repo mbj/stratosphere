@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.EndpointConfig.ManagedInstanceScalingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedInstanceScalingProperty :: Prelude.Type
+instance ToResourceProperties ManagedInstanceScalingProperty
+instance Prelude.Eq ManagedInstanceScalingProperty
+instance Prelude.Show ManagedInstanceScalingProperty
+instance JSON.ToJSON ManagedInstanceScalingProperty

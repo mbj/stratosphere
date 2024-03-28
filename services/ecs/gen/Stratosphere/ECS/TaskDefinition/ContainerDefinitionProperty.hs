@@ -26,6 +26,7 @@ import Stratosphere.Value
 data ContainerDefinitionProperty
   = ContainerDefinitionProperty {command :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  cpu :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 credentialSpecs :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  dependsOn :: (Prelude.Maybe [ContainerDependencyProperty]),
                                  disableNetworking :: (Prelude.Maybe (Value Prelude.Bool)),
                                  dnsSearchDomains :: (Prelude.Maybe (ValueList Prelude.Text)),
@@ -70,8 +71,8 @@ mkContainerDefinitionProperty ::
 mkContainerDefinitionProperty image name
   = ContainerDefinitionProperty
       {image = image, name = name, command = Prelude.Nothing,
-       cpu = Prelude.Nothing, dependsOn = Prelude.Nothing,
-       disableNetworking = Prelude.Nothing,
+       cpu = Prelude.Nothing, credentialSpecs = Prelude.Nothing,
+       dependsOn = Prelude.Nothing, disableNetworking = Prelude.Nothing,
        dnsSearchDomains = Prelude.Nothing, dnsServers = Prelude.Nothing,
        dockerLabels = Prelude.Nothing,
        dockerSecurityOptions = Prelude.Nothing,
@@ -104,6 +105,7 @@ instance ToResourceProperties ContainerDefinitionProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "Command" Prelude.<$> command,
                                (JSON..=) "Cpu" Prelude.<$> cpu,
+                               (JSON..=) "CredentialSpecs" Prelude.<$> credentialSpecs,
                                (JSON..=) "DependsOn" Prelude.<$> dependsOn,
                                (JSON..=) "DisableNetworking" Prelude.<$> disableNetworking,
                                (JSON..=) "DnsSearchDomains" Prelude.<$> dnsSearchDomains,
@@ -152,6 +154,7 @@ instance JSON.ToJSON ContainerDefinitionProperty where
               (Prelude.catMaybes
                  [(JSON..=) "Command" Prelude.<$> command,
                   (JSON..=) "Cpu" Prelude.<$> cpu,
+                  (JSON..=) "CredentialSpecs" Prelude.<$> credentialSpecs,
                   (JSON..=) "DependsOn" Prelude.<$> dependsOn,
                   (JSON..=) "DisableNetworking" Prelude.<$> disableNetworking,
                   (JSON..=) "DnsSearchDomains" Prelude.<$> dnsSearchDomains,
@@ -199,6 +202,11 @@ instance Property "Cpu" ContainerDefinitionProperty where
   type PropertyType "Cpu" ContainerDefinitionProperty = Value Prelude.Integer
   set newValue ContainerDefinitionProperty {..}
     = ContainerDefinitionProperty {cpu = Prelude.pure newValue, ..}
+instance Property "CredentialSpecs" ContainerDefinitionProperty where
+  type PropertyType "CredentialSpecs" ContainerDefinitionProperty = ValueList Prelude.Text
+  set newValue ContainerDefinitionProperty {..}
+    = ContainerDefinitionProperty
+        {credentialSpecs = Prelude.pure newValue, ..}
 instance Property "DependsOn" ContainerDefinitionProperty where
   type PropertyType "DependsOn" ContainerDefinitionProperty = [ContainerDependencyProperty]
   set newValue ContainerDefinitionProperty {..}

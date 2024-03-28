@@ -1,0 +1,9 @@
+module Stratosphere.EntityResolution.SchemaMapping.SchemaInputAttributeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SchemaInputAttributeProperty :: Prelude.Type
+instance ToResourceProperties SchemaInputAttributeProperty
+instance Prelude.Eq SchemaInputAttributeProperty
+instance Prelude.Show SchemaInputAttributeProperty
+instance JSON.ToJSON SchemaInputAttributeProperty

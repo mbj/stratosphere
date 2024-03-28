@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.Domain.ConsolidationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConsolidationProperty :: Prelude.Type
+instance ToResourceProperties ConsolidationProperty
+instance Prelude.Eq ConsolidationProperty
+instance Prelude.Show ConsolidationProperty
+instance JSON.ToJSON ConsolidationProperty

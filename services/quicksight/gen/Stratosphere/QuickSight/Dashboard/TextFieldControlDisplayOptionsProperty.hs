@@ -6,17 +6,20 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.LabelOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.SheetControlInfoIconLabelOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.Dashboard.TextControlPlaceholderOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data TextFieldControlDisplayOptionsProperty
-  = TextFieldControlDisplayOptionsProperty {placeholderOptions :: (Prelude.Maybe TextControlPlaceholderOptionsProperty),
+  = TextFieldControlDisplayOptionsProperty {infoIconLabelOptions :: (Prelude.Maybe SheetControlInfoIconLabelOptionsProperty),
+                                            placeholderOptions :: (Prelude.Maybe TextControlPlaceholderOptionsProperty),
                                             titleOptions :: (Prelude.Maybe LabelOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTextFieldControlDisplayOptionsProperty ::
   TextFieldControlDisplayOptionsProperty
 mkTextFieldControlDisplayOptionsProperty
   = TextFieldControlDisplayOptionsProperty
-      {placeholderOptions = Prelude.Nothing,
+      {infoIconLabelOptions = Prelude.Nothing,
+       placeholderOptions = Prelude.Nothing,
        titleOptions = Prelude.Nothing}
 instance ToResourceProperties TextFieldControlDisplayOptionsProperty where
   toResourceProperties TextFieldControlDisplayOptionsProperty {..}
@@ -25,15 +28,22 @@ instance ToResourceProperties TextFieldControlDisplayOptionsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "PlaceholderOptions" Prelude.<$> placeholderOptions,
+                           [(JSON..=) "InfoIconLabelOptions" Prelude.<$> infoIconLabelOptions,
+                            (JSON..=) "PlaceholderOptions" Prelude.<$> placeholderOptions,
                             (JSON..=) "TitleOptions" Prelude.<$> titleOptions])}
 instance JSON.ToJSON TextFieldControlDisplayOptionsProperty where
   toJSON TextFieldControlDisplayOptionsProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "PlaceholderOptions" Prelude.<$> placeholderOptions,
+              [(JSON..=) "InfoIconLabelOptions" Prelude.<$> infoIconLabelOptions,
+               (JSON..=) "PlaceholderOptions" Prelude.<$> placeholderOptions,
                (JSON..=) "TitleOptions" Prelude.<$> titleOptions]))
+instance Property "InfoIconLabelOptions" TextFieldControlDisplayOptionsProperty where
+  type PropertyType "InfoIconLabelOptions" TextFieldControlDisplayOptionsProperty = SheetControlInfoIconLabelOptionsProperty
+  set newValue TextFieldControlDisplayOptionsProperty {..}
+    = TextFieldControlDisplayOptionsProperty
+        {infoIconLabelOptions = Prelude.pure newValue, ..}
 instance Property "PlaceholderOptions" TextFieldControlDisplayOptionsProperty where
   type PropertyType "PlaceholderOptions" TextFieldControlDisplayOptionsProperty = TextControlPlaceholderOptionsProperty
   set newValue TextFieldControlDisplayOptionsProperty {..}

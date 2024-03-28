@@ -29,8 +29,10 @@ library
       Stratosphere.IVS.PlaybackKeyPair
       Stratosphere.IVS.RecordingConfiguration
       Stratosphere.IVS.RecordingConfiguration.DestinationConfigurationProperty
+      Stratosphere.IVS.RecordingConfiguration.RenditionConfigurationProperty
       Stratosphere.IVS.RecordingConfiguration.S3DestinationConfigurationProperty
       Stratosphere.IVS.RecordingConfiguration.ThumbnailConfigurationProperty
+      Stratosphere.IVS.Stage
       Stratosphere.IVS.StreamKey
   other-modules:
       Paths_stratosphere_ivs

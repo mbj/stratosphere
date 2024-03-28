@@ -1,0 +1,9 @@
+module Stratosphere.Config.ConfigRule.EvaluationModeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EvaluationModeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EvaluationModeConfigurationProperty
+instance Prelude.Eq EvaluationModeConfigurationProperty
+instance Prelude.Show EvaluationModeConfigurationProperty
+instance JSON.ToJSON EvaluationModeConfigurationProperty

@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lightsail.Container.ContainerServiceDeploymentProperty as Exports
+import {-# SOURCE #-} Stratosphere.Lightsail.Container.PrivateRegistryAccessProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lightsail.Container.PublicDomainNameProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -13,6 +14,7 @@ data Container
   = Container {containerServiceDeployment :: (Prelude.Maybe ContainerServiceDeploymentProperty),
                isDisabled :: (Prelude.Maybe (Value Prelude.Bool)),
                power :: (Value Prelude.Text),
+               privateRegistryAccess :: (Prelude.Maybe PrivateRegistryAccessProperty),
                publicDomainNames :: (Prelude.Maybe [PublicDomainNameProperty]),
                scale :: (Value Prelude.Integer),
                serviceName :: (Value Prelude.Text),
@@ -25,8 +27,9 @@ mkContainer power scale serviceName
   = Container
       {power = power, scale = scale, serviceName = serviceName,
        containerServiceDeployment = Prelude.Nothing,
-       isDisabled = Prelude.Nothing, publicDomainNames = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       isDisabled = Prelude.Nothing,
+       privateRegistryAccess = Prelude.Nothing,
+       publicDomainNames = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Container where
   toResourceProperties Container {..}
     = ResourceProperties
@@ -40,6 +43,8 @@ instance ToResourceProperties Container where
                               [(JSON..=) "ContainerServiceDeployment"
                                  Prelude.<$> containerServiceDeployment,
                                (JSON..=) "IsDisabled" Prelude.<$> isDisabled,
+                               (JSON..=) "PrivateRegistryAccess"
+                                 Prelude.<$> privateRegistryAccess,
                                (JSON..=) "PublicDomainNames" Prelude.<$> publicDomainNames,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Container where
@@ -53,6 +58,8 @@ instance JSON.ToJSON Container where
                  [(JSON..=) "ContainerServiceDeployment"
                     Prelude.<$> containerServiceDeployment,
                   (JSON..=) "IsDisabled" Prelude.<$> isDisabled,
+                  (JSON..=) "PrivateRegistryAccess"
+                    Prelude.<$> privateRegistryAccess,
                   (JSON..=) "PublicDomainNames" Prelude.<$> publicDomainNames,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ContainerServiceDeployment" Container where
@@ -67,6 +74,10 @@ instance Property "IsDisabled" Container where
 instance Property "Power" Container where
   type PropertyType "Power" Container = Value Prelude.Text
   set newValue Container {..} = Container {power = newValue, ..}
+instance Property "PrivateRegistryAccess" Container where
+  type PropertyType "PrivateRegistryAccess" Container = PrivateRegistryAccessProperty
+  set newValue Container {..}
+    = Container {privateRegistryAccess = Prelude.pure newValue, ..}
 instance Property "PublicDomainNames" Container where
   type PropertyType "PublicDomainNames" Container = [PublicDomainNameProperty]
   set newValue Container {..}

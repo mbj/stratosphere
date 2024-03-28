@@ -1,0 +1,9 @@
+module Stratosphere.CloudTrail.EventDataStore.InsightSelectorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InsightSelectorProperty :: Prelude.Type
+instance ToResourceProperties InsightSelectorProperty
+instance Prelude.Eq InsightSelectorProperty
+instance Prelude.Show InsightSelectorProperty
+instance JSON.ToJSON InsightSelectorProperty

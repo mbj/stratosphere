@@ -25,7 +25,22 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.SecurityHub.AutomationRule
+      Stratosphere.SecurityHub.AutomationRule.AutomationRulesActionProperty
+      Stratosphere.SecurityHub.AutomationRule.AutomationRulesFindingFieldsUpdateProperty
+      Stratosphere.SecurityHub.AutomationRule.AutomationRulesFindingFiltersProperty
+      Stratosphere.SecurityHub.AutomationRule.DateFilterProperty
+      Stratosphere.SecurityHub.AutomationRule.DateRangeProperty
+      Stratosphere.SecurityHub.AutomationRule.MapFilterProperty
+      Stratosphere.SecurityHub.AutomationRule.NoteUpdateProperty
+      Stratosphere.SecurityHub.AutomationRule.NumberFilterProperty
+      Stratosphere.SecurityHub.AutomationRule.RelatedFindingProperty
+      Stratosphere.SecurityHub.AutomationRule.SeverityUpdateProperty
+      Stratosphere.SecurityHub.AutomationRule.StringFilterProperty
+      Stratosphere.SecurityHub.AutomationRule.WorkflowUpdateProperty
       Stratosphere.SecurityHub.Hub
+      Stratosphere.SecurityHub.Standard
+      Stratosphere.SecurityHub.Standard.StandardsControlProperty
   other-modules:
       Paths_stratosphere_securityhub
   hs-source-dirs:

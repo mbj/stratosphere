@@ -1,0 +1,9 @@
+module Stratosphere.MSK.Replicator.AmazonMskClusterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AmazonMskClusterProperty :: Prelude.Type
+instance ToResourceProperties AmazonMskClusterProperty
+instance Prelude.Eq AmazonMskClusterProperty
+instance Prelude.Show AmazonMskClusterProperty
+instance JSON.ToJSON AmazonMskClusterProperty

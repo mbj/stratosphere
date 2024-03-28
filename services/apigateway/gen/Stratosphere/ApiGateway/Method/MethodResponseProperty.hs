@@ -8,7 +8,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MethodResponseProperty
   = MethodResponseProperty {responseModels :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
-                            responseParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Bool))),
+                            responseParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                             statusCode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMethodResponseProperty ::
@@ -43,7 +43,7 @@ instance Property "ResponseModels" MethodResponseProperty where
     = MethodResponseProperty
         {responseModels = Prelude.pure newValue, ..}
 instance Property "ResponseParameters" MethodResponseProperty where
-  type PropertyType "ResponseParameters" MethodResponseProperty = Prelude.Map Prelude.Text (Value Prelude.Bool)
+  type PropertyType "ResponseParameters" MethodResponseProperty = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue MethodResponseProperty {..}
     = MethodResponseProperty
         {responseParameters = Prelude.pure newValue, ..}

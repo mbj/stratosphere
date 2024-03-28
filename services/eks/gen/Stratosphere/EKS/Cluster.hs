@@ -4,6 +4,7 @@ module Stratosphere.EKS.Cluster (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EKS.Cluster.AccessConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.EKS.Cluster.EncryptionConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.EKS.Cluster.KubernetesNetworkConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.EKS.Cluster.LoggingProperty as Exports
@@ -13,7 +14,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Cluster
-  = Cluster {encryptionConfig :: (Prelude.Maybe [EncryptionConfigProperty]),
+  = Cluster {accessConfig :: (Prelude.Maybe AccessConfigProperty),
+             encryptionConfig :: (Prelude.Maybe [EncryptionConfigProperty]),
              kubernetesNetworkConfig :: (Prelude.Maybe KubernetesNetworkConfigProperty),
              logging :: (Prelude.Maybe LoggingProperty),
              name :: (Prelude.Maybe (Value Prelude.Text)),
@@ -28,7 +30,7 @@ mkCluster ::
 mkCluster resourcesVpcConfig roleArn
   = Cluster
       {resourcesVpcConfig = resourcesVpcConfig, roleArn = roleArn,
-       encryptionConfig = Prelude.Nothing,
+       accessConfig = Prelude.Nothing, encryptionConfig = Prelude.Nothing,
        kubernetesNetworkConfig = Prelude.Nothing,
        logging = Prelude.Nothing, name = Prelude.Nothing,
        outpostConfig = Prelude.Nothing, tags = Prelude.Nothing,
@@ -42,7 +44,8 @@ instance ToResourceProperties Cluster where
                            ["ResourcesVpcConfig" JSON..= resourcesVpcConfig,
                             "RoleArn" JSON..= roleArn]
                            (Prelude.catMaybes
-                              [(JSON..=) "EncryptionConfig" Prelude.<$> encryptionConfig,
+                              [(JSON..=) "AccessConfig" Prelude.<$> accessConfig,
+                               (JSON..=) "EncryptionConfig" Prelude.<$> encryptionConfig,
                                (JSON..=) "KubernetesNetworkConfig"
                                  Prelude.<$> kubernetesNetworkConfig,
                                (JSON..=) "Logging" Prelude.<$> logging,
@@ -58,7 +61,8 @@ instance JSON.ToJSON Cluster where
               ["ResourcesVpcConfig" JSON..= resourcesVpcConfig,
                "RoleArn" JSON..= roleArn]
               (Prelude.catMaybes
-                 [(JSON..=) "EncryptionConfig" Prelude.<$> encryptionConfig,
+                 [(JSON..=) "AccessConfig" Prelude.<$> accessConfig,
+                  (JSON..=) "EncryptionConfig" Prelude.<$> encryptionConfig,
                   (JSON..=) "KubernetesNetworkConfig"
                     Prelude.<$> kubernetesNetworkConfig,
                   (JSON..=) "Logging" Prelude.<$> logging,
@@ -66,6 +70,10 @@ instance JSON.ToJSON Cluster where
                   (JSON..=) "OutpostConfig" Prelude.<$> outpostConfig,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "Version" Prelude.<$> version])))
+instance Property "AccessConfig" Cluster where
+  type PropertyType "AccessConfig" Cluster = AccessConfigProperty
+  set newValue Cluster {..}
+    = Cluster {accessConfig = Prelude.pure newValue, ..}
 instance Property "EncryptionConfig" Cluster where
   type PropertyType "EncryptionConfig" Cluster = [EncryptionConfigProperty]
   set newValue Cluster {..}

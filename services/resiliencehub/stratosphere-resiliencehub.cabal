@@ -26,10 +26,13 @@ flag development
 library
   exposed-modules:
       Stratosphere.ResilienceHub.App
+      Stratosphere.ResilienceHub.App.EventSubscriptionProperty
+      Stratosphere.ResilienceHub.App.PermissionModelProperty
       Stratosphere.ResilienceHub.App.PhysicalResourceIdProperty
       Stratosphere.ResilienceHub.App.ResourceMappingProperty
       Stratosphere.ResilienceHub.ResiliencyPolicy
       Stratosphere.ResilienceHub.ResiliencyPolicy.FailurePolicyProperty
+      Stratosphere.ResilienceHub.ResiliencyPolicy.PolicyMapProperty
   other-modules:
       Paths_stratosphere_resiliencehub
   hs-source-dirs:

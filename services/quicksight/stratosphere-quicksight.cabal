@@ -38,6 +38,8 @@ library
       Stratosphere.QuickSight.Analysis.ArcAxisDisplayRangeProperty
       Stratosphere.QuickSight.Analysis.ArcConfigurationProperty
       Stratosphere.QuickSight.Analysis.ArcOptionsProperty
+      Stratosphere.QuickSight.Analysis.AssetOptionsProperty
+      Stratosphere.QuickSight.Analysis.AttributeAggregationFunctionProperty
       Stratosphere.QuickSight.Analysis.AxisDataOptionsProperty
       Stratosphere.QuickSight.Analysis.AxisDisplayMinMaxRangeProperty
       Stratosphere.QuickSight.Analysis.AxisDisplayOptionsProperty
@@ -121,6 +123,7 @@ library
       Stratosphere.QuickSight.Analysis.DataPathColorProperty
       Stratosphere.QuickSight.Analysis.DataPathLabelTypeProperty
       Stratosphere.QuickSight.Analysis.DataPathSortProperty
+      Stratosphere.QuickSight.Analysis.DataPathTypeProperty
       Stratosphere.QuickSight.Analysis.DataPathValueProperty
       Stratosphere.QuickSight.Analysis.DataSetIdentifierDeclarationProperty
       Stratosphere.QuickSight.Analysis.DataSetReferenceProperty
@@ -214,6 +217,9 @@ library
       Stratosphere.QuickSight.Analysis.GaugeChartPrimaryValueConditionalFormattingProperty
       Stratosphere.QuickSight.Analysis.GaugeChartVisualProperty
       Stratosphere.QuickSight.Analysis.GeospatialCoordinateBoundsProperty
+      Stratosphere.QuickSight.Analysis.GeospatialHeatmapColorScaleProperty
+      Stratosphere.QuickSight.Analysis.GeospatialHeatmapConfigurationProperty
+      Stratosphere.QuickSight.Analysis.GeospatialHeatmapDataColorProperty
       Stratosphere.QuickSight.Analysis.GeospatialMapAggregatedFieldWellsProperty
       Stratosphere.QuickSight.Analysis.GeospatialMapConfigurationProperty
       Stratosphere.QuickSight.Analysis.GeospatialMapFieldWellsProperty
@@ -247,6 +253,8 @@ library
       Stratosphere.QuickSight.Analysis.IntegerParameterProperty
       Stratosphere.QuickSight.Analysis.IntegerValueWhenUnsetConfigurationProperty
       Stratosphere.QuickSight.Analysis.ItemsLimitConfigurationProperty
+      Stratosphere.QuickSight.Analysis.KPIActualValueConditionalFormattingProperty
+      Stratosphere.QuickSight.Analysis.KPIComparisonValueConditionalFormattingProperty
       Stratosphere.QuickSight.Analysis.KPIConditionalFormattingOptionProperty
       Stratosphere.QuickSight.Analysis.KPIConditionalFormattingProperty
       Stratosphere.QuickSight.Analysis.KPIConfigurationProperty
@@ -255,7 +263,10 @@ library
       Stratosphere.QuickSight.Analysis.KPIPrimaryValueConditionalFormattingProperty
       Stratosphere.QuickSight.Analysis.KPIProgressBarConditionalFormattingProperty
       Stratosphere.QuickSight.Analysis.KPISortConfigurationProperty
+      Stratosphere.QuickSight.Analysis.KPISparklineOptionsProperty
+      Stratosphere.QuickSight.Analysis.KPIVisualLayoutOptionsProperty
       Stratosphere.QuickSight.Analysis.KPIVisualProperty
+      Stratosphere.QuickSight.Analysis.KPIVisualStandardLayoutProperty
       Stratosphere.QuickSight.Analysis.LabelOptionsProperty
       Stratosphere.QuickSight.Analysis.LayoutConfigurationProperty
       Stratosphere.QuickSight.Analysis.LayoutProperty
@@ -328,12 +339,15 @@ library
       Stratosphere.QuickSight.Analysis.PivotTableConditionalFormattingScopeProperty
       Stratosphere.QuickSight.Analysis.PivotTableConfigurationProperty
       Stratosphere.QuickSight.Analysis.PivotTableDataPathOptionProperty
+      Stratosphere.QuickSight.Analysis.PivotTableFieldCollapseStateOptionProperty
+      Stratosphere.QuickSight.Analysis.PivotTableFieldCollapseStateTargetProperty
       Stratosphere.QuickSight.Analysis.PivotTableFieldOptionProperty
       Stratosphere.QuickSight.Analysis.PivotTableFieldOptionsProperty
       Stratosphere.QuickSight.Analysis.PivotTableFieldSubtotalOptionsProperty
       Stratosphere.QuickSight.Analysis.PivotTableFieldWellsProperty
       Stratosphere.QuickSight.Analysis.PivotTableOptionsProperty
       Stratosphere.QuickSight.Analysis.PivotTablePaginatedReportOptionsProperty
+      Stratosphere.QuickSight.Analysis.PivotTableRowsLabelOptionsProperty
       Stratosphere.QuickSight.Analysis.PivotTableSortByProperty
       Stratosphere.QuickSight.Analysis.PivotTableSortConfigurationProperty
       Stratosphere.QuickSight.Analysis.PivotTableTotalOptionsProperty
@@ -386,6 +400,7 @@ library
       Stratosphere.QuickSight.Analysis.SeriesItemProperty
       Stratosphere.QuickSight.Analysis.SetParameterValueConfigurationProperty
       Stratosphere.QuickSight.Analysis.ShapeConditionalFormatProperty
+      Stratosphere.QuickSight.Analysis.SheetControlInfoIconLabelOptionsProperty
       Stratosphere.QuickSight.Analysis.SheetControlLayoutConfigurationProperty
       Stratosphere.QuickSight.Analysis.SheetControlLayoutProperty
       Stratosphere.QuickSight.Analysis.SheetDefinitionProperty
@@ -397,6 +412,7 @@ library
       Stratosphere.QuickSight.Analysis.ShortFormatTextProperty
       Stratosphere.QuickSight.Analysis.SimpleClusterMarkerProperty
       Stratosphere.QuickSight.Analysis.SliderControlDisplayOptionsProperty
+      Stratosphere.QuickSight.Analysis.SmallMultiplesAxisPropertiesProperty
       Stratosphere.QuickSight.Analysis.SmallMultiplesOptionsProperty
       Stratosphere.QuickSight.Analysis.SpacingProperty
       Stratosphere.QuickSight.Analysis.StringDefaultValuesProperty
@@ -425,9 +441,11 @@ library
       Stratosphere.QuickSight.Analysis.TableInlineVisualizationProperty
       Stratosphere.QuickSight.Analysis.TableOptionsProperty
       Stratosphere.QuickSight.Analysis.TablePaginatedReportOptionsProperty
+      Stratosphere.QuickSight.Analysis.TablePinnedFieldOptionsProperty
       Stratosphere.QuickSight.Analysis.TableRowConditionalFormattingProperty
       Stratosphere.QuickSight.Analysis.TableSideBorderOptionsProperty
       Stratosphere.QuickSight.Analysis.TableSortConfigurationProperty
+      Stratosphere.QuickSight.Analysis.TableStyleTargetProperty
       Stratosphere.QuickSight.Analysis.TableUnaggregatedFieldWellsProperty
       Stratosphere.QuickSight.Analysis.TableVisualProperty
       Stratosphere.QuickSight.Analysis.TextAreaControlDisplayOptionsProperty
@@ -446,6 +464,8 @@ library
       Stratosphere.QuickSight.Analysis.TopBottomMoversComputationProperty
       Stratosphere.QuickSight.Analysis.TopBottomRankedComputationProperty
       Stratosphere.QuickSight.Analysis.TotalAggregationComputationProperty
+      Stratosphere.QuickSight.Analysis.TotalAggregationFunctionProperty
+      Stratosphere.QuickSight.Analysis.TotalAggregationOptionProperty
       Stratosphere.QuickSight.Analysis.TotalOptionsProperty
       Stratosphere.QuickSight.Analysis.TreeMapAggregatedFieldWellsProperty
       Stratosphere.QuickSight.Analysis.TreeMapConfigurationProperty
@@ -455,6 +475,7 @@ library
       Stratosphere.QuickSight.Analysis.TrendArrowOptionsProperty
       Stratosphere.QuickSight.Analysis.UnaggregatedFieldProperty
       Stratosphere.QuickSight.Analysis.UniqueValuesComputationProperty
+      Stratosphere.QuickSight.Analysis.ValidationStrategyProperty
       Stratosphere.QuickSight.Analysis.VisibleRangeOptionsProperty
       Stratosphere.QuickSight.Analysis.VisualCustomActionOperationProperty
       Stratosphere.QuickSight.Analysis.VisualCustomActionProperty
@@ -486,6 +507,8 @@ library
       Stratosphere.QuickSight.Dashboard.ArcAxisDisplayRangeProperty
       Stratosphere.QuickSight.Dashboard.ArcConfigurationProperty
       Stratosphere.QuickSight.Dashboard.ArcOptionsProperty
+      Stratosphere.QuickSight.Dashboard.AssetOptionsProperty
+      Stratosphere.QuickSight.Dashboard.AttributeAggregationFunctionProperty
       Stratosphere.QuickSight.Dashboard.AxisDataOptionsProperty
       Stratosphere.QuickSight.Dashboard.AxisDisplayMinMaxRangeProperty
       Stratosphere.QuickSight.Dashboard.AxisDisplayOptionsProperty
@@ -576,6 +599,7 @@ library
       Stratosphere.QuickSight.Dashboard.DataPathColorProperty
       Stratosphere.QuickSight.Dashboard.DataPathLabelTypeProperty
       Stratosphere.QuickSight.Dashboard.DataPathSortProperty
+      Stratosphere.QuickSight.Dashboard.DataPathTypeProperty
       Stratosphere.QuickSight.Dashboard.DataPathValueProperty
       Stratosphere.QuickSight.Dashboard.DataPointDrillUpDownOptionProperty
       Stratosphere.QuickSight.Dashboard.DataPointMenuLabelOptionProperty
@@ -675,6 +699,9 @@ library
       Stratosphere.QuickSight.Dashboard.GaugeChartPrimaryValueConditionalFormattingProperty
       Stratosphere.QuickSight.Dashboard.GaugeChartVisualProperty
       Stratosphere.QuickSight.Dashboard.GeospatialCoordinateBoundsProperty
+      Stratosphere.QuickSight.Dashboard.GeospatialHeatmapColorScaleProperty
+      Stratosphere.QuickSight.Dashboard.GeospatialHeatmapConfigurationProperty
+      Stratosphere.QuickSight.Dashboard.GeospatialHeatmapDataColorProperty
       Stratosphere.QuickSight.Dashboard.GeospatialMapAggregatedFieldWellsProperty
       Stratosphere.QuickSight.Dashboard.GeospatialMapConfigurationProperty
       Stratosphere.QuickSight.Dashboard.GeospatialMapFieldWellsProperty
@@ -708,6 +735,8 @@ library
       Stratosphere.QuickSight.Dashboard.IntegerParameterProperty
       Stratosphere.QuickSight.Dashboard.IntegerValueWhenUnsetConfigurationProperty
       Stratosphere.QuickSight.Dashboard.ItemsLimitConfigurationProperty
+      Stratosphere.QuickSight.Dashboard.KPIActualValueConditionalFormattingProperty
+      Stratosphere.QuickSight.Dashboard.KPIComparisonValueConditionalFormattingProperty
       Stratosphere.QuickSight.Dashboard.KPIConditionalFormattingOptionProperty
       Stratosphere.QuickSight.Dashboard.KPIConditionalFormattingProperty
       Stratosphere.QuickSight.Dashboard.KPIConfigurationProperty
@@ -716,7 +745,10 @@ library
       Stratosphere.QuickSight.Dashboard.KPIPrimaryValueConditionalFormattingProperty
       Stratosphere.QuickSight.Dashboard.KPIProgressBarConditionalFormattingProperty
       Stratosphere.QuickSight.Dashboard.KPISortConfigurationProperty
+      Stratosphere.QuickSight.Dashboard.KPISparklineOptionsProperty
+      Stratosphere.QuickSight.Dashboard.KPIVisualLayoutOptionsProperty
       Stratosphere.QuickSight.Dashboard.KPIVisualProperty
+      Stratosphere.QuickSight.Dashboard.KPIVisualStandardLayoutProperty
       Stratosphere.QuickSight.Dashboard.LabelOptionsProperty
       Stratosphere.QuickSight.Dashboard.LayoutConfigurationProperty
       Stratosphere.QuickSight.Dashboard.LayoutProperty
@@ -731,6 +763,7 @@ library
       Stratosphere.QuickSight.Dashboard.LineChartSortConfigurationProperty
       Stratosphere.QuickSight.Dashboard.LineChartVisualProperty
       Stratosphere.QuickSight.Dashboard.LineSeriesAxisDisplayOptionsProperty
+      Stratosphere.QuickSight.Dashboard.LinkSharingConfigurationProperty
       Stratosphere.QuickSight.Dashboard.ListControlDisplayOptionsProperty
       Stratosphere.QuickSight.Dashboard.ListControlSearchOptionsProperty
       Stratosphere.QuickSight.Dashboard.ListControlSelectAllOptionsProperty
@@ -789,12 +822,15 @@ library
       Stratosphere.QuickSight.Dashboard.PivotTableConditionalFormattingScopeProperty
       Stratosphere.QuickSight.Dashboard.PivotTableConfigurationProperty
       Stratosphere.QuickSight.Dashboard.PivotTableDataPathOptionProperty
+      Stratosphere.QuickSight.Dashboard.PivotTableFieldCollapseStateOptionProperty
+      Stratosphere.QuickSight.Dashboard.PivotTableFieldCollapseStateTargetProperty
       Stratosphere.QuickSight.Dashboard.PivotTableFieldOptionProperty
       Stratosphere.QuickSight.Dashboard.PivotTableFieldOptionsProperty
       Stratosphere.QuickSight.Dashboard.PivotTableFieldSubtotalOptionsProperty
       Stratosphere.QuickSight.Dashboard.PivotTableFieldWellsProperty
       Stratosphere.QuickSight.Dashboard.PivotTableOptionsProperty
       Stratosphere.QuickSight.Dashboard.PivotTablePaginatedReportOptionsProperty
+      Stratosphere.QuickSight.Dashboard.PivotTableRowsLabelOptionsProperty
       Stratosphere.QuickSight.Dashboard.PivotTableSortByProperty
       Stratosphere.QuickSight.Dashboard.PivotTableSortConfigurationProperty
       Stratosphere.QuickSight.Dashboard.PivotTableTotalOptionsProperty
@@ -847,6 +883,7 @@ library
       Stratosphere.QuickSight.Dashboard.SeriesItemProperty
       Stratosphere.QuickSight.Dashboard.SetParameterValueConfigurationProperty
       Stratosphere.QuickSight.Dashboard.ShapeConditionalFormatProperty
+      Stratosphere.QuickSight.Dashboard.SheetControlInfoIconLabelOptionsProperty
       Stratosphere.QuickSight.Dashboard.SheetControlLayoutConfigurationProperty
       Stratosphere.QuickSight.Dashboard.SheetControlLayoutProperty
       Stratosphere.QuickSight.Dashboard.SheetControlsOptionProperty
@@ -860,6 +897,7 @@ library
       Stratosphere.QuickSight.Dashboard.ShortFormatTextProperty
       Stratosphere.QuickSight.Dashboard.SimpleClusterMarkerProperty
       Stratosphere.QuickSight.Dashboard.SliderControlDisplayOptionsProperty
+      Stratosphere.QuickSight.Dashboard.SmallMultiplesAxisPropertiesProperty
       Stratosphere.QuickSight.Dashboard.SmallMultiplesOptionsProperty
       Stratosphere.QuickSight.Dashboard.SpacingProperty
       Stratosphere.QuickSight.Dashboard.StringDefaultValuesProperty
@@ -888,9 +926,11 @@ library
       Stratosphere.QuickSight.Dashboard.TableInlineVisualizationProperty
       Stratosphere.QuickSight.Dashboard.TableOptionsProperty
       Stratosphere.QuickSight.Dashboard.TablePaginatedReportOptionsProperty
+      Stratosphere.QuickSight.Dashboard.TablePinnedFieldOptionsProperty
       Stratosphere.QuickSight.Dashboard.TableRowConditionalFormattingProperty
       Stratosphere.QuickSight.Dashboard.TableSideBorderOptionsProperty
       Stratosphere.QuickSight.Dashboard.TableSortConfigurationProperty
+      Stratosphere.QuickSight.Dashboard.TableStyleTargetProperty
       Stratosphere.QuickSight.Dashboard.TableUnaggregatedFieldWellsProperty
       Stratosphere.QuickSight.Dashboard.TableVisualProperty
       Stratosphere.QuickSight.Dashboard.TextAreaControlDisplayOptionsProperty
@@ -909,6 +949,8 @@ library
       Stratosphere.QuickSight.Dashboard.TopBottomMoversComputationProperty
       Stratosphere.QuickSight.Dashboard.TopBottomRankedComputationProperty
       Stratosphere.QuickSight.Dashboard.TotalAggregationComputationProperty
+      Stratosphere.QuickSight.Dashboard.TotalAggregationFunctionProperty
+      Stratosphere.QuickSight.Dashboard.TotalAggregationOptionProperty
       Stratosphere.QuickSight.Dashboard.TotalOptionsProperty
       Stratosphere.QuickSight.Dashboard.TreeMapAggregatedFieldWellsProperty
       Stratosphere.QuickSight.Dashboard.TreeMapConfigurationProperty
@@ -918,6 +960,7 @@ library
       Stratosphere.QuickSight.Dashboard.TrendArrowOptionsProperty
       Stratosphere.QuickSight.Dashboard.UnaggregatedFieldProperty
       Stratosphere.QuickSight.Dashboard.UniqueValuesComputationProperty
+      Stratosphere.QuickSight.Dashboard.ValidationStrategyProperty
       Stratosphere.QuickSight.Dashboard.VisibleRangeOptionsProperty
       Stratosphere.QuickSight.Dashboard.VisualAxisSortOptionProperty
       Stratosphere.QuickSight.Dashboard.VisualCustomActionOperationProperty
@@ -1013,7 +1056,9 @@ library
       Stratosphere.QuickSight.DataSource.SparkParametersProperty
       Stratosphere.QuickSight.DataSource.SqlServerParametersProperty
       Stratosphere.QuickSight.DataSource.SslPropertiesProperty
+      Stratosphere.QuickSight.DataSource.StarburstParametersProperty
       Stratosphere.QuickSight.DataSource.TeradataParametersProperty
+      Stratosphere.QuickSight.DataSource.TrinoParametersProperty
       Stratosphere.QuickSight.DataSource.VpcConnectionPropertiesProperty
       Stratosphere.QuickSight.RefreshSchedule
       Stratosphere.QuickSight.RefreshSchedule.RefreshOnDayProperty
@@ -1028,6 +1073,8 @@ library
       Stratosphere.QuickSight.Template.ArcAxisDisplayRangeProperty
       Stratosphere.QuickSight.Template.ArcConfigurationProperty
       Stratosphere.QuickSight.Template.ArcOptionsProperty
+      Stratosphere.QuickSight.Template.AssetOptionsProperty
+      Stratosphere.QuickSight.Template.AttributeAggregationFunctionProperty
       Stratosphere.QuickSight.Template.AxisDataOptionsProperty
       Stratosphere.QuickSight.Template.AxisDisplayMinMaxRangeProperty
       Stratosphere.QuickSight.Template.AxisDisplayOptionsProperty
@@ -1114,6 +1161,7 @@ library
       Stratosphere.QuickSight.Template.DataPathColorProperty
       Stratosphere.QuickSight.Template.DataPathLabelTypeProperty
       Stratosphere.QuickSight.Template.DataPathSortProperty
+      Stratosphere.QuickSight.Template.DataPathTypeProperty
       Stratosphere.QuickSight.Template.DataPathValueProperty
       Stratosphere.QuickSight.Template.DataSetConfigurationProperty
       Stratosphere.QuickSight.Template.DataSetReferenceProperty
@@ -1206,6 +1254,9 @@ library
       Stratosphere.QuickSight.Template.GaugeChartPrimaryValueConditionalFormattingProperty
       Stratosphere.QuickSight.Template.GaugeChartVisualProperty
       Stratosphere.QuickSight.Template.GeospatialCoordinateBoundsProperty
+      Stratosphere.QuickSight.Template.GeospatialHeatmapColorScaleProperty
+      Stratosphere.QuickSight.Template.GeospatialHeatmapConfigurationProperty
+      Stratosphere.QuickSight.Template.GeospatialHeatmapDataColorProperty
       Stratosphere.QuickSight.Template.GeospatialMapAggregatedFieldWellsProperty
       Stratosphere.QuickSight.Template.GeospatialMapConfigurationProperty
       Stratosphere.QuickSight.Template.GeospatialMapFieldWellsProperty
@@ -1238,6 +1289,8 @@ library
       Stratosphere.QuickSight.Template.IntegerParameterDeclarationProperty
       Stratosphere.QuickSight.Template.IntegerValueWhenUnsetConfigurationProperty
       Stratosphere.QuickSight.Template.ItemsLimitConfigurationProperty
+      Stratosphere.QuickSight.Template.KPIActualValueConditionalFormattingProperty
+      Stratosphere.QuickSight.Template.KPIComparisonValueConditionalFormattingProperty
       Stratosphere.QuickSight.Template.KPIConditionalFormattingOptionProperty
       Stratosphere.QuickSight.Template.KPIConditionalFormattingProperty
       Stratosphere.QuickSight.Template.KPIConfigurationProperty
@@ -1246,7 +1299,10 @@ library
       Stratosphere.QuickSight.Template.KPIPrimaryValueConditionalFormattingProperty
       Stratosphere.QuickSight.Template.KPIProgressBarConditionalFormattingProperty
       Stratosphere.QuickSight.Template.KPISortConfigurationProperty
+      Stratosphere.QuickSight.Template.KPISparklineOptionsProperty
+      Stratosphere.QuickSight.Template.KPIVisualLayoutOptionsProperty
       Stratosphere.QuickSight.Template.KPIVisualProperty
+      Stratosphere.QuickSight.Template.KPIVisualStandardLayoutProperty
       Stratosphere.QuickSight.Template.LabelOptionsProperty
       Stratosphere.QuickSight.Template.LayoutConfigurationProperty
       Stratosphere.QuickSight.Template.LayoutProperty
@@ -1318,12 +1374,15 @@ library
       Stratosphere.QuickSight.Template.PivotTableConditionalFormattingScopeProperty
       Stratosphere.QuickSight.Template.PivotTableConfigurationProperty
       Stratosphere.QuickSight.Template.PivotTableDataPathOptionProperty
+      Stratosphere.QuickSight.Template.PivotTableFieldCollapseStateOptionProperty
+      Stratosphere.QuickSight.Template.PivotTableFieldCollapseStateTargetProperty
       Stratosphere.QuickSight.Template.PivotTableFieldOptionProperty
       Stratosphere.QuickSight.Template.PivotTableFieldOptionsProperty
       Stratosphere.QuickSight.Template.PivotTableFieldSubtotalOptionsProperty
       Stratosphere.QuickSight.Template.PivotTableFieldWellsProperty
       Stratosphere.QuickSight.Template.PivotTableOptionsProperty
       Stratosphere.QuickSight.Template.PivotTablePaginatedReportOptionsProperty
+      Stratosphere.QuickSight.Template.PivotTableRowsLabelOptionsProperty
       Stratosphere.QuickSight.Template.PivotTableSortByProperty
       Stratosphere.QuickSight.Template.PivotTableSortConfigurationProperty
       Stratosphere.QuickSight.Template.PivotTableTotalOptionsProperty
@@ -1376,6 +1435,7 @@ library
       Stratosphere.QuickSight.Template.SeriesItemProperty
       Stratosphere.QuickSight.Template.SetParameterValueConfigurationProperty
       Stratosphere.QuickSight.Template.ShapeConditionalFormatProperty
+      Stratosphere.QuickSight.Template.SheetControlInfoIconLabelOptionsProperty
       Stratosphere.QuickSight.Template.SheetControlLayoutConfigurationProperty
       Stratosphere.QuickSight.Template.SheetControlLayoutProperty
       Stratosphere.QuickSight.Template.SheetDefinitionProperty
@@ -1387,6 +1447,7 @@ library
       Stratosphere.QuickSight.Template.ShortFormatTextProperty
       Stratosphere.QuickSight.Template.SimpleClusterMarkerProperty
       Stratosphere.QuickSight.Template.SliderControlDisplayOptionsProperty
+      Stratosphere.QuickSight.Template.SmallMultiplesAxisPropertiesProperty
       Stratosphere.QuickSight.Template.SmallMultiplesOptionsProperty
       Stratosphere.QuickSight.Template.SpacingProperty
       Stratosphere.QuickSight.Template.StringDefaultValuesProperty
@@ -1414,9 +1475,11 @@ library
       Stratosphere.QuickSight.Template.TableInlineVisualizationProperty
       Stratosphere.QuickSight.Template.TableOptionsProperty
       Stratosphere.QuickSight.Template.TablePaginatedReportOptionsProperty
+      Stratosphere.QuickSight.Template.TablePinnedFieldOptionsProperty
       Stratosphere.QuickSight.Template.TableRowConditionalFormattingProperty
       Stratosphere.QuickSight.Template.TableSideBorderOptionsProperty
       Stratosphere.QuickSight.Template.TableSortConfigurationProperty
+      Stratosphere.QuickSight.Template.TableStyleTargetProperty
       Stratosphere.QuickSight.Template.TableUnaggregatedFieldWellsProperty
       Stratosphere.QuickSight.Template.TableVisualProperty
       Stratosphere.QuickSight.Template.TemplateErrorProperty
@@ -1441,6 +1504,8 @@ library
       Stratosphere.QuickSight.Template.TopBottomMoversComputationProperty
       Stratosphere.QuickSight.Template.TopBottomRankedComputationProperty
       Stratosphere.QuickSight.Template.TotalAggregationComputationProperty
+      Stratosphere.QuickSight.Template.TotalAggregationFunctionProperty
+      Stratosphere.QuickSight.Template.TotalAggregationOptionProperty
       Stratosphere.QuickSight.Template.TotalOptionsProperty
       Stratosphere.QuickSight.Template.TreeMapAggregatedFieldWellsProperty
       Stratosphere.QuickSight.Template.TreeMapConfigurationProperty
@@ -1450,6 +1515,7 @@ library
       Stratosphere.QuickSight.Template.TrendArrowOptionsProperty
       Stratosphere.QuickSight.Template.UnaggregatedFieldProperty
       Stratosphere.QuickSight.Template.UniqueValuesComputationProperty
+      Stratosphere.QuickSight.Template.ValidationStrategyProperty
       Stratosphere.QuickSight.Template.VisibleRangeOptionsProperty
       Stratosphere.QuickSight.Template.VisualCustomActionOperationProperty
       Stratosphere.QuickSight.Template.VisualCustomActionProperty

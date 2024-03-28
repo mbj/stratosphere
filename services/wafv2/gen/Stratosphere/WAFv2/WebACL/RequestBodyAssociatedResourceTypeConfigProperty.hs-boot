@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.WebACL.RequestBodyAssociatedResourceTypeConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RequestBodyAssociatedResourceTypeConfigProperty :: Prelude.Type
+instance ToResourceProperties RequestBodyAssociatedResourceTypeConfigProperty
+instance Prelude.Eq RequestBodyAssociatedResourceTypeConfigProperty
+instance Prelude.Show RequestBodyAssociatedResourceTypeConfigProperty
+instance JSON.ToJSON RequestBodyAssociatedResourceTypeConfigProperty

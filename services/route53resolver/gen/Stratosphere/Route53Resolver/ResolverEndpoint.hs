@@ -14,6 +14,7 @@ data ResolverEndpoint
                       name :: (Prelude.Maybe (Value Prelude.Text)),
                       outpostArn :: (Prelude.Maybe (Value Prelude.Text)),
                       preferredInstanceType :: (Prelude.Maybe (Value Prelude.Text)),
+                      protocols :: (Prelude.Maybe (ValueList Prelude.Text)),
                       resolverEndpointType :: (Prelude.Maybe (Value Prelude.Text)),
                       securityGroupIds :: (ValueList Prelude.Text),
                       tags :: (Prelude.Maybe [Tag])}
@@ -28,6 +29,7 @@ mkResolverEndpoint direction ipAddresses securityGroupIds
        securityGroupIds = securityGroupIds, name = Prelude.Nothing,
        outpostArn = Prelude.Nothing,
        preferredInstanceType = Prelude.Nothing,
+       protocols = Prelude.Nothing,
        resolverEndpointType = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ResolverEndpoint where
   toResourceProperties ResolverEndpoint {..}
@@ -43,6 +45,7 @@ instance ToResourceProperties ResolverEndpoint where
                                (JSON..=) "OutpostArn" Prelude.<$> outpostArn,
                                (JSON..=) "PreferredInstanceType"
                                  Prelude.<$> preferredInstanceType,
+                               (JSON..=) "Protocols" Prelude.<$> protocols,
                                (JSON..=) "ResolverEndpointType" Prelude.<$> resolverEndpointType,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON ResolverEndpoint where
@@ -57,6 +60,7 @@ instance JSON.ToJSON ResolverEndpoint where
                   (JSON..=) "OutpostArn" Prelude.<$> outpostArn,
                   (JSON..=) "PreferredInstanceType"
                     Prelude.<$> preferredInstanceType,
+                  (JSON..=) "Protocols" Prelude.<$> protocols,
                   (JSON..=) "ResolverEndpointType" Prelude.<$> resolverEndpointType,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Direction" ResolverEndpoint where
@@ -80,6 +84,10 @@ instance Property "PreferredInstanceType" ResolverEndpoint where
   set newValue ResolverEndpoint {..}
     = ResolverEndpoint
         {preferredInstanceType = Prelude.pure newValue, ..}
+instance Property "Protocols" ResolverEndpoint where
+  type PropertyType "Protocols" ResolverEndpoint = ValueList Prelude.Text
+  set newValue ResolverEndpoint {..}
+    = ResolverEndpoint {protocols = Prelude.pure newValue, ..}
 instance Property "ResolverEndpointType" ResolverEndpoint where
   type PropertyType "ResolverEndpointType" ResolverEndpoint = Value Prelude.Text
   set newValue ResolverEndpoint {..}

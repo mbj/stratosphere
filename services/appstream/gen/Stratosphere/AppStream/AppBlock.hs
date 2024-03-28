@@ -13,42 +13,48 @@ data AppBlock
   = AppBlock {description :: (Prelude.Maybe (Value Prelude.Text)),
               displayName :: (Prelude.Maybe (Value Prelude.Text)),
               name :: (Value Prelude.Text),
-              setupScriptDetails :: ScriptDetailsProperty,
+              packagingType :: (Prelude.Maybe (Value Prelude.Text)),
+              postSetupScriptDetails :: (Prelude.Maybe ScriptDetailsProperty),
+              setupScriptDetails :: (Prelude.Maybe ScriptDetailsProperty),
               sourceS3Location :: S3LocationProperty,
               tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkAppBlock ::
-  Value Prelude.Text
-  -> ScriptDetailsProperty -> S3LocationProperty -> AppBlock
-mkAppBlock name setupScriptDetails sourceS3Location
+mkAppBlock :: Value Prelude.Text -> S3LocationProperty -> AppBlock
+mkAppBlock name sourceS3Location
   = AppBlock
-      {name = name, setupScriptDetails = setupScriptDetails,
-       sourceS3Location = sourceS3Location, description = Prelude.Nothing,
-       displayName = Prelude.Nothing, tags = Prelude.Nothing}
+      {name = name, sourceS3Location = sourceS3Location,
+       description = Prelude.Nothing, displayName = Prelude.Nothing,
+       packagingType = Prelude.Nothing,
+       postSetupScriptDetails = Prelude.Nothing,
+       setupScriptDetails = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties AppBlock where
   toResourceProperties AppBlock {..}
     = ResourceProperties
         {awsType = "AWS::AppStream::AppBlock", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Name" JSON..= name,
-                            "SetupScriptDetails" JSON..= setupScriptDetails,
-                            "SourceS3Location" JSON..= sourceS3Location]
+                           ["Name" JSON..= name, "SourceS3Location" JSON..= sourceS3Location]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "DisplayName" Prelude.<$> displayName,
+                               (JSON..=) "PackagingType" Prelude.<$> packagingType,
+                               (JSON..=) "PostSetupScriptDetails"
+                                 Prelude.<$> postSetupScriptDetails,
+                               (JSON..=) "SetupScriptDetails" Prelude.<$> setupScriptDetails,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON AppBlock where
   toJSON AppBlock {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Name" JSON..= name,
-               "SetupScriptDetails" JSON..= setupScriptDetails,
-               "SourceS3Location" JSON..= sourceS3Location]
+              ["Name" JSON..= name, "SourceS3Location" JSON..= sourceS3Location]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "DisplayName" Prelude.<$> displayName,
+                  (JSON..=) "PackagingType" Prelude.<$> packagingType,
+                  (JSON..=) "PostSetupScriptDetails"
+                    Prelude.<$> postSetupScriptDetails,
+                  (JSON..=) "SetupScriptDetails" Prelude.<$> setupScriptDetails,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" AppBlock where
   type PropertyType "Description" AppBlock = Value Prelude.Text
@@ -61,10 +67,18 @@ instance Property "DisplayName" AppBlock where
 instance Property "Name" AppBlock where
   type PropertyType "Name" AppBlock = Value Prelude.Text
   set newValue AppBlock {..} = AppBlock {name = newValue, ..}
+instance Property "PackagingType" AppBlock where
+  type PropertyType "PackagingType" AppBlock = Value Prelude.Text
+  set newValue AppBlock {..}
+    = AppBlock {packagingType = Prelude.pure newValue, ..}
+instance Property "PostSetupScriptDetails" AppBlock where
+  type PropertyType "PostSetupScriptDetails" AppBlock = ScriptDetailsProperty
+  set newValue AppBlock {..}
+    = AppBlock {postSetupScriptDetails = Prelude.pure newValue, ..}
 instance Property "SetupScriptDetails" AppBlock where
   type PropertyType "SetupScriptDetails" AppBlock = ScriptDetailsProperty
   set newValue AppBlock {..}
-    = AppBlock {setupScriptDetails = newValue, ..}
+    = AppBlock {setupScriptDetails = Prelude.pure newValue, ..}
 instance Property "SourceS3Location" AppBlock where
   type PropertyType "SourceS3Location" AppBlock = S3LocationProperty
   set newValue AppBlock {..}

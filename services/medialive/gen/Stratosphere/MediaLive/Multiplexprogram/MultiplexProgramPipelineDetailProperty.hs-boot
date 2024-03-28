@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Multiplexprogram.MultiplexProgramPipelineDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MultiplexProgramPipelineDetailProperty :: Prelude.Type
+instance ToResourceProperties MultiplexProgramPipelineDetailProperty
+instance Prelude.Eq MultiplexProgramPipelineDetailProperty
+instance Prelude.Show MultiplexProgramPipelineDetailProperty
+instance JSON.ToJSON MultiplexProgramPipelineDetailProperty
