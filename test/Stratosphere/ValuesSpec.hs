@@ -17,3 +17,6 @@ spec = do
 
     it "ImportValue and ImportValueList produce the same JSON" $ do
       JSON.toJSON (ImportValue "MyVal" :: Value Text) `shouldBe` JSON.toJSON (ImportValueList "MyVal" :: ValueList Text)
+
+    it "Cidr produces expected JSON" $ do
+      JSON.toJSON @(ValueList Text) (Cidr "192.168.0.0/24" "6" "5") `shouldBe` JSON.object [("Fn::Cidr", JSON.Array ["192.168.0.0/24", "6", "5"])]
