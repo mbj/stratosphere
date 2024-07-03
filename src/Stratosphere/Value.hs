@@ -100,11 +100,12 @@ mkFunc key args = JSON.object [(key, JSON.Array $ fromList args)]
 -- @List<AWS::EC2::Subnet::Id>@ then, you can use @RefList "SubnetIds"@ to
 -- reference it.
 data ValueList a
-  = ValueList [Value a]
-  | RefList Text
-  | ImportValueList (Value Text)
-  | Split Text (Value a)
+  = Cidr (Value Text) (Value Text) (Value Text)
   | GetAZs (Value Text)
+  | ImportValueList (Value Text)
+  | RefList Text
+  | Split Text (Value a)
+  | ValueList [Value a]
   deriving (Show, Eq)
 
 instance IsList (ValueList a) where
@@ -112,21 +113,31 @@ instance IsList (ValueList a) where
   fromList = ValueList
 
   toList = \case
-    (ValueList xs) -> xs
     -- This is obviously not meaningful, but the IsList instance is so useful
     -- that I decided to allow it.
-    (RefList _)         -> []
-    (ImportValueList _) -> []
-    (Split _ _)         -> []
+    (Cidr _ _ _)        -> []
     (GetAZs _)          -> []
+    (ImportValueList _) -> []
+    (RefList _)         -> []
+    (Split _ _)         -> []
+    (ValueList xs)      -> xs
 
 instance JSON.ToJSON a => JSON.ToJSON (ValueList a) where
   toJSON = \case
-    (ValueList vals)      -> JSON.toJSON vals
-    (RefList ref)         -> refToJSON ref
-    (ImportValueList ref) -> importValueToJSON ref
-    (Split d s)           -> mkFunc "Fn::Split" [JSON.toJSON d, JSON.toJSON s]
-    (GetAZs r)            -> JSON.object [("Fn::GetAZs", JSON.toJSON r)]
+    (Cidr ipBlock count cidrBits) -> JSON.object [("Fn::Cidr", cidrArray ipBlock count cidrBits)]
+    (GetAZs r)                    -> JSON.object [("Fn::GetAZs", JSON.toJSON r)]
+    (ImportValueList ref)         -> importValueToJSON ref
+    (RefList ref)                 -> refToJSON ref
+    (Split d s)                   -> mkFunc "Fn::Split" [JSON.toJSON d, JSON.toJSON s]
+    (ValueList vals)              -> JSON.toJSON vals
+    where
+      cidrArray :: Value Text -> Value Text -> Value Text -> JSON.Value
+      cidrArray ipBlock count cidrBits
+        = JSON.Array
+        [ JSON.toJSON ipBlock
+        , JSON.toJSON count
+        , JSON.toJSON cidrBits
+        ]
 
 -- | Class used to create a 'Ref' from another type.
 class ToRef a b where
