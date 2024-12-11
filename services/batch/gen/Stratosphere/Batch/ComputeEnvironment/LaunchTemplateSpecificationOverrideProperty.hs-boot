@@ -1,0 +1,9 @@
+module Stratosphere.Batch.ComputeEnvironment.LaunchTemplateSpecificationOverrideProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LaunchTemplateSpecificationOverrideProperty :: Prelude.Type
+instance ToResourceProperties LaunchTemplateSpecificationOverrideProperty
+instance Prelude.Eq LaunchTemplateSpecificationOverrideProperty
+instance Prelude.Show LaunchTemplateSpecificationOverrideProperty
+instance JSON.ToJSON LaunchTemplateSpecificationOverrideProperty

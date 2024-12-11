@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.KPIActualValueConditionalFormattingProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data KPIActualValueConditionalFormattingProperty :: Prelude.Type
-instance ToResourceProperties KPIActualValueConditionalFormattingProperty
-instance Prelude.Eq KPIActualValueConditionalFormattingProperty
-instance Prelude.Show KPIActualValueConditionalFormattingProperty
-instance JSON.ToJSON KPIActualValueConditionalFormattingProperty

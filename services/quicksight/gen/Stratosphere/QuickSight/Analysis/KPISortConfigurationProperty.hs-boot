@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.KPISortConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data KPISortConfigurationProperty :: Prelude.Type
-instance ToResourceProperties KPISortConfigurationProperty
-instance Prelude.Eq KPISortConfigurationProperty
-instance Prelude.Show KPISortConfigurationProperty
-instance JSON.ToJSON KPISortConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.EC2.VPNConnection.Phase2EncryptionAlgorithmsRequestListValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Phase2EncryptionAlgorithmsRequestListValueProperty :: Prelude.Type
+instance ToResourceProperties Phase2EncryptionAlgorithmsRequestListValueProperty
+instance Prelude.Eq Phase2EncryptionAlgorithmsRequestListValueProperty
+instance Prelude.Show Phase2EncryptionAlgorithmsRequestListValueProperty
+instance JSON.ToJSON Phase2EncryptionAlgorithmsRequestListValueProperty

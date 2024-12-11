@@ -1,0 +1,9 @@
+module Stratosphere.ECS.TaskDefinition.FSxWindowsFileServerVolumeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FSxWindowsFileServerVolumeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FSxWindowsFileServerVolumeConfigurationProperty
+instance Prelude.Eq FSxWindowsFileServerVolumeConfigurationProperty
+instance Prelude.Show FSxWindowsFileServerVolumeConfigurationProperty
+instance JSON.ToJSON FSxWindowsFileServerVolumeConfigurationProperty

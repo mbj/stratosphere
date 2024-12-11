@@ -1,0 +1,9 @@
+module Stratosphere.APS.Scraper.AmpConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AmpConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AmpConfigurationProperty
+instance Prelude.Eq AmpConfigurationProperty
+instance Prelude.Show AmpConfigurationProperty
+instance JSON.ToJSON AmpConfigurationProperty

@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.ArcAxisDisplayRangeProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data ArcAxisDisplayRangeProperty :: Prelude.Type
-instance ToResourceProperties ArcAxisDisplayRangeProperty
-instance Prelude.Eq ArcAxisDisplayRangeProperty
-instance Prelude.Show ArcAxisDisplayRangeProperty
-instance JSON.ToJSON ArcAxisDisplayRangeProperty

@@ -4,6 +4,7 @@ module Stratosphere.ApplicationAutoScaling.ScalingPolicy (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingPolicyConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.StepScalingPolicyConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -11,6 +12,7 @@ import Stratosphere.Value
 data ScalingPolicy
   = ScalingPolicy {policyName :: (Value Prelude.Text),
                    policyType :: (Value Prelude.Text),
+                   predictiveScalingPolicyConfiguration :: (Prelude.Maybe PredictiveScalingPolicyConfigurationProperty),
                    resourceId :: (Prelude.Maybe (Value Prelude.Text)),
                    scalableDimension :: (Prelude.Maybe (Value Prelude.Text)),
                    scalingTargetId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -23,6 +25,7 @@ mkScalingPolicy ::
 mkScalingPolicy policyName policyType
   = ScalingPolicy
       {policyName = policyName, policyType = policyType,
+       predictiveScalingPolicyConfiguration = Prelude.Nothing,
        resourceId = Prelude.Nothing, scalableDimension = Prelude.Nothing,
        scalingTargetId = Prelude.Nothing,
        serviceNamespace = Prelude.Nothing,
@@ -37,7 +40,9 @@ instance ToResourceProperties ScalingPolicy where
                         ((Prelude.<>)
                            ["PolicyName" JSON..= policyName, "PolicyType" JSON..= policyType]
                            (Prelude.catMaybes
-                              [(JSON..=) "ResourceId" Prelude.<$> resourceId,
+                              [(JSON..=) "PredictiveScalingPolicyConfiguration"
+                                 Prelude.<$> predictiveScalingPolicyConfiguration,
+                               (JSON..=) "ResourceId" Prelude.<$> resourceId,
                                (JSON..=) "ScalableDimension" Prelude.<$> scalableDimension,
                                (JSON..=) "ScalingTargetId" Prelude.<$> scalingTargetId,
                                (JSON..=) "ServiceNamespace" Prelude.<$> serviceNamespace,
@@ -52,7 +57,9 @@ instance JSON.ToJSON ScalingPolicy where
            ((Prelude.<>)
               ["PolicyName" JSON..= policyName, "PolicyType" JSON..= policyType]
               (Prelude.catMaybes
-                 [(JSON..=) "ResourceId" Prelude.<$> resourceId,
+                 [(JSON..=) "PredictiveScalingPolicyConfiguration"
+                    Prelude.<$> predictiveScalingPolicyConfiguration,
+                  (JSON..=) "ResourceId" Prelude.<$> resourceId,
                   (JSON..=) "ScalableDimension" Prelude.<$> scalableDimension,
                   (JSON..=) "ScalingTargetId" Prelude.<$> scalingTargetId,
                   (JSON..=) "ServiceNamespace" Prelude.<$> serviceNamespace,
@@ -68,6 +75,11 @@ instance Property "PolicyType" ScalingPolicy where
   type PropertyType "PolicyType" ScalingPolicy = Value Prelude.Text
   set newValue ScalingPolicy {..}
     = ScalingPolicy {policyType = newValue, ..}
+instance Property "PredictiveScalingPolicyConfiguration" ScalingPolicy where
+  type PropertyType "PredictiveScalingPolicyConfiguration" ScalingPolicy = PredictiveScalingPolicyConfigurationProperty
+  set newValue ScalingPolicy {..}
+    = ScalingPolicy
+        {predictiveScalingPolicyConfiguration = Prelude.pure newValue, ..}
 instance Property "ResourceId" ScalingPolicy where
   type PropertyType "ResourceId" ScalingPolicy = Value Prelude.Text
   set newValue ScalingPolicy {..}

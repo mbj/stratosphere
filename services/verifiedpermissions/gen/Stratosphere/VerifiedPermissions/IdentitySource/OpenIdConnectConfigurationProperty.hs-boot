@@ -1,0 +1,9 @@
+module Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConnectConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenIdConnectConfigurationProperty :: Prelude.Type
+instance ToResourceProperties OpenIdConnectConfigurationProperty
+instance Prelude.Eq OpenIdConnectConfigurationProperty
+instance Prelude.Show OpenIdConnectConfigurationProperty
+instance JSON.ToJSON OpenIdConnectConfigurationProperty

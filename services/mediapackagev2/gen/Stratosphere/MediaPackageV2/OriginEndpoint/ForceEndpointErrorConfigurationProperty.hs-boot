@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.ForceEndpointErrorConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ForceEndpointErrorConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ForceEndpointErrorConfigurationProperty
+instance Prelude.Eq ForceEndpointErrorConfigurationProperty
+instance Prelude.Show ForceEndpointErrorConfigurationProperty
+instance JSON.ToJSON ForceEndpointErrorConfigurationProperty

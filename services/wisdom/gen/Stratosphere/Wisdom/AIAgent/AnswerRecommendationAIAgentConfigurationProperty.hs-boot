@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.AIAgent.AnswerRecommendationAIAgentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AnswerRecommendationAIAgentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AnswerRecommendationAIAgentConfigurationProperty
+instance Prelude.Eq AnswerRecommendationAIAgentConfigurationProperty
+instance Prelude.Show AnswerRecommendationAIAgentConfigurationProperty
+instance JSON.ToJSON AnswerRecommendationAIAgentConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.FMS.Policy.NetworkAclCommonPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkAclCommonPolicyProperty :: Prelude.Type
+instance ToResourceProperties NetworkAclCommonPolicyProperty
+instance Prelude.Eq NetworkAclCommonPolicyProperty
+instance Prelude.Show NetworkAclCommonPolicyProperty
+instance JSON.ToJSON NetworkAclCommonPolicyProperty

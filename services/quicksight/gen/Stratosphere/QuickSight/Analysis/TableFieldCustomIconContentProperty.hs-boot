@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.TableFieldCustomIconContentProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data TableFieldCustomIconContentProperty :: Prelude.Type
-instance ToResourceProperties TableFieldCustomIconContentProperty
-instance Prelude.Eq TableFieldCustomIconContentProperty
-instance Prelude.Show TableFieldCustomIconContentProperty
-instance JSON.ToJSON TableFieldCustomIconContentProperty

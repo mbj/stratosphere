@@ -21,6 +21,7 @@ data TopicColumnProperty
                          columnSynonyms :: (Prelude.Maybe (ValueList Prelude.Text)),
                          comparativeOrder :: (Prelude.Maybe ComparativeOrderProperty),
                          defaultFormatting :: (Prelude.Maybe DefaultFormattingProperty),
+                         disableIndexing :: (Prelude.Maybe (Value Prelude.Bool)),
                          isIncludedInTopic :: (Prelude.Maybe (Value Prelude.Bool)),
                          neverAggregateInFilter :: (Prelude.Maybe (Value Prelude.Bool)),
                          nonAdditive :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -40,6 +41,7 @@ mkTopicColumnProperty columnName
        columnSynonyms = Prelude.Nothing,
        comparativeOrder = Prelude.Nothing,
        defaultFormatting = Prelude.Nothing,
+       disableIndexing = Prelude.Nothing,
        isIncludedInTopic = Prelude.Nothing,
        neverAggregateInFilter = Prelude.Nothing,
        nonAdditive = Prelude.Nothing,
@@ -63,6 +65,7 @@ instance ToResourceProperties TopicColumnProperty where
                                (JSON..=) "ColumnSynonyms" Prelude.<$> columnSynonyms,
                                (JSON..=) "ComparativeOrder" Prelude.<$> comparativeOrder,
                                (JSON..=) "DefaultFormatting" Prelude.<$> defaultFormatting,
+                               (JSON..=) "DisableIndexing" Prelude.<$> disableIndexing,
                                (JSON..=) "IsIncludedInTopic" Prelude.<$> isIncludedInTopic,
                                (JSON..=) "NeverAggregateInFilter"
                                  Prelude.<$> neverAggregateInFilter,
@@ -87,6 +90,7 @@ instance JSON.ToJSON TopicColumnProperty where
                   (JSON..=) "ColumnSynonyms" Prelude.<$> columnSynonyms,
                   (JSON..=) "ComparativeOrder" Prelude.<$> comparativeOrder,
                   (JSON..=) "DefaultFormatting" Prelude.<$> defaultFormatting,
+                  (JSON..=) "DisableIndexing" Prelude.<$> disableIndexing,
                   (JSON..=) "IsIncludedInTopic" Prelude.<$> isIncludedInTopic,
                   (JSON..=) "NeverAggregateInFilter"
                     Prelude.<$> neverAggregateInFilter,
@@ -141,6 +145,10 @@ instance Property "DefaultFormatting" TopicColumnProperty where
   set newValue TopicColumnProperty {..}
     = TopicColumnProperty
         {defaultFormatting = Prelude.pure newValue, ..}
+instance Property "DisableIndexing" TopicColumnProperty where
+  type PropertyType "DisableIndexing" TopicColumnProperty = Value Prelude.Bool
+  set newValue TopicColumnProperty {..}
+    = TopicColumnProperty {disableIndexing = Prelude.pure newValue, ..}
 instance Property "IsIncludedInTopic" TopicColumnProperty where
   type PropertyType "IsIncludedInTopic" TopicColumnProperty = Value Prelude.Bool
   set newValue TopicColumnProperty {..}

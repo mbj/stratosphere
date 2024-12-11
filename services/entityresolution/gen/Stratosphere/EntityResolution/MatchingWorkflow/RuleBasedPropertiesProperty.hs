@@ -10,31 +10,45 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuleBasedPropertiesProperty
   = RuleBasedPropertiesProperty {attributeMatchingModel :: (Value Prelude.Text),
+                                 matchPurpose :: (Prelude.Maybe (Value Prelude.Text)),
                                  rules :: [RuleProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuleBasedPropertiesProperty ::
   Value Prelude.Text -> [RuleProperty] -> RuleBasedPropertiesProperty
 mkRuleBasedPropertiesProperty attributeMatchingModel rules
   = RuleBasedPropertiesProperty
-      {attributeMatchingModel = attributeMatchingModel, rules = rules}
+      {attributeMatchingModel = attributeMatchingModel, rules = rules,
+       matchPurpose = Prelude.Nothing}
 instance ToResourceProperties RuleBasedPropertiesProperty where
   toResourceProperties RuleBasedPropertiesProperty {..}
     = ResourceProperties
         {awsType = "AWS::EntityResolution::MatchingWorkflow.RuleBasedProperties",
          supportsTags = Prelude.False,
-         properties = ["AttributeMatchingModel"
-                         JSON..= attributeMatchingModel,
-                       "Rules" JSON..= rules]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["AttributeMatchingModel" JSON..= attributeMatchingModel,
+                            "Rules" JSON..= rules]
+                           (Prelude.catMaybes
+                              [(JSON..=) "MatchPurpose" Prelude.<$> matchPurpose]))}
 instance JSON.ToJSON RuleBasedPropertiesProperty where
   toJSON RuleBasedPropertiesProperty {..}
     = JSON.object
-        ["AttributeMatchingModel" JSON..= attributeMatchingModel,
-         "Rules" JSON..= rules]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["AttributeMatchingModel" JSON..= attributeMatchingModel,
+               "Rules" JSON..= rules]
+              (Prelude.catMaybes
+                 [(JSON..=) "MatchPurpose" Prelude.<$> matchPurpose])))
 instance Property "AttributeMatchingModel" RuleBasedPropertiesProperty where
   type PropertyType "AttributeMatchingModel" RuleBasedPropertiesProperty = Value Prelude.Text
   set newValue RuleBasedPropertiesProperty {..}
     = RuleBasedPropertiesProperty
         {attributeMatchingModel = newValue, ..}
+instance Property "MatchPurpose" RuleBasedPropertiesProperty where
+  type PropertyType "MatchPurpose" RuleBasedPropertiesProperty = Value Prelude.Text
+  set newValue RuleBasedPropertiesProperty {..}
+    = RuleBasedPropertiesProperty
+        {matchPurpose = Prelude.pure newValue, ..}
 instance Property "Rules" RuleBasedPropertiesProperty where
   type PropertyType "Rules" RuleBasedPropertiesProperty = [RuleProperty]
   set newValue RuleBasedPropertiesProperty {..}

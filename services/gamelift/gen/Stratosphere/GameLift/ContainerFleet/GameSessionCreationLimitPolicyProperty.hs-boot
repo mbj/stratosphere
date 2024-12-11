@@ -1,0 +1,9 @@
+module Stratosphere.GameLift.ContainerFleet.GameSessionCreationLimitPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GameSessionCreationLimitPolicyProperty :: Prelude.Type
+instance ToResourceProperties GameSessionCreationLimitPolicyProperty
+instance Prelude.Eq GameSessionCreationLimitPolicyProperty
+instance Prelude.Show GameSessionCreationLimitPolicyProperty
+instance JSON.ToJSON GameSessionCreationLimitPolicyProperty

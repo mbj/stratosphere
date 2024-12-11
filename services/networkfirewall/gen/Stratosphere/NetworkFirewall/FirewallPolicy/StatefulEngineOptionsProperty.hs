@@ -1,19 +1,22 @@
 module Stratosphere.NetworkFirewall.FirewallPolicy.StatefulEngineOptionsProperty (
-        StatefulEngineOptionsProperty(..), mkStatefulEngineOptionsProperty
+        module Exports, StatefulEngineOptionsProperty(..),
+        mkStatefulEngineOptionsProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.NetworkFirewall.FirewallPolicy.FlowTimeoutsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data StatefulEngineOptionsProperty
-  = StatefulEngineOptionsProperty {ruleOrder :: (Prelude.Maybe (Value Prelude.Text)),
+  = StatefulEngineOptionsProperty {flowTimeouts :: (Prelude.Maybe FlowTimeoutsProperty),
+                                   ruleOrder :: (Prelude.Maybe (Value Prelude.Text)),
                                    streamExceptionPolicy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkStatefulEngineOptionsProperty :: StatefulEngineOptionsProperty
 mkStatefulEngineOptionsProperty
   = StatefulEngineOptionsProperty
-      {ruleOrder = Prelude.Nothing,
+      {flowTimeouts = Prelude.Nothing, ruleOrder = Prelude.Nothing,
        streamExceptionPolicy = Prelude.Nothing}
 instance ToResourceProperties StatefulEngineOptionsProperty where
   toResourceProperties StatefulEngineOptionsProperty {..}
@@ -22,7 +25,8 @@ instance ToResourceProperties StatefulEngineOptionsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "RuleOrder" Prelude.<$> ruleOrder,
+                           [(JSON..=) "FlowTimeouts" Prelude.<$> flowTimeouts,
+                            (JSON..=) "RuleOrder" Prelude.<$> ruleOrder,
                             (JSON..=) "StreamExceptionPolicy"
                               Prelude.<$> streamExceptionPolicy])}
 instance JSON.ToJSON StatefulEngineOptionsProperty where
@@ -30,9 +34,15 @@ instance JSON.ToJSON StatefulEngineOptionsProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "RuleOrder" Prelude.<$> ruleOrder,
+              [(JSON..=) "FlowTimeouts" Prelude.<$> flowTimeouts,
+               (JSON..=) "RuleOrder" Prelude.<$> ruleOrder,
                (JSON..=) "StreamExceptionPolicy"
                  Prelude.<$> streamExceptionPolicy]))
+instance Property "FlowTimeouts" StatefulEngineOptionsProperty where
+  type PropertyType "FlowTimeouts" StatefulEngineOptionsProperty = FlowTimeoutsProperty
+  set newValue StatefulEngineOptionsProperty {..}
+    = StatefulEngineOptionsProperty
+        {flowTimeouts = Prelude.pure newValue, ..}
 instance Property "RuleOrder" StatefulEngineOptionsProperty where
   type PropertyType "RuleOrder" StatefulEngineOptionsProperty = Value Prelude.Text
   set newValue StatefulEngineOptionsProperty {..}

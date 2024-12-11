@@ -1,0 +1,9 @@
+module Stratosphere.WorkSpacesWeb.DataProtectionSettings.CustomPatternProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomPatternProperty :: Prelude.Type
+instance ToResourceProperties CustomPatternProperty
+instance Prelude.Eq CustomPatternProperty
+instance Prelude.Show CustomPatternProperty
+instance JSON.ToJSON CustomPatternProperty

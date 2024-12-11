@@ -36,6 +36,7 @@ library
       Stratosphere.Pipes.Pipe.CapacityProviderStrategyItemProperty
       Stratosphere.Pipes.Pipe.CloudwatchLogsLogDestinationProperty
       Stratosphere.Pipes.Pipe.DeadLetterConfigProperty
+      Stratosphere.Pipes.Pipe.DimensionMappingProperty
       Stratosphere.Pipes.Pipe.EcsContainerOverrideProperty
       Stratosphere.Pipes.Pipe.EcsEnvironmentFileProperty
       Stratosphere.Pipes.Pipe.EcsEnvironmentVariableProperty
@@ -48,6 +49,8 @@ library
       Stratosphere.Pipes.Pipe.FirehoseLogDestinationProperty
       Stratosphere.Pipes.Pipe.MQBrokerAccessCredentialsProperty
       Stratosphere.Pipes.Pipe.MSKAccessCredentialsProperty
+      Stratosphere.Pipes.Pipe.MultiMeasureAttributeMappingProperty
+      Stratosphere.Pipes.Pipe.MultiMeasureMappingProperty
       Stratosphere.Pipes.Pipe.NetworkConfigurationProperty
       Stratosphere.Pipes.Pipe.PipeEnrichmentHttpParametersProperty
       Stratosphere.Pipes.Pipe.PipeEnrichmentParametersProperty
@@ -72,12 +75,14 @@ library
       Stratosphere.Pipes.Pipe.PipeTargetSageMakerPipelineParametersProperty
       Stratosphere.Pipes.Pipe.PipeTargetSqsQueueParametersProperty
       Stratosphere.Pipes.Pipe.PipeTargetStateMachineParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetTimestreamParametersProperty
       Stratosphere.Pipes.Pipe.PlacementConstraintProperty
       Stratosphere.Pipes.Pipe.PlacementStrategyProperty
       Stratosphere.Pipes.Pipe.S3LogDestinationProperty
       Stratosphere.Pipes.Pipe.SageMakerPipelineParameterProperty
       Stratosphere.Pipes.Pipe.SelfManagedKafkaAccessConfigurationCredentialsProperty
       Stratosphere.Pipes.Pipe.SelfManagedKafkaAccessConfigurationVpcProperty
+      Stratosphere.Pipes.Pipe.SingleMeasureMappingProperty
   other-modules:
       Paths_stratosphere_pipes
   hs-source-dirs:

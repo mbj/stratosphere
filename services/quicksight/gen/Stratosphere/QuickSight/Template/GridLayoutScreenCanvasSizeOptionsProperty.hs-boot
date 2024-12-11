@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.GridLayoutScreenCanvasSizeOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data GridLayoutScreenCanvasSizeOptionsProperty :: Prelude.Type
-instance ToResourceProperties GridLayoutScreenCanvasSizeOptionsProperty
-instance Prelude.Eq GridLayoutScreenCanvasSizeOptionsProperty
-instance Prelude.Show GridLayoutScreenCanvasSizeOptionsProperty
-instance JSON.ToJSON GridLayoutScreenCanvasSizeOptionsProperty

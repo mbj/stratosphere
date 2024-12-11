@@ -1,0 +1,9 @@
+module Stratosphere.EC2.VPNConnection.CloudwatchLogOptionsSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudwatchLogOptionsSpecificationProperty :: Prelude.Type
+instance ToResourceProperties CloudwatchLogOptionsSpecificationProperty
+instance Prelude.Eq CloudwatchLogOptionsSpecificationProperty
+instance Prelude.Show CloudwatchLogOptionsSpecificationProperty
+instance JSON.ToJSON CloudwatchLogOptionsSpecificationProperty

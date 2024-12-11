@@ -1,0 +1,9 @@
+module Stratosphere.RDS.GlobalCluster.GlobalEndpointProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GlobalEndpointProperty :: Prelude.Type
+instance ToResourceProperties GlobalEndpointProperty
+instance Prelude.Eq GlobalEndpointProperty
+instance Prelude.Show GlobalEndpointProperty
+instance JSON.ToJSON GlobalEndpointProperty

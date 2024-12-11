@@ -8,14 +8,16 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JdbcTargetProperty
   = JdbcTargetProperty {connectionName :: (Prelude.Maybe (Value Prelude.Text)),
+                        enableAdditionalMetadata :: (Prelude.Maybe (ValueList Prelude.Text)),
                         exclusions :: (Prelude.Maybe (ValueList Prelude.Text)),
                         path :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkJdbcTargetProperty :: JdbcTargetProperty
 mkJdbcTargetProperty
   = JdbcTargetProperty
-      {connectionName = Prelude.Nothing, exclusions = Prelude.Nothing,
-       path = Prelude.Nothing}
+      {connectionName = Prelude.Nothing,
+       enableAdditionalMetadata = Prelude.Nothing,
+       exclusions = Prelude.Nothing, path = Prelude.Nothing}
 instance ToResourceProperties JdbcTargetProperty where
   toResourceProperties JdbcTargetProperty {..}
     = ResourceProperties
@@ -24,6 +26,8 @@ instance ToResourceProperties JdbcTargetProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ConnectionName" Prelude.<$> connectionName,
+                            (JSON..=) "EnableAdditionalMetadata"
+                              Prelude.<$> enableAdditionalMetadata,
                             (JSON..=) "Exclusions" Prelude.<$> exclusions,
                             (JSON..=) "Path" Prelude.<$> path])}
 instance JSON.ToJSON JdbcTargetProperty where
@@ -32,12 +36,19 @@ instance JSON.ToJSON JdbcTargetProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "ConnectionName" Prelude.<$> connectionName,
+               (JSON..=) "EnableAdditionalMetadata"
+                 Prelude.<$> enableAdditionalMetadata,
                (JSON..=) "Exclusions" Prelude.<$> exclusions,
                (JSON..=) "Path" Prelude.<$> path]))
 instance Property "ConnectionName" JdbcTargetProperty where
   type PropertyType "ConnectionName" JdbcTargetProperty = Value Prelude.Text
   set newValue JdbcTargetProperty {..}
     = JdbcTargetProperty {connectionName = Prelude.pure newValue, ..}
+instance Property "EnableAdditionalMetadata" JdbcTargetProperty where
+  type PropertyType "EnableAdditionalMetadata" JdbcTargetProperty = ValueList Prelude.Text
+  set newValue JdbcTargetProperty {..}
+    = JdbcTargetProperty
+        {enableAdditionalMetadata = Prelude.pure newValue, ..}
 instance Property "Exclusions" JdbcTargetProperty where
   type PropertyType "Exclusions" JdbcTargetProperty = ValueList Prelude.Text
   set newValue JdbcTargetProperty {..}

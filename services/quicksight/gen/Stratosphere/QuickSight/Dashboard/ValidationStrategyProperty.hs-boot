@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.ValidationStrategyProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data ValidationStrategyProperty :: Prelude.Type
-instance ToResourceProperties ValidationStrategyProperty
-instance Prelude.Eq ValidationStrategyProperty
-instance Prelude.Show ValidationStrategyProperty
-instance JSON.ToJSON ValidationStrategyProperty

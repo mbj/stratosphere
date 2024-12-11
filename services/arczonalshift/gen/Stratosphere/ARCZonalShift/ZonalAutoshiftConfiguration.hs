@@ -10,14 +10,15 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ZonalAutoshiftConfiguration
   = ZonalAutoshiftConfiguration {practiceRunConfiguration :: (Prelude.Maybe PracticeRunConfigurationProperty),
-                                 resourceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                                 resourceIdentifier :: (Value Prelude.Text),
                                  zonalAutoshiftStatus :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkZonalAutoshiftConfiguration :: ZonalAutoshiftConfiguration
-mkZonalAutoshiftConfiguration
+mkZonalAutoshiftConfiguration ::
+  Value Prelude.Text -> ZonalAutoshiftConfiguration
+mkZonalAutoshiftConfiguration resourceIdentifier
   = ZonalAutoshiftConfiguration
-      {practiceRunConfiguration = Prelude.Nothing,
-       resourceIdentifier = Prelude.Nothing,
+      {resourceIdentifier = resourceIdentifier,
+       practiceRunConfiguration = Prelude.Nothing,
        zonalAutoshiftStatus = Prelude.Nothing}
 instance ToResourceProperties ZonalAutoshiftConfiguration where
   toResourceProperties ZonalAutoshiftConfiguration {..}
@@ -25,22 +26,24 @@ instance ToResourceProperties ZonalAutoshiftConfiguration where
         {awsType = "AWS::ARCZonalShift::ZonalAutoshiftConfiguration",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "PracticeRunConfiguration"
-                              Prelude.<$> practiceRunConfiguration,
-                            (JSON..=) "ResourceIdentifier" Prelude.<$> resourceIdentifier,
-                            (JSON..=) "ZonalAutoshiftStatus"
-                              Prelude.<$> zonalAutoshiftStatus])}
+                        ((Prelude.<>)
+                           ["ResourceIdentifier" JSON..= resourceIdentifier]
+                           (Prelude.catMaybes
+                              [(JSON..=) "PracticeRunConfiguration"
+                                 Prelude.<$> practiceRunConfiguration,
+                               (JSON..=) "ZonalAutoshiftStatus"
+                                 Prelude.<$> zonalAutoshiftStatus]))}
 instance JSON.ToJSON ZonalAutoshiftConfiguration where
   toJSON ZonalAutoshiftConfiguration {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "PracticeRunConfiguration"
-                 Prelude.<$> practiceRunConfiguration,
-               (JSON..=) "ResourceIdentifier" Prelude.<$> resourceIdentifier,
-               (JSON..=) "ZonalAutoshiftStatus"
-                 Prelude.<$> zonalAutoshiftStatus]))
+           ((Prelude.<>)
+              ["ResourceIdentifier" JSON..= resourceIdentifier]
+              (Prelude.catMaybes
+                 [(JSON..=) "PracticeRunConfiguration"
+                    Prelude.<$> practiceRunConfiguration,
+                  (JSON..=) "ZonalAutoshiftStatus"
+                    Prelude.<$> zonalAutoshiftStatus])))
 instance Property "PracticeRunConfiguration" ZonalAutoshiftConfiguration where
   type PropertyType "PracticeRunConfiguration" ZonalAutoshiftConfiguration = PracticeRunConfigurationProperty
   set newValue ZonalAutoshiftConfiguration {..}
@@ -49,8 +52,7 @@ instance Property "PracticeRunConfiguration" ZonalAutoshiftConfiguration where
 instance Property "ResourceIdentifier" ZonalAutoshiftConfiguration where
   type PropertyType "ResourceIdentifier" ZonalAutoshiftConfiguration = Value Prelude.Text
   set newValue ZonalAutoshiftConfiguration {..}
-    = ZonalAutoshiftConfiguration
-        {resourceIdentifier = Prelude.pure newValue, ..}
+    = ZonalAutoshiftConfiguration {resourceIdentifier = newValue, ..}
 instance Property "ZonalAutoshiftStatus" ZonalAutoshiftConfiguration where
   type PropertyType "ZonalAutoshiftStatus" ZonalAutoshiftConfiguration = Value Prelude.Text
   set newValue ZonalAutoshiftConfiguration {..}

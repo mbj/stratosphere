@@ -5,18 +5,21 @@ module Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingTechniquesProper
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingRuleBasedPropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.EntityResolution.IdMappingWorkflow.ProviderPropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data IdMappingTechniquesProperty
   = IdMappingTechniquesProperty {idMappingType :: (Prelude.Maybe (Value Prelude.Text)),
-                                 providerProperties :: (Prelude.Maybe ProviderPropertiesProperty)}
+                                 providerProperties :: (Prelude.Maybe ProviderPropertiesProperty),
+                                 ruleBasedProperties :: (Prelude.Maybe IdMappingRuleBasedPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdMappingTechniquesProperty :: IdMappingTechniquesProperty
 mkIdMappingTechniquesProperty
   = IdMappingTechniquesProperty
       {idMappingType = Prelude.Nothing,
-       providerProperties = Prelude.Nothing}
+       providerProperties = Prelude.Nothing,
+       ruleBasedProperties = Prelude.Nothing}
 instance ToResourceProperties IdMappingTechniquesProperty where
   toResourceProperties IdMappingTechniquesProperty {..}
     = ResourceProperties
@@ -25,14 +28,16 @@ instance ToResourceProperties IdMappingTechniquesProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IdMappingType" Prelude.<$> idMappingType,
-                            (JSON..=) "ProviderProperties" Prelude.<$> providerProperties])}
+                            (JSON..=) "ProviderProperties" Prelude.<$> providerProperties,
+                            (JSON..=) "RuleBasedProperties" Prelude.<$> ruleBasedProperties])}
 instance JSON.ToJSON IdMappingTechniquesProperty where
   toJSON IdMappingTechniquesProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "IdMappingType" Prelude.<$> idMappingType,
-               (JSON..=) "ProviderProperties" Prelude.<$> providerProperties]))
+               (JSON..=) "ProviderProperties" Prelude.<$> providerProperties,
+               (JSON..=) "RuleBasedProperties" Prelude.<$> ruleBasedProperties]))
 instance Property "IdMappingType" IdMappingTechniquesProperty where
   type PropertyType "IdMappingType" IdMappingTechniquesProperty = Value Prelude.Text
   set newValue IdMappingTechniquesProperty {..}
@@ -43,3 +48,8 @@ instance Property "ProviderProperties" IdMappingTechniquesProperty where
   set newValue IdMappingTechniquesProperty {..}
     = IdMappingTechniquesProperty
         {providerProperties = Prelude.pure newValue, ..}
+instance Property "RuleBasedProperties" IdMappingTechniquesProperty where
+  type PropertyType "RuleBasedProperties" IdMappingTechniquesProperty = IdMappingRuleBasedPropertiesProperty
+  set newValue IdMappingTechniquesProperty {..}
+    = IdMappingTechniquesProperty
+        {ruleBasedProperties = Prelude.pure newValue, ..}

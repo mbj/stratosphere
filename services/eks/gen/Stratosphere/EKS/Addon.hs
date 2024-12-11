@@ -1,9 +1,10 @@
 module Stratosphere.EKS.Addon (
-        Addon(..), mkAddon
+        module Exports, Addon(..), mkAddon
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EKS.Addon.PodIdentityAssociationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -12,6 +13,7 @@ data Addon
            addonVersion :: (Prelude.Maybe (Value Prelude.Text)),
            clusterName :: (Value Prelude.Text),
            configurationValues :: (Prelude.Maybe (Value Prelude.Text)),
+           podIdentityAssociations :: (Prelude.Maybe [PodIdentityAssociationProperty]),
            preserveOnDelete :: (Prelude.Maybe (Value Prelude.Bool)),
            resolveConflicts :: (Prelude.Maybe (Value Prelude.Text)),
            serviceAccountRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -23,6 +25,7 @@ mkAddon addonName clusterName
       {addonName = addonName, clusterName = clusterName,
        addonVersion = Prelude.Nothing,
        configurationValues = Prelude.Nothing,
+       podIdentityAssociations = Prelude.Nothing,
        preserveOnDelete = Prelude.Nothing,
        resolveConflicts = Prelude.Nothing,
        serviceAccountRoleArn = Prelude.Nothing, tags = Prelude.Nothing}
@@ -36,6 +39,8 @@ instance ToResourceProperties Addon where
                            (Prelude.catMaybes
                               [(JSON..=) "AddonVersion" Prelude.<$> addonVersion,
                                (JSON..=) "ConfigurationValues" Prelude.<$> configurationValues,
+                               (JSON..=) "PodIdentityAssociations"
+                                 Prelude.<$> podIdentityAssociations,
                                (JSON..=) "PreserveOnDelete" Prelude.<$> preserveOnDelete,
                                (JSON..=) "ResolveConflicts" Prelude.<$> resolveConflicts,
                                (JSON..=) "ServiceAccountRoleArn"
@@ -50,6 +55,8 @@ instance JSON.ToJSON Addon where
               (Prelude.catMaybes
                  [(JSON..=) "AddonVersion" Prelude.<$> addonVersion,
                   (JSON..=) "ConfigurationValues" Prelude.<$> configurationValues,
+                  (JSON..=) "PodIdentityAssociations"
+                    Prelude.<$> podIdentityAssociations,
                   (JSON..=) "PreserveOnDelete" Prelude.<$> preserveOnDelete,
                   (JSON..=) "ResolveConflicts" Prelude.<$> resolveConflicts,
                   (JSON..=) "ServiceAccountRoleArn"
@@ -69,6 +76,10 @@ instance Property "ConfigurationValues" Addon where
   type PropertyType "ConfigurationValues" Addon = Value Prelude.Text
   set newValue Addon {..}
     = Addon {configurationValues = Prelude.pure newValue, ..}
+instance Property "PodIdentityAssociations" Addon where
+  type PropertyType "PodIdentityAssociations" Addon = [PodIdentityAssociationProperty]
+  set newValue Addon {..}
+    = Addon {podIdentityAssociations = Prelude.pure newValue, ..}
 instance Property "PreserveOnDelete" Addon where
   type PropertyType "PreserveOnDelete" Addon = Value Prelude.Bool
   set newValue Addon {..}

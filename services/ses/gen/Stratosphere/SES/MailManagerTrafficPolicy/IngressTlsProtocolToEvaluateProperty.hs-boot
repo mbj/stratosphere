@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerTrafficPolicy.IngressTlsProtocolToEvaluateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IngressTlsProtocolToEvaluateProperty :: Prelude.Type
+instance ToResourceProperties IngressTlsProtocolToEvaluateProperty
+instance Prelude.Eq IngressTlsProtocolToEvaluateProperty
+instance Prelude.Show IngressTlsProtocolToEvaluateProperty
+instance JSON.ToJSON IngressTlsProtocolToEvaluateProperty

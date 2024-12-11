@@ -8,6 +8,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.AcceleratorCountProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.AcceleratorTotalMemoryMiBProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.BaselineEbsBandwidthMbpsProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.BaselinePerformanceFactorsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.MemoryGiBPerVCpuProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.MemoryMiBProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.NetworkBandwidthGbpsProperty as Exports
@@ -25,6 +26,7 @@ data InstanceRequirementsProperty
                                   allowedInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   bareMetal :: (Prelude.Maybe (Value Prelude.Text)),
                                   baselineEbsBandwidthMbps :: (Prelude.Maybe BaselineEbsBandwidthMbpsProperty),
+                                  baselinePerformanceFactors :: (Prelude.Maybe BaselinePerformanceFactorsProperty),
                                   burstablePerformance :: (Prelude.Maybe (Value Prelude.Text)),
                                   cpuManufacturers :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   excludedInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
@@ -53,6 +55,7 @@ mkInstanceRequirementsProperty
        allowedInstanceTypes = Prelude.Nothing,
        bareMetal = Prelude.Nothing,
        baselineEbsBandwidthMbps = Prelude.Nothing,
+       baselinePerformanceFactors = Prelude.Nothing,
        burstablePerformance = Prelude.Nothing,
        cpuManufacturers = Prelude.Nothing,
        excludedInstanceTypes = Prelude.Nothing,
@@ -85,6 +88,8 @@ instance ToResourceProperties InstanceRequirementsProperty where
                             (JSON..=) "BareMetal" Prelude.<$> bareMetal,
                             (JSON..=) "BaselineEbsBandwidthMbps"
                               Prelude.<$> baselineEbsBandwidthMbps,
+                            (JSON..=) "BaselinePerformanceFactors"
+                              Prelude.<$> baselinePerformanceFactors,
                             (JSON..=) "BurstablePerformance" Prelude.<$> burstablePerformance,
                             (JSON..=) "CpuManufacturers" Prelude.<$> cpuManufacturers,
                             (JSON..=) "ExcludedInstanceTypes"
@@ -123,6 +128,8 @@ instance JSON.ToJSON InstanceRequirementsProperty where
                (JSON..=) "BareMetal" Prelude.<$> bareMetal,
                (JSON..=) "BaselineEbsBandwidthMbps"
                  Prelude.<$> baselineEbsBandwidthMbps,
+               (JSON..=) "BaselinePerformanceFactors"
+                 Prelude.<$> baselinePerformanceFactors,
                (JSON..=) "BurstablePerformance" Prelude.<$> burstablePerformance,
                (JSON..=) "CpuManufacturers" Prelude.<$> cpuManufacturers,
                (JSON..=) "ExcludedInstanceTypes"
@@ -185,6 +192,11 @@ instance Property "BaselineEbsBandwidthMbps" InstanceRequirementsProperty where
   set newValue InstanceRequirementsProperty {..}
     = InstanceRequirementsProperty
         {baselineEbsBandwidthMbps = Prelude.pure newValue, ..}
+instance Property "BaselinePerformanceFactors" InstanceRequirementsProperty where
+  type PropertyType "BaselinePerformanceFactors" InstanceRequirementsProperty = BaselinePerformanceFactorsProperty
+  set newValue InstanceRequirementsProperty {..}
+    = InstanceRequirementsProperty
+        {baselinePerformanceFactors = Prelude.pure newValue, ..}
 instance Property "BurstablePerformance" InstanceRequirementsProperty where
   type PropertyType "BurstablePerformance" InstanceRequirementsProperty = Value Prelude.Text
   set newValue InstanceRequirementsProperty {..}

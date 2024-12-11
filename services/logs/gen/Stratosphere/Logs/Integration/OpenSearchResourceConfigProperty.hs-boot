@@ -1,0 +1,9 @@
+module Stratosphere.Logs.Integration.OpenSearchResourceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenSearchResourceConfigProperty :: Prelude.Type
+instance ToResourceProperties OpenSearchResourceConfigProperty
+instance Prelude.Eq OpenSearchResourceConfigProperty
+instance Prelude.Show OpenSearchResourceConfigProperty
+instance JSON.ToJSON OpenSearchResourceConfigProperty

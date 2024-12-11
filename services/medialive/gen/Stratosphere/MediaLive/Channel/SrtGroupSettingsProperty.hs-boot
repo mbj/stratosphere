@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.SrtGroupSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SrtGroupSettingsProperty :: Prelude.Type
+instance ToResourceProperties SrtGroupSettingsProperty
+instance Prelude.Eq SrtGroupSettingsProperty
+instance Prelude.Show SrtGroupSettingsProperty
+instance JSON.ToJSON SrtGroupSettingsProperty

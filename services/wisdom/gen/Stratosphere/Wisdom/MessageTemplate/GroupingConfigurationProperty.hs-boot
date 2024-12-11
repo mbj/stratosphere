@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.MessageTemplate.GroupingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GroupingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties GroupingConfigurationProperty
+instance Prelude.Eq GroupingConfigurationProperty
+instance Prelude.Show GroupingConfigurationProperty
+instance JSON.ToJSON GroupingConfigurationProperty

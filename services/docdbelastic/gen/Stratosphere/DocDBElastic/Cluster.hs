@@ -11,11 +11,14 @@ data Cluster
   = Cluster {adminUserName :: (Value Prelude.Text),
              adminUserPassword :: (Prelude.Maybe (Value Prelude.Text)),
              authType :: (Value Prelude.Text),
+             backupRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
              clusterName :: (Value Prelude.Text),
              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+             preferredBackupWindow :: (Prelude.Maybe (Value Prelude.Text)),
              preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
              shardCapacity :: (Value Prelude.Integer),
              shardCount :: (Value Prelude.Integer),
+             shardInstanceCount :: (Prelude.Maybe (Value Prelude.Integer)),
              subnetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
              tags :: (Prelude.Maybe [Tag]),
              vpcSecurityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text))}
@@ -35,10 +38,12 @@ mkCluster
       {adminUserName = adminUserName, authType = authType,
        clusterName = clusterName, shardCapacity = shardCapacity,
        shardCount = shardCount, adminUserPassword = Prelude.Nothing,
+       backupRetentionPeriod = Prelude.Nothing,
        kmsKeyId = Prelude.Nothing,
+       preferredBackupWindow = Prelude.Nothing,
        preferredMaintenanceWindow = Prelude.Nothing,
-       subnetIds = Prelude.Nothing, tags = Prelude.Nothing,
-       vpcSecurityGroupIds = Prelude.Nothing}
+       shardInstanceCount = Prelude.Nothing, subnetIds = Prelude.Nothing,
+       tags = Prelude.Nothing, vpcSecurityGroupIds = Prelude.Nothing}
 instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
@@ -52,9 +57,14 @@ instance ToResourceProperties Cluster where
                             "ShardCount" JSON..= shardCount]
                            (Prelude.catMaybes
                               [(JSON..=) "AdminUserPassword" Prelude.<$> adminUserPassword,
+                               (JSON..=) "BackupRetentionPeriod"
+                                 Prelude.<$> backupRetentionPeriod,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                               (JSON..=) "PreferredBackupWindow"
+                                 Prelude.<$> preferredBackupWindow,
                                (JSON..=) "PreferredMaintenanceWindow"
                                  Prelude.<$> preferredMaintenanceWindow,
+                               (JSON..=) "ShardInstanceCount" Prelude.<$> shardInstanceCount,
                                (JSON..=) "SubnetIds" Prelude.<$> subnetIds,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "VpcSecurityGroupIds" Prelude.<$> vpcSecurityGroupIds]))}
@@ -69,9 +79,14 @@ instance JSON.ToJSON Cluster where
                "ShardCount" JSON..= shardCount]
               (Prelude.catMaybes
                  [(JSON..=) "AdminUserPassword" Prelude.<$> adminUserPassword,
+                  (JSON..=) "BackupRetentionPeriod"
+                    Prelude.<$> backupRetentionPeriod,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                  (JSON..=) "PreferredBackupWindow"
+                    Prelude.<$> preferredBackupWindow,
                   (JSON..=) "PreferredMaintenanceWindow"
                     Prelude.<$> preferredMaintenanceWindow,
+                  (JSON..=) "ShardInstanceCount" Prelude.<$> shardInstanceCount,
                   (JSON..=) "SubnetIds" Prelude.<$> subnetIds,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "VpcSecurityGroupIds" Prelude.<$> vpcSecurityGroupIds])))
@@ -85,6 +100,10 @@ instance Property "AdminUserPassword" Cluster where
 instance Property "AuthType" Cluster where
   type PropertyType "AuthType" Cluster = Value Prelude.Text
   set newValue Cluster {..} = Cluster {authType = newValue, ..}
+instance Property "BackupRetentionPeriod" Cluster where
+  type PropertyType "BackupRetentionPeriod" Cluster = Value Prelude.Integer
+  set newValue Cluster {..}
+    = Cluster {backupRetentionPeriod = Prelude.pure newValue, ..}
 instance Property "ClusterName" Cluster where
   type PropertyType "ClusterName" Cluster = Value Prelude.Text
   set newValue Cluster {..} = Cluster {clusterName = newValue, ..}
@@ -92,6 +111,10 @@ instance Property "KmsKeyId" Cluster where
   type PropertyType "KmsKeyId" Cluster = Value Prelude.Text
   set newValue Cluster {..}
     = Cluster {kmsKeyId = Prelude.pure newValue, ..}
+instance Property "PreferredBackupWindow" Cluster where
+  type PropertyType "PreferredBackupWindow" Cluster = Value Prelude.Text
+  set newValue Cluster {..}
+    = Cluster {preferredBackupWindow = Prelude.pure newValue, ..}
 instance Property "PreferredMaintenanceWindow" Cluster where
   type PropertyType "PreferredMaintenanceWindow" Cluster = Value Prelude.Text
   set newValue Cluster {..}
@@ -102,6 +125,10 @@ instance Property "ShardCapacity" Cluster where
 instance Property "ShardCount" Cluster where
   type PropertyType "ShardCount" Cluster = Value Prelude.Integer
   set newValue Cluster {..} = Cluster {shardCount = newValue, ..}
+instance Property "ShardInstanceCount" Cluster where
+  type PropertyType "ShardInstanceCount" Cluster = Value Prelude.Integer
+  set newValue Cluster {..}
+    = Cluster {shardInstanceCount = Prelude.pure newValue, ..}
 instance Property "SubnetIds" Cluster where
   type PropertyType "SubnetIds" Cluster = ValueList Prelude.Text
   set newValue Cluster {..}

@@ -5,13 +5,15 @@ module Stratosphere.MediaLive.Channel.VideoCodecSettingsProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Av1SettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FrameCaptureSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.H264SettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.H265SettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.Mpeg2SettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data VideoCodecSettingsProperty
-  = VideoCodecSettingsProperty {frameCaptureSettings :: (Prelude.Maybe FrameCaptureSettingsProperty),
+  = VideoCodecSettingsProperty {av1Settings :: (Prelude.Maybe Av1SettingsProperty),
+                                frameCaptureSettings :: (Prelude.Maybe FrameCaptureSettingsProperty),
                                 h264Settings :: (Prelude.Maybe H264SettingsProperty),
                                 h265Settings :: (Prelude.Maybe H265SettingsProperty),
                                 mpeg2Settings :: (Prelude.Maybe Mpeg2SettingsProperty)}
@@ -19,7 +21,8 @@ data VideoCodecSettingsProperty
 mkVideoCodecSettingsProperty :: VideoCodecSettingsProperty
 mkVideoCodecSettingsProperty
   = VideoCodecSettingsProperty
-      {frameCaptureSettings = Prelude.Nothing,
+      {av1Settings = Prelude.Nothing,
+       frameCaptureSettings = Prelude.Nothing,
        h264Settings = Prelude.Nothing, h265Settings = Prelude.Nothing,
        mpeg2Settings = Prelude.Nothing}
 instance ToResourceProperties VideoCodecSettingsProperty where
@@ -29,7 +32,8 @@ instance ToResourceProperties VideoCodecSettingsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "FrameCaptureSettings" Prelude.<$> frameCaptureSettings,
+                           [(JSON..=) "Av1Settings" Prelude.<$> av1Settings,
+                            (JSON..=) "FrameCaptureSettings" Prelude.<$> frameCaptureSettings,
                             (JSON..=) "H264Settings" Prelude.<$> h264Settings,
                             (JSON..=) "H265Settings" Prelude.<$> h265Settings,
                             (JSON..=) "Mpeg2Settings" Prelude.<$> mpeg2Settings])}
@@ -38,10 +42,16 @@ instance JSON.ToJSON VideoCodecSettingsProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "FrameCaptureSettings" Prelude.<$> frameCaptureSettings,
+              [(JSON..=) "Av1Settings" Prelude.<$> av1Settings,
+               (JSON..=) "FrameCaptureSettings" Prelude.<$> frameCaptureSettings,
                (JSON..=) "H264Settings" Prelude.<$> h264Settings,
                (JSON..=) "H265Settings" Prelude.<$> h265Settings,
                (JSON..=) "Mpeg2Settings" Prelude.<$> mpeg2Settings]))
+instance Property "Av1Settings" VideoCodecSettingsProperty where
+  type PropertyType "Av1Settings" VideoCodecSettingsProperty = Av1SettingsProperty
+  set newValue VideoCodecSettingsProperty {..}
+    = VideoCodecSettingsProperty
+        {av1Settings = Prelude.pure newValue, ..}
 instance Property "FrameCaptureSettings" VideoCodecSettingsProperty where
   type PropertyType "FrameCaptureSettings" VideoCodecSettingsProperty = FrameCaptureSettingsProperty
   set newValue VideoCodecSettingsProperty {..}

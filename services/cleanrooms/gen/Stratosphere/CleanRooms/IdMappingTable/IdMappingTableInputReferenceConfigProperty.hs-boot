@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.IdMappingTable.IdMappingTableInputReferenceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdMappingTableInputReferenceConfigProperty :: Prelude.Type
+instance ToResourceProperties IdMappingTableInputReferenceConfigProperty
+instance Prelude.Eq IdMappingTableInputReferenceConfigProperty
+instance Prelude.Show IdMappingTableInputReferenceConfigProperty
+instance JSON.ToJSON IdMappingTableInputReferenceConfigProperty

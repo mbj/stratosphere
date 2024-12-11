@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConfiguredTableAssociationAnalysisRuleProperty :: Prelude.Type
+instance ToResourceProperties ConfiguredTableAssociationAnalysisRuleProperty
+instance Prelude.Eq ConfiguredTableAssociationAnalysisRuleProperty
+instance Prelude.Show ConfiguredTableAssociationAnalysisRuleProperty
+instance JSON.ToJSON ConfiguredTableAssociationAnalysisRuleProperty

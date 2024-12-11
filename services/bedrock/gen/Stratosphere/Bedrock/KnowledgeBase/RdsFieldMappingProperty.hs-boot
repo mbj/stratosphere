@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.RdsFieldMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RdsFieldMappingProperty :: Prelude.Type
+instance ToResourceProperties RdsFieldMappingProperty
+instance Prelude.Eq RdsFieldMappingProperty
+instance Prelude.Show RdsFieldMappingProperty
+instance JSON.ToJSON RdsFieldMappingProperty

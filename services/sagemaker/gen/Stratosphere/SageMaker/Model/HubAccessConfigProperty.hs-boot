@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Model.HubAccessConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HubAccessConfigProperty :: Prelude.Type
+instance ToResourceProperties HubAccessConfigProperty
+instance Prelude.Eq HubAccessConfigProperty
+instance Prelude.Show HubAccessConfigProperty
+instance JSON.ToJSON HubAccessConfigProperty

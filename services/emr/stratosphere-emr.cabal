@@ -38,6 +38,7 @@ library
       Stratosphere.EMR.Cluster.HadoopJarStepConfigProperty
       Stratosphere.EMR.Cluster.InstanceFleetConfigProperty
       Stratosphere.EMR.Cluster.InstanceFleetProvisioningSpecificationsProperty
+      Stratosphere.EMR.Cluster.InstanceFleetResizingSpecificationsProperty
       Stratosphere.EMR.Cluster.InstanceGroupConfigProperty
       Stratosphere.EMR.Cluster.InstanceTypeConfigProperty
       Stratosphere.EMR.Cluster.JobFlowInstancesConfigProperty
@@ -45,7 +46,9 @@ library
       Stratosphere.EMR.Cluster.KeyValueProperty
       Stratosphere.EMR.Cluster.ManagedScalingPolicyProperty
       Stratosphere.EMR.Cluster.MetricDimensionProperty
+      Stratosphere.EMR.Cluster.OnDemandCapacityReservationOptionsProperty
       Stratosphere.EMR.Cluster.OnDemandProvisioningSpecificationProperty
+      Stratosphere.EMR.Cluster.OnDemandResizingSpecificationProperty
       Stratosphere.EMR.Cluster.PlacementGroupConfigProperty
       Stratosphere.EMR.Cluster.PlacementTypeProperty
       Stratosphere.EMR.Cluster.ScalingActionProperty
@@ -55,6 +58,7 @@ library
       Stratosphere.EMR.Cluster.ScriptBootstrapActionConfigProperty
       Stratosphere.EMR.Cluster.SimpleScalingPolicyConfigurationProperty
       Stratosphere.EMR.Cluster.SpotProvisioningSpecificationProperty
+      Stratosphere.EMR.Cluster.SpotResizingSpecificationProperty
       Stratosphere.EMR.Cluster.StepConfigProperty
       Stratosphere.EMR.Cluster.VolumeSpecificationProperty
       Stratosphere.EMR.InstanceFleetConfig
@@ -62,9 +66,13 @@ library
       Stratosphere.EMR.InstanceFleetConfig.EbsBlockDeviceConfigProperty
       Stratosphere.EMR.InstanceFleetConfig.EbsConfigurationProperty
       Stratosphere.EMR.InstanceFleetConfig.InstanceFleetProvisioningSpecificationsProperty
+      Stratosphere.EMR.InstanceFleetConfig.InstanceFleetResizingSpecificationsProperty
       Stratosphere.EMR.InstanceFleetConfig.InstanceTypeConfigProperty
+      Stratosphere.EMR.InstanceFleetConfig.OnDemandCapacityReservationOptionsProperty
       Stratosphere.EMR.InstanceFleetConfig.OnDemandProvisioningSpecificationProperty
+      Stratosphere.EMR.InstanceFleetConfig.OnDemandResizingSpecificationProperty
       Stratosphere.EMR.InstanceFleetConfig.SpotProvisioningSpecificationProperty
+      Stratosphere.EMR.InstanceFleetConfig.SpotResizingSpecificationProperty
       Stratosphere.EMR.InstanceFleetConfig.VolumeSpecificationProperty
       Stratosphere.EMR.InstanceGroupConfig
       Stratosphere.EMR.InstanceGroupConfig.AutoScalingPolicyProperty

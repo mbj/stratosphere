@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.KnowledgeBase.VectorIngestionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VectorIngestionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties VectorIngestionConfigurationProperty
+instance Prelude.Eq VectorIngestionConfigurationProperty
+instance Prelude.Show VectorIngestionConfigurationProperty
+instance JSON.ToJSON VectorIngestionConfigurationProperty

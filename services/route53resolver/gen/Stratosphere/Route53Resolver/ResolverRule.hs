@@ -9,18 +9,17 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ResolverRule
-  = ResolverRule {domainName :: (Value Prelude.Text),
+  = ResolverRule {domainName :: (Prelude.Maybe (Value Prelude.Text)),
                   name :: (Prelude.Maybe (Value Prelude.Text)),
                   resolverEndpointId :: (Prelude.Maybe (Value Prelude.Text)),
                   ruleType :: (Value Prelude.Text),
                   tags :: (Prelude.Maybe [Tag]),
                   targetIps :: (Prelude.Maybe [TargetAddressProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkResolverRule ::
-  Value Prelude.Text -> Value Prelude.Text -> ResolverRule
-mkResolverRule domainName ruleType
+mkResolverRule :: Value Prelude.Text -> ResolverRule
+mkResolverRule ruleType
   = ResolverRule
-      {domainName = domainName, ruleType = ruleType,
+      {ruleType = ruleType, domainName = Prelude.Nothing,
        name = Prelude.Nothing, resolverEndpointId = Prelude.Nothing,
        tags = Prelude.Nothing, targetIps = Prelude.Nothing}
 instance ToResourceProperties ResolverRule where
@@ -30,9 +29,10 @@ instance ToResourceProperties ResolverRule where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["DomainName" JSON..= domainName, "RuleType" JSON..= ruleType]
+                           ["RuleType" JSON..= ruleType]
                            (Prelude.catMaybes
-                              [(JSON..=) "Name" Prelude.<$> name,
+                              [(JSON..=) "DomainName" Prelude.<$> domainName,
+                               (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "ResolverEndpointId" Prelude.<$> resolverEndpointId,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "TargetIps" Prelude.<$> targetIps]))}
@@ -41,16 +41,17 @@ instance JSON.ToJSON ResolverRule where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["DomainName" JSON..= domainName, "RuleType" JSON..= ruleType]
+              ["RuleType" JSON..= ruleType]
               (Prelude.catMaybes
-                 [(JSON..=) "Name" Prelude.<$> name,
+                 [(JSON..=) "DomainName" Prelude.<$> domainName,
+                  (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "ResolverEndpointId" Prelude.<$> resolverEndpointId,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TargetIps" Prelude.<$> targetIps])))
 instance Property "DomainName" ResolverRule where
   type PropertyType "DomainName" ResolverRule = Value Prelude.Text
   set newValue ResolverRule {..}
-    = ResolverRule {domainName = newValue, ..}
+    = ResolverRule {domainName = Prelude.pure newValue, ..}
 instance Property "Name" ResolverRule where
   type PropertyType "Name" ResolverRule = Value Prelude.Text
   set newValue ResolverRule {..}

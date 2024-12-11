@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.ClusterEbsVolumeConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClusterEbsVolumeConfigProperty :: Prelude.Type
+instance ToResourceProperties ClusterEbsVolumeConfigProperty
+instance Prelude.Eq ClusterEbsVolumeConfigProperty
+instance Prelude.Show ClusterEbsVolumeConfigProperty
+instance JSON.ToJSON ClusterEbsVolumeConfigProperty

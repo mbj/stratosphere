@@ -1,9 +1,10 @@
 module Stratosphere.RedshiftServerless.Namespace (
-        Namespace(..), mkNamespace
+        module Exports, Namespace(..), mkNamespace
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.RedshiftServerless.Namespace.SnapshotCopyConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -22,6 +23,7 @@ data Namespace
                namespaceName :: (Value Prelude.Text),
                namespaceResourcePolicy :: (Prelude.Maybe JSON.Object),
                redshiftIdcApplicationArn :: (Prelude.Maybe (Value Prelude.Text)),
+               snapshotCopyConfigurations :: (Prelude.Maybe [SnapshotCopyConfigurationProperty]),
                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkNamespace :: Value Prelude.Text -> Namespace
@@ -39,6 +41,7 @@ mkNamespace namespaceName
        manageAdminPassword = Prelude.Nothing,
        namespaceResourcePolicy = Prelude.Nothing,
        redshiftIdcApplicationArn = Prelude.Nothing,
+       snapshotCopyConfigurations = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Namespace where
   toResourceProperties Namespace {..}
@@ -66,6 +69,8 @@ instance ToResourceProperties Namespace where
                                  Prelude.<$> namespaceResourcePolicy,
                                (JSON..=) "RedshiftIdcApplicationArn"
                                  Prelude.<$> redshiftIdcApplicationArn,
+                               (JSON..=) "SnapshotCopyConfigurations"
+                                 Prelude.<$> snapshotCopyConfigurations,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Namespace where
   toJSON Namespace {..}
@@ -91,6 +96,8 @@ instance JSON.ToJSON Namespace where
                     Prelude.<$> namespaceResourcePolicy,
                   (JSON..=) "RedshiftIdcApplicationArn"
                     Prelude.<$> redshiftIdcApplicationArn,
+                  (JSON..=) "SnapshotCopyConfigurations"
+                    Prelude.<$> snapshotCopyConfigurations,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AdminPasswordSecretKmsKeyId" Namespace where
   type PropertyType "AdminPasswordSecretKmsKeyId" Namespace = Value Prelude.Text
@@ -150,6 +157,11 @@ instance Property "RedshiftIdcApplicationArn" Namespace where
   type PropertyType "RedshiftIdcApplicationArn" Namespace = Value Prelude.Text
   set newValue Namespace {..}
     = Namespace {redshiftIdcApplicationArn = Prelude.pure newValue, ..}
+instance Property "SnapshotCopyConfigurations" Namespace where
+  type PropertyType "SnapshotCopyConfigurations" Namespace = [SnapshotCopyConfigurationProperty]
+  set newValue Namespace {..}
+    = Namespace
+        {snapshotCopyConfigurations = Prelude.pure newValue, ..}
 instance Property "Tags" Namespace where
   type PropertyType "Tags" Namespace = [Tag]
   set newValue Namespace {..}

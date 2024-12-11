@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.SegmentDefinition.CalculatedAttributeDimensionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CalculatedAttributeDimensionProperty :: Prelude.Type
+instance ToResourceProperties CalculatedAttributeDimensionProperty
+instance Prelude.Eq CalculatedAttributeDimensionProperty
+instance Prelude.Show CalculatedAttributeDimensionProperty
+instance JSON.ToJSON CalculatedAttributeDimensionProperty

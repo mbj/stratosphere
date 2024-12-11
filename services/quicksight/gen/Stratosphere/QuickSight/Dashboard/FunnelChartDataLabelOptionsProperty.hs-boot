@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.FunnelChartDataLabelOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data FunnelChartDataLabelOptionsProperty :: Prelude.Type
-instance ToResourceProperties FunnelChartDataLabelOptionsProperty
-instance Prelude.Eq FunnelChartDataLabelOptionsProperty
-instance Prelude.Show FunnelChartDataLabelOptionsProperty
-instance JSON.ToJSON FunnelChartDataLabelOptionsProperty

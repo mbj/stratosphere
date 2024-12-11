@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.NumberDisplayFormatConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data NumberDisplayFormatConfigurationProperty :: Prelude.Type
-instance ToResourceProperties NumberDisplayFormatConfigurationProperty
-instance Prelude.Eq NumberDisplayFormatConfigurationProperty
-instance Prelude.Show NumberDisplayFormatConfigurationProperty
-instance JSON.ToJSON NumberDisplayFormatConfigurationProperty

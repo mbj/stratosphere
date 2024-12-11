@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Agent.ParameterDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ParameterDetailProperty :: Prelude.Type
+instance ToResourceProperties ParameterDetailProperty
+instance Prelude.Eq ParameterDetailProperty
+instance Prelude.Show ParameterDetailProperty
+instance JSON.ToJSON ParameterDetailProperty

@@ -1,0 +1,9 @@
+module Stratosphere.APS.Scraper.EksConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EksConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EksConfigurationProperty
+instance Prelude.Eq EksConfigurationProperty
+instance Prelude.Show EksConfigurationProperty
+instance JSON.ToJSON EksConfigurationProperty

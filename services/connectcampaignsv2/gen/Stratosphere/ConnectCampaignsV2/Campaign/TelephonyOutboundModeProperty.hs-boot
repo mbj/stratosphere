@@ -1,0 +1,9 @@
+module Stratosphere.ConnectCampaignsV2.Campaign.TelephonyOutboundModeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TelephonyOutboundModeProperty :: Prelude.Type
+instance ToResourceProperties TelephonyOutboundModeProperty
+instance Prelude.Eq TelephonyOutboundModeProperty
+instance Prelude.Show TelephonyOutboundModeProperty
+instance JSON.ToJSON TelephonyOutboundModeProperty

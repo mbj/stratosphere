@@ -7,7 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data FilterConfigurationProperty
-  = FilterConfigurationProperty {end :: (Prelude.Maybe (Value Prelude.Text)),
+  = FilterConfigurationProperty {clipStartTime :: (Prelude.Maybe (Value Prelude.Text)),
+                                 end :: (Prelude.Maybe (Value Prelude.Text)),
                                  manifestFilter :: (Prelude.Maybe (Value Prelude.Text)),
                                  start :: (Prelude.Maybe (Value Prelude.Text)),
                                  timeDelaySeconds :: (Prelude.Maybe (Value Prelude.Integer))}
@@ -15,8 +16,9 @@ data FilterConfigurationProperty
 mkFilterConfigurationProperty :: FilterConfigurationProperty
 mkFilterConfigurationProperty
   = FilterConfigurationProperty
-      {end = Prelude.Nothing, manifestFilter = Prelude.Nothing,
-       start = Prelude.Nothing, timeDelaySeconds = Prelude.Nothing}
+      {clipStartTime = Prelude.Nothing, end = Prelude.Nothing,
+       manifestFilter = Prelude.Nothing, start = Prelude.Nothing,
+       timeDelaySeconds = Prelude.Nothing}
 instance ToResourceProperties FilterConfigurationProperty where
   toResourceProperties FilterConfigurationProperty {..}
     = ResourceProperties
@@ -24,7 +26,8 @@ instance ToResourceProperties FilterConfigurationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "End" Prelude.<$> end,
+                           [(JSON..=) "ClipStartTime" Prelude.<$> clipStartTime,
+                            (JSON..=) "End" Prelude.<$> end,
                             (JSON..=) "ManifestFilter" Prelude.<$> manifestFilter,
                             (JSON..=) "Start" Prelude.<$> start,
                             (JSON..=) "TimeDelaySeconds" Prelude.<$> timeDelaySeconds])}
@@ -33,10 +36,16 @@ instance JSON.ToJSON FilterConfigurationProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "End" Prelude.<$> end,
+              [(JSON..=) "ClipStartTime" Prelude.<$> clipStartTime,
+               (JSON..=) "End" Prelude.<$> end,
                (JSON..=) "ManifestFilter" Prelude.<$> manifestFilter,
                (JSON..=) "Start" Prelude.<$> start,
                (JSON..=) "TimeDelaySeconds" Prelude.<$> timeDelaySeconds]))
+instance Property "ClipStartTime" FilterConfigurationProperty where
+  type PropertyType "ClipStartTime" FilterConfigurationProperty = Value Prelude.Text
+  set newValue FilterConfigurationProperty {..}
+    = FilterConfigurationProperty
+        {clipStartTime = Prelude.pure newValue, ..}
 instance Property "End" FilterConfigurationProperty where
   type PropertyType "End" FilterConfigurationProperty = Value Prelude.Text
   set newValue FilterConfigurationProperty {..}

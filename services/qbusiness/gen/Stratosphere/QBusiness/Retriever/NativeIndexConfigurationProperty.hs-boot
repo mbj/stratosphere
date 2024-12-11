@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.Retriever.NativeIndexConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NativeIndexConfigurationProperty :: Prelude.Type
+instance ToResourceProperties NativeIndexConfigurationProperty
+instance Prelude.Eq NativeIndexConfigurationProperty
+instance Prelude.Show NativeIndexConfigurationProperty
+instance JSON.ToJSON NativeIndexConfigurationProperty

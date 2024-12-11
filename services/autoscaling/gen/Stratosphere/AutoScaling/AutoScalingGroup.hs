@@ -4,6 +4,9 @@ module Stratosphere.AutoScaling.AutoScalingGroup (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.AvailabilityZoneDistributionProperty as Exports
+import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.AvailabilityZoneImpairmentPolicyProperty as Exports
+import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.CapacityReservationSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.InstanceMaintenancePolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.LaunchTemplateSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.LifecycleHookSpecificationProperty as Exports
@@ -11,12 +14,16 @@ import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.MetricsCollectio
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.MixedInstancesPolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.NotificationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.TagPropertyProperty as Exports
+import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.TrafficSourceIdentifierProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AutoScalingGroup
   = AutoScalingGroup {autoScalingGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                      availabilityZoneDistribution :: (Prelude.Maybe AvailabilityZoneDistributionProperty),
+                      availabilityZoneImpairmentPolicy :: (Prelude.Maybe AvailabilityZoneImpairmentPolicyProperty),
                       availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
                       capacityRebalance :: (Prelude.Maybe (Value Prelude.Bool)),
+                      capacityReservationSpecification :: (Prelude.Maybe CapacityReservationSpecificationProperty),
                       context :: (Prelude.Maybe (Value Prelude.Text)),
                       cooldown :: (Prelude.Maybe (Value Prelude.Text)),
                       defaultInstanceWarmup :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -39,9 +46,11 @@ data AutoScalingGroup
                       notificationConfigurations :: (Prelude.Maybe [NotificationConfigurationProperty]),
                       placementGroup :: (Prelude.Maybe (Value Prelude.Text)),
                       serviceLinkedRoleARN :: (Prelude.Maybe (Value Prelude.Text)),
+                      skipZonalShiftValidation :: (Prelude.Maybe (Value Prelude.Bool)),
                       tags :: (Prelude.Maybe [TagPropertyProperty]),
                       targetGroupARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
                       terminationPolicies :: (Prelude.Maybe (ValueList Prelude.Text)),
+                      trafficSources :: (Prelude.Maybe [TrafficSourceIdentifierProperty]),
                       vPCZoneIdentifier :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAutoScalingGroup ::
@@ -50,9 +59,12 @@ mkAutoScalingGroup maxSize minSize
   = AutoScalingGroup
       {maxSize = maxSize, minSize = minSize,
        autoScalingGroupName = Prelude.Nothing,
+       availabilityZoneDistribution = Prelude.Nothing,
+       availabilityZoneImpairmentPolicy = Prelude.Nothing,
        availabilityZones = Prelude.Nothing,
-       capacityRebalance = Prelude.Nothing, context = Prelude.Nothing,
-       cooldown = Prelude.Nothing,
+       capacityRebalance = Prelude.Nothing,
+       capacityReservationSpecification = Prelude.Nothing,
+       context = Prelude.Nothing, cooldown = Prelude.Nothing,
        defaultInstanceWarmup = Prelude.Nothing,
        desiredCapacity = Prelude.Nothing,
        desiredCapacityType = Prelude.Nothing,
@@ -69,9 +81,11 @@ mkAutoScalingGroup maxSize minSize
        newInstancesProtectedFromScaleIn = Prelude.Nothing,
        notificationConfigurations = Prelude.Nothing,
        placementGroup = Prelude.Nothing,
-       serviceLinkedRoleARN = Prelude.Nothing, tags = Prelude.Nothing,
+       serviceLinkedRoleARN = Prelude.Nothing,
+       skipZonalShiftValidation = Prelude.Nothing, tags = Prelude.Nothing,
        targetGroupARNs = Prelude.Nothing,
        terminationPolicies = Prelude.Nothing,
+       trafficSources = Prelude.Nothing,
        vPCZoneIdentifier = Prelude.Nothing}
 instance ToResourceProperties AutoScalingGroup where
   toResourceProperties AutoScalingGroup {..}
@@ -83,8 +97,14 @@ instance ToResourceProperties AutoScalingGroup where
                            ["MaxSize" JSON..= maxSize, "MinSize" JSON..= minSize]
                            (Prelude.catMaybes
                               [(JSON..=) "AutoScalingGroupName" Prelude.<$> autoScalingGroupName,
+                               (JSON..=) "AvailabilityZoneDistribution"
+                                 Prelude.<$> availabilityZoneDistribution,
+                               (JSON..=) "AvailabilityZoneImpairmentPolicy"
+                                 Prelude.<$> availabilityZoneImpairmentPolicy,
                                (JSON..=) "AvailabilityZones" Prelude.<$> availabilityZones,
                                (JSON..=) "CapacityRebalance" Prelude.<$> capacityRebalance,
+                               (JSON..=) "CapacityReservationSpecification"
+                                 Prelude.<$> capacityReservationSpecification,
                                (JSON..=) "Context" Prelude.<$> context,
                                (JSON..=) "Cooldown" Prelude.<$> cooldown,
                                (JSON..=) "DefaultInstanceWarmup"
@@ -112,9 +132,12 @@ instance ToResourceProperties AutoScalingGroup where
                                  Prelude.<$> notificationConfigurations,
                                (JSON..=) "PlacementGroup" Prelude.<$> placementGroup,
                                (JSON..=) "ServiceLinkedRoleARN" Prelude.<$> serviceLinkedRoleARN,
+                               (JSON..=) "SkipZonalShiftValidation"
+                                 Prelude.<$> skipZonalShiftValidation,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "TargetGroupARNs" Prelude.<$> targetGroupARNs,
                                (JSON..=) "TerminationPolicies" Prelude.<$> terminationPolicies,
+                               (JSON..=) "TrafficSources" Prelude.<$> trafficSources,
                                (JSON..=) "VPCZoneIdentifier" Prelude.<$> vPCZoneIdentifier]))}
 instance JSON.ToJSON AutoScalingGroup where
   toJSON AutoScalingGroup {..}
@@ -124,8 +147,14 @@ instance JSON.ToJSON AutoScalingGroup where
               ["MaxSize" JSON..= maxSize, "MinSize" JSON..= minSize]
               (Prelude.catMaybes
                  [(JSON..=) "AutoScalingGroupName" Prelude.<$> autoScalingGroupName,
+                  (JSON..=) "AvailabilityZoneDistribution"
+                    Prelude.<$> availabilityZoneDistribution,
+                  (JSON..=) "AvailabilityZoneImpairmentPolicy"
+                    Prelude.<$> availabilityZoneImpairmentPolicy,
                   (JSON..=) "AvailabilityZones" Prelude.<$> availabilityZones,
                   (JSON..=) "CapacityRebalance" Prelude.<$> capacityRebalance,
+                  (JSON..=) "CapacityReservationSpecification"
+                    Prelude.<$> capacityReservationSpecification,
                   (JSON..=) "Context" Prelude.<$> context,
                   (JSON..=) "Cooldown" Prelude.<$> cooldown,
                   (JSON..=) "DefaultInstanceWarmup"
@@ -153,15 +182,28 @@ instance JSON.ToJSON AutoScalingGroup where
                     Prelude.<$> notificationConfigurations,
                   (JSON..=) "PlacementGroup" Prelude.<$> placementGroup,
                   (JSON..=) "ServiceLinkedRoleARN" Prelude.<$> serviceLinkedRoleARN,
+                  (JSON..=) "SkipZonalShiftValidation"
+                    Prelude.<$> skipZonalShiftValidation,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TargetGroupARNs" Prelude.<$> targetGroupARNs,
                   (JSON..=) "TerminationPolicies" Prelude.<$> terminationPolicies,
+                  (JSON..=) "TrafficSources" Prelude.<$> trafficSources,
                   (JSON..=) "VPCZoneIdentifier" Prelude.<$> vPCZoneIdentifier])))
 instance Property "AutoScalingGroupName" AutoScalingGroup where
   type PropertyType "AutoScalingGroupName" AutoScalingGroup = Value Prelude.Text
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup
         {autoScalingGroupName = Prelude.pure newValue, ..}
+instance Property "AvailabilityZoneDistribution" AutoScalingGroup where
+  type PropertyType "AvailabilityZoneDistribution" AutoScalingGroup = AvailabilityZoneDistributionProperty
+  set newValue AutoScalingGroup {..}
+    = AutoScalingGroup
+        {availabilityZoneDistribution = Prelude.pure newValue, ..}
+instance Property "AvailabilityZoneImpairmentPolicy" AutoScalingGroup where
+  type PropertyType "AvailabilityZoneImpairmentPolicy" AutoScalingGroup = AvailabilityZoneImpairmentPolicyProperty
+  set newValue AutoScalingGroup {..}
+    = AutoScalingGroup
+        {availabilityZoneImpairmentPolicy = Prelude.pure newValue, ..}
 instance Property "AvailabilityZones" AutoScalingGroup where
   type PropertyType "AvailabilityZones" AutoScalingGroup = ValueList Prelude.Text
   set newValue AutoScalingGroup {..}
@@ -170,6 +212,11 @@ instance Property "CapacityRebalance" AutoScalingGroup where
   type PropertyType "CapacityRebalance" AutoScalingGroup = Value Prelude.Bool
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup {capacityRebalance = Prelude.pure newValue, ..}
+instance Property "CapacityReservationSpecification" AutoScalingGroup where
+  type PropertyType "CapacityReservationSpecification" AutoScalingGroup = CapacityReservationSpecificationProperty
+  set newValue AutoScalingGroup {..}
+    = AutoScalingGroup
+        {capacityReservationSpecification = Prelude.pure newValue, ..}
 instance Property "Context" AutoScalingGroup where
   type PropertyType "Context" AutoScalingGroup = Value Prelude.Text
   set newValue AutoScalingGroup {..}
@@ -269,6 +316,11 @@ instance Property "ServiceLinkedRoleARN" AutoScalingGroup where
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup
         {serviceLinkedRoleARN = Prelude.pure newValue, ..}
+instance Property "SkipZonalShiftValidation" AutoScalingGroup where
+  type PropertyType "SkipZonalShiftValidation" AutoScalingGroup = Value Prelude.Bool
+  set newValue AutoScalingGroup {..}
+    = AutoScalingGroup
+        {skipZonalShiftValidation = Prelude.pure newValue, ..}
 instance Property "Tags" AutoScalingGroup where
   type PropertyType "Tags" AutoScalingGroup = [TagPropertyProperty]
   set newValue AutoScalingGroup {..}
@@ -282,6 +334,10 @@ instance Property "TerminationPolicies" AutoScalingGroup where
   set newValue AutoScalingGroup {..}
     = AutoScalingGroup
         {terminationPolicies = Prelude.pure newValue, ..}
+instance Property "TrafficSources" AutoScalingGroup where
+  type PropertyType "TrafficSources" AutoScalingGroup = [TrafficSourceIdentifierProperty]
+  set newValue AutoScalingGroup {..}
+    = AutoScalingGroup {trafficSources = Prelude.pure newValue, ..}
 instance Property "VPCZoneIdentifier" AutoScalingGroup where
   type PropertyType "VPCZoneIdentifier" AutoScalingGroup = ValueList Prelude.Text
   set newValue AutoScalingGroup {..}

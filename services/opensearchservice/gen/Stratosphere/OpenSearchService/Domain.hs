@@ -10,6 +10,7 @@ import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.CognitoOptionsProper
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.DomainEndpointOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.EBSOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.EncryptionAtRestOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.IdentityCenterOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.LogPublishingOptionProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.NodeToNodeEncryptionOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.OffPeakWindowOptionsProperty as Exports
@@ -31,9 +32,11 @@ data Domain
             encryptionAtRestOptions :: (Prelude.Maybe EncryptionAtRestOptionsProperty),
             engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
             iPAddressType :: (Prelude.Maybe (Value Prelude.Text)),
+            identityCenterOptions :: (Prelude.Maybe IdentityCenterOptionsProperty),
             logPublishingOptions :: (Prelude.Maybe (Prelude.Map Prelude.Text LogPublishingOptionProperty)),
             nodeToNodeEncryptionOptions :: (Prelude.Maybe NodeToNodeEncryptionOptionsProperty),
             offPeakWindowOptions :: (Prelude.Maybe OffPeakWindowOptionsProperty),
+            skipShardMigrationWait :: (Prelude.Maybe (Value Prelude.Bool)),
             snapshotOptions :: (Prelude.Maybe SnapshotOptionsProperty),
             softwareUpdateOptions :: (Prelude.Maybe SoftwareUpdateOptionsProperty),
             tags :: (Prelude.Maybe [Tag]),
@@ -50,9 +53,11 @@ mkDomain
        domainName = Prelude.Nothing, eBSOptions = Prelude.Nothing,
        encryptionAtRestOptions = Prelude.Nothing,
        engineVersion = Prelude.Nothing, iPAddressType = Prelude.Nothing,
+       identityCenterOptions = Prelude.Nothing,
        logPublishingOptions = Prelude.Nothing,
        nodeToNodeEncryptionOptions = Prelude.Nothing,
        offPeakWindowOptions = Prelude.Nothing,
+       skipShardMigrationWait = Prelude.Nothing,
        snapshotOptions = Prelude.Nothing,
        softwareUpdateOptions = Prelude.Nothing, tags = Prelude.Nothing,
        vPCOptions = Prelude.Nothing}
@@ -77,10 +82,14 @@ instance ToResourceProperties Domain where
                               Prelude.<$> encryptionAtRestOptions,
                             (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                             (JSON..=) "IPAddressType" Prelude.<$> iPAddressType,
+                            (JSON..=) "IdentityCenterOptions"
+                              Prelude.<$> identityCenterOptions,
                             (JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
                             (JSON..=) "NodeToNodeEncryptionOptions"
                               Prelude.<$> nodeToNodeEncryptionOptions,
                             (JSON..=) "OffPeakWindowOptions" Prelude.<$> offPeakWindowOptions,
+                            (JSON..=) "SkipShardMigrationWait"
+                              Prelude.<$> skipShardMigrationWait,
                             (JSON..=) "SnapshotOptions" Prelude.<$> snapshotOptions,
                             (JSON..=) "SoftwareUpdateOptions"
                               Prelude.<$> softwareUpdateOptions,
@@ -105,10 +114,14 @@ instance JSON.ToJSON Domain where
                  Prelude.<$> encryptionAtRestOptions,
                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                (JSON..=) "IPAddressType" Prelude.<$> iPAddressType,
+               (JSON..=) "IdentityCenterOptions"
+                 Prelude.<$> identityCenterOptions,
                (JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
                (JSON..=) "NodeToNodeEncryptionOptions"
                  Prelude.<$> nodeToNodeEncryptionOptions,
                (JSON..=) "OffPeakWindowOptions" Prelude.<$> offPeakWindowOptions,
+               (JSON..=) "SkipShardMigrationWait"
+                 Prelude.<$> skipShardMigrationWait,
                (JSON..=) "SnapshotOptions" Prelude.<$> snapshotOptions,
                (JSON..=) "SoftwareUpdateOptions"
                  Prelude.<$> softwareUpdateOptions,
@@ -158,6 +171,10 @@ instance Property "IPAddressType" Domain where
   type PropertyType "IPAddressType" Domain = Value Prelude.Text
   set newValue Domain {..}
     = Domain {iPAddressType = Prelude.pure newValue, ..}
+instance Property "IdentityCenterOptions" Domain where
+  type PropertyType "IdentityCenterOptions" Domain = IdentityCenterOptionsProperty
+  set newValue Domain {..}
+    = Domain {identityCenterOptions = Prelude.pure newValue, ..}
 instance Property "LogPublishingOptions" Domain where
   type PropertyType "LogPublishingOptions" Domain = Prelude.Map Prelude.Text LogPublishingOptionProperty
   set newValue Domain {..}
@@ -170,6 +187,10 @@ instance Property "OffPeakWindowOptions" Domain where
   type PropertyType "OffPeakWindowOptions" Domain = OffPeakWindowOptionsProperty
   set newValue Domain {..}
     = Domain {offPeakWindowOptions = Prelude.pure newValue, ..}
+instance Property "SkipShardMigrationWait" Domain where
+  type PropertyType "SkipShardMigrationWait" Domain = Value Prelude.Bool
+  set newValue Domain {..}
+    = Domain {skipShardMigrationWait = Prelude.pure newValue, ..}
 instance Property "SnapshotOptions" Domain where
   type PropertyType "SnapshotOptions" Domain = SnapshotOptionsProperty
   set newValue Domain {..}

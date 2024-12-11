@@ -1,0 +1,9 @@
+module Stratosphere.WorkSpaces.WorkspacesPool.TimeoutSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TimeoutSettingsProperty :: Prelude.Type
+instance ToResourceProperties TimeoutSettingsProperty
+instance Prelude.Eq TimeoutSettingsProperty
+instance Prelude.Show TimeoutSettingsProperty
+instance JSON.ToJSON TimeoutSettingsProperty

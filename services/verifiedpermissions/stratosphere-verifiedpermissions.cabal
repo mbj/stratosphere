@@ -26,9 +26,14 @@ flag development
 library
   exposed-modules:
       Stratosphere.VerifiedPermissions.IdentitySource
+      Stratosphere.VerifiedPermissions.IdentitySource.CognitoGroupConfigurationProperty
       Stratosphere.VerifiedPermissions.IdentitySource.CognitoUserPoolConfigurationProperty
       Stratosphere.VerifiedPermissions.IdentitySource.IdentitySourceConfigurationProperty
-      Stratosphere.VerifiedPermissions.IdentitySource.IdentitySourceDetailsProperty
+      Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConnectAccessTokenConfigurationProperty
+      Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConnectConfigurationProperty
+      Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConnectGroupConfigurationProperty
+      Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConnectIdentityTokenConfigurationProperty
+      Stratosphere.VerifiedPermissions.IdentitySource.OpenIdConnectTokenSelectionProperty
       Stratosphere.VerifiedPermissions.Policy
       Stratosphere.VerifiedPermissions.Policy.EntityIdentifierProperty
       Stratosphere.VerifiedPermissions.Policy.PolicyDefinitionProperty

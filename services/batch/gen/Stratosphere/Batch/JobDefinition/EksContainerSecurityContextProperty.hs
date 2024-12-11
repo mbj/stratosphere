@@ -8,7 +8,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EksContainerSecurityContextProperty
-  = EksContainerSecurityContextProperty {privileged :: (Prelude.Maybe (Value Prelude.Bool)),
+  = EksContainerSecurityContextProperty {allowPrivilegeEscalation :: (Prelude.Maybe (Value Prelude.Bool)),
+                                         privileged :: (Prelude.Maybe (Value Prelude.Bool)),
                                          readOnlyRootFilesystem :: (Prelude.Maybe (Value Prelude.Bool)),
                                          runAsGroup :: (Prelude.Maybe (Value Prelude.Integer)),
                                          runAsNonRoot :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -18,7 +19,8 @@ mkEksContainerSecurityContextProperty ::
   EksContainerSecurityContextProperty
 mkEksContainerSecurityContextProperty
   = EksContainerSecurityContextProperty
-      {privileged = Prelude.Nothing,
+      {allowPrivilegeEscalation = Prelude.Nothing,
+       privileged = Prelude.Nothing,
        readOnlyRootFilesystem = Prelude.Nothing,
        runAsGroup = Prelude.Nothing, runAsNonRoot = Prelude.Nothing,
        runAsUser = Prelude.Nothing}
@@ -29,7 +31,9 @@ instance ToResourceProperties EksContainerSecurityContextProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Privileged" Prelude.<$> privileged,
+                           [(JSON..=) "AllowPrivilegeEscalation"
+                              Prelude.<$> allowPrivilegeEscalation,
+                            (JSON..=) "Privileged" Prelude.<$> privileged,
                             (JSON..=) "ReadOnlyRootFilesystem"
                               Prelude.<$> readOnlyRootFilesystem,
                             (JSON..=) "RunAsGroup" Prelude.<$> runAsGroup,
@@ -40,12 +44,19 @@ instance JSON.ToJSON EksContainerSecurityContextProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Privileged" Prelude.<$> privileged,
+              [(JSON..=) "AllowPrivilegeEscalation"
+                 Prelude.<$> allowPrivilegeEscalation,
+               (JSON..=) "Privileged" Prelude.<$> privileged,
                (JSON..=) "ReadOnlyRootFilesystem"
                  Prelude.<$> readOnlyRootFilesystem,
                (JSON..=) "RunAsGroup" Prelude.<$> runAsGroup,
                (JSON..=) "RunAsNonRoot" Prelude.<$> runAsNonRoot,
                (JSON..=) "RunAsUser" Prelude.<$> runAsUser]))
+instance Property "AllowPrivilegeEscalation" EksContainerSecurityContextProperty where
+  type PropertyType "AllowPrivilegeEscalation" EksContainerSecurityContextProperty = Value Prelude.Bool
+  set newValue EksContainerSecurityContextProperty {..}
+    = EksContainerSecurityContextProperty
+        {allowPrivilegeEscalation = Prelude.pure newValue, ..}
 instance Property "Privileged" EksContainerSecurityContextProperty where
   type PropertyType "Privileged" EksContainerSecurityContextProperty = Value Prelude.Bool
   set newValue EksContainerSecurityContextProperty {..}

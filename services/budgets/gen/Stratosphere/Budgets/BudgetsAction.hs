@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Budgets.BudgetsAction.ActionThresholdProperty as Exports
 import {-# SOURCE #-} Stratosphere.Budgets.BudgetsAction.DefinitionProperty as Exports
+import {-# SOURCE #-} Stratosphere.Budgets.BudgetsAction.ResourceTagProperty as Exports
 import {-# SOURCE #-} Stratosphere.Budgets.BudgetsAction.SubscriberProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -17,6 +18,7 @@ data BudgetsAction
                    definition :: DefinitionProperty,
                    executionRoleArn :: (Value Prelude.Text),
                    notificationType :: (Value Prelude.Text),
+                   resourceTags :: (Prelude.Maybe [ResourceTagProperty]),
                    subscribers :: [SubscriberProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBudgetsAction ::
@@ -39,7 +41,7 @@ mkBudgetsAction
        budgetName = budgetName, definition = definition,
        executionRoleArn = executionRoleArn,
        notificationType = notificationType, subscribers = subscribers,
-       approvalModel = Prelude.Nothing}
+       approvalModel = Prelude.Nothing, resourceTags = Prelude.Nothing}
 instance ToResourceProperties BudgetsAction where
   toResourceProperties BudgetsAction {..}
     = ResourceProperties
@@ -54,7 +56,8 @@ instance ToResourceProperties BudgetsAction where
                             "NotificationType" JSON..= notificationType,
                             "Subscribers" JSON..= subscribers]
                            (Prelude.catMaybes
-                              [(JSON..=) "ApprovalModel" Prelude.<$> approvalModel]))}
+                              [(JSON..=) "ApprovalModel" Prelude.<$> approvalModel,
+                               (JSON..=) "ResourceTags" Prelude.<$> resourceTags]))}
 instance JSON.ToJSON BudgetsAction where
   toJSON BudgetsAction {..}
     = JSON.object
@@ -67,7 +70,8 @@ instance JSON.ToJSON BudgetsAction where
                "NotificationType" JSON..= notificationType,
                "Subscribers" JSON..= subscribers]
               (Prelude.catMaybes
-                 [(JSON..=) "ApprovalModel" Prelude.<$> approvalModel])))
+                 [(JSON..=) "ApprovalModel" Prelude.<$> approvalModel,
+                  (JSON..=) "ResourceTags" Prelude.<$> resourceTags])))
 instance Property "ActionThreshold" BudgetsAction where
   type PropertyType "ActionThreshold" BudgetsAction = ActionThresholdProperty
   set newValue BudgetsAction {..}
@@ -96,6 +100,10 @@ instance Property "NotificationType" BudgetsAction where
   type PropertyType "NotificationType" BudgetsAction = Value Prelude.Text
   set newValue BudgetsAction {..}
     = BudgetsAction {notificationType = newValue, ..}
+instance Property "ResourceTags" BudgetsAction where
+  type PropertyType "ResourceTags" BudgetsAction = [ResourceTagProperty]
+  set newValue BudgetsAction {..}
+    = BudgetsAction {resourceTags = Prelude.pure newValue, ..}
 instance Property "Subscribers" BudgetsAction where
   type PropertyType "Subscribers" BudgetsAction = [SubscriberProperty]
   set newValue BudgetsAction {..}

@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data CompositeAlarm
   = CompositeAlarm {actionsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -16,7 +17,8 @@ data CompositeAlarm
                     alarmName :: (Prelude.Maybe (Value Prelude.Text)),
                     alarmRule :: (Value Prelude.Text),
                     insufficientDataActions :: (Prelude.Maybe (ValueList Prelude.Text)),
-                    oKActions :: (Prelude.Maybe (ValueList Prelude.Text))}
+                    oKActions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                    tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCompositeAlarm :: Value Prelude.Text -> CompositeAlarm
 mkCompositeAlarm alarmRule
@@ -28,12 +30,12 @@ mkCompositeAlarm alarmRule
        alarmActions = Prelude.Nothing, alarmDescription = Prelude.Nothing,
        alarmName = Prelude.Nothing,
        insufficientDataActions = Prelude.Nothing,
-       oKActions = Prelude.Nothing}
+       oKActions = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties CompositeAlarm where
   toResourceProperties CompositeAlarm {..}
     = ResourceProperties
         {awsType = "AWS::CloudWatch::CompositeAlarm",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AlarmRule" JSON..= alarmRule]
@@ -49,7 +51,8 @@ instance ToResourceProperties CompositeAlarm where
                                (JSON..=) "AlarmName" Prelude.<$> alarmName,
                                (JSON..=) "InsufficientDataActions"
                                  Prelude.<$> insufficientDataActions,
-                               (JSON..=) "OKActions" Prelude.<$> oKActions]))}
+                               (JSON..=) "OKActions" Prelude.<$> oKActions,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON CompositeAlarm where
   toJSON CompositeAlarm {..}
     = JSON.object
@@ -68,7 +71,8 @@ instance JSON.ToJSON CompositeAlarm where
                   (JSON..=) "AlarmName" Prelude.<$> alarmName,
                   (JSON..=) "InsufficientDataActions"
                     Prelude.<$> insufficientDataActions,
-                  (JSON..=) "OKActions" Prelude.<$> oKActions])))
+                  (JSON..=) "OKActions" Prelude.<$> oKActions,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ActionsEnabled" CompositeAlarm where
   type PropertyType "ActionsEnabled" CompositeAlarm = Value Prelude.Bool
   set newValue CompositeAlarm {..}
@@ -112,3 +116,7 @@ instance Property "OKActions" CompositeAlarm where
   type PropertyType "OKActions" CompositeAlarm = ValueList Prelude.Text
   set newValue CompositeAlarm {..}
     = CompositeAlarm {oKActions = Prelude.pure newValue, ..}
+instance Property "Tags" CompositeAlarm where
+  type PropertyType "Tags" CompositeAlarm = [Tag]
+  set newValue CompositeAlarm {..}
+    = CompositeAlarm {tags = Prelude.pure newValue, ..}

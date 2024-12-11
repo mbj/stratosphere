@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.VpcLatticeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VpcLatticeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties VpcLatticeConfigurationProperty
+instance Prelude.Eq VpcLatticeConfigurationProperty
+instance Prelude.Show VpcLatticeConfigurationProperty
+instance JSON.ToJSON VpcLatticeConfigurationProperty

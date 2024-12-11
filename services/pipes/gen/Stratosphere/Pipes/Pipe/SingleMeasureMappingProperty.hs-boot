@@ -1,0 +1,9 @@
+module Stratosphere.Pipes.Pipe.SingleMeasureMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SingleMeasureMappingProperty :: Prelude.Type
+instance ToResourceProperties SingleMeasureMappingProperty
+instance Prelude.Eq SingleMeasureMappingProperty
+instance Prelude.Show SingleMeasureMappingProperty
+instance JSON.ToJSON SingleMeasureMappingProperty

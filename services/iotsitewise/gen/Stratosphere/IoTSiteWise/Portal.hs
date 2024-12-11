@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.Portal.AlarmsProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoTSiteWise.Portal.PortalTypeEntryProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -15,6 +16,8 @@ data Portal
             portalContactEmail :: (Value Prelude.Text),
             portalDescription :: (Prelude.Maybe (Value Prelude.Text)),
             portalName :: (Value Prelude.Text),
+            portalType :: (Prelude.Maybe (Value Prelude.Text)),
+            portalTypeConfiguration :: (Prelude.Maybe (Prelude.Map Prelude.Text PortalTypeEntryProperty)),
             roleArn :: (Value Prelude.Text),
             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -27,7 +30,8 @@ mkPortal portalContactEmail portalName roleArn
        roleArn = roleArn, alarms = Prelude.Nothing,
        notificationSenderEmail = Prelude.Nothing,
        portalAuthMode = Prelude.Nothing,
-       portalDescription = Prelude.Nothing, tags = Prelude.Nothing}
+       portalDescription = Prelude.Nothing, portalType = Prelude.Nothing,
+       portalTypeConfiguration = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Portal where
   toResourceProperties Portal {..}
     = ResourceProperties
@@ -42,6 +46,9 @@ instance ToResourceProperties Portal where
                                  Prelude.<$> notificationSenderEmail,
                                (JSON..=) "PortalAuthMode" Prelude.<$> portalAuthMode,
                                (JSON..=) "PortalDescription" Prelude.<$> portalDescription,
+                               (JSON..=) "PortalType" Prelude.<$> portalType,
+                               (JSON..=) "PortalTypeConfiguration"
+                                 Prelude.<$> portalTypeConfiguration,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Portal where
   toJSON Portal {..}
@@ -56,6 +63,9 @@ instance JSON.ToJSON Portal where
                     Prelude.<$> notificationSenderEmail,
                   (JSON..=) "PortalAuthMode" Prelude.<$> portalAuthMode,
                   (JSON..=) "PortalDescription" Prelude.<$> portalDescription,
+                  (JSON..=) "PortalType" Prelude.<$> portalType,
+                  (JSON..=) "PortalTypeConfiguration"
+                    Prelude.<$> portalTypeConfiguration,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Alarms" Portal where
   type PropertyType "Alarms" Portal = AlarmsProperty
@@ -80,6 +90,14 @@ instance Property "PortalDescription" Portal where
 instance Property "PortalName" Portal where
   type PropertyType "PortalName" Portal = Value Prelude.Text
   set newValue Portal {..} = Portal {portalName = newValue, ..}
+instance Property "PortalType" Portal where
+  type PropertyType "PortalType" Portal = Value Prelude.Text
+  set newValue Portal {..}
+    = Portal {portalType = Prelude.pure newValue, ..}
+instance Property "PortalTypeConfiguration" Portal where
+  type PropertyType "PortalTypeConfiguration" Portal = Prelude.Map Prelude.Text PortalTypeEntryProperty
+  set newValue Portal {..}
+    = Portal {portalTypeConfiguration = Prelude.pure newValue, ..}
 instance Property "RoleArn" Portal where
   type PropertyType "RoleArn" Portal = Value Prelude.Text
   set newValue Portal {..} = Portal {roleArn = newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.MessageTemplate.AgentAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AgentAttributesProperty :: Prelude.Type
+instance ToResourceProperties AgentAttributesProperty
+instance Prelude.Eq AgentAttributesProperty
+instance Prelude.Show AgentAttributesProperty
+instance JSON.ToJSON AgentAttributesProperty

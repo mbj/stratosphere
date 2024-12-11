@@ -30,6 +30,9 @@ library
       Stratosphere.Logs.DeliveryDestination
       Stratosphere.Logs.DeliverySource
       Stratosphere.Logs.Destination
+      Stratosphere.Logs.Integration
+      Stratosphere.Logs.Integration.OpenSearchResourceConfigProperty
+      Stratosphere.Logs.Integration.ResourceConfigProperty
       Stratosphere.Logs.LogAnomalyDetector
       Stratosphere.Logs.LogGroup
       Stratosphere.Logs.LogStream

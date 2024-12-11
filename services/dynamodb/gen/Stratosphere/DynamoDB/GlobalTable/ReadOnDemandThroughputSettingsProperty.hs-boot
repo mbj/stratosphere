@@ -1,0 +1,9 @@
+module Stratosphere.DynamoDB.GlobalTable.ReadOnDemandThroughputSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReadOnDemandThroughputSettingsProperty :: Prelude.Type
+instance ToResourceProperties ReadOnDemandThroughputSettingsProperty
+instance Prelude.Eq ReadOnDemandThroughputSettingsProperty
+instance Prelude.Show ReadOnDemandThroughputSettingsProperty
+instance JSON.ToJSON ReadOnDemandThroughputSettingsProperty

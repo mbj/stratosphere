@@ -1,0 +1,9 @@
+module Stratosphere.AppTest.TestCase.SourceDatabaseMetadataProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SourceDatabaseMetadataProperty :: Prelude.Type
+instance ToResourceProperties SourceDatabaseMetadataProperty
+instance Prelude.Eq SourceDatabaseMetadataProperty
+instance Prelude.Show SourceDatabaseMetadataProperty
+instance JSON.ToJSON SourceDatabaseMetadataProperty

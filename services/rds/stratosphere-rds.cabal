@@ -51,9 +51,11 @@ library
       Stratosphere.RDS.DBSecurityGroup
       Stratosphere.RDS.DBSecurityGroup.IngressProperty
       Stratosphere.RDS.DBSecurityGroupIngress
+      Stratosphere.RDS.DBShardGroup
       Stratosphere.RDS.DBSubnetGroup
       Stratosphere.RDS.EventSubscription
       Stratosphere.RDS.GlobalCluster
+      Stratosphere.RDS.GlobalCluster.GlobalEndpointProperty
       Stratosphere.RDS.Integration
       Stratosphere.RDS.OptionGroup
       Stratosphere.RDS.OptionGroup.OptionConfigurationProperty

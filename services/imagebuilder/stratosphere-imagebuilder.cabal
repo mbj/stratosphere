@@ -66,6 +66,7 @@ library
       Stratosphere.ImageBuilder.InfrastructureConfiguration
       Stratosphere.ImageBuilder.InfrastructureConfiguration.InstanceMetadataOptionsProperty
       Stratosphere.ImageBuilder.InfrastructureConfiguration.LoggingProperty
+      Stratosphere.ImageBuilder.InfrastructureConfiguration.PlacementProperty
       Stratosphere.ImageBuilder.InfrastructureConfiguration.S3LogsProperty
       Stratosphere.ImageBuilder.LifecyclePolicy
       Stratosphere.ImageBuilder.LifecyclePolicy.ActionProperty

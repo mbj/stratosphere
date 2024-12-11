@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.PromptVersion.PromptInferenceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PromptInferenceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PromptInferenceConfigurationProperty
+instance Prelude.Eq PromptInferenceConfigurationProperty
+instance Prelude.Show PromptInferenceConfigurationProperty
+instance JSON.ToJSON PromptInferenceConfigurationProperty

@@ -12,6 +12,8 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReplicaSpecificationProp
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.SSESpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.StreamSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.TimeToLiveSpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.WarmThroughputProperty as Exports
+import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.WriteOnDemandThroughputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.WriteProvisionedThroughputSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -26,6 +28,8 @@ data GlobalTable
                  streamSpecification :: (Prelude.Maybe StreamSpecificationProperty),
                  tableName :: (Prelude.Maybe (Value Prelude.Text)),
                  timeToLiveSpecification :: (Prelude.Maybe TimeToLiveSpecificationProperty),
+                 warmThroughput :: (Prelude.Maybe WarmThroughputProperty),
+                 writeOnDemandThroughputSettings :: (Prelude.Maybe WriteOnDemandThroughputSettingsProperty),
                  writeProvisionedThroughputSettings :: (Prelude.Maybe WriteProvisionedThroughputSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlobalTable ::
@@ -42,6 +46,8 @@ mkGlobalTable attributeDefinitions keySchema replicas
        sSESpecification = Prelude.Nothing,
        streamSpecification = Prelude.Nothing, tableName = Prelude.Nothing,
        timeToLiveSpecification = Prelude.Nothing,
+       warmThroughput = Prelude.Nothing,
+       writeOnDemandThroughputSettings = Prelude.Nothing,
        writeProvisionedThroughputSettings = Prelude.Nothing}
 instance ToResourceProperties GlobalTable where
   toResourceProperties GlobalTable {..}
@@ -63,6 +69,9 @@ instance ToResourceProperties GlobalTable where
                                (JSON..=) "TableName" Prelude.<$> tableName,
                                (JSON..=) "TimeToLiveSpecification"
                                  Prelude.<$> timeToLiveSpecification,
+                               (JSON..=) "WarmThroughput" Prelude.<$> warmThroughput,
+                               (JSON..=) "WriteOnDemandThroughputSettings"
+                                 Prelude.<$> writeOnDemandThroughputSettings,
                                (JSON..=) "WriteProvisionedThroughputSettings"
                                  Prelude.<$> writeProvisionedThroughputSettings]))}
 instance JSON.ToJSON GlobalTable where
@@ -83,6 +92,9 @@ instance JSON.ToJSON GlobalTable where
                   (JSON..=) "TableName" Prelude.<$> tableName,
                   (JSON..=) "TimeToLiveSpecification"
                     Prelude.<$> timeToLiveSpecification,
+                  (JSON..=) "WarmThroughput" Prelude.<$> warmThroughput,
+                  (JSON..=) "WriteOnDemandThroughputSettings"
+                    Prelude.<$> writeOnDemandThroughputSettings,
                   (JSON..=) "WriteProvisionedThroughputSettings"
                     Prelude.<$> writeProvisionedThroughputSettings])))
 instance Property "AttributeDefinitions" GlobalTable where
@@ -125,6 +137,15 @@ instance Property "TimeToLiveSpecification" GlobalTable where
   type PropertyType "TimeToLiveSpecification" GlobalTable = TimeToLiveSpecificationProperty
   set newValue GlobalTable {..}
     = GlobalTable {timeToLiveSpecification = Prelude.pure newValue, ..}
+instance Property "WarmThroughput" GlobalTable where
+  type PropertyType "WarmThroughput" GlobalTable = WarmThroughputProperty
+  set newValue GlobalTable {..}
+    = GlobalTable {warmThroughput = Prelude.pure newValue, ..}
+instance Property "WriteOnDemandThroughputSettings" GlobalTable where
+  type PropertyType "WriteOnDemandThroughputSettings" GlobalTable = WriteOnDemandThroughputSettingsProperty
+  set newValue GlobalTable {..}
+    = GlobalTable
+        {writeOnDemandThroughputSettings = Prelude.pure newValue, ..}
 instance Property "WriteProvisionedThroughputSettings" GlobalTable where
   type PropertyType "WriteProvisionedThroughputSettings" GlobalTable = WriteProvisionedThroughputSettingsProperty
   set newValue GlobalTable {..}

@@ -8,39 +8,40 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PostgreSqlSettingsProperty
   = PostgreSqlSettingsProperty {certificateArn :: (Prelude.Maybe (Value Prelude.Text)),
-                                databaseName :: (Prelude.Maybe (Value Prelude.Text)),
-                                port :: (Prelude.Maybe (Value Prelude.Integer)),
-                                serverName :: (Prelude.Maybe (Value Prelude.Text)),
-                                sslMode :: (Prelude.Maybe (Value Prelude.Text))}
+                                databaseName :: (Value Prelude.Text),
+                                port :: (Value Prelude.Integer),
+                                serverName :: (Value Prelude.Text),
+                                sslMode :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkPostgreSqlSettingsProperty :: PostgreSqlSettingsProperty
-mkPostgreSqlSettingsProperty
+mkPostgreSqlSettingsProperty ::
+  Value Prelude.Text
+  -> Value Prelude.Integer
+     -> Value Prelude.Text
+        -> Value Prelude.Text -> PostgreSqlSettingsProperty
+mkPostgreSqlSettingsProperty databaseName port serverName sslMode
   = PostgreSqlSettingsProperty
-      {certificateArn = Prelude.Nothing, databaseName = Prelude.Nothing,
-       port = Prelude.Nothing, serverName = Prelude.Nothing,
-       sslMode = Prelude.Nothing}
+      {databaseName = databaseName, port = port, serverName = serverName,
+       sslMode = sslMode, certificateArn = Prelude.Nothing}
 instance ToResourceProperties PostgreSqlSettingsProperty where
   toResourceProperties PostgreSqlSettingsProperty {..}
     = ResourceProperties
         {awsType = "AWS::DMS::DataProvider.PostgreSqlSettings",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "CertificateArn" Prelude.<$> certificateArn,
-                            (JSON..=) "DatabaseName" Prelude.<$> databaseName,
-                            (JSON..=) "Port" Prelude.<$> port,
-                            (JSON..=) "ServerName" Prelude.<$> serverName,
-                            (JSON..=) "SslMode" Prelude.<$> sslMode])}
+                        ((Prelude.<>)
+                           ["DatabaseName" JSON..= databaseName, "Port" JSON..= port,
+                            "ServerName" JSON..= serverName, "SslMode" JSON..= sslMode]
+                           (Prelude.catMaybes
+                              [(JSON..=) "CertificateArn" Prelude.<$> certificateArn]))}
 instance JSON.ToJSON PostgreSqlSettingsProperty where
   toJSON PostgreSqlSettingsProperty {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "CertificateArn" Prelude.<$> certificateArn,
-               (JSON..=) "DatabaseName" Prelude.<$> databaseName,
-               (JSON..=) "Port" Prelude.<$> port,
-               (JSON..=) "ServerName" Prelude.<$> serverName,
-               (JSON..=) "SslMode" Prelude.<$> sslMode]))
+           ((Prelude.<>)
+              ["DatabaseName" JSON..= databaseName, "Port" JSON..= port,
+               "ServerName" JSON..= serverName, "SslMode" JSON..= sslMode]
+              (Prelude.catMaybes
+                 [(JSON..=) "CertificateArn" Prelude.<$> certificateArn])))
 instance Property "CertificateArn" PostgreSqlSettingsProperty where
   type PropertyType "CertificateArn" PostgreSqlSettingsProperty = Value Prelude.Text
   set newValue PostgreSqlSettingsProperty {..}
@@ -49,18 +50,16 @@ instance Property "CertificateArn" PostgreSqlSettingsProperty where
 instance Property "DatabaseName" PostgreSqlSettingsProperty where
   type PropertyType "DatabaseName" PostgreSqlSettingsProperty = Value Prelude.Text
   set newValue PostgreSqlSettingsProperty {..}
-    = PostgreSqlSettingsProperty
-        {databaseName = Prelude.pure newValue, ..}
+    = PostgreSqlSettingsProperty {databaseName = newValue, ..}
 instance Property "Port" PostgreSqlSettingsProperty where
   type PropertyType "Port" PostgreSqlSettingsProperty = Value Prelude.Integer
   set newValue PostgreSqlSettingsProperty {..}
-    = PostgreSqlSettingsProperty {port = Prelude.pure newValue, ..}
+    = PostgreSqlSettingsProperty {port = newValue, ..}
 instance Property "ServerName" PostgreSqlSettingsProperty where
   type PropertyType "ServerName" PostgreSqlSettingsProperty = Value Prelude.Text
   set newValue PostgreSqlSettingsProperty {..}
-    = PostgreSqlSettingsProperty
-        {serverName = Prelude.pure newValue, ..}
+    = PostgreSqlSettingsProperty {serverName = newValue, ..}
 instance Property "SslMode" PostgreSqlSettingsProperty where
   type PropertyType "SslMode" PostgreSqlSettingsProperty = Value Prelude.Text
   set newValue PostgreSqlSettingsProperty {..}
-    = PostgreSqlSettingsProperty {sslMode = Prelude.pure newValue, ..}
+    = PostgreSqlSettingsProperty {sslMode = newValue, ..}

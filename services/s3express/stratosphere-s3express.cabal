@@ -27,6 +27,12 @@ library
   exposed-modules:
       Stratosphere.S3Express.BucketPolicy
       Stratosphere.S3Express.DirectoryBucket
+      Stratosphere.S3Express.DirectoryBucket.AbortIncompleteMultipartUploadProperty
+      Stratosphere.S3Express.DirectoryBucket.BucketEncryptionProperty
+      Stratosphere.S3Express.DirectoryBucket.LifecycleConfigurationProperty
+      Stratosphere.S3Express.DirectoryBucket.RuleProperty
+      Stratosphere.S3Express.DirectoryBucket.ServerSideEncryptionByDefaultProperty
+      Stratosphere.S3Express.DirectoryBucket.ServerSideEncryptionRuleProperty
   other-modules:
       Paths_stratosphere_s3express
   hs-source-dirs:

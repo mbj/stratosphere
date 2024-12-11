@@ -41,6 +41,13 @@ library
       Stratosphere.GuardDuty.Filter.TagItemProperty
       Stratosphere.GuardDuty.IPSet
       Stratosphere.GuardDuty.IPSet.TagItemProperty
+      Stratosphere.GuardDuty.MalwareProtectionPlan
+      Stratosphere.GuardDuty.MalwareProtectionPlan.CFNActionsProperty
+      Stratosphere.GuardDuty.MalwareProtectionPlan.CFNProtectedResourceProperty
+      Stratosphere.GuardDuty.MalwareProtectionPlan.CFNStatusReasonsProperty
+      Stratosphere.GuardDuty.MalwareProtectionPlan.CFNTaggingProperty
+      Stratosphere.GuardDuty.MalwareProtectionPlan.S3BucketProperty
+      Stratosphere.GuardDuty.MalwareProtectionPlan.TagItemProperty
       Stratosphere.GuardDuty.Master
       Stratosphere.GuardDuty.Member
       Stratosphere.GuardDuty.ThreatIntelSet

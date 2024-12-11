@@ -15,6 +15,7 @@ data ReplicationInstance
                          engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
                          kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                          multiAZ :: (Prelude.Maybe (Value Prelude.Bool)),
+                         networkType :: (Prelude.Maybe (Value Prelude.Text)),
                          preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
                          publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
                          replicationInstanceClass :: (Value Prelude.Text),
@@ -33,7 +34,7 @@ mkReplicationInstance replicationInstanceClass
        autoMinorVersionUpgrade = Prelude.Nothing,
        availabilityZone = Prelude.Nothing,
        engineVersion = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
-       multiAZ = Prelude.Nothing,
+       multiAZ = Prelude.Nothing, networkType = Prelude.Nothing,
        preferredMaintenanceWindow = Prelude.Nothing,
        publiclyAccessible = Prelude.Nothing,
        replicationInstanceIdentifier = Prelude.Nothing,
@@ -58,6 +59,7 @@ instance ToResourceProperties ReplicationInstance where
                                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                                (JSON..=) "MultiAZ" Prelude.<$> multiAZ,
+                               (JSON..=) "NetworkType" Prelude.<$> networkType,
                                (JSON..=) "PreferredMaintenanceWindow"
                                  Prelude.<$> preferredMaintenanceWindow,
                                (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
@@ -84,6 +86,7 @@ instance JSON.ToJSON ReplicationInstance where
                   (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                   (JSON..=) "MultiAZ" Prelude.<$> multiAZ,
+                  (JSON..=) "NetworkType" Prelude.<$> networkType,
                   (JSON..=) "PreferredMaintenanceWindow"
                     Prelude.<$> preferredMaintenanceWindow,
                   (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
@@ -126,6 +129,10 @@ instance Property "MultiAZ" ReplicationInstance where
   type PropertyType "MultiAZ" ReplicationInstance = Value Prelude.Bool
   set newValue ReplicationInstance {..}
     = ReplicationInstance {multiAZ = Prelude.pure newValue, ..}
+instance Property "NetworkType" ReplicationInstance where
+  type PropertyType "NetworkType" ReplicationInstance = Value Prelude.Text
+  set newValue ReplicationInstance {..}
+    = ReplicationInstance {networkType = Prelude.pure newValue, ..}
 instance Property "PreferredMaintenanceWindow" ReplicationInstance where
   type PropertyType "PreferredMaintenanceWindow" ReplicationInstance = Value Prelude.Text
   set newValue ReplicationInstance {..}

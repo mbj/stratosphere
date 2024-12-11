@@ -1,0 +1,9 @@
+module Stratosphere.ConnectCampaignsV2.Campaign.CommunicationLimitsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CommunicationLimitsProperty :: Prelude.Type
+instance ToResourceProperties CommunicationLimitsProperty
+instance Prelude.Eq CommunicationLimitsProperty
+instance Prelude.Show CommunicationLimitsProperty
+instance JSON.ToJSON CommunicationLimitsProperty

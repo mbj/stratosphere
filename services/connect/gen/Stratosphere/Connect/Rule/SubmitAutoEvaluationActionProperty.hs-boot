@@ -1,0 +1,9 @@
+module Stratosphere.Connect.Rule.SubmitAutoEvaluationActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SubmitAutoEvaluationActionProperty :: Prelude.Type
+instance ToResourceProperties SubmitAutoEvaluationActionProperty
+instance Prelude.Eq SubmitAutoEvaluationActionProperty
+instance Prelude.Show SubmitAutoEvaluationActionProperty
+instance JSON.ToJSON SubmitAutoEvaluationActionProperty

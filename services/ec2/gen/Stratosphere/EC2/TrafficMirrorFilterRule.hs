@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.TrafficMirrorFilterRule.TrafficMirrorPortRangeProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data TrafficMirrorFilterRule
   = TrafficMirrorFilterRule {description :: (Prelude.Maybe (Value Prelude.Text)),
@@ -17,6 +18,7 @@ data TrafficMirrorFilterRule
                              ruleNumber :: (Value Prelude.Integer),
                              sourceCidrBlock :: (Value Prelude.Text),
                              sourcePortRange :: (Prelude.Maybe TrafficMirrorPortRangeProperty),
+                             tags :: (Prelude.Maybe [Tag]),
                              trafficDirection :: (Value Prelude.Text),
                              trafficMirrorFilterId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -42,12 +44,12 @@ mkTrafficMirrorFilterRule
        trafficMirrorFilterId = trafficMirrorFilterId,
        description = Prelude.Nothing,
        destinationPortRange = Prelude.Nothing, protocol = Prelude.Nothing,
-       sourcePortRange = Prelude.Nothing}
+       sourcePortRange = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties TrafficMirrorFilterRule where
   toResourceProperties TrafficMirrorFilterRule {..}
     = ResourceProperties
         {awsType = "AWS::EC2::TrafficMirrorFilterRule",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["DestinationCidrBlock" JSON..= destinationCidrBlock,
@@ -59,7 +61,8 @@ instance ToResourceProperties TrafficMirrorFilterRule where
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "DestinationPortRange" Prelude.<$> destinationPortRange,
                                (JSON..=) "Protocol" Prelude.<$> protocol,
-                               (JSON..=) "SourcePortRange" Prelude.<$> sourcePortRange]))}
+                               (JSON..=) "SourcePortRange" Prelude.<$> sourcePortRange,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON TrafficMirrorFilterRule where
   toJSON TrafficMirrorFilterRule {..}
     = JSON.object
@@ -74,7 +77,8 @@ instance JSON.ToJSON TrafficMirrorFilterRule where
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "DestinationPortRange" Prelude.<$> destinationPortRange,
                   (JSON..=) "Protocol" Prelude.<$> protocol,
-                  (JSON..=) "SourcePortRange" Prelude.<$> sourcePortRange])))
+                  (JSON..=) "SourcePortRange" Prelude.<$> sourcePortRange,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" TrafficMirrorFilterRule where
   type PropertyType "Description" TrafficMirrorFilterRule = Value Prelude.Text
   set newValue TrafficMirrorFilterRule {..}
@@ -109,6 +113,10 @@ instance Property "SourcePortRange" TrafficMirrorFilterRule where
   set newValue TrafficMirrorFilterRule {..}
     = TrafficMirrorFilterRule
         {sourcePortRange = Prelude.pure newValue, ..}
+instance Property "Tags" TrafficMirrorFilterRule where
+  type PropertyType "Tags" TrafficMirrorFilterRule = [Tag]
+  set newValue TrafficMirrorFilterRule {..}
+    = TrafficMirrorFilterRule {tags = Prelude.pure newValue, ..}
 instance Property "TrafficDirection" TrafficMirrorFilterRule where
   type PropertyType "TrafficDirection" TrafficMirrorFilterRule = Value Prelude.Text
   set newValue TrafficMirrorFilterRule {..}

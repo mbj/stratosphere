@@ -9,7 +9,8 @@ import {-# SOURCE #-} Stratosphere.DataZone.DataSource.RelationalFilterConfigura
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data GlueRunConfigurationInputProperty
-  = GlueRunConfigurationInputProperty {dataAccessRole :: (Prelude.Maybe (Value Prelude.Text)),
+  = GlueRunConfigurationInputProperty {autoImportDataQualityResult :: (Prelude.Maybe (Value Prelude.Bool)),
+                                       dataAccessRole :: (Prelude.Maybe (Value Prelude.Text)),
                                        relationalFilterConfigurations :: [RelationalFilterConfigurationProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkGlueRunConfigurationInputProperty ::
@@ -18,6 +19,7 @@ mkGlueRunConfigurationInputProperty ::
 mkGlueRunConfigurationInputProperty relationalFilterConfigurations
   = GlueRunConfigurationInputProperty
       {relationalFilterConfigurations = relationalFilterConfigurations,
+       autoImportDataQualityResult = Prelude.Nothing,
        dataAccessRole = Prelude.Nothing}
 instance ToResourceProperties GlueRunConfigurationInputProperty where
   toResourceProperties GlueRunConfigurationInputProperty {..}
@@ -29,7 +31,9 @@ instance ToResourceProperties GlueRunConfigurationInputProperty where
                            ["RelationalFilterConfigurations"
                               JSON..= relationalFilterConfigurations]
                            (Prelude.catMaybes
-                              [(JSON..=) "DataAccessRole" Prelude.<$> dataAccessRole]))}
+                              [(JSON..=) "AutoImportDataQualityResult"
+                                 Prelude.<$> autoImportDataQualityResult,
+                               (JSON..=) "DataAccessRole" Prelude.<$> dataAccessRole]))}
 instance JSON.ToJSON GlueRunConfigurationInputProperty where
   toJSON GlueRunConfigurationInputProperty {..}
     = JSON.object
@@ -38,7 +42,14 @@ instance JSON.ToJSON GlueRunConfigurationInputProperty where
               ["RelationalFilterConfigurations"
                  JSON..= relationalFilterConfigurations]
               (Prelude.catMaybes
-                 [(JSON..=) "DataAccessRole" Prelude.<$> dataAccessRole])))
+                 [(JSON..=) "AutoImportDataQualityResult"
+                    Prelude.<$> autoImportDataQualityResult,
+                  (JSON..=) "DataAccessRole" Prelude.<$> dataAccessRole])))
+instance Property "AutoImportDataQualityResult" GlueRunConfigurationInputProperty where
+  type PropertyType "AutoImportDataQualityResult" GlueRunConfigurationInputProperty = Value Prelude.Bool
+  set newValue GlueRunConfigurationInputProperty {..}
+    = GlueRunConfigurationInputProperty
+        {autoImportDataQualityResult = Prelude.pure newValue, ..}
 instance Property "DataAccessRole" GlueRunConfigurationInputProperty where
   type PropertyType "DataAccessRole" GlueRunConfigurationInputProperty = Value Prelude.Text
   set newValue GlueRunConfigurationInputProperty {..}

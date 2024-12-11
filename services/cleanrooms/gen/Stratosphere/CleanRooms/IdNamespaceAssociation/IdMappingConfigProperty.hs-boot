@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.IdNamespaceAssociation.IdMappingConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdMappingConfigProperty :: Prelude.Type
+instance ToResourceProperties IdMappingConfigProperty
+instance Prelude.Eq IdMappingConfigProperty
+instance Prelude.Show IdMappingConfigProperty
+instance JSON.ToJSON IdMappingConfigProperty

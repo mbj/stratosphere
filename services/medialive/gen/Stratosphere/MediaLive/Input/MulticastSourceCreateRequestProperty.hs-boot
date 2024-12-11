@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Input.MulticastSourceCreateRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MulticastSourceCreateRequestProperty :: Prelude.Type
+instance ToResourceProperties MulticastSourceCreateRequestProperty
+instance Prelude.Eq MulticastSourceCreateRequestProperty
+instance Prelude.Show MulticastSourceCreateRequestProperty
+instance JSON.ToJSON MulticastSourceCreateRequestProperty

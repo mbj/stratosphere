@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.Retriever.KendraIndexConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KendraIndexConfigurationProperty :: Prelude.Type
+instance ToResourceProperties KendraIndexConfigurationProperty
+instance Prelude.Eq KendraIndexConfigurationProperty
+instance Prelude.Show KendraIndexConfigurationProperty
+instance JSON.ToJSON KendraIndexConfigurationProperty

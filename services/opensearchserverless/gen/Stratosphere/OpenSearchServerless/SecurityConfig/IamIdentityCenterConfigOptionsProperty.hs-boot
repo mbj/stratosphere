@@ -1,0 +1,9 @@
+module Stratosphere.OpenSearchServerless.SecurityConfig.IamIdentityCenterConfigOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IamIdentityCenterConfigOptionsProperty :: Prelude.Type
+instance ToResourceProperties IamIdentityCenterConfigOptionsProperty
+instance Prelude.Eq IamIdentityCenterConfigOptionsProperty
+instance Prelude.Show IamIdentityCenterConfigOptionsProperty
+instance JSON.ToJSON IamIdentityCenterConfigOptionsProperty

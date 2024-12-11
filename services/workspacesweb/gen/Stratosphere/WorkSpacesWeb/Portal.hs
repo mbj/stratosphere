@@ -12,8 +12,11 @@ data Portal
             authenticationType :: (Prelude.Maybe (Value Prelude.Text)),
             browserSettingsArn :: (Prelude.Maybe (Value Prelude.Text)),
             customerManagedKey :: (Prelude.Maybe (Value Prelude.Text)),
+            dataProtectionSettingsArn :: (Prelude.Maybe (Value Prelude.Text)),
             displayName :: (Prelude.Maybe (Value Prelude.Text)),
+            instanceType :: (Prelude.Maybe (Value Prelude.Text)),
             ipAccessSettingsArn :: (Prelude.Maybe (Value Prelude.Text)),
+            maxConcurrentSessions :: (Prelude.Maybe (Value Prelude.Double)),
             networkSettingsArn :: (Prelude.Maybe (Value Prelude.Text)),
             tags :: (Prelude.Maybe [Tag]),
             trustStoreArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -27,8 +30,10 @@ mkPortal
        authenticationType = Prelude.Nothing,
        browserSettingsArn = Prelude.Nothing,
        customerManagedKey = Prelude.Nothing,
-       displayName = Prelude.Nothing,
+       dataProtectionSettingsArn = Prelude.Nothing,
+       displayName = Prelude.Nothing, instanceType = Prelude.Nothing,
        ipAccessSettingsArn = Prelude.Nothing,
+       maxConcurrentSessions = Prelude.Nothing,
        networkSettingsArn = Prelude.Nothing, tags = Prelude.Nothing,
        trustStoreArn = Prelude.Nothing,
        userAccessLoggingSettingsArn = Prelude.Nothing,
@@ -45,8 +50,13 @@ instance ToResourceProperties Portal where
                             (JSON..=) "AuthenticationType" Prelude.<$> authenticationType,
                             (JSON..=) "BrowserSettingsArn" Prelude.<$> browserSettingsArn,
                             (JSON..=) "CustomerManagedKey" Prelude.<$> customerManagedKey,
+                            (JSON..=) "DataProtectionSettingsArn"
+                              Prelude.<$> dataProtectionSettingsArn,
                             (JSON..=) "DisplayName" Prelude.<$> displayName,
+                            (JSON..=) "InstanceType" Prelude.<$> instanceType,
                             (JSON..=) "IpAccessSettingsArn" Prelude.<$> ipAccessSettingsArn,
+                            (JSON..=) "MaxConcurrentSessions"
+                              Prelude.<$> maxConcurrentSessions,
                             (JSON..=) "NetworkSettingsArn" Prelude.<$> networkSettingsArn,
                             (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "TrustStoreArn" Prelude.<$> trustStoreArn,
@@ -63,8 +73,13 @@ instance JSON.ToJSON Portal where
                (JSON..=) "AuthenticationType" Prelude.<$> authenticationType,
                (JSON..=) "BrowserSettingsArn" Prelude.<$> browserSettingsArn,
                (JSON..=) "CustomerManagedKey" Prelude.<$> customerManagedKey,
+               (JSON..=) "DataProtectionSettingsArn"
+                 Prelude.<$> dataProtectionSettingsArn,
                (JSON..=) "DisplayName" Prelude.<$> displayName,
+               (JSON..=) "InstanceType" Prelude.<$> instanceType,
                (JSON..=) "IpAccessSettingsArn" Prelude.<$> ipAccessSettingsArn,
+               (JSON..=) "MaxConcurrentSessions"
+                 Prelude.<$> maxConcurrentSessions,
                (JSON..=) "NetworkSettingsArn" Prelude.<$> networkSettingsArn,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "TrustStoreArn" Prelude.<$> trustStoreArn,
@@ -87,14 +102,26 @@ instance Property "CustomerManagedKey" Portal where
   type PropertyType "CustomerManagedKey" Portal = Value Prelude.Text
   set newValue Portal {..}
     = Portal {customerManagedKey = Prelude.pure newValue, ..}
+instance Property "DataProtectionSettingsArn" Portal where
+  type PropertyType "DataProtectionSettingsArn" Portal = Value Prelude.Text
+  set newValue Portal {..}
+    = Portal {dataProtectionSettingsArn = Prelude.pure newValue, ..}
 instance Property "DisplayName" Portal where
   type PropertyType "DisplayName" Portal = Value Prelude.Text
   set newValue Portal {..}
     = Portal {displayName = Prelude.pure newValue, ..}
+instance Property "InstanceType" Portal where
+  type PropertyType "InstanceType" Portal = Value Prelude.Text
+  set newValue Portal {..}
+    = Portal {instanceType = Prelude.pure newValue, ..}
 instance Property "IpAccessSettingsArn" Portal where
   type PropertyType "IpAccessSettingsArn" Portal = Value Prelude.Text
   set newValue Portal {..}
     = Portal {ipAccessSettingsArn = Prelude.pure newValue, ..}
+instance Property "MaxConcurrentSessions" Portal where
+  type PropertyType "MaxConcurrentSessions" Portal = Value Prelude.Double
+  set newValue Portal {..}
+    = Portal {maxConcurrentSessions = Prelude.pure newValue, ..}
 instance Property "NetworkSettingsArn" Portal where
   type PropertyType "NetworkSettingsArn" Portal = Value Prelude.Text
   set newValue Portal {..}

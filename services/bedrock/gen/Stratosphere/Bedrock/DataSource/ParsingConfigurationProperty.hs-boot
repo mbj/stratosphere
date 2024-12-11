@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataSource.ParsingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ParsingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ParsingConfigurationProperty
+instance Prelude.Eq ParsingConfigurationProperty
+instance Prelude.Show ParsingConfigurationProperty
+instance JSON.ToJSON ParsingConfigurationProperty

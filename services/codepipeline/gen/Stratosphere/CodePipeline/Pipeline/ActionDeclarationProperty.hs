@@ -12,11 +12,13 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ActionDeclarationProperty
   = ActionDeclarationProperty {actionTypeId :: ActionTypeIdProperty,
+                               commands :: (Prelude.Maybe (ValueList Prelude.Text)),
                                configuration :: (Prelude.Maybe JSON.Object),
                                inputArtifacts :: (Prelude.Maybe [InputArtifactProperty]),
                                name :: (Value Prelude.Text),
                                namespace :: (Prelude.Maybe (Value Prelude.Text)),
                                outputArtifacts :: (Prelude.Maybe [OutputArtifactProperty]),
+                               outputVariables :: (Prelude.Maybe (ValueList Prelude.Text)),
                                region :: (Prelude.Maybe (Value Prelude.Text)),
                                roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                runOrder :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -28,10 +30,12 @@ mkActionDeclarationProperty ::
 mkActionDeclarationProperty actionTypeId name
   = ActionDeclarationProperty
       {actionTypeId = actionTypeId, name = name,
-       configuration = Prelude.Nothing, inputArtifacts = Prelude.Nothing,
-       namespace = Prelude.Nothing, outputArtifacts = Prelude.Nothing,
-       region = Prelude.Nothing, roleArn = Prelude.Nothing,
-       runOrder = Prelude.Nothing, timeoutInMinutes = Prelude.Nothing}
+       commands = Prelude.Nothing, configuration = Prelude.Nothing,
+       inputArtifacts = Prelude.Nothing, namespace = Prelude.Nothing,
+       outputArtifacts = Prelude.Nothing,
+       outputVariables = Prelude.Nothing, region = Prelude.Nothing,
+       roleArn = Prelude.Nothing, runOrder = Prelude.Nothing,
+       timeoutInMinutes = Prelude.Nothing}
 instance ToResourceProperties ActionDeclarationProperty where
   toResourceProperties ActionDeclarationProperty {..}
     = ResourceProperties
@@ -41,10 +45,12 @@ instance ToResourceProperties ActionDeclarationProperty where
                         ((Prelude.<>)
                            ["ActionTypeId" JSON..= actionTypeId, "Name" JSON..= name]
                            (Prelude.catMaybes
-                              [(JSON..=) "Configuration" Prelude.<$> configuration,
+                              [(JSON..=) "Commands" Prelude.<$> commands,
+                               (JSON..=) "Configuration" Prelude.<$> configuration,
                                (JSON..=) "InputArtifacts" Prelude.<$> inputArtifacts,
                                (JSON..=) "Namespace" Prelude.<$> namespace,
                                (JSON..=) "OutputArtifacts" Prelude.<$> outputArtifacts,
+                               (JSON..=) "OutputVariables" Prelude.<$> outputVariables,
                                (JSON..=) "Region" Prelude.<$> region,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn,
                                (JSON..=) "RunOrder" Prelude.<$> runOrder,
@@ -56,10 +62,12 @@ instance JSON.ToJSON ActionDeclarationProperty where
            ((Prelude.<>)
               ["ActionTypeId" JSON..= actionTypeId, "Name" JSON..= name]
               (Prelude.catMaybes
-                 [(JSON..=) "Configuration" Prelude.<$> configuration,
+                 [(JSON..=) "Commands" Prelude.<$> commands,
+                  (JSON..=) "Configuration" Prelude.<$> configuration,
                   (JSON..=) "InputArtifacts" Prelude.<$> inputArtifacts,
                   (JSON..=) "Namespace" Prelude.<$> namespace,
                   (JSON..=) "OutputArtifacts" Prelude.<$> outputArtifacts,
+                  (JSON..=) "OutputVariables" Prelude.<$> outputVariables,
                   (JSON..=) "Region" Prelude.<$> region,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn,
                   (JSON..=) "RunOrder" Prelude.<$> runOrder,
@@ -68,6 +76,10 @@ instance Property "ActionTypeId" ActionDeclarationProperty where
   type PropertyType "ActionTypeId" ActionDeclarationProperty = ActionTypeIdProperty
   set newValue ActionDeclarationProperty {..}
     = ActionDeclarationProperty {actionTypeId = newValue, ..}
+instance Property "Commands" ActionDeclarationProperty where
+  type PropertyType "Commands" ActionDeclarationProperty = ValueList Prelude.Text
+  set newValue ActionDeclarationProperty {..}
+    = ActionDeclarationProperty {commands = Prelude.pure newValue, ..}
 instance Property "Configuration" ActionDeclarationProperty where
   type PropertyType "Configuration" ActionDeclarationProperty = JSON.Object
   set newValue ActionDeclarationProperty {..}
@@ -91,6 +103,11 @@ instance Property "OutputArtifacts" ActionDeclarationProperty where
   set newValue ActionDeclarationProperty {..}
     = ActionDeclarationProperty
         {outputArtifacts = Prelude.pure newValue, ..}
+instance Property "OutputVariables" ActionDeclarationProperty where
+  type PropertyType "OutputVariables" ActionDeclarationProperty = ValueList Prelude.Text
+  set newValue ActionDeclarationProperty {..}
+    = ActionDeclarationProperty
+        {outputVariables = Prelude.pure newValue, ..}
 instance Property "Region" ActionDeclarationProperty where
   type PropertyType "Region" ActionDeclarationProperty = Value Prelude.Text
   set newValue ActionDeclarationProperty {..}

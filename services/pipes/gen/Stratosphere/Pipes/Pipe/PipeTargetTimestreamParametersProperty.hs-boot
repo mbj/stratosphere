@@ -1,0 +1,9 @@
+module Stratosphere.Pipes.Pipe.PipeTargetTimestreamParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PipeTargetTimestreamParametersProperty :: Prelude.Type
+instance ToResourceProperties PipeTargetTimestreamParametersProperty
+instance Prelude.Eq PipeTargetTimestreamParametersProperty
+instance Prelude.Show PipeTargetTimestreamParametersProperty
+instance JSON.ToJSON PipeTargetTimestreamParametersProperty

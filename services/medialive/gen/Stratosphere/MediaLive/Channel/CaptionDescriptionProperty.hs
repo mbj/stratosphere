@@ -10,8 +10,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CaptionDescriptionProperty
   = CaptionDescriptionProperty {accessibility :: (Prelude.Maybe (Value Prelude.Text)),
+                                captionDashRoles :: (Prelude.Maybe (ValueList Prelude.Text)),
                                 captionSelectorName :: (Prelude.Maybe (Value Prelude.Text)),
                                 destinationSettings :: (Prelude.Maybe CaptionDestinationSettingsProperty),
+                                dvbDashAccessibility :: (Prelude.Maybe (Value Prelude.Text)),
                                 languageCode :: (Prelude.Maybe (Value Prelude.Text)),
                                 languageDescription :: (Prelude.Maybe (Value Prelude.Text)),
                                 name :: (Prelude.Maybe (Value Prelude.Text))}
@@ -20,8 +22,10 @@ mkCaptionDescriptionProperty :: CaptionDescriptionProperty
 mkCaptionDescriptionProperty
   = CaptionDescriptionProperty
       {accessibility = Prelude.Nothing,
+       captionDashRoles = Prelude.Nothing,
        captionSelectorName = Prelude.Nothing,
        destinationSettings = Prelude.Nothing,
+       dvbDashAccessibility = Prelude.Nothing,
        languageCode = Prelude.Nothing,
        languageDescription = Prelude.Nothing, name = Prelude.Nothing}
 instance ToResourceProperties CaptionDescriptionProperty where
@@ -32,8 +36,10 @@ instance ToResourceProperties CaptionDescriptionProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Accessibility" Prelude.<$> accessibility,
+                            (JSON..=) "CaptionDashRoles" Prelude.<$> captionDashRoles,
                             (JSON..=) "CaptionSelectorName" Prelude.<$> captionSelectorName,
                             (JSON..=) "DestinationSettings" Prelude.<$> destinationSettings,
+                            (JSON..=) "DvbDashAccessibility" Prelude.<$> dvbDashAccessibility,
                             (JSON..=) "LanguageCode" Prelude.<$> languageCode,
                             (JSON..=) "LanguageDescription" Prelude.<$> languageDescription,
                             (JSON..=) "Name" Prelude.<$> name])}
@@ -43,8 +49,10 @@ instance JSON.ToJSON CaptionDescriptionProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "Accessibility" Prelude.<$> accessibility,
+               (JSON..=) "CaptionDashRoles" Prelude.<$> captionDashRoles,
                (JSON..=) "CaptionSelectorName" Prelude.<$> captionSelectorName,
                (JSON..=) "DestinationSettings" Prelude.<$> destinationSettings,
+               (JSON..=) "DvbDashAccessibility" Prelude.<$> dvbDashAccessibility,
                (JSON..=) "LanguageCode" Prelude.<$> languageCode,
                (JSON..=) "LanguageDescription" Prelude.<$> languageDescription,
                (JSON..=) "Name" Prelude.<$> name]))
@@ -53,6 +61,11 @@ instance Property "Accessibility" CaptionDescriptionProperty where
   set newValue CaptionDescriptionProperty {..}
     = CaptionDescriptionProperty
         {accessibility = Prelude.pure newValue, ..}
+instance Property "CaptionDashRoles" CaptionDescriptionProperty where
+  type PropertyType "CaptionDashRoles" CaptionDescriptionProperty = ValueList Prelude.Text
+  set newValue CaptionDescriptionProperty {..}
+    = CaptionDescriptionProperty
+        {captionDashRoles = Prelude.pure newValue, ..}
 instance Property "CaptionSelectorName" CaptionDescriptionProperty where
   type PropertyType "CaptionSelectorName" CaptionDescriptionProperty = Value Prelude.Text
   set newValue CaptionDescriptionProperty {..}
@@ -63,6 +76,11 @@ instance Property "DestinationSettings" CaptionDescriptionProperty where
   set newValue CaptionDescriptionProperty {..}
     = CaptionDescriptionProperty
         {destinationSettings = Prelude.pure newValue, ..}
+instance Property "DvbDashAccessibility" CaptionDescriptionProperty where
+  type PropertyType "DvbDashAccessibility" CaptionDescriptionProperty = Value Prelude.Text
+  set newValue CaptionDescriptionProperty {..}
+    = CaptionDescriptionProperty
+        {dvbDashAccessibility = Prelude.pure newValue, ..}
 instance Property "LanguageCode" CaptionDescriptionProperty where
   type PropertyType "LanguageCode" CaptionDescriptionProperty = Value Prelude.Text
   set newValue CaptionDescriptionProperty {..}

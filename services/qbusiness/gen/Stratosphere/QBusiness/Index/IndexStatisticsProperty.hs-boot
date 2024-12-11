@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.Index.IndexStatisticsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IndexStatisticsProperty :: Prelude.Type
+instance ToResourceProperties IndexStatisticsProperty
+instance Prelude.Eq IndexStatisticsProperty
+instance Prelude.Show IndexStatisticsProperty
+instance JSON.ToJSON IndexStatisticsProperty

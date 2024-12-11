@@ -33,6 +33,7 @@ library
       Stratosphere.EMRServerless.Application.ImageConfigurationInputProperty
       Stratosphere.EMRServerless.Application.InitialCapacityConfigKeyValuePairProperty
       Stratosphere.EMRServerless.Application.InitialCapacityConfigProperty
+      Stratosphere.EMRServerless.Application.InteractiveConfigurationProperty
       Stratosphere.EMRServerless.Application.LogTypeMapKeyValuePairProperty
       Stratosphere.EMRServerless.Application.ManagedPersistenceMonitoringConfigurationProperty
       Stratosphere.EMRServerless.Application.MaximumAllowedResourcesProperty

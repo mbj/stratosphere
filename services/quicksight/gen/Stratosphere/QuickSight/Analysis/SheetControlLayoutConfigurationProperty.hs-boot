@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.SheetControlLayoutConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data SheetControlLayoutConfigurationProperty :: Prelude.Type
-instance ToResourceProperties SheetControlLayoutConfigurationProperty
-instance Prelude.Eq SheetControlLayoutConfigurationProperty
-instance Prelude.Show SheetControlLayoutConfigurationProperty
-instance JSON.ToJSON SheetControlLayoutConfigurationProperty

@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudWatch.Alarm.DimensionProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudWatch.Alarm.MetricDataQueryProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data Alarm
   = Alarm {actionsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -26,6 +27,7 @@ data Alarm
            oKActions :: (Prelude.Maybe (ValueList Prelude.Text)),
            period :: (Prelude.Maybe (Value Prelude.Integer)),
            statistic :: (Prelude.Maybe (Value Prelude.Text)),
+           tags :: (Prelude.Maybe [Tag]),
            threshold :: (Prelude.Maybe (Value Prelude.Double)),
            thresholdMetricId :: (Prelude.Maybe (Value Prelude.Text)),
            treatMissingData :: (Prelude.Maybe (Value Prelude.Text)),
@@ -45,12 +47,13 @@ mkAlarm comparisonOperator evaluationPeriods
        metricName = Prelude.Nothing, metrics = Prelude.Nothing,
        namespace = Prelude.Nothing, oKActions = Prelude.Nothing,
        period = Prelude.Nothing, statistic = Prelude.Nothing,
-       threshold = Prelude.Nothing, thresholdMetricId = Prelude.Nothing,
+       tags = Prelude.Nothing, threshold = Prelude.Nothing,
+       thresholdMetricId = Prelude.Nothing,
        treatMissingData = Prelude.Nothing, unit = Prelude.Nothing}
 instance ToResourceProperties Alarm where
   toResourceProperties Alarm {..}
     = ResourceProperties
-        {awsType = "AWS::CloudWatch::Alarm", supportsTags = Prelude.False,
+        {awsType = "AWS::CloudWatch::Alarm", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ComparisonOperator" JSON..= comparisonOperator,
@@ -73,6 +76,7 @@ instance ToResourceProperties Alarm where
                                (JSON..=) "OKActions" Prelude.<$> oKActions,
                                (JSON..=) "Period" Prelude.<$> period,
                                (JSON..=) "Statistic" Prelude.<$> statistic,
+                               (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "Threshold" Prelude.<$> threshold,
                                (JSON..=) "ThresholdMetricId" Prelude.<$> thresholdMetricId,
                                (JSON..=) "TreatMissingData" Prelude.<$> treatMissingData,
@@ -102,6 +106,7 @@ instance JSON.ToJSON Alarm where
                   (JSON..=) "OKActions" Prelude.<$> oKActions,
                   (JSON..=) "Period" Prelude.<$> period,
                   (JSON..=) "Statistic" Prelude.<$> statistic,
+                  (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "Threshold" Prelude.<$> threshold,
                   (JSON..=) "ThresholdMetricId" Prelude.<$> thresholdMetricId,
                   (JSON..=) "TreatMissingData" Prelude.<$> treatMissingData,
@@ -173,6 +178,9 @@ instance Property "Statistic" Alarm where
   type PropertyType "Statistic" Alarm = Value Prelude.Text
   set newValue Alarm {..}
     = Alarm {statistic = Prelude.pure newValue, ..}
+instance Property "Tags" Alarm where
+  type PropertyType "Tags" Alarm = [Tag]
+  set newValue Alarm {..} = Alarm {tags = Prelude.pure newValue, ..}
 instance Property "Threshold" Alarm where
   type PropertyType "Threshold" Alarm = Value Prelude.Double
   set newValue Alarm {..}

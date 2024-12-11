@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Partnership.CapabilityOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapabilityOptionsProperty :: Prelude.Type
+instance ToResourceProperties CapabilityOptionsProperty
+instance Prelude.Eq CapabilityOptionsProperty
+instance Prelude.Show CapabilityOptionsProperty
+instance JSON.ToJSON CapabilityOptionsProperty

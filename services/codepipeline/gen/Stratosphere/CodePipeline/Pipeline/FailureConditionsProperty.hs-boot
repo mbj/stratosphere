@@ -1,0 +1,9 @@
+module Stratosphere.CodePipeline.Pipeline.FailureConditionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FailureConditionsProperty :: Prelude.Type
+instance ToResourceProperties FailureConditionsProperty
+instance Prelude.Eq FailureConditionsProperty
+instance Prelude.Show FailureConditionsProperty
+instance JSON.ToJSON FailureConditionsProperty

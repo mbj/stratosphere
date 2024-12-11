@@ -1,0 +1,9 @@
+module Stratosphere.Deadline.Fleet.AcceleratorSelectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AcceleratorSelectionProperty :: Prelude.Type
+instance ToResourceProperties AcceleratorSelectionProperty
+instance Prelude.Eq AcceleratorSelectionProperty
+instance Prelude.Show AcceleratorSelectionProperty
+instance JSON.ToJSON AcceleratorSelectionProperty

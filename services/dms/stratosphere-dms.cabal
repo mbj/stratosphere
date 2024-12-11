@@ -26,6 +26,9 @@ flag development
 library
   exposed-modules:
       Stratosphere.DMS.Certificate
+      Stratosphere.DMS.DataMigration
+      Stratosphere.DMS.DataMigration.DataMigrationSettingsProperty
+      Stratosphere.DMS.DataMigration.SourceDataSettingsProperty
       Stratosphere.DMS.DataProvider
       Stratosphere.DMS.DataProvider.MicrosoftSqlServerSettingsProperty
       Stratosphere.DMS.DataProvider.MySqlSettingsProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.StorageConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StorageConfigurationProperty :: Prelude.Type
+instance ToResourceProperties StorageConfigurationProperty
+instance Prelude.Eq StorageConfigurationProperty
+instance Prelude.Show StorageConfigurationProperty
+instance JSON.ToJSON StorageConfigurationProperty

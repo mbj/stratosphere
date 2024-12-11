@@ -1,0 +1,9 @@
+module Stratosphere.SSO.Application.PortalOptionsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PortalOptionsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PortalOptionsConfigurationProperty
+instance Prelude.Eq PortalOptionsConfigurationProperty
+instance Prelude.Show PortalOptionsConfigurationProperty
+instance JSON.ToJSON PortalOptionsConfigurationProperty

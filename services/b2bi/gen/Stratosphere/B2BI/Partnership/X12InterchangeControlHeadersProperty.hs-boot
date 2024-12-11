@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Partnership.X12InterchangeControlHeadersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data X12InterchangeControlHeadersProperty :: Prelude.Type
+instance ToResourceProperties X12InterchangeControlHeadersProperty
+instance Prelude.Eq X12InterchangeControlHeadersProperty
+instance Prelude.Show X12InterchangeControlHeadersProperty
+instance JSON.ToJSON X12InterchangeControlHeadersProperty

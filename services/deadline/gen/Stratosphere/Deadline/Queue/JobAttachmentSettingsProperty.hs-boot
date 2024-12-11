@@ -1,0 +1,9 @@
+module Stratosphere.Deadline.Queue.JobAttachmentSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data JobAttachmentSettingsProperty :: Prelude.Type
+instance ToResourceProperties JobAttachmentSettingsProperty
+instance Prelude.Eq JobAttachmentSettingsProperty
+instance Prelude.Show JobAttachmentSettingsProperty
+instance JSON.ToJSON JobAttachmentSettingsProperty

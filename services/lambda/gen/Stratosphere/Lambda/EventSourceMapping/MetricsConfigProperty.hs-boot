@@ -1,0 +1,9 @@
+module Stratosphere.Lambda.EventSourceMapping.MetricsConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetricsConfigProperty :: Prelude.Type
+instance ToResourceProperties MetricsConfigProperty
+instance Prelude.Eq MetricsConfigProperty
+instance Prelude.Show MetricsConfigProperty
+instance JSON.ToJSON MetricsConfigProperty

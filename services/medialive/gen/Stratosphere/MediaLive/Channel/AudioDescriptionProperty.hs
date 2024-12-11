@@ -12,12 +12,14 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.RemixSettingsProperty as Ex
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AudioDescriptionProperty
-  = AudioDescriptionProperty {audioNormalizationSettings :: (Prelude.Maybe AudioNormalizationSettingsProperty),
+  = AudioDescriptionProperty {audioDashRoles :: (Prelude.Maybe (ValueList Prelude.Text)),
+                              audioNormalizationSettings :: (Prelude.Maybe AudioNormalizationSettingsProperty),
                               audioSelectorName :: (Prelude.Maybe (Value Prelude.Text)),
                               audioType :: (Prelude.Maybe (Value Prelude.Text)),
                               audioTypeControl :: (Prelude.Maybe (Value Prelude.Text)),
                               audioWatermarkingSettings :: (Prelude.Maybe AudioWatermarkSettingsProperty),
                               codecSettings :: (Prelude.Maybe AudioCodecSettingsProperty),
+                              dvbDashAccessibility :: (Prelude.Maybe (Value Prelude.Text)),
                               languageCode :: (Prelude.Maybe (Value Prelude.Text)),
                               languageCodeControl :: (Prelude.Maybe (Value Prelude.Text)),
                               name :: (Prelude.Maybe (Value Prelude.Text)),
@@ -27,11 +29,14 @@ data AudioDescriptionProperty
 mkAudioDescriptionProperty :: AudioDescriptionProperty
 mkAudioDescriptionProperty
   = AudioDescriptionProperty
-      {audioNormalizationSettings = Prelude.Nothing,
+      {audioDashRoles = Prelude.Nothing,
+       audioNormalizationSettings = Prelude.Nothing,
        audioSelectorName = Prelude.Nothing, audioType = Prelude.Nothing,
        audioTypeControl = Prelude.Nothing,
        audioWatermarkingSettings = Prelude.Nothing,
-       codecSettings = Prelude.Nothing, languageCode = Prelude.Nothing,
+       codecSettings = Prelude.Nothing,
+       dvbDashAccessibility = Prelude.Nothing,
+       languageCode = Prelude.Nothing,
        languageCodeControl = Prelude.Nothing, name = Prelude.Nothing,
        remixSettings = Prelude.Nothing, streamName = Prelude.Nothing}
 instance ToResourceProperties AudioDescriptionProperty where
@@ -41,7 +46,8 @@ instance ToResourceProperties AudioDescriptionProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "AudioNormalizationSettings"
+                           [(JSON..=) "AudioDashRoles" Prelude.<$> audioDashRoles,
+                            (JSON..=) "AudioNormalizationSettings"
                               Prelude.<$> audioNormalizationSettings,
                             (JSON..=) "AudioSelectorName" Prelude.<$> audioSelectorName,
                             (JSON..=) "AudioType" Prelude.<$> audioType,
@@ -49,6 +55,7 @@ instance ToResourceProperties AudioDescriptionProperty where
                             (JSON..=) "AudioWatermarkingSettings"
                               Prelude.<$> audioWatermarkingSettings,
                             (JSON..=) "CodecSettings" Prelude.<$> codecSettings,
+                            (JSON..=) "DvbDashAccessibility" Prelude.<$> dvbDashAccessibility,
                             (JSON..=) "LanguageCode" Prelude.<$> languageCode,
                             (JSON..=) "LanguageCodeControl" Prelude.<$> languageCodeControl,
                             (JSON..=) "Name" Prelude.<$> name,
@@ -59,7 +66,8 @@ instance JSON.ToJSON AudioDescriptionProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "AudioNormalizationSettings"
+              [(JSON..=) "AudioDashRoles" Prelude.<$> audioDashRoles,
+               (JSON..=) "AudioNormalizationSettings"
                  Prelude.<$> audioNormalizationSettings,
                (JSON..=) "AudioSelectorName" Prelude.<$> audioSelectorName,
                (JSON..=) "AudioType" Prelude.<$> audioType,
@@ -67,11 +75,17 @@ instance JSON.ToJSON AudioDescriptionProperty where
                (JSON..=) "AudioWatermarkingSettings"
                  Prelude.<$> audioWatermarkingSettings,
                (JSON..=) "CodecSettings" Prelude.<$> codecSettings,
+               (JSON..=) "DvbDashAccessibility" Prelude.<$> dvbDashAccessibility,
                (JSON..=) "LanguageCode" Prelude.<$> languageCode,
                (JSON..=) "LanguageCodeControl" Prelude.<$> languageCodeControl,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "RemixSettings" Prelude.<$> remixSettings,
                (JSON..=) "StreamName" Prelude.<$> streamName]))
+instance Property "AudioDashRoles" AudioDescriptionProperty where
+  type PropertyType "AudioDashRoles" AudioDescriptionProperty = ValueList Prelude.Text
+  set newValue AudioDescriptionProperty {..}
+    = AudioDescriptionProperty
+        {audioDashRoles = Prelude.pure newValue, ..}
 instance Property "AudioNormalizationSettings" AudioDescriptionProperty where
   type PropertyType "AudioNormalizationSettings" AudioDescriptionProperty = AudioNormalizationSettingsProperty
   set newValue AudioDescriptionProperty {..}
@@ -101,6 +115,11 @@ instance Property "CodecSettings" AudioDescriptionProperty where
   set newValue AudioDescriptionProperty {..}
     = AudioDescriptionProperty
         {codecSettings = Prelude.pure newValue, ..}
+instance Property "DvbDashAccessibility" AudioDescriptionProperty where
+  type PropertyType "DvbDashAccessibility" AudioDescriptionProperty = Value Prelude.Text
+  set newValue AudioDescriptionProperty {..}
+    = AudioDescriptionProperty
+        {dvbDashAccessibility = Prelude.pure newValue, ..}
 instance Property "LanguageCode" AudioDescriptionProperty where
   type PropertyType "LanguageCode" AudioDescriptionProperty = Value Prelude.Text
   set newValue AudioDescriptionProperty {..}

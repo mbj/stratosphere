@@ -6,24 +6,42 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.AppIntegrationsConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Wisdom.KnowledgeBase.ManagedSourceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 data SourceConfigurationProperty
-  = SourceConfigurationProperty {appIntegrations :: AppIntegrationsConfigurationProperty}
+  = SourceConfigurationProperty {appIntegrations :: (Prelude.Maybe AppIntegrationsConfigurationProperty),
+                                 managedSourceConfiguration :: (Prelude.Maybe ManagedSourceConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkSourceConfigurationProperty ::
-  AppIntegrationsConfigurationProperty -> SourceConfigurationProperty
-mkSourceConfigurationProperty appIntegrations
-  = SourceConfigurationProperty {appIntegrations = appIntegrations}
+mkSourceConfigurationProperty :: SourceConfigurationProperty
+mkSourceConfigurationProperty
+  = SourceConfigurationProperty
+      {appIntegrations = Prelude.Nothing,
+       managedSourceConfiguration = Prelude.Nothing}
 instance ToResourceProperties SourceConfigurationProperty where
   toResourceProperties SourceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Wisdom::KnowledgeBase.SourceConfiguration",
          supportsTags = Prelude.False,
-         properties = ["AppIntegrations" JSON..= appIntegrations]}
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "AppIntegrations" Prelude.<$> appIntegrations,
+                            (JSON..=) "ManagedSourceConfiguration"
+                              Prelude.<$> managedSourceConfiguration])}
 instance JSON.ToJSON SourceConfigurationProperty where
   toJSON SourceConfigurationProperty {..}
-    = JSON.object ["AppIntegrations" JSON..= appIntegrations]
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "AppIntegrations" Prelude.<$> appIntegrations,
+               (JSON..=) "ManagedSourceConfiguration"
+                 Prelude.<$> managedSourceConfiguration]))
 instance Property "AppIntegrations" SourceConfigurationProperty where
   type PropertyType "AppIntegrations" SourceConfigurationProperty = AppIntegrationsConfigurationProperty
-  set newValue SourceConfigurationProperty {}
-    = SourceConfigurationProperty {appIntegrations = newValue, ..}
+  set newValue SourceConfigurationProperty {..}
+    = SourceConfigurationProperty
+        {appIntegrations = Prelude.pure newValue, ..}
+instance Property "ManagedSourceConfiguration" SourceConfigurationProperty where
+  type PropertyType "ManagedSourceConfiguration" SourceConfigurationProperty = ManagedSourceConfigurationProperty
+  set newValue SourceConfigurationProperty {..}
+    = SourceConfigurationProperty
+        {managedSourceConfiguration = Prelude.pure newValue, ..}

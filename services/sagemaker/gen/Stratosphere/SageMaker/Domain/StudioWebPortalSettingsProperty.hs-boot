@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Domain.StudioWebPortalSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StudioWebPortalSettingsProperty :: Prelude.Type
+instance ToResourceProperties StudioWebPortalSettingsProperty
+instance Prelude.Eq StudioWebPortalSettingsProperty
+instance Prelude.Show StudioWebPortalSettingsProperty
+instance JSON.ToJSON StudioWebPortalSettingsProperty

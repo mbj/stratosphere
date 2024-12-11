@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.Index.TextDocumentStatisticsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TextDocumentStatisticsProperty :: Prelude.Type
+instance ToResourceProperties TextDocumentStatisticsProperty
+instance Prelude.Eq TextDocumentStatisticsProperty
+instance Prelude.Show TextDocumentStatisticsProperty
+instance JSON.ToJSON TextDocumentStatisticsProperty

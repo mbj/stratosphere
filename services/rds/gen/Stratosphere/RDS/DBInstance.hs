@@ -17,6 +17,7 @@ data DBInstance
                 allowMajorVersionUpgrade :: (Prelude.Maybe (Value Prelude.Bool)),
                 associatedRoles :: (Prelude.Maybe [DBInstanceRoleProperty]),
                 autoMinorVersionUpgrade :: (Prelude.Maybe (Value Prelude.Bool)),
+                automaticBackupReplicationKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                 automaticBackupReplicationRegion :: (Prelude.Maybe (Value Prelude.Text)),
                 availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
                 backupRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -49,6 +50,7 @@ data DBInstance
                 enablePerformanceInsights :: (Prelude.Maybe (Value Prelude.Bool)),
                 endpoint :: (Prelude.Maybe EndpointProperty),
                 engine :: (Prelude.Maybe (Value Prelude.Text)),
+                engineLifecycleSupport :: (Prelude.Maybe (Value Prelude.Text)),
                 engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
                 iops :: (Prelude.Maybe (Value Prelude.Integer)),
                 kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -95,6 +97,7 @@ mkDBInstance
        allowMajorVersionUpgrade = Prelude.Nothing,
        associatedRoles = Prelude.Nothing,
        autoMinorVersionUpgrade = Prelude.Nothing,
+       automaticBackupReplicationKmsKeyId = Prelude.Nothing,
        automaticBackupReplicationRegion = Prelude.Nothing,
        availabilityZone = Prelude.Nothing,
        backupRetentionPeriod = Prelude.Nothing,
@@ -122,6 +125,7 @@ mkDBInstance
        enableIAMDatabaseAuthentication = Prelude.Nothing,
        enablePerformanceInsights = Prelude.Nothing,
        endpoint = Prelude.Nothing, engine = Prelude.Nothing,
+       engineLifecycleSupport = Prelude.Nothing,
        engineVersion = Prelude.Nothing, iops = Prelude.Nothing,
        kmsKeyId = Prelude.Nothing, licenseModel = Prelude.Nothing,
        manageMasterUserPassword = Prelude.Nothing,
@@ -163,6 +167,8 @@ instance ToResourceProperties DBInstance where
                             (JSON..=) "AssociatedRoles" Prelude.<$> associatedRoles,
                             (JSON..=) "AutoMinorVersionUpgrade"
                               Prelude.<$> autoMinorVersionUpgrade,
+                            (JSON..=) "AutomaticBackupReplicationKmsKeyId"
+                              Prelude.<$> automaticBackupReplicationKmsKeyId,
                             (JSON..=) "AutomaticBackupReplicationRegion"
                               Prelude.<$> automaticBackupReplicationRegion,
                             (JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
@@ -205,6 +211,8 @@ instance ToResourceProperties DBInstance where
                               Prelude.<$> enablePerformanceInsights,
                             (JSON..=) "Endpoint" Prelude.<$> endpoint,
                             (JSON..=) "Engine" Prelude.<$> engine,
+                            (JSON..=) "EngineLifecycleSupport"
+                              Prelude.<$> engineLifecycleSupport,
                             (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                             (JSON..=) "Iops" Prelude.<$> iops,
                             (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
@@ -265,6 +273,8 @@ instance JSON.ToJSON DBInstance where
                (JSON..=) "AssociatedRoles" Prelude.<$> associatedRoles,
                (JSON..=) "AutoMinorVersionUpgrade"
                  Prelude.<$> autoMinorVersionUpgrade,
+               (JSON..=) "AutomaticBackupReplicationKmsKeyId"
+                 Prelude.<$> automaticBackupReplicationKmsKeyId,
                (JSON..=) "AutomaticBackupReplicationRegion"
                  Prelude.<$> automaticBackupReplicationRegion,
                (JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
@@ -307,6 +317,8 @@ instance JSON.ToJSON DBInstance where
                  Prelude.<$> enablePerformanceInsights,
                (JSON..=) "Endpoint" Prelude.<$> endpoint,
                (JSON..=) "Engine" Prelude.<$> engine,
+               (JSON..=) "EngineLifecycleSupport"
+                 Prelude.<$> engineLifecycleSupport,
                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                (JSON..=) "Iops" Prelude.<$> iops,
                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
@@ -372,6 +384,11 @@ instance Property "AutoMinorVersionUpgrade" DBInstance where
   type PropertyType "AutoMinorVersionUpgrade" DBInstance = Value Prelude.Bool
   set newValue DBInstance {..}
     = DBInstance {autoMinorVersionUpgrade = Prelude.pure newValue, ..}
+instance Property "AutomaticBackupReplicationKmsKeyId" DBInstance where
+  type PropertyType "AutomaticBackupReplicationKmsKeyId" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance
+        {automaticBackupReplicationKmsKeyId = Prelude.pure newValue, ..}
 instance Property "AutomaticBackupReplicationRegion" DBInstance where
   type PropertyType "AutomaticBackupReplicationRegion" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
@@ -506,6 +523,10 @@ instance Property "Engine" DBInstance where
   type PropertyType "Engine" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {engine = Prelude.pure newValue, ..}
+instance Property "EngineLifecycleSupport" DBInstance where
+  type PropertyType "EngineLifecycleSupport" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance {engineLifecycleSupport = Prelude.pure newValue, ..}
 instance Property "EngineVersion" DBInstance where
   type PropertyType "EngineVersion" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}

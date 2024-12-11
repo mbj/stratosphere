@@ -4,6 +4,7 @@ module Stratosphere.ECS.TaskSet (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ECS.TaskSet.CapacityProviderStrategyItemProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskSet.LoadBalancerProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskSet.NetworkConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskSet.ScaleProperty as Exports
@@ -12,7 +13,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data TaskSet
-  = TaskSet {cluster :: (Value Prelude.Text),
+  = TaskSet {capacityProviderStrategy :: (Prelude.Maybe [CapacityProviderStrategyItemProperty]),
+             cluster :: (Value Prelude.Text),
              externalId :: (Prelude.Maybe (Value Prelude.Text)),
              launchType :: (Prelude.Maybe (Value Prelude.Text)),
              loadBalancers :: (Prelude.Maybe [LoadBalancerProperty]),
@@ -30,8 +32,10 @@ mkTaskSet ::
 mkTaskSet cluster service taskDefinition
   = TaskSet
       {cluster = cluster, service = service,
-       taskDefinition = taskDefinition, externalId = Prelude.Nothing,
-       launchType = Prelude.Nothing, loadBalancers = Prelude.Nothing,
+       taskDefinition = taskDefinition,
+       capacityProviderStrategy = Prelude.Nothing,
+       externalId = Prelude.Nothing, launchType = Prelude.Nothing,
+       loadBalancers = Prelude.Nothing,
        networkConfiguration = Prelude.Nothing,
        platformVersion = Prelude.Nothing, scale = Prelude.Nothing,
        serviceRegistries = Prelude.Nothing, tags = Prelude.Nothing}
@@ -44,7 +48,9 @@ instance ToResourceProperties TaskSet where
                            ["Cluster" JSON..= cluster, "Service" JSON..= service,
                             "TaskDefinition" JSON..= taskDefinition]
                            (Prelude.catMaybes
-                              [(JSON..=) "ExternalId" Prelude.<$> externalId,
+                              [(JSON..=) "CapacityProviderStrategy"
+                                 Prelude.<$> capacityProviderStrategy,
+                               (JSON..=) "ExternalId" Prelude.<$> externalId,
                                (JSON..=) "LaunchType" Prelude.<$> launchType,
                                (JSON..=) "LoadBalancers" Prelude.<$> loadBalancers,
                                (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
@@ -60,7 +66,9 @@ instance JSON.ToJSON TaskSet where
               ["Cluster" JSON..= cluster, "Service" JSON..= service,
                "TaskDefinition" JSON..= taskDefinition]
               (Prelude.catMaybes
-                 [(JSON..=) "ExternalId" Prelude.<$> externalId,
+                 [(JSON..=) "CapacityProviderStrategy"
+                    Prelude.<$> capacityProviderStrategy,
+                  (JSON..=) "ExternalId" Prelude.<$> externalId,
                   (JSON..=) "LaunchType" Prelude.<$> launchType,
                   (JSON..=) "LoadBalancers" Prelude.<$> loadBalancers,
                   (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
@@ -68,6 +76,10 @@ instance JSON.ToJSON TaskSet where
                   (JSON..=) "Scale" Prelude.<$> scale,
                   (JSON..=) "ServiceRegistries" Prelude.<$> serviceRegistries,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "CapacityProviderStrategy" TaskSet where
+  type PropertyType "CapacityProviderStrategy" TaskSet = [CapacityProviderStrategyItemProperty]
+  set newValue TaskSet {..}
+    = TaskSet {capacityProviderStrategy = Prelude.pure newValue, ..}
 instance Property "Cluster" TaskSet where
   type PropertyType "Cluster" TaskSet = Value Prelude.Text
   set newValue TaskSet {..} = TaskSet {cluster = newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.RolesAnywhere.Profile.AttributeMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AttributeMappingProperty :: Prelude.Type
+instance ToResourceProperties AttributeMappingProperty
+instance Prelude.Eq AttributeMappingProperty
+instance Prelude.Show AttributeMappingProperty
+instance JSON.ToJSON AttributeMappingProperty

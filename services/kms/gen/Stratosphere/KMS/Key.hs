@@ -18,6 +18,7 @@ data Key
          multiRegion :: (Prelude.Maybe (Value Prelude.Bool)),
          origin :: (Prelude.Maybe (Value Prelude.Text)),
          pendingWindowInDays :: (Prelude.Maybe (Value Prelude.Integer)),
+         rotationPeriodInDays :: (Prelude.Maybe (Value Prelude.Integer)),
          tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKey :: Key
@@ -28,7 +29,8 @@ mkKey
        enabled = Prelude.Nothing, keyPolicy = Prelude.Nothing,
        keySpec = Prelude.Nothing, keyUsage = Prelude.Nothing,
        multiRegion = Prelude.Nothing, origin = Prelude.Nothing,
-       pendingWindowInDays = Prelude.Nothing, tags = Prelude.Nothing}
+       pendingWindowInDays = Prelude.Nothing,
+       rotationPeriodInDays = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Key where
   toResourceProperties Key {..}
     = ResourceProperties
@@ -46,6 +48,7 @@ instance ToResourceProperties Key where
                             (JSON..=) "MultiRegion" Prelude.<$> multiRegion,
                             (JSON..=) "Origin" Prelude.<$> origin,
                             (JSON..=) "PendingWindowInDays" Prelude.<$> pendingWindowInDays,
+                            (JSON..=) "RotationPeriodInDays" Prelude.<$> rotationPeriodInDays,
                             (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON Key where
   toJSON Key {..}
@@ -63,6 +66,7 @@ instance JSON.ToJSON Key where
                (JSON..=) "MultiRegion" Prelude.<$> multiRegion,
                (JSON..=) "Origin" Prelude.<$> origin,
                (JSON..=) "PendingWindowInDays" Prelude.<$> pendingWindowInDays,
+               (JSON..=) "RotationPeriodInDays" Prelude.<$> rotationPeriodInDays,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "BypassPolicyLockoutSafetyCheck" Key where
   type PropertyType "BypassPolicyLockoutSafetyCheck" Key = Value Prelude.Bool
@@ -99,6 +103,10 @@ instance Property "PendingWindowInDays" Key where
   type PropertyType "PendingWindowInDays" Key = Value Prelude.Integer
   set newValue Key {..}
     = Key {pendingWindowInDays = Prelude.pure newValue, ..}
+instance Property "RotationPeriodInDays" Key where
+  type PropertyType "RotationPeriodInDays" Key = Value Prelude.Integer
+  set newValue Key {..}
+    = Key {rotationPeriodInDays = Prelude.pure newValue, ..}
 instance Property "Tags" Key where
   type PropertyType "Tags" Key = [Tag]
   set newValue Key {..} = Key {tags = Prelude.pure newValue, ..}

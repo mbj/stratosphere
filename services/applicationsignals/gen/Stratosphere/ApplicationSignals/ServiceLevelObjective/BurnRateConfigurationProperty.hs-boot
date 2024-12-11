@@ -1,0 +1,9 @@
+module Stratosphere.ApplicationSignals.ServiceLevelObjective.BurnRateConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BurnRateConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BurnRateConfigurationProperty
+instance Prelude.Eq BurnRateConfigurationProperty
+instance Prelude.Show BurnRateConfigurationProperty
+instance JSON.ToJSON BurnRateConfigurationProperty

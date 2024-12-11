@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.PivotTableFieldWellsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data PivotTableFieldWellsProperty :: Prelude.Type
-instance ToResourceProperties PivotTableFieldWellsProperty
-instance Prelude.Eq PivotTableFieldWellsProperty
-instance Prelude.Show PivotTableFieldWellsProperty
-instance JSON.ToJSON PivotTableFieldWellsProperty

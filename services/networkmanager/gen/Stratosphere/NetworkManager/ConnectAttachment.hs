@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.NetworkManager.ConnectAttachment.ConnectAttachmentOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.NetworkManager.ConnectAttachment.ProposedNetworkFunctionGroupChangeProperty as Exports
 import {-# SOURCE #-} Stratosphere.NetworkManager.ConnectAttachment.ProposedSegmentChangeProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -12,7 +13,9 @@ import Stratosphere.Value
 data ConnectAttachment
   = ConnectAttachment {coreNetworkId :: (Value Prelude.Text),
                        edgeLocation :: (Value Prelude.Text),
+                       networkFunctionGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                        options :: ConnectAttachmentOptionsProperty,
+                       proposedNetworkFunctionGroupChange :: (Prelude.Maybe ProposedNetworkFunctionGroupChangeProperty),
                        proposedSegmentChange :: (Prelude.Maybe ProposedSegmentChangeProperty),
                        tags :: (Prelude.Maybe [Tag]),
                        transportAttachmentId :: (Value Prelude.Text)}
@@ -30,6 +33,8 @@ mkConnectAttachment
   = ConnectAttachment
       {coreNetworkId = coreNetworkId, edgeLocation = edgeLocation,
        options = options, transportAttachmentId = transportAttachmentId,
+       networkFunctionGroupName = Prelude.Nothing,
+       proposedNetworkFunctionGroupChange = Prelude.Nothing,
        proposedSegmentChange = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ConnectAttachment where
   toResourceProperties ConnectAttachment {..}
@@ -42,7 +47,11 @@ instance ToResourceProperties ConnectAttachment where
                             "EdgeLocation" JSON..= edgeLocation, "Options" JSON..= options,
                             "TransportAttachmentId" JSON..= transportAttachmentId]
                            (Prelude.catMaybes
-                              [(JSON..=) "ProposedSegmentChange"
+                              [(JSON..=) "NetworkFunctionGroupName"
+                                 Prelude.<$> networkFunctionGroupName,
+                               (JSON..=) "ProposedNetworkFunctionGroupChange"
+                                 Prelude.<$> proposedNetworkFunctionGroupChange,
+                               (JSON..=) "ProposedSegmentChange"
                                  Prelude.<$> proposedSegmentChange,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON ConnectAttachment where
@@ -54,7 +63,11 @@ instance JSON.ToJSON ConnectAttachment where
                "EdgeLocation" JSON..= edgeLocation, "Options" JSON..= options,
                "TransportAttachmentId" JSON..= transportAttachmentId]
               (Prelude.catMaybes
-                 [(JSON..=) "ProposedSegmentChange"
+                 [(JSON..=) "NetworkFunctionGroupName"
+                    Prelude.<$> networkFunctionGroupName,
+                  (JSON..=) "ProposedNetworkFunctionGroupChange"
+                    Prelude.<$> proposedNetworkFunctionGroupChange,
+                  (JSON..=) "ProposedSegmentChange"
                     Prelude.<$> proposedSegmentChange,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "CoreNetworkId" ConnectAttachment where
@@ -65,10 +78,20 @@ instance Property "EdgeLocation" ConnectAttachment where
   type PropertyType "EdgeLocation" ConnectAttachment = Value Prelude.Text
   set newValue ConnectAttachment {..}
     = ConnectAttachment {edgeLocation = newValue, ..}
+instance Property "NetworkFunctionGroupName" ConnectAttachment where
+  type PropertyType "NetworkFunctionGroupName" ConnectAttachment = Value Prelude.Text
+  set newValue ConnectAttachment {..}
+    = ConnectAttachment
+        {networkFunctionGroupName = Prelude.pure newValue, ..}
 instance Property "Options" ConnectAttachment where
   type PropertyType "Options" ConnectAttachment = ConnectAttachmentOptionsProperty
   set newValue ConnectAttachment {..}
     = ConnectAttachment {options = newValue, ..}
+instance Property "ProposedNetworkFunctionGroupChange" ConnectAttachment where
+  type PropertyType "ProposedNetworkFunctionGroupChange" ConnectAttachment = ProposedNetworkFunctionGroupChangeProperty
+  set newValue ConnectAttachment {..}
+    = ConnectAttachment
+        {proposedNetworkFunctionGroupChange = Prelude.pure newValue, ..}
 instance Property "ProposedSegmentChange" ConnectAttachment where
   type PropertyType "ProposedSegmentChange" ConnectAttachment = ProposedSegmentChangeProperty
   set newValue ConnectAttachment {..}

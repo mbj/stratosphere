@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Agent.InferenceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InferenceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InferenceConfigurationProperty
+instance Prelude.Eq InferenceConfigurationProperty
+instance Prelude.Show InferenceConfigurationProperty
+instance JSON.ToJSON InferenceConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.AutoScaling.AutoScalingGroup.TrafficSourceIdentifierProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TrafficSourceIdentifierProperty :: Prelude.Type
+instance ToResourceProperties TrafficSourceIdentifierProperty
+instance Prelude.Eq TrafficSourceIdentifierProperty
+instance Prelude.Show TrafficSourceIdentifierProperty
+instance JSON.ToJSON TrafficSourceIdentifierProperty

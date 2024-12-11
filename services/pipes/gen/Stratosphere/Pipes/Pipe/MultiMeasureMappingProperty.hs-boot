@@ -1,0 +1,9 @@
+module Stratosphere.Pipes.Pipe.MultiMeasureMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MultiMeasureMappingProperty :: Prelude.Type
+instance ToResourceProperties MultiMeasureMappingProperty
+instance Prelude.Eq MultiMeasureMappingProperty
+instance Prelude.Show MultiMeasureMappingProperty
+instance JSON.ToJSON MultiMeasureMappingProperty

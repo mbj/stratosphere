@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.SmallMultiplesOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data SmallMultiplesOptionsProperty :: Prelude.Type
-instance ToResourceProperties SmallMultiplesOptionsProperty
-instance Prelude.Eq SmallMultiplesOptionsProperty
-instance Prelude.Show SmallMultiplesOptionsProperty
-instance JSON.ToJSON SmallMultiplesOptionsProperty

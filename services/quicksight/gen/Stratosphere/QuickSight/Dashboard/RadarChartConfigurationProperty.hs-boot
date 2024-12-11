@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.RadarChartConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data RadarChartConfigurationProperty :: Prelude.Type
-instance ToResourceProperties RadarChartConfigurationProperty
-instance Prelude.Eq RadarChartConfigurationProperty
-instance Prelude.Show RadarChartConfigurationProperty
-instance JSON.ToJSON RadarChartConfigurationProperty

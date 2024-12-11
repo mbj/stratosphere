@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataSource.CrawlFilterConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CrawlFilterConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CrawlFilterConfigurationProperty
+instance Prelude.Eq CrawlFilterConfigurationProperty
+instance Prelude.Show CrawlFilterConfigurationProperty
+instance JSON.ToJSON CrawlFilterConfigurationProperty

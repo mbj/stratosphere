@@ -28,7 +28,13 @@ library
       Stratosphere.AutoScaling.AutoScalingGroup
       Stratosphere.AutoScaling.AutoScalingGroup.AcceleratorCountRequestProperty
       Stratosphere.AutoScaling.AutoScalingGroup.AcceleratorTotalMemoryMiBRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.AvailabilityZoneDistributionProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.AvailabilityZoneImpairmentPolicyProperty
       Stratosphere.AutoScaling.AutoScalingGroup.BaselineEbsBandwidthMbpsRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.BaselinePerformanceFactorsRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.CapacityReservationSpecificationProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.CapacityReservationTargetProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.CpuPerformanceFactorRequestProperty
       Stratosphere.AutoScaling.AutoScalingGroup.InstanceMaintenancePolicyProperty
       Stratosphere.AutoScaling.AutoScalingGroup.InstanceRequirementsProperty
       Stratosphere.AutoScaling.AutoScalingGroup.InstancesDistributionProperty
@@ -43,8 +49,10 @@ library
       Stratosphere.AutoScaling.AutoScalingGroup.NetworkBandwidthGbpsRequestProperty
       Stratosphere.AutoScaling.AutoScalingGroup.NetworkInterfaceCountRequestProperty
       Stratosphere.AutoScaling.AutoScalingGroup.NotificationConfigurationProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.PerformanceFactorReferenceRequestProperty
       Stratosphere.AutoScaling.AutoScalingGroup.TagPropertyProperty
       Stratosphere.AutoScaling.AutoScalingGroup.TotalLocalStorageGBRequestProperty
+      Stratosphere.AutoScaling.AutoScalingGroup.TrafficSourceIdentifierProperty
       Stratosphere.AutoScaling.AutoScalingGroup.VCpuCountRequestProperty
       Stratosphere.AutoScaling.LaunchConfiguration
       Stratosphere.AutoScaling.LaunchConfiguration.BlockDeviceMappingProperty
@@ -68,6 +76,8 @@ library
       Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingPredefinedScalingMetricProperty
       Stratosphere.AutoScaling.ScalingPolicy.StepAdjustmentProperty
       Stratosphere.AutoScaling.ScalingPolicy.TargetTrackingConfigurationProperty
+      Stratosphere.AutoScaling.ScalingPolicy.TargetTrackingMetricDataQueryProperty
+      Stratosphere.AutoScaling.ScalingPolicy.TargetTrackingMetricStatProperty
       Stratosphere.AutoScaling.ScheduledAction
       Stratosphere.AutoScaling.WarmPool
       Stratosphere.AutoScaling.WarmPool.InstanceReusePolicyProperty

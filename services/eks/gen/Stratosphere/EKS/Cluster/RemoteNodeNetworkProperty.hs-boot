@@ -1,0 +1,9 @@
+module Stratosphere.EKS.Cluster.RemoteNodeNetworkProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RemoteNodeNetworkProperty :: Prelude.Type
+instance ToResourceProperties RemoteNodeNetworkProperty
+instance Prelude.Eq RemoteNodeNetworkProperty
+instance Prelude.Show RemoteNodeNetworkProperty
+instance JSON.ToJSON RemoteNodeNetworkProperty

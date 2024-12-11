@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.TableConditionalFormattingOptionProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data TableConditionalFormattingOptionProperty :: Prelude.Type
-instance ToResourceProperties TableConditionalFormattingOptionProperty
-instance Prelude.Eq TableConditionalFormattingOptionProperty
-instance Prelude.Show TableConditionalFormattingOptionProperty
-instance JSON.ToJSON TableConditionalFormattingOptionProperty

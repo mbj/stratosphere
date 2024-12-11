@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.KnowledgeBase.BedrockFoundationModelConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BedrockFoundationModelConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BedrockFoundationModelConfigurationProperty
+instance Prelude.Eq BedrockFoundationModelConfigurationProperty
+instance Prelude.Show BedrockFoundationModelConfigurationProperty
+instance JSON.ToJSON BedrockFoundationModelConfigurationProperty

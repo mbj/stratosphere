@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.VisualSubtitleLabelOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data VisualSubtitleLabelOptionsProperty :: Prelude.Type
-instance ToResourceProperties VisualSubtitleLabelOptionsProperty
-instance Prelude.Eq VisualSubtitleLabelOptionsProperty
-instance Prelude.Show VisualSubtitleLabelOptionsProperty
-instance JSON.ToJSON VisualSubtitleLabelOptionsProperty

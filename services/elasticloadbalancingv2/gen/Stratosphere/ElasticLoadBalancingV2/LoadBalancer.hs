@@ -5,14 +5,17 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.LoadBalancer.LoadBalancerAttributeProperty as Exports
+import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.LoadBalancer.MinimumLoadBalancerCapacityProperty as Exports
 import {-# SOURCE #-} Stratosphere.ElasticLoadBalancingV2.LoadBalancer.SubnetMappingProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data LoadBalancer
-  = LoadBalancer {enforceSecurityGroupInboundRulesOnPrivateLinkTraffic :: (Prelude.Maybe (Value Prelude.Text)),
+  = LoadBalancer {enablePrefixForIpv6SourceNat :: (Prelude.Maybe (Value Prelude.Text)),
+                  enforceSecurityGroupInboundRulesOnPrivateLinkTraffic :: (Prelude.Maybe (Value Prelude.Text)),
                   ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
                   loadBalancerAttributes :: (Prelude.Maybe [LoadBalancerAttributeProperty]),
+                  minimumLoadBalancerCapacity :: (Prelude.Maybe MinimumLoadBalancerCapacityProperty),
                   name :: (Prelude.Maybe (Value Prelude.Text)),
                   scheme :: (Prelude.Maybe (Value Prelude.Text)),
                   securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
@@ -24,12 +27,15 @@ data LoadBalancer
 mkLoadBalancer :: LoadBalancer
 mkLoadBalancer
   = LoadBalancer
-      {enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = Prelude.Nothing,
+      {enablePrefixForIpv6SourceNat = Prelude.Nothing,
+       enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = Prelude.Nothing,
        ipAddressType = Prelude.Nothing,
-       loadBalancerAttributes = Prelude.Nothing, name = Prelude.Nothing,
-       scheme = Prelude.Nothing, securityGroups = Prelude.Nothing,
-       subnetMappings = Prelude.Nothing, subnets = Prelude.Nothing,
-       tags = Prelude.Nothing, type' = Prelude.Nothing}
+       loadBalancerAttributes = Prelude.Nothing,
+       minimumLoadBalancerCapacity = Prelude.Nothing,
+       name = Prelude.Nothing, scheme = Prelude.Nothing,
+       securityGroups = Prelude.Nothing, subnetMappings = Prelude.Nothing,
+       subnets = Prelude.Nothing, tags = Prelude.Nothing,
+       type' = Prelude.Nothing}
 instance ToResourceProperties LoadBalancer where
   toResourceProperties LoadBalancer {..}
     = ResourceProperties
@@ -37,11 +43,15 @@ instance ToResourceProperties LoadBalancer where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
+                           [(JSON..=) "EnablePrefixForIpv6SourceNat"
+                              Prelude.<$> enablePrefixForIpv6SourceNat,
+                            (JSON..=) "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
                               Prelude.<$> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
                             (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                             (JSON..=) "LoadBalancerAttributes"
                               Prelude.<$> loadBalancerAttributes,
+                            (JSON..=) "MinimumLoadBalancerCapacity"
+                              Prelude.<$> minimumLoadBalancerCapacity,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "Scheme" Prelude.<$> scheme,
                             (JSON..=) "SecurityGroups" Prelude.<$> securityGroups,
@@ -54,11 +64,15 @@ instance JSON.ToJSON LoadBalancer where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
+              [(JSON..=) "EnablePrefixForIpv6SourceNat"
+                 Prelude.<$> enablePrefixForIpv6SourceNat,
+               (JSON..=) "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
                  Prelude.<$> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
                (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                (JSON..=) "LoadBalancerAttributes"
                  Prelude.<$> loadBalancerAttributes,
+               (JSON..=) "MinimumLoadBalancerCapacity"
+                 Prelude.<$> minimumLoadBalancerCapacity,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "Scheme" Prelude.<$> scheme,
                (JSON..=) "SecurityGroups" Prelude.<$> securityGroups,
@@ -66,6 +80,11 @@ instance JSON.ToJSON LoadBalancer where
                (JSON..=) "Subnets" Prelude.<$> subnets,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "Type" Prelude.<$> type']))
+instance Property "EnablePrefixForIpv6SourceNat" LoadBalancer where
+  type PropertyType "EnablePrefixForIpv6SourceNat" LoadBalancer = Value Prelude.Text
+  set newValue LoadBalancer {..}
+    = LoadBalancer
+        {enablePrefixForIpv6SourceNat = Prelude.pure newValue, ..}
 instance Property "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" LoadBalancer where
   type PropertyType "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" LoadBalancer = Value Prelude.Text
   set newValue LoadBalancer {..}
@@ -81,6 +100,11 @@ instance Property "LoadBalancerAttributes" LoadBalancer where
   type PropertyType "LoadBalancerAttributes" LoadBalancer = [LoadBalancerAttributeProperty]
   set newValue LoadBalancer {..}
     = LoadBalancer {loadBalancerAttributes = Prelude.pure newValue, ..}
+instance Property "MinimumLoadBalancerCapacity" LoadBalancer where
+  type PropertyType "MinimumLoadBalancerCapacity" LoadBalancer = MinimumLoadBalancerCapacityProperty
+  set newValue LoadBalancer {..}
+    = LoadBalancer
+        {minimumLoadBalancerCapacity = Prelude.pure newValue, ..}
 instance Property "Name" LoadBalancer where
   type PropertyType "Name" LoadBalancer = Value Prelude.Text
   set newValue LoadBalancer {..}

@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.PivotTableDataPathOptionProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data PivotTableDataPathOptionProperty :: Prelude.Type
-instance ToResourceProperties PivotTableDataPathOptionProperty
-instance Prelude.Eq PivotTableDataPathOptionProperty
-instance Prelude.Show PivotTableDataPathOptionProperty
-instance JSON.ToJSON PivotTableDataPathOptionProperty

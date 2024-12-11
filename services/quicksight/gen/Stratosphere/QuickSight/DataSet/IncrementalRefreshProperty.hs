@@ -8,27 +8,22 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.LookbackWindowProperty as Exports
 import Stratosphere.ResourceProperties
 data IncrementalRefreshProperty
-  = IncrementalRefreshProperty {lookbackWindow :: (Prelude.Maybe LookbackWindowProperty)}
+  = IncrementalRefreshProperty {lookbackWindow :: LookbackWindowProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkIncrementalRefreshProperty :: IncrementalRefreshProperty
-mkIncrementalRefreshProperty
-  = IncrementalRefreshProperty {lookbackWindow = Prelude.Nothing}
+mkIncrementalRefreshProperty ::
+  LookbackWindowProperty -> IncrementalRefreshProperty
+mkIncrementalRefreshProperty lookbackWindow
+  = IncrementalRefreshProperty {lookbackWindow = lookbackWindow}
 instance ToResourceProperties IncrementalRefreshProperty where
   toResourceProperties IncrementalRefreshProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.IncrementalRefresh",
          supportsTags = Prelude.False,
-         properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "LookbackWindow" Prelude.<$> lookbackWindow])}
+         properties = ["LookbackWindow" JSON..= lookbackWindow]}
 instance JSON.ToJSON IncrementalRefreshProperty where
   toJSON IncrementalRefreshProperty {..}
-    = JSON.object
-        (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "LookbackWindow" Prelude.<$> lookbackWindow]))
+    = JSON.object ["LookbackWindow" JSON..= lookbackWindow]
 instance Property "LookbackWindow" IncrementalRefreshProperty where
   type PropertyType "LookbackWindow" IncrementalRefreshProperty = LookbackWindowProperty
   set newValue IncrementalRefreshProperty {}
-    = IncrementalRefreshProperty
-        {lookbackWindow = Prelude.pure newValue, ..}
+    = IncrementalRefreshProperty {lookbackWindow = newValue, ..}

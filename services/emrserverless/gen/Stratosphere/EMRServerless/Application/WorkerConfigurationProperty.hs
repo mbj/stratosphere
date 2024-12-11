@@ -9,6 +9,7 @@ import Stratosphere.Value
 data WorkerConfigurationProperty
   = WorkerConfigurationProperty {cpu :: (Value Prelude.Text),
                                  disk :: (Prelude.Maybe (Value Prelude.Text)),
+                                 diskType :: (Prelude.Maybe (Value Prelude.Text)),
                                  memory :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkWorkerConfigurationProperty ::
@@ -16,7 +17,8 @@ mkWorkerConfigurationProperty ::
   -> Value Prelude.Text -> WorkerConfigurationProperty
 mkWorkerConfigurationProperty cpu memory
   = WorkerConfigurationProperty
-      {cpu = cpu, memory = memory, disk = Prelude.Nothing}
+      {cpu = cpu, memory = memory, disk = Prelude.Nothing,
+       diskType = Prelude.Nothing}
 instance ToResourceProperties WorkerConfigurationProperty where
   toResourceProperties WorkerConfigurationProperty {..}
     = ResourceProperties
@@ -25,14 +27,18 @@ instance ToResourceProperties WorkerConfigurationProperty where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Cpu" JSON..= cpu, "Memory" JSON..= memory]
-                           (Prelude.catMaybes [(JSON..=) "Disk" Prelude.<$> disk]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "Disk" Prelude.<$> disk,
+                               (JSON..=) "DiskType" Prelude.<$> diskType]))}
 instance JSON.ToJSON WorkerConfigurationProperty where
   toJSON WorkerConfigurationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
               ["Cpu" JSON..= cpu, "Memory" JSON..= memory]
-              (Prelude.catMaybes [(JSON..=) "Disk" Prelude.<$> disk])))
+              (Prelude.catMaybes
+                 [(JSON..=) "Disk" Prelude.<$> disk,
+                  (JSON..=) "DiskType" Prelude.<$> diskType])))
 instance Property "Cpu" WorkerConfigurationProperty where
   type PropertyType "Cpu" WorkerConfigurationProperty = Value Prelude.Text
   set newValue WorkerConfigurationProperty {..}
@@ -41,6 +47,11 @@ instance Property "Disk" WorkerConfigurationProperty where
   type PropertyType "Disk" WorkerConfigurationProperty = Value Prelude.Text
   set newValue WorkerConfigurationProperty {..}
     = WorkerConfigurationProperty {disk = Prelude.pure newValue, ..}
+instance Property "DiskType" WorkerConfigurationProperty where
+  type PropertyType "DiskType" WorkerConfigurationProperty = Value Prelude.Text
+  set newValue WorkerConfigurationProperty {..}
+    = WorkerConfigurationProperty
+        {diskType = Prelude.pure newValue, ..}
 instance Property "Memory" WorkerConfigurationProperty where
   type PropertyType "Memory" WorkerConfigurationProperty = Value Prelude.Text
   set newValue WorkerConfigurationProperty {..}

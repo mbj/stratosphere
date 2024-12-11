@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.SecretsManagerConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SecretsManagerConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SecretsManagerConfigurationProperty
+instance Prelude.Eq SecretsManagerConfigurationProperty
+instance Prelude.Show SecretsManagerConfigurationProperty
+instance JSON.ToJSON SecretsManagerConfigurationProperty

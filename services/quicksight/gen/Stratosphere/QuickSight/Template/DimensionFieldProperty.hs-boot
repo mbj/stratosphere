@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.DimensionFieldProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data DimensionFieldProperty :: Prelude.Type
-instance ToResourceProperties DimensionFieldProperty
-instance Prelude.Eq DimensionFieldProperty
-instance Prelude.Show DimensionFieldProperty
-instance JSON.ToJSON DimensionFieldProperty

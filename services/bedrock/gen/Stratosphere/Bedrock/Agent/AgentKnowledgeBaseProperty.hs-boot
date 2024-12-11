@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Agent.AgentKnowledgeBaseProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AgentKnowledgeBaseProperty :: Prelude.Type
+instance ToResourceProperties AgentKnowledgeBaseProperty
+instance Prelude.Eq AgentKnowledgeBaseProperty
+instance Prelude.Show AgentKnowledgeBaseProperty
+instance JSON.ToJSON AgentKnowledgeBaseProperty

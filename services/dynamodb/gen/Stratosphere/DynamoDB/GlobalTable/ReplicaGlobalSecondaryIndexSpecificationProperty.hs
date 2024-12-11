@@ -7,12 +7,14 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ContributorInsightsSpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReadOnDemandThroughputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReadProvisionedThroughputSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ReplicaGlobalSecondaryIndexSpecificationProperty
   = ReplicaGlobalSecondaryIndexSpecificationProperty {contributorInsightsSpecification :: (Prelude.Maybe ContributorInsightsSpecificationProperty),
                                                       indexName :: (Value Prelude.Text),
+                                                      readOnDemandThroughputSettings :: (Prelude.Maybe ReadOnDemandThroughputSettingsProperty),
                                                       readProvisionedThroughputSettings :: (Prelude.Maybe ReadProvisionedThroughputSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkReplicaGlobalSecondaryIndexSpecificationProperty ::
@@ -22,6 +24,7 @@ mkReplicaGlobalSecondaryIndexSpecificationProperty indexName
   = ReplicaGlobalSecondaryIndexSpecificationProperty
       {indexName = indexName,
        contributorInsightsSpecification = Prelude.Nothing,
+       readOnDemandThroughputSettings = Prelude.Nothing,
        readProvisionedThroughputSettings = Prelude.Nothing}
 instance ToResourceProperties ReplicaGlobalSecondaryIndexSpecificationProperty where
   toResourceProperties
@@ -35,6 +38,8 @@ instance ToResourceProperties ReplicaGlobalSecondaryIndexSpecificationProperty w
                            (Prelude.catMaybes
                               [(JSON..=) "ContributorInsightsSpecification"
                                  Prelude.<$> contributorInsightsSpecification,
+                               (JSON..=) "ReadOnDemandThroughputSettings"
+                                 Prelude.<$> readOnDemandThroughputSettings,
                                (JSON..=) "ReadProvisionedThroughputSettings"
                                  Prelude.<$> readProvisionedThroughputSettings]))}
 instance JSON.ToJSON ReplicaGlobalSecondaryIndexSpecificationProperty where
@@ -46,6 +51,8 @@ instance JSON.ToJSON ReplicaGlobalSecondaryIndexSpecificationProperty where
               (Prelude.catMaybes
                  [(JSON..=) "ContributorInsightsSpecification"
                     Prelude.<$> contributorInsightsSpecification,
+                  (JSON..=) "ReadOnDemandThroughputSettings"
+                    Prelude.<$> readOnDemandThroughputSettings,
                   (JSON..=) "ReadProvisionedThroughputSettings"
                     Prelude.<$> readProvisionedThroughputSettings])))
 instance Property "ContributorInsightsSpecification" ReplicaGlobalSecondaryIndexSpecificationProperty where
@@ -58,6 +65,11 @@ instance Property "IndexName" ReplicaGlobalSecondaryIndexSpecificationProperty w
   set newValue ReplicaGlobalSecondaryIndexSpecificationProperty {..}
     = ReplicaGlobalSecondaryIndexSpecificationProperty
         {indexName = newValue, ..}
+instance Property "ReadOnDemandThroughputSettings" ReplicaGlobalSecondaryIndexSpecificationProperty where
+  type PropertyType "ReadOnDemandThroughputSettings" ReplicaGlobalSecondaryIndexSpecificationProperty = ReadOnDemandThroughputSettingsProperty
+  set newValue ReplicaGlobalSecondaryIndexSpecificationProperty {..}
+    = ReplicaGlobalSecondaryIndexSpecificationProperty
+        {readOnDemandThroughputSettings = Prelude.pure newValue, ..}
 instance Property "ReadProvisionedThroughputSettings" ReplicaGlobalSecondaryIndexSpecificationProperty where
   type PropertyType "ReadProvisionedThroughputSettings" ReplicaGlobalSecondaryIndexSpecificationProperty = ReadProvisionedThroughputSettingsProperty
   set newValue ReplicaGlobalSecondaryIndexSpecificationProperty {..}

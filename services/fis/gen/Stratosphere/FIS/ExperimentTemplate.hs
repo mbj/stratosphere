@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateExperimentOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateExperimentReportConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateLogConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateStopConditionProperty as Exports
 import {-# SOURCE #-} Stratosphere.FIS.ExperimentTemplate.ExperimentTemplateTargetProperty as Exports
@@ -15,6 +16,7 @@ data ExperimentTemplate
   = ExperimentTemplate {actions :: (Prelude.Maybe (Prelude.Map Prelude.Text ExperimentTemplateActionProperty)),
                         description :: (Value Prelude.Text),
                         experimentOptions :: (Prelude.Maybe ExperimentTemplateExperimentOptionsProperty),
+                        experimentReportConfiguration :: (Prelude.Maybe ExperimentTemplateExperimentReportConfigurationProperty),
                         logConfiguration :: (Prelude.Maybe ExperimentTemplateLogConfigurationProperty),
                         roleArn :: (Value Prelude.Text),
                         stopConditions :: [ExperimentTemplateStopConditionProperty],
@@ -38,6 +40,7 @@ mkExperimentTemplate
       {description = description, roleArn = roleArn,
        stopConditions = stopConditions, tags = tags, targets = targets,
        actions = Prelude.Nothing, experimentOptions = Prelude.Nothing,
+       experimentReportConfiguration = Prelude.Nothing,
        logConfiguration = Prelude.Nothing}
 instance ToResourceProperties ExperimentTemplate where
   toResourceProperties ExperimentTemplate {..}
@@ -52,6 +55,8 @@ instance ToResourceProperties ExperimentTemplate where
                            (Prelude.catMaybes
                               [(JSON..=) "Actions" Prelude.<$> actions,
                                (JSON..=) "ExperimentOptions" Prelude.<$> experimentOptions,
+                               (JSON..=) "ExperimentReportConfiguration"
+                                 Prelude.<$> experimentReportConfiguration,
                                (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration]))}
 instance JSON.ToJSON ExperimentTemplate where
   toJSON ExperimentTemplate {..}
@@ -64,6 +69,8 @@ instance JSON.ToJSON ExperimentTemplate where
               (Prelude.catMaybes
                  [(JSON..=) "Actions" Prelude.<$> actions,
                   (JSON..=) "ExperimentOptions" Prelude.<$> experimentOptions,
+                  (JSON..=) "ExperimentReportConfiguration"
+                    Prelude.<$> experimentReportConfiguration,
                   (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration])))
 instance Property "Actions" ExperimentTemplate where
   type PropertyType "Actions" ExperimentTemplate = Prelude.Map Prelude.Text ExperimentTemplateActionProperty
@@ -78,6 +85,11 @@ instance Property "ExperimentOptions" ExperimentTemplate where
   set newValue ExperimentTemplate {..}
     = ExperimentTemplate
         {experimentOptions = Prelude.pure newValue, ..}
+instance Property "ExperimentReportConfiguration" ExperimentTemplate where
+  type PropertyType "ExperimentReportConfiguration" ExperimentTemplate = ExperimentTemplateExperimentReportConfigurationProperty
+  set newValue ExperimentTemplate {..}
+    = ExperimentTemplate
+        {experimentReportConfiguration = Prelude.pure newValue, ..}
 instance Property "LogConfiguration" ExperimentTemplate where
   type PropertyType "LogConfiguration" ExperimentTemplate = ExperimentTemplateLogConfigurationProperty
   set newValue ExperimentTemplate {..}

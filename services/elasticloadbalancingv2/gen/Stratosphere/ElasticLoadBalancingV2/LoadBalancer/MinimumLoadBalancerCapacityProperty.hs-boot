@@ -1,0 +1,9 @@
+module Stratosphere.ElasticLoadBalancingV2.LoadBalancer.MinimumLoadBalancerCapacityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MinimumLoadBalancerCapacityProperty :: Prelude.Type
+instance ToResourceProperties MinimumLoadBalancerCapacityProperty
+instance Prelude.Eq MinimumLoadBalancerCapacityProperty
+instance Prelude.Show MinimumLoadBalancerCapacityProperty
+instance JSON.ToJSON MinimumLoadBalancerCapacityProperty

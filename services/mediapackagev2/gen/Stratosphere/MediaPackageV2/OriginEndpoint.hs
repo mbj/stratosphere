@@ -4,6 +4,8 @@ module Stratosphere.MediaPackageV2.OriginEndpoint (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.DashManifestConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.ForceEndpointErrorConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.HlsManifestConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.LowLatencyHlsManifestConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.SegmentProperty as Exports
@@ -13,8 +15,10 @@ import Stratosphere.Value
 data OriginEndpoint
   = OriginEndpoint {channelGroupName :: (Value Prelude.Text),
                     channelName :: (Value Prelude.Text),
-                    containerType :: (Prelude.Maybe (Value Prelude.Text)),
+                    containerType :: (Value Prelude.Text),
+                    dashManifests :: (Prelude.Maybe [DashManifestConfigurationProperty]),
                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                    forceEndpointErrorConfiguration :: (Prelude.Maybe ForceEndpointErrorConfigurationProperty),
                     hlsManifests :: (Prelude.Maybe [HlsManifestConfigurationProperty]),
                     lowLatencyHlsManifests :: (Prelude.Maybe [LowLatencyHlsManifestConfigurationProperty]),
                     originEndpointName :: (Value Prelude.Text),
@@ -24,12 +28,19 @@ data OriginEndpoint
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginEndpoint ::
   Value Prelude.Text
-  -> Value Prelude.Text -> Value Prelude.Text -> OriginEndpoint
-mkOriginEndpoint channelGroupName channelName originEndpointName
+  -> Value Prelude.Text
+     -> Value Prelude.Text -> Value Prelude.Text -> OriginEndpoint
+mkOriginEndpoint
+  channelGroupName
+  channelName
+  containerType
+  originEndpointName
   = OriginEndpoint
       {channelGroupName = channelGroupName, channelName = channelName,
+       containerType = containerType,
        originEndpointName = originEndpointName,
-       containerType = Prelude.Nothing, description = Prelude.Nothing,
+       dashManifests = Prelude.Nothing, description = Prelude.Nothing,
+       forceEndpointErrorConfiguration = Prelude.Nothing,
        hlsManifests = Prelude.Nothing,
        lowLatencyHlsManifests = Prelude.Nothing,
        segment = Prelude.Nothing,
@@ -43,10 +54,13 @@ instance ToResourceProperties OriginEndpoint where
                         ((Prelude.<>)
                            ["ChannelGroupName" JSON..= channelGroupName,
                             "ChannelName" JSON..= channelName,
+                            "ContainerType" JSON..= containerType,
                             "OriginEndpointName" JSON..= originEndpointName]
                            (Prelude.catMaybes
-                              [(JSON..=) "ContainerType" Prelude.<$> containerType,
+                              [(JSON..=) "DashManifests" Prelude.<$> dashManifests,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "ForceEndpointErrorConfiguration"
+                                 Prelude.<$> forceEndpointErrorConfiguration,
                                (JSON..=) "HlsManifests" Prelude.<$> hlsManifests,
                                (JSON..=) "LowLatencyHlsManifests"
                                  Prelude.<$> lowLatencyHlsManifests,
@@ -61,10 +75,13 @@ instance JSON.ToJSON OriginEndpoint where
            ((Prelude.<>)
               ["ChannelGroupName" JSON..= channelGroupName,
                "ChannelName" JSON..= channelName,
+               "ContainerType" JSON..= containerType,
                "OriginEndpointName" JSON..= originEndpointName]
               (Prelude.catMaybes
-                 [(JSON..=) "ContainerType" Prelude.<$> containerType,
+                 [(JSON..=) "DashManifests" Prelude.<$> dashManifests,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "ForceEndpointErrorConfiguration"
+                    Prelude.<$> forceEndpointErrorConfiguration,
                   (JSON..=) "HlsManifests" Prelude.<$> hlsManifests,
                   (JSON..=) "LowLatencyHlsManifests"
                     Prelude.<$> lowLatencyHlsManifests,
@@ -83,11 +100,20 @@ instance Property "ChannelName" OriginEndpoint where
 instance Property "ContainerType" OriginEndpoint where
   type PropertyType "ContainerType" OriginEndpoint = Value Prelude.Text
   set newValue OriginEndpoint {..}
-    = OriginEndpoint {containerType = Prelude.pure newValue, ..}
+    = OriginEndpoint {containerType = newValue, ..}
+instance Property "DashManifests" OriginEndpoint where
+  type PropertyType "DashManifests" OriginEndpoint = [DashManifestConfigurationProperty]
+  set newValue OriginEndpoint {..}
+    = OriginEndpoint {dashManifests = Prelude.pure newValue, ..}
 instance Property "Description" OriginEndpoint where
   type PropertyType "Description" OriginEndpoint = Value Prelude.Text
   set newValue OriginEndpoint {..}
     = OriginEndpoint {description = Prelude.pure newValue, ..}
+instance Property "ForceEndpointErrorConfiguration" OriginEndpoint where
+  type PropertyType "ForceEndpointErrorConfiguration" OriginEndpoint = ForceEndpointErrorConfigurationProperty
+  set newValue OriginEndpoint {..}
+    = OriginEndpoint
+        {forceEndpointErrorConfiguration = Prelude.pure newValue, ..}
 instance Property "HlsManifests" OriginEndpoint where
   type PropertyType "HlsManifests" OriginEndpoint = [HlsManifestConfigurationProperty]
   set newValue OriginEndpoint {..}

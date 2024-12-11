@@ -1,14 +1,16 @@
 module Stratosphere.B2BI.Partnership (
-        Partnership(..), mkPartnership
+        module Exports, Partnership(..), mkPartnership
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.B2BI.Partnership.CapabilityOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Partnership
-  = Partnership {capabilities :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = Partnership {capabilities :: (ValueList Prelude.Text),
+                 capabilityOptions :: (Prelude.Maybe CapabilityOptionsProperty),
                  email :: (Value Prelude.Text),
                  name :: (Value Prelude.Text),
                  phone :: (Prelude.Maybe (Value Prelude.Text)),
@@ -16,23 +18,24 @@ data Partnership
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPartnership ::
-  Value Prelude.Text
-  -> Value Prelude.Text -> Value Prelude.Text -> Partnership
-mkPartnership email name profileId
+  ValueList Prelude.Text
+  -> Value Prelude.Text
+     -> Value Prelude.Text -> Value Prelude.Text -> Partnership
+mkPartnership capabilities email name profileId
   = Partnership
-      {email = email, name = name, profileId = profileId,
-       capabilities = Prelude.Nothing, phone = Prelude.Nothing,
-       tags = Prelude.Nothing}
+      {capabilities = capabilities, email = email, name = name,
+       profileId = profileId, capabilityOptions = Prelude.Nothing,
+       phone = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Partnership where
   toResourceProperties Partnership {..}
     = ResourceProperties
         {awsType = "AWS::B2BI::Partnership", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Email" JSON..= email, "Name" JSON..= name,
-                            "ProfileId" JSON..= profileId]
+                           ["Capabilities" JSON..= capabilities, "Email" JSON..= email,
+                            "Name" JSON..= name, "ProfileId" JSON..= profileId]
                            (Prelude.catMaybes
-                              [(JSON..=) "Capabilities" Prelude.<$> capabilities,
+                              [(JSON..=) "CapabilityOptions" Prelude.<$> capabilityOptions,
                                (JSON..=) "Phone" Prelude.<$> phone,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Partnership where
@@ -40,16 +43,20 @@ instance JSON.ToJSON Partnership where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Email" JSON..= email, "Name" JSON..= name,
-               "ProfileId" JSON..= profileId]
+              ["Capabilities" JSON..= capabilities, "Email" JSON..= email,
+               "Name" JSON..= name, "ProfileId" JSON..= profileId]
               (Prelude.catMaybes
-                 [(JSON..=) "Capabilities" Prelude.<$> capabilities,
+                 [(JSON..=) "CapabilityOptions" Prelude.<$> capabilityOptions,
                   (JSON..=) "Phone" Prelude.<$> phone,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Capabilities" Partnership where
   type PropertyType "Capabilities" Partnership = ValueList Prelude.Text
   set newValue Partnership {..}
-    = Partnership {capabilities = Prelude.pure newValue, ..}
+    = Partnership {capabilities = newValue, ..}
+instance Property "CapabilityOptions" Partnership where
+  type PropertyType "CapabilityOptions" Partnership = CapabilityOptionsProperty
+  set newValue Partnership {..}
+    = Partnership {capabilityOptions = Prelude.pure newValue, ..}
 instance Property "Email" Partnership where
   type PropertyType "Email" Partnership = Value Prelude.Text
   set newValue Partnership {..} = Partnership {email = newValue, ..}

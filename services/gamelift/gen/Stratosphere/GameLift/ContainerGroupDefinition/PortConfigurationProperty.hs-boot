@@ -1,0 +1,9 @@
+module Stratosphere.GameLift.ContainerGroupDefinition.PortConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PortConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PortConfigurationProperty
+instance Prelude.Eq PortConfigurationProperty
+instance Prelude.Show PortConfigurationProperty
+instance JSON.ToJSON PortConfigurationProperty

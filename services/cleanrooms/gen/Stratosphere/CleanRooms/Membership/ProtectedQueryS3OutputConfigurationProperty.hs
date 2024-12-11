@@ -10,7 +10,8 @@ import Stratosphere.Value
 data ProtectedQueryS3OutputConfigurationProperty
   = ProtectedQueryS3OutputConfigurationProperty {bucket :: (Value Prelude.Text),
                                                  keyPrefix :: (Prelude.Maybe (Value Prelude.Text)),
-                                                 resultFormat :: (Value Prelude.Text)}
+                                                 resultFormat :: (Value Prelude.Text),
+                                                 singleFileOutput :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkProtectedQueryS3OutputConfigurationProperty ::
   Value Prelude.Text
@@ -19,7 +20,7 @@ mkProtectedQueryS3OutputConfigurationProperty ::
 mkProtectedQueryS3OutputConfigurationProperty bucket resultFormat
   = ProtectedQueryS3OutputConfigurationProperty
       {bucket = bucket, resultFormat = resultFormat,
-       keyPrefix = Prelude.Nothing}
+       keyPrefix = Prelude.Nothing, singleFileOutput = Prelude.Nothing}
 instance ToResourceProperties ProtectedQueryS3OutputConfigurationProperty where
   toResourceProperties
     ProtectedQueryS3OutputConfigurationProperty {..}
@@ -29,14 +30,18 @@ instance ToResourceProperties ProtectedQueryS3OutputConfigurationProperty where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket, "ResultFormat" JSON..= resultFormat]
-                           (Prelude.catMaybes [(JSON..=) "KeyPrefix" Prelude.<$> keyPrefix]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "KeyPrefix" Prelude.<$> keyPrefix,
+                               (JSON..=) "SingleFileOutput" Prelude.<$> singleFileOutput]))}
 instance JSON.ToJSON ProtectedQueryS3OutputConfigurationProperty where
   toJSON ProtectedQueryS3OutputConfigurationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
               ["Bucket" JSON..= bucket, "ResultFormat" JSON..= resultFormat]
-              (Prelude.catMaybes [(JSON..=) "KeyPrefix" Prelude.<$> keyPrefix])))
+              (Prelude.catMaybes
+                 [(JSON..=) "KeyPrefix" Prelude.<$> keyPrefix,
+                  (JSON..=) "SingleFileOutput" Prelude.<$> singleFileOutput])))
 instance Property "Bucket" ProtectedQueryS3OutputConfigurationProperty where
   type PropertyType "Bucket" ProtectedQueryS3OutputConfigurationProperty = Value Prelude.Text
   set newValue ProtectedQueryS3OutputConfigurationProperty {..}
@@ -52,3 +57,8 @@ instance Property "ResultFormat" ProtectedQueryS3OutputConfigurationProperty whe
   set newValue ProtectedQueryS3OutputConfigurationProperty {..}
     = ProtectedQueryS3OutputConfigurationProperty
         {resultFormat = newValue, ..}
+instance Property "SingleFileOutput" ProtectedQueryS3OutputConfigurationProperty where
+  type PropertyType "SingleFileOutput" ProtectedQueryS3OutputConfigurationProperty = Value Prelude.Bool
+  set newValue ProtectedQueryS3OutputConfigurationProperty {..}
+    = ProtectedQueryS3OutputConfigurationProperty
+        {singleFileOutput = Prelude.pure newValue, ..}

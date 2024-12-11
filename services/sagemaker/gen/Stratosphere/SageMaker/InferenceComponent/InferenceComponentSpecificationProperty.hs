@@ -11,18 +11,18 @@ import {-# SOURCE #-} Stratosphere.SageMaker.InferenceComponent.InferenceCompone
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InferenceComponentSpecificationProperty
-  = InferenceComponentSpecificationProperty {computeResourceRequirements :: InferenceComponentComputeResourceRequirementsProperty,
+  = InferenceComponentSpecificationProperty {baseInferenceComponentName :: (Prelude.Maybe (Value Prelude.Text)),
+                                             computeResourceRequirements :: (Prelude.Maybe InferenceComponentComputeResourceRequirementsProperty),
                                              container :: (Prelude.Maybe InferenceComponentContainerSpecificationProperty),
                                              modelName :: (Prelude.Maybe (Value Prelude.Text)),
                                              startupParameters :: (Prelude.Maybe InferenceComponentStartupParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInferenceComponentSpecificationProperty ::
-  InferenceComponentComputeResourceRequirementsProperty
-  -> InferenceComponentSpecificationProperty
+  InferenceComponentSpecificationProperty
 mkInferenceComponentSpecificationProperty
-  computeResourceRequirements
   = InferenceComponentSpecificationProperty
-      {computeResourceRequirements = computeResourceRequirements,
+      {baseInferenceComponentName = Prelude.Nothing,
+       computeResourceRequirements = Prelude.Nothing,
        container = Prelude.Nothing, modelName = Prelude.Nothing,
        startupParameters = Prelude.Nothing}
 instance ToResourceProperties InferenceComponentSpecificationProperty where
@@ -31,27 +31,36 @@ instance ToResourceProperties InferenceComponentSpecificationProperty where
         {awsType = "AWS::SageMaker::InferenceComponent.InferenceComponentSpecification",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["ComputeResourceRequirements" JSON..= computeResourceRequirements]
-                           (Prelude.catMaybes
-                              [(JSON..=) "Container" Prelude.<$> container,
-                               (JSON..=) "ModelName" Prelude.<$> modelName,
-                               (JSON..=) "StartupParameters" Prelude.<$> startupParameters]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "BaseInferenceComponentName"
+                              Prelude.<$> baseInferenceComponentName,
+                            (JSON..=) "ComputeResourceRequirements"
+                              Prelude.<$> computeResourceRequirements,
+                            (JSON..=) "Container" Prelude.<$> container,
+                            (JSON..=) "ModelName" Prelude.<$> modelName,
+                            (JSON..=) "StartupParameters" Prelude.<$> startupParameters])}
 instance JSON.ToJSON InferenceComponentSpecificationProperty where
   toJSON InferenceComponentSpecificationProperty {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["ComputeResourceRequirements" JSON..= computeResourceRequirements]
-              (Prelude.catMaybes
-                 [(JSON..=) "Container" Prelude.<$> container,
-                  (JSON..=) "ModelName" Prelude.<$> modelName,
-                  (JSON..=) "StartupParameters" Prelude.<$> startupParameters])))
+           (Prelude.catMaybes
+              [(JSON..=) "BaseInferenceComponentName"
+                 Prelude.<$> baseInferenceComponentName,
+               (JSON..=) "ComputeResourceRequirements"
+                 Prelude.<$> computeResourceRequirements,
+               (JSON..=) "Container" Prelude.<$> container,
+               (JSON..=) "ModelName" Prelude.<$> modelName,
+               (JSON..=) "StartupParameters" Prelude.<$> startupParameters]))
+instance Property "BaseInferenceComponentName" InferenceComponentSpecificationProperty where
+  type PropertyType "BaseInferenceComponentName" InferenceComponentSpecificationProperty = Value Prelude.Text
+  set newValue InferenceComponentSpecificationProperty {..}
+    = InferenceComponentSpecificationProperty
+        {baseInferenceComponentName = Prelude.pure newValue, ..}
 instance Property "ComputeResourceRequirements" InferenceComponentSpecificationProperty where
   type PropertyType "ComputeResourceRequirements" InferenceComponentSpecificationProperty = InferenceComponentComputeResourceRequirementsProperty
   set newValue InferenceComponentSpecificationProperty {..}
     = InferenceComponentSpecificationProperty
-        {computeResourceRequirements = newValue, ..}
+        {computeResourceRequirements = Prelude.pure newValue, ..}
 instance Property "Container" InferenceComponentSpecificationProperty where
   type PropertyType "Container" InferenceComponentSpecificationProperty = InferenceComponentContainerSpecificationProperty
   set newValue InferenceComponentSpecificationProperty {..}

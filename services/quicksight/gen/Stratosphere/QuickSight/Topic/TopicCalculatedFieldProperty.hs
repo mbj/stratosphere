@@ -21,6 +21,7 @@ data TopicCalculatedFieldProperty
                                   columnDataRole :: (Prelude.Maybe (Value Prelude.Text)),
                                   comparativeOrder :: (Prelude.Maybe ComparativeOrderProperty),
                                   defaultFormatting :: (Prelude.Maybe DefaultFormattingProperty),
+                                  disableIndexing :: (Prelude.Maybe (Value Prelude.Bool)),
                                   expression :: (Value Prelude.Text),
                                   isIncludedInTopic :: (Prelude.Maybe (Value Prelude.Bool)),
                                   neverAggregateInFilter :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -43,6 +44,7 @@ mkTopicCalculatedFieldProperty calculatedFieldName expression
        columnDataRole = Prelude.Nothing,
        comparativeOrder = Prelude.Nothing,
        defaultFormatting = Prelude.Nothing,
+       disableIndexing = Prelude.Nothing,
        isIncludedInTopic = Prelude.Nothing,
        neverAggregateInFilter = Prelude.Nothing,
        nonAdditive = Prelude.Nothing,
@@ -68,6 +70,7 @@ instance ToResourceProperties TopicCalculatedFieldProperty where
                                (JSON..=) "ColumnDataRole" Prelude.<$> columnDataRole,
                                (JSON..=) "ComparativeOrder" Prelude.<$> comparativeOrder,
                                (JSON..=) "DefaultFormatting" Prelude.<$> defaultFormatting,
+                               (JSON..=) "DisableIndexing" Prelude.<$> disableIndexing,
                                (JSON..=) "IsIncludedInTopic" Prelude.<$> isIncludedInTopic,
                                (JSON..=) "NeverAggregateInFilter"
                                  Prelude.<$> neverAggregateInFilter,
@@ -94,6 +97,7 @@ instance JSON.ToJSON TopicCalculatedFieldProperty where
                   (JSON..=) "ColumnDataRole" Prelude.<$> columnDataRole,
                   (JSON..=) "ComparativeOrder" Prelude.<$> comparativeOrder,
                   (JSON..=) "DefaultFormatting" Prelude.<$> defaultFormatting,
+                  (JSON..=) "DisableIndexing" Prelude.<$> disableIndexing,
                   (JSON..=) "IsIncludedInTopic" Prelude.<$> isIncludedInTopic,
                   (JSON..=) "NeverAggregateInFilter"
                     Prelude.<$> neverAggregateInFilter,
@@ -146,6 +150,11 @@ instance Property "DefaultFormatting" TopicCalculatedFieldProperty where
   set newValue TopicCalculatedFieldProperty {..}
     = TopicCalculatedFieldProperty
         {defaultFormatting = Prelude.pure newValue, ..}
+instance Property "DisableIndexing" TopicCalculatedFieldProperty where
+  type PropertyType "DisableIndexing" TopicCalculatedFieldProperty = Value Prelude.Bool
+  set newValue TopicCalculatedFieldProperty {..}
+    = TopicCalculatedFieldProperty
+        {disableIndexing = Prelude.pure newValue, ..}
 instance Property "Expression" TopicCalculatedFieldProperty where
   type PropertyType "Expression" TopicCalculatedFieldProperty = Value Prelude.Text
   set newValue TopicCalculatedFieldProperty {..}

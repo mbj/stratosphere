@@ -1,0 +1,9 @@
+module Stratosphere.ApplicationSignals.ServiceLevelObjective.CalendarIntervalProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CalendarIntervalProperty :: Prelude.Type
+instance ToResourceProperties CalendarIntervalProperty
+instance Prelude.Eq CalendarIntervalProperty
+instance Prelude.Show CalendarIntervalProperty
+instance JSON.ToJSON CalendarIntervalProperty

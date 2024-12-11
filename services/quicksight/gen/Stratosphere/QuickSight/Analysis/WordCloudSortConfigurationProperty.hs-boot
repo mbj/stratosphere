@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.WordCloudSortConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data WordCloudSortConfigurationProperty :: Prelude.Type
-instance ToResourceProperties WordCloudSortConfigurationProperty
-instance Prelude.Eq WordCloudSortConfigurationProperty
-instance Prelude.Show WordCloudSortConfigurationProperty
-instance JSON.ToJSON WordCloudSortConfigurationProperty

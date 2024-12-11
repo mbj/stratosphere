@@ -34,7 +34,6 @@ library
       Stratosphere.AppConfig.Deployment.DynamicExtensionParametersProperty
       Stratosphere.AppConfig.Deployment.TagsProperty
       Stratosphere.AppConfig.DeploymentStrategy
-      Stratosphere.AppConfig.DeploymentStrategy.TagsProperty
       Stratosphere.AppConfig.Environment
       Stratosphere.AppConfig.Environment.MonitorProperty
       Stratosphere.AppConfig.Extension

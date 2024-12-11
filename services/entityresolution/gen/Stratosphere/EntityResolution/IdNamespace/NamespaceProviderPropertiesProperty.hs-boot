@@ -1,0 +1,9 @@
+module Stratosphere.EntityResolution.IdNamespace.NamespaceProviderPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NamespaceProviderPropertiesProperty :: Prelude.Type
+instance ToResourceProperties NamespaceProviderPropertiesProperty
+instance Prelude.Eq NamespaceProviderPropertiesProperty
+instance Prelude.Show NamespaceProviderPropertiesProperty
+instance JSON.ToJSON NamespaceProviderPropertiesProperty

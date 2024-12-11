@@ -7,22 +7,34 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ECPUPerSecondProperty
-  = ECPUPerSecondProperty {maximum :: (Value Prelude.Integer)}
+  = ECPUPerSecondProperty {maximum :: (Prelude.Maybe (Value Prelude.Integer)),
+                           minimum :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkECPUPerSecondProperty ::
-  Value Prelude.Integer -> ECPUPerSecondProperty
-mkECPUPerSecondProperty maximum
-  = ECPUPerSecondProperty {maximum = maximum}
+mkECPUPerSecondProperty :: ECPUPerSecondProperty
+mkECPUPerSecondProperty
+  = ECPUPerSecondProperty
+      {maximum = Prelude.Nothing, minimum = Prelude.Nothing}
 instance ToResourceProperties ECPUPerSecondProperty where
   toResourceProperties ECPUPerSecondProperty {..}
     = ResourceProperties
         {awsType = "AWS::ElastiCache::ServerlessCache.ECPUPerSecond",
          supportsTags = Prelude.False,
-         properties = ["Maximum" JSON..= maximum]}
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "Maximum" Prelude.<$> maximum,
+                            (JSON..=) "Minimum" Prelude.<$> minimum])}
 instance JSON.ToJSON ECPUPerSecondProperty where
   toJSON ECPUPerSecondProperty {..}
-    = JSON.object ["Maximum" JSON..= maximum]
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "Maximum" Prelude.<$> maximum,
+               (JSON..=) "Minimum" Prelude.<$> minimum]))
 instance Property "Maximum" ECPUPerSecondProperty where
   type PropertyType "Maximum" ECPUPerSecondProperty = Value Prelude.Integer
-  set newValue ECPUPerSecondProperty {}
-    = ECPUPerSecondProperty {maximum = newValue, ..}
+  set newValue ECPUPerSecondProperty {..}
+    = ECPUPerSecondProperty {maximum = Prelude.pure newValue, ..}
+instance Property "Minimum" ECPUPerSecondProperty where
+  type PropertyType "Minimum" ECPUPerSecondProperty = Value Prelude.Integer
+  set newValue ECPUPerSecondProperty {..}
+    = ECPUPerSecondProperty {minimum = Prelude.pure newValue, ..}

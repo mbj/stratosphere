@@ -26,13 +26,21 @@ flag development
 library
   exposed-modules:
       Stratosphere.IVS.Channel
+      Stratosphere.IVS.EncoderConfiguration
+      Stratosphere.IVS.EncoderConfiguration.VideoProperty
+      Stratosphere.IVS.IngestConfiguration
       Stratosphere.IVS.PlaybackKeyPair
+      Stratosphere.IVS.PlaybackRestrictionPolicy
+      Stratosphere.IVS.PublicKey
       Stratosphere.IVS.RecordingConfiguration
       Stratosphere.IVS.RecordingConfiguration.DestinationConfigurationProperty
       Stratosphere.IVS.RecordingConfiguration.RenditionConfigurationProperty
       Stratosphere.IVS.RecordingConfiguration.S3DestinationConfigurationProperty
       Stratosphere.IVS.RecordingConfiguration.ThumbnailConfigurationProperty
       Stratosphere.IVS.Stage
+      Stratosphere.IVS.Stage.AutoParticipantRecordingConfigurationProperty
+      Stratosphere.IVS.StorageConfiguration
+      Stratosphere.IVS.StorageConfiguration.S3StorageConfigurationProperty
       Stratosphere.IVS.StreamKey
   other-modules:
       Paths_stratosphere_ivs

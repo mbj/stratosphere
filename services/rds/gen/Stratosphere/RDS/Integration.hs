@@ -9,6 +9,8 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Integration
   = Integration {additionalEncryptionContext :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                 dataFilter :: (Prelude.Maybe (Value Prelude.Text)),
+                 description :: (Prelude.Maybe (Value Prelude.Text)),
                  integrationName :: (Prelude.Maybe (Value Prelude.Text)),
                  kMSKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                  sourceArn :: (Value Prelude.Text),
@@ -21,6 +23,7 @@ mkIntegration sourceArn targetArn
   = Integration
       {sourceArn = sourceArn, targetArn = targetArn,
        additionalEncryptionContext = Prelude.Nothing,
+       dataFilter = Prelude.Nothing, description = Prelude.Nothing,
        integrationName = Prelude.Nothing, kMSKeyId = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Integration where
@@ -33,6 +36,8 @@ instance ToResourceProperties Integration where
                            (Prelude.catMaybes
                               [(JSON..=) "AdditionalEncryptionContext"
                                  Prelude.<$> additionalEncryptionContext,
+                               (JSON..=) "DataFilter" Prelude.<$> dataFilter,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "IntegrationName" Prelude.<$> integrationName,
                                (JSON..=) "KMSKeyId" Prelude.<$> kMSKeyId,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -45,6 +50,8 @@ instance JSON.ToJSON Integration where
               (Prelude.catMaybes
                  [(JSON..=) "AdditionalEncryptionContext"
                     Prelude.<$> additionalEncryptionContext,
+                  (JSON..=) "DataFilter" Prelude.<$> dataFilter,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "IntegrationName" Prelude.<$> integrationName,
                   (JSON..=) "KMSKeyId" Prelude.<$> kMSKeyId,
                   (JSON..=) "Tags" Prelude.<$> tags])))
@@ -53,6 +60,14 @@ instance Property "AdditionalEncryptionContext" Integration where
   set newValue Integration {..}
     = Integration
         {additionalEncryptionContext = Prelude.pure newValue, ..}
+instance Property "DataFilter" Integration where
+  type PropertyType "DataFilter" Integration = Value Prelude.Text
+  set newValue Integration {..}
+    = Integration {dataFilter = Prelude.pure newValue, ..}
+instance Property "Description" Integration where
+  type PropertyType "Description" Integration = Value Prelude.Text
+  set newValue Integration {..}
+    = Integration {description = Prelude.pure newValue, ..}
 instance Property "IntegrationName" Integration where
   type PropertyType "IntegrationName" Integration = Value Prelude.Text
   set newValue Integration {..}

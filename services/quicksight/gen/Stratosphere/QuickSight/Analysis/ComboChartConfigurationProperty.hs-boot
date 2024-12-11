@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.ComboChartConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data ComboChartConfigurationProperty :: Prelude.Type
-instance ToResourceProperties ComboChartConfigurationProperty
-instance Prelude.Eq ComboChartConfigurationProperty
-instance Prelude.Show ComboChartConfigurationProperty
-instance JSON.ToJSON ComboChartConfigurationProperty

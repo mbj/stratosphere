@@ -14,6 +14,7 @@ import {-# SOURCE #-} Stratosphere.SageMaker.Domain.KernelGatewayAppSettingsProp
 import {-# SOURCE #-} Stratosphere.SageMaker.Domain.RSessionAppSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.Domain.RStudioServerProAppSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.Domain.SharingSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.Domain.StudioWebPortalSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserSettingsProperty
@@ -30,7 +31,8 @@ data UserSettingsProperty
                           securityGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
                           sharingSettings :: (Prelude.Maybe SharingSettingsProperty),
                           spaceStorageSettings :: (Prelude.Maybe DefaultSpaceStorageSettingsProperty),
-                          studioWebPortal :: (Prelude.Maybe (Value Prelude.Text))}
+                          studioWebPortal :: (Prelude.Maybe (Value Prelude.Text)),
+                          studioWebPortalSettings :: (Prelude.Maybe StudioWebPortalSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserSettingsProperty ::
   Value Prelude.Text -> UserSettingsProperty
@@ -49,7 +51,8 @@ mkUserSettingsProperty executionRole
        securityGroups = Prelude.Nothing,
        sharingSettings = Prelude.Nothing,
        spaceStorageSettings = Prelude.Nothing,
-       studioWebPortal = Prelude.Nothing}
+       studioWebPortal = Prelude.Nothing,
+       studioWebPortalSettings = Prelude.Nothing}
 instance ToResourceProperties UserSettingsProperty where
   toResourceProperties UserSettingsProperty {..}
     = ResourceProperties
@@ -78,7 +81,9 @@ instance ToResourceProperties UserSettingsProperty where
                                (JSON..=) "SecurityGroups" Prelude.<$> securityGroups,
                                (JSON..=) "SharingSettings" Prelude.<$> sharingSettings,
                                (JSON..=) "SpaceStorageSettings" Prelude.<$> spaceStorageSettings,
-                               (JSON..=) "StudioWebPortal" Prelude.<$> studioWebPortal]))}
+                               (JSON..=) "StudioWebPortal" Prelude.<$> studioWebPortal,
+                               (JSON..=) "StudioWebPortalSettings"
+                                 Prelude.<$> studioWebPortalSettings]))}
 instance JSON.ToJSON UserSettingsProperty where
   toJSON UserSettingsProperty {..}
     = JSON.object
@@ -105,7 +110,9 @@ instance JSON.ToJSON UserSettingsProperty where
                   (JSON..=) "SecurityGroups" Prelude.<$> securityGroups,
                   (JSON..=) "SharingSettings" Prelude.<$> sharingSettings,
                   (JSON..=) "SpaceStorageSettings" Prelude.<$> spaceStorageSettings,
-                  (JSON..=) "StudioWebPortal" Prelude.<$> studioWebPortal])))
+                  (JSON..=) "StudioWebPortal" Prelude.<$> studioWebPortal,
+                  (JSON..=) "StudioWebPortalSettings"
+                    Prelude.<$> studioWebPortalSettings])))
 instance Property "CodeEditorAppSettings" UserSettingsProperty where
   type PropertyType "CodeEditorAppSettings" UserSettingsProperty = CodeEditorAppSettingsProperty
   set newValue UserSettingsProperty {..}
@@ -174,3 +181,8 @@ instance Property "StudioWebPortal" UserSettingsProperty where
   set newValue UserSettingsProperty {..}
     = UserSettingsProperty
         {studioWebPortal = Prelude.pure newValue, ..}
+instance Property "StudioWebPortalSettings" UserSettingsProperty where
+  type PropertyType "StudioWebPortalSettings" UserSettingsProperty = StudioWebPortalSettingsProperty
+  set newValue UserSettingsProperty {..}
+    = UserSettingsProperty
+        {studioWebPortalSettings = Prelude.pure newValue, ..}

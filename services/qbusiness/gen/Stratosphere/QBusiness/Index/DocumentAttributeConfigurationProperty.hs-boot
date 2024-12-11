@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.Index.DocumentAttributeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DocumentAttributeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DocumentAttributeConfigurationProperty
+instance Prelude.Eq DocumentAttributeConfigurationProperty
+instance Prelude.Show DocumentAttributeConfigurationProperty
+instance JSON.ToJSON DocumentAttributeConfigurationProperty

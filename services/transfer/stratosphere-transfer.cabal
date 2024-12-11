@@ -32,19 +32,15 @@ library
       Stratosphere.Transfer.Connector.SftpConfigProperty
       Stratosphere.Transfer.Profile
       Stratosphere.Transfer.Server
-      Stratosphere.Transfer.Server.As2TransportProperty
       Stratosphere.Transfer.Server.EndpointDetailsProperty
       Stratosphere.Transfer.Server.IdentityProviderDetailsProperty
       Stratosphere.Transfer.Server.ProtocolDetailsProperty
-      Stratosphere.Transfer.Server.ProtocolProperty
       Stratosphere.Transfer.Server.S3StorageOptionsProperty
-      Stratosphere.Transfer.Server.StructuredLogDestinationProperty
       Stratosphere.Transfer.Server.WorkflowDetailProperty
       Stratosphere.Transfer.Server.WorkflowDetailsProperty
       Stratosphere.Transfer.User
       Stratosphere.Transfer.User.HomeDirectoryMapEntryProperty
       Stratosphere.Transfer.User.PosixProfileProperty
-      Stratosphere.Transfer.User.SshPublicKeyProperty
       Stratosphere.Transfer.Workflow
       Stratosphere.Transfer.Workflow.CopyStepDetailsProperty
       Stratosphere.Transfer.Workflow.CustomStepDetailsProperty

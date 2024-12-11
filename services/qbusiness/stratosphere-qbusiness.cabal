@@ -1,0 +1,103 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-qbusiness
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.QBusiness.Application
+      Stratosphere.QBusiness.Application.AttachmentsConfigurationProperty
+      Stratosphere.QBusiness.Application.AutoSubscriptionConfigurationProperty
+      Stratosphere.QBusiness.Application.EncryptionConfigurationProperty
+      Stratosphere.QBusiness.Application.PersonalizationConfigurationProperty
+      Stratosphere.QBusiness.Application.QAppsConfigurationProperty
+      Stratosphere.QBusiness.DataSource
+      Stratosphere.QBusiness.DataSource.DataSourceVpcConfigurationProperty
+      Stratosphere.QBusiness.DataSource.DocumentAttributeConditionProperty
+      Stratosphere.QBusiness.DataSource.DocumentAttributeTargetProperty
+      Stratosphere.QBusiness.DataSource.DocumentAttributeValueProperty
+      Stratosphere.QBusiness.DataSource.DocumentEnrichmentConfigurationProperty
+      Stratosphere.QBusiness.DataSource.HookConfigurationProperty
+      Stratosphere.QBusiness.DataSource.InlineDocumentEnrichmentConfigurationProperty
+      Stratosphere.QBusiness.Index
+      Stratosphere.QBusiness.Index.DocumentAttributeConfigurationProperty
+      Stratosphere.QBusiness.Index.IndexCapacityConfigurationProperty
+      Stratosphere.QBusiness.Index.IndexStatisticsProperty
+      Stratosphere.QBusiness.Index.TextDocumentStatisticsProperty
+      Stratosphere.QBusiness.Plugin
+      Stratosphere.QBusiness.Plugin.APISchemaProperty
+      Stratosphere.QBusiness.Plugin.BasicAuthConfigurationProperty
+      Stratosphere.QBusiness.Plugin.CustomPluginConfigurationProperty
+      Stratosphere.QBusiness.Plugin.OAuth2ClientCredentialConfigurationProperty
+      Stratosphere.QBusiness.Plugin.PluginAuthConfigurationProperty
+      Stratosphere.QBusiness.Plugin.S3Property
+      Stratosphere.QBusiness.Retriever
+      Stratosphere.QBusiness.Retriever.KendraIndexConfigurationProperty
+      Stratosphere.QBusiness.Retriever.NativeIndexConfigurationProperty
+      Stratosphere.QBusiness.Retriever.RetrieverConfigurationProperty
+      Stratosphere.QBusiness.WebExperience
+      Stratosphere.QBusiness.WebExperience.IdentityProviderConfigurationProperty
+      Stratosphere.QBusiness.WebExperience.OpenIDConnectProviderConfigurationProperty
+      Stratosphere.QBusiness.WebExperience.SamlProviderConfigurationProperty
+  other-modules:
+      Paths_stratosphere_qbusiness
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

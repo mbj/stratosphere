@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Space.SpaceIdleSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpaceIdleSettingsProperty :: Prelude.Type
+instance ToResourceProperties SpaceIdleSettingsProperty
+instance Prelude.Eq SpaceIdleSettingsProperty
+instance Prelude.Show SpaceIdleSettingsProperty
+instance JSON.ToJSON SpaceIdleSettingsProperty

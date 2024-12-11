@@ -1,0 +1,9 @@
+module Stratosphere.AppTest.TestCase.TestCaseLatestVersionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TestCaseLatestVersionProperty :: Prelude.Type
+instance ToResourceProperties TestCaseLatestVersionProperty
+instance Prelude.Eq TestCaseLatestVersionProperty
+instance Prelude.Show TestCaseLatestVersionProperty
+instance JSON.ToJSON TestCaseLatestVersionProperty

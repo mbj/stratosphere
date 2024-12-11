@@ -8,19 +8,22 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MediaPackageOutputDestinationSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MultiplexProgramChannelDestinationSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.OutputDestinationSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.SrtOutputDestinationSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputDestinationProperty
   = OutputDestinationProperty {id :: (Prelude.Maybe (Value Prelude.Text)),
                                mediaPackageSettings :: (Prelude.Maybe [MediaPackageOutputDestinationSettingsProperty]),
                                multiplexSettings :: (Prelude.Maybe MultiplexProgramChannelDestinationSettingsProperty),
-                               settings :: (Prelude.Maybe [OutputDestinationSettingsProperty])}
+                               settings :: (Prelude.Maybe [OutputDestinationSettingsProperty]),
+                               srtSettings :: (Prelude.Maybe [SrtOutputDestinationSettingsProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputDestinationProperty :: OutputDestinationProperty
 mkOutputDestinationProperty
   = OutputDestinationProperty
       {id = Prelude.Nothing, mediaPackageSettings = Prelude.Nothing,
-       multiplexSettings = Prelude.Nothing, settings = Prelude.Nothing}
+       multiplexSettings = Prelude.Nothing, settings = Prelude.Nothing,
+       srtSettings = Prelude.Nothing}
 instance ToResourceProperties OutputDestinationProperty where
   toResourceProperties OutputDestinationProperty {..}
     = ResourceProperties
@@ -31,7 +34,8 @@ instance ToResourceProperties OutputDestinationProperty where
                            [(JSON..=) "Id" Prelude.<$> id,
                             (JSON..=) "MediaPackageSettings" Prelude.<$> mediaPackageSettings,
                             (JSON..=) "MultiplexSettings" Prelude.<$> multiplexSettings,
-                            (JSON..=) "Settings" Prelude.<$> settings])}
+                            (JSON..=) "Settings" Prelude.<$> settings,
+                            (JSON..=) "SrtSettings" Prelude.<$> srtSettings])}
 instance JSON.ToJSON OutputDestinationProperty where
   toJSON OutputDestinationProperty {..}
     = JSON.object
@@ -40,7 +44,8 @@ instance JSON.ToJSON OutputDestinationProperty where
               [(JSON..=) "Id" Prelude.<$> id,
                (JSON..=) "MediaPackageSettings" Prelude.<$> mediaPackageSettings,
                (JSON..=) "MultiplexSettings" Prelude.<$> multiplexSettings,
-               (JSON..=) "Settings" Prelude.<$> settings]))
+               (JSON..=) "Settings" Prelude.<$> settings,
+               (JSON..=) "SrtSettings" Prelude.<$> srtSettings]))
 instance Property "Id" OutputDestinationProperty where
   type PropertyType "Id" OutputDestinationProperty = Value Prelude.Text
   set newValue OutputDestinationProperty {..}
@@ -59,3 +64,8 @@ instance Property "Settings" OutputDestinationProperty where
   type PropertyType "Settings" OutputDestinationProperty = [OutputDestinationSettingsProperty]
   set newValue OutputDestinationProperty {..}
     = OutputDestinationProperty {settings = Prelude.pure newValue, ..}
+instance Property "SrtSettings" OutputDestinationProperty where
+  type PropertyType "SrtSettings" OutputDestinationProperty = [SrtOutputDestinationSettingsProperty]
+  set newValue OutputDestinationProperty {..}
+    = OutputDestinationProperty
+        {srtSettings = Prelude.pure newValue, ..}

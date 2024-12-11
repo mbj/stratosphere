@@ -11,18 +11,17 @@ import Stratosphere.Value
 data RelationalTableProperty
   = RelationalTableProperty {catalog :: (Prelude.Maybe (Value Prelude.Text)),
                              dataSourceArn :: (Value Prelude.Text),
-                             inputColumns :: [InputColumnProperty],
+                             inputColumns :: (Prelude.Maybe [InputColumnProperty]),
                              name :: (Value Prelude.Text),
                              schema :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRelationalTableProperty ::
-  Value Prelude.Text
-  -> [InputColumnProperty]
-     -> Value Prelude.Text -> RelationalTableProperty
-mkRelationalTableProperty dataSourceArn inputColumns name
+  Value Prelude.Text -> Value Prelude.Text -> RelationalTableProperty
+mkRelationalTableProperty dataSourceArn name
   = RelationalTableProperty
-      {dataSourceArn = dataSourceArn, inputColumns = inputColumns,
-       name = name, catalog = Prelude.Nothing, schema = Prelude.Nothing}
+      {dataSourceArn = dataSourceArn, name = name,
+       catalog = Prelude.Nothing, inputColumns = Prelude.Nothing,
+       schema = Prelude.Nothing}
 instance ToResourceProperties RelationalTableProperty where
   toResourceProperties RelationalTableProperty {..}
     = ResourceProperties
@@ -30,20 +29,20 @@ instance ToResourceProperties RelationalTableProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["DataSourceArn" JSON..= dataSourceArn,
-                            "InputColumns" JSON..= inputColumns, "Name" JSON..= name]
+                           ["DataSourceArn" JSON..= dataSourceArn, "Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "Catalog" Prelude.<$> catalog,
+                               (JSON..=) "InputColumns" Prelude.<$> inputColumns,
                                (JSON..=) "Schema" Prelude.<$> schema]))}
 instance JSON.ToJSON RelationalTableProperty where
   toJSON RelationalTableProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["DataSourceArn" JSON..= dataSourceArn,
-               "InputColumns" JSON..= inputColumns, "Name" JSON..= name]
+              ["DataSourceArn" JSON..= dataSourceArn, "Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "Catalog" Prelude.<$> catalog,
+                  (JSON..=) "InputColumns" Prelude.<$> inputColumns,
                   (JSON..=) "Schema" Prelude.<$> schema])))
 instance Property "Catalog" RelationalTableProperty where
   type PropertyType "Catalog" RelationalTableProperty = Value Prelude.Text
@@ -56,7 +55,8 @@ instance Property "DataSourceArn" RelationalTableProperty where
 instance Property "InputColumns" RelationalTableProperty where
   type PropertyType "InputColumns" RelationalTableProperty = [InputColumnProperty]
   set newValue RelationalTableProperty {..}
-    = RelationalTableProperty {inputColumns = newValue, ..}
+    = RelationalTableProperty
+        {inputColumns = Prelude.pure newValue, ..}
 instance Property "Name" RelationalTableProperty where
   type PropertyType "Name" RelationalTableProperty = Value Prelude.Text
   set newValue RelationalTableProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.DatabaseSourceVPCConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatabaseSourceVPCConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DatabaseSourceVPCConfigurationProperty
+instance Prelude.Eq DatabaseSourceVPCConfigurationProperty
+instance Prelude.Show DatabaseSourceVPCConfigurationProperty
+instance JSON.ToJSON DatabaseSourceVPCConfigurationProperty

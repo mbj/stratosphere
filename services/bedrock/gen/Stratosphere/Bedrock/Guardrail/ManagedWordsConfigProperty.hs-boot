@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Guardrail.ManagedWordsConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedWordsConfigProperty :: Prelude.Type
+instance ToResourceProperties ManagedWordsConfigProperty
+instance Prelude.Eq ManagedWordsConfigProperty
+instance Prelude.Show ManagedWordsConfigProperty
+instance JSON.ToJSON ManagedWordsConfigProperty

@@ -8,36 +8,40 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.InputColumnProperty as Exp
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data CustomSqlProperty
-  = CustomSqlProperty {columns :: [InputColumnProperty],
+  = CustomSqlProperty {columns :: (Prelude.Maybe [InputColumnProperty]),
                        dataSourceArn :: (Value Prelude.Text),
                        name :: (Value Prelude.Text),
                        sqlQuery :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCustomSqlProperty ::
-  [InputColumnProperty]
-  -> Value Prelude.Text
-     -> Value Prelude.Text -> Value Prelude.Text -> CustomSqlProperty
-mkCustomSqlProperty columns dataSourceArn name sqlQuery
+  Value Prelude.Text
+  -> Value Prelude.Text -> Value Prelude.Text -> CustomSqlProperty
+mkCustomSqlProperty dataSourceArn name sqlQuery
   = CustomSqlProperty
-      {columns = columns, dataSourceArn = dataSourceArn, name = name,
-       sqlQuery = sqlQuery}
+      {dataSourceArn = dataSourceArn, name = name, sqlQuery = sqlQuery,
+       columns = Prelude.Nothing}
 instance ToResourceProperties CustomSqlProperty where
   toResourceProperties CustomSqlProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.CustomSql",
          supportsTags = Prelude.False,
-         properties = ["Columns" JSON..= columns,
-                       "DataSourceArn" JSON..= dataSourceArn, "Name" JSON..= name,
-                       "SqlQuery" JSON..= sqlQuery]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["DataSourceArn" JSON..= dataSourceArn, "Name" JSON..= name,
+                            "SqlQuery" JSON..= sqlQuery]
+                           (Prelude.catMaybes [(JSON..=) "Columns" Prelude.<$> columns]))}
 instance JSON.ToJSON CustomSqlProperty where
   toJSON CustomSqlProperty {..}
     = JSON.object
-        ["Columns" JSON..= columns, "DataSourceArn" JSON..= dataSourceArn,
-         "Name" JSON..= name, "SqlQuery" JSON..= sqlQuery]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["DataSourceArn" JSON..= dataSourceArn, "Name" JSON..= name,
+               "SqlQuery" JSON..= sqlQuery]
+              (Prelude.catMaybes [(JSON..=) "Columns" Prelude.<$> columns])))
 instance Property "Columns" CustomSqlProperty where
   type PropertyType "Columns" CustomSqlProperty = [InputColumnProperty]
   set newValue CustomSqlProperty {..}
-    = CustomSqlProperty {columns = newValue, ..}
+    = CustomSqlProperty {columns = Prelude.pure newValue, ..}
 instance Property "DataSourceArn" CustomSqlProperty where
   type PropertyType "DataSourceArn" CustomSqlProperty = Value Prelude.Text
   set newValue CustomSqlProperty {..}

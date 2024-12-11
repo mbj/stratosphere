@@ -25,6 +25,10 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.Chatbot.CustomAction
+      Stratosphere.Chatbot.CustomAction.CustomActionAttachmentCriteriaProperty
+      Stratosphere.Chatbot.CustomAction.CustomActionAttachmentProperty
+      Stratosphere.Chatbot.CustomAction.CustomActionDefinitionProperty
       Stratosphere.Chatbot.MicrosoftTeamsChannelConfiguration
       Stratosphere.Chatbot.SlackChannelConfiguration
   other-modules:

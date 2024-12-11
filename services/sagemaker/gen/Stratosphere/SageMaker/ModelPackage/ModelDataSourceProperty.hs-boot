@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.ModelPackage.ModelDataSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ModelDataSourceProperty :: Prelude.Type
+instance ToResourceProperties ModelDataSourceProperty
+instance Prelude.Eq ModelDataSourceProperty
+instance Prelude.Show ModelDataSourceProperty
+instance JSON.ToJSON ModelDataSourceProperty

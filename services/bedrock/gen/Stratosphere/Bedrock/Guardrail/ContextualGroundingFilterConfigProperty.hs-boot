@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Guardrail.ContextualGroundingFilterConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContextualGroundingFilterConfigProperty :: Prelude.Type
+instance ToResourceProperties ContextualGroundingFilterConfigProperty
+instance Prelude.Eq ContextualGroundingFilterConfigProperty
+instance Prelude.Show ContextualGroundingFilterConfigProperty
+instance JSON.ToJSON ContextualGroundingFilterConfigProperty

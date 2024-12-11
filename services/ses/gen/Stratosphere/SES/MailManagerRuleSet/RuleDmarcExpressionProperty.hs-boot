@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerRuleSet.RuleDmarcExpressionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RuleDmarcExpressionProperty :: Prelude.Type
+instance ToResourceProperties RuleDmarcExpressionProperty
+instance Prelude.Eq RuleDmarcExpressionProperty
+instance Prelude.Show RuleDmarcExpressionProperty
+instance JSON.ToJSON RuleDmarcExpressionProperty

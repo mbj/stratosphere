@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Flow.FlowConnectionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FlowConnectionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FlowConnectionConfigurationProperty
+instance Prelude.Eq FlowConnectionConfigurationProperty
+instance Prelude.Show FlowConnectionConfigurationProperty
+instance JSON.ToJSON FlowConnectionConfigurationProperty

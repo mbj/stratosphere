@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.DataSource.IdentityCenterConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdentityCenterConfigurationProperty :: Prelude.Type
+instance ToResourceProperties IdentityCenterConfigurationProperty
+instance Prelude.Eq IdentityCenterConfigurationProperty
+instance Prelude.Show IdentityCenterConfigurationProperty
+instance JSON.ToJSON IdentityCenterConfigurationProperty

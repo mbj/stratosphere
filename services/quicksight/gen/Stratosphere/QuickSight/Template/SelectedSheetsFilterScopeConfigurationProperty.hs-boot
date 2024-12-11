@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.SelectedSheetsFilterScopeConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data SelectedSheetsFilterScopeConfigurationProperty :: Prelude.Type
-instance ToResourceProperties SelectedSheetsFilterScopeConfigurationProperty
-instance Prelude.Eq SelectedSheetsFilterScopeConfigurationProperty
-instance Prelude.Show SelectedSheetsFilterScopeConfigurationProperty
-instance JSON.ToJSON SelectedSheetsFilterScopeConfigurationProperty

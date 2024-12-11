@@ -1,0 +1,9 @@
+module Stratosphere.CleanRoomsML.TrainingDataset.GlueDataSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GlueDataSourceProperty :: Prelude.Type
+instance ToResourceProperties GlueDataSourceProperty
+instance Prelude.Eq GlueDataSourceProperty
+instance Prelude.Show GlueDataSourceProperty
+instance JSON.ToJSON GlueDataSourceProperty

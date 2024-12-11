@@ -1,15 +1,13 @@
 module Stratosphere.Transfer.Server.ProtocolDetailsProperty (
-        module Exports, ProtocolDetailsProperty(..),
-        mkProtocolDetailsProperty
+        ProtocolDetailsProperty(..), mkProtocolDetailsProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.Transfer.Server.As2TransportProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ProtocolDetailsProperty
-  = ProtocolDetailsProperty {as2Transports :: (Prelude.Maybe [As2TransportProperty]),
+  = ProtocolDetailsProperty {as2Transports :: (Prelude.Maybe (ValueList Prelude.Text)),
                              passiveIp :: (Prelude.Maybe (Value Prelude.Text)),
                              setStatOption :: (Prelude.Maybe (Value Prelude.Text)),
                              tlsSessionResumptionMode :: (Prelude.Maybe (Value Prelude.Text))}
@@ -43,7 +41,7 @@ instance JSON.ToJSON ProtocolDetailsProperty where
                (JSON..=) "TlsSessionResumptionMode"
                  Prelude.<$> tlsSessionResumptionMode]))
 instance Property "As2Transports" ProtocolDetailsProperty where
-  type PropertyType "As2Transports" ProtocolDetailsProperty = [As2TransportProperty]
+  type PropertyType "As2Transports" ProtocolDetailsProperty = ValueList Prelude.Text
   set newValue ProtocolDetailsProperty {..}
     = ProtocolDetailsProperty
         {as2Transports = Prelude.pure newValue, ..}

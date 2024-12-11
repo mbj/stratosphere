@@ -29,6 +29,10 @@ library
       Stratosphere.WorkSpaces.ConnectionAlias.ConnectionAliasAssociationProperty
       Stratosphere.WorkSpaces.Workspace
       Stratosphere.WorkSpaces.Workspace.WorkspacePropertiesProperty
+      Stratosphere.WorkSpaces.WorkspacesPool
+      Stratosphere.WorkSpaces.WorkspacesPool.ApplicationSettingsProperty
+      Stratosphere.WorkSpaces.WorkspacesPool.CapacityProperty
+      Stratosphere.WorkSpaces.WorkspacesPool.TimeoutSettingsProperty
   other-modules:
       Paths_stratosphere_workspaces
   hs-source-dirs:

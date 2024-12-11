@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.SegmentDefinition.SegmentGroupProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SegmentGroupProperty :: Prelude.Type
+instance ToResourceProperties SegmentGroupProperty
+instance Prelude.Eq SegmentGroupProperty
+instance Prelude.Show SegmentGroupProperty
+instance JSON.ToJSON SegmentGroupProperty

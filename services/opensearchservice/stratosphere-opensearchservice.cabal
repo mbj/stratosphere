@@ -25,6 +25,10 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.OpenSearchService.Application
+      Stratosphere.OpenSearchService.Application.AppConfigProperty
+      Stratosphere.OpenSearchService.Application.DataSourceProperty
+      Stratosphere.OpenSearchService.Application.IamIdentityCenterOptionsProperty
       Stratosphere.OpenSearchService.Domain
       Stratosphere.OpenSearchService.Domain.AdvancedSecurityOptionsInputProperty
       Stratosphere.OpenSearchService.Domain.ClusterConfigProperty
@@ -33,7 +37,9 @@ library
       Stratosphere.OpenSearchService.Domain.DomainEndpointOptionsProperty
       Stratosphere.OpenSearchService.Domain.EBSOptionsProperty
       Stratosphere.OpenSearchService.Domain.EncryptionAtRestOptionsProperty
+      Stratosphere.OpenSearchService.Domain.IdentityCenterOptionsProperty
       Stratosphere.OpenSearchService.Domain.IdpProperty
+      Stratosphere.OpenSearchService.Domain.JWTOptionsProperty
       Stratosphere.OpenSearchService.Domain.LogPublishingOptionProperty
       Stratosphere.OpenSearchService.Domain.MasterUserOptionsProperty
       Stratosphere.OpenSearchService.Domain.NodeToNodeEncryptionOptionsProperty

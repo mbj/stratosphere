@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowVersion.PromptFlowNodeResourceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PromptFlowNodeResourceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PromptFlowNodeResourceConfigurationProperty
+instance Prelude.Eq PromptFlowNodeResourceConfigurationProperty
+instance Prelude.Show PromptFlowNodeResourceConfigurationProperty
+instance JSON.ToJSON PromptFlowNodeResourceConfigurationProperty

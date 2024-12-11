@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.ItemsLimitConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data ItemsLimitConfigurationProperty :: Prelude.Type
-instance ToResourceProperties ItemsLimitConfigurationProperty
-instance Prelude.Eq ItemsLimitConfigurationProperty
-instance Prelude.Show ItemsLimitConfigurationProperty
-instance JSON.ToJSON ItemsLimitConfigurationProperty

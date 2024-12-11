@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerIngressPoint.IngressPointConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IngressPointConfigurationProperty :: Prelude.Type
+instance ToResourceProperties IngressPointConfigurationProperty
+instance Prelude.Eq IngressPointConfigurationProperty
+instance Prelude.Show IngressPointConfigurationProperty
+instance JSON.ToJSON IngressPointConfigurationProperty

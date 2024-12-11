@@ -5,20 +5,31 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.FailoverConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.MaintenanceProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.MediaStreamProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.SourceProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.SourceMonitoringConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.VpcInterfaceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Flow
   = Flow {availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+          maintenance :: (Prelude.Maybe MaintenanceProperty),
+          mediaStreams :: (Prelude.Maybe [MediaStreamProperty]),
           name :: (Value Prelude.Text),
           source :: SourceProperty,
-          sourceFailoverConfig :: (Prelude.Maybe FailoverConfigProperty)}
+          sourceFailoverConfig :: (Prelude.Maybe FailoverConfigProperty),
+          sourceMonitoringConfig :: (Prelude.Maybe SourceMonitoringConfigProperty),
+          vpcInterfaces :: (Prelude.Maybe [VpcInterfaceProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFlow :: Value Prelude.Text -> SourceProperty -> Flow
 mkFlow name source
   = Flow
       {name = name, source = source, availabilityZone = Prelude.Nothing,
-       sourceFailoverConfig = Prelude.Nothing}
+       maintenance = Prelude.Nothing, mediaStreams = Prelude.Nothing,
+       sourceFailoverConfig = Prelude.Nothing,
+       sourceMonitoringConfig = Prelude.Nothing,
+       vpcInterfaces = Prelude.Nothing}
 instance ToResourceProperties Flow where
   toResourceProperties Flow {..}
     = ResourceProperties
@@ -28,8 +39,12 @@ instance ToResourceProperties Flow where
                            ["Name" JSON..= name, "Source" JSON..= source]
                            (Prelude.catMaybes
                               [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
-                               (JSON..=) "SourceFailoverConfig"
-                                 Prelude.<$> sourceFailoverConfig]))}
+                               (JSON..=) "Maintenance" Prelude.<$> maintenance,
+                               (JSON..=) "MediaStreams" Prelude.<$> mediaStreams,
+                               (JSON..=) "SourceFailoverConfig" Prelude.<$> sourceFailoverConfig,
+                               (JSON..=) "SourceMonitoringConfig"
+                                 Prelude.<$> sourceMonitoringConfig,
+                               (JSON..=) "VpcInterfaces" Prelude.<$> vpcInterfaces]))}
 instance JSON.ToJSON Flow where
   toJSON Flow {..}
     = JSON.object
@@ -38,12 +53,24 @@ instance JSON.ToJSON Flow where
               ["Name" JSON..= name, "Source" JSON..= source]
               (Prelude.catMaybes
                  [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
-                  (JSON..=) "SourceFailoverConfig"
-                    Prelude.<$> sourceFailoverConfig])))
+                  (JSON..=) "Maintenance" Prelude.<$> maintenance,
+                  (JSON..=) "MediaStreams" Prelude.<$> mediaStreams,
+                  (JSON..=) "SourceFailoverConfig" Prelude.<$> sourceFailoverConfig,
+                  (JSON..=) "SourceMonitoringConfig"
+                    Prelude.<$> sourceMonitoringConfig,
+                  (JSON..=) "VpcInterfaces" Prelude.<$> vpcInterfaces])))
 instance Property "AvailabilityZone" Flow where
   type PropertyType "AvailabilityZone" Flow = Value Prelude.Text
   set newValue Flow {..}
     = Flow {availabilityZone = Prelude.pure newValue, ..}
+instance Property "Maintenance" Flow where
+  type PropertyType "Maintenance" Flow = MaintenanceProperty
+  set newValue Flow {..}
+    = Flow {maintenance = Prelude.pure newValue, ..}
+instance Property "MediaStreams" Flow where
+  type PropertyType "MediaStreams" Flow = [MediaStreamProperty]
+  set newValue Flow {..}
+    = Flow {mediaStreams = Prelude.pure newValue, ..}
 instance Property "Name" Flow where
   type PropertyType "Name" Flow = Value Prelude.Text
   set newValue Flow {..} = Flow {name = newValue, ..}
@@ -54,3 +81,11 @@ instance Property "SourceFailoverConfig" Flow where
   type PropertyType "SourceFailoverConfig" Flow = FailoverConfigProperty
   set newValue Flow {..}
     = Flow {sourceFailoverConfig = Prelude.pure newValue, ..}
+instance Property "SourceMonitoringConfig" Flow where
+  type PropertyType "SourceMonitoringConfig" Flow = SourceMonitoringConfigProperty
+  set newValue Flow {..}
+    = Flow {sourceMonitoringConfig = Prelude.pure newValue, ..}
+instance Property "VpcInterfaces" Flow where
+  type PropertyType "VpcInterfaces" Flow = [VpcInterfaceProperty]
+  set newValue Flow {..}
+    = Flow {vpcInterfaces = Prelude.pure newValue, ..}

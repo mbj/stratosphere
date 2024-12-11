@@ -1,0 +1,9 @@
+module Stratosphere.ConnectCampaignsV2.Campaign.ChannelSubtypeConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ChannelSubtypeConfigProperty :: Prelude.Type
+instance ToResourceProperties ChannelSubtypeConfigProperty
+instance Prelude.Eq ChannelSubtypeConfigProperty
+instance Prelude.Show ChannelSubtypeConfigProperty
+instance JSON.ToJSON ChannelSubtypeConfigProperty

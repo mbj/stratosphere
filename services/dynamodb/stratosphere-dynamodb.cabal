@@ -35,6 +35,7 @@ library
       Stratosphere.DynamoDB.GlobalTable.LocalSecondaryIndexProperty
       Stratosphere.DynamoDB.GlobalTable.PointInTimeRecoverySpecificationProperty
       Stratosphere.DynamoDB.GlobalTable.ProjectionProperty
+      Stratosphere.DynamoDB.GlobalTable.ReadOnDemandThroughputSettingsProperty
       Stratosphere.DynamoDB.GlobalTable.ReadProvisionedThroughputSettingsProperty
       Stratosphere.DynamoDB.GlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty
       Stratosphere.DynamoDB.GlobalTable.ReplicaSpecificationProperty
@@ -45,6 +46,8 @@ library
       Stratosphere.DynamoDB.GlobalTable.StreamSpecificationProperty
       Stratosphere.DynamoDB.GlobalTable.TargetTrackingScalingPolicyConfigurationProperty
       Stratosphere.DynamoDB.GlobalTable.TimeToLiveSpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.WarmThroughputProperty
+      Stratosphere.DynamoDB.GlobalTable.WriteOnDemandThroughputSettingsProperty
       Stratosphere.DynamoDB.GlobalTable.WriteProvisionedThroughputSettingsProperty
       Stratosphere.DynamoDB.Table
       Stratosphere.DynamoDB.Table.AttributeDefinitionProperty
@@ -56,6 +59,7 @@ library
       Stratosphere.DynamoDB.Table.KeySchemaProperty
       Stratosphere.DynamoDB.Table.KinesisStreamSpecificationProperty
       Stratosphere.DynamoDB.Table.LocalSecondaryIndexProperty
+      Stratosphere.DynamoDB.Table.OnDemandThroughputProperty
       Stratosphere.DynamoDB.Table.PointInTimeRecoverySpecificationProperty
       Stratosphere.DynamoDB.Table.ProjectionProperty
       Stratosphere.DynamoDB.Table.ProvisionedThroughputProperty
@@ -64,6 +68,7 @@ library
       Stratosphere.DynamoDB.Table.SSESpecificationProperty
       Stratosphere.DynamoDB.Table.StreamSpecificationProperty
       Stratosphere.DynamoDB.Table.TimeToLiveSpecificationProperty
+      Stratosphere.DynamoDB.Table.WarmThroughputProperty
   other-modules:
       Paths_stratosphere_dynamodb
   hs-source-dirs:

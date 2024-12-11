@@ -25,15 +25,59 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.Wisdom.AIAgent
+      Stratosphere.Wisdom.AIAgent.AIAgentConfigurationProperty
+      Stratosphere.Wisdom.AIAgent.AnswerRecommendationAIAgentConfigurationProperty
+      Stratosphere.Wisdom.AIAgent.AssociationConfigurationDataProperty
+      Stratosphere.Wisdom.AIAgent.AssociationConfigurationProperty
+      Stratosphere.Wisdom.AIAgent.KnowledgeBaseAssociationConfigurationDataProperty
+      Stratosphere.Wisdom.AIAgent.ManualSearchAIAgentConfigurationProperty
+      Stratosphere.Wisdom.AIAgent.OrConditionProperty
+      Stratosphere.Wisdom.AIAgent.TagConditionProperty
+      Stratosphere.Wisdom.AIAgent.TagFilterProperty
+      Stratosphere.Wisdom.AIAgentVersion
+      Stratosphere.Wisdom.AIPrompt
+      Stratosphere.Wisdom.AIPrompt.AIPromptTemplateConfigurationProperty
+      Stratosphere.Wisdom.AIPrompt.TextFullAIPromptEditTemplateConfigurationProperty
+      Stratosphere.Wisdom.AIPromptVersion
       Stratosphere.Wisdom.Assistant
       Stratosphere.Wisdom.Assistant.ServerSideEncryptionConfigurationProperty
       Stratosphere.Wisdom.AssistantAssociation
       Stratosphere.Wisdom.AssistantAssociation.AssociationDataProperty
       Stratosphere.Wisdom.KnowledgeBase
       Stratosphere.Wisdom.KnowledgeBase.AppIntegrationsConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.BedrockFoundationModelConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.ChunkingConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.CrawlerLimitsProperty
+      Stratosphere.Wisdom.KnowledgeBase.FixedSizeChunkingConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.HierarchicalChunkingConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.HierarchicalChunkingLevelConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.ManagedSourceConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.ParsingConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.ParsingPromptProperty
       Stratosphere.Wisdom.KnowledgeBase.RenderingConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.SeedUrlProperty
+      Stratosphere.Wisdom.KnowledgeBase.SemanticChunkingConfigurationProperty
       Stratosphere.Wisdom.KnowledgeBase.ServerSideEncryptionConfigurationProperty
       Stratosphere.Wisdom.KnowledgeBase.SourceConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.UrlConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.VectorIngestionConfigurationProperty
+      Stratosphere.Wisdom.KnowledgeBase.WebCrawlerConfigurationProperty
+      Stratosphere.Wisdom.MessageTemplate
+      Stratosphere.Wisdom.MessageTemplate.AgentAttributesProperty
+      Stratosphere.Wisdom.MessageTemplate.ContentProperty
+      Stratosphere.Wisdom.MessageTemplate.CustomerProfileAttributesProperty
+      Stratosphere.Wisdom.MessageTemplate.EmailMessageTemplateContentBodyProperty
+      Stratosphere.Wisdom.MessageTemplate.EmailMessageTemplateContentProperty
+      Stratosphere.Wisdom.MessageTemplate.EmailMessageTemplateHeaderProperty
+      Stratosphere.Wisdom.MessageTemplate.GroupingConfigurationProperty
+      Stratosphere.Wisdom.MessageTemplate.MessageTemplateAttributesProperty
+      Stratosphere.Wisdom.MessageTemplate.MessageTemplateBodyContentProviderProperty
+      Stratosphere.Wisdom.MessageTemplate.SmsMessageTemplateContentBodyProperty
+      Stratosphere.Wisdom.MessageTemplate.SmsMessageTemplateContentProperty
+      Stratosphere.Wisdom.MessageTemplate.SystemAttributesProperty
+      Stratosphere.Wisdom.MessageTemplate.SystemEndpointAttributesProperty
+      Stratosphere.Wisdom.MessageTemplateVersion
   other-modules:
       Paths_stratosphere_wisdom
   hs-source-dirs:

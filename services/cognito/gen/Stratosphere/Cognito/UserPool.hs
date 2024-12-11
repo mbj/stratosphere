@@ -25,6 +25,8 @@ data UserPool
               autoVerifiedAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
               deletionProtection :: (Prelude.Maybe (Value Prelude.Text)),
               deviceConfiguration :: (Prelude.Maybe DeviceConfigurationProperty),
+              emailAuthenticationMessage :: (Prelude.Maybe (Value Prelude.Text)),
+              emailAuthenticationSubject :: (Prelude.Maybe (Value Prelude.Text)),
               emailConfiguration :: (Prelude.Maybe EmailConfigurationProperty),
               emailVerificationMessage :: (Prelude.Maybe (Value Prelude.Text)),
               emailVerificationSubject :: (Prelude.Maybe (Value Prelude.Text)),
@@ -40,9 +42,12 @@ data UserPool
               userPoolAddOns :: (Prelude.Maybe UserPoolAddOnsProperty),
               userPoolName :: (Prelude.Maybe (Value Prelude.Text)),
               userPoolTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+              userPoolTier :: (Prelude.Maybe (Value Prelude.Text)),
               usernameAttributes :: (Prelude.Maybe (ValueList Prelude.Text)),
               usernameConfiguration :: (Prelude.Maybe UsernameConfigurationProperty),
-              verificationMessageTemplate :: (Prelude.Maybe VerificationMessageTemplateProperty)}
+              verificationMessageTemplate :: (Prelude.Maybe VerificationMessageTemplateProperty),
+              webAuthnRelyingPartyID :: (Prelude.Maybe (Value Prelude.Text)),
+              webAuthnUserVerification :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPool :: UserPool
 mkUserPool
@@ -53,6 +58,8 @@ mkUserPool
        autoVerifiedAttributes = Prelude.Nothing,
        deletionProtection = Prelude.Nothing,
        deviceConfiguration = Prelude.Nothing,
+       emailAuthenticationMessage = Prelude.Nothing,
+       emailAuthenticationSubject = Prelude.Nothing,
        emailConfiguration = Prelude.Nothing,
        emailVerificationMessage = Prelude.Nothing,
        emailVerificationSubject = Prelude.Nothing,
@@ -64,10 +71,12 @@ mkUserPool
        smsVerificationMessage = Prelude.Nothing,
        userAttributeUpdateSettings = Prelude.Nothing,
        userPoolAddOns = Prelude.Nothing, userPoolName = Prelude.Nothing,
-       userPoolTags = Prelude.Nothing,
+       userPoolTags = Prelude.Nothing, userPoolTier = Prelude.Nothing,
        usernameAttributes = Prelude.Nothing,
        usernameConfiguration = Prelude.Nothing,
-       verificationMessageTemplate = Prelude.Nothing}
+       verificationMessageTemplate = Prelude.Nothing,
+       webAuthnRelyingPartyID = Prelude.Nothing,
+       webAuthnUserVerification = Prelude.Nothing}
 instance ToResourceProperties UserPool where
   toResourceProperties UserPool {..}
     = ResourceProperties
@@ -83,6 +92,10 @@ instance ToResourceProperties UserPool where
                               Prelude.<$> autoVerifiedAttributes,
                             (JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,
                             (JSON..=) "DeviceConfiguration" Prelude.<$> deviceConfiguration,
+                            (JSON..=) "EmailAuthenticationMessage"
+                              Prelude.<$> emailAuthenticationMessage,
+                            (JSON..=) "EmailAuthenticationSubject"
+                              Prelude.<$> emailAuthenticationSubject,
                             (JSON..=) "EmailConfiguration" Prelude.<$> emailConfiguration,
                             (JSON..=) "EmailVerificationMessage"
                               Prelude.<$> emailVerificationMessage,
@@ -103,11 +116,16 @@ instance ToResourceProperties UserPool where
                             (JSON..=) "UserPoolAddOns" Prelude.<$> userPoolAddOns,
                             (JSON..=) "UserPoolName" Prelude.<$> userPoolName,
                             (JSON..=) "UserPoolTags" Prelude.<$> userPoolTags,
+                            (JSON..=) "UserPoolTier" Prelude.<$> userPoolTier,
                             (JSON..=) "UsernameAttributes" Prelude.<$> usernameAttributes,
                             (JSON..=) "UsernameConfiguration"
                               Prelude.<$> usernameConfiguration,
                             (JSON..=) "VerificationMessageTemplate"
-                              Prelude.<$> verificationMessageTemplate])}
+                              Prelude.<$> verificationMessageTemplate,
+                            (JSON..=) "WebAuthnRelyingPartyID"
+                              Prelude.<$> webAuthnRelyingPartyID,
+                            (JSON..=) "WebAuthnUserVerification"
+                              Prelude.<$> webAuthnUserVerification])}
 instance JSON.ToJSON UserPool where
   toJSON UserPool {..}
     = JSON.object
@@ -122,6 +140,10 @@ instance JSON.ToJSON UserPool where
                  Prelude.<$> autoVerifiedAttributes,
                (JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,
                (JSON..=) "DeviceConfiguration" Prelude.<$> deviceConfiguration,
+               (JSON..=) "EmailAuthenticationMessage"
+                 Prelude.<$> emailAuthenticationMessage,
+               (JSON..=) "EmailAuthenticationSubject"
+                 Prelude.<$> emailAuthenticationSubject,
                (JSON..=) "EmailConfiguration" Prelude.<$> emailConfiguration,
                (JSON..=) "EmailVerificationMessage"
                  Prelude.<$> emailVerificationMessage,
@@ -142,11 +164,16 @@ instance JSON.ToJSON UserPool where
                (JSON..=) "UserPoolAddOns" Prelude.<$> userPoolAddOns,
                (JSON..=) "UserPoolName" Prelude.<$> userPoolName,
                (JSON..=) "UserPoolTags" Prelude.<$> userPoolTags,
+               (JSON..=) "UserPoolTier" Prelude.<$> userPoolTier,
                (JSON..=) "UsernameAttributes" Prelude.<$> usernameAttributes,
                (JSON..=) "UsernameConfiguration"
                  Prelude.<$> usernameConfiguration,
                (JSON..=) "VerificationMessageTemplate"
-                 Prelude.<$> verificationMessageTemplate]))
+                 Prelude.<$> verificationMessageTemplate,
+               (JSON..=) "WebAuthnRelyingPartyID"
+                 Prelude.<$> webAuthnRelyingPartyID,
+               (JSON..=) "WebAuthnUserVerification"
+                 Prelude.<$> webAuthnUserVerification]))
 instance Property "AccountRecoverySetting" UserPool where
   type PropertyType "AccountRecoverySetting" UserPool = AccountRecoverySettingProperty
   set newValue UserPool {..}
@@ -171,6 +198,14 @@ instance Property "DeviceConfiguration" UserPool where
   type PropertyType "DeviceConfiguration" UserPool = DeviceConfigurationProperty
   set newValue UserPool {..}
     = UserPool {deviceConfiguration = Prelude.pure newValue, ..}
+instance Property "EmailAuthenticationMessage" UserPool where
+  type PropertyType "EmailAuthenticationMessage" UserPool = Value Prelude.Text
+  set newValue UserPool {..}
+    = UserPool {emailAuthenticationMessage = Prelude.pure newValue, ..}
+instance Property "EmailAuthenticationSubject" UserPool where
+  type PropertyType "EmailAuthenticationSubject" UserPool = Value Prelude.Text
+  set newValue UserPool {..}
+    = UserPool {emailAuthenticationSubject = Prelude.pure newValue, ..}
 instance Property "EmailConfiguration" UserPool where
   type PropertyType "EmailConfiguration" UserPool = EmailConfigurationProperty
   set newValue UserPool {..}
@@ -232,6 +267,10 @@ instance Property "UserPoolTags" UserPool where
   type PropertyType "UserPoolTags" UserPool = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue UserPool {..}
     = UserPool {userPoolTags = Prelude.pure newValue, ..}
+instance Property "UserPoolTier" UserPool where
+  type PropertyType "UserPoolTier" UserPool = Value Prelude.Text
+  set newValue UserPool {..}
+    = UserPool {userPoolTier = Prelude.pure newValue, ..}
 instance Property "UsernameAttributes" UserPool where
   type PropertyType "UsernameAttributes" UserPool = ValueList Prelude.Text
   set newValue UserPool {..}
@@ -245,3 +284,11 @@ instance Property "VerificationMessageTemplate" UserPool where
   set newValue UserPool {..}
     = UserPool
         {verificationMessageTemplate = Prelude.pure newValue, ..}
+instance Property "WebAuthnRelyingPartyID" UserPool where
+  type PropertyType "WebAuthnRelyingPartyID" UserPool = Value Prelude.Text
+  set newValue UserPool {..}
+    = UserPool {webAuthnRelyingPartyID = Prelude.pure newValue, ..}
+instance Property "WebAuthnUserVerification" UserPool where
+  type PropertyType "WebAuthnUserVerification" UserPool = Value Prelude.Text
+  set newValue UserPool {..}
+    = UserPool {webAuthnUserVerification = Prelude.pure newValue, ..}

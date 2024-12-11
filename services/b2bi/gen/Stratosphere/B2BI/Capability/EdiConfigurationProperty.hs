@@ -10,7 +10,8 @@ import {-# SOURCE #-} Stratosphere.B2BI.Capability.S3LocationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EdiConfigurationProperty
-  = EdiConfigurationProperty {inputLocation :: S3LocationProperty,
+  = EdiConfigurationProperty {capabilityDirection :: (Prelude.Maybe (Value Prelude.Text)),
+                              inputLocation :: S3LocationProperty,
                               outputLocation :: S3LocationProperty,
                               transformerId :: (Value Prelude.Text),
                               type' :: EdiTypeProperty}
@@ -27,21 +28,37 @@ mkEdiConfigurationProperty
   type'
   = EdiConfigurationProperty
       {inputLocation = inputLocation, outputLocation = outputLocation,
-       transformerId = transformerId, type' = type'}
+       transformerId = transformerId, type' = type',
+       capabilityDirection = Prelude.Nothing}
 instance ToResourceProperties EdiConfigurationProperty where
   toResourceProperties EdiConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::B2BI::Capability.EdiConfiguration",
          supportsTags = Prelude.False,
-         properties = ["InputLocation" JSON..= inputLocation,
-                       "OutputLocation" JSON..= outputLocation,
-                       "TransformerId" JSON..= transformerId, "Type" JSON..= type']}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["InputLocation" JSON..= inputLocation,
+                            "OutputLocation" JSON..= outputLocation,
+                            "TransformerId" JSON..= transformerId, "Type" JSON..= type']
+                           (Prelude.catMaybes
+                              [(JSON..=) "CapabilityDirection"
+                                 Prelude.<$> capabilityDirection]))}
 instance JSON.ToJSON EdiConfigurationProperty where
   toJSON EdiConfigurationProperty {..}
     = JSON.object
-        ["InputLocation" JSON..= inputLocation,
-         "OutputLocation" JSON..= outputLocation,
-         "TransformerId" JSON..= transformerId, "Type" JSON..= type']
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["InputLocation" JSON..= inputLocation,
+               "OutputLocation" JSON..= outputLocation,
+               "TransformerId" JSON..= transformerId, "Type" JSON..= type']
+              (Prelude.catMaybes
+                 [(JSON..=) "CapabilityDirection"
+                    Prelude.<$> capabilityDirection])))
+instance Property "CapabilityDirection" EdiConfigurationProperty where
+  type PropertyType "CapabilityDirection" EdiConfigurationProperty = Value Prelude.Text
+  set newValue EdiConfigurationProperty {..}
+    = EdiConfigurationProperty
+        {capabilityDirection = Prelude.pure newValue, ..}
 instance Property "InputLocation" EdiConfigurationProperty where
   type PropertyType "InputLocation" EdiConfigurationProperty = S3LocationProperty
   set newValue EdiConfigurationProperty {..}

@@ -10,7 +10,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DecoderManifest
-  = DecoderManifest {description :: (Prelude.Maybe (Value Prelude.Text)),
+  = DecoderManifest {defaultForUnmappedSignals :: (Prelude.Maybe (Value Prelude.Text)),
+                     description :: (Prelude.Maybe (Value Prelude.Text)),
                      modelManifestArn :: (Value Prelude.Text),
                      name :: (Value Prelude.Text),
                      networkInterfaces :: (Prelude.Maybe [NetworkInterfacesItemsProperty]),
@@ -23,6 +24,7 @@ mkDecoderManifest ::
 mkDecoderManifest modelManifestArn name
   = DecoderManifest
       {modelManifestArn = modelManifestArn, name = name,
+       defaultForUnmappedSignals = Prelude.Nothing,
        description = Prelude.Nothing, networkInterfaces = Prelude.Nothing,
        signalDecoders = Prelude.Nothing, status = Prelude.Nothing,
        tags = Prelude.Nothing}
@@ -35,7 +37,9 @@ instance ToResourceProperties DecoderManifest where
                         ((Prelude.<>)
                            ["ModelManifestArn" JSON..= modelManifestArn, "Name" JSON..= name]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "DefaultForUnmappedSignals"
+                                 Prelude.<$> defaultForUnmappedSignals,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "NetworkInterfaces" Prelude.<$> networkInterfaces,
                                (JSON..=) "SignalDecoders" Prelude.<$> signalDecoders,
                                (JSON..=) "Status" Prelude.<$> status,
@@ -47,11 +51,18 @@ instance JSON.ToJSON DecoderManifest where
            ((Prelude.<>)
               ["ModelManifestArn" JSON..= modelManifestArn, "Name" JSON..= name]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "DefaultForUnmappedSignals"
+                    Prelude.<$> defaultForUnmappedSignals,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "NetworkInterfaces" Prelude.<$> networkInterfaces,
                   (JSON..=) "SignalDecoders" Prelude.<$> signalDecoders,
                   (JSON..=) "Status" Prelude.<$> status,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "DefaultForUnmappedSignals" DecoderManifest where
+  type PropertyType "DefaultForUnmappedSignals" DecoderManifest = Value Prelude.Text
+  set newValue DecoderManifest {..}
+    = DecoderManifest
+        {defaultForUnmappedSignals = Prelude.pure newValue, ..}
 instance Property "Description" DecoderManifest where
   type PropertyType "Description" DecoderManifest = Value Prelude.Text
   set newValue DecoderManifest {..}

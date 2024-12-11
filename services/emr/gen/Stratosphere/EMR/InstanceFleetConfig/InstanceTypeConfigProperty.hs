@@ -16,6 +16,7 @@ data InstanceTypeConfigProperty
                                 customAmiId :: (Prelude.Maybe (Value Prelude.Text)),
                                 ebsConfiguration :: (Prelude.Maybe EbsConfigurationProperty),
                                 instanceType :: (Value Prelude.Text),
+                                priority :: (Prelude.Maybe (Value Prelude.Double)),
                                 weightedCapacity :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInstanceTypeConfigProperty ::
@@ -25,7 +26,7 @@ mkInstanceTypeConfigProperty instanceType
       {instanceType = instanceType, bidPrice = Prelude.Nothing,
        bidPriceAsPercentageOfOnDemandPrice = Prelude.Nothing,
        configurations = Prelude.Nothing, customAmiId = Prelude.Nothing,
-       ebsConfiguration = Prelude.Nothing,
+       ebsConfiguration = Prelude.Nothing, priority = Prelude.Nothing,
        weightedCapacity = Prelude.Nothing}
 instance ToResourceProperties InstanceTypeConfigProperty where
   toResourceProperties InstanceTypeConfigProperty {..}
@@ -42,6 +43,7 @@ instance ToResourceProperties InstanceTypeConfigProperty where
                                (JSON..=) "Configurations" Prelude.<$> configurations,
                                (JSON..=) "CustomAmiId" Prelude.<$> customAmiId,
                                (JSON..=) "EbsConfiguration" Prelude.<$> ebsConfiguration,
+                               (JSON..=) "Priority" Prelude.<$> priority,
                                (JSON..=) "WeightedCapacity" Prelude.<$> weightedCapacity]))}
 instance JSON.ToJSON InstanceTypeConfigProperty where
   toJSON InstanceTypeConfigProperty {..}
@@ -56,6 +58,7 @@ instance JSON.ToJSON InstanceTypeConfigProperty where
                   (JSON..=) "Configurations" Prelude.<$> configurations,
                   (JSON..=) "CustomAmiId" Prelude.<$> customAmiId,
                   (JSON..=) "EbsConfiguration" Prelude.<$> ebsConfiguration,
+                  (JSON..=) "Priority" Prelude.<$> priority,
                   (JSON..=) "WeightedCapacity" Prelude.<$> weightedCapacity])))
 instance Property "BidPrice" InstanceTypeConfigProperty where
   type PropertyType "BidPrice" InstanceTypeConfigProperty = Value Prelude.Text
@@ -85,6 +88,10 @@ instance Property "InstanceType" InstanceTypeConfigProperty where
   type PropertyType "InstanceType" InstanceTypeConfigProperty = Value Prelude.Text
   set newValue InstanceTypeConfigProperty {..}
     = InstanceTypeConfigProperty {instanceType = newValue, ..}
+instance Property "Priority" InstanceTypeConfigProperty where
+  type PropertyType "Priority" InstanceTypeConfigProperty = Value Prelude.Double
+  set newValue InstanceTypeConfigProperty {..}
+    = InstanceTypeConfigProperty {priority = Prelude.pure newValue, ..}
 instance Property "WeightedCapacity" InstanceTypeConfigProperty where
   type PropertyType "WeightedCapacity" InstanceTypeConfigProperty = Value Prelude.Integer
   set newValue InstanceTypeConfigProperty {..}

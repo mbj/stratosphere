@@ -12,7 +12,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Channel
-  = Channel {channelName :: (Value Prelude.Text),
+  = Channel {audiences :: (Prelude.Maybe (ValueList Prelude.Text)),
+             channelName :: (Value Prelude.Text),
              fillerSlate :: (Prelude.Maybe SlateSourceProperty),
              logConfiguration :: (Prelude.Maybe LogConfigurationForChannelProperty),
              outputs :: [RequestOutputItemProperty],
@@ -27,9 +28,10 @@ mkChannel ::
 mkChannel channelName outputs playbackMode
   = Channel
       {channelName = channelName, outputs = outputs,
-       playbackMode = playbackMode, fillerSlate = Prelude.Nothing,
-       logConfiguration = Prelude.Nothing, tags = Prelude.Nothing,
-       tier = Prelude.Nothing, timeShiftConfiguration = Prelude.Nothing}
+       playbackMode = playbackMode, audiences = Prelude.Nothing,
+       fillerSlate = Prelude.Nothing, logConfiguration = Prelude.Nothing,
+       tags = Prelude.Nothing, tier = Prelude.Nothing,
+       timeShiftConfiguration = Prelude.Nothing}
 instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties
@@ -40,7 +42,8 @@ instance ToResourceProperties Channel where
                            ["ChannelName" JSON..= channelName, "Outputs" JSON..= outputs,
                             "PlaybackMode" JSON..= playbackMode]
                            (Prelude.catMaybes
-                              [(JSON..=) "FillerSlate" Prelude.<$> fillerSlate,
+                              [(JSON..=) "Audiences" Prelude.<$> audiences,
+                               (JSON..=) "FillerSlate" Prelude.<$> fillerSlate,
                                (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "Tier" Prelude.<$> tier,
@@ -54,12 +57,17 @@ instance JSON.ToJSON Channel where
               ["ChannelName" JSON..= channelName, "Outputs" JSON..= outputs,
                "PlaybackMode" JSON..= playbackMode]
               (Prelude.catMaybes
-                 [(JSON..=) "FillerSlate" Prelude.<$> fillerSlate,
+                 [(JSON..=) "Audiences" Prelude.<$> audiences,
+                  (JSON..=) "FillerSlate" Prelude.<$> fillerSlate,
                   (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "Tier" Prelude.<$> tier,
                   (JSON..=) "TimeShiftConfiguration"
                     Prelude.<$> timeShiftConfiguration])))
+instance Property "Audiences" Channel where
+  type PropertyType "Audiences" Channel = ValueList Prelude.Text
+  set newValue Channel {..}
+    = Channel {audiences = Prelude.pure newValue, ..}
 instance Property "ChannelName" Channel where
   type PropertyType "ChannelName" Channel = Value Prelude.Text
   set newValue Channel {..} = Channel {channelName = newValue, ..}

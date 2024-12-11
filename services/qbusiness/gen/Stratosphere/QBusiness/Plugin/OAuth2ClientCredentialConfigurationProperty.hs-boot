@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.Plugin.OAuth2ClientCredentialConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OAuth2ClientCredentialConfigurationProperty :: Prelude.Type
+instance ToResourceProperties OAuth2ClientCredentialConfigurationProperty
+instance Prelude.Eq OAuth2ClientCredentialConfigurationProperty
+instance Prelude.Show OAuth2ClientCredentialConfigurationProperty
+instance JSON.ToJSON OAuth2ClientCredentialConfigurationProperty

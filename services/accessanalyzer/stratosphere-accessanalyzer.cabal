@@ -26,6 +26,8 @@ flag development
 library
   exposed-modules:
       Stratosphere.AccessAnalyzer.Analyzer
+      Stratosphere.AccessAnalyzer.Analyzer.AnalysisRuleCriteriaProperty
+      Stratosphere.AccessAnalyzer.Analyzer.AnalysisRuleProperty
       Stratosphere.AccessAnalyzer.Analyzer.AnalyzerConfigurationProperty
       Stratosphere.AccessAnalyzer.Analyzer.ArchiveRuleProperty
       Stratosphere.AccessAnalyzer.Analyzer.FilterProperty

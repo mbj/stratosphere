@@ -26,12 +26,21 @@ flag development
 library
   exposed-modules:
       Stratosphere.EntityResolution.IdMappingWorkflow
+      Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingRuleBasedPropertiesProperty
       Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingTechniquesProperty
       Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingWorkflowInputSourceProperty
       Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingWorkflowOutputSourceProperty
       Stratosphere.EntityResolution.IdMappingWorkflow.IntermediateSourceConfigurationProperty
       Stratosphere.EntityResolution.IdMappingWorkflow.ProviderPropertiesProperty
+      Stratosphere.EntityResolution.IdMappingWorkflow.RuleProperty
+      Stratosphere.EntityResolution.IdNamespace
+      Stratosphere.EntityResolution.IdNamespace.IdNamespaceIdMappingWorkflowPropertiesProperty
+      Stratosphere.EntityResolution.IdNamespace.IdNamespaceInputSourceProperty
+      Stratosphere.EntityResolution.IdNamespace.NamespaceProviderPropertiesProperty
+      Stratosphere.EntityResolution.IdNamespace.NamespaceRuleBasedPropertiesProperty
+      Stratosphere.EntityResolution.IdNamespace.RuleProperty
       Stratosphere.EntityResolution.MatchingWorkflow
+      Stratosphere.EntityResolution.MatchingWorkflow.IncrementalRunConfigProperty
       Stratosphere.EntityResolution.MatchingWorkflow.InputSourceProperty
       Stratosphere.EntityResolution.MatchingWorkflow.IntermediateSourceConfigurationProperty
       Stratosphere.EntityResolution.MatchingWorkflow.OutputAttributeProperty
@@ -40,6 +49,7 @@ library
       Stratosphere.EntityResolution.MatchingWorkflow.ResolutionTechniquesProperty
       Stratosphere.EntityResolution.MatchingWorkflow.RuleBasedPropertiesProperty
       Stratosphere.EntityResolution.MatchingWorkflow.RuleProperty
+      Stratosphere.EntityResolution.PolicyStatement
       Stratosphere.EntityResolution.SchemaMapping
       Stratosphere.EntityResolution.SchemaMapping.SchemaInputAttributeProperty
   other-modules:

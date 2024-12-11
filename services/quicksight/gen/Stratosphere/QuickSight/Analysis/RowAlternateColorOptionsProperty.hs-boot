@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.RowAlternateColorOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data RowAlternateColorOptionsProperty :: Prelude.Type
-instance ToResourceProperties RowAlternateColorOptionsProperty
-instance Prelude.Eq RowAlternateColorOptionsProperty
-instance Prelude.Show RowAlternateColorOptionsProperty
-instance JSON.ToJSON RowAlternateColorOptionsProperty

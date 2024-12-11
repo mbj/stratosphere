@@ -25,8 +25,19 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.AppSync.Api
+      Stratosphere.AppSync.Api.AuthModeProperty
+      Stratosphere.AppSync.Api.AuthProviderProperty
+      Stratosphere.AppSync.Api.CognitoConfigProperty
+      Stratosphere.AppSync.Api.DnsMapProperty
+      Stratosphere.AppSync.Api.EventConfigProperty
+      Stratosphere.AppSync.Api.EventLogConfigProperty
+      Stratosphere.AppSync.Api.LambdaAuthorizerConfigProperty
+      Stratosphere.AppSync.Api.OpenIDConnectConfigProperty
       Stratosphere.AppSync.ApiCache
       Stratosphere.AppSync.ApiKey
+      Stratosphere.AppSync.ChannelNamespace
+      Stratosphere.AppSync.ChannelNamespace.AuthModeProperty
       Stratosphere.AppSync.DataSource
       Stratosphere.AppSync.DataSource.AuthorizationConfigProperty
       Stratosphere.AppSync.DataSource.AwsIamConfigProperty

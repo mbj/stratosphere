@@ -1,0 +1,9 @@
+module Stratosphere.WorkSpacesWeb.DataProtectionSettings.InlineRedactionPatternProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InlineRedactionPatternProperty :: Prelude.Type
+instance ToResourceProperties InlineRedactionPatternProperty
+instance Prelude.Eq InlineRedactionPatternProperty
+instance Prelude.Show InlineRedactionPatternProperty
+instance JSON.ToJSON InlineRedactionPatternProperty

@@ -20,6 +20,7 @@ data Domain
             domainSettings :: (Prelude.Maybe DomainSettingsProperty),
             kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
             subnetIds :: (ValueList Prelude.Text),
+            tagPropagation :: (Prelude.Maybe (Value Prelude.Text)),
             tags :: (Prelude.Maybe [Tag]),
             vpcId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -36,7 +37,7 @@ mkDomain authMode defaultUserSettings domainName subnetIds vpcId
        appSecurityGroupManagement = Prelude.Nothing,
        defaultSpaceSettings = Prelude.Nothing,
        domainSettings = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       tagPropagation = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Domain where
   toResourceProperties Domain {..}
     = ResourceProperties
@@ -54,6 +55,7 @@ instance ToResourceProperties Domain where
                                (JSON..=) "DefaultSpaceSettings" Prelude.<$> defaultSpaceSettings,
                                (JSON..=) "DomainSettings" Prelude.<$> domainSettings,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                               (JSON..=) "TagPropagation" Prelude.<$> tagPropagation,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Domain where
   toJSON Domain {..}
@@ -71,6 +73,7 @@ instance JSON.ToJSON Domain where
                   (JSON..=) "DefaultSpaceSettings" Prelude.<$> defaultSpaceSettings,
                   (JSON..=) "DomainSettings" Prelude.<$> domainSettings,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                  (JSON..=) "TagPropagation" Prelude.<$> tagPropagation,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AppNetworkAccessType" Domain where
   type PropertyType "AppNetworkAccessType" Domain = Value Prelude.Text
@@ -105,6 +108,10 @@ instance Property "KmsKeyId" Domain where
 instance Property "SubnetIds" Domain where
   type PropertyType "SubnetIds" Domain = ValueList Prelude.Text
   set newValue Domain {..} = Domain {subnetIds = newValue, ..}
+instance Property "TagPropagation" Domain where
+  type PropertyType "TagPropagation" Domain = Value Prelude.Text
+  set newValue Domain {..}
+    = Domain {tagPropagation = Prelude.pure newValue, ..}
 instance Property "Tags" Domain where
   type PropertyType "Tags" Domain = [Tag]
   set newValue Domain {..}

@@ -27,10 +27,15 @@ library
   exposed-modules:
       Stratosphere.FMS.NotificationChannel
       Stratosphere.FMS.Policy
+      Stratosphere.FMS.Policy.IcmpTypeCodeProperty
       Stratosphere.FMS.Policy.IEMapProperty
+      Stratosphere.FMS.Policy.NetworkAclCommonPolicyProperty
+      Stratosphere.FMS.Policy.NetworkAclEntryProperty
+      Stratosphere.FMS.Policy.NetworkAclEntrySetProperty
       Stratosphere.FMS.Policy.NetworkFirewallPolicyProperty
       Stratosphere.FMS.Policy.PolicyOptionProperty
       Stratosphere.FMS.Policy.PolicyTagProperty
+      Stratosphere.FMS.Policy.PortRangeProperty
       Stratosphere.FMS.Policy.ResourceTagProperty
       Stratosphere.FMS.Policy.SecurityServicePolicyDataProperty
       Stratosphere.FMS.Policy.ThirdPartyFirewallPolicyProperty

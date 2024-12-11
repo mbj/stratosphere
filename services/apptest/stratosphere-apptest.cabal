@@ -1,0 +1,94 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-apptest
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.AppTest.TestCase
+      Stratosphere.AppTest.TestCase.BatchProperty
+      Stratosphere.AppTest.TestCase.CloudFormationActionProperty
+      Stratosphere.AppTest.TestCase.CompareActionProperty
+      Stratosphere.AppTest.TestCase.DatabaseCDCProperty
+      Stratosphere.AppTest.TestCase.DataSetProperty
+      Stratosphere.AppTest.TestCase.FileMetadataProperty
+      Stratosphere.AppTest.TestCase.InputFileProperty
+      Stratosphere.AppTest.TestCase.InputProperty
+      Stratosphere.AppTest.TestCase.M2ManagedActionPropertiesProperty
+      Stratosphere.AppTest.TestCase.M2ManagedApplicationActionProperty
+      Stratosphere.AppTest.TestCase.M2NonManagedApplicationActionProperty
+      Stratosphere.AppTest.TestCase.MainframeActionPropertiesProperty
+      Stratosphere.AppTest.TestCase.MainframeActionProperty
+      Stratosphere.AppTest.TestCase.MainframeActionTypeProperty
+      Stratosphere.AppTest.TestCase.OutputFileProperty
+      Stratosphere.AppTest.TestCase.OutputProperty
+      Stratosphere.AppTest.TestCase.ResourceActionProperty
+      Stratosphere.AppTest.TestCase.ScriptProperty
+      Stratosphere.AppTest.TestCase.SourceDatabaseMetadataProperty
+      Stratosphere.AppTest.TestCase.StepActionProperty
+      Stratosphere.AppTest.TestCase.StepProperty
+      Stratosphere.AppTest.TestCase.TargetDatabaseMetadataProperty
+      Stratosphere.AppTest.TestCase.TestCaseLatestVersionProperty
+      Stratosphere.AppTest.TestCase.TN3270Property
+  other-modules:
+      Paths_stratosphere_apptest
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

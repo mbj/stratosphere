@@ -12,21 +12,29 @@ data FirewallRuleProperty
                           blockOverrideDomain :: (Prelude.Maybe (Value Prelude.Text)),
                           blockOverrideTtl :: (Prelude.Maybe (Value Prelude.Integer)),
                           blockResponse :: (Prelude.Maybe (Value Prelude.Text)),
-                          firewallDomainListId :: (Value Prelude.Text),
+                          confidenceThreshold :: (Prelude.Maybe (Value Prelude.Text)),
+                          dnsThreatProtection :: (Prelude.Maybe (Value Prelude.Text)),
+                          firewallDomainListId :: (Prelude.Maybe (Value Prelude.Text)),
+                          firewallDomainRedirectionAction :: (Prelude.Maybe (Value Prelude.Text)),
+                          firewallThreatProtectionId :: (Prelude.Maybe (Value Prelude.Text)),
                           priority :: (Value Prelude.Integer),
                           qtype :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFirewallRuleProperty ::
-  Value Prelude.Text
-  -> Value Prelude.Text
-     -> Value Prelude.Integer -> FirewallRuleProperty
-mkFirewallRuleProperty action firewallDomainListId priority
+  Value Prelude.Text -> Value Prelude.Integer -> FirewallRuleProperty
+mkFirewallRuleProperty action priority
   = FirewallRuleProperty
-      {action = action, firewallDomainListId = firewallDomainListId,
-       priority = priority, blockOverrideDnsType = Prelude.Nothing,
+      {action = action, priority = priority,
+       blockOverrideDnsType = Prelude.Nothing,
        blockOverrideDomain = Prelude.Nothing,
        blockOverrideTtl = Prelude.Nothing,
-       blockResponse = Prelude.Nothing, qtype = Prelude.Nothing}
+       blockResponse = Prelude.Nothing,
+       confidenceThreshold = Prelude.Nothing,
+       dnsThreatProtection = Prelude.Nothing,
+       firewallDomainListId = Prelude.Nothing,
+       firewallDomainRedirectionAction = Prelude.Nothing,
+       firewallThreatProtectionId = Prelude.Nothing,
+       qtype = Prelude.Nothing}
 instance ToResourceProperties FirewallRuleProperty where
   toResourceProperties FirewallRuleProperty {..}
     = ResourceProperties
@@ -34,28 +42,38 @@ instance ToResourceProperties FirewallRuleProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Action" JSON..= action,
-                            "FirewallDomainListId" JSON..= firewallDomainListId,
-                            "Priority" JSON..= priority]
+                           ["Action" JSON..= action, "Priority" JSON..= priority]
                            (Prelude.catMaybes
                               [(JSON..=) "BlockOverrideDnsType" Prelude.<$> blockOverrideDnsType,
                                (JSON..=) "BlockOverrideDomain" Prelude.<$> blockOverrideDomain,
                                (JSON..=) "BlockOverrideTtl" Prelude.<$> blockOverrideTtl,
                                (JSON..=) "BlockResponse" Prelude.<$> blockResponse,
+                               (JSON..=) "ConfidenceThreshold" Prelude.<$> confidenceThreshold,
+                               (JSON..=) "DnsThreatProtection" Prelude.<$> dnsThreatProtection,
+                               (JSON..=) "FirewallDomainListId" Prelude.<$> firewallDomainListId,
+                               (JSON..=) "FirewallDomainRedirectionAction"
+                                 Prelude.<$> firewallDomainRedirectionAction,
+                               (JSON..=) "FirewallThreatProtectionId"
+                                 Prelude.<$> firewallThreatProtectionId,
                                (JSON..=) "Qtype" Prelude.<$> qtype]))}
 instance JSON.ToJSON FirewallRuleProperty where
   toJSON FirewallRuleProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Action" JSON..= action,
-               "FirewallDomainListId" JSON..= firewallDomainListId,
-               "Priority" JSON..= priority]
+              ["Action" JSON..= action, "Priority" JSON..= priority]
               (Prelude.catMaybes
                  [(JSON..=) "BlockOverrideDnsType" Prelude.<$> blockOverrideDnsType,
                   (JSON..=) "BlockOverrideDomain" Prelude.<$> blockOverrideDomain,
                   (JSON..=) "BlockOverrideTtl" Prelude.<$> blockOverrideTtl,
                   (JSON..=) "BlockResponse" Prelude.<$> blockResponse,
+                  (JSON..=) "ConfidenceThreshold" Prelude.<$> confidenceThreshold,
+                  (JSON..=) "DnsThreatProtection" Prelude.<$> dnsThreatProtection,
+                  (JSON..=) "FirewallDomainListId" Prelude.<$> firewallDomainListId,
+                  (JSON..=) "FirewallDomainRedirectionAction"
+                    Prelude.<$> firewallDomainRedirectionAction,
+                  (JSON..=) "FirewallThreatProtectionId"
+                    Prelude.<$> firewallThreatProtectionId,
                   (JSON..=) "Qtype" Prelude.<$> qtype])))
 instance Property "Action" FirewallRuleProperty where
   type PropertyType "Action" FirewallRuleProperty = Value Prelude.Text
@@ -80,10 +98,31 @@ instance Property "BlockResponse" FirewallRuleProperty where
   type PropertyType "BlockResponse" FirewallRuleProperty = Value Prelude.Text
   set newValue FirewallRuleProperty {..}
     = FirewallRuleProperty {blockResponse = Prelude.pure newValue, ..}
+instance Property "ConfidenceThreshold" FirewallRuleProperty where
+  type PropertyType "ConfidenceThreshold" FirewallRuleProperty = Value Prelude.Text
+  set newValue FirewallRuleProperty {..}
+    = FirewallRuleProperty
+        {confidenceThreshold = Prelude.pure newValue, ..}
+instance Property "DnsThreatProtection" FirewallRuleProperty where
+  type PropertyType "DnsThreatProtection" FirewallRuleProperty = Value Prelude.Text
+  set newValue FirewallRuleProperty {..}
+    = FirewallRuleProperty
+        {dnsThreatProtection = Prelude.pure newValue, ..}
 instance Property "FirewallDomainListId" FirewallRuleProperty where
   type PropertyType "FirewallDomainListId" FirewallRuleProperty = Value Prelude.Text
   set newValue FirewallRuleProperty {..}
-    = FirewallRuleProperty {firewallDomainListId = newValue, ..}
+    = FirewallRuleProperty
+        {firewallDomainListId = Prelude.pure newValue, ..}
+instance Property "FirewallDomainRedirectionAction" FirewallRuleProperty where
+  type PropertyType "FirewallDomainRedirectionAction" FirewallRuleProperty = Value Prelude.Text
+  set newValue FirewallRuleProperty {..}
+    = FirewallRuleProperty
+        {firewallDomainRedirectionAction = Prelude.pure newValue, ..}
+instance Property "FirewallThreatProtectionId" FirewallRuleProperty where
+  type PropertyType "FirewallThreatProtectionId" FirewallRuleProperty = Value Prelude.Text
+  set newValue FirewallRuleProperty {..}
+    = FirewallRuleProperty
+        {firewallThreatProtectionId = Prelude.pure newValue, ..}
 instance Property "Priority" FirewallRuleProperty where
   type PropertyType "Priority" FirewallRuleProperty = Value Prelude.Integer
   set newValue FirewallRuleProperty {..}

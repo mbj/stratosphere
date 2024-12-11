@@ -4,11 +4,13 @@ module Stratosphere.SageMaker.Model.S3DataSourceProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SageMaker.Model.HubAccessConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.Model.ModelAccessConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data S3DataSourceProperty
   = S3DataSourceProperty {compressionType :: (Value Prelude.Text),
+                          hubAccessConfig :: (Prelude.Maybe HubAccessConfigProperty),
                           modelAccessConfig :: (Prelude.Maybe ModelAccessConfigProperty),
                           s3DataType :: (Value Prelude.Text),
                           s3Uri :: (Value Prelude.Text)}
@@ -19,7 +21,8 @@ mkS3DataSourceProperty ::
 mkS3DataSourceProperty compressionType s3DataType s3Uri
   = S3DataSourceProperty
       {compressionType = compressionType, s3DataType = s3DataType,
-       s3Uri = s3Uri, modelAccessConfig = Prelude.Nothing}
+       s3Uri = s3Uri, hubAccessConfig = Prelude.Nothing,
+       modelAccessConfig = Prelude.Nothing}
 instance ToResourceProperties S3DataSourceProperty where
   toResourceProperties S3DataSourceProperty {..}
     = ResourceProperties
@@ -30,7 +33,8 @@ instance ToResourceProperties S3DataSourceProperty where
                            ["CompressionType" JSON..= compressionType,
                             "S3DataType" JSON..= s3DataType, "S3Uri" JSON..= s3Uri]
                            (Prelude.catMaybes
-                              [(JSON..=) "ModelAccessConfig" Prelude.<$> modelAccessConfig]))}
+                              [(JSON..=) "HubAccessConfig" Prelude.<$> hubAccessConfig,
+                               (JSON..=) "ModelAccessConfig" Prelude.<$> modelAccessConfig]))}
 instance JSON.ToJSON S3DataSourceProperty where
   toJSON S3DataSourceProperty {..}
     = JSON.object
@@ -39,11 +43,17 @@ instance JSON.ToJSON S3DataSourceProperty where
               ["CompressionType" JSON..= compressionType,
                "S3DataType" JSON..= s3DataType, "S3Uri" JSON..= s3Uri]
               (Prelude.catMaybes
-                 [(JSON..=) "ModelAccessConfig" Prelude.<$> modelAccessConfig])))
+                 [(JSON..=) "HubAccessConfig" Prelude.<$> hubAccessConfig,
+                  (JSON..=) "ModelAccessConfig" Prelude.<$> modelAccessConfig])))
 instance Property "CompressionType" S3DataSourceProperty where
   type PropertyType "CompressionType" S3DataSourceProperty = Value Prelude.Text
   set newValue S3DataSourceProperty {..}
     = S3DataSourceProperty {compressionType = newValue, ..}
+instance Property "HubAccessConfig" S3DataSourceProperty where
+  type PropertyType "HubAccessConfig" S3DataSourceProperty = HubAccessConfigProperty
+  set newValue S3DataSourceProperty {..}
+    = S3DataSourceProperty
+        {hubAccessConfig = Prelude.pure newValue, ..}
 instance Property "ModelAccessConfig" S3DataSourceProperty where
   type PropertyType "ModelAccessConfig" S3DataSourceProperty = ModelAccessConfigProperty
   set newValue S3DataSourceProperty {..}

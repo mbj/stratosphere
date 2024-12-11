@@ -10,7 +10,8 @@ import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTable.AggregationConstra
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisRuleAggregationProperty
-  = AnalysisRuleAggregationProperty {aggregateColumns :: [AggregateColumnProperty],
+  = AnalysisRuleAggregationProperty {additionalAnalyses :: (Prelude.Maybe (Value Prelude.Text)),
+                                     aggregateColumns :: [AggregateColumnProperty],
                                      allowedJoinOperators :: (Prelude.Maybe (ValueList Prelude.Text)),
                                      dimensionColumns :: (ValueList Prelude.Text),
                                      joinColumns :: (ValueList Prelude.Text),
@@ -35,6 +36,7 @@ mkAnalysisRuleAggregationProperty
        dimensionColumns = dimensionColumns, joinColumns = joinColumns,
        outputConstraints = outputConstraints,
        scalarFunctions = scalarFunctions,
+       additionalAnalyses = Prelude.Nothing,
        allowedJoinOperators = Prelude.Nothing,
        joinRequired = Prelude.Nothing}
 instance ToResourceProperties AnalysisRuleAggregationProperty where
@@ -50,7 +52,8 @@ instance ToResourceProperties AnalysisRuleAggregationProperty where
                             "OutputConstraints" JSON..= outputConstraints,
                             "ScalarFunctions" JSON..= scalarFunctions]
                            (Prelude.catMaybes
-                              [(JSON..=) "AllowedJoinOperators" Prelude.<$> allowedJoinOperators,
+                              [(JSON..=) "AdditionalAnalyses" Prelude.<$> additionalAnalyses,
+                               (JSON..=) "AllowedJoinOperators" Prelude.<$> allowedJoinOperators,
                                (JSON..=) "JoinRequired" Prelude.<$> joinRequired]))}
 instance JSON.ToJSON AnalysisRuleAggregationProperty where
   toJSON AnalysisRuleAggregationProperty {..}
@@ -63,8 +66,14 @@ instance JSON.ToJSON AnalysisRuleAggregationProperty where
                "OutputConstraints" JSON..= outputConstraints,
                "ScalarFunctions" JSON..= scalarFunctions]
               (Prelude.catMaybes
-                 [(JSON..=) "AllowedJoinOperators" Prelude.<$> allowedJoinOperators,
+                 [(JSON..=) "AdditionalAnalyses" Prelude.<$> additionalAnalyses,
+                  (JSON..=) "AllowedJoinOperators" Prelude.<$> allowedJoinOperators,
                   (JSON..=) "JoinRequired" Prelude.<$> joinRequired])))
+instance Property "AdditionalAnalyses" AnalysisRuleAggregationProperty where
+  type PropertyType "AdditionalAnalyses" AnalysisRuleAggregationProperty = Value Prelude.Text
+  set newValue AnalysisRuleAggregationProperty {..}
+    = AnalysisRuleAggregationProperty
+        {additionalAnalyses = Prelude.pure newValue, ..}
 instance Property "AggregateColumns" AnalysisRuleAggregationProperty where
   type PropertyType "AggregateColumns" AnalysisRuleAggregationProperty = [AggregateColumnProperty]
   set newValue AnalysisRuleAggregationProperty {..}

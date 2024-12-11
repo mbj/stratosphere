@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SES.ReceiptRule.AddHeaderActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.ReceiptRule.BounceActionProperty as Exports
+import {-# SOURCE #-} Stratosphere.SES.ReceiptRule.ConnectActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.ReceiptRule.LambdaActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.ReceiptRule.S3ActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.ReceiptRule.SNSActionProperty as Exports
@@ -15,6 +16,7 @@ import Stratosphere.ResourceProperties
 data ActionProperty
   = ActionProperty {addHeaderAction :: (Prelude.Maybe AddHeaderActionProperty),
                     bounceAction :: (Prelude.Maybe BounceActionProperty),
+                    connectAction :: (Prelude.Maybe ConnectActionProperty),
                     lambdaAction :: (Prelude.Maybe LambdaActionProperty),
                     s3Action :: (Prelude.Maybe S3ActionProperty),
                     sNSAction :: (Prelude.Maybe SNSActionProperty),
@@ -25,9 +27,9 @@ mkActionProperty :: ActionProperty
 mkActionProperty
   = ActionProperty
       {addHeaderAction = Prelude.Nothing, bounceAction = Prelude.Nothing,
-       lambdaAction = Prelude.Nothing, s3Action = Prelude.Nothing,
-       sNSAction = Prelude.Nothing, stopAction = Prelude.Nothing,
-       workmailAction = Prelude.Nothing}
+       connectAction = Prelude.Nothing, lambdaAction = Prelude.Nothing,
+       s3Action = Prelude.Nothing, sNSAction = Prelude.Nothing,
+       stopAction = Prelude.Nothing, workmailAction = Prelude.Nothing}
 instance ToResourceProperties ActionProperty where
   toResourceProperties ActionProperty {..}
     = ResourceProperties
@@ -37,6 +39,7 @@ instance ToResourceProperties ActionProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "AddHeaderAction" Prelude.<$> addHeaderAction,
                             (JSON..=) "BounceAction" Prelude.<$> bounceAction,
+                            (JSON..=) "ConnectAction" Prelude.<$> connectAction,
                             (JSON..=) "LambdaAction" Prelude.<$> lambdaAction,
                             (JSON..=) "S3Action" Prelude.<$> s3Action,
                             (JSON..=) "SNSAction" Prelude.<$> sNSAction,
@@ -49,6 +52,7 @@ instance JSON.ToJSON ActionProperty where
            (Prelude.catMaybes
               [(JSON..=) "AddHeaderAction" Prelude.<$> addHeaderAction,
                (JSON..=) "BounceAction" Prelude.<$> bounceAction,
+               (JSON..=) "ConnectAction" Prelude.<$> connectAction,
                (JSON..=) "LambdaAction" Prelude.<$> lambdaAction,
                (JSON..=) "S3Action" Prelude.<$> s3Action,
                (JSON..=) "SNSAction" Prelude.<$> sNSAction,
@@ -62,6 +66,10 @@ instance Property "BounceAction" ActionProperty where
   type PropertyType "BounceAction" ActionProperty = BounceActionProperty
   set newValue ActionProperty {..}
     = ActionProperty {bounceAction = Prelude.pure newValue, ..}
+instance Property "ConnectAction" ActionProperty where
+  type PropertyType "ConnectAction" ActionProperty = ConnectActionProperty
+  set newValue ActionProperty {..}
+    = ActionProperty {connectAction = Prelude.pure newValue, ..}
 instance Property "LambdaAction" ActionProperty where
   type PropertyType "LambdaAction" ActionProperty = LambdaActionProperty
   set newValue ActionProperty {..}

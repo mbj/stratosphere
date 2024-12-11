@@ -1,0 +1,9 @@
+module Stratosphere.CloudTrail.Dashboard.RefreshScheduleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RefreshScheduleProperty :: Prelude.Type
+instance ToResourceProperties RefreshScheduleProperty
+instance Prelude.Eq RefreshScheduleProperty
+instance Prelude.Show RefreshScheduleProperty
+instance JSON.ToJSON RefreshScheduleProperty

@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Space.SpaceAppLifecycleManagementProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpaceAppLifecycleManagementProperty :: Prelude.Type
+instance ToResourceProperties SpaceAppLifecycleManagementProperty
+instance Prelude.Eq SpaceAppLifecycleManagementProperty
+instance Prelude.Show SpaceAppLifecycleManagementProperty
+instance JSON.ToJSON SpaceAppLifecycleManagementProperty

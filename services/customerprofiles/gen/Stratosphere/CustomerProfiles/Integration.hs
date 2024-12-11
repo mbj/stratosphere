@@ -11,6 +11,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Integration
   = Integration {domainName :: (Value Prelude.Text),
+                 eventTriggerNames :: (Prelude.Maybe (ValueList Prelude.Text)),
                  flowDefinition :: (Prelude.Maybe FlowDefinitionProperty),
                  objectTypeName :: (Prelude.Maybe (Value Prelude.Text)),
                  objectTypeNames :: (Prelude.Maybe [ObjectTypeMappingProperty]),
@@ -20,8 +21,8 @@ data Integration
 mkIntegration :: Value Prelude.Text -> Integration
 mkIntegration domainName
   = Integration
-      {domainName = domainName, flowDefinition = Prelude.Nothing,
-       objectTypeName = Prelude.Nothing,
+      {domainName = domainName, eventTriggerNames = Prelude.Nothing,
+       flowDefinition = Prelude.Nothing, objectTypeName = Prelude.Nothing,
        objectTypeNames = Prelude.Nothing, tags = Prelude.Nothing,
        uri = Prelude.Nothing}
 instance ToResourceProperties Integration where
@@ -33,7 +34,8 @@ instance ToResourceProperties Integration where
                         ((Prelude.<>)
                            ["DomainName" JSON..= domainName]
                            (Prelude.catMaybes
-                              [(JSON..=) "FlowDefinition" Prelude.<$> flowDefinition,
+                              [(JSON..=) "EventTriggerNames" Prelude.<$> eventTriggerNames,
+                               (JSON..=) "FlowDefinition" Prelude.<$> flowDefinition,
                                (JSON..=) "ObjectTypeName" Prelude.<$> objectTypeName,
                                (JSON..=) "ObjectTypeNames" Prelude.<$> objectTypeNames,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -45,7 +47,8 @@ instance JSON.ToJSON Integration where
            ((Prelude.<>)
               ["DomainName" JSON..= domainName]
               (Prelude.catMaybes
-                 [(JSON..=) "FlowDefinition" Prelude.<$> flowDefinition,
+                 [(JSON..=) "EventTriggerNames" Prelude.<$> eventTriggerNames,
+                  (JSON..=) "FlowDefinition" Prelude.<$> flowDefinition,
                   (JSON..=) "ObjectTypeName" Prelude.<$> objectTypeName,
                   (JSON..=) "ObjectTypeNames" Prelude.<$> objectTypeNames,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -54,6 +57,10 @@ instance Property "DomainName" Integration where
   type PropertyType "DomainName" Integration = Value Prelude.Text
   set newValue Integration {..}
     = Integration {domainName = newValue, ..}
+instance Property "EventTriggerNames" Integration where
+  type PropertyType "EventTriggerNames" Integration = ValueList Prelude.Text
+  set newValue Integration {..}
+    = Integration {eventTriggerNames = Prelude.pure newValue, ..}
 instance Property "FlowDefinition" Integration where
   type PropertyType "FlowDefinition" Integration = FlowDefinitionProperty
   set newValue Integration {..}

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowVersion.AgentFlowNodeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AgentFlowNodeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AgentFlowNodeConfigurationProperty
+instance Prelude.Eq AgentFlowNodeConfigurationProperty
+instance Prelude.Show AgentFlowNodeConfigurationProperty
+instance JSON.ToJSON AgentFlowNodeConfigurationProperty

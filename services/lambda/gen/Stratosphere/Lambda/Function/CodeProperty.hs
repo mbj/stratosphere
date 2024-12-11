@@ -11,6 +11,7 @@ data CodeProperty
                   s3Bucket :: (Prelude.Maybe (Value Prelude.Text)),
                   s3Key :: (Prelude.Maybe (Value Prelude.Text)),
                   s3ObjectVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                  sourceKMSKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                   zipFile :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCodeProperty :: CodeProperty
@@ -18,7 +19,7 @@ mkCodeProperty
   = CodeProperty
       {imageUri = Prelude.Nothing, s3Bucket = Prelude.Nothing,
        s3Key = Prelude.Nothing, s3ObjectVersion = Prelude.Nothing,
-       zipFile = Prelude.Nothing}
+       sourceKMSKeyArn = Prelude.Nothing, zipFile = Prelude.Nothing}
 instance ToResourceProperties CodeProperty where
   toResourceProperties CodeProperty {..}
     = ResourceProperties
@@ -30,6 +31,7 @@ instance ToResourceProperties CodeProperty where
                             (JSON..=) "S3Bucket" Prelude.<$> s3Bucket,
                             (JSON..=) "S3Key" Prelude.<$> s3Key,
                             (JSON..=) "S3ObjectVersion" Prelude.<$> s3ObjectVersion,
+                            (JSON..=) "SourceKMSKeyArn" Prelude.<$> sourceKMSKeyArn,
                             (JSON..=) "ZipFile" Prelude.<$> zipFile])}
 instance JSON.ToJSON CodeProperty where
   toJSON CodeProperty {..}
@@ -40,6 +42,7 @@ instance JSON.ToJSON CodeProperty where
                (JSON..=) "S3Bucket" Prelude.<$> s3Bucket,
                (JSON..=) "S3Key" Prelude.<$> s3Key,
                (JSON..=) "S3ObjectVersion" Prelude.<$> s3ObjectVersion,
+               (JSON..=) "SourceKMSKeyArn" Prelude.<$> sourceKMSKeyArn,
                (JSON..=) "ZipFile" Prelude.<$> zipFile]))
 instance Property "ImageUri" CodeProperty where
   type PropertyType "ImageUri" CodeProperty = Value Prelude.Text
@@ -57,6 +60,10 @@ instance Property "S3ObjectVersion" CodeProperty where
   type PropertyType "S3ObjectVersion" CodeProperty = Value Prelude.Text
   set newValue CodeProperty {..}
     = CodeProperty {s3ObjectVersion = Prelude.pure newValue, ..}
+instance Property "SourceKMSKeyArn" CodeProperty where
+  type PropertyType "SourceKMSKeyArn" CodeProperty = Value Prelude.Text
+  set newValue CodeProperty {..}
+    = CodeProperty {sourceKMSKeyArn = Prelude.pure newValue, ..}
 instance Property "ZipFile" CodeProperty where
   type PropertyType "ZipFile" CodeProperty = Value Prelude.Text
   set newValue CodeProperty {..}

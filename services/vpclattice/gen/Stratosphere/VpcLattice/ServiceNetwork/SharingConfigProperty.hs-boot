@@ -1,0 +1,9 @@
+module Stratosphere.VpcLattice.ServiceNetwork.SharingConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SharingConfigProperty :: Prelude.Type
+instance ToResourceProperties SharingConfigProperty
+instance Prelude.Eq SharingConfigProperty
+instance Prelude.Show SharingConfigProperty
+instance JSON.ToJSON SharingConfigProperty

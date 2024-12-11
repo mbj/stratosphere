@@ -11,12 +11,14 @@ import {-# SOURCE #-} Stratosphere.DynamoDB.Table.ImportSourceSpecificationPrope
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.KeySchemaProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.KinesisStreamSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.LocalSecondaryIndexProperty as Exports
+import {-# SOURCE #-} Stratosphere.DynamoDB.Table.OnDemandThroughputProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.PointInTimeRecoverySpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.ProvisionedThroughputProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.ResourcePolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.SSESpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.StreamSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.Table.TimeToLiveSpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.DynamoDB.Table.WarmThroughputProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -30,6 +32,7 @@ data Table
            keySchema :: [KeySchemaProperty],
            kinesisStreamSpecification :: (Prelude.Maybe KinesisStreamSpecificationProperty),
            localSecondaryIndexes :: (Prelude.Maybe [LocalSecondaryIndexProperty]),
+           onDemandThroughput :: (Prelude.Maybe OnDemandThroughputProperty),
            pointInTimeRecoverySpecification :: (Prelude.Maybe PointInTimeRecoverySpecificationProperty),
            provisionedThroughput :: (Prelude.Maybe ProvisionedThroughputProperty),
            resourcePolicy :: (Prelude.Maybe ResourcePolicyProperty),
@@ -38,7 +41,8 @@ data Table
            tableClass :: (Prelude.Maybe (Value Prelude.Text)),
            tableName :: (Prelude.Maybe (Value Prelude.Text)),
            tags :: (Prelude.Maybe [Tag]),
-           timeToLiveSpecification :: (Prelude.Maybe TimeToLiveSpecificationProperty)}
+           timeToLiveSpecification :: (Prelude.Maybe TimeToLiveSpecificationProperty),
+           warmThroughput :: (Prelude.Maybe WarmThroughputProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTable :: [KeySchemaProperty] -> Table
 mkTable keySchema
@@ -51,13 +55,15 @@ mkTable keySchema
        importSourceSpecification = Prelude.Nothing,
        kinesisStreamSpecification = Prelude.Nothing,
        localSecondaryIndexes = Prelude.Nothing,
+       onDemandThroughput = Prelude.Nothing,
        pointInTimeRecoverySpecification = Prelude.Nothing,
        provisionedThroughput = Prelude.Nothing,
        resourcePolicy = Prelude.Nothing,
        sSESpecification = Prelude.Nothing,
        streamSpecification = Prelude.Nothing,
        tableClass = Prelude.Nothing, tableName = Prelude.Nothing,
-       tags = Prelude.Nothing, timeToLiveSpecification = Prelude.Nothing}
+       tags = Prelude.Nothing, timeToLiveSpecification = Prelude.Nothing,
+       warmThroughput = Prelude.Nothing}
 instance ToResourceProperties Table where
   toResourceProperties Table {..}
     = ResourceProperties
@@ -80,6 +86,7 @@ instance ToResourceProperties Table where
                                  Prelude.<$> kinesisStreamSpecification,
                                (JSON..=) "LocalSecondaryIndexes"
                                  Prelude.<$> localSecondaryIndexes,
+                               (JSON..=) "OnDemandThroughput" Prelude.<$> onDemandThroughput,
                                (JSON..=) "PointInTimeRecoverySpecification"
                                  Prelude.<$> pointInTimeRecoverySpecification,
                                (JSON..=) "ProvisionedThroughput"
@@ -91,7 +98,8 @@ instance ToResourceProperties Table where
                                (JSON..=) "TableName" Prelude.<$> tableName,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "TimeToLiveSpecification"
-                                 Prelude.<$> timeToLiveSpecification]))}
+                                 Prelude.<$> timeToLiveSpecification,
+                               (JSON..=) "WarmThroughput" Prelude.<$> warmThroughput]))}
 instance JSON.ToJSON Table where
   toJSON Table {..}
     = JSON.object
@@ -113,6 +121,7 @@ instance JSON.ToJSON Table where
                     Prelude.<$> kinesisStreamSpecification,
                   (JSON..=) "LocalSecondaryIndexes"
                     Prelude.<$> localSecondaryIndexes,
+                  (JSON..=) "OnDemandThroughput" Prelude.<$> onDemandThroughput,
                   (JSON..=) "PointInTimeRecoverySpecification"
                     Prelude.<$> pointInTimeRecoverySpecification,
                   (JSON..=) "ProvisionedThroughput"
@@ -124,7 +133,8 @@ instance JSON.ToJSON Table where
                   (JSON..=) "TableName" Prelude.<$> tableName,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TimeToLiveSpecification"
-                    Prelude.<$> timeToLiveSpecification])))
+                    Prelude.<$> timeToLiveSpecification,
+                  (JSON..=) "WarmThroughput" Prelude.<$> warmThroughput])))
 instance Property "AttributeDefinitions" Table where
   type PropertyType "AttributeDefinitions" Table = [AttributeDefinitionProperty]
   set newValue Table {..}
@@ -161,6 +171,10 @@ instance Property "LocalSecondaryIndexes" Table where
   type PropertyType "LocalSecondaryIndexes" Table = [LocalSecondaryIndexProperty]
   set newValue Table {..}
     = Table {localSecondaryIndexes = Prelude.pure newValue, ..}
+instance Property "OnDemandThroughput" Table where
+  type PropertyType "OnDemandThroughput" Table = OnDemandThroughputProperty
+  set newValue Table {..}
+    = Table {onDemandThroughput = Prelude.pure newValue, ..}
 instance Property "PointInTimeRecoverySpecification" Table where
   type PropertyType "PointInTimeRecoverySpecification" Table = PointInTimeRecoverySpecificationProperty
   set newValue Table {..}
@@ -197,3 +211,7 @@ instance Property "TimeToLiveSpecification" Table where
   type PropertyType "TimeToLiveSpecification" Table = TimeToLiveSpecificationProperty
   set newValue Table {..}
     = Table {timeToLiveSpecification = Prelude.pure newValue, ..}
+instance Property "WarmThroughput" Table where
+  type PropertyType "WarmThroughput" Table = WarmThroughputProperty
+  set newValue Table {..}
+    = Table {warmThroughput = Prelude.pure newValue, ..}

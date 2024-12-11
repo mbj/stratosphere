@@ -1,0 +1,9 @@
+module Stratosphere.ConnectCampaignsV2.Campaign.LocalTimeZoneConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LocalTimeZoneConfigProperty :: Prelude.Type
+instance ToResourceProperties LocalTimeZoneConfigProperty
+instance Prelude.Eq LocalTimeZoneConfigProperty
+instance Prelude.Show LocalTimeZoneConfigProperty
+instance JSON.ToJSON LocalTimeZoneConfigProperty

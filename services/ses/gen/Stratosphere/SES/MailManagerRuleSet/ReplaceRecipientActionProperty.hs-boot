@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerRuleSet.ReplaceRecipientActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplaceRecipientActionProperty :: Prelude.Type
+instance ToResourceProperties ReplaceRecipientActionProperty
+instance Prelude.Eq ReplaceRecipientActionProperty
+instance Prelude.Show ReplaceRecipientActionProperty
+instance JSON.ToJSON ReplaceRecipientActionProperty

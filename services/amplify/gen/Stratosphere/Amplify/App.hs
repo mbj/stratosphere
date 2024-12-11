@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Amplify.App.AutoBranchCreationConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Amplify.App.BasicAuthConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.Amplify.App.CacheConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Amplify.App.CustomRuleProperty as Exports
 import {-# SOURCE #-} Stratosphere.Amplify.App.EnvironmentVariableProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ data App
          autoBranchCreationConfig :: (Prelude.Maybe AutoBranchCreationConfigProperty),
          basicAuthConfig :: (Prelude.Maybe BasicAuthConfigProperty),
          buildSpec :: (Prelude.Maybe (Value Prelude.Text)),
+         cacheConfig :: (Prelude.Maybe CacheConfigProperty),
          customHeaders :: (Prelude.Maybe (Value Prelude.Text)),
          customRules :: (Prelude.Maybe [CustomRuleProperty]),
          description :: (Prelude.Maybe (Value Prelude.Text)),
@@ -34,8 +36,8 @@ mkApp name
       {name = name, accessToken = Prelude.Nothing,
        autoBranchCreationConfig = Prelude.Nothing,
        basicAuthConfig = Prelude.Nothing, buildSpec = Prelude.Nothing,
-       customHeaders = Prelude.Nothing, customRules = Prelude.Nothing,
-       description = Prelude.Nothing,
+       cacheConfig = Prelude.Nothing, customHeaders = Prelude.Nothing,
+       customRules = Prelude.Nothing, description = Prelude.Nothing,
        enableBranchAutoDeletion = Prelude.Nothing,
        environmentVariables = Prelude.Nothing,
        iAMServiceRole = Prelude.Nothing, oauthToken = Prelude.Nothing,
@@ -54,6 +56,7 @@ instance ToResourceProperties App where
                                  Prelude.<$> autoBranchCreationConfig,
                                (JSON..=) "BasicAuthConfig" Prelude.<$> basicAuthConfig,
                                (JSON..=) "BuildSpec" Prelude.<$> buildSpec,
+                               (JSON..=) "CacheConfig" Prelude.<$> cacheConfig,
                                (JSON..=) "CustomHeaders" Prelude.<$> customHeaders,
                                (JSON..=) "CustomRules" Prelude.<$> customRules,
                                (JSON..=) "Description" Prelude.<$> description,
@@ -77,6 +80,7 @@ instance JSON.ToJSON App where
                     Prelude.<$> autoBranchCreationConfig,
                   (JSON..=) "BasicAuthConfig" Prelude.<$> basicAuthConfig,
                   (JSON..=) "BuildSpec" Prelude.<$> buildSpec,
+                  (JSON..=) "CacheConfig" Prelude.<$> cacheConfig,
                   (JSON..=) "CustomHeaders" Prelude.<$> customHeaders,
                   (JSON..=) "CustomRules" Prelude.<$> customRules,
                   (JSON..=) "Description" Prelude.<$> description,
@@ -103,6 +107,10 @@ instance Property "BasicAuthConfig" App where
 instance Property "BuildSpec" App where
   type PropertyType "BuildSpec" App = Value Prelude.Text
   set newValue App {..} = App {buildSpec = Prelude.pure newValue, ..}
+instance Property "CacheConfig" App where
+  type PropertyType "CacheConfig" App = CacheConfigProperty
+  set newValue App {..}
+    = App {cacheConfig = Prelude.pure newValue, ..}
 instance Property "CustomHeaders" App where
   type PropertyType "CustomHeaders" App = Value Prelude.Text
   set newValue App {..}

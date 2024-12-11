@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.EnvironmentActions.AwsConsoleLinkParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AwsConsoleLinkParametersProperty :: Prelude.Type
+instance ToResourceProperties AwsConsoleLinkParametersProperty
+instance Prelude.Eq AwsConsoleLinkParametersProperty
+instance Prelude.Show AwsConsoleLinkParametersProperty
+instance JSON.ToJSON AwsConsoleLinkParametersProperty

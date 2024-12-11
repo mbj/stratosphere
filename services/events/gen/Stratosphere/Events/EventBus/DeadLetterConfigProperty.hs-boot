@@ -1,0 +1,9 @@
+module Stratosphere.Events.EventBus.DeadLetterConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeadLetterConfigProperty :: Prelude.Type
+instance ToResourceProperties DeadLetterConfigProperty
+instance Prelude.Eq DeadLetterConfigProperty
+instance Prelude.Show DeadLetterConfigProperty
+instance JSON.ToJSON DeadLetterConfigProperty

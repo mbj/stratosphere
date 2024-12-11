@@ -6,10 +6,12 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.DatabaseSourceConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchDestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ExtendedS3DestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointDestinationConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.IcebergDestinationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.KinesisStreamSourceConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.MSKSourceConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.RedshiftDestinationConfigurationProperty as Exports
@@ -22,12 +24,14 @@ import Stratosphere.Value
 data DeliveryStream
   = DeliveryStream {amazonOpenSearchServerlessDestinationConfiguration :: (Prelude.Maybe AmazonOpenSearchServerlessDestinationConfigurationProperty),
                     amazonopensearchserviceDestinationConfiguration :: (Prelude.Maybe AmazonopensearchserviceDestinationConfigurationProperty),
+                    databaseSourceConfiguration :: (Prelude.Maybe DatabaseSourceConfigurationProperty),
                     deliveryStreamEncryptionConfigurationInput :: (Prelude.Maybe DeliveryStreamEncryptionConfigurationInputProperty),
                     deliveryStreamName :: (Prelude.Maybe (Value Prelude.Text)),
                     deliveryStreamType :: (Prelude.Maybe (Value Prelude.Text)),
                     elasticsearchDestinationConfiguration :: (Prelude.Maybe ElasticsearchDestinationConfigurationProperty),
                     extendedS3DestinationConfiguration :: (Prelude.Maybe ExtendedS3DestinationConfigurationProperty),
                     httpEndpointDestinationConfiguration :: (Prelude.Maybe HttpEndpointDestinationConfigurationProperty),
+                    icebergDestinationConfiguration :: (Prelude.Maybe IcebergDestinationConfigurationProperty),
                     kinesisStreamSourceConfiguration :: (Prelude.Maybe KinesisStreamSourceConfigurationProperty),
                     mSKSourceConfiguration :: (Prelude.Maybe MSKSourceConfigurationProperty),
                     redshiftDestinationConfiguration :: (Prelude.Maybe RedshiftDestinationConfigurationProperty),
@@ -41,12 +45,14 @@ mkDeliveryStream
   = DeliveryStream
       {amazonOpenSearchServerlessDestinationConfiguration = Prelude.Nothing,
        amazonopensearchserviceDestinationConfiguration = Prelude.Nothing,
+       databaseSourceConfiguration = Prelude.Nothing,
        deliveryStreamEncryptionConfigurationInput = Prelude.Nothing,
        deliveryStreamName = Prelude.Nothing,
        deliveryStreamType = Prelude.Nothing,
        elasticsearchDestinationConfiguration = Prelude.Nothing,
        extendedS3DestinationConfiguration = Prelude.Nothing,
        httpEndpointDestinationConfiguration = Prelude.Nothing,
+       icebergDestinationConfiguration = Prelude.Nothing,
        kinesisStreamSourceConfiguration = Prelude.Nothing,
        mSKSourceConfiguration = Prelude.Nothing,
        redshiftDestinationConfiguration = Prelude.Nothing,
@@ -65,6 +71,8 @@ instance ToResourceProperties DeliveryStream where
                               Prelude.<$> amazonOpenSearchServerlessDestinationConfiguration,
                             (JSON..=) "AmazonopensearchserviceDestinationConfiguration"
                               Prelude.<$> amazonopensearchserviceDestinationConfiguration,
+                            (JSON..=) "DatabaseSourceConfiguration"
+                              Prelude.<$> databaseSourceConfiguration,
                             (JSON..=) "DeliveryStreamEncryptionConfigurationInput"
                               Prelude.<$> deliveryStreamEncryptionConfigurationInput,
                             (JSON..=) "DeliveryStreamName" Prelude.<$> deliveryStreamName,
@@ -75,6 +83,8 @@ instance ToResourceProperties DeliveryStream where
                               Prelude.<$> extendedS3DestinationConfiguration,
                             (JSON..=) "HttpEndpointDestinationConfiguration"
                               Prelude.<$> httpEndpointDestinationConfiguration,
+                            (JSON..=) "IcebergDestinationConfiguration"
+                              Prelude.<$> icebergDestinationConfiguration,
                             (JSON..=) "KinesisStreamSourceConfiguration"
                               Prelude.<$> kinesisStreamSourceConfiguration,
                             (JSON..=) "MSKSourceConfiguration"
@@ -97,6 +107,8 @@ instance JSON.ToJSON DeliveryStream where
                  Prelude.<$> amazonOpenSearchServerlessDestinationConfiguration,
                (JSON..=) "AmazonopensearchserviceDestinationConfiguration"
                  Prelude.<$> amazonopensearchserviceDestinationConfiguration,
+               (JSON..=) "DatabaseSourceConfiguration"
+                 Prelude.<$> databaseSourceConfiguration,
                (JSON..=) "DeliveryStreamEncryptionConfigurationInput"
                  Prelude.<$> deliveryStreamEncryptionConfigurationInput,
                (JSON..=) "DeliveryStreamName" Prelude.<$> deliveryStreamName,
@@ -107,6 +119,8 @@ instance JSON.ToJSON DeliveryStream where
                  Prelude.<$> extendedS3DestinationConfiguration,
                (JSON..=) "HttpEndpointDestinationConfiguration"
                  Prelude.<$> httpEndpointDestinationConfiguration,
+               (JSON..=) "IcebergDestinationConfiguration"
+                 Prelude.<$> icebergDestinationConfiguration,
                (JSON..=) "KinesisStreamSourceConfiguration"
                  Prelude.<$> kinesisStreamSourceConfiguration,
                (JSON..=) "MSKSourceConfiguration"
@@ -134,6 +148,11 @@ instance Property "AmazonopensearchserviceDestinationConfiguration" DeliveryStre
         {amazonopensearchserviceDestinationConfiguration = Prelude.pure
                                                              newValue,
          ..}
+instance Property "DatabaseSourceConfiguration" DeliveryStream where
+  type PropertyType "DatabaseSourceConfiguration" DeliveryStream = DatabaseSourceConfigurationProperty
+  set newValue DeliveryStream {..}
+    = DeliveryStream
+        {databaseSourceConfiguration = Prelude.pure newValue, ..}
 instance Property "DeliveryStreamEncryptionConfigurationInput" DeliveryStream where
   type PropertyType "DeliveryStreamEncryptionConfigurationInput" DeliveryStream = DeliveryStreamEncryptionConfigurationInputProperty
   set newValue DeliveryStream {..}
@@ -164,6 +183,11 @@ instance Property "HttpEndpointDestinationConfiguration" DeliveryStream where
   set newValue DeliveryStream {..}
     = DeliveryStream
         {httpEndpointDestinationConfiguration = Prelude.pure newValue, ..}
+instance Property "IcebergDestinationConfiguration" DeliveryStream where
+  type PropertyType "IcebergDestinationConfiguration" DeliveryStream = IcebergDestinationConfigurationProperty
+  set newValue DeliveryStream {..}
+    = DeliveryStream
+        {icebergDestinationConfiguration = Prelude.pure newValue, ..}
 instance Property "KinesisStreamSourceConfiguration" DeliveryStream where
   type PropertyType "KinesisStreamSourceConfiguration" DeliveryStream = KinesisStreamSourceConfigurationProperty
   set newValue DeliveryStream {..}

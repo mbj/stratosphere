@@ -25,6 +25,7 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.Kinesis.ResourcePolicy
       Stratosphere.Kinesis.Stream
       Stratosphere.Kinesis.Stream.StreamEncryptionProperty
       Stratosphere.Kinesis.Stream.StreamModeDetailsProperty

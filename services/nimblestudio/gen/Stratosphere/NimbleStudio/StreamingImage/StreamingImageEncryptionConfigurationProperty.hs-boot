@@ -1,9 +1,0 @@
-module Stratosphere.NimbleStudio.StreamingImage.StreamingImageEncryptionConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data StreamingImageEncryptionConfigurationProperty :: Prelude.Type
-instance ToResourceProperties StreamingImageEncryptionConfigurationProperty
-instance Prelude.Eq StreamingImageEncryptionConfigurationProperty
-instance Prelude.Show StreamingImageEncryptionConfigurationProperty
-instance JSON.ToJSON StreamingImageEncryptionConfigurationProperty

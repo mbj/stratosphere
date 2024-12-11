@@ -17,6 +17,7 @@ data TransitGateway
                     dnsSupport :: (Prelude.Maybe (Value Prelude.Text)),
                     multicastSupport :: (Prelude.Maybe (Value Prelude.Text)),
                     propagationDefaultRouteTableId :: (Prelude.Maybe (Value Prelude.Text)),
+                    securityGroupReferencingSupport :: (Prelude.Maybe (Value Prelude.Text)),
                     tags :: (Prelude.Maybe [Tag]),
                     transitGatewayCidrBlocks :: (Prelude.Maybe (ValueList Prelude.Text)),
                     vpnEcmpSupport :: (Prelude.Maybe (Value Prelude.Text))}
@@ -32,6 +33,7 @@ mkTransitGateway
        description = Prelude.Nothing, dnsSupport = Prelude.Nothing,
        multicastSupport = Prelude.Nothing,
        propagationDefaultRouteTableId = Prelude.Nothing,
+       securityGroupReferencingSupport = Prelude.Nothing,
        tags = Prelude.Nothing, transitGatewayCidrBlocks = Prelude.Nothing,
        vpnEcmpSupport = Prelude.Nothing}
 instance ToResourceProperties TransitGateway where
@@ -54,6 +56,8 @@ instance ToResourceProperties TransitGateway where
                             (JSON..=) "MulticastSupport" Prelude.<$> multicastSupport,
                             (JSON..=) "PropagationDefaultRouteTableId"
                               Prelude.<$> propagationDefaultRouteTableId,
+                            (JSON..=) "SecurityGroupReferencingSupport"
+                              Prelude.<$> securityGroupReferencingSupport,
                             (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "TransitGatewayCidrBlocks"
                               Prelude.<$> transitGatewayCidrBlocks,
@@ -77,6 +81,8 @@ instance JSON.ToJSON TransitGateway where
                (JSON..=) "MulticastSupport" Prelude.<$> multicastSupport,
                (JSON..=) "PropagationDefaultRouteTableId"
                  Prelude.<$> propagationDefaultRouteTableId,
+               (JSON..=) "SecurityGroupReferencingSupport"
+                 Prelude.<$> securityGroupReferencingSupport,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "TransitGatewayCidrBlocks"
                  Prelude.<$> transitGatewayCidrBlocks,
@@ -122,6 +128,11 @@ instance Property "PropagationDefaultRouteTableId" TransitGateway where
   set newValue TransitGateway {..}
     = TransitGateway
         {propagationDefaultRouteTableId = Prelude.pure newValue, ..}
+instance Property "SecurityGroupReferencingSupport" TransitGateway where
+  type PropertyType "SecurityGroupReferencingSupport" TransitGateway = Value Prelude.Text
+  set newValue TransitGateway {..}
+    = TransitGateway
+        {securityGroupReferencingSupport = Prelude.pure newValue, ..}
 instance Property "Tags" TransitGateway where
   type PropertyType "Tags" TransitGateway = [Tag]
   set newValue TransitGateway {..}

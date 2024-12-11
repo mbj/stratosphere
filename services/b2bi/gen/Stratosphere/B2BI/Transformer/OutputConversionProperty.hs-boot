@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Transformer.OutputConversionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OutputConversionProperty :: Prelude.Type
+instance ToResourceProperties OutputConversionProperty
+instance Prelude.Eq OutputConversionProperty
+instance Prelude.Show OutputConversionProperty
+instance JSON.ToJSON OutputConversionProperty

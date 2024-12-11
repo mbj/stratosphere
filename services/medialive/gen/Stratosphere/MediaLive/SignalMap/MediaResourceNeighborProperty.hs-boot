@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.SignalMap.MediaResourceNeighborProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MediaResourceNeighborProperty :: Prelude.Type
+instance ToResourceProperties MediaResourceNeighborProperty
+instance Prelude.Eq MediaResourceNeighborProperty
+instance Prelude.Show MediaResourceNeighborProperty
+instance JSON.ToJSON MediaResourceNeighborProperty

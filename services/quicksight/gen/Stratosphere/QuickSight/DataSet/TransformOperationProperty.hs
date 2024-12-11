@@ -12,6 +12,7 @@ import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.OverrideDatasetParameterOp
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.ProjectOperationProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.RenameColumnOperationProperty as Exports
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.TagColumnOperationProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.UntagColumnOperationProperty as Exports
 import Stratosphere.ResourceProperties
 data TransformOperationProperty
   = TransformOperationProperty {castColumnTypeOperation :: (Prelude.Maybe CastColumnTypeOperationProperty),
@@ -20,7 +21,8 @@ data TransformOperationProperty
                                 overrideDatasetParameterOperation :: (Prelude.Maybe OverrideDatasetParameterOperationProperty),
                                 projectOperation :: (Prelude.Maybe ProjectOperationProperty),
                                 renameColumnOperation :: (Prelude.Maybe RenameColumnOperationProperty),
-                                tagColumnOperation :: (Prelude.Maybe TagColumnOperationProperty)}
+                                tagColumnOperation :: (Prelude.Maybe TagColumnOperationProperty),
+                                untagColumnOperation :: (Prelude.Maybe UntagColumnOperationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTransformOperationProperty :: TransformOperationProperty
 mkTransformOperationProperty
@@ -31,7 +33,8 @@ mkTransformOperationProperty
        overrideDatasetParameterOperation = Prelude.Nothing,
        projectOperation = Prelude.Nothing,
        renameColumnOperation = Prelude.Nothing,
-       tagColumnOperation = Prelude.Nothing}
+       tagColumnOperation = Prelude.Nothing,
+       untagColumnOperation = Prelude.Nothing}
 instance ToResourceProperties TransformOperationProperty where
   toResourceProperties TransformOperationProperty {..}
     = ResourceProperties
@@ -49,7 +52,9 @@ instance ToResourceProperties TransformOperationProperty where
                             (JSON..=) "ProjectOperation" Prelude.<$> projectOperation,
                             (JSON..=) "RenameColumnOperation"
                               Prelude.<$> renameColumnOperation,
-                            (JSON..=) "TagColumnOperation" Prelude.<$> tagColumnOperation])}
+                            (JSON..=) "TagColumnOperation" Prelude.<$> tagColumnOperation,
+                            (JSON..=) "UntagColumnOperation"
+                              Prelude.<$> untagColumnOperation])}
 instance JSON.ToJSON TransformOperationProperty where
   toJSON TransformOperationProperty {..}
     = JSON.object
@@ -65,7 +70,9 @@ instance JSON.ToJSON TransformOperationProperty where
                (JSON..=) "ProjectOperation" Prelude.<$> projectOperation,
                (JSON..=) "RenameColumnOperation"
                  Prelude.<$> renameColumnOperation,
-               (JSON..=) "TagColumnOperation" Prelude.<$> tagColumnOperation]))
+               (JSON..=) "TagColumnOperation" Prelude.<$> tagColumnOperation,
+               (JSON..=) "UntagColumnOperation"
+                 Prelude.<$> untagColumnOperation]))
 instance Property "CastColumnTypeOperation" TransformOperationProperty where
   type PropertyType "CastColumnTypeOperation" TransformOperationProperty = CastColumnTypeOperationProperty
   set newValue TransformOperationProperty {..}
@@ -101,3 +108,8 @@ instance Property "TagColumnOperation" TransformOperationProperty where
   set newValue TransformOperationProperty {..}
     = TransformOperationProperty
         {tagColumnOperation = Prelude.pure newValue, ..}
+instance Property "UntagColumnOperation" TransformOperationProperty where
+  type PropertyType "UntagColumnOperation" TransformOperationProperty = UntagColumnOperationProperty
+  set newValue TransformOperationProperty {..}
+    = TransformOperationProperty
+        {untagColumnOperation = Prelude.pure newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeBufferingHintsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnowflakeBufferingHintsProperty :: Prelude.Type
+instance ToResourceProperties SnowflakeBufferingHintsProperty
+instance Prelude.Eq SnowflakeBufferingHintsProperty
+instance Prelude.Show SnowflakeBufferingHintsProperty
+instance JSON.ToJSON SnowflakeBufferingHintsProperty

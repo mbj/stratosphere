@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.BarChartVisualProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data BarChartVisualProperty :: Prelude.Type
-instance ToResourceProperties BarChartVisualProperty
-instance Prelude.Eq BarChartVisualProperty
-instance Prelude.Show BarChartVisualProperty
-instance JSON.ToJSON BarChartVisualProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Events.Connection.InvocationConnectivityParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InvocationConnectivityParametersProperty :: Prelude.Type
+instance ToResourceProperties InvocationConnectivityParametersProperty
+instance Prelude.Eq InvocationConnectivityParametersProperty
+instance Prelude.Show InvocationConnectivityParametersProperty
+instance JSON.ToJSON InvocationConnectivityParametersProperty

@@ -1,0 +1,9 @@
+module Stratosphere.IoTFleetWise.Campaign.TimeBasedSignalFetchConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TimeBasedSignalFetchConfigProperty :: Prelude.Type
+instance ToResourceProperties TimeBasedSignalFetchConfigProperty
+instance Prelude.Eq TimeBasedSignalFetchConfigProperty
+instance Prelude.Show TimeBasedSignalFetchConfigProperty
+instance JSON.ToJSON TimeBasedSignalFetchConfigProperty

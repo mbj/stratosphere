@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.Av1ColorSpaceSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Av1ColorSpaceSettingsProperty :: Prelude.Type
+instance ToResourceProperties Av1ColorSpaceSettingsProperty
+instance Prelude.Eq Av1ColorSpaceSettingsProperty
+instance Prelude.Show Av1ColorSpaceSettingsProperty
+instance JSON.ToJSON Av1ColorSpaceSettingsProperty

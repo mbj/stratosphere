@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.FSx.FileSystem.DiskIopsConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.FSx.FileSystem.ReadCacheConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.FSx.FileSystem.RootVolumeConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -19,6 +20,7 @@ data OpenZFSConfigurationProperty
                                   endpointIpAddressRange :: (Prelude.Maybe (Value Prelude.Text)),
                                   options :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   preferredSubnetId :: (Prelude.Maybe (Value Prelude.Text)),
+                                  readCacheConfiguration :: (Prelude.Maybe ReadCacheConfigurationProperty),
                                   rootVolumeConfiguration :: (Prelude.Maybe RootVolumeConfigurationProperty),
                                   routeTableIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   throughputCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -36,6 +38,7 @@ mkOpenZFSConfigurationProperty deploymentType
        diskIopsConfiguration = Prelude.Nothing,
        endpointIpAddressRange = Prelude.Nothing,
        options = Prelude.Nothing, preferredSubnetId = Prelude.Nothing,
+       readCacheConfiguration = Prelude.Nothing,
        rootVolumeConfiguration = Prelude.Nothing,
        routeTableIds = Prelude.Nothing,
        throughputCapacity = Prelude.Nothing,
@@ -61,6 +64,8 @@ instance ToResourceProperties OpenZFSConfigurationProperty where
                                  Prelude.<$> endpointIpAddressRange,
                                (JSON..=) "Options" Prelude.<$> options,
                                (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
+                               (JSON..=) "ReadCacheConfiguration"
+                                 Prelude.<$> readCacheConfiguration,
                                (JSON..=) "RootVolumeConfiguration"
                                  Prelude.<$> rootVolumeConfiguration,
                                (JSON..=) "RouteTableIds" Prelude.<$> routeTableIds,
@@ -86,6 +91,8 @@ instance JSON.ToJSON OpenZFSConfigurationProperty where
                     Prelude.<$> endpointIpAddressRange,
                   (JSON..=) "Options" Prelude.<$> options,
                   (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
+                  (JSON..=) "ReadCacheConfiguration"
+                    Prelude.<$> readCacheConfiguration,
                   (JSON..=) "RootVolumeConfiguration"
                     Prelude.<$> rootVolumeConfiguration,
                   (JSON..=) "RouteTableIds" Prelude.<$> routeTableIds,
@@ -136,6 +143,11 @@ instance Property "PreferredSubnetId" OpenZFSConfigurationProperty where
   set newValue OpenZFSConfigurationProperty {..}
     = OpenZFSConfigurationProperty
         {preferredSubnetId = Prelude.pure newValue, ..}
+instance Property "ReadCacheConfiguration" OpenZFSConfigurationProperty where
+  type PropertyType "ReadCacheConfiguration" OpenZFSConfigurationProperty = ReadCacheConfigurationProperty
+  set newValue OpenZFSConfigurationProperty {..}
+    = OpenZFSConfigurationProperty
+        {readCacheConfiguration = Prelude.pure newValue, ..}
 instance Property "RootVolumeConfiguration" OpenZFSConfigurationProperty where
   type PropertyType "RootVolumeConfiguration" OpenZFSConfigurationProperty = RootVolumeConfigurationProperty
   set newValue OpenZFSConfigurationProperty {..}

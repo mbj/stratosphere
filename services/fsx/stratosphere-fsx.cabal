@@ -34,9 +34,11 @@ library
       Stratosphere.FSx.FileSystem.ClientConfigurationsProperty
       Stratosphere.FSx.FileSystem.DiskIopsConfigurationProperty
       Stratosphere.FSx.FileSystem.LustreConfigurationProperty
+      Stratosphere.FSx.FileSystem.MetadataConfigurationProperty
       Stratosphere.FSx.FileSystem.NfsExportsProperty
       Stratosphere.FSx.FileSystem.OntapConfigurationProperty
       Stratosphere.FSx.FileSystem.OpenZFSConfigurationProperty
+      Stratosphere.FSx.FileSystem.ReadCacheConfigurationProperty
       Stratosphere.FSx.FileSystem.RootVolumeConfigurationProperty
       Stratosphere.FSx.FileSystem.SelfManagedActiveDirectoryConfigurationProperty
       Stratosphere.FSx.FileSystem.UserAndGroupQuotasProperty

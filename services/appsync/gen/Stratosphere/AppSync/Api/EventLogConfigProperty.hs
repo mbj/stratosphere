@@ -1,0 +1,39 @@
+module Stratosphere.AppSync.Api.EventLogConfigProperty (
+        EventLogConfigProperty(..), mkEventLogConfigProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data EventLogConfigProperty
+  = EventLogConfigProperty {cloudWatchLogsRoleArn :: (Value Prelude.Text),
+                            logLevel :: (Value Prelude.Text)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkEventLogConfigProperty ::
+  Value Prelude.Text -> Value Prelude.Text -> EventLogConfigProperty
+mkEventLogConfigProperty cloudWatchLogsRoleArn logLevel
+  = EventLogConfigProperty
+      {cloudWatchLogsRoleArn = cloudWatchLogsRoleArn,
+       logLevel = logLevel}
+instance ToResourceProperties EventLogConfigProperty where
+  toResourceProperties EventLogConfigProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::AppSync::Api.EventLogConfig",
+         supportsTags = Prelude.False,
+         properties = ["CloudWatchLogsRoleArn"
+                         JSON..= cloudWatchLogsRoleArn,
+                       "LogLevel" JSON..= logLevel]}
+instance JSON.ToJSON EventLogConfigProperty where
+  toJSON EventLogConfigProperty {..}
+    = JSON.object
+        ["CloudWatchLogsRoleArn" JSON..= cloudWatchLogsRoleArn,
+         "LogLevel" JSON..= logLevel]
+instance Property "CloudWatchLogsRoleArn" EventLogConfigProperty where
+  type PropertyType "CloudWatchLogsRoleArn" EventLogConfigProperty = Value Prelude.Text
+  set newValue EventLogConfigProperty {..}
+    = EventLogConfigProperty {cloudWatchLogsRoleArn = newValue, ..}
+instance Property "LogLevel" EventLogConfigProperty where
+  type PropertyType "LogLevel" EventLogConfigProperty = Value Prelude.Text
+  set newValue EventLogConfigProperty {..}
+    = EventLogConfigProperty {logLevel = newValue, ..}

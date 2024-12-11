@@ -21,6 +21,7 @@ data Application
                  opsCenterEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                  opsItemSNSTopicArn :: (Prelude.Maybe (Value Prelude.Text)),
                  resourceGroupName :: (Value Prelude.Text),
+                 sNSNotificationArn :: (Prelude.Maybe (Value Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication :: Value Prelude.Text -> Application
@@ -34,7 +35,8 @@ mkApplication resourceGroupName
        customComponents = Prelude.Nothing, groupingType = Prelude.Nothing,
        logPatternSets = Prelude.Nothing,
        opsCenterEnabled = Prelude.Nothing,
-       opsItemSNSTopicArn = Prelude.Nothing, tags = Prelude.Nothing}
+       opsItemSNSTopicArn = Prelude.Nothing,
+       sNSNotificationArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
@@ -56,6 +58,7 @@ instance ToResourceProperties Application where
                                (JSON..=) "LogPatternSets" Prelude.<$> logPatternSets,
                                (JSON..=) "OpsCenterEnabled" Prelude.<$> opsCenterEnabled,
                                (JSON..=) "OpsItemSNSTopicArn" Prelude.<$> opsItemSNSTopicArn,
+                               (JSON..=) "SNSNotificationArn" Prelude.<$> sNSNotificationArn,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Application where
   toJSON Application {..}
@@ -76,6 +79,7 @@ instance JSON.ToJSON Application where
                   (JSON..=) "LogPatternSets" Prelude.<$> logPatternSets,
                   (JSON..=) "OpsCenterEnabled" Prelude.<$> opsCenterEnabled,
                   (JSON..=) "OpsItemSNSTopicArn" Prelude.<$> opsItemSNSTopicArn,
+                  (JSON..=) "SNSNotificationArn" Prelude.<$> sNSNotificationArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AttachMissingPermission" Application where
   type PropertyType "AttachMissingPermission" Application = Value Prelude.Bool
@@ -119,6 +123,10 @@ instance Property "ResourceGroupName" Application where
   type PropertyType "ResourceGroupName" Application = Value Prelude.Text
   set newValue Application {..}
     = Application {resourceGroupName = newValue, ..}
+instance Property "SNSNotificationArn" Application where
+  type PropertyType "SNSNotificationArn" Application = Value Prelude.Text
+  set newValue Application {..}
+    = Application {sNSNotificationArn = Prelude.pure newValue, ..}
 instance Property "Tags" Application where
   type PropertyType "Tags" Application = [Tag]
   set newValue Application {..}

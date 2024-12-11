@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.FilterConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.ScteHlsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.StartTagProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LowLatencyHlsManifestConfigurationProperty
@@ -16,6 +17,7 @@ data LowLatencyHlsManifestConfigurationProperty
                                                 manifestWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                                 programDateTimeIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                                 scteHls :: (Prelude.Maybe ScteHlsProperty),
+                                                startTag :: (Prelude.Maybe StartTagProperty),
                                                 url :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLowLatencyHlsManifestConfigurationProperty ::
@@ -26,7 +28,8 @@ mkLowLatencyHlsManifestConfigurationProperty manifestName
        filterConfiguration = Prelude.Nothing,
        manifestWindowSeconds = Prelude.Nothing,
        programDateTimeIntervalSeconds = Prelude.Nothing,
-       scteHls = Prelude.Nothing, url = Prelude.Nothing}
+       scteHls = Prelude.Nothing, startTag = Prelude.Nothing,
+       url = Prelude.Nothing}
 instance ToResourceProperties LowLatencyHlsManifestConfigurationProperty where
   toResourceProperties
     LowLatencyHlsManifestConfigurationProperty {..}
@@ -44,6 +47,7 @@ instance ToResourceProperties LowLatencyHlsManifestConfigurationProperty where
                                (JSON..=) "ProgramDateTimeIntervalSeconds"
                                  Prelude.<$> programDateTimeIntervalSeconds,
                                (JSON..=) "ScteHls" Prelude.<$> scteHls,
+                               (JSON..=) "StartTag" Prelude.<$> startTag,
                                (JSON..=) "Url" Prelude.<$> url]))}
 instance JSON.ToJSON LowLatencyHlsManifestConfigurationProperty where
   toJSON LowLatencyHlsManifestConfigurationProperty {..}
@@ -59,6 +63,7 @@ instance JSON.ToJSON LowLatencyHlsManifestConfigurationProperty where
                   (JSON..=) "ProgramDateTimeIntervalSeconds"
                     Prelude.<$> programDateTimeIntervalSeconds,
                   (JSON..=) "ScteHls" Prelude.<$> scteHls,
+                  (JSON..=) "StartTag" Prelude.<$> startTag,
                   (JSON..=) "Url" Prelude.<$> url])))
 instance Property "ChildManifestName" LowLatencyHlsManifestConfigurationProperty where
   type PropertyType "ChildManifestName" LowLatencyHlsManifestConfigurationProperty = Value Prelude.Text
@@ -90,6 +95,11 @@ instance Property "ScteHls" LowLatencyHlsManifestConfigurationProperty where
   set newValue LowLatencyHlsManifestConfigurationProperty {..}
     = LowLatencyHlsManifestConfigurationProperty
         {scteHls = Prelude.pure newValue, ..}
+instance Property "StartTag" LowLatencyHlsManifestConfigurationProperty where
+  type PropertyType "StartTag" LowLatencyHlsManifestConfigurationProperty = StartTagProperty
+  set newValue LowLatencyHlsManifestConfigurationProperty {..}
+    = LowLatencyHlsManifestConfigurationProperty
+        {startTag = Prelude.pure newValue, ..}
 instance Property "Url" LowLatencyHlsManifestConfigurationProperty where
   type PropertyType "Url" LowLatencyHlsManifestConfigurationProperty = Value Prelude.Text
   set newValue LowLatencyHlsManifestConfigurationProperty {..}

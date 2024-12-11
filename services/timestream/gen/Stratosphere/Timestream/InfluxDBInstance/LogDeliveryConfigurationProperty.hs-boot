@@ -1,0 +1,9 @@
+module Stratosphere.Timestream.InfluxDBInstance.LogDeliveryConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LogDeliveryConfigurationProperty :: Prelude.Type
+instance ToResourceProperties LogDeliveryConfigurationProperty
+instance Prelude.Eq LogDeliveryConfigurationProperty
+instance Prelude.Show LogDeliveryConfigurationProperty
+instance JSON.ToJSON LogDeliveryConfigurationProperty

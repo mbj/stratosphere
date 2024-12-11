@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.Plugin.CustomPluginConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomPluginConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CustomPluginConfigurationProperty
+instance Prelude.Eq CustomPluginConfigurationProperty
+instance Prelude.Show CustomPluginConfigurationProperty
+instance JSON.ToJSON CustomPluginConfigurationProperty

@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.ConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.DimensionProperty as Exports
+import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.MetricCharacteristicsProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.MetricMathAnomalyDetectorProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudWatch.AnomalyDetector.SingleMetricAnomalyDetectorProperty as Exports
 import Stratosphere.ResourceProperties
@@ -13,6 +14,7 @@ import Stratosphere.Value
 data AnomalyDetector
   = AnomalyDetector {configuration :: (Prelude.Maybe ConfigurationProperty),
                      dimensions :: (Prelude.Maybe [DimensionProperty]),
+                     metricCharacteristics :: (Prelude.Maybe MetricCharacteristicsProperty),
                      metricMathAnomalyDetector :: (Prelude.Maybe MetricMathAnomalyDetectorProperty),
                      metricName :: (Prelude.Maybe (Value Prelude.Text)),
                      namespace :: (Prelude.Maybe (Value Prelude.Text)),
@@ -23,6 +25,7 @@ mkAnomalyDetector :: AnomalyDetector
 mkAnomalyDetector
   = AnomalyDetector
       {configuration = Prelude.Nothing, dimensions = Prelude.Nothing,
+       metricCharacteristics = Prelude.Nothing,
        metricMathAnomalyDetector = Prelude.Nothing,
        metricName = Prelude.Nothing, namespace = Prelude.Nothing,
        singleMetricAnomalyDetector = Prelude.Nothing,
@@ -36,6 +39,8 @@ instance ToResourceProperties AnomalyDetector where
                         (Prelude.catMaybes
                            [(JSON..=) "Configuration" Prelude.<$> configuration,
                             (JSON..=) "Dimensions" Prelude.<$> dimensions,
+                            (JSON..=) "MetricCharacteristics"
+                              Prelude.<$> metricCharacteristics,
                             (JSON..=) "MetricMathAnomalyDetector"
                               Prelude.<$> metricMathAnomalyDetector,
                             (JSON..=) "MetricName" Prelude.<$> metricName,
@@ -50,6 +55,8 @@ instance JSON.ToJSON AnomalyDetector where
            (Prelude.catMaybes
               [(JSON..=) "Configuration" Prelude.<$> configuration,
                (JSON..=) "Dimensions" Prelude.<$> dimensions,
+               (JSON..=) "MetricCharacteristics"
+                 Prelude.<$> metricCharacteristics,
                (JSON..=) "MetricMathAnomalyDetector"
                  Prelude.<$> metricMathAnomalyDetector,
                (JSON..=) "MetricName" Prelude.<$> metricName,
@@ -65,6 +72,11 @@ instance Property "Dimensions" AnomalyDetector where
   type PropertyType "Dimensions" AnomalyDetector = [DimensionProperty]
   set newValue AnomalyDetector {..}
     = AnomalyDetector {dimensions = Prelude.pure newValue, ..}
+instance Property "MetricCharacteristics" AnomalyDetector where
+  type PropertyType "MetricCharacteristics" AnomalyDetector = MetricCharacteristicsProperty
+  set newValue AnomalyDetector {..}
+    = AnomalyDetector
+        {metricCharacteristics = Prelude.pure newValue, ..}
 instance Property "MetricMathAnomalyDetector" AnomalyDetector where
   type PropertyType "MetricMathAnomalyDetector" AnomalyDetector = MetricMathAnomalyDetectorProperty
   set newValue AnomalyDetector {..}

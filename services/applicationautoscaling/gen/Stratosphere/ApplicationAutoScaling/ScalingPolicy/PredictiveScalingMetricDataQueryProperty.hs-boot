@@ -1,0 +1,9 @@
+module Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingMetricDataQueryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PredictiveScalingMetricDataQueryProperty :: Prelude.Type
+instance ToResourceProperties PredictiveScalingMetricDataQueryProperty
+instance Prelude.Eq PredictiveScalingMetricDataQueryProperty
+instance Prelude.Show PredictiveScalingMetricDataQueryProperty
+instance JSON.ToJSON PredictiveScalingMetricDataQueryProperty

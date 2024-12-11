@@ -9,10 +9,12 @@ import Stratosphere.Value
 data SyncConfiguration
   = SyncConfiguration {branch :: (Value Prelude.Text),
                        configFile :: (Value Prelude.Text),
+                       publishDeploymentStatus :: (Prelude.Maybe (Value Prelude.Text)),
                        repositoryLinkId :: (Value Prelude.Text),
                        resourceName :: (Value Prelude.Text),
                        roleArn :: (Value Prelude.Text),
-                       syncType :: (Value Prelude.Text)}
+                       syncType :: (Value Prelude.Text),
+                       triggerResourceUpdateOn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSyncConfiguration ::
   Value Prelude.Text
@@ -30,24 +32,39 @@ mkSyncConfiguration
   = SyncConfiguration
       {branch = branch, configFile = configFile,
        repositoryLinkId = repositoryLinkId, resourceName = resourceName,
-       roleArn = roleArn, syncType = syncType}
+       roleArn = roleArn, syncType = syncType,
+       publishDeploymentStatus = Prelude.Nothing,
+       triggerResourceUpdateOn = Prelude.Nothing}
 instance ToResourceProperties SyncConfiguration where
   toResourceProperties SyncConfiguration {..}
     = ResourceProperties
         {awsType = "AWS::CodeStarConnections::SyncConfiguration",
          supportsTags = Prelude.False,
-         properties = ["Branch" JSON..= branch,
-                       "ConfigFile" JSON..= configFile,
-                       "RepositoryLinkId" JSON..= repositoryLinkId,
-                       "ResourceName" JSON..= resourceName, "RoleArn" JSON..= roleArn,
-                       "SyncType" JSON..= syncType]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Branch" JSON..= branch, "ConfigFile" JSON..= configFile,
+                            "RepositoryLinkId" JSON..= repositoryLinkId,
+                            "ResourceName" JSON..= resourceName, "RoleArn" JSON..= roleArn,
+                            "SyncType" JSON..= syncType]
+                           (Prelude.catMaybes
+                              [(JSON..=) "PublishDeploymentStatus"
+                                 Prelude.<$> publishDeploymentStatus,
+                               (JSON..=) "TriggerResourceUpdateOn"
+                                 Prelude.<$> triggerResourceUpdateOn]))}
 instance JSON.ToJSON SyncConfiguration where
   toJSON SyncConfiguration {..}
     = JSON.object
-        ["Branch" JSON..= branch, "ConfigFile" JSON..= configFile,
-         "RepositoryLinkId" JSON..= repositoryLinkId,
-         "ResourceName" JSON..= resourceName, "RoleArn" JSON..= roleArn,
-         "SyncType" JSON..= syncType]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Branch" JSON..= branch, "ConfigFile" JSON..= configFile,
+               "RepositoryLinkId" JSON..= repositoryLinkId,
+               "ResourceName" JSON..= resourceName, "RoleArn" JSON..= roleArn,
+               "SyncType" JSON..= syncType]
+              (Prelude.catMaybes
+                 [(JSON..=) "PublishDeploymentStatus"
+                    Prelude.<$> publishDeploymentStatus,
+                  (JSON..=) "TriggerResourceUpdateOn"
+                    Prelude.<$> triggerResourceUpdateOn])))
 instance Property "Branch" SyncConfiguration where
   type PropertyType "Branch" SyncConfiguration = Value Prelude.Text
   set newValue SyncConfiguration {..}
@@ -56,6 +73,11 @@ instance Property "ConfigFile" SyncConfiguration where
   type PropertyType "ConfigFile" SyncConfiguration = Value Prelude.Text
   set newValue SyncConfiguration {..}
     = SyncConfiguration {configFile = newValue, ..}
+instance Property "PublishDeploymentStatus" SyncConfiguration where
+  type PropertyType "PublishDeploymentStatus" SyncConfiguration = Value Prelude.Text
+  set newValue SyncConfiguration {..}
+    = SyncConfiguration
+        {publishDeploymentStatus = Prelude.pure newValue, ..}
 instance Property "RepositoryLinkId" SyncConfiguration where
   type PropertyType "RepositoryLinkId" SyncConfiguration = Value Prelude.Text
   set newValue SyncConfiguration {..}
@@ -72,3 +94,8 @@ instance Property "SyncType" SyncConfiguration where
   type PropertyType "SyncType" SyncConfiguration = Value Prelude.Text
   set newValue SyncConfiguration {..}
     = SyncConfiguration {syncType = newValue, ..}
+instance Property "TriggerResourceUpdateOn" SyncConfiguration where
+  type PropertyType "TriggerResourceUpdateOn" SyncConfiguration = Value Prelude.Text
+  set newValue SyncConfiguration {..}
+    = SyncConfiguration
+        {triggerResourceUpdateOn = Prelude.pure newValue, ..}

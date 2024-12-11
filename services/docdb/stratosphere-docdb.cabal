@@ -26,6 +26,7 @@ flag development
 library
   exposed-modules:
       Stratosphere.DocDB.DBCluster
+      Stratosphere.DocDB.DBCluster.ServerlessV2ScalingConfigurationProperty
       Stratosphere.DocDB.DBClusterParameterGroup
       Stratosphere.DocDB.DBInstance
       Stratosphere.DocDB.DBSubnetGroup

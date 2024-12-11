@@ -10,8 +10,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Multiplexprogram.MultiplexProgramSe
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Multiplexprogram
-  = Multiplexprogram {channelId :: (Prelude.Maybe (Value Prelude.Text)),
-                      multiplexId :: (Prelude.Maybe (Value Prelude.Text)),
+  = Multiplexprogram {multiplexId :: (Prelude.Maybe (Value Prelude.Text)),
                       multiplexProgramSettings :: (Prelude.Maybe MultiplexProgramSettingsProperty),
                       packetIdentifiersMap :: (Prelude.Maybe MultiplexProgramPacketIdentifiersMapProperty),
                       pipelineDetails :: (Prelude.Maybe [MultiplexProgramPipelineDetailProperty]),
@@ -21,7 +20,7 @@ data Multiplexprogram
 mkMultiplexprogram :: Multiplexprogram
 mkMultiplexprogram
   = Multiplexprogram
-      {channelId = Prelude.Nothing, multiplexId = Prelude.Nothing,
+      {multiplexId = Prelude.Nothing,
        multiplexProgramSettings = Prelude.Nothing,
        packetIdentifiersMap = Prelude.Nothing,
        pipelineDetails = Prelude.Nothing,
@@ -34,8 +33,7 @@ instance ToResourceProperties Multiplexprogram where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "ChannelId" Prelude.<$> channelId,
-                            (JSON..=) "MultiplexId" Prelude.<$> multiplexId,
+                           [(JSON..=) "MultiplexId" Prelude.<$> multiplexId,
                             (JSON..=) "MultiplexProgramSettings"
                               Prelude.<$> multiplexProgramSettings,
                             (JSON..=) "PacketIdentifiersMap" Prelude.<$> packetIdentifiersMap,
@@ -48,8 +46,7 @@ instance JSON.ToJSON Multiplexprogram where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "ChannelId" Prelude.<$> channelId,
-               (JSON..=) "MultiplexId" Prelude.<$> multiplexId,
+              [(JSON..=) "MultiplexId" Prelude.<$> multiplexId,
                (JSON..=) "MultiplexProgramSettings"
                  Prelude.<$> multiplexProgramSettings,
                (JSON..=) "PacketIdentifiersMap" Prelude.<$> packetIdentifiersMap,
@@ -57,10 +54,6 @@ instance JSON.ToJSON Multiplexprogram where
                (JSON..=) "PreferredChannelPipeline"
                  Prelude.<$> preferredChannelPipeline,
                (JSON..=) "ProgramName" Prelude.<$> programName]))
-instance Property "ChannelId" Multiplexprogram where
-  type PropertyType "ChannelId" Multiplexprogram = Value Prelude.Text
-  set newValue Multiplexprogram {..}
-    = Multiplexprogram {channelId = Prelude.pure newValue, ..}
 instance Property "MultiplexId" Multiplexprogram where
   type PropertyType "MultiplexId" Multiplexprogram = Value Prelude.Text
   set newValue Multiplexprogram {..}

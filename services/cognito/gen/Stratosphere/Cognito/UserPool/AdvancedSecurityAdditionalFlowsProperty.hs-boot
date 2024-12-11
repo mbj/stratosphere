@@ -1,0 +1,9 @@
+module Stratosphere.Cognito.UserPool.AdvancedSecurityAdditionalFlowsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdvancedSecurityAdditionalFlowsProperty :: Prelude.Type
+instance ToResourceProperties AdvancedSecurityAdditionalFlowsProperty
+instance Prelude.Eq AdvancedSecurityAdditionalFlowsProperty
+instance Prelude.Show AdvancedSecurityAdditionalFlowsProperty
+instance JSON.ToJSON AdvancedSecurityAdditionalFlowsProperty

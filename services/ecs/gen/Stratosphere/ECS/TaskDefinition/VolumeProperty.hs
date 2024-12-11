@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.DockerVolumeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.EFSVolumeConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.FSxWindowsFileServerVolumeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.HostVolumePropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -13,6 +14,7 @@ data VolumeProperty
   = VolumeProperty {configuredAtLaunch :: (Prelude.Maybe (Value Prelude.Bool)),
                     dockerVolumeConfiguration :: (Prelude.Maybe DockerVolumeConfigurationProperty),
                     eFSVolumeConfiguration :: (Prelude.Maybe EFSVolumeConfigurationProperty),
+                    fSxWindowsFileServerVolumeConfiguration :: (Prelude.Maybe FSxWindowsFileServerVolumeConfigurationProperty),
                     host :: (Prelude.Maybe HostVolumePropertiesProperty),
                     name :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -21,8 +23,9 @@ mkVolumeProperty
   = VolumeProperty
       {configuredAtLaunch = Prelude.Nothing,
        dockerVolumeConfiguration = Prelude.Nothing,
-       eFSVolumeConfiguration = Prelude.Nothing, host = Prelude.Nothing,
-       name = Prelude.Nothing}
+       eFSVolumeConfiguration = Prelude.Nothing,
+       fSxWindowsFileServerVolumeConfiguration = Prelude.Nothing,
+       host = Prelude.Nothing, name = Prelude.Nothing}
 instance ToResourceProperties VolumeProperty where
   toResourceProperties VolumeProperty {..}
     = ResourceProperties
@@ -35,6 +38,8 @@ instance ToResourceProperties VolumeProperty where
                               Prelude.<$> dockerVolumeConfiguration,
                             (JSON..=) "EFSVolumeConfiguration"
                               Prelude.<$> eFSVolumeConfiguration,
+                            (JSON..=) "FSxWindowsFileServerVolumeConfiguration"
+                              Prelude.<$> fSxWindowsFileServerVolumeConfiguration,
                             (JSON..=) "Host" Prelude.<$> host,
                             (JSON..=) "Name" Prelude.<$> name])}
 instance JSON.ToJSON VolumeProperty where
@@ -47,6 +52,8 @@ instance JSON.ToJSON VolumeProperty where
                  Prelude.<$> dockerVolumeConfiguration,
                (JSON..=) "EFSVolumeConfiguration"
                  Prelude.<$> eFSVolumeConfiguration,
+               (JSON..=) "FSxWindowsFileServerVolumeConfiguration"
+                 Prelude.<$> fSxWindowsFileServerVolumeConfiguration,
                (JSON..=) "Host" Prelude.<$> host,
                (JSON..=) "Name" Prelude.<$> name]))
 instance Property "ConfiguredAtLaunch" VolumeProperty where
@@ -63,6 +70,12 @@ instance Property "EFSVolumeConfiguration" VolumeProperty where
   set newValue VolumeProperty {..}
     = VolumeProperty
         {eFSVolumeConfiguration = Prelude.pure newValue, ..}
+instance Property "FSxWindowsFileServerVolumeConfiguration" VolumeProperty where
+  type PropertyType "FSxWindowsFileServerVolumeConfiguration" VolumeProperty = FSxWindowsFileServerVolumeConfigurationProperty
+  set newValue VolumeProperty {..}
+    = VolumeProperty
+        {fSxWindowsFileServerVolumeConfiguration = Prelude.pure newValue,
+         ..}
 instance Property "Host" VolumeProperty where
   type PropertyType "Host" VolumeProperty = HostVolumePropertiesProperty
   set newValue VolumeProperty {..}

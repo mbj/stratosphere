@@ -1,0 +1,9 @@
+module Stratosphere.CleanRoomsML.TrainingDataset.DatasetInputConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatasetInputConfigProperty :: Prelude.Type
+instance ToResourceProperties DatasetInputConfigProperty
+instance Prelude.Eq DatasetInputConfigProperty
+instance Prelude.Show DatasetInputConfigProperty
+instance JSON.ToJSON DatasetInputConfigProperty

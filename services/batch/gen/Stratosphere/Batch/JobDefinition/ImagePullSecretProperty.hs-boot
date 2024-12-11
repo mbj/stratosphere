@@ -1,0 +1,9 @@
+module Stratosphere.Batch.JobDefinition.ImagePullSecretProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImagePullSecretProperty :: Prelude.Type
+instance ToResourceProperties ImagePullSecretProperty
+instance Prelude.Eq ImagePullSecretProperty
+instance Prelude.Show ImagePullSecretProperty
+instance JSON.ToJSON ImagePullSecretProperty

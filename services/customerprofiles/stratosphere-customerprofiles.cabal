@@ -67,6 +67,20 @@ library
       Stratosphere.CustomerProfiles.ObjectType.KeyMapProperty
       Stratosphere.CustomerProfiles.ObjectType.ObjectTypeFieldProperty
       Stratosphere.CustomerProfiles.ObjectType.ObjectTypeKeyProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition
+      Stratosphere.CustomerProfiles.SegmentDefinition.AddressDimensionProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.AttributeDimensionProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.CalculatedAttributeDimensionProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.ConditionOverridesProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.DateDimensionProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.DimensionProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.ExtraLengthValueProfileDimensionProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.GroupProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.ProfileAttributesProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.ProfileDimensionProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.RangeOverrideProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.SegmentGroupProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.SourceSegmentProperty
   other-modules:
       Paths_stratosphere_customerprofiles
   hs-source-dirs:

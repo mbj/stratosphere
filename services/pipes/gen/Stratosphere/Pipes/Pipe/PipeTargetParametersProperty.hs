@@ -16,6 +16,7 @@ import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeTargetRedshiftDataParametersPr
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeTargetSageMakerPipelineParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeTargetSqsQueueParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeTargetStateMachineParametersProperty as Exports
+import {-# SOURCE #-} Stratosphere.Pipes.Pipe.PipeTargetTimestreamParametersProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data PipeTargetParametersProperty
@@ -30,7 +31,8 @@ data PipeTargetParametersProperty
                                   redshiftDataParameters :: (Prelude.Maybe PipeTargetRedshiftDataParametersProperty),
                                   sageMakerPipelineParameters :: (Prelude.Maybe PipeTargetSageMakerPipelineParametersProperty),
                                   sqsQueueParameters :: (Prelude.Maybe PipeTargetSqsQueueParametersProperty),
-                                  stepFunctionStateMachineParameters :: (Prelude.Maybe PipeTargetStateMachineParametersProperty)}
+                                  stepFunctionStateMachineParameters :: (Prelude.Maybe PipeTargetStateMachineParametersProperty),
+                                  timestreamParameters :: (Prelude.Maybe PipeTargetTimestreamParametersProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPipeTargetParametersProperty :: PipeTargetParametersProperty
 mkPipeTargetParametersProperty
@@ -45,7 +47,8 @@ mkPipeTargetParametersProperty
        redshiftDataParameters = Prelude.Nothing,
        sageMakerPipelineParameters = Prelude.Nothing,
        sqsQueueParameters = Prelude.Nothing,
-       stepFunctionStateMachineParameters = Prelude.Nothing}
+       stepFunctionStateMachineParameters = Prelude.Nothing,
+       timestreamParameters = Prelude.Nothing}
 instance ToResourceProperties PipeTargetParametersProperty where
   toResourceProperties PipeTargetParametersProperty {..}
     = ResourceProperties
@@ -71,7 +74,9 @@ instance ToResourceProperties PipeTargetParametersProperty where
                               Prelude.<$> sageMakerPipelineParameters,
                             (JSON..=) "SqsQueueParameters" Prelude.<$> sqsQueueParameters,
                             (JSON..=) "StepFunctionStateMachineParameters"
-                              Prelude.<$> stepFunctionStateMachineParameters])}
+                              Prelude.<$> stepFunctionStateMachineParameters,
+                            (JSON..=) "TimestreamParameters"
+                              Prelude.<$> timestreamParameters])}
 instance JSON.ToJSON PipeTargetParametersProperty where
   toJSON PipeTargetParametersProperty {..}
     = JSON.object
@@ -95,7 +100,9 @@ instance JSON.ToJSON PipeTargetParametersProperty where
                  Prelude.<$> sageMakerPipelineParameters,
                (JSON..=) "SqsQueueParameters" Prelude.<$> sqsQueueParameters,
                (JSON..=) "StepFunctionStateMachineParameters"
-                 Prelude.<$> stepFunctionStateMachineParameters]))
+                 Prelude.<$> stepFunctionStateMachineParameters,
+               (JSON..=) "TimestreamParameters"
+                 Prelude.<$> timestreamParameters]))
 instance Property "BatchJobParameters" PipeTargetParametersProperty where
   type PropertyType "BatchJobParameters" PipeTargetParametersProperty = PipeTargetBatchJobParametersProperty
   set newValue PipeTargetParametersProperty {..}
@@ -156,3 +163,8 @@ instance Property "StepFunctionStateMachineParameters" PipeTargetParametersPrope
   set newValue PipeTargetParametersProperty {..}
     = PipeTargetParametersProperty
         {stepFunctionStateMachineParameters = Prelude.pure newValue, ..}
+instance Property "TimestreamParameters" PipeTargetParametersProperty where
+  type PropertyType "TimestreamParameters" PipeTargetParametersProperty = PipeTargetTimestreamParametersProperty
+  set newValue PipeTargetParametersProperty {..}
+    = PipeTargetParametersProperty
+        {timestreamParameters = Prelude.pure newValue, ..}

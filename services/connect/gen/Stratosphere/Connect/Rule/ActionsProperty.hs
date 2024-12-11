@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.Rule.CreateCaseActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.Rule.EventBridgeActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.Rule.SendNotificationActionProperty as Exports
+import {-# SOURCE #-} Stratosphere.Connect.Rule.SubmitAutoEvaluationActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.Rule.TaskActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.Rule.UpdateCaseActionProperty as Exports
 import Stratosphere.ResourceProperties
@@ -16,6 +17,7 @@ data ActionsProperty
                      endAssociatedTasksActions :: (Prelude.Maybe JSON.Object),
                      eventBridgeActions :: (Prelude.Maybe [EventBridgeActionProperty]),
                      sendNotificationActions :: (Prelude.Maybe [SendNotificationActionProperty]),
+                     submitAutoEvaluationActions :: (Prelude.Maybe [SubmitAutoEvaluationActionProperty]),
                      taskActions :: (Prelude.Maybe [TaskActionProperty]),
                      updateCaseActions :: (Prelude.Maybe [UpdateCaseActionProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -27,6 +29,7 @@ mkActionsProperty
        endAssociatedTasksActions = Prelude.Nothing,
        eventBridgeActions = Prelude.Nothing,
        sendNotificationActions = Prelude.Nothing,
+       submitAutoEvaluationActions = Prelude.Nothing,
        taskActions = Prelude.Nothing, updateCaseActions = Prelude.Nothing}
 instance ToResourceProperties ActionsProperty where
   toResourceProperties ActionsProperty {..}
@@ -43,6 +46,8 @@ instance ToResourceProperties ActionsProperty where
                             (JSON..=) "EventBridgeActions" Prelude.<$> eventBridgeActions,
                             (JSON..=) "SendNotificationActions"
                               Prelude.<$> sendNotificationActions,
+                            (JSON..=) "SubmitAutoEvaluationActions"
+                              Prelude.<$> submitAutoEvaluationActions,
                             (JSON..=) "TaskActions" Prelude.<$> taskActions,
                             (JSON..=) "UpdateCaseActions" Prelude.<$> updateCaseActions])}
 instance JSON.ToJSON ActionsProperty where
@@ -58,6 +63,8 @@ instance JSON.ToJSON ActionsProperty where
                (JSON..=) "EventBridgeActions" Prelude.<$> eventBridgeActions,
                (JSON..=) "SendNotificationActions"
                  Prelude.<$> sendNotificationActions,
+               (JSON..=) "SubmitAutoEvaluationActions"
+                 Prelude.<$> submitAutoEvaluationActions,
                (JSON..=) "TaskActions" Prelude.<$> taskActions,
                (JSON..=) "UpdateCaseActions" Prelude.<$> updateCaseActions]))
 instance Property "AssignContactCategoryActions" ActionsProperty where
@@ -83,6 +90,11 @@ instance Property "SendNotificationActions" ActionsProperty where
   set newValue ActionsProperty {..}
     = ActionsProperty
         {sendNotificationActions = Prelude.pure newValue, ..}
+instance Property "SubmitAutoEvaluationActions" ActionsProperty where
+  type PropertyType "SubmitAutoEvaluationActions" ActionsProperty = [SubmitAutoEvaluationActionProperty]
+  set newValue ActionsProperty {..}
+    = ActionsProperty
+        {submitAutoEvaluationActions = Prelude.pure newValue, ..}
 instance Property "TaskActions" ActionsProperty where
   type PropertyType "TaskActions" ActionsProperty = [TaskActionProperty]
   set newValue ActionsProperty {..}

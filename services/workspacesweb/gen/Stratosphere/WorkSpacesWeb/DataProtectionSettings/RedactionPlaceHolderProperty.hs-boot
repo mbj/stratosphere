@@ -1,0 +1,9 @@
+module Stratosphere.WorkSpacesWeb.DataProtectionSettings.RedactionPlaceHolderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedactionPlaceHolderProperty :: Prelude.Type
+instance ToResourceProperties RedactionPlaceHolderProperty
+instance Prelude.Eq RedactionPlaceHolderProperty
+instance Prelude.Show RedactionPlaceHolderProperty
+instance JSON.ToJSON RedactionPlaceHolderProperty

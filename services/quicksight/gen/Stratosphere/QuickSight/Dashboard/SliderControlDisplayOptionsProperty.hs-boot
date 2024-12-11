@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.SliderControlDisplayOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data SliderControlDisplayOptionsProperty :: Prelude.Type
-instance ToResourceProperties SliderControlDisplayOptionsProperty
-instance Prelude.Eq SliderControlDisplayOptionsProperty
-instance Prelude.Show SliderControlDisplayOptionsProperty
-instance JSON.ToJSON SliderControlDisplayOptionsProperty

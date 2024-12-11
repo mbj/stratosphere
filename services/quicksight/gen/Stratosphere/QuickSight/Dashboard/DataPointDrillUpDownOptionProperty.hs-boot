@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.DataPointDrillUpDownOptionProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data DataPointDrillUpDownOptionProperty :: Prelude.Type
-instance ToResourceProperties DataPointDrillUpDownOptionProperty
-instance Prelude.Eq DataPointDrillUpDownOptionProperty
-instance Prelude.Show DataPointDrillUpDownOptionProperty
-instance JSON.ToJSON DataPointDrillUpDownOptionProperty

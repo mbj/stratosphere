@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.MessageTemplate.SmsMessageTemplateContentBodyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SmsMessageTemplateContentBodyProperty :: Prelude.Type
+instance ToResourceProperties SmsMessageTemplateContentBodyProperty
+instance Prelude.Eq SmsMessageTemplateContentBodyProperty
+instance Prelude.Show SmsMessageTemplateContentBodyProperty
+instance JSON.ToJSON SmsMessageTemplateContentBodyProperty

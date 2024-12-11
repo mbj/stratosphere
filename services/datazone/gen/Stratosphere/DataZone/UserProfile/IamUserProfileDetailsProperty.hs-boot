@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.UserProfile.IamUserProfileDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IamUserProfileDetailsProperty :: Prelude.Type
+instance ToResourceProperties IamUserProfileDetailsProperty
+instance Prelude.Eq IamUserProfileDetailsProperty
+instance Prelude.Show IamUserProfileDetailsProperty
+instance JSON.ToJSON IamUserProfileDetailsProperty

@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.CustomContentVisualProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data CustomContentVisualProperty :: Prelude.Type
-instance ToResourceProperties CustomContentVisualProperty
-instance Prelude.Eq CustomContentVisualProperty
-instance Prelude.Show CustomContentVisualProperty
-instance JSON.ToJSON CustomContentVisualProperty

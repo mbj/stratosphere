@@ -1,0 +1,9 @@
+module Stratosphere.Deadline.StorageProfile.FileSystemLocationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FileSystemLocationProperty :: Prelude.Type
+instance ToResourceProperties FileSystemLocationProperty
+instance Prelude.Eq FileSystemLocationProperty
+instance Prelude.Show FileSystemLocationProperty
+instance JSON.ToJSON FileSystemLocationProperty

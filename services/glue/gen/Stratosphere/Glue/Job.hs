@@ -19,7 +19,10 @@ data Job
          executionClass :: (Prelude.Maybe (Value Prelude.Text)),
          executionProperty :: (Prelude.Maybe ExecutionPropertyProperty),
          glueVersion :: (Prelude.Maybe (Value Prelude.Text)),
+         jobMode :: (Prelude.Maybe (Value Prelude.Text)),
+         jobRunQueuingEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
          logUri :: (Prelude.Maybe (Value Prelude.Text)),
+         maintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
          maxCapacity :: (Prelude.Maybe (Value Prelude.Double)),
          maxRetries :: (Prelude.Maybe (Value Prelude.Double)),
          name :: (Prelude.Maybe (Value Prelude.Text)),
@@ -40,9 +43,10 @@ mkJob command role
        defaultArguments = Prelude.Nothing, description = Prelude.Nothing,
        executionClass = Prelude.Nothing,
        executionProperty = Prelude.Nothing, glueVersion = Prelude.Nothing,
-       logUri = Prelude.Nothing, maxCapacity = Prelude.Nothing,
-       maxRetries = Prelude.Nothing, name = Prelude.Nothing,
-       nonOverridableArguments = Prelude.Nothing,
+       jobMode = Prelude.Nothing, jobRunQueuingEnabled = Prelude.Nothing,
+       logUri = Prelude.Nothing, maintenanceWindow = Prelude.Nothing,
+       maxCapacity = Prelude.Nothing, maxRetries = Prelude.Nothing,
+       name = Prelude.Nothing, nonOverridableArguments = Prelude.Nothing,
        notificationProperty = Prelude.Nothing,
        numberOfWorkers = Prelude.Nothing,
        securityConfiguration = Prelude.Nothing, tags = Prelude.Nothing,
@@ -62,7 +66,10 @@ instance ToResourceProperties Job where
                                (JSON..=) "ExecutionClass" Prelude.<$> executionClass,
                                (JSON..=) "ExecutionProperty" Prelude.<$> executionProperty,
                                (JSON..=) "GlueVersion" Prelude.<$> glueVersion,
+                               (JSON..=) "JobMode" Prelude.<$> jobMode,
+                               (JSON..=) "JobRunQueuingEnabled" Prelude.<$> jobRunQueuingEnabled,
                                (JSON..=) "LogUri" Prelude.<$> logUri,
+                               (JSON..=) "MaintenanceWindow" Prelude.<$> maintenanceWindow,
                                (JSON..=) "MaxCapacity" Prelude.<$> maxCapacity,
                                (JSON..=) "MaxRetries" Prelude.<$> maxRetries,
                                (JSON..=) "Name" Prelude.<$> name,
@@ -89,7 +96,10 @@ instance JSON.ToJSON Job where
                   (JSON..=) "ExecutionClass" Prelude.<$> executionClass,
                   (JSON..=) "ExecutionProperty" Prelude.<$> executionProperty,
                   (JSON..=) "GlueVersion" Prelude.<$> glueVersion,
+                  (JSON..=) "JobMode" Prelude.<$> jobMode,
+                  (JSON..=) "JobRunQueuingEnabled" Prelude.<$> jobRunQueuingEnabled,
                   (JSON..=) "LogUri" Prelude.<$> logUri,
+                  (JSON..=) "MaintenanceWindow" Prelude.<$> maintenanceWindow,
                   (JSON..=) "MaxCapacity" Prelude.<$> maxCapacity,
                   (JSON..=) "MaxRetries" Prelude.<$> maxRetries,
                   (JSON..=) "Name" Prelude.<$> name,
@@ -133,9 +143,20 @@ instance Property "GlueVersion" Job where
   type PropertyType "GlueVersion" Job = Value Prelude.Text
   set newValue Job {..}
     = Job {glueVersion = Prelude.pure newValue, ..}
+instance Property "JobMode" Job where
+  type PropertyType "JobMode" Job = Value Prelude.Text
+  set newValue Job {..} = Job {jobMode = Prelude.pure newValue, ..}
+instance Property "JobRunQueuingEnabled" Job where
+  type PropertyType "JobRunQueuingEnabled" Job = Value Prelude.Bool
+  set newValue Job {..}
+    = Job {jobRunQueuingEnabled = Prelude.pure newValue, ..}
 instance Property "LogUri" Job where
   type PropertyType "LogUri" Job = Value Prelude.Text
   set newValue Job {..} = Job {logUri = Prelude.pure newValue, ..}
+instance Property "MaintenanceWindow" Job where
+  type PropertyType "MaintenanceWindow" Job = Value Prelude.Text
+  set newValue Job {..}
+    = Job {maintenanceWindow = Prelude.pure newValue, ..}
 instance Property "MaxCapacity" Job where
   type PropertyType "MaxCapacity" Job = Value Prelude.Double
   set newValue Job {..}

@@ -8,8 +8,10 @@ import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.AdditionalInferenceSpe
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.DriftCheckBaselinesProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.InferenceSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.MetadataPropertiesProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelCardProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelMetricsProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelPackageStatusDetailsProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.SecurityConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.SourceAlgorithmSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ValidationSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -28,6 +30,7 @@ data ModelPackage
                   lastModifiedTime :: (Prelude.Maybe (Value Prelude.Text)),
                   metadataProperties :: (Prelude.Maybe MetadataPropertiesProperty),
                   modelApprovalStatus :: (Prelude.Maybe (Value Prelude.Text)),
+                  modelCard :: (Prelude.Maybe ModelCardProperty),
                   modelMetrics :: (Prelude.Maybe ModelMetricsProperty),
                   modelPackageDescription :: (Prelude.Maybe (Value Prelude.Text)),
                   modelPackageGroupName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -35,8 +38,10 @@ data ModelPackage
                   modelPackageStatusDetails :: (Prelude.Maybe ModelPackageStatusDetailsProperty),
                   modelPackageVersion :: (Prelude.Maybe (Value Prelude.Integer)),
                   samplePayloadUrl :: (Prelude.Maybe (Value Prelude.Text)),
+                  securityConfig :: (Prelude.Maybe SecurityConfigProperty),
                   skipModelValidation :: (Prelude.Maybe (Value Prelude.Text)),
                   sourceAlgorithmSpecification :: (Prelude.Maybe SourceAlgorithmSpecificationProperty),
+                  sourceUri :: (Prelude.Maybe (Value Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag]),
                   task :: (Prelude.Maybe (Value Prelude.Text)),
                   validationSpecification :: (Prelude.Maybe ValidationSpecificationProperty)}
@@ -54,7 +59,7 @@ mkModelPackage
        inferenceSpecification = Prelude.Nothing,
        lastModifiedTime = Prelude.Nothing,
        metadataProperties = Prelude.Nothing,
-       modelApprovalStatus = Prelude.Nothing,
+       modelApprovalStatus = Prelude.Nothing, modelCard = Prelude.Nothing,
        modelMetrics = Prelude.Nothing,
        modelPackageDescription = Prelude.Nothing,
        modelPackageGroupName = Prelude.Nothing,
@@ -62,10 +67,11 @@ mkModelPackage
        modelPackageStatusDetails = Prelude.Nothing,
        modelPackageVersion = Prelude.Nothing,
        samplePayloadUrl = Prelude.Nothing,
+       securityConfig = Prelude.Nothing,
        skipModelValidation = Prelude.Nothing,
        sourceAlgorithmSpecification = Prelude.Nothing,
-       tags = Prelude.Nothing, task = Prelude.Nothing,
-       validationSpecification = Prelude.Nothing}
+       sourceUri = Prelude.Nothing, tags = Prelude.Nothing,
+       task = Prelude.Nothing, validationSpecification = Prelude.Nothing}
 instance ToResourceProperties ModelPackage where
   toResourceProperties ModelPackage {..}
     = ResourceProperties
@@ -90,6 +96,7 @@ instance ToResourceProperties ModelPackage where
                             (JSON..=) "LastModifiedTime" Prelude.<$> lastModifiedTime,
                             (JSON..=) "MetadataProperties" Prelude.<$> metadataProperties,
                             (JSON..=) "ModelApprovalStatus" Prelude.<$> modelApprovalStatus,
+                            (JSON..=) "ModelCard" Prelude.<$> modelCard,
                             (JSON..=) "ModelMetrics" Prelude.<$> modelMetrics,
                             (JSON..=) "ModelPackageDescription"
                               Prelude.<$> modelPackageDescription,
@@ -100,9 +107,11 @@ instance ToResourceProperties ModelPackage where
                               Prelude.<$> modelPackageStatusDetails,
                             (JSON..=) "ModelPackageVersion" Prelude.<$> modelPackageVersion,
                             (JSON..=) "SamplePayloadUrl" Prelude.<$> samplePayloadUrl,
+                            (JSON..=) "SecurityConfig" Prelude.<$> securityConfig,
                             (JSON..=) "SkipModelValidation" Prelude.<$> skipModelValidation,
                             (JSON..=) "SourceAlgorithmSpecification"
                               Prelude.<$> sourceAlgorithmSpecification,
+                            (JSON..=) "SourceUri" Prelude.<$> sourceUri,
                             (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "Task" Prelude.<$> task,
                             (JSON..=) "ValidationSpecification"
@@ -129,6 +138,7 @@ instance JSON.ToJSON ModelPackage where
                (JSON..=) "LastModifiedTime" Prelude.<$> lastModifiedTime,
                (JSON..=) "MetadataProperties" Prelude.<$> metadataProperties,
                (JSON..=) "ModelApprovalStatus" Prelude.<$> modelApprovalStatus,
+               (JSON..=) "ModelCard" Prelude.<$> modelCard,
                (JSON..=) "ModelMetrics" Prelude.<$> modelMetrics,
                (JSON..=) "ModelPackageDescription"
                  Prelude.<$> modelPackageDescription,
@@ -139,9 +149,11 @@ instance JSON.ToJSON ModelPackage where
                  Prelude.<$> modelPackageStatusDetails,
                (JSON..=) "ModelPackageVersion" Prelude.<$> modelPackageVersion,
                (JSON..=) "SamplePayloadUrl" Prelude.<$> samplePayloadUrl,
+               (JSON..=) "SecurityConfig" Prelude.<$> securityConfig,
                (JSON..=) "SkipModelValidation" Prelude.<$> skipModelValidation,
                (JSON..=) "SourceAlgorithmSpecification"
                  Prelude.<$> sourceAlgorithmSpecification,
+               (JSON..=) "SourceUri" Prelude.<$> sourceUri,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "Task" Prelude.<$> task,
                (JSON..=) "ValidationSpecification"
@@ -198,6 +210,10 @@ instance Property "ModelApprovalStatus" ModelPackage where
   type PropertyType "ModelApprovalStatus" ModelPackage = Value Prelude.Text
   set newValue ModelPackage {..}
     = ModelPackage {modelApprovalStatus = Prelude.pure newValue, ..}
+instance Property "ModelCard" ModelPackage where
+  type PropertyType "ModelCard" ModelPackage = ModelCardProperty
+  set newValue ModelPackage {..}
+    = ModelPackage {modelCard = Prelude.pure newValue, ..}
 instance Property "ModelMetrics" ModelPackage where
   type PropertyType "ModelMetrics" ModelPackage = ModelMetricsProperty
   set newValue ModelPackage {..}
@@ -228,6 +244,10 @@ instance Property "SamplePayloadUrl" ModelPackage where
   type PropertyType "SamplePayloadUrl" ModelPackage = Value Prelude.Text
   set newValue ModelPackage {..}
     = ModelPackage {samplePayloadUrl = Prelude.pure newValue, ..}
+instance Property "SecurityConfig" ModelPackage where
+  type PropertyType "SecurityConfig" ModelPackage = SecurityConfigProperty
+  set newValue ModelPackage {..}
+    = ModelPackage {securityConfig = Prelude.pure newValue, ..}
 instance Property "SkipModelValidation" ModelPackage where
   type PropertyType "SkipModelValidation" ModelPackage = Value Prelude.Text
   set newValue ModelPackage {..}
@@ -237,6 +257,10 @@ instance Property "SourceAlgorithmSpecification" ModelPackage where
   set newValue ModelPackage {..}
     = ModelPackage
         {sourceAlgorithmSpecification = Prelude.pure newValue, ..}
+instance Property "SourceUri" ModelPackage where
+  type PropertyType "SourceUri" ModelPackage = Value Prelude.Text
+  set newValue ModelPackage {..}
+    = ModelPackage {sourceUri = Prelude.pure newValue, ..}
 instance Property "Tags" ModelPackage where
   type PropertyType "Tags" ModelPackage = [Tag]
   set newValue ModelPackage {..}

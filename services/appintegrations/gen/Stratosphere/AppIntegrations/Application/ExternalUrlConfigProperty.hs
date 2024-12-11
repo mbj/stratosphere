@@ -8,26 +8,31 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ExternalUrlConfigProperty
   = ExternalUrlConfigProperty {accessUrl :: (Value Prelude.Text),
-                               approvedOrigins :: (ValueList Prelude.Text)}
+                               approvedOrigins :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExternalUrlConfigProperty ::
-  Value Prelude.Text
-  -> ValueList Prelude.Text -> ExternalUrlConfigProperty
-mkExternalUrlConfigProperty accessUrl approvedOrigins
+  Value Prelude.Text -> ExternalUrlConfigProperty
+mkExternalUrlConfigProperty accessUrl
   = ExternalUrlConfigProperty
-      {accessUrl = accessUrl, approvedOrigins = approvedOrigins}
+      {accessUrl = accessUrl, approvedOrigins = Prelude.Nothing}
 instance ToResourceProperties ExternalUrlConfigProperty where
   toResourceProperties ExternalUrlConfigProperty {..}
     = ResourceProperties
         {awsType = "AWS::AppIntegrations::Application.ExternalUrlConfig",
          supportsTags = Prelude.False,
-         properties = ["AccessUrl" JSON..= accessUrl,
-                       "ApprovedOrigins" JSON..= approvedOrigins]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["AccessUrl" JSON..= accessUrl]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ApprovedOrigins" Prelude.<$> approvedOrigins]))}
 instance JSON.ToJSON ExternalUrlConfigProperty where
   toJSON ExternalUrlConfigProperty {..}
     = JSON.object
-        ["AccessUrl" JSON..= accessUrl,
-         "ApprovedOrigins" JSON..= approvedOrigins]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["AccessUrl" JSON..= accessUrl]
+              (Prelude.catMaybes
+                 [(JSON..=) "ApprovedOrigins" Prelude.<$> approvedOrigins])))
 instance Property "AccessUrl" ExternalUrlConfigProperty where
   type PropertyType "AccessUrl" ExternalUrlConfigProperty = Value Prelude.Text
   set newValue ExternalUrlConfigProperty {..}
@@ -35,4 +40,5 @@ instance Property "AccessUrl" ExternalUrlConfigProperty where
 instance Property "ApprovedOrigins" ExternalUrlConfigProperty where
   type PropertyType "ApprovedOrigins" ExternalUrlConfigProperty = ValueList Prelude.Text
   set newValue ExternalUrlConfigProperty {..}
-    = ExternalUrlConfigProperty {approvedOrigins = newValue, ..}
+    = ExternalUrlConfigProperty
+        {approvedOrigins = Prelude.pure newValue, ..}

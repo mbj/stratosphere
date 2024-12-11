@@ -1,0 +1,9 @@
+module Stratosphere.IoTFleetWise.Campaign.DataPartitionStorageOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataPartitionStorageOptionsProperty :: Prelude.Type
+instance ToResourceProperties DataPartitionStorageOptionsProperty
+instance Prelude.Eq DataPartitionStorageOptionsProperty
+instance Prelude.Show DataPartitionStorageOptionsProperty
+instance JSON.ToJSON DataPartitionStorageOptionsProperty

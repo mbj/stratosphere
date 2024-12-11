@@ -1,0 +1,9 @@
+module Stratosphere.Cognito.LogDeliveryConfiguration.FirehoseConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FirehoseConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FirehoseConfigurationProperty
+instance Prelude.Eq FirehoseConfigurationProperty
+instance Prelude.Show FirehoseConfigurationProperty
+instance JSON.ToJSON FirehoseConfigurationProperty

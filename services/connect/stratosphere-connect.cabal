@@ -25,9 +25,11 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.Connect.AgentStatus
       Stratosphere.Connect.ApprovedOrigin
       Stratosphere.Connect.ContactFlow
       Stratosphere.Connect.ContactFlowModule
+      Stratosphere.Connect.EmailAddress
       Stratosphere.Connect.EvaluationForm
       Stratosphere.Connect.EvaluationForm.EvaluationFormBaseItemProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormItemProperty
@@ -46,7 +48,10 @@ library
       Stratosphere.Connect.EvaluationForm.SingleSelectQuestionRuleCategoryAutomationProperty
       Stratosphere.Connect.HoursOfOperation
       Stratosphere.Connect.HoursOfOperation.HoursOfOperationConfigProperty
+      Stratosphere.Connect.HoursOfOperation.HoursOfOperationOverrideConfigProperty
+      Stratosphere.Connect.HoursOfOperation.HoursOfOperationOverrideProperty
       Stratosphere.Connect.HoursOfOperation.HoursOfOperationTimeSliceProperty
+      Stratosphere.Connect.HoursOfOperation.OverrideTimeSliceProperty
       Stratosphere.Connect.Instance
       Stratosphere.Connect.Instance.AttributesProperty
       Stratosphere.Connect.InstanceStorageConfig
@@ -82,6 +87,7 @@ library
       Stratosphere.Connect.Rule.ReferenceProperty
       Stratosphere.Connect.Rule.RuleTriggerEventSourceProperty
       Stratosphere.Connect.Rule.SendNotificationActionProperty
+      Stratosphere.Connect.Rule.SubmitAutoEvaluationActionProperty
       Stratosphere.Connect.Rule.TaskActionProperty
       Stratosphere.Connect.Rule.UpdateCaseActionProperty
       Stratosphere.Connect.SecurityKey
@@ -101,6 +107,13 @@ library
       Stratosphere.Connect.User.UserPhoneConfigProperty
       Stratosphere.Connect.User.UserProficiencyProperty
       Stratosphere.Connect.UserHierarchyGroup
+      Stratosphere.Connect.UserHierarchyStructure
+      Stratosphere.Connect.UserHierarchyStructure.LevelFiveProperty
+      Stratosphere.Connect.UserHierarchyStructure.LevelFourProperty
+      Stratosphere.Connect.UserHierarchyStructure.LevelOneProperty
+      Stratosphere.Connect.UserHierarchyStructure.LevelThreeProperty
+      Stratosphere.Connect.UserHierarchyStructure.LevelTwoProperty
+      Stratosphere.Connect.UserHierarchyStructure.UserHierarchyStructureProperty
       Stratosphere.Connect.View
       Stratosphere.Connect.ViewVersion
   other-modules:

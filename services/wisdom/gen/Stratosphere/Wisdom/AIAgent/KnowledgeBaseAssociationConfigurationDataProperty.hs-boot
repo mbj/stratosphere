@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.AIAgent.KnowledgeBaseAssociationConfigurationDataProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KnowledgeBaseAssociationConfigurationDataProperty :: Prelude.Type
+instance ToResourceProperties KnowledgeBaseAssociationConfigurationDataProperty
+instance Prelude.Eq KnowledgeBaseAssociationConfigurationDataProperty
+instance Prelude.Show KnowledgeBaseAssociationConfigurationDataProperty
+instance JSON.ToJSON KnowledgeBaseAssociationConfigurationDataProperty

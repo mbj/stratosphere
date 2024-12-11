@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MSK.Replicator.ReplicationStartingPositionProperty as Exports
+import {-# SOURCE #-} Stratosphere.MSK.Replicator.ReplicationTopicNameConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TopicReplicationProperty
@@ -13,6 +14,7 @@ data TopicReplicationProperty
                               copyTopicConfigurations :: (Prelude.Maybe (Value Prelude.Bool)),
                               detectAndCopyNewTopics :: (Prelude.Maybe (Value Prelude.Bool)),
                               startingPosition :: (Prelude.Maybe ReplicationStartingPositionProperty),
+                              topicNameConfiguration :: (Prelude.Maybe ReplicationTopicNameConfigurationProperty),
                               topicsToExclude :: (Prelude.Maybe (ValueList Prelude.Text)),
                               topicsToReplicate :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -25,6 +27,7 @@ mkTopicReplicationProperty topicsToReplicate
        copyTopicConfigurations = Prelude.Nothing,
        detectAndCopyNewTopics = Prelude.Nothing,
        startingPosition = Prelude.Nothing,
+       topicNameConfiguration = Prelude.Nothing,
        topicsToExclude = Prelude.Nothing}
 instance ToResourceProperties TopicReplicationProperty where
   toResourceProperties TopicReplicationProperty {..}
@@ -42,6 +45,8 @@ instance ToResourceProperties TopicReplicationProperty where
                                (JSON..=) "DetectAndCopyNewTopics"
                                  Prelude.<$> detectAndCopyNewTopics,
                                (JSON..=) "StartingPosition" Prelude.<$> startingPosition,
+                               (JSON..=) "TopicNameConfiguration"
+                                 Prelude.<$> topicNameConfiguration,
                                (JSON..=) "TopicsToExclude" Prelude.<$> topicsToExclude]))}
 instance JSON.ToJSON TopicReplicationProperty where
   toJSON TopicReplicationProperty {..}
@@ -57,6 +62,8 @@ instance JSON.ToJSON TopicReplicationProperty where
                   (JSON..=) "DetectAndCopyNewTopics"
                     Prelude.<$> detectAndCopyNewTopics,
                   (JSON..=) "StartingPosition" Prelude.<$> startingPosition,
+                  (JSON..=) "TopicNameConfiguration"
+                    Prelude.<$> topicNameConfiguration,
                   (JSON..=) "TopicsToExclude" Prelude.<$> topicsToExclude])))
 instance Property "CopyAccessControlListsForTopics" TopicReplicationProperty where
   type PropertyType "CopyAccessControlListsForTopics" TopicReplicationProperty = Value Prelude.Bool
@@ -78,6 +85,11 @@ instance Property "StartingPosition" TopicReplicationProperty where
   set newValue TopicReplicationProperty {..}
     = TopicReplicationProperty
         {startingPosition = Prelude.pure newValue, ..}
+instance Property "TopicNameConfiguration" TopicReplicationProperty where
+  type PropertyType "TopicNameConfiguration" TopicReplicationProperty = ReplicationTopicNameConfigurationProperty
+  set newValue TopicReplicationProperty {..}
+    = TopicReplicationProperty
+        {topicNameConfiguration = Prelude.pure newValue, ..}
 instance Property "TopicsToExclude" TopicReplicationProperty where
   type PropertyType "TopicsToExclude" TopicReplicationProperty = ValueList Prelude.Text
   set newValue TopicReplicationProperty {..}

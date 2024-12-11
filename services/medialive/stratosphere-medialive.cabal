@@ -29,6 +29,7 @@ library
       Stratosphere.MediaLive.Channel.AacSettingsProperty
       Stratosphere.MediaLive.Channel.Ac3SettingsProperty
       Stratosphere.MediaLive.Channel.AncillarySourceSettingsProperty
+      Stratosphere.MediaLive.Channel.AnywhereSettingsProperty
       Stratosphere.MediaLive.Channel.ArchiveCdnSettingsProperty
       Stratosphere.MediaLive.Channel.ArchiveContainerSettingsProperty
       Stratosphere.MediaLive.Channel.ArchiveGroupSettingsProperty
@@ -52,9 +53,12 @@ library
       Stratosphere.MediaLive.Channel.AudioTrackSelectionProperty
       Stratosphere.MediaLive.Channel.AudioWatermarkSettingsProperty
       Stratosphere.MediaLive.Channel.AutomaticInputFailoverSettingsProperty
+      Stratosphere.MediaLive.Channel.Av1ColorSpaceSettingsProperty
+      Stratosphere.MediaLive.Channel.Av1SettingsProperty
       Stratosphere.MediaLive.Channel.AvailBlankingProperty
       Stratosphere.MediaLive.Channel.AvailConfigurationProperty
       Stratosphere.MediaLive.Channel.AvailSettingsProperty
+      Stratosphere.MediaLive.Channel.BandwidthReductionFilterSettingsProperty
       Stratosphere.MediaLive.Channel.BlackoutSlateProperty
       Stratosphere.MediaLive.Channel.BurnInDestinationSettingsProperty
       Stratosphere.MediaLive.Channel.CaptionDescriptionProperty
@@ -64,6 +68,8 @@ library
       Stratosphere.MediaLive.Channel.CaptionSelectorProperty
       Stratosphere.MediaLive.Channel.CaptionSelectorSettingsProperty
       Stratosphere.MediaLive.Channel.CdiInputSpecificationProperty
+      Stratosphere.MediaLive.Channel.CmafIngestGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.CmafIngestOutputSettingsProperty
       Stratosphere.MediaLive.Channel.ColorCorrectionProperty
       Stratosphere.MediaLive.Channel.ColorCorrectionSettingsProperty
       Stratosphere.MediaLive.Channel.ColorSpacePassthroughSettingsProperty
@@ -134,7 +140,10 @@ library
       Stratosphere.MediaLive.Channel.Mpeg2SettingsProperty
       Stratosphere.MediaLive.Channel.MsSmoothGroupSettingsProperty
       Stratosphere.MediaLive.Channel.MsSmoothOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.MulticastInputSettingsProperty
+      Stratosphere.MediaLive.Channel.MultiplexContainerSettingsProperty
       Stratosphere.MediaLive.Channel.MultiplexGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.MultiplexM2tsSettingsProperty
       Stratosphere.MediaLive.Channel.MultiplexOutputSettingsProperty
       Stratosphere.MediaLive.Channel.MultiplexProgramChannelDestinationSettingsProperty
       Stratosphere.MediaLive.Channel.NetworkInputSettingsProperty
@@ -166,6 +175,9 @@ library
       Stratosphere.MediaLive.Channel.Scte35SpliceInsertProperty
       Stratosphere.MediaLive.Channel.Scte35TimeSignalAposProperty
       Stratosphere.MediaLive.Channel.SmpteTtDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.SrtGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.SrtOutputDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.SrtOutputSettingsProperty
       Stratosphere.MediaLive.Channel.StandardHlsSettingsProperty
       Stratosphere.MediaLive.Channel.StaticKeySettingsProperty
       Stratosphere.MediaLive.Channel.TeletextDestinationSettingsProperty
@@ -189,13 +201,32 @@ library
       Stratosphere.MediaLive.Channel.VpcOutputSettingsProperty
       Stratosphere.MediaLive.Channel.WavSettingsProperty
       Stratosphere.MediaLive.Channel.WebvttDestinationSettingsProperty
+      Stratosphere.MediaLive.ChannelPlacementGroup
+      Stratosphere.MediaLive.ChannelPlacementGroup.TagsProperty
+      Stratosphere.MediaLive.CloudWatchAlarmTemplate
+      Stratosphere.MediaLive.CloudWatchAlarmTemplateGroup
+      Stratosphere.MediaLive.Cluster
+      Stratosphere.MediaLive.Cluster.ClusterNetworkSettingsProperty
+      Stratosphere.MediaLive.Cluster.InterfaceMappingProperty
+      Stratosphere.MediaLive.Cluster.TagsProperty
+      Stratosphere.MediaLive.EventBridgeRuleTemplate
+      Stratosphere.MediaLive.EventBridgeRuleTemplate.EventBridgeRuleTemplateTargetProperty
+      Stratosphere.MediaLive.EventBridgeRuleTemplateGroup
       Stratosphere.MediaLive.Input
       Stratosphere.MediaLive.Input.InputDestinationRequestProperty
       Stratosphere.MediaLive.Input.InputDeviceRequestProperty
       Stratosphere.MediaLive.Input.InputDeviceSettingsProperty
+      Stratosphere.MediaLive.Input.InputRequestDestinationRouteProperty
       Stratosphere.MediaLive.Input.InputSourceRequestProperty
       Stratosphere.MediaLive.Input.InputVpcRequestProperty
       Stratosphere.MediaLive.Input.MediaConnectFlowRequestProperty
+      Stratosphere.MediaLive.Input.MulticastSettingsCreateRequestProperty
+      Stratosphere.MediaLive.Input.MulticastSettingsUpdateRequestProperty
+      Stratosphere.MediaLive.Input.MulticastSourceCreateRequestProperty
+      Stratosphere.MediaLive.Input.MulticastSourceUpdateRequestProperty
+      Stratosphere.MediaLive.Input.SrtCallerDecryptionRequestProperty
+      Stratosphere.MediaLive.Input.SrtCallerSourceRequestProperty
+      Stratosphere.MediaLive.Input.SrtSettingsRequestProperty
       Stratosphere.MediaLive.InputSecurityGroup
       Stratosphere.MediaLive.InputSecurityGroup.InputWhitelistRuleCidrProperty
       Stratosphere.MediaLive.Multiplex
@@ -210,6 +241,17 @@ library
       Stratosphere.MediaLive.Multiplexprogram.MultiplexProgramSettingsProperty
       Stratosphere.MediaLive.Multiplexprogram.MultiplexStatmuxVideoSettingsProperty
       Stratosphere.MediaLive.Multiplexprogram.MultiplexVideoSettingsProperty
+      Stratosphere.MediaLive.Network
+      Stratosphere.MediaLive.Network.IpPoolProperty
+      Stratosphere.MediaLive.Network.RouteProperty
+      Stratosphere.MediaLive.Network.TagsProperty
+      Stratosphere.MediaLive.SdiSource
+      Stratosphere.MediaLive.SdiSource.TagsProperty
+      Stratosphere.MediaLive.SignalMap
+      Stratosphere.MediaLive.SignalMap.MediaResourceNeighborProperty
+      Stratosphere.MediaLive.SignalMap.MediaResourceProperty
+      Stratosphere.MediaLive.SignalMap.MonitorDeploymentProperty
+      Stratosphere.MediaLive.SignalMap.SuccessfulMonitorDeploymentProperty
   other-modules:
       Paths_stratosphere_medialive
   hs-source-dirs:

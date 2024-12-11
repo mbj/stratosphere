@@ -6,11 +6,13 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTFleetWise.DecoderManifest.CanInterfaceProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoTFleetWise.DecoderManifest.CustomDecodingInterfaceProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTFleetWise.DecoderManifest.ObdInterfaceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NetworkInterfacesItemsProperty
   = NetworkInterfacesItemsProperty {canInterface :: (Prelude.Maybe CanInterfaceProperty),
+                                    customDecodingInterface :: (Prelude.Maybe CustomDecodingInterfaceProperty),
                                     interfaceId :: (Value Prelude.Text),
                                     obdInterface :: (Prelude.Maybe ObdInterfaceProperty),
                                     type' :: (Value Prelude.Text)}
@@ -21,7 +23,9 @@ mkNetworkInterfacesItemsProperty ::
 mkNetworkInterfacesItemsProperty interfaceId type'
   = NetworkInterfacesItemsProperty
       {interfaceId = interfaceId, type' = type',
-       canInterface = Prelude.Nothing, obdInterface = Prelude.Nothing}
+       canInterface = Prelude.Nothing,
+       customDecodingInterface = Prelude.Nothing,
+       obdInterface = Prelude.Nothing}
 instance ToResourceProperties NetworkInterfacesItemsProperty where
   toResourceProperties NetworkInterfacesItemsProperty {..}
     = ResourceProperties
@@ -32,6 +36,8 @@ instance ToResourceProperties NetworkInterfacesItemsProperty where
                            ["InterfaceId" JSON..= interfaceId, "Type" JSON..= type']
                            (Prelude.catMaybes
                               [(JSON..=) "CanInterface" Prelude.<$> canInterface,
+                               (JSON..=) "CustomDecodingInterface"
+                                 Prelude.<$> customDecodingInterface,
                                (JSON..=) "ObdInterface" Prelude.<$> obdInterface]))}
 instance JSON.ToJSON NetworkInterfacesItemsProperty where
   toJSON NetworkInterfacesItemsProperty {..}
@@ -41,12 +47,19 @@ instance JSON.ToJSON NetworkInterfacesItemsProperty where
               ["InterfaceId" JSON..= interfaceId, "Type" JSON..= type']
               (Prelude.catMaybes
                  [(JSON..=) "CanInterface" Prelude.<$> canInterface,
+                  (JSON..=) "CustomDecodingInterface"
+                    Prelude.<$> customDecodingInterface,
                   (JSON..=) "ObdInterface" Prelude.<$> obdInterface])))
 instance Property "CanInterface" NetworkInterfacesItemsProperty where
   type PropertyType "CanInterface" NetworkInterfacesItemsProperty = CanInterfaceProperty
   set newValue NetworkInterfacesItemsProperty {..}
     = NetworkInterfacesItemsProperty
         {canInterface = Prelude.pure newValue, ..}
+instance Property "CustomDecodingInterface" NetworkInterfacesItemsProperty where
+  type PropertyType "CustomDecodingInterface" NetworkInterfacesItemsProperty = CustomDecodingInterfaceProperty
+  set newValue NetworkInterfacesItemsProperty {..}
+    = NetworkInterfacesItemsProperty
+        {customDecodingInterface = Prelude.pure newValue, ..}
 instance Property "InterfaceId" NetworkInterfacesItemsProperty where
   type PropertyType "InterfaceId" NetworkInterfacesItemsProperty = Value Prelude.Text
   set newValue NetworkInterfacesItemsProperty {..}

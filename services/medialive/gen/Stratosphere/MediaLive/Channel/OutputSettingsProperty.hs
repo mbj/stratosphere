@@ -6,34 +6,40 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ArchiveOutputSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.CmafIngestOutputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FrameCaptureOutputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.HlsOutputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MediaPackageOutputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MsSmoothOutputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MultiplexOutputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.RtmpOutputSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.SrtOutputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.UdpOutputSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputSettingsProperty
   = OutputSettingsProperty {archiveOutputSettings :: (Prelude.Maybe ArchiveOutputSettingsProperty),
+                            cmafIngestOutputSettings :: (Prelude.Maybe CmafIngestOutputSettingsProperty),
                             frameCaptureOutputSettings :: (Prelude.Maybe FrameCaptureOutputSettingsProperty),
                             hlsOutputSettings :: (Prelude.Maybe HlsOutputSettingsProperty),
                             mediaPackageOutputSettings :: (Prelude.Maybe MediaPackageOutputSettingsProperty),
                             msSmoothOutputSettings :: (Prelude.Maybe MsSmoothOutputSettingsProperty),
                             multiplexOutputSettings :: (Prelude.Maybe MultiplexOutputSettingsProperty),
                             rtmpOutputSettings :: (Prelude.Maybe RtmpOutputSettingsProperty),
+                            srtOutputSettings :: (Prelude.Maybe SrtOutputSettingsProperty),
                             udpOutputSettings :: (Prelude.Maybe UdpOutputSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputSettingsProperty :: OutputSettingsProperty
 mkOutputSettingsProperty
   = OutputSettingsProperty
       {archiveOutputSettings = Prelude.Nothing,
+       cmafIngestOutputSettings = Prelude.Nothing,
        frameCaptureOutputSettings = Prelude.Nothing,
        hlsOutputSettings = Prelude.Nothing,
        mediaPackageOutputSettings = Prelude.Nothing,
        msSmoothOutputSettings = Prelude.Nothing,
        multiplexOutputSettings = Prelude.Nothing,
        rtmpOutputSettings = Prelude.Nothing,
+       srtOutputSettings = Prelude.Nothing,
        udpOutputSettings = Prelude.Nothing}
 instance ToResourceProperties OutputSettingsProperty where
   toResourceProperties OutputSettingsProperty {..}
@@ -44,6 +50,8 @@ instance ToResourceProperties OutputSettingsProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "ArchiveOutputSettings"
                               Prelude.<$> archiveOutputSettings,
+                            (JSON..=) "CmafIngestOutputSettings"
+                              Prelude.<$> cmafIngestOutputSettings,
                             (JSON..=) "FrameCaptureOutputSettings"
                               Prelude.<$> frameCaptureOutputSettings,
                             (JSON..=) "HlsOutputSettings" Prelude.<$> hlsOutputSettings,
@@ -54,6 +62,7 @@ instance ToResourceProperties OutputSettingsProperty where
                             (JSON..=) "MultiplexOutputSettings"
                               Prelude.<$> multiplexOutputSettings,
                             (JSON..=) "RtmpOutputSettings" Prelude.<$> rtmpOutputSettings,
+                            (JSON..=) "SrtOutputSettings" Prelude.<$> srtOutputSettings,
                             (JSON..=) "UdpOutputSettings" Prelude.<$> udpOutputSettings])}
 instance JSON.ToJSON OutputSettingsProperty where
   toJSON OutputSettingsProperty {..}
@@ -62,6 +71,8 @@ instance JSON.ToJSON OutputSettingsProperty where
            (Prelude.catMaybes
               [(JSON..=) "ArchiveOutputSettings"
                  Prelude.<$> archiveOutputSettings,
+               (JSON..=) "CmafIngestOutputSettings"
+                 Prelude.<$> cmafIngestOutputSettings,
                (JSON..=) "FrameCaptureOutputSettings"
                  Prelude.<$> frameCaptureOutputSettings,
                (JSON..=) "HlsOutputSettings" Prelude.<$> hlsOutputSettings,
@@ -72,12 +83,18 @@ instance JSON.ToJSON OutputSettingsProperty where
                (JSON..=) "MultiplexOutputSettings"
                  Prelude.<$> multiplexOutputSettings,
                (JSON..=) "RtmpOutputSettings" Prelude.<$> rtmpOutputSettings,
+               (JSON..=) "SrtOutputSettings" Prelude.<$> srtOutputSettings,
                (JSON..=) "UdpOutputSettings" Prelude.<$> udpOutputSettings]))
 instance Property "ArchiveOutputSettings" OutputSettingsProperty where
   type PropertyType "ArchiveOutputSettings" OutputSettingsProperty = ArchiveOutputSettingsProperty
   set newValue OutputSettingsProperty {..}
     = OutputSettingsProperty
         {archiveOutputSettings = Prelude.pure newValue, ..}
+instance Property "CmafIngestOutputSettings" OutputSettingsProperty where
+  type PropertyType "CmafIngestOutputSettings" OutputSettingsProperty = CmafIngestOutputSettingsProperty
+  set newValue OutputSettingsProperty {..}
+    = OutputSettingsProperty
+        {cmafIngestOutputSettings = Prelude.pure newValue, ..}
 instance Property "FrameCaptureOutputSettings" OutputSettingsProperty where
   type PropertyType "FrameCaptureOutputSettings" OutputSettingsProperty = FrameCaptureOutputSettingsProperty
   set newValue OutputSettingsProperty {..}
@@ -108,6 +125,11 @@ instance Property "RtmpOutputSettings" OutputSettingsProperty where
   set newValue OutputSettingsProperty {..}
     = OutputSettingsProperty
         {rtmpOutputSettings = Prelude.pure newValue, ..}
+instance Property "SrtOutputSettings" OutputSettingsProperty where
+  type PropertyType "SrtOutputSettings" OutputSettingsProperty = SrtOutputSettingsProperty
+  set newValue OutputSettingsProperty {..}
+    = OutputSettingsProperty
+        {srtOutputSettings = Prelude.pure newValue, ..}
 instance Property "UdpOutputSettings" OutputSettingsProperty where
   type PropertyType "UdpOutputSettings" OutputSettingsProperty = UdpOutputSettingsProperty
   set newValue OutputSettingsProperty {..}

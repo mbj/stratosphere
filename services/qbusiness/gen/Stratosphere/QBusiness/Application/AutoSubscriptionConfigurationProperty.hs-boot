@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.Application.AutoSubscriptionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoSubscriptionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AutoSubscriptionConfigurationProperty
+instance Prelude.Eq AutoSubscriptionConfigurationProperty
+instance Prelude.Show AutoSubscriptionConfigurationProperty
+instance JSON.ToJSON AutoSubscriptionConfigurationProperty

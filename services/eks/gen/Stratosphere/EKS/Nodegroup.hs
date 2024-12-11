@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EKS.Nodegroup.LaunchTemplateSpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.EKS.Nodegroup.NodeRepairConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.EKS.Nodegroup.RemoteAccessProperty as Exports
 import {-# SOURCE #-} Stratosphere.EKS.Nodegroup.ScalingConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.EKS.Nodegroup.TaintProperty as Exports
@@ -20,6 +21,7 @@ data Nodegroup
                instanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                labels :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                launchTemplate :: (Prelude.Maybe LaunchTemplateSpecificationProperty),
+               nodeRepairConfig :: (Prelude.Maybe NodeRepairConfigProperty),
                nodeRole :: (Value Prelude.Text),
                nodegroupName :: (Prelude.Maybe (Value Prelude.Text)),
                releaseVersion :: (Prelude.Maybe (Value Prelude.Text)),
@@ -40,11 +42,12 @@ mkNodegroup clusterName nodeRole subnets
        amiType = Prelude.Nothing, capacityType = Prelude.Nothing,
        diskSize = Prelude.Nothing, forceUpdateEnabled = Prelude.Nothing,
        instanceTypes = Prelude.Nothing, labels = Prelude.Nothing,
-       launchTemplate = Prelude.Nothing, nodegroupName = Prelude.Nothing,
-       releaseVersion = Prelude.Nothing, remoteAccess = Prelude.Nothing,
-       scalingConfig = Prelude.Nothing, tags = Prelude.Nothing,
-       taints = Prelude.Nothing, updateConfig = Prelude.Nothing,
-       version = Prelude.Nothing}
+       launchTemplate = Prelude.Nothing,
+       nodeRepairConfig = Prelude.Nothing,
+       nodegroupName = Prelude.Nothing, releaseVersion = Prelude.Nothing,
+       remoteAccess = Prelude.Nothing, scalingConfig = Prelude.Nothing,
+       tags = Prelude.Nothing, taints = Prelude.Nothing,
+       updateConfig = Prelude.Nothing, version = Prelude.Nothing}
 instance ToResourceProperties Nodegroup where
   toResourceProperties Nodegroup {..}
     = ResourceProperties
@@ -61,6 +64,7 @@ instance ToResourceProperties Nodegroup where
                                (JSON..=) "InstanceTypes" Prelude.<$> instanceTypes,
                                (JSON..=) "Labels" Prelude.<$> labels,
                                (JSON..=) "LaunchTemplate" Prelude.<$> launchTemplate,
+                               (JSON..=) "NodeRepairConfig" Prelude.<$> nodeRepairConfig,
                                (JSON..=) "NodegroupName" Prelude.<$> nodegroupName,
                                (JSON..=) "ReleaseVersion" Prelude.<$> releaseVersion,
                                (JSON..=) "RemoteAccess" Prelude.<$> remoteAccess,
@@ -84,6 +88,7 @@ instance JSON.ToJSON Nodegroup where
                   (JSON..=) "InstanceTypes" Prelude.<$> instanceTypes,
                   (JSON..=) "Labels" Prelude.<$> labels,
                   (JSON..=) "LaunchTemplate" Prelude.<$> launchTemplate,
+                  (JSON..=) "NodeRepairConfig" Prelude.<$> nodeRepairConfig,
                   (JSON..=) "NodegroupName" Prelude.<$> nodegroupName,
                   (JSON..=) "ReleaseVersion" Prelude.<$> releaseVersion,
                   (JSON..=) "RemoteAccess" Prelude.<$> remoteAccess,
@@ -124,6 +129,10 @@ instance Property "LaunchTemplate" Nodegroup where
   type PropertyType "LaunchTemplate" Nodegroup = LaunchTemplateSpecificationProperty
   set newValue Nodegroup {..}
     = Nodegroup {launchTemplate = Prelude.pure newValue, ..}
+instance Property "NodeRepairConfig" Nodegroup where
+  type PropertyType "NodeRepairConfig" Nodegroup = NodeRepairConfigProperty
+  set newValue Nodegroup {..}
+    = Nodegroup {nodeRepairConfig = Prelude.pure newValue, ..}
 instance Property "NodeRole" Nodegroup where
   type PropertyType "NodeRole" Nodegroup = Value Prelude.Text
   set newValue Nodegroup {..} = Nodegroup {nodeRole = newValue, ..}

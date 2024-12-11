@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.Retriever.RetrieverConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RetrieverConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RetrieverConfigurationProperty
+instance Prelude.Eq RetrieverConfigurationProperty
+instance Prelude.Show RetrieverConfigurationProperty
+instance JSON.ToJSON RetrieverConfigurationProperty

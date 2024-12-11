@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataSource.TransformationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TransformationProperty :: Prelude.Type
+instance ToResourceProperties TransformationProperty
+instance Prelude.Eq TransformationProperty
+instance Prelude.Show TransformationProperty
+instance JSON.ToJSON TransformationProperty

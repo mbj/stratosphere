@@ -11,6 +11,7 @@ import Stratosphere.Value
 data MSKSourceConfigurationProperty
   = MSKSourceConfigurationProperty {authenticationConfiguration :: AuthenticationConfigurationProperty,
                                     mSKClusterARN :: (Value Prelude.Text),
+                                    readFromTimestamp :: (Prelude.Maybe (Value Prelude.Text)),
                                     topicName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMSKSourceConfigurationProperty ::
@@ -23,22 +24,30 @@ mkMSKSourceConfigurationProperty
   topicName
   = MSKSourceConfigurationProperty
       {authenticationConfiguration = authenticationConfiguration,
-       mSKClusterARN = mSKClusterARN, topicName = topicName}
+       mSKClusterARN = mSKClusterARN, topicName = topicName,
+       readFromTimestamp = Prelude.Nothing}
 instance ToResourceProperties MSKSourceConfigurationProperty where
   toResourceProperties MSKSourceConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::KinesisFirehose::DeliveryStream.MSKSourceConfiguration",
          supportsTags = Prelude.False,
-         properties = ["AuthenticationConfiguration"
-                         JSON..= authenticationConfiguration,
-                       "MSKClusterARN" JSON..= mSKClusterARN,
-                       "TopicName" JSON..= topicName]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["AuthenticationConfiguration" JSON..= authenticationConfiguration,
+                            "MSKClusterARN" JSON..= mSKClusterARN,
+                            "TopicName" JSON..= topicName]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ReadFromTimestamp" Prelude.<$> readFromTimestamp]))}
 instance JSON.ToJSON MSKSourceConfigurationProperty where
   toJSON MSKSourceConfigurationProperty {..}
     = JSON.object
-        ["AuthenticationConfiguration" JSON..= authenticationConfiguration,
-         "MSKClusterARN" JSON..= mSKClusterARN,
-         "TopicName" JSON..= topicName]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["AuthenticationConfiguration" JSON..= authenticationConfiguration,
+               "MSKClusterARN" JSON..= mSKClusterARN,
+               "TopicName" JSON..= topicName]
+              (Prelude.catMaybes
+                 [(JSON..=) "ReadFromTimestamp" Prelude.<$> readFromTimestamp])))
 instance Property "AuthenticationConfiguration" MSKSourceConfigurationProperty where
   type PropertyType "AuthenticationConfiguration" MSKSourceConfigurationProperty = AuthenticationConfigurationProperty
   set newValue MSKSourceConfigurationProperty {..}
@@ -48,6 +57,11 @@ instance Property "MSKClusterARN" MSKSourceConfigurationProperty where
   type PropertyType "MSKClusterARN" MSKSourceConfigurationProperty = Value Prelude.Text
   set newValue MSKSourceConfigurationProperty {..}
     = MSKSourceConfigurationProperty {mSKClusterARN = newValue, ..}
+instance Property "ReadFromTimestamp" MSKSourceConfigurationProperty where
+  type PropertyType "ReadFromTimestamp" MSKSourceConfigurationProperty = Value Prelude.Text
+  set newValue MSKSourceConfigurationProperty {..}
+    = MSKSourceConfigurationProperty
+        {readFromTimestamp = Prelude.pure newValue, ..}
 instance Property "TopicName" MSKSourceConfigurationProperty where
   type PropertyType "TopicName" MSKSourceConfigurationProperty = Value Prelude.Text
   set newValue MSKSourceConfigurationProperty {..}

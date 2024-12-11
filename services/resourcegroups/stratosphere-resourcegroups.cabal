@@ -31,6 +31,7 @@ library
       Stratosphere.ResourceGroups.Group.QueryProperty
       Stratosphere.ResourceGroups.Group.ResourceQueryProperty
       Stratosphere.ResourceGroups.Group.TagFilterProperty
+      Stratosphere.ResourceGroups.TagSyncTask
   other-modules:
       Paths_stratosphere_resourcegroups
   hs-source-dirs:

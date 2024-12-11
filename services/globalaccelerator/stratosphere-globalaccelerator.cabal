@@ -26,6 +26,8 @@ flag development
 library
   exposed-modules:
       Stratosphere.GlobalAccelerator.Accelerator
+      Stratosphere.GlobalAccelerator.CrossAccountAttachment
+      Stratosphere.GlobalAccelerator.CrossAccountAttachment.ResourceProperty
       Stratosphere.GlobalAccelerator.EndpointGroup
       Stratosphere.GlobalAccelerator.EndpointGroup.EndpointConfigurationProperty
       Stratosphere.GlobalAccelerator.EndpointGroup.PortOverrideProperty

@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.DatabaseSourceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatabaseSourceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DatabaseSourceConfigurationProperty
+instance Prelude.Eq DatabaseSourceConfigurationProperty
+instance Prelude.Show DatabaseSourceConfigurationProperty
+instance JSON.ToJSON DatabaseSourceConfigurationProperty

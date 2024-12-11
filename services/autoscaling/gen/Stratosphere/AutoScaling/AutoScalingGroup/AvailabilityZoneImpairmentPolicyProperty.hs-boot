@@ -1,0 +1,9 @@
+module Stratosphere.AutoScaling.AutoScalingGroup.AvailabilityZoneImpairmentPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AvailabilityZoneImpairmentPolicyProperty :: Prelude.Type
+instance ToResourceProperties AvailabilityZoneImpairmentPolicyProperty
+instance Prelude.Eq AvailabilityZoneImpairmentPolicyProperty
+instance Prelude.Show AvailabilityZoneImpairmentPolicyProperty
+instance JSON.ToJSON AvailabilityZoneImpairmentPolicyProperty

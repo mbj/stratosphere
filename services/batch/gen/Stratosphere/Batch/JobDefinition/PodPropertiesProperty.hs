@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksContainerProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksVolumeProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.ImagePullSecretProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.MetadataProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -13,6 +14,7 @@ data PodPropertiesProperty
   = PodPropertiesProperty {containers :: (Prelude.Maybe [EksContainerProperty]),
                            dnsPolicy :: (Prelude.Maybe (Value Prelude.Text)),
                            hostNetwork :: (Prelude.Maybe (Value Prelude.Bool)),
+                           imagePullSecrets :: (Prelude.Maybe [ImagePullSecretProperty]),
                            initContainers :: (Prelude.Maybe [EksContainerProperty]),
                            metadata :: (Prelude.Maybe MetadataProperty),
                            serviceAccountName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -23,8 +25,9 @@ mkPodPropertiesProperty :: PodPropertiesProperty
 mkPodPropertiesProperty
   = PodPropertiesProperty
       {containers = Prelude.Nothing, dnsPolicy = Prelude.Nothing,
-       hostNetwork = Prelude.Nothing, initContainers = Prelude.Nothing,
-       metadata = Prelude.Nothing, serviceAccountName = Prelude.Nothing,
+       hostNetwork = Prelude.Nothing, imagePullSecrets = Prelude.Nothing,
+       initContainers = Prelude.Nothing, metadata = Prelude.Nothing,
+       serviceAccountName = Prelude.Nothing,
        shareProcessNamespace = Prelude.Nothing, volumes = Prelude.Nothing}
 instance ToResourceProperties PodPropertiesProperty where
   toResourceProperties PodPropertiesProperty {..}
@@ -36,6 +39,7 @@ instance ToResourceProperties PodPropertiesProperty where
                            [(JSON..=) "Containers" Prelude.<$> containers,
                             (JSON..=) "DnsPolicy" Prelude.<$> dnsPolicy,
                             (JSON..=) "HostNetwork" Prelude.<$> hostNetwork,
+                            (JSON..=) "ImagePullSecrets" Prelude.<$> imagePullSecrets,
                             (JSON..=) "InitContainers" Prelude.<$> initContainers,
                             (JSON..=) "Metadata" Prelude.<$> metadata,
                             (JSON..=) "ServiceAccountName" Prelude.<$> serviceAccountName,
@@ -50,6 +54,7 @@ instance JSON.ToJSON PodPropertiesProperty where
               [(JSON..=) "Containers" Prelude.<$> containers,
                (JSON..=) "DnsPolicy" Prelude.<$> dnsPolicy,
                (JSON..=) "HostNetwork" Prelude.<$> hostNetwork,
+               (JSON..=) "ImagePullSecrets" Prelude.<$> imagePullSecrets,
                (JSON..=) "InitContainers" Prelude.<$> initContainers,
                (JSON..=) "Metadata" Prelude.<$> metadata,
                (JSON..=) "ServiceAccountName" Prelude.<$> serviceAccountName,
@@ -68,6 +73,11 @@ instance Property "HostNetwork" PodPropertiesProperty where
   type PropertyType "HostNetwork" PodPropertiesProperty = Value Prelude.Bool
   set newValue PodPropertiesProperty {..}
     = PodPropertiesProperty {hostNetwork = Prelude.pure newValue, ..}
+instance Property "ImagePullSecrets" PodPropertiesProperty where
+  type PropertyType "ImagePullSecrets" PodPropertiesProperty = [ImagePullSecretProperty]
+  set newValue PodPropertiesProperty {..}
+    = PodPropertiesProperty
+        {imagePullSecrets = Prelude.pure newValue, ..}
 instance Property "InitContainers" PodPropertiesProperty where
   type PropertyType "InitContainers" PodPropertiesProperty = [EksContainerProperty]
   set newValue PodPropertiesProperty {..}

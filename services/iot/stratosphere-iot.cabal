@@ -41,6 +41,7 @@ library
       Stratosphere.IoT.Dimension
       Stratosphere.IoT.DomainConfiguration
       Stratosphere.IoT.DomainConfiguration.AuthorizerConfigProperty
+      Stratosphere.IoT.DomainConfiguration.ClientCertificateConfigProperty
       Stratosphere.IoT.DomainConfiguration.ServerCertificateConfigProperty
       Stratosphere.IoT.DomainConfiguration.ServerCertificateSummaryProperty
       Stratosphere.IoT.DomainConfiguration.TlsConfigProperty
@@ -92,6 +93,8 @@ library
       Stratosphere.IoT.ThingGroup.ThingGroupPropertiesProperty
       Stratosphere.IoT.ThingPrincipalAttachment
       Stratosphere.IoT.ThingType
+      Stratosphere.IoT.ThingType.Mqtt5ConfigurationProperty
+      Stratosphere.IoT.ThingType.PropagatingAttributeProperty
       Stratosphere.IoT.ThingType.ThingTypePropertiesProperty
       Stratosphere.IoT.TopicRule
       Stratosphere.IoT.TopicRule.ActionProperty

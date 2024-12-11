@@ -7,7 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OperationPreferencesProperty
-  = OperationPreferencesProperty {failureToleranceCount :: (Prelude.Maybe (Value Prelude.Integer)),
+  = OperationPreferencesProperty {concurrencyMode :: (Prelude.Maybe (Value Prelude.Text)),
+                                  failureToleranceCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                   failureTolerancePercentage :: (Prelude.Maybe (Value Prelude.Integer)),
                                   maxConcurrentCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                   maxConcurrentPercentage :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -17,7 +18,8 @@ data OperationPreferencesProperty
 mkOperationPreferencesProperty :: OperationPreferencesProperty
 mkOperationPreferencesProperty
   = OperationPreferencesProperty
-      {failureToleranceCount = Prelude.Nothing,
+      {concurrencyMode = Prelude.Nothing,
+       failureToleranceCount = Prelude.Nothing,
        failureTolerancePercentage = Prelude.Nothing,
        maxConcurrentCount = Prelude.Nothing,
        maxConcurrentPercentage = Prelude.Nothing,
@@ -30,7 +32,8 @@ instance ToResourceProperties OperationPreferencesProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "FailureToleranceCount"
+                           [(JSON..=) "ConcurrencyMode" Prelude.<$> concurrencyMode,
+                            (JSON..=) "FailureToleranceCount"
                               Prelude.<$> failureToleranceCount,
                             (JSON..=) "FailureTolerancePercentage"
                               Prelude.<$> failureTolerancePercentage,
@@ -45,7 +48,8 @@ instance JSON.ToJSON OperationPreferencesProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "FailureToleranceCount"
+              [(JSON..=) "ConcurrencyMode" Prelude.<$> concurrencyMode,
+               (JSON..=) "FailureToleranceCount"
                  Prelude.<$> failureToleranceCount,
                (JSON..=) "FailureTolerancePercentage"
                  Prelude.<$> failureTolerancePercentage,
@@ -55,6 +59,11 @@ instance JSON.ToJSON OperationPreferencesProperty where
                (JSON..=) "RegionConcurrencyType"
                  Prelude.<$> regionConcurrencyType,
                (JSON..=) "RegionOrder" Prelude.<$> regionOrder]))
+instance Property "ConcurrencyMode" OperationPreferencesProperty where
+  type PropertyType "ConcurrencyMode" OperationPreferencesProperty = Value Prelude.Text
+  set newValue OperationPreferencesProperty {..}
+    = OperationPreferencesProperty
+        {concurrencyMode = Prelude.pure newValue, ..}
 instance Property "FailureToleranceCount" OperationPreferencesProperty where
   type PropertyType "FailureToleranceCount" OperationPreferencesProperty = Value Prelude.Integer
   set newValue OperationPreferencesProperty {..}

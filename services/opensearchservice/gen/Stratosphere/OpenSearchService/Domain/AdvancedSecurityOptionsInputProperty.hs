@@ -5,6 +5,7 @@ module Stratosphere.OpenSearchService.Domain.AdvancedSecurityOptionsInputPropert
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.JWTOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.MasterUserOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.SAMLOptionsProperty as Exports
 import Stratosphere.ResourceProperties
@@ -14,6 +15,7 @@ data AdvancedSecurityOptionsInputProperty
                                           anonymousAuthEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                           enabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                           internalUserDatabaseEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                                          jWTOptions :: (Prelude.Maybe JWTOptionsProperty),
                                           masterUserOptions :: (Prelude.Maybe MasterUserOptionsProperty),
                                           sAMLOptions :: (Prelude.Maybe SAMLOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -24,7 +26,8 @@ mkAdvancedSecurityOptionsInputProperty
       {anonymousAuthDisableDate = Prelude.Nothing,
        anonymousAuthEnabled = Prelude.Nothing, enabled = Prelude.Nothing,
        internalUserDatabaseEnabled = Prelude.Nothing,
-       masterUserOptions = Prelude.Nothing, sAMLOptions = Prelude.Nothing}
+       jWTOptions = Prelude.Nothing, masterUserOptions = Prelude.Nothing,
+       sAMLOptions = Prelude.Nothing}
 instance ToResourceProperties AdvancedSecurityOptionsInputProperty where
   toResourceProperties AdvancedSecurityOptionsInputProperty {..}
     = ResourceProperties
@@ -38,6 +41,7 @@ instance ToResourceProperties AdvancedSecurityOptionsInputProperty where
                             (JSON..=) "Enabled" Prelude.<$> enabled,
                             (JSON..=) "InternalUserDatabaseEnabled"
                               Prelude.<$> internalUserDatabaseEnabled,
+                            (JSON..=) "JWTOptions" Prelude.<$> jWTOptions,
                             (JSON..=) "MasterUserOptions" Prelude.<$> masterUserOptions,
                             (JSON..=) "SAMLOptions" Prelude.<$> sAMLOptions])}
 instance JSON.ToJSON AdvancedSecurityOptionsInputProperty where
@@ -51,6 +55,7 @@ instance JSON.ToJSON AdvancedSecurityOptionsInputProperty where
                (JSON..=) "Enabled" Prelude.<$> enabled,
                (JSON..=) "InternalUserDatabaseEnabled"
                  Prelude.<$> internalUserDatabaseEnabled,
+               (JSON..=) "JWTOptions" Prelude.<$> jWTOptions,
                (JSON..=) "MasterUserOptions" Prelude.<$> masterUserOptions,
                (JSON..=) "SAMLOptions" Prelude.<$> sAMLOptions]))
 instance Property "AnonymousAuthDisableDate" AdvancedSecurityOptionsInputProperty where
@@ -73,6 +78,11 @@ instance Property "InternalUserDatabaseEnabled" AdvancedSecurityOptionsInputProp
   set newValue AdvancedSecurityOptionsInputProperty {..}
     = AdvancedSecurityOptionsInputProperty
         {internalUserDatabaseEnabled = Prelude.pure newValue, ..}
+instance Property "JWTOptions" AdvancedSecurityOptionsInputProperty where
+  type PropertyType "JWTOptions" AdvancedSecurityOptionsInputProperty = JWTOptionsProperty
+  set newValue AdvancedSecurityOptionsInputProperty {..}
+    = AdvancedSecurityOptionsInputProperty
+        {jWTOptions = Prelude.pure newValue, ..}
 instance Property "MasterUserOptions" AdvancedSecurityOptionsInputProperty where
   type PropertyType "MasterUserOptions" AdvancedSecurityOptionsInputProperty = MasterUserOptionsProperty
   set newValue AdvancedSecurityOptionsInputProperty {..}

@@ -11,14 +11,14 @@ import Stratosphere.Value
 data LogicalTableProperty
   = LogicalTableProperty {alias :: (Value Prelude.Text),
                           dataTransforms :: (Prelude.Maybe [TransformOperationProperty]),
-                          source :: LogicalTableSourceProperty}
+                          source :: (Prelude.Maybe LogicalTableSourceProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLogicalTableProperty ::
-  Value Prelude.Text
-  -> LogicalTableSourceProperty -> LogicalTableProperty
-mkLogicalTableProperty alias source
+  Value Prelude.Text -> LogicalTableProperty
+mkLogicalTableProperty alias
   = LogicalTableProperty
-      {alias = alias, source = source, dataTransforms = Prelude.Nothing}
+      {alias = alias, dataTransforms = Prelude.Nothing,
+       source = Prelude.Nothing}
 instance ToResourceProperties LogicalTableProperty where
   toResourceProperties LogicalTableProperty {..}
     = ResourceProperties
@@ -26,17 +26,19 @@ instance ToResourceProperties LogicalTableProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Alias" JSON..= alias, "Source" JSON..= source]
+                           ["Alias" JSON..= alias]
                            (Prelude.catMaybes
-                              [(JSON..=) "DataTransforms" Prelude.<$> dataTransforms]))}
+                              [(JSON..=) "DataTransforms" Prelude.<$> dataTransforms,
+                               (JSON..=) "Source" Prelude.<$> source]))}
 instance JSON.ToJSON LogicalTableProperty where
   toJSON LogicalTableProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Alias" JSON..= alias, "Source" JSON..= source]
+              ["Alias" JSON..= alias]
               (Prelude.catMaybes
-                 [(JSON..=) "DataTransforms" Prelude.<$> dataTransforms])))
+                 [(JSON..=) "DataTransforms" Prelude.<$> dataTransforms,
+                  (JSON..=) "Source" Prelude.<$> source])))
 instance Property "Alias" LogicalTableProperty where
   type PropertyType "Alias" LogicalTableProperty = Value Prelude.Text
   set newValue LogicalTableProperty {..}
@@ -48,4 +50,4 @@ instance Property "DataTransforms" LogicalTableProperty where
 instance Property "Source" LogicalTableProperty where
   type PropertyType "Source" LogicalTableProperty = LogicalTableSourceProperty
   set newValue LogicalTableProperty {..}
-    = LogicalTableProperty {source = newValue, ..}
+    = LogicalTableProperty {source = Prelude.pure newValue, ..}

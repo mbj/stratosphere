@@ -1,0 +1,9 @@
+module Stratosphere.CodePipeline.Pipeline.RetryConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RetryConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RetryConfigurationProperty
+instance Prelude.Eq RetryConfigurationProperty
+instance Prelude.Show RetryConfigurationProperty
+instance JSON.ToJSON RetryConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.KinesisAnalyticsV2.Application.ApplicationSystemRollbackConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ApplicationSystemRollbackConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ApplicationSystemRollbackConfigurationProperty
+instance Prelude.Eq ApplicationSystemRollbackConfigurationProperty
+instance Prelude.Show ApplicationSystemRollbackConfigurationProperty
+instance JSON.ToJSON ApplicationSystemRollbackConfigurationProperty

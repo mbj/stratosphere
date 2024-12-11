@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.WebExperience.OpenIDConnectProviderConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenIDConnectProviderConfigurationProperty :: Prelude.Type
+instance ToResourceProperties OpenIDConnectProviderConfigurationProperty
+instance Prelude.Eq OpenIDConnectProviderConfigurationProperty
+instance Prelude.Show OpenIDConnectProviderConfigurationProperty
+instance JSON.ToJSON OpenIDConnectProviderConfigurationProperty

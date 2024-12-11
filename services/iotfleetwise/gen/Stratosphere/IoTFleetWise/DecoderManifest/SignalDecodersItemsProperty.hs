@@ -6,11 +6,13 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoTFleetWise.DecoderManifest.CanSignalProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoTFleetWise.DecoderManifest.CustomDecodingSignalProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTFleetWise.DecoderManifest.ObdSignalProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SignalDecodersItemsProperty
   = SignalDecodersItemsProperty {canSignal :: (Prelude.Maybe CanSignalProperty),
+                                 customDecodingSignal :: (Prelude.Maybe CustomDecodingSignalProperty),
                                  fullyQualifiedName :: (Value Prelude.Text),
                                  interfaceId :: (Value Prelude.Text),
                                  obdSignal :: (Prelude.Maybe ObdSignalProperty),
@@ -24,7 +26,9 @@ mkSignalDecodersItemsProperty fullyQualifiedName interfaceId type'
   = SignalDecodersItemsProperty
       {fullyQualifiedName = fullyQualifiedName,
        interfaceId = interfaceId, type' = type',
-       canSignal = Prelude.Nothing, obdSignal = Prelude.Nothing}
+       canSignal = Prelude.Nothing,
+       customDecodingSignal = Prelude.Nothing,
+       obdSignal = Prelude.Nothing}
 instance ToResourceProperties SignalDecodersItemsProperty where
   toResourceProperties SignalDecodersItemsProperty {..}
     = ResourceProperties
@@ -36,6 +40,7 @@ instance ToResourceProperties SignalDecodersItemsProperty where
                             "InterfaceId" JSON..= interfaceId, "Type" JSON..= type']
                            (Prelude.catMaybes
                               [(JSON..=) "CanSignal" Prelude.<$> canSignal,
+                               (JSON..=) "CustomDecodingSignal" Prelude.<$> customDecodingSignal,
                                (JSON..=) "ObdSignal" Prelude.<$> obdSignal]))}
 instance JSON.ToJSON SignalDecodersItemsProperty where
   toJSON SignalDecodersItemsProperty {..}
@@ -46,12 +51,18 @@ instance JSON.ToJSON SignalDecodersItemsProperty where
                "InterfaceId" JSON..= interfaceId, "Type" JSON..= type']
               (Prelude.catMaybes
                  [(JSON..=) "CanSignal" Prelude.<$> canSignal,
+                  (JSON..=) "CustomDecodingSignal" Prelude.<$> customDecodingSignal,
                   (JSON..=) "ObdSignal" Prelude.<$> obdSignal])))
 instance Property "CanSignal" SignalDecodersItemsProperty where
   type PropertyType "CanSignal" SignalDecodersItemsProperty = CanSignalProperty
   set newValue SignalDecodersItemsProperty {..}
     = SignalDecodersItemsProperty
         {canSignal = Prelude.pure newValue, ..}
+instance Property "CustomDecodingSignal" SignalDecodersItemsProperty where
+  type PropertyType "CustomDecodingSignal" SignalDecodersItemsProperty = CustomDecodingSignalProperty
+  set newValue SignalDecodersItemsProperty {..}
+    = SignalDecodersItemsProperty
+        {customDecodingSignal = Prelude.pure newValue, ..}
 instance Property "FullyQualifiedName" SignalDecodersItemsProperty where
   type PropertyType "FullyQualifiedName" SignalDecodersItemsProperty = Value Prelude.Text
   set newValue SignalDecodersItemsProperty {..}

@@ -30,6 +30,7 @@ library
       Stratosphere.OSIS.Pipeline.CloudWatchLogDestinationProperty
       Stratosphere.OSIS.Pipeline.EncryptionAtRestOptionsProperty
       Stratosphere.OSIS.Pipeline.LogPublishingOptionsProperty
+      Stratosphere.OSIS.Pipeline.VpcAttachmentOptionsProperty
       Stratosphere.OSIS.Pipeline.VpcEndpointProperty
       Stratosphere.OSIS.Pipeline.VpcOptionsProperty
   other-modules:

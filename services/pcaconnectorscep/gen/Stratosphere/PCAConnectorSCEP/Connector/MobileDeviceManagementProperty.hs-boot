@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorSCEP.Connector.MobileDeviceManagementProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MobileDeviceManagementProperty :: Prelude.Type
+instance ToResourceProperties MobileDeviceManagementProperty
+instance Prelude.Eq MobileDeviceManagementProperty
+instance Prelude.Show MobileDeviceManagementProperty
+instance JSON.ToJSON MobileDeviceManagementProperty

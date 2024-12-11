@@ -39,6 +39,7 @@ library
       Stratosphere.Redshift.EndpointAccess.VpcSecurityGroupProperty
       Stratosphere.Redshift.EndpointAuthorization
       Stratosphere.Redshift.EventSubscription
+      Stratosphere.Redshift.Integration
       Stratosphere.Redshift.ScheduledAction
       Stratosphere.Redshift.ScheduledAction.PauseClusterMessageProperty
       Stratosphere.Redshift.ScheduledAction.ResizeClusterMessageProperty

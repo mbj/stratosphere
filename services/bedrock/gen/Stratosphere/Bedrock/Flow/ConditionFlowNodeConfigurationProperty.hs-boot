@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Flow.ConditionFlowNodeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConditionFlowNodeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ConditionFlowNodeConfigurationProperty
+instance Prelude.Eq ConditionFlowNodeConfigurationProperty
+instance Prelude.Show ConditionFlowNodeConfigurationProperty
+instance JSON.ToJSON ConditionFlowNodeConfigurationProperty
