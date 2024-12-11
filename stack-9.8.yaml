@@ -440,9 +440,9 @@ flags:
   stratosphere-xray:
     development: true
 packages:
-# - generator, no ghc-source-gen release for 9.6 ATM
 - .
 - examples
+- generator
 - services/accessanalyzer
 - services/acmpca
 - services/amazonmq

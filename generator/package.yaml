@@ -17,7 +17,7 @@ dependencies:
 - ghc
 - ghc-paths
 - ghc-source-gen
-- hpack
+- hpack >= 0.37
 - mtl
 - shakespeare
 - stratosphere

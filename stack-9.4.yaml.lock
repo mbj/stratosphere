@@ -5,16 +5,12 @@
 
 packages:
 - completed:
-    name: ghc-source-gen
+    hackage: ghc-source-gen-0.4.6.0@sha256:3239c77806cd256f42c5e949440148d8b102f183c6aa357a8e1c44c2573957cd,4422
     pantry-tree:
-      sha256: 4ba36ca22269ea5c9f56921182785817c23a4f4bc3811a39edd584f6876d4555
-      size: 3952
-    sha256: 36eea7c307917e9c76cdb695b2880d43eaa952db476b7cb762ddfed2340d912e
-    size: 37067
-    url: https://github.com/google/ghc-source-gen/archive/7527305ed59a47140053cf7bc87432fe1f8804d0.tar.gz
-    version: 0.4.3.0
+      sha256: a1a9d73e49be5768a2ceed6a6c2b9218bf05778bc490e119b91e132ad1843eaf
+      size: 3252
   original:
-    url: https://github.com/google/ghc-source-gen/archive/7527305ed59a47140053cf7bc87432fe1f8804d0.tar.gz
+    hackage: ghc-source-gen-0.4.6.0@sha256:3239c77806cd256f42c5e949440148d8b102f183c6aa357a8e1c44c2573957cd,4422
 snapshots:
 - completed:
     sha256: a81fb3877c4f9031e1325eb3935122e608d80715dc16b586eb11ddbff8671ecd
