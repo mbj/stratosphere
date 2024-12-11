@@ -1,5 +1,7 @@
 ---
 resolver: lts-21.25
+extra-deps:
+- ghc-source-gen-0.4.6.0@sha256:3239c77806cd256f42c5e949440148d8b102f183c6aa357a8e1c44c2573957cd,4422
 flags:
   stratosphere:
     development: true
@@ -441,7 +443,7 @@ flags:
     development: true
 packages:
 - .
-- generator
+# - generator, AST not compatible anymore with 9.6+
 - examples
 - services/accessanalyzer
 - services/acmpca
@@ -661,6 +663,3 @@ packages:
 - services/wisdom
 - services/workspaces
 - services/xray
-extra-deps:
-- github: google/ghc-source-gen
-  commit: 7527305ed59a47140053cf7bc87432fe1f8804d0

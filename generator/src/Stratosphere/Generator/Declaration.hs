@@ -254,7 +254,8 @@ genRecord Record{..} = runGen $ do
         recordConstructor = GHC.RecordCon
           { rcon_ext  = GHC.EpAnnNotUsed
           , rcon_con  = mkLocated $ GHC.mkRdrUnqual $ GHC.mkDataOcc recordName
-          , rcon_flds = GHC.HsRecFields [newValueField] (Just (GHC.L (GHC.UnhelpfulSpan GHC.UnhelpfulGenerated) 1))
+          , rcon_flds = GHC.HsRecFields
+             [newValueField] (Just (GHC.L (GHC.UnhelpfulSpan GHC.UnhelpfulGenerated) (GHC.RecFieldsDotDot 1)))
           }
 
         mkPure :: GHC.HsExpr' -> GHC.HsExpr'
@@ -300,7 +301,7 @@ genRecord Record{..} = runGen $ do
       . GHC.HsRecFields []
       $ if forceNull || List.null properties
           then Nothing
-          else Just (GHC.L (GHC.UnhelpfulSpan GHC.UnhelpfulGenerated) 0)
+          else Just (GHC.L (GHC.UnhelpfulSpan GHC.UnhelpfulGenerated) (GHC.RecFieldsDotDot 0))
       where
         constructorName :: GHC.LocatedN GHC.RdrName
         constructorName = mkLocated . GHC.mkRdrUnqual $ GHC.mkDataOcc recordName
@@ -333,7 +334,6 @@ genRecordBoot Record{..} = runGen $ do
           GHC.Prefix
       $ GHC.HsDataDefn
           { dd_ext = GHC.NoExtField
-          , dd_ND = GHC.DataType
           , dd_ctxt = Nothing
           , dd_cType = Nothing
           , dd_kindSig = Just $ mkLocated
@@ -342,7 +342,7 @@ genRecordBoot Record{..} = runGen $ do
                 GHC.NotPromoted
                 (mkLocated . GHC.mkRdrUnqual $ GHC.mkDataOcc "Prelude.Type")
               )
-          , dd_cons = []
+          , dd_cons = GHC.DataTypeCons False []
           , dd_derivs = []
           }
 

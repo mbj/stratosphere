@@ -1,5 +1,9 @@
 ---
 resolver: lts-22.43
+extra-deps:
+# To use the same versions as GHC-9.8
+- ghc-source-gen-0.4.6.0@sha256:3239c77806cd256f42c5e949440148d8b102f183c6aa357a8e1c44c2573957cd,4422
+- hpack-0.37.0@sha256:b7c91b0416a55c134172a9fd9a02f3815ba68c4b92cca4e320c36906d5e970e0,5187
 flags:
   stratosphere:
     development: true
@@ -440,9 +444,9 @@ flags:
   stratosphere-xray:
     development: true
 packages:
-# - generator, no ghc-source-gen release for 9.6 ATM
 - .
 - examples
+- generator
 - services/accessanalyzer
 - services/acmpca
 - services/amazonmq
