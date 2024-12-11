@@ -332,20 +332,19 @@ genRecordBoot Record{..} = runGen $ do
           (GHC.HsQTvs GHC.NoExtField [])
           GHC.Prefix
       $ GHC.HsDataDefn
-          GHC.NoExtField
-          GHC.DataType
-          Nothing
-          Nothing
-          ( Just
-          $ mkLocated
-            (GHC.HsTyVar
-              GHC.EpAnnNotUsed
-              GHC.NotPromoted
-              (mkLocated . GHC.mkRdrUnqual $ GHC.mkDataOcc "Prelude.Type")
-            )
-          )
-          []
-          []
+          { dd_ext = GHC.NoExtField
+          , dd_ND = GHC.DataType
+          , dd_ctxt = Nothing
+          , dd_cType = Nothing
+          , dd_kindSig = Just $ mkLocated
+              (GHC.HsTyVar
+                GHC.EpAnnNotUsed
+                GHC.NotPromoted
+                (mkLocated . GHC.mkRdrUnqual $ GHC.mkDataOcc "Prelude.Type")
+              )
+          , dd_cons = []
+          , dd_derivs = []
+          }
 
     genResourcePropertiesInstance :: Generator GHC.HsDecl'
     genResourcePropertiesInstance
