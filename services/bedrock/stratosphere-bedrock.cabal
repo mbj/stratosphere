@@ -1,0 +1,236 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-bedrock
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Bedrock.Agent
+      Stratosphere.Bedrock.Agent.ActionGroupExecutorProperty
+      Stratosphere.Bedrock.Agent.AgentActionGroupProperty
+      Stratosphere.Bedrock.Agent.AgentKnowledgeBaseProperty
+      Stratosphere.Bedrock.Agent.APISchemaProperty
+      Stratosphere.Bedrock.Agent.FunctionProperty
+      Stratosphere.Bedrock.Agent.FunctionSchemaProperty
+      Stratosphere.Bedrock.Agent.GuardrailConfigurationProperty
+      Stratosphere.Bedrock.Agent.InferenceConfigurationProperty
+      Stratosphere.Bedrock.Agent.ParameterDetailProperty
+      Stratosphere.Bedrock.Agent.PromptConfigurationProperty
+      Stratosphere.Bedrock.Agent.PromptOverrideConfigurationProperty
+      Stratosphere.Bedrock.Agent.S3IdentifierProperty
+      Stratosphere.Bedrock.AgentAlias
+      Stratosphere.Bedrock.AgentAlias.AgentAliasHistoryEventProperty
+      Stratosphere.Bedrock.AgentAlias.AgentAliasRoutingConfigurationListItemProperty
+      Stratosphere.Bedrock.ApplicationInferenceProfile
+      Stratosphere.Bedrock.ApplicationInferenceProfile.InferenceProfileModelProperty
+      Stratosphere.Bedrock.ApplicationInferenceProfile.InferenceProfileModelSourceProperty
+      Stratosphere.Bedrock.DataSource
+      Stratosphere.Bedrock.DataSource.BedrockFoundationModelConfigurationProperty
+      Stratosphere.Bedrock.DataSource.ChunkingConfigurationProperty
+      Stratosphere.Bedrock.DataSource.ConfluenceCrawlerConfigurationProperty
+      Stratosphere.Bedrock.DataSource.ConfluenceDataSourceConfigurationProperty
+      Stratosphere.Bedrock.DataSource.ConfluenceSourceConfigurationProperty
+      Stratosphere.Bedrock.DataSource.CrawlFilterConfigurationProperty
+      Stratosphere.Bedrock.DataSource.CustomTransformationConfigurationProperty
+      Stratosphere.Bedrock.DataSource.DataSourceConfigurationProperty
+      Stratosphere.Bedrock.DataSource.FixedSizeChunkingConfigurationProperty
+      Stratosphere.Bedrock.DataSource.HierarchicalChunkingConfigurationProperty
+      Stratosphere.Bedrock.DataSource.HierarchicalChunkingLevelConfigurationProperty
+      Stratosphere.Bedrock.DataSource.IntermediateStorageProperty
+      Stratosphere.Bedrock.DataSource.ParsingConfigurationProperty
+      Stratosphere.Bedrock.DataSource.ParsingPromptProperty
+      Stratosphere.Bedrock.DataSource.PatternObjectFilterConfigurationProperty
+      Stratosphere.Bedrock.DataSource.PatternObjectFilterProperty
+      Stratosphere.Bedrock.DataSource.S3DataSourceConfigurationProperty
+      Stratosphere.Bedrock.DataSource.S3LocationProperty
+      Stratosphere.Bedrock.DataSource.SalesforceCrawlerConfigurationProperty
+      Stratosphere.Bedrock.DataSource.SalesforceDataSourceConfigurationProperty
+      Stratosphere.Bedrock.DataSource.SalesforceSourceConfigurationProperty
+      Stratosphere.Bedrock.DataSource.SeedUrlProperty
+      Stratosphere.Bedrock.DataSource.SemanticChunkingConfigurationProperty
+      Stratosphere.Bedrock.DataSource.ServerSideEncryptionConfigurationProperty
+      Stratosphere.Bedrock.DataSource.SharePointCrawlerConfigurationProperty
+      Stratosphere.Bedrock.DataSource.SharePointDataSourceConfigurationProperty
+      Stratosphere.Bedrock.DataSource.SharePointSourceConfigurationProperty
+      Stratosphere.Bedrock.DataSource.TransformationFunctionProperty
+      Stratosphere.Bedrock.DataSource.TransformationLambdaConfigurationProperty
+      Stratosphere.Bedrock.DataSource.TransformationProperty
+      Stratosphere.Bedrock.DataSource.UrlConfigurationProperty
+      Stratosphere.Bedrock.DataSource.VectorIngestionConfigurationProperty
+      Stratosphere.Bedrock.DataSource.WebCrawlerConfigurationProperty
+      Stratosphere.Bedrock.DataSource.WebCrawlerLimitsProperty
+      Stratosphere.Bedrock.DataSource.WebDataSourceConfigurationProperty
+      Stratosphere.Bedrock.DataSource.WebSourceConfigurationProperty
+      Stratosphere.Bedrock.Flow
+      Stratosphere.Bedrock.Flow.AgentFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.Flow.ConditionFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.Flow.FlowConditionalConnectionConfigurationProperty
+      Stratosphere.Bedrock.Flow.FlowConditionProperty
+      Stratosphere.Bedrock.Flow.FlowConnectionConfigurationProperty
+      Stratosphere.Bedrock.Flow.FlowConnectionProperty
+      Stratosphere.Bedrock.Flow.FlowDataConnectionConfigurationProperty
+      Stratosphere.Bedrock.Flow.FlowDefinitionProperty
+      Stratosphere.Bedrock.Flow.FlowNodeConfigurationProperty
+      Stratosphere.Bedrock.Flow.FlowNodeInputProperty
+      Stratosphere.Bedrock.Flow.FlowNodeOutputProperty
+      Stratosphere.Bedrock.Flow.FlowNodeProperty
+      Stratosphere.Bedrock.Flow.FlowValidationProperty
+      Stratosphere.Bedrock.Flow.GuardrailConfigurationProperty
+      Stratosphere.Bedrock.Flow.KnowledgeBaseFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.Flow.LambdaFunctionFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.Flow.LexFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.Flow.PromptFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.Flow.PromptFlowNodeInlineConfigurationProperty
+      Stratosphere.Bedrock.Flow.PromptFlowNodeResourceConfigurationProperty
+      Stratosphere.Bedrock.Flow.PromptFlowNodeSourceConfigurationProperty
+      Stratosphere.Bedrock.Flow.PromptInferenceConfigurationProperty
+      Stratosphere.Bedrock.Flow.PromptInputVariableProperty
+      Stratosphere.Bedrock.Flow.PromptModelInferenceConfigurationProperty
+      Stratosphere.Bedrock.Flow.PromptTemplateConfigurationProperty
+      Stratosphere.Bedrock.Flow.RetrievalFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.Flow.RetrievalFlowNodeS3ConfigurationProperty
+      Stratosphere.Bedrock.Flow.RetrievalFlowNodeServiceConfigurationProperty
+      Stratosphere.Bedrock.Flow.S3LocationProperty
+      Stratosphere.Bedrock.Flow.StorageFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.Flow.StorageFlowNodeS3ConfigurationProperty
+      Stratosphere.Bedrock.Flow.StorageFlowNodeServiceConfigurationProperty
+      Stratosphere.Bedrock.Flow.TextPromptTemplateConfigurationProperty
+      Stratosphere.Bedrock.FlowAlias
+      Stratosphere.Bedrock.FlowAlias.FlowAliasRoutingConfigurationListItemProperty
+      Stratosphere.Bedrock.FlowVersion
+      Stratosphere.Bedrock.FlowVersion.AgentFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.ConditionFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.FlowConditionalConnectionConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.FlowConditionProperty
+      Stratosphere.Bedrock.FlowVersion.FlowConnectionConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.FlowConnectionProperty
+      Stratosphere.Bedrock.FlowVersion.FlowDataConnectionConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.FlowDefinitionProperty
+      Stratosphere.Bedrock.FlowVersion.FlowNodeConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.FlowNodeInputProperty
+      Stratosphere.Bedrock.FlowVersion.FlowNodeOutputProperty
+      Stratosphere.Bedrock.FlowVersion.FlowNodeProperty
+      Stratosphere.Bedrock.FlowVersion.GuardrailConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.KnowledgeBaseFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.LambdaFunctionFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.LexFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.PromptFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.PromptFlowNodeInlineConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.PromptFlowNodeResourceConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.PromptFlowNodeSourceConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.PromptInferenceConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.PromptInputVariableProperty
+      Stratosphere.Bedrock.FlowVersion.PromptModelInferenceConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.PromptTemplateConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.RetrievalFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.RetrievalFlowNodeS3ConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.RetrievalFlowNodeServiceConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.StorageFlowNodeConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.StorageFlowNodeS3ConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.StorageFlowNodeServiceConfigurationProperty
+      Stratosphere.Bedrock.FlowVersion.TextPromptTemplateConfigurationProperty
+      Stratosphere.Bedrock.Guardrail
+      Stratosphere.Bedrock.Guardrail.ContentFilterConfigProperty
+      Stratosphere.Bedrock.Guardrail.ContentPolicyConfigProperty
+      Stratosphere.Bedrock.Guardrail.ContextualGroundingFilterConfigProperty
+      Stratosphere.Bedrock.Guardrail.ContextualGroundingPolicyConfigProperty
+      Stratosphere.Bedrock.Guardrail.ManagedWordsConfigProperty
+      Stratosphere.Bedrock.Guardrail.PiiEntityConfigProperty
+      Stratosphere.Bedrock.Guardrail.RegexConfigProperty
+      Stratosphere.Bedrock.Guardrail.SensitiveInformationPolicyConfigProperty
+      Stratosphere.Bedrock.Guardrail.TopicConfigProperty
+      Stratosphere.Bedrock.Guardrail.TopicPolicyConfigProperty
+      Stratosphere.Bedrock.Guardrail.WordConfigProperty
+      Stratosphere.Bedrock.Guardrail.WordPolicyConfigProperty
+      Stratosphere.Bedrock.GuardrailVersion
+      Stratosphere.Bedrock.KnowledgeBase
+      Stratosphere.Bedrock.KnowledgeBase.BedrockEmbeddingModelConfigurationProperty
+      Stratosphere.Bedrock.KnowledgeBase.EmbeddingModelConfigurationProperty
+      Stratosphere.Bedrock.KnowledgeBase.KnowledgeBaseConfigurationProperty
+      Stratosphere.Bedrock.KnowledgeBase.MongoDbAtlasConfigurationProperty
+      Stratosphere.Bedrock.KnowledgeBase.MongoDbAtlasFieldMappingProperty
+      Stratosphere.Bedrock.KnowledgeBase.OpenSearchServerlessConfigurationProperty
+      Stratosphere.Bedrock.KnowledgeBase.OpenSearchServerlessFieldMappingProperty
+      Stratosphere.Bedrock.KnowledgeBase.PineconeConfigurationProperty
+      Stratosphere.Bedrock.KnowledgeBase.PineconeFieldMappingProperty
+      Stratosphere.Bedrock.KnowledgeBase.RdsConfigurationProperty
+      Stratosphere.Bedrock.KnowledgeBase.RdsFieldMappingProperty
+      Stratosphere.Bedrock.KnowledgeBase.StorageConfigurationProperty
+      Stratosphere.Bedrock.KnowledgeBase.VectorKnowledgeBaseConfigurationProperty
+      Stratosphere.Bedrock.Prompt
+      Stratosphere.Bedrock.Prompt.PromptInferenceConfigurationProperty
+      Stratosphere.Bedrock.Prompt.PromptInputVariableProperty
+      Stratosphere.Bedrock.Prompt.PromptModelInferenceConfigurationProperty
+      Stratosphere.Bedrock.Prompt.PromptTemplateConfigurationProperty
+      Stratosphere.Bedrock.Prompt.PromptVariantProperty
+      Stratosphere.Bedrock.Prompt.TextPromptTemplateConfigurationProperty
+      Stratosphere.Bedrock.Prompt.TextS3LocationProperty
+      Stratosphere.Bedrock.PromptVersion
+      Stratosphere.Bedrock.PromptVersion.PromptInferenceConfigurationProperty
+      Stratosphere.Bedrock.PromptVersion.PromptInputVariableProperty
+      Stratosphere.Bedrock.PromptVersion.PromptModelInferenceConfigurationProperty
+      Stratosphere.Bedrock.PromptVersion.PromptTemplateConfigurationProperty
+      Stratosphere.Bedrock.PromptVersion.PromptVariantProperty
+      Stratosphere.Bedrock.PromptVersion.TextPromptTemplateConfigurationProperty
+  other-modules:
+      Paths_stratosphere_bedrock
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

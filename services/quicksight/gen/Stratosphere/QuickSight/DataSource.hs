@@ -20,64 +20,68 @@ data DataSource
                 dataSourceId :: (Prelude.Maybe (Value Prelude.Text)),
                 dataSourceParameters :: (Prelude.Maybe DataSourceParametersProperty),
                 errorInfo :: (Prelude.Maybe DataSourceErrorInfoProperty),
-                name :: (Prelude.Maybe (Value Prelude.Text)),
+                folderArns :: (Prelude.Maybe (ValueList Prelude.Text)),
+                name :: (Value Prelude.Text),
                 permissions :: (Prelude.Maybe [ResourcePermissionProperty]),
                 sslProperties :: (Prelude.Maybe SslPropertiesProperty),
                 tags :: (Prelude.Maybe [Tag]),
-                type' :: (Prelude.Maybe (Value Prelude.Text)),
+                type' :: (Value Prelude.Text),
                 vpcConnectionProperties :: (Prelude.Maybe VpcConnectionPropertiesProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkDataSource :: DataSource
-mkDataSource
+mkDataSource ::
+  Value Prelude.Text -> Value Prelude.Text -> DataSource
+mkDataSource name type'
   = DataSource
-      {alternateDataSourceParameters = Prelude.Nothing,
+      {name = name, type' = type',
+       alternateDataSourceParameters = Prelude.Nothing,
        awsAccountId = Prelude.Nothing, credentials = Prelude.Nothing,
        dataSourceId = Prelude.Nothing,
        dataSourceParameters = Prelude.Nothing,
-       errorInfo = Prelude.Nothing, name = Prelude.Nothing,
+       errorInfo = Prelude.Nothing, folderArns = Prelude.Nothing,
        permissions = Prelude.Nothing, sslProperties = Prelude.Nothing,
-       tags = Prelude.Nothing, type' = Prelude.Nothing,
-       vpcConnectionProperties = Prelude.Nothing}
+       tags = Prelude.Nothing, vpcConnectionProperties = Prelude.Nothing}
 instance ToResourceProperties DataSource where
   toResourceProperties DataSource {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource",
          supportsTags = Prelude.True,
          properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "AlternateDataSourceParameters"
-                              Prelude.<$> alternateDataSourceParameters,
-                            (JSON..=) "AwsAccountId" Prelude.<$> awsAccountId,
-                            (JSON..=) "Credentials" Prelude.<$> credentials,
-                            (JSON..=) "DataSourceId" Prelude.<$> dataSourceId,
-                            (JSON..=) "DataSourceParameters" Prelude.<$> dataSourceParameters,
-                            (JSON..=) "ErrorInfo" Prelude.<$> errorInfo,
-                            (JSON..=) "Name" Prelude.<$> name,
-                            (JSON..=) "Permissions" Prelude.<$> permissions,
-                            (JSON..=) "SslProperties" Prelude.<$> sslProperties,
-                            (JSON..=) "Tags" Prelude.<$> tags,
-                            (JSON..=) "Type" Prelude.<$> type',
-                            (JSON..=) "VpcConnectionProperties"
-                              Prelude.<$> vpcConnectionProperties])}
+                        ((Prelude.<>)
+                           ["Name" JSON..= name, "Type" JSON..= type']
+                           (Prelude.catMaybes
+                              [(JSON..=) "AlternateDataSourceParameters"
+                                 Prelude.<$> alternateDataSourceParameters,
+                               (JSON..=) "AwsAccountId" Prelude.<$> awsAccountId,
+                               (JSON..=) "Credentials" Prelude.<$> credentials,
+                               (JSON..=) "DataSourceId" Prelude.<$> dataSourceId,
+                               (JSON..=) "DataSourceParameters" Prelude.<$> dataSourceParameters,
+                               (JSON..=) "ErrorInfo" Prelude.<$> errorInfo,
+                               (JSON..=) "FolderArns" Prelude.<$> folderArns,
+                               (JSON..=) "Permissions" Prelude.<$> permissions,
+                               (JSON..=) "SslProperties" Prelude.<$> sslProperties,
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "VpcConnectionProperties"
+                                 Prelude.<$> vpcConnectionProperties]))}
 instance JSON.ToJSON DataSource where
   toJSON DataSource {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "AlternateDataSourceParameters"
-                 Prelude.<$> alternateDataSourceParameters,
-               (JSON..=) "AwsAccountId" Prelude.<$> awsAccountId,
-               (JSON..=) "Credentials" Prelude.<$> credentials,
-               (JSON..=) "DataSourceId" Prelude.<$> dataSourceId,
-               (JSON..=) "DataSourceParameters" Prelude.<$> dataSourceParameters,
-               (JSON..=) "ErrorInfo" Prelude.<$> errorInfo,
-               (JSON..=) "Name" Prelude.<$> name,
-               (JSON..=) "Permissions" Prelude.<$> permissions,
-               (JSON..=) "SslProperties" Prelude.<$> sslProperties,
-               (JSON..=) "Tags" Prelude.<$> tags,
-               (JSON..=) "Type" Prelude.<$> type',
-               (JSON..=) "VpcConnectionProperties"
-                 Prelude.<$> vpcConnectionProperties]))
+           ((Prelude.<>)
+              ["Name" JSON..= name, "Type" JSON..= type']
+              (Prelude.catMaybes
+                 [(JSON..=) "AlternateDataSourceParameters"
+                    Prelude.<$> alternateDataSourceParameters,
+                  (JSON..=) "AwsAccountId" Prelude.<$> awsAccountId,
+                  (JSON..=) "Credentials" Prelude.<$> credentials,
+                  (JSON..=) "DataSourceId" Prelude.<$> dataSourceId,
+                  (JSON..=) "DataSourceParameters" Prelude.<$> dataSourceParameters,
+                  (JSON..=) "ErrorInfo" Prelude.<$> errorInfo,
+                  (JSON..=) "FolderArns" Prelude.<$> folderArns,
+                  (JSON..=) "Permissions" Prelude.<$> permissions,
+                  (JSON..=) "SslProperties" Prelude.<$> sslProperties,
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "VpcConnectionProperties"
+                    Prelude.<$> vpcConnectionProperties])))
 instance Property "AlternateDataSourceParameters" DataSource where
   type PropertyType "AlternateDataSourceParameters" DataSource = [DataSourceParametersProperty]
   set newValue DataSource {..}
@@ -103,10 +107,13 @@ instance Property "ErrorInfo" DataSource where
   type PropertyType "ErrorInfo" DataSource = DataSourceErrorInfoProperty
   set newValue DataSource {..}
     = DataSource {errorInfo = Prelude.pure newValue, ..}
+instance Property "FolderArns" DataSource where
+  type PropertyType "FolderArns" DataSource = ValueList Prelude.Text
+  set newValue DataSource {..}
+    = DataSource {folderArns = Prelude.pure newValue, ..}
 instance Property "Name" DataSource where
   type PropertyType "Name" DataSource = Value Prelude.Text
-  set newValue DataSource {..}
-    = DataSource {name = Prelude.pure newValue, ..}
+  set newValue DataSource {..} = DataSource {name = newValue, ..}
 instance Property "Permissions" DataSource where
   type PropertyType "Permissions" DataSource = [ResourcePermissionProperty]
   set newValue DataSource {..}
@@ -121,8 +128,7 @@ instance Property "Tags" DataSource where
     = DataSource {tags = Prelude.pure newValue, ..}
 instance Property "Type" DataSource where
   type PropertyType "Type" DataSource = Value Prelude.Text
-  set newValue DataSource {..}
-    = DataSource {type' = Prelude.pure newValue, ..}
+  set newValue DataSource {..} = DataSource {type' = newValue, ..}
 instance Property "VpcConnectionProperties" DataSource where
   type PropertyType "VpcConnectionProperties" DataSource = VpcConnectionPropertiesProperty
   set newValue DataSource {..}

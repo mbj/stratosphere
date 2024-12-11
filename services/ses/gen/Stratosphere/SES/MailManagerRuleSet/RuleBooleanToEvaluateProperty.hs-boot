@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerRuleSet.RuleBooleanToEvaluateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RuleBooleanToEvaluateProperty :: Prelude.Type
+instance ToResourceProperties RuleBooleanToEvaluateProperty
+instance Prelude.Eq RuleBooleanToEvaluateProperty
+instance Prelude.Show RuleBooleanToEvaluateProperty
+instance JSON.ToJSON RuleBooleanToEvaluateProperty

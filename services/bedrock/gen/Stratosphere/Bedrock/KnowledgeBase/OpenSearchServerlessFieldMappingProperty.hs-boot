@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.OpenSearchServerlessFieldMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenSearchServerlessFieldMappingProperty :: Prelude.Type
+instance ToResourceProperties OpenSearchServerlessFieldMappingProperty
+instance Prelude.Eq OpenSearchServerlessFieldMappingProperty
+instance Prelude.Show OpenSearchServerlessFieldMappingProperty
+instance JSON.ToJSON OpenSearchServerlessFieldMappingProperty

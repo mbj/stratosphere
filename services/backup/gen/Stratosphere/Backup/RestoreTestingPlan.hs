@@ -13,6 +13,7 @@ data RestoreTestingPlan
                         restoreTestingPlanName :: (Value Prelude.Text),
                         scheduleExpression :: (Value Prelude.Text),
                         scheduleExpressionTimezone :: (Prelude.Maybe (Value Prelude.Text)),
+                        scheduleStatus :: (Prelude.Maybe (Value Prelude.Text)),
                         startWindowHours :: (Prelude.Maybe (Value Prelude.Integer)),
                         tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -28,6 +29,7 @@ mkRestoreTestingPlan
        restoreTestingPlanName = restoreTestingPlanName,
        scheduleExpression = scheduleExpression,
        scheduleExpressionTimezone = Prelude.Nothing,
+       scheduleStatus = Prelude.Nothing,
        startWindowHours = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties RestoreTestingPlan where
   toResourceProperties RestoreTestingPlan {..}
@@ -42,6 +44,7 @@ instance ToResourceProperties RestoreTestingPlan where
                            (Prelude.catMaybes
                               [(JSON..=) "ScheduleExpressionTimezone"
                                  Prelude.<$> scheduleExpressionTimezone,
+                               (JSON..=) "ScheduleStatus" Prelude.<$> scheduleStatus,
                                (JSON..=) "StartWindowHours" Prelude.<$> startWindowHours,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON RestoreTestingPlan where
@@ -55,6 +58,7 @@ instance JSON.ToJSON RestoreTestingPlan where
               (Prelude.catMaybes
                  [(JSON..=) "ScheduleExpressionTimezone"
                     Prelude.<$> scheduleExpressionTimezone,
+                  (JSON..=) "ScheduleStatus" Prelude.<$> scheduleStatus,
                   (JSON..=) "StartWindowHours" Prelude.<$> startWindowHours,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "RecoveryPointSelection" RestoreTestingPlan where
@@ -74,6 +78,10 @@ instance Property "ScheduleExpressionTimezone" RestoreTestingPlan where
   set newValue RestoreTestingPlan {..}
     = RestoreTestingPlan
         {scheduleExpressionTimezone = Prelude.pure newValue, ..}
+instance Property "ScheduleStatus" RestoreTestingPlan where
+  type PropertyType "ScheduleStatus" RestoreTestingPlan = Value Prelude.Text
+  set newValue RestoreTestingPlan {..}
+    = RestoreTestingPlan {scheduleStatus = Prelude.pure newValue, ..}
 instance Property "StartWindowHours" RestoreTestingPlan where
   type PropertyType "StartWindowHours" RestoreTestingPlan = Value Prelude.Integer
   set newValue RestoreTestingPlan {..}

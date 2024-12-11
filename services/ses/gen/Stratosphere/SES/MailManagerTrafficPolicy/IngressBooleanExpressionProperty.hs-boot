@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerTrafficPolicy.IngressBooleanExpressionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IngressBooleanExpressionProperty :: Prelude.Type
+instance ToResourceProperties IngressBooleanExpressionProperty
+instance Prelude.Eq IngressBooleanExpressionProperty
+instance Prelude.Show IngressBooleanExpressionProperty
+instance JSON.ToJSON IngressBooleanExpressionProperty

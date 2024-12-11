@@ -28,6 +28,7 @@ data DataSet
              dataSetUsageConfiguration :: (Prelude.Maybe DataSetUsageConfigurationProperty),
              datasetParameters :: (Prelude.Maybe [DatasetParameterProperty]),
              fieldFolders :: (Prelude.Maybe (Prelude.Map Prelude.Text FieldFolderProperty)),
+             folderArns :: (Prelude.Maybe (ValueList Prelude.Text)),
              importMode :: (Prelude.Maybe (Value Prelude.Text)),
              ingestionWaitPolicy :: (Prelude.Maybe IngestionWaitPolicyProperty),
              logicalTableMap :: (Prelude.Maybe (Prelude.Map Prelude.Text LogicalTableProperty)),
@@ -47,7 +48,8 @@ mkDataSet
        dataSetRefreshProperties = Prelude.Nothing,
        dataSetUsageConfiguration = Prelude.Nothing,
        datasetParameters = Prelude.Nothing,
-       fieldFolders = Prelude.Nothing, importMode = Prelude.Nothing,
+       fieldFolders = Prelude.Nothing, folderArns = Prelude.Nothing,
+       importMode = Prelude.Nothing,
        ingestionWaitPolicy = Prelude.Nothing,
        logicalTableMap = Prelude.Nothing, name = Prelude.Nothing,
        permissions = Prelude.Nothing, physicalTableMap = Prelude.Nothing,
@@ -71,6 +73,7 @@ instance ToResourceProperties DataSet where
                               Prelude.<$> dataSetUsageConfiguration,
                             (JSON..=) "DatasetParameters" Prelude.<$> datasetParameters,
                             (JSON..=) "FieldFolders" Prelude.<$> fieldFolders,
+                            (JSON..=) "FolderArns" Prelude.<$> folderArns,
                             (JSON..=) "ImportMode" Prelude.<$> importMode,
                             (JSON..=) "IngestionWaitPolicy" Prelude.<$> ingestionWaitPolicy,
                             (JSON..=) "LogicalTableMap" Prelude.<$> logicalTableMap,
@@ -98,6 +101,7 @@ instance JSON.ToJSON DataSet where
                  Prelude.<$> dataSetUsageConfiguration,
                (JSON..=) "DatasetParameters" Prelude.<$> datasetParameters,
                (JSON..=) "FieldFolders" Prelude.<$> fieldFolders,
+               (JSON..=) "FolderArns" Prelude.<$> folderArns,
                (JSON..=) "ImportMode" Prelude.<$> importMode,
                (JSON..=) "IngestionWaitPolicy" Prelude.<$> ingestionWaitPolicy,
                (JSON..=) "LogicalTableMap" Prelude.<$> logicalTableMap,
@@ -141,6 +145,10 @@ instance Property "FieldFolders" DataSet where
   type PropertyType "FieldFolders" DataSet = Prelude.Map Prelude.Text FieldFolderProperty
   set newValue DataSet {..}
     = DataSet {fieldFolders = Prelude.pure newValue, ..}
+instance Property "FolderArns" DataSet where
+  type PropertyType "FolderArns" DataSet = ValueList Prelude.Text
+  set newValue DataSet {..}
+    = DataSet {folderArns = Prelude.pure newValue, ..}
 instance Property "ImportMode" DataSet where
   type PropertyType "ImportMode" DataSet = Value Prelude.Text
   set newValue DataSet {..}

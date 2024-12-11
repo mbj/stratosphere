@@ -1,0 +1,9 @@
+module Stratosphere.Deadline.Fleet.CustomerManagedWorkerCapabilitiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomerManagedWorkerCapabilitiesProperty :: Prelude.Type
+instance ToResourceProperties CustomerManagedWorkerCapabilitiesProperty
+instance Prelude.Eq CustomerManagedWorkerCapabilitiesProperty
+instance Prelude.Show CustomerManagedWorkerCapabilitiesProperty
+instance JSON.ToJSON CustomerManagedWorkerCapabilitiesProperty

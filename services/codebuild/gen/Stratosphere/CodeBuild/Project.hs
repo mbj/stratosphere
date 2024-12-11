@@ -19,6 +19,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data Project
   = Project {artifacts :: ArtifactsProperty,
+             autoRetryLimit :: (Prelude.Maybe (Value Prelude.Integer)),
              badgeEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
              buildBatchConfig :: (Prelude.Maybe ProjectBuildBatchConfigProperty),
              cache :: (Prelude.Maybe ProjectCacheProperty),
@@ -51,8 +52,9 @@ mkProject artifacts environment serviceRole source
   = Project
       {artifacts = artifacts, environment = environment,
        serviceRole = serviceRole, source = source,
-       badgeEnabled = Prelude.Nothing, buildBatchConfig = Prelude.Nothing,
-       cache = Prelude.Nothing, concurrentBuildLimit = Prelude.Nothing,
+       autoRetryLimit = Prelude.Nothing, badgeEnabled = Prelude.Nothing,
+       buildBatchConfig = Prelude.Nothing, cache = Prelude.Nothing,
+       concurrentBuildLimit = Prelude.Nothing,
        description = Prelude.Nothing, encryptionKey = Prelude.Nothing,
        fileSystemLocations = Prelude.Nothing,
        logsConfig = Prelude.Nothing, name = Prelude.Nothing,
@@ -73,7 +75,8 @@ instance ToResourceProperties Project where
                            ["Artifacts" JSON..= artifacts, "Environment" JSON..= environment,
                             "ServiceRole" JSON..= serviceRole, "Source" JSON..= source]
                            (Prelude.catMaybes
-                              [(JSON..=) "BadgeEnabled" Prelude.<$> badgeEnabled,
+                              [(JSON..=) "AutoRetryLimit" Prelude.<$> autoRetryLimit,
+                               (JSON..=) "BadgeEnabled" Prelude.<$> badgeEnabled,
                                (JSON..=) "BuildBatchConfig" Prelude.<$> buildBatchConfig,
                                (JSON..=) "Cache" Prelude.<$> cache,
                                (JSON..=) "ConcurrentBuildLimit" Prelude.<$> concurrentBuildLimit,
@@ -103,7 +106,8 @@ instance JSON.ToJSON Project where
               ["Artifacts" JSON..= artifacts, "Environment" JSON..= environment,
                "ServiceRole" JSON..= serviceRole, "Source" JSON..= source]
               (Prelude.catMaybes
-                 [(JSON..=) "BadgeEnabled" Prelude.<$> badgeEnabled,
+                 [(JSON..=) "AutoRetryLimit" Prelude.<$> autoRetryLimit,
+                  (JSON..=) "BadgeEnabled" Prelude.<$> badgeEnabled,
                   (JSON..=) "BuildBatchConfig" Prelude.<$> buildBatchConfig,
                   (JSON..=) "Cache" Prelude.<$> cache,
                   (JSON..=) "ConcurrentBuildLimit" Prelude.<$> concurrentBuildLimit,
@@ -128,6 +132,10 @@ instance JSON.ToJSON Project where
 instance Property "Artifacts" Project where
   type PropertyType "Artifacts" Project = ArtifactsProperty
   set newValue Project {..} = Project {artifacts = newValue, ..}
+instance Property "AutoRetryLimit" Project where
+  type PropertyType "AutoRetryLimit" Project = Value Prelude.Integer
+  set newValue Project {..}
+    = Project {autoRetryLimit = Prelude.pure newValue, ..}
 instance Property "BadgeEnabled" Project where
   type PropertyType "BadgeEnabled" Project = Value Prelude.Bool
   set newValue Project {..}

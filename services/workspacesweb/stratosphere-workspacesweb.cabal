@@ -26,6 +26,11 @@ flag development
 library
   exposed-modules:
       Stratosphere.WorkSpacesWeb.BrowserSettings
+      Stratosphere.WorkSpacesWeb.DataProtectionSettings
+      Stratosphere.WorkSpacesWeb.DataProtectionSettings.CustomPatternProperty
+      Stratosphere.WorkSpacesWeb.DataProtectionSettings.InlineRedactionConfigurationProperty
+      Stratosphere.WorkSpacesWeb.DataProtectionSettings.InlineRedactionPatternProperty
+      Stratosphere.WorkSpacesWeb.DataProtectionSettings.RedactionPlaceHolderProperty
       Stratosphere.WorkSpacesWeb.IdentityProvider
       Stratosphere.WorkSpacesWeb.IpAccessSettings
       Stratosphere.WorkSpacesWeb.IpAccessSettings.IpRuleProperty

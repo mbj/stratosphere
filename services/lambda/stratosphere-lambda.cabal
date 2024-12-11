@@ -43,7 +43,9 @@ library
       Stratosphere.Lambda.EventSourceMapping.EndpointsProperty
       Stratosphere.Lambda.EventSourceMapping.FilterCriteriaProperty
       Stratosphere.Lambda.EventSourceMapping.FilterProperty
+      Stratosphere.Lambda.EventSourceMapping.MetricsConfigProperty
       Stratosphere.Lambda.EventSourceMapping.OnFailureProperty
+      Stratosphere.Lambda.EventSourceMapping.ProvisionedPollerConfigProperty
       Stratosphere.Lambda.EventSourceMapping.ScalingConfigProperty
       Stratosphere.Lambda.EventSourceMapping.SelfManagedEventSourceProperty
       Stratosphere.Lambda.EventSourceMapping.SelfManagedKafkaEventSourceConfigProperty

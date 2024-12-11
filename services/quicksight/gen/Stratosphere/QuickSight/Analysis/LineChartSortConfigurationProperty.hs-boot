@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.LineChartSortConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data LineChartSortConfigurationProperty :: Prelude.Type
-instance ToResourceProperties LineChartSortConfigurationProperty
-instance Prelude.Eq LineChartSortConfigurationProperty
-instance Prelude.Show LineChartSortConfigurationProperty
-instance JSON.ToJSON LineChartSortConfigurationProperty

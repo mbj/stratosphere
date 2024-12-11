@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowVersion.GuardrailConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GuardrailConfigurationProperty :: Prelude.Type
+instance ToResourceProperties GuardrailConfigurationProperty
+instance Prelude.Eq GuardrailConfigurationProperty
+instance Prelude.Show GuardrailConfigurationProperty
+instance JSON.ToJSON GuardrailConfigurationProperty

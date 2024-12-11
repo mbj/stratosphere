@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.BedrockEmbeddingModelConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BedrockEmbeddingModelConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BedrockEmbeddingModelConfigurationProperty
+instance Prelude.Eq BedrockEmbeddingModelConfigurationProperty
+instance Prelude.Show BedrockEmbeddingModelConfigurationProperty
+instance JSON.ToJSON BedrockEmbeddingModelConfigurationProperty

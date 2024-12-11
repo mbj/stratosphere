@@ -26,6 +26,12 @@ flag development
 library
   exposed-modules:
       Stratosphere.APS.RuleGroupsNamespace
+      Stratosphere.APS.Scraper
+      Stratosphere.APS.Scraper.AmpConfigurationProperty
+      Stratosphere.APS.Scraper.DestinationProperty
+      Stratosphere.APS.Scraper.EksConfigurationProperty
+      Stratosphere.APS.Scraper.ScrapeConfigurationProperty
+      Stratosphere.APS.Scraper.SourceProperty
       Stratosphere.APS.Workspace
       Stratosphere.APS.Workspace.LoggingConfigurationProperty
   other-modules:

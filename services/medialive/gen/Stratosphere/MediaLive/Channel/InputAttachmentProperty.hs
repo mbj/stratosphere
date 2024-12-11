@@ -13,14 +13,16 @@ data InputAttachmentProperty
   = InputAttachmentProperty {automaticInputFailoverSettings :: (Prelude.Maybe AutomaticInputFailoverSettingsProperty),
                              inputAttachmentName :: (Prelude.Maybe (Value Prelude.Text)),
                              inputId :: (Prelude.Maybe (Value Prelude.Text)),
-                             inputSettings :: (Prelude.Maybe InputSettingsProperty)}
+                             inputSettings :: (Prelude.Maybe InputSettingsProperty),
+                             logicalInterfaceNames :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkInputAttachmentProperty :: InputAttachmentProperty
 mkInputAttachmentProperty
   = InputAttachmentProperty
       {automaticInputFailoverSettings = Prelude.Nothing,
        inputAttachmentName = Prelude.Nothing, inputId = Prelude.Nothing,
-       inputSettings = Prelude.Nothing}
+       inputSettings = Prelude.Nothing,
+       logicalInterfaceNames = Prelude.Nothing}
 instance ToResourceProperties InputAttachmentProperty where
   toResourceProperties InputAttachmentProperty {..}
     = ResourceProperties
@@ -32,7 +34,9 @@ instance ToResourceProperties InputAttachmentProperty where
                               Prelude.<$> automaticInputFailoverSettings,
                             (JSON..=) "InputAttachmentName" Prelude.<$> inputAttachmentName,
                             (JSON..=) "InputId" Prelude.<$> inputId,
-                            (JSON..=) "InputSettings" Prelude.<$> inputSettings])}
+                            (JSON..=) "InputSettings" Prelude.<$> inputSettings,
+                            (JSON..=) "LogicalInterfaceNames"
+                              Prelude.<$> logicalInterfaceNames])}
 instance JSON.ToJSON InputAttachmentProperty where
   toJSON InputAttachmentProperty {..}
     = JSON.object
@@ -42,7 +46,9 @@ instance JSON.ToJSON InputAttachmentProperty where
                  Prelude.<$> automaticInputFailoverSettings,
                (JSON..=) "InputAttachmentName" Prelude.<$> inputAttachmentName,
                (JSON..=) "InputId" Prelude.<$> inputId,
-               (JSON..=) "InputSettings" Prelude.<$> inputSettings]))
+               (JSON..=) "InputSettings" Prelude.<$> inputSettings,
+               (JSON..=) "LogicalInterfaceNames"
+                 Prelude.<$> logicalInterfaceNames]))
 instance Property "AutomaticInputFailoverSettings" InputAttachmentProperty where
   type PropertyType "AutomaticInputFailoverSettings" InputAttachmentProperty = AutomaticInputFailoverSettingsProperty
   set newValue InputAttachmentProperty {..}
@@ -62,3 +68,8 @@ instance Property "InputSettings" InputAttachmentProperty where
   set newValue InputAttachmentProperty {..}
     = InputAttachmentProperty
         {inputSettings = Prelude.pure newValue, ..}
+instance Property "LogicalInterfaceNames" InputAttachmentProperty where
+  type PropertyType "LogicalInterfaceNames" InputAttachmentProperty = ValueList Prelude.Text
+  set newValue InputAttachmentProperty {..}
+    = InputAttachmentProperty
+        {logicalInterfaceNames = Prelude.pure newValue, ..}

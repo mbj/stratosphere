@@ -13,6 +13,7 @@ data UserSettings
                   cookieSynchronizationConfiguration :: (Prelude.Maybe CookieSynchronizationConfigurationProperty),
                   copyAllowed :: (Value Prelude.Text),
                   customerManagedKey :: (Prelude.Maybe (Value Prelude.Text)),
+                  deepLinkAllowed :: (Prelude.Maybe (Value Prelude.Text)),
                   disconnectTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Double)),
                   downloadAllowed :: (Value Prelude.Text),
                   idleDisconnectTimeoutInMinutes :: (Prelude.Maybe (Value Prelude.Double)),
@@ -39,6 +40,7 @@ mkUserSettings
        additionalEncryptionContext = Prelude.Nothing,
        cookieSynchronizationConfiguration = Prelude.Nothing,
        customerManagedKey = Prelude.Nothing,
+       deepLinkAllowed = Prelude.Nothing,
        disconnectTimeoutInMinutes = Prelude.Nothing,
        idleDisconnectTimeoutInMinutes = Prelude.Nothing,
        tags = Prelude.Nothing}
@@ -60,6 +62,7 @@ instance ToResourceProperties UserSettings where
                                (JSON..=) "CookieSynchronizationConfiguration"
                                  Prelude.<$> cookieSynchronizationConfiguration,
                                (JSON..=) "CustomerManagedKey" Prelude.<$> customerManagedKey,
+                               (JSON..=) "DeepLinkAllowed" Prelude.<$> deepLinkAllowed,
                                (JSON..=) "DisconnectTimeoutInMinutes"
                                  Prelude.<$> disconnectTimeoutInMinutes,
                                (JSON..=) "IdleDisconnectTimeoutInMinutes"
@@ -81,6 +84,7 @@ instance JSON.ToJSON UserSettings where
                   (JSON..=) "CookieSynchronizationConfiguration"
                     Prelude.<$> cookieSynchronizationConfiguration,
                   (JSON..=) "CustomerManagedKey" Prelude.<$> customerManagedKey,
+                  (JSON..=) "DeepLinkAllowed" Prelude.<$> deepLinkAllowed,
                   (JSON..=) "DisconnectTimeoutInMinutes"
                     Prelude.<$> disconnectTimeoutInMinutes,
                   (JSON..=) "IdleDisconnectTimeoutInMinutes"
@@ -104,6 +108,10 @@ instance Property "CustomerManagedKey" UserSettings where
   type PropertyType "CustomerManagedKey" UserSettings = Value Prelude.Text
   set newValue UserSettings {..}
     = UserSettings {customerManagedKey = Prelude.pure newValue, ..}
+instance Property "DeepLinkAllowed" UserSettings where
+  type PropertyType "DeepLinkAllowed" UserSettings = Value Prelude.Text
+  set newValue UserSettings {..}
+    = UserSettings {deepLinkAllowed = Prelude.pure newValue, ..}
 instance Property "DisconnectTimeoutInMinutes" UserSettings where
   type PropertyType "DisconnectTimeoutInMinutes" UserSettings = Value Prelude.Double
   set newValue UserSettings {..}

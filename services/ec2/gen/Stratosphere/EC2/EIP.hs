@@ -8,8 +8,10 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data EIP
-  = EIP {domain :: (Prelude.Maybe (Value Prelude.Text)),
+  = EIP {address :: (Prelude.Maybe (Value Prelude.Text)),
+         domain :: (Prelude.Maybe (Value Prelude.Text)),
          instanceId :: (Prelude.Maybe (Value Prelude.Text)),
+         ipamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
          networkBorderGroup :: (Prelude.Maybe (Value Prelude.Text)),
          publicIpv4Pool :: (Prelude.Maybe (Value Prelude.Text)),
          tags :: (Prelude.Maybe [Tag]),
@@ -18,7 +20,8 @@ data EIP
 mkEIP :: EIP
 mkEIP
   = EIP
-      {domain = Prelude.Nothing, instanceId = Prelude.Nothing,
+      {address = Prelude.Nothing, domain = Prelude.Nothing,
+       instanceId = Prelude.Nothing, ipamPoolId = Prelude.Nothing,
        networkBorderGroup = Prelude.Nothing,
        publicIpv4Pool = Prelude.Nothing, tags = Prelude.Nothing,
        transferAddress = Prelude.Nothing}
@@ -28,8 +31,10 @@ instance ToResourceProperties EIP where
         {awsType = "AWS::EC2::EIP", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Domain" Prelude.<$> domain,
+                           [(JSON..=) "Address" Prelude.<$> address,
+                            (JSON..=) "Domain" Prelude.<$> domain,
                             (JSON..=) "InstanceId" Prelude.<$> instanceId,
+                            (JSON..=) "IpamPoolId" Prelude.<$> ipamPoolId,
                             (JSON..=) "NetworkBorderGroup" Prelude.<$> networkBorderGroup,
                             (JSON..=) "PublicIpv4Pool" Prelude.<$> publicIpv4Pool,
                             (JSON..=) "Tags" Prelude.<$> tags,
@@ -39,12 +44,17 @@ instance JSON.ToJSON EIP where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Domain" Prelude.<$> domain,
+              [(JSON..=) "Address" Prelude.<$> address,
+               (JSON..=) "Domain" Prelude.<$> domain,
                (JSON..=) "InstanceId" Prelude.<$> instanceId,
+               (JSON..=) "IpamPoolId" Prelude.<$> ipamPoolId,
                (JSON..=) "NetworkBorderGroup" Prelude.<$> networkBorderGroup,
                (JSON..=) "PublicIpv4Pool" Prelude.<$> publicIpv4Pool,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "TransferAddress" Prelude.<$> transferAddress]))
+instance Property "Address" EIP where
+  type PropertyType "Address" EIP = Value Prelude.Text
+  set newValue EIP {..} = EIP {address = Prelude.pure newValue, ..}
 instance Property "Domain" EIP where
   type PropertyType "Domain" EIP = Value Prelude.Text
   set newValue EIP {..} = EIP {domain = Prelude.pure newValue, ..}
@@ -52,6 +62,10 @@ instance Property "InstanceId" EIP where
   type PropertyType "InstanceId" EIP = Value Prelude.Text
   set newValue EIP {..}
     = EIP {instanceId = Prelude.pure newValue, ..}
+instance Property "IpamPoolId" EIP where
+  type PropertyType "IpamPoolId" EIP = Value Prelude.Text
+  set newValue EIP {..}
+    = EIP {ipamPoolId = Prelude.pure newValue, ..}
 instance Property "NetworkBorderGroup" EIP where
   type PropertyType "NetworkBorderGroup" EIP = Value Prelude.Text
   set newValue EIP {..}

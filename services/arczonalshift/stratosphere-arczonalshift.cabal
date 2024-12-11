@@ -25,6 +25,7 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.ARCZonalShift.AutoshiftObserverNotificationStatus
       Stratosphere.ARCZonalShift.ZonalAutoshiftConfiguration
       Stratosphere.ARCZonalShift.ZonalAutoshiftConfiguration.ControlConditionProperty
       Stratosphere.ARCZonalShift.ZonalAutoshiftConfiguration.PracticeRunConfigurationProperty

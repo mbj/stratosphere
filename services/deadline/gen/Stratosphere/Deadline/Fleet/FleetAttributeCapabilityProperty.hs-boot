@@ -1,0 +1,9 @@
+module Stratosphere.Deadline.Fleet.FleetAttributeCapabilityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FleetAttributeCapabilityProperty :: Prelude.Type
+instance ToResourceProperties FleetAttributeCapabilityProperty
+instance Prelude.Eq FleetAttributeCapabilityProperty
+instance Prelude.Show FleetAttributeCapabilityProperty
+instance JSON.ToJSON FleetAttributeCapabilityProperty

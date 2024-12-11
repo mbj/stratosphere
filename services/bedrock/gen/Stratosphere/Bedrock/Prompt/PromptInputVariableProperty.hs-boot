@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Prompt.PromptInputVariableProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PromptInputVariableProperty :: Prelude.Type
+instance ToResourceProperties PromptInputVariableProperty
+instance Prelude.Eq PromptInputVariableProperty
+instance Prelude.Show PromptInputVariableProperty
+instance JSON.ToJSON PromptInputVariableProperty

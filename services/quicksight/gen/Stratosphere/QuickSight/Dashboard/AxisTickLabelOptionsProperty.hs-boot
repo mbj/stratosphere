@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.AxisTickLabelOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data AxisTickLabelOptionsProperty :: Prelude.Type
-instance ToResourceProperties AxisTickLabelOptionsProperty
-instance Prelude.Eq AxisTickLabelOptionsProperty
-instance Prelude.Show AxisTickLabelOptionsProperty
-instance JSON.ToJSON AxisTickLabelOptionsProperty

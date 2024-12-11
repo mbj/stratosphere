@@ -12,20 +12,19 @@ data Configuration
                    data' :: (Value Prelude.Text),
                    description :: (Prelude.Maybe (Value Prelude.Text)),
                    engineType :: (Value Prelude.Text),
-                   engineVersion :: (Value Prelude.Text),
+                   engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
                    name :: (Value Prelude.Text),
                    tags :: (Prelude.Maybe [TagsEntryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConfiguration ::
   Value Prelude.Text
-  -> Value Prelude.Text
-     -> Value Prelude.Text -> Value Prelude.Text -> Configuration
-mkConfiguration data' engineType engineVersion name
+  -> Value Prelude.Text -> Value Prelude.Text -> Configuration
+mkConfiguration data' engineType name
   = Configuration
-      {data' = data', engineType = engineType,
-       engineVersion = engineVersion, name = name,
+      {data' = data', engineType = engineType, name = name,
        authenticationStrategy = Prelude.Nothing,
-       description = Prelude.Nothing, tags = Prelude.Nothing}
+       description = Prelude.Nothing, engineVersion = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Configuration where
   toResourceProperties Configuration {..}
     = ResourceProperties
@@ -34,11 +33,12 @@ instance ToResourceProperties Configuration where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Data" JSON..= data', "EngineType" JSON..= engineType,
-                            "EngineVersion" JSON..= engineVersion, "Name" JSON..= name]
+                            "Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "AuthenticationStrategy"
                                  Prelude.<$> authenticationStrategy,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Configuration where
   toJSON Configuration {..}
@@ -46,11 +46,12 @@ instance JSON.ToJSON Configuration where
         (Prelude.fromList
            ((Prelude.<>)
               ["Data" JSON..= data', "EngineType" JSON..= engineType,
-               "EngineVersion" JSON..= engineVersion, "Name" JSON..= name]
+               "Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "AuthenticationStrategy"
                     Prelude.<$> authenticationStrategy,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AuthenticationStrategy" Configuration where
   type PropertyType "AuthenticationStrategy" Configuration = Value Prelude.Text
@@ -72,7 +73,7 @@ instance Property "EngineType" Configuration where
 instance Property "EngineVersion" Configuration where
   type PropertyType "EngineVersion" Configuration = Value Prelude.Text
   set newValue Configuration {..}
-    = Configuration {engineVersion = newValue, ..}
+    = Configuration {engineVersion = Prelude.pure newValue, ..}
 instance Property "Name" Configuration where
   type PropertyType "Name" Configuration = Value Prelude.Text
   set newValue Configuration {..}

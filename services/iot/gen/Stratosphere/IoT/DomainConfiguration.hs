@@ -5,13 +5,17 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.IoT.DomainConfiguration.AuthorizerConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.IoT.DomainConfiguration.ClientCertificateConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoT.DomainConfiguration.ServerCertificateConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoT.DomainConfiguration.TlsConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data DomainConfiguration
-  = DomainConfiguration {authorizerConfig :: (Prelude.Maybe AuthorizerConfigProperty),
+  = DomainConfiguration {applicationProtocol :: (Prelude.Maybe (Value Prelude.Text)),
+                         authenticationType :: (Prelude.Maybe (Value Prelude.Text)),
+                         authorizerConfig :: (Prelude.Maybe AuthorizerConfigProperty),
+                         clientCertificateConfig :: (Prelude.Maybe ClientCertificateConfigProperty),
                          domainConfigurationName :: (Prelude.Maybe (Value Prelude.Text)),
                          domainConfigurationStatus :: (Prelude.Maybe (Value Prelude.Text)),
                          domainName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -25,7 +29,10 @@ data DomainConfiguration
 mkDomainConfiguration :: DomainConfiguration
 mkDomainConfiguration
   = DomainConfiguration
-      {authorizerConfig = Prelude.Nothing,
+      {applicationProtocol = Prelude.Nothing,
+       authenticationType = Prelude.Nothing,
+       authorizerConfig = Prelude.Nothing,
+       clientCertificateConfig = Prelude.Nothing,
        domainConfigurationName = Prelude.Nothing,
        domainConfigurationStatus = Prelude.Nothing,
        domainName = Prelude.Nothing,
@@ -41,7 +48,11 @@ instance ToResourceProperties DomainConfiguration where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "AuthorizerConfig" Prelude.<$> authorizerConfig,
+                           [(JSON..=) "ApplicationProtocol" Prelude.<$> applicationProtocol,
+                            (JSON..=) "AuthenticationType" Prelude.<$> authenticationType,
+                            (JSON..=) "AuthorizerConfig" Prelude.<$> authorizerConfig,
+                            (JSON..=) "ClientCertificateConfig"
+                              Prelude.<$> clientCertificateConfig,
                             (JSON..=) "DomainConfigurationName"
                               Prelude.<$> domainConfigurationName,
                             (JSON..=) "DomainConfigurationStatus"
@@ -61,7 +72,11 @@ instance JSON.ToJSON DomainConfiguration where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "AuthorizerConfig" Prelude.<$> authorizerConfig,
+              [(JSON..=) "ApplicationProtocol" Prelude.<$> applicationProtocol,
+               (JSON..=) "AuthenticationType" Prelude.<$> authenticationType,
+               (JSON..=) "AuthorizerConfig" Prelude.<$> authorizerConfig,
+               (JSON..=) "ClientCertificateConfig"
+                 Prelude.<$> clientCertificateConfig,
                (JSON..=) "DomainConfigurationName"
                  Prelude.<$> domainConfigurationName,
                (JSON..=) "DomainConfigurationStatus"
@@ -76,11 +91,26 @@ instance JSON.ToJSON DomainConfiguration where
                (JSON..=) "TlsConfig" Prelude.<$> tlsConfig,
                (JSON..=) "ValidationCertificateArn"
                  Prelude.<$> validationCertificateArn]))
+instance Property "ApplicationProtocol" DomainConfiguration where
+  type PropertyType "ApplicationProtocol" DomainConfiguration = Value Prelude.Text
+  set newValue DomainConfiguration {..}
+    = DomainConfiguration
+        {applicationProtocol = Prelude.pure newValue, ..}
+instance Property "AuthenticationType" DomainConfiguration where
+  type PropertyType "AuthenticationType" DomainConfiguration = Value Prelude.Text
+  set newValue DomainConfiguration {..}
+    = DomainConfiguration
+        {authenticationType = Prelude.pure newValue, ..}
 instance Property "AuthorizerConfig" DomainConfiguration where
   type PropertyType "AuthorizerConfig" DomainConfiguration = AuthorizerConfigProperty
   set newValue DomainConfiguration {..}
     = DomainConfiguration
         {authorizerConfig = Prelude.pure newValue, ..}
+instance Property "ClientCertificateConfig" DomainConfiguration where
+  type PropertyType "ClientCertificateConfig" DomainConfiguration = ClientCertificateConfigProperty
+  set newValue DomainConfiguration {..}
+    = DomainConfiguration
+        {clientCertificateConfig = Prelude.pure newValue, ..}
 instance Property "DomainConfigurationName" DomainConfiguration where
   type PropertyType "DomainConfigurationName" DomainConfiguration = Value Prelude.Text
   set newValue DomainConfiguration {..}

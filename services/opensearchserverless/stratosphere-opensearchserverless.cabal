@@ -29,6 +29,7 @@ library
       Stratosphere.OpenSearchServerless.Collection
       Stratosphere.OpenSearchServerless.LifecyclePolicy
       Stratosphere.OpenSearchServerless.SecurityConfig
+      Stratosphere.OpenSearchServerless.SecurityConfig.IamIdentityCenterConfigOptionsProperty
       Stratosphere.OpenSearchServerless.SecurityConfig.SamlConfigOptionsProperty
       Stratosphere.OpenSearchServerless.SecurityPolicy
       Stratosphere.OpenSearchServerless.VpcEndpoint

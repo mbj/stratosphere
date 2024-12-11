@@ -29,17 +29,27 @@ library
       Stratosphere.EKS.AccessEntry.AccessPolicyProperty
       Stratosphere.EKS.AccessEntry.AccessScopeProperty
       Stratosphere.EKS.Addon
+      Stratosphere.EKS.Addon.PodIdentityAssociationProperty
       Stratosphere.EKS.Cluster
       Stratosphere.EKS.Cluster.AccessConfigProperty
+      Stratosphere.EKS.Cluster.BlockStorageProperty
       Stratosphere.EKS.Cluster.ClusterLoggingProperty
+      Stratosphere.EKS.Cluster.ComputeConfigProperty
       Stratosphere.EKS.Cluster.ControlPlanePlacementProperty
+      Stratosphere.EKS.Cluster.ElasticLoadBalancingProperty
       Stratosphere.EKS.Cluster.EncryptionConfigProperty
       Stratosphere.EKS.Cluster.KubernetesNetworkConfigProperty
       Stratosphere.EKS.Cluster.LoggingProperty
       Stratosphere.EKS.Cluster.LoggingTypeConfigProperty
       Stratosphere.EKS.Cluster.OutpostConfigProperty
       Stratosphere.EKS.Cluster.ProviderProperty
+      Stratosphere.EKS.Cluster.RemoteNetworkConfigProperty
+      Stratosphere.EKS.Cluster.RemoteNodeNetworkProperty
+      Stratosphere.EKS.Cluster.RemotePodNetworkProperty
       Stratosphere.EKS.Cluster.ResourcesVpcConfigProperty
+      Stratosphere.EKS.Cluster.StorageConfigProperty
+      Stratosphere.EKS.Cluster.UpgradePolicyProperty
+      Stratosphere.EKS.Cluster.ZonalShiftConfigProperty
       Stratosphere.EKS.FargateProfile
       Stratosphere.EKS.FargateProfile.LabelProperty
       Stratosphere.EKS.FargateProfile.SelectorProperty
@@ -48,6 +58,7 @@ library
       Stratosphere.EKS.IdentityProviderConfig.RequiredClaimProperty
       Stratosphere.EKS.Nodegroup
       Stratosphere.EKS.Nodegroup.LaunchTemplateSpecificationProperty
+      Stratosphere.EKS.Nodegroup.NodeRepairConfigProperty
       Stratosphere.EKS.Nodegroup.RemoteAccessProperty
       Stratosphere.EKS.Nodegroup.ScalingConfigProperty
       Stratosphere.EKS.Nodegroup.TaintProperty

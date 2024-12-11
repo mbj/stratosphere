@@ -68,6 +68,7 @@ library
       Stratosphere.MSK.Replicator.KafkaClusterProperty
       Stratosphere.MSK.Replicator.ReplicationInfoProperty
       Stratosphere.MSK.Replicator.ReplicationStartingPositionProperty
+      Stratosphere.MSK.Replicator.ReplicationTopicNameConfigurationProperty
       Stratosphere.MSK.Replicator.TopicReplicationProperty
       Stratosphere.MSK.ServerlessCluster
       Stratosphere.MSK.ServerlessCluster.ClientAuthenticationProperty

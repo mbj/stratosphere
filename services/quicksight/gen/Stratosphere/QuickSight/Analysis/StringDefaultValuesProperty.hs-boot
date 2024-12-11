@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.StringDefaultValuesProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data StringDefaultValuesProperty :: Prelude.Type
-instance ToResourceProperties StringDefaultValuesProperty
-instance Prelude.Eq StringDefaultValuesProperty
-instance Prelude.Show StringDefaultValuesProperty
-instance JSON.ToJSON StringDefaultValuesProperty

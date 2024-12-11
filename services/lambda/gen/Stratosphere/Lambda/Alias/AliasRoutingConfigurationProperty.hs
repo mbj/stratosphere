@@ -8,26 +8,31 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lambda.Alias.VersionWeightProperty as Exports
 import Stratosphere.ResourceProperties
 data AliasRoutingConfigurationProperty
-  = AliasRoutingConfigurationProperty {additionalVersionWeights :: [VersionWeightProperty]}
+  = AliasRoutingConfigurationProperty {additionalVersionWeights :: (Prelude.Maybe [VersionWeightProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAliasRoutingConfigurationProperty ::
-  [VersionWeightProperty] -> AliasRoutingConfigurationProperty
-mkAliasRoutingConfigurationProperty additionalVersionWeights
+  AliasRoutingConfigurationProperty
+mkAliasRoutingConfigurationProperty
   = AliasRoutingConfigurationProperty
-      {additionalVersionWeights = additionalVersionWeights}
+      {additionalVersionWeights = Prelude.Nothing}
 instance ToResourceProperties AliasRoutingConfigurationProperty where
   toResourceProperties AliasRoutingConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::Alias.AliasRoutingConfiguration",
          supportsTags = Prelude.False,
-         properties = ["AdditionalVersionWeights"
-                         JSON..= additionalVersionWeights]}
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "AdditionalVersionWeights"
+                              Prelude.<$> additionalVersionWeights])}
 instance JSON.ToJSON AliasRoutingConfigurationProperty where
   toJSON AliasRoutingConfigurationProperty {..}
     = JSON.object
-        ["AdditionalVersionWeights" JSON..= additionalVersionWeights]
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "AdditionalVersionWeights"
+                 Prelude.<$> additionalVersionWeights]))
 instance Property "AdditionalVersionWeights" AliasRoutingConfigurationProperty where
   type PropertyType "AdditionalVersionWeights" AliasRoutingConfigurationProperty = [VersionWeightProperty]
   set newValue AliasRoutingConfigurationProperty {}
     = AliasRoutingConfigurationProperty
-        {additionalVersionWeights = newValue, ..}
+        {additionalVersionWeights = Prelude.pure newValue, ..}

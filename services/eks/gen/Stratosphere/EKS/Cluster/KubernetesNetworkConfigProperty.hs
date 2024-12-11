@@ -1,14 +1,16 @@
 module Stratosphere.EKS.Cluster.KubernetesNetworkConfigProperty (
-        KubernetesNetworkConfigProperty(..),
+        module Exports, KubernetesNetworkConfigProperty(..),
         mkKubernetesNetworkConfigProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EKS.Cluster.ElasticLoadBalancingProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data KubernetesNetworkConfigProperty
-  = KubernetesNetworkConfigProperty {ipFamily :: (Prelude.Maybe (Value Prelude.Text)),
+  = KubernetesNetworkConfigProperty {elasticLoadBalancing :: (Prelude.Maybe ElasticLoadBalancingProperty),
+                                     ipFamily :: (Prelude.Maybe (Value Prelude.Text)),
                                      serviceIpv4Cidr :: (Prelude.Maybe (Value Prelude.Text)),
                                      serviceIpv6Cidr :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -16,7 +18,8 @@ mkKubernetesNetworkConfigProperty ::
   KubernetesNetworkConfigProperty
 mkKubernetesNetworkConfigProperty
   = KubernetesNetworkConfigProperty
-      {ipFamily = Prelude.Nothing, serviceIpv4Cidr = Prelude.Nothing,
+      {elasticLoadBalancing = Prelude.Nothing,
+       ipFamily = Prelude.Nothing, serviceIpv4Cidr = Prelude.Nothing,
        serviceIpv6Cidr = Prelude.Nothing}
 instance ToResourceProperties KubernetesNetworkConfigProperty where
   toResourceProperties KubernetesNetworkConfigProperty {..}
@@ -25,7 +28,8 @@ instance ToResourceProperties KubernetesNetworkConfigProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "IpFamily" Prelude.<$> ipFamily,
+                           [(JSON..=) "ElasticLoadBalancing" Prelude.<$> elasticLoadBalancing,
+                            (JSON..=) "IpFamily" Prelude.<$> ipFamily,
                             (JSON..=) "ServiceIpv4Cidr" Prelude.<$> serviceIpv4Cidr,
                             (JSON..=) "ServiceIpv6Cidr" Prelude.<$> serviceIpv6Cidr])}
 instance JSON.ToJSON KubernetesNetworkConfigProperty where
@@ -33,9 +37,15 @@ instance JSON.ToJSON KubernetesNetworkConfigProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "IpFamily" Prelude.<$> ipFamily,
+              [(JSON..=) "ElasticLoadBalancing" Prelude.<$> elasticLoadBalancing,
+               (JSON..=) "IpFamily" Prelude.<$> ipFamily,
                (JSON..=) "ServiceIpv4Cidr" Prelude.<$> serviceIpv4Cidr,
                (JSON..=) "ServiceIpv6Cidr" Prelude.<$> serviceIpv6Cidr]))
+instance Property "ElasticLoadBalancing" KubernetesNetworkConfigProperty where
+  type PropertyType "ElasticLoadBalancing" KubernetesNetworkConfigProperty = ElasticLoadBalancingProperty
+  set newValue KubernetesNetworkConfigProperty {..}
+    = KubernetesNetworkConfigProperty
+        {elasticLoadBalancing = Prelude.pure newValue, ..}
 instance Property "IpFamily" KubernetesNetworkConfigProperty where
   type PropertyType "IpFamily" KubernetesNetworkConfigProperty = Value Prelude.Text
   set newValue KubernetesNetworkConfigProperty {..}

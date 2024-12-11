@@ -14,10 +14,10 @@ data Subnet
             availabilityZoneId :: (Prelude.Maybe (Value Prelude.Text)),
             cidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
             enableDns64 :: (Prelude.Maybe (Value Prelude.Bool)),
+            enableLniAtDeviceIndex :: (Prelude.Maybe (Value Prelude.Integer)),
             ipv4IpamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
             ipv4NetmaskLength :: (Prelude.Maybe (Value Prelude.Integer)),
             ipv6CidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
-            ipv6CidrBlocks :: (Prelude.Maybe (ValueList Prelude.Text)),
             ipv6IpamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
             ipv6Native :: (Prelude.Maybe (Value Prelude.Bool)),
             ipv6NetmaskLength :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -33,11 +33,12 @@ mkSubnet vpcId
       {vpcId = vpcId, assignIpv6AddressOnCreation = Prelude.Nothing,
        availabilityZone = Prelude.Nothing,
        availabilityZoneId = Prelude.Nothing, cidrBlock = Prelude.Nothing,
-       enableDns64 = Prelude.Nothing, ipv4IpamPoolId = Prelude.Nothing,
+       enableDns64 = Prelude.Nothing,
+       enableLniAtDeviceIndex = Prelude.Nothing,
+       ipv4IpamPoolId = Prelude.Nothing,
        ipv4NetmaskLength = Prelude.Nothing,
-       ipv6CidrBlock = Prelude.Nothing, ipv6CidrBlocks = Prelude.Nothing,
-       ipv6IpamPoolId = Prelude.Nothing, ipv6Native = Prelude.Nothing,
-       ipv6NetmaskLength = Prelude.Nothing,
+       ipv6CidrBlock = Prelude.Nothing, ipv6IpamPoolId = Prelude.Nothing,
+       ipv6Native = Prelude.Nothing, ipv6NetmaskLength = Prelude.Nothing,
        mapPublicIpOnLaunch = Prelude.Nothing,
        outpostArn = Prelude.Nothing,
        privateDnsNameOptionsOnLaunch = Prelude.Nothing,
@@ -56,10 +57,11 @@ instance ToResourceProperties Subnet where
                                (JSON..=) "AvailabilityZoneId" Prelude.<$> availabilityZoneId,
                                (JSON..=) "CidrBlock" Prelude.<$> cidrBlock,
                                (JSON..=) "EnableDns64" Prelude.<$> enableDns64,
+                               (JSON..=) "EnableLniAtDeviceIndex"
+                                 Prelude.<$> enableLniAtDeviceIndex,
                                (JSON..=) "Ipv4IpamPoolId" Prelude.<$> ipv4IpamPoolId,
                                (JSON..=) "Ipv4NetmaskLength" Prelude.<$> ipv4NetmaskLength,
                                (JSON..=) "Ipv6CidrBlock" Prelude.<$> ipv6CidrBlock,
-                               (JSON..=) "Ipv6CidrBlocks" Prelude.<$> ipv6CidrBlocks,
                                (JSON..=) "Ipv6IpamPoolId" Prelude.<$> ipv6IpamPoolId,
                                (JSON..=) "Ipv6Native" Prelude.<$> ipv6Native,
                                (JSON..=) "Ipv6NetmaskLength" Prelude.<$> ipv6NetmaskLength,
@@ -81,10 +83,11 @@ instance JSON.ToJSON Subnet where
                   (JSON..=) "AvailabilityZoneId" Prelude.<$> availabilityZoneId,
                   (JSON..=) "CidrBlock" Prelude.<$> cidrBlock,
                   (JSON..=) "EnableDns64" Prelude.<$> enableDns64,
+                  (JSON..=) "EnableLniAtDeviceIndex"
+                    Prelude.<$> enableLniAtDeviceIndex,
                   (JSON..=) "Ipv4IpamPoolId" Prelude.<$> ipv4IpamPoolId,
                   (JSON..=) "Ipv4NetmaskLength" Prelude.<$> ipv4NetmaskLength,
                   (JSON..=) "Ipv6CidrBlock" Prelude.<$> ipv6CidrBlock,
-                  (JSON..=) "Ipv6CidrBlocks" Prelude.<$> ipv6CidrBlocks,
                   (JSON..=) "Ipv6IpamPoolId" Prelude.<$> ipv6IpamPoolId,
                   (JSON..=) "Ipv6Native" Prelude.<$> ipv6Native,
                   (JSON..=) "Ipv6NetmaskLength" Prelude.<$> ipv6NetmaskLength,
@@ -113,6 +116,10 @@ instance Property "EnableDns64" Subnet where
   type PropertyType "EnableDns64" Subnet = Value Prelude.Bool
   set newValue Subnet {..}
     = Subnet {enableDns64 = Prelude.pure newValue, ..}
+instance Property "EnableLniAtDeviceIndex" Subnet where
+  type PropertyType "EnableLniAtDeviceIndex" Subnet = Value Prelude.Integer
+  set newValue Subnet {..}
+    = Subnet {enableLniAtDeviceIndex = Prelude.pure newValue, ..}
 instance Property "Ipv4IpamPoolId" Subnet where
   type PropertyType "Ipv4IpamPoolId" Subnet = Value Prelude.Text
   set newValue Subnet {..}
@@ -125,10 +132,6 @@ instance Property "Ipv6CidrBlock" Subnet where
   type PropertyType "Ipv6CidrBlock" Subnet = Value Prelude.Text
   set newValue Subnet {..}
     = Subnet {ipv6CidrBlock = Prelude.pure newValue, ..}
-instance Property "Ipv6CidrBlocks" Subnet where
-  type PropertyType "Ipv6CidrBlocks" Subnet = ValueList Prelude.Text
-  set newValue Subnet {..}
-    = Subnet {ipv6CidrBlocks = Prelude.pure newValue, ..}
 instance Property "Ipv6IpamPoolId" Subnet where
   type PropertyType "Ipv6IpamPoolId" Subnet = Value Prelude.Text
   set newValue Subnet {..}

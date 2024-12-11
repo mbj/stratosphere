@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Partnership.X12FunctionalGroupHeadersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data X12FunctionalGroupHeadersProperty :: Prelude.Type
+instance ToResourceProperties X12FunctionalGroupHeadersProperty
+instance Prelude.Eq X12FunctionalGroupHeadersProperty
+instance Prelude.Show X12FunctionalGroupHeadersProperty
+instance JSON.ToJSON X12FunctionalGroupHeadersProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Deadline.Fleet.AcceleratorTotalMemoryMiBRangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AcceleratorTotalMemoryMiBRangeProperty :: Prelude.Type
+instance ToResourceProperties AcceleratorTotalMemoryMiBRangeProperty
+instance Prelude.Eq AcceleratorTotalMemoryMiBRangeProperty
+instance Prelude.Show AcceleratorTotalMemoryMiBRangeProperty
+instance JSON.ToJSON AcceleratorTotalMemoryMiBRangeProperty

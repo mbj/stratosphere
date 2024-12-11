@@ -17,6 +17,7 @@ data Service
              healthCheckCustomConfig :: (Prelude.Maybe HealthCheckCustomConfigProperty),
              name :: (Prelude.Maybe (Value Prelude.Text)),
              namespaceId :: (Prelude.Maybe (Value Prelude.Text)),
+             serviceAttributes :: (Prelude.Maybe JSON.Object),
              tags :: (Prelude.Maybe [Tag]),
              type' :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -26,8 +27,8 @@ mkService
       {description = Prelude.Nothing, dnsConfig = Prelude.Nothing,
        healthCheckConfig = Prelude.Nothing,
        healthCheckCustomConfig = Prelude.Nothing, name = Prelude.Nothing,
-       namespaceId = Prelude.Nothing, tags = Prelude.Nothing,
-       type' = Prelude.Nothing}
+       namespaceId = Prelude.Nothing, serviceAttributes = Prelude.Nothing,
+       tags = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties Service where
   toResourceProperties Service {..}
     = ResourceProperties
@@ -42,6 +43,7 @@ instance ToResourceProperties Service where
                               Prelude.<$> healthCheckCustomConfig,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "NamespaceId" Prelude.<$> namespaceId,
+                            (JSON..=) "ServiceAttributes" Prelude.<$> serviceAttributes,
                             (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "Type" Prelude.<$> type'])}
 instance JSON.ToJSON Service where
@@ -56,6 +58,7 @@ instance JSON.ToJSON Service where
                  Prelude.<$> healthCheckCustomConfig,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "NamespaceId" Prelude.<$> namespaceId,
+               (JSON..=) "ServiceAttributes" Prelude.<$> serviceAttributes,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "Type" Prelude.<$> type']))
 instance Property "Description" Service where
@@ -82,6 +85,10 @@ instance Property "NamespaceId" Service where
   type PropertyType "NamespaceId" Service = Value Prelude.Text
   set newValue Service {..}
     = Service {namespaceId = Prelude.pure newValue, ..}
+instance Property "ServiceAttributes" Service where
+  type PropertyType "ServiceAttributes" Service = JSON.Object
+  set newValue Service {..}
+    = Service {serviceAttributes = Prelude.pure newValue, ..}
 instance Property "Tags" Service where
   type PropertyType "Tags" Service = [Tag]
   set newValue Service {..}

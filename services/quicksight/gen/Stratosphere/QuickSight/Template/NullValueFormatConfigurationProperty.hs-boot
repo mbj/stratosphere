@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.NullValueFormatConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data NullValueFormatConfigurationProperty :: Prelude.Type
-instance ToResourceProperties NullValueFormatConfigurationProperty
-instance Prelude.Eq NullValueFormatConfigurationProperty
-instance Prelude.Show NullValueFormatConfigurationProperty
-instance JSON.ToJSON NullValueFormatConfigurationProperty

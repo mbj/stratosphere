@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.MultiplexContainerSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MultiplexContainerSettingsProperty :: Prelude.Type
+instance ToResourceProperties MultiplexContainerSettingsProperty
+instance Prelude.Eq MultiplexContainerSettingsProperty
+instance Prelude.Show MultiplexContainerSettingsProperty
+instance JSON.ToJSON MultiplexContainerSettingsProperty

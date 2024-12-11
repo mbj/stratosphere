@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.BoxPlotSortConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data BoxPlotSortConfigurationProperty :: Prelude.Type
-instance ToResourceProperties BoxPlotSortConfigurationProperty
-instance Prelude.Eq BoxPlotSortConfigurationProperty
-instance Prelude.Show BoxPlotSortConfigurationProperty
-instance JSON.ToJSON BoxPlotSortConfigurationProperty

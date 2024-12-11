@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.ApplicationInferenceProfile.InferenceProfileModelProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InferenceProfileModelProperty :: Prelude.Type
+instance ToResourceProperties InferenceProfileModelProperty
+instance Prelude.Eq InferenceProfileModelProperty
+instance Prelude.Show InferenceProfileModelProperty
+instance JSON.ToJSON InferenceProfileModelProperty

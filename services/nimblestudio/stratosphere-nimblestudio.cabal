@@ -25,16 +25,6 @@ flag development
 
 library
   exposed-modules:
-      Stratosphere.NimbleStudio.LaunchProfile
-      Stratosphere.NimbleStudio.LaunchProfile.StreamConfigurationProperty
-      Stratosphere.NimbleStudio.LaunchProfile.StreamConfigurationSessionBackupProperty
-      Stratosphere.NimbleStudio.LaunchProfile.StreamConfigurationSessionStorageProperty
-      Stratosphere.NimbleStudio.LaunchProfile.StreamingSessionStorageRootProperty
-      Stratosphere.NimbleStudio.LaunchProfile.VolumeConfigurationProperty
-      Stratosphere.NimbleStudio.StreamingImage
-      Stratosphere.NimbleStudio.StreamingImage.StreamingImageEncryptionConfigurationProperty
-      Stratosphere.NimbleStudio.Studio
-      Stratosphere.NimbleStudio.Studio.StudioEncryptionConfigurationProperty
       Stratosphere.NimbleStudio.StudioComponent
       Stratosphere.NimbleStudio.StudioComponent.ActiveDirectoryComputerAttributeProperty
       Stratosphere.NimbleStudio.StudioComponent.ActiveDirectoryConfigurationProperty

@@ -5,13 +5,16 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Cognito.UserPool.PasswordPolicyProperty as Exports
+import {-# SOURCE #-} Stratosphere.Cognito.UserPool.SignInPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 data PoliciesProperty
-  = PoliciesProperty {passwordPolicy :: (Prelude.Maybe PasswordPolicyProperty)}
+  = PoliciesProperty {passwordPolicy :: (Prelude.Maybe PasswordPolicyProperty),
+                      signInPolicy :: (Prelude.Maybe SignInPolicyProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkPoliciesProperty :: PoliciesProperty
 mkPoliciesProperty
-  = PoliciesProperty {passwordPolicy = Prelude.Nothing}
+  = PoliciesProperty
+      {passwordPolicy = Prelude.Nothing, signInPolicy = Prelude.Nothing}
 instance ToResourceProperties PoliciesProperty where
   toResourceProperties PoliciesProperty {..}
     = ResourceProperties
@@ -19,14 +22,20 @@ instance ToResourceProperties PoliciesProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "PasswordPolicy" Prelude.<$> passwordPolicy])}
+                           [(JSON..=) "PasswordPolicy" Prelude.<$> passwordPolicy,
+                            (JSON..=) "SignInPolicy" Prelude.<$> signInPolicy])}
 instance JSON.ToJSON PoliciesProperty where
   toJSON PoliciesProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "PasswordPolicy" Prelude.<$> passwordPolicy]))
+              [(JSON..=) "PasswordPolicy" Prelude.<$> passwordPolicy,
+               (JSON..=) "SignInPolicy" Prelude.<$> signInPolicy]))
 instance Property "PasswordPolicy" PoliciesProperty where
   type PropertyType "PasswordPolicy" PoliciesProperty = PasswordPolicyProperty
-  set newValue PoliciesProperty {}
+  set newValue PoliciesProperty {..}
     = PoliciesProperty {passwordPolicy = Prelude.pure newValue, ..}
+instance Property "SignInPolicy" PoliciesProperty where
+  type PropertyType "SignInPolicy" PoliciesProperty = SignInPolicyProperty
+  set newValue PoliciesProperty {..}
+    = PoliciesProperty {signInPolicy = Prelude.pure newValue, ..}

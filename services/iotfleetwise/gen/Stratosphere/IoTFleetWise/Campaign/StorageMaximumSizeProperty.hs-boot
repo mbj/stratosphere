@@ -1,0 +1,9 @@
+module Stratosphere.IoTFleetWise.Campaign.StorageMaximumSizeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StorageMaximumSizeProperty :: Prelude.Type
+instance ToResourceProperties StorageMaximumSizeProperty
+instance Prelude.Eq StorageMaximumSizeProperty
+instance Prelude.Show StorageMaximumSizeProperty
+instance JSON.ToJSON StorageMaximumSizeProperty

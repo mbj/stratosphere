@@ -11,7 +11,8 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Collaboration
-  = Collaboration {creatorDisplayName :: (Value Prelude.Text),
+  = Collaboration {analyticsEngine :: (Prelude.Maybe (Value Prelude.Text)),
+                   creatorDisplayName :: (Value Prelude.Text),
                    creatorMemberAbilities :: (ValueList Prelude.Text),
                    creatorPaymentConfiguration :: (Prelude.Maybe PaymentConfigurationProperty),
                    dataEncryptionMetadata :: (Prelude.Maybe DataEncryptionMetadataProperty),
@@ -38,7 +39,7 @@ mkCollaboration
       {creatorDisplayName = creatorDisplayName,
        creatorMemberAbilities = creatorMemberAbilities,
        description = description, members = members, name = name,
-       queryLogStatus = queryLogStatus,
+       queryLogStatus = queryLogStatus, analyticsEngine = Prelude.Nothing,
        creatorPaymentConfiguration = Prelude.Nothing,
        dataEncryptionMetadata = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Collaboration where
@@ -53,7 +54,8 @@ instance ToResourceProperties Collaboration where
                             "Description" JSON..= description, "Members" JSON..= members,
                             "Name" JSON..= name, "QueryLogStatus" JSON..= queryLogStatus]
                            (Prelude.catMaybes
-                              [(JSON..=) "CreatorPaymentConfiguration"
+                              [(JSON..=) "AnalyticsEngine" Prelude.<$> analyticsEngine,
+                               (JSON..=) "CreatorPaymentConfiguration"
                                  Prelude.<$> creatorPaymentConfiguration,
                                (JSON..=) "DataEncryptionMetadata"
                                  Prelude.<$> dataEncryptionMetadata,
@@ -68,11 +70,16 @@ instance JSON.ToJSON Collaboration where
                "Description" JSON..= description, "Members" JSON..= members,
                "Name" JSON..= name, "QueryLogStatus" JSON..= queryLogStatus]
               (Prelude.catMaybes
-                 [(JSON..=) "CreatorPaymentConfiguration"
+                 [(JSON..=) "AnalyticsEngine" Prelude.<$> analyticsEngine,
+                  (JSON..=) "CreatorPaymentConfiguration"
                     Prelude.<$> creatorPaymentConfiguration,
                   (JSON..=) "DataEncryptionMetadata"
                     Prelude.<$> dataEncryptionMetadata,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "AnalyticsEngine" Collaboration where
+  type PropertyType "AnalyticsEngine" Collaboration = Value Prelude.Text
+  set newValue Collaboration {..}
+    = Collaboration {analyticsEngine = Prelude.pure newValue, ..}
 instance Property "CreatorDisplayName" Collaboration where
   type PropertyType "CreatorDisplayName" Collaboration = Value Prelude.Text
   set newValue Collaboration {..}

@@ -26,10 +26,24 @@ flag development
 library
   exposed-modules:
       Stratosphere.CloudFormation.CustomResource
+      Stratosphere.CloudFormation.GuardHook
+      Stratosphere.CloudFormation.GuardHook.HookTargetProperty
+      Stratosphere.CloudFormation.GuardHook.OptionsProperty
+      Stratosphere.CloudFormation.GuardHook.S3LocationProperty
+      Stratosphere.CloudFormation.GuardHook.StackFiltersProperty
+      Stratosphere.CloudFormation.GuardHook.StackNamesProperty
+      Stratosphere.CloudFormation.GuardHook.StackRolesProperty
+      Stratosphere.CloudFormation.GuardHook.TargetFiltersProperty
       Stratosphere.CloudFormation.HookDefaultVersion
       Stratosphere.CloudFormation.HookTypeConfig
       Stratosphere.CloudFormation.HookVersion
       Stratosphere.CloudFormation.HookVersion.LoggingConfigProperty
+      Stratosphere.CloudFormation.LambdaHook
+      Stratosphere.CloudFormation.LambdaHook.HookTargetProperty
+      Stratosphere.CloudFormation.LambdaHook.StackFiltersProperty
+      Stratosphere.CloudFormation.LambdaHook.StackNamesProperty
+      Stratosphere.CloudFormation.LambdaHook.StackRolesProperty
+      Stratosphere.CloudFormation.LambdaHook.TargetFiltersProperty
       Stratosphere.CloudFormation.Macro
       Stratosphere.CloudFormation.ModuleDefaultVersion
       Stratosphere.CloudFormation.ModuleVersion

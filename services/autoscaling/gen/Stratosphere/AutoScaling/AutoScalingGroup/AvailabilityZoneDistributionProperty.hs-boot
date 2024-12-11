@@ -1,0 +1,9 @@
+module Stratosphere.AutoScaling.AutoScalingGroup.AvailabilityZoneDistributionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AvailabilityZoneDistributionProperty :: Prelude.Type
+instance ToResourceProperties AvailabilityZoneDistributionProperty
+instance Prelude.Eq AvailabilityZoneDistributionProperty
+instance Prelude.Show AvailabilityZoneDistributionProperty
+instance JSON.ToJSON AvailabilityZoneDistributionProperty

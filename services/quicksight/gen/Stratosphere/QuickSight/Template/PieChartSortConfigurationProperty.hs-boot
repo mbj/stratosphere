@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.PieChartSortConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data PieChartSortConfigurationProperty :: Prelude.Type
-instance ToResourceProperties PieChartSortConfigurationProperty
-instance Prelude.Eq PieChartSortConfigurationProperty
-instance Prelude.Show PieChartSortConfigurationProperty
-instance JSON.ToJSON PieChartSortConfigurationProperty

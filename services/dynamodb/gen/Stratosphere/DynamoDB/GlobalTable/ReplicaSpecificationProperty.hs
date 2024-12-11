@@ -8,6 +8,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ContributorInsightsSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.KinesisStreamSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.PointInTimeRecoverySpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReadOnDemandThroughputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReadProvisionedThroughputSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReplicaSSESpecificationProperty as Exports
@@ -22,6 +23,7 @@ data ReplicaSpecificationProperty
                                   globalSecondaryIndexes :: (Prelude.Maybe [ReplicaGlobalSecondaryIndexSpecificationProperty]),
                                   kinesisStreamSpecification :: (Prelude.Maybe KinesisStreamSpecificationProperty),
                                   pointInTimeRecoverySpecification :: (Prelude.Maybe PointInTimeRecoverySpecificationProperty),
+                                  readOnDemandThroughputSettings :: (Prelude.Maybe ReadOnDemandThroughputSettingsProperty),
                                   readProvisionedThroughputSettings :: (Prelude.Maybe ReadProvisionedThroughputSettingsProperty),
                                   region :: (Value Prelude.Text),
                                   replicaStreamSpecification :: (Prelude.Maybe ReplicaStreamSpecificationProperty),
@@ -40,6 +42,7 @@ mkReplicaSpecificationProperty region
        globalSecondaryIndexes = Prelude.Nothing,
        kinesisStreamSpecification = Prelude.Nothing,
        pointInTimeRecoverySpecification = Prelude.Nothing,
+       readOnDemandThroughputSettings = Prelude.Nothing,
        readProvisionedThroughputSettings = Prelude.Nothing,
        replicaStreamSpecification = Prelude.Nothing,
        resourcePolicy = Prelude.Nothing,
@@ -64,6 +67,8 @@ instance ToResourceProperties ReplicaSpecificationProperty where
                                  Prelude.<$> kinesisStreamSpecification,
                                (JSON..=) "PointInTimeRecoverySpecification"
                                  Prelude.<$> pointInTimeRecoverySpecification,
+                               (JSON..=) "ReadOnDemandThroughputSettings"
+                                 Prelude.<$> readOnDemandThroughputSettings,
                                (JSON..=) "ReadProvisionedThroughputSettings"
                                  Prelude.<$> readProvisionedThroughputSettings,
                                (JSON..=) "ReplicaStreamSpecification"
@@ -89,6 +94,8 @@ instance JSON.ToJSON ReplicaSpecificationProperty where
                     Prelude.<$> kinesisStreamSpecification,
                   (JSON..=) "PointInTimeRecoverySpecification"
                     Prelude.<$> pointInTimeRecoverySpecification,
+                  (JSON..=) "ReadOnDemandThroughputSettings"
+                    Prelude.<$> readOnDemandThroughputSettings,
                   (JSON..=) "ReadProvisionedThroughputSettings"
                     Prelude.<$> readProvisionedThroughputSettings,
                   (JSON..=) "ReplicaStreamSpecification"
@@ -122,6 +129,11 @@ instance Property "PointInTimeRecoverySpecification" ReplicaSpecificationPropert
   set newValue ReplicaSpecificationProperty {..}
     = ReplicaSpecificationProperty
         {pointInTimeRecoverySpecification = Prelude.pure newValue, ..}
+instance Property "ReadOnDemandThroughputSettings" ReplicaSpecificationProperty where
+  type PropertyType "ReadOnDemandThroughputSettings" ReplicaSpecificationProperty = ReadOnDemandThroughputSettingsProperty
+  set newValue ReplicaSpecificationProperty {..}
+    = ReplicaSpecificationProperty
+        {readOnDemandThroughputSettings = Prelude.pure newValue, ..}
 instance Property "ReadProvisionedThroughputSettings" ReplicaSpecificationProperty where
   type PropertyType "ReadProvisionedThroughputSettings" ReplicaSpecificationProperty = ReadProvisionedThroughputSettingsProperty
   set newValue ReplicaSpecificationProperty {..}

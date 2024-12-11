@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.MessageTemplate.EmailMessageTemplateContentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EmailMessageTemplateContentProperty :: Prelude.Type
+instance ToResourceProperties EmailMessageTemplateContentProperty
+instance Prelude.Eq EmailMessageTemplateContentProperty
+instance Prelude.Show EmailMessageTemplateContentProperty
+instance JSON.ToJSON EmailMessageTemplateContentProperty

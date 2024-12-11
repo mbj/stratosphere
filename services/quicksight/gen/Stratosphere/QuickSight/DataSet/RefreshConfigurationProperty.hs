@@ -8,28 +8,23 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QuickSight.DataSet.IncrementalRefreshProperty as Exports
 import Stratosphere.ResourceProperties
 data RefreshConfigurationProperty
-  = RefreshConfigurationProperty {incrementalRefresh :: (Prelude.Maybe IncrementalRefreshProperty)}
+  = RefreshConfigurationProperty {incrementalRefresh :: IncrementalRefreshProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkRefreshConfigurationProperty :: RefreshConfigurationProperty
-mkRefreshConfigurationProperty
+mkRefreshConfigurationProperty ::
+  IncrementalRefreshProperty -> RefreshConfigurationProperty
+mkRefreshConfigurationProperty incrementalRefresh
   = RefreshConfigurationProperty
-      {incrementalRefresh = Prelude.Nothing}
+      {incrementalRefresh = incrementalRefresh}
 instance ToResourceProperties RefreshConfigurationProperty where
   toResourceProperties RefreshConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.RefreshConfiguration",
          supportsTags = Prelude.False,
-         properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "IncrementalRefresh" Prelude.<$> incrementalRefresh])}
+         properties = ["IncrementalRefresh" JSON..= incrementalRefresh]}
 instance JSON.ToJSON RefreshConfigurationProperty where
   toJSON RefreshConfigurationProperty {..}
-    = JSON.object
-        (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "IncrementalRefresh" Prelude.<$> incrementalRefresh]))
+    = JSON.object ["IncrementalRefresh" JSON..= incrementalRefresh]
 instance Property "IncrementalRefresh" RefreshConfigurationProperty where
   type PropertyType "IncrementalRefresh" RefreshConfigurationProperty = IncrementalRefreshProperty
   set newValue RefreshConfigurationProperty {}
-    = RefreshConfigurationProperty
-        {incrementalRefresh = Prelude.pure newValue, ..}
+    = RefreshConfigurationProperty {incrementalRefresh = newValue, ..}

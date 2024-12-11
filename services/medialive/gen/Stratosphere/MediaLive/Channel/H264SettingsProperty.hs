@@ -34,6 +34,7 @@ data H264SettingsProperty
                           lookAheadRateControl :: (Prelude.Maybe (Value Prelude.Text)),
                           maxBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
                           minIInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+                          minQp :: (Prelude.Maybe (Value Prelude.Integer)),
                           numRefFrames :: (Prelude.Maybe (Value Prelude.Integer)),
                           parControl :: (Prelude.Maybe (Value Prelude.Text)),
                           parDenominator :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -73,10 +74,10 @@ mkH264SettingsProperty
        gopSizeUnits = Prelude.Nothing, level = Prelude.Nothing,
        lookAheadRateControl = Prelude.Nothing,
        maxBitrate = Prelude.Nothing, minIInterval = Prelude.Nothing,
-       numRefFrames = Prelude.Nothing, parControl = Prelude.Nothing,
-       parDenominator = Prelude.Nothing, parNumerator = Prelude.Nothing,
-       profile = Prelude.Nothing, qualityLevel = Prelude.Nothing,
-       qvbrQualityLevel = Prelude.Nothing,
+       minQp = Prelude.Nothing, numRefFrames = Prelude.Nothing,
+       parControl = Prelude.Nothing, parDenominator = Prelude.Nothing,
+       parNumerator = Prelude.Nothing, profile = Prelude.Nothing,
+       qualityLevel = Prelude.Nothing, qvbrQualityLevel = Prelude.Nothing,
        rateControlMode = Prelude.Nothing, scanType = Prelude.Nothing,
        sceneChangeDetect = Prelude.Nothing, slices = Prelude.Nothing,
        softness = Prelude.Nothing, spatialAq = Prelude.Nothing,
@@ -115,6 +116,7 @@ instance ToResourceProperties H264SettingsProperty where
                             (JSON..=) "LookAheadRateControl" Prelude.<$> lookAheadRateControl,
                             (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
                             (JSON..=) "MinIInterval" Prelude.<$> minIInterval,
+                            (JSON..=) "MinQp" Prelude.<$> minQp,
                             (JSON..=) "NumRefFrames" Prelude.<$> numRefFrames,
                             (JSON..=) "ParControl" Prelude.<$> parControl,
                             (JSON..=) "ParDenominator" Prelude.<$> parDenominator,
@@ -163,6 +165,7 @@ instance JSON.ToJSON H264SettingsProperty where
                (JSON..=) "LookAheadRateControl" Prelude.<$> lookAheadRateControl,
                (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
                (JSON..=) "MinIInterval" Prelude.<$> minIInterval,
+               (JSON..=) "MinQp" Prelude.<$> minQp,
                (JSON..=) "NumRefFrames" Prelude.<$> numRefFrames,
                (JSON..=) "ParControl" Prelude.<$> parControl,
                (JSON..=) "ParDenominator" Prelude.<$> parDenominator,
@@ -287,6 +290,10 @@ instance Property "MinIInterval" H264SettingsProperty where
   type PropertyType "MinIInterval" H264SettingsProperty = Value Prelude.Integer
   set newValue H264SettingsProperty {..}
     = H264SettingsProperty {minIInterval = Prelude.pure newValue, ..}
+instance Property "MinQp" H264SettingsProperty where
+  type PropertyType "MinQp" H264SettingsProperty = Value Prelude.Integer
+  set newValue H264SettingsProperty {..}
+    = H264SettingsProperty {minQp = Prelude.pure newValue, ..}
 instance Property "NumRefFrames" H264SettingsProperty where
   type PropertyType "NumRefFrames" H264SettingsProperty = Value Prelude.Integer
   set newValue H264SettingsProperty {..}

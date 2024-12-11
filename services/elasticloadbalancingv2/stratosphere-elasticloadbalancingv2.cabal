@@ -32,6 +32,7 @@ library
       Stratosphere.ElasticLoadBalancingV2.Listener.CertificateProperty
       Stratosphere.ElasticLoadBalancingV2.Listener.FixedResponseConfigProperty
       Stratosphere.ElasticLoadBalancingV2.Listener.ForwardConfigProperty
+      Stratosphere.ElasticLoadBalancingV2.Listener.ListenerAttributeProperty
       Stratosphere.ElasticLoadBalancingV2.Listener.MutualAuthenticationProperty
       Stratosphere.ElasticLoadBalancingV2.Listener.RedirectConfigProperty
       Stratosphere.ElasticLoadBalancingV2.Listener.TargetGroupStickinessConfigProperty
@@ -57,6 +58,7 @@ library
       Stratosphere.ElasticLoadBalancingV2.ListenerRule.TargetGroupTupleProperty
       Stratosphere.ElasticLoadBalancingV2.LoadBalancer
       Stratosphere.ElasticLoadBalancingV2.LoadBalancer.LoadBalancerAttributeProperty
+      Stratosphere.ElasticLoadBalancingV2.LoadBalancer.MinimumLoadBalancerCapacityProperty
       Stratosphere.ElasticLoadBalancingV2.LoadBalancer.SubnetMappingProperty
       Stratosphere.ElasticLoadBalancingV2.TargetGroup
       Stratosphere.ElasticLoadBalancingV2.TargetGroup.MatcherProperty

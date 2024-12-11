@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.DataSource.HookConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HookConfigurationProperty :: Prelude.Type
+instance ToResourceProperties HookConfigurationProperty
+instance Prelude.Eq HookConfigurationProperty
+instance Prelude.Show HookConfigurationProperty
+instance JSON.ToJSON HookConfigurationProperty

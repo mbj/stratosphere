@@ -28,6 +28,7 @@ library
       Stratosphere.Amplify.App
       Stratosphere.Amplify.App.AutoBranchCreationConfigProperty
       Stratosphere.Amplify.App.BasicAuthConfigProperty
+      Stratosphere.Amplify.App.CacheConfigProperty
       Stratosphere.Amplify.App.CustomRuleProperty
       Stratosphere.Amplify.App.EnvironmentVariableProperty
       Stratosphere.Amplify.Branch

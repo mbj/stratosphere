@@ -34,6 +34,7 @@ library
       Stratosphere.ECS.Cluster.ClusterSettingsProperty
       Stratosphere.ECS.Cluster.ExecuteCommandConfigurationProperty
       Stratosphere.ECS.Cluster.ExecuteCommandLogConfigurationProperty
+      Stratosphere.ECS.Cluster.ManagedStorageConfigurationProperty
       Stratosphere.ECS.Cluster.ServiceConnectDefaultsProperty
       Stratosphere.ECS.ClusterCapacityProviderAssociations
       Stratosphere.ECS.ClusterCapacityProviderAssociations.CapacityProviderStrategyProperty
@@ -61,6 +62,7 @@ library
       Stratosphere.ECS.Service.ServiceRegistryProperty
       Stratosphere.ECS.Service.ServiceVolumeConfigurationProperty
       Stratosphere.ECS.Service.TimeoutConfigurationProperty
+      Stratosphere.ECS.Service.VpcLatticeConfigurationProperty
       Stratosphere.ECS.TaskDefinition
       Stratosphere.ECS.TaskDefinition.AuthorizationConfigProperty
       Stratosphere.ECS.TaskDefinition.ContainerDefinitionProperty
@@ -71,6 +73,8 @@ library
       Stratosphere.ECS.TaskDefinition.EnvironmentFileProperty
       Stratosphere.ECS.TaskDefinition.EphemeralStorageProperty
       Stratosphere.ECS.TaskDefinition.FirelensConfigurationProperty
+      Stratosphere.ECS.TaskDefinition.FSxAuthorizationConfigProperty
+      Stratosphere.ECS.TaskDefinition.FSxWindowsFileServerVolumeConfigurationProperty
       Stratosphere.ECS.TaskDefinition.HealthCheckProperty
       Stratosphere.ECS.TaskDefinition.HostEntryProperty
       Stratosphere.ECS.TaskDefinition.HostVolumePropertiesProperty
@@ -84,6 +88,7 @@ library
       Stratosphere.ECS.TaskDefinition.ProxyConfigurationProperty
       Stratosphere.ECS.TaskDefinition.RepositoryCredentialsProperty
       Stratosphere.ECS.TaskDefinition.ResourceRequirementProperty
+      Stratosphere.ECS.TaskDefinition.RestartPolicyProperty
       Stratosphere.ECS.TaskDefinition.RuntimePlatformProperty
       Stratosphere.ECS.TaskDefinition.SecretProperty
       Stratosphere.ECS.TaskDefinition.SystemControlProperty
@@ -94,6 +99,7 @@ library
       Stratosphere.ECS.TaskDefinition.VolumeProperty
       Stratosphere.ECS.TaskSet
       Stratosphere.ECS.TaskSet.AwsVpcConfigurationProperty
+      Stratosphere.ECS.TaskSet.CapacityProviderStrategyItemProperty
       Stratosphere.ECS.TaskSet.LoadBalancerProperty
       Stratosphere.ECS.TaskSet.NetworkConfigurationProperty
       Stratosphere.ECS.TaskSet.ScaleProperty

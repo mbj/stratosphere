@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Guardrail.SensitiveInformationPolicyConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SensitiveInformationPolicyConfigProperty :: Prelude.Type
+instance ToResourceProperties SensitiveInformationPolicyConfigProperty
+instance Prelude.Eq SensitiveInformationPolicyConfigProperty
+instance Prelude.Show SensitiveInformationPolicyConfigProperty
+instance JSON.ToJSON SensitiveInformationPolicyConfigProperty

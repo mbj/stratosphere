@@ -12,6 +12,7 @@ data Environment
   = Environment {desiredSoftwareSetId :: (Prelude.Maybe (Value Prelude.Text)),
                  desktopArn :: (Value Prelude.Text),
                  desktopEndpoint :: (Prelude.Maybe (Value Prelude.Text)),
+                 deviceCreationTags :: (Prelude.Maybe [Tag]),
                  kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                  maintenanceWindow :: (Prelude.Maybe MaintenanceWindowProperty),
                  name :: (Prelude.Maybe (Value Prelude.Text)),
@@ -23,7 +24,8 @@ mkEnvironment :: Value Prelude.Text -> Environment
 mkEnvironment desktopArn
   = Environment
       {desktopArn = desktopArn, desiredSoftwareSetId = Prelude.Nothing,
-       desktopEndpoint = Prelude.Nothing, kmsKeyArn = Prelude.Nothing,
+       desktopEndpoint = Prelude.Nothing,
+       deviceCreationTags = Prelude.Nothing, kmsKeyArn = Prelude.Nothing,
        maintenanceWindow = Prelude.Nothing, name = Prelude.Nothing,
        softwareSetUpdateMode = Prelude.Nothing,
        softwareSetUpdateSchedule = Prelude.Nothing,
@@ -39,6 +41,7 @@ instance ToResourceProperties Environment where
                            (Prelude.catMaybes
                               [(JSON..=) "DesiredSoftwareSetId" Prelude.<$> desiredSoftwareSetId,
                                (JSON..=) "DesktopEndpoint" Prelude.<$> desktopEndpoint,
+                               (JSON..=) "DeviceCreationTags" Prelude.<$> deviceCreationTags,
                                (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                                (JSON..=) "MaintenanceWindow" Prelude.<$> maintenanceWindow,
                                (JSON..=) "Name" Prelude.<$> name,
@@ -56,6 +59,7 @@ instance JSON.ToJSON Environment where
               (Prelude.catMaybes
                  [(JSON..=) "DesiredSoftwareSetId" Prelude.<$> desiredSoftwareSetId,
                   (JSON..=) "DesktopEndpoint" Prelude.<$> desktopEndpoint,
+                  (JSON..=) "DeviceCreationTags" Prelude.<$> deviceCreationTags,
                   (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                   (JSON..=) "MaintenanceWindow" Prelude.<$> maintenanceWindow,
                   (JSON..=) "Name" Prelude.<$> name,
@@ -76,6 +80,10 @@ instance Property "DesktopEndpoint" Environment where
   type PropertyType "DesktopEndpoint" Environment = Value Prelude.Text
   set newValue Environment {..}
     = Environment {desktopEndpoint = Prelude.pure newValue, ..}
+instance Property "DeviceCreationTags" Environment where
+  type PropertyType "DeviceCreationTags" Environment = [Tag]
+  set newValue Environment {..}
+    = Environment {deviceCreationTags = Prelude.pure newValue, ..}
 instance Property "KmsKeyArn" Environment where
   type PropertyType "KmsKeyArn" Environment = Value Prelude.Text
   set newValue Environment {..}

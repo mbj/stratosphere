@@ -11,13 +11,15 @@ data DeliveryDestination
   = DeliveryDestination {deliveryDestinationPolicy :: (Prelude.Maybe JSON.Object),
                          destinationResourceArn :: (Prelude.Maybe (Value Prelude.Text)),
                          name :: (Value Prelude.Text),
+                         outputFormat :: (Prelude.Maybe (Value Prelude.Text)),
                          tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryDestination :: Value Prelude.Text -> DeliveryDestination
 mkDeliveryDestination name
   = DeliveryDestination
       {name = name, deliveryDestinationPolicy = Prelude.Nothing,
-       destinationResourceArn = Prelude.Nothing, tags = Prelude.Nothing}
+       destinationResourceArn = Prelude.Nothing,
+       outputFormat = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DeliveryDestination where
   toResourceProperties DeliveryDestination {..}
     = ResourceProperties
@@ -31,6 +33,7 @@ instance ToResourceProperties DeliveryDestination where
                                  Prelude.<$> deliveryDestinationPolicy,
                                (JSON..=) "DestinationResourceArn"
                                  Prelude.<$> destinationResourceArn,
+                               (JSON..=) "OutputFormat" Prelude.<$> outputFormat,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON DeliveryDestination where
   toJSON DeliveryDestination {..}
@@ -43,6 +46,7 @@ instance JSON.ToJSON DeliveryDestination where
                     Prelude.<$> deliveryDestinationPolicy,
                   (JSON..=) "DestinationResourceArn"
                     Prelude.<$> destinationResourceArn,
+                  (JSON..=) "OutputFormat" Prelude.<$> outputFormat,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "DeliveryDestinationPolicy" DeliveryDestination where
   type PropertyType "DeliveryDestinationPolicy" DeliveryDestination = JSON.Object
@@ -58,6 +62,10 @@ instance Property "Name" DeliveryDestination where
   type PropertyType "Name" DeliveryDestination = Value Prelude.Text
   set newValue DeliveryDestination {..}
     = DeliveryDestination {name = newValue, ..}
+instance Property "OutputFormat" DeliveryDestination where
+  type PropertyType "OutputFormat" DeliveryDestination = Value Prelude.Text
+  set newValue DeliveryDestination {..}
+    = DeliveryDestination {outputFormat = Prelude.pure newValue, ..}
 instance Property "Tags" DeliveryDestination where
   type PropertyType "Tags" DeliveryDestination = [Tag]
   set newValue DeliveryDestination {..}

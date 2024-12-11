@@ -6,34 +6,40 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ArchiveGroupSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.CmafIngestGroupSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.FrameCaptureGroupSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.HlsGroupSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MediaPackageGroupSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MsSmoothGroupSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.MultiplexGroupSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.RtmpGroupSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.SrtGroupSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.UdpGroupSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 data OutputGroupSettingsProperty
   = OutputGroupSettingsProperty {archiveGroupSettings :: (Prelude.Maybe ArchiveGroupSettingsProperty),
+                                 cmafIngestGroupSettings :: (Prelude.Maybe CmafIngestGroupSettingsProperty),
                                  frameCaptureGroupSettings :: (Prelude.Maybe FrameCaptureGroupSettingsProperty),
                                  hlsGroupSettings :: (Prelude.Maybe HlsGroupSettingsProperty),
                                  mediaPackageGroupSettings :: (Prelude.Maybe MediaPackageGroupSettingsProperty),
                                  msSmoothGroupSettings :: (Prelude.Maybe MsSmoothGroupSettingsProperty),
                                  multiplexGroupSettings :: (Prelude.Maybe MultiplexGroupSettingsProperty),
                                  rtmpGroupSettings :: (Prelude.Maybe RtmpGroupSettingsProperty),
+                                 srtGroupSettings :: (Prelude.Maybe SrtGroupSettingsProperty),
                                  udpGroupSettings :: (Prelude.Maybe UdpGroupSettingsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOutputGroupSettingsProperty :: OutputGroupSettingsProperty
 mkOutputGroupSettingsProperty
   = OutputGroupSettingsProperty
       {archiveGroupSettings = Prelude.Nothing,
+       cmafIngestGroupSettings = Prelude.Nothing,
        frameCaptureGroupSettings = Prelude.Nothing,
        hlsGroupSettings = Prelude.Nothing,
        mediaPackageGroupSettings = Prelude.Nothing,
        msSmoothGroupSettings = Prelude.Nothing,
        multiplexGroupSettings = Prelude.Nothing,
        rtmpGroupSettings = Prelude.Nothing,
+       srtGroupSettings = Prelude.Nothing,
        udpGroupSettings = Prelude.Nothing}
 instance ToResourceProperties OutputGroupSettingsProperty where
   toResourceProperties OutputGroupSettingsProperty {..}
@@ -43,6 +49,8 @@ instance ToResourceProperties OutputGroupSettingsProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "ArchiveGroupSettings" Prelude.<$> archiveGroupSettings,
+                            (JSON..=) "CmafIngestGroupSettings"
+                              Prelude.<$> cmafIngestGroupSettings,
                             (JSON..=) "FrameCaptureGroupSettings"
                               Prelude.<$> frameCaptureGroupSettings,
                             (JSON..=) "HlsGroupSettings" Prelude.<$> hlsGroupSettings,
@@ -53,6 +61,7 @@ instance ToResourceProperties OutputGroupSettingsProperty where
                             (JSON..=) "MultiplexGroupSettings"
                               Prelude.<$> multiplexGroupSettings,
                             (JSON..=) "RtmpGroupSettings" Prelude.<$> rtmpGroupSettings,
+                            (JSON..=) "SrtGroupSettings" Prelude.<$> srtGroupSettings,
                             (JSON..=) "UdpGroupSettings" Prelude.<$> udpGroupSettings])}
 instance JSON.ToJSON OutputGroupSettingsProperty where
   toJSON OutputGroupSettingsProperty {..}
@@ -60,6 +69,8 @@ instance JSON.ToJSON OutputGroupSettingsProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "ArchiveGroupSettings" Prelude.<$> archiveGroupSettings,
+               (JSON..=) "CmafIngestGroupSettings"
+                 Prelude.<$> cmafIngestGroupSettings,
                (JSON..=) "FrameCaptureGroupSettings"
                  Prelude.<$> frameCaptureGroupSettings,
                (JSON..=) "HlsGroupSettings" Prelude.<$> hlsGroupSettings,
@@ -70,12 +81,18 @@ instance JSON.ToJSON OutputGroupSettingsProperty where
                (JSON..=) "MultiplexGroupSettings"
                  Prelude.<$> multiplexGroupSettings,
                (JSON..=) "RtmpGroupSettings" Prelude.<$> rtmpGroupSettings,
+               (JSON..=) "SrtGroupSettings" Prelude.<$> srtGroupSettings,
                (JSON..=) "UdpGroupSettings" Prelude.<$> udpGroupSettings]))
 instance Property "ArchiveGroupSettings" OutputGroupSettingsProperty where
   type PropertyType "ArchiveGroupSettings" OutputGroupSettingsProperty = ArchiveGroupSettingsProperty
   set newValue OutputGroupSettingsProperty {..}
     = OutputGroupSettingsProperty
         {archiveGroupSettings = Prelude.pure newValue, ..}
+instance Property "CmafIngestGroupSettings" OutputGroupSettingsProperty where
+  type PropertyType "CmafIngestGroupSettings" OutputGroupSettingsProperty = CmafIngestGroupSettingsProperty
+  set newValue OutputGroupSettingsProperty {..}
+    = OutputGroupSettingsProperty
+        {cmafIngestGroupSettings = Prelude.pure newValue, ..}
 instance Property "FrameCaptureGroupSettings" OutputGroupSettingsProperty where
   type PropertyType "FrameCaptureGroupSettings" OutputGroupSettingsProperty = FrameCaptureGroupSettingsProperty
   set newValue OutputGroupSettingsProperty {..}
@@ -106,6 +123,11 @@ instance Property "RtmpGroupSettings" OutputGroupSettingsProperty where
   set newValue OutputGroupSettingsProperty {..}
     = OutputGroupSettingsProperty
         {rtmpGroupSettings = Prelude.pure newValue, ..}
+instance Property "SrtGroupSettings" OutputGroupSettingsProperty where
+  type PropertyType "SrtGroupSettings" OutputGroupSettingsProperty = SrtGroupSettingsProperty
+  set newValue OutputGroupSettingsProperty {..}
+    = OutputGroupSettingsProperty
+        {srtGroupSettings = Prelude.pure newValue, ..}
 instance Property "UdpGroupSettings" OutputGroupSettingsProperty where
   type PropertyType "UdpGroupSettings" OutputGroupSettingsProperty = UdpGroupSettingsProperty
   set newValue OutputGroupSettingsProperty {..}

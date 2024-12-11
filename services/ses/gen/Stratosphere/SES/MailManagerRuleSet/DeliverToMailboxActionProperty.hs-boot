@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerRuleSet.DeliverToMailboxActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeliverToMailboxActionProperty :: Prelude.Type
+instance ToResourceProperties DeliverToMailboxActionProperty
+instance Prelude.Eq DeliverToMailboxActionProperty
+instance Prelude.Show DeliverToMailboxActionProperty
+instance JSON.ToJSON DeliverToMailboxActionProperty

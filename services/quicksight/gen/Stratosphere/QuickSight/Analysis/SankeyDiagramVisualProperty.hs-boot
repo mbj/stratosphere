@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.SankeyDiagramVisualProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data SankeyDiagramVisualProperty :: Prelude.Type
-instance ToResourceProperties SankeyDiagramVisualProperty
-instance Prelude.Eq SankeyDiagramVisualProperty
-instance Prelude.Show SankeyDiagramVisualProperty
-instance JSON.ToJSON SankeyDiagramVisualProperty

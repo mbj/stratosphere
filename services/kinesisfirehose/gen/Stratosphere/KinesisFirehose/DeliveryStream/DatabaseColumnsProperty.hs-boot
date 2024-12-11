@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.DatabaseColumnsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatabaseColumnsProperty :: Prelude.Type
+instance ToResourceProperties DatabaseColumnsProperty
+instance Prelude.Eq DatabaseColumnsProperty
+instance Prelude.Show DatabaseColumnsProperty
+instance JSON.ToJSON DatabaseColumnsProperty

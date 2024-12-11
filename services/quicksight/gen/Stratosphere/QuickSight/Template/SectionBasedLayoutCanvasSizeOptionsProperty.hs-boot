@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.SectionBasedLayoutCanvasSizeOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data SectionBasedLayoutCanvasSizeOptionsProperty :: Prelude.Type
-instance ToResourceProperties SectionBasedLayoutCanvasSizeOptionsProperty
-instance Prelude.Eq SectionBasedLayoutCanvasSizeOptionsProperty
-instance Prelude.Show SectionBasedLayoutCanvasSizeOptionsProperty
-instance JSON.ToJSON SectionBasedLayoutCanvasSizeOptionsProperty

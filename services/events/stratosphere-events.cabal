@@ -33,8 +33,11 @@ library
       Stratosphere.Events.Connection.BasicAuthParametersProperty
       Stratosphere.Events.Connection.ClientParametersProperty
       Stratosphere.Events.Connection.ConnectionHttpParametersProperty
+      Stratosphere.Events.Connection.ConnectivityParametersProperty
+      Stratosphere.Events.Connection.InvocationConnectivityParametersProperty
       Stratosphere.Events.Connection.OAuthParametersProperty
       Stratosphere.Events.Connection.ParameterProperty
+      Stratosphere.Events.Connection.ResourceParametersProperty
       Stratosphere.Events.Endpoint
       Stratosphere.Events.Endpoint.EndpointEventBusProperty
       Stratosphere.Events.Endpoint.FailoverConfigProperty
@@ -43,6 +46,7 @@ library
       Stratosphere.Events.Endpoint.RoutingConfigProperty
       Stratosphere.Events.Endpoint.SecondaryProperty
       Stratosphere.Events.EventBus
+      Stratosphere.Events.EventBus.DeadLetterConfigProperty
       Stratosphere.Events.EventBusPolicy
       Stratosphere.Events.EventBusPolicy.ConditionProperty
       Stratosphere.Events.Rule

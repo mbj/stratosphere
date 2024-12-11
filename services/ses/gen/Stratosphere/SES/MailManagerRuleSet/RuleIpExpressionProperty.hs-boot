@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerRuleSet.RuleIpExpressionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RuleIpExpressionProperty :: Prelude.Type
+instance ToResourceProperties RuleIpExpressionProperty
+instance Prelude.Eq RuleIpExpressionProperty
+instance Prelude.Show RuleIpExpressionProperty
+instance JSON.ToJSON RuleIpExpressionProperty

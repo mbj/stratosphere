@@ -12,6 +12,7 @@ data Application
   = Application {applicationId :: (Value Prelude.Text),
                  applicationType :: (Value Prelude.Text),
                  credentials :: (Prelude.Maybe [CredentialProperty]),
+                 databaseArn :: (Prelude.Maybe (Value Prelude.Text)),
                  instances :: (Prelude.Maybe (ValueList Prelude.Text)),
                  sapInstanceNumber :: (Prelude.Maybe (Value Prelude.Text)),
                  sid :: (Prelude.Maybe (Value Prelude.Text)),
@@ -22,9 +23,9 @@ mkApplication ::
 mkApplication applicationId applicationType
   = Application
       {applicationId = applicationId, applicationType = applicationType,
-       credentials = Prelude.Nothing, instances = Prelude.Nothing,
-       sapInstanceNumber = Prelude.Nothing, sid = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       credentials = Prelude.Nothing, databaseArn = Prelude.Nothing,
+       instances = Prelude.Nothing, sapInstanceNumber = Prelude.Nothing,
+       sid = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
@@ -36,6 +37,7 @@ instance ToResourceProperties Application where
                             "ApplicationType" JSON..= applicationType]
                            (Prelude.catMaybes
                               [(JSON..=) "Credentials" Prelude.<$> credentials,
+                               (JSON..=) "DatabaseArn" Prelude.<$> databaseArn,
                                (JSON..=) "Instances" Prelude.<$> instances,
                                (JSON..=) "SapInstanceNumber" Prelude.<$> sapInstanceNumber,
                                (JSON..=) "Sid" Prelude.<$> sid,
@@ -49,6 +51,7 @@ instance JSON.ToJSON Application where
                "ApplicationType" JSON..= applicationType]
               (Prelude.catMaybes
                  [(JSON..=) "Credentials" Prelude.<$> credentials,
+                  (JSON..=) "DatabaseArn" Prelude.<$> databaseArn,
                   (JSON..=) "Instances" Prelude.<$> instances,
                   (JSON..=) "SapInstanceNumber" Prelude.<$> sapInstanceNumber,
                   (JSON..=) "Sid" Prelude.<$> sid,
@@ -65,6 +68,10 @@ instance Property "Credentials" Application where
   type PropertyType "Credentials" Application = [CredentialProperty]
   set newValue Application {..}
     = Application {credentials = Prelude.pure newValue, ..}
+instance Property "DatabaseArn" Application where
+  type PropertyType "DatabaseArn" Application = Value Prelude.Text
+  set newValue Application {..}
+    = Application {databaseArn = Prelude.pure newValue, ..}
 instance Property "Instances" Application where
   type PropertyType "Instances" Application = ValueList Prelude.Text
   set newValue Application {..}

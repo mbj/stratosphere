@@ -28,6 +28,7 @@ library
       Stratosphere.MemoryDB.ACL
       Stratosphere.MemoryDB.Cluster
       Stratosphere.MemoryDB.Cluster.EndpointProperty
+      Stratosphere.MemoryDB.MultiRegionCluster
       Stratosphere.MemoryDB.ParameterGroup
       Stratosphere.MemoryDB.SubnetGroup
       Stratosphere.MemoryDB.User

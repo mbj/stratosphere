@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.BandwidthReductionFilterSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BandwidthReductionFilterSettingsProperty :: Prelude.Type
+instance ToResourceProperties BandwidthReductionFilterSettingsProperty
+instance Prelude.Eq BandwidthReductionFilterSettingsProperty
+instance Prelude.Show BandwidthReductionFilterSettingsProperty
+instance JSON.ToJSON BandwidthReductionFilterSettingsProperty

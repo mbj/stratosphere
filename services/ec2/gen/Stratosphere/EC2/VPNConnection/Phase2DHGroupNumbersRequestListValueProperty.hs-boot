@@ -1,0 +1,9 @@
+module Stratosphere.EC2.VPNConnection.Phase2DHGroupNumbersRequestListValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Phase2DHGroupNumbersRequestListValueProperty :: Prelude.Type
+instance ToResourceProperties Phase2DHGroupNumbersRequestListValueProperty
+instance Prelude.Eq Phase2DHGroupNumbersRequestListValueProperty
+instance Prelude.Show Phase2DHGroupNumbersRequestListValueProperty
+instance JSON.ToJSON Phase2DHGroupNumbersRequestListValueProperty

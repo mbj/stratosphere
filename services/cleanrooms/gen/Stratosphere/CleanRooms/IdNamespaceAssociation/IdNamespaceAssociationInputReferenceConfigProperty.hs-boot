@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.IdNamespaceAssociation.IdNamespaceAssociationInputReferenceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdNamespaceAssociationInputReferenceConfigProperty :: Prelude.Type
+instance ToResourceProperties IdNamespaceAssociationInputReferenceConfigProperty
+instance Prelude.Eq IdNamespaceAssociationInputReferenceConfigProperty
+instance Prelude.Show IdNamespaceAssociationInputReferenceConfigProperty
+instance JSON.ToJSON IdNamespaceAssociationInputReferenceConfigProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataSource.UrlConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UrlConfigurationProperty :: Prelude.Type
+instance ToResourceProperties UrlConfigurationProperty
+instance Prelude.Eq UrlConfigurationProperty
+instance Prelude.Show UrlConfigurationProperty
+instance JSON.ToJSON UrlConfigurationProperty

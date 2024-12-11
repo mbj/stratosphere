@@ -34,11 +34,19 @@ library
       Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceRetryOptionsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.AuthenticationConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.BufferingHintsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.CatalogConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.CloudWatchLoggingOptionsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.CopyCommandProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DatabaseColumnsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DatabaseSourceAuthenticationConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DatabaseSourceConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DatabaseSourceVPCConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DatabasesProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DatabaseTablesProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DataFormatConversionConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DeserializerProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DestinationTableConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DocumentIdOptionsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.DynamicPartitioningConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchBufferingHintsProperty
@@ -51,6 +59,7 @@ library
       Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointDestinationConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointRequestConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.IcebergDestinationConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.InputFormatConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.KinesisStreamSourceConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.KMSEncryptionConfigProperty
@@ -67,7 +76,9 @@ library
       Stratosphere.KinesisFirehose.DeliveryStream.RetryOptionsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SchemaConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.SecretsManagerConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SerializerProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeBufferingHintsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeDestinationConfigurationProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeRetryOptionsProperty
       Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeRoleConfigurationProperty

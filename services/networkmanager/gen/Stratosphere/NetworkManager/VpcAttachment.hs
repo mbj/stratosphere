@@ -4,6 +4,7 @@ module Stratosphere.NetworkManager.VpcAttachment (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.NetworkManager.VpcAttachment.ProposedNetworkFunctionGroupChangeProperty as Exports
 import {-# SOURCE #-} Stratosphere.NetworkManager.VpcAttachment.ProposedSegmentChangeProperty as Exports
 import {-# SOURCE #-} Stratosphere.NetworkManager.VpcAttachment.VpcOptionsProperty as Exports
 import Stratosphere.ResourceProperties
@@ -12,6 +13,7 @@ import Stratosphere.Value
 data VpcAttachment
   = VpcAttachment {coreNetworkId :: (Value Prelude.Text),
                    options :: (Prelude.Maybe VpcOptionsProperty),
+                   proposedNetworkFunctionGroupChange :: (Prelude.Maybe ProposedNetworkFunctionGroupChangeProperty),
                    proposedSegmentChange :: (Prelude.Maybe ProposedSegmentChangeProperty),
                    subnetArns :: (ValueList Prelude.Text),
                    tags :: (Prelude.Maybe [Tag]),
@@ -24,6 +26,7 @@ mkVpcAttachment coreNetworkId subnetArns vpcArn
   = VpcAttachment
       {coreNetworkId = coreNetworkId, subnetArns = subnetArns,
        vpcArn = vpcArn, options = Prelude.Nothing,
+       proposedNetworkFunctionGroupChange = Prelude.Nothing,
        proposedSegmentChange = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties VpcAttachment where
   toResourceProperties VpcAttachment {..}
@@ -36,6 +39,8 @@ instance ToResourceProperties VpcAttachment where
                             "SubnetArns" JSON..= subnetArns, "VpcArn" JSON..= vpcArn]
                            (Prelude.catMaybes
                               [(JSON..=) "Options" Prelude.<$> options,
+                               (JSON..=) "ProposedNetworkFunctionGroupChange"
+                                 Prelude.<$> proposedNetworkFunctionGroupChange,
                                (JSON..=) "ProposedSegmentChange"
                                  Prelude.<$> proposedSegmentChange,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -48,6 +53,8 @@ instance JSON.ToJSON VpcAttachment where
                "SubnetArns" JSON..= subnetArns, "VpcArn" JSON..= vpcArn]
               (Prelude.catMaybes
                  [(JSON..=) "Options" Prelude.<$> options,
+                  (JSON..=) "ProposedNetworkFunctionGroupChange"
+                    Prelude.<$> proposedNetworkFunctionGroupChange,
                   (JSON..=) "ProposedSegmentChange"
                     Prelude.<$> proposedSegmentChange,
                   (JSON..=) "Tags" Prelude.<$> tags])))
@@ -59,6 +66,11 @@ instance Property "Options" VpcAttachment where
   type PropertyType "Options" VpcAttachment = VpcOptionsProperty
   set newValue VpcAttachment {..}
     = VpcAttachment {options = Prelude.pure newValue, ..}
+instance Property "ProposedNetworkFunctionGroupChange" VpcAttachment where
+  type PropertyType "ProposedNetworkFunctionGroupChange" VpcAttachment = ProposedNetworkFunctionGroupChangeProperty
+  set newValue VpcAttachment {..}
+    = VpcAttachment
+        {proposedNetworkFunctionGroupChange = Prelude.pure newValue, ..}
 instance Property "ProposedSegmentChange" VpcAttachment where
   type PropertyType "ProposedSegmentChange" VpcAttachment = ProposedSegmentChangeProperty
   set newValue VpcAttachment {..}

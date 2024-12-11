@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.SrtOutputSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SrtOutputSettingsProperty :: Prelude.Type
+instance ToResourceProperties SrtOutputSettingsProperty
+instance Prelude.Eq SrtOutputSettingsProperty
+instance Prelude.Show SrtOutputSettingsProperty
+instance JSON.ToJSON SrtOutputSettingsProperty

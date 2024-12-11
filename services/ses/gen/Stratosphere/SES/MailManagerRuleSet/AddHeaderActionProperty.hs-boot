@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerRuleSet.AddHeaderActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AddHeaderActionProperty :: Prelude.Type
+instance ToResourceProperties AddHeaderActionProperty
+instance Prelude.Eq AddHeaderActionProperty
+instance Prelude.Show AddHeaderActionProperty
+instance JSON.ToJSON AddHeaderActionProperty

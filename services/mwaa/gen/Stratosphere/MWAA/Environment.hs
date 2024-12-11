@@ -17,7 +17,9 @@ data Environment
                  executionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                  kmsKey :: (Prelude.Maybe (Value Prelude.Text)),
                  loggingConfiguration :: (Prelude.Maybe LoggingConfigurationProperty),
+                 maxWebservers :: (Prelude.Maybe (Value Prelude.Integer)),
                  maxWorkers :: (Prelude.Maybe (Value Prelude.Integer)),
+                 minWebservers :: (Prelude.Maybe (Value Prelude.Integer)),
                  minWorkers :: (Prelude.Maybe (Value Prelude.Integer)),
                  name :: (Value Prelude.Text),
                  networkConfiguration :: (Prelude.Maybe NetworkConfigurationProperty),
@@ -42,7 +44,8 @@ mkEnvironment name
        environmentClass = Prelude.Nothing,
        executionRoleArn = Prelude.Nothing, kmsKey = Prelude.Nothing,
        loggingConfiguration = Prelude.Nothing,
-       maxWorkers = Prelude.Nothing, minWorkers = Prelude.Nothing,
+       maxWebservers = Prelude.Nothing, maxWorkers = Prelude.Nothing,
+       minWebservers = Prelude.Nothing, minWorkers = Prelude.Nothing,
        networkConfiguration = Prelude.Nothing,
        pluginsS3ObjectVersion = Prelude.Nothing,
        pluginsS3Path = Prelude.Nothing,
@@ -70,7 +73,9 @@ instance ToResourceProperties Environment where
                                (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                                (JSON..=) "KmsKey" Prelude.<$> kmsKey,
                                (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
+                               (JSON..=) "MaxWebservers" Prelude.<$> maxWebservers,
                                (JSON..=) "MaxWorkers" Prelude.<$> maxWorkers,
+                               (JSON..=) "MinWebservers" Prelude.<$> minWebservers,
                                (JSON..=) "MinWorkers" Prelude.<$> minWorkers,
                                (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
                                (JSON..=) "PluginsS3ObjectVersion"
@@ -104,7 +109,9 @@ instance JSON.ToJSON Environment where
                   (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                   (JSON..=) "KmsKey" Prelude.<$> kmsKey,
                   (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
+                  (JSON..=) "MaxWebservers" Prelude.<$> maxWebservers,
                   (JSON..=) "MaxWorkers" Prelude.<$> maxWorkers,
+                  (JSON..=) "MinWebservers" Prelude.<$> minWebservers,
                   (JSON..=) "MinWorkers" Prelude.<$> minWorkers,
                   (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
                   (JSON..=) "PluginsS3ObjectVersion"
@@ -155,10 +162,18 @@ instance Property "LoggingConfiguration" Environment where
   type PropertyType "LoggingConfiguration" Environment = LoggingConfigurationProperty
   set newValue Environment {..}
     = Environment {loggingConfiguration = Prelude.pure newValue, ..}
+instance Property "MaxWebservers" Environment where
+  type PropertyType "MaxWebservers" Environment = Value Prelude.Integer
+  set newValue Environment {..}
+    = Environment {maxWebservers = Prelude.pure newValue, ..}
 instance Property "MaxWorkers" Environment where
   type PropertyType "MaxWorkers" Environment = Value Prelude.Integer
   set newValue Environment {..}
     = Environment {maxWorkers = Prelude.pure newValue, ..}
+instance Property "MinWebservers" Environment where
+  type PropertyType "MinWebservers" Environment = Value Prelude.Integer
+  set newValue Environment {..}
+    = Environment {minWebservers = Prelude.pure newValue, ..}
 instance Property "MinWorkers" Environment where
   type PropertyType "MinWorkers" Environment = Value Prelude.Integer
   set newValue Environment {..}

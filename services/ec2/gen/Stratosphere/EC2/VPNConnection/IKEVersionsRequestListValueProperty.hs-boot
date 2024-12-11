@@ -1,0 +1,9 @@
+module Stratosphere.EC2.VPNConnection.IKEVersionsRequestListValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IKEVersionsRequestListValueProperty :: Prelude.Type
+instance ToResourceProperties IKEVersionsRequestListValueProperty
+instance Prelude.Eq IKEVersionsRequestListValueProperty
+instance Prelude.Show IKEVersionsRequestListValueProperty
+instance JSON.ToJSON IKEVersionsRequestListValueProperty

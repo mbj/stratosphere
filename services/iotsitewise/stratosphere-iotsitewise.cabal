@@ -58,6 +58,7 @@ library
       Stratosphere.IoTSiteWise.Gateway.SiemensIEProperty
       Stratosphere.IoTSiteWise.Portal
       Stratosphere.IoTSiteWise.Portal.AlarmsProperty
+      Stratosphere.IoTSiteWise.Portal.PortalTypeEntryProperty
       Stratosphere.IoTSiteWise.Project
   other-modules:
       Paths_stratosphere_iotsitewise

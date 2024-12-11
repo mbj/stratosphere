@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Guardrail.TopicPolicyConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TopicPolicyConfigProperty :: Prelude.Type
+instance ToResourceProperties TopicPolicyConfigProperty
+instance Prelude.Eq TopicPolicyConfigProperty
+instance Prelude.Show TopicPolicyConfigProperty
+instance JSON.ToJSON TopicPolicyConfigProperty

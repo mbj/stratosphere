@@ -8,6 +8,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.AcceleratorCountRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.AcceleratorTotalMemoryMiBRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.BaselineEbsBandwidthMbpsRequestProperty as Exports
+import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.BaselinePerformanceFactorsRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.MemoryGiBPerVCpuRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.MemoryMiBRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.AutoScaling.AutoScalingGroup.NetworkBandwidthGbpsRequestProperty as Exports
@@ -25,6 +26,7 @@ data InstanceRequirementsProperty
                                   allowedInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   bareMetal :: (Prelude.Maybe (Value Prelude.Text)),
                                   baselineEbsBandwidthMbps :: (Prelude.Maybe BaselineEbsBandwidthMbpsRequestProperty),
+                                  baselinePerformanceFactors :: (Prelude.Maybe BaselinePerformanceFactorsRequestProperty),
                                   burstablePerformance :: (Prelude.Maybe (Value Prelude.Text)),
                                   cpuManufacturers :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   excludedInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
@@ -56,6 +58,7 @@ mkInstanceRequirementsProperty memoryMiB vCpuCount
        allowedInstanceTypes = Prelude.Nothing,
        bareMetal = Prelude.Nothing,
        baselineEbsBandwidthMbps = Prelude.Nothing,
+       baselinePerformanceFactors = Prelude.Nothing,
        burstablePerformance = Prelude.Nothing,
        cpuManufacturers = Prelude.Nothing,
        excludedInstanceTypes = Prelude.Nothing,
@@ -90,6 +93,8 @@ instance ToResourceProperties InstanceRequirementsProperty where
                                (JSON..=) "BareMetal" Prelude.<$> bareMetal,
                                (JSON..=) "BaselineEbsBandwidthMbps"
                                  Prelude.<$> baselineEbsBandwidthMbps,
+                               (JSON..=) "BaselinePerformanceFactors"
+                                 Prelude.<$> baselinePerformanceFactors,
                                (JSON..=) "BurstablePerformance" Prelude.<$> burstablePerformance,
                                (JSON..=) "CpuManufacturers" Prelude.<$> cpuManufacturers,
                                (JSON..=) "ExcludedInstanceTypes"
@@ -128,6 +133,8 @@ instance JSON.ToJSON InstanceRequirementsProperty where
                   (JSON..=) "BareMetal" Prelude.<$> bareMetal,
                   (JSON..=) "BaselineEbsBandwidthMbps"
                     Prelude.<$> baselineEbsBandwidthMbps,
+                  (JSON..=) "BaselinePerformanceFactors"
+                    Prelude.<$> baselinePerformanceFactors,
                   (JSON..=) "BurstablePerformance" Prelude.<$> burstablePerformance,
                   (JSON..=) "CpuManufacturers" Prelude.<$> cpuManufacturers,
                   (JSON..=) "ExcludedInstanceTypes"
@@ -188,6 +195,11 @@ instance Property "BaselineEbsBandwidthMbps" InstanceRequirementsProperty where
   set newValue InstanceRequirementsProperty {..}
     = InstanceRequirementsProperty
         {baselineEbsBandwidthMbps = Prelude.pure newValue, ..}
+instance Property "BaselinePerformanceFactors" InstanceRequirementsProperty where
+  type PropertyType "BaselinePerformanceFactors" InstanceRequirementsProperty = BaselinePerformanceFactorsRequestProperty
+  set newValue InstanceRequirementsProperty {..}
+    = InstanceRequirementsProperty
+        {baselinePerformanceFactors = Prelude.pure newValue, ..}
 instance Property "BurstablePerformance" InstanceRequirementsProperty where
   type PropertyType "BurstablePerformance" InstanceRequirementsProperty = Value Prelude.Text
   set newValue InstanceRequirementsProperty {..}

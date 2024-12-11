@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ImageBuilder.InfrastructureConfiguration.InstanceMetadataOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.ImageBuilder.InfrastructureConfiguration.LoggingProperty as Exports
+import {-# SOURCE #-} Stratosphere.ImageBuilder.InfrastructureConfiguration.PlacementProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data InfrastructureConfiguration
@@ -17,6 +18,7 @@ data InfrastructureConfiguration
                                  keyPair :: (Prelude.Maybe (Value Prelude.Text)),
                                  logging :: (Prelude.Maybe LoggingProperty),
                                  name :: (Value Prelude.Text),
+                                 placement :: (Prelude.Maybe PlacementProperty),
                                  resourceTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                                  securityGroupIds :: (Prelude.Maybe (ValueList Prelude.Text)),
                                  snsTopicArn :: (Prelude.Maybe (Value Prelude.Text)),
@@ -33,9 +35,10 @@ mkInfrastructureConfiguration instanceProfileName name
        description = Prelude.Nothing,
        instanceMetadataOptions = Prelude.Nothing,
        instanceTypes = Prelude.Nothing, keyPair = Prelude.Nothing,
-       logging = Prelude.Nothing, resourceTags = Prelude.Nothing,
-       securityGroupIds = Prelude.Nothing, snsTopicArn = Prelude.Nothing,
-       subnetId = Prelude.Nothing, tags = Prelude.Nothing,
+       logging = Prelude.Nothing, placement = Prelude.Nothing,
+       resourceTags = Prelude.Nothing, securityGroupIds = Prelude.Nothing,
+       snsTopicArn = Prelude.Nothing, subnetId = Prelude.Nothing,
+       tags = Prelude.Nothing,
        terminateInstanceOnFailure = Prelude.Nothing}
 instance ToResourceProperties InfrastructureConfiguration where
   toResourceProperties InfrastructureConfiguration {..}
@@ -53,6 +56,7 @@ instance ToResourceProperties InfrastructureConfiguration where
                                (JSON..=) "InstanceTypes" Prelude.<$> instanceTypes,
                                (JSON..=) "KeyPair" Prelude.<$> keyPair,
                                (JSON..=) "Logging" Prelude.<$> logging,
+                               (JSON..=) "Placement" Prelude.<$> placement,
                                (JSON..=) "ResourceTags" Prelude.<$> resourceTags,
                                (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
                                (JSON..=) "SnsTopicArn" Prelude.<$> snsTopicArn,
@@ -74,6 +78,7 @@ instance JSON.ToJSON InfrastructureConfiguration where
                   (JSON..=) "InstanceTypes" Prelude.<$> instanceTypes,
                   (JSON..=) "KeyPair" Prelude.<$> keyPair,
                   (JSON..=) "Logging" Prelude.<$> logging,
+                  (JSON..=) "Placement" Prelude.<$> placement,
                   (JSON..=) "ResourceTags" Prelude.<$> resourceTags,
                   (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
                   (JSON..=) "SnsTopicArn" Prelude.<$> snsTopicArn,
@@ -112,6 +117,11 @@ instance Property "Name" InfrastructureConfiguration where
   type PropertyType "Name" InfrastructureConfiguration = Value Prelude.Text
   set newValue InfrastructureConfiguration {..}
     = InfrastructureConfiguration {name = newValue, ..}
+instance Property "Placement" InfrastructureConfiguration where
+  type PropertyType "Placement" InfrastructureConfiguration = PlacementProperty
+  set newValue InfrastructureConfiguration {..}
+    = InfrastructureConfiguration
+        {placement = Prelude.pure newValue, ..}
 instance Property "ResourceTags" InfrastructureConfiguration where
   type PropertyType "ResourceTags" InfrastructureConfiguration = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue InfrastructureConfiguration {..}

@@ -1,0 +1,9 @@
+module Stratosphere.AppTest.TestCase.MainframeActionPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MainframeActionPropertiesProperty :: Prelude.Type
+instance ToResourceProperties MainframeActionPropertiesProperty
+instance Prelude.Eq MainframeActionPropertiesProperty
+instance Prelude.Show MainframeActionPropertiesProperty
+instance JSON.ToJSON MainframeActionPropertiesProperty

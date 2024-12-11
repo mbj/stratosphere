@@ -15,6 +15,7 @@ data Pipe
           desiredState :: (Prelude.Maybe (Value Prelude.Text)),
           enrichment :: (Prelude.Maybe (Value Prelude.Text)),
           enrichmentParameters :: (Prelude.Maybe PipeEnrichmentParametersProperty),
+          kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
           logConfiguration :: (Prelude.Maybe PipeLogConfigurationProperty),
           name :: (Prelude.Maybe (Value Prelude.Text)),
           roleArn :: (Value Prelude.Text),
@@ -33,6 +34,7 @@ mkPipe roleArn source target
        description = Prelude.Nothing, desiredState = Prelude.Nothing,
        enrichment = Prelude.Nothing,
        enrichmentParameters = Prelude.Nothing,
+       kmsKeyIdentifier = Prelude.Nothing,
        logConfiguration = Prelude.Nothing, name = Prelude.Nothing,
        sourceParameters = Prelude.Nothing, tags = Prelude.Nothing,
        targetParameters = Prelude.Nothing}
@@ -49,6 +51,7 @@ instance ToResourceProperties Pipe where
                                (JSON..=) "DesiredState" Prelude.<$> desiredState,
                                (JSON..=) "Enrichment" Prelude.<$> enrichment,
                                (JSON..=) "EnrichmentParameters" Prelude.<$> enrichmentParameters,
+                               (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
                                (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "SourceParameters" Prelude.<$> sourceParameters,
@@ -66,6 +69,7 @@ instance JSON.ToJSON Pipe where
                   (JSON..=) "DesiredState" Prelude.<$> desiredState,
                   (JSON..=) "Enrichment" Prelude.<$> enrichment,
                   (JSON..=) "EnrichmentParameters" Prelude.<$> enrichmentParameters,
+                  (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
                   (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "SourceParameters" Prelude.<$> sourceParameters,
@@ -87,6 +91,10 @@ instance Property "EnrichmentParameters" Pipe where
   type PropertyType "EnrichmentParameters" Pipe = PipeEnrichmentParametersProperty
   set newValue Pipe {..}
     = Pipe {enrichmentParameters = Prelude.pure newValue, ..}
+instance Property "KmsKeyIdentifier" Pipe where
+  type PropertyType "KmsKeyIdentifier" Pipe = Value Prelude.Text
+  set newValue Pipe {..}
+    = Pipe {kmsKeyIdentifier = Prelude.pure newValue, ..}
 instance Property "LogConfiguration" Pipe where
   type PropertyType "LogConfiguration" Pipe = PipeLogConfigurationProperty
   set newValue Pipe {..}

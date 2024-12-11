@@ -1,0 +1,9 @@
+module Stratosphere.GameLift.ContainerGroupDefinition.ContainerPortRangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContainerPortRangeProperty :: Prelude.Type
+instance ToResourceProperties ContainerPortRangeProperty
+instance Prelude.Eq ContainerPortRangeProperty
+instance Prelude.Show ContainerPortRangeProperty
+instance JSON.ToJSON ContainerPortRangeProperty

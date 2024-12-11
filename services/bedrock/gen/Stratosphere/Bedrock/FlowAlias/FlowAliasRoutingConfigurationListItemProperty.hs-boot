@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowAlias.FlowAliasRoutingConfigurationListItemProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FlowAliasRoutingConfigurationListItemProperty :: Prelude.Type
+instance ToResourceProperties FlowAliasRoutingConfigurationListItemProperty
+instance Prelude.Eq FlowAliasRoutingConfigurationListItemProperty
+instance Prelude.Show FlowAliasRoutingConfigurationListItemProperty
+instance JSON.ToJSON FlowAliasRoutingConfigurationListItemProperty

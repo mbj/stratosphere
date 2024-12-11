@@ -7,30 +7,36 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EdiPartyNameProperty
-  = EdiPartyNameProperty {nameAssigner :: (Value Prelude.Text),
+  = EdiPartyNameProperty {nameAssigner :: (Prelude.Maybe (Value Prelude.Text)),
                           partyName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEdiPartyNameProperty ::
-  Value Prelude.Text -> Value Prelude.Text -> EdiPartyNameProperty
-mkEdiPartyNameProperty nameAssigner partyName
+  Value Prelude.Text -> EdiPartyNameProperty
+mkEdiPartyNameProperty partyName
   = EdiPartyNameProperty
-      {nameAssigner = nameAssigner, partyName = partyName}
+      {partyName = partyName, nameAssigner = Prelude.Nothing}
 instance ToResourceProperties EdiPartyNameProperty where
   toResourceProperties EdiPartyNameProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.EdiPartyName",
          supportsTags = Prelude.False,
-         properties = ["NameAssigner" JSON..= nameAssigner,
-                       "PartyName" JSON..= partyName]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["PartyName" JSON..= partyName]
+                           (Prelude.catMaybes
+                              [(JSON..=) "NameAssigner" Prelude.<$> nameAssigner]))}
 instance JSON.ToJSON EdiPartyNameProperty where
   toJSON EdiPartyNameProperty {..}
     = JSON.object
-        ["NameAssigner" JSON..= nameAssigner,
-         "PartyName" JSON..= partyName]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["PartyName" JSON..= partyName]
+              (Prelude.catMaybes
+                 [(JSON..=) "NameAssigner" Prelude.<$> nameAssigner])))
 instance Property "NameAssigner" EdiPartyNameProperty where
   type PropertyType "NameAssigner" EdiPartyNameProperty = Value Prelude.Text
   set newValue EdiPartyNameProperty {..}
-    = EdiPartyNameProperty {nameAssigner = newValue, ..}
+    = EdiPartyNameProperty {nameAssigner = Prelude.pure newValue, ..}
 instance Property "PartyName" EdiPartyNameProperty where
   type PropertyType "PartyName" EdiPartyNameProperty = Value Prelude.Text
   set newValue EdiPartyNameProperty {..}

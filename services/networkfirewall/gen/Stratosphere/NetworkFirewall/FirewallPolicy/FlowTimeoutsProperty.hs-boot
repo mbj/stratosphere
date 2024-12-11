@@ -1,0 +1,9 @@
+module Stratosphere.NetworkFirewall.FirewallPolicy.FlowTimeoutsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FlowTimeoutsProperty :: Prelude.Type
+instance ToResourceProperties FlowTimeoutsProperty
+instance Prelude.Eq FlowTimeoutsProperty
+instance Prelude.Show FlowTimeoutsProperty
+instance JSON.ToJSON FlowTimeoutsProperty

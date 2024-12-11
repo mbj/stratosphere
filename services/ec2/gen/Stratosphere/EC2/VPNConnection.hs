@@ -10,9 +10,17 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data VPNConnection
   = VPNConnection {customerGatewayId :: (Value Prelude.Text),
+                   enableAcceleration :: (Prelude.Maybe (Value Prelude.Bool)),
+                   localIpv4NetworkCidr :: (Prelude.Maybe (Value Prelude.Text)),
+                   localIpv6NetworkCidr :: (Prelude.Maybe (Value Prelude.Text)),
+                   outsideIpAddressType :: (Prelude.Maybe (Value Prelude.Text)),
+                   remoteIpv4NetworkCidr :: (Prelude.Maybe (Value Prelude.Text)),
+                   remoteIpv6NetworkCidr :: (Prelude.Maybe (Value Prelude.Text)),
                    staticRoutesOnly :: (Prelude.Maybe (Value Prelude.Bool)),
                    tags :: (Prelude.Maybe [Tag]),
                    transitGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
+                   transportTransitGatewayAttachmentId :: (Prelude.Maybe (Value Prelude.Text)),
+                   tunnelInsideIpVersion :: (Prelude.Maybe (Value Prelude.Text)),
                    type' :: (Value Prelude.Text),
                    vpnGatewayId :: (Prelude.Maybe (Value Prelude.Text)),
                    vpnTunnelOptionsSpecifications :: (Prelude.Maybe [VpnTunnelOptionsSpecificationProperty])}
@@ -22,8 +30,17 @@ mkVPNConnection ::
 mkVPNConnection customerGatewayId type'
   = VPNConnection
       {customerGatewayId = customerGatewayId, type' = type',
+       enableAcceleration = Prelude.Nothing,
+       localIpv4NetworkCidr = Prelude.Nothing,
+       localIpv6NetworkCidr = Prelude.Nothing,
+       outsideIpAddressType = Prelude.Nothing,
+       remoteIpv4NetworkCidr = Prelude.Nothing,
+       remoteIpv6NetworkCidr = Prelude.Nothing,
        staticRoutesOnly = Prelude.Nothing, tags = Prelude.Nothing,
-       transitGatewayId = Prelude.Nothing, vpnGatewayId = Prelude.Nothing,
+       transitGatewayId = Prelude.Nothing,
+       transportTransitGatewayAttachmentId = Prelude.Nothing,
+       tunnelInsideIpVersion = Prelude.Nothing,
+       vpnGatewayId = Prelude.Nothing,
        vpnTunnelOptionsSpecifications = Prelude.Nothing}
 instance ToResourceProperties VPNConnection where
   toResourceProperties VPNConnection {..}
@@ -34,9 +51,21 @@ instance ToResourceProperties VPNConnection where
                            ["CustomerGatewayId" JSON..= customerGatewayId,
                             "Type" JSON..= type']
                            (Prelude.catMaybes
-                              [(JSON..=) "StaticRoutesOnly" Prelude.<$> staticRoutesOnly,
+                              [(JSON..=) "EnableAcceleration" Prelude.<$> enableAcceleration,
+                               (JSON..=) "LocalIpv4NetworkCidr" Prelude.<$> localIpv4NetworkCidr,
+                               (JSON..=) "LocalIpv6NetworkCidr" Prelude.<$> localIpv6NetworkCidr,
+                               (JSON..=) "OutsideIpAddressType" Prelude.<$> outsideIpAddressType,
+                               (JSON..=) "RemoteIpv4NetworkCidr"
+                                 Prelude.<$> remoteIpv4NetworkCidr,
+                               (JSON..=) "RemoteIpv6NetworkCidr"
+                                 Prelude.<$> remoteIpv6NetworkCidr,
+                               (JSON..=) "StaticRoutesOnly" Prelude.<$> staticRoutesOnly,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "TransitGatewayId" Prelude.<$> transitGatewayId,
+                               (JSON..=) "TransportTransitGatewayAttachmentId"
+                                 Prelude.<$> transportTransitGatewayAttachmentId,
+                               (JSON..=) "TunnelInsideIpVersion"
+                                 Prelude.<$> tunnelInsideIpVersion,
                                (JSON..=) "VpnGatewayId" Prelude.<$> vpnGatewayId,
                                (JSON..=) "VpnTunnelOptionsSpecifications"
                                  Prelude.<$> vpnTunnelOptionsSpecifications]))}
@@ -48,9 +77,21 @@ instance JSON.ToJSON VPNConnection where
               ["CustomerGatewayId" JSON..= customerGatewayId,
                "Type" JSON..= type']
               (Prelude.catMaybes
-                 [(JSON..=) "StaticRoutesOnly" Prelude.<$> staticRoutesOnly,
+                 [(JSON..=) "EnableAcceleration" Prelude.<$> enableAcceleration,
+                  (JSON..=) "LocalIpv4NetworkCidr" Prelude.<$> localIpv4NetworkCidr,
+                  (JSON..=) "LocalIpv6NetworkCidr" Prelude.<$> localIpv6NetworkCidr,
+                  (JSON..=) "OutsideIpAddressType" Prelude.<$> outsideIpAddressType,
+                  (JSON..=) "RemoteIpv4NetworkCidr"
+                    Prelude.<$> remoteIpv4NetworkCidr,
+                  (JSON..=) "RemoteIpv6NetworkCidr"
+                    Prelude.<$> remoteIpv6NetworkCidr,
+                  (JSON..=) "StaticRoutesOnly" Prelude.<$> staticRoutesOnly,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TransitGatewayId" Prelude.<$> transitGatewayId,
+                  (JSON..=) "TransportTransitGatewayAttachmentId"
+                    Prelude.<$> transportTransitGatewayAttachmentId,
+                  (JSON..=) "TunnelInsideIpVersion"
+                    Prelude.<$> tunnelInsideIpVersion,
                   (JSON..=) "VpnGatewayId" Prelude.<$> vpnGatewayId,
                   (JSON..=) "VpnTunnelOptionsSpecifications"
                     Prelude.<$> vpnTunnelOptionsSpecifications])))
@@ -58,6 +99,30 @@ instance Property "CustomerGatewayId" VPNConnection where
   type PropertyType "CustomerGatewayId" VPNConnection = Value Prelude.Text
   set newValue VPNConnection {..}
     = VPNConnection {customerGatewayId = newValue, ..}
+instance Property "EnableAcceleration" VPNConnection where
+  type PropertyType "EnableAcceleration" VPNConnection = Value Prelude.Bool
+  set newValue VPNConnection {..}
+    = VPNConnection {enableAcceleration = Prelude.pure newValue, ..}
+instance Property "LocalIpv4NetworkCidr" VPNConnection where
+  type PropertyType "LocalIpv4NetworkCidr" VPNConnection = Value Prelude.Text
+  set newValue VPNConnection {..}
+    = VPNConnection {localIpv4NetworkCidr = Prelude.pure newValue, ..}
+instance Property "LocalIpv6NetworkCidr" VPNConnection where
+  type PropertyType "LocalIpv6NetworkCidr" VPNConnection = Value Prelude.Text
+  set newValue VPNConnection {..}
+    = VPNConnection {localIpv6NetworkCidr = Prelude.pure newValue, ..}
+instance Property "OutsideIpAddressType" VPNConnection where
+  type PropertyType "OutsideIpAddressType" VPNConnection = Value Prelude.Text
+  set newValue VPNConnection {..}
+    = VPNConnection {outsideIpAddressType = Prelude.pure newValue, ..}
+instance Property "RemoteIpv4NetworkCidr" VPNConnection where
+  type PropertyType "RemoteIpv4NetworkCidr" VPNConnection = Value Prelude.Text
+  set newValue VPNConnection {..}
+    = VPNConnection {remoteIpv4NetworkCidr = Prelude.pure newValue, ..}
+instance Property "RemoteIpv6NetworkCidr" VPNConnection where
+  type PropertyType "RemoteIpv6NetworkCidr" VPNConnection = Value Prelude.Text
+  set newValue VPNConnection {..}
+    = VPNConnection {remoteIpv6NetworkCidr = Prelude.pure newValue, ..}
 instance Property "StaticRoutesOnly" VPNConnection where
   type PropertyType "StaticRoutesOnly" VPNConnection = Value Prelude.Bool
   set newValue VPNConnection {..}
@@ -70,6 +135,15 @@ instance Property "TransitGatewayId" VPNConnection where
   type PropertyType "TransitGatewayId" VPNConnection = Value Prelude.Text
   set newValue VPNConnection {..}
     = VPNConnection {transitGatewayId = Prelude.pure newValue, ..}
+instance Property "TransportTransitGatewayAttachmentId" VPNConnection where
+  type PropertyType "TransportTransitGatewayAttachmentId" VPNConnection = Value Prelude.Text
+  set newValue VPNConnection {..}
+    = VPNConnection
+        {transportTransitGatewayAttachmentId = Prelude.pure newValue, ..}
+instance Property "TunnelInsideIpVersion" VPNConnection where
+  type PropertyType "TunnelInsideIpVersion" VPNConnection = Value Prelude.Text
+  set newValue VPNConnection {..}
+    = VPNConnection {tunnelInsideIpVersion = Prelude.pure newValue, ..}
 instance Property "Type" VPNConnection where
   type PropertyType "Type" VPNConnection = Value Prelude.Text
   set newValue VPNConnection {..}

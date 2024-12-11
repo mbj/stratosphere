@@ -8,11 +8,14 @@ import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.AmazonManagedKafkaE
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.DestinationConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.DocumentDBEventSourceConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.FilterCriteriaProperty as Exports
+import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.MetricsConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.ProvisionedPollerConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.ScalingConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.SelfManagedEventSourceProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.SelfManagedKafkaEventSourceConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lambda.EventSourceMapping.SourceAccessConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data EventSourceMapping
   = EventSourceMapping {amazonManagedKafkaEventSourceConfig :: (Prelude.Maybe AmazonManagedKafkaEventSourceConfigProperty),
@@ -25,10 +28,13 @@ data EventSourceMapping
                         filterCriteria :: (Prelude.Maybe FilterCriteriaProperty),
                         functionName :: (Value Prelude.Text),
                         functionResponseTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        kmsKeyArn :: (Prelude.Maybe (Value Prelude.Text)),
                         maximumBatchingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                         maximumRecordAgeInSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                         maximumRetryAttempts :: (Prelude.Maybe (Value Prelude.Integer)),
+                        metricsConfig :: (Prelude.Maybe MetricsConfigProperty),
                         parallelizationFactor :: (Prelude.Maybe (Value Prelude.Integer)),
+                        provisionedPollerConfig :: (Prelude.Maybe ProvisionedPollerConfigProperty),
                         queues :: (Prelude.Maybe (ValueList Prelude.Text)),
                         scalingConfig :: (Prelude.Maybe ScalingConfigProperty),
                         selfManagedEventSource :: (Prelude.Maybe SelfManagedEventSourceProperty),
@@ -36,6 +42,7 @@ data EventSourceMapping
                         sourceAccessConfigurations :: (Prelude.Maybe [SourceAccessConfigurationProperty]),
                         startingPosition :: (Prelude.Maybe (Value Prelude.Text)),
                         startingPositionTimestamp :: (Prelude.Maybe (Value Prelude.Double)),
+                        tags :: (Prelude.Maybe [Tag]),
                         topics :: (Prelude.Maybe (ValueList Prelude.Text)),
                         tumblingWindowInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -51,23 +58,26 @@ mkEventSourceMapping functionName
        enabled = Prelude.Nothing, eventSourceArn = Prelude.Nothing,
        filterCriteria = Prelude.Nothing,
        functionResponseTypes = Prelude.Nothing,
+       kmsKeyArn = Prelude.Nothing,
        maximumBatchingWindowInSeconds = Prelude.Nothing,
        maximumRecordAgeInSeconds = Prelude.Nothing,
        maximumRetryAttempts = Prelude.Nothing,
-       parallelizationFactor = Prelude.Nothing, queues = Prelude.Nothing,
-       scalingConfig = Prelude.Nothing,
+       metricsConfig = Prelude.Nothing,
+       parallelizationFactor = Prelude.Nothing,
+       provisionedPollerConfig = Prelude.Nothing,
+       queues = Prelude.Nothing, scalingConfig = Prelude.Nothing,
        selfManagedEventSource = Prelude.Nothing,
        selfManagedKafkaEventSourceConfig = Prelude.Nothing,
        sourceAccessConfigurations = Prelude.Nothing,
        startingPosition = Prelude.Nothing,
        startingPositionTimestamp = Prelude.Nothing,
-       topics = Prelude.Nothing,
+       tags = Prelude.Nothing, topics = Prelude.Nothing,
        tumblingWindowInSeconds = Prelude.Nothing}
 instance ToResourceProperties EventSourceMapping where
   toResourceProperties EventSourceMapping {..}
     = ResourceProperties
         {awsType = "AWS::Lambda::EventSourceMapping",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FunctionName" JSON..= functionName]
@@ -85,13 +95,17 @@ instance ToResourceProperties EventSourceMapping where
                                (JSON..=) "FilterCriteria" Prelude.<$> filterCriteria,
                                (JSON..=) "FunctionResponseTypes"
                                  Prelude.<$> functionResponseTypes,
+                               (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                                (JSON..=) "MaximumBatchingWindowInSeconds"
                                  Prelude.<$> maximumBatchingWindowInSeconds,
                                (JSON..=) "MaximumRecordAgeInSeconds"
                                  Prelude.<$> maximumRecordAgeInSeconds,
                                (JSON..=) "MaximumRetryAttempts" Prelude.<$> maximumRetryAttempts,
+                               (JSON..=) "MetricsConfig" Prelude.<$> metricsConfig,
                                (JSON..=) "ParallelizationFactor"
                                  Prelude.<$> parallelizationFactor,
+                               (JSON..=) "ProvisionedPollerConfig"
+                                 Prelude.<$> provisionedPollerConfig,
                                (JSON..=) "Queues" Prelude.<$> queues,
                                (JSON..=) "ScalingConfig" Prelude.<$> scalingConfig,
                                (JSON..=) "SelfManagedEventSource"
@@ -103,6 +117,7 @@ instance ToResourceProperties EventSourceMapping where
                                (JSON..=) "StartingPosition" Prelude.<$> startingPosition,
                                (JSON..=) "StartingPositionTimestamp"
                                  Prelude.<$> startingPositionTimestamp,
+                               (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "Topics" Prelude.<$> topics,
                                (JSON..=) "TumblingWindowInSeconds"
                                  Prelude.<$> tumblingWindowInSeconds]))}
@@ -126,13 +141,17 @@ instance JSON.ToJSON EventSourceMapping where
                   (JSON..=) "FilterCriteria" Prelude.<$> filterCriteria,
                   (JSON..=) "FunctionResponseTypes"
                     Prelude.<$> functionResponseTypes,
+                  (JSON..=) "KmsKeyArn" Prelude.<$> kmsKeyArn,
                   (JSON..=) "MaximumBatchingWindowInSeconds"
                     Prelude.<$> maximumBatchingWindowInSeconds,
                   (JSON..=) "MaximumRecordAgeInSeconds"
                     Prelude.<$> maximumRecordAgeInSeconds,
                   (JSON..=) "MaximumRetryAttempts" Prelude.<$> maximumRetryAttempts,
+                  (JSON..=) "MetricsConfig" Prelude.<$> metricsConfig,
                   (JSON..=) "ParallelizationFactor"
                     Prelude.<$> parallelizationFactor,
+                  (JSON..=) "ProvisionedPollerConfig"
+                    Prelude.<$> provisionedPollerConfig,
                   (JSON..=) "Queues" Prelude.<$> queues,
                   (JSON..=) "ScalingConfig" Prelude.<$> scalingConfig,
                   (JSON..=) "SelfManagedEventSource"
@@ -144,6 +163,7 @@ instance JSON.ToJSON EventSourceMapping where
                   (JSON..=) "StartingPosition" Prelude.<$> startingPosition,
                   (JSON..=) "StartingPositionTimestamp"
                     Prelude.<$> startingPositionTimestamp,
+                  (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "Topics" Prelude.<$> topics,
                   (JSON..=) "TumblingWindowInSeconds"
                     Prelude.<$> tumblingWindowInSeconds])))
@@ -192,6 +212,10 @@ instance Property "FunctionResponseTypes" EventSourceMapping where
   set newValue EventSourceMapping {..}
     = EventSourceMapping
         {functionResponseTypes = Prelude.pure newValue, ..}
+instance Property "KmsKeyArn" EventSourceMapping where
+  type PropertyType "KmsKeyArn" EventSourceMapping = Value Prelude.Text
+  set newValue EventSourceMapping {..}
+    = EventSourceMapping {kmsKeyArn = Prelude.pure newValue, ..}
 instance Property "MaximumBatchingWindowInSeconds" EventSourceMapping where
   type PropertyType "MaximumBatchingWindowInSeconds" EventSourceMapping = Value Prelude.Integer
   set newValue EventSourceMapping {..}
@@ -207,11 +231,20 @@ instance Property "MaximumRetryAttempts" EventSourceMapping where
   set newValue EventSourceMapping {..}
     = EventSourceMapping
         {maximumRetryAttempts = Prelude.pure newValue, ..}
+instance Property "MetricsConfig" EventSourceMapping where
+  type PropertyType "MetricsConfig" EventSourceMapping = MetricsConfigProperty
+  set newValue EventSourceMapping {..}
+    = EventSourceMapping {metricsConfig = Prelude.pure newValue, ..}
 instance Property "ParallelizationFactor" EventSourceMapping where
   type PropertyType "ParallelizationFactor" EventSourceMapping = Value Prelude.Integer
   set newValue EventSourceMapping {..}
     = EventSourceMapping
         {parallelizationFactor = Prelude.pure newValue, ..}
+instance Property "ProvisionedPollerConfig" EventSourceMapping where
+  type PropertyType "ProvisionedPollerConfig" EventSourceMapping = ProvisionedPollerConfigProperty
+  set newValue EventSourceMapping {..}
+    = EventSourceMapping
+        {provisionedPollerConfig = Prelude.pure newValue, ..}
 instance Property "Queues" EventSourceMapping where
   type PropertyType "Queues" EventSourceMapping = ValueList Prelude.Text
   set newValue EventSourceMapping {..}
@@ -244,6 +277,10 @@ instance Property "StartingPositionTimestamp" EventSourceMapping where
   set newValue EventSourceMapping {..}
     = EventSourceMapping
         {startingPositionTimestamp = Prelude.pure newValue, ..}
+instance Property "Tags" EventSourceMapping where
+  type PropertyType "Tags" EventSourceMapping = [Tag]
+  set newValue EventSourceMapping {..}
+    = EventSourceMapping {tags = Prelude.pure newValue, ..}
 instance Property "Topics" EventSourceMapping where
   type PropertyType "Topics" EventSourceMapping = ValueList Prelude.Text
   set newValue EventSourceMapping {..}

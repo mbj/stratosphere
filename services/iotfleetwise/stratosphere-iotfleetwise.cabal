@@ -28,14 +28,26 @@ library
       Stratosphere.IoTFleetWise.Campaign
       Stratosphere.IoTFleetWise.Campaign.CollectionSchemeProperty
       Stratosphere.IoTFleetWise.Campaign.ConditionBasedCollectionSchemeProperty
+      Stratosphere.IoTFleetWise.Campaign.ConditionBasedSignalFetchConfigProperty
       Stratosphere.IoTFleetWise.Campaign.DataDestinationConfigProperty
+      Stratosphere.IoTFleetWise.Campaign.DataPartitionProperty
+      Stratosphere.IoTFleetWise.Campaign.DataPartitionStorageOptionsProperty
+      Stratosphere.IoTFleetWise.Campaign.DataPartitionUploadOptionsProperty
+      Stratosphere.IoTFleetWise.Campaign.MqttTopicConfigProperty
       Stratosphere.IoTFleetWise.Campaign.S3ConfigProperty
+      Stratosphere.IoTFleetWise.Campaign.SignalFetchConfigProperty
+      Stratosphere.IoTFleetWise.Campaign.SignalFetchInformationProperty
       Stratosphere.IoTFleetWise.Campaign.SignalInformationProperty
+      Stratosphere.IoTFleetWise.Campaign.StorageMaximumSizeProperty
+      Stratosphere.IoTFleetWise.Campaign.StorageMinimumTimeToLiveProperty
       Stratosphere.IoTFleetWise.Campaign.TimeBasedCollectionSchemeProperty
+      Stratosphere.IoTFleetWise.Campaign.TimeBasedSignalFetchConfigProperty
       Stratosphere.IoTFleetWise.Campaign.TimestreamConfigProperty
       Stratosphere.IoTFleetWise.DecoderManifest
       Stratosphere.IoTFleetWise.DecoderManifest.CanInterfaceProperty
       Stratosphere.IoTFleetWise.DecoderManifest.CanSignalProperty
+      Stratosphere.IoTFleetWise.DecoderManifest.CustomDecodingInterfaceProperty
+      Stratosphere.IoTFleetWise.DecoderManifest.CustomDecodingSignalProperty
       Stratosphere.IoTFleetWise.DecoderManifest.NetworkInterfacesItemsProperty
       Stratosphere.IoTFleetWise.DecoderManifest.ObdInterfaceProperty
       Stratosphere.IoTFleetWise.DecoderManifest.ObdSignalProperty
@@ -49,6 +61,7 @@ library
       Stratosphere.IoTFleetWise.SignalCatalog.NodeCountsProperty
       Stratosphere.IoTFleetWise.SignalCatalog.NodeProperty
       Stratosphere.IoTFleetWise.SignalCatalog.SensorProperty
+      Stratosphere.IoTFleetWise.StateTemplate
       Stratosphere.IoTFleetWise.Vehicle
   other-modules:
       Paths_stratosphere_iotfleetwise

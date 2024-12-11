@@ -34,8 +34,11 @@ library
       Stratosphere.CodePipeline.Pipeline.ActionTypeIdProperty
       Stratosphere.CodePipeline.Pipeline.ArtifactStoreMapProperty
       Stratosphere.CodePipeline.Pipeline.ArtifactStoreProperty
+      Stratosphere.CodePipeline.Pipeline.BeforeEntryConditionsProperty
       Stratosphere.CodePipeline.Pipeline.BlockerDeclarationProperty
+      Stratosphere.CodePipeline.Pipeline.ConditionProperty
       Stratosphere.CodePipeline.Pipeline.EncryptionKeyProperty
+      Stratosphere.CodePipeline.Pipeline.FailureConditionsProperty
       Stratosphere.CodePipeline.Pipeline.GitBranchFilterCriteriaProperty
       Stratosphere.CodePipeline.Pipeline.GitConfigurationProperty
       Stratosphere.CodePipeline.Pipeline.GitFilePathFilterCriteriaProperty
@@ -45,8 +48,12 @@ library
       Stratosphere.CodePipeline.Pipeline.InputArtifactProperty
       Stratosphere.CodePipeline.Pipeline.OutputArtifactProperty
       Stratosphere.CodePipeline.Pipeline.PipelineTriggerDeclarationProperty
+      Stratosphere.CodePipeline.Pipeline.RetryConfigurationProperty
+      Stratosphere.CodePipeline.Pipeline.RuleDeclarationProperty
+      Stratosphere.CodePipeline.Pipeline.RuleTypeIdProperty
       Stratosphere.CodePipeline.Pipeline.StageDeclarationProperty
       Stratosphere.CodePipeline.Pipeline.StageTransitionProperty
+      Stratosphere.CodePipeline.Pipeline.SuccessConditionsProperty
       Stratosphere.CodePipeline.Pipeline.VariableDeclarationProperty
       Stratosphere.CodePipeline.Webhook
       Stratosphere.CodePipeline.Webhook.WebhookAuthConfigurationProperty

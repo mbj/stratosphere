@@ -1,14 +1,17 @@
 module Stratosphere.CleanRooms.ConfiguredTableAssociation (
-        ConfiguredTableAssociation(..), mkConfiguredTableAssociation
+        module Exports, ConfiguredTableAssociation(..),
+        mkConfiguredTableAssociation
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.CleanRooms.ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRuleProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data ConfiguredTableAssociation
-  = ConfiguredTableAssociation {configuredTableIdentifier :: (Value Prelude.Text),
+  = ConfiguredTableAssociation {configuredTableAssociationAnalysisRules :: (Prelude.Maybe [ConfiguredTableAssociationAnalysisRuleProperty]),
+                                configuredTableIdentifier :: (Value Prelude.Text),
                                 description :: (Prelude.Maybe (Value Prelude.Text)),
                                 membershipIdentifier :: (Value Prelude.Text),
                                 name :: (Value Prelude.Text),
@@ -28,8 +31,9 @@ mkConfiguredTableAssociation
   = ConfiguredTableAssociation
       {configuredTableIdentifier = configuredTableIdentifier,
        membershipIdentifier = membershipIdentifier, name = name,
-       roleArn = roleArn, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       roleArn = roleArn,
+       configuredTableAssociationAnalysisRules = Prelude.Nothing,
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ConfiguredTableAssociation where
   toResourceProperties ConfiguredTableAssociation {..}
     = ResourceProperties
@@ -41,7 +45,9 @@ instance ToResourceProperties ConfiguredTableAssociation where
                             "MembershipIdentifier" JSON..= membershipIdentifier,
                             "Name" JSON..= name, "RoleArn" JSON..= roleArn]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "ConfiguredTableAssociationAnalysisRules"
+                                 Prelude.<$> configuredTableAssociationAnalysisRules,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON ConfiguredTableAssociation where
   toJSON ConfiguredTableAssociation {..}
@@ -52,8 +58,16 @@ instance JSON.ToJSON ConfiguredTableAssociation where
                "MembershipIdentifier" JSON..= membershipIdentifier,
                "Name" JSON..= name, "RoleArn" JSON..= roleArn]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "ConfiguredTableAssociationAnalysisRules"
+                    Prelude.<$> configuredTableAssociationAnalysisRules,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "ConfiguredTableAssociationAnalysisRules" ConfiguredTableAssociation where
+  type PropertyType "ConfiguredTableAssociationAnalysisRules" ConfiguredTableAssociation = [ConfiguredTableAssociationAnalysisRuleProperty]
+  set newValue ConfiguredTableAssociation {..}
+    = ConfiguredTableAssociation
+        {configuredTableAssociationAnalysisRules = Prelude.pure newValue,
+         ..}
 instance Property "ConfiguredTableIdentifier" ConfiguredTableAssociation where
   type PropertyType "ConfiguredTableIdentifier" ConfiguredTableAssociation = Value Prelude.Text
   set newValue ConfiguredTableAssociation {..}

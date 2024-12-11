@@ -1,0 +1,9 @@
+module Stratosphere.EMR.InstanceFleetConfig.OnDemandResizingSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OnDemandResizingSpecificationProperty :: Prelude.Type
+instance ToResourceProperties OnDemandResizingSpecificationProperty
+instance Prelude.Eq OnDemandResizingSpecificationProperty
+instance Prelude.Show OnDemandResizingSpecificationProperty
+instance JSON.ToJSON OnDemandResizingSpecificationProperty

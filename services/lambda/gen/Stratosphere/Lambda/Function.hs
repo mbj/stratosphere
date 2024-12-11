@@ -35,6 +35,7 @@ data Function
               loggingConfig :: (Prelude.Maybe LoggingConfigProperty),
               memorySize :: (Prelude.Maybe (Value Prelude.Integer)),
               packageType :: (Prelude.Maybe (Value Prelude.Text)),
+              recursiveLoop :: (Prelude.Maybe (Value Prelude.Text)),
               reservedConcurrentExecutions :: (Prelude.Maybe (Value Prelude.Integer)),
               role :: (Value Prelude.Text),
               runtime :: (Prelude.Maybe (Value Prelude.Text)),
@@ -57,6 +58,7 @@ mkFunction code role
        imageConfig = Prelude.Nothing, kmsKeyArn = Prelude.Nothing,
        layers = Prelude.Nothing, loggingConfig = Prelude.Nothing,
        memorySize = Prelude.Nothing, packageType = Prelude.Nothing,
+       recursiveLoop = Prelude.Nothing,
        reservedConcurrentExecutions = Prelude.Nothing,
        runtime = Prelude.Nothing,
        runtimeManagementConfig = Prelude.Nothing,
@@ -86,6 +88,7 @@ instance ToResourceProperties Function where
                                (JSON..=) "LoggingConfig" Prelude.<$> loggingConfig,
                                (JSON..=) "MemorySize" Prelude.<$> memorySize,
                                (JSON..=) "PackageType" Prelude.<$> packageType,
+                               (JSON..=) "RecursiveLoop" Prelude.<$> recursiveLoop,
                                (JSON..=) "ReservedConcurrentExecutions"
                                  Prelude.<$> reservedConcurrentExecutions,
                                (JSON..=) "Runtime" Prelude.<$> runtime,
@@ -118,6 +121,7 @@ instance JSON.ToJSON Function where
                   (JSON..=) "LoggingConfig" Prelude.<$> loggingConfig,
                   (JSON..=) "MemorySize" Prelude.<$> memorySize,
                   (JSON..=) "PackageType" Prelude.<$> packageType,
+                  (JSON..=) "RecursiveLoop" Prelude.<$> recursiveLoop,
                   (JSON..=) "ReservedConcurrentExecutions"
                     Prelude.<$> reservedConcurrentExecutions,
                   (JSON..=) "Runtime" Prelude.<$> runtime,
@@ -191,6 +195,10 @@ instance Property "PackageType" Function where
   type PropertyType "PackageType" Function = Value Prelude.Text
   set newValue Function {..}
     = Function {packageType = Prelude.pure newValue, ..}
+instance Property "RecursiveLoop" Function where
+  type PropertyType "RecursiveLoop" Function = Value Prelude.Text
+  set newValue Function {..}
+    = Function {recursiveLoop = Prelude.pure newValue, ..}
 instance Property "ReservedConcurrentExecutions" Function where
   type PropertyType "ReservedConcurrentExecutions" Function = Value Prelude.Integer
   set newValue Function {..}

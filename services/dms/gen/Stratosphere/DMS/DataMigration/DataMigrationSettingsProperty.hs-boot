@@ -1,0 +1,9 @@
+module Stratosphere.DMS.DataMigration.DataMigrationSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataMigrationSettingsProperty :: Prelude.Type
+instance ToResourceProperties DataMigrationSettingsProperty
+instance Prelude.Eq DataMigrationSettingsProperty
+instance Prelude.Show DataMigrationSettingsProperty
+instance JSON.ToJSON DataMigrationSettingsProperty

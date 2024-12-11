@@ -12,6 +12,7 @@ import Stratosphere.Value
 data ComputeEnvironment
   = ComputeEnvironment {computeEnvironmentName :: (Prelude.Maybe (Value Prelude.Text)),
                         computeResources :: (Prelude.Maybe ComputeResourcesProperty),
+                        context :: (Prelude.Maybe (Value Prelude.Text)),
                         eksConfiguration :: (Prelude.Maybe EksConfigurationProperty),
                         replaceComputeEnvironment :: (Prelude.Maybe (Value Prelude.Bool)),
                         serviceRole :: (Prelude.Maybe (Value Prelude.Text)),
@@ -25,7 +26,7 @@ mkComputeEnvironment :: Value Prelude.Text -> ComputeEnvironment
 mkComputeEnvironment type'
   = ComputeEnvironment
       {type' = type', computeEnvironmentName = Prelude.Nothing,
-       computeResources = Prelude.Nothing,
+       computeResources = Prelude.Nothing, context = Prelude.Nothing,
        eksConfiguration = Prelude.Nothing,
        replaceComputeEnvironment = Prelude.Nothing,
        serviceRole = Prelude.Nothing, state = Prelude.Nothing,
@@ -43,6 +44,7 @@ instance ToResourceProperties ComputeEnvironment where
                               [(JSON..=) "ComputeEnvironmentName"
                                  Prelude.<$> computeEnvironmentName,
                                (JSON..=) "ComputeResources" Prelude.<$> computeResources,
+                               (JSON..=) "Context" Prelude.<$> context,
                                (JSON..=) "EksConfiguration" Prelude.<$> eksConfiguration,
                                (JSON..=) "ReplaceComputeEnvironment"
                                  Prelude.<$> replaceComputeEnvironment,
@@ -61,6 +63,7 @@ instance JSON.ToJSON ComputeEnvironment where
                  [(JSON..=) "ComputeEnvironmentName"
                     Prelude.<$> computeEnvironmentName,
                   (JSON..=) "ComputeResources" Prelude.<$> computeResources,
+                  (JSON..=) "Context" Prelude.<$> context,
                   (JSON..=) "EksConfiguration" Prelude.<$> eksConfiguration,
                   (JSON..=) "ReplaceComputeEnvironment"
                     Prelude.<$> replaceComputeEnvironment,
@@ -78,6 +81,10 @@ instance Property "ComputeResources" ComputeEnvironment where
   type PropertyType "ComputeResources" ComputeEnvironment = ComputeResourcesProperty
   set newValue ComputeEnvironment {..}
     = ComputeEnvironment {computeResources = Prelude.pure newValue, ..}
+instance Property "Context" ComputeEnvironment where
+  type PropertyType "Context" ComputeEnvironment = Value Prelude.Text
+  set newValue ComputeEnvironment {..}
+    = ComputeEnvironment {context = Prelude.pure newValue, ..}
 instance Property "EksConfiguration" ComputeEnvironment where
   type PropertyType "EksConfiguration" ComputeEnvironment = EksConfigurationProperty
   set newValue ComputeEnvironment {..}

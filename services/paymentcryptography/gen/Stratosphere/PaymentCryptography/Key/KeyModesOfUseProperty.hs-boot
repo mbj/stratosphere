@@ -1,0 +1,9 @@
+module Stratosphere.PaymentCryptography.Key.KeyModesOfUseProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KeyModesOfUseProperty :: Prelude.Type
+instance ToResourceProperties KeyModesOfUseProperty
+instance Prelude.Eq KeyModesOfUseProperty
+instance Prelude.Show KeyModesOfUseProperty
+instance JSON.ToJSON KeyModesOfUseProperty

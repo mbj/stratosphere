@@ -4,6 +4,7 @@ module Stratosphere.EntityResolution.MatchingWorkflow (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.EntityResolution.MatchingWorkflow.IncrementalRunConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.EntityResolution.MatchingWorkflow.InputSourceProperty as Exports
 import {-# SOURCE #-} Stratosphere.EntityResolution.MatchingWorkflow.OutputSourceProperty as Exports
 import {-# SOURCE #-} Stratosphere.EntityResolution.MatchingWorkflow.ResolutionTechniquesProperty as Exports
@@ -12,6 +13,7 @@ import Stratosphere.Tag
 import Stratosphere.Value
 data MatchingWorkflow
   = MatchingWorkflow {description :: (Prelude.Maybe (Value Prelude.Text)),
+                      incrementalRunConfig :: (Prelude.Maybe IncrementalRunConfigProperty),
                       inputSourceConfig :: [InputSourceProperty],
                       outputSourceConfig :: [OutputSourceProperty],
                       resolutionTechniques :: ResolutionTechniquesProperty,
@@ -35,7 +37,7 @@ mkMatchingWorkflow
        outputSourceConfig = outputSourceConfig,
        resolutionTechniques = resolutionTechniques, roleArn = roleArn,
        workflowName = workflowName, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       incrementalRunConfig = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties MatchingWorkflow where
   toResourceProperties MatchingWorkflow {..}
     = ResourceProperties
@@ -49,6 +51,7 @@ instance ToResourceProperties MatchingWorkflow where
                             "RoleArn" JSON..= roleArn, "WorkflowName" JSON..= workflowName]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "IncrementalRunConfig" Prelude.<$> incrementalRunConfig,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON MatchingWorkflow where
   toJSON MatchingWorkflow {..}
@@ -61,11 +64,17 @@ instance JSON.ToJSON MatchingWorkflow where
                "RoleArn" JSON..= roleArn, "WorkflowName" JSON..= workflowName]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "IncrementalRunConfig" Prelude.<$> incrementalRunConfig,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" MatchingWorkflow where
   type PropertyType "Description" MatchingWorkflow = Value Prelude.Text
   set newValue MatchingWorkflow {..}
     = MatchingWorkflow {description = Prelude.pure newValue, ..}
+instance Property "IncrementalRunConfig" MatchingWorkflow where
+  type PropertyType "IncrementalRunConfig" MatchingWorkflow = IncrementalRunConfigProperty
+  set newValue MatchingWorkflow {..}
+    = MatchingWorkflow
+        {incrementalRunConfig = Prelude.pure newValue, ..}
 instance Property "InputSourceConfig" MatchingWorkflow where
   type PropertyType "InputSourceConfig" MatchingWorkflow = [InputSourceProperty]
   set newValue MatchingWorkflow {..}

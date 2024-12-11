@@ -7,42 +7,38 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LookbackWindowProperty
-  = LookbackWindowProperty {columnName :: (Prelude.Maybe (Value Prelude.Text)),
-                            size :: (Prelude.Maybe (Value Prelude.Double)),
-                            sizeUnit :: (Prelude.Maybe (Value Prelude.Text))}
+  = LookbackWindowProperty {columnName :: (Value Prelude.Text),
+                            size :: (Value Prelude.Double),
+                            sizeUnit :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkLookbackWindowProperty :: LookbackWindowProperty
-mkLookbackWindowProperty
+mkLookbackWindowProperty ::
+  Value Prelude.Text
+  -> Value Prelude.Double
+     -> Value Prelude.Text -> LookbackWindowProperty
+mkLookbackWindowProperty columnName size sizeUnit
   = LookbackWindowProperty
-      {columnName = Prelude.Nothing, size = Prelude.Nothing,
-       sizeUnit = Prelude.Nothing}
+      {columnName = columnName, size = size, sizeUnit = sizeUnit}
 instance ToResourceProperties LookbackWindowProperty where
   toResourceProperties LookbackWindowProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.LookbackWindow",
          supportsTags = Prelude.False,
-         properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "ColumnName" Prelude.<$> columnName,
-                            (JSON..=) "Size" Prelude.<$> size,
-                            (JSON..=) "SizeUnit" Prelude.<$> sizeUnit])}
+         properties = ["ColumnName" JSON..= columnName, "Size" JSON..= size,
+                       "SizeUnit" JSON..= sizeUnit]}
 instance JSON.ToJSON LookbackWindowProperty where
   toJSON LookbackWindowProperty {..}
     = JSON.object
-        (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "ColumnName" Prelude.<$> columnName,
-               (JSON..=) "Size" Prelude.<$> size,
-               (JSON..=) "SizeUnit" Prelude.<$> sizeUnit]))
+        ["ColumnName" JSON..= columnName, "Size" JSON..= size,
+         "SizeUnit" JSON..= sizeUnit]
 instance Property "ColumnName" LookbackWindowProperty where
   type PropertyType "ColumnName" LookbackWindowProperty = Value Prelude.Text
   set newValue LookbackWindowProperty {..}
-    = LookbackWindowProperty {columnName = Prelude.pure newValue, ..}
+    = LookbackWindowProperty {columnName = newValue, ..}
 instance Property "Size" LookbackWindowProperty where
   type PropertyType "Size" LookbackWindowProperty = Value Prelude.Double
   set newValue LookbackWindowProperty {..}
-    = LookbackWindowProperty {size = Prelude.pure newValue, ..}
+    = LookbackWindowProperty {size = newValue, ..}
 instance Property "SizeUnit" LookbackWindowProperty where
   type PropertyType "SizeUnit" LookbackWindowProperty = Value Prelude.Text
   set newValue LookbackWindowProperty {..}
-    = LookbackWindowProperty {sizeUnit = Prelude.pure newValue, ..}
+    = LookbackWindowProperty {sizeUnit = newValue, ..}

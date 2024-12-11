@@ -1,0 +1,9 @@
+module Stratosphere.PaymentCryptography.Key.KeyAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KeyAttributesProperty :: Prelude.Type
+instance ToResourceProperties KeyAttributesProperty
+instance Prelude.Eq KeyAttributesProperty
+instance Prelude.Show KeyAttributesProperty
+instance JSON.ToJSON KeyAttributesProperty

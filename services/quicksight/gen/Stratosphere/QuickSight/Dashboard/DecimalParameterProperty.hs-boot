@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.DecimalParameterProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data DecimalParameterProperty :: Prelude.Type
-instance ToResourceProperties DecimalParameterProperty
-instance Prelude.Eq DecimalParameterProperty
-instance Prelude.Show DecimalParameterProperty
-instance JSON.ToJSON DecimalParameterProperty

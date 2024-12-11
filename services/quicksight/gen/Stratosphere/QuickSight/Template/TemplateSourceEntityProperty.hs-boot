@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.TemplateSourceEntityProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data TemplateSourceEntityProperty :: Prelude.Type
-instance ToResourceProperties TemplateSourceEntityProperty
-instance Prelude.Eq TemplateSourceEntityProperty
-instance Prelude.Show TemplateSourceEntityProperty
-instance JSON.ToJSON TemplateSourceEntityProperty

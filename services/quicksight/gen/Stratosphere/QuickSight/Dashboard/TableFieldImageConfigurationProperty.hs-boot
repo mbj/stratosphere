@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.TableFieldImageConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data TableFieldImageConfigurationProperty :: Prelude.Type
-instance ToResourceProperties TableFieldImageConfigurationProperty
-instance Prelude.Eq TableFieldImageConfigurationProperty
-instance Prelude.Show TableFieldImageConfigurationProperty
-instance JSON.ToJSON TableFieldImageConfigurationProperty

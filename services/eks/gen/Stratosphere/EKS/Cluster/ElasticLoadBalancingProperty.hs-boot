@@ -1,0 +1,9 @@
+module Stratosphere.EKS.Cluster.ElasticLoadBalancingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ElasticLoadBalancingProperty :: Prelude.Type
+instance ToResourceProperties ElasticLoadBalancingProperty
+instance Prelude.Eq ElasticLoadBalancingProperty
+instance Prelude.Show ElasticLoadBalancingProperty
+instance JSON.ToJSON ElasticLoadBalancingProperty

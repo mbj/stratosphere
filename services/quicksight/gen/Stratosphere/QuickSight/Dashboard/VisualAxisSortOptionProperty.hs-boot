@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.VisualAxisSortOptionProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data VisualAxisSortOptionProperty :: Prelude.Type
-instance ToResourceProperties VisualAxisSortOptionProperty
-instance Prelude.Eq VisualAxisSortOptionProperty
-instance Prelude.Show VisualAxisSortOptionProperty
-instance JSON.ToJSON VisualAxisSortOptionProperty

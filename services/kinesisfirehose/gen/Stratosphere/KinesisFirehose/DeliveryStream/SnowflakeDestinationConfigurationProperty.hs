@@ -8,6 +8,8 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.CloudWatchLoggingOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ProcessingConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SecretsManagerConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeBufferingHintsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeRetryOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeRoleConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SnowflakeVpcConfigurationProperty as Exports
@@ -15,55 +17,55 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SnowflakeDestinationConfigurationProperty
   = SnowflakeDestinationConfigurationProperty {accountUrl :: (Value Prelude.Text),
+                                               bufferingHints :: (Prelude.Maybe SnowflakeBufferingHintsProperty),
                                                cloudWatchLoggingOptions :: (Prelude.Maybe CloudWatchLoggingOptionsProperty),
                                                contentColumnName :: (Prelude.Maybe (Value Prelude.Text)),
                                                dataLoadingOption :: (Prelude.Maybe (Value Prelude.Text)),
                                                database :: (Value Prelude.Text),
                                                keyPassphrase :: (Prelude.Maybe (Value Prelude.Text)),
                                                metaDataColumnName :: (Prelude.Maybe (Value Prelude.Text)),
-                                               privateKey :: (Value Prelude.Text),
+                                               privateKey :: (Prelude.Maybe (Value Prelude.Text)),
                                                processingConfiguration :: (Prelude.Maybe ProcessingConfigurationProperty),
                                                retryOptions :: (Prelude.Maybe SnowflakeRetryOptionsProperty),
                                                roleARN :: (Value Prelude.Text),
                                                s3BackupMode :: (Prelude.Maybe (Value Prelude.Text)),
                                                s3Configuration :: S3DestinationConfigurationProperty,
                                                schema :: (Value Prelude.Text),
+                                               secretsManagerConfiguration :: (Prelude.Maybe SecretsManagerConfigurationProperty),
                                                snowflakeRoleConfiguration :: (Prelude.Maybe SnowflakeRoleConfigurationProperty),
                                                snowflakeVpcConfiguration :: (Prelude.Maybe SnowflakeVpcConfigurationProperty),
                                                table :: (Value Prelude.Text),
-                                               user :: (Value Prelude.Text)}
+                                               user :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSnowflakeDestinationConfigurationProperty ::
   Value Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text
-        -> Value Prelude.Text
-           -> S3DestinationConfigurationProperty
-              -> Value Prelude.Text
-                 -> Value Prelude.Text
-                    -> Value Prelude.Text -> SnowflakeDestinationConfigurationProperty
+        -> S3DestinationConfigurationProperty
+           -> Value Prelude.Text
+              -> Value Prelude.Text -> SnowflakeDestinationConfigurationProperty
 mkSnowflakeDestinationConfigurationProperty
   accountUrl
   database
-  privateKey
   roleARN
   s3Configuration
   schema
   table
-  user
   = SnowflakeDestinationConfigurationProperty
-      {accountUrl = accountUrl, database = database,
-       privateKey = privateKey, roleARN = roleARN,
+      {accountUrl = accountUrl, database = database, roleARN = roleARN,
        s3Configuration = s3Configuration, schema = schema, table = table,
-       user = user, cloudWatchLoggingOptions = Prelude.Nothing,
+       bufferingHints = Prelude.Nothing,
+       cloudWatchLoggingOptions = Prelude.Nothing,
        contentColumnName = Prelude.Nothing,
        dataLoadingOption = Prelude.Nothing,
        keyPassphrase = Prelude.Nothing,
-       metaDataColumnName = Prelude.Nothing,
+       metaDataColumnName = Prelude.Nothing, privateKey = Prelude.Nothing,
        processingConfiguration = Prelude.Nothing,
        retryOptions = Prelude.Nothing, s3BackupMode = Prelude.Nothing,
+       secretsManagerConfiguration = Prelude.Nothing,
        snowflakeRoleConfiguration = Prelude.Nothing,
-       snowflakeVpcConfiguration = Prelude.Nothing}
+       snowflakeVpcConfiguration = Prelude.Nothing,
+       user = Prelude.Nothing}
 instance ToResourceProperties SnowflakeDestinationConfigurationProperty where
   toResourceProperties SnowflakeDestinationConfigurationProperty {..}
     = ResourceProperties
@@ -72,53 +74,68 @@ instance ToResourceProperties SnowflakeDestinationConfigurationProperty where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["AccountUrl" JSON..= accountUrl, "Database" JSON..= database,
-                            "PrivateKey" JSON..= privateKey, "RoleARN" JSON..= roleARN,
+                            "RoleARN" JSON..= roleARN,
                             "S3Configuration" JSON..= s3Configuration, "Schema" JSON..= schema,
-                            "Table" JSON..= table, "User" JSON..= user]
+                            "Table" JSON..= table]
                            (Prelude.catMaybes
-                              [(JSON..=) "CloudWatchLoggingOptions"
+                              [(JSON..=) "BufferingHints" Prelude.<$> bufferingHints,
+                               (JSON..=) "CloudWatchLoggingOptions"
                                  Prelude.<$> cloudWatchLoggingOptions,
                                (JSON..=) "ContentColumnName" Prelude.<$> contentColumnName,
                                (JSON..=) "DataLoadingOption" Prelude.<$> dataLoadingOption,
                                (JSON..=) "KeyPassphrase" Prelude.<$> keyPassphrase,
                                (JSON..=) "MetaDataColumnName" Prelude.<$> metaDataColumnName,
+                               (JSON..=) "PrivateKey" Prelude.<$> privateKey,
                                (JSON..=) "ProcessingConfiguration"
                                  Prelude.<$> processingConfiguration,
                                (JSON..=) "RetryOptions" Prelude.<$> retryOptions,
                                (JSON..=) "S3BackupMode" Prelude.<$> s3BackupMode,
+                               (JSON..=) "SecretsManagerConfiguration"
+                                 Prelude.<$> secretsManagerConfiguration,
                                (JSON..=) "SnowflakeRoleConfiguration"
                                  Prelude.<$> snowflakeRoleConfiguration,
                                (JSON..=) "SnowflakeVpcConfiguration"
-                                 Prelude.<$> snowflakeVpcConfiguration]))}
+                                 Prelude.<$> snowflakeVpcConfiguration,
+                               (JSON..=) "User" Prelude.<$> user]))}
 instance JSON.ToJSON SnowflakeDestinationConfigurationProperty where
   toJSON SnowflakeDestinationConfigurationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
               ["AccountUrl" JSON..= accountUrl, "Database" JSON..= database,
-               "PrivateKey" JSON..= privateKey, "RoleARN" JSON..= roleARN,
+               "RoleARN" JSON..= roleARN,
                "S3Configuration" JSON..= s3Configuration, "Schema" JSON..= schema,
-               "Table" JSON..= table, "User" JSON..= user]
+               "Table" JSON..= table]
               (Prelude.catMaybes
-                 [(JSON..=) "CloudWatchLoggingOptions"
+                 [(JSON..=) "BufferingHints" Prelude.<$> bufferingHints,
+                  (JSON..=) "CloudWatchLoggingOptions"
                     Prelude.<$> cloudWatchLoggingOptions,
                   (JSON..=) "ContentColumnName" Prelude.<$> contentColumnName,
                   (JSON..=) "DataLoadingOption" Prelude.<$> dataLoadingOption,
                   (JSON..=) "KeyPassphrase" Prelude.<$> keyPassphrase,
                   (JSON..=) "MetaDataColumnName" Prelude.<$> metaDataColumnName,
+                  (JSON..=) "PrivateKey" Prelude.<$> privateKey,
                   (JSON..=) "ProcessingConfiguration"
                     Prelude.<$> processingConfiguration,
                   (JSON..=) "RetryOptions" Prelude.<$> retryOptions,
                   (JSON..=) "S3BackupMode" Prelude.<$> s3BackupMode,
+                  (JSON..=) "SecretsManagerConfiguration"
+                    Prelude.<$> secretsManagerConfiguration,
                   (JSON..=) "SnowflakeRoleConfiguration"
                     Prelude.<$> snowflakeRoleConfiguration,
                   (JSON..=) "SnowflakeVpcConfiguration"
-                    Prelude.<$> snowflakeVpcConfiguration])))
+                    Prelude.<$> snowflakeVpcConfiguration,
+                  (JSON..=) "User" Prelude.<$> user])))
 instance Property "AccountUrl" SnowflakeDestinationConfigurationProperty where
   type PropertyType "AccountUrl" SnowflakeDestinationConfigurationProperty = Value Prelude.Text
   set newValue SnowflakeDestinationConfigurationProperty {..}
     = SnowflakeDestinationConfigurationProperty
         {accountUrl = newValue, ..}
+instance Property "BufferingHints" SnowflakeDestinationConfigurationProperty where
+  type PropertyType "BufferingHints" SnowflakeDestinationConfigurationProperty = SnowflakeBufferingHintsProperty
+  set newValue SnowflakeDestinationConfigurationProperty {..}
+    = SnowflakeDestinationConfigurationProperty
+        {bufferingHints = Prelude.pure newValue, ..}
 instance Property "CloudWatchLoggingOptions" SnowflakeDestinationConfigurationProperty where
   type PropertyType "CloudWatchLoggingOptions" SnowflakeDestinationConfigurationProperty = CloudWatchLoggingOptionsProperty
   set newValue SnowflakeDestinationConfigurationProperty {..}
@@ -153,7 +170,7 @@ instance Property "PrivateKey" SnowflakeDestinationConfigurationProperty where
   type PropertyType "PrivateKey" SnowflakeDestinationConfigurationProperty = Value Prelude.Text
   set newValue SnowflakeDestinationConfigurationProperty {..}
     = SnowflakeDestinationConfigurationProperty
-        {privateKey = newValue, ..}
+        {privateKey = Prelude.pure newValue, ..}
 instance Property "ProcessingConfiguration" SnowflakeDestinationConfigurationProperty where
   type PropertyType "ProcessingConfiguration" SnowflakeDestinationConfigurationProperty = ProcessingConfigurationProperty
   set newValue SnowflakeDestinationConfigurationProperty {..}
@@ -183,6 +200,11 @@ instance Property "Schema" SnowflakeDestinationConfigurationProperty where
   type PropertyType "Schema" SnowflakeDestinationConfigurationProperty = Value Prelude.Text
   set newValue SnowflakeDestinationConfigurationProperty {..}
     = SnowflakeDestinationConfigurationProperty {schema = newValue, ..}
+instance Property "SecretsManagerConfiguration" SnowflakeDestinationConfigurationProperty where
+  type PropertyType "SecretsManagerConfiguration" SnowflakeDestinationConfigurationProperty = SecretsManagerConfigurationProperty
+  set newValue SnowflakeDestinationConfigurationProperty {..}
+    = SnowflakeDestinationConfigurationProperty
+        {secretsManagerConfiguration = Prelude.pure newValue, ..}
 instance Property "SnowflakeRoleConfiguration" SnowflakeDestinationConfigurationProperty where
   type PropertyType "SnowflakeRoleConfiguration" SnowflakeDestinationConfigurationProperty = SnowflakeRoleConfigurationProperty
   set newValue SnowflakeDestinationConfigurationProperty {..}
@@ -200,4 +222,5 @@ instance Property "Table" SnowflakeDestinationConfigurationProperty where
 instance Property "User" SnowflakeDestinationConfigurationProperty where
   type PropertyType "User" SnowflakeDestinationConfigurationProperty = Value Prelude.Text
   set newValue SnowflakeDestinationConfigurationProperty {..}
-    = SnowflakeDestinationConfigurationProperty {user = newValue, ..}
+    = SnowflakeDestinationConfigurationProperty
+        {user = Prelude.pure newValue, ..}

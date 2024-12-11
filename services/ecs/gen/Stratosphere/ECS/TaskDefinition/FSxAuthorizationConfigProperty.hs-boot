@@ -1,0 +1,9 @@
+module Stratosphere.ECS.TaskDefinition.FSxAuthorizationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FSxAuthorizationConfigProperty :: Prelude.Type
+instance ToResourceProperties FSxAuthorizationConfigProperty
+instance Prelude.Eq FSxAuthorizationConfigProperty
+instance Prelude.Show FSxAuthorizationConfigProperty
+instance JSON.ToJSON FSxAuthorizationConfigProperty

@@ -1,0 +1,99 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-deadline
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Deadline.Farm
+      Stratosphere.Deadline.Fleet
+      Stratosphere.Deadline.Fleet.AcceleratorCapabilitiesProperty
+      Stratosphere.Deadline.Fleet.AcceleratorCountRangeProperty
+      Stratosphere.Deadline.Fleet.AcceleratorSelectionProperty
+      Stratosphere.Deadline.Fleet.AcceleratorTotalMemoryMiBRangeProperty
+      Stratosphere.Deadline.Fleet.CustomerManagedFleetConfigurationProperty
+      Stratosphere.Deadline.Fleet.CustomerManagedWorkerCapabilitiesProperty
+      Stratosphere.Deadline.Fleet.Ec2EbsVolumeProperty
+      Stratosphere.Deadline.Fleet.FleetAmountCapabilityProperty
+      Stratosphere.Deadline.Fleet.FleetAttributeCapabilityProperty
+      Stratosphere.Deadline.Fleet.FleetCapabilitiesProperty
+      Stratosphere.Deadline.Fleet.FleetConfigurationProperty
+      Stratosphere.Deadline.Fleet.MemoryMiBRangeProperty
+      Stratosphere.Deadline.Fleet.ServiceManagedEc2FleetConfigurationProperty
+      Stratosphere.Deadline.Fleet.ServiceManagedEc2InstanceCapabilitiesProperty
+      Stratosphere.Deadline.Fleet.ServiceManagedEc2InstanceMarketOptionsProperty
+      Stratosphere.Deadline.Fleet.VCpuCountRangeProperty
+      Stratosphere.Deadline.LicenseEndpoint
+      Stratosphere.Deadline.MeteredProduct
+      Stratosphere.Deadline.Monitor
+      Stratosphere.Deadline.Queue
+      Stratosphere.Deadline.Queue.JobAttachmentSettingsProperty
+      Stratosphere.Deadline.Queue.JobRunAsUserProperty
+      Stratosphere.Deadline.Queue.PosixUserProperty
+      Stratosphere.Deadline.Queue.WindowsUserProperty
+      Stratosphere.Deadline.QueueEnvironment
+      Stratosphere.Deadline.QueueFleetAssociation
+      Stratosphere.Deadline.StorageProfile
+      Stratosphere.Deadline.StorageProfile.FileSystemLocationProperty
+  other-modules:
+      Paths_stratosphere_deadline
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

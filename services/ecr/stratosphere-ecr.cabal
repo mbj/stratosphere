@@ -38,6 +38,8 @@ library
       Stratosphere.ECR.Repository.EncryptionConfigurationProperty
       Stratosphere.ECR.Repository.ImageScanningConfigurationProperty
       Stratosphere.ECR.Repository.LifecyclePolicyProperty
+      Stratosphere.ECR.RepositoryCreationTemplate
+      Stratosphere.ECR.RepositoryCreationTemplate.EncryptionConfigurationProperty
   other-modules:
       Paths_stratosphere_ecr
   hs-source-dirs:

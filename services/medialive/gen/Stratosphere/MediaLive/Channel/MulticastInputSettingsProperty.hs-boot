@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.MulticastInputSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MulticastInputSettingsProperty :: Prelude.Type
+instance ToResourceProperties MulticastInputSettingsProperty
+instance Prelude.Eq MulticastInputSettingsProperty
+instance Prelude.Show MulticastInputSettingsProperty
+instance JSON.ToJSON MulticastInputSettingsProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.KnowledgeBase.SemanticChunkingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SemanticChunkingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SemanticChunkingConfigurationProperty
+instance Prelude.Eq SemanticChunkingConfigurationProperty
+instance Prelude.Show SemanticChunkingConfigurationProperty
+instance JSON.ToJSON SemanticChunkingConfigurationProperty

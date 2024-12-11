@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Guardrail.PiiEntityConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PiiEntityConfigProperty :: Prelude.Type
+instance ToResourceProperties PiiEntityConfigProperty
+instance Prelude.Eq PiiEntityConfigProperty
+instance Prelude.Show PiiEntityConfigProperty
+instance JSON.ToJSON PiiEntityConfigProperty

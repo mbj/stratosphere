@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.GeospatialHeatmapConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data GeospatialHeatmapConfigurationProperty :: Prelude.Type
-instance ToResourceProperties GeospatialHeatmapConfigurationProperty
-instance Prelude.Eq GeospatialHeatmapConfigurationProperty
-instance Prelude.Show GeospatialHeatmapConfigurationProperty
-instance JSON.ToJSON GeospatialHeatmapConfigurationProperty

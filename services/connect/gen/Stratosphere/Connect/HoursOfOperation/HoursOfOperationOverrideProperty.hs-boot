@@ -1,0 +1,9 @@
+module Stratosphere.Connect.HoursOfOperation.HoursOfOperationOverrideProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HoursOfOperationOverrideProperty :: Prelude.Type
+instance ToResourceProperties HoursOfOperationOverrideProperty
+instance Prelude.Eq HoursOfOperationOverrideProperty
+instance Prelude.Show HoursOfOperationOverrideProperty
+instance JSON.ToJSON HoursOfOperationOverrideProperty

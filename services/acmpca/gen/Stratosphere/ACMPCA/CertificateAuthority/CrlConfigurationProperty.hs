@@ -11,44 +11,47 @@ import Stratosphere.Value
 data CrlConfigurationProperty
   = CrlConfigurationProperty {crlDistributionPointExtensionConfiguration :: (Prelude.Maybe CrlDistributionPointExtensionConfigurationProperty),
                               customCname :: (Prelude.Maybe (Value Prelude.Text)),
-                              enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                              enabled :: (Value Prelude.Bool),
                               expirationInDays :: (Prelude.Maybe (Value Prelude.Integer)),
                               s3BucketName :: (Prelude.Maybe (Value Prelude.Text)),
                               s3ObjectAcl :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkCrlConfigurationProperty :: CrlConfigurationProperty
-mkCrlConfigurationProperty
+mkCrlConfigurationProperty ::
+  Value Prelude.Bool -> CrlConfigurationProperty
+mkCrlConfigurationProperty enabled
   = CrlConfigurationProperty
-      {crlDistributionPointExtensionConfiguration = Prelude.Nothing,
-       customCname = Prelude.Nothing, enabled = Prelude.Nothing,
-       expirationInDays = Prelude.Nothing, s3BucketName = Prelude.Nothing,
-       s3ObjectAcl = Prelude.Nothing}
+      {enabled = enabled,
+       crlDistributionPointExtensionConfiguration = Prelude.Nothing,
+       customCname = Prelude.Nothing, expirationInDays = Prelude.Nothing,
+       s3BucketName = Prelude.Nothing, s3ObjectAcl = Prelude.Nothing}
 instance ToResourceProperties CrlConfigurationProperty where
   toResourceProperties CrlConfigurationProperty {..}
     = ResourceProperties
         {awsType = "AWS::ACMPCA::CertificateAuthority.CrlConfiguration",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "CrlDistributionPointExtensionConfiguration"
-                              Prelude.<$> crlDistributionPointExtensionConfiguration,
-                            (JSON..=) "CustomCname" Prelude.<$> customCname,
-                            (JSON..=) "Enabled" Prelude.<$> enabled,
-                            (JSON..=) "ExpirationInDays" Prelude.<$> expirationInDays,
-                            (JSON..=) "S3BucketName" Prelude.<$> s3BucketName,
-                            (JSON..=) "S3ObjectAcl" Prelude.<$> s3ObjectAcl])}
+                        ((Prelude.<>)
+                           ["Enabled" JSON..= enabled]
+                           (Prelude.catMaybes
+                              [(JSON..=) "CrlDistributionPointExtensionConfiguration"
+                                 Prelude.<$> crlDistributionPointExtensionConfiguration,
+                               (JSON..=) "CustomCname" Prelude.<$> customCname,
+                               (JSON..=) "ExpirationInDays" Prelude.<$> expirationInDays,
+                               (JSON..=) "S3BucketName" Prelude.<$> s3BucketName,
+                               (JSON..=) "S3ObjectAcl" Prelude.<$> s3ObjectAcl]))}
 instance JSON.ToJSON CrlConfigurationProperty where
   toJSON CrlConfigurationProperty {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "CrlDistributionPointExtensionConfiguration"
-                 Prelude.<$> crlDistributionPointExtensionConfiguration,
-               (JSON..=) "CustomCname" Prelude.<$> customCname,
-               (JSON..=) "Enabled" Prelude.<$> enabled,
-               (JSON..=) "ExpirationInDays" Prelude.<$> expirationInDays,
-               (JSON..=) "S3BucketName" Prelude.<$> s3BucketName,
-               (JSON..=) "S3ObjectAcl" Prelude.<$> s3ObjectAcl]))
+           ((Prelude.<>)
+              ["Enabled" JSON..= enabled]
+              (Prelude.catMaybes
+                 [(JSON..=) "CrlDistributionPointExtensionConfiguration"
+                    Prelude.<$> crlDistributionPointExtensionConfiguration,
+                  (JSON..=) "CustomCname" Prelude.<$> customCname,
+                  (JSON..=) "ExpirationInDays" Prelude.<$> expirationInDays,
+                  (JSON..=) "S3BucketName" Prelude.<$> s3BucketName,
+                  (JSON..=) "S3ObjectAcl" Prelude.<$> s3ObjectAcl])))
 instance Property "CrlDistributionPointExtensionConfiguration" CrlConfigurationProperty where
   type PropertyType "CrlDistributionPointExtensionConfiguration" CrlConfigurationProperty = CrlDistributionPointExtensionConfigurationProperty
   set newValue CrlConfigurationProperty {..}
@@ -64,7 +67,7 @@ instance Property "CustomCname" CrlConfigurationProperty where
 instance Property "Enabled" CrlConfigurationProperty where
   type PropertyType "Enabled" CrlConfigurationProperty = Value Prelude.Bool
   set newValue CrlConfigurationProperty {..}
-    = CrlConfigurationProperty {enabled = Prelude.pure newValue, ..}
+    = CrlConfigurationProperty {enabled = newValue, ..}
 instance Property "ExpirationInDays" CrlConfigurationProperty where
   type PropertyType "ExpirationInDays" CrlConfigurationProperty = Value Prelude.Integer
   set newValue CrlConfigurationProperty {..}

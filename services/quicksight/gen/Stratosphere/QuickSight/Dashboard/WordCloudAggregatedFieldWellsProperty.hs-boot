@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.WordCloudAggregatedFieldWellsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data WordCloudAggregatedFieldWellsProperty :: Prelude.Type
-instance ToResourceProperties WordCloudAggregatedFieldWellsProperty
-instance Prelude.Eq WordCloudAggregatedFieldWellsProperty
-instance Prelude.Show WordCloudAggregatedFieldWellsProperty
-instance JSON.ToJSON WordCloudAggregatedFieldWellsProperty

@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.KPIVisualStandardLayoutProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data KPIVisualStandardLayoutProperty :: Prelude.Type
-instance ToResourceProperties KPIVisualStandardLayoutProperty
-instance Prelude.Eq KPIVisualStandardLayoutProperty
-instance Prelude.Show KPIVisualStandardLayoutProperty
-instance JSON.ToJSON KPIVisualStandardLayoutProperty

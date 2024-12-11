@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.AnalysisSourceTemplateProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data AnalysisSourceTemplateProperty :: Prelude.Type
-instance ToResourceProperties AnalysisSourceTemplateProperty
-instance Prelude.Eq AnalysisSourceTemplateProperty
-instance Prelude.Show AnalysisSourceTemplateProperty
-instance JSON.ToJSON AnalysisSourceTemplateProperty

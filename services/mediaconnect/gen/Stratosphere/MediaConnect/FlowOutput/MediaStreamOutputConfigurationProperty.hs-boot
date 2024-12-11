@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.FlowOutput.MediaStreamOutputConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MediaStreamOutputConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MediaStreamOutputConfigurationProperty
+instance Prelude.Eq MediaStreamOutputConfigurationProperty
+instance Prelude.Show MediaStreamOutputConfigurationProperty
+instance JSON.ToJSON MediaStreamOutputConfigurationProperty

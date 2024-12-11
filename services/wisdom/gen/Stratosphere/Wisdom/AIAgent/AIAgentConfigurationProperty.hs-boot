@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.AIAgent.AIAgentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AIAgentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AIAgentConfigurationProperty
+instance Prelude.Eq AIAgentConfigurationProperty
+instance Prelude.Show AIAgentConfigurationProperty
+instance JSON.ToJSON AIAgentConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Cluster.InterfaceMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InterfaceMappingProperty :: Prelude.Type
+instance ToResourceProperties InterfaceMappingProperty
+instance Prelude.Eq InterfaceMappingProperty
+instance Prelude.Show InterfaceMappingProperty
+instance JSON.ToJSON InterfaceMappingProperty

@@ -26,6 +26,9 @@ flag development
 library
   exposed-modules:
       Stratosphere.Timestream.Database
+      Stratosphere.Timestream.InfluxDBInstance
+      Stratosphere.Timestream.InfluxDBInstance.LogDeliveryConfigurationProperty
+      Stratosphere.Timestream.InfluxDBInstance.S3ConfigurationProperty
       Stratosphere.Timestream.ScheduledQuery
       Stratosphere.Timestream.ScheduledQuery.DimensionMappingProperty
       Stratosphere.Timestream.ScheduledQuery.ErrorReportConfigurationProperty

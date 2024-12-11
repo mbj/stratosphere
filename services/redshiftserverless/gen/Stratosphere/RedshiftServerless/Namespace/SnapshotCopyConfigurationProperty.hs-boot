@@ -1,0 +1,9 @@
+module Stratosphere.RedshiftServerless.Namespace.SnapshotCopyConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnapshotCopyConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SnapshotCopyConfigurationProperty
+instance Prelude.Eq SnapshotCopyConfigurationProperty
+instance Prelude.Show SnapshotCopyConfigurationProperty
+instance JSON.ToJSON SnapshotCopyConfigurationProperty

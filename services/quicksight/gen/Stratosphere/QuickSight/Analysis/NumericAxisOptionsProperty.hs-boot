@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.NumericAxisOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data NumericAxisOptionsProperty :: Prelude.Type
-instance ToResourceProperties NumericAxisOptionsProperty
-instance Prelude.Eq NumericAxisOptionsProperty
-instance Prelude.Show NumericAxisOptionsProperty
-instance JSON.ToJSON NumericAxisOptionsProperty

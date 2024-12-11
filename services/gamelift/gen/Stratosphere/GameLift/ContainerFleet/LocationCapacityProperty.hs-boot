@@ -1,0 +1,9 @@
+module Stratosphere.GameLift.ContainerFleet.LocationCapacityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LocationCapacityProperty :: Prelude.Type
+instance ToResourceProperties LocationCapacityProperty
+instance Prelude.Eq LocationCapacityProperty
+instance Prelude.Show LocationCapacityProperty
+instance JSON.ToJSON LocationCapacityProperty

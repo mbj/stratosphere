@@ -1,0 +1,9 @@
+module Stratosphere.Connect.UserHierarchyStructure.UserHierarchyStructureProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UserHierarchyStructureProperty :: Prelude.Type
+instance ToResourceProperties UserHierarchyStructureProperty
+instance Prelude.Eq UserHierarchyStructureProperty
+instance Prelude.Show UserHierarchyStructureProperty
+instance JSON.ToJSON UserHierarchyStructureProperty

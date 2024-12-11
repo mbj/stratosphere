@@ -1,0 +1,9 @@
+module Stratosphere.Lambda.EventSourceMapping.ProvisionedPollerConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProvisionedPollerConfigProperty :: Prelude.Type
+instance ToResourceProperties ProvisionedPollerConfigProperty
+instance Prelude.Eq ProvisionedPollerConfigProperty
+instance Prelude.Show ProvisionedPollerConfigProperty
+instance JSON.ToJSON ProvisionedPollerConfigProperty

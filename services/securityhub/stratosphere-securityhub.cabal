@@ -38,7 +38,31 @@ library
       Stratosphere.SecurityHub.AutomationRule.SeverityUpdateProperty
       Stratosphere.SecurityHub.AutomationRule.StringFilterProperty
       Stratosphere.SecurityHub.AutomationRule.WorkflowUpdateProperty
+      Stratosphere.SecurityHub.ConfigurationPolicy
+      Stratosphere.SecurityHub.ConfigurationPolicy.ParameterConfigurationProperty
+      Stratosphere.SecurityHub.ConfigurationPolicy.ParameterValueProperty
+      Stratosphere.SecurityHub.ConfigurationPolicy.PolicyProperty
+      Stratosphere.SecurityHub.ConfigurationPolicy.SecurityControlCustomParameterProperty
+      Stratosphere.SecurityHub.ConfigurationPolicy.SecurityControlsConfigurationProperty
+      Stratosphere.SecurityHub.ConfigurationPolicy.SecurityHubPolicyProperty
+      Stratosphere.SecurityHub.DelegatedAdmin
+      Stratosphere.SecurityHub.FindingAggregator
       Stratosphere.SecurityHub.Hub
+      Stratosphere.SecurityHub.Insight
+      Stratosphere.SecurityHub.Insight.AwsSecurityFindingFiltersProperty
+      Stratosphere.SecurityHub.Insight.BooleanFilterProperty
+      Stratosphere.SecurityHub.Insight.DateFilterProperty
+      Stratosphere.SecurityHub.Insight.DateRangeProperty
+      Stratosphere.SecurityHub.Insight.IpFilterProperty
+      Stratosphere.SecurityHub.Insight.MapFilterProperty
+      Stratosphere.SecurityHub.Insight.NumberFilterProperty
+      Stratosphere.SecurityHub.Insight.StringFilterProperty
+      Stratosphere.SecurityHub.OrganizationConfiguration
+      Stratosphere.SecurityHub.PolicyAssociation
+      Stratosphere.SecurityHub.ProductSubscription
+      Stratosphere.SecurityHub.SecurityControl
+      Stratosphere.SecurityHub.SecurityControl.ParameterConfigurationProperty
+      Stratosphere.SecurityHub.SecurityControl.ParameterValueProperty
       Stratosphere.SecurityHub.Standard
       Stratosphere.SecurityHub.Standard.StandardsControlProperty
   other-modules:

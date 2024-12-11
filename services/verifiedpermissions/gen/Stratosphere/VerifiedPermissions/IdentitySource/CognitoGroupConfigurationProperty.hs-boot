@@ -1,0 +1,9 @@
+module Stratosphere.VerifiedPermissions.IdentitySource.CognitoGroupConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CognitoGroupConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CognitoGroupConfigurationProperty
+instance Prelude.Eq CognitoGroupConfigurationProperty
+instance Prelude.Show CognitoGroupConfigurationProperty
+instance JSON.ToJSON CognitoGroupConfigurationProperty

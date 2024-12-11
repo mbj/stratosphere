@@ -15,7 +15,7 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Broker
   = Broker {authenticationStrategy :: (Prelude.Maybe (Value Prelude.Text)),
-            autoMinorVersionUpgrade :: (Value Prelude.Bool),
+            autoMinorVersionUpgrade :: (Prelude.Maybe (Value Prelude.Bool)),
             brokerName :: (Value Prelude.Text),
             configuration :: (Prelude.Maybe ConfigurationIdProperty),
             dataReplicationMode :: (Prelude.Maybe (Value Prelude.Text)),
@@ -23,7 +23,7 @@ data Broker
             deploymentMode :: (Value Prelude.Text),
             encryptionOptions :: (Prelude.Maybe EncryptionOptionsProperty),
             engineType :: (Value Prelude.Text),
-            engineVersion :: (Value Prelude.Text),
+            engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
             hostInstanceType :: (Value Prelude.Text),
             ldapServerMetadata :: (Prelude.Maybe LdapServerMetadataProperty),
             logs :: (Prelude.Maybe LogListProperty),
@@ -36,33 +36,29 @@ data Broker
             users :: [UserProperty]}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkBroker ::
-  Value Prelude.Bool
+  Value Prelude.Text
   -> Value Prelude.Text
      -> Value Prelude.Text
         -> Value Prelude.Text
-           -> Value Prelude.Text
-              -> Value Prelude.Text
-                 -> Value Prelude.Bool -> [UserProperty] -> Broker
+           -> Value Prelude.Bool -> [UserProperty] -> Broker
 mkBroker
-  autoMinorVersionUpgrade
   brokerName
   deploymentMode
   engineType
-  engineVersion
   hostInstanceType
   publiclyAccessible
   users
   = Broker
-      {autoMinorVersionUpgrade = autoMinorVersionUpgrade,
-       brokerName = brokerName, deploymentMode = deploymentMode,
-       engineType = engineType, engineVersion = engineVersion,
-       hostInstanceType = hostInstanceType,
+      {brokerName = brokerName, deploymentMode = deploymentMode,
+       engineType = engineType, hostInstanceType = hostInstanceType,
        publiclyAccessible = publiclyAccessible, users = users,
        authenticationStrategy = Prelude.Nothing,
+       autoMinorVersionUpgrade = Prelude.Nothing,
        configuration = Prelude.Nothing,
        dataReplicationMode = Prelude.Nothing,
        dataReplicationPrimaryBrokerArn = Prelude.Nothing,
        encryptionOptions = Prelude.Nothing,
+       engineVersion = Prelude.Nothing,
        ldapServerMetadata = Prelude.Nothing, logs = Prelude.Nothing,
        maintenanceWindowStartTime = Prelude.Nothing,
        securityGroups = Prelude.Nothing, storageType = Prelude.Nothing,
@@ -73,22 +69,23 @@ instance ToResourceProperties Broker where
         {awsType = "AWS::AmazonMQ::Broker", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["AutoMinorVersionUpgrade" JSON..= autoMinorVersionUpgrade,
-                            "BrokerName" JSON..= brokerName,
+                           ["BrokerName" JSON..= brokerName,
                             "DeploymentMode" JSON..= deploymentMode,
                             "EngineType" JSON..= engineType,
-                            "EngineVersion" JSON..= engineVersion,
                             "HostInstanceType" JSON..= hostInstanceType,
                             "PubliclyAccessible" JSON..= publiclyAccessible,
                             "Users" JSON..= users]
                            (Prelude.catMaybes
                               [(JSON..=) "AuthenticationStrategy"
                                  Prelude.<$> authenticationStrategy,
+                               (JSON..=) "AutoMinorVersionUpgrade"
+                                 Prelude.<$> autoMinorVersionUpgrade,
                                (JSON..=) "Configuration" Prelude.<$> configuration,
                                (JSON..=) "DataReplicationMode" Prelude.<$> dataReplicationMode,
                                (JSON..=) "DataReplicationPrimaryBrokerArn"
                                  Prelude.<$> dataReplicationPrimaryBrokerArn,
                                (JSON..=) "EncryptionOptions" Prelude.<$> encryptionOptions,
+                               (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                                (JSON..=) "LdapServerMetadata" Prelude.<$> ldapServerMetadata,
                                (JSON..=) "Logs" Prelude.<$> logs,
                                (JSON..=) "MaintenanceWindowStartTime"
@@ -102,22 +99,23 @@ instance JSON.ToJSON Broker where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["AutoMinorVersionUpgrade" JSON..= autoMinorVersionUpgrade,
-               "BrokerName" JSON..= brokerName,
+              ["BrokerName" JSON..= brokerName,
                "DeploymentMode" JSON..= deploymentMode,
                "EngineType" JSON..= engineType,
-               "EngineVersion" JSON..= engineVersion,
                "HostInstanceType" JSON..= hostInstanceType,
                "PubliclyAccessible" JSON..= publiclyAccessible,
                "Users" JSON..= users]
               (Prelude.catMaybes
                  [(JSON..=) "AuthenticationStrategy"
                     Prelude.<$> authenticationStrategy,
+                  (JSON..=) "AutoMinorVersionUpgrade"
+                    Prelude.<$> autoMinorVersionUpgrade,
                   (JSON..=) "Configuration" Prelude.<$> configuration,
                   (JSON..=) "DataReplicationMode" Prelude.<$> dataReplicationMode,
                   (JSON..=) "DataReplicationPrimaryBrokerArn"
                     Prelude.<$> dataReplicationPrimaryBrokerArn,
                   (JSON..=) "EncryptionOptions" Prelude.<$> encryptionOptions,
+                  (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                   (JSON..=) "LdapServerMetadata" Prelude.<$> ldapServerMetadata,
                   (JSON..=) "Logs" Prelude.<$> logs,
                   (JSON..=) "MaintenanceWindowStartTime"
@@ -133,7 +131,7 @@ instance Property "AuthenticationStrategy" Broker where
 instance Property "AutoMinorVersionUpgrade" Broker where
   type PropertyType "AutoMinorVersionUpgrade" Broker = Value Prelude.Bool
   set newValue Broker {..}
-    = Broker {autoMinorVersionUpgrade = newValue, ..}
+    = Broker {autoMinorVersionUpgrade = Prelude.pure newValue, ..}
 instance Property "BrokerName" Broker where
   type PropertyType "BrokerName" Broker = Value Prelude.Text
   set newValue Broker {..} = Broker {brokerName = newValue, ..}
@@ -162,7 +160,8 @@ instance Property "EngineType" Broker where
   set newValue Broker {..} = Broker {engineType = newValue, ..}
 instance Property "EngineVersion" Broker where
   type PropertyType "EngineVersion" Broker = Value Prelude.Text
-  set newValue Broker {..} = Broker {engineVersion = newValue, ..}
+  set newValue Broker {..}
+    = Broker {engineVersion = Prelude.pure newValue, ..}
 instance Property "HostInstanceType" Broker where
   type PropertyType "HostInstanceType" Broker = Value Prelude.Text
   set newValue Broker {..} = Broker {hostInstanceType = newValue, ..}

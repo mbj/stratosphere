@@ -10,7 +10,10 @@ import Stratosphere.Value
 data Environment
   = Environment {description :: (Prelude.Maybe (Value Prelude.Text)),
                  domainIdentifier :: (Value Prelude.Text),
-                 environmentProfileIdentifier :: (Value Prelude.Text),
+                 environmentAccountIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                 environmentAccountRegion :: (Prelude.Maybe (Value Prelude.Text)),
+                 environmentProfileIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                 environmentRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                  glossaryTerms :: (Prelude.Maybe (ValueList Prelude.Text)),
                  name :: (Value Prelude.Text),
                  projectIdentifier :: (Value Prelude.Text),
@@ -18,19 +21,17 @@ data Environment
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEnvironment ::
   Value Prelude.Text
-  -> Value Prelude.Text
-     -> Value Prelude.Text -> Value Prelude.Text -> Environment
-mkEnvironment
-  domainIdentifier
-  environmentProfileIdentifier
-  name
-  projectIdentifier
+  -> Value Prelude.Text -> Value Prelude.Text -> Environment
+mkEnvironment domainIdentifier name projectIdentifier
   = Environment
-      {domainIdentifier = domainIdentifier,
-       environmentProfileIdentifier = environmentProfileIdentifier,
-       name = name, projectIdentifier = projectIdentifier,
-       description = Prelude.Nothing, glossaryTerms = Prelude.Nothing,
-       userParameters = Prelude.Nothing}
+      {domainIdentifier = domainIdentifier, name = name,
+       projectIdentifier = projectIdentifier,
+       description = Prelude.Nothing,
+       environmentAccountIdentifier = Prelude.Nothing,
+       environmentAccountRegion = Prelude.Nothing,
+       environmentProfileIdentifier = Prelude.Nothing,
+       environmentRoleArn = Prelude.Nothing,
+       glossaryTerms = Prelude.Nothing, userParameters = Prelude.Nothing}
 instance ToResourceProperties Environment where
   toResourceProperties Environment {..}
     = ResourceProperties
@@ -38,12 +39,17 @@ instance ToResourceProperties Environment where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["DomainIdentifier" JSON..= domainIdentifier,
-                            "EnvironmentProfileIdentifier"
-                              JSON..= environmentProfileIdentifier,
-                            "Name" JSON..= name, "ProjectIdentifier" JSON..= projectIdentifier]
+                           ["DomainIdentifier" JSON..= domainIdentifier, "Name" JSON..= name,
+                            "ProjectIdentifier" JSON..= projectIdentifier]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "EnvironmentAccountIdentifier"
+                                 Prelude.<$> environmentAccountIdentifier,
+                               (JSON..=) "EnvironmentAccountRegion"
+                                 Prelude.<$> environmentAccountRegion,
+                               (JSON..=) "EnvironmentProfileIdentifier"
+                                 Prelude.<$> environmentProfileIdentifier,
+                               (JSON..=) "EnvironmentRoleArn" Prelude.<$> environmentRoleArn,
                                (JSON..=) "GlossaryTerms" Prelude.<$> glossaryTerms,
                                (JSON..=) "UserParameters" Prelude.<$> userParameters]))}
 instance JSON.ToJSON Environment where
@@ -51,12 +57,17 @@ instance JSON.ToJSON Environment where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["DomainIdentifier" JSON..= domainIdentifier,
-               "EnvironmentProfileIdentifier"
-                 JSON..= environmentProfileIdentifier,
-               "Name" JSON..= name, "ProjectIdentifier" JSON..= projectIdentifier]
+              ["DomainIdentifier" JSON..= domainIdentifier, "Name" JSON..= name,
+               "ProjectIdentifier" JSON..= projectIdentifier]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "EnvironmentAccountIdentifier"
+                    Prelude.<$> environmentAccountIdentifier,
+                  (JSON..=) "EnvironmentAccountRegion"
+                    Prelude.<$> environmentAccountRegion,
+                  (JSON..=) "EnvironmentProfileIdentifier"
+                    Prelude.<$> environmentProfileIdentifier,
+                  (JSON..=) "EnvironmentRoleArn" Prelude.<$> environmentRoleArn,
                   (JSON..=) "GlossaryTerms" Prelude.<$> glossaryTerms,
                   (JSON..=) "UserParameters" Prelude.<$> userParameters])))
 instance Property "Description" Environment where
@@ -67,10 +78,25 @@ instance Property "DomainIdentifier" Environment where
   type PropertyType "DomainIdentifier" Environment = Value Prelude.Text
   set newValue Environment {..}
     = Environment {domainIdentifier = newValue, ..}
+instance Property "EnvironmentAccountIdentifier" Environment where
+  type PropertyType "EnvironmentAccountIdentifier" Environment = Value Prelude.Text
+  set newValue Environment {..}
+    = Environment
+        {environmentAccountIdentifier = Prelude.pure newValue, ..}
+instance Property "EnvironmentAccountRegion" Environment where
+  type PropertyType "EnvironmentAccountRegion" Environment = Value Prelude.Text
+  set newValue Environment {..}
+    = Environment
+        {environmentAccountRegion = Prelude.pure newValue, ..}
 instance Property "EnvironmentProfileIdentifier" Environment where
   type PropertyType "EnvironmentProfileIdentifier" Environment = Value Prelude.Text
   set newValue Environment {..}
-    = Environment {environmentProfileIdentifier = newValue, ..}
+    = Environment
+        {environmentProfileIdentifier = Prelude.pure newValue, ..}
+instance Property "EnvironmentRoleArn" Environment where
+  type PropertyType "EnvironmentRoleArn" Environment = Value Prelude.Text
+  set newValue Environment {..}
+    = Environment {environmentRoleArn = Prelude.pure newValue, ..}
 instance Property "GlossaryTerms" Environment where
   type PropertyType "GlossaryTerms" Environment = ValueList Prelude.Text
   set newValue Environment {..}

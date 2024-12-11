@@ -1,0 +1,91 @@
+module Stratosphere.WorkSpaces.WorkspacesPool (
+        module Exports, WorkspacesPool(..), mkWorkspacesPool
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.WorkSpaces.WorkspacesPool.ApplicationSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.WorkSpaces.WorkspacesPool.CapacityProperty as Exports
+import {-# SOURCE #-} Stratosphere.WorkSpaces.WorkspacesPool.TimeoutSettingsProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Tag
+import Stratosphere.Value
+data WorkspacesPool
+  = WorkspacesPool {applicationSettings :: (Prelude.Maybe ApplicationSettingsProperty),
+                    bundleId :: (Value Prelude.Text),
+                    capacity :: CapacityProperty,
+                    description :: (Prelude.Maybe (Value Prelude.Text)),
+                    directoryId :: (Value Prelude.Text),
+                    poolName :: (Value Prelude.Text),
+                    tags :: (Prelude.Maybe [Tag]),
+                    timeoutSettings :: (Prelude.Maybe TimeoutSettingsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkWorkspacesPool ::
+  Value Prelude.Text
+  -> CapacityProperty
+     -> Value Prelude.Text -> Value Prelude.Text -> WorkspacesPool
+mkWorkspacesPool bundleId capacity directoryId poolName
+  = WorkspacesPool
+      {bundleId = bundleId, capacity = capacity,
+       directoryId = directoryId, poolName = poolName,
+       applicationSettings = Prelude.Nothing,
+       description = Prelude.Nothing, tags = Prelude.Nothing,
+       timeoutSettings = Prelude.Nothing}
+instance ToResourceProperties WorkspacesPool where
+  toResourceProperties WorkspacesPool {..}
+    = ResourceProperties
+        {awsType = "AWS::WorkSpaces::WorkspacesPool",
+         supportsTags = Prelude.True,
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["BundleId" JSON..= bundleId, "Capacity" JSON..= capacity,
+                            "DirectoryId" JSON..= directoryId, "PoolName" JSON..= poolName]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ApplicationSettings" Prelude.<$> applicationSettings,
+                               (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "TimeoutSettings" Prelude.<$> timeoutSettings]))}
+instance JSON.ToJSON WorkspacesPool where
+  toJSON WorkspacesPool {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["BundleId" JSON..= bundleId, "Capacity" JSON..= capacity,
+               "DirectoryId" JSON..= directoryId, "PoolName" JSON..= poolName]
+              (Prelude.catMaybes
+                 [(JSON..=) "ApplicationSettings" Prelude.<$> applicationSettings,
+                  (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "TimeoutSettings" Prelude.<$> timeoutSettings])))
+instance Property "ApplicationSettings" WorkspacesPool where
+  type PropertyType "ApplicationSettings" WorkspacesPool = ApplicationSettingsProperty
+  set newValue WorkspacesPool {..}
+    = WorkspacesPool {applicationSettings = Prelude.pure newValue, ..}
+instance Property "BundleId" WorkspacesPool where
+  type PropertyType "BundleId" WorkspacesPool = Value Prelude.Text
+  set newValue WorkspacesPool {..}
+    = WorkspacesPool {bundleId = newValue, ..}
+instance Property "Capacity" WorkspacesPool where
+  type PropertyType "Capacity" WorkspacesPool = CapacityProperty
+  set newValue WorkspacesPool {..}
+    = WorkspacesPool {capacity = newValue, ..}
+instance Property "Description" WorkspacesPool where
+  type PropertyType "Description" WorkspacesPool = Value Prelude.Text
+  set newValue WorkspacesPool {..}
+    = WorkspacesPool {description = Prelude.pure newValue, ..}
+instance Property "DirectoryId" WorkspacesPool where
+  type PropertyType "DirectoryId" WorkspacesPool = Value Prelude.Text
+  set newValue WorkspacesPool {..}
+    = WorkspacesPool {directoryId = newValue, ..}
+instance Property "PoolName" WorkspacesPool where
+  type PropertyType "PoolName" WorkspacesPool = Value Prelude.Text
+  set newValue WorkspacesPool {..}
+    = WorkspacesPool {poolName = newValue, ..}
+instance Property "Tags" WorkspacesPool where
+  type PropertyType "Tags" WorkspacesPool = [Tag]
+  set newValue WorkspacesPool {..}
+    = WorkspacesPool {tags = Prelude.pure newValue, ..}
+instance Property "TimeoutSettings" WorkspacesPool where
+  type PropertyType "TimeoutSettings" WorkspacesPool = TimeoutSettingsProperty
+  set newValue WorkspacesPool {..}
+    = WorkspacesPool {timeoutSettings = Prelude.pure newValue, ..}

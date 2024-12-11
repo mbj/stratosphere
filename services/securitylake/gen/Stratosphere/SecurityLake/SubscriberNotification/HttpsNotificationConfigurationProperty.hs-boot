@@ -1,0 +1,9 @@
+module Stratosphere.SecurityLake.SubscriberNotification.HttpsNotificationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HttpsNotificationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties HttpsNotificationConfigurationProperty
+instance Prelude.Eq HttpsNotificationConfigurationProperty
+instance Prelude.Show HttpsNotificationConfigurationProperty
+instance JSON.ToJSON HttpsNotificationConfigurationProperty

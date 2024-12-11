@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.SegmentDefinition.DateDimensionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DateDimensionProperty :: Prelude.Type
+instance ToResourceProperties DateDimensionProperty
+instance Prelude.Eq DateDimensionProperty
+instance Prelude.Show DateDimensionProperty
+instance JSON.ToJSON DateDimensionProperty

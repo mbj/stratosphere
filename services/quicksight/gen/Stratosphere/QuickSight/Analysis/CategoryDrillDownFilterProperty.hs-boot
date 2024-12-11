@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.CategoryDrillDownFilterProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data CategoryDrillDownFilterProperty :: Prelude.Type
-instance ToResourceProperties CategoryDrillDownFilterProperty
-instance Prelude.Eq CategoryDrillDownFilterProperty
-instance Prelude.Show CategoryDrillDownFilterProperty
-instance JSON.ToJSON CategoryDrillDownFilterProperty

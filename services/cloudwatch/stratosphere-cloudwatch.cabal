@@ -33,6 +33,7 @@ library
       Stratosphere.CloudWatch.AnomalyDetector
       Stratosphere.CloudWatch.AnomalyDetector.ConfigurationProperty
       Stratosphere.CloudWatch.AnomalyDetector.DimensionProperty
+      Stratosphere.CloudWatch.AnomalyDetector.MetricCharacteristicsProperty
       Stratosphere.CloudWatch.AnomalyDetector.MetricDataQueriesProperty
       Stratosphere.CloudWatch.AnomalyDetector.MetricDataQueryProperty
       Stratosphere.CloudWatch.AnomalyDetector.MetricMathAnomalyDetectorProperty

@@ -13,6 +13,7 @@ data Connector
   = Connector {accessRole :: (Value Prelude.Text),
                as2Config :: (Prelude.Maybe As2ConfigProperty),
                loggingRole :: (Prelude.Maybe (Value Prelude.Text)),
+               securityPolicyName :: (Prelude.Maybe (Value Prelude.Text)),
                sftpConfig :: (Prelude.Maybe SftpConfigProperty),
                tags :: (Prelude.Maybe [Tag]),
                url :: (Value Prelude.Text)}
@@ -22,7 +23,8 @@ mkConnector ::
 mkConnector accessRole url
   = Connector
       {accessRole = accessRole, url = url, as2Config = Prelude.Nothing,
-       loggingRole = Prelude.Nothing, sftpConfig = Prelude.Nothing,
+       loggingRole = Prelude.Nothing,
+       securityPolicyName = Prelude.Nothing, sftpConfig = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties Connector where
   toResourceProperties Connector {..}
@@ -34,6 +36,7 @@ instance ToResourceProperties Connector where
                            (Prelude.catMaybes
                               [(JSON..=) "As2Config" Prelude.<$> as2Config,
                                (JSON..=) "LoggingRole" Prelude.<$> loggingRole,
+                               (JSON..=) "SecurityPolicyName" Prelude.<$> securityPolicyName,
                                (JSON..=) "SftpConfig" Prelude.<$> sftpConfig,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Connector where
@@ -45,6 +48,7 @@ instance JSON.ToJSON Connector where
               (Prelude.catMaybes
                  [(JSON..=) "As2Config" Prelude.<$> as2Config,
                   (JSON..=) "LoggingRole" Prelude.<$> loggingRole,
+                  (JSON..=) "SecurityPolicyName" Prelude.<$> securityPolicyName,
                   (JSON..=) "SftpConfig" Prelude.<$> sftpConfig,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AccessRole" Connector where
@@ -58,6 +62,10 @@ instance Property "LoggingRole" Connector where
   type PropertyType "LoggingRole" Connector = Value Prelude.Text
   set newValue Connector {..}
     = Connector {loggingRole = Prelude.pure newValue, ..}
+instance Property "SecurityPolicyName" Connector where
+  type PropertyType "SecurityPolicyName" Connector = Value Prelude.Text
+  set newValue Connector {..}
+    = Connector {securityPolicyName = Prelude.pure newValue, ..}
 instance Property "SftpConfig" Connector where
   type PropertyType "SftpConfig" Connector = SftpConfigProperty
   set newValue Connector {..}

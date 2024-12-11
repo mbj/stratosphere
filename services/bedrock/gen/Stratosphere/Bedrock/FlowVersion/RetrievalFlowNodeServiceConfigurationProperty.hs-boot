@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowVersion.RetrievalFlowNodeServiceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RetrievalFlowNodeServiceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RetrievalFlowNodeServiceConfigurationProperty
+instance Prelude.Eq RetrievalFlowNodeServiceConfigurationProperty
+instance Prelude.Show RetrievalFlowNodeServiceConfigurationProperty
+instance JSON.ToJSON RetrievalFlowNodeServiceConfigurationProperty

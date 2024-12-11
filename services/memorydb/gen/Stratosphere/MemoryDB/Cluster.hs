@@ -15,10 +15,12 @@ data Cluster
              clusterName :: (Value Prelude.Text),
              dataTiering :: (Prelude.Maybe (Value Prelude.Text)),
              description :: (Prelude.Maybe (Value Prelude.Text)),
+             engine :: (Prelude.Maybe (Value Prelude.Text)),
              engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
              finalSnapshotName :: (Prelude.Maybe (Value Prelude.Text)),
              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
              maintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
+             multiRegionClusterName :: (Prelude.Maybe (Value Prelude.Text)),
              nodeType :: (Value Prelude.Text),
              numReplicasPerShard :: (Prelude.Maybe (Value Prelude.Integer)),
              numShards :: (Prelude.Maybe (Value Prelude.Integer)),
@@ -43,9 +45,11 @@ mkCluster aCLName clusterName nodeType
       {aCLName = aCLName, clusterName = clusterName, nodeType = nodeType,
        autoMinorVersionUpgrade = Prelude.Nothing,
        clusterEndpoint = Prelude.Nothing, dataTiering = Prelude.Nothing,
-       description = Prelude.Nothing, engineVersion = Prelude.Nothing,
+       description = Prelude.Nothing, engine = Prelude.Nothing,
+       engineVersion = Prelude.Nothing,
        finalSnapshotName = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
        maintenanceWindow = Prelude.Nothing,
+       multiRegionClusterName = Prelude.Nothing,
        numReplicasPerShard = Prelude.Nothing, numShards = Prelude.Nothing,
        parameterGroupName = Prelude.Nothing, port = Prelude.Nothing,
        securityGroupIds = Prelude.Nothing, snapshotArns = Prelude.Nothing,
@@ -69,10 +73,13 @@ instance ToResourceProperties Cluster where
                                (JSON..=) "ClusterEndpoint" Prelude.<$> clusterEndpoint,
                                (JSON..=) "DataTiering" Prelude.<$> dataTiering,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "Engine" Prelude.<$> engine,
                                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                                (JSON..=) "FinalSnapshotName" Prelude.<$> finalSnapshotName,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                                (JSON..=) "MaintenanceWindow" Prelude.<$> maintenanceWindow,
+                               (JSON..=) "MultiRegionClusterName"
+                                 Prelude.<$> multiRegionClusterName,
                                (JSON..=) "NumReplicasPerShard" Prelude.<$> numReplicasPerShard,
                                (JSON..=) "NumShards" Prelude.<$> numShards,
                                (JSON..=) "ParameterGroupName" Prelude.<$> parameterGroupName,
@@ -101,10 +108,13 @@ instance JSON.ToJSON Cluster where
                   (JSON..=) "ClusterEndpoint" Prelude.<$> clusterEndpoint,
                   (JSON..=) "DataTiering" Prelude.<$> dataTiering,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "Engine" Prelude.<$> engine,
                   (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                   (JSON..=) "FinalSnapshotName" Prelude.<$> finalSnapshotName,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                   (JSON..=) "MaintenanceWindow" Prelude.<$> maintenanceWindow,
+                  (JSON..=) "MultiRegionClusterName"
+                    Prelude.<$> multiRegionClusterName,
                   (JSON..=) "NumReplicasPerShard" Prelude.<$> numReplicasPerShard,
                   (JSON..=) "NumShards" Prelude.<$> numShards,
                   (JSON..=) "ParameterGroupName" Prelude.<$> parameterGroupName,
@@ -142,6 +152,10 @@ instance Property "Description" Cluster where
   type PropertyType "Description" Cluster = Value Prelude.Text
   set newValue Cluster {..}
     = Cluster {description = Prelude.pure newValue, ..}
+instance Property "Engine" Cluster where
+  type PropertyType "Engine" Cluster = Value Prelude.Text
+  set newValue Cluster {..}
+    = Cluster {engine = Prelude.pure newValue, ..}
 instance Property "EngineVersion" Cluster where
   type PropertyType "EngineVersion" Cluster = Value Prelude.Text
   set newValue Cluster {..}
@@ -158,6 +172,10 @@ instance Property "MaintenanceWindow" Cluster where
   type PropertyType "MaintenanceWindow" Cluster = Value Prelude.Text
   set newValue Cluster {..}
     = Cluster {maintenanceWindow = Prelude.pure newValue, ..}
+instance Property "MultiRegionClusterName" Cluster where
+  type PropertyType "MultiRegionClusterName" Cluster = Value Prelude.Text
+  set newValue Cluster {..}
+    = Cluster {multiRegionClusterName = Prelude.pure newValue, ..}
 instance Property "NodeType" Cluster where
   type PropertyType "NodeType" Cluster = Value Prelude.Text
   set newValue Cluster {..} = Cluster {nodeType = newValue, ..}

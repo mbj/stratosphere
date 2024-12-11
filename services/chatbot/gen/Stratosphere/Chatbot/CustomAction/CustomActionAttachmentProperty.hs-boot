@@ -1,0 +1,9 @@
+module Stratosphere.Chatbot.CustomAction.CustomActionAttachmentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomActionAttachmentProperty :: Prelude.Type
+instance ToResourceProperties CustomActionAttachmentProperty
+instance Prelude.Eq CustomActionAttachmentProperty
+instance Prelude.Show CustomActionAttachmentProperty
+instance JSON.ToJSON CustomActionAttachmentProperty

@@ -7,13 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AvailSuppressionProperty
-  = AvailSuppressionProperty {mode :: (Prelude.Maybe (Value Prelude.Text)),
+  = AvailSuppressionProperty {fillPolicy :: (Prelude.Maybe (Value Prelude.Text)),
+                              mode :: (Prelude.Maybe (Value Prelude.Text)),
                               value :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAvailSuppressionProperty :: AvailSuppressionProperty
 mkAvailSuppressionProperty
   = AvailSuppressionProperty
-      {mode = Prelude.Nothing, value = Prelude.Nothing}
+      {fillPolicy = Prelude.Nothing, mode = Prelude.Nothing,
+       value = Prelude.Nothing}
 instance ToResourceProperties AvailSuppressionProperty where
   toResourceProperties AvailSuppressionProperty {..}
     = ResourceProperties
@@ -21,15 +23,21 @@ instance ToResourceProperties AvailSuppressionProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Mode" Prelude.<$> mode,
+                           [(JSON..=) "FillPolicy" Prelude.<$> fillPolicy,
+                            (JSON..=) "Mode" Prelude.<$> mode,
                             (JSON..=) "Value" Prelude.<$> value])}
 instance JSON.ToJSON AvailSuppressionProperty where
   toJSON AvailSuppressionProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Mode" Prelude.<$> mode,
+              [(JSON..=) "FillPolicy" Prelude.<$> fillPolicy,
+               (JSON..=) "Mode" Prelude.<$> mode,
                (JSON..=) "Value" Prelude.<$> value]))
+instance Property "FillPolicy" AvailSuppressionProperty where
+  type PropertyType "FillPolicy" AvailSuppressionProperty = Value Prelude.Text
+  set newValue AvailSuppressionProperty {..}
+    = AvailSuppressionProperty {fillPolicy = Prelude.pure newValue, ..}
 instance Property "Mode" AvailSuppressionProperty where
   type PropertyType "Mode" AvailSuppressionProperty = Value Prelude.Text
   set newValue AvailSuppressionProperty {..}

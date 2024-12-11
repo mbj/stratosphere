@@ -5,12 +5,14 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data IdentityProvider
   = IdentityProvider {identityProviderDetails :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
                       identityProviderName :: (Value Prelude.Text),
                       identityProviderType :: (Value Prelude.Text),
-                      portalArn :: (Prelude.Maybe (Value Prelude.Text))}
+                      portalArn :: (Prelude.Maybe (Value Prelude.Text)),
+                      tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkIdentityProvider ::
   Prelude.Map Prelude.Text (Value Prelude.Text)
@@ -23,18 +25,20 @@ mkIdentityProvider
       {identityProviderDetails = identityProviderDetails,
        identityProviderName = identityProviderName,
        identityProviderType = identityProviderType,
-       portalArn = Prelude.Nothing}
+       portalArn = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties IdentityProvider where
   toResourceProperties IdentityProvider {..}
     = ResourceProperties
         {awsType = "AWS::WorkSpacesWeb::IdentityProvider",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["IdentityProviderDetails" JSON..= identityProviderDetails,
                             "IdentityProviderName" JSON..= identityProviderName,
                             "IdentityProviderType" JSON..= identityProviderType]
-                           (Prelude.catMaybes [(JSON..=) "PortalArn" Prelude.<$> portalArn]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "PortalArn" Prelude.<$> portalArn,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON IdentityProvider where
   toJSON IdentityProvider {..}
     = JSON.object
@@ -43,7 +47,9 @@ instance JSON.ToJSON IdentityProvider where
               ["IdentityProviderDetails" JSON..= identityProviderDetails,
                "IdentityProviderName" JSON..= identityProviderName,
                "IdentityProviderType" JSON..= identityProviderType]
-              (Prelude.catMaybes [(JSON..=) "PortalArn" Prelude.<$> portalArn])))
+              (Prelude.catMaybes
+                 [(JSON..=) "PortalArn" Prelude.<$> portalArn,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "IdentityProviderDetails" IdentityProvider where
   type PropertyType "IdentityProviderDetails" IdentityProvider = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue IdentityProvider {..}
@@ -60,3 +66,7 @@ instance Property "PortalArn" IdentityProvider where
   type PropertyType "PortalArn" IdentityProvider = Value Prelude.Text
   set newValue IdentityProvider {..}
     = IdentityProvider {portalArn = Prelude.pure newValue, ..}
+instance Property "Tags" IdentityProvider where
+  type PropertyType "Tags" IdentityProvider = [Tag]
+  set newValue IdentityProvider {..}
+    = IdentityProvider {tags = Prelude.pure newValue, ..}

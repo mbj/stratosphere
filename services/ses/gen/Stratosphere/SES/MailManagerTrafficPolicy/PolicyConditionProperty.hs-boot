@@ -1,0 +1,9 @@
+module Stratosphere.SES.MailManagerTrafficPolicy.PolicyConditionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PolicyConditionProperty :: Prelude.Type
+instance ToResourceProperties PolicyConditionProperty
+instance Prelude.Eq PolicyConditionProperty
+instance Prelude.Show PolicyConditionProperty
+instance JSON.ToJSON PolicyConditionProperty

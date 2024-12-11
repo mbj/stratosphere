@@ -12,6 +12,7 @@ import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointRe
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.ProcessingConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.RetryOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.SecretsManagerConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HttpEndpointDestinationConfigurationProperty
@@ -23,7 +24,8 @@ data HttpEndpointDestinationConfigurationProperty
                                                   retryOptions :: (Prelude.Maybe RetryOptionsProperty),
                                                   roleARN :: (Prelude.Maybe (Value Prelude.Text)),
                                                   s3BackupMode :: (Prelude.Maybe (Value Prelude.Text)),
-                                                  s3Configuration :: S3DestinationConfigurationProperty}
+                                                  s3Configuration :: S3DestinationConfigurationProperty,
+                                                  secretsManagerConfiguration :: (Prelude.Maybe SecretsManagerConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHttpEndpointDestinationConfigurationProperty ::
   HttpEndpointConfigurationProperty
@@ -40,7 +42,8 @@ mkHttpEndpointDestinationConfigurationProperty
        processingConfiguration = Prelude.Nothing,
        requestConfiguration = Prelude.Nothing,
        retryOptions = Prelude.Nothing, roleARN = Prelude.Nothing,
-       s3BackupMode = Prelude.Nothing}
+       s3BackupMode = Prelude.Nothing,
+       secretsManagerConfiguration = Prelude.Nothing}
 instance ToResourceProperties HttpEndpointDestinationConfigurationProperty where
   toResourceProperties
     HttpEndpointDestinationConfigurationProperty {..}
@@ -60,7 +63,9 @@ instance ToResourceProperties HttpEndpointDestinationConfigurationProperty where
                                (JSON..=) "RequestConfiguration" Prelude.<$> requestConfiguration,
                                (JSON..=) "RetryOptions" Prelude.<$> retryOptions,
                                (JSON..=) "RoleARN" Prelude.<$> roleARN,
-                               (JSON..=) "S3BackupMode" Prelude.<$> s3BackupMode]))}
+                               (JSON..=) "S3BackupMode" Prelude.<$> s3BackupMode,
+                               (JSON..=) "SecretsManagerConfiguration"
+                                 Prelude.<$> secretsManagerConfiguration]))}
 instance JSON.ToJSON HttpEndpointDestinationConfigurationProperty where
   toJSON HttpEndpointDestinationConfigurationProperty {..}
     = JSON.object
@@ -77,7 +82,9 @@ instance JSON.ToJSON HttpEndpointDestinationConfigurationProperty where
                   (JSON..=) "RequestConfiguration" Prelude.<$> requestConfiguration,
                   (JSON..=) "RetryOptions" Prelude.<$> retryOptions,
                   (JSON..=) "RoleARN" Prelude.<$> roleARN,
-                  (JSON..=) "S3BackupMode" Prelude.<$> s3BackupMode])))
+                  (JSON..=) "S3BackupMode" Prelude.<$> s3BackupMode,
+                  (JSON..=) "SecretsManagerConfiguration"
+                    Prelude.<$> secretsManagerConfiguration])))
 instance Property "BufferingHints" HttpEndpointDestinationConfigurationProperty where
   type PropertyType "BufferingHints" HttpEndpointDestinationConfigurationProperty = BufferingHintsProperty
   set newValue HttpEndpointDestinationConfigurationProperty {..}
@@ -123,3 +130,8 @@ instance Property "S3Configuration" HttpEndpointDestinationConfigurationProperty
   set newValue HttpEndpointDestinationConfigurationProperty {..}
     = HttpEndpointDestinationConfigurationProperty
         {s3Configuration = newValue, ..}
+instance Property "SecretsManagerConfiguration" HttpEndpointDestinationConfigurationProperty where
+  type PropertyType "SecretsManagerConfiguration" HttpEndpointDestinationConfigurationProperty = SecretsManagerConfigurationProperty
+  set newValue HttpEndpointDestinationConfigurationProperty {..}
+    = HttpEndpointDestinationConfigurationProperty
+        {secretsManagerConfiguration = Prelude.pure newValue, ..}

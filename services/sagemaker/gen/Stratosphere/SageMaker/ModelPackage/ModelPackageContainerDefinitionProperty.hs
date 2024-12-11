@@ -5,6 +5,7 @@ module Stratosphere.SageMaker.ModelPackage.ModelPackageContainerDefinitionProper
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelDataSourceProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.ModelPackage.ModelInputProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -15,6 +16,7 @@ data ModelPackageContainerDefinitionProperty
                                              frameworkVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                              image :: (Value Prelude.Text),
                                              imageDigest :: (Prelude.Maybe (Value Prelude.Text)),
+                                             modelDataSource :: (Prelude.Maybe ModelDataSourceProperty),
                                              modelDataUrl :: (Prelude.Maybe (Value Prelude.Text)),
                                              modelInput :: (Prelude.Maybe ModelInputProperty),
                                              nearestModelName :: (Prelude.Maybe (Value Prelude.Text))}
@@ -26,8 +28,8 @@ mkModelPackageContainerDefinitionProperty image
       {image = image, containerHostname = Prelude.Nothing,
        environment = Prelude.Nothing, framework = Prelude.Nothing,
        frameworkVersion = Prelude.Nothing, imageDigest = Prelude.Nothing,
-       modelDataUrl = Prelude.Nothing, modelInput = Prelude.Nothing,
-       nearestModelName = Prelude.Nothing}
+       modelDataSource = Prelude.Nothing, modelDataUrl = Prelude.Nothing,
+       modelInput = Prelude.Nothing, nearestModelName = Prelude.Nothing}
 instance ToResourceProperties ModelPackageContainerDefinitionProperty where
   toResourceProperties ModelPackageContainerDefinitionProperty {..}
     = ResourceProperties
@@ -42,6 +44,7 @@ instance ToResourceProperties ModelPackageContainerDefinitionProperty where
                                (JSON..=) "Framework" Prelude.<$> framework,
                                (JSON..=) "FrameworkVersion" Prelude.<$> frameworkVersion,
                                (JSON..=) "ImageDigest" Prelude.<$> imageDigest,
+                               (JSON..=) "ModelDataSource" Prelude.<$> modelDataSource,
                                (JSON..=) "ModelDataUrl" Prelude.<$> modelDataUrl,
                                (JSON..=) "ModelInput" Prelude.<$> modelInput,
                                (JSON..=) "NearestModelName" Prelude.<$> nearestModelName]))}
@@ -57,6 +60,7 @@ instance JSON.ToJSON ModelPackageContainerDefinitionProperty where
                   (JSON..=) "Framework" Prelude.<$> framework,
                   (JSON..=) "FrameworkVersion" Prelude.<$> frameworkVersion,
                   (JSON..=) "ImageDigest" Prelude.<$> imageDigest,
+                  (JSON..=) "ModelDataSource" Prelude.<$> modelDataSource,
                   (JSON..=) "ModelDataUrl" Prelude.<$> modelDataUrl,
                   (JSON..=) "ModelInput" Prelude.<$> modelInput,
                   (JSON..=) "NearestModelName" Prelude.<$> nearestModelName])))
@@ -89,6 +93,11 @@ instance Property "ImageDigest" ModelPackageContainerDefinitionProperty where
   set newValue ModelPackageContainerDefinitionProperty {..}
     = ModelPackageContainerDefinitionProperty
         {imageDigest = Prelude.pure newValue, ..}
+instance Property "ModelDataSource" ModelPackageContainerDefinitionProperty where
+  type PropertyType "ModelDataSource" ModelPackageContainerDefinitionProperty = ModelDataSourceProperty
+  set newValue ModelPackageContainerDefinitionProperty {..}
+    = ModelPackageContainerDefinitionProperty
+        {modelDataSource = Prelude.pure newValue, ..}
 instance Property "ModelDataUrl" ModelPackageContainerDefinitionProperty where
   type PropertyType "ModelDataUrl" ModelPackageContainerDefinitionProperty = Value Prelude.Text
   set newValue ModelPackageContainerDefinitionProperty {..}

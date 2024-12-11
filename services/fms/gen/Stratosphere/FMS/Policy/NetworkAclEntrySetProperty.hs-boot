@@ -1,0 +1,9 @@
+module Stratosphere.FMS.Policy.NetworkAclEntrySetProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkAclEntrySetProperty :: Prelude.Type
+instance ToResourceProperties NetworkAclEntrySetProperty
+instance Prelude.Eq NetworkAclEntrySetProperty
+instance Prelude.Show NetworkAclEntrySetProperty
+instance JSON.ToJSON NetworkAclEntrySetProperty

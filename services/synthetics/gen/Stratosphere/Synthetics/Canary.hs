@@ -20,6 +20,8 @@ data Canary
             executionRoleArn :: (Value Prelude.Text),
             failureRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
             name :: (Value Prelude.Text),
+            provisionedResourceCleanup :: (Prelude.Maybe (Value Prelude.Text)),
+            resourcesToReplicateTags :: (Prelude.Maybe (ValueList Prelude.Text)),
             runConfig :: (Prelude.Maybe RunConfigProperty),
             runtimeVersion :: (Value Prelude.Text),
             schedule :: ScheduleProperty,
@@ -48,6 +50,8 @@ mkCanary
        runtimeVersion = runtimeVersion, schedule = schedule,
        artifactConfig = Prelude.Nothing,
        failureRetentionPeriod = Prelude.Nothing,
+       provisionedResourceCleanup = Prelude.Nothing,
+       resourcesToReplicateTags = Prelude.Nothing,
        runConfig = Prelude.Nothing,
        startCanaryAfterCreation = Prelude.Nothing,
        successRetentionPeriod = Prelude.Nothing, tags = Prelude.Nothing,
@@ -66,6 +70,10 @@ instance ToResourceProperties Canary where
                               [(JSON..=) "ArtifactConfig" Prelude.<$> artifactConfig,
                                (JSON..=) "FailureRetentionPeriod"
                                  Prelude.<$> failureRetentionPeriod,
+                               (JSON..=) "ProvisionedResourceCleanup"
+                                 Prelude.<$> provisionedResourceCleanup,
+                               (JSON..=) "ResourcesToReplicateTags"
+                                 Prelude.<$> resourcesToReplicateTags,
                                (JSON..=) "RunConfig" Prelude.<$> runConfig,
                                (JSON..=) "StartCanaryAfterCreation"
                                  Prelude.<$> startCanaryAfterCreation,
@@ -87,6 +95,10 @@ instance JSON.ToJSON Canary where
                  [(JSON..=) "ArtifactConfig" Prelude.<$> artifactConfig,
                   (JSON..=) "FailureRetentionPeriod"
                     Prelude.<$> failureRetentionPeriod,
+                  (JSON..=) "ProvisionedResourceCleanup"
+                    Prelude.<$> provisionedResourceCleanup,
+                  (JSON..=) "ResourcesToReplicateTags"
+                    Prelude.<$> resourcesToReplicateTags,
                   (JSON..=) "RunConfig" Prelude.<$> runConfig,
                   (JSON..=) "StartCanaryAfterCreation"
                     Prelude.<$> startCanaryAfterCreation,
@@ -116,6 +128,14 @@ instance Property "FailureRetentionPeriod" Canary where
 instance Property "Name" Canary where
   type PropertyType "Name" Canary = Value Prelude.Text
   set newValue Canary {..} = Canary {name = newValue, ..}
+instance Property "ProvisionedResourceCleanup" Canary where
+  type PropertyType "ProvisionedResourceCleanup" Canary = Value Prelude.Text
+  set newValue Canary {..}
+    = Canary {provisionedResourceCleanup = Prelude.pure newValue, ..}
+instance Property "ResourcesToReplicateTags" Canary where
+  type PropertyType "ResourcesToReplicateTags" Canary = ValueList Prelude.Text
+  set newValue Canary {..}
+    = Canary {resourcesToReplicateTags = Prelude.pure newValue, ..}
 instance Property "RunConfig" Canary where
   type PropertyType "RunConfig" Canary = RunConfigProperty
   set newValue Canary {..}

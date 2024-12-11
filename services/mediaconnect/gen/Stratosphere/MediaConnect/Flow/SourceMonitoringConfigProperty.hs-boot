@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.Flow.SourceMonitoringConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SourceMonitoringConfigProperty :: Prelude.Type
+instance ToResourceProperties SourceMonitoringConfigProperty
+instance Prelude.Eq SourceMonitoringConfigProperty
+instance Prelude.Show SourceMonitoringConfigProperty
+instance JSON.ToJSON SourceMonitoringConfigProperty

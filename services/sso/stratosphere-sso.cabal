@@ -25,7 +25,12 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.SSO.Application
+      Stratosphere.SSO.Application.PortalOptionsConfigurationProperty
+      Stratosphere.SSO.Application.SignInOptionsProperty
+      Stratosphere.SSO.ApplicationAssignment
       Stratosphere.SSO.Assignment
+      Stratosphere.SSO.Instance
       Stratosphere.SSO.InstanceAccessControlAttributeConfiguration
       Stratosphere.SSO.InstanceAccessControlAttributeConfiguration.AccessControlAttributeProperty
       Stratosphere.SSO.InstanceAccessControlAttributeConfiguration.AccessControlAttributeValueProperty

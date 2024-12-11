@@ -1,0 +1,9 @@
+module Stratosphere.IoTFleetWise.Campaign.MqttTopicConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MqttTopicConfigProperty :: Prelude.Type
+instance ToResourceProperties MqttTopicConfigProperty
+instance Prelude.Eq MqttTopicConfigProperty
+instance Prelude.Show MqttTopicConfigProperty
+instance JSON.ToJSON MqttTopicConfigProperty

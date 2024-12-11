@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.DataSetConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data DataSetConfigurationProperty :: Prelude.Type
-instance ToResourceProperties DataSetConfigurationProperty
-instance Prelude.Eq DataSetConfigurationProperty
-instance Prelude.Show DataSetConfigurationProperty
-instance JSON.ToJSON DataSetConfigurationProperty

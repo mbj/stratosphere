@@ -10,6 +10,7 @@ import Stratosphere.Value
 data UserPoolDomain
   = UserPoolDomain {customDomainConfig :: (Prelude.Maybe CustomDomainConfigTypeProperty),
                     domain :: (Value Prelude.Text),
+                    managedLoginVersion :: (Prelude.Maybe (Value Prelude.Integer)),
                     userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolDomain ::
@@ -17,7 +18,8 @@ mkUserPoolDomain ::
 mkUserPoolDomain domain userPoolId
   = UserPoolDomain
       {domain = domain, userPoolId = userPoolId,
-       customDomainConfig = Prelude.Nothing}
+       customDomainConfig = Prelude.Nothing,
+       managedLoginVersion = Prelude.Nothing}
 instance ToResourceProperties UserPoolDomain where
   toResourceProperties UserPoolDomain {..}
     = ResourceProperties
@@ -27,7 +29,8 @@ instance ToResourceProperties UserPoolDomain where
                         ((Prelude.<>)
                            ["Domain" JSON..= domain, "UserPoolId" JSON..= userPoolId]
                            (Prelude.catMaybes
-                              [(JSON..=) "CustomDomainConfig" Prelude.<$> customDomainConfig]))}
+                              [(JSON..=) "CustomDomainConfig" Prelude.<$> customDomainConfig,
+                               (JSON..=) "ManagedLoginVersion" Prelude.<$> managedLoginVersion]))}
 instance JSON.ToJSON UserPoolDomain where
   toJSON UserPoolDomain {..}
     = JSON.object
@@ -35,7 +38,8 @@ instance JSON.ToJSON UserPoolDomain where
            ((Prelude.<>)
               ["Domain" JSON..= domain, "UserPoolId" JSON..= userPoolId]
               (Prelude.catMaybes
-                 [(JSON..=) "CustomDomainConfig" Prelude.<$> customDomainConfig])))
+                 [(JSON..=) "CustomDomainConfig" Prelude.<$> customDomainConfig,
+                  (JSON..=) "ManagedLoginVersion" Prelude.<$> managedLoginVersion])))
 instance Property "CustomDomainConfig" UserPoolDomain where
   type PropertyType "CustomDomainConfig" UserPoolDomain = CustomDomainConfigTypeProperty
   set newValue UserPoolDomain {..}
@@ -44,6 +48,10 @@ instance Property "Domain" UserPoolDomain where
   type PropertyType "Domain" UserPoolDomain = Value Prelude.Text
   set newValue UserPoolDomain {..}
     = UserPoolDomain {domain = newValue, ..}
+instance Property "ManagedLoginVersion" UserPoolDomain where
+  type PropertyType "ManagedLoginVersion" UserPoolDomain = Value Prelude.Integer
+  set newValue UserPoolDomain {..}
+    = UserPoolDomain {managedLoginVersion = Prelude.pure newValue, ..}
 instance Property "UserPoolId" UserPoolDomain where
   type PropertyType "UserPoolId" UserPoolDomain = Value Prelude.Text
   set newValue UserPoolDomain {..}

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Agent.AgentActionGroupProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AgentActionGroupProperty :: Prelude.Type
+instance ToResourceProperties AgentActionGroupProperty
+instance Prelude.Eq AgentActionGroupProperty
+instance Prelude.Show AgentActionGroupProperty
+instance JSON.ToJSON AgentActionGroupProperty

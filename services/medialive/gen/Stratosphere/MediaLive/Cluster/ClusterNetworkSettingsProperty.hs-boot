@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Cluster.ClusterNetworkSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClusterNetworkSettingsProperty :: Prelude.Type
+instance ToResourceProperties ClusterNetworkSettingsProperty
+instance Prelude.Eq ClusterNetworkSettingsProperty
+instance Prelude.Show ClusterNetworkSettingsProperty
+instance JSON.ToJSON ClusterNetworkSettingsProperty

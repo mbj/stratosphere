@@ -9,6 +9,7 @@ import {-# SOURCE #-} Stratosphere.EMRServerless.Application.AutoStopConfigurati
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ConfigurationObjectProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ImageConfigurationInputProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.InitialCapacityConfigKeyValuePairProperty as Exports
+import {-# SOURCE #-} Stratosphere.EMRServerless.Application.InteractiveConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.MaximumAllowedResourcesProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.MonitoringConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.NetworkConfigurationProperty as Exports
@@ -22,6 +23,7 @@ data Application
                  autoStopConfiguration :: (Prelude.Maybe AutoStopConfigurationProperty),
                  imageConfiguration :: (Prelude.Maybe ImageConfigurationInputProperty),
                  initialCapacity :: (Prelude.Maybe [InitialCapacityConfigKeyValuePairProperty]),
+                 interactiveConfiguration :: (Prelude.Maybe InteractiveConfigurationProperty),
                  maximumCapacity :: (Prelude.Maybe MaximumAllowedResourcesProperty),
                  monitoringConfiguration :: (Prelude.Maybe MonitoringConfigurationProperty),
                  name :: (Prelude.Maybe (Value Prelude.Text)),
@@ -42,6 +44,7 @@ mkApplication releaseLabel type'
        autoStopConfiguration = Prelude.Nothing,
        imageConfiguration = Prelude.Nothing,
        initialCapacity = Prelude.Nothing,
+       interactiveConfiguration = Prelude.Nothing,
        maximumCapacity = Prelude.Nothing,
        monitoringConfiguration = Prelude.Nothing, name = Prelude.Nothing,
        networkConfiguration = Prelude.Nothing,
@@ -63,6 +66,8 @@ instance ToResourceProperties Application where
                                  Prelude.<$> autoStopConfiguration,
                                (JSON..=) "ImageConfiguration" Prelude.<$> imageConfiguration,
                                (JSON..=) "InitialCapacity" Prelude.<$> initialCapacity,
+                               (JSON..=) "InteractiveConfiguration"
+                                 Prelude.<$> interactiveConfiguration,
                                (JSON..=) "MaximumCapacity" Prelude.<$> maximumCapacity,
                                (JSON..=) "MonitoringConfiguration"
                                  Prelude.<$> monitoringConfiguration,
@@ -86,6 +91,8 @@ instance JSON.ToJSON Application where
                     Prelude.<$> autoStopConfiguration,
                   (JSON..=) "ImageConfiguration" Prelude.<$> imageConfiguration,
                   (JSON..=) "InitialCapacity" Prelude.<$> initialCapacity,
+                  (JSON..=) "InteractiveConfiguration"
+                    Prelude.<$> interactiveConfiguration,
                   (JSON..=) "MaximumCapacity" Prelude.<$> maximumCapacity,
                   (JSON..=) "MonitoringConfiguration"
                     Prelude.<$> monitoringConfiguration,
@@ -115,6 +122,11 @@ instance Property "InitialCapacity" Application where
   type PropertyType "InitialCapacity" Application = [InitialCapacityConfigKeyValuePairProperty]
   set newValue Application {..}
     = Application {initialCapacity = Prelude.pure newValue, ..}
+instance Property "InteractiveConfiguration" Application where
+  type PropertyType "InteractiveConfiguration" Application = InteractiveConfigurationProperty
+  set newValue Application {..}
+    = Application
+        {interactiveConfiguration = Prelude.pure newValue, ..}
 instance Property "MaximumCapacity" Application where
   type PropertyType "MaximumCapacity" Application = MaximumAllowedResourcesProperty
   set newValue Application {..}

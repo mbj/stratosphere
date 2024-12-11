@@ -26,9 +26,11 @@ flag development
 library
   exposed-modules:
       Stratosphere.StepFunctions.Activity
+      Stratosphere.StepFunctions.Activity.EncryptionConfigurationProperty
       Stratosphere.StepFunctions.Activity.TagsEntryProperty
       Stratosphere.StepFunctions.StateMachine
       Stratosphere.StepFunctions.StateMachine.CloudWatchLogsLogGroupProperty
+      Stratosphere.StepFunctions.StateMachine.EncryptionConfigurationProperty
       Stratosphere.StepFunctions.StateMachine.LogDestinationProperty
       Stratosphere.StepFunctions.StateMachine.LoggingConfigurationProperty
       Stratosphere.StepFunctions.StateMachine.S3LocationProperty

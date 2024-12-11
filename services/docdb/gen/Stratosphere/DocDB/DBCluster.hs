@@ -1,9 +1,10 @@
 module Stratosphere.DocDB.DBCluster (
-        DBCluster(..), mkDBCluster
+        module Exports, DBCluster(..), mkDBCluster
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.DocDB.DBCluster.ServerlessV2ScalingConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -25,6 +26,7 @@ data DBCluster
                preferredMaintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
                restoreToTime :: (Prelude.Maybe (Value Prelude.Text)),
                restoreType :: (Prelude.Maybe (Value Prelude.Text)),
+               serverlessV2ScalingConfiguration :: (Prelude.Maybe ServerlessV2ScalingConfigurationProperty),
                snapshotIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                sourceDBClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                storageEncrypted :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -50,6 +52,7 @@ mkDBCluster
        preferredBackupWindow = Prelude.Nothing,
        preferredMaintenanceWindow = Prelude.Nothing,
        restoreToTime = Prelude.Nothing, restoreType = Prelude.Nothing,
+       serverlessV2ScalingConfiguration = Prelude.Nothing,
        snapshotIdentifier = Prelude.Nothing,
        sourceDBClusterIdentifier = Prelude.Nothing,
        storageEncrypted = Prelude.Nothing, storageType = Prelude.Nothing,
@@ -83,6 +86,8 @@ instance ToResourceProperties DBCluster where
                               Prelude.<$> preferredMaintenanceWindow,
                             (JSON..=) "RestoreToTime" Prelude.<$> restoreToTime,
                             (JSON..=) "RestoreType" Prelude.<$> restoreType,
+                            (JSON..=) "ServerlessV2ScalingConfiguration"
+                              Prelude.<$> serverlessV2ScalingConfiguration,
                             (JSON..=) "SnapshotIdentifier" Prelude.<$> snapshotIdentifier,
                             (JSON..=) "SourceDBClusterIdentifier"
                               Prelude.<$> sourceDBClusterIdentifier,
@@ -119,6 +124,8 @@ instance JSON.ToJSON DBCluster where
                  Prelude.<$> preferredMaintenanceWindow,
                (JSON..=) "RestoreToTime" Prelude.<$> restoreToTime,
                (JSON..=) "RestoreType" Prelude.<$> restoreType,
+               (JSON..=) "ServerlessV2ScalingConfiguration"
+                 Prelude.<$> serverlessV2ScalingConfiguration,
                (JSON..=) "SnapshotIdentifier" Prelude.<$> snapshotIdentifier,
                (JSON..=) "SourceDBClusterIdentifier"
                  Prelude.<$> sourceDBClusterIdentifier,
@@ -199,6 +206,11 @@ instance Property "RestoreType" DBCluster where
   type PropertyType "RestoreType" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {restoreType = Prelude.pure newValue, ..}
+instance Property "ServerlessV2ScalingConfiguration" DBCluster where
+  type PropertyType "ServerlessV2ScalingConfiguration" DBCluster = ServerlessV2ScalingConfigurationProperty
+  set newValue DBCluster {..}
+    = DBCluster
+        {serverlessV2ScalingConfiguration = Prelude.pure newValue, ..}
 instance Property "SnapshotIdentifier" DBCluster where
   type PropertyType "SnapshotIdentifier" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}

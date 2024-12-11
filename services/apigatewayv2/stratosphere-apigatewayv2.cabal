@@ -42,7 +42,7 @@ library
       Stratosphere.ApiGatewayV2.DomainName.DomainNameConfigurationProperty
       Stratosphere.ApiGatewayV2.DomainName.MutualTlsAuthenticationProperty
       Stratosphere.ApiGatewayV2.Integration
-      Stratosphere.ApiGatewayV2.Integration.ResponseParameterListProperty
+      Stratosphere.ApiGatewayV2.Integration.ResponseParameterMapProperty
       Stratosphere.ApiGatewayV2.Integration.ResponseParameterProperty
       Stratosphere.ApiGatewayV2.Integration.TlsConfigProperty
       Stratosphere.ApiGatewayV2.IntegrationResponse

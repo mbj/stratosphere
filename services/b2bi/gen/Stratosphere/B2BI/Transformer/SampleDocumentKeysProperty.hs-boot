@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Transformer.SampleDocumentKeysProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SampleDocumentKeysProperty :: Prelude.Type
+instance ToResourceProperties SampleDocumentKeysProperty
+instance Prelude.Eq SampleDocumentKeysProperty
+instance Prelude.Show SampleDocumentKeysProperty
+instance JSON.ToJSON SampleDocumentKeysProperty

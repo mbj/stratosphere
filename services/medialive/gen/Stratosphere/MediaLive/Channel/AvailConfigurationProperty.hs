@@ -7,12 +7,16 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AvailSettingsProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Value
 data AvailConfigurationProperty
-  = AvailConfigurationProperty {availSettings :: (Prelude.Maybe AvailSettingsProperty)}
+  = AvailConfigurationProperty {availSettings :: (Prelude.Maybe AvailSettingsProperty),
+                                scte35SegmentationScope :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAvailConfigurationProperty :: AvailConfigurationProperty
 mkAvailConfigurationProperty
-  = AvailConfigurationProperty {availSettings = Prelude.Nothing}
+  = AvailConfigurationProperty
+      {availSettings = Prelude.Nothing,
+       scte35SegmentationScope = Prelude.Nothing}
 instance ToResourceProperties AvailConfigurationProperty where
   toResourceProperties AvailConfigurationProperty {..}
     = ResourceProperties
@@ -20,15 +24,24 @@ instance ToResourceProperties AvailConfigurationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "AvailSettings" Prelude.<$> availSettings])}
+                           [(JSON..=) "AvailSettings" Prelude.<$> availSettings,
+                            (JSON..=) "Scte35SegmentationScope"
+                              Prelude.<$> scte35SegmentationScope])}
 instance JSON.ToJSON AvailConfigurationProperty where
   toJSON AvailConfigurationProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "AvailSettings" Prelude.<$> availSettings]))
+              [(JSON..=) "AvailSettings" Prelude.<$> availSettings,
+               (JSON..=) "Scte35SegmentationScope"
+                 Prelude.<$> scte35SegmentationScope]))
 instance Property "AvailSettings" AvailConfigurationProperty where
   type PropertyType "AvailSettings" AvailConfigurationProperty = AvailSettingsProperty
-  set newValue AvailConfigurationProperty {}
+  set newValue AvailConfigurationProperty {..}
     = AvailConfigurationProperty
         {availSettings = Prelude.pure newValue, ..}
+instance Property "Scte35SegmentationScope" AvailConfigurationProperty where
+  type PropertyType "Scte35SegmentationScope" AvailConfigurationProperty = Value Prelude.Text
+  set newValue AvailConfigurationProperty {..}
+    = AvailConfigurationProperty
+        {scte35SegmentationScope = Prelude.pure newValue, ..}

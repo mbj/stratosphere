@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.Cognito.IdentityPool.CognitoIdentityProviderP
 import {-# SOURCE #-} Stratosphere.Cognito.IdentityPool.CognitoStreamsProperty as Exports
 import {-# SOURCE #-} Stratosphere.Cognito.IdentityPool.PushSyncProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data IdentityPool
   = IdentityPool {allowClassicFlow :: (Prelude.Maybe (Value Prelude.Bool)),
@@ -17,6 +18,7 @@ data IdentityPool
                   cognitoStreams :: (Prelude.Maybe CognitoStreamsProperty),
                   developerProviderName :: (Prelude.Maybe (Value Prelude.Text)),
                   identityPoolName :: (Prelude.Maybe (Value Prelude.Text)),
+                  identityPoolTags :: (Prelude.Maybe [Tag]),
                   openIdConnectProviderARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
                   pushSync :: (Prelude.Maybe PushSyncProperty),
                   samlProviderARNs :: (Prelude.Maybe (ValueList Prelude.Text)),
@@ -32,6 +34,7 @@ mkIdentityPool allowUnauthenticatedIdentities
        cognitoStreams = Prelude.Nothing,
        developerProviderName = Prelude.Nothing,
        identityPoolName = Prelude.Nothing,
+       identityPoolTags = Prelude.Nothing,
        openIdConnectProviderARNs = Prelude.Nothing,
        pushSync = Prelude.Nothing, samlProviderARNs = Prelude.Nothing,
        supportedLoginProviders = Prelude.Nothing}
@@ -53,6 +56,7 @@ instance ToResourceProperties IdentityPool where
                                (JSON..=) "DeveloperProviderName"
                                  Prelude.<$> developerProviderName,
                                (JSON..=) "IdentityPoolName" Prelude.<$> identityPoolName,
+                               (JSON..=) "IdentityPoolTags" Prelude.<$> identityPoolTags,
                                (JSON..=) "OpenIdConnectProviderARNs"
                                  Prelude.<$> openIdConnectProviderARNs,
                                (JSON..=) "PushSync" Prelude.<$> pushSync,
@@ -75,6 +79,7 @@ instance JSON.ToJSON IdentityPool where
                   (JSON..=) "DeveloperProviderName"
                     Prelude.<$> developerProviderName,
                   (JSON..=) "IdentityPoolName" Prelude.<$> identityPoolName,
+                  (JSON..=) "IdentityPoolTags" Prelude.<$> identityPoolTags,
                   (JSON..=) "OpenIdConnectProviderARNs"
                     Prelude.<$> openIdConnectProviderARNs,
                   (JSON..=) "PushSync" Prelude.<$> pushSync,
@@ -110,6 +115,10 @@ instance Property "IdentityPoolName" IdentityPool where
   type PropertyType "IdentityPoolName" IdentityPool = Value Prelude.Text
   set newValue IdentityPool {..}
     = IdentityPool {identityPoolName = Prelude.pure newValue, ..}
+instance Property "IdentityPoolTags" IdentityPool where
+  type PropertyType "IdentityPoolTags" IdentityPool = [Tag]
+  set newValue IdentityPool {..}
+    = IdentityPool {identityPoolTags = Prelude.pure newValue, ..}
 instance Property "OpenIdConnectProviderARNs" IdentityPool where
   type PropertyType "OpenIdConnectProviderARNs" IdentityPool = ValueList Prelude.Text
   set newValue IdentityPool {..}

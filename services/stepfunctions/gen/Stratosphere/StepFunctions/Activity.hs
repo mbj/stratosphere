@@ -4,15 +4,20 @@ module Stratosphere.StepFunctions.Activity (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.StepFunctions.Activity.EncryptionConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.StepFunctions.Activity.TagsEntryProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Activity
-  = Activity {name :: (Value Prelude.Text),
+  = Activity {encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+              name :: (Value Prelude.Text),
               tags :: (Prelude.Maybe [TagsEntryProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkActivity :: Value Prelude.Text -> Activity
-mkActivity name = Activity {name = name, tags = Prelude.Nothing}
+mkActivity name
+  = Activity
+      {name = name, encryptionConfiguration = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Activity where
   toResourceProperties Activity {..}
     = ResourceProperties
@@ -21,14 +26,24 @@ instance ToResourceProperties Activity where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]
-                           (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "EncryptionConfiguration"
+                                 Prelude.<$> encryptionConfiguration,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Activity where
   toJSON Activity {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
               ["Name" JSON..= name]
-              (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])))
+              (Prelude.catMaybes
+                 [(JSON..=) "EncryptionConfiguration"
+                    Prelude.<$> encryptionConfiguration,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "EncryptionConfiguration" Activity where
+  type PropertyType "EncryptionConfiguration" Activity = EncryptionConfigurationProperty
+  set newValue Activity {..}
+    = Activity {encryptionConfiguration = Prelude.pure newValue, ..}
 instance Property "Name" Activity where
   type PropertyType "Name" Activity = Value Prelude.Text
   set newValue Activity {..} = Activity {name = newValue, ..}

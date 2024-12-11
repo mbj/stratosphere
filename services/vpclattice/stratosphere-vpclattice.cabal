@@ -47,6 +47,7 @@ library
       Stratosphere.VpcLattice.Service
       Stratosphere.VpcLattice.Service.DnsEntryProperty
       Stratosphere.VpcLattice.ServiceNetwork
+      Stratosphere.VpcLattice.ServiceNetwork.SharingConfigProperty
       Stratosphere.VpcLattice.ServiceNetworkServiceAssociation
       Stratosphere.VpcLattice.ServiceNetworkServiceAssociation.DnsEntryProperty
       Stratosphere.VpcLattice.ServiceNetworkVpcAssociation

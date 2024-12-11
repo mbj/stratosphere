@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.ClusterInstanceStorageConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClusterInstanceStorageConfigProperty :: Prelude.Type
+instance ToResourceProperties ClusterInstanceStorageConfigProperty
+instance Prelude.Eq ClusterInstanceStorageConfigProperty
+instance Prelude.Show ClusterInstanceStorageConfigProperty
+instance JSON.ToJSON ClusterInstanceStorageConfigProperty

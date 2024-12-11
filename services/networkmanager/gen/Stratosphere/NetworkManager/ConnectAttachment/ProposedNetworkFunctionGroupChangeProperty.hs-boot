@@ -1,0 +1,9 @@
+module Stratosphere.NetworkManager.ConnectAttachment.ProposedNetworkFunctionGroupChangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProposedNetworkFunctionGroupChangeProperty :: Prelude.Type
+instance ToResourceProperties ProposedNetworkFunctionGroupChangeProperty
+instance Prelude.Eq ProposedNetworkFunctionGroupChangeProperty
+instance Prelude.Show ProposedNetworkFunctionGroupChangeProperty
+instance JSON.ToJSON ProposedNetworkFunctionGroupChangeProperty

@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.FilterTextAreaControlProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data FilterTextAreaControlProperty :: Prelude.Type
-instance ToResourceProperties FilterTextAreaControlProperty
-instance Prelude.Eq FilterTextAreaControlProperty
-instance Prelude.Show FilterTextAreaControlProperty
-instance JSON.ToJSON FilterTextAreaControlProperty

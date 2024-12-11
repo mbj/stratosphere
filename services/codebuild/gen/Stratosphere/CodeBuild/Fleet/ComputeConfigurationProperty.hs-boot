@@ -1,0 +1,9 @@
+module Stratosphere.CodeBuild.Fleet.ComputeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComputeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ComputeConfigurationProperty
+instance Prelude.Eq ComputeConfigurationProperty
+instance Prelude.Show ComputeConfigurationProperty
+instance JSON.ToJSON ComputeConfigurationProperty

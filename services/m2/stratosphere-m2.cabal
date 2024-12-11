@@ -27,6 +27,7 @@ library
   exposed-modules:
       Stratosphere.M2.Application
       Stratosphere.M2.Application.DefinitionProperty
+      Stratosphere.M2.Deployment
       Stratosphere.M2.Environment
       Stratosphere.M2.Environment.EfsStorageConfigurationProperty
       Stratosphere.M2.Environment.FsxStorageConfigurationProperty

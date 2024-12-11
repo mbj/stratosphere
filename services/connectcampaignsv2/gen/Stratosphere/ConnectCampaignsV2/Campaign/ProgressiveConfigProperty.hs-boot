@@ -1,0 +1,9 @@
+module Stratosphere.ConnectCampaignsV2.Campaign.ProgressiveConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProgressiveConfigProperty :: Prelude.Type
+instance ToResourceProperties ProgressiveConfigProperty
+instance Prelude.Eq ProgressiveConfigProperty
+instance Prelude.Show ProgressiveConfigProperty
+instance JSON.ToJSON ProgressiveConfigProperty

@@ -14,7 +14,7 @@ data IdMappingWorkflow
   = IdMappingWorkflow {description :: (Prelude.Maybe (Value Prelude.Text)),
                        idMappingTechniques :: IdMappingTechniquesProperty,
                        inputSourceConfig :: [IdMappingWorkflowInputSourceProperty],
-                       outputSourceConfig :: [IdMappingWorkflowOutputSourceProperty],
+                       outputSourceConfig :: (Prelude.Maybe [IdMappingWorkflowOutputSourceProperty]),
                        roleArn :: (Value Prelude.Text),
                        tags :: (Prelude.Maybe [Tag]),
                        workflowName :: (Value Prelude.Text)}
@@ -22,20 +22,17 @@ data IdMappingWorkflow
 mkIdMappingWorkflow ::
   IdMappingTechniquesProperty
   -> [IdMappingWorkflowInputSourceProperty]
-     -> [IdMappingWorkflowOutputSourceProperty]
-        -> Value Prelude.Text -> Value Prelude.Text -> IdMappingWorkflow
+     -> Value Prelude.Text -> Value Prelude.Text -> IdMappingWorkflow
 mkIdMappingWorkflow
   idMappingTechniques
   inputSourceConfig
-  outputSourceConfig
   roleArn
   workflowName
   = IdMappingWorkflow
       {idMappingTechniques = idMappingTechniques,
-       inputSourceConfig = inputSourceConfig,
-       outputSourceConfig = outputSourceConfig, roleArn = roleArn,
+       inputSourceConfig = inputSourceConfig, roleArn = roleArn,
        workflowName = workflowName, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       outputSourceConfig = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties IdMappingWorkflow where
   toResourceProperties IdMappingWorkflow {..}
     = ResourceProperties
@@ -45,10 +42,10 @@ instance ToResourceProperties IdMappingWorkflow where
                         ((Prelude.<>)
                            ["IdMappingTechniques" JSON..= idMappingTechniques,
                             "InputSourceConfig" JSON..= inputSourceConfig,
-                            "OutputSourceConfig" JSON..= outputSourceConfig,
                             "RoleArn" JSON..= roleArn, "WorkflowName" JSON..= workflowName]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "OutputSourceConfig" Prelude.<$> outputSourceConfig,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON IdMappingWorkflow where
   toJSON IdMappingWorkflow {..}
@@ -57,10 +54,10 @@ instance JSON.ToJSON IdMappingWorkflow where
            ((Prelude.<>)
               ["IdMappingTechniques" JSON..= idMappingTechniques,
                "InputSourceConfig" JSON..= inputSourceConfig,
-               "OutputSourceConfig" JSON..= outputSourceConfig,
                "RoleArn" JSON..= roleArn, "WorkflowName" JSON..= workflowName]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "OutputSourceConfig" Prelude.<$> outputSourceConfig,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" IdMappingWorkflow where
   type PropertyType "Description" IdMappingWorkflow = Value Prelude.Text
@@ -77,7 +74,8 @@ instance Property "InputSourceConfig" IdMappingWorkflow where
 instance Property "OutputSourceConfig" IdMappingWorkflow where
   type PropertyType "OutputSourceConfig" IdMappingWorkflow = [IdMappingWorkflowOutputSourceProperty]
   set newValue IdMappingWorkflow {..}
-    = IdMappingWorkflow {outputSourceConfig = newValue, ..}
+    = IdMappingWorkflow
+        {outputSourceConfig = Prelude.pure newValue, ..}
 instance Property "RoleArn" IdMappingWorkflow where
   type PropertyType "RoleArn" IdMappingWorkflow = Value Prelude.Text
   set newValue IdMappingWorkflow {..}

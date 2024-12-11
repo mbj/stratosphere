@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.DateTimeFormatConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data DateTimeFormatConfigurationProperty :: Prelude.Type
-instance ToResourceProperties DateTimeFormatConfigurationProperty
-instance Prelude.Eq DateTimeFormatConfigurationProperty
-instance Prelude.Show DateTimeFormatConfigurationProperty
-instance JSON.ToJSON DateTimeFormatConfigurationProperty

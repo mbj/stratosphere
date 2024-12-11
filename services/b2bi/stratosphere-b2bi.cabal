@@ -32,9 +32,21 @@ library
       Stratosphere.B2BI.Capability.S3LocationProperty
       Stratosphere.B2BI.Capability.X12DetailsProperty
       Stratosphere.B2BI.Partnership
+      Stratosphere.B2BI.Partnership.CapabilityOptionsProperty
+      Stratosphere.B2BI.Partnership.OutboundEdiOptionsProperty
+      Stratosphere.B2BI.Partnership.X12DelimitersProperty
+      Stratosphere.B2BI.Partnership.X12EnvelopeProperty
+      Stratosphere.B2BI.Partnership.X12FunctionalGroupHeadersProperty
+      Stratosphere.B2BI.Partnership.X12InterchangeControlHeadersProperty
+      Stratosphere.B2BI.Partnership.X12OutboundEdiHeadersProperty
       Stratosphere.B2BI.Profile
       Stratosphere.B2BI.Transformer
-      Stratosphere.B2BI.Transformer.EdiTypeProperty
+      Stratosphere.B2BI.Transformer.FormatOptionsProperty
+      Stratosphere.B2BI.Transformer.InputConversionProperty
+      Stratosphere.B2BI.Transformer.MappingProperty
+      Stratosphere.B2BI.Transformer.OutputConversionProperty
+      Stratosphere.B2BI.Transformer.SampleDocumentKeysProperty
+      Stratosphere.B2BI.Transformer.SampleDocumentsProperty
       Stratosphere.B2BI.Transformer.X12DetailsProperty
   other-modules:
       Paths_stratosphere_b2bi

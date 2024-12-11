@@ -1,0 +1,9 @@
+module Stratosphere.EntityResolution.MatchingWorkflow.IncrementalRunConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IncrementalRunConfigProperty :: Prelude.Type
+instance ToResourceProperties IncrementalRunConfigProperty
+instance Prelude.Eq IncrementalRunConfigProperty
+instance Prelude.Show IncrementalRunConfigProperty
+instance JSON.ToJSON IncrementalRunConfigProperty

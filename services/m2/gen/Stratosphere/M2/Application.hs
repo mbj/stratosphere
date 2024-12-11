@@ -8,7 +8,7 @@ import {-# SOURCE #-} Stratosphere.M2.Application.DefinitionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Application
-  = Application {definition :: DefinitionProperty,
+  = Application {definition :: (Prelude.Maybe DefinitionProperty),
                  description :: (Prelude.Maybe (Value Prelude.Text)),
                  engineType :: (Value Prelude.Text),
                  kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
@@ -17,23 +17,23 @@ data Application
                  tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication ::
-  DefinitionProperty
-  -> Value Prelude.Text -> Value Prelude.Text -> Application
-mkApplication definition engineType name
+  Value Prelude.Text -> Value Prelude.Text -> Application
+mkApplication engineType name
   = Application
-      {definition = definition, engineType = engineType, name = name,
-       description = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
-       roleArn = Prelude.Nothing, tags = Prelude.Nothing}
+      {engineType = engineType, name = name,
+       definition = Prelude.Nothing, description = Prelude.Nothing,
+       kmsKeyId = Prelude.Nothing, roleArn = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
         {awsType = "AWS::M2::Application", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["Definition" JSON..= definition, "EngineType" JSON..= engineType,
-                            "Name" JSON..= name]
+                           ["EngineType" JSON..= engineType, "Name" JSON..= name]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "Definition" Prelude.<$> definition,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -42,17 +42,17 @@ instance JSON.ToJSON Application where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["Definition" JSON..= definition, "EngineType" JSON..= engineType,
-               "Name" JSON..= name]
+              ["EngineType" JSON..= engineType, "Name" JSON..= name]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "Definition" Prelude.<$> definition,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Definition" Application where
   type PropertyType "Definition" Application = DefinitionProperty
   set newValue Application {..}
-    = Application {definition = newValue, ..}
+    = Application {definition = Prelude.pure newValue, ..}
 instance Property "Description" Application where
   type PropertyType "Description" Application = Value Prelude.Text
   set newValue Application {..}

@@ -1,0 +1,9 @@
+module Stratosphere.IoTFleetWise.Campaign.SignalFetchConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SignalFetchConfigProperty :: Prelude.Type
+instance ToResourceProperties SignalFetchConfigProperty
+instance Prelude.Eq SignalFetchConfigProperty
+instance Prelude.Show SignalFetchConfigProperty
+instance JSON.ToJSON SignalFetchConfigProperty

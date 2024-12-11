@@ -10,13 +10,15 @@ data TargetAddressProperty
   = TargetAddressProperty {ip :: (Prelude.Maybe (Value Prelude.Text)),
                            ipv6 :: (Prelude.Maybe (Value Prelude.Text)),
                            port :: (Prelude.Maybe (Value Prelude.Text)),
-                           protocol :: (Prelude.Maybe (Value Prelude.Text))}
+                           protocol :: (Prelude.Maybe (Value Prelude.Text)),
+                           serverNameIndication :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTargetAddressProperty :: TargetAddressProperty
 mkTargetAddressProperty
   = TargetAddressProperty
       {ip = Prelude.Nothing, ipv6 = Prelude.Nothing,
-       port = Prelude.Nothing, protocol = Prelude.Nothing}
+       port = Prelude.Nothing, protocol = Prelude.Nothing,
+       serverNameIndication = Prelude.Nothing}
 instance ToResourceProperties TargetAddressProperty where
   toResourceProperties TargetAddressProperty {..}
     = ResourceProperties
@@ -26,7 +28,9 @@ instance ToResourceProperties TargetAddressProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "Ip" Prelude.<$> ip, (JSON..=) "Ipv6" Prelude.<$> ipv6,
                             (JSON..=) "Port" Prelude.<$> port,
-                            (JSON..=) "Protocol" Prelude.<$> protocol])}
+                            (JSON..=) "Protocol" Prelude.<$> protocol,
+                            (JSON..=) "ServerNameIndication"
+                              Prelude.<$> serverNameIndication])}
 instance JSON.ToJSON TargetAddressProperty where
   toJSON TargetAddressProperty {..}
     = JSON.object
@@ -34,7 +38,9 @@ instance JSON.ToJSON TargetAddressProperty where
            (Prelude.catMaybes
               [(JSON..=) "Ip" Prelude.<$> ip, (JSON..=) "Ipv6" Prelude.<$> ipv6,
                (JSON..=) "Port" Prelude.<$> port,
-               (JSON..=) "Protocol" Prelude.<$> protocol]))
+               (JSON..=) "Protocol" Prelude.<$> protocol,
+               (JSON..=) "ServerNameIndication"
+                 Prelude.<$> serverNameIndication]))
 instance Property "Ip" TargetAddressProperty where
   type PropertyType "Ip" TargetAddressProperty = Value Prelude.Text
   set newValue TargetAddressProperty {..}
@@ -51,3 +57,8 @@ instance Property "Protocol" TargetAddressProperty where
   type PropertyType "Protocol" TargetAddressProperty = Value Prelude.Text
   set newValue TargetAddressProperty {..}
     = TargetAddressProperty {protocol = Prelude.pure newValue, ..}
+instance Property "ServerNameIndication" TargetAddressProperty where
+  type PropertyType "ServerNameIndication" TargetAddressProperty = Value Prelude.Text
+  set newValue TargetAddressProperty {..}
+    = TargetAddressProperty
+        {serverNameIndication = Prelude.pure newValue, ..}

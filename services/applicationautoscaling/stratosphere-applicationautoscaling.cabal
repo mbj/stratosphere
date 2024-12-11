@@ -33,6 +33,18 @@ library
       Stratosphere.ApplicationAutoScaling.ScalingPolicy.CustomizedMetricSpecificationProperty
       Stratosphere.ApplicationAutoScaling.ScalingPolicy.MetricDimensionProperty
       Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredefinedMetricSpecificationProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingCustomizedCapacityMetricProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingCustomizedLoadMetricProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingCustomizedScalingMetricProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingMetricDataQueryProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingMetricDimensionProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingMetricProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingMetricSpecificationProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingMetricStatProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingPolicyConfigurationProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingPredefinedLoadMetricProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingPredefinedMetricPairProperty
+      Stratosphere.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingPredefinedScalingMetricProperty
       Stratosphere.ApplicationAutoScaling.ScalingPolicy.StepAdjustmentProperty
       Stratosphere.ApplicationAutoScaling.ScalingPolicy.StepScalingPolicyConfigurationProperty
       Stratosphere.ApplicationAutoScaling.ScalingPolicy.TargetTrackingMetricDataQueryProperty

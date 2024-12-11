@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.MongoDbAtlasFieldMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MongoDbAtlasFieldMappingProperty :: Prelude.Type
+instance ToResourceProperties MongoDbAtlasFieldMappingProperty
+instance Prelude.Eq MongoDbAtlasFieldMappingProperty
+instance Prelude.Show MongoDbAtlasFieldMappingProperty
+instance JSON.ToJSON MongoDbAtlasFieldMappingProperty

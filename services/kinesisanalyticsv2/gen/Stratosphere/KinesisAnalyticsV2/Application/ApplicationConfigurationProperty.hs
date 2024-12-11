@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ApplicationCodeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ApplicationSnapshotConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.ApplicationSystemRollbackConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.EnvironmentPropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.FlinkApplicationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.KinesisAnalyticsV2.Application.SqlApplicationConfigurationProperty as Exports
@@ -16,6 +17,7 @@ import Stratosphere.ResourceProperties
 data ApplicationConfigurationProperty
   = ApplicationConfigurationProperty {applicationCodeConfiguration :: (Prelude.Maybe ApplicationCodeConfigurationProperty),
                                       applicationSnapshotConfiguration :: (Prelude.Maybe ApplicationSnapshotConfigurationProperty),
+                                      applicationSystemRollbackConfiguration :: (Prelude.Maybe ApplicationSystemRollbackConfigurationProperty),
                                       environmentProperties :: (Prelude.Maybe EnvironmentPropertiesProperty),
                                       flinkApplicationConfiguration :: (Prelude.Maybe FlinkApplicationConfigurationProperty),
                                       sqlApplicationConfiguration :: (Prelude.Maybe SqlApplicationConfigurationProperty),
@@ -28,6 +30,7 @@ mkApplicationConfigurationProperty
   = ApplicationConfigurationProperty
       {applicationCodeConfiguration = Prelude.Nothing,
        applicationSnapshotConfiguration = Prelude.Nothing,
+       applicationSystemRollbackConfiguration = Prelude.Nothing,
        environmentProperties = Prelude.Nothing,
        flinkApplicationConfiguration = Prelude.Nothing,
        sqlApplicationConfiguration = Prelude.Nothing,
@@ -44,6 +47,8 @@ instance ToResourceProperties ApplicationConfigurationProperty where
                               Prelude.<$> applicationCodeConfiguration,
                             (JSON..=) "ApplicationSnapshotConfiguration"
                               Prelude.<$> applicationSnapshotConfiguration,
+                            (JSON..=) "ApplicationSystemRollbackConfiguration"
+                              Prelude.<$> applicationSystemRollbackConfiguration,
                             (JSON..=) "EnvironmentProperties"
                               Prelude.<$> environmentProperties,
                             (JSON..=) "FlinkApplicationConfiguration"
@@ -62,6 +67,8 @@ instance JSON.ToJSON ApplicationConfigurationProperty where
                  Prelude.<$> applicationCodeConfiguration,
                (JSON..=) "ApplicationSnapshotConfiguration"
                  Prelude.<$> applicationSnapshotConfiguration,
+               (JSON..=) "ApplicationSystemRollbackConfiguration"
+                 Prelude.<$> applicationSystemRollbackConfiguration,
                (JSON..=) "EnvironmentProperties"
                  Prelude.<$> environmentProperties,
                (JSON..=) "FlinkApplicationConfiguration"
@@ -81,6 +88,12 @@ instance Property "ApplicationSnapshotConfiguration" ApplicationConfigurationPro
   set newValue ApplicationConfigurationProperty {..}
     = ApplicationConfigurationProperty
         {applicationSnapshotConfiguration = Prelude.pure newValue, ..}
+instance Property "ApplicationSystemRollbackConfiguration" ApplicationConfigurationProperty where
+  type PropertyType "ApplicationSystemRollbackConfiguration" ApplicationConfigurationProperty = ApplicationSystemRollbackConfigurationProperty
+  set newValue ApplicationConfigurationProperty {..}
+    = ApplicationConfigurationProperty
+        {applicationSystemRollbackConfiguration = Prelude.pure newValue,
+         ..}
 instance Property "EnvironmentProperties" ApplicationConfigurationProperty where
   type PropertyType "EnvironmentProperties" ApplicationConfigurationProperty = EnvironmentPropertiesProperty
   set newValue ApplicationConfigurationProperty {..}

@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.FreeFormLayoutConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data FreeFormLayoutConfigurationProperty :: Prelude.Type
-instance ToResourceProperties FreeFormLayoutConfigurationProperty
-instance Prelude.Eq FreeFormLayoutConfigurationProperty
-instance Prelude.Show FreeFormLayoutConfigurationProperty
-instance JSON.ToJSON FreeFormLayoutConfigurationProperty

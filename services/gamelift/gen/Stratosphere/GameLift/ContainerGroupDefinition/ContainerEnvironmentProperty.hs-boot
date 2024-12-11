@@ -1,0 +1,9 @@
+module Stratosphere.GameLift.ContainerGroupDefinition.ContainerEnvironmentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContainerEnvironmentProperty :: Prelude.Type
+instance ToResourceProperties ContainerEnvironmentProperty
+instance Prelude.Eq ContainerEnvironmentProperty
+instance Prelude.Show ContainerEnvironmentProperty
+instance JSON.ToJSON ContainerEnvironmentProperty

@@ -1,0 +1,9 @@
+module Stratosphere.PCAConnectorSCEP.Connector.OpenIdConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenIdConfigurationProperty :: Prelude.Type
+instance ToResourceProperties OpenIdConfigurationProperty
+instance Prelude.Eq OpenIdConfigurationProperty
+instance Prelude.Show OpenIdConfigurationProperty
+instance JSON.ToJSON OpenIdConfigurationProperty

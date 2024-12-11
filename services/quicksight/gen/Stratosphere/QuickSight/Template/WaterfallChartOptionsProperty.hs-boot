@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.WaterfallChartOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data WaterfallChartOptionsProperty :: Prelude.Type
-instance ToResourceProperties WaterfallChartOptionsProperty
-instance Prelude.Eq WaterfallChartOptionsProperty
-instance Prelude.Show WaterfallChartOptionsProperty
-instance JSON.ToJSON WaterfallChartOptionsProperty

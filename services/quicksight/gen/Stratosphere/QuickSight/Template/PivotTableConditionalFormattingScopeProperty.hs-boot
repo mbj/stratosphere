@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.PivotTableConditionalFormattingScopeProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data PivotTableConditionalFormattingScopeProperty :: Prelude.Type
-instance ToResourceProperties PivotTableConditionalFormattingScopeProperty
-instance Prelude.Eq PivotTableConditionalFormattingScopeProperty
-instance Prelude.Show PivotTableConditionalFormattingScopeProperty
-instance JSON.ToJSON PivotTableConditionalFormattingScopeProperty

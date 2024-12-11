@@ -43,6 +43,8 @@ library
       Stratosphere.Backup.Framework.ControlInputParameterProperty
       Stratosphere.Backup.Framework.ControlScopeProperty
       Stratosphere.Backup.Framework.FrameworkControlProperty
+      Stratosphere.Backup.LogicallyAirGappedBackupVault
+      Stratosphere.Backup.LogicallyAirGappedBackupVault.NotificationObjectTypeProperty
       Stratosphere.Backup.ReportPlan
       Stratosphere.Backup.ReportPlan.ReportDeliveryChannelProperty
       Stratosphere.Backup.ReportPlan.ReportSettingProperty

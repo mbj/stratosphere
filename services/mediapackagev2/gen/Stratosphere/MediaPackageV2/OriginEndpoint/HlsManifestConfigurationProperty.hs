@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.FilterConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.ScteHlsProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaPackageV2.OriginEndpoint.StartTagProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data HlsManifestConfigurationProperty
@@ -16,6 +17,7 @@ data HlsManifestConfigurationProperty
                                       manifestWindowSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                       programDateTimeIntervalSeconds :: (Prelude.Maybe (Value Prelude.Integer)),
                                       scteHls :: (Prelude.Maybe ScteHlsProperty),
+                                      startTag :: (Prelude.Maybe StartTagProperty),
                                       url :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkHlsManifestConfigurationProperty ::
@@ -26,7 +28,8 @@ mkHlsManifestConfigurationProperty manifestName
        filterConfiguration = Prelude.Nothing,
        manifestWindowSeconds = Prelude.Nothing,
        programDateTimeIntervalSeconds = Prelude.Nothing,
-       scteHls = Prelude.Nothing, url = Prelude.Nothing}
+       scteHls = Prelude.Nothing, startTag = Prelude.Nothing,
+       url = Prelude.Nothing}
 instance ToResourceProperties HlsManifestConfigurationProperty where
   toResourceProperties HlsManifestConfigurationProperty {..}
     = ResourceProperties
@@ -43,6 +46,7 @@ instance ToResourceProperties HlsManifestConfigurationProperty where
                                (JSON..=) "ProgramDateTimeIntervalSeconds"
                                  Prelude.<$> programDateTimeIntervalSeconds,
                                (JSON..=) "ScteHls" Prelude.<$> scteHls,
+                               (JSON..=) "StartTag" Prelude.<$> startTag,
                                (JSON..=) "Url" Prelude.<$> url]))}
 instance JSON.ToJSON HlsManifestConfigurationProperty where
   toJSON HlsManifestConfigurationProperty {..}
@@ -58,6 +62,7 @@ instance JSON.ToJSON HlsManifestConfigurationProperty where
                   (JSON..=) "ProgramDateTimeIntervalSeconds"
                     Prelude.<$> programDateTimeIntervalSeconds,
                   (JSON..=) "ScteHls" Prelude.<$> scteHls,
+                  (JSON..=) "StartTag" Prelude.<$> startTag,
                   (JSON..=) "Url" Prelude.<$> url])))
 instance Property "ChildManifestName" HlsManifestConfigurationProperty where
   type PropertyType "ChildManifestName" HlsManifestConfigurationProperty = Value Prelude.Text
@@ -88,6 +93,11 @@ instance Property "ScteHls" HlsManifestConfigurationProperty where
   set newValue HlsManifestConfigurationProperty {..}
     = HlsManifestConfigurationProperty
         {scteHls = Prelude.pure newValue, ..}
+instance Property "StartTag" HlsManifestConfigurationProperty where
+  type PropertyType "StartTag" HlsManifestConfigurationProperty = StartTagProperty
+  set newValue HlsManifestConfigurationProperty {..}
+    = HlsManifestConfigurationProperty
+        {startTag = Prelude.pure newValue, ..}
 instance Property "Url" HlsManifestConfigurationProperty where
   type PropertyType "Url" HlsManifestConfigurationProperty = Value Prelude.Text
   set newValue HlsManifestConfigurationProperty {..}

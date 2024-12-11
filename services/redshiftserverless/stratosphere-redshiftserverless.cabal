@@ -27,6 +27,7 @@ library
   exposed-modules:
       Stratosphere.RedshiftServerless.Namespace
       Stratosphere.RedshiftServerless.Namespace.NamespaceProperty
+      Stratosphere.RedshiftServerless.Namespace.SnapshotCopyConfigurationProperty
       Stratosphere.RedshiftServerless.Workgroup
       Stratosphere.RedshiftServerless.Workgroup.ConfigParameterProperty
       Stratosphere.RedshiftServerless.Workgroup.EndpointProperty

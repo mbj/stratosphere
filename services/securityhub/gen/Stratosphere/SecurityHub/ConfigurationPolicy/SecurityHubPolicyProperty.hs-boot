@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.ConfigurationPolicy.SecurityHubPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SecurityHubPolicyProperty :: Prelude.Type
+instance ToResourceProperties SecurityHubPolicyProperty
+instance Prelude.Eq SecurityHubPolicyProperty
+instance Prelude.Show SecurityHubPolicyProperty
+instance JSON.ToJSON SecurityHubPolicyProperty

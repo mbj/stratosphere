@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowVersion.StorageFlowNodeS3ConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StorageFlowNodeS3ConfigurationProperty :: Prelude.Type
+instance ToResourceProperties StorageFlowNodeS3ConfigurationProperty
+instance Prelude.Eq StorageFlowNodeS3ConfigurationProperty
+instance Prelude.Show StorageFlowNodeS3ConfigurationProperty
+instance JSON.ToJSON StorageFlowNodeS3ConfigurationProperty

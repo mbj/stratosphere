@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.ConfiguredTable.DifferentialPrivacyColumnProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DifferentialPrivacyColumnProperty :: Prelude.Type
+instance ToResourceProperties DifferentialPrivacyColumnProperty
+instance Prelude.Eq DifferentialPrivacyColumnProperty
+instance Prelude.Show DifferentialPrivacyColumnProperty
+instance JSON.ToJSON DifferentialPrivacyColumnProperty

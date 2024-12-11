@@ -7,14 +7,16 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data MutualAuthenticationProperty
-  = MutualAuthenticationProperty {ignoreClientCertificateExpiry :: (Prelude.Maybe (Value Prelude.Bool)),
+  = MutualAuthenticationProperty {advertiseTrustStoreCaNames :: (Prelude.Maybe (Value Prelude.Text)),
+                                  ignoreClientCertificateExpiry :: (Prelude.Maybe (Value Prelude.Bool)),
                                   mode :: (Prelude.Maybe (Value Prelude.Text)),
                                   trustStoreArn :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMutualAuthenticationProperty :: MutualAuthenticationProperty
 mkMutualAuthenticationProperty
   = MutualAuthenticationProperty
-      {ignoreClientCertificateExpiry = Prelude.Nothing,
+      {advertiseTrustStoreCaNames = Prelude.Nothing,
+       ignoreClientCertificateExpiry = Prelude.Nothing,
        mode = Prelude.Nothing, trustStoreArn = Prelude.Nothing}
 instance ToResourceProperties MutualAuthenticationProperty where
   toResourceProperties MutualAuthenticationProperty {..}
@@ -23,7 +25,9 @@ instance ToResourceProperties MutualAuthenticationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "IgnoreClientCertificateExpiry"
+                           [(JSON..=) "AdvertiseTrustStoreCaNames"
+                              Prelude.<$> advertiseTrustStoreCaNames,
+                            (JSON..=) "IgnoreClientCertificateExpiry"
                               Prelude.<$> ignoreClientCertificateExpiry,
                             (JSON..=) "Mode" Prelude.<$> mode,
                             (JSON..=) "TrustStoreArn" Prelude.<$> trustStoreArn])}
@@ -32,10 +36,17 @@ instance JSON.ToJSON MutualAuthenticationProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "IgnoreClientCertificateExpiry"
+              [(JSON..=) "AdvertiseTrustStoreCaNames"
+                 Prelude.<$> advertiseTrustStoreCaNames,
+               (JSON..=) "IgnoreClientCertificateExpiry"
                  Prelude.<$> ignoreClientCertificateExpiry,
                (JSON..=) "Mode" Prelude.<$> mode,
                (JSON..=) "TrustStoreArn" Prelude.<$> trustStoreArn]))
+instance Property "AdvertiseTrustStoreCaNames" MutualAuthenticationProperty where
+  type PropertyType "AdvertiseTrustStoreCaNames" MutualAuthenticationProperty = Value Prelude.Text
+  set newValue MutualAuthenticationProperty {..}
+    = MutualAuthenticationProperty
+        {advertiseTrustStoreCaNames = Prelude.pure newValue, ..}
 instance Property "IgnoreClientCertificateExpiry" MutualAuthenticationProperty where
   type PropertyType "IgnoreClientCertificateExpiry" MutualAuthenticationProperty = Value Prelude.Bool
   set newValue MutualAuthenticationProperty {..}

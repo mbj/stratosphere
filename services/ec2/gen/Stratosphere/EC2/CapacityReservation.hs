@@ -20,7 +20,8 @@ data CapacityReservation
                          outPostArn :: (Prelude.Maybe (Value Prelude.Text)),
                          placementGroupArn :: (Prelude.Maybe (Value Prelude.Text)),
                          tagSpecifications :: (Prelude.Maybe [TagSpecificationProperty]),
-                         tenancy :: (Prelude.Maybe (Value Prelude.Text))}
+                         tenancy :: (Prelude.Maybe (Value Prelude.Text)),
+                         unusedReservationBillingOwnerId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapacityReservation ::
   Value Prelude.Text
@@ -39,7 +40,8 @@ mkCapacityReservation
        ephemeralStorage = Prelude.Nothing,
        instanceMatchCriteria = Prelude.Nothing,
        outPostArn = Prelude.Nothing, placementGroupArn = Prelude.Nothing,
-       tagSpecifications = Prelude.Nothing, tenancy = Prelude.Nothing}
+       tagSpecifications = Prelude.Nothing, tenancy = Prelude.Nothing,
+       unusedReservationBillingOwnerId = Prelude.Nothing}
 instance ToResourceProperties CapacityReservation where
   toResourceProperties CapacityReservation {..}
     = ResourceProperties
@@ -61,7 +63,9 @@ instance ToResourceProperties CapacityReservation where
                                (JSON..=) "OutPostArn" Prelude.<$> outPostArn,
                                (JSON..=) "PlacementGroupArn" Prelude.<$> placementGroupArn,
                                (JSON..=) "TagSpecifications" Prelude.<$> tagSpecifications,
-                               (JSON..=) "Tenancy" Prelude.<$> tenancy]))}
+                               (JSON..=) "Tenancy" Prelude.<$> tenancy,
+                               (JSON..=) "UnusedReservationBillingOwnerId"
+                                 Prelude.<$> unusedReservationBillingOwnerId]))}
 instance JSON.ToJSON CapacityReservation where
   toJSON CapacityReservation {..}
     = JSON.object
@@ -81,7 +85,9 @@ instance JSON.ToJSON CapacityReservation where
                   (JSON..=) "OutPostArn" Prelude.<$> outPostArn,
                   (JSON..=) "PlacementGroupArn" Prelude.<$> placementGroupArn,
                   (JSON..=) "TagSpecifications" Prelude.<$> tagSpecifications,
-                  (JSON..=) "Tenancy" Prelude.<$> tenancy])))
+                  (JSON..=) "Tenancy" Prelude.<$> tenancy,
+                  (JSON..=) "UnusedReservationBillingOwnerId"
+                    Prelude.<$> unusedReservationBillingOwnerId])))
 instance Property "AvailabilityZone" CapacityReservation where
   type PropertyType "AvailabilityZone" CapacityReservation = Value Prelude.Text
   set newValue CapacityReservation {..}
@@ -138,3 +144,8 @@ instance Property "Tenancy" CapacityReservation where
   type PropertyType "Tenancy" CapacityReservation = Value Prelude.Text
   set newValue CapacityReservation {..}
     = CapacityReservation {tenancy = Prelude.pure newValue, ..}
+instance Property "UnusedReservationBillingOwnerId" CapacityReservation where
+  type PropertyType "UnusedReservationBillingOwnerId" CapacityReservation = Value Prelude.Text
+  set newValue CapacityReservation {..}
+    = CapacityReservation
+        {unusedReservationBillingOwnerId = Prelude.pure newValue, ..}

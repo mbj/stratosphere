@@ -8,16 +8,19 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TransitGatewayRoute
   = TransitGatewayRoute {blackhole :: (Prelude.Maybe (Value Prelude.Bool)),
-                         destinationCidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+                         destinationCidrBlock :: (Value Prelude.Text),
                          transitGatewayAttachmentId :: (Prelude.Maybe (Value Prelude.Text)),
                          transitGatewayRouteTableId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkTransitGatewayRoute :: Value Prelude.Text -> TransitGatewayRoute
-mkTransitGatewayRoute transitGatewayRouteTableId
+mkTransitGatewayRoute ::
+  Value Prelude.Text -> Value Prelude.Text -> TransitGatewayRoute
+mkTransitGatewayRoute
+  destinationCidrBlock
+  transitGatewayRouteTableId
   = TransitGatewayRoute
-      {transitGatewayRouteTableId = transitGatewayRouteTableId,
+      {destinationCidrBlock = destinationCidrBlock,
+       transitGatewayRouteTableId = transitGatewayRouteTableId,
        blackhole = Prelude.Nothing,
-       destinationCidrBlock = Prelude.Nothing,
        transitGatewayAttachmentId = Prelude.Nothing}
 instance ToResourceProperties TransitGatewayRoute where
   toResourceProperties TransitGatewayRoute {..}
@@ -26,10 +29,10 @@ instance ToResourceProperties TransitGatewayRoute where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["TransitGatewayRouteTableId" JSON..= transitGatewayRouteTableId]
+                           ["DestinationCidrBlock" JSON..= destinationCidrBlock,
+                            "TransitGatewayRouteTableId" JSON..= transitGatewayRouteTableId]
                            (Prelude.catMaybes
                               [(JSON..=) "Blackhole" Prelude.<$> blackhole,
-                               (JSON..=) "DestinationCidrBlock" Prelude.<$> destinationCidrBlock,
                                (JSON..=) "TransitGatewayAttachmentId"
                                  Prelude.<$> transitGatewayAttachmentId]))}
 instance JSON.ToJSON TransitGatewayRoute where
@@ -37,10 +40,10 @@ instance JSON.ToJSON TransitGatewayRoute where
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["TransitGatewayRouteTableId" JSON..= transitGatewayRouteTableId]
+              ["DestinationCidrBlock" JSON..= destinationCidrBlock,
+               "TransitGatewayRouteTableId" JSON..= transitGatewayRouteTableId]
               (Prelude.catMaybes
                  [(JSON..=) "Blackhole" Prelude.<$> blackhole,
-                  (JSON..=) "DestinationCidrBlock" Prelude.<$> destinationCidrBlock,
                   (JSON..=) "TransitGatewayAttachmentId"
                     Prelude.<$> transitGatewayAttachmentId])))
 instance Property "Blackhole" TransitGatewayRoute where
@@ -50,8 +53,7 @@ instance Property "Blackhole" TransitGatewayRoute where
 instance Property "DestinationCidrBlock" TransitGatewayRoute where
   type PropertyType "DestinationCidrBlock" TransitGatewayRoute = Value Prelude.Text
   set newValue TransitGatewayRoute {..}
-    = TransitGatewayRoute
-        {destinationCidrBlock = Prelude.pure newValue, ..}
+    = TransitGatewayRoute {destinationCidrBlock = newValue, ..}
 instance Property "TransitGatewayAttachmentId" TransitGatewayRoute where
   type PropertyType "TransitGatewayAttachmentId" TransitGatewayRoute = Value Prelude.Text
   set newValue TransitGatewayRoute {..}

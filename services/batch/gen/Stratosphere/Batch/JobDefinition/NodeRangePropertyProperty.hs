@@ -7,11 +7,13 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.ContainerPropertiesProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EcsPropertiesProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksPropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data NodeRangePropertyProperty
   = NodeRangePropertyProperty {container :: (Prelude.Maybe ContainerPropertiesProperty),
                                ecsProperties :: (Prelude.Maybe EcsPropertiesProperty),
+                               eksProperties :: (Prelude.Maybe EksPropertiesProperty),
                                instanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
                                targetNodes :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -20,7 +22,8 @@ mkNodeRangePropertyProperty ::
 mkNodeRangePropertyProperty targetNodes
   = NodeRangePropertyProperty
       {targetNodes = targetNodes, container = Prelude.Nothing,
-       ecsProperties = Prelude.Nothing, instanceTypes = Prelude.Nothing}
+       ecsProperties = Prelude.Nothing, eksProperties = Prelude.Nothing,
+       instanceTypes = Prelude.Nothing}
 instance ToResourceProperties NodeRangePropertyProperty where
   toResourceProperties NodeRangePropertyProperty {..}
     = ResourceProperties
@@ -32,6 +35,7 @@ instance ToResourceProperties NodeRangePropertyProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "Container" Prelude.<$> container,
                                (JSON..=) "EcsProperties" Prelude.<$> ecsProperties,
+                               (JSON..=) "EksProperties" Prelude.<$> eksProperties,
                                (JSON..=) "InstanceTypes" Prelude.<$> instanceTypes]))}
 instance JSON.ToJSON NodeRangePropertyProperty where
   toJSON NodeRangePropertyProperty {..}
@@ -42,6 +46,7 @@ instance JSON.ToJSON NodeRangePropertyProperty where
               (Prelude.catMaybes
                  [(JSON..=) "Container" Prelude.<$> container,
                   (JSON..=) "EcsProperties" Prelude.<$> ecsProperties,
+                  (JSON..=) "EksProperties" Prelude.<$> eksProperties,
                   (JSON..=) "InstanceTypes" Prelude.<$> instanceTypes])))
 instance Property "Container" NodeRangePropertyProperty where
   type PropertyType "Container" NodeRangePropertyProperty = ContainerPropertiesProperty
@@ -52,6 +57,11 @@ instance Property "EcsProperties" NodeRangePropertyProperty where
   set newValue NodeRangePropertyProperty {..}
     = NodeRangePropertyProperty
         {ecsProperties = Prelude.pure newValue, ..}
+instance Property "EksProperties" NodeRangePropertyProperty where
+  type PropertyType "EksProperties" NodeRangePropertyProperty = EksPropertiesProperty
+  set newValue NodeRangePropertyProperty {..}
+    = NodeRangePropertyProperty
+        {eksProperties = Prelude.pure newValue, ..}
 instance Property "InstanceTypes" NodeRangePropertyProperty where
   type PropertyType "InstanceTypes" NodeRangePropertyProperty = ValueList Prelude.Text
   set newValue NodeRangePropertyProperty {..}

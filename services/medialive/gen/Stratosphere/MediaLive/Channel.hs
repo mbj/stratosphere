@@ -4,6 +4,7 @@ module Stratosphere.MediaLive.Channel (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AnywhereSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.CdiInputSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.EncoderSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputAttachmentProperty as Exports
@@ -14,7 +15,8 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Channel.VpcOutputSettingsProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data Channel
-  = Channel {cdiInputSpecification :: (Prelude.Maybe CdiInputSpecificationProperty),
+  = Channel {anywhereSettings :: (Prelude.Maybe AnywhereSettingsProperty),
+             cdiInputSpecification :: (Prelude.Maybe CdiInputSpecificationProperty),
              channelClass :: (Prelude.Maybe (Value Prelude.Text)),
              destinations :: (Prelude.Maybe [OutputDestinationProperty]),
              encoderSettings :: (Prelude.Maybe EncoderSettingsProperty),
@@ -30,7 +32,8 @@ data Channel
 mkChannel :: Channel
 mkChannel
   = Channel
-      {cdiInputSpecification = Prelude.Nothing,
+      {anywhereSettings = Prelude.Nothing,
+       cdiInputSpecification = Prelude.Nothing,
        channelClass = Prelude.Nothing, destinations = Prelude.Nothing,
        encoderSettings = Prelude.Nothing,
        inputAttachments = Prelude.Nothing,
@@ -44,7 +47,8 @@ instance ToResourceProperties Channel where
         {awsType = "AWS::MediaLive::Channel", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "CdiInputSpecification"
+                           [(JSON..=) "AnywhereSettings" Prelude.<$> anywhereSettings,
+                            (JSON..=) "CdiInputSpecification"
                               Prelude.<$> cdiInputSpecification,
                             (JSON..=) "ChannelClass" Prelude.<$> channelClass,
                             (JSON..=) "Destinations" Prelude.<$> destinations,
@@ -62,7 +66,8 @@ instance JSON.ToJSON Channel where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "CdiInputSpecification"
+              [(JSON..=) "AnywhereSettings" Prelude.<$> anywhereSettings,
+               (JSON..=) "CdiInputSpecification"
                  Prelude.<$> cdiInputSpecification,
                (JSON..=) "ChannelClass" Prelude.<$> channelClass,
                (JSON..=) "Destinations" Prelude.<$> destinations,
@@ -75,6 +80,10 @@ instance JSON.ToJSON Channel where
                (JSON..=) "RoleArn" Prelude.<$> roleArn,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "Vpc" Prelude.<$> vpc]))
+instance Property "AnywhereSettings" Channel where
+  type PropertyType "AnywhereSettings" Channel = AnywhereSettingsProperty
+  set newValue Channel {..}
+    = Channel {anywhereSettings = Prelude.pure newValue, ..}
 instance Property "CdiInputSpecification" Channel where
   type PropertyType "CdiInputSpecification" Channel = CdiInputSpecificationProperty
   set newValue Channel {..}

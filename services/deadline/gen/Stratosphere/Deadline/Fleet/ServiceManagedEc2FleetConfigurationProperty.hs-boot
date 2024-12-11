@@ -1,0 +1,9 @@
+module Stratosphere.Deadline.Fleet.ServiceManagedEc2FleetConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceManagedEc2FleetConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ServiceManagedEc2FleetConfigurationProperty
+instance Prelude.Eq ServiceManagedEc2FleetConfigurationProperty
+instance Prelude.Show ServiceManagedEc2FleetConfigurationProperty
+instance JSON.ToJSON ServiceManagedEc2FleetConfigurationProperty

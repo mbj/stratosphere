@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.LinkSharingConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data LinkSharingConfigurationProperty :: Prelude.Type
-instance ToResourceProperties LinkSharingConfigurationProperty
-instance Prelude.Eq LinkSharingConfigurationProperty
-instance Prelude.Show LinkSharingConfigurationProperty
-instance JSON.ToJSON LinkSharingConfigurationProperty

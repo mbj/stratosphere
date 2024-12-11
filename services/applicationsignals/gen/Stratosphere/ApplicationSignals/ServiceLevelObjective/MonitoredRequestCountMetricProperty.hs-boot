@@ -1,0 +1,9 @@
+module Stratosphere.ApplicationSignals.ServiceLevelObjective.MonitoredRequestCountMetricProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MonitoredRequestCountMetricProperty :: Prelude.Type
+instance ToResourceProperties MonitoredRequestCountMetricProperty
+instance Prelude.Eq MonitoredRequestCountMetricProperty
+instance Prelude.Show MonitoredRequestCountMetricProperty
+instance JSON.ToJSON MonitoredRequestCountMetricProperty

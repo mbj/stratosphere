@@ -1,0 +1,9 @@
+module Stratosphere.CodePipeline.Pipeline.SuccessConditionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SuccessConditionsProperty :: Prelude.Type
+instance ToResourceProperties SuccessConditionsProperty
+instance Prelude.Eq SuccessConditionsProperty
+instance Prelude.Show SuccessConditionsProperty
+instance JSON.ToJSON SuccessConditionsProperty

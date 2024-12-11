@@ -1,0 +1,9 @@
+module Stratosphere.CodeBuild.Fleet.ScalingConfigurationInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScalingConfigurationInputProperty :: Prelude.Type
+instance ToResourceProperties ScalingConfigurationInputProperty
+instance Prelude.Eq ScalingConfigurationInputProperty
+instance Prelude.Show ScalingConfigurationInputProperty
+instance JSON.ToJSON ScalingConfigurationInputProperty

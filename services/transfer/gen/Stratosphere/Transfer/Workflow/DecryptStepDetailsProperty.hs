@@ -9,47 +9,49 @@ import {-# SOURCE #-} Stratosphere.Transfer.Workflow.InputFileLocationProperty a
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DecryptStepDetailsProperty
-  = DecryptStepDetailsProperty {destinationFileLocation :: (Prelude.Maybe InputFileLocationProperty),
+  = DecryptStepDetailsProperty {destinationFileLocation :: InputFileLocationProperty,
                                 name :: (Prelude.Maybe (Value Prelude.Text)),
                                 overwriteExisting :: (Prelude.Maybe (Value Prelude.Text)),
                                 sourceFileLocation :: (Prelude.Maybe (Value Prelude.Text)),
-                                type' :: (Prelude.Maybe (Value Prelude.Text))}
+                                type' :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkDecryptStepDetailsProperty :: DecryptStepDetailsProperty
-mkDecryptStepDetailsProperty
+mkDecryptStepDetailsProperty ::
+  InputFileLocationProperty
+  -> Value Prelude.Text -> DecryptStepDetailsProperty
+mkDecryptStepDetailsProperty destinationFileLocation type'
   = DecryptStepDetailsProperty
-      {destinationFileLocation = Prelude.Nothing, name = Prelude.Nothing,
-       overwriteExisting = Prelude.Nothing,
-       sourceFileLocation = Prelude.Nothing, type' = Prelude.Nothing}
+      {destinationFileLocation = destinationFileLocation, type' = type',
+       name = Prelude.Nothing, overwriteExisting = Prelude.Nothing,
+       sourceFileLocation = Prelude.Nothing}
 instance ToResourceProperties DecryptStepDetailsProperty where
   toResourceProperties DecryptStepDetailsProperty {..}
     = ResourceProperties
         {awsType = "AWS::Transfer::Workflow.DecryptStepDetails",
          supportsTags = Prelude.False,
          properties = Prelude.fromList
-                        (Prelude.catMaybes
-                           [(JSON..=) "DestinationFileLocation"
-                              Prelude.<$> destinationFileLocation,
-                            (JSON..=) "Name" Prelude.<$> name,
-                            (JSON..=) "OverwriteExisting" Prelude.<$> overwriteExisting,
-                            (JSON..=) "SourceFileLocation" Prelude.<$> sourceFileLocation,
-                            (JSON..=) "Type" Prelude.<$> type'])}
+                        ((Prelude.<>)
+                           ["DestinationFileLocation" JSON..= destinationFileLocation,
+                            "Type" JSON..= type']
+                           (Prelude.catMaybes
+                              [(JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "OverwriteExisting" Prelude.<$> overwriteExisting,
+                               (JSON..=) "SourceFileLocation" Prelude.<$> sourceFileLocation]))}
 instance JSON.ToJSON DecryptStepDetailsProperty where
   toJSON DecryptStepDetailsProperty {..}
     = JSON.object
         (Prelude.fromList
-           (Prelude.catMaybes
-              [(JSON..=) "DestinationFileLocation"
-                 Prelude.<$> destinationFileLocation,
-               (JSON..=) "Name" Prelude.<$> name,
-               (JSON..=) "OverwriteExisting" Prelude.<$> overwriteExisting,
-               (JSON..=) "SourceFileLocation" Prelude.<$> sourceFileLocation,
-               (JSON..=) "Type" Prelude.<$> type']))
+           ((Prelude.<>)
+              ["DestinationFileLocation" JSON..= destinationFileLocation,
+               "Type" JSON..= type']
+              (Prelude.catMaybes
+                 [(JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "OverwriteExisting" Prelude.<$> overwriteExisting,
+                  (JSON..=) "SourceFileLocation" Prelude.<$> sourceFileLocation])))
 instance Property "DestinationFileLocation" DecryptStepDetailsProperty where
   type PropertyType "DestinationFileLocation" DecryptStepDetailsProperty = InputFileLocationProperty
   set newValue DecryptStepDetailsProperty {..}
     = DecryptStepDetailsProperty
-        {destinationFileLocation = Prelude.pure newValue, ..}
+        {destinationFileLocation = newValue, ..}
 instance Property "Name" DecryptStepDetailsProperty where
   type PropertyType "Name" DecryptStepDetailsProperty = Value Prelude.Text
   set newValue DecryptStepDetailsProperty {..}
@@ -67,4 +69,4 @@ instance Property "SourceFileLocation" DecryptStepDetailsProperty where
 instance Property "Type" DecryptStepDetailsProperty where
   type PropertyType "Type" DecryptStepDetailsProperty = Value Prelude.Text
   set newValue DecryptStepDetailsProperty {..}
-    = DecryptStepDetailsProperty {type' = Prelude.pure newValue, ..}
+    = DecryptStepDetailsProperty {type' = newValue, ..}

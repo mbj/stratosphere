@@ -7,23 +7,28 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data UserPoolIdentityProvider
-  = UserPoolIdentityProvider {attributeMapping :: (Prelude.Maybe JSON.Object),
+  = UserPoolIdentityProvider {attributeMapping :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                               idpIdentifiers :: (Prelude.Maybe (ValueList Prelude.Text)),
-                              providerDetails :: (Prelude.Maybe JSON.Object),
+                              providerDetails :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
                               providerName :: (Value Prelude.Text),
                               providerType :: (Value Prelude.Text),
                               userPoolId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUserPoolIdentityProvider ::
-  Value Prelude.Text
+  Prelude.Map Prelude.Text (Value Prelude.Text)
   -> Value Prelude.Text
-     -> Value Prelude.Text -> UserPoolIdentityProvider
-mkUserPoolIdentityProvider providerName providerType userPoolId
+     -> Value Prelude.Text
+        -> Value Prelude.Text -> UserPoolIdentityProvider
+mkUserPoolIdentityProvider
+  providerDetails
+  providerName
+  providerType
+  userPoolId
   = UserPoolIdentityProvider
-      {providerName = providerName, providerType = providerType,
-       userPoolId = userPoolId, attributeMapping = Prelude.Nothing,
-       idpIdentifiers = Prelude.Nothing,
-       providerDetails = Prelude.Nothing}
+      {providerDetails = providerDetails, providerName = providerName,
+       providerType = providerType, userPoolId = userPoolId,
+       attributeMapping = Prelude.Nothing,
+       idpIdentifiers = Prelude.Nothing}
 instance ToResourceProperties UserPoolIdentityProvider where
   toResourceProperties UserPoolIdentityProvider {..}
     = ResourceProperties
@@ -31,27 +36,27 @@ instance ToResourceProperties UserPoolIdentityProvider where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ProviderName" JSON..= providerName,
+                           ["ProviderDetails" JSON..= providerDetails,
+                            "ProviderName" JSON..= providerName,
                             "ProviderType" JSON..= providerType,
                             "UserPoolId" JSON..= userPoolId]
                            (Prelude.catMaybes
                               [(JSON..=) "AttributeMapping" Prelude.<$> attributeMapping,
-                               (JSON..=) "IdpIdentifiers" Prelude.<$> idpIdentifiers,
-                               (JSON..=) "ProviderDetails" Prelude.<$> providerDetails]))}
+                               (JSON..=) "IdpIdentifiers" Prelude.<$> idpIdentifiers]))}
 instance JSON.ToJSON UserPoolIdentityProvider where
   toJSON UserPoolIdentityProvider {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ProviderName" JSON..= providerName,
+              ["ProviderDetails" JSON..= providerDetails,
+               "ProviderName" JSON..= providerName,
                "ProviderType" JSON..= providerType,
                "UserPoolId" JSON..= userPoolId]
               (Prelude.catMaybes
                  [(JSON..=) "AttributeMapping" Prelude.<$> attributeMapping,
-                  (JSON..=) "IdpIdentifiers" Prelude.<$> idpIdentifiers,
-                  (JSON..=) "ProviderDetails" Prelude.<$> providerDetails])))
+                  (JSON..=) "IdpIdentifiers" Prelude.<$> idpIdentifiers])))
 instance Property "AttributeMapping" UserPoolIdentityProvider where
-  type PropertyType "AttributeMapping" UserPoolIdentityProvider = JSON.Object
+  type PropertyType "AttributeMapping" UserPoolIdentityProvider = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue UserPoolIdentityProvider {..}
     = UserPoolIdentityProvider
         {attributeMapping = Prelude.pure newValue, ..}
@@ -61,10 +66,9 @@ instance Property "IdpIdentifiers" UserPoolIdentityProvider where
     = UserPoolIdentityProvider
         {idpIdentifiers = Prelude.pure newValue, ..}
 instance Property "ProviderDetails" UserPoolIdentityProvider where
-  type PropertyType "ProviderDetails" UserPoolIdentityProvider = JSON.Object
+  type PropertyType "ProviderDetails" UserPoolIdentityProvider = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue UserPoolIdentityProvider {..}
-    = UserPoolIdentityProvider
-        {providerDetails = Prelude.pure newValue, ..}
+    = UserPoolIdentityProvider {providerDetails = newValue, ..}
 instance Property "ProviderName" UserPoolIdentityProvider where
   type PropertyType "ProviderName" UserPoolIdentityProvider = Value Prelude.Text
   set newValue UserPoolIdentityProvider {..}

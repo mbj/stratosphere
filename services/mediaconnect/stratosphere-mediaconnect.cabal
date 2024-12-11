@@ -45,14 +45,27 @@ library
       Stratosphere.MediaConnect.Flow
       Stratosphere.MediaConnect.Flow.EncryptionProperty
       Stratosphere.MediaConnect.Flow.FailoverConfigProperty
+      Stratosphere.MediaConnect.Flow.FmtpProperty
       Stratosphere.MediaConnect.Flow.GatewayBridgeSourceProperty
+      Stratosphere.MediaConnect.Flow.InputConfigurationProperty
+      Stratosphere.MediaConnect.Flow.InterfaceProperty
+      Stratosphere.MediaConnect.Flow.MaintenanceProperty
+      Stratosphere.MediaConnect.Flow.MediaStreamAttributesProperty
+      Stratosphere.MediaConnect.Flow.MediaStreamProperty
+      Stratosphere.MediaConnect.Flow.MediaStreamSourceConfigurationProperty
+      Stratosphere.MediaConnect.Flow.SourceMonitoringConfigProperty
       Stratosphere.MediaConnect.Flow.SourcePriorityProperty
       Stratosphere.MediaConnect.Flow.SourceProperty
       Stratosphere.MediaConnect.Flow.VpcInterfaceAttachmentProperty
+      Stratosphere.MediaConnect.Flow.VpcInterfaceProperty
       Stratosphere.MediaConnect.FlowEntitlement
       Stratosphere.MediaConnect.FlowEntitlement.EncryptionProperty
       Stratosphere.MediaConnect.FlowOutput
+      Stratosphere.MediaConnect.FlowOutput.DestinationConfigurationProperty
+      Stratosphere.MediaConnect.FlowOutput.EncodingParametersProperty
       Stratosphere.MediaConnect.FlowOutput.EncryptionProperty
+      Stratosphere.MediaConnect.FlowOutput.InterfaceProperty
+      Stratosphere.MediaConnect.FlowOutput.MediaStreamOutputConfigurationProperty
       Stratosphere.MediaConnect.FlowOutput.VpcInterfaceAttachmentProperty
       Stratosphere.MediaConnect.FlowSource
       Stratosphere.MediaConnect.FlowSource.EncryptionProperty

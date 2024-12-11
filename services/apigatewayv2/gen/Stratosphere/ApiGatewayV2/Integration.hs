@@ -4,6 +4,7 @@ module Stratosphere.ApiGatewayV2.Integration (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ApiGatewayV2.Integration.ResponseParameterMapProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApiGatewayV2.Integration.TlsConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -20,9 +21,9 @@ data Integration
                  integrationUri :: (Prelude.Maybe (Value Prelude.Text)),
                  passthroughBehavior :: (Prelude.Maybe (Value Prelude.Text)),
                  payloadFormatVersion :: (Prelude.Maybe (Value Prelude.Text)),
-                 requestParameters :: (Prelude.Maybe JSON.Object),
-                 requestTemplates :: (Prelude.Maybe JSON.Object),
-                 responseParameters :: (Prelude.Maybe JSON.Object),
+                 requestParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                 requestTemplates :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                 responseParameters :: (Prelude.Maybe (Prelude.Map Prelude.Text ResponseParameterMapProperty)),
                  templateSelectionExpression :: (Prelude.Maybe (Value Prelude.Text)),
                  timeoutInMillis :: (Prelude.Maybe (Value Prelude.Integer)),
                  tlsConfig :: (Prelude.Maybe TlsConfigProperty)}
@@ -145,15 +146,15 @@ instance Property "PayloadFormatVersion" Integration where
   set newValue Integration {..}
     = Integration {payloadFormatVersion = Prelude.pure newValue, ..}
 instance Property "RequestParameters" Integration where
-  type PropertyType "RequestParameters" Integration = JSON.Object
+  type PropertyType "RequestParameters" Integration = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue Integration {..}
     = Integration {requestParameters = Prelude.pure newValue, ..}
 instance Property "RequestTemplates" Integration where
-  type PropertyType "RequestTemplates" Integration = JSON.Object
+  type PropertyType "RequestTemplates" Integration = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue Integration {..}
     = Integration {requestTemplates = Prelude.pure newValue, ..}
 instance Property "ResponseParameters" Integration where
-  type PropertyType "ResponseParameters" Integration = JSON.Object
+  type PropertyType "ResponseParameters" Integration = Prelude.Map Prelude.Text ResponseParameterMapProperty
   set newValue Integration {..}
     = Integration {responseParameters = Prelude.pure newValue, ..}
 instance Property "TemplateSelectionExpression" Integration where

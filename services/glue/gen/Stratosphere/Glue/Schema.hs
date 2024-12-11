@@ -16,19 +16,18 @@ data Schema
             description :: (Prelude.Maybe (Value Prelude.Text)),
             name :: (Value Prelude.Text),
             registry :: (Prelude.Maybe RegistryProperty),
-            schemaDefinition :: (Value Prelude.Text),
+            schemaDefinition :: (Prelude.Maybe (Value Prelude.Text)),
             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSchema ::
   Value Prelude.Text
-  -> Value Prelude.Text
-     -> Value Prelude.Text -> Value Prelude.Text -> Schema
-mkSchema compatibility dataFormat name schemaDefinition
+  -> Value Prelude.Text -> Value Prelude.Text -> Schema
+mkSchema compatibility dataFormat name
   = Schema
       {compatibility = compatibility, dataFormat = dataFormat,
-       name = name, schemaDefinition = schemaDefinition,
-       checkpointVersion = Prelude.Nothing, description = Prelude.Nothing,
-       registry = Prelude.Nothing, tags = Prelude.Nothing}
+       name = name, checkpointVersion = Prelude.Nothing,
+       description = Prelude.Nothing, registry = Prelude.Nothing,
+       schemaDefinition = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Schema where
   toResourceProperties Schema {..}
     = ResourceProperties
@@ -36,12 +35,12 @@ instance ToResourceProperties Schema where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Compatibility" JSON..= compatibility,
-                            "DataFormat" JSON..= dataFormat, "Name" JSON..= name,
-                            "SchemaDefinition" JSON..= schemaDefinition]
+                            "DataFormat" JSON..= dataFormat, "Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "CheckpointVersion" Prelude.<$> checkpointVersion,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "Registry" Prelude.<$> registry,
+                               (JSON..=) "SchemaDefinition" Prelude.<$> schemaDefinition,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Schema where
   toJSON Schema {..}
@@ -49,12 +48,12 @@ instance JSON.ToJSON Schema where
         (Prelude.fromList
            ((Prelude.<>)
               ["Compatibility" JSON..= compatibility,
-               "DataFormat" JSON..= dataFormat, "Name" JSON..= name,
-               "SchemaDefinition" JSON..= schemaDefinition]
+               "DataFormat" JSON..= dataFormat, "Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "CheckpointVersion" Prelude.<$> checkpointVersion,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Registry" Prelude.<$> registry,
+                  (JSON..=) "SchemaDefinition" Prelude.<$> schemaDefinition,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "CheckpointVersion" Schema where
   type PropertyType "CheckpointVersion" Schema = SchemaVersionProperty
@@ -79,7 +78,8 @@ instance Property "Registry" Schema where
     = Schema {registry = Prelude.pure newValue, ..}
 instance Property "SchemaDefinition" Schema where
   type PropertyType "SchemaDefinition" Schema = Value Prelude.Text
-  set newValue Schema {..} = Schema {schemaDefinition = newValue, ..}
+  set newValue Schema {..}
+    = Schema {schemaDefinition = Prelude.pure newValue, ..}
 instance Property "Tags" Schema where
   type PropertyType "Tags" Schema = [Tag]
   set newValue Schema {..}

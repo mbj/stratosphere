@@ -42,13 +42,22 @@ library
       Stratosphere.DataZone.Domain.SingleSignOnProperty
       Stratosphere.DataZone.Environment
       Stratosphere.DataZone.Environment.EnvironmentParameterProperty
+      Stratosphere.DataZone.EnvironmentActions
+      Stratosphere.DataZone.EnvironmentActions.AwsConsoleLinkParametersProperty
       Stratosphere.DataZone.EnvironmentBlueprintConfiguration
       Stratosphere.DataZone.EnvironmentBlueprintConfiguration.RegionalParameterProperty
       Stratosphere.DataZone.EnvironmentProfile
       Stratosphere.DataZone.EnvironmentProfile.EnvironmentParameterProperty
+      Stratosphere.DataZone.GroupProfile
       Stratosphere.DataZone.Project
+      Stratosphere.DataZone.ProjectMembership
+      Stratosphere.DataZone.ProjectMembership.MemberProperty
       Stratosphere.DataZone.SubscriptionTarget
       Stratosphere.DataZone.SubscriptionTarget.SubscriptionTargetFormProperty
+      Stratosphere.DataZone.UserProfile
+      Stratosphere.DataZone.UserProfile.IamUserProfileDetailsProperty
+      Stratosphere.DataZone.UserProfile.SsoUserProfileDetailsProperty
+      Stratosphere.DataZone.UserProfile.UserProfileDetailsProperty
   other-modules:
       Paths_stratosphere_datazone
   hs-source-dirs:

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataSource.ConfluenceSourceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConfluenceSourceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ConfluenceSourceConfigurationProperty
+instance Prelude.Eq ConfluenceSourceConfigurationProperty
+instance Prelude.Show ConfluenceSourceConfigurationProperty
+instance JSON.ToJSON ConfluenceSourceConfigurationProperty

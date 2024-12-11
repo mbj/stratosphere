@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.DataSet.UntagColumnOperationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UntagColumnOperationProperty :: Prelude.Type
+instance ToResourceProperties UntagColumnOperationProperty
+instance Prelude.Eq UntagColumnOperationProperty
+instance Prelude.Show UntagColumnOperationProperty
+instance JSON.ToJSON UntagColumnOperationProperty

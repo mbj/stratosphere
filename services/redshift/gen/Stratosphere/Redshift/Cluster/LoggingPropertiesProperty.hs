@@ -8,12 +8,16 @@ import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoggingPropertiesProperty
   = LoggingPropertiesProperty {bucketName :: (Prelude.Maybe (Value Prelude.Text)),
+                               logDestinationType :: (Prelude.Maybe (Value Prelude.Text)),
+                               logExports :: (Prelude.Maybe (ValueList Prelude.Text)),
                                s3KeyPrefix :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLoggingPropertiesProperty :: LoggingPropertiesProperty
 mkLoggingPropertiesProperty
   = LoggingPropertiesProperty
-      {bucketName = Prelude.Nothing, s3KeyPrefix = Prelude.Nothing}
+      {bucketName = Prelude.Nothing,
+       logDestinationType = Prelude.Nothing, logExports = Prelude.Nothing,
+       s3KeyPrefix = Prelude.Nothing}
 instance ToResourceProperties LoggingPropertiesProperty where
   toResourceProperties LoggingPropertiesProperty {..}
     = ResourceProperties
@@ -22,6 +26,8 @@ instance ToResourceProperties LoggingPropertiesProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "BucketName" Prelude.<$> bucketName,
+                            (JSON..=) "LogDestinationType" Prelude.<$> logDestinationType,
+                            (JSON..=) "LogExports" Prelude.<$> logExports,
                             (JSON..=) "S3KeyPrefix" Prelude.<$> s3KeyPrefix])}
 instance JSON.ToJSON LoggingPropertiesProperty where
   toJSON LoggingPropertiesProperty {..}
@@ -29,12 +35,24 @@ instance JSON.ToJSON LoggingPropertiesProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "BucketName" Prelude.<$> bucketName,
+               (JSON..=) "LogDestinationType" Prelude.<$> logDestinationType,
+               (JSON..=) "LogExports" Prelude.<$> logExports,
                (JSON..=) "S3KeyPrefix" Prelude.<$> s3KeyPrefix]))
 instance Property "BucketName" LoggingPropertiesProperty where
   type PropertyType "BucketName" LoggingPropertiesProperty = Value Prelude.Text
   set newValue LoggingPropertiesProperty {..}
     = LoggingPropertiesProperty
         {bucketName = Prelude.pure newValue, ..}
+instance Property "LogDestinationType" LoggingPropertiesProperty where
+  type PropertyType "LogDestinationType" LoggingPropertiesProperty = Value Prelude.Text
+  set newValue LoggingPropertiesProperty {..}
+    = LoggingPropertiesProperty
+        {logDestinationType = Prelude.pure newValue, ..}
+instance Property "LogExports" LoggingPropertiesProperty where
+  type PropertyType "LogExports" LoggingPropertiesProperty = ValueList Prelude.Text
+  set newValue LoggingPropertiesProperty {..}
+    = LoggingPropertiesProperty
+        {logExports = Prelude.pure newValue, ..}
 instance Property "S3KeyPrefix" LoggingPropertiesProperty where
   type PropertyType "S3KeyPrefix" LoggingPropertiesProperty = Value Prelude.Text
   set newValue LoggingPropertiesProperty {..}

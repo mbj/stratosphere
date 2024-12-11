@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.SegmentDefinition.ExtraLengthValueProfileDimensionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExtraLengthValueProfileDimensionProperty :: Prelude.Type
+instance ToResourceProperties ExtraLengthValueProfileDimensionProperty
+instance Prelude.Eq ExtraLengthValueProfileDimensionProperty
+instance Prelude.Show ExtraLengthValueProfileDimensionProperty
+instance JSON.ToJSON ExtraLengthValueProfileDimensionProperty

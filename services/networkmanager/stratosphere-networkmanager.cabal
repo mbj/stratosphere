@@ -27,6 +27,7 @@ library
   exposed-modules:
       Stratosphere.NetworkManager.ConnectAttachment
       Stratosphere.NetworkManager.ConnectAttachment.ConnectAttachmentOptionsProperty
+      Stratosphere.NetworkManager.ConnectAttachment.ProposedNetworkFunctionGroupChangeProperty
       Stratosphere.NetworkManager.ConnectAttachment.ProposedSegmentChangeProperty
       Stratosphere.NetworkManager.ConnectPeer
       Stratosphere.NetworkManager.ConnectPeer.BgpOptionsProperty
@@ -34,7 +35,9 @@ library
       Stratosphere.NetworkManager.ConnectPeer.ConnectPeerConfigurationProperty
       Stratosphere.NetworkManager.CoreNetwork
       Stratosphere.NetworkManager.CoreNetwork.CoreNetworkEdgeProperty
+      Stratosphere.NetworkManager.CoreNetwork.CoreNetworkNetworkFunctionGroupProperty
       Stratosphere.NetworkManager.CoreNetwork.CoreNetworkSegmentProperty
+      Stratosphere.NetworkManager.CoreNetwork.SegmentsProperty
       Stratosphere.NetworkManager.CustomerGatewayAssociation
       Stratosphere.NetworkManager.Device
       Stratosphere.NetworkManager.Device.AWSLocationProperty
@@ -46,12 +49,15 @@ library
       Stratosphere.NetworkManager.Site
       Stratosphere.NetworkManager.Site.LocationProperty
       Stratosphere.NetworkManager.SiteToSiteVpnAttachment
+      Stratosphere.NetworkManager.SiteToSiteVpnAttachment.ProposedNetworkFunctionGroupChangeProperty
       Stratosphere.NetworkManager.SiteToSiteVpnAttachment.ProposedSegmentChangeProperty
       Stratosphere.NetworkManager.TransitGatewayPeering
       Stratosphere.NetworkManager.TransitGatewayRegistration
       Stratosphere.NetworkManager.TransitGatewayRouteTableAttachment
+      Stratosphere.NetworkManager.TransitGatewayRouteTableAttachment.ProposedNetworkFunctionGroupChangeProperty
       Stratosphere.NetworkManager.TransitGatewayRouteTableAttachment.ProposedSegmentChangeProperty
       Stratosphere.NetworkManager.VpcAttachment
+      Stratosphere.NetworkManager.VpcAttachment.ProposedNetworkFunctionGroupChangeProperty
       Stratosphere.NetworkManager.VpcAttachment.ProposedSegmentChangeProperty
       Stratosphere.NetworkManager.VpcAttachment.VpcOptionsProperty
   other-modules:

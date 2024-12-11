@@ -1,0 +1,9 @@
+module Stratosphere.IoT.ThingType.PropagatingAttributeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PropagatingAttributeProperty :: Prelude.Type
+instance ToResourceProperties PropagatingAttributeProperty
+instance Prelude.Eq PropagatingAttributeProperty
+instance Prelude.Show PropagatingAttributeProperty
+instance JSON.ToJSON PropagatingAttributeProperty

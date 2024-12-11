@@ -10,35 +10,33 @@ import Stratosphere.Value
 data OIDCProvider
   = OIDCProvider {clientIdList :: (Prelude.Maybe (ValueList Prelude.Text)),
                   tags :: (Prelude.Maybe [Tag]),
-                  thumbprintList :: (ValueList Prelude.Text),
+                  thumbprintList :: (Prelude.Maybe (ValueList Prelude.Text)),
                   url :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkOIDCProvider :: ValueList Prelude.Text -> OIDCProvider
-mkOIDCProvider thumbprintList
+mkOIDCProvider :: OIDCProvider
+mkOIDCProvider
   = OIDCProvider
-      {thumbprintList = thumbprintList, clientIdList = Prelude.Nothing,
-       tags = Prelude.Nothing, url = Prelude.Nothing}
+      {clientIdList = Prelude.Nothing, tags = Prelude.Nothing,
+       thumbprintList = Prelude.Nothing, url = Prelude.Nothing}
 instance ToResourceProperties OIDCProvider where
   toResourceProperties OIDCProvider {..}
     = ResourceProperties
         {awsType = "AWS::IAM::OIDCProvider", supportsTags = Prelude.True,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["ThumbprintList" JSON..= thumbprintList]
-                           (Prelude.catMaybes
-                              [(JSON..=) "ClientIdList" Prelude.<$> clientIdList,
-                               (JSON..=) "Tags" Prelude.<$> tags,
-                               (JSON..=) "Url" Prelude.<$> url]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "ClientIdList" Prelude.<$> clientIdList,
+                            (JSON..=) "Tags" Prelude.<$> tags,
+                            (JSON..=) "ThumbprintList" Prelude.<$> thumbprintList,
+                            (JSON..=) "Url" Prelude.<$> url])}
 instance JSON.ToJSON OIDCProvider where
   toJSON OIDCProvider {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["ThumbprintList" JSON..= thumbprintList]
-              (Prelude.catMaybes
-                 [(JSON..=) "ClientIdList" Prelude.<$> clientIdList,
-                  (JSON..=) "Tags" Prelude.<$> tags,
-                  (JSON..=) "Url" Prelude.<$> url])))
+           (Prelude.catMaybes
+              [(JSON..=) "ClientIdList" Prelude.<$> clientIdList,
+               (JSON..=) "Tags" Prelude.<$> tags,
+               (JSON..=) "ThumbprintList" Prelude.<$> thumbprintList,
+               (JSON..=) "Url" Prelude.<$> url]))
 instance Property "ClientIdList" OIDCProvider where
   type PropertyType "ClientIdList" OIDCProvider = ValueList Prelude.Text
   set newValue OIDCProvider {..}
@@ -50,7 +48,7 @@ instance Property "Tags" OIDCProvider where
 instance Property "ThumbprintList" OIDCProvider where
   type PropertyType "ThumbprintList" OIDCProvider = ValueList Prelude.Text
   set newValue OIDCProvider {..}
-    = OIDCProvider {thumbprintList = newValue, ..}
+    = OIDCProvider {thumbprintList = Prelude.pure newValue, ..}
 instance Property "Url" OIDCProvider where
   type PropertyType "Url" OIDCProvider = Value Prelude.Text
   set newValue OIDCProvider {..}

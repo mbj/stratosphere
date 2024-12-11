@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.DashUtcTimingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashUtcTimingProperty :: Prelude.Type
+instance ToResourceProperties DashUtcTimingProperty
+instance Prelude.Eq DashUtcTimingProperty
+instance Prelude.Show DashUtcTimingProperty
+instance JSON.ToJSON DashUtcTimingProperty

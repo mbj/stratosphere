@@ -1,0 +1,9 @@
+module Stratosphere.FIS.ExperimentTemplate.CloudWatchDashboardProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudWatchDashboardProperty :: Prelude.Type
+instance ToResourceProperties CloudWatchDashboardProperty
+instance Prelude.Eq CloudWatchDashboardProperty
+instance Prelude.Show CloudWatchDashboardProperty
+instance JSON.ToJSON CloudWatchDashboardProperty

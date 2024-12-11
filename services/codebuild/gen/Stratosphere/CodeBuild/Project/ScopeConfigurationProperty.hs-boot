@@ -1,0 +1,9 @@
+module Stratosphere.CodeBuild.Project.ScopeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScopeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ScopeConfigurationProperty
+instance Prelude.Eq ScopeConfigurationProperty
+instance Prelude.Show ScopeConfigurationProperty
+instance JSON.ToJSON ScopeConfigurationProperty

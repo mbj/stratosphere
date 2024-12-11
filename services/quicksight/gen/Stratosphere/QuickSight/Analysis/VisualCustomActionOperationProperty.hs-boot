@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.VisualCustomActionOperationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data VisualCustomActionOperationProperty :: Prelude.Type
-instance ToResourceProperties VisualCustomActionOperationProperty
-instance Prelude.Eq VisualCustomActionOperationProperty
-instance Prelude.Show VisualCustomActionOperationProperty
-instance JSON.ToJSON VisualCustomActionOperationProperty

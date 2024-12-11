@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.AgentAlias.AgentAliasHistoryEventProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AgentAliasHistoryEventProperty :: Prelude.Type
+instance ToResourceProperties AgentAliasHistoryEventProperty
+instance Prelude.Eq AgentAliasHistoryEventProperty
+instance Prelude.Show AgentAliasHistoryEventProperty
+instance JSON.ToJSON AgentAliasHistoryEventProperty

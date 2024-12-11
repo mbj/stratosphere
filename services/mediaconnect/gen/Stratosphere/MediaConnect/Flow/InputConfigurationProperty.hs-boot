@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.Flow.InputConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InputConfigurationProperty
+instance Prelude.Eq InputConfigurationProperty
+instance Prelude.Show InputConfigurationProperty
+instance JSON.ToJSON InputConfigurationProperty

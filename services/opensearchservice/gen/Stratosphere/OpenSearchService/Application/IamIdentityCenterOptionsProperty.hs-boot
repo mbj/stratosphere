@@ -1,0 +1,9 @@
+module Stratosphere.OpenSearchService.Application.IamIdentityCenterOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IamIdentityCenterOptionsProperty :: Prelude.Type
+instance ToResourceProperties IamIdentityCenterOptionsProperty
+instance Prelude.Eq IamIdentityCenterOptionsProperty
+instance Prelude.Show IamIdentityCenterOptionsProperty
+instance JSON.ToJSON IamIdentityCenterOptionsProperty

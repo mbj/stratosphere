@@ -1,0 +1,9 @@
+module Stratosphere.ApiGatewayV2.Integration.ResponseParameterMapProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResponseParameterMapProperty :: Prelude.Type
+instance ToResourceProperties ResponseParameterMapProperty
+instance Prelude.Eq ResponseParameterMapProperty
+instance Prelude.Show ResponseParameterMapProperty
+instance JSON.ToJSON ResponseParameterMapProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Deadline.Fleet.AcceleratorCountRangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AcceleratorCountRangeProperty :: Prelude.Type
+instance ToResourceProperties AcceleratorCountRangeProperty
+instance Prelude.Eq AcceleratorCountRangeProperty
+instance Prelude.Show AcceleratorCountRangeProperty
+instance JSON.ToJSON AcceleratorCountRangeProperty

@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Partnership.X12OutboundEdiHeadersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data X12OutboundEdiHeadersProperty :: Prelude.Type
+instance ToResourceProperties X12OutboundEdiHeadersProperty
+instance Prelude.Eq X12OutboundEdiHeadersProperty
+instance Prelude.Show X12OutboundEdiHeadersProperty
+instance JSON.ToJSON X12OutboundEdiHeadersProperty

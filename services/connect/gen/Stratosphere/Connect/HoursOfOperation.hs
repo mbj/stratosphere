@@ -5,12 +5,14 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.HoursOfOperation.HoursOfOperationConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.Connect.HoursOfOperation.HoursOfOperationOverrideProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data HoursOfOperation
   = HoursOfOperation {config :: [HoursOfOperationConfigProperty],
                       description :: (Prelude.Maybe (Value Prelude.Text)),
+                      hoursOfOperationOverrides :: (Prelude.Maybe [HoursOfOperationOverrideProperty]),
                       instanceArn :: (Value Prelude.Text),
                       name :: (Value Prelude.Text),
                       tags :: (Prelude.Maybe [Tag]),
@@ -24,6 +26,7 @@ mkHoursOfOperation config instanceArn name timeZone
   = HoursOfOperation
       {config = config, instanceArn = instanceArn, name = name,
        timeZone = timeZone, description = Prelude.Nothing,
+       hoursOfOperationOverrides = Prelude.Nothing,
        tags = Prelude.Nothing}
 instance ToResourceProperties HoursOfOperation where
   toResourceProperties HoursOfOperation {..}
@@ -36,6 +39,8 @@ instance ToResourceProperties HoursOfOperation where
                             "Name" JSON..= name, "TimeZone" JSON..= timeZone]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "HoursOfOperationOverrides"
+                                 Prelude.<$> hoursOfOperationOverrides,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON HoursOfOperation where
   toJSON HoursOfOperation {..}
@@ -46,6 +51,8 @@ instance JSON.ToJSON HoursOfOperation where
                "Name" JSON..= name, "TimeZone" JSON..= timeZone]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "HoursOfOperationOverrides"
+                    Prelude.<$> hoursOfOperationOverrides,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Config" HoursOfOperation where
   type PropertyType "Config" HoursOfOperation = [HoursOfOperationConfigProperty]
@@ -55,6 +62,11 @@ instance Property "Description" HoursOfOperation where
   type PropertyType "Description" HoursOfOperation = Value Prelude.Text
   set newValue HoursOfOperation {..}
     = HoursOfOperation {description = Prelude.pure newValue, ..}
+instance Property "HoursOfOperationOverrides" HoursOfOperation where
+  type PropertyType "HoursOfOperationOverrides" HoursOfOperation = [HoursOfOperationOverrideProperty]
+  set newValue HoursOfOperation {..}
+    = HoursOfOperation
+        {hoursOfOperationOverrides = Prelude.pure newValue, ..}
 instance Property "InstanceArn" HoursOfOperation where
   type PropertyType "InstanceArn" HoursOfOperation = Value Prelude.Text
   set newValue HoursOfOperation {..}

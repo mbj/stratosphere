@@ -1,14 +1,17 @@
 module Stratosphere.RolesAnywhere.Profile (
-        Profile(..), mkProfile
+        module Exports, Profile(..), mkProfile
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.RolesAnywhere.Profile.AttributeMappingProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Profile
-  = Profile {durationSeconds :: (Prelude.Maybe (Value Prelude.Double)),
+  = Profile {acceptRoleSessionName :: (Prelude.Maybe (Value Prelude.Bool)),
+             attributeMappings :: (Prelude.Maybe [AttributeMappingProperty]),
+             durationSeconds :: (Prelude.Maybe (Value Prelude.Double)),
              enabled :: (Prelude.Maybe (Value Prelude.Bool)),
              managedPolicyArns :: (Prelude.Maybe (ValueList Prelude.Text)),
              name :: (Value Prelude.Text),
@@ -22,6 +25,8 @@ mkProfile ::
 mkProfile name roleArns
   = Profile
       {name = name, roleArns = roleArns,
+       acceptRoleSessionName = Prelude.Nothing,
+       attributeMappings = Prelude.Nothing,
        durationSeconds = Prelude.Nothing, enabled = Prelude.Nothing,
        managedPolicyArns = Prelude.Nothing,
        requireInstanceProperties = Prelude.Nothing,
@@ -35,7 +40,10 @@ instance ToResourceProperties Profile where
                         ((Prelude.<>)
                            ["Name" JSON..= name, "RoleArns" JSON..= roleArns]
                            (Prelude.catMaybes
-                              [(JSON..=) "DurationSeconds" Prelude.<$> durationSeconds,
+                              [(JSON..=) "AcceptRoleSessionName"
+                                 Prelude.<$> acceptRoleSessionName,
+                               (JSON..=) "AttributeMappings" Prelude.<$> attributeMappings,
+                               (JSON..=) "DurationSeconds" Prelude.<$> durationSeconds,
                                (JSON..=) "Enabled" Prelude.<$> enabled,
                                (JSON..=) "ManagedPolicyArns" Prelude.<$> managedPolicyArns,
                                (JSON..=) "RequireInstanceProperties"
@@ -49,13 +57,24 @@ instance JSON.ToJSON Profile where
            ((Prelude.<>)
               ["Name" JSON..= name, "RoleArns" JSON..= roleArns]
               (Prelude.catMaybes
-                 [(JSON..=) "DurationSeconds" Prelude.<$> durationSeconds,
+                 [(JSON..=) "AcceptRoleSessionName"
+                    Prelude.<$> acceptRoleSessionName,
+                  (JSON..=) "AttributeMappings" Prelude.<$> attributeMappings,
+                  (JSON..=) "DurationSeconds" Prelude.<$> durationSeconds,
                   (JSON..=) "Enabled" Prelude.<$> enabled,
                   (JSON..=) "ManagedPolicyArns" Prelude.<$> managedPolicyArns,
                   (JSON..=) "RequireInstanceProperties"
                     Prelude.<$> requireInstanceProperties,
                   (JSON..=) "SessionPolicy" Prelude.<$> sessionPolicy,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "AcceptRoleSessionName" Profile where
+  type PropertyType "AcceptRoleSessionName" Profile = Value Prelude.Bool
+  set newValue Profile {..}
+    = Profile {acceptRoleSessionName = Prelude.pure newValue, ..}
+instance Property "AttributeMappings" Profile where
+  type PropertyType "AttributeMappings" Profile = [AttributeMappingProperty]
+  set newValue Profile {..}
+    = Profile {attributeMappings = Prelude.pure newValue, ..}
 instance Property "DurationSeconds" Profile where
   type PropertyType "DurationSeconds" Profile = Value Prelude.Double
   set newValue Profile {..}

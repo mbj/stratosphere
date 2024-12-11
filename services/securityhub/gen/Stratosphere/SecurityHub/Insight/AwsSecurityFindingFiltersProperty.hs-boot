@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.Insight.AwsSecurityFindingFiltersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AwsSecurityFindingFiltersProperty :: Prelude.Type
+instance ToResourceProperties AwsSecurityFindingFiltersProperty
+instance Prelude.Eq AwsSecurityFindingFiltersProperty
+instance Prelude.Show AwsSecurityFindingFiltersProperty
+instance JSON.ToJSON AwsSecurityFindingFiltersProperty

@@ -1,0 +1,9 @@
+module Stratosphere.GameLift.ContainerGroupDefinition.GameServerContainerDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GameServerContainerDefinitionProperty :: Prelude.Type
+instance ToResourceProperties GameServerContainerDefinitionProperty
+instance Prelude.Eq GameServerContainerDefinitionProperty
+instance Prelude.Show GameServerContainerDefinitionProperty
+instance JSON.ToJSON GameServerContainerDefinitionProperty

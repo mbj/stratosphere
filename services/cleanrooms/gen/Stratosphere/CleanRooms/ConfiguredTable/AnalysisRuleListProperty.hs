@@ -7,7 +7,8 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data AnalysisRuleListProperty
-  = AnalysisRuleListProperty {allowedJoinOperators :: (Prelude.Maybe (ValueList Prelude.Text)),
+  = AnalysisRuleListProperty {additionalAnalyses :: (Prelude.Maybe (Value Prelude.Text)),
+                              allowedJoinOperators :: (Prelude.Maybe (ValueList Prelude.Text)),
                               joinColumns :: (ValueList Prelude.Text),
                               listColumns :: (ValueList Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -17,6 +18,7 @@ mkAnalysisRuleListProperty ::
 mkAnalysisRuleListProperty joinColumns listColumns
   = AnalysisRuleListProperty
       {joinColumns = joinColumns, listColumns = listColumns,
+       additionalAnalyses = Prelude.Nothing,
        allowedJoinOperators = Prelude.Nothing}
 instance ToResourceProperties AnalysisRuleListProperty where
   toResourceProperties AnalysisRuleListProperty {..}
@@ -28,7 +30,8 @@ instance ToResourceProperties AnalysisRuleListProperty where
                            ["JoinColumns" JSON..= joinColumns,
                             "ListColumns" JSON..= listColumns]
                            (Prelude.catMaybes
-                              [(JSON..=) "AllowedJoinOperators"
+                              [(JSON..=) "AdditionalAnalyses" Prelude.<$> additionalAnalyses,
+                               (JSON..=) "AllowedJoinOperators"
                                  Prelude.<$> allowedJoinOperators]))}
 instance JSON.ToJSON AnalysisRuleListProperty where
   toJSON AnalysisRuleListProperty {..}
@@ -38,8 +41,14 @@ instance JSON.ToJSON AnalysisRuleListProperty where
               ["JoinColumns" JSON..= joinColumns,
                "ListColumns" JSON..= listColumns]
               (Prelude.catMaybes
-                 [(JSON..=) "AllowedJoinOperators"
+                 [(JSON..=) "AdditionalAnalyses" Prelude.<$> additionalAnalyses,
+                  (JSON..=) "AllowedJoinOperators"
                     Prelude.<$> allowedJoinOperators])))
+instance Property "AdditionalAnalyses" AnalysisRuleListProperty where
+  type PropertyType "AdditionalAnalyses" AnalysisRuleListProperty = Value Prelude.Text
+  set newValue AnalysisRuleListProperty {..}
+    = AnalysisRuleListProperty
+        {additionalAnalyses = Prelude.pure newValue, ..}
 instance Property "AllowedJoinOperators" AnalysisRuleListProperty where
   type PropertyType "AllowedJoinOperators" AnalysisRuleListProperty = ValueList Prelude.Text
   set newValue AnalysisRuleListProperty {..}

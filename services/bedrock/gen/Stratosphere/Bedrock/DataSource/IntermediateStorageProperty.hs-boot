@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataSource.IntermediateStorageProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IntermediateStorageProperty :: Prelude.Type
+instance ToResourceProperties IntermediateStorageProperty
+instance Prelude.Eq IntermediateStorageProperty
+instance Prelude.Show IntermediateStorageProperty
+instance JSON.ToJSON IntermediateStorageProperty

@@ -26,6 +26,8 @@ flag development
 library
   exposed-modules:
       Stratosphere.Oam.Link
+      Stratosphere.Oam.Link.LinkConfigurationProperty
+      Stratosphere.Oam.Link.LinkFilterProperty
       Stratosphere.Oam.Sink
   other-modules:
       Paths_stratosphere_oam

@@ -92,6 +92,7 @@ library
       Stratosphere.EC2.Instance.PrivateDnsNameOptionsProperty
       Stratosphere.EC2.Instance.PrivateIpAddressSpecificationProperty
       Stratosphere.EC2.Instance.SsmAssociationProperty
+      Stratosphere.EC2.Instance.StateProperty
       Stratosphere.EC2.Instance.VolumeProperty
       Stratosphere.EC2.InstanceConnectEndpoint
       Stratosphere.EC2.InternetGateway
@@ -111,11 +112,13 @@ library
       Stratosphere.EC2.LaunchTemplate.AcceleratorCountProperty
       Stratosphere.EC2.LaunchTemplate.AcceleratorTotalMemoryMiBProperty
       Stratosphere.EC2.LaunchTemplate.BaselineEbsBandwidthMbpsProperty
+      Stratosphere.EC2.LaunchTemplate.BaselinePerformanceFactorsProperty
       Stratosphere.EC2.LaunchTemplate.BlockDeviceMappingProperty
       Stratosphere.EC2.LaunchTemplate.CapacityReservationSpecificationProperty
       Stratosphere.EC2.LaunchTemplate.CapacityReservationTargetProperty
       Stratosphere.EC2.LaunchTemplate.ConnectionTrackingSpecificationProperty
       Stratosphere.EC2.LaunchTemplate.CpuOptionsProperty
+      Stratosphere.EC2.LaunchTemplate.CpuProperty
       Stratosphere.EC2.LaunchTemplate.CreditSpecificationProperty
       Stratosphere.EC2.LaunchTemplate.EbsProperty
       Stratosphere.EC2.LaunchTemplate.ElasticGpuSpecificationProperty
@@ -144,6 +147,7 @@ library
       Stratosphere.EC2.LaunchTemplate.PlacementProperty
       Stratosphere.EC2.LaunchTemplate.PrivateDnsNameOptionsProperty
       Stratosphere.EC2.LaunchTemplate.PrivateIpAddProperty
+      Stratosphere.EC2.LaunchTemplate.ReferenceProperty
       Stratosphere.EC2.LaunchTemplate.SpotOptionsProperty
       Stratosphere.EC2.LaunchTemplate.TagSpecificationProperty
       Stratosphere.EC2.LaunchTemplate.TotalLocalStorageGBProperty
@@ -202,6 +206,7 @@ library
       Stratosphere.EC2.SecurityGroup.IngressProperty
       Stratosphere.EC2.SecurityGroupEgress
       Stratosphere.EC2.SecurityGroupIngress
+      Stratosphere.EC2.SecurityGroupVpcAssociation
       Stratosphere.EC2.SnapshotBlockPublicAccess
       Stratosphere.EC2.SpotFleet
       Stratosphere.EC2.SpotFleet.AcceleratorCountRequestProperty
@@ -283,6 +288,8 @@ library
       Stratosphere.EC2.Volume
       Stratosphere.EC2.VolumeAttachment
       Stratosphere.EC2.VPC
+      Stratosphere.EC2.VPCBlockPublicAccessExclusion
+      Stratosphere.EC2.VPCBlockPublicAccessOptions
       Stratosphere.EC2.VPCCidrBlock
       Stratosphere.EC2.VPCDHCPOptionsAssociation
       Stratosphere.EC2.VPCEndpoint
@@ -292,6 +299,15 @@ library
       Stratosphere.EC2.VPCGatewayAttachment
       Stratosphere.EC2.VPCPeeringConnection
       Stratosphere.EC2.VPNConnection
+      Stratosphere.EC2.VPNConnection.CloudwatchLogOptionsSpecificationProperty
+      Stratosphere.EC2.VPNConnection.IKEVersionsRequestListValueProperty
+      Stratosphere.EC2.VPNConnection.Phase1DHGroupNumbersRequestListValueProperty
+      Stratosphere.EC2.VPNConnection.Phase1EncryptionAlgorithmsRequestListValueProperty
+      Stratosphere.EC2.VPNConnection.Phase1IntegrityAlgorithmsRequestListValueProperty
+      Stratosphere.EC2.VPNConnection.Phase2DHGroupNumbersRequestListValueProperty
+      Stratosphere.EC2.VPNConnection.Phase2EncryptionAlgorithmsRequestListValueProperty
+      Stratosphere.EC2.VPNConnection.Phase2IntegrityAlgorithmsRequestListValueProperty
+      Stratosphere.EC2.VPNConnection.VpnTunnelLogOptionsSpecificationProperty
       Stratosphere.EC2.VPNConnection.VpnTunnelOptionsSpecificationProperty
       Stratosphere.EC2.VPNConnectionRoute
       Stratosphere.EC2.VPNGateway

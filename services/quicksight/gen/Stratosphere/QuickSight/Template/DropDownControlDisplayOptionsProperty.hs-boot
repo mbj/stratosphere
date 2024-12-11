@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.DropDownControlDisplayOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data DropDownControlDisplayOptionsProperty :: Prelude.Type
-instance ToResourceProperties DropDownControlDisplayOptionsProperty
-instance Prelude.Eq DropDownControlDisplayOptionsProperty
-instance Prelude.Show DropDownControlDisplayOptionsProperty
-instance JSON.ToJSON DropDownControlDisplayOptionsProperty

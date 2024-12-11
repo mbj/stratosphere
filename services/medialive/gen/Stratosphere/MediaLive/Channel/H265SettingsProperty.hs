@@ -29,6 +29,9 @@ data H265SettingsProperty
                           lookAheadRateControl :: (Prelude.Maybe (Value Prelude.Text)),
                           maxBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
                           minIInterval :: (Prelude.Maybe (Value Prelude.Integer)),
+                          minQp :: (Prelude.Maybe (Value Prelude.Integer)),
+                          mvOverPictureBoundaries :: (Prelude.Maybe (Value Prelude.Text)),
+                          mvTemporalPredictor :: (Prelude.Maybe (Value Prelude.Text)),
                           parDenominator :: (Prelude.Maybe (Value Prelude.Integer)),
                           parNumerator :: (Prelude.Maybe (Value Prelude.Integer)),
                           profile :: (Prelude.Maybe (Value Prelude.Text)),
@@ -38,8 +41,12 @@ data H265SettingsProperty
                           sceneChangeDetect :: (Prelude.Maybe (Value Prelude.Text)),
                           slices :: (Prelude.Maybe (Value Prelude.Integer)),
                           tier :: (Prelude.Maybe (Value Prelude.Text)),
+                          tileHeight :: (Prelude.Maybe (Value Prelude.Integer)),
+                          tilePadding :: (Prelude.Maybe (Value Prelude.Text)),
+                          tileWidth :: (Prelude.Maybe (Value Prelude.Integer)),
                           timecodeBurninSettings :: (Prelude.Maybe TimecodeBurninSettingsProperty),
-                          timecodeInsertion :: (Prelude.Maybe (Value Prelude.Text))}
+                          timecodeInsertion :: (Prelude.Maybe (Value Prelude.Text)),
+                          treeblockSize :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkH265SettingsProperty :: H265SettingsProperty
 mkH265SettingsProperty
@@ -58,12 +65,17 @@ mkH265SettingsProperty
        gopSizeUnits = Prelude.Nothing, level = Prelude.Nothing,
        lookAheadRateControl = Prelude.Nothing,
        maxBitrate = Prelude.Nothing, minIInterval = Prelude.Nothing,
+       minQp = Prelude.Nothing, mvOverPictureBoundaries = Prelude.Nothing,
+       mvTemporalPredictor = Prelude.Nothing,
        parDenominator = Prelude.Nothing, parNumerator = Prelude.Nothing,
        profile = Prelude.Nothing, qvbrQualityLevel = Prelude.Nothing,
        rateControlMode = Prelude.Nothing, scanType = Prelude.Nothing,
        sceneChangeDetect = Prelude.Nothing, slices = Prelude.Nothing,
-       tier = Prelude.Nothing, timecodeBurninSettings = Prelude.Nothing,
-       timecodeInsertion = Prelude.Nothing}
+       tier = Prelude.Nothing, tileHeight = Prelude.Nothing,
+       tilePadding = Prelude.Nothing, tileWidth = Prelude.Nothing,
+       timecodeBurninSettings = Prelude.Nothing,
+       timecodeInsertion = Prelude.Nothing,
+       treeblockSize = Prelude.Nothing}
 instance ToResourceProperties H265SettingsProperty where
   toResourceProperties H265SettingsProperty {..}
     = ResourceProperties
@@ -91,6 +103,10 @@ instance ToResourceProperties H265SettingsProperty where
                             (JSON..=) "LookAheadRateControl" Prelude.<$> lookAheadRateControl,
                             (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
                             (JSON..=) "MinIInterval" Prelude.<$> minIInterval,
+                            (JSON..=) "MinQp" Prelude.<$> minQp,
+                            (JSON..=) "MvOverPictureBoundaries"
+                              Prelude.<$> mvOverPictureBoundaries,
+                            (JSON..=) "MvTemporalPredictor" Prelude.<$> mvTemporalPredictor,
                             (JSON..=) "ParDenominator" Prelude.<$> parDenominator,
                             (JSON..=) "ParNumerator" Prelude.<$> parNumerator,
                             (JSON..=) "Profile" Prelude.<$> profile,
@@ -100,9 +116,13 @@ instance ToResourceProperties H265SettingsProperty where
                             (JSON..=) "SceneChangeDetect" Prelude.<$> sceneChangeDetect,
                             (JSON..=) "Slices" Prelude.<$> slices,
                             (JSON..=) "Tier" Prelude.<$> tier,
+                            (JSON..=) "TileHeight" Prelude.<$> tileHeight,
+                            (JSON..=) "TilePadding" Prelude.<$> tilePadding,
+                            (JSON..=) "TileWidth" Prelude.<$> tileWidth,
                             (JSON..=) "TimecodeBurninSettings"
                               Prelude.<$> timecodeBurninSettings,
-                            (JSON..=) "TimecodeInsertion" Prelude.<$> timecodeInsertion])}
+                            (JSON..=) "TimecodeInsertion" Prelude.<$> timecodeInsertion,
+                            (JSON..=) "TreeblockSize" Prelude.<$> treeblockSize])}
 instance JSON.ToJSON H265SettingsProperty where
   toJSON H265SettingsProperty {..}
     = JSON.object
@@ -128,6 +148,10 @@ instance JSON.ToJSON H265SettingsProperty where
                (JSON..=) "LookAheadRateControl" Prelude.<$> lookAheadRateControl,
                (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
                (JSON..=) "MinIInterval" Prelude.<$> minIInterval,
+               (JSON..=) "MinQp" Prelude.<$> minQp,
+               (JSON..=) "MvOverPictureBoundaries"
+                 Prelude.<$> mvOverPictureBoundaries,
+               (JSON..=) "MvTemporalPredictor" Prelude.<$> mvTemporalPredictor,
                (JSON..=) "ParDenominator" Prelude.<$> parDenominator,
                (JSON..=) "ParNumerator" Prelude.<$> parNumerator,
                (JSON..=) "Profile" Prelude.<$> profile,
@@ -137,9 +161,13 @@ instance JSON.ToJSON H265SettingsProperty where
                (JSON..=) "SceneChangeDetect" Prelude.<$> sceneChangeDetect,
                (JSON..=) "Slices" Prelude.<$> slices,
                (JSON..=) "Tier" Prelude.<$> tier,
+               (JSON..=) "TileHeight" Prelude.<$> tileHeight,
+               (JSON..=) "TilePadding" Prelude.<$> tilePadding,
+               (JSON..=) "TileWidth" Prelude.<$> tileWidth,
                (JSON..=) "TimecodeBurninSettings"
                  Prelude.<$> timecodeBurninSettings,
-               (JSON..=) "TimecodeInsertion" Prelude.<$> timecodeInsertion]))
+               (JSON..=) "TimecodeInsertion" Prelude.<$> timecodeInsertion,
+               (JSON..=) "TreeblockSize" Prelude.<$> treeblockSize]))
 instance Property "AdaptiveQuantization" H265SettingsProperty where
   type PropertyType "AdaptiveQuantization" H265SettingsProperty = Value Prelude.Text
   set newValue H265SettingsProperty {..}
@@ -223,6 +251,20 @@ instance Property "MinIInterval" H265SettingsProperty where
   type PropertyType "MinIInterval" H265SettingsProperty = Value Prelude.Integer
   set newValue H265SettingsProperty {..}
     = H265SettingsProperty {minIInterval = Prelude.pure newValue, ..}
+instance Property "MinQp" H265SettingsProperty where
+  type PropertyType "MinQp" H265SettingsProperty = Value Prelude.Integer
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty {minQp = Prelude.pure newValue, ..}
+instance Property "MvOverPictureBoundaries" H265SettingsProperty where
+  type PropertyType "MvOverPictureBoundaries" H265SettingsProperty = Value Prelude.Text
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty
+        {mvOverPictureBoundaries = Prelude.pure newValue, ..}
+instance Property "MvTemporalPredictor" H265SettingsProperty where
+  type PropertyType "MvTemporalPredictor" H265SettingsProperty = Value Prelude.Text
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty
+        {mvTemporalPredictor = Prelude.pure newValue, ..}
 instance Property "ParDenominator" H265SettingsProperty where
   type PropertyType "ParDenominator" H265SettingsProperty = Value Prelude.Integer
   set newValue H265SettingsProperty {..}
@@ -262,6 +304,18 @@ instance Property "Tier" H265SettingsProperty where
   type PropertyType "Tier" H265SettingsProperty = Value Prelude.Text
   set newValue H265SettingsProperty {..}
     = H265SettingsProperty {tier = Prelude.pure newValue, ..}
+instance Property "TileHeight" H265SettingsProperty where
+  type PropertyType "TileHeight" H265SettingsProperty = Value Prelude.Integer
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty {tileHeight = Prelude.pure newValue, ..}
+instance Property "TilePadding" H265SettingsProperty where
+  type PropertyType "TilePadding" H265SettingsProperty = Value Prelude.Text
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty {tilePadding = Prelude.pure newValue, ..}
+instance Property "TileWidth" H265SettingsProperty where
+  type PropertyType "TileWidth" H265SettingsProperty = Value Prelude.Integer
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty {tileWidth = Prelude.pure newValue, ..}
 instance Property "TimecodeBurninSettings" H265SettingsProperty where
   type PropertyType "TimecodeBurninSettings" H265SettingsProperty = TimecodeBurninSettingsProperty
   set newValue H265SettingsProperty {..}
@@ -272,3 +326,7 @@ instance Property "TimecodeInsertion" H265SettingsProperty where
   set newValue H265SettingsProperty {..}
     = H265SettingsProperty
         {timecodeInsertion = Prelude.pure newValue, ..}
+instance Property "TreeblockSize" H265SettingsProperty where
+  type PropertyType "TreeblockSize" H265SettingsProperty = Value Prelude.Text
+  set newValue H265SettingsProperty {..}
+    = H265SettingsProperty {treeblockSize = Prelude.pure newValue, ..}

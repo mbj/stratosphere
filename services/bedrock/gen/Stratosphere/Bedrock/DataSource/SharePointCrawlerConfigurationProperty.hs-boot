@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataSource.SharePointCrawlerConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SharePointCrawlerConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SharePointCrawlerConfigurationProperty
+instance Prelude.Eq SharePointCrawlerConfigurationProperty
+instance Prelude.Show SharePointCrawlerConfigurationProperty
+instance JSON.ToJSON SharePointCrawlerConfigurationProperty

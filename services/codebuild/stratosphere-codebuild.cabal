@@ -26,6 +26,12 @@ flag development
 library
   exposed-modules:
       Stratosphere.CodeBuild.Fleet
+      Stratosphere.CodeBuild.Fleet.ComputeConfigurationProperty
+      Stratosphere.CodeBuild.Fleet.FleetProxyRuleProperty
+      Stratosphere.CodeBuild.Fleet.ProxyConfigurationProperty
+      Stratosphere.CodeBuild.Fleet.ScalingConfigurationInputProperty
+      Stratosphere.CodeBuild.Fleet.TargetTrackingScalingConfigurationProperty
+      Stratosphere.CodeBuild.Fleet.VpcConfigProperty
       Stratosphere.CodeBuild.Project
       Stratosphere.CodeBuild.Project.ArtifactsProperty
       Stratosphere.CodeBuild.Project.BatchRestrictionsProperty
@@ -44,6 +50,7 @@ library
       Stratosphere.CodeBuild.Project.ProjectTriggersProperty
       Stratosphere.CodeBuild.Project.RegistryCredentialProperty
       Stratosphere.CodeBuild.Project.S3LogsConfigProperty
+      Stratosphere.CodeBuild.Project.ScopeConfigurationProperty
       Stratosphere.CodeBuild.Project.SourceAuthProperty
       Stratosphere.CodeBuild.Project.SourceProperty
       Stratosphere.CodeBuild.Project.VpcConfigProperty

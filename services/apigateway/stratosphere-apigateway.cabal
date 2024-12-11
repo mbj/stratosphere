@@ -30,6 +30,7 @@ library
       Stratosphere.ApiGateway.ApiKey.StageKeyProperty
       Stratosphere.ApiGateway.Authorizer
       Stratosphere.ApiGateway.BasePathMapping
+      Stratosphere.ApiGateway.BasePathMappingV2
       Stratosphere.ApiGateway.ClientCertificate
       Stratosphere.ApiGateway.Deployment
       Stratosphere.ApiGateway.Deployment.AccessLogSettingProperty
@@ -43,6 +44,9 @@ library
       Stratosphere.ApiGateway.DomainName
       Stratosphere.ApiGateway.DomainName.EndpointConfigurationProperty
       Stratosphere.ApiGateway.DomainName.MutualTlsAuthenticationProperty
+      Stratosphere.ApiGateway.DomainNameAccessAssociation
+      Stratosphere.ApiGateway.DomainNameV2
+      Stratosphere.ApiGateway.DomainNameV2.EndpointConfigurationProperty
       Stratosphere.ApiGateway.GatewayResponse
       Stratosphere.ApiGateway.Method
       Stratosphere.ApiGateway.Method.IntegrationProperty

@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.EncryptionProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.GatewayBridgeSourceProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.MediaStreamSourceConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SourceProperty
@@ -17,6 +18,8 @@ data SourceProperty
                     ingestPort :: (Prelude.Maybe (Value Prelude.Integer)),
                     maxBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
                     maxLatency :: (Prelude.Maybe (Value Prelude.Integer)),
+                    maxSyncBuffer :: (Prelude.Maybe (Value Prelude.Integer)),
+                    mediaStreamSourceConfigurations :: (Prelude.Maybe [MediaStreamSourceConfigurationProperty]),
                     minLatency :: (Prelude.Maybe (Value Prelude.Integer)),
                     name :: (Prelude.Maybe (Value Prelude.Text)),
                     protocol :: (Prelude.Maybe (Value Prelude.Text)),
@@ -37,9 +40,10 @@ mkSourceProperty
        entitlementArn = Prelude.Nothing,
        gatewayBridgeSource = Prelude.Nothing, ingestIp = Prelude.Nothing,
        ingestPort = Prelude.Nothing, maxBitrate = Prelude.Nothing,
-       maxLatency = Prelude.Nothing, minLatency = Prelude.Nothing,
-       name = Prelude.Nothing, protocol = Prelude.Nothing,
-       senderControlPort = Prelude.Nothing,
+       maxLatency = Prelude.Nothing, maxSyncBuffer = Prelude.Nothing,
+       mediaStreamSourceConfigurations = Prelude.Nothing,
+       minLatency = Prelude.Nothing, name = Prelude.Nothing,
+       protocol = Prelude.Nothing, senderControlPort = Prelude.Nothing,
        senderIpAddress = Prelude.Nothing, sourceArn = Prelude.Nothing,
        sourceIngestPort = Prelude.Nothing,
        sourceListenerAddress = Prelude.Nothing,
@@ -61,6 +65,9 @@ instance ToResourceProperties SourceProperty where
                             (JSON..=) "IngestPort" Prelude.<$> ingestPort,
                             (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
                             (JSON..=) "MaxLatency" Prelude.<$> maxLatency,
+                            (JSON..=) "MaxSyncBuffer" Prelude.<$> maxSyncBuffer,
+                            (JSON..=) "MediaStreamSourceConfigurations"
+                              Prelude.<$> mediaStreamSourceConfigurations,
                             (JSON..=) "MinLatency" Prelude.<$> minLatency,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "Protocol" Prelude.<$> protocol,
@@ -87,6 +94,9 @@ instance JSON.ToJSON SourceProperty where
                (JSON..=) "IngestPort" Prelude.<$> ingestPort,
                (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
                (JSON..=) "MaxLatency" Prelude.<$> maxLatency,
+               (JSON..=) "MaxSyncBuffer" Prelude.<$> maxSyncBuffer,
+               (JSON..=) "MediaStreamSourceConfigurations"
+                 Prelude.<$> mediaStreamSourceConfigurations,
                (JSON..=) "MinLatency" Prelude.<$> minLatency,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "Protocol" Prelude.<$> protocol,
@@ -132,6 +142,15 @@ instance Property "MaxLatency" SourceProperty where
   type PropertyType "MaxLatency" SourceProperty = Value Prelude.Integer
   set newValue SourceProperty {..}
     = SourceProperty {maxLatency = Prelude.pure newValue, ..}
+instance Property "MaxSyncBuffer" SourceProperty where
+  type PropertyType "MaxSyncBuffer" SourceProperty = Value Prelude.Integer
+  set newValue SourceProperty {..}
+    = SourceProperty {maxSyncBuffer = Prelude.pure newValue, ..}
+instance Property "MediaStreamSourceConfigurations" SourceProperty where
+  type PropertyType "MediaStreamSourceConfigurations" SourceProperty = [MediaStreamSourceConfigurationProperty]
+  set newValue SourceProperty {..}
+    = SourceProperty
+        {mediaStreamSourceConfigurations = Prelude.pure newValue, ..}
 instance Property "MinLatency" SourceProperty where
   type PropertyType "MinLatency" SourceProperty = Value Prelude.Integer
   set newValue SourceProperty {..}

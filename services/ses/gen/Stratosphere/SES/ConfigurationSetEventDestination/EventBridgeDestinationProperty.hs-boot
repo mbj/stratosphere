@@ -1,0 +1,9 @@
+module Stratosphere.SES.ConfigurationSetEventDestination.EventBridgeDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EventBridgeDestinationProperty :: Prelude.Type
+instance ToResourceProperties EventBridgeDestinationProperty
+instance Prelude.Eq EventBridgeDestinationProperty
+instance Prelude.Show EventBridgeDestinationProperty
+instance JSON.ToJSON EventBridgeDestinationProperty

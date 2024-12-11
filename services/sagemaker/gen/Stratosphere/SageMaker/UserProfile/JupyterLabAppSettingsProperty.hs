@@ -5,13 +5,15 @@ module Stratosphere.SageMaker.UserProfile.JupyterLabAppSettingsProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.AppLifecycleManagementProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.CodeRepositoryProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.CustomImageProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.UserProfile.ResourceSpecProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data JupyterLabAppSettingsProperty
-  = JupyterLabAppSettingsProperty {codeRepositories :: (Prelude.Maybe [CodeRepositoryProperty]),
+  = JupyterLabAppSettingsProperty {appLifecycleManagement :: (Prelude.Maybe AppLifecycleManagementProperty),
+                                   codeRepositories :: (Prelude.Maybe [CodeRepositoryProperty]),
                                    customImages :: (Prelude.Maybe [CustomImageProperty]),
                                    defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
                                    lifecycleConfigArns :: (Prelude.Maybe (ValueList Prelude.Text))}
@@ -19,8 +21,8 @@ data JupyterLabAppSettingsProperty
 mkJupyterLabAppSettingsProperty :: JupyterLabAppSettingsProperty
 mkJupyterLabAppSettingsProperty
   = JupyterLabAppSettingsProperty
-      {codeRepositories = Prelude.Nothing,
-       customImages = Prelude.Nothing,
+      {appLifecycleManagement = Prelude.Nothing,
+       codeRepositories = Prelude.Nothing, customImages = Prelude.Nothing,
        defaultResourceSpec = Prelude.Nothing,
        lifecycleConfigArns = Prelude.Nothing}
 instance ToResourceProperties JupyterLabAppSettingsProperty where
@@ -30,7 +32,9 @@ instance ToResourceProperties JupyterLabAppSettingsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "CodeRepositories" Prelude.<$> codeRepositories,
+                           [(JSON..=) "AppLifecycleManagement"
+                              Prelude.<$> appLifecycleManagement,
+                            (JSON..=) "CodeRepositories" Prelude.<$> codeRepositories,
                             (JSON..=) "CustomImages" Prelude.<$> customImages,
                             (JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec,
                             (JSON..=) "LifecycleConfigArns" Prelude.<$> lifecycleConfigArns])}
@@ -39,10 +43,17 @@ instance JSON.ToJSON JupyterLabAppSettingsProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "CodeRepositories" Prelude.<$> codeRepositories,
+              [(JSON..=) "AppLifecycleManagement"
+                 Prelude.<$> appLifecycleManagement,
+               (JSON..=) "CodeRepositories" Prelude.<$> codeRepositories,
                (JSON..=) "CustomImages" Prelude.<$> customImages,
                (JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec,
                (JSON..=) "LifecycleConfigArns" Prelude.<$> lifecycleConfigArns]))
+instance Property "AppLifecycleManagement" JupyterLabAppSettingsProperty where
+  type PropertyType "AppLifecycleManagement" JupyterLabAppSettingsProperty = AppLifecycleManagementProperty
+  set newValue JupyterLabAppSettingsProperty {..}
+    = JupyterLabAppSettingsProperty
+        {appLifecycleManagement = Prelude.pure newValue, ..}
 instance Property "CodeRepositories" JupyterLabAppSettingsProperty where
   type PropertyType "CodeRepositories" JupyterLabAppSettingsProperty = [CodeRepositoryProperty]
   set newValue JupyterLabAppSettingsProperty {..}

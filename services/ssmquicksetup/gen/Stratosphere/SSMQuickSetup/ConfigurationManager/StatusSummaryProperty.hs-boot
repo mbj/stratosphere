@@ -1,0 +1,9 @@
+module Stratosphere.SSMQuickSetup.ConfigurationManager.StatusSummaryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StatusSummaryProperty :: Prelude.Type
+instance ToResourceProperties StatusSummaryProperty
+instance Prelude.Eq StatusSummaryProperty
+instance Prelude.Show StatusSummaryProperty
+instance JSON.ToJSON StatusSummaryProperty

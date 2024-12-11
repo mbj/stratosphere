@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.IntegerValueWhenUnsetConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data IntegerValueWhenUnsetConfigurationProperty :: Prelude.Type
-instance ToResourceProperties IntegerValueWhenUnsetConfigurationProperty
-instance Prelude.Eq IntegerValueWhenUnsetConfigurationProperty
-instance Prelude.Show IntegerValueWhenUnsetConfigurationProperty
-instance JSON.ToJSON IntegerValueWhenUnsetConfigurationProperty

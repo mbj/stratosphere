@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.SignalMap.SuccessfulMonitorDeploymentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SuccessfulMonitorDeploymentProperty :: Prelude.Type
+instance ToResourceProperties SuccessfulMonitorDeploymentProperty
+instance Prelude.Eq SuccessfulMonitorDeploymentProperty
+instance Prelude.Show SuccessfulMonitorDeploymentProperty
+instance JSON.ToJSON SuccessfulMonitorDeploymentProperty

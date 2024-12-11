@@ -1,0 +1,9 @@
+module Stratosphere.Events.Connection.ResourceParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResourceParametersProperty :: Prelude.Type
+instance ToResourceProperties ResourceParametersProperty
+instance Prelude.Eq ResourceParametersProperty
+instance Prelude.Show ResourceParametersProperty
+instance JSON.ToJSON ResourceParametersProperty

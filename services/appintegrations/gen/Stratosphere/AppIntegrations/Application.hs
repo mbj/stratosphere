@@ -12,17 +12,19 @@ data Application
   = Application {applicationSourceConfig :: ApplicationSourceConfigProperty,
                  description :: (Value Prelude.Text),
                  name :: (Value Prelude.Text),
-                 namespace :: (Prelude.Maybe (Value Prelude.Text)),
+                 namespace :: (Value Prelude.Text),
+                 permissions :: (Prelude.Maybe (ValueList Prelude.Text)),
                  tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkApplication ::
   ApplicationSourceConfigProperty
-  -> Value Prelude.Text -> Value Prelude.Text -> Application
-mkApplication applicationSourceConfig description name
+  -> Value Prelude.Text
+     -> Value Prelude.Text -> Value Prelude.Text -> Application
+mkApplication applicationSourceConfig description name namespace
   = Application
       {applicationSourceConfig = applicationSourceConfig,
-       description = description, name = name,
-       namespace = Prelude.Nothing, tags = Prelude.Nothing}
+       description = description, name = name, namespace = namespace,
+       permissions = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
     = ResourceProperties
@@ -31,9 +33,10 @@ instance ToResourceProperties Application where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["ApplicationSourceConfig" JSON..= applicationSourceConfig,
-                            "Description" JSON..= description, "Name" JSON..= name]
+                            "Description" JSON..= description, "Name" JSON..= name,
+                            "Namespace" JSON..= namespace]
                            (Prelude.catMaybes
-                              [(JSON..=) "Namespace" Prelude.<$> namespace,
+                              [(JSON..=) "Permissions" Prelude.<$> permissions,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Application where
   toJSON Application {..}
@@ -41,9 +44,10 @@ instance JSON.ToJSON Application where
         (Prelude.fromList
            ((Prelude.<>)
               ["ApplicationSourceConfig" JSON..= applicationSourceConfig,
-               "Description" JSON..= description, "Name" JSON..= name]
+               "Description" JSON..= description, "Name" JSON..= name,
+               "Namespace" JSON..= namespace]
               (Prelude.catMaybes
-                 [(JSON..=) "Namespace" Prelude.<$> namespace,
+                 [(JSON..=) "Permissions" Prelude.<$> permissions,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ApplicationSourceConfig" Application where
   type PropertyType "ApplicationSourceConfig" Application = ApplicationSourceConfigProperty
@@ -59,7 +63,11 @@ instance Property "Name" Application where
 instance Property "Namespace" Application where
   type PropertyType "Namespace" Application = Value Prelude.Text
   set newValue Application {..}
-    = Application {namespace = Prelude.pure newValue, ..}
+    = Application {namespace = newValue, ..}
+instance Property "Permissions" Application where
+  type PropertyType "Permissions" Application = ValueList Prelude.Text
+  set newValue Application {..}
+    = Application {permissions = Prelude.pure newValue, ..}
 instance Property "Tags" Application where
   type PropertyType "Tags" Application = [Tag]
   set newValue Application {..}

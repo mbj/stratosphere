@@ -1,0 +1,9 @@
+module Stratosphere.ApplicationSignals.ServiceLevelObjective.RollingIntervalProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RollingIntervalProperty :: Prelude.Type
+instance ToResourceProperties RollingIntervalProperty
+instance Prelude.Eq RollingIntervalProperty
+instance Prelude.Show RollingIntervalProperty
+instance JSON.ToJSON RollingIntervalProperty

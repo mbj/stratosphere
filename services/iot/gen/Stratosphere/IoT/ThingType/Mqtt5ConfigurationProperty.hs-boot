@@ -1,0 +1,9 @@
+module Stratosphere.IoT.ThingType.Mqtt5ConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Mqtt5ConfigurationProperty :: Prelude.Type
+instance ToResourceProperties Mqtt5ConfigurationProperty
+instance Prelude.Eq Mqtt5ConfigurationProperty
+instance Prelude.Show Mqtt5ConfigurationProperty
+instance JSON.ToJSON Mqtt5ConfigurationProperty

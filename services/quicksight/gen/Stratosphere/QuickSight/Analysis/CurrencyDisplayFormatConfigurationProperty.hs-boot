@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.CurrencyDisplayFormatConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data CurrencyDisplayFormatConfigurationProperty :: Prelude.Type
-instance ToResourceProperties CurrencyDisplayFormatConfigurationProperty
-instance Prelude.Eq CurrencyDisplayFormatConfigurationProperty
-instance Prelude.Show CurrencyDisplayFormatConfigurationProperty
-instance JSON.ToJSON CurrencyDisplayFormatConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.ConnectCampaignsV2.Campaign.RestrictedPeriodsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RestrictedPeriodsProperty :: Prelude.Type
+instance ToResourceProperties RestrictedPeriodsProperty
+instance Prelude.Eq RestrictedPeriodsProperty
+instance Prelude.Show RestrictedPeriodsProperty
+instance JSON.ToJSON RestrictedPeriodsProperty

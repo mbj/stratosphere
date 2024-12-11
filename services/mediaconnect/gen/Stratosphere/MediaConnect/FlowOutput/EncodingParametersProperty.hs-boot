@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.FlowOutput.EncodingParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EncodingParametersProperty :: Prelude.Type
+instance ToResourceProperties EncodingParametersProperty
+instance Prelude.Eq EncodingParametersProperty
+instance Prelude.Show EncodingParametersProperty
+instance JSON.ToJSON EncodingParametersProperty

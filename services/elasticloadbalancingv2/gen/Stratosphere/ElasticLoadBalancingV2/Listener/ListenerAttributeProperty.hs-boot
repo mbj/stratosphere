@@ -1,0 +1,9 @@
+module Stratosphere.ElasticLoadBalancingV2.Listener.ListenerAttributeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ListenerAttributeProperty :: Prelude.Type
+instance ToResourceProperties ListenerAttributeProperty
+instance Prelude.Eq ListenerAttributeProperty
+instance Prelude.Show ListenerAttributeProperty
+instance JSON.ToJSON ListenerAttributeProperty

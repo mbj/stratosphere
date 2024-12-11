@@ -17,6 +17,7 @@ import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.MountPointProperty as Expo
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.PortMappingProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.RepositoryCredentialsProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.ResourceRequirementProperty as Exports
+import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.RestartPolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.SecretProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.SystemControlProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.UlimitProperty as Exports
@@ -56,12 +57,14 @@ data ContainerDefinitionProperty
                                  readonlyRootFilesystem :: (Prelude.Maybe (Value Prelude.Bool)),
                                  repositoryCredentials :: (Prelude.Maybe RepositoryCredentialsProperty),
                                  resourceRequirements :: (Prelude.Maybe [ResourceRequirementProperty]),
+                                 restartPolicy :: (Prelude.Maybe RestartPolicyProperty),
                                  secrets :: (Prelude.Maybe [SecretProperty]),
                                  startTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                  stopTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                                  systemControls :: (Prelude.Maybe [SystemControlProperty]),
                                  ulimits :: (Prelude.Maybe [UlimitProperty]),
                                  user :: (Prelude.Maybe (Value Prelude.Text)),
+                                 versionConsistency :: (Prelude.Maybe (Value Prelude.Text)),
                                  volumesFrom :: (Prelude.Maybe [VolumeFromProperty]),
                                  workingDirectory :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -89,11 +92,12 @@ mkContainerDefinitionProperty image name
        pseudoTerminal = Prelude.Nothing,
        readonlyRootFilesystem = Prelude.Nothing,
        repositoryCredentials = Prelude.Nothing,
-       resourceRequirements = Prelude.Nothing, secrets = Prelude.Nothing,
+       resourceRequirements = Prelude.Nothing,
+       restartPolicy = Prelude.Nothing, secrets = Prelude.Nothing,
        startTimeout = Prelude.Nothing, stopTimeout = Prelude.Nothing,
        systemControls = Prelude.Nothing, ulimits = Prelude.Nothing,
-       user = Prelude.Nothing, volumesFrom = Prelude.Nothing,
-       workingDirectory = Prelude.Nothing}
+       user = Prelude.Nothing, versionConsistency = Prelude.Nothing,
+       volumesFrom = Prelude.Nothing, workingDirectory = Prelude.Nothing}
 instance ToResourceProperties ContainerDefinitionProperty where
   toResourceProperties ContainerDefinitionProperty {..}
     = ResourceProperties
@@ -137,12 +141,14 @@ instance ToResourceProperties ContainerDefinitionProperty where
                                (JSON..=) "RepositoryCredentials"
                                  Prelude.<$> repositoryCredentials,
                                (JSON..=) "ResourceRequirements" Prelude.<$> resourceRequirements,
+                               (JSON..=) "RestartPolicy" Prelude.<$> restartPolicy,
                                (JSON..=) "Secrets" Prelude.<$> secrets,
                                (JSON..=) "StartTimeout" Prelude.<$> startTimeout,
                                (JSON..=) "StopTimeout" Prelude.<$> stopTimeout,
                                (JSON..=) "SystemControls" Prelude.<$> systemControls,
                                (JSON..=) "Ulimits" Prelude.<$> ulimits,
                                (JSON..=) "User" Prelude.<$> user,
+                               (JSON..=) "VersionConsistency" Prelude.<$> versionConsistency,
                                (JSON..=) "VolumesFrom" Prelude.<$> volumesFrom,
                                (JSON..=) "WorkingDirectory" Prelude.<$> workingDirectory]))}
 instance JSON.ToJSON ContainerDefinitionProperty where
@@ -186,12 +192,14 @@ instance JSON.ToJSON ContainerDefinitionProperty where
                   (JSON..=) "RepositoryCredentials"
                     Prelude.<$> repositoryCredentials,
                   (JSON..=) "ResourceRequirements" Prelude.<$> resourceRequirements,
+                  (JSON..=) "RestartPolicy" Prelude.<$> restartPolicy,
                   (JSON..=) "Secrets" Prelude.<$> secrets,
                   (JSON..=) "StartTimeout" Prelude.<$> startTimeout,
                   (JSON..=) "StopTimeout" Prelude.<$> stopTimeout,
                   (JSON..=) "SystemControls" Prelude.<$> systemControls,
                   (JSON..=) "Ulimits" Prelude.<$> ulimits,
                   (JSON..=) "User" Prelude.<$> user,
+                  (JSON..=) "VersionConsistency" Prelude.<$> versionConsistency,
                   (JSON..=) "VolumesFrom" Prelude.<$> volumesFrom,
                   (JSON..=) "WorkingDirectory" Prelude.<$> workingDirectory])))
 instance Property "Command" ContainerDefinitionProperty where
@@ -348,6 +356,11 @@ instance Property "ResourceRequirements" ContainerDefinitionProperty where
   set newValue ContainerDefinitionProperty {..}
     = ContainerDefinitionProperty
         {resourceRequirements = Prelude.pure newValue, ..}
+instance Property "RestartPolicy" ContainerDefinitionProperty where
+  type PropertyType "RestartPolicy" ContainerDefinitionProperty = RestartPolicyProperty
+  set newValue ContainerDefinitionProperty {..}
+    = ContainerDefinitionProperty
+        {restartPolicy = Prelude.pure newValue, ..}
 instance Property "Secrets" ContainerDefinitionProperty where
   type PropertyType "Secrets" ContainerDefinitionProperty = [SecretProperty]
   set newValue ContainerDefinitionProperty {..}
@@ -375,6 +388,11 @@ instance Property "User" ContainerDefinitionProperty where
   type PropertyType "User" ContainerDefinitionProperty = Value Prelude.Text
   set newValue ContainerDefinitionProperty {..}
     = ContainerDefinitionProperty {user = Prelude.pure newValue, ..}
+instance Property "VersionConsistency" ContainerDefinitionProperty where
+  type PropertyType "VersionConsistency" ContainerDefinitionProperty = Value Prelude.Text
+  set newValue ContainerDefinitionProperty {..}
+    = ContainerDefinitionProperty
+        {versionConsistency = Prelude.pure newValue, ..}
 instance Property "VolumesFrom" ContainerDefinitionProperty where
   type PropertyType "VolumesFrom" ContainerDefinitionProperty = [VolumeFromProperty]
   set newValue ContainerDefinitionProperty {..}

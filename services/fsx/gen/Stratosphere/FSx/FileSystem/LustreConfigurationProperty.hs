@@ -1,9 +1,11 @@
 module Stratosphere.FSx.FileSystem.LustreConfigurationProperty (
-        LustreConfigurationProperty(..), mkLustreConfigurationProperty
+        module Exports, LustreConfigurationProperty(..),
+        mkLustreConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.FSx.FileSystem.MetadataConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LustreConfigurationProperty
@@ -14,9 +16,11 @@ data LustreConfigurationProperty
                                  dataCompressionType :: (Prelude.Maybe (Value Prelude.Text)),
                                  deploymentType :: (Prelude.Maybe (Value Prelude.Text)),
                                  driveCacheType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 efaEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                  exportPath :: (Prelude.Maybe (Value Prelude.Text)),
                                  importPath :: (Prelude.Maybe (Value Prelude.Text)),
                                  importedFileChunkSize :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 metadataConfiguration :: (Prelude.Maybe MetadataConfigurationProperty),
                                  perUnitStorageThroughput :: (Prelude.Maybe (Value Prelude.Integer)),
                                  weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -29,8 +33,10 @@ mkLustreConfigurationProperty
        dailyAutomaticBackupStartTime = Prelude.Nothing,
        dataCompressionType = Prelude.Nothing,
        deploymentType = Prelude.Nothing, driveCacheType = Prelude.Nothing,
-       exportPath = Prelude.Nothing, importPath = Prelude.Nothing,
+       efaEnabled = Prelude.Nothing, exportPath = Prelude.Nothing,
+       importPath = Prelude.Nothing,
        importedFileChunkSize = Prelude.Nothing,
+       metadataConfiguration = Prelude.Nothing,
        perUnitStorageThroughput = Prelude.Nothing,
        weeklyMaintenanceStartTime = Prelude.Nothing}
 instance ToResourceProperties LustreConfigurationProperty where
@@ -49,10 +55,13 @@ instance ToResourceProperties LustreConfigurationProperty where
                             (JSON..=) "DataCompressionType" Prelude.<$> dataCompressionType,
                             (JSON..=) "DeploymentType" Prelude.<$> deploymentType,
                             (JSON..=) "DriveCacheType" Prelude.<$> driveCacheType,
+                            (JSON..=) "EfaEnabled" Prelude.<$> efaEnabled,
                             (JSON..=) "ExportPath" Prelude.<$> exportPath,
                             (JSON..=) "ImportPath" Prelude.<$> importPath,
                             (JSON..=) "ImportedFileChunkSize"
                               Prelude.<$> importedFileChunkSize,
+                            (JSON..=) "MetadataConfiguration"
+                              Prelude.<$> metadataConfiguration,
                             (JSON..=) "PerUnitStorageThroughput"
                               Prelude.<$> perUnitStorageThroughput,
                             (JSON..=) "WeeklyMaintenanceStartTime"
@@ -71,10 +80,13 @@ instance JSON.ToJSON LustreConfigurationProperty where
                (JSON..=) "DataCompressionType" Prelude.<$> dataCompressionType,
                (JSON..=) "DeploymentType" Prelude.<$> deploymentType,
                (JSON..=) "DriveCacheType" Prelude.<$> driveCacheType,
+               (JSON..=) "EfaEnabled" Prelude.<$> efaEnabled,
                (JSON..=) "ExportPath" Prelude.<$> exportPath,
                (JSON..=) "ImportPath" Prelude.<$> importPath,
                (JSON..=) "ImportedFileChunkSize"
                  Prelude.<$> importedFileChunkSize,
+               (JSON..=) "MetadataConfiguration"
+                 Prelude.<$> metadataConfiguration,
                (JSON..=) "PerUnitStorageThroughput"
                  Prelude.<$> perUnitStorageThroughput,
                (JSON..=) "WeeklyMaintenanceStartTime"
@@ -114,6 +126,11 @@ instance Property "DriveCacheType" LustreConfigurationProperty where
   set newValue LustreConfigurationProperty {..}
     = LustreConfigurationProperty
         {driveCacheType = Prelude.pure newValue, ..}
+instance Property "EfaEnabled" LustreConfigurationProperty where
+  type PropertyType "EfaEnabled" LustreConfigurationProperty = Value Prelude.Bool
+  set newValue LustreConfigurationProperty {..}
+    = LustreConfigurationProperty
+        {efaEnabled = Prelude.pure newValue, ..}
 instance Property "ExportPath" LustreConfigurationProperty where
   type PropertyType "ExportPath" LustreConfigurationProperty = Value Prelude.Text
   set newValue LustreConfigurationProperty {..}
@@ -129,6 +146,11 @@ instance Property "ImportedFileChunkSize" LustreConfigurationProperty where
   set newValue LustreConfigurationProperty {..}
     = LustreConfigurationProperty
         {importedFileChunkSize = Prelude.pure newValue, ..}
+instance Property "MetadataConfiguration" LustreConfigurationProperty where
+  type PropertyType "MetadataConfiguration" LustreConfigurationProperty = MetadataConfigurationProperty
+  set newValue LustreConfigurationProperty {..}
+    = LustreConfigurationProperty
+        {metadataConfiguration = Prelude.pure newValue, ..}
 instance Property "PerUnitStorageThroughput" LustreConfigurationProperty where
   type PropertyType "PerUnitStorageThroughput" LustreConfigurationProperty = Value Prelude.Integer
   set newValue LustreConfigurationProperty {..}

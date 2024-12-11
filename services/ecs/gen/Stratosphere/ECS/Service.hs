@@ -14,11 +14,13 @@ import {-# SOURCE #-} Stratosphere.ECS.Service.PlacementStrategyProperty as Expo
 import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceConnectConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceRegistryProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.Service.ServiceVolumeConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ECS.Service.VpcLatticeConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
 data Service
-  = Service {capacityProviderStrategy :: (Prelude.Maybe [CapacityProviderStrategyItemProperty]),
+  = Service {availabilityZoneRebalancing :: (Prelude.Maybe (Value Prelude.Text)),
+             capacityProviderStrategy :: (Prelude.Maybe [CapacityProviderStrategyItemProperty]),
              cluster :: (Prelude.Maybe (Value Prelude.Text)),
              deploymentConfiguration :: (Prelude.Maybe DeploymentConfigurationProperty),
              deploymentController :: (Prelude.Maybe DeploymentControllerProperty),
@@ -40,12 +42,14 @@ data Service
              serviceRegistries :: (Prelude.Maybe [ServiceRegistryProperty]),
              tags :: (Prelude.Maybe [Tag]),
              taskDefinition :: (Prelude.Maybe (Value Prelude.Text)),
-             volumeConfigurations :: (Prelude.Maybe [ServiceVolumeConfigurationProperty])}
+             volumeConfigurations :: (Prelude.Maybe [ServiceVolumeConfigurationProperty]),
+             vpcLatticeConfigurations :: (Prelude.Maybe [VpcLatticeConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkService :: Service
 mkService
   = Service
-      {capacityProviderStrategy = Prelude.Nothing,
+      {availabilityZoneRebalancing = Prelude.Nothing,
+       capacityProviderStrategy = Prelude.Nothing,
        cluster = Prelude.Nothing,
        deploymentConfiguration = Prelude.Nothing,
        deploymentController = Prelude.Nothing,
@@ -62,14 +66,17 @@ mkService
        serviceConnectConfiguration = Prelude.Nothing,
        serviceName = Prelude.Nothing, serviceRegistries = Prelude.Nothing,
        tags = Prelude.Nothing, taskDefinition = Prelude.Nothing,
-       volumeConfigurations = Prelude.Nothing}
+       volumeConfigurations = Prelude.Nothing,
+       vpcLatticeConfigurations = Prelude.Nothing}
 instance ToResourceProperties Service where
   toResourceProperties Service {..}
     = ResourceProperties
         {awsType = "AWS::ECS::Service", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "CapacityProviderStrategy"
+                           [(JSON..=) "AvailabilityZoneRebalancing"
+                              Prelude.<$> availabilityZoneRebalancing,
+                            (JSON..=) "CapacityProviderStrategy"
                               Prelude.<$> capacityProviderStrategy,
                             (JSON..=) "Cluster" Prelude.<$> cluster,
                             (JSON..=) "DeploymentConfiguration"
@@ -95,14 +102,17 @@ instance ToResourceProperties Service where
                             (JSON..=) "ServiceRegistries" Prelude.<$> serviceRegistries,
                             (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "TaskDefinition" Prelude.<$> taskDefinition,
-                            (JSON..=) "VolumeConfigurations"
-                              Prelude.<$> volumeConfigurations])}
+                            (JSON..=) "VolumeConfigurations" Prelude.<$> volumeConfigurations,
+                            (JSON..=) "VpcLatticeConfigurations"
+                              Prelude.<$> vpcLatticeConfigurations])}
 instance JSON.ToJSON Service where
   toJSON Service {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "CapacityProviderStrategy"
+              [(JSON..=) "AvailabilityZoneRebalancing"
+                 Prelude.<$> availabilityZoneRebalancing,
+               (JSON..=) "CapacityProviderStrategy"
                  Prelude.<$> capacityProviderStrategy,
                (JSON..=) "Cluster" Prelude.<$> cluster,
                (JSON..=) "DeploymentConfiguration"
@@ -128,8 +138,13 @@ instance JSON.ToJSON Service where
                (JSON..=) "ServiceRegistries" Prelude.<$> serviceRegistries,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "TaskDefinition" Prelude.<$> taskDefinition,
-               (JSON..=) "VolumeConfigurations"
-                 Prelude.<$> volumeConfigurations]))
+               (JSON..=) "VolumeConfigurations" Prelude.<$> volumeConfigurations,
+               (JSON..=) "VpcLatticeConfigurations"
+                 Prelude.<$> vpcLatticeConfigurations]))
+instance Property "AvailabilityZoneRebalancing" Service where
+  type PropertyType "AvailabilityZoneRebalancing" Service = Value Prelude.Text
+  set newValue Service {..}
+    = Service {availabilityZoneRebalancing = Prelude.pure newValue, ..}
 instance Property "CapacityProviderStrategy" Service where
   type PropertyType "CapacityProviderStrategy" Service = [CapacityProviderStrategyItemProperty]
   set newValue Service {..}
@@ -223,3 +238,7 @@ instance Property "VolumeConfigurations" Service where
   type PropertyType "VolumeConfigurations" Service = [ServiceVolumeConfigurationProperty]
   set newValue Service {..}
     = Service {volumeConfigurations = Prelude.pure newValue, ..}
+instance Property "VpcLatticeConfigurations" Service where
+  type PropertyType "VpcLatticeConfigurations" Service = [VpcLatticeConfigurationProperty]
+  set newValue Service {..}
+    = Service {vpcLatticeConfigurations = Prelude.pure newValue, ..}

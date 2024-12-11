@@ -29,6 +29,26 @@ library
       Stratosphere.GameLift.Alias.RoutingStrategyProperty
       Stratosphere.GameLift.Build
       Stratosphere.GameLift.Build.StorageLocationProperty
+      Stratosphere.GameLift.ContainerFleet
+      Stratosphere.GameLift.ContainerFleet.ConnectionPortRangeProperty
+      Stratosphere.GameLift.ContainerFleet.DeploymentConfigurationProperty
+      Stratosphere.GameLift.ContainerFleet.DeploymentDetailsProperty
+      Stratosphere.GameLift.ContainerFleet.GameSessionCreationLimitPolicyProperty
+      Stratosphere.GameLift.ContainerFleet.IpPermissionProperty
+      Stratosphere.GameLift.ContainerFleet.LocationCapacityProperty
+      Stratosphere.GameLift.ContainerFleet.LocationConfigurationProperty
+      Stratosphere.GameLift.ContainerFleet.LogConfigurationProperty
+      Stratosphere.GameLift.ContainerFleet.ScalingPolicyProperty
+      Stratosphere.GameLift.ContainerFleet.TargetConfigurationProperty
+      Stratosphere.GameLift.ContainerGroupDefinition
+      Stratosphere.GameLift.ContainerGroupDefinition.ContainerDependencyProperty
+      Stratosphere.GameLift.ContainerGroupDefinition.ContainerEnvironmentProperty
+      Stratosphere.GameLift.ContainerGroupDefinition.ContainerHealthCheckProperty
+      Stratosphere.GameLift.ContainerGroupDefinition.ContainerMountPointProperty
+      Stratosphere.GameLift.ContainerGroupDefinition.ContainerPortRangeProperty
+      Stratosphere.GameLift.ContainerGroupDefinition.GameServerContainerDefinitionProperty
+      Stratosphere.GameLift.ContainerGroupDefinition.PortConfigurationProperty
+      Stratosphere.GameLift.ContainerGroupDefinition.SupportContainerDefinitionProperty
       Stratosphere.GameLift.Fleet
       Stratosphere.GameLift.Fleet.AnywhereConfigurationProperty
       Stratosphere.GameLift.Fleet.CertificateConfigurationProperty

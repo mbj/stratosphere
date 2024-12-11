@@ -8,16 +8,19 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Space.CustomImageProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.Space.ResourceSpecProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Value
 data KernelGatewayAppSettingsProperty
   = KernelGatewayAppSettingsProperty {customImages :: (Prelude.Maybe [CustomImageProperty]),
-                                      defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty)}
+                                      defaultResourceSpec :: (Prelude.Maybe ResourceSpecProperty),
+                                      lifecycleConfigArns :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkKernelGatewayAppSettingsProperty ::
   KernelGatewayAppSettingsProperty
 mkKernelGatewayAppSettingsProperty
   = KernelGatewayAppSettingsProperty
       {customImages = Prelude.Nothing,
-       defaultResourceSpec = Prelude.Nothing}
+       defaultResourceSpec = Prelude.Nothing,
+       lifecycleConfigArns = Prelude.Nothing}
 instance ToResourceProperties KernelGatewayAppSettingsProperty where
   toResourceProperties KernelGatewayAppSettingsProperty {..}
     = ResourceProperties
@@ -26,14 +29,16 @@ instance ToResourceProperties KernelGatewayAppSettingsProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "CustomImages" Prelude.<$> customImages,
-                            (JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec])}
+                            (JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec,
+                            (JSON..=) "LifecycleConfigArns" Prelude.<$> lifecycleConfigArns])}
 instance JSON.ToJSON KernelGatewayAppSettingsProperty where
   toJSON KernelGatewayAppSettingsProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "CustomImages" Prelude.<$> customImages,
-               (JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec]))
+               (JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec,
+               (JSON..=) "LifecycleConfigArns" Prelude.<$> lifecycleConfigArns]))
 instance Property "CustomImages" KernelGatewayAppSettingsProperty where
   type PropertyType "CustomImages" KernelGatewayAppSettingsProperty = [CustomImageProperty]
   set newValue KernelGatewayAppSettingsProperty {..}
@@ -44,3 +49,8 @@ instance Property "DefaultResourceSpec" KernelGatewayAppSettingsProperty where
   set newValue KernelGatewayAppSettingsProperty {..}
     = KernelGatewayAppSettingsProperty
         {defaultResourceSpec = Prelude.pure newValue, ..}
+instance Property "LifecycleConfigArns" KernelGatewayAppSettingsProperty where
+  type PropertyType "LifecycleConfigArns" KernelGatewayAppSettingsProperty = ValueList Prelude.Text
+  set newValue KernelGatewayAppSettingsProperty {..}
+    = KernelGatewayAppSettingsProperty
+        {lifecycleConfigArns = Prelude.pure newValue, ..}

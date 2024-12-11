@@ -1,0 +1,9 @@
+module Stratosphere.CodePipeline.Pipeline.RuleDeclarationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RuleDeclarationProperty :: Prelude.Type
+instance ToResourceProperties RuleDeclarationProperty
+instance Prelude.Eq RuleDeclarationProperty
+instance Prelude.Show RuleDeclarationProperty
+instance JSON.ToJSON RuleDeclarationProperty

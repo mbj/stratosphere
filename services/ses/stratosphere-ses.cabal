@@ -37,6 +37,7 @@ library
       Stratosphere.SES.ConfigurationSetEventDestination
       Stratosphere.SES.ConfigurationSetEventDestination.CloudWatchDestinationProperty
       Stratosphere.SES.ConfigurationSetEventDestination.DimensionConfigurationProperty
+      Stratosphere.SES.ConfigurationSetEventDestination.EventBridgeDestinationProperty
       Stratosphere.SES.ConfigurationSetEventDestination.EventDestinationProperty
       Stratosphere.SES.ConfigurationSetEventDestination.KinesisFirehoseDestinationProperty
       Stratosphere.SES.ConfigurationSetEventDestination.SnsDestinationProperty
@@ -49,6 +50,49 @@ library
       Stratosphere.SES.EmailIdentity.DkimSigningAttributesProperty
       Stratosphere.SES.EmailIdentity.FeedbackAttributesProperty
       Stratosphere.SES.EmailIdentity.MailFromAttributesProperty
+      Stratosphere.SES.MailManagerAddonInstance
+      Stratosphere.SES.MailManagerAddonSubscription
+      Stratosphere.SES.MailManagerArchive
+      Stratosphere.SES.MailManagerArchive.ArchiveRetentionProperty
+      Stratosphere.SES.MailManagerIngressPoint
+      Stratosphere.SES.MailManagerIngressPoint.IngressPointConfigurationProperty
+      Stratosphere.SES.MailManagerRelay
+      Stratosphere.SES.MailManagerRelay.RelayAuthenticationProperty
+      Stratosphere.SES.MailManagerRuleSet
+      Stratosphere.SES.MailManagerRuleSet.AddHeaderActionProperty
+      Stratosphere.SES.MailManagerRuleSet.AnalysisProperty
+      Stratosphere.SES.MailManagerRuleSet.ArchiveActionProperty
+      Stratosphere.SES.MailManagerRuleSet.DeliverToMailboxActionProperty
+      Stratosphere.SES.MailManagerRuleSet.RelayActionProperty
+      Stratosphere.SES.MailManagerRuleSet.ReplaceRecipientActionProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleActionProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleBooleanExpressionProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleBooleanToEvaluateProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleConditionProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleDmarcExpressionProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleIpExpressionProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleIpToEvaluateProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleNumberExpressionProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleNumberToEvaluateProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleStringExpressionProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleStringToEvaluateProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleVerdictExpressionProperty
+      Stratosphere.SES.MailManagerRuleSet.RuleVerdictToEvaluateProperty
+      Stratosphere.SES.MailManagerRuleSet.S3ActionProperty
+      Stratosphere.SES.MailManagerRuleSet.SendActionProperty
+      Stratosphere.SES.MailManagerTrafficPolicy
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressAnalysisProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressBooleanExpressionProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressBooleanToEvaluateProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressIpToEvaluateProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressIpv4ExpressionProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressStringExpressionProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressStringToEvaluateProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressTlsProtocolExpressionProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.IngressTlsProtocolToEvaluateProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.PolicyConditionProperty
+      Stratosphere.SES.MailManagerTrafficPolicy.PolicyStatementProperty
       Stratosphere.SES.ReceiptFilter
       Stratosphere.SES.ReceiptFilter.FilterProperty
       Stratosphere.SES.ReceiptFilter.IpFilterProperty
@@ -56,6 +100,7 @@ library
       Stratosphere.SES.ReceiptRule.ActionProperty
       Stratosphere.SES.ReceiptRule.AddHeaderActionProperty
       Stratosphere.SES.ReceiptRule.BounceActionProperty
+      Stratosphere.SES.ReceiptRule.ConnectActionProperty
       Stratosphere.SES.ReceiptRule.LambdaActionProperty
       Stratosphere.SES.ReceiptRule.RuleProperty
       Stratosphere.SES.ReceiptRule.S3ActionProperty

@@ -115,6 +115,9 @@ library
       Stratosphere.Glue.Trigger.EventBatchingConditionProperty
       Stratosphere.Glue.Trigger.NotificationPropertyProperty
       Stratosphere.Glue.Trigger.PredicateProperty
+      Stratosphere.Glue.UsageProfile
+      Stratosphere.Glue.UsageProfile.ConfigurationObjectProperty
+      Stratosphere.Glue.UsageProfile.ProfileConfigurationProperty
       Stratosphere.Glue.Workflow
   other-modules:
       Paths_stratosphere_glue

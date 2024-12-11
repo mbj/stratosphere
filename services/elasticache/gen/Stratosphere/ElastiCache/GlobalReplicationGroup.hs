@@ -13,6 +13,7 @@ data GlobalReplicationGroup
   = GlobalReplicationGroup {automaticFailoverEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                             cacheNodeType :: (Prelude.Maybe (Value Prelude.Text)),
                             cacheParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                            engine :: (Prelude.Maybe (Value Prelude.Text)),
                             engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
                             globalNodeGroupCount :: (Prelude.Maybe (Value Prelude.Integer)),
                             globalReplicationGroupDescription :: (Prelude.Maybe (Value Prelude.Text)),
@@ -27,7 +28,7 @@ mkGlobalReplicationGroup members
       {members = members, automaticFailoverEnabled = Prelude.Nothing,
        cacheNodeType = Prelude.Nothing,
        cacheParameterGroupName = Prelude.Nothing,
-       engineVersion = Prelude.Nothing,
+       engine = Prelude.Nothing, engineVersion = Prelude.Nothing,
        globalNodeGroupCount = Prelude.Nothing,
        globalReplicationGroupDescription = Prelude.Nothing,
        globalReplicationGroupIdSuffix = Prelude.Nothing,
@@ -46,6 +47,7 @@ instance ToResourceProperties GlobalReplicationGroup where
                                (JSON..=) "CacheNodeType" Prelude.<$> cacheNodeType,
                                (JSON..=) "CacheParameterGroupName"
                                  Prelude.<$> cacheParameterGroupName,
+                               (JSON..=) "Engine" Prelude.<$> engine,
                                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                                (JSON..=) "GlobalNodeGroupCount" Prelude.<$> globalNodeGroupCount,
                                (JSON..=) "GlobalReplicationGroupDescription"
@@ -66,6 +68,7 @@ instance JSON.ToJSON GlobalReplicationGroup where
                   (JSON..=) "CacheNodeType" Prelude.<$> cacheNodeType,
                   (JSON..=) "CacheParameterGroupName"
                     Prelude.<$> cacheParameterGroupName,
+                  (JSON..=) "Engine" Prelude.<$> engine,
                   (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                   (JSON..=) "GlobalNodeGroupCount" Prelude.<$> globalNodeGroupCount,
                   (JSON..=) "GlobalReplicationGroupDescription"
@@ -89,6 +92,10 @@ instance Property "CacheParameterGroupName" GlobalReplicationGroup where
   set newValue GlobalReplicationGroup {..}
     = GlobalReplicationGroup
         {cacheParameterGroupName = Prelude.pure newValue, ..}
+instance Property "Engine" GlobalReplicationGroup where
+  type PropertyType "Engine" GlobalReplicationGroup = Value Prelude.Text
+  set newValue GlobalReplicationGroup {..}
+    = GlobalReplicationGroup {engine = Prelude.pure newValue, ..}
 instance Property "EngineVersion" GlobalReplicationGroup where
   type PropertyType "EngineVersion" GlobalReplicationGroup = Value Prelude.Text
   set newValue GlobalReplicationGroup {..}

@@ -1,0 +1,9 @@
+module Stratosphere.CloudFormation.LambdaHook.TargetFiltersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetFiltersProperty :: Prelude.Type
+instance ToResourceProperties TargetFiltersProperty
+instance Prelude.Eq TargetFiltersProperty
+instance Prelude.Show TargetFiltersProperty
+instance JSON.ToJSON TargetFiltersProperty

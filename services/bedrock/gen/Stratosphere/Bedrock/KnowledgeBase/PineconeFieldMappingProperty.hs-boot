@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.PineconeFieldMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PineconeFieldMappingProperty :: Prelude.Type
+instance ToResourceProperties PineconeFieldMappingProperty
+instance Prelude.Eq PineconeFieldMappingProperty
+instance Prelude.Show PineconeFieldMappingProperty
+instance JSON.ToJSON PineconeFieldMappingProperty

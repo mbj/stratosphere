@@ -18,6 +18,7 @@ data DBCluster
                availabilityZones :: (Prelude.Maybe (ValueList Prelude.Text)),
                backtrackWindow :: (Prelude.Maybe (Value Prelude.Integer)),
                backupRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
+               clusterScalabilityType :: (Prelude.Maybe (Value Prelude.Text)),
                copyTagsToSnapshot :: (Prelude.Maybe (Value Prelude.Bool)),
                dBClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                dBClusterInstanceClass :: (Prelude.Maybe (Value Prelude.Text)),
@@ -33,7 +34,9 @@ data DBCluster
                enableGlobalWriteForwarding :: (Prelude.Maybe (Value Prelude.Bool)),
                enableHttpEndpoint :: (Prelude.Maybe (Value Prelude.Bool)),
                enableIAMDatabaseAuthentication :: (Prelude.Maybe (Value Prelude.Bool)),
+               enableLocalWriteForwarding :: (Prelude.Maybe (Value Prelude.Bool)),
                engine :: (Prelude.Maybe (Value Prelude.Text)),
+               engineLifecycleSupport :: (Prelude.Maybe (Value Prelude.Text)),
                engineMode :: (Prelude.Maybe (Value Prelude.Text)),
                engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
                globalClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
@@ -76,6 +79,7 @@ mkDBCluster
        availabilityZones = Prelude.Nothing,
        backtrackWindow = Prelude.Nothing,
        backupRetentionPeriod = Prelude.Nothing,
+       clusterScalabilityType = Prelude.Nothing,
        copyTagsToSnapshot = Prelude.Nothing,
        dBClusterIdentifier = Prelude.Nothing,
        dBClusterInstanceClass = Prelude.Nothing,
@@ -89,8 +93,9 @@ mkDBCluster
        enableGlobalWriteForwarding = Prelude.Nothing,
        enableHttpEndpoint = Prelude.Nothing,
        enableIAMDatabaseAuthentication = Prelude.Nothing,
-       engine = Prelude.Nothing, engineMode = Prelude.Nothing,
-       engineVersion = Prelude.Nothing,
+       enableLocalWriteForwarding = Prelude.Nothing,
+       engine = Prelude.Nothing, engineLifecycleSupport = Prelude.Nothing,
+       engineMode = Prelude.Nothing, engineVersion = Prelude.Nothing,
        globalClusterIdentifier = Prelude.Nothing, iops = Prelude.Nothing,
        kmsKeyId = Prelude.Nothing,
        manageMasterUserPassword = Prelude.Nothing,
@@ -129,6 +134,8 @@ instance ToResourceProperties DBCluster where
                             (JSON..=) "BacktrackWindow" Prelude.<$> backtrackWindow,
                             (JSON..=) "BackupRetentionPeriod"
                               Prelude.<$> backupRetentionPeriod,
+                            (JSON..=) "ClusterScalabilityType"
+                              Prelude.<$> clusterScalabilityType,
                             (JSON..=) "CopyTagsToSnapshot" Prelude.<$> copyTagsToSnapshot,
                             (JSON..=) "DBClusterIdentifier" Prelude.<$> dBClusterIdentifier,
                             (JSON..=) "DBClusterInstanceClass"
@@ -150,7 +157,11 @@ instance ToResourceProperties DBCluster where
                             (JSON..=) "EnableHttpEndpoint" Prelude.<$> enableHttpEndpoint,
                             (JSON..=) "EnableIAMDatabaseAuthentication"
                               Prelude.<$> enableIAMDatabaseAuthentication,
+                            (JSON..=) "EnableLocalWriteForwarding"
+                              Prelude.<$> enableLocalWriteForwarding,
                             (JSON..=) "Engine" Prelude.<$> engine,
+                            (JSON..=) "EngineLifecycleSupport"
+                              Prelude.<$> engineLifecycleSupport,
                             (JSON..=) "EngineMode" Prelude.<$> engineMode,
                             (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                             (JSON..=) "GlobalClusterIdentifier"
@@ -207,6 +218,8 @@ instance JSON.ToJSON DBCluster where
                (JSON..=) "BacktrackWindow" Prelude.<$> backtrackWindow,
                (JSON..=) "BackupRetentionPeriod"
                  Prelude.<$> backupRetentionPeriod,
+               (JSON..=) "ClusterScalabilityType"
+                 Prelude.<$> clusterScalabilityType,
                (JSON..=) "CopyTagsToSnapshot" Prelude.<$> copyTagsToSnapshot,
                (JSON..=) "DBClusterIdentifier" Prelude.<$> dBClusterIdentifier,
                (JSON..=) "DBClusterInstanceClass"
@@ -228,7 +241,11 @@ instance JSON.ToJSON DBCluster where
                (JSON..=) "EnableHttpEndpoint" Prelude.<$> enableHttpEndpoint,
                (JSON..=) "EnableIAMDatabaseAuthentication"
                  Prelude.<$> enableIAMDatabaseAuthentication,
+               (JSON..=) "EnableLocalWriteForwarding"
+                 Prelude.<$> enableLocalWriteForwarding,
                (JSON..=) "Engine" Prelude.<$> engine,
+               (JSON..=) "EngineLifecycleSupport"
+                 Prelude.<$> engineLifecycleSupport,
                (JSON..=) "EngineMode" Prelude.<$> engineMode,
                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                (JSON..=) "GlobalClusterIdentifier"
@@ -296,6 +313,10 @@ instance Property "BackupRetentionPeriod" DBCluster where
   type PropertyType "BackupRetentionPeriod" DBCluster = Value Prelude.Integer
   set newValue DBCluster {..}
     = DBCluster {backupRetentionPeriod = Prelude.pure newValue, ..}
+instance Property "ClusterScalabilityType" DBCluster where
+  type PropertyType "ClusterScalabilityType" DBCluster = Value Prelude.Text
+  set newValue DBCluster {..}
+    = DBCluster {clusterScalabilityType = Prelude.pure newValue, ..}
 instance Property "CopyTagsToSnapshot" DBCluster where
   type PropertyType "CopyTagsToSnapshot" DBCluster = Value Prelude.Bool
   set newValue DBCluster {..}
@@ -361,10 +382,19 @@ instance Property "EnableIAMDatabaseAuthentication" DBCluster where
   set newValue DBCluster {..}
     = DBCluster
         {enableIAMDatabaseAuthentication = Prelude.pure newValue, ..}
+instance Property "EnableLocalWriteForwarding" DBCluster where
+  type PropertyType "EnableLocalWriteForwarding" DBCluster = Value Prelude.Bool
+  set newValue DBCluster {..}
+    = DBCluster
+        {enableLocalWriteForwarding = Prelude.pure newValue, ..}
 instance Property "Engine" DBCluster where
   type PropertyType "Engine" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {engine = Prelude.pure newValue, ..}
+instance Property "EngineLifecycleSupport" DBCluster where
+  type PropertyType "EngineLifecycleSupport" DBCluster = Value Prelude.Text
+  set newValue DBCluster {..}
+    = DBCluster {engineLifecycleSupport = Prelude.pure newValue, ..}
 instance Property "EngineMode" DBCluster where
   type PropertyType "EngineMode" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}

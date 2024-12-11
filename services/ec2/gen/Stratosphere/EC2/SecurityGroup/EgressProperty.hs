@@ -14,7 +14,6 @@ data EgressProperty
                     destinationSecurityGroupId :: (Prelude.Maybe (Value Prelude.Text)),
                     fromPort :: (Prelude.Maybe (Value Prelude.Integer)),
                     ipProtocol :: (Value Prelude.Text),
-                    sourceSecurityGroupId :: (Prelude.Maybe (Value Prelude.Text)),
                     toPort :: (Prelude.Maybe (Value Prelude.Integer))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEgressProperty :: Value Prelude.Text -> EgressProperty
@@ -24,8 +23,7 @@ mkEgressProperty ipProtocol
        cidrIpv6 = Prelude.Nothing, description = Prelude.Nothing,
        destinationPrefixListId = Prelude.Nothing,
        destinationSecurityGroupId = Prelude.Nothing,
-       fromPort = Prelude.Nothing,
-       sourceSecurityGroupId = Prelude.Nothing, toPort = Prelude.Nothing}
+       fromPort = Prelude.Nothing, toPort = Prelude.Nothing}
 instance ToResourceProperties EgressProperty where
   toResourceProperties EgressProperty {..}
     = ResourceProperties
@@ -43,8 +41,6 @@ instance ToResourceProperties EgressProperty where
                                (JSON..=) "DestinationSecurityGroupId"
                                  Prelude.<$> destinationSecurityGroupId,
                                (JSON..=) "FromPort" Prelude.<$> fromPort,
-                               (JSON..=) "SourceSecurityGroupId"
-                                 Prelude.<$> sourceSecurityGroupId,
                                (JSON..=) "ToPort" Prelude.<$> toPort]))}
 instance JSON.ToJSON EgressProperty where
   toJSON EgressProperty {..}
@@ -61,8 +57,6 @@ instance JSON.ToJSON EgressProperty where
                   (JSON..=) "DestinationSecurityGroupId"
                     Prelude.<$> destinationSecurityGroupId,
                   (JSON..=) "FromPort" Prelude.<$> fromPort,
-                  (JSON..=) "SourceSecurityGroupId"
-                    Prelude.<$> sourceSecurityGroupId,
                   (JSON..=) "ToPort" Prelude.<$> toPort])))
 instance Property "CidrIp" EgressProperty where
   type PropertyType "CidrIp" EgressProperty = Value Prelude.Text
@@ -94,11 +88,6 @@ instance Property "IpProtocol" EgressProperty where
   type PropertyType "IpProtocol" EgressProperty = Value Prelude.Text
   set newValue EgressProperty {..}
     = EgressProperty {ipProtocol = newValue, ..}
-instance Property "SourceSecurityGroupId" EgressProperty where
-  type PropertyType "SourceSecurityGroupId" EgressProperty = Value Prelude.Text
-  set newValue EgressProperty {..}
-    = EgressProperty
-        {sourceSecurityGroupId = Prelude.pure newValue, ..}
 instance Property "ToPort" EgressProperty where
   type PropertyType "ToPort" EgressProperty = Value Prelude.Integer
   set newValue EgressProperty {..}

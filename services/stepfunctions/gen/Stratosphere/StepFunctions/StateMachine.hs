@@ -4,6 +4,7 @@ module Stratosphere.StepFunctions.StateMachine (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.StepFunctions.StateMachine.EncryptionConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.StepFunctions.StateMachine.LoggingConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.StepFunctions.StateMachine.S3LocationProperty as Exports
 import {-# SOURCE #-} Stratosphere.StepFunctions.StateMachine.TagsEntryProperty as Exports
@@ -15,6 +16,7 @@ data StateMachine
                   definitionS3Location :: (Prelude.Maybe S3LocationProperty),
                   definitionString :: (Prelude.Maybe (Value Prelude.Text)),
                   definitionSubstitutions :: (Prelude.Maybe (Prelude.Map Prelude.Text JSON.Object)),
+                  encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
                   loggingConfiguration :: (Prelude.Maybe LoggingConfigurationProperty),
                   roleArn :: (Value Prelude.Text),
                   stateMachineName :: (Prelude.Maybe (Value Prelude.Text)),
@@ -29,6 +31,7 @@ mkStateMachine roleArn
        definitionS3Location = Prelude.Nothing,
        definitionString = Prelude.Nothing,
        definitionSubstitutions = Prelude.Nothing,
+       encryptionConfiguration = Prelude.Nothing,
        loggingConfiguration = Prelude.Nothing,
        stateMachineName = Prelude.Nothing,
        stateMachineType = Prelude.Nothing, tags = Prelude.Nothing,
@@ -47,6 +50,8 @@ instance ToResourceProperties StateMachine where
                                (JSON..=) "DefinitionString" Prelude.<$> definitionString,
                                (JSON..=) "DefinitionSubstitutions"
                                  Prelude.<$> definitionSubstitutions,
+                               (JSON..=) "EncryptionConfiguration"
+                                 Prelude.<$> encryptionConfiguration,
                                (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
                                (JSON..=) "StateMachineName" Prelude.<$> stateMachineName,
                                (JSON..=) "StateMachineType" Prelude.<$> stateMachineType,
@@ -65,6 +70,8 @@ instance JSON.ToJSON StateMachine where
                   (JSON..=) "DefinitionString" Prelude.<$> definitionString,
                   (JSON..=) "DefinitionSubstitutions"
                     Prelude.<$> definitionSubstitutions,
+                  (JSON..=) "EncryptionConfiguration"
+                    Prelude.<$> encryptionConfiguration,
                   (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
                   (JSON..=) "StateMachineName" Prelude.<$> stateMachineName,
                   (JSON..=) "StateMachineType" Prelude.<$> stateMachineType,
@@ -88,6 +95,11 @@ instance Property "DefinitionSubstitutions" StateMachine where
   set newValue StateMachine {..}
     = StateMachine
         {definitionSubstitutions = Prelude.pure newValue, ..}
+instance Property "EncryptionConfiguration" StateMachine where
+  type PropertyType "EncryptionConfiguration" StateMachine = EncryptionConfigurationProperty
+  set newValue StateMachine {..}
+    = StateMachine
+        {encryptionConfiguration = Prelude.pure newValue, ..}
 instance Property "LoggingConfiguration" StateMachine where
   type PropertyType "LoggingConfiguration" StateMachine = LoggingConfigurationProperty
   set newValue StateMachine {..}

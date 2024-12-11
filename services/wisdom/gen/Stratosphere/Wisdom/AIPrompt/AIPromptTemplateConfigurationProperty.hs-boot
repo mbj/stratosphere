@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.AIPrompt.AIPromptTemplateConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AIPromptTemplateConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AIPromptTemplateConfigurationProperty
+instance Prelude.Eq AIPromptTemplateConfigurationProperty
+instance Prelude.Show AIPromptTemplateConfigurationProperty
+instance JSON.ToJSON AIPromptTemplateConfigurationProperty

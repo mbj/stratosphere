@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.CmafIngestGroupSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CmafIngestGroupSettingsProperty :: Prelude.Type
+instance ToResourceProperties CmafIngestGroupSettingsProperty
+instance Prelude.Eq CmafIngestGroupSettingsProperty
+instance Prelude.Show CmafIngestGroupSettingsProperty
+instance JSON.ToJSON CmafIngestGroupSettingsProperty

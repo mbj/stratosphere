@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.ClusterOrchestratorEksConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClusterOrchestratorEksConfigProperty :: Prelude.Type
+instance ToResourceProperties ClusterOrchestratorEksConfigProperty
+instance Prelude.Eq ClusterOrchestratorEksConfigProperty
+instance Prelude.Show ClusterOrchestratorEksConfigProperty
+instance JSON.ToJSON ClusterOrchestratorEksConfigProperty

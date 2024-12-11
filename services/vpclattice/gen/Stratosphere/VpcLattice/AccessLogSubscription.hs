@@ -10,6 +10,7 @@ import Stratosphere.Value
 data AccessLogSubscription
   = AccessLogSubscription {destinationArn :: (Value Prelude.Text),
                            resourceIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+                           serviceNetworkLogType :: (Prelude.Maybe (Value Prelude.Text)),
                            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkAccessLogSubscription ::
@@ -17,7 +18,8 @@ mkAccessLogSubscription ::
 mkAccessLogSubscription destinationArn
   = AccessLogSubscription
       {destinationArn = destinationArn,
-       resourceIdentifier = Prelude.Nothing, tags = Prelude.Nothing}
+       resourceIdentifier = Prelude.Nothing,
+       serviceNetworkLogType = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties AccessLogSubscription where
   toResourceProperties AccessLogSubscription {..}
     = ResourceProperties
@@ -28,6 +30,8 @@ instance ToResourceProperties AccessLogSubscription where
                            ["DestinationArn" JSON..= destinationArn]
                            (Prelude.catMaybes
                               [(JSON..=) "ResourceIdentifier" Prelude.<$> resourceIdentifier,
+                               (JSON..=) "ServiceNetworkLogType"
+                                 Prelude.<$> serviceNetworkLogType,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON AccessLogSubscription where
   toJSON AccessLogSubscription {..}
@@ -37,6 +41,8 @@ instance JSON.ToJSON AccessLogSubscription where
               ["DestinationArn" JSON..= destinationArn]
               (Prelude.catMaybes
                  [(JSON..=) "ResourceIdentifier" Prelude.<$> resourceIdentifier,
+                  (JSON..=) "ServiceNetworkLogType"
+                    Prelude.<$> serviceNetworkLogType,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "DestinationArn" AccessLogSubscription where
   type PropertyType "DestinationArn" AccessLogSubscription = Value Prelude.Text
@@ -47,6 +53,11 @@ instance Property "ResourceIdentifier" AccessLogSubscription where
   set newValue AccessLogSubscription {..}
     = AccessLogSubscription
         {resourceIdentifier = Prelude.pure newValue, ..}
+instance Property "ServiceNetworkLogType" AccessLogSubscription where
+  type PropertyType "ServiceNetworkLogType" AccessLogSubscription = Value Prelude.Text
+  set newValue AccessLogSubscription {..}
+    = AccessLogSubscription
+        {serviceNetworkLogType = Prelude.pure newValue, ..}
 instance Property "Tags" AccessLogSubscription where
   type PropertyType "Tags" AccessLogSubscription = [Tag]
   set newValue AccessLogSubscription {..}

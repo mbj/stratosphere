@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.DashboardVersionDefinitionProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data DashboardVersionDefinitionProperty :: Prelude.Type
-instance ToResourceProperties DashboardVersionDefinitionProperty
-instance Prelude.Eq DashboardVersionDefinitionProperty
-instance Prelude.Show DashboardVersionDefinitionProperty
-instance JSON.ToJSON DashboardVersionDefinitionProperty

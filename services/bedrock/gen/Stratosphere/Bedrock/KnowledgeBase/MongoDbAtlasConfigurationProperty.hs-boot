@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.MongoDbAtlasConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MongoDbAtlasConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MongoDbAtlasConfigurationProperty
+instance Prelude.Eq MongoDbAtlasConfigurationProperty
+instance Prelude.Show MongoDbAtlasConfigurationProperty
+instance JSON.ToJSON MongoDbAtlasConfigurationProperty

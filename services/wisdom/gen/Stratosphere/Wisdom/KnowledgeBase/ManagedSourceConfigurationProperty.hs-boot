@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.KnowledgeBase.ManagedSourceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedSourceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ManagedSourceConfigurationProperty
+instance Prelude.Eq ManagedSourceConfigurationProperty
+instance Prelude.Show ManagedSourceConfigurationProperty
+instance JSON.ToJSON ManagedSourceConfigurationProperty

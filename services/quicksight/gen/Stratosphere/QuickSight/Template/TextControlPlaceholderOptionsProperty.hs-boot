@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.TextControlPlaceholderOptionsProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data TextControlPlaceholderOptionsProperty :: Prelude.Type
-instance ToResourceProperties TextControlPlaceholderOptionsProperty
-instance Prelude.Eq TextControlPlaceholderOptionsProperty
-instance Prelude.Show TextControlPlaceholderOptionsProperty
-instance JSON.ToJSON TextControlPlaceholderOptionsProperty

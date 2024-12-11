@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SES.ConfigurationSetEventDestination.CloudWatchDestinationProperty as Exports
+import {-# SOURCE #-} Stratosphere.SES.ConfigurationSetEventDestination.EventBridgeDestinationProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.ConfigurationSetEventDestination.KinesisFirehoseDestinationProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.ConfigurationSetEventDestination.SnsDestinationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -13,6 +14,7 @@ import Stratosphere.Value
 data EventDestinationProperty
   = EventDestinationProperty {cloudWatchDestination :: (Prelude.Maybe CloudWatchDestinationProperty),
                               enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                              eventBridgeDestination :: (Prelude.Maybe EventBridgeDestinationProperty),
                               kinesisFirehoseDestination :: (Prelude.Maybe KinesisFirehoseDestinationProperty),
                               matchingEventTypes :: (ValueList Prelude.Text),
                               name :: (Prelude.Maybe (Value Prelude.Text)),
@@ -24,6 +26,7 @@ mkEventDestinationProperty matchingEventTypes
   = EventDestinationProperty
       {matchingEventTypes = matchingEventTypes,
        cloudWatchDestination = Prelude.Nothing, enabled = Prelude.Nothing,
+       eventBridgeDestination = Prelude.Nothing,
        kinesisFirehoseDestination = Prelude.Nothing,
        name = Prelude.Nothing, snsDestination = Prelude.Nothing}
 instance ToResourceProperties EventDestinationProperty where
@@ -38,6 +41,8 @@ instance ToResourceProperties EventDestinationProperty where
                               [(JSON..=) "CloudWatchDestination"
                                  Prelude.<$> cloudWatchDestination,
                                (JSON..=) "Enabled" Prelude.<$> enabled,
+                               (JSON..=) "EventBridgeDestination"
+                                 Prelude.<$> eventBridgeDestination,
                                (JSON..=) "KinesisFirehoseDestination"
                                  Prelude.<$> kinesisFirehoseDestination,
                                (JSON..=) "Name" Prelude.<$> name,
@@ -52,6 +57,8 @@ instance JSON.ToJSON EventDestinationProperty where
                  [(JSON..=) "CloudWatchDestination"
                     Prelude.<$> cloudWatchDestination,
                   (JSON..=) "Enabled" Prelude.<$> enabled,
+                  (JSON..=) "EventBridgeDestination"
+                    Prelude.<$> eventBridgeDestination,
                   (JSON..=) "KinesisFirehoseDestination"
                     Prelude.<$> kinesisFirehoseDestination,
                   (JSON..=) "Name" Prelude.<$> name,
@@ -65,6 +72,11 @@ instance Property "Enabled" EventDestinationProperty where
   type PropertyType "Enabled" EventDestinationProperty = Value Prelude.Bool
   set newValue EventDestinationProperty {..}
     = EventDestinationProperty {enabled = Prelude.pure newValue, ..}
+instance Property "EventBridgeDestination" EventDestinationProperty where
+  type PropertyType "EventBridgeDestination" EventDestinationProperty = EventBridgeDestinationProperty
+  set newValue EventDestinationProperty {..}
+    = EventDestinationProperty
+        {eventBridgeDestination = Prelude.pure newValue, ..}
 instance Property "KinesisFirehoseDestination" EventDestinationProperty where
   type PropertyType "KinesisFirehoseDestination" EventDestinationProperty = KinesisFirehoseDestinationProperty
   set newValue EventDestinationProperty {..}

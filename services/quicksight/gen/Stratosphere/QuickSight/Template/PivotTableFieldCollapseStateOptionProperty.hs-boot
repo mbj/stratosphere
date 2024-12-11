@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Template.PivotTableFieldCollapseStateOptionProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data PivotTableFieldCollapseStateOptionProperty :: Prelude.Type
-instance ToResourceProperties PivotTableFieldCollapseStateOptionProperty
-instance Prelude.Eq PivotTableFieldCollapseStateOptionProperty
-instance Prelude.Show PivotTableFieldCollapseStateOptionProperty
-instance JSON.ToJSON PivotTableFieldCollapseStateOptionProperty

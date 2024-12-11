@@ -10,6 +10,7 @@ data SubnetMappingProperty
   = SubnetMappingProperty {allocationId :: (Prelude.Maybe (Value Prelude.Text)),
                            iPv6Address :: (Prelude.Maybe (Value Prelude.Text)),
                            privateIPv4Address :: (Prelude.Maybe (Value Prelude.Text)),
+                           sourceNatIpv6Prefix :: (Prelude.Maybe (Value Prelude.Text)),
                            subnetId :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkSubnetMappingProperty ::
@@ -18,7 +19,8 @@ mkSubnetMappingProperty subnetId
   = SubnetMappingProperty
       {subnetId = subnetId, allocationId = Prelude.Nothing,
        iPv6Address = Prelude.Nothing,
-       privateIPv4Address = Prelude.Nothing}
+       privateIPv4Address = Prelude.Nothing,
+       sourceNatIpv6Prefix = Prelude.Nothing}
 instance ToResourceProperties SubnetMappingProperty where
   toResourceProperties SubnetMappingProperty {..}
     = ResourceProperties
@@ -30,7 +32,8 @@ instance ToResourceProperties SubnetMappingProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "AllocationId" Prelude.<$> allocationId,
                                (JSON..=) "IPv6Address" Prelude.<$> iPv6Address,
-                               (JSON..=) "PrivateIPv4Address" Prelude.<$> privateIPv4Address]))}
+                               (JSON..=) "PrivateIPv4Address" Prelude.<$> privateIPv4Address,
+                               (JSON..=) "SourceNatIpv6Prefix" Prelude.<$> sourceNatIpv6Prefix]))}
 instance JSON.ToJSON SubnetMappingProperty where
   toJSON SubnetMappingProperty {..}
     = JSON.object
@@ -40,7 +43,8 @@ instance JSON.ToJSON SubnetMappingProperty where
               (Prelude.catMaybes
                  [(JSON..=) "AllocationId" Prelude.<$> allocationId,
                   (JSON..=) "IPv6Address" Prelude.<$> iPv6Address,
-                  (JSON..=) "PrivateIPv4Address" Prelude.<$> privateIPv4Address])))
+                  (JSON..=) "PrivateIPv4Address" Prelude.<$> privateIPv4Address,
+                  (JSON..=) "SourceNatIpv6Prefix" Prelude.<$> sourceNatIpv6Prefix])))
 instance Property "AllocationId" SubnetMappingProperty where
   type PropertyType "AllocationId" SubnetMappingProperty = Value Prelude.Text
   set newValue SubnetMappingProperty {..}
@@ -54,6 +58,11 @@ instance Property "PrivateIPv4Address" SubnetMappingProperty where
   set newValue SubnetMappingProperty {..}
     = SubnetMappingProperty
         {privateIPv4Address = Prelude.pure newValue, ..}
+instance Property "SourceNatIpv6Prefix" SubnetMappingProperty where
+  type PropertyType "SourceNatIpv6Prefix" SubnetMappingProperty = Value Prelude.Text
+  set newValue SubnetMappingProperty {..}
+    = SubnetMappingProperty
+        {sourceNatIpv6Prefix = Prelude.pure newValue, ..}
 instance Property "SubnetId" SubnetMappingProperty where
   type PropertyType "SubnetId" SubnetMappingProperty = Value Prelude.Text
   set newValue SubnetMappingProperty {..}

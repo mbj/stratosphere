@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Dashboard.HistogramVisualProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data HistogramVisualProperty :: Prelude.Type
-instance ToResourceProperties HistogramVisualProperty
-instance Prelude.Eq HistogramVisualProperty
-instance Prelude.Show HistogramVisualProperty
-instance JSON.ToJSON HistogramVisualProperty

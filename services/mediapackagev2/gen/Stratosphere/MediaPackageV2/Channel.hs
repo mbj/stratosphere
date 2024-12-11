@@ -11,13 +11,15 @@ data Channel
   = Channel {channelGroupName :: (Value Prelude.Text),
              channelName :: (Value Prelude.Text),
              description :: (Prelude.Maybe (Value Prelude.Text)),
+             inputType :: (Prelude.Maybe (Value Prelude.Text)),
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkChannel :: Value Prelude.Text -> Value Prelude.Text -> Channel
 mkChannel channelGroupName channelName
   = Channel
       {channelGroupName = channelGroupName, channelName = channelName,
-       description = Prelude.Nothing, tags = Prelude.Nothing}
+       description = Prelude.Nothing, inputType = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Channel where
   toResourceProperties Channel {..}
     = ResourceProperties
@@ -29,6 +31,7 @@ instance ToResourceProperties Channel where
                             "ChannelName" JSON..= channelName]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "InputType" Prelude.<$> inputType,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Channel where
   toJSON Channel {..}
@@ -39,6 +42,7 @@ instance JSON.ToJSON Channel where
                "ChannelName" JSON..= channelName]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "InputType" Prelude.<$> inputType,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ChannelGroupName" Channel where
   type PropertyType "ChannelGroupName" Channel = Value Prelude.Text
@@ -51,6 +55,10 @@ instance Property "Description" Channel where
   type PropertyType "Description" Channel = Value Prelude.Text
   set newValue Channel {..}
     = Channel {description = Prelude.pure newValue, ..}
+instance Property "InputType" Channel where
+  type PropertyType "InputType" Channel = Value Prelude.Text
+  set newValue Channel {..}
+    = Channel {inputType = Prelude.pure newValue, ..}
 instance Property "Tags" Channel where
   type PropertyType "Tags" Channel = [Tag]
   set newValue Channel {..}

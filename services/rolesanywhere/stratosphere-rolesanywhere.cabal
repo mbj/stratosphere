@@ -27,6 +27,8 @@ library
   exposed-modules:
       Stratosphere.RolesAnywhere.CRL
       Stratosphere.RolesAnywhere.Profile
+      Stratosphere.RolesAnywhere.Profile.AttributeMappingProperty
+      Stratosphere.RolesAnywhere.Profile.MappingRuleProperty
       Stratosphere.RolesAnywhere.TrustAnchor
       Stratosphere.RolesAnywhere.TrustAnchor.NotificationSettingProperty
       Stratosphere.RolesAnywhere.TrustAnchor.SourceDataProperty

@@ -6,7 +6,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Transfer.User.HomeDirectoryMapEntryProperty as Exports
 import {-# SOURCE #-} Stratosphere.Transfer.User.PosixProfileProperty as Exports
-import {-# SOURCE #-} Stratosphere.Transfer.User.SshPublicKeyProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -18,7 +17,7 @@ data User
           posixProfile :: (Prelude.Maybe PosixProfileProperty),
           role :: (Value Prelude.Text),
           serverId :: (Value Prelude.Text),
-          sshPublicKeys :: (Prelude.Maybe [SshPublicKeyProperty]),
+          sshPublicKeys :: (Prelude.Maybe (ValueList Prelude.Text)),
           tags :: (Prelude.Maybe [Tag]),
           userName :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -92,7 +91,7 @@ instance Property "ServerId" User where
   type PropertyType "ServerId" User = Value Prelude.Text
   set newValue User {..} = User {serverId = newValue, ..}
 instance Property "SshPublicKeys" User where
-  type PropertyType "SshPublicKeys" User = [SshPublicKeyProperty]
+  type PropertyType "SshPublicKeys" User = ValueList Prelude.Text
   set newValue User {..}
     = User {sshPublicKeys = Prelude.pure newValue, ..}
 instance Property "Tags" User where

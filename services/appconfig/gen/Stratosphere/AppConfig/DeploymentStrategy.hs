@@ -1,11 +1,11 @@
 module Stratosphere.AppConfig.DeploymentStrategy (
-        module Exports, DeploymentStrategy(..), mkDeploymentStrategy
+        DeploymentStrategy(..), mkDeploymentStrategy
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.AppConfig.DeploymentStrategy.TagsProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data DeploymentStrategy
   = DeploymentStrategy {deploymentDurationInMinutes :: (Value Prelude.Double),
@@ -15,7 +15,7 @@ data DeploymentStrategy
                         growthType :: (Prelude.Maybe (Value Prelude.Text)),
                         name :: (Value Prelude.Text),
                         replicateTo :: (Value Prelude.Text),
-                        tags :: (Prelude.Maybe [TagsProperty])}
+                        tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeploymentStrategy ::
   Value Prelude.Double
@@ -92,6 +92,6 @@ instance Property "ReplicateTo" DeploymentStrategy where
   set newValue DeploymentStrategy {..}
     = DeploymentStrategy {replicateTo = newValue, ..}
 instance Property "Tags" DeploymentStrategy where
-  type PropertyType "Tags" DeploymentStrategy = [TagsProperty]
+  type PropertyType "Tags" DeploymentStrategy = [Tag]
   set newValue DeploymentStrategy {..}
     = DeploymentStrategy {tags = Prelude.pure newValue, ..}

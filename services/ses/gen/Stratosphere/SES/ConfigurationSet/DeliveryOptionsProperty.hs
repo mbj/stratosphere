@@ -7,13 +7,15 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DeliveryOptionsProperty
-  = DeliveryOptionsProperty {sendingPoolName :: (Prelude.Maybe (Value Prelude.Text)),
+  = DeliveryOptionsProperty {maxDeliverySeconds :: (Prelude.Maybe (Value Prelude.Double)),
+                             sendingPoolName :: (Prelude.Maybe (Value Prelude.Text)),
                              tlsPolicy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDeliveryOptionsProperty :: DeliveryOptionsProperty
 mkDeliveryOptionsProperty
   = DeliveryOptionsProperty
-      {sendingPoolName = Prelude.Nothing, tlsPolicy = Prelude.Nothing}
+      {maxDeliverySeconds = Prelude.Nothing,
+       sendingPoolName = Prelude.Nothing, tlsPolicy = Prelude.Nothing}
 instance ToResourceProperties DeliveryOptionsProperty where
   toResourceProperties DeliveryOptionsProperty {..}
     = ResourceProperties
@@ -21,15 +23,22 @@ instance ToResourceProperties DeliveryOptionsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "SendingPoolName" Prelude.<$> sendingPoolName,
+                           [(JSON..=) "MaxDeliverySeconds" Prelude.<$> maxDeliverySeconds,
+                            (JSON..=) "SendingPoolName" Prelude.<$> sendingPoolName,
                             (JSON..=) "TlsPolicy" Prelude.<$> tlsPolicy])}
 instance JSON.ToJSON DeliveryOptionsProperty where
   toJSON DeliveryOptionsProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "SendingPoolName" Prelude.<$> sendingPoolName,
+              [(JSON..=) "MaxDeliverySeconds" Prelude.<$> maxDeliverySeconds,
+               (JSON..=) "SendingPoolName" Prelude.<$> sendingPoolName,
                (JSON..=) "TlsPolicy" Prelude.<$> tlsPolicy]))
+instance Property "MaxDeliverySeconds" DeliveryOptionsProperty where
+  type PropertyType "MaxDeliverySeconds" DeliveryOptionsProperty = Value Prelude.Double
+  set newValue DeliveryOptionsProperty {..}
+    = DeliveryOptionsProperty
+        {maxDeliverySeconds = Prelude.pure newValue, ..}
 instance Property "SendingPoolName" DeliveryOptionsProperty where
   type PropertyType "SendingPoolName" DeliveryOptionsProperty = Value Prelude.Text
   set newValue DeliveryOptionsProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.ConnectCampaignsV2.Campaign.SmsOutboundConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SmsOutboundConfigProperty :: Prelude.Type
+instance ToResourceProperties SmsOutboundConfigProperty
+instance Prelude.Eq SmsOutboundConfigProperty
+instance Prelude.Show SmsOutboundConfigProperty
+instance JSON.ToJSON SmsOutboundConfigProperty

@@ -23,6 +23,7 @@ data Task
           schedule :: (Prelude.Maybe TaskScheduleProperty),
           sourceLocationArn :: (Value Prelude.Text),
           tags :: (Prelude.Maybe [Tag]),
+          taskMode :: (Prelude.Maybe (Value Prelude.Text)),
           taskReportConfig :: (Prelude.Maybe TaskReportConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTask :: Value Prelude.Text -> Value Prelude.Text -> Task
@@ -34,7 +35,8 @@ mkTask destinationLocationArn sourceLocationArn
        excludes = Prelude.Nothing, includes = Prelude.Nothing,
        manifestConfig = Prelude.Nothing, name = Prelude.Nothing,
        options = Prelude.Nothing, schedule = Prelude.Nothing,
-       tags = Prelude.Nothing, taskReportConfig = Prelude.Nothing}
+       tags = Prelude.Nothing, taskMode = Prelude.Nothing,
+       taskReportConfig = Prelude.Nothing}
 instance ToResourceProperties Task where
   toResourceProperties Task {..}
     = ResourceProperties
@@ -53,6 +55,7 @@ instance ToResourceProperties Task where
                                (JSON..=) "Options" Prelude.<$> options,
                                (JSON..=) "Schedule" Prelude.<$> schedule,
                                (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "TaskMode" Prelude.<$> taskMode,
                                (JSON..=) "TaskReportConfig" Prelude.<$> taskReportConfig]))}
 instance JSON.ToJSON Task where
   toJSON Task {..}
@@ -71,6 +74,7 @@ instance JSON.ToJSON Task where
                   (JSON..=) "Options" Prelude.<$> options,
                   (JSON..=) "Schedule" Prelude.<$> schedule,
                   (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "TaskMode" Prelude.<$> taskMode,
                   (JSON..=) "TaskReportConfig" Prelude.<$> taskReportConfig])))
 instance Property "CloudWatchLogGroupArn" Task where
   type PropertyType "CloudWatchLogGroupArn" Task = Value Prelude.Text
@@ -108,6 +112,10 @@ instance Property "SourceLocationArn" Task where
 instance Property "Tags" Task where
   type PropertyType "Tags" Task = [Tag]
   set newValue Task {..} = Task {tags = Prelude.pure newValue, ..}
+instance Property "TaskMode" Task where
+  type PropertyType "TaskMode" Task = Value Prelude.Text
+  set newValue Task {..}
+    = Task {taskMode = Prelude.pure newValue, ..}
 instance Property "TaskReportConfig" Task where
   type PropertyType "TaskReportConfig" Task = TaskReportConfigProperty
   set newValue Task {..}

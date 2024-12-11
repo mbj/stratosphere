@@ -1,9 +1,0 @@
-module Stratosphere.QuickSight.Analysis.SmallMultiplesAxisPropertiesProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data SmallMultiplesAxisPropertiesProperty :: Prelude.Type
-instance ToResourceProperties SmallMultiplesAxisPropertiesProperty
-instance Prelude.Eq SmallMultiplesAxisPropertiesProperty
-instance Prelude.Show SmallMultiplesAxisPropertiesProperty
-instance JSON.ToJSON SmallMultiplesAxisPropertiesProperty
