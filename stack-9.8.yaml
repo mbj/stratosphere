@@ -443,6 +443,7 @@ packages:
 - .
 - examples
 - generator
+- golden-test
 - services/accessanalyzer
 - services/acmpca
 - services/amazonmq
