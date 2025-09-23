@@ -1,13 +1,15 @@
 module Spec.Golden (runGoldenTest) where
 
+import qualified Stratosphere
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.Golden (goldenVsStringDiff)
-import qualified Stratosphere 
 import Prelude
 
 runGoldenTest :: FilePath -> Stratosphere.Template -> TestTree
 runGoldenTest outputFilename template = do
-  let testDirectory = "test/stratosphere/"
+  let 
+    testDirectory :: FilePath
+    testDirectory = "test/stratosphere/"
   let encodedTemplate = Stratosphere.encodeTemplate template
 
   testGroup
@@ -18,4 +20,3 @@ runGoldenTest outputFilename template = do
         (testDirectory <> outputFilename)
         (pure encodedTemplate)
     ]
-
