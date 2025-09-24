@@ -5,8 +5,8 @@ import Stratosphere (Parameter (..), Template (..))
 import qualified Stratosphere
 import Stratosphere.EC2.Instance (Instance (..))
 import qualified Stratosphere.EC2.Instance
+import Stratosphere.Prelude (Maybe (..))
 import Test.Tasty (TestTree)
-import Prelude
 
 template :: Stratosphere.Template
 template =

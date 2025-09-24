@@ -8,14 +8,14 @@ import qualified Stratosphere.IAM.Role
 import qualified Stratosphere.IAM.Role.PolicyProperty
 import Stratosphere.Lambda.Function (CodeProperty (..), Function (..))
 import qualified Stratosphere.Lambda.Function
-import qualified Stratosphere.Prelude
+import Stratosphere.Prelude (Maybe (..), Text)
 import Test.Tasty (TestTree)
 
 template :: Stratosphere.Template
 template =
   let Stratosphere.Template {..} = Stratosphere.mkTemplate [role, lambda]
    in Stratosphere.Template
-        { description = Stratosphere.Prelude.Just "Lambda example",
+        { description = Just "Lambda example",
           ..
         }
 
@@ -27,18 +27,18 @@ lambda =
           lambdaCode
           (Stratosphere.GetAtt "IAMRole" "Arn")
       )
-        { handler = Stratosphere.Prelude.Just "index.handler",
-          runtime = Stratosphere.Prelude.Just "nodejs12.x"
+        { handler = Just "index.handler",
+          runtime = Just "nodejs12.x"
         }
     )
   where
     lambdaCode :: Stratosphere.Lambda.Function.CodeProperty
     lambdaCode =
       Stratosphere.Lambda.Function.mkCodeProperty
-        { zipFile = Stratosphere.Prelude.Just code
+        { zipFile = Just code
         }
 
-    code :: Stratosphere.Value Stratosphere.Prelude.Text
+    code :: Stratosphere.Value Text
     code =
       "\
       \ exports.handler = function(event, context, callback) { \
@@ -53,9 +53,9 @@ role =
   ( Stratosphere.resource
       "IAMRole"
       (Stratosphere.IAM.Role.mkRole rolePolicyDocument)
-        { policies = Stratosphere.Prelude.Just [executionPolicy],
-          roleName = Stratosphere.Prelude.Just "MyLambdaBasicExecutionRole",
-          path = Stratosphere.Prelude.Just "/"
+        { policies = Just [executionPolicy],
+          roleName = Just "MyLambdaBasicExecutionRole",
+          path = Just "/"
         }
   )
   where

@@ -8,7 +8,7 @@ import qualified Stratosphere.RDS.DBInstance
 import qualified Stratosphere.RDS.DBParameterGroup
 import Stratosphere.Resource (Resource (..))
 import Test.Tasty (TestTree)
-import Prelude
+import Prelude (Maybe (..))
 
 template :: Stratosphere.Template
 template =

@@ -14,7 +14,7 @@ import Stratosphere.Lambda.Permission
 import Stratosphere.S3.Bucket (Bucket (..), NotificationConfigurationProperty (..))
 import qualified Stratosphere.S3.Bucket
 import Test.Tasty (TestTree)
-import Prelude
+import Prelude (Maybe (..), ($))
 
 template :: Stratosphere.Template
 template =

@@ -1,9 +1,13 @@
 module Spec.Golden (runGoldenTest) where
 
 import qualified Stratosphere
+import Stratosphere.Prelude
+  ( Applicative (..),
+    FilePath,
+    (<>),
+  )
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.Golden (goldenVsStringDiff)
-import Prelude
 
 runGoldenTest :: FilePath -> Stratosphere.Template -> TestTree
 runGoldenTest outputFilename template = do

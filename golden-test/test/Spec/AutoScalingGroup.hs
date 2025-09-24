@@ -6,6 +6,10 @@ import qualified Stratosphere
 import Stratosphere.AutoScaling.AutoScalingGroup (AutoScalingGroup (..))
 import qualified Stratosphere.AutoScaling.AutoScalingGroup
 import qualified Stratosphere.AutoScaling.LaunchConfiguration
+import Stratosphere.Prelude
+  ( Bool (..),
+    Maybe (..),
+  )
 import Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy
   ( AutoScalingScheduledActionPolicy (..),
   )
@@ -16,7 +20,6 @@ import qualified Stratosphere.ResourceAttributes.ResourceSignal
 import Stratosphere.ResourceAttributes.UpdatePolicy (UpdatePolicy (..))
 import qualified Stratosphere.ResourceAttributes.UpdatePolicy
 import Test.Tasty (TestTree)
-import Prelude
 
 autoScalingGroup :: Stratosphere.Resource
 autoScalingGroup =
@@ -53,7 +56,9 @@ autoScalingGroup =
         { scheduledAction =
             Just
               ( Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy.mkAutoScalingScheduledActionPolicy
-                  { ignoreUnmodifiedGroupSizeProperties = Just (Stratosphere.Literal True)
+                  { ignoreUnmodifiedGroupSizeProperties =
+                      Just
+                        (Stratosphere.Literal True)
                   }
               )
         }
