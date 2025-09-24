@@ -33,6 +33,7 @@ test-suite golden-test-test
       Spec.EC2
       Spec.Golden
       Spec.LambdaS3Copy
+      Spec.RDSMasterReplica
       Paths_golden_test
   hs-source-dirs:
       test
@@ -73,6 +74,7 @@ test-suite golden-test-test
     , stratosphere-ec2
     , stratosphere-iam
     , stratosphere-lambda
+    , stratosphere-rds
     , stratosphere-s3
     , tasty
     , tasty-golden

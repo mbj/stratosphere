@@ -32,3 +32,4 @@ tests:
     - stratosphere-lambda
     - stratosphere-s3
     - stratosphere-iam
+    - stratosphere-rds
