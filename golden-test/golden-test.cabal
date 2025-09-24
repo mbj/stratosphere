@@ -30,6 +30,7 @@ test-suite golden-test-test
   main-is: Spec.hs
   other-modules:
       Spec.AutoScalingGroup
+      Spec.EC2
       Spec.Golden
       Paths_golden_test
   hs-source-dirs:
@@ -67,6 +68,7 @@ test-suite golden-test-test
       base
     , stratosphere
     , stratosphere-autoscaling
+    , stratosphere-ec2
     , tasty
     , tasty-golden
     , tasty-hunit

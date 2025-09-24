@@ -26,3 +26,4 @@ tests:
     - tasty-hunit
     - stratosphere
     - stratosphere-autoscaling
+    - stratosphere-ec2

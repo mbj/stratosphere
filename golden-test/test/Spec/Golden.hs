@@ -7,9 +7,8 @@ import Prelude
 
 runGoldenTest :: FilePath -> Stratosphere.Template -> TestTree
 runGoldenTest outputFilename template = do
-  let 
-    testDirectory :: FilePath
-    testDirectory = "test/stratosphere/"
+  let testDirectory :: FilePath
+      testDirectory = "test/stratosphere/"
   let encodedTemplate = Stratosphere.encodeTemplate template
 
   testGroup
