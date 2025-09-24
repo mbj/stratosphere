@@ -34,6 +34,7 @@ test-suite golden-test-test
       Spec.Golden
       Spec.LambdaS3Copy
       Spec.RDSMasterReplica
+      Spec.SimpleLambda
       Paths_golden_test
   hs-source-dirs:
       test

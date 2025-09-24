@@ -1,0 +1,55 @@
+{
+  "Description": "Lambda example",
+  "Resources": {
+    "IAMRole": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": {
+            "Action": "sts:AssumeRole",
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "lambda.amazonaws.com"
+            }
+          },
+          "Version": "2012-10-17"
+        },
+        "Path": "/",
+        "Policies": [
+          {
+            "PolicyDocument": {
+              "Statement": {
+                "Action": [
+                  "logs:CreateLogGroup",
+                  "logs:CreateLogStream",
+                  "logs:PutLogEvents"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              "Version": "2012-10-17"
+            },
+            "PolicyName": "MyLambdaExecutionPolicy"
+          }
+        ],
+        "RoleName": "MyLambdaBasicExecutionRole"
+      },
+      "Type": "AWS::IAM::Role"
+    },
+    "LambdaFunction": {
+      "Properties": {
+        "Code": {
+          "ZipFile": " exports.handler = function(event, context, callback) {   console.log(\"value1 = \" + event.key1);   console.log(\"value2 = \" + event.key2);   callback(null, \"some success message\");  }  "
+        },
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "IAMRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs12.x"
+      },
+      "Type": "AWS::Lambda::Function"
+    }
+  }
+}
