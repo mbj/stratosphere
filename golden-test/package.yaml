@@ -21,9 +21,14 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - base
+    - aeson
+    - text
     - tasty
     - tasty-golden
     - tasty-hunit
     - stratosphere
     - stratosphere-autoscaling
     - stratosphere-ec2
+    - stratosphere-lambda
+    - stratosphere-s3
+    - stratosphere-iam
