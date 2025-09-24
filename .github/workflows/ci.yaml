@@ -30,3 +30,5 @@ jobs:
       run: stack build --fast --test --no-run-tests
     - name: Run tests
       run: stack build --fast --test
+    - name: Run golden test
+      run: stack build golden-test --fast --test

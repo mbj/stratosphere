@@ -15,7 +15,6 @@ runGoldenTest outputFilename template = do
       testDirectory = "test/stratosphere/"
   let encodedTemplate = Stratosphere.encodeTemplate template
 
-  -- TODO add decoding test
   testGroup
     "stratosphere => encode"
     [ goldenVsStringDiff

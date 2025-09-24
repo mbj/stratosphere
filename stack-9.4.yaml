@@ -445,6 +445,7 @@ packages:
 - .
 # - generator, AST not compatible anymore with 9.6+
 - examples
+- golden-test
 - services/accessanalyzer
 - services/acmpca
 - services/amazonmq
