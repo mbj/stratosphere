@@ -441,7 +441,6 @@ flags:
     development: true
 packages:
 - .
-- examples
 - generator
 - golden-test
 - services/accessanalyzer
