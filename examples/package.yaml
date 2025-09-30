@@ -11,23 +11,44 @@ github:       mbj/stratosphere
 
 <<: *defaults
 
-dependencies:
-- aeson
-- base
-- bytestring
-- stratosphere
-- stratosphere-autoscaling
-- stratosphere-ec2
-- stratosphere-iam
-- stratosphere-lambda
-- stratosphere-rds
-- stratosphere-s3
-- text
 
-source-dirs:
-- .
+extra-source-files:
+- test_resources/**/*
+
+dependencies:
+- base
+
+library:
+  source-dirs: src
+  dependencies:
+  - aeson
+  - bytestring
+  - stratosphere
+  - stratosphere-autoscaling
+  - stratosphere-ec2
+  - stratosphere-iam
+  - stratosphere-lambda
+  - stratosphere-rds
+  - stratosphere-s3
 
 executables:
   stratosphere-examples:
-    main: Stratosphere/Examples/Main.hs
-    ghc-options: -main-is Stratosphere.Examples.Main
+    source-dirs: app
+    main: Main
+    dependencies:
+    - stratosphere-examples
+
+tests:
+  stratosphere-examples-test:
+    main: Spec.hs
+    source-dirs: test
+    build-tools: sydtest-discover
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
+    dependencies:
+    - stratosphere
+    - stratosphere-examples
+    - sydtest

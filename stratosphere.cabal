@@ -1,6 +1,6 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.35.1.
+-- This file has been generated from package.yaml by hpack version 0.38.0.
 --
 -- see: https://github.com/sol/hpack
 
@@ -139,10 +139,10 @@ test-suite spec
     , base
     , bytestring
     , containers
-    , hspec
-    , hspec-discover
     , mono-traversable
     , stratosphere
+    , sydtest
+    , sydtest-discover
     , text >=1.1
   default-language: Haskell2010
   if flag(development)

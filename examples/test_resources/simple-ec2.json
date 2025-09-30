@@ -1,0 +1,22 @@
+{
+  "Description": "EC2 Example template",
+  "Parameters": {
+    "KeyName": {
+      "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
+      "ConstraintDescription": "Must be the name of an existing EC2 KeyPair.",
+      "Type": "AWS::EC2::KeyPair::KeyName"
+    }
+  },
+  "Resources": {
+    "EC2Instance": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "ImageId": "ami-22111148",
+        "KeyName": {
+          "Ref": "KeyName"
+        }
+      },
+      "Type": "AWS::EC2::Instance"
+    }
+  }
+}

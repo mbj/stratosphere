@@ -1,0 +1,103 @@
+{
+  "Description": "Event triggered S3 bucket to bucket copy example",
+  "Resources": {
+    "CopyS3ObjectLambda": {
+      "DependsOn": [
+        "IAMRole"
+      ],
+      "Properties": {
+        "Code": {
+          "ZipFile": " var AWS = require('aws-sdk');  var s3 = new AWS.S3({apiVersion: '2006-03-01'});  exports.handler = function(event, context, callback) {   console.log(JSON.stringify(event));   var rec = event.Records[0];   var bucket = rec.s3.bucket.name;   var key = rec.s3.object.key;   s3.copyObject({Bucket: \"stratosphere-s3-copy-outgoing\", Key: key, CopySource: \"stratosphere-s3-copy-incoming/\"+key}, function(err){     callback(null, \"copied s3 object\");   });  }  "
+        },
+        "FunctionName": "copyS3Object",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "IAMRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs12.x"
+      },
+      "Type": "AWS::Lambda::Function"
+    },
+    "IAMRole": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": {
+            "Action": "sts:AssumeRole",
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "lambda.amazonaws.com"
+            }
+          },
+          "Version": "2012-10-17"
+        },
+        "Path": "/",
+        "Policies": [
+          {
+            "PolicyDocument": {
+              "Statement": {
+                "Action": [
+                  "logs:CreateLogGroup",
+                  "logs:CreateLogStream",
+                  "logs:PutLogEvents",
+                  "s3:PutObject",
+                  "s3:GetObject"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              "Version": "2012-10-17"
+            },
+            "PolicyName": "LambdaExecutionPolicy"
+          }
+        ],
+        "RoleName": "LambdaBasicExecutionRole"
+      },
+      "Type": "AWS::IAM::Role"
+    },
+    "IncomingBucket": {
+      "DependsOn": [
+        "CopyS3ObjectLambda"
+      ],
+      "Properties": {
+        "BucketName": "stratosphere-s3-copy-incoming",
+        "NotificationConfiguration": {
+          "LambdaConfigurations": [
+            {
+              "Event": "s3:ObjectCreated:*",
+              "Function": {
+                "Fn::GetAtt": [
+                  "CopyS3ObjectLambda",
+                  "Arn"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "Type": "AWS::S3::Bucket"
+    },
+    "LambdaPermission": {
+      "Properties": {
+        "Action": "lambda:*",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "CopyS3ObjectLambda",
+            "Arn"
+          ]
+        },
+        "Principal": "s3.amazonaws.com"
+      },
+      "Type": "AWS::Lambda::Permission"
+    },
+    "OutgoingBucket": {
+      "Properties": {
+        "BucketName": "stratosphere-s3-copy-outgoing"
+      },
+      "Type": "AWS::S3::Bucket"
+    }
+  },
+  "FormatVersion": "2010-09-09"
+}

@@ -1,0 +1,85 @@
+{
+  "Description": "Stack for and RDS master and replica",
+  "Parameters": {
+    "RdsMasterPassword": {
+      "Type": "String"
+    },
+    "RdsSubnetGroup": {
+      "Type": "String"
+    },
+    "VpcId": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "RDSMaster": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "AllocatedStorage": "20",
+        "BackupRetentionPeriod": 30,
+        "DBInstanceClass": "db.t2.micro",
+        "DBName": "the_database",
+        "DBParameterGroupName": {
+          "Ref": "RDSParameterGroup"
+        },
+        "Engine": "postgres",
+        "EngineVersion": "9.3.10",
+        "MasterUserPassword": {
+          "Ref": "RdsMasterPassword"
+        },
+        "MasterUsername": "postgres",
+        "Port": "5432",
+        "PreferredBackupWindow": "08:00-09:00",
+        "PreferredMaintenanceWindow": "Sun:01:00-Sun:02:00",
+        "StorageType": "gp2",
+        "Tags": [
+          {
+            "Key": "Role",
+            "Value": "rds-master"
+          }
+        ]
+      },
+      "Type": "AWS::RDS::DBInstance"
+    },
+    "RDSParameterGroup": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "Description": "Parameter group for RDS instances",
+        "Parameters": {
+          "checkpoint_segments": "32",
+          "effective_cache_size": "5584716",
+          "hot_standby_feedback": "1",
+          "log_connections": "1",
+          "log_disconnections": "1",
+          "log_min_duration_statement": "0",
+          "maintenance_work_mem": "2000000",
+          "max_connections": "100",
+          "max_standby_archive_delay": "3600000",
+          "max_standby_streaming_delay": "3600000",
+          "wal_buffers": "2000",
+          "work_mem": "400000"
+        },
+        "Family": "postgres9.3"
+      },
+      "Type": "AWS::RDS::DBParameterGroup"
+    },
+    "RDSReplica": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "DBInstanceClass": "db.t2.micro",
+        "DBName": "db-standby",
+        "SourceDBInstanceIdentifier": {
+          "Ref": "RDSMaster"
+        },
+        "StorageType": "gp2",
+        "Tags": [
+          {
+            "Key": "Role",
+            "Value": "rds-standby"
+          }
+        ]
+      },
+      "Type": "AWS::RDS::DBInstance"
+    }
+  }
+}

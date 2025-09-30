@@ -1,0 +1,52 @@
+{
+  "Description": "Auto scaling group example",
+  "Parameters": {
+    "AvailabilityZones": {
+      "Type": "List<AWS::EC2::AvailabilityZone::Name>"
+    }
+  },
+  "Resources": {
+    "AutoScalingGroup": {
+      "CreationPolicy": {
+        "ResourceSignal": {
+          "Count": 3,
+          "Timeout": "PT15M"
+        }
+      },
+      "Properties": {
+        "AvailabilityZones": {
+          "Ref": "AvailabilityZones"
+        },
+        "DesiredCapacity": "3",
+        "LaunchConfigurationName": {
+          "Ref": "LaunchConfig"
+        },
+        "MaxSize": "1",
+        "MinSize": "4",
+        "TerminationPolicies": [
+          "OldestLaunchConfiguration",
+          "ClosestToNextInstanceHour"
+        ]
+      },
+      "Type": "AWS::AutoScaling::AutoScalingGroup",
+      "UpdatePolicy": {
+        "RollingUpdate": {
+          "MaxBatchSize": 2,
+          "MinInstancesInService": 1,
+          "PauseTime": "PT15M",
+          "WaitOnResourceSignals": true
+        },
+        "ScheduledAction": {
+          "IgnoreUnmodifiedGroupSizeProperties": true
+        }
+      }
+    },
+    "LaunchConfig": {
+      "Properties": {
+        "ImageId": "ami-16d18a7e",
+        "InstanceType": "t2.micro"
+      },
+      "Type": "AWS::AutoScaling::LaunchConfiguration"
+    }
+  }
+}
