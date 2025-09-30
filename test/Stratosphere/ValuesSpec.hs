@@ -5,7 +5,7 @@ module Stratosphere.ValuesSpec
 import Data.Text (Text)
 import Prelude
 import Stratosphere.Value
-import Test.Hspec
+import Test.Syd
 
 import qualified Data.Aeson as JSON
 

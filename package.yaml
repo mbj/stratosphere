@@ -60,5 +60,5 @@ tests:
     dependencies:
     - base
     - stratosphere
-    - hspec
-    - hspec-discover
+    - sydtest
+    - sydtest-discover
